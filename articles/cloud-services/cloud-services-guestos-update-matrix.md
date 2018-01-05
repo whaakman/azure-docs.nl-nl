@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -42,6 +42,10 @@ Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor C
 Onzekerheid over het Gastbesturingssysteem is of hoe de Gast OS releases werk? Lees [dit](#how-it-works) sectie.
 
 ## <a name="news-updates"></a>Nieuws
+
+###### <a name="january-4-2018"></a>**4 januari 2018**
+Het Gastbesturingssysteem december heeft uitgegeven.
+
 ###### <a name="december-14-2017"></a>**14 december 2017**
 Het Gastbesturingssysteem november heeft uitgegeven.
 
@@ -69,12 +73,6 @@ Het Gastbesturingssysteem juni heeft uitgegeven.
 ###### <a name="june-16-2017"></a>**16 juni 2017**
 Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft een verwachte release van juli 11.
 
-###### <a name="june-5-2017"></a>**5 juni 2017**
-Kan het Gastbesturingssysteem is vrijgegeven.
-
-###### <a name="may-17-2017"></a>**17 mei 2017**
-Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt uitgeschakeld OS-versies waarvoor geen de [los] vanuit de portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GAST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>Versies
 ## <a name="family-5-releases"></a>Familie 5-versies
@@ -90,8 +88,9 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.13_201711-01 |14 december 2017 |Post 5.15 |NOG TE BEPALEN |
-| WA-GUEST-OS-5.12_201710-02 |8 november 2017 |Post 5.14 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 augustus 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -113,8 +112,9 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Post 4,51 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.48_201711-01 |14 december 2017 |Post 4.50 |NOG TE BEPALEN |
-| WA-GUEST-OS-4.47_201710-02 |8 november 2017 |Post 4.49 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 augustus 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -136,8 +136,9 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.56_201712-01 |4 januari 2018 |Post 3,58 |NOG TE BEPALEN |
 | WA-GUEST-OS-3.55_201711-01 |14 december 2017 |Post 3.57 |NOG TE BEPALEN |
-| WA-GUEST-OS-3.54_201710-02 |8 november 2017 |Post 3,56. |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 augustus 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -159,8 +160,9 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.69_201712-01 |4 januari 2018 |Post 2.71 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.68_201711-01 |14 december 2017 |Post 2,70 |NOG TE BEPALEN |
-| WA-GUEST-OS-2.67_201710-02 |8 november 2017 |Post 2.69 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 augustus 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -246,4 +248,4 @@ Het Gastbesturingssysteem ondersteuningsmogelijkheden en buiten gebruik stellen 
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[los]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

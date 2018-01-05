@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
 
@@ -468,7 +468,7 @@ De toepassingslaag SAP of onderdelen, over meerdere Azure VNets zoals hierboven,
 
 Er zijn drie belangrijke netwerk aandachtspunten voor routering voor SAP HANA in Azure (grote exemplaren):
 
-1. SAP HANA in Azure (grote exemplaren) kan alleen worden benaderd via Azure VM's en de speciale ExpressRoute-verbinding; niet rechtstreeks vanuit een on-premises. On-premises direct toegang heeft tot de eenheden HANA grote exemplaar is die door Microsoft worden geleverd, niet mogelijk onmiddellijk vanwege tijdelijke routering beperkingen van de huidige Azure-netwerk-architectuur gebruikt voor SAP HANA grote exemplaren. Bepaalde beheerclients en alle toepassingen die directe toegang, zoals SAP oplossing Manager on-premises uitgevoerd nodig kunnen geen verbinding maken met de SAP HANA-database.
+1. SAP HANA in Azure (grote exemplaren) kan alleen worden benaderd via Azure VM's en de speciale ExpressRoute-verbinding; niet rechtstreeks vanuit een on-premises. On-premises direct toegang heeft tot de eenheden HANA grote exemplaar is die door Microsoft worden geleverd, niet mogelijk onmiddellijk vanwege transitieve routering beperkingen van de huidige Azure-netwerk-architectuur gebruikt voor SAP HANA grote exemplaren. Bepaalde beheerclients en alle toepassingen die directe toegang, zoals SAP oplossing Manager on-premises uitgevoerd nodig kunnen geen verbinding maken met de SAP HANA-database.
 
 2. Als er grote exemplaar HANA eenheden die zijn geïmplementeerd in twee verschillende Azure-regio's voor herstel na noodgevallen, wordt de dezelfde tijdelijke routering beperkingen toegepast. Of met andere woorden, IP-adressen van een grote exemplaar HANA-eenheid in één regio (bijvoorbeeld VS-West) niet worden doorgestuurd naar een grote exemplaar HANA-eenheid voor u geïmplementeerd in een andere regio (bijvoorbeeld VS-Oost). Dit is onafhankelijk van het gebruik van het netwerk van Azure-peering tussen regio's of cross-verbinding maken met de ExpressRoute-Circuits die verbinding maken met grote exemplaar HANA eenheden Azure VNets. Zoals weergegeven nog een stapje verder omlaag in deze documentatie. Deze beperking die wordt geleverd met de geïmplementeerde architectuur, wordt het direct gebruik van HANA System Replication verbieden als de herstelfunctionaliteit na noodgevallen.
 

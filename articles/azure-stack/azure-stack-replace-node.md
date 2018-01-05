@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Een knooppunt scale unit op een Azure-Stack geïntegreerd systeem vervangen
 
@@ -28,23 +28,23 @@ Dit artikel wordt beschreven voor het algemene proces ter vervanging van een fys
 
 De volgende stroom diagram toont de algemene procedure FRU ter vervanging van een volledige scale unit-knooppunt.
 
-![Stroomdiagram voor vervangen knooppunt proces](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Stroomdiagram voor vervangen knooppunt proces](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
 
 ## <a name="review-alert-information"></a>Bekijk informatie over waarschuwingen
 
-Als een scale unit-knooppunt niet actief is, ontvangt u alle kritieke waarschuwingen in het volgende:
+Als een scale unit-knooppunt niet actief is, ontvangt u de volgende kritieke waarschuwingen:
 
 - Knooppunt niet is verbonden met de netwerkcontroller
 - Knooppunt dat toegankelijk is voor plaatsing van virtuele machines
 - Scale unit knooppunt is offline
 
-![Lijst met waarschuwingen voor schaaleenheid omlaag](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Lijst met waarschuwingen voor schaaleenheid omlaag](media/azure-stack-replace-node/nodedownalerts.png)
 
-Als u de waarschuwing 'Scale unit knooppunt is offline' opent, bevat de beschrijving van de waarschuwing het scale unit-knooppunt dat is niet toegankelijk. U kunt ook extra waarschuwingen ontvangen in de oplossing voor OEM-specifieke controle die wordt uitgevoerd op de host van de levenscyclus van hardware.
+Als u opent de **Scale unit-knooppunt offline is** waarschuwing, de beschrijving van de waarschuwing bevat de scale unit-knooppunt dat is niet toegankelijk. U kunt ook extra waarschuwingen ontvangen in de oplossing voor OEM-specifieke controle die wordt uitgevoerd op de host van de levenscyclus van hardware.
 
-![Details van knooppunt offline waarschuwing](media/azure-stack-replace-node/NodeOffline.PNG)
+![Details van knooppunt offline waarschuwing](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Proces voor Scale unit knooppunt het vervangen
 
@@ -53,7 +53,7 @@ De volgende stappen zijn opgegeven als een overzicht van het proces scale unit k
 1. Gebruik de [leegmaakt](azure-stack-node-actions.md#scale-unit-node-actions) actie het scale unit-knooppunt in onderhoudsmodus te plaatsen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
 
    > [!NOTE]
-   > In elk geval worden slechts één knooppunt geleegd en op hetzelfde moment zonder dat u de SSD (opslagruimten Direct) uitgeschakeld.
+   > In elk geval slechts één knooppunt kan worden geleegd en op hetzelfde moment zonder dat u de S2D uitgeschakeld (opslagruimten Direct).
 
 2. Als het knooppunt wordt nog steeds ingeschakeld, gebruikt u de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) in te grijpen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
  
@@ -68,4 +68,4 @@ De volgende stappen zijn opgegeven als een overzicht van het proces scale unit k
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over het vervangen van een fysieke hot verwisselbare schijf [een schijf vervangen](azure-stack-replace-disk.md). 
-- Zie voor meer informatie over het vervangen van een niet hot-verwisselbare hardwareonderdeel [computerhardware](azure-stack-replace-component.md). 
+- Zie voor meer informatie over het vervangen van een niet hot-verwisselbare hardwareonderdeel [computerhardware](azure-stack-replace-component.md).

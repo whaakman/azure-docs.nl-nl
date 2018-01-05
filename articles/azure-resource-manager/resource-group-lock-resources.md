@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources om te voorkomen dat onverwachte wijzigingen vergrendelen 
+
 Als beheerder, moet u wellicht een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of wijzigen van kritieke bronnen vergrendelen. U kunt de vergrendeling op instellen **CanNotDelete** of **ReadOnly**. 
 
 * **CanNotDelete** betekent geautoriseerde gebruikers kunnen nog steeds lezen en wijzigen van een resource, maar de resource kan niet worden verwijderd. 
@@ -43,29 +44,76 @@ Als u wilt maken of verwijderen van management vergrendelingen, u moet toegang h
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Template
-Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een vergrendeling op een opslagaccount. Het opslagaccount op waarop u wilt toepassen van de vergrendeling is opgegeven als parameter. De naam van de vergrendeling wordt gemaakt door de naam van de resource met cookievalidatie **/Microsoft.Authorization/** en de naam van de vergrendeling, in dit geval **myLock**.
+Het volgende voorbeeld ziet een sjabloon die wordt gemaakt van een app service-plan, een website en een vergrendeling op de website. Het brontype van de vergrendeling is het brontype van de resource te vergrendelen en **providers/vergrendelingen**. De naam van de vergrendeling wordt gemaakt door de naam van de resource met cookievalidatie **/Microsoft.Authorization/** en de naam van de vergrendeling.
 
-Het opgegeven type is specifiek voor het brontype. Voor opslag, stelt u het type 'Microsoft.Storage/storageaccounts/providers/locks'.
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "lockedResource": {
-          "type": "string"
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "type": "string"
         }
-      },
-      "resources": [
+    },
+    "variables": {
+        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
         {
-          "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
-          "type": "Microsoft.Storage/storageAccounts/providers/locks",
-          "apiVersion": "2015-01-01",
-          "properties": {
-            "level": "CannotDelete"
-          }
+            "apiVersion": "2016-09-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "tier": "Free",
+                "name": "f1",
+                "capacity": 0
+            },
+            "properties": {
+                "targetWorkerCount": 1
+            }
+        },
+        {
+            "apiVersion": "2016-08-01",
+            "name": "[variables('siteName')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+            ],
+            "properties": {
+                "serverFarmId": "[parameters('hostingPlanName')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/providers/locks",
+            "apiVersion": "2016-09-01",
+            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+            ],
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Site should not be deleted."
+            }
         }
-      ]
-    }
+    ]
+}
+```
+
+Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+
+```powershell
+New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
+New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+```
+
+Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+
+```azurecli
+az group create --name sitegroup --location southcentralus
+az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
+```
 
 ## <a name="powershell"></a>PowerShell
 U vergrendeling resources met Azure PowerShell geïmplementeerd met behulp van de [nieuw AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) opdracht.
@@ -73,16 +121,13 @@ U vergrendeling resources met Azure PowerShell geïmplementeerd met behulp van d
 Als u wilt vergrendelen van een resource, geef de naam van de bron, het resourcetype en de naam van de resourcegroep.
 
 ```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite `
-  -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Als u wilt vergrendelen van een resourcegroep, geef de naam van de resourcegroep.
 
 ```powershell
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 Als u informatie over een vergrendeling, gebruikt [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Als u alle vergrendelingen in uw abonnement, gebruikt u:
@@ -94,8 +139,7 @@ Get-AzureRmResourceLock
 Als u alle vergrendelingen voor een resource, gebruikt u:
 
 ```powershell
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Als u alle vergrendelingen voor een resourcegroep, gebruikt u:
@@ -104,25 +148,27 @@ Als u alle vergrendelingen voor een resourcegroep, gebruikt u:
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Azure PowerShell biedt andere opdrachten voor vergrendelingen werken, zoals [Set AzureRmResourceLock](/powershell/module/azurerm.resources/set-azurermresourcelock) bijwerken van een vergrendeling en [verwijderen AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) een vergrendeling te verwijderen.
+Gebruik voor het verwijderen van een vergrendeling:
 
-## <a name="azure-cli"></a>Azure CLI
+```powershell
+$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzureRmResourceLock -LockId $lockId
+```
+
+## <a name="azure-cli"></a>Azure-CLI
 
 U vergrendeling resources met Azure CLI geïmplementeerd met behulp van de [az vergrendeling maken](/cli/azure/lock#create) opdracht.
 
 Als u wilt vergrendelen van een resource, geef de naam van de bron, het resourcetype en de naam van de resourcegroep.
 
 ```azurecli
-az lock create --name LockSite --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup --resource-name examplesite \
-  --resource-type Microsoft.Web/sites
+az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
 ```
 
 Als u wilt vergrendelen van een resourcegroep, geef de naam van de resourcegroep.
 
 ```azurecli
-az lock create --name LockGroup --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
 Als u informatie over een vergrendeling, gebruikt [az vergrendeling lijst](/cli/azure/lock#list). Als u alle vergrendelingen in uw abonnement, gebruikt u:
@@ -134,8 +180,7 @@ az lock list
 Als u alle vergrendelingen voor een resource, gebruikt u:
 
 ```azurecli
-az lock list --resource-group exampleresourcegroup --resource-name examplesite \
-  --namespace Microsoft.Web --resource-type sites --parent ""
+az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
 Als u alle vergrendelingen voor een resourcegroep, gebruikt u:
@@ -144,9 +189,14 @@ Als u alle vergrendelingen voor een resourcegroep, gebruikt u:
 az lock list --resource-group exampleresourcegroup
 ```
 
-Azure CLI biedt andere opdrachten voor vergrendelingen werken, zoals [az vergrendeling update](/cli/azure/lock#update) bijwerken van een vergrendeling en [az vergrendeling verwijderen](/cli/azure/lock#delete) een vergrendeling te verwijderen.
+Gebruik voor het verwijderen van een vergrendeling:
 
-## <a name="rest-api"></a>REST API
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+## <a name="rest-api"></a>REST-API
 U kunt vergrendelen geïmplementeerde resources met de [REST-API voor beheer van vergrendelingen](https://docs.microsoft.com/rest/api/resources/managementlocks). De REST-API kunt u maken en verwijderen van vergrendelingen en informatie ophalen over bestaande vergrendelingen.
 
 Voer voor het maken van een vergrendeling:
@@ -165,9 +215,8 @@ Opnemen in de aanvraag een JSON-object waarmee de eigenschappen voor de vergrend
     } 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het werken met resource vergrendelingen [vergrendeling omlaag Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * Zie voor meer informatie over het logisch ordenen van uw resources [met labels om uw resources te organiseren](resource-group-using-tags.md)
 * Als u wilt wijzigen welke resourcegroep een resource bevindt zich in, Zie [resources verplaatsen naar een nieuwe resourcegroep](resource-group-move-resources.md)
-* U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie voor meer informatie [wat is Azure beleid?](../azure-policy/azure-policy-introduction.md).
+* U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie.
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot allerlei scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder aanpassingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -26,23 +26,14 @@ In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang t
 U krijgt runbooks uit de [Runbookgalerie](#runbooks-in-runbook-gallery) en -modules van de [PowerShell Gallery](#modules-in-powerShell-gallery).  U kunt ook bijdragen aan de community delen scenario's die u ontwikkelt.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbooks in Runbookgalerie
-De [Runbookgalerie](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) biedt tal van runbooks van Microsoft en de community die u in Azure Automation importeren kunt. Kunt u een runbook downloaden uit de galerie, die wordt gehost in de [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), of u kunt rechtstreeks runbooks importeren uit de galerie van de klassieke Azure-portal of een Azure-portal.
+De [Runbookgalerie](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) biedt tal van runbooks van Microsoft en de community die u in Azure Automation importeren kunt. Kunt u een runbook downloaden uit de galerie, die wordt gehost in de [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), of u kunt rechtstreeks runbooks importeren uit de galerie in de Azure portal.
 
-U kunt alleen met de importeren rechtstreeks vanuit de Runbookgalerie met behulp van de klassieke Azure-portal of Azure-portal. U kunt deze functie met Windows PowerShell niet uitvoeren.
+U kunt alleen met de importeren rechtstreeks vanuit de Runbookgalerie met de Azure portal. U kunt deze functie met Windows PowerShell niet uitvoeren.
 
 > [!NOTE]
 > U moet controleren of de inhoud van alle runbooks die u niet uit de Runbookgalerie ophalen en uiterst voorzichtig met het installeren en uit te voeren in een productieomgeving. |
 > 
 > 
-
-### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-classic-portal"></a>Een runbook importeren vanuit de galerie Runbook met de klassieke Azure portal
-1. In de Azure-portal klikt, **nieuw**, **App Services**, **Automation**, **Runbook**, **uit galerie**.
-2. Selecteer een categorie om verwante runbooks weer te geven en selecteer een runbook om de details ervan weer te geven. Wanneer u het runbook dat u wilt selecteren, klikt u op de pijl naar rechts.
-   
-    ![Runbook-galerie](media/automation-runbook-gallery/runbook-gallery.png)
-3. Controleer de inhoud van het runbook en Let op eventuele vereisten in de beschrijving. Wanneer u klaar bent, klikt u op de pijl naar rechts.
-4. Geef de runbookdetails en klik op knop met het vinkje. De runbooknaam is al ingevuld.
-5. Het runbook wordt weergegeven op de **Runbooks** tabblad voor het Automation-Account.
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Een runbook importeren vanuit de galerie Runbook met de Azure-portal
 1. Open uw Automation-account in Azure Portal.
@@ -70,21 +61,21 @@ Microsoft raadt u runbooks toevoegen aan de Runbook-galerie die u denkt dat hand
 * De samenvatting voor het uploaden wordt weergegeven in de resultaten Runbookgalerie zodat u moet bieden gedetailleerde informatie waarmee een gebruiker die de functionaliteit van het runbook te identificeren.
 * U moet één tot drie van de volgende codes toewijzen aan het uploaden.  Het runbook wordt vermeld in de wizard onder de categorieën die overeenkomen met de labels.  Alle tags niet op deze lijst worden genegeerd door de wizard. Als u overeenkomende labels niet opgeeft, wordt het runbook wordt vermeld onder de andere categorie.
   
-  * Back-up
+  * Back-up maken
   * Capaciteitsbeheer
   * Wijzigingsbeheer
   * Naleving
   * Dev / testen omgevingen
   * Herstel na noodgevallen
   * Bewaking
-  * Patchen
+  * Patch toepassen
   * Inrichten
   * Herstel
   * Levenscyclusbeheer van virtuele machine
 * De galerie-Automation updates eenmaal een uur, zodat u uw bijdragen onmiddellijk niet zien.
 
 ## <a name="modules-in-powershell-gallery"></a>Modules in PowerShell Gallery
-PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en bestaande modules die u in Azure Automation installeren kunt zijn beschikbaar in de [PowerShell Gallery](http://www.powershellgallery.com).  U kunt deze galerie starten vanuit de Azure-portal en deze rechtstreeks in Azure Automation installeren of u kunt deze downloaden en deze handmatig installeren.  U kunt de modules niet rechtstreeks vanuit de klassieke Azure portal installeren, maar u kunt ze downloaden ze net als elke andere module te installeren.
+PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en bestaande modules die u in Azure Automation installeren kunt zijn beschikbaar in de [PowerShell Gallery](http://www.powershellgallery.com).  U kunt deze galerie starten vanuit de Azure-portal en deze rechtstreeks in Azure Automation installeren of u kunt deze downloaden en deze handmatig installeren.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Een module importeren uit de galerie met Automation-Module met de Azure-portal
 1. Open uw Automation-account in Azure Portal.

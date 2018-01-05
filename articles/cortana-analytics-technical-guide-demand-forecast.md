@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding voor de sjabloon Cortana Intelligence-oplossing voor vraag prognose in energie
 ## <a name="overview"></a>**Overzicht**
@@ -150,7 +150,7 @@ Zodra de Generator van gegevens wordt gestart, de pijplijn begint met het ophale
     Een van de Stream Analytics-taken schrijft de onbewerkte binnenkomende gegevens naar blob storage. Als u op klikt **Azure Blob Storage** onderdeel van uw oplossing van het scherm u de oplossing is geïmplementeerd en klik vervolgens op **Open** in het rechterpaneel u gaat naar de [Azure Portal](https://portal.azure.com). Klik op **Blobs**. In het volgende deelvenster ziet u een lijst van Containers. Klik op **'energysadata'**. In het volgende deelvenster ziet u de **'demandongoing'** map. In de map rawdata ziet u de mappen met namen zoals datum = 2016-01-28 enzovoort. Als u deze mappen ziet, betekent dit dat de onbewerkte gegevens voltooid is wordt op uw computer wordt gegenereerd en opgeslagen in blob storage. Hier ziet u bestanden met moeten eindig grootte in MB in deze mappen.
 2. Controleer de gegevens van Azure SQL Database.
 
-    De laatste stap van de pijplijn is om gegevens te schrijven (bijvoorbeeld de voorspellingen van machine learning) in SQL-Database. Mogelijk moet een maximale oftwo uur voor de gegevens worden weergegeven in de SQL-Database te wachten. Een manier om te controleren hoeveel gegevens zijn beschikbaar in de SQL-Database, is via [Azure-portal](https://manage.windowsazure.com/). Zoek in het linkerdeelvenster SQL-DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) en klik erop. Zoek uw database (dat wil zeggen demo123456db) en vervolgens klikt u op. Op de volgende pagina onder **'Verbinding maken met uw database'** sectie, klikt u op **' Uitvoeren Transact-SQL-query's op uw SQL-database'**.
+    De laatste stap van de pijplijn is om gegevens te schrijven (bijvoorbeeld de voorspellingen van machine learning) in SQL-Database. U moet wellicht wacht maximaal twee uur voor de gegevens worden weergegeven in de SQL-Database. Een manier om te controleren hoeveel gegevens zijn beschikbaar in de SQL-Database, is via [Azure-portal](https://portal.azure.com/). Zoek in het linkerdeelvenster SQL-DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) en klik erop. Zoek uw database (dat wil zeggen demo123456db) en vervolgens klikt u op. Op de volgende pagina onder **'Verbinding maken met uw database'** sectie, klikt u op **' Uitvoeren Transact-SQL-query's op uw SQL-database'**.
 
     Hier kunt u klikken op nieuwe Query en de query voor het aantal rijen (bijvoorbeeld ' select count(*) van DemandRealHourly) ' wanneer de database groeit, het aantal rijen in de tabel moet verhogen.)
 3. Controleer de gegevens van Power BI-dashboard.
@@ -167,7 +167,7 @@ De volgende stappen helpen u het visualiseren van real-time gegevensuitvoer van 
 1. Power BI-uitvoer in Azure Stream Analytics (ASA) toevoegen.
 
    * U moet de instructies in [Azure Stream Analytics & Power BI: een dashboard realtime analyses voor realtime zichtbaarheid van gegevensstromen](stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard .
-   * Zoek de stream analytics-taak in uw [Azure-portal](https://manage.windowsazure.com). De naam van de taak moet: YourSolutionName + "streamingjob" + willekeurig getal + "asapbi' (dat wil zeggen demostreamingjob123456asapbi).
+   * Zoek de stream analytics-taak in uw [Azure-portal](https://portal.azure.com). De naam van de taak moet: YourSolutionName + "streamingjob" + willekeurig getal + "asapbi' (dat wil zeggen demostreamingjob123456asapbi).
    * Voeg een Power BI-uitvoer voor de ASA-taak. Stel de **uitvoer Alias** als **'PBIoutput'**. Stel uw **gegevenssetnaam** en **tabelnaam** als **'EnergyStreamData'**. Nadat u de uitvoer hebt toegevoegd, klikt u op **'Start'** onder aan de pagina de Stream Analytics-taak starten. U moet een bevestigingsbericht wordt weergegeven (bijvoorbeeld ' starten stream analytics-taak myteststreamingjob12345asablob is voltooid').
 2. Meld u aan bij [online in Power BI](http://www.powerbi.com)
 

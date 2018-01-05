@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -112,7 +112,9 @@ De methode retourneert een woordenlijst die kan worden gebruikt om een keten van
      <li>Selecteer <b>C:\ADFGetStarted</b> voor de <b>locatie</b>.</li>
      <li>Klik op <b>OK</b> om het project aan te maken.</li>
    </ol>
-2.Klik op **extra**, wijs **NuGet Package Manager**, en klik op **Package Manager Console**.
+   
+2. Klik op **Tools**, wijs **NuGet Package Manager** aan en klik op **Package Manager Console**.
+
 3. Voer de volgende opdracht om te importeren in de Package Manager-Console **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -552,7 +554,7 @@ In deze stap maakt u gegevenssets vertegenwoordigen de invoer-en uitvoergegevens
 
     Een uitvoer-blob/bestand wordt gegenereerd voor elk segment invoer. Hier ziet u hoe een bestand voor uitvoer met de naam van elk segment. De uitvoerbestanden worden gegenereerd in een uitvoermap: **adftutorial\customactivityoutput**.
 
-   | Segment | Begintijd | Bestand voor uitvoer |
+   | Segment | Begintijd | Uitvoerbestand |
    |:--- |:--- |:--- |
    | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |

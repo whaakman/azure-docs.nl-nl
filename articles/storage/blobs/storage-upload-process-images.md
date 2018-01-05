@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d187e51cbb391ee1f34fb5934c8ae1868bb6244
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Uploaden van afbeeldingsgegevens in de cloud met Azure Storage
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
  
-Installatiekopieën van uploadt het voorbeeld naar een blobcontainer in Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en toegang tot uw Azure storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#create). 
+Installatiekopieën van uploadt het voorbeeld naar een blobcontainer in Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en toegang tot uw Azure storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
 > In deel 2 van de zelfstudie gebruikt u abonnementen voor blob-opslag. Gebeurtenisabonnementen worden momenteel alleen ondersteund voor Blob storage-accounts in de West-Centraal VS en VS-West 2. Vanwege deze beperking, moet u een Blob storage-account dat wordt gebruikt door de voorbeeld-app voor het opslaan van afbeeldingen en miniaturen maken.   
@@ -69,7 +69,7 @@ az storage account create --name <blob_storage_account> \
  
 De app gebruikmaakt van twee containers in de Blob storage-account. Containers zijn vergelijkbaar met mappen en worden gebruikt voor het opslaan van blobs. De _installatiekopieën_ container is waar de app uploadt installatiekopieën van een hoge resolutie. Op een hoger deel van de reeks een Azure-functie-app geüpload formaat miniatuurweergaven voor de _duim_ container. 
 
-De opslagaccountsleutel ophalen met behulp van de [lijst met opslagaccounts die sleutels az](/cli/azure/storage/account/keys#list) opdracht. Vervolgens gebruikt u deze sleutel voor het maken van twee containers met behulp van de [az storage-container maken](/cli/azure/storage/container#create) opdracht.  
+De opslagaccountsleutel ophalen met behulp van de [lijst met opslagaccounts die sleutels az](/cli/azure/storage/account/keys#list) opdracht. Vervolgens gebruikt u deze sleutel voor het maken van twee containers met behulp van de [az storage-container maken](/cli/azure/storage/container#az_storage_container_create) opdracht.  
  
 In dit geval `<blob_storage_account>` is de naam van de Blob storage-account die u hebt gemaakt. De _installatiekopieën_ containers openbare toegang is ingesteld op `off`, wordt de _duim_ containers openbare toegang is ingesteld op `container`. De `container` openbare toegangsinstelling kan de miniaturen kan worden bekeken naar mensen die gaat u naar de webpagina.
  
@@ -95,7 +95,7 @@ Maak een notitie van uw blob-opslag-accountnaam en de sleutel. De voorbeeld-app 
 
 Een [App Service-plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) geeft de locatie, de grootte en de functies van de webserverfarm aan die als host fungeert voor uw app. 
 
-Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan#create). 
+Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create). 
 
 In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `myAppServicePlan` en de prijscategorie **Gratis**: 
 
@@ -105,7 +105,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken 
 
-De web-app biedt een hosting ruimte voor de voorbeeldcode van de app die vanuit de GitHub-opslagplaats voorbeeld is geïmplementeerd. Maak een [web-app](../../app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#create).  
+De web-app biedt een hosting ruimte voor de voorbeeldcode van de app die vanuit de GitHub-opslagplaats voorbeeld is geïmplementeerd. Maak een [web-app](../../app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#az_webapp_create).  
  
 Vervang in de volgende opdracht `<web_app>` met een unieke naam (geldige tekens zijn `a-z`, `0-9`, en `-`). Als `<web_app>` is niet uniek is, dat u het volgende foutbericht: _Website met de gegeven naam `<web_app>` bestaat al._ De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.  
 
@@ -115,7 +115,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Implementeer de voorbeeldapp vanuit de GitHub-opslagplaats 
 
-App Service biedt ondersteuning voor verschillende manieren om inhoud te distribueren naar een web-app. In deze zelfstudie implementeert u de web-app uit een GitHub-opslagplaats voor openbare-voorbeeld: [https://github.com/Azure-Samples/storage-blob-upload-from-webapp](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configureren van de GitHub-implementatie naar de web-app met de [az webapp implementatieconfiguratie bron](/cli/azure/webapp/deployment/source#config) opdracht. Vervang `<web_app>` met de naam van de web-app die u in de vorige stap hebt gemaakt.
+App Service biedt ondersteuning voor verschillende manieren om inhoud te distribueren naar een web-app. In deze zelfstudie implementeert u de web-app uit een [openbaar voorbeeld GitHub-opslagplaats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configureren van de GitHub-implementatie naar de web-app met de [az webapp implementatieconfiguratie bron](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) opdracht. Vervang `<web_app>` met de naam van de web-app die u in de vorige stap hebt gemaakt.
 
 Het voorbeeldproject bevat een [ASP.NET MVC](https://www.asp.net/mvc) app dat accepteert van een afbeelding, opgeslagen in een opslagaccount en afbeeldingen uit een container miniaturen worden weergegeven. De webtoepassing gebruikt het [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), en de [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) naamruimten uit in de Azure-opslag om te communiceren met Azure storage-clientbibliotheek. 
 
@@ -127,7 +127,7 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>Instellingen voor web-app configureren 
 
-Het voorbeeld web-app gebruikt de [Azure Storage-clientbibliotheek](/dotnet/api/overview/azure/storage?view=azure-dotnet) aan aanvraag toegangstokens, die worden gebruikt voor het uploaden van afbeeldingen. De opslagaccountreferenties die wordt gebruikt door de opslag-SDK worden ingesteld in de toepassingsinstellingen voor de web-app. Toepassingsinstellingen toevoegen aan de geïmplementeerde app met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) opdracht. 
+Het voorbeeld web-app gebruikt de [Azure Storage-clientbibliotheek](/dotnet/api/overview/azure/storage?view=azure-dotnet) aan aanvraag toegangstokens, die worden gebruikt voor het uploaden van afbeeldingen. De opslagaccountreferenties die wordt gebruikt door de opslag-SDK worden ingesteld in de toepassingsinstellingen voor de web-app. Toepassingsinstellingen toevoegen aan de geïmplementeerde app met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) opdracht. 
 
 In de volgende opdracht `<blob_storage_account>` is de naam van uw Blob storage-account en `<blob_storage_key>` is van de bijbehorende sleutel. Vervang `<web_app>` met de naam van de web-app die u in de vorige stap hebt gemaakt.     
 
@@ -186,7 +186,7 @@ De volgende klassen en methoden worden gebruikt in de vorige bewerking:
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Controleer of dat de afbeelding wordt weergegeven in het opslagaccount
 
-Aanmelden bij https://portal.azure.com. Selecteer in het menu links **opslagaccounts**, selecteert u de naam van uw opslagaccount. Onder **overzicht**, selecteer de **installatiekopieën** container.
+Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het menu links **opslagaccounts**, selecteert u de naam van uw opslagaccount. Onder **overzicht**, selecteer de **installatiekopieën** container.
 
 Controleer of dat de afbeelding wordt weergegeven in de container.
 
@@ -196,7 +196,7 @@ Controleer of dat de afbeelding wordt weergegeven in de container.
 
 Als u wilt testen miniatuur weer te geven, hebt u een installatiekopie van een uploaden naar de miniatuur container om ervoor te zorgen dat de toepassing de miniatuur container kan lezen.
 
-Aanmelden bij https://portal.azure.com. Selecteer in het menu links **opslagaccounts**, selecteert u de naam van uw opslagaccount. Selecteer **Containers** onder **Blob-Service** en selecteer de **duim** container. Selecteer **uploaden** openen de **blob uploaden** deelvenster.
+Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het menu links **opslagaccounts**, selecteert u de naam van uw opslagaccount. Selecteer **Containers** onder **Blob-Service** en selecteer de **duim** container. Selecteer **uploaden** openen de **blob uploaden** deelvenster.
 
 Kies een bestand met de bestandskiezer en selecteer **uploaden**.
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
@@ -40,9 +40,11 @@ Om ervoor te zorgen betere controle en voor het vereenvoudigen van beheer van to
 Als u wilt toevoegen iemand als beheerder voor het beheer van de service Azure-abonnement, ze geven de rol van een RBAC eigenaar aan het abonnement. De rol van eigenaar kan de resources in het abonnement dat u toegewezen en heeft geen toegangsrechten naar andere abonnementen beheren.
 
 1. Ga naar [ **abonnementen** in Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecteer het abonnement dat u wilt dat de toegang geven.
-1. Selecteer **toegangsbeheer (IAM)** in het menu.
-1. Selecteer **toevoegen** > **rol** > **eigenaar**. Typ de e-mailadres van de gebruiker die u wilt toevoegen als eigenaar, selecteert u de gebruiker en selecteer vervolgens **opslaan**.
+2. Selecteer het abonnement dat u toegang wilt geven.
+3. Selecteer **toegangsbeheer (IAM)** in het menu.
+4. In de **rol** de optie **eigenaar**. 
+5. In de **toewijzen van toegang tot** de optie **Azure AD-gebruiker, groep of toepassing**. 
+6. In de **Selecteer** typt u het e-mailadres van de gebruiker die u wilt toevoegen als eigenaar. Selecteer de gebruiker en selecteer vervolgens **opslaan**.
 
     ![Schermafbeelding van de rol van eigenaar geselecteerd](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

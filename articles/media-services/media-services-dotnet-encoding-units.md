@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Codering schalen met .NET SDK
 > [!div class="op_single_selector"]
@@ -31,12 +31,12 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Om de nieuwste versie van Java SDK en te beginnen met ontwikkelen met behulp van Java, Zie [aan de slag met de SDK voor Java-clients voor Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Voor het downloaden van de meest recente PHP SDK voor Media Services, zoekt u versie 0.5.7 van het pakket Microsoft/WindowAzure in de [Packagist opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java-SDK op te halen en te ontwikkelen met Java. <br/>
+> Als u de nieuwste PHP-SDK voor Media Services wilt downloaden, zoekt u versie 0.5.7 van het Microsoft/WindowAzure-pakket in de [Packagist-opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Overzicht
 > [!IMPORTANT]
-> Leest de [overzicht](media-services-scale-media-processing-overview.md) onderwerp voor meer informatie over het schalen van media onderwerp verwerken.
+> Leest de [overzicht](media-services-scale-media-processing-overview.md) voor meer informatie over het schalen van de verwerking van media.
 > 
 > 
 
@@ -56,17 +56,7 @@ Om te wijzigen van het type gereserveerde eenheid en het aantal gereserveerde ee
 Standaard elke Media Services-account kan worden geschaald tot maximaal 25 codering en 5 On Demand gereserveerde Streaming-eenheden. U kunt een hogere limiet aanvragen door een ondersteuningsticket openen.
 
 ### <a name="open-a-support-ticket"></a>Een ondersteuningsticket opent
-Als u wilt een ondersteuningsaanvraag openen ticket het volgende doen:
-
-1. Klik op [ondersteuning krijgen](https://manage.windowsazure.com/?getsupport=true). Als u niet bent aangemeld, wordt u gevraagd uw referenties in te voeren.
-2. Selecteer uw abonnement.
-3. Selecteer onder ondersteuning voor type 'Technical'.
-4. Klik op 'Ticket maken'.
-5. Selecteer 'Azure Media Services' in de lijst met producten die wordt weergegeven op de volgende pagina.
-6. Selecteer een 'probleemtype' die geschikt is voor uw probleem.
-7. Klik op Doorgaan.
-8. Volg de instructies op de volgende pagina en Geef details over uw probleem.
-9. Klik op verzenden om het openen van het ticket.
+In de Azure portal, gaat u naar [Help + ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Als u niet bent aangemeld bij Azure, wordt u gevraagd uw referenties in te voeren.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

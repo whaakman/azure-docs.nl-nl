@@ -3,9 +3,9 @@ title: Pushmeldingen toevoegen aan de Apache Cordova-App met Azure Mobile Apps |
 description: Informatie over het Azure Mobile Apps gebruiken voor het verzenden van pushmeldingen aan uw Apache Cordova-app.
 services: app-service\mobile
 documentationcenter: javascript
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Pushmeldingen toevoegen aan uw Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -326,7 +326,7 @@ Typ een naam voor een nieuwe taken in de app en klik vervolgens op het plusteken
 
 Controleer of dat er een melding wordt ontvangen wanneer het item is toegevoegd.
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>De volgende stappen
 * Meer informatie over [Notification Hubs] [ 17] voor meer informatie over pushmeldingen.
 * Als u dit nog niet hebt gedaan, blijven de zelfstudie door [Authentication toevoegen] [ 14] aan uw Apache Cordova-app.
 

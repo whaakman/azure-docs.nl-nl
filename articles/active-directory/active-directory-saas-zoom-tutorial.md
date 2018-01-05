@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Zelfstudie: Azure Active Directory-integratie met zoomen
 
@@ -113,29 +113,57 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen:`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Client zoomen ondersteuningsteam](https://support.zoom.us/hc) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Client zoomen ondersteuningsteam](https://support.zoom.us/hc) ophalen van deze waarden.
+
+4. De toepassing zoomen verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. 
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
+    
+    | Naam kenmerk | Waarde kenmerk | Namespace-waarde |
+    | ------------------- | -----------|--------- |    
+    | E-mailadres | User.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Voornaam | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Achternaam | User.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Telefoonnummer | User.telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Afdeling | User.Department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+
+    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+
+    d. In de **Namespace** textbox, typt u de naamruimtewaarde die wordt weergegeven voor die rij.
+    
+    e. Klik op **OK**. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Klik op **opslaan** knop.
+7. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Op de **zoomen configuratie** sectie, klikt u op **configureren zoomen** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+8. Op de **zoomen configuratie** sectie, klikt u op **configureren zoomen** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
-    ![Inzoomen-configuratie](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Inzoomen-configuratie](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. In een ander browservenster, meld u aan bij uw bedrijf zoomen site als beheerder.
+9. In een ander browservenster, meld u aan bij uw bedrijf zoomen site als beheerder.
 
-8. Klik op de **Single Sign-On** tabblad.
+10. Klik op de **Single Sign-On** tabblad.
    
     ![Eenmalige aanmelding op het tabblad](./media/active-directory-saas-zoom-tutorial/IC784700.png "eenmalige aanmelding")
 
-9. Klik op de **beveiligingscontrole** tabblad en gaat u naar de **Single Sign-On** instellingen.
+11. Klik op de **beveiligingscontrole** tabblad en gaat u naar de **Single Sign-On** instellingen.
 
-10. Voer de volgende stappen uit in de sectie eenmalige aanmelding:
+12. Voer de volgende stappen uit in de sectie eenmalige aanmelding:
    
     ![Eenmalige aanmelding sectie](./media/active-directory-saas-zoom-tutorial/IC784701.png "eenmalige aanmelding")
    
@@ -148,6 +176,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     d. In de **verlener** textbox, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure-portal. 
 
     e. Klik op **Opslaan**.
+
+    > [!NOTE] 
+    > Voor meer informatie gaat u naar de documentatie zoomen [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -248,7 +279,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel Zoom in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Zoom.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

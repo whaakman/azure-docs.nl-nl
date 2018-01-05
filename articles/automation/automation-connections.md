@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -71,14 +71,6 @@ De functie in de volgende tabel wordt gebruikt voor toegang tot verbindingen in 
 3. Klik op **een verbinding toevoegen** boven aan de blade.
 4. In de **Type** vervolgkeuzelijst, selecteer het type verbinding die u wilt maken. Het formulier worden de eigenschappen voor dat type aanwezig.
 5. Vul het formulier en klik op **maken** om op te slaan van de nieuwe verbinding.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Een nieuwe verbinding maken met de klassieke Azure portal
-
-1. Van uw automation-account, klikt u op **activa** aan de bovenkant van het venster.
-2. Klik onderaan in het venster **instelling toevoegen**.
-3. Klik op **verbinding toevoegen**.
-4. In de **verbindingstype** vervolgkeuzelijst, selecteer het type verbinding die u wilt maken.  De wizard worden de eigenschappen voor dat type aanwezig.
-5. Voltooi de wizard en klik op het selectievakje voor het opslaan van de nieuwe verbinding.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Een nieuwe verbinding maken met Windows PowerShell
 

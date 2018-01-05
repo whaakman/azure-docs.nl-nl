@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergroepen in Azure Containerexemplaren
 
@@ -33,6 +33,9 @@ In dit voorbeeld containergroep:
 * Beschrijft de één openbaar IP-adres, met één blootgestelde poort.
 * Bestaat uit twee containers. Een container luistert op poort 80, terwijl de andere luistert op poort 5000.
 * Bevat twee Azure bestandsshares als volume koppelingen en elke container koppelt een van de shares lokaal.
+
+> [!NOTE]
+> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Terwijl we proberen te zorgen dat alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor exemplaren van Azure-Container](container-instances-quotas.md).
 
 ### <a name="networking"></a>Netwerken
 

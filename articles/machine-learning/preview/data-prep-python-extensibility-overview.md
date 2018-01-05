@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Gegevensextensies voorbereidingen Python
 Als een manier invullen van functionaliteit onderbrekingen tussen de ingebouwde functies bevat Azure Machine Learning gegevens voorbereidingen uitbreidbaarheid op meerdere niveaus. In dit document, geven we een overzicht op de uitbreidingsmogelijkheden via door de Python-script. 
@@ -27,7 +27,7 @@ Voorbereidingen voor gegevens heeft de volgende aangepaste stappen waarin gebrui
 * Bestand lezer *
 * Schrijver *
 * Kolom toevoegen
-* Geavanceerde Filter
+* Geavanceerd filter
 * Gegevensstroom transformeren
 * Partitie transformeren
 
@@ -38,7 +38,7 @@ Wij ondersteunen twee typen van de code blok voor elk van deze stappen. Eerst wo
 
 U kunt bijvoorbeeld een nieuwe kolom die het logboek van een andere kolom berekend op de volgende twee manieren toevoegen:
 
-expressie 
+Expressie 
 
 ```python    
     math.log(row["Score"])
@@ -124,6 +124,31 @@ of
 
 `./pip install <libraryname>`
 
+## <a name="use-custom-modules"></a>Gebruik aangepaste modules
+Schrijf python-code als volgt in transformeren gegevensstroom (Script):
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+In de kolom toevoegen (Script), Code Bloktype instellen = Module en python code volgend schrijven:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Voor de uitvoering van de verschillende contexten (lokale computer, docker spark), wijst u het absolute pad op de juiste plaats. U wilt gebruiken 'os.getcwd() + relativePath' terug te vinden.
+
+
 ## <a name="column-data"></a>Kolomgegevens 
 Kolomgegevens toegankelijk zijn vanuit een rij met puntnotatie of sleutel / waarde-notatie. Namen van kolommen die geen spaties of speciale tekens niet toegankelijk met puntnotatie. De `row` variabele moet altijd worden gedefinieerd in beide modi van Python-extensies (Module en expressie). 
 
@@ -155,7 +180,7 @@ Deze dataframe heeft de volgende kolommen:
 - AuthenticationValue: Bevat geen of het token moet worden gebruikt.
 
 ### <a name="syntax"></a>Syntaxis 
-expressie 
+Expressie 
 
 ```python
     paths = df['Path'].tolist()  
@@ -185,7 +210,7 @@ De Writer extensiepunt kunt u volledig beheer het proces van het schrijven van g
 U kunt deze extensiepunt toevoegen met behulp van de schrijven (Script) gegevensstroomblok. Deze beschikbaar is op het hoogste niveau **transformaties** menu.
 
 ### <a name="syntax"></a>Syntaxis 
-expressie
+Expressie
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
@@ -210,7 +235,7 @@ Het extensiepunt kolom toevoegen kunt u Python voor het berekenen van een nieuwe
 U kunt deze extensiepunt toevoegen met behulp van het blok kolom toevoegen (Script). Deze beschikbaar is op het hoogste niveau **transformaties** menu, ook als aan de **kolom** contextmenu. 
 
 ### <a name="syntax"></a>Syntaxis
-expressie
+Expressie
 
 ```python
     math.log(row["Score"])
@@ -224,7 +249,7 @@ def newvalue(row):
 ```
  
 
-## <a name="advanced-filter"></a>Geavanceerde Filter
+## <a name="advanced-filter"></a>Geavanceerd filter
 ### <a name="purpose"></a>Doel 
 Het extensiepunt Geavanceerde Filter kunt u een aangepast filter schrijven. U hebt toegang tot de hele rij en uw code moet True retourneren (inclusief de rij) of ONWAAR (uitsluiten de rij). 
 
@@ -233,7 +258,7 @@ U kunt deze extensiepunt toevoegen met behulp van het blok Geavanceerde Filter (
 
 ### <a name="syntax"></a>Syntaxis
 
-expressie
+Expressie
 
 ```python
     row["Score"] > 95
@@ -260,7 +285,7 @@ De gegevensstroom transformeren extensiepunt kunt u de gegevensstroom volledig t
 U kunt deze extensiepunt toevoegen met behulp van de transformatie (Script) gegevensstroomblok. Deze beschikbaar is op het hoogste niveau **transformaties** menu. 
 ### <a name="syntax"></a>Syntaxis 
 
-expressie
+Expressie
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -291,7 +316,7 @@ U kunt deze extensiepunt toevoegen met behulp van het blok transformeren partiti
 
 ### <a name="syntax"></a>Syntaxis 
 
-expressie 
+Expressie 
 
 ```python
     df['partition-id'] = index  
@@ -337,7 +362,7 @@ DataPrepError({
 Het is mogelijk wanneer Python wordt uitgevoerd op een extensiepunt DataPrepErrors als retourwaarden genereren met behulp van de methode voor maken van de vorige. Het is veel meer waarschijnlijk dat DataPrepErrors zijn opgetreden tijdens het verwerken van gegevens op het moment van een uitbreiding. Op dit moment moet de aangepaste Python-code voor het afhandelen van een DataPrepError als een geldig gegevenstype.
 
 #### <a name="syntax"></a>Syntaxis 
-expressie 
+Expressie 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 

@@ -3,8 +3,8 @@ title: Upgrade uitvoeren in Mobile Services in Azure App Service
 description: Meer informatie over het eenvoudige upgrade van uw Mobile Services-toepassing in een App Service-mobiele App
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uw bestaande .NET Azure Mobile Service bijwerken naar App Service
 App Service Mobile is een nieuwe manier om mobiele toepassingen bouwen met Microsoft Azure. Zie voor meer informatie, [wat zijn Mobile Apps?].
@@ -139,7 +139,7 @@ In Azure Mobile Apps niet langer Systeemeigenschappen hebben een speciale indeli
 * CreatedAt
 * updatedAt
 * verwijderd
-* Versie
+* versie
 
 De client-Mobile Apps SDK's gebruiken de nieuwe system eigenschappen namen, zodat er geen wijzigingen zijn vereist voor de clientcode. Echter, als u rechtstreeks REST-aanroepen naar de service vervolgens moet u uw query's dienovereenkomstig.
 
@@ -155,7 +155,7 @@ In iOS, moet u uw schema Core gegevens voor uw gegevensentiteiten overeenkomen m
 | id |Tekenreeks is gemarkeerd als vereist |primaire sleutel in externe opslag |
 | CreatedAt |Date |(optioneel) is toegewezen aan de eigenschap system createdAt |
 | updatedAt |Date |(optioneel) is toegewezen aan de eigenschap system updatedAt |
-| Versie |Tekenreeks |(optioneel) gebruikt voor het opsporen van conflicten, is toegewezen aan versie |
+| versie |Tekenreeks |(optioneel) gebruikt voor het opsporen van conflicten, is toegewezen aan versie |
 
 #### <a name="querying-system-properties"></a>Eigenschappen van het uitvoeren van query 's
 In Azure Mobile Services, Systeemeigenschappen worden niet verzonden standaard, maar alleen wanneer ze worden aangevraagd met behulp van de queryreeks `__systemProperties`. Daarentegen in Azure Mobile Apps-systeem eigenschappen zijn **altijd ingeschakeld** omdat ze deel van de server SDK-objectmodel uitmaken.

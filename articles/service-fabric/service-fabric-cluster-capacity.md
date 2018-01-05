@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen bij capaciteitsplanning
 Voor productie-implementatie is capaciteitsplanning een belangrijke stap. Hier zijn enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -69,7 +69,7 @@ De laag duurzaamheid wordt gebruikt om aan te geven aan het systeem de rechten v
 
 Deze bevoegdheid wordt uitgedrukt in de volgende waarden:
 
-* Goud - infrastructuur taken kan gedurende een periode van twee uur per UD worden onderbroken. Goud duurzaamheid kan alleen op volledige knooppunt VM-SKU's zoals D15_V2, G5 enzovoort worden ingeschakeld.
+* Goud - infrastructuur taken kan gedurende een periode van twee uur per UD worden onderbroken. Gold duurzaamheid kan alleen op volledige knooppunt VM-SKU's zoals L32s, GS5, G5, DS15_v2, D15_v2 enzovoort (In het algemeen alle VM-grootten die op http://aka.ms/vmspecs die zijn gemarkeerd als 'Exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant' in de opmerking worden ingeschakeld. Volledige knooppunt VM's)
 * Zilver - infrastructuur taken gedurende een periode van tien minuten per UD kan worden onderbroken en is beschikbaar op alle standard VM's van één kern en hoger.
 * Brons - geen bevoegdheden. Dit is de standaardinstelling. Dit niveau duurzaamheid alleen gebruiken voor knooppunttypen met _alleen_ staatloze werkbelastingen. 
 
@@ -142,7 +142,7 @@ Hier volgt de aanbeveling over het kiezen van de betrouwbaarheidslaag.
 | --- | --- |
 | 1 |Geef de parameter Betrouwbaarheidslaag berekend door het systeem |
 | 3 |Brons |
-| 5 of 6|Zilverkleurig |
+| 5 of 6|Zilver |
 | 7 of 8 |Goudkleurig |
 | 9 en hoger |Platina |
 

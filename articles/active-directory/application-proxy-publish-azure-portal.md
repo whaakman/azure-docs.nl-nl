@@ -3,7 +3,7 @@ title: Apps publiceren met een Azure AD-toepassingsproxy | Microsoft Docs
 description: Publiceer on-premises toepassingen naar de cloud met Azure AD-toepassingsproxy in de Azure portal.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Toepassingen publiceren met Azure AD-toepassingsproxy
 
@@ -86,7 +86,7 @@ Als u wilt testen dat uw app correct is gepubliceerd, moet u een test-gebruikers
   ![Een gebruiker of groep toevoegen](./media/application-proxy-publish-azure-portal/add-user.png)
 
 3. Selecteer op het tabblad van de toewijzing toevoegen **gebruikers en groepen** kies vervolgens het account dat u wilt toevoegen. 
-4. Selecteer **toewijzen**.
+4. Selecteer **Toewijzen**.
 
 ## <a name="test-your-published-app"></a>Uw gepubliceerde app testen
 

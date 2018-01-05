@@ -1,5 +1,5 @@
 ---
-title: De elementen van het e-mailbericht van Azure Active Directory B2B-samenwerking uitnodiging | Microsoft Docs
+title: De elementen van de uitnodigingsmail B2B-samenwerking - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B-samenwerking uitnodiging voor een e-mailsjabloon
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>De elementen van de uitnodigingsmail voor B2B-samenwerking
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van Azure Active Directory een uitnodiging voor e-mail in B2B - samenwerking
 
 Een uitnodiging voor e-mailberichten zijn een essentieel onderdeel op te zetten van partners aan boord als B2B-samenwerking gebruikers in Azure AD. U kunt deze gebruiken om te verhogen van de geadresseerde vertrouwensrelatie. u kunt legitimiteit toevoegen en sociale bewijs in de e-mail om te controleren of de ontvanger werkt bekendheid met het selecteren van de **aan de slag** knop de uitnodiging te accepteren. Deze vertrouwensrelatie is dat een sleutel betekent dat u wilt delen wrijving verminderen. En u wilt er ook voor het e-mailadres er fantastisch uitzien!
 
@@ -33,7 +31,7 @@ Bekijk enkele elementen van het e-mailadres zodat u hoe het beste weet hun mogel
 ### <a name="subject"></a>Onderwerp
 Het onderwerp van het e-mailbericht volgt u de volgende notatie: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
 
-### <a name="from-address"></a>Van-adres
+### <a name="from-address"></a>Van adres
 We gebruiken een LinkedIn patroon voor het adres van de afzender.  U moet wissen die afzender van de uitnodiging is en waaruit de bedrijfsportal en ook verduidelijken dat het e-mailbericht afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;weergavenaam van de uitnodiging antwoorden&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
 
 ### <a name="reply-to"></a>Antwoorden op

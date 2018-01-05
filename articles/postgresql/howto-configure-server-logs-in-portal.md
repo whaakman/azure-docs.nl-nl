@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configureren en de logboeken van de toegangsserver in de Azure portal
 
@@ -53,7 +53,7 @@ Toegang tot de query en de foutenlogboeken configureren.
 ## <a name="view-list-and-download-logs"></a>Lijst weergeven en logboeken downloaden
 Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboeken weergeven en downloaden in het deelvenster logboeken van de Server een afzonderlijke logboekbestanden. 
 
-1. Open de Azure-portal.
+1. Open Azure Portal.
 
 2. Selecteer uw Azure-Database voor PostgreSQL-server.
 
@@ -75,5 +75,5 @@ Zodra logboekregistratie wordt gestart, kunt u een lijst met beschikbare logboek
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [Access Server-logboeken in CLI](howto-configure-server-logs-using-cli.md) voor informatie over het om Logboeken te downloaden via een programma.
 - Meer informatie over [serverlogboeken](concepts-server-logs.md) in Azure DB voor PostgreSQL. 
-- Zie de PosgreSQL-documentatie voor meer informatie over de parameterdefinities en PostgreSQL logboekregistratie op [Error Reporting en logboekregistratie](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Zie de PostgreSQL-documentatie voor meer informatie over de parameterdefinities en PostgreSQL logboekregistratie op [Error Reporting en logboekregistratie](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Geregistreerde servers met het synchroniseren van Azure-bestand (preview) beheren
 Met Azure File Sync (preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -147,9 +147,9 @@ Omdat Azure bestand Sync zelden de enige service in uw datacenter wordt uitgevoe
 > Als grenzen te laag instelt invloed op de prestaties van Azure bestand Sync synchronisatie en intrekken.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Limieten voor het netwerk van Azure File-synchronisatie instellen
-U kunt het netwerkgebruik van Azure bestand Sync beperken met behulp van de `StorageSyncNetworkLimit` cmdlets. 
+Kunt u het netwerkgebruik van Azure bestand Sync beperken met behulp van de `StorageSyncNetworkLimit` cmdlets. 
 
-U kunt bijvoorbeeld een nieuwe netwerklimiet om ervoor te zorgen dat Azure bestand synchronisatie maakt geen gebruik van meer dan 10 Mbps tussen 9: 00 uur en 17: 00 uur (17:00 uur) tijdens de werkweek maken: 
+U kunt bijvoorbeeld een nieuwe limiet voor vertraging om ervoor te zorgen dat Azure bestand synchronisatie maakt geen gebruik van meer dan 10 Mbps tussen 9: 00 uur en 17: 00 uur (17:00 uur) tijdens de werkweek maken: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

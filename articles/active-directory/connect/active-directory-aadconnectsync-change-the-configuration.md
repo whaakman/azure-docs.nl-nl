@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: e201140f5c5f2f738bcc4976ba7ca166c5bcfb75
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: hoe een wijziging aanbrengt in de standaardconfiguratie
 Het doel van dit onderwerp is om te zien hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure AD Connect-synchronisatie. Het bevat stappen voor enkele algemene scenario's. Met deze kennis moet u enkele eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -171,11 +171,27 @@ U kunt de opdracht geven de synchronisatie-Engine die u aanvullende regels invoe
 
 U kunt hebben veel aangepaste synchronisatie regels met behulp van dezelfde **PrecedenceBefore** waarde indien nodig.
 
-
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Synchronisatie van PreferredDataLocation inschakelen
+Standaard bevinden Office 365-resources voor uw gebruikers zich in dezelfde regio bevinden als uw Azure AD-tenant. Bijvoorbeeld, als uw tenant bevindt zich in Noord-Amerika zich vervolgens de Exchange-postvakken van gebruikers bevinden eveneens in Noord-Amerika. Voor een organisatie meerdere nationale dit mogelijk niet optimaal. Door het instellen van het kenmerk preferredDataLocation kan regio van de gebruiker worden gedefinieerd.
+
+De regio's in Office 365 zijn:
+
+| Regio | Beschrijving |
+| --- | --- |
+| NAAM | Noord-Amerika |
+| EUR | Europa |
+| APC | Azië en Stille Oceaan |
+| JPN | Japan |
+| AUS | Australië |
+| KAN | Canada |
+| GBR | Groot-Brittannië |
+| LAM | Latijns-Amerika |
+
+Niet alle Office 365-werkbelastingen ondersteunt het gebruik van het instellen van een gebruiker regio.
+
 Azure AD Connect ondersteunt synchronisatie van de **PreferredDataLocation** kenmerk voor **gebruiker** objecten in versie 1.1.524.0 en na. Meer specifiek, zijn de volgende wijzigingen geïntroduceerd:
 
-* Het schema van het objecttype **gebruiker** in de Azure AD-Connector is uitgebreid met PreferredDataLocation kenmerk is van het type tekenreeks en één waarde.
+* Het schema van het objecttype **gebruiker** in de Azure AD-Connector is uitgebreid met PreferredDataLocation kenmerk van het type één waarde tekenreeks.
 
 * Het schema van het objecttype **persoon** in de Metaverse is uitgebreid met PreferredDataLocation kenmerk is van het type tekenreeks en één waarde.
 
@@ -185,33 +201,27 @@ Standaard is het kenmerk PreferredDataLocation niet ingeschakeld voor synchronis
 > Azure AD kan op dit moment is dat het kenmerk PreferredDataLocation op gesynchroniseerde gebruikersobjecten en cloud gebruiker objecten rechtstreeks worden geconfigureerd met behulp van Azure AD PowerShell. Wanneer u de synchronisatie van het kenmerk PreferredDataLocation hebt ingeschakeld, moet u stoppen met Azure AD PowerShell voor het configureren van het kenmerk op **gesynchroniseerd gebruikersobjecten** als Azure AD Connect overschrijft toe op basis van de bron-kenmerkwaarden in de lokale Active Directory.
 
 > [!IMPORTANT]
-> Op 1 September 2017 Azure AD wordt niet langer het kenmerk PreferredDataLocation op toestaan **gesynchroniseerd gebruikersobjecten** rechtstreeks worden geconfigureerd met behulp van Azure AD PowerShell. Als u wilt configureren PreferredLocation-kenmerk op gesynchroniseerde gebruikersobjecten, moet u Azure AD Connect.
+> Sinds 1 September 2017 Azure AD niet meer kan het kenmerk PreferredDataLocation op **gesynchroniseerd gebruikersobjecten** rechtstreeks worden geconfigureerd met behulp van Azure AD PowerShell. Als u wilt configureren PreferredLocation-kenmerk op gesynchroniseerde gebruikersobjecten, moet u Azure AD Connect.
 
 Voordat u de synchronisatie van het kenmerk PreferredDataLocation inschakelt, moet u het volgende doen:
 
- * Bepaal eerst welke lokale Active Directory-kenmerk moet worden gebruikt als het bronkenmerk. Deze moet van het type **tekenreeks** en **één waarde**.
+ * Bepaal eerst welke lokale Active Directory-kenmerk moet worden gebruikt als het bronkenmerk. Deze moet van het type **één waarde tekenreeks**. In de stappen onder een van de extensionAttributes wordt gebruikt.
 
  * Als u het kenmerk PreferredDataLocation eerder hebt geconfigureerd op bestaande gebruikersobjecten gesynchroniseerd in Azure AD dat gebruikmaakt van Azure AD PowerShell, moet u **backport** de kenmerkwaarden voor de bijbehorende gebruikersobjecten in de lokale Active Directory.
- 
+
     > [!IMPORTANT]
     > Als u niet backport de kenmerkwaarden voor de bijbehorende gebruikersobjecten in de lokale Active Directory dit, wordt de bestaande kenmerkwaarden in Azure AD Connect verwijderd in Azure AD wanneer synchronisatie voor het kenmerk PreferredDataLocation is ingeschakeld.
 
  * Het wordt aanbevolen configureren van het bronkenmerk op ten minste twee lokale AD-gebruiker objecten nu, die kan worden gebruikt voor verificatie later.
- 
+
 De stappen voor het inschakelen van synchronisatie van het kenmerk PreferredDataLocation kunnen worden samengevat als:
 
 1. Schakel de sync scheduler uit en controleer of dat er vindt geen synchronisatie uitgevoerd
-
 2. Het bronkenmerk toevoegen aan de on-premises AD-Connector schema
-
 3. PreferredDataLocation toevoegen aan het schema van de Azure AD-Connector
-
 4. Maken van een synchronisatieregel voor binnenkomende om de stroom van de waarde van het kenmerk van de lokale Active Directory
-
 5. Een uitgaande synchronisatieregel maken om te laten doorlopen van de waarde van het kenmerk naar Azure AD
-
 6. Volledige synchronisatiecyclus uitvoeren
-
 7. Sync scheduler inschakelen
 
 > [!NOTE]
@@ -220,77 +230,56 @@ De stappen voor het inschakelen van synchronisatie van het kenmerk PreferredData
 ### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Stap 1: Schakel de sync scheduler uit en controleer of dat er vindt geen synchronisatie uitgevoerd
 Zorg ervoor dat er geen synchronisatie plaats terwijl u bent in het midden van het bijwerken van synchronisatieregels om onbedoelde wijzigingen wordt geëxporteerd naar Azure AD te voorkomen. De ingebouwde sync scheduler uitschakelen:
 
- 1. Start PowerShell-sessie op de Azure AD Connect-server.
-
- 2. Geplande synchronisatie uitschakelen door de cmdlet uit te voeren:`Set-ADSyncScheduler -SyncCycleEnabled $false`
- 
- 3. Start de **Synchronization Service Manager** gaat u naar START → Synchronization Service.
- 
- 4. Ga naar de **Operations** tabblad en er is geen bewerking met de status bevestigen *'wordt uitgevoerd.'*
+1. Start een PowerShell-sessie op de Azure AD Connect-server.
+2. Geplande synchronisatie uitschakelen door de cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+3. Start de **Synchronization Service Manager** door te gaan naar **START** > **synchronisatieservice**.
+4. Ga naar de **Operations** tabblad en er is geen bewerking met de status bevestigen *Bezig*.
 
 ![Controleer de Synchronization Service Manager - er zijn geen bewerkingen uitgevoerd](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Stap 2: Het bronkenmerk toevoegen aan de on-premises AD-Connector schema
-Niet alle AD-kenmerken worden geïmporteerd in de on-premises AD Connectorgebied overgebracht. Het bronkenmerk toevoegen aan de lijst van de geïmporteerde kenmerken:
+Niet alle AD-kenmerken worden geïmporteerd in de on-premises AD Connectorgebied overgebracht. Als u hebt geselecteerd om te gebruiken van een kenmerk is niet standaard gesynchroniseerd, moet u het importeren. Het bronkenmerk toevoegen aan de lijst van de geïmporteerde kenmerken:
 
- 1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
- 
- 2. Met de rechtermuisknop op de **on-premises AD-Connector** en selecteer **eigenschappen**.
- 
- 3. In het pop-updialoogvenster, gaat u naar de **kenmerken selecteren** tabblad.
- 
- 4. Zorg ervoor dat het bronkenmerk is ingeschakeld in de lijst met kenmerken.
- 
- 5. Klik op **OK** om op te slaan.
+1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
+2. Met de rechtermuisknop op de **on-premises AD-Connector** en selecteer **eigenschappen**.
+3. In het pop-updialoogvenster, gaat u naar de **kenmerken selecteren** tabblad.
+4. Zorg ervoor dat het bronkenmerk die u hebt geselecteerd om te gebruiken in de kenmerkenlijst is ingeschakeld.
+5. Klik op **OK** om op te slaan.
 
 ![Bronkenmerk toevoegen met on-premises AD-Connector schema](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
 
 ### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Stap 3: PreferredDataLocation toevoegen aan het schema van de Azure AD-Connector
-Standaard wordt het kenmerk PreferredDataLocation niet geïmporteerd in de Azure AD Connect-ruimte. Het kenmerk PreferredDataLocation toevoegen aan de lijst met geïmporteerde kenmerken:
+Standaard wordt het kenmerk PreferredDataLocation niet geïmporteerd in de ruimte van Azure AD-connector. Het kenmerk PreferredDataLocation toevoegen aan de lijst met geïmporteerde kenmerken:
 
- 1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
-
- 2. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **eigenschappen**.
-
- 3. In het pop-updialoogvenster, gaat u naar de **kenmerken selecteren** tabblad.
-
- 4. Zorg ervoor dat het kenmerk PreferredDataLocation is ingeschakeld in de lijst met kenmerken.
-
- 5. Klik op **OK** om op te slaan.
+1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
+2. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **eigenschappen**.
+3. In het pop-updialoogvenster, gaat u naar de **kenmerken selecteren** tabblad.
+4. Selecteer het PreferredDataLocation-kenmerk in de lijst met kenmerken.
+5. Klik op **OK** om op te slaan.
 
 ![Bronkenmerk toevoegen aan Azure AD-Connector schema](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
 
 ### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Stap 4: Een synchronisatieregel voor binnenkomende om de stroom van de waarde van het kenmerk van de lokale Active Directory maken
 De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het kenmerk vanuit het bronkenmerk van de lokale Active Directory naar de Metaverse:
 
-1. Start de **synchronisatie regeleditor** door naar START → synchronisatie regeleditor te gaan.
-
+1. Start de **synchronisatie regeleditor** door te gaan naar **START** > **synchronisatie regeleditor**.
 2. Het zoekfilter ingesteld **richting** worden **inkomend**.
-
 3. Klik op **nieuwe regel toevoegen** om te maken van een nieuwe regel voor binnenkomende verbindingen.
-
 4. Onder de **beschrijving** tabblad, bieden de volgende configuratie:
- 
+
     | Kenmerk | Waarde | Details |
     | --- | --- | --- |
     | Naam | *Geef een naam* | Bijvoorbeeld: *' In uit Active Directory-gebruiker PreferredDataLocation '* |
-    | Beschrijving | *Geef een beschrijving* |  |
+    | Beschrijving | *Geef een aangepaste beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
     | Verbonden systeem objecttype | **Gebruiker** |  |
     | Metaverse-objecttype | **Persoon** |  |
     | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
-5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep met de volgende component**:
- 
-    | Kenmerk | Operator | Waarde |
-    | --- | --- | --- |
-    | adminDescription | NOTSTARTWITH | Gebruiker\_ | 
- 
-    Bereik filter bepaalt welke on-premises AD-objecten dat deze synchronisatieregel voor binnenkomende wordt toegepast op. In dit voorbeeld gebruiken we hetzelfde bereik filter gebruikt als *' In uit Active Directory-gebruiker algemene '* OOB-synchronisatieregel, waardoor de synchronisatieregel wordt toegepast op gebruikersobjecten via Azure AD-gebruiker Write-back-functie is gemaakt. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
-
+5. Houd de **Scoping filter** leeg voor alle objecten worden opgenomen. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
 6. Ga naar de **transformatie tabblad** en implementeren van de volgende transformatieregel:
- 
+
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     |Rechtstreeks | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
@@ -303,11 +292,8 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
 De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stromen van Metaverse met het kenmerk PreferredDataLocation in Azure AD:
 
 1. Ga naar de **synchronisatieregels** Editor.
-
 2. Het zoekfilter ingesteld **richting** worden **uitgaand**.
-
 3. Klik op **nieuwe regel toevoegen** knop.
-
 4. Onder de **beschrijving** tabblad, bieden de volgende configuratie:
 
     | Kenmerk | Waarde | Details |
@@ -318,17 +304,17 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
     | Verbonden systeem objecttype | Gebruiker ||
     | Metaverse-objecttype | **Persoon** ||
     | Koppelingstype | **Koppelen** ||
-    | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. YDo niet een waarde die wordt gebruikt door andere synchronisatieregels opgenomen. |
+    | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep met twee componenten**:
- 
+
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
     | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
     Bereik filter bepaalt welke deze uitgaande synchronisatieregel wordt toegepast op Azure AD-objecten. In dit voorbeeld gebruiken we het filter voor hetzelfde bereik uit 'Out naar AD-gebruikers-id' OOB-synchronisatieregel. Dit voorkomt dat de synchronisatieregel wordt toegepast op gebruikers-objecten die niet zijn gesynchroniseerd vanuit de lokale Active Directory. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
-    
+
 6. Ga naar de **transformatie** tabblad en de volgende transformatieregel implementeren:
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
@@ -340,16 +326,16 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 ![Uitgaande synchronisatieregel maken](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
 
 ### <a name="step-6-run-full-synchronization-cycle"></a>Stap 6: De volledige synchronisatie uitvoeren cyclus
-In het algemeen volledige synchronisatiecyclus is vereist, omdat we nieuwe kenmerken hebt toegevoegd aan zowel de advertentie en Azure AD-Connector schema en geïntroduceerd aangepaste synchronisatieregels. Het is raadzaam om de wijzigingen te controleren voordat deze naar Azure AD worden geëxporteerd. U kunt de volgende stappen gebruiken om te controleren of de wijzigingen tijdens de stappen die gezamenlijk een volledige synchronisatiecyclus handmatig uit te voeren. 
+In het algemeen volledige synchronisatiecyclus is vereist, omdat we nieuwe kenmerken hebt toegevoegd aan zowel de advertentie en Azure AD-Connector schema en geïntroduceerd aangepaste synchronisatieregels. Het is raadzaam om de wijzigingen te controleren voordat deze naar Azure AD worden geëxporteerd. U kunt de volgende stappen gebruiken om te controleren of de wijzigingen tijdens de stappen die gezamenlijk een volledige synchronisatiecyclus handmatig uit te voeren.
 
 1. Voer **volledige import** stap op het **on-premises AD-Connector**:
 
    1. Ga naar de **Operations** tabblad Synchronization Service Manager.
 
-   2. Met de rechtermuisknop op de **on-premises AD-Connector** en selecteer **uitvoeren...**
+   2. Met de rechtermuisknop op de **on-premises AD-Connector** en selecteer **uitvoeren...** .
 
    3. Selecteer in het pop-updialoogvenster **volledige Import** en klik op **OK**.
-    
+
    4. Wacht u totdat de bewerking is voltooid.
 
     > [!NOTE]
@@ -360,19 +346,19 @@ In het algemeen volledige synchronisatiecyclus is vereist, omdat we nieuwe kenme
    1. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **uitvoeren...**
 
    2. Selecteer in het pop-updialoogvenster **volledige Import** en klik op **OK**.
-   
+
    3. Wacht u totdat de bewerking is voltooid.
 
 3. Controleer of de wijzigingen in synchronisatie-regel op een bestaande gebruikersobject:
 
-Het bronkenmerk van lokale Active Directory en PreferredDataLocation van Azure AD in de respectieve ruimte voor de connector zijn geïmporteerd. Voordat u doorgaat met de stap van de volledige synchronisatie wordt aanbevolen dat u wilt een **Preview** object op een bestaande gebruiker in de on-premises AD Connectorgebied overgebracht. Het object dat u verzameld, moet het bronkenmerk ingevuld hebben. Een geslaagde **Preview** is een goede indicatie dat u de synchronisatie hebt geconfigureerd correct regels met de PreferredDataLocation ingevuld in de Metaverse. Voor informatie over hoe u een **Preview**, Raadpleeg het gedeelte [Controleer of de wijziging](#verify-the-change).
+Het bronkenmerk van lokale Active Directory en PreferredDataLocation van Azure AD zijn geïmporteerd naar de respectieve connectorgebied overgebracht. Voordat u doorgaat met de stap volledige synchronisatie wordt aanbevolen dat u wilt een **Preview** object op een bestaande gebruiker in de on-premises AD connectorgebied overgebracht. Het object dat u verzameld, moet het bronkenmerk ingevuld hebben. Een geslaagde **Preview** is een goede indicatie dat u de synchronisatie hebt geconfigureerd correct regels met de PreferredDataLocation ingevuld in de Metaverse. Voor informatie over hoe u een **Preview**, Raadpleeg het gedeelte [Controleer of de wijziging](#verify-the-change).
 
 4. Voer **volledige synchronisatie** stap op het **on-premises AD-Connector**:
 
-   1. Met de rechtermuisknop op de **on-premises AD-Connector** en selecteer **uitvoeren...**
-  
+   1. Met de rechtermuisknop op de **on-premises AD-Connector** en selecteer **uitvoeren...** .
+
    2. Selecteer in het pop-updialoogvenster **volledige synchronisatie** en klik op **OK**.
-   
+
    3. Wacht u totdat de bewerking is voltooid.
 
 5. Controleer of **in behandeling zijnde uitvoer** naar Azure AD:
@@ -382,31 +368,29 @@ Het bronkenmerk van lokale Active Directory en PreferredDataLocation van Azure A
    2. In het pop-dialoogvenster Connectorgebied zoeken:
 
       1. Stel **bereik** naar **in behandeling zijnde uitvoer**.
-      
+
       2. Controleer alle drie selectievakjes, met inbegrip van **toevoegen, wijzigen en verwijderen**.
-      
+
       3. Klik op de **Search** knop voor de lijst met objecten met wijzigingen worden geëxporteerd. Dubbelklik op het object voor het onderzoeken van de wijzigingen voor een bepaald object.
-      
+
       4. Controleer of dat de wijzigingen worden verwacht.
 
 6. Voer **exporteren** stap op het **Azure AD-Connector**
-      
-   1. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **uitvoeren...**
-   
+
+   1. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **uitvoeren...** .
+
    2. Selecteer in het pop-upvenster Connector uitvoeren **exporteren** en klik op **OK**.
-   
+
    3. Wacht u totdat de Export naar Azure AD te voltooien.
 
 > [!NOTE]
-> U merkt u wellicht dat de stappen geen de volledige synchronisatie stap en exporteren van de Azure AD-Connector bevatten. De stappen zijn niet vereist omdat de kenmerkwaarden van de lokale Active Directory naar Azure AD alleen stromen.
+> U merkt u wellicht dat de stappen geen de stap volledige synchronisatie op de Azure AD-connector en exporteren van de AD-connector bevatten. De stappen zijn niet vereist omdat de kenmerkwaarden van de lokale Active Directory naar Azure AD alleen stromen.
 
 ### <a name="step-7-re-enable-sync-scheduler"></a>Stap 7: Sync scheduler opnieuw inschakelen
 De ingebouwde sync scheduler opnieuw inschakelen:
 
 1. Start PowerShell-sessie.
-
 2. Geplande synchronisatie opnieuw inschakelen door de cmdlet uit te voeren:`Set-ADSyncScheduler -SyncCycleEnabled $true`
-
 
 ## <a name="enable-synchronization-of-usertype"></a>Synchronisatie van UserType inschakelen
 Azure AD Connect ondersteunt synchronisatie van de **UserType** kenmerk voor **gebruiker** objecten in versie 1.1.524.0 en na. Meer specifiek, zijn de volgende wijzigingen geïntroduceerd:
@@ -414,7 +398,7 @@ Azure AD Connect ondersteunt synchronisatie van de **UserType** kenmerk voor **g
 - Het schema van het objecttype **gebruiker** in de Azure AD-Connector is uitgebreid met UserType-kenmerk dat is van het type tekenreeks en wordt één waarde.
 - Het schema van het objecttype **persoon** in de Metaverse is uitgebreid met UserType-kenmerk dat is van het type tekenreeks en wordt één waarde.
 
-Standaard is het UserType-kenmerk niet ingeschakeld voor synchronisatie omdat er geen bijbehorende UserType-kenmerk in de lokale Active Directory. U moet handmatig synchronisatie inschakelen. Voordat de synchronisatie van het UserType-kenmerk is ingeschakeld, moet u een notitie van het volgende gedrag afgedwongen door Azure AD uitvoeren: 
+Standaard is het UserType-kenmerk niet ingeschakeld voor synchronisatie omdat er geen bijbehorende UserType-kenmerk in de lokale Active Directory. U moet handmatig synchronisatie inschakelen. Voordat de synchronisatie van het UserType-kenmerk is ingeschakeld, moet u een notitie van het volgende gedrag afgedwongen door Azure AD uitvoeren:
 
 - Azure AD kan slechts twee waarden voor het UserType-kenmerk – **lid** en **Gast**.
 - Als het UserType-kenmerk is niet ingeschakeld voor Azure AD Connect-synchronisatie, Azure AD-gebruikers die zijn gemaakt met behulp van adreslijstsynchronisatie UserType-kenmerk ingesteld op zou hebben **lid**.
@@ -425,7 +409,7 @@ Voordat de synchronisatie van het UserType-kenmerk is ingeschakeld, moet u eerst
 - Een ongebruikt aanwijzen lokale AD-kenmerk (bijvoorbeeld extensionAttribute1) moet worden gebruikt als het bronkenmerk. De aangewezen lokale AD-kenmerk moet van het type **tekenreeks**, wordt één waarde bevat en waarde **lid** of **Gast**. Als u deze benadering kiest, moet u ervoor zorgen dat het opgegeven kenmerk is gevuld met de juiste waarde voor alle bestaande gebruikersobjecten in de lokale Active Directory die worden gesynchroniseerd naar Azure AD voordat de synchronisatie van het UserType-kenmerk is ingeschakeld .
 - U kunt ook de waarde voor UserType-kenmerk afleiden van andere eigenschappen. U wilt bijvoorbeeld alle gebruikers gesynchroniseerd als Gast als hun on-premises AD UserPrincipalName kenmerk eindigt op domeingedeelte '@partners.fabrikam123.org'. Zoals eerder vermeld, Azure AD Connect niet is toegestaan UserType-kenmerk op bestaande Azure AD-gebruikers met Azure AD Connect worden gewijzigd. Daarom moet u ervoor zorgen dat de logica die u hebt besloten consistent is met hoe het UserType-kenmerk al is geconfigureerd voor alle Azure AD-gebruikers in uw tenant.
 
-De stappen voor het inschakelen van synchronisatie van het UserType-kenmerk kunnen worden samengevat als: 
+De stappen voor het inschakelen van synchronisatie van het UserType-kenmerk kunnen worden samengevat als:
 
 >[!NOTE]
 > De rest van deze sectie bevat informatie over deze stappen. Ze worden beschreven in de context van een Azure AD-implementatie met één forest topologie en zonder aangepaste synchronisatieregels. Als u een topologie met meerdere forests hebt, aangepaste synchronisatieregels geconfigureerd of een tijdelijke server hebt, moet u de stappen overeenkomstig aanpassen.
@@ -489,15 +473,15 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep met de volgende component**:
- 
+
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | adminDescription | NOTSTARTWITH | Gebruiker\_ | 
- 
+    | adminDescription | NOTSTARTWITH | Gebruiker\_ |
+
     Bereik filter bepaalt welke on-premises AD-objecten dat deze synchronisatieregel voor binnenkomende wordt toegepast op. In dit voorbeeld gebruiken we hetzelfde bereik filter gebruikt als ' In uit Active Directory-gebruiker algemene ' OOB-synchronisatieregel, waardoor de synchronisatieregel wordt toegepast op gebruikersobjecten via Azure AD-gebruiker Write-back-functie is gemaakt. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
 
 6. Ga naar de **transformatie tabblad** en implementeren van de gewenste transformatieregel. Bijvoorbeeld: u hebt aangewezen een ongebruikt lokale AD-kenmerk (bijvoorbeeld extensionAttribute1) als het bronkenmerk voor UserType, kunt u een directe kenmerkstroom implementeren:
- 
+
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
     | Rechtstreeks | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
@@ -531,14 +515,14 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. YDo niet een waarde die wordt gebruikt door andere synchronisatieregels opgenomen. |
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep met twee componenten**:
- 
+
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
     | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
     Bereik filter bepaalt welke deze uitgaande synchronisatieregel wordt toegepast op Azure AD-objecten. In dit voorbeeld gebruiken we het filter voor hetzelfde bereik uit 'Out naar AD-gebruikers-id' OOB-synchronisatieregel. Dit voorkomt dat de synchronisatieregel wordt toegepast op gebruikers-objecten die niet zijn gesynchroniseerd vanuit de lokale Active Directory. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
-    
+
 6. Ga naar de **transformatie** tabblad en de volgende transformatieregel implementeren:
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
@@ -550,7 +534,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 ![Uitgaande synchronisatieregel maken](./media/active-directory-aadconnectsync-change-the-configuration/usertype4.png)
 
 ### <a name="step-6-run-full-synchronization-cycle"></a>Stap 6: De volledige synchronisatie uitvoeren cyclus
-In het algemeen volledige synchronisatiecyclus is vereist, omdat we nieuwe kenmerken hebt toegevoegd aan zowel de advertentie en Azure AD-Connector schema en geïntroduceerd aangepaste synchronisatieregels. Het is raadzaam om de wijzigingen te controleren voordat deze naar Azure AD worden geëxporteerd. U kunt de volgende stappen gebruiken om te controleren of de wijzigingen tijdens de stappen die gezamenlijk een volledige synchronisatiecyclus handmatig uit te voeren. 
+In het algemeen volledige synchronisatiecyclus is vereist, omdat we nieuwe kenmerken hebt toegevoegd aan zowel de advertentie en Azure AD-Connector schema en geïntroduceerd aangepaste synchronisatieregels. Het is raadzaam om de wijzigingen te controleren voordat deze naar Azure AD worden geëxporteerd. U kunt de volgende stappen gebruiken om te controleren of de wijzigingen tijdens de stappen die gezamenlijk een volledige synchronisatiecyclus handmatig uit te voeren.
 
 1. Voer **volledige import** stap op het **on-premises AD-Connector**:
 
@@ -590,7 +574,7 @@ In het algemeen volledige synchronisatiecyclus is vereist, omdat we nieuwe kenme
       4. Controleer of dat de wijzigingen worden verwacht.
 
 6. Voer **exporteren** stap op het **Azure AD-Connector**
-      
+
    1. Met de rechtermuisknop op de **Azure AD-Connector** en selecteer **uitvoeren...**
    2. Selecteer in het pop-upvenster Connector uitvoeren **exporteren** en klik op **OK**.
    3. Wacht totdat de Export naar Azure AD te voltooien.

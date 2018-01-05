@@ -3,8 +3,8 @@ title: Client en server SDK-versies in Mobile Apps- en Mobile Services | Microso
 description: Lijst met client-SDK's en compatibiliteit met versies van de server-SDK voor Mobile Services en Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Client- en versiebeheer in Mobile Apps- en Mobile Services
 De meest recente versie van Azure Mobile Services is de **Mobile Apps** functie van Azure App Service.
@@ -54,8 +54,8 @@ Het onderstaande diagram ziet u de compatibiliteit tussen alle typen van client 
 
 |  | **Mobile Services** Node.js- of .NET | **Mobiele Apps** Node.js- of .NET |
 | --- | --- | --- |
-| [Mobile Services-clients] |OK |Fout\* |
-| [Clients voor mobiele Apps] |Fout\* |OK |
+| [Mobile Services-clients] |Ok |Fout\* |
+| [Clients voor mobiele Apps] |Fout\* |Ok |
 
 \*Dit kan worden beheerd door te geven **MS_SkipVersionCheck**.
 

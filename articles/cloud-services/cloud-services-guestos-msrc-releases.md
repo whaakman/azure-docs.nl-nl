@@ -12,29 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
 
+## <a name="december-guest-os"></a>December Gastbesturingssysteem
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 17-12 | [4053579], [4054517] |Beveiligingsupdates van Windows 10 |4.49, 5.14 |12 december 2017 |
+| Rel 17-12 | [4054521], [4054522], [4054523] |Windows-beveiliging |2.69, 3.56, 4.49 |12 december 2017 |
+| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 december 2017 |
+| Rel 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 december 2017 |
+| N/A | [4048957] |Updatepakket van november niet voor beveiliging |2.67 |14 november 2017 |
+| N/A | [4048959] |Updatepakket van november niet voor beveiliging |3.56 |14 november 2017 |
+| N/A | [4048958] |Updatepakket van november niet voor beveiliging |4.49 |14 november 2017 |
+| N/A | [4049068] |Update van december tijdzone |2.69, 3.56, 4.49 |12 december 2017 |
+
 ## <a name="november-guest-os"></a>November Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| Rel 17 10 | [4048953] |Windows 10-updates |5.13 |14 november 2017 |
-| Rel 17 10 | [4048960], [4048962], [4048961] |Windows-beveiliging |2.68, 3.55, 4.48 |14 november 2017 |
-| Rel 17 10 | [4047206] |Internet explorer |2.68, 3.55, 4.48 |14 november 2017 |
-| Rel 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
-| N.v.t. | [4041681] |Totalisering van de niet-beveiliging oktober |2.67 |10 oktober 2017 |
-| N.v.t. | [4041690] |Totalisering van de niet-beveiliging oktober |3.55 |10 oktober 2017 |
-| N.v.t. | [4041693] |Totalisering van de niet-beveiliging oktober |4.48 |10 oktober 2017 |
-| N.v.t. | [3191565] |Update voor Windows Management Framework 5.1  |3.55 |Op 12 september 2017 |
-| N.v.t. | [3191564] |Update voor Windows Management Framework 5.1  |4.48 |Op 12 september 2017 |
+| Rel 17-11 | [4048953] |Windows 10-updates |5.13 |14 november 2017 |
+| Rel 17-11 | [4048960], [4048962], [4048961] |Windows-beveiliging |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
+| N/A | [4041681] |Totalisering van de niet-beveiliging oktober |2.67 |10 oktober 2017 |
+| N/A | [4041690] |Totalisering van de niet-beveiliging oktober |3.55 |10 oktober 2017 |
+| N/A | [4041693] |Totalisering van de niet-beveiliging oktober |4.48 |10 oktober 2017 |
+| N/A | [3191566] |Update voor Windows Management Framework 5.1  |2.68 |14 november 2017 |
+| N/A | [3191565] |Update voor Windows Management Framework 5.1  |3.55 |14 november 2017 |
+| N/A | [3191564] |Update voor Windows Management Framework 5.1  |4.48 |14 november 2017 |
 
 ## <a name="october-guest-os"></a>Oktober Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -43,12 +56,12 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17 10 | [4041678], [4041679], [4041687] |Windows-beveiliging |2.67, 3.54, 4.47 |10 oktober 2017 |
 | Rel 17 10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 oktober 2017 |
 | Rel 17 10 | [4041681], [4041690], [4041693] |Maandelijkse samentellingen Windows |2.67, 3.54, 4.47 |10 oktober 2017 |
-| N.v.t. | [4038777] |Totalisering van de niet-beveiliging september |2.67 |Op 12 september 2017 |
-| N.v.t. | [4038799] |Totalisering van de niet-beveiliging september |3.54 |Op 12 september 2017 |
-| N.v.t. | [4038792] |Totalisering van de niet-beveiliging september |4.47 |Op 12 september 2017 |
-| N.v.t. | [4040980] |Totalisering van de niet-beveiliging september .NET |2.67 |Op 12 september 2017 |
-| N.v.t. | [4040979] |Totalisering van de niet-beveiliging september .NET |3.54 |Op 12 september 2017 |
-| N.v.t. | [4040981] |Totalisering van de niet-beveiliging september .NET |4.47 |Op 12 september 2017 |
+| N/A | [4038777] |Totalisering van de niet-beveiliging september |2.67 |Op 12 september 2017 |
+| N/A | [4038799] |Totalisering van de niet-beveiliging september |3.54 |Op 12 september 2017 |
+| N/A | [4038792] |Totalisering van de niet-beveiliging september |4.47 |Op 12 september 2017 |
+| N/A | [4040980] |Totalisering van de niet-beveiliging september .NET |2.67 |Op 12 september 2017 |
+| N/A | [4040979] |Totalisering van de niet-beveiliging september .NET |3.54 |Op 12 september 2017 |
+| N/A | [4040981] |Totalisering van de niet-beveiliging september .NET |4.47 |Op 12 september 2017 |
 
 ## <a name="september-guest-os"></a>September Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -58,9 +71,9 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|September .NET-update |2.66, 3.53, 4.46 |Op 12 september 2017 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |Op 12 september 2017 |
 | CVE-2017-8704 | [4038782] |Denial of Service |5.11 |Op 12 september 2017 |
-| N.v.t. | [4034664] |Totalisering van de niet-beveiliging augustus  |2.66 |8 augustus 2017 |
-| N.v.t. | [4034665] |Totalisering van de niet-beveiliging augustus |5.11 |8 augustus 2017 |
-| N.v.t. | [4034681] |Totalisering van de niet-beveiliging augustus |4.46 |8 augustus 2017 |
+| N/A | [4034664] |Totalisering van de niet-beveiliging augustus  |2.66 |8 augustus 2017 |
+| N/A | [4034665] |Totalisering van de niet-beveiliging augustus |5.11 |8 augustus 2017 |
+| N/A | [4034681] |Totalisering van de niet-beveiliging augustus |4.46 |8 augustus 2017 |
 
 ## <a name="august-guest-os"></a>Het Gastbesturingssysteem augustus
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -85,10 +98,10 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-07 | [4025343] |Windows-beveiliging |3.51 |11 juli 2017 |
 | Rel 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |11 juli 2017 |
 | Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 juli 2017 |
-| N.v.t. | [4020322] |Update van de tijdzone |2.64, 3.51, 4.44 |11 juli 2017 |
-| N.v.t. | [4022719] |Totalisering van de niet-beveiliging juni |2.64 |13 juni 2017 |
-| N.v.t. | [4022724] |Totalisering van de niet-beveiliging juni |3.51 |13 juni 2017 |
-| N.v.t. | [4022726] |Totalisering van de niet-beveiliging juni |4.44 |13 juni 2017 |
+| N/A | [4020322] |Update van de tijdzone |2.64, 3.51, 4.44 |11 juli 2017 |
+| N/A | [4022719] |Totalisering van de niet-beveiliging juni |2.64 |13 juni 2017 |
+| N/A | [4022724] |Totalisering van de niet-beveiliging juni |3.51 |13 juni 2017 |
+| N/A | [4022726] |Totalisering van de niet-beveiliging juni |4.44 |13 juni 2017 |
 
 ## <a name="june-guest-os"></a>Juni gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -101,22 +114,22 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-06 | [4022719], [4022724], [4022726] |Maandelijkse samentellingen Windows |2.63, 3.50, 4.43 |13 juni 2017 |
 | Rel 17-06 | [4022730] |Beveiligingsupdate voor Adobe Flash Player |3.50, 4.43, 5.8 |13 juni 2017 |
 | Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Nieuwe versie van CVE-2017-0167 |4.43, 5.8 |11 april 2017 |
-| N.v.t. | [4023136] |Update van de tijdzone  |2.63, 3.50, 4.43 |13 juni 2017 |
-| N.v.t. | [4019264] |Kan niet voor beveiliging updatepakket |2.63 |13 juni 2017 |
-| N.v.t. | [4014545] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |11 april 2017 |
-| N.v.t. | [4014508] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |9 mei 2017 |
-| N.v.t. | [4014511] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |9 mei 2017 |
-| N.v.t. | [4014514] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |9 mei 2017 |
-| N.v.t. | [4019216] |Kan niet voor beveiliging updatepakket |3.50 |9 mei 2017 |
-| N.v.t. | [4014503] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
-| N.v.t. | [4014506] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
-| N.v.t. | [4014509] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
-| N.v.t. | [4014513] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
-| N.v.t. | [4019215] |Kan niet voor beveiliging updatepakket |4.43 |9 mei 2017 |
-| N.v.t. | [4014505] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
-| N.v.t. | [4014507] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
-| N.v.t. | [4014510] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
-| N.v.t. | [4014512] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
+| N/A | [4023136] |Update van de tijdzone  |2.63, 3.50, 4.43 |13 juni 2017 |
+| N/A | [4019264] |Kan niet voor beveiliging updatepakket |2.63 |13 juni 2017 |
+| N/A | [4014545] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |11 april 2017 |
+| N/A | [4014508] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |9 mei 2017 |
+| N/A | [4014511] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |9 mei 2017 |
+| N/A | [4014514] |Totalisering van de niet-beveiliging .NET mogelijk |2.63 |9 mei 2017 |
+| N/A | [4019216] |Kan niet voor beveiliging updatepakket |3.50 |9 mei 2017 |
+| N/A | [4014503] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
+| N/A | [4014506] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
+| N/A | [4014509] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
+| N/A | [4014513] |Totalisering van de niet-beveiliging .NET mogelijk |3.50 |9 mei 2017 |
+| N/A | [4019215] |Kan niet voor beveiliging updatepakket |4.43 |9 mei 2017 |
+| N/A | [4014505] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
+| N/A | [4014507] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
+| N/A | [4014510] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
+| N/A | [4014512] |Totalisering van de niet-beveiliging .NET mogelijk |4.43 |9 mei 2017 |
 
 ## <a name="may-guest-os"></a>Kan Gast OS
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -130,21 +143,21 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-05 | [4022344] |Microsoft-beveiligingsadvies |5.7 | 9 mei 2017 |
 | Rel 17-05 | [4022345] |Microsoft-beveiligingsadvies |5.7 | 9 mei 2017 |
 | Rel 17-05 | [4021279] |.NET /ASP.Net core advies |2.62, 3.49, 4.42, 5.7 | 9 mei 2017 |
-| N.v.t. | [4012864] |Update van de tijdzone |2.62, 3.49, 4.42 | 9 mei 2017 |
-| N.v.t. | [4014565] |Totalisering van de niet-beveiliging april .NET |2.62 | 11 april 2017 |
-| N.v.t. | [4014559] |Totalisering van de niet-beveiliging april .NET |2.62 | 11 april 2017 |
-| N.v.t. | [4015549] |April niet - Totalisering van de beveiliging |2.62 | 11 april 2017 |
-| N.v.t. | [4019990] |Update van D3DCompiler - vereiste voor .NET 4.7 |3.49 | 9 mei 2017 |
-| N.v.t. | [4014563] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
-| N.v.t. | [4014557] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
-| N.v.t. | [4014545] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
-| N.v.t. | [4014548] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
-| N.v.t. | [4015551] |Totalisering van de niet-beveiliging april |3.49 | 11 april 2017 |
-| N.v.t. | [3173424] |Onderhoud van Stack-Update  |4.42 | 12 juli 2016 |
-| N.v.t. | [4014555] |Totalisering van de niet-beveiliging april .NET  |4.42 | 11 april 2017 |
-| N.v.t. | [4014567] |Totalisering van de niet-beveiliging april .NET |4.42 | 11 april 2017 |
-| N.v.t. | [4015550] |Totalisering van de niet-beveiliging april |4.42 | 11 april 2017 |
-| N.v.t. | [4013418] |Onderhoud van Stack-Update |5.7 | 14 maart 2017 |
+| N/A | [4012864] |Update van de tijdzone |2.62, 3.49, 4.42 | 9 mei 2017 |
+| N/A | [4014565] |Totalisering van de niet-beveiliging april .NET |2.62 | 11 april 2017 |
+| N/A | [4014559] |Totalisering van de niet-beveiliging april .NET |2.62 | 11 april 2017 |
+| N/A | [4015549] |April niet - Totalisering van de beveiliging |2.62 | 11 april 2017 |
+| N/A | [4019990] |Update van D3DCompiler - vereiste voor .NET 4.7 |3.49 | 9 mei 2017 |
+| N/A | [4014563] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
+| N/A | [4014557] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
+| N/A | [4014545] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
+| N/A | [4014548] |Totalisering van de niet-beveiliging april .NET |3.49 | 11 april 2017 |
+| N/A | [4015551] |Totalisering van de niet-beveiliging april |3.49 | 11 april 2017 |
+| N/A | [3173424] |Onderhoud van Stack-Update  |4.42 | 12 juli 2016 |
+| N/A | [4014555] |Totalisering van de niet-beveiliging april .NET  |4.42 | 11 april 2017 |
+| N/A | [4014567] |Totalisering van de niet-beveiliging april .NET |4.42 | 11 april 2017 |
+| N/A | [4015550] |Totalisering van de niet-beveiliging april |4.42 | 11 april 2017 |
+| N/A | [4013418] |Onderhoud van Stack-Update |5.7 | 14 maart 2017 |
 
 ## <a name="april-guest-os"></a>April gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -174,11 +187,11 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-03 |  [4012213] |Maart 2017 beveiliging alleen kwaliteit Update voor Windows 8.1 en WindowsServer 2012 R2 |4.40 |14 maart 2017 |
 | Rel 17-03 |  [4012214] |Update van maart 2017 beveiliging alleen kwaliteit voor WindowsServer 2012|3.47 |14 maart 2017 |
 | Rel 17-03 |  [4012204] |Beveiligingsupdate voor Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 maart 2017 |
-| N.v.t. |  [4012864] |Wijzigingen in Windows voor Noord Cypress, Mongolië en Russische Saratov regio Zomertijd |2.60, 3.47, 4.40 |14 maart 2017 |
-| N.v.t. |  [3212646] |Januari 2017 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.60 |14 maart 2017 |
-| N.v.t. |  [3205409] |December 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor WindowsServer 2012 |3.47 |14 maart 2017 |
-| N.v.t. |  [3205401] |December 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 8.1 en Windows Server 2012 R2 |4.40 |14 maart 2017 |
-| N.v.t. |  [3211320] |Update voor Windows 10 versie 1607 en Windows Server 2016 onderhoud stack: 24 januari 2017 |5.5 |14 maart 2017 |
+| N/A |  [4012864] |Wijzigingen in Windows voor Noord Cypress, Mongolië en Russische Saratov regio Zomertijd |2.60, 3.47, 4.40 |14 maart 2017 |
+| N/A |  [3212646] |Januari 2017 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.60 |14 maart 2017 |
+| N/A |  [3205409] |December 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor WindowsServer 2012 |3.47 |14 maart 2017 |
+| N/A |  [3205401] |December 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 8.1 en Windows Server 2012 R2 |4.40 |14 maart 2017 |
+| N/A |  [3211320] |Update voor Windows 10 versie 1607 en Windows Server 2016 onderhoud stack: 24 januari 2017 |5.5 |14 maart 2017 |
 
 ## <a name="january-guest-os"></a>Het Gastbesturingssysteem januari
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -198,9 +211,9 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 152 |[3199709]   |Beveiligingsupdate voor Windows-Kernel |5.4 |December 13 mei 2016 |
 | MS16 153 |[3207328] |Beveiligingsupdate voor algemene Log File systeemstuurprogramma|2.58, 3.46, 4.39, 5.4 |December 13 mei 2016 |
 | MS16 155 |[3205640]   |Beveiligingsupdate voor .NET Framework |5.4 |December 13 mei 2016 |
-| N.v.t. |[3197868] |November 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.58 |December 13 mei 2016 |
-| N.v.t. |[3197877] |November 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor WindowsServer 2012 |3.46 |December 13 mei 2016 |
-| N.v.t. |[3197874] |November 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 8.1 en Windows Server 2012 R2 |4.39 |December 13 mei 2016 |
+| N/A |[3197868] |November 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.58 |December 13 mei 2016 |
+| N/A |[3197877] |November 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor WindowsServer 2012 |3.46 |December 13 mei 2016 |
+| N/A |[3197874] |November 2016 maandelijkse kwaliteit Totalisering van de beveiliging voor Windows 8.1 en Windows Server 2012 R2 |4.39 |December 13 mei 2016 |
 
 ## <a name="november-guest-os"></a>November Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -216,16 +229,16 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 139 |[3199720] |Beveiligingsupdate voor Windows-Kernel |2.57 |November 8.2016 |
 | MS16 140 |[3193479] |Beveiligingsupdate voor opstartbeheer |5.3, 4.38, 3.45 |8 november 2016 |
 | MS16 142 |[3198467] |Cumulatieve beveiligingsupdate voor Internet Explorer |2.57, 4.38, 5.3 |8 november 2016 |
-| N.v.t. |[3192321] |Turkije eindigt Zomertijd naleving |5.3, 4.38, 3.45, 2.57 |8 november 2016 |
-| N.v.t. |[3185330] |Oktober 2016 maandelijkse kwaliteit totalisering van de beveiliging voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.57 |8 november 2016 |
-| N.v.t. |[3192403] |Oktober 2016 Preview van maandelijkse kwaliteit updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.57 |8 november 2016 |
-| N.v.t. |[3177467] |Update voor Windows 7 SP1 en Windows Server 2008 R2 SP1 onderhoud stack: 20 September 2016 |2.57 |8 november 2016 |
-| N.v.t. |[3185332] |Oktober 2016 maandelijkse kwaliteit totalisering van de beveiliging voor Windows Server 2012 |3.45 |8 november 2016 |
-| N.v.t. |[3192406] |Voorbeeld van oktober 2016 van maandelijkse kwaliteit updatepakket voor WindowsServer 2012 |3.45 |8 november 2016 |
-| N.v.t. |[3185331] |Oktober 2016 maandelijkse kwaliteit totalisering van de beveiliging voor Windows 8.1 en Windows Server 2012 R2 |4.38 |8 november 2016 |
-| N.v.t. |[3192404] |Oktober 2016 Preview van maandelijkse kwaliteit updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.38 |8 november 2016 |
-| N.v.t. |[3199986] |Update voor Windows 10 versie 1607 onderhoud stack: 27 oktober 2016 |5.3 |8 november 2016 |
-| N.v.t. |[3197954] |Cumulatieve Update voor Windows 10 versie 1607 en WindowsServer 2016: 27 oktober 2016 |5.3 |8 november 2016 |
+| N/A |[3192321] |Turkije eindigt Zomertijd naleving |5.3, 4.38, 3.45, 2.57 |8 november 2016 |
+| N/A |[3185330] |Oktober 2016 maandelijkse kwaliteit totalisering van de beveiliging voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.57 |8 november 2016 |
+| N/A |[3192403] |Oktober 2016 Preview van maandelijkse kwaliteit updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.57 |8 november 2016 |
+| N/A |[3177467] |Update voor Windows 7 SP1 en Windows Server 2008 R2 SP1 onderhoud stack: 20 September 2016 |2.57 |8 november 2016 |
+| N/A |[3185332] |Oktober 2016 maandelijkse kwaliteit totalisering van de beveiliging voor Windows Server 2012 |3.45 |8 november 2016 |
+| N/A |[3192406] |Voorbeeld van oktober 2016 van maandelijkse kwaliteit updatepakket voor WindowsServer 2012 |3.45 |8 november 2016 |
+| N/A |[3185331] |Oktober 2016 maandelijkse kwaliteit totalisering van de beveiliging voor Windows 8.1 en Windows Server 2012 R2 |4.38 |8 november 2016 |
+| N/A |[3192404] |Oktober 2016 Preview van maandelijkse kwaliteit updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.38 |8 november 2016 |
+| N/A |[3199986] |Update voor Windows 10 versie 1607 onderhoud stack: 27 oktober 2016 |5.3 |8 november 2016 |
+| N/A |[3197954] |Cumulatieve Update voor Windows 10 versie 1607 en WindowsServer 2016: 27 oktober 2016 |5.3 |8 november 2016 |
 
 ## <a name="october-guest-os"></a>Oktober Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -236,11 +249,11 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 124 |[3193227] |Beveiligingsupdate voor Windows-register |4.37, 3.44, 2.56 |11 OCT 2016 |
 | MS16 126 |[3196067] |Beveiligingsupdate voor Microsoft Internet Messaging-API |2.56 |11 OCT 2016 |
 | MS16 101 |[3178465] |Beveiligingsupdate voor Windows-verificatiemethoden |4.37, 3.44, 2.56 |11 OCT 2016 |
-| N.v.t. |[3182203] |September 2016 tijdzone wijzigen voor Novosibirsk |4.37, 3.44, 2.56 |11 OCT 2016 |
-| N.v.t. |[3185278] |September 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.56 |11 OCT 2016 |
-| N.v.t. |[3185280] |September 2016 updatepakket voor Windows Server 2012 |3.44 |11 OCT 2016 |
-| N.v.t. |[3185279] |September 2016 updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.37 |11 OCT 2016 |
-| N.v.t. |[3194798] |Cumulatieve update voor Windows 10 versie 1607 en Windows Server 2016 |5.2 |11 OCT 2016 |
+| N/A |[3182203] |September 2016 tijdzone wijzigen voor Novosibirsk |4.37, 3.44, 2.56 |11 OCT 2016 |
+| N/A |[3185278] |September 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.56 |11 OCT 2016 |
+| N/A |[3185280] |September 2016 updatepakket voor Windows Server 2012 |3.44 |11 OCT 2016 |
+| N/A |[3185279] |September 2016 updatepakket voor Windows 8.1 en Windows Server 2012 R2 |4.37 |11 OCT 2016 |
+| N/A |[3194798] |Cumulatieve update voor Windows 10 versie 1607 en Windows Server 2016 |5.2 |11 OCT 2016 |
 
 ## <a name="september-guest-os"></a>September Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -253,11 +266,11 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 114 |[3185879] |Beveiligingsupdate voor SMB-Server voor Windows |4.36, 3.43, 2.55 |13 september 2016 |
 | MS16 115 |[3188733] |Beveiligingsupdate voor PDF |4.35, 3.43 |13 september 2016 |
 | MS16 116 |[3188724] |Beveiligingsupdate in OLE-automatisering voor VBScript scriptengine |4.36, 3.43, 2.55 |13 september 2016 |
-| N.v.t. |[3174644] |Bijgewerkte ondersteuning voor Diffie-Hellman-Sleutelwissel |4.36, 3.43, 2.55 |13 september 2016 |
-| N.v.t. |[3177723] |Update van de tijdzone - Egypte Zomertijd wordt geannuleerd |4.36, 3.43, 2.55 |13 september 2016 |
-| N.v.t. |[3179573] |Augustus 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.55 |13 september 2016 |
-| N.v.t. |[3179575] |Augustus 2016 updatepakket voor Windows Server 2012 |3.43 |13 september 2016 |
-| N.v.t. |[3179574] |Augustus 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.36 |13 september 2016 |
+| N/A |[3174644] |Bijgewerkte ondersteuning voor Diffie-Hellman-Sleutelwissel |4.36, 3.43, 2.55 |13 september 2016 |
+| N/A |[3177723] |Update van de tijdzone - Egypte Zomertijd wordt geannuleerd |4.36, 3.43, 2.55 |13 september 2016 |
+| N/A |[3179573] |Augustus 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.55 |13 september 2016 |
+| N/A |[3179575] |Augustus 2016 updatepakket voor Windows Server 2012 |3.43 |13 september 2016 |
+| N/A |[3179574] |Augustus 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.36 |13 september 2016 |
 
 ## <a name="august-guest-os"></a>Het Gastbesturingssysteem augustus
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -269,9 +282,9 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 101 |[3178465] |Beveiligingsupdate voor Windows-verificatiemethoden |4.35, 3.42, 2.54 |9 augustus 2016 |
 | MS16 102 |[3182248] |Beveiligingsupdate voor Microsoft Windows PDF-bibliotheek |4.35, 3.42 |9 augustus 2016 |
 | MS16 077 opnieuw vrijgeven |[3165191] |Beveiligingsupdate voor Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |9 augustus 2016 |
-| N.v.t. |[3172605] |Juli 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.54 |9 augustus 2016 |
-| N.v.t. |[3172615] |Juli 2016 updatepakket voor Windows Server 2012 |3.42 |9 augustus 2016 |
-| N.v.t. |[3172614] |Juli 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.35 |9 augustus 2016 |
+| N/A |[3172605] |Juli 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.54 |9 augustus 2016 |
+| N/A |[3172615] |Juli 2016 updatepakket voor Windows Server 2012 |3.42 |9 augustus 2016 |
+| N/A |[3172614] |Juli 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.35 |9 augustus 2016 |
 
 ## <a name="july-guest-os"></a>Het Gastbesturingssysteem juli
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -282,12 +295,12 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 091 |[3170048] |Beveiligingsupdate voor .NET Framework |4.34, 3.41, 2.53 |12 juli 2016 |
 | MS16 092 |[3171910] |Beveiligingsupdate voor Windows-Kernel |4.34, 3.41 |12 juli 2016 |
 | MS16 094 |[3177404] |Beveiligingsupdate voor beveiligd opstarten |4.34, 3.41 |12 juli 2016 |
-| N.v.t. |[3162835] |Juni 2016 Zomertijd en tijdzone update voor Windows |4.34, 3.41, 2.53 |12 juli 2016 |
-| N.v.t. |[3156417] |Mei 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.53 |12 juli 2016 |
-| N.v.t. |[3161608] |Juni 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.53 |12 juli 2016 |
-| N.v.t. |[3161609] |Juni 2016 updatepakket voor Windows Server 2012 |3.41 |12 juli 2016 |
-| N.v.t. |[3161606] |Juni 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.34 |12 juli 2016 |
-| N.v.t. |[3139923] |Herstellen van Windows installer (MSI) werkt niet als MSI-pakket is geïnstalleerd op een HTTP delen in Windows |4.34 |12 juli 2016 |
+| N/A |[3162835] |Juni 2016 Zomertijd en tijdzone update voor Windows |4.34, 3.41, 2.53 |12 juli 2016 |
+| N/A |[3156417] |Mei 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.53 |12 juli 2016 |
+| N/A |[3161608] |Juni 2016 updatepakket voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.53 |12 juli 2016 |
+| N/A |[3161609] |Juni 2016 updatepakket voor Windows Server 2012 |3.41 |12 juli 2016 |
+| N/A |[3161606] |Juni 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.34 |12 juli 2016 |
+| N/A |[3139923] |Herstellen van Windows installer (MSI) werkt niet als MSI-pakket is geïnstalleerd op een HTTP delen in Windows |4.34 |12 juli 2016 |
 
 ## <a name="june-guest-os"></a>Juni gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -305,16 +318,16 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 077 |[3165191] |Beveiligingsupdate voor WPAD |4.33, 3.40, 2.52 |14 juni 2016 |
 | MS16 080 |[3164302] |Beveiligingsupdate voor Microsoft Windows PDF |4.33, 3.40 |14 juni 2016 |
 | MS16 081 |[3160352] |Beveiligingsupdate voor Active Directory |4.33, 3.40, 2.52 |14 juni 2016 |
-| N.v.t. |[2922223] |U kunt systeemtijd niet wijzigen als de registervermelding RealTimeIsUniversal is ingeschakeld in Windows |2.52 |14 juni 2016 |
-| N.v.t. |[3121255] |stop-fout '0x00000024' in bestand FsRtlNotifyFilterReportChange en kopieer mislukken in Windows |2.52 |14 juni 2016 |
-| N.v.t. |[3125424] |LSASS impassen ervoor zorgen dat Windows Server 2012 R2 of Windows Server 2012 niet om te reageren |4.33, 3.40 |14 juni 2016 |
-| N.v.t. |[3125574] |Gemak rollup update voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.52 |14 juni 2016 |
-| N.v.t. |[3140245] |Update van TLS 1.1 en TLS 1.2 inschakelen als een beveiligde standaardprotocollen in WinHTTP in Windows |3.40, 2.52 |14 juni 2016 |
-| N.v.t. |[3146604] |WMI-service is vastgelopen willekeurig in Windows Server 2012 R2 of Windows Server 2012 |4.33, 3.40 |14 juni 2016 |
-| N.v.t. |[3149157] |Betrouwbaarheid en -schaalbaarheid verbeteringen in de TCP/IP voor Windows 8.1 en Windows Server 2012 R2 |4.33 |14 juni 2016 |
-| N.v.t. |[3156416] |Mei 2016 updatepakket voor Windows Server 2012 |3.40 |14 juni 2016 |
-| N.v.t. |[3156418] |Mei 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.33 |14 juni 2016 |
-| N.v.t. |[3153731] |Update van mei 2016 Zomertijd voor Azerbeidzjan, onderliggende Haïti en Marokko in Windows |4.33, 3.40, 2.52 |14 juni 2016 |
+| N/A |[2922223] |U kunt systeemtijd niet wijzigen als de registervermelding RealTimeIsUniversal is ingeschakeld in Windows |2.52 |14 juni 2016 |
+| N/A |[3121255] |stop-fout '0x00000024' in bestand FsRtlNotifyFilterReportChange en kopieer mislukken in Windows |2.52 |14 juni 2016 |
+| N/A |[3125424] |LSASS impassen ervoor zorgen dat Windows Server 2012 R2 of Windows Server 2012 niet om te reageren |4.33, 3.40 |14 juni 2016 |
+| N/A |[3125574] |Gemak rollup update voor Windows 7 SP1 en Windows Server 2008 R2 SP1 |2.52 |14 juni 2016 |
+| N/A |[3140245] |Update van TLS 1.1 en TLS 1.2 inschakelen als een beveiligde standaardprotocollen in WinHTTP in Windows |3.40, 2.52 |14 juni 2016 |
+| N/A |[3146604] |WMI-service is vastgelopen willekeurig in Windows Server 2012 R2 of Windows Server 2012 |4.33, 3.40 |14 juni 2016 |
+| N/A |[3149157] |Betrouwbaarheid en -schaalbaarheid verbeteringen in de TCP/IP voor Windows 8.1 en Windows Server 2012 R2 |4.33 |14 juni 2016 |
+| N/A |[3156416] |Mei 2016 updatepakket voor Windows Server 2012 |3.40 |14 juni 2016 |
+| N/A |[3156418] |Mei 2016 updatepakket voor Windows RT 8.1, Windows 8.1 en Windows Server 2012 R2 |4.33 |14 juni 2016 |
+| N/A |[3153731] |Update van mei 2016 Zomertijd voor Azerbeidzjan, onderliggende Haïti en Marokko in Windows |4.33, 3.40, 2.52 |14 juni 2016 |
 
 ## <a name="may-guest-os"></a>Kan Gast OS
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -328,11 +341,11 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16 062 |[3158222] |Beveiligingsupdate voor stuurprogramma's voor kernelmodus |4.32, 3.39, 2.51 |10 mei 2016 |
 | MS16 065 |[3156757] |Beveiligingsupdate voor .net Framework |4.32, 3.39, 2.51 |10 mei 2016 |
 | MS16 067 |[3155784] |Beveiligingsupdate voor het stuurprogramma voor volumebeheer |4.32, 3.39 |10 mei 2016 |
-| N.v.t. |[3148851] |Tijdzonewijzigingen voor Rusland in Windows  |4.32, 3.39, 2.51 |10 mei 2016 |
-| N.v.t. |[3133977] |BitLocker kan stations niet versleutelen vanwege service crashes in proces van svchost.exe in Windows 7 of Windows Server 2008 R2  |2.51 |10 mei 2016 |
-| N.v.t. |[3133681] |Virtuele machines reageren niet op uw bewerking in SCVMM in Windows Server 2012 R2  |4.32 |10 mei 2016 |
-| N.v.t. |[3123245] |Update verbetert poort uitputting van de identificatie in Windows Server 2012 R2  |4.32 |10 mei 2016 |
-| N.v.t. |[RC4 uitschakelen] | Microsoft-beveiligingsadvies: voor het uitschakelen van RC4 bijwerken  |4.32, 3.39, 2.51 |10 mei 2016 |
+| N/A |[3148851] |Tijdzonewijzigingen voor Rusland in Windows  |4.32, 3.39, 2.51 |10 mei 2016 |
+| N/A |[3133977] |BitLocker kan stations niet versleutelen vanwege service crashes in proces van svchost.exe in Windows 7 of Windows Server 2008 R2  |2.51 |10 mei 2016 |
+| N/A |[3133681] |Virtuele machines reageren niet op uw bewerking in SCVMM in Windows Server 2012 R2  |4.32 |10 mei 2016 |
+| N/A |[3123245] |Update verbetert poort uitputting van de identificatie in Windows Server 2012 R2  |4.32 |10 mei 2016 |
+| N/A |[RC4 uitschakelen] | Microsoft-beveiligingsadvies: voor het uitschakelen van RC4 bijwerken  |4.32, 3.39, 2.51 |10 mei 2016 |
 
 ## <a name="april-guest-os"></a>April gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -503,17 +516,17 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 ## <a name="march-guest-os"></a>Gastbesturingssysteem maart
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| MS15 018 |[3032359] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 019 |[3040297] |Beveiligingsprobleem in VBScript scriptengine kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N.v.t. |
-| MS15-020 |[3041836] |Beveiligingsproblemen in Windows kunnen externe Code worden uitgevoerd |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 021 |[3032323] |Beveiligingsproblemen Adobe lettertype stuurprogramma kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 023 |[3034344] |Beveiligingsproblemen in stuurprogramma voor de kernelmodus kunnen leiden tot uitbreiding van bevoegdheden |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 024 |[3035132] |Beveiligingslek in PNG-verwerking kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 025 |[3038680] |Beveiligingsproblemen in Windows-Kernel kunnen leiden tot misbruik van bevoegdheden |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 027 |[3002657] |Beveiligingslek in NETLOGON kan leiden adresvervalsing (spoofing) |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 028 |[3030377] |Beveiligingslek in Windows Taakplanner kan leiden beveiliging functie overslaan |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 029 |[3035126] |Beveiligingslek in Windows Photo Decoder onderdeel kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N.v.t. |
-| MS15 030 |[3039976] |Beveiligingslek in Remote Desktop Protocol kan denial of Service |4.18, 3.25, 2.37 |N.v.t. |
+| MS15 018 |[3032359] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.18, 3.25, 2.37 |N/A |
+| MS15 019 |[3040297] |Beveiligingsprobleem in VBScript scriptengine kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N/A |
+| MS15-020 |[3041836] |Beveiligingsproblemen in Windows kunnen externe Code worden uitgevoerd |4.18, 3.25, 2.37 |N/A |
+| MS15 021 |[3032323] |Beveiligingsproblemen Adobe lettertype stuurprogramma kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N/A |
+| MS15 023 |[3034344] |Beveiligingsproblemen in stuurprogramma voor de kernelmodus kunnen leiden tot uitbreiding van bevoegdheden |4.18, 3.25, 2.37 |N/A |
+| MS15 024 |[3035132] |Beveiligingslek in PNG-verwerking kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N/A |
+| MS15 025 |[3038680] |Beveiligingsproblemen in Windows-Kernel kunnen leiden tot misbruik van bevoegdheden |4.18, 3.25, 2.37 |N/A |
+| MS15 027 |[3002657] |Beveiligingslek in NETLOGON kan leiden adresvervalsing (spoofing) |4.18, 3.25, 2.37 |N/A |
+| MS15 028 |[3030377] |Beveiligingslek in Windows Taakplanner kan leiden beveiliging functie overslaan |4.18, 3.25, 2.37 |N/A |
+| MS15 029 |[3035126] |Beveiligingslek in Windows Photo Decoder onderdeel kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N/A |
+| MS15 030 |[3039976] |Beveiligingslek in Remote Desktop Protocol kan denial of Service |4.18, 3.25, 2.37 |N/A |
 
 > [!NOTE]
 > Beveiligingsbulletin MS15-031 lijkt niet geïnstalleerd. Dit geldt echter niet naar deze versie van het Gastbesturingssysteem.
@@ -523,13 +536,13 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 ## <a name="february-guest-os"></a>Februari Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| MS15 009 |[3034682] |Beveiligingsupdate voor Internet Explorer |4.17, 3.24, 2.36 |N.v.t. |
-| MS15 010 |[3036220] |Beveiligingsproblemen in Windows Kernel-modus stuurprogramma's kunnen externe Code worden uitgevoerd |4.17, 3.24, 2.36 |N.v.t. |
-| MS15-011 |[3000483] |Beveiligingsprobleem in Groepsbeleid kan de uitvoering van externe Code |4.17, 3.24, 2.36 |N.v.t. |
-| MS15 014 |[3004361] |Beveiligingslek in SMB kan leiden beveiliging functie overslaan |4.17, 3.24, 2.36 |N.v.t. |
-| MS15 015 |[3031432] |Beveiligingslek in Microsoft Windows kan leiden tot uitbreiding van bevoegdheden |4.17, 3.24, 2.36 |N.v.t. |
-| MS15 016 |[3029944] |Beveiligingslek in Microsoft grafische onderdeel kan leiden tot vrijgeven van informatie |4.17, 3.24, 2.36 |N.v.t. |
-| N.v.t. |[3004375] |Update van Windows te verbeteren Command Line-controle<p/>**Opmerking**: dit is geïnstalleerd, maar de registersleutel in te schakelen is uitgeschakeld |4.17, 3.24, 2.36 |N.v.t. |
+| MS15 009 |[3034682] |Beveiligingsupdate voor Internet Explorer |4.17, 3.24, 2.36 |N/A |
+| MS15 010 |[3036220] |Beveiligingsproblemen in Windows Kernel-modus stuurprogramma's kunnen externe Code worden uitgevoerd |4.17, 3.24, 2.36 |N/A |
+| MS15-011 |[3000483] |Beveiligingsprobleem in Groepsbeleid kan de uitvoering van externe Code |4.17, 3.24, 2.36 |N/A |
+| MS15 014 |[3004361] |Beveiligingslek in SMB kan leiden beveiliging functie overslaan |4.17, 3.24, 2.36 |N/A |
+| MS15 015 |[3031432] |Beveiligingslek in Microsoft Windows kan leiden tot uitbreiding van bevoegdheden |4.17, 3.24, 2.36 |N/A |
+| MS15 016 |[3029944] |Beveiligingslek in Microsoft grafische onderdeel kan leiden tot vrijgeven van informatie |4.17, 3.24, 2.36 |N/A |
+| N/A |[3004375] |Update van Windows te verbeteren Command Line-controle<p/>**Opmerking**: dit is geïnstalleerd, maar de registersleutel in te schakelen is uitgeschakeld |4.17, 3.24, 2.36 |N/A |
 
 ## <a name="january-guest-os"></a>Het Gastbesturingssysteem januari
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -550,17 +563,30 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 ## <a name="december-guest-os"></a>December Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| N.v.t. |[3013776] |Systeem loopt vast als u een domeinaccount gebruiken om een toepassing te starten |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[3013043] |Systeem-bestandsgegevens is op een Windows-computer met meer dan één NUMA-knooppunt beschadigd |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[3012712] |Nieuwe gegevensblokken initialiseren onjuist wanneer een differentiërende VHD is uitgebreid. |4.15, 3.22, 2.34 |Jan 13 201 |
-| N.v.t. |[3004905] |Verbetering van de Windows Hyper-V voor virtuele Linux-machines waarvoor bestandssystemen die groter dan 2 TB zijn |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[3004394] |Update van december 2014 voor Windows Root Certificate Program in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[2999323] |De tekst voor gebeurtenis-ID 17 is gewijzigd |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[3013488] |Lange wachttijd voor het opnieuw instellen van WSUS-server bij het importeren van CSA bestanden in Windows Server 2012 R2 of Windows Server 2012 |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[3012325] |Windows APN-databasegegevens bijwerken voor DIGI Vodafone en Telekom slaagde erin mobiele operators in Windows 8.1 en Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[3007054] |Pincode afdrukken optie altijd ziet wanneer u een document binnen een Windows Store-toepassing in Windows afdrukken |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[2999802] |Ononderbroken lijnen in plaats van stippellijn worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| N.v.t. |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3013776] |Systeem loopt vast als u een domeinaccount gebruiken om een toepassing te starten |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3013043] |Systeem-bestandsgegevens is op een Windows-computer met meer dan één NUMA-knooppunt beschadigd |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3012712] |Nieuwe gegevensblokken initialiseren onjuist wanneer een differentiërende VHD is uitgebreid. |4.15, 3.22, 2.34 |Jan 13 201 |
+| N/A |[3004905] |Verbetering van de Windows Hyper-V voor virtuele Linux-machines waarvoor bestandssystemen die groter dan 2 TB zijn |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3004394] |Update van december 2014 voor Windows Root Certificate Program in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2999323] |De tekst voor gebeurtenis-ID 17 is gewijzigd |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3013488] |Lange wachttijd voor het opnieuw instellen van WSUS-server bij het importeren van CSA bestanden in Windows Server 2012 R2 of Windows Server 2012 |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3012325] |Windows APN-databasegegevens bijwerken voor DIGI Vodafone en Telekom slaagde erin mobiele operators in Windows 8.1 en Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[3007054] |Pincode afdrukken optie altijd ziet wanneer u een document binnen een Windows Store-toepassing in Windows afdrukken |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2999802] |Ononderbroken lijnen in plaats van stippellijn worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| N/A |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 
@@ -571,6 +597,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 [4041681]: http://support.microsoft.com/kb/4041681
 [4041693]: http://support.microsoft.com/kb/4041693
 [4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
 [3191565]: http://support.microsoft.com/kb/3191565
 [3191564]: http://support.microsoft.com/kb/3191564
 

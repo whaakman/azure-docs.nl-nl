@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uw toepassingsgegevens maximaal beschikbaar is met de Azure-opslag maken
 
-Deze zelfstudie maakt deel uit een reeks. Deze zelfstudie laat zien hoe uw toepassingsgegevens maximaal beschikbaar maken in Azure. Wanneer u klaar bent, hebt u een .NET core consoletoepassing die uploadt en haalt een blob naar een [leestoegang geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount (RA-GRS). RA-GRS werkt met het repliceren van transacties van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent is. De toepassing gebruikt de [Circuitonderbreker](/azure/architecture/patterns/circuit-breaker.md) patroon om te bepalen welk eindpunt verbinding maken met. De toepassing wordt overgeschakeld naar de secundaire eindpunt wanneer er een fout wordt gesimuleerd.
+Deze zelfstudie maakt deel uit een reeks. Deze zelfstudie laat zien hoe uw toepassingsgegevens maximaal beschikbaar maken in Azure. Wanneer u klaar bent, hebt u een .NET core consoletoepassing die uploadt en haalt een blob naar een [leestoegang geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount (RA-GRS). RA-GRS werkt met het repliceren van transacties van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent is. De toepassing gebruikt de [Circuitonderbreker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) patroon om te bepalen welk eindpunt verbinding maken met. De toepassing wordt overgeschakeld naar de secundaire eindpunt wanneer er een fout wordt gesimuleerd.
 
 Deel een van de reeks, leert u hoe:
 
@@ -109,11 +109,11 @@ Een consolevenster wordt gestart en de toepassing wordt gestart met. De toepassi
 
 ![Console-app die wordt uitgevoerd](media/storage-create-geo-redundant-storage/figure3.png)
 
-In de voorbeeldcode de `RunCircuitBreakerAsync` taak de `Program.cs` bestand wordt gebruikt om een installatiekopie te downloaden vanuit de storage-account met de [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) methode. Vóór het downloaden van een [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is gedefinieerd. De bewerking context definieert die worden geactiveerd wanneer het downloaden is voltooid of als een download mislukt en gebeurtenis-handlers opnieuw uit te voeren.
+In de voorbeeldcode de `RunCircuitBreakerAsync` taak de `Program.cs` bestand wordt gebruikt om een installatiekopie te downloaden vanuit de storage-account met de [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) methode. Vóór het downloaden van een [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is gedefinieerd. De bewerking context definieert die worden geactiveerd wanneer het downloaden is voltooid of als een download mislukt en gebeurtenis-handlers opnieuw uit te voeren.
 
 ### <a name="retry-event-handler"></a>Probeer de gebeurtenis-handler
 
-De `OperationContextRetrying` gebeurtenis-handler wordt aangeroepen wanneer het downloaden van de afbeelding is mislukt en is ingesteld om opnieuw te proberen. Als het maximum aantal nieuwe pogingen, die zijn gedefinieerd in de toepassing zijn bereikt, de [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) van de aanvraag wordt gewijzigd naar `SecondaryOnly`. Deze instelling zorgt ervoor dat de toepassing probeert te downloaden van de installatiekopie van het secundaire eindpunt. Deze configuratie vermindert de tijd om aan te vragen van de afbeelding als het primaire eindpunt is niet voor onbepaalde tijd opnieuw.
+De `OperationContextRetrying` gebeurtenis-handler wordt aangeroepen wanneer het downloaden van de afbeelding is mislukt en is ingesteld om opnieuw te proberen. Als het maximum aantal nieuwe pogingen, die zijn gedefinieerd in de toepassing zijn bereikt, de [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) van de aanvraag wordt gewijzigd naar `SecondaryOnly`. Deze instelling zorgt ervoor dat de toepassing probeert te downloaden van de installatiekopie van het secundaire eindpunt. Deze configuratie vermindert de tijd om aan te vragen van de afbeelding als het primaire eindpunt is niet voor onbepaalde tijd opnieuw.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Gebeurtenis-handler van aanvraag is voltooid
 
-De `OperationContextRequestCompleted` gebeurtenis-handler wordt aangeroepen wanneer het downloaden van de afbeelding geslaagd is. Als de toepassing van het secundaire eindpunt gebruikmaakt, blijft de toepassing dit eindpunt maximaal 20 keer gebruiken. Na 20 keer de toepassing sets de [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) terug naar `PrimaryThenSecondary` en probeert u het primaire eindpunt opnieuw. Als een aanvraag voltooid is, blijft de toepassing te lezen van het primaire eindpunt.
+De `OperationContextRequestCompleted` gebeurtenis-handler wordt aangeroepen wanneer het downloaden van de afbeelding geslaagd is. Als de toepassing van het secundaire eindpunt gebruikmaakt, blijft de toepassing dit eindpunt maximaal 20 keer gebruiken. Na 20 keer de toepassing sets de [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) terug naar `PrimaryThenSecondary` en probeert u het primaire eindpunt opnieuw. Als een aanvraag voltooid is, blijft de toepassing te lezen van het primaire eindpunt.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

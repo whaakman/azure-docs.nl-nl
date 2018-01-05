@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/20/2017
 ms.author: jimdial
-ms.openlocfilehash: c1a86e6f235964b4019cedb13833d01f99a59997
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde toegang
 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het maken van virtuele Windows-machine (VM) met versn
 
 Alle netwerkverkeer naar en vanuit de virtuele machine moet zonder versnelde netwerken passeren de host en de virtuele switch. De virtuele switch biedt alle afdwingen van beleid, zoals netwerkbeveiligingsgroepen, access control list, isolatie- en andere gevirtualiseerd netwerkservices op netwerkverkeer. Lees voor meer informatie over virtuele switches, de [Hyper-V-netwerkvirtualisatie en virtuele switch](https://technet.microsoft.com/library/jj945275.aspx) artikel.
 
-Met versnelde netwerken netwerkverkeer binnenkomt bij de VM-netwerkadapter (NIC) en wordt vervolgens doorgestuurd naar de virtuele machine. Alle netwerkbeleid dat past u de virtuele switch zonder versnelde netwerken zijn offloaded en toegepast in de hardware. Toepassen van beleid in de hardware, kunt de NIC forward netwerkverkeer rechtstreeks naar de virtuele machine, het omzeilen van de host en de virtuele switch, terwijl alle het beleid dat wordt toegepast op de host.
+Met versnelde netwerken netwerkverkeer binnenkomt bij de VM-netwerkadapter (NIC) en wordt vervolgens doorgestuurd naar de virtuele machine. Alle netwerkbeleid dat de virtuele switch is van toepassing zijn nu offloaded en toegepast in de hardware. Toepassen van beleid in de hardware, kunt de NIC forward netwerkverkeer rechtstreeks naar de virtuele machine, het omzeilen van de host en de virtuele switch, terwijl alle het beleid dat wordt toegepast op de host.
 
 De voordelen van versnelde netwerken zijn alleen van toepassing op de virtuele machine die is ingeschakeld. Voor de beste resultaten is het ideaal voor het inschakelen van deze functie op ten minste twee virtuele machines die zijn verbonden met de dezelfde Azure Virtual Network (VNet). Tijdens de communicatie tussen VNets of verbindende on-premises, heeft dit onderdeel minimale gevolgen voor de algehele latentie.
 
@@ -37,14 +37,22 @@ De voordelen van versnelde netwerken zijn alleen van toepassing op de virtuele m
 * **Minder jitter:** virtuele switch verwerking is afhankelijk van de hoeveelheid beleid die moet worden toegepast en de werkbelasting van de CPU die bezig is met de verwerking. Offloading van het afdwingen van beleid op de hardware verwijdert die variabiliteit door het leveren van pakketten rechtstreeks naar de virtuele machine, het verwijderen van de host voor VM-communicatie en alle software-interrupts en context switches.
 * **CPU-gebruik verlaagd:** overslaan van de virtuele switch op de host leidt tot minder CPU-gebruik voor het verwerken van netwerkverkeer.
 
+## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
+Microsoft Windows Server 2012 R2 Datacenter en WindowsServer 2016.
+
+## <a name="supported-vm-instances"></a>Ondersteunde VM-exemplaren
+Versnelde netwerken wordt ondersteund op de meest algemene doeleinden en geoptimaliseerd voor compute exemplaar groottes met 4 of meer vcpu's. Op exemplaren zoals D/DSv3 of E/ESv3 die ondersteuning bieden voor hyperthreading wordt versnelde toegang ondersteund op VM-instanties met 8 vcpu's. Ondersteunde reeksen zijn: D/DSv2, D/DSv3 E/ESv3, Fs-F/Fsv2 en Ms-en Mms.
+
+Zie voor meer informatie over VM-instanties [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Regio's
+Beschikbaar in alle openbare Azure-regio's en Azure Government Cloud. 
+
 ## <a name="limitations"></a>Beperkingen
 De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
 
 * **Interface maken van een netwerk:** Accelerated netwerken kan alleen worden ingeschakeld voor een nieuwe NIC. Deze kan niet worden ingeschakeld voor een bestaande NIC.
 * **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine. Als de virtuele machine toe te voegen aan de bestaande beschikbaarheidsset is ingesteld, moeten alle virtuele machines in de beschikbaarheidsset ook versnelde netwerken ingeschakeld.
-* **Gebieden:** beschikbaar in de meeste Azure-regio's. 
-* **Ondersteunde besturingssystemen:** Microsoft Windows Server 2012 R2 Datacenter- en Windows Server 2016
-* **VM-grootte:** algemeen en de grootte van de compute-geoptimaliseerde exemplaar met acht of meer cores. Zie voor meer informatie [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Implementatie via Azure Resource Manager alleen:** virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde toegang.
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken

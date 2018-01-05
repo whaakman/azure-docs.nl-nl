@@ -1,12 +1,11 @@
 ---
-title: Ondertekening sleutelrollover in Azure AD | Microsoft Docs
+title: Ondertekening sleutelrollover in Azure AD
 description: Dit artikel wordt de ondertekening sleutelrollover best practices voor Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +14,17 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Ondertekening sleutelrollover in Azure Active Directory
-In dit onderwerp wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) voor het ondertekenen van beveiligingstokens. Het is belangrijk te weten dat deze rollover voor sleutels op periodieke basis en, in een noodsituatie onmiddellijk kan worden overgeschakeld. Alle toepassingen die gebruikmaken van Azure AD moeten kunnen programmatisch verwerken van het proces sleutelrollover of een overschakeling van de periodieke handmatige proces tot stand brengen. Blijven lezen om te begrijpen hoe de sleutels werken, het beoordelen van de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of tot stand brengen van een overschakeling van de periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig.
+Dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) voor het ondertekenen van beveiligingstokens. Het is belangrijk te weten dat deze rollover voor sleutels op periodieke basis en, in een noodsituatie onmiddellijk kan worden overgeschakeld. Alle toepassingen die gebruikmaken van Azure AD moeten kunnen programmatisch verwerken van het proces sleutelrollover of een overschakeling van de periodieke handmatige proces tot stand brengen. Blijven lezen om te begrijpen hoe de sleutels werken, het beoordelen van de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of tot stand brengen van een overschakeling van de periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Overzicht van ondertekeningssleutels in Azure AD
-Azure AD maakt gebruik van cryptografie met openbare sleutels gebaseerd op industriestandaarden vertrouwensrelatie tussen zichzelf en de toepassingen die worden gebruikt. In de praktijk dit werkt in de volgende manier: Azure AD maakt gebruik van een ondertekeningssleutel die uit een openbare en persoonlijke sleutelpaar bestaat. Wanneer een gebruiker zich bij een toepassing die gebruikmaakt van Azure AD voor verificatie aanmeldt, maakt Azure AD een beveiligingstoken dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat deze terug naar de toepassing wordt verzonden. Om te verifiëren dat het token geldig en daadwerkelijk oorsprong van Azure AD is, moet de toepassing de handtekening van het token met de openbare sleutel die worden weergegeven door Azure AD dat is opgenomen in de tenant valideren [OpenID Connect discovery-document](http://openid.net/specs/openid-connect-discovery-1_0.html) of de WS-SAML-Fed [document met federatieve metagegevens](active-directory-federation-metadata.md).
+Azure AD maakt gebruik van cryptografie met openbare sleutels gebaseerd op industriestandaarden vertrouwensrelatie tussen zichzelf en de toepassingen die worden gebruikt. In de praktijk dit werkt in de volgende manier: Azure AD maakt gebruik van een ondertekeningssleutel die uit een openbare en persoonlijke sleutelpaar bestaat. Wanneer een gebruiker zich bij een toepassing die gebruikmaakt van Azure AD voor verificatie aanmeldt, maakt Azure AD een beveiligingstoken dat informatie over de gebruiker bevat. Dit token is ondertekend door Azure AD met behulp van de persoonlijke sleutel voordat deze terug naar de toepassing wordt verzonden. Om te verifiëren dat het token geldig en oorsprong van Azure AD is, moet de toepassing de handtekening van het token met de openbare sleutel die worden weergegeven door Azure AD dat is opgenomen in de tenant valideren [OpenID Connect discovery-document](http://openid.net/specs/openid-connect-discovery-1_0.html) of SAML / WS-Fed [document met federatieve metagegevens](active-directory-federation-metadata.md).
 
 Om veiligheidsredenen kan sleutel rollen op periodieke basis en, in het geval van een noodgeval voor ondertekening van Azure AD worden vernieuwd onmiddellijk. Alle toepassingen die kan worden geïntegreerd met Azure AD moet worden voorbereid voor het afhandelen van een gebeurtenis sleutelrollover ongeacht hoe vaak deze optreden. Als dit niet het geval, en uw toepassing probeert een verlopen sleutel gebruiken om te verifiëren van de handtekening van een token, mislukt de aanvraag aanmelden.
 
@@ -128,7 +127,7 @@ passport.use(new OIDCStrategy({
 ### <a name="vs2015"></a>Webtoepassingen / API's voor het beveiligen van resources en gemaakt met Visual Studio 2015 of Visual Studio 2017
 Als uw toepassing is gemaakt met een sjabloon in Visual Studio 2015 of Visual Studio 2017 en u hebt geselecteerd **werk-en Schoolaccounts** van de **verificatie wijzigen** menu er al de benodigde logica sleutelrollover automatisch afhandelen. Deze logica, ingesloten in de middleware OWIN OpenID Connect opgehaald en de sleutels van het OpenID Connect discovery-document opslaat in de cache en ze worden regelmatig vernieuwd.
 
-Als u verificatie handmatig toegevoegd aan uw oplossing, hebben de toepassing mogelijk niet de benodigde sleutelrollover logica. U moet zelf schrijven of de stappen in [webtoepassingen / API's met behulp van een andere bibliotheken of handmatig implementeren van de ondersteunde protocollen.](#other).
+Als u verificatie handmatig toegevoegd aan uw oplossing, hebben de toepassing mogelijk niet de benodigde sleutelrollover logica. U moet zelf schrijven of de stappen in [webtoepassingen / API's met behulp van een andere bibliotheken of handmatig implementeren van de ondersteunde protocollen](#other).
 
 ### <a name="vs2013"></a>Webtoepassingen bescherming van bronnen en met Visual Studio 2013 gemaakt
 Als uw toepassing is gemaakt met behulp van een sjabloon in Visual Studio 2013 en u hebt geselecteerd **Organisatieaccounts** van de **verificatie wijzigen** menu heeft al de benodigde logica sleutelrollover automatisch afhandelen. Deze logica slaat de unieke id van uw organisatie en de gegevens van de ondertekening sleutel in twee databasetabellen die zijn gekoppeld aan het project. U vindt de verbindingsreeks voor de database in het Web.config-bestand van het project.
@@ -183,7 +182,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -284,7 +283,7 @@ Volg de onderstaande stappen om te controleren of de logica sleutelrollover werk
           </keys>
    ```
 2. In de  **<add thumbprint=””>**  instelt, de vingerafdrukwaarde wijzigen door te willekeurig teken vervangen door een andere naam. Sla de **Web.config** bestand.
-3. De toepassing bouwen en uitvoeren. Als u het proces aanmelden voltooien kunt, wordt uw toepassing de sleutel is bijgewerkt door de vereiste gegevens van uw directory document met federatieve metagegevens wordt gedownload. Als u problemen met aanmelden ondervindt, controleert u de wijzigingen in uw toepassing correct zijn door te lezen de [toevoegen van aanmelding bij uw Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) onderwerp of downloaden en bekijken in het volgende voorbeeld: [ Multitenant Cloudtoepassing voor Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. De toepassing bouwen en uitvoeren. Als u het proces aanmelden voltooien kunt, wordt uw toepassing de sleutel is bijgewerkt door de vereiste gegevens van uw directory document met federatieve metagegevens wordt gedownload. Als u problemen met aanmelden ondervindt, controleert u de wijzigingen in uw toepassing correct zijn door te lezen de [toevoegen van aanmelding bij uw Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artikel of downloaden en bekijken in het volgende voorbeeld: [ Multitenant Cloudtoepassing voor Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Webtoepassingen bescherming van bronnen en zijn gemaakt met Visual Studio 2008 of 2010 en Windows Identity Foundation (WIF) v1.0 voor .NET 3.5
 Als u een toepassing op WIF v1.0 gebouwd, is er geen opgegeven mechanisme voor automatisch vernieuwen van de configuratie van uw toepassing om een nieuwe sleutel te gebruiken.
@@ -303,11 +302,11 @@ Instructies voor het gebruik van de FedUtil uw configuratie bij te werken:
 ### <a name="other"></a>Webtoepassingen / API's voor het beveiligen van resources met behulp van een andere bibliotheken of handmatig implementeren van de ondersteunde protocollen
 Als u van een aantal andere bibliotheek gebruikmaakt of geïmplementeerd handmatig van de ondersteunde protocollen, hebt u nodig om te controleren van de bibliotheek of uw implementatie om ervoor te zorgen dat de sleutel van het OpenID Connect discovery-document of de federatiemetagegevens worden opgehaald document. Een manier om dit te controleren of is een zoekopdracht in uw code of code van de bibliotheek voor alle aanroepen van het OpenID discovery-document of het document met federatieve metagegevens doen.
 
-Als deze sleutel is ergens wordt opgeslagen of vastgelegd in uw toepassing, u handmatig kunt de sleutel en het dienovereenkomstig door uitvoeren van een handmatige rollover volgens de instructies aan het einde van dit document richtlijnen update ophalen. **Het wordt ten zeerste aangemoedigd verbeteren van uw toepassing ter ondersteuning van automatische rollover** met behulp van een van de omtrek benaderingen in dit artikel om te voorkomen dat toekomstige onderbrekingen en overhead als Azure AD de rollover uitgebracht verhoogt of een noodsituatie heeft overschakeling van de out-of-band.
+Als deze sleutel is ergens wordt opgeslagen of vastgelegd in uw toepassing, u handmatig kunt de sleutel ophalen en werk deze dienovereenkomstig door uitvoeren van een handmatige rollover volgens de instructies aan het einde van dit document richtlijnen. **Het wordt ten zeerste aangemoedigd verbeteren van uw toepassing ter ondersteuning van automatische rollover** met behulp van een van de omtrek benaderingen in dit artikel om te voorkomen dat toekomstige onderbrekingen en overhead als Azure AD de rollover-uitgebracht verhoogt of een noodsituatie heeft overschakeling van de out-of-band.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Het testen van uw toepassing om te bepalen of deze wordt beïnvloed
 U kunt nagaan of uw toepassing automatische sleutelrollover ondersteunt door te downloaden van de scripts en volg de instructies in [deze GitHub-opslagplaats.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Het uitvoeren van een handmatige rollover als u een toepassing biedt geen ondersteuning voor automatische rollover
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Het uitvoeren van een handmatige rollover als uw toepassing biedt geen ondersteuning voor automatische rollover
 Als uw toepassing wel **niet** automatische rollover ondersteunen, moet u een proces dat periodiek monitors Azure AD het ondertekenen van sleutels en voert een handmatige rollover dienovereenkomstig vast te stellen. [Deze GitHub-opslagplaats](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) bevat scripts en instructies over hoe u dit doet.
 

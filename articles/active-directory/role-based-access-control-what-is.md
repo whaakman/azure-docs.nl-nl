@@ -3,7 +3,7 @@ title: Beheren van toegang en machtigingen met RBAC - Azure RBAC | Microsoft Doc
 description: In het beheer van toegang aan de slag met op rollen gebaseerde toegangsbeheer van Azure in de Azure Portal. Gebruik roltoewijzingen om machtigingen in uw directory toe te wijzen.
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/19/2017
-ms.author: andredm
+ms.date: 01/02/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: 0eaa54252885cee8f90e65f299869216ca1b2144
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Aan de slag met toegangsbeheer op basis van rollen in de Azure-portal
 Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.

@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -171,8 +171,7 @@ U kunt een standaard (door de wizard gebaseerd) of geavanceerde configuratieopti
 
 4. In de **Geef inbel- of VPN-Server** Selecteer **toevoegen**.
 
-5. In de **nieuwe RADIUS-client** Geef een beschrijvende naam, voer de naam of IP-adres van de VPN-server en voer vervolgens een gedeelde geheime vraag.  
-    Controleer het gedeelde geheim wachtwoord lange en complexe. Het opnemen, omdat u hebt deze nodig in de volgende sectie.
+5. In de **nieuwe RADIUS-client** Geef een beschrijvende naam, voer de naam of IP-adres van de VPN-server en voer vervolgens een gedeelde geheime vraag. Controleer het gedeelde geheim wachtwoord lange en complexe. Het opnemen, omdat u hebt deze nodig in de volgende sectie.
 
     ![Nieuwe RADIUS-client](./media/nps-extension-vpn/image5.png)
 
@@ -183,8 +182,7 @@ U kunt een standaard (door de wizard gebaseerd) of geavanceerde configuratieopti
     > [!NOTE]
     > Als u Extensible Authentication Protocol (EAP) configureert, moet u Microsoft Challenge Handshake Authentication Protocol (CHAPv2) of Protected Extensible Authentication Protocol (PEAP). Er zijn geen andere EAP wordt ondersteund.
  
-8. In de **gebruikersgroepen opgeven** Selecteer **toevoegen**, en selecteer vervolgens een geschikte groep.  
-    Als er geen groep is, laat u de selectie leeg om toegang te verlenen voor alle gebruikers.
+8. In de **gebruikersgroepen opgeven** Selecteer **toevoegen**, en selecteer vervolgens een geschikte groep. Als er geen groep is, laat u de selectie leeg om toegang te verlenen voor alle gebruikers.
 
     ![Het venster gebruikersgroepen opgeven](./media/nps-extension-vpn/image7.png)
 
@@ -209,20 +207,17 @@ Deze sectie beschrijft de configuratie die u hebt gemaakt met de wizard.
 
 1. Vouw op de Network Policy Server in de console NPS (lokaal) **RADIUS-Clients**, en selecteer vervolgens **RADIUS-Clients**.
 
-2. In het detailvenster met de rechtermuisknop op de RADIUS-client die u gemaakt en selecteer vervolgens **eigenschappen**.  
-    De eigenschappen van de RADIUS-client (de VPN-server) worden zoals hier wordt weergegeven:
+2. In het detailvenster met de rechtermuisknop op de RADIUS-client die u gemaakt en selecteer vervolgens **eigenschappen**. De eigenschappen van de RADIUS-client (de VPN-server) worden zoals hier wordt weergegeven:
 
     ![VPN-eigenschappen](./media/nps-extension-vpn/image11.png)
 
 3. Selecteer **annuleren**.
 
-4. Vouw op de Network Policy Server in de console NPS (lokaal) **beleid**, en selecteer vervolgens **beleid voor verbindingsaanvragen**.  
-    Het beleid voor VPN-verbindingen wordt weergegeven zoals in de volgende afbeelding:
+4. Vouw op de Network Policy Server in de console NPS (lokaal) **beleid**, en selecteer vervolgens **beleid voor verbindingsaanvragen**. Het beleid voor VPN-verbindingen wordt weergegeven zoals in de volgende afbeelding:
 
     ![Verbindingsaanvragen](./media/nps-extension-vpn/image12.png)
 
-5. Onder **beleid**, selecteer **netwerkbeleid**.  
-    Hier ziet u een beleid met virtuele particuliere netwerk (VPN)-verbindingen dat lijkt op het beleid wordt weergegeven in de volgende afbeelding:
+5. Onder **beleid**, selecteer **netwerkbeleid**. Hier ziet u een beleid met virtuele particuliere netwerk (VPN)-verbindingen dat lijkt op het beleid wordt weergegeven in de volgende afbeelding:
 
     ![Netwerkbeleid](./media/nps-extension-vpn/image13.png)
 
@@ -305,104 +300,17 @@ In deze sectie kunt bevestigen u dat de VPN-client is geverifieerd en gemachtigd
 
     ![Het venster Eigenschappen van gebeurtenis](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
+## <a name="troubleshooting-radius"></a>Het oplossen van RADIUS
+
 Wordt ervan uitgegaan dat uw VPN-configuratie werkte voordat u de VPN-server geconfigureerd voor het gebruik van een gecentraliseerde RADIUS-server voor verificatie en autorisatie. Als de configuratie is werkt, is het waarschijnlijk dat het probleem wordt veroorzaakt door een onjuiste configuratie van de RADIUS-server of het gebruik van een ongeldige gebruikersnaam of wachtwoord. Bijvoorbeeld, als u de alternatieve UPN-achtervoegsel in de gebruikersnaam gebruikt, mislukken de aanmeldingspoging. Gebruik dezelfde accountnaam voor de beste resultaten. 
 
 Raadpleeg de gebeurtenislogboeken voor beveiliging op de RADIUS-server is om deze problemen te een ideaal plaats om te beginnen. Als u wilt opslaan op tijd zoeken naar gebeurtenissen, kunt u de op rollen gebaseerde Network Policy and Access Server aangepaste weergave in Logboeken, zoals hier wordt weergegeven. Gebeurtenis-ID 6273' geeft aan gebeurtenissen waar de NPS toegang geweigerd voor een gebruiker. 
 
 ![Logboeken](./media/nps-extension-vpn/image22.png)
  
-## <a name="configure-multi-factor-authentication"></a>Multi-factor authentication configureren
-Deze sectie geeft instructies voor het inschakelen van gebruikers voor MFA en voor het instellen van accounts voor verificatie in twee stappen. 
+## <a name="configure-multi-factor-authentication"></a>Multi-factor Authentication configureren
 
-### <a name="enable-multi-factor-authentication"></a>Multi-Factor Authentication inschakelen
-In deze sectie schakelt u Azure AD-accounts voor MFA. Gebruik de klassieke Azure portal waarmee gebruikers voor MFA. 
-
-1. Ga naar de [Microsoft Azure](https://manage.windowsazure.com) website. 
-
-2. Meld u als beheerder.
-
-3. Selecteer in het linkerdeelvenster **Active Directory**.
-
-    ![Standaardmap](./media/nps-extension-vpn/image23.png)
-
-4. In de **naam** kolom, selecteer **standaarddirectory** (of een andere map, indien van toepassing).
-
-5. In de **standaarddirectory** Selecteer **configureren**.
-
-    ![De standaardmap configureren](./media/nps-extension-vpn/image24.png)
-
-6. In de **configureren** venster onder **multi-factorauthenticatie**, selecteer **service-instellingen beheren**.
-
-    ![Meervoudige verificatie-instellingen beheren](./media/nps-extension-vpn/image25.png)
- 
-7. In de **multi-factorauthenticatie** venster, beoordeling standaard service-instellingen en selecteer vervolgens de **gebruikers** tabblad. 
-
-    ![Het tabblad multi-factor authentication-Server-gebruikers](./media/nps-extension-vpn/image26.png)
- 
-8. Op de **gebruikers** tabblad, selecteert u de gebruikers die u wilt inschakelen voor MFA en selecteer vervolgens **inschakelen**.
-
-    ![Eigenschappen](./media/nps-extension-vpn/image27.png)
- 
-9. Wanneer u wordt gevraagd, selecteert u **multi-factor auth inschakelen**.
-
-    ![Multi-Factor Authentication inschakelen](./media/nps-extension-vpn/image28.png)
- 
-10. Selecteer **sluiten**. 
-
-11. Vernieuw de pagina.  
-    De status van de multi-factor authentication-server is gewijzigd in *ingeschakeld*.
-
-Zie voor meer informatie over het inschakelen van gebruikers voor MFA [aan de slag met Azure multi-factor Authentication in de cloud](multi-factor-authentication-get-started-cloud.md). 
-
-### <a name="configure-accounts-for-two-step-verification"></a>Accounts configureren voor verificatie in twee stappen
-Nadat u een account voor MFA is ingeschakeld, hebben gebruikers geen aanmelden bij de resources die worden bepaald door het MFA-beleid totdat ze een vertrouwd apparaat moet worden gebruikt voor de tweede verificatiefactor hebt geconfigureerd.
-
-In deze sectie configureert u een vertrouwd apparaat voor gebruik met verificatie in twee stappen. U hebt verschillende mogelijkheden, apparaat, zoals het volgende:
-
-* **Mobiele app**: U de Microsoft Authenticator-app installeren op een Windows Phone, Android of iOS-apparaat. Afhankelijk van uw organisatie beleid moet u de app gebruiken in een van de twee modi: 
-    * Meldingen ontvangen voor verificaties (een gestuurd naar het apparaat).
-    * Gebruik een verificatiecode (u zijn vereist voor het invoeren van een bevestigingscode die updates van elke 30 seconden). 
-
-* **Mobiele telefoon telefoongesprek of tekstbericht**: U kunt een automatisch telefoongesprek of SMS-bericht ontvangen. Met de optie telefoonoproep beantwoordt het gesprek en selecteer het hekje (#) om te verifiëren. Met de optie tekst kunt u beantwoord het SMS-bericht of Voer de verificatiecode in de interface voor aanmelden.
-
-* **Office-telefoongesprek**: dit proces is hetzelfde als het eerder beschreven voor geautomatiseerde telefoongesprekken proces.
-
-Als u een apparaat instelt voor de mobiele app gebruiken voor het ontvangen van pushmeldingen voor verificatie, het volgende doen:
-
-1. Aanmelden bij [Microsoft Azure](https://aka.ms/mfasetup) of een site, zoals de [Azure-portal](https://portal.azure.com), waar u vereist verificatie met uw referenties MFA-functionaliteit.  
-    U wordt gevraagd voor het instellen van het account voor aanvullende beveiligingsverificatie, zoals hier wordt weergegeven:
-
-    ![Extra beveiliging](./media/nps-extension-vpn/image29.png)
-
-2. Selecteer **het nu instellen**.
-
-3. In de **aanvullende beveiligingsverificatie** typt u een contactpersoon (**telefoon voor authenticatie**, **telefoon (werk)**, of **mobiele app** ), selecteer een land of regio en selecteer vervolgens een methode. Selecteer niet **Contact met mij opnemen** nog.  
-    De methode verschilt per type contactpersoon. Als u bijvoorbeeld **mobiele app**, u kunt selecteren of meldingen voor verificatie moet gebruiken of een verificatiecode. 
-
-    ![Het venster 'aanvullende beveiligingsverificatie'](./media/nps-extension-vpn/image30.png)
-
-    Welke stappen volgen wordt ervan uitgegaan dat u hebt gekozen **mobiele app** als het type contactgegevens.
-
-4. Selecteer **mobiele app**, selecteer **ontvangen van meldingen voor verificatie**, en selecteer vervolgens **instellen**. 
-
-    ![Het venster 'aanvullende beveiligingsverificatie'](./media/nps-extension-vpn/image31.png)
- 
-5. Als u dit nog niet hebt gedaan, moet u de mobiele Microsoft Authenticator-app installeren op uw apparaat. 
-
-6. Scan de streepjescode weergegeven in de mobiele app of de gegevens handmatig invoeren en selecteer vervolgens **gedaan**.
-
-    ![Mobiele Microsoft Authenticator-app configureren](./media/nps-extension-vpn/image32.png)
-
-7. In de **aanvullende beveiligingsverificatie** Selecteer **Contact met mij opnemen**, en vervolgens een antwoord op de melding dat wordt verzonden naar het apparaat.
-
-8. In de **aanvullende beveiligingsverificatie** venster onder **stap 3: als u de toegang tot de mobiele app verliest**, voer een telefoonnummer aan te roepen als u geen toegang meer tot de mobiele app en selecteer vervolgens  **Volgende**.
-
-    ![Het venster 'aanvullende beveiligingsverificatie'](./media/nps-extension-vpn/image33.png)
- 
-9. In de **aanvullende beveiligingsverificatie** Selecteer **gedaan**.
-
-Het apparaat is nu geconfigureerd voor het bieden van een tweede methode voor verificatie. Zie voor meer informatie over het instellen van accounts voor verificatie in twee stappen [Mijn account voor verificatie in twee stappen instellen](./end-user/multi-factor-authentication-end-user-first-time.md).
+Zie de artikelen voor informatie over het configureren van gebruikers voor multi-factor Authentication [vereisen verificatie in twee stappen voor een gebruiker of groep](multi-factor-authentication-get-started-user-states.md) en [Mijn account voor verificatie in twee stappen instellen](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installeren en configureren van de NPS-uitbreiding
 
@@ -470,8 +378,7 @@ Voor het gebruik van het script bieden u de uitbreiding met uw beheerdersreferen
 
 2. Voer de PowerShell-opdrachtprompt **cd c:\Program Files\Microsoft\AzureMfa\Config**, en selecteer vervolgens op Enter.
 
-3. Voer op de volgende opdrachtregel **.\AzureMfsNpsExtnConfigSetup.ps1**, en selecteer vervolgens op Enter.  
-    Het script wordt gecontroleerd of de Azure AD PowerShell-module is geïnstalleerd. Als dit niet is geïnstalleerd, installeert u de module met het script voor u.
+3. Voer op de volgende opdrachtregel **.\AzureMfsNpsExtnConfigSetup.ps1**, en selecteer vervolgens op Enter. Het script wordt gecontroleerd of de Azure AD PowerShell-module is geïnstalleerd. Als dit niet is geïnstalleerd, installeert u de module met het script voor u.
  
     ![PowerShell](./media/nps-extension-vpn/image38.png)
  
