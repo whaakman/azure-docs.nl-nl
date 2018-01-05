@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Met het Resource Manager implementatiemodel bestanden herstellen op een Windows-server of Windows-clientcomputer
 
@@ -33,7 +33,7 @@ Microsoft uitgebracht in januari 2017 een Preview-update voor de MARS-agent. Sam
 > De [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) is vereist als u wilt gebruiken direct herstellen om gegevens te herstellen. De back-upgegevens moeten ook worden beveiligd in kluizen in de landinstellingen die worden vermeld in het support-artikel. Raadpleeg de [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) voor de meest recente lijst van landinstellingen die ondersteuning bieden voor chatberichten te herstellen. Direct herstellen is **niet** momenteel in alle landen beschikbaar.
 >
 
-Chatberichten terugzetten is beschikbaar voor gebruik in de Recovery Services-kluizen in de Azure-portal en de Backup-kluizen in de klassieke portal. Als u wilt gebruiken direct herstellen, de MARS-update downloaden en de procedures volgen die vermeld direct herstellen.
+Direct herstellen met Recovery Services-kluizen in de Azure portal gebruiken. Als u gegevens in de Backup-kluizen hebt opgeslagen, zijn die geconverteerd naar een Recovery Services-kluizen. Als u wilt gebruiken direct herstellen, de MARS-update downloaden en de procedures volgen die vermeld direct herstellen.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

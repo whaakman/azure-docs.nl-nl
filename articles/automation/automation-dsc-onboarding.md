@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Computers voorbereiden voor beheer door Azure Automation DSC
 
@@ -36,7 +36,7 @@ Azure Automation DSC kunnen worden gebruikt voor het beheren van tal van machine
 Bovendien, als u niet klaar voor het beheren van machineconfiguratie vanuit de cloud, kan Azure Automation DSC ook worden gebruikt als een eindpunt in het rapport alleen-lezen. Hiermee kunt u de gewenste configuratie (push) via DSC on-premises instellen en uitgebreide rapportage details weergeven over de naleving van knooppunt met de gewenste status in Azure Automation.
 
 > [!NOTE]
-> Het beheren van Azure VM's met DSC is zonder extra kosten opgenomen als de virtuele machine DSC-uitbreiding geïnstalleerd groter dan 2.7 is.  Raadpleeg de [ **Automation pagina met prijzen** ](https://azure.microsoft.com/en-us/pricing/details/automation/) voor meer informatie.
+> Het beheren van Azure VM's met DSC is zonder extra kosten opgenomen als de virtuele machine DSC-uitbreiding geïnstalleerd groter dan 2,70 is. Raadpleeg de [ **Automation pagina met prijzen** ](https://azure.microsoft.com/en-us/pricing/details/automation/) voor meer informatie.
 
 
 De volgende secties worden hoe kunt u vrijgeven elk type van de machine aan Azure Automation DSC.
@@ -390,7 +390,7 @@ Na de registratie van een machine als een DSC-knooppunt in Azure Automation DSC 
 
 Servernaam kan worden uitgevoerd op dezelfde manier als die u geregistreerd het knooppunt in eerste instantie met een van de voorbereiding-methoden die in dit document worden beschreven. U hoeft niet de registratie van een knooppunt uit Azure Automation DSC voordat deze opnieuw te registreren.
 
-## <a name="related-articles"></a>Verwante artikelen
+## <a name="related-articles"></a>Gerelateerde artikelen
 
 * [Overzicht van Azure Automation DSC](automation-dsc-overview.md)
 * [Azure Automation DSC-cmdlets](/powershell/module/azurerm.automation/#automation)

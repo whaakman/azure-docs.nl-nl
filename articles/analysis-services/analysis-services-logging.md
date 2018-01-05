@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Diagnostische logboekregistratie instellen
 
@@ -34,9 +34,9 @@ U kunt selecteren **Engine**, **Service**, en **metrische gegevens** categorieë
 
 ### <a name="engine"></a>Engine
 
-Alle selecteren Engine logboeken [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). U kunt geen afzonderlijke gebeurtenissen selecteren. 
+Selecteren **Engine** registreert alle [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). U kunt geen afzonderlijke gebeurtenissen selecteren. 
 
-|XEvent-categorieën |Naam van de gebeurtenis  |
+|XEvent-categorieën |De naam van gebeurtenis  |
 |---------|---------|
 |Beveiligingscontrole    |   Audit aanmelding      |
 |Beveiligingscontrole    |   Audit afmelden      |
@@ -73,17 +73,17 @@ Alle selecteren Engine logboeken [xEvents](https://docs.microsoft.com/sql/analys
 
 ### <a name="all-metrics"></a>Alle metrische gegevens
 
-De categorie AllMetrics Logboeken dezelfde [serverstatistieken](analysis-services-monitor.md#server-metrics) weergegeven in de metrische gegevens.
+Hiermee wordt de categorie metrische gegevens geregistreerd dezelfde [serverstatistieken](analysis-services-monitor.md#server-metrics) weergegeven in de metrische gegevens.
 
 ## <a name="setup-diagnostics-logging"></a>Diagnostische logboekregistratie instellen
 
-### <a name="by-using-the-azure-portal"></a>Met behulp van de Azure-portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. In [Azure-portal](https://portal.azure.com), in uw Azure Analysis Services-server, klikt u op **diagnostische logboeken** in de navigatiebalk aan de linkerkant en klik vervolgens op **diagnostische gegevens inschakelen**.
+1. In [Azure-portal](https://portal.azure.com) > server, klikt u op **diagnostische logboeken** in de navigatiebalk aan de linkerkant en klik vervolgens op **diagnostische gegevens inschakelen**.
 
     ![Schakel Diagnostische logboekregistratie voor Azure Cosmos DB in de Azure portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. In de **diagnostische instellingen** pagina, de volgende handelingen uit: 
+2. In **diagnostische instellingen**, het volgende doen: 
 
     * **Naam**. Voer een naam voor de logboeken te maken.
 
@@ -101,8 +101,9 @@ De categorie AllMetrics Logboeken dezelfde [serverstatistieken](analysis-service
 
     Als u wilt wijzigen hoe uw logboeken met diagnostische gegevens in de toekomst op elk gewenst moment worden opgeslagen, kunt u terugkeren naar deze pagina om instellingen te wijzigen.
 
-### <a name="by-using-powershell"></a>Met behulp van PowerShell
-Hier volgen de basisopdrachten weer om u doorgaat. Als u wilt dat Stapsgewijze instructies over het instellen van logboekregistratie in een opslagaccount met behulp van PowerShell, raadpleegt u de [zelfstudie](#tutorial) verderop in dit artikel.
+### <a name="powershell"></a>PowerShell
+
+Hier volgen de basisopdrachten weer om u doorgaat. Als u stapsgewijze instructies wilt over het instellen van logboekregistratie in een opslagaccount met behulp van PowerShell, raadpleegt u de zelfstudie verderop in dit artikel.
 
 Gebruik de volgende opdrachten zodat metrische gegevens en diagnostische logboekregistratie met behulp van PowerShell:
 
@@ -156,13 +157,11 @@ Logboeken zijn gewoonlijk beschikbaar binnen een paar uur voor het instellen van
 * Verwijder de logboeken die u niet meer in uw opslagaccount wilt bewaren.
 * Zorg ervoor dat een bewaarperiode voor instellen zodat oude logboeken worden verwijderd uit uw storage-account.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Logboeken bekijken in Log Analytics
 
 Metrische gegevens en server gebeurtenissen zijn geïntegreerd met xEvents in Log Analytics voor side-by-side-analyse. Log Analytics kan ook worden geconfigureerd voor het ontvangen van gebeurtenissen van andere Azure-services biedt een holistische weergave van de diagnostische logboekgegevens over uw architectuur.
 
-Als u wilt weergeven van de diagnostische gegevens in logboekanalyse opent u de pagina logboek zoeken vanuit het menu links of de module Beheer van de pagina, zoals wordt weergegeven in de volgende afbeelding:
+Als u wilt weergeven van de diagnostische gegevens in logboekanalyse door de zoekpagina logboek vanuit het menu links of de module beheer openen zoals hieronder wordt weergegeven.
 
 ![Meld u opties voor zoeken in de Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Klik op **EventClass\_s** of een van de gebeurtenisnamen en Log Analytics blijft
 
 Zorg ervoor dat afhandeling Operations Management Suite waarmee een website met uitgebreide query, dashboarding en waarschuwen mogelijkheden op Log Analytics-gegevens.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Query's
 
 Er zijn query's die kunt u honderden. Hier volgen enkele voor u op weg.
@@ -199,7 +197,6 @@ Zie voor meer informatie over het gebruik van de nieuwe zoekopdracht logboek-que
 > Hebt u een goede Log Analytics-query die u wilt delen? Als u een GitHub-account hebt, kunt u deze toevoegen aan dit artikel. Klik op **bewerken** in de rechterbovenhoek van deze pagina.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Zelfstudie - logboekregistratie met behulp van PowerShell inschakelen
 In deze snelle zelfstudie maakt u een opslagaccount in hetzelfde abonnement en dezelfde resourcegroep als de Analysis Services-server. Vervolgens gebruikt u Set-AzureRmDiagnosticSetting Diagnostische logboekregistratie, uitvoer verzenden naar het nieuwe opslagaccount inschakelen.
 
@@ -208,8 +205,7 @@ Deze zelfstudie hebt u de volgende bronnen:
 
 * Een bestaande Azure Analysis Services-server. Zie voor instructies over het maken van een serverresource [maken van een server in Azure portal](analysis-services-create-server.md), of [een Azure Analysis Services-server maken met behulp van PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Verbinding maken met uw abonnementen
+### <a name="aconnect-to-your-subscriptions"></a></a>Verbinding maken met uw abonnementen
 
 Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
+### <a name="create-a-new-storage-account-for-your-logs"></a>Een nieuw opslagaccount voor uw logboeken maken
 
 U kunt een bestaand opslagaccount gebruiken voor uw Logboeken, mits deze zich in hetzelfde abonnement als uw server. Voor deze zelfstudie maakt u een nieuw opslagaccount toegewezen aan de logboeken van de Analysis Services. Om het gemakkelijk maken, u de accountdetails van de opslag opslaat in een variabele met de naam **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>De serveraccount voor uw logboeken identificeren
+### <a name="identify-the-server-account-for-your-logs"></a>De serveraccount voor uw logboeken identificeren
 
 De accountnaam ingesteld op een variabele met de naam **account**, waarbij ResourceName de naam van het account.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Logboekregistratie inschakelen
+### <a name="enable-logging"></a>Logboekregistratie inschakelen
 
 Als logboekregistratie wilt inschakelen, gebruikt u de cmdlet Set-AzureRmDiagnosticSetting samen met de variabelen voor het nieuwe opslagaccount, serveraccount en de categorie. Voer de volgende opdracht, instellen van de **-ingeschakeld** markering **$true**:
 

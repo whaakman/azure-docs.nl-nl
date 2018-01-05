@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Gebruik van Stream Analytics voor het verwerken van de geëxporteerde gegevens van Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit de Application Insights](app-insights-export-telemetry.md). Stream Analytics kunt ophalen van gegevens uit verschillende bronnen. U kunt transformeren en filter de gegevens en vervolgens doorsturen naar een groot aantal Put.
@@ -76,27 +76,27 @@ Continue export levert altijd gegevens aan een Azure Storage-account, dus u moet
 De gebeurtenissen worden geschreven naar de blob-bestanden in de JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus willen we gelezen gegevens van de gebeurtenis en de velden die we wilt filteren. Er zijn alle soorten wat die we met de gegevens doen kan, maar onze plan is vandaag de dag Stream Analytics gebruiken naar de gegevens met Power BI pipe.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics-exemplaar maken
-Van de [klassieke Azure Portal](https://manage.windowsazure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
+Van de [Azure-portal](https://portal.azure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Als de nieuwe taak is gemaakt, vouwt u de details ervan:
+Wanneer de nieuwe taak is gemaakt, selecteert u **gaat u naar de resource**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Locatie van de blob instellen
+### <a name="add-a-new-input"></a>Een nieuwe invoer toevoegen
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Stel deze in op invoer van uw blob continue Export nemen:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Nu moet u de primaire toegangssleutel van uw Opslagaccount die u eerder hebt genoteerd. Stel dit in als de sleutel van het Opslagaccount.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Set pad voorvoegselpatroon
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Zorg ervoor dat de datumnotatie ingesteld op jjjj-MM-DD (met streepjes).**
 
@@ -114,33 +114,19 @@ In dit voorbeeld:
 > [!NOTE]
 > Inspecteer de opslag om ervoor te zorgen dat u het pad naar rechts.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>De eerste installatie voltooien
-Bevestig de serialisatie-indeling:
+## <a name="add-new-output"></a>Nieuwe uitvoer toevoegen
+Nu uw taak selecteren > **uitvoer** > **toevoegen**.
 
-![Bevestigen en de wizard te sluiten](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-De wizard te sluiten en wacht totdat de installatie te voltooien.
 
-> [!TIP]
-> De voorbeeld-opdracht gebruiken om bepaalde gegevens te downloaden. Houd het als een voorbeeld van de test voor foutopsporing van uw query.
-> 
-> 
-
-## <a name="set-the-output"></a>Stel de uitvoer
-Nu uw taak selecteren en instellen van de uitvoer.
-
-![Selecteer het nieuwe kanaal, klikt u op de uitvoer, toevoegen, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Selecteer het nieuwe kanaal, klikt u op de uitvoer, toevoegen, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Geef uw **werk- of schoolaccount** voor het autoriseren van Stream Analytics voor toegang tot uw Power BI-bron. Vervolgens tot een naam voor de uitvoer en voor de Power BI-gegevensset doel en de tabel.
 
-![Drie namen voorraad](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Instellen van de query
 De query bepaalt de vertaling van invoer om uit te voeren.
-
-![De taak te selecteren en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/180.png)
 
 Gebruik de functie Test om te controleren dat u de uitvoer van de juiste krijgt. Geef deze de voorbeeldgegevens die u hebt gemaakt van de invoer-pagina. 
 
@@ -162,7 +148,7 @@ Plak deze query:
 
 * export-invoer is de alias die wordt gestuurd naar de stroom invoer
 * pbi-uitvoer is de uitvoeralias die is gedefinieerd
-* We gebruiken [buitenste toepassen GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) omdat de gebeurtenisnaam van de in een geneste JSON arrray is. Selecteer hervat vervolgens de naam van de gebeurtenis, samen met een telling van het aantal exemplaren met die naam aanwezig in de periode. De [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) component elementen gegroepeerd in perioden van 1 minuut.
+* We gebruiken [buitenste toepassen GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) omdat de gebeurtenisnaam van de in een geneste JSON-matrix is. Selecteer hervat vervolgens de naam van de gebeurtenis, samen met een telling van het aantal exemplaren met die naam aanwezig in de periode. De [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) component elementen gegroepeerd in perioden van één minuut.
 
 ### <a name="query-to-display-metric-values"></a>Query voor metrische waarden weergeven
 ```SQL
@@ -203,10 +189,10 @@ Plak deze query:
 
 * Deze query bevat de waarden van de dimensie-eigenschappen zonder afhankelijk van een bepaalde dimensie wordt op een vaste index in de dimensiematrix.
 
-## <a name="run-the-job"></a>De taak uitvoeren
+## <a name="run-the-job"></a>Voer de taak
 U kunt een datum selecteren in het verleden om de taak uit te starten. 
 
-![De taak te selecteren en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/190.png)
+![De taak te selecteren en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Wacht totdat de taak wordt uitgevoerd.
 

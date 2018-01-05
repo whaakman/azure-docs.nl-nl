@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 01/03/2018
 ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 6e6db5937463062c3b5359ae4a226f48ce752417
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: eb5ea2825318d75b37cd0d51b0fac3c1c7454fa2
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integratie van de SaaS-toepassingen met Azure Active Directory
 
@@ -31,7 +31,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 
 ## <a name="saas-tutorials"></a>SaaS-zelfstudies
 
-| logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruiker |
+| Logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruiker |
 | :---: | :--- | :--- |
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [& eerlijk gezegd](active-directory-saas-andfrankly-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.png)| [@Task](active-directory-saas-attask-tutorial.md)|
@@ -322,7 +322,7 @@ Zie voor een uitgebreide lijst met SaaS-apps die vooraf geïntegreerde met Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.png)| [SAP HANA Cloud-Platform](active-directory-saas-sap-hana-cloud-platform-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPNetWeaver.png)| [SAP NetWeaver](active-directory-saas-sap-netweaver-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_scalexenterprise.png)| [ScaleX Enterprise](active-directory-saas-scalexenterprise-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC levenscyclus](active-directory-saas-scc-lifecycle-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC levenscyclus](active-directory-saas-scclifecycle-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-schoox-tutorial.png)| [Schoox](active-directory-saas-schoox-tutorial.md) 
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.png)| [Sciforma](active-directory-saas-sciforma-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.png)| [SciQuest besteden directeur](active-directory-saas-sciquest-spend-director-tutorial.md)|

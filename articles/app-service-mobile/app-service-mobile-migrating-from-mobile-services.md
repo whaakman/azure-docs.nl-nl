@@ -3,8 +3,8 @@ title: Migreren van Mobile Services naar een mobiele App Service-App
 description: Meer informatie over het eenvoudig migreren uw Mobile Services-toepassing in een App Service-mobiele App
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Uw bestaande Azure Mobile Service migreren naar Azure App Service
 Met de [algemene beschikbaarheid van Azure App Service], Azure Mobile Services-sites kunnen worden eenvoudig gemigreerd ter plekke om te profiteren van alle functies van de Azure App Service.  Dit document wordt uitgelegd wat u kunt verwachten wanneer uw site uit Azure Mobile Services migreren naar Azure App Service.
@@ -167,7 +167,7 @@ U kunt meerdere app-instellingen op hetzelfde moment bijwerken.
 ### <a name="authentication"></a>Verificatie
 Alle verificatieinstellingen zijn beschikbaar als de App-instellingen in uw gemigreerde site.  Voor het bijwerken van uw verificatie-instellingen, moet u de juiste app-instellingen wijzigen.  De volgende tabel ziet u de juiste app-instellingen voor uw provider voor verificatie:
 
-| Provider | Client-ID | Clientgeheim | Andere instellingen |
+| Provider | Client-id | Clientgeheim | Andere instellingen |
 |:--- |:--- |:--- |:--- |
 | Microsoft-account |**MS\_MicrosoftClientID** |**MS\_MicrosoftClientSecret** |**MS\_MicrosoftPackageSID** |
 | Facebook |**MS\_FacebookAppID** |**MS\_FacebookAppSecret** | |
@@ -353,7 +353,7 @@ Zie voor meer informatie de [XDT transformeren voorbeelden] documentatie op GitH
 ### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>Gemigreerde Mobile Services kan niet worden toegevoegd aan Traffic Manager
 Wanneer u een Traffic Manager-profiel maakt, kunt u niet rechtstreeks een gemigreerde mobiele service aan het profiel kiezen.  Gebruik een 'Extern eindpunt'.  Het externe eindpunt kan alleen worden toegevoegd via PowerShell.  Zie voor meer informatie de [Traffic Manager-zelfstudie](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>De volgende stappen
 Nu dat uw toepassing is gemigreerd naar App Service, zijn er nog meer functies die u kunt gebruiken:
 
 * Implementatie [staging-sleuven] kunt u de fase van de wijzigingen in uw site en voert u A / B-tests.

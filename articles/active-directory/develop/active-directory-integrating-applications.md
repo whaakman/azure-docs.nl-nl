@@ -3,10 +3,9 @@ title: Toepassingen integreren met Azure Active Directory
 description: Informatie over het toevoegen, bijwerken of verwijderen van een toepassing in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Bovendien voordat een client toegang heeft tot een web-API die worden weergegeve
 - Gedelegeerde machtigingen: Uw clienttoepassing moet toegang tot de web-API als de gebruiker is aangemeld, maar met de toegang beperkt door de geselecteerde machtiging. Dit type machtigingen kan worden verleend door een gebruiker, tenzij de beheerder toestemming nodig om de machtiging. 
 
   > [!NOTE]
-  > Een gedelegeerde machtigingen toe te voegen aan een toepassing verleent automatisch geen toestemming aan de gebruikers in de tenant, zoals in de klassieke Azure portal. Gebruikers moeten nog steeds handmatig toestemming voor de toegevoegde gedelegeerde machtigingen tijdens runtime, tenzij de beheerder klikt op de **machtiging verlenen** knop van de **Required Permissions** sectie van de de pagina van de toepassing in de Azure portal. 
+  > Een gedelegeerde machtigingen toe te voegen aan een toepassing verleent automatisch geen toestemming aan de gebruikers van de tenant. Gebruikers moeten nog steeds handmatig toestemming voor de toegevoegde gedelegeerde machtigingen tijdens runtime, tenzij de beheerder klikt op de **machtiging verlenen** knop van de **Required Permissions** sectie van de de pagina van de toepassing in de Azure portal. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Referenties van de toepassing of machtigingen voor toegang tot web-API's toe te voegen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).

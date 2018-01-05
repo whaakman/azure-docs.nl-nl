@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -98,11 +98,19 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     }
     ```
 
-8. In de **Init** methode, de code maakt en configureert u een **DeviceClient** object. Dit object kunt de module die u wilt verbinding maken met de lokale Azure IoT Edge-runtime voor het verzenden en ontvangen van berichten. De verbindingsreeks die wordt gebruikt in de **Init** methode voor de module wordt verstrekt door de rand van de IoT-runtime. Na het maken van de **DeviceClient**, de code registreert een retouraanroep voor het ontvangen van berichten van de rand van de IoT-hub via de **input1** eindpunt. Vervang de `SetInputMessageHandlerAsync` methode met een nieuwe, en voeg een `SetDesiredPropertyUpdateCallbackAsync` methode voor het gewenste eigenschappen updates. Als u deze wijziging, vervangt u de laatste regel van de **Init** methode met de volgende code:
+8. In de **Init** methode, de code maakt en configureert u een **DeviceClient** object. Dit object kunt de module die u wilt verbinding maken met de lokale Azure IoT Edge-runtime voor het verzenden en ontvangen van berichten. De verbindingsreeks die wordt gebruikt in de **Init** methode voor de module wordt verstrekt door de rand van de IoT-runtime. Na het maken van de **DeviceClient**, de code leest de TemperatureThreshold uit de Module-Twin gewenste eigenschappen en registreert een retouraanroep voor het ontvangen van berichten van de rand van de IoT-hub via de **input1**eindpunt. Vervang de `SetInputMessageHandlerAsync` methode met een nieuwe, en voeg een `SetDesiredPropertyUpdateCallbackAsync` methode voor het gewenste eigenschappen updates. Als u deze wijziging, vervangt u de laatste regel van de **Init** methode met de volgende code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);

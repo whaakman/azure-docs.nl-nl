@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Zelfstudie: Azure Active Directory-integratie met Amazon Web Services (AWS)
 
@@ -110,7 +110,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
 4. De SAML-asserties verwacht de Amazon Web Services (AWS) softwaretoepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
 
-    ![Single Sign-On-kenmerken configureren](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Single Sign-On attb configureren](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
     
@@ -126,7 +126,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren toevoegen](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Single Sign-On-kenmerken configureren](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Single Sign-On addattb configureren](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
 
@@ -230,18 +230,18 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Nieuw beleid maken](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Maak uw eigen beleid voor het ophalen van alle functies van de AWS-accounts. In de **uw eigen beleid maken** sectie, klikt u op **Selecteer** knop.
+25. Maak uw eigen beleid voor het ophalen van alle functies van de AWS-accounts. In de **Maak uw eigen beleid** sectie klikt u op **Selecteer** knop.
     
     ![Nieuw beleid maken](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Definieer het nieuwe beleid door de volgende stappen uit te voeren:
 
-    ![Het nieuwe beleid definiëren](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Het nieuwe beleid definiëren](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Geef de **beleidsnaam** als **AzureAD_SSOUserRole_Policy**.
 
     b. U kunt opgeven **beschrijving** aan het beleid zo **dit beleid kunnen ophalen van de rollen van de AWS accounts**.
-
+    
     c. In het beleidsdocument, voegt u de onderstaande JSON.
     
     ```
@@ -271,16 +271,14 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     }
     
     ```
-
-    d. Zorg ervoor dat u controleert op **automatisch opmaken gebruiken voor het beleid bewerken**.
-
-    e. Klik op **valideren beleid** knop onderaan.
-
-    f. Wanneer het beleid is correct is gevalideerd vervolgens kunt u op **beleid maken** knop.
-
-    ![Nieuw beleid maken](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
-27. Maak een nieuw gebruikersaccount in de AWS IAM-Service door het uitvoeren van de volgende stappen uit:
+    d. Zorg ervoor dat u controleert op **automatisch opmaken gebruiken voor het beleid bewerken**.
+    
+    e. Klik op **valideren beleid** knop onderaan.
+    
+    f. Wanneer het beleid is correct is gevalideerd vervolgens kunt u op **beleid maken** knop.
+    
+27. Maak een nieuw gebruikersaccount in de AWS IAM-Service door de volgende stappen uit te voeren:
 
     a. Klik op **gebruikers** navigatie in de IAM-AWS-console.
 
@@ -300,9 +298,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     
     * Klik op de **volgende machtigingen** knop in de rechterbenedenhoek.
 
-28. Maak nu een nieuw beleid voor deze gebruiker door het uitvoeren van de volgende stappen uit:
+28. Maak nu een nieuw beleid voor deze gebruiker door de volgende stappen uit te voeren:
 
-    ![Gebruiker toevoegen](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Gebruiker toevoegen](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Klik op de **bestaande beleidsregels rechtstreeks koppelen** knop.
 
@@ -332,7 +330,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Gebruiker toevoegen](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Voer de **toegangssleutel** en **geheim** in de **Clientgeheim** en **geheim Token** respectievelijk velden.
+32. Voer de **toegangssleutel** en **geheim** in de **Clientgeheim** en **geheim Token** respectievelijk veld.
 
     ![Gebruiker toevoegen](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel Amazon Web Services (AWS) in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Amazon Web Services (AWS).
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Bekende problemen
-
- * In de **inrichten** sectie de **toewijzingen** subsectie wordt een bericht 'Laden...' weergeven en nooit de kenmerktoewijzingen weergeven. De enige inrichten werkstroom ondersteund vandaag is het importeren van de rollen van AWS in Azure AD voor selectie tijdens de toewijzing van de gebruiker of groep. De kenmerktoewijzingen voor dit zijn vooraf vastgestelde en niet worden geconfigureerd.
- 
- * De **inrichten** sectie ondersteunt slechts één set gebruikersreferenties invoeren voor een AWS-tenant tegelijk. Alle geïmporteerde rollen worden geschreven naar de eigenschap appRoles van de Azure AD [servicePrincipal object](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) voor de AWS-tenant. Meerdere AWS tenants (vertegenwoordigd door servicePrincipals) kunnen worden toegevoegd aan Azure AD uit de galerie om in te richten, maar er is een bekend probleem met het niet in staat automatisch alle van de geïmporteerde rollen van de meerdere AWS-servicePrincipals gebruikt voor inrichten in de één servicePrincipal gebruikt voor eenmalige aanmelding. Als tijdelijke oplossing de [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) kan worden gebruikt om alle van de appRoles geïmporteerd in elke servicePrincipal AWS uitpakken waarop inrichting is geconfigureerd. Deze rol tekenreeksen kunnen later worden toegevoegd aan de AWS-servicePrincipal waar dat eenmalige aanmelding is geconfigureerd.
-
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

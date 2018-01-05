@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 Een Automation-referentieasset bevat een [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object met beveiligingsgegevens zoals een gebruikersnaam en wachtwoord. Runbooks en DSC-configuraties kunt cmdlets die een PSCredential-object voor verificatie accepteren of ze kunnen extraheren gebruikersnaam en wachtwoord van de PSCredential-object om te bieden tot een bepaalde toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of de DSC-configuratie met de [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.
@@ -81,13 +81,6 @@ De volgende voorbeeldopdrachten laten zien hoe een nieuwe automation-referentie 
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
-
-### <a name="to-create-a-new-credential-asset-with-the-azure-classic-portal"></a>Een nieuwe referentieasset maken met de klassieke Azure portal
-1. Van uw automation-account, klikt u op **activa** aan de bovenkant van het venster.
-2. Klik onderaan in het venster **instelling toevoegen**.
-3. Klik op **gebruikersreferentie toevoegen**.
-4. In de **referentietype** vervolgkeuzelijst **PowerShell-referentie**.
-5. Voltooi de wizard en klik op het selectievakje voor het opslaan van de nieuwe referentie.
 
 ## <a name="using-a-powershell-credential"></a>Met behulp van een PowerShell-referentie
 Ophalen van een referentie-element in een runbook of de DSC-configuratie met de **Get-AutomationPSCredential** activiteit. Hiermee wordt een [PSCredential-object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) die u kunt gebruiken met een activiteit of cmdlet waarvoor een PSCredential-parameter. U kunt ook de eigenschappen van het referentieobject afzonderlijk gebruiken ophalen. Het object heeft een eigenschap voor de gebruikersnaam en het beveiligd wachtwoord of kunt u de **GetNetworkCredential** methode om te retourneren een [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) object waarmee u een niet-beveiligde versie van het wachtwoord.

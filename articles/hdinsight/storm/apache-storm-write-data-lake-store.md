@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar HDFS van Apache Storm op HDInsight
 
@@ -34,7 +34,7 @@ Het project met deze topologie wordt beschikbaar als download van [https://githu
 
 Als u wilt compileren dit project, moet u de volgende configuratie voor uw ontwikkelomgeving:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) of hoger. HDInsight 3.5 of hoger vereisen Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of hoger. HDInsight 3.5 of hoger vereisen Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -140,7 +140,7 @@ Zie voor meer informatie over het framework lichtstroom [https://storm.apache.or
 
 Storm op HDInsight omvat standaard niet de onderdelen die HdfsBolt gebruikt om te communiceren met Azure Storage of de Data Lake Store in klassenpad van Storm. Gebruik de volgende scriptactie toevoegen van deze onderdelen de `extlib` map voor Storm op het cluster:
 
-* Script-URI:`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Script-URI:`https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
 * Knooppunten moeten worden toegepast op: Nimbus, Supervisor
 * Parameters: geen
 

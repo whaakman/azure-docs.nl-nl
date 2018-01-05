@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Begrijpen hoe de rand van de IoT-modules kunnen worden gebruikt, is geconfigureerd, en hergebruikt - voorbeeld
 
@@ -99,7 +99,7 @@ De sink zijn:
 | sink | Beschrijving |
 | ---- | ----------- |
 | `$upstream` | Het bericht verzenden met IoT Hub |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Verzenden van het bericht als invoer `{input}` van module`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Verzenden van het bericht als invoer `{input}` van module`{moduleId}` |
 
 Het is belangrijk te weten dat rand hub op in de minste eenmaal garanties, wat betekent biedt dat berichten lokaal worden opgeslagen als een route kan niet het bericht niet naar de sink verzenden, bijvoorbeeld de Edge-hub kan geen verbinding met IoT-Hub of de doel-module is niet verbonden.
 

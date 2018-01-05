@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -59,13 +59,7 @@ Zie voor meer informatie over de REST-API voor Media Services-versiegeschiedenis
 2.  Als er bronvideo die is gecodeerd met H.265(HEVC) video codec, zoals video vastgelegd met behulp van iOS11 of GoPro Hero 6, kunt u nu de Premium-Encoder of de codering-standaard gebruiken voor het coderen van video's. Raadpleeg de [Online Services-voorwaarden](https://azure.microsoft.com/support/legal/) voor belangrijke opmerking over patent licentie (s).
 3.  Als u inhoud hebt die meerdere taal audio houdt vervolgens bevat als de taal waarden correct zijn gelabeld volgens de bijbehorende bestandsindelingspecificatie (bijvoorbeeld ISO MP4), kunt klikt u vervolgens u de codering-standaard voor het coderen van die inhoud voor streaming. De resulterende streaming-locator wordt een lijst beschikbare audio talen.
 4.  Codering-standaard ondersteunt nu twee nieuwe alleen audio systeemwaarden, 'AAC Audio' en 'AAC goede kwaliteit audioapparaten'. Beide produceren aansluiting AAC uitvoer, volgens de tarieven voor bits van 128 kbps en 192 kbps respectievelijk.
-5.  De Premium-codering biedt nu ondersteuning voor bestandsindelingen QuickTime/MOV als invoer, zolang de video-codec een van is de [Apple ProRes versies hier vermeld](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), en de audio AAC of PCM.
-
-> [!NOTE]
-> De Premium-codering ondersteunt niet, bijvoorbeeld DVC/DVCPro video ingepakt in QuickTime/MOV-bestanden als invoer.  Codering-standaard biedt echter ondersteuning voor deze video codecs.
->
->
-
+5.  De Premium-codering biedt nu ondersteuning voor bestandsindelingen QuickTime/MOV als invoer, zolang de video-codec een van is de [Apple ProRes versies hier vermeld](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), en de audio AAC of PCM. De Premium-codering ondersteunt niet, bijvoorbeeld DVC/DVCPro video ingepakt in QuickTime/MOV-bestanden als invoer.  Codering-standaard biedt echter ondersteuning voor deze video codecs.
 6.  Oplossingen voor problemen in coderingsprogramma's:
     * Nu kunt u verzenden van taken met behulp van een Asset invoer en na deze volledige wijzigen de Asset (bijvoorbeeld door toevoegen/verwijderen/wijzigen bestanden in de Asset) en aanvullende taken verzenden. 
     * Verbetering van de kwaliteit van JPEG-miniatuurweergaven die wordt geproduceerd door de codering-standaard
@@ -563,7 +557,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady licentie sjabloon overzicht]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming opslag versleutelde inhoud]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [dynamische pakketten]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Blog van Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Smooth Stream beveiligen met PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

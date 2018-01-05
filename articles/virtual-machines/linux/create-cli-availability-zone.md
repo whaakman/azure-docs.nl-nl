@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 986cc450302a04720dc92e55eb8d1248cd3b8f26
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Maken van een virtuele Linux-machine in een zone beschikbaarheid met de Azure CLI
 
@@ -29,6 +29,35 @@ In dit artikel wordt stapsgewijs via de Azure CLI gebruiken voor het maken van e
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az aanmelding](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>Controleer de beschikbaarheid van de VM-SKU
+De beschikbaarheid van VM-grootten of SKU's, kan verschillen per regio en de zone. Om te helpen plannen voor het gebruik van de Zones van de beschikbaarheid, kunt u de beschikbare VM-SKU's door de Azure-regio en de zone aanbieden. Deze mogelijkheid zorgt ervoor dat u een correcte VM-grootte kiest en ophalen van de gewenste tolerantie in zones. Zie voor meer informatie over de verschillende typen van de virtuele machine en grootten [overzicht van de VM-grootten](sizes.md).
+
+Vindt u de beschikbare SKU van de VM's met de [az vm lijst-SKU's](/cli/azure/vm#az_vm_list_skus) opdracht. Het volgende voorbeeld worden de beschikbare VM-SKU's in de *eastus2* regio:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+De uitvoer is vergelijkbaar met het volgende verkorte voorbeeld, waarin de beschikbaarheid van Zones waarin elke VM-grootte beschikbaar is:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 

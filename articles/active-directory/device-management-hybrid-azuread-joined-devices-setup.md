@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -32,11 +32,12 @@ Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw 
 
 Voordat u begint met het configureren van hybride Azure AD die lid zijn van apparaten in uw omgeving, moet u dat vertrouwd raken met de ondersteunde scenario's en de beperkingen.  
 
+Als u vertrouwen op de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Controleer of u installatiekopieën maken van een installatie van Windows die is nog niet geregistreerd met Azure AD.
+
 In dit onderwerp gebruikt ter verbetering van de leesbaarheid van de beschrijvingen van de volgende voorwaarden: 
 
 - **Huidige Windows-apparaten** -deze term verwijst naar domein apparaten met Windows 10 of Windows Server 2016.
 - **Apparaten met Windows downlevel-** -deze term verwijst naar alle **ondersteund** domein Windows-apparaten die geen actieve Windows 10 of Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Huidige Windows-apparaten
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - Houdt de koppeling tussen de computeraccount in uw on-premises Active Directory (AD) en het apparaatobject in Azure AD. 
 - Andere apparaat gerelateerde functies, zoals Windows Hello voor bedrijven.
 
+Zorg ervoor dat de volgende URL's toegankelijk vanaf computers in het netwerk van uw organisatie voor de registratie van computers met Azure AD zijn:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.Login.microsoftonline.com
+
+Als uw organisaties vereist toegang tot Internet via een uitgaande proxyconfiguratie, moet Web Proxy Auto-Discovery (WPAD) zodat Windows 10-computers te registreren bij Azure AD implementeren.
 
 
 ## <a name="configuration-steps"></a>Configuratiestappen

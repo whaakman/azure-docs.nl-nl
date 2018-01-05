@@ -3,7 +3,7 @@ title: Verificatie op basis van een header met PingAccess voor Azure AD-toepassi
 description: Toepassingen publiceren met PingAccess en App-Proxy naar header gebaseerde verificatie ondersteunt.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy en PingAccess
 
@@ -52,7 +52,7 @@ Als u al Application Proxy ingeschakeld hebt en hebt een connector is geïnstall
 
 De connector voor toepassingsproxy is een Windows Server-service die het verkeer van uw werknemers extern naar uw gepubliceerde apps wordt verwezen. Zie voor meer installatie-instructies, [toepassingsproxy inschakelen in de Azure portal](active-directory-application-proxy-enable.md).
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder.
 2. Selecteer **Azure Active Directory** > **toepassingsproxy**.
 3. Selecteer **Connector downloaden** om de Application Proxy connector downloaden te starten. Volg de installatie-instructies.
 
@@ -110,7 +110,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 
 16. Selecteer **Toevoegen**. Kies voor de API **Windows Azure Active Directory**, klikt u vervolgens **Selecteer**. Voor de machtigingen kiest **lezen en schrijven van alle toepassingen** en **aanmelden en gebruikersprofiel lezen**, vervolgens **Selecteer** en **gedaan**.  
 
-  ![Selecteer machtigingen](./media/application-proxy-ping-access/select-permissions.png)
+  ![Machtigingen selecteren](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Machtigingen verlenen voordat u het scherm machtigingen sluit. 
 ![Machtigingen toekennen](media/application-proxy-ping-access/grantperms.png)
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 In dit voorbeeld wordt de [Azure-portal](https://portal.azure.com) naar udpate de *acceptedMappedClaims* veld:
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder.
 2. Selecteer **Azure Active Directory** > **App registraties**.
 3. Selecteer uw toepassing > **Manifest**.
 4. Selecteer **bewerken**, zoekt de *acceptedMappedClaims* veld en wijzig de waarde in **true**.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL web-app in Azure App Service maken op Linux
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/15/2017
 > In dit artikel implementeert een app in App Service op Linux. Voor de implementatie in App Service _Windows_, Zie [een PHP- en MySQL web-app in Azure bouwen](../app-service-web-tutorial-php-mysql.md).
 >
 
-[App-Service op Linux](app-service-linux-intro.md) biedt een zeer schaalbaar, zelf patch webhosting-service met het Linux-besturingssysteem. Deze zelfstudie laat zien hoe een PHP-web-app maken en te verbinden met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/) app die op App Service op Linux wordt uitgevoerd.
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze zelfstudie laat zien hoe een PHP-web-app maken en te verbinden met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/) app die op App Service op Linux wordt uitgevoerd.
 
 ![PHP-app uitgevoerd in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -164,7 +164,7 @@ Een server in Azure-Database voor MySQL (Preview) te maken met de [az mysql-serv
 Vervang de naam van uw MySQL-server waarin u ziet in de volgende opdracht de  _&lt;mysql_server_name >_ tijdelijke aanduiding (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de MySQL-server de hostnaam (`<mysql_server_name>.database.windows.net`), moet worden globaal uniek zijn.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld:
@@ -202,7 +202,7 @@ In het terminalvenster verbinding maken met de server MySQL in Azure. Gebruik de
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Wanneer u wordt gevraagd om een wachtwoord, gebruiken _tr0ngPa $$ w0rd!_, die u hebt opgegeven toen u de database hebt gemaakt.
+Wanneer u wordt gevraagd om een wachtwoord, gebruiken _tr0ngPa $$ w0rd!_, die u hebt opgegeven toen u de database-server gemaakt.
 
 ### <a name="create-a-production-database"></a>Een productiedatabase maken
 
@@ -243,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017

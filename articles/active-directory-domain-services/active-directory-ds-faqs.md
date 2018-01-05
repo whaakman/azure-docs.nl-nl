@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Veelgestelde vragen (FAQ's)
 Deze pagina antwoorden op veelgestelde vragen over Azure Active Directory Domain Services. Houd regelmatig op updates controleren.
@@ -31,7 +31,7 @@ Raadpleeg de [Troubleshooting guide](active-directory-ds-troubleshooting.md) opl
 Nee. U kunt slechts één beheerde domein onderhouden door Azure AD Domain Services voor één maken Azure AD-directory.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan ik Azure AD Domain Services in een virtueel netwerk van Azure Resource Manager inschakelen?
-Ja. Azure AD Domain Services kan worden ingeschakeld in een virtueel netwerk van Azure Resource Manager. Deze functionaliteit is momenteel in preview.
+Ja. Azure AD Domain Services kan worden ingeschakeld in een virtueel netwerk van Azure Resource Manager. Klassieke Azure-virtuele netwerken worden niet langer ondersteund voor het maken van nieuwe beheerde domeinen.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan ik mijn bestaande beheerde domein van een klassiek virtueel netwerk met een virtueel netwerk van Resource Manager migreren?
 Momenteel niet. Microsoft levert een mechanisme voor het migreren van uw bestaande beheerde domein van een klassiek virtueel netwerk met een virtueel netwerk van Resource Manager in de toekomst.

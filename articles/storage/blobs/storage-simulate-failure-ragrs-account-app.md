@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Een fout bij het openen van redundante opslag met leestoegang simuleren
 
@@ -88,7 +88,7 @@ Navigeer naar Fiddler en selecteer **regels** -> **regels aanpassen...** .  Opme
 
 Als u wilt doorgaan met de toepassing, drukt u op **een willekeurige toets** .
 
-Zodra de toepassing wordt gestart opnieuw uit te voeren, begint de aanvragen naar de primaire eindpunt mislukken. De toepassing probeert opnieuw verbinding maken met het primaire eindpunt 5 keer. Na de foutdrempelwaarde voor van vijf pogingen vraagt deze de installatiekopie van het secundaire alleen-lezen-eindpunt. Nadat de toepassing is haalt de installatiekopie van het 20 keer van het secundaire eindpunt, wordt de toepassing probeert te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing bij het lezen van het secundaire eindpunt. Dit patroon is de [Circuitonderbreker](/azure/architecture/patterns/circuit-breaker.md) patroon beschreven in de vorige zelfstudie.
+Zodra de toepassing wordt gestart opnieuw uit te voeren, begint de aanvragen naar de primaire eindpunt mislukken. De toepassing probeert opnieuw verbinding maken met het primaire eindpunt 5 keer. Na de foutdrempelwaarde voor van vijf pogingen vraagt deze de installatiekopie van het secundaire alleen-lezen-eindpunt. Nadat de toepassing is haalt de installatiekopie van het 20 keer van het secundaire eindpunt, wordt de toepassing probeert te maken met het primaire eindpunt. Als het primaire eindpunt nog steeds niet bereikbaar is, hervat de toepassing bij het lezen van het secundaire eindpunt. Dit patroon is de [Circuitonderbreker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) patroon beschreven in de vorige zelfstudie.
 
 ![Aangepaste regel plakken](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 

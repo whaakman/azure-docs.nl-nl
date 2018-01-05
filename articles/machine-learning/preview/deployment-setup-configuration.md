@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -81,7 +81,7 @@ Als u wilt starten, moet u uw implementatieomgeving instellen. De instelling van
 
 Wanneer de omgeving-installatie te voltooien:
 - U wordt gevraagd aan te melden bij Azure. Als u wilt aanmelden, moet u een webbrowser gebruiken op de pagina https://aka.ms/devicelogin opent en voert u de opgegeven code om te verifiëren.
-- U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account met een geldige Azure-abonnement en voldoende machtigingen voor het maken van resources in het account. - Als het aanmelden voltooid is, uw abonnementsgegevens wordt weergegeven en u wordt gevraagd of u doorgaan wilt met de geselecteerde account.
+- U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account met voldoende machtigingen om resources te maken in het account en een geldige Azure-abonnement. Als het aanmelden voltooid is, wordt uw abonnementsgegevens wordt weergegeven en u wordt gevraagd of u wilt doorgaan met het geselecteerde account.
 
 ### <a name="environment-setup"></a>Instellen van de omgeving
 Om het installatieproces start, moet u enkele omgeving providers registreren door te voeren van de volgende opdrachten:

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Vervangen van een hardware-onderdeel op een Azure-Stack scale unit-knooppunt
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
-In dit artikel beschrijft het algemene proces ter vervanging van hardwareonderdelen die niet hot-verwisselbare zijn. Werkelijke vervanging stappen varieert gebaseerd op uw hardwareleverancier oorspronkelijke leveranciers (OEM). Raadpleeg uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw Azure-Stack geïntegreerd systeem zijn.
+In dit artikel beschrijft het algemene proces ter vervanging van hardwareonderdelen die niet hot-verwisselbare zijn. Werkelijke vervanging stappen verschillen, gebaseerd op uw hardwareleverancier oorspronkelijke leveranciers (OEM). Raadpleeg uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw Azure-Stack geïntegreerd systeem zijn.
 
 Niet hot-verwisselbare onderdelen omvatten het volgende:
 
@@ -40,7 +40,7 @@ Niet hot-verwisselbare onderdelen omvatten het volgende:
 
 Het volgende stroomdiagram ziet u het algemene proces FRU niet hot-verwisselbare computerhardware.
 
-![Stroomdiagram dat toont onderdeel vervanging stroom](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Stroomdiagram dat toont onderdeel vervanging stroom](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
 
@@ -48,11 +48,11 @@ Het volgende stroomdiagram ziet u het algemene proces FRU niet hot-verwisselbare
 
 ## <a name="review-alert-information"></a>Bekijk informatie over waarschuwingen
 
-De status van de Azure-Stack en het bewakingssysteem controleert de status van netwerkadapters en de schijven die worden beheerd door opslagruimten Direct. Andere hardwareonderdelen bewaakt niet. Waarschuwingen worden gegenereerd voor alle andere hardwareonderdelen in de leverancierspecifieke hardware bewakingsoplossing die wordt uitgevoerd op de host van de levenscyclus van hardware.
+De status van de Azure-Stack en het bewakingssysteem houden de status van netwerkadapters en gegevensstations beheerd door opslagruimten Direct. Andere hardware-onderdelen worden niet bijgehouden. Waarschuwingen worden gegenereerd voor alle andere hardwareonderdelen in de leverancierspecifieke hardware bewakingsoplossing die wordt uitgevoerd op de host van de levenscyclus van hardware.
 
 ## <a name="component-replacement-process"></a>Proces voor het onderdeel vervangen
 
-De volgende stappen zijn opgegeven als een overzicht van het proces voor het onderdeel vervangen. Volg deze stappen niet zonder te verwijzen naar de OEM geleverde FRU-documentatie.
+De volgende stappen bevatten een overzicht van het proces voor het onderdeel vervangen. Volg deze stappen niet zonder te verwijzen naar de OEM geleverde FRU-documentatie.
 
 1. Gebruik de [leegmaakt](azure-stack-node-actions.md#scale-unit-node-actions) actie het scale unit-knooppunt in onderhoudsmodus te plaatsen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
 2. Nadat het scale unit-knooppunt in de onderhoudsmodus bevindt is, gebruikt u de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) in te grijpen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
@@ -69,4 +69,5 @@ De volgende stappen zijn opgegeven als een overzicht van het proces voor het ond
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over het vervangen van een fysieke hot verwisselbare schijf [een schijf vervangen](azure-stack-replace-disk.md).
-- Zie voor meer informatie over het vervangen van een fysiek knooppunt [vervangen van een scale unit knooppunt](azure-stack-replace-node.md). 
+- Zie voor meer informatie over het vervangen van een fysiek knooppunt [vervangen van een scale unit knooppunt](azure-stack-replace-node.md).
+- 

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/20/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van compatibiliteit maken en beheren
 
@@ -51,7 +51,7 @@ De eerste stap bij het afdwingen van compatibiliteit met beleid voor Azure is ee
 6. Geef een weergave**naam** op voor de beleidstoewijzing. In dit geval gaan we gebruiken *vereisen SQL Server versie 12.0*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over hoe de toewijzing van dit beleid zorgt ervoor alle SQL-servers gemaakt in deze omgeving dat versie 12.0 zijn.
 7. Wijzig de prijscategorie in**Standard** om ervoor te zorgen dat het beleid wordt toegepast op bestaande resources.
 
-   Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Omdat we met een beperkte preview werken, hebben we nog geen prijsmodel uitgebracht en ontvangt u geen factuur als u *Standard* selecteert. Zie [Prijzen voor Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/) voor meer informatie over prijzen.
+   Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Omdat we met een beperkte preview werken, hebben we nog geen prijsmodel uitgebracht en ontvangt u geen factuur als u *Standard* selecteert. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy) voor meer informatie over prijzen.
 
 8. Selecteer de **bereik** -abonnement (of de resourcegroep) u eerder hebt geregistreerd. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen.
 

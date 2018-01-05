@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 250fb1dfed5cdab5308c2d91744e0cf051c32ccc
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop gebruiken om te importeren en exporteren van gegevens tussen Hadoop in HDInsight en SQL-Database
 
@@ -39,7 +39,7 @@ Informatie over het Apache Sqoop gebruiken om te importeren en exporteren tussen
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * De [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) hulpprogramma.
+> * De [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) hulpprogramma
 
 ## <a name="create-the-table-in-sql-database"></a>De tabel in SQL-Database maken
 
@@ -95,7 +95,7 @@ GO
 
     ```sql
     SET ROWCOUNT 50;
-    SELECT * FROM mobiledata;"
+    SELECT * FROM mobiledata;
     ```
 
     Met deze opdracht worden 50 rijen die zijn geïmporteerd in de tabel.
@@ -105,7 +105,7 @@ GO
 1. Gebruik de volgende opdracht voor het importeren van gegevens uit de **mobiledata** tabel in SQL-Database naar de **wasb: / / / zelfstudies/usesqoop/importeddata** directory op HDInsight:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     De velden in de gegevens worden gescheiden door een tab-teken en de regels worden beëindigd door een nieuwe-regelteken.
@@ -153,7 +153,7 @@ U kunt ook Sqoop gebruiken om te importeren en exporteren van gegevens uit SQL S
 * Wanneer u verbinding maakt met de SQL Server uit HDInsight, moet u wellicht de IP-adres van de SQL Server gebruiken. Bijvoorbeeld:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P <adminPassword> -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## <a name="limitations"></a>Beperkingen

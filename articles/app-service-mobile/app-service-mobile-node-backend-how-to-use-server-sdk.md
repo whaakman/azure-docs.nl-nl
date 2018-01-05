@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Het gebruik van de Azure Mobile Apps-SDK voor Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -320,9 +320,9 @@ De meeste instellingen in de *azureMobile.js* bestand hebben een equivalente App
 
 | App-instelling | *azureMobile.js* instelling | Beschrijving | Geldige waarden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |naam |De naam van de app |Tekenreeks |
+| **MS_MobileAppName** |naam |De naam van de app |tekenreeks |
 | **MS_MobileLoggingLevel** |Logging.level |Minimale logboekniveau van berichten aan te melden |fout, waarschuwing, info, uitgebreid, foutopsporing, stom |
-| **MS_DebugMode** |Fouten opsporen |In- of de foutopsporingsmodus uitschakelen |True, false |
+| **MS_DebugMode** |fouten opsporen |In- of de foutopsporingsmodus uitschakelen |True, false |
 | **MS_TableSchema** |Data.schema |Naam van de standaard schema voor de SQL-tabellen |tekenreeks (standaard: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |In- of de foutopsporingsmodus uitschakelen |True, false |
 | **MS_DisableVersionHeader** |versie (ingesteld op niet-gedefinieerde) |Schakelt de header X-ZUMO-Server-versie |True, false |
@@ -797,7 +797,7 @@ Eenvoudig tabellen in de portal kunnen u maken en werken met tabellen rechts in 
 * CreatedAt
 * updatedAt
 * verwijderd
-* Versie
+* versie
 
 U kunt zelfs tabelbewerkingen met de App Service-Editor bewerken. Wanneer u klikt op **gemakkelijk tabellen** in uw back-end voor site-instellingen kunt u toevoegen, wijzigen of verwijderen van een tabel. U ziet ook de gegevens in de tabel.
 
@@ -827,7 +827,7 @@ De Azure-portal kunt u uw Node.js-back-end-scriptbestanden in de App Service Edi
 
 1. Klik op de blade van uw mobiele App-back-end **alle instellingen** > beide **gemakkelijk tabellen** of **eenvoudige API's**, klikt u op een tabel of de API en klik vervolgens op **script bewerken**. Het scriptbestand wordt geopend in de App Service-Editor.
 
-    ![App Service-Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+    ![App Service-editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Uw wijzigingen aanbrengen in het bestand met code in de online-editor. Wijzigingen worden automatisch opgeslagen terwijl u typt.
 
 <!-- Images -->

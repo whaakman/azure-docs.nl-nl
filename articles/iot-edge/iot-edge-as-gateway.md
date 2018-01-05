@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Hoe een Edge van de IoT-apparaat kan worden gebruikt als een gateway - preview
 
@@ -23,7 +23,7 @@ Het doel van de gateways in IoT-oplossingen is specifiek voor de oplossing en co
 Er zijn drie patronen voor het gebruik van een IoT-randapparaat als een gateway: transparant, protocol vertaling en identiteit vertaling:
 * **Transparante** : apparaten die theoretisch verbinding met IoT Hub maken kunnen verbinding kunnen maken met een gateway-apparaat in plaats daarvan. Dit betekent dat de downstream-apparaten hun eigen identiteiten IoT Hub hebben en van de protocollen MQTT, AMQP of HTTP gebruikmaakt. De gateway stuurt gewoon communicatie tussen de apparaten en IoT Hub. De apparaten zich niet bewust zijn dat ze met de cloud via een gateway communiceren en een gebruiker interactie met de apparaten in IoT Hub niet op de hoogte van de tussenliggende gateway-apparaat is. De gateway is dus transparant. Raadpleeg de [maken van een transparante gateway] [ lnk-iot-edge-as-transparent-gateway] -procedure voor specifieke informatie over het gebruik van een IoT-randapparaat als een transparante gateway.
 * **De vertaling protocol** : apparaten die geen ondersteuning voor MQTT, AMQP of HTTP bieden een gateway-apparaat gebruiken om gegevens te verzenden naar IoT Hub. De gateway is smart om te begrijpen dat protocol dat wordt gebruikt door de downstream-apparaten; het is echter het enige apparaat dat de identiteit van IoT-Hub heeft. Alle informatie lijkt erop dat het afkomstig is van een apparaat, de gateway. Dit betekent dat downstream apparaten aanvullende identificatiegegevens in hun berichten insluiten moeten als cloud-toepassingen reden over de gegevens op basis van per apparaat wilt. Bovendien, zoals IoT Hub primitieven twin en methoden zijn alleen beschikbaar voor het gateway-apparaat niet downstream-apparaten.
-* **De vertaling van identiteit** -apparaten die geen verbinding met IoT Hub maken verbinding maken met een gatewayapparaat dat zorgt voor een IoT Hub identiteits- en protocol omzetting namens de downstream-apparaten. De gateway is slim genoeg om het protocol dat wordt gebruikt door de downstream-apparaten begrijpen, identiteit bieden en IoT Hub primitieven vertalen. Downstream apparaten weergegeven in IoT Hub als klas apparaten met horende en methoden. Een gebruiker kan communiceren met de apparaten in IoT Hub biedt merkt niets van de tussenliggende gateway-apparaat.
+* **De vertaling van identiteit** -apparaten die geen verbinding met IoT Hub maken verbinding maken met een gatewayapparaat dat zorgt voor een IoT Hub identiteits- en protocol omzetting namens de downstream-apparaten. De gateway is slim genoeg om het protocol dat wordt gebruikt door de downstream-apparaten begrijpen, identiteit bieden en IoT Hub primitieven vertalen. Downstream apparaten weergegeven in IoT Hub als klas apparaten met horende en methoden. Een gebruiker kan communiceren met de apparaten in IoT Hub en is niet op de hoogte van de tussenliggende gateway-apparaat.
 
 ![Diagrammen van gateway patronen][1]
 
@@ -49,7 +49,7 @@ Hier volgt een snelle bedriegen blad waarmee IoT Hub primitieven, met behulp van
 | Directe methoden en cloud-naar-apparaat-berichten | De cloud kunt elk aangesloten apparaat afzonderlijk oplossen | De cloud kan zich alleen richten op het gateway-apparaat | De cloud kunt elk aangesloten apparaat afzonderlijk oplossen |
 | [IoT Hub, vertragingen en quota 's][lnk-iothub-throttles-quotas] | Van toepassing op elk apparaat | Van toepassing op het gateway-apparaat | Van toepassing op elk apparaat |
 
-Wanneer u een patroon ondoorzichtige gateway gebruikt, delen alle apparaten die verbinding maken via de gateway die dezelfde cloud-naar-apparaat wachtrijexemplaar, dit kan maximaal 50 berichten bevatten. Betekent dit dat het patroon ondoorzichtige gateway moet worden gebruikt wanneer heel weinig apparaten verbinding via de veldgateway voor elk maken en hun cloud-naar-apparaat-verkeer laag is.
+Wanneer u een patroon ondoorzichtige gateway (protocolvertaling) gebruikt, delen alle apparaten die verbinding maken via de gateway die dezelfde cloud-naar-apparaat wachtrijexemplaar, dit kan maximaal 50 berichten bevatten. Betekent dit dat het patroon ondoorzichtige gateway moet worden gebruikt wanneer heel weinig apparaten verbinding via de veldgateway voor elk maken en hun cloud-naar-apparaat-verkeer laag is.
 
 ## <a name="next-steps"></a>Volgende stappen
 Gebruik een IoT-randapparaat als een [transparante gateway][lnk-iot-edge-as-transparent-gateway] 

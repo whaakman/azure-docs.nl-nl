@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 30b3ed453cb67516b49bcf27376a1a0aea43d9b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7e6cc4a78b3e31b1357671fdb19d8eb9cf927ce
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Zelfstudie: Azure Active Directory-integratie met SCC levenscyclus
 
@@ -132,10 +132,8 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. Eenmalige aanmelding configureren op **SCC LifeCycle** zijde, moet u de gedownloade verzenden **Metadata XML** naar [SCC LifeCycle ondersteuningsteam](mailto:lifecycle.support@scc.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
-     >[!NOTE]
-   >Eenmalige aanmelding moet worden ingeschakeld door het ondersteuningsteam SCC levenscyclus.
-   > 
-   > 
+  >[!NOTE]
+  >Eenmalige aanmelding moet worden ingeschakeld door het ondersteuningsteam SCC levenscyclus.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +177,7 @@ Zodat gebruikers van Azure AD aan te melden bij de levenscyclus van SCC moeten z
 Wanneer een toegewezen gebruiker probeert aan te melden bij SCC levenscyclus, wordt automatisch een SCC LifeCycle-account gemaakt, indien nodig.
 
 > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
+> De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
@@ -218,7 +216,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel SCC levenscyclus in het deelvenster toegang, u moet ophalen automatisch aangemeld bij de levenscyclus van SCC toepassing.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

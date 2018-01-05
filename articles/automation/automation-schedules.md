@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation plannen
-Als u een runbook in Azure Automation om te beginnen bij een bepaalde tijd plannen, koppelt u deze aan een of meer planningen. Een schema kan worden geconfigureerd voor uitvoeren nadat de of op een opnieuw optreedt per uur of dagelijks schema voor runbooks in de klassieke Azure portal en voor runbooks in de Azure portal, kunt u ze ook plannen voor wekelijks, maandelijks, specifieke dagen van de week of dagen van de maand , of een bepaalde dag van de maand.  Een runbook kan worden gekoppeld aan meerdere planningen kan, en een planning meerdere runbooks die zijn gekoppeld.
+Als u een runbook in Azure Automation om te beginnen bij een bepaalde tijd plannen, koppelt u deze aan een of meer planningen. Geen schema kan worden geconfigureerd voor uitvoeren nadat de of op een opnieuw optreedt per uur of dagelijks schema voor runbooks in de Azure-portal. U kunt ook plannen ze voor wekelijks, maandelijks, specifieke dagen van de week of dagen van de maand of een bepaalde dag van de maand.  Een runbook kan worden gekoppeld aan meerdere planningen kan, en een planning meerdere runbooks die zijn gekoppeld.
 
 > [!NOTE]
 > Schema's bieden momenteel geen ondersteuning voor Azure Automation DSC-configuraties.
@@ -51,7 +51,7 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van sc
 | [Hef de registratie van AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Een runbook uit een planning dissociates. |
 
 ## <a name="creating-a-schedule"></a>Een schema maken
-U kunt een nieuw schema voor runbooks maken in de Azure-portal in de klassieke portal of met Windows PowerShell. U hebt ook de optie voor het maken van een nieuw schema wanneer u een runbook koppelen aan een schema met de Azure classic of Azure-portal.
+U kunt een nieuw schema voor runbooks maken in de Azure portal of met Windows PowerShell. U hebt ook de optie voor het maken van een nieuw schema wanneer u een runbook koppelen aan een schema met de Azure classic of Azure-portal.
 
 > [!NOTE]
 > Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.  Om te voorkomen die invloed hebben op uw runbooks en de processen die ze automatiseren, moet u eerst testen van runbooks die schema's met een speciaal ontworpen is voor het testen van Automation-account hebt gekoppeld.  Hiermee valideert u uw geplande runbooks correct blijven functioneren en als dat niet het geval is, kunt u verder oplossen en wijzigingen die zijn vereist voordat de bijgewerkte runbookversie migreren naar productie toepassen.  
@@ -63,14 +63,6 @@ U kunt een nieuw schema voor runbooks maken in de Azure-portal in de klassieke p
 2. Klik op **toevoegen van een planning** boven aan de pagina.
 4. Op de **nieuwe planning** deelvenster, typ een **naam** en optioneel een **beschrijving** voor het nieuwe schema.
 5. Selecteer de planning wordt één keer uitgevoerd of volgens een terugkerende planning door te selecteren **eenmaal** of **terugkeerpatroon**.  Als u selecteert **eenmaal** Geef een **begintijd** en klik vervolgens op **maken**.  Als u selecteert **terugkeerpatroon**, Geef een **begintijd** en de frequentie voor hoe vaak het runbook moet worden herhaald - door **uur**, **dag**, **week**, of door **maand**.  Als u selecteert **week** of **maand** uit de vervolgkeuzelijst de **terugkeerpatroon optie** wordt weergegeven in het deelvenster en geselecteerde de **terugkeerpatroon optie** deelvenster wordt weergegeven en kunt u de dag van week selecteren als u hebt geselecteerd **week**.  Als u hebt geselecteerd **maand**, kunt u kiezen door **weekdagen** of specifieke dagen van de maand op de kalender en tot slot wilt u uitvoeren op de laatste dag van de maand of niet, en klik vervolgens op **OK**.   
-
-### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Een nieuwe planning maken in de klassieke Azure portal
-1. In de klassieke Azure portal, selecteer Automation en selecteer vervolgens de naam van een Automation-account.
-2. Selecteer de **activa** tabblad.
-3. Klik onderaan in het venster **instelling toevoegen**.
-4. Klik op **planning toevoegen**.
-5. Typ een **naam** en optioneel een **beschrijving** voor het nieuwe schema. Uw planning kunt uitvoeren **één keer**, **per uur**, **dagelijkse**, **wekelijkse**, of **maandelijkse**.
-6. Geef een **begintijd** en andere opties, afhankelijk van het type van het schema dat u hebt geselecteerd.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Een nieuw schema maken met Windows PowerShell
 U kunt de [nieuw AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) cmdlet een nieuwe planning maken in Azure Automation voor klassieke runbooks of [nieuw AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet voor runbooks in de Azure-portal. De begintijd voor de planning en de frequentie die moet worden uitgevoerd, moet u opgeven.
@@ -98,14 +90,6 @@ Een runbook kan worden gekoppeld aan meerdere planningen kan, en een planning me
 2. Klik op de naam van het runbook te plannen.
 3. Als het runbook is momenteel niet gekoppeld aan een schema, krijgt u de optie voor het maken van een nieuwe planning of een koppeling naar een bestaand schema.  
 4. Als het runbook parameters heeft, kunt u de optie **instellingen (standaard: Azure) voor uitvoeren wijzigen** en de **Parameters** deelvenster wordt weergegeven waarin u overeenkomstig de gegevens kunt invoeren.  
-
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Een planning koppelen aan een runbook met de klassieke Azure portal
-1. Selecteer in de klassieke Azure portal **Automation** en klik vervolgens op de naam van een Automation-account.
-2. Selecteer de **Runbooks** tabblad.
-3. Klik op de naam van het runbook te plannen.
-4. Klik op de **planning** tabblad.
-5. Als het runbook is momenteel niet gekoppeld aan een schema, dan krijgt u de optie voor het **koppeling naar een nieuw schema** of **koppelen aan een bestaand schema**.  Als het runbook is momenteel gekoppeld aan een schema, klikt u op **koppeling** aan de onderkant van het venster voor toegang tot deze opties.
-6. Als het runbook parameters heeft, wordt u gevraagd hun waarden op te geven.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Een planning aan een runbook met Windows PowerShell koppelen
 Kunt u de [registreren AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) een planning koppelen aan een klassieke runbook of [registreren AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet voor runbooks in de Azure-portal.  U kunt waarden voor het runbook parameters opgeven met de Parameters-parameter. Zie [een Runbook starten in Azure Automation](automation-starting-a-runbook.md) voor meer informatie over het opgeven van parameterwaarden.
@@ -135,14 +119,6 @@ Wanneer u een planning uitschakelt, wordt alle runbooks die zijn gekoppeld aan d
 1. Selecteer in de Azure-portal van uw Automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
 2. Klik op de naam van een planning te openen van het detaildeelvenster.
 3. Wijziging **ingeschakeld** naar **Nee**.
-
-### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>Uitschakelen van een planning van de klassieke Azure portal
-U kunt een planning in de klassieke Azure portal op de pagina Details van de planning voor de planning uitschakelen.
-
-1. In de klassieke Azure portal, selecteer Automation en klik vervolgens op de naam van een Automation-account.
-2. Selecteer het tabblad activa.
-3. Klik op de naam van een planning te openen, de detailpagina ervan.
-4. Wijziging **ingeschakeld** naar **Nee**.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Een planning met Windows PowerShell uitschakelen
 U kunt de [Set AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet om de eigenschappen van een bestaande planning voor een klassieke runbook wijzigen of [Set AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet voor runbooks in de Azure-portal. Schakel de planning opgeven **false** voor de **IsEnabled** parameter.

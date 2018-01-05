@@ -3,8 +3,8 @@ title: Verificatie toevoegen op Apache Cordova met Mobile Apps | Microsoft Docs
 description: "Informatie over het verifiëren van gebruikers van uw Apache Cordova-app via een groot aantal identiteitsproviders, waaronder Google, Facebook, Twitter en Microsoft met Mobile Apps in Azure App Service."
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: b7362b7f26859de541f792e714502851d74c98e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b5cce832ae7ae83552c2a5ded2f5f5bda0ac76bf
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Verificatie toevoegen aan uw Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -92,7 +92,7 @@ Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de b
 4. Vervang in de code die u zojuist hebt toegevoegd, `SDK_Provider_Name` met de naam van de aanmeldingsprovider van uw. Bijvoorbeeld: voor Azure Active Directory, gebruiken `client.login('aad')`.
 5. Voer uw project.  Wanneer het project is geïnitialiseerd, ziet uw toepassing de OAuth-aanmeldingspagina voor de gekozen verificatieprovider.
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>De volgende stappen
 * Meer informatie [over verificatie] met Azure App Service.
 * De zelfstudie gaan door toe te voegen [Pushmeldingen] aan uw Apache Cordova-app.
 

@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?
 Eenmalige aanmelding betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt slechts één keer met behulp van één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle toepassingen zonder verificatie openen (bv. Typ een wachtwoord) een tweede keer.
@@ -49,7 +49,7 @@ Azure AD ondersteunt drie verschillende manieren aan te melden bij toepassingen:
 * **Op basis van wachtwoorden Single Sign-On** veilige opslag voor servertoepassingen wachtwoord en opnieuw afspelen met een browser webextensie of mobiele app. Dit maakt gebruik van het proces voor bestaande aanmelden geleverd door de toepassing, maar Hiermee kan een beheerder de wachtwoorden beheren en vereist niet dat de gebruiker het wachtwoord kennen.
 * **Bestaande Single Sign-On** kan gebruikmaken van een bestaande eenmalige aanmelding die is ingesteld voor de toepassing, maar kan deze toepassingen worden gekoppeld aan de portals Office 365 of Azure AD access deelvenster Azure AD en kunt u ook aanvullende rapportage in Azure AD wanneer de toepassingen er worden gestart.
 
-Wanneer een gebruiker met een toepassing hebt geverifieerd, ze moet bovendien beschikken over een record voor een account ingericht op de toepassing waarin wordt gemeld de toepassing dat waarin er machtigingen en toegangsniveau die zich binnen de toepassing. Het inrichten van een record voor dit account ofwel automatisch kan worden uitgevoerd of kan optreden handmatig door een beheerder voordat de gebruiker één aanmelding toegang ontvangt.
+Wanneer een gebruiker is geverifieerd met een toepassing, ze moet bovendien beschikken over een record voor een account ingericht op de toepassing waarin wordt gemeld de toepassing dat waarin er machtigingen en toegangsniveau die zich binnen de toepassing. Het inrichten van een record voor dit account ofwel automatisch kan worden uitgevoerd of kan optreden handmatig door een beheerder voordat de gebruiker één aanmelding toegang ontvangt.
 
  Meer informatie over deze modi voor eenmalige aanmelding en inrichting hieronder.
 

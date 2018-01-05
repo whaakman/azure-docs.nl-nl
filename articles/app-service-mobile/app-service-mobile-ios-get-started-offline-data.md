@@ -2,8 +2,8 @@
 title: Offline synchronisatie met de mobiele iOS-apps inschakelen | Microsoft Docs
 description: Informatie over het gebruik van mobiele apps van Azure App Service-cache en sync offline gegevens in de iOS-toepassingen.
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Offline synchronisatie met de mobiele iOS-apps inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,7 +163,7 @@ Wanneer u de functie offlinesynchronisatie gebruikt, de drie systeemtabellen en 
 | id | Geheel getal 64 |
 | itemId | Tekenreeks |
 | properties | Binaire gegevens |
-| Tabel | Tekenreeks |
+| tabel | Tekenreeks |
 | tableKind | Geheel getal 16 |
 
 
@@ -187,7 +187,7 @@ Wanneer u de functie offlinesynchronisatie gebruikt, de drie systeemtabellen en 
 | id |Tekenreeks |
 | sleutel |Tekenreeks |
 | KeyType |Geheel getal 64 |
-| Tabel |Tekenreeks |
+| tabel |Tekenreeks |
 | waarde |Tekenreeks |
 
 ### <a name="data-table"></a>Gegevenstabel
@@ -197,11 +197,11 @@ Wanneer u de functie offlinesynchronisatie gebruikt, de drie systeemtabellen en 
 | Kenmerk | Type | Opmerking |
 | --- | --- | --- |
 | id | Tekenreeks is gemarkeerd als vereist |primaire sleutel in externe opslag |
-| Voltooien | Booleaanse waarde | Taak itemveld |
+| Voltooien | Boole-waarde | Taak itemveld |
 | Tekst |Tekenreeks |Taak itemveld |
 | CreatedAt | Date | (optioneel) Toegewezen aan **createdAt** systeemeigenschap |
 | updatedAt | Date | (optioneel) Toegewezen aan **updatedAt** systeemeigenschap |
-| Versie | Tekenreeks | (optioneel) Gebruikt voor het opsporen van conflicten, is toegewezen aan versie |
+| versie | Tekenreeks | (optioneel) Gebruikt voor het opsporen van conflicten, is toegewezen aan versie |
 
 ## <a name="setup-sync"></a>Het gedrag van de synchronisatie van de app wijzigen
 In deze sectie maakt wijzigen u de app zodat deze wordt niet gesynchroniseerd op app starten of als u invoegen en items bijwerken. Synchronisatie alleen wanneer de knop Vernieuwen gebaar wordt uitgevoerd.
@@ -269,7 +269,7 @@ De normale maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen voor mobiel
 
 Wanneer wij het lokale archief gesynchroniseerd met de server, hebben we gebruikt de **MSSyncTable.pullWithQuery** methode.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Offline synchroniseren van gegevens in mobiele Apps]
 * [Cloud behandeld: Offlinesynchronisatie in Azure Mobile Services] \(de video gaat over Mobile Services, maar Mobile Apps offline synchronisatie werkt op een vergelijkbare manier.\)
 

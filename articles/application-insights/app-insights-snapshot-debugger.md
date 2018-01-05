@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -62,8 +62,6 @@ De volgende omgevingen worden ondersteund:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -161,7 +159,7 @@ De volgende omgevingen worden ondersteund:
    }
     ```
     
-## <a name="grant-permissions"></a>Machtigingen toekennen
+## <a name="grant-permissions"></a>Machtigingen verlenen
 
 Eigenaars van het Azure-abonnement kunnen inspecteren momentopnamen. Andere gebruikers moet machtiging worden verleend door een eigenaar.
 
@@ -174,8 +172,8 @@ Als u wilt machtigen, wijzen de `Application Insights Snapshot Debugger` rol aan
 1. Klik op de knop Opslaan om de gebruiker toevoegen aan de rol.
 
 
-[!IMPORTANT]
-    Momentopnamen kunnen mogelijk persoonlijke en andere gevoelige gegevens in waarden van variabelen en parameter bevatten.
+> [!IMPORTANT]
+> Momentopnamen kunnen mogelijk persoonlijke en andere gevoelige gegevens in waarden van variabelen en parameter bevatten.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Fouten opsporen in momentopnamen in de Application Insights-portal
 
@@ -276,6 +274,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 ```
 
 Voor toepassingen die zijn _niet_ gehost in App Service, de uploader-logboeken zijn in dezelfde map als de minidumps: `%TEMP%\Dumps\<ikey>` (waarbij `<ikey>` is uw instrumentatiesleutel).
+
+Voor rollen in Cloudservices, de tijdelijke standaardmap mogelijk te klein voor de bestanden met Mini-geheugendump. In dat geval kunt u een alternatieve map via de eigenschap TempFolder in ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Gebruik Application Insights zoeken uitzonderingen met momentopnamen
 

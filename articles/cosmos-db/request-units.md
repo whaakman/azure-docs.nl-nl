@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Capaciteit van de aanvraag-eenheid opgeven in Azure Cosmos-DB
 Bij het starten van een nieuwe verzameling, de tabel of de grafiek, u het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerd. Op basis van de ingerichte doorvoer, Azure Cosmos DB toegewezen fysieke partities voor het hosten van uw verzameling en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
 
-Azure Cosmos DB vereist een partitiesleutel worden opgegeven wanneer een verzameling is ingericht met 2500 aanvraageenheden of hoger. Een partitiesleutel is ook vereist voor het schalen van uw verzameling doorvoer afgezien van 2500 aanvraageenheden in de toekomst. Daarom sterk aanbevolen voor het configureren van een [partitiesleutel](partition-data.md) bij het maken van een container ongeacht uw eerste doorvoer. Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Selecteren van een partitiesleutel met veel afzonderlijke waarden zorgt u ervoor dat uw tabel-verzameling/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
+Azure DB Cosmos-containers kunnen worden gemaakt als vast of onbeperkt. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een container voor onbeperkte maken moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Selecteren van een partitiesleutel met veel afzonderlijke waarden zorgt u ervoor dat uw tabel-verzameling/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
 
 > [!NOTE]
 > Een partitiesleutel is een grens van een logische en niet een fysieke. Daarom hoeft u niet wilt beperken het aantal afzonderlijke partitie sleutelwaarden. In feite is het beter om meer afzonderlijke partitie sleutelwaarden dan minder Azure Cosmos DB beschikt over meer opties voor taakverdeling.

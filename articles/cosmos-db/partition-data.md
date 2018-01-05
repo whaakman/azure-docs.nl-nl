@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/04/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -31,19 +31,29 @@ Partitionering en partitiesleutels worden besproken in deze Azure vrijdag video 
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitioneren in Azure Cosmos DB
-U kunt in Azure Cosmos DB, opslaan en opvragen van schema minder gegevens met de volgorde van milliseconde reactietijden op elke schaal. Azure Cosmos DB containers biedt voor het opslaan van gegevens aangeroepen *verzamelingen* (voor documenten) *grafieken*, of *tabellen*. Containers zijn logische resources en kunnen een of meer fysieke partities of servers omvatten. Het aantal partities wordt bepaald door Azure Cosmos DB op basis van de grootte van de opslagruimte en de ingerichte doorvoer van de container. Elke partitie in Azure Cosmos DB heeft een vaste hoeveelheid back SSD opslag gekoppeld en is gerepliceerd voor hoge beschikbaarheid. Partitie management volledig wordt beheerd door Azure Cosmos DB en u hoeft te complexe code schrijven of beheren van de partities. Azure DB Cosmos-containers zijn onbeperkte in termen van opslag en doorvoer. 
+U kunt in Azure Cosmos DB, opslaan en opvragen van schema minder gegevens met de volgorde van milliseconde reactietijden op elke schaal. Azure Cosmos DB containers biedt voor het opslaan van gegevens aangeroepen *verzamelingen* (voor documenten) *grafieken*, of *tabellen*. 
+
+Containers zijn logische resources en kunnen een of meer fysieke partities of servers omvatten. Het aantal partities wordt bepaald door Azure Cosmos DB op basis van de grootte van de opslagruimte en de ingerichte doorvoer van de container. 
+
+Een fysieke partitie is een vast bedrag van gereserveerde back SSD opslag, met maximaal 10 GB. Elke fysieke partitie worden gerepliceerd voor hoge beschikbaarheid. Een of meer fysieke partities vormen een container. Fysieke partitie management volledig wordt beheerd door Azure Cosmos DB en u hoeft te complexe code schrijven of beheren van de partities. Azure DB Cosmos-containers zijn onbeperkte in termen van opslag en doorvoer. 
+
+Een logische partitie is een partitie in een fysieke partitie, worden alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie opgeslagen. In het volgende diagram wordt in een enkele container drie logische partities heeft. Elke logische partitie bevat de gegevens voor een partitiesleutel LAX AMS en MEL respectievelijk. Alle logische partities LAX AMS en MEL kan niet worden uitgebreid voorbij de maximale fysieke partitie limiet van 10 GB. 
 
 ![Resource partitioneren](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Partitioneren is transparant voor uw toepassing. Azure Cosmos DB ondersteunt snelle leesbewerkingen en schrijfbewerkingen, query's, transactionele logica, consistentieniveaus en verfijnd toegangsbeheer via methoden/API's aan een enkele container-resource. De service verwerkt distributie gegevens over partities en routering queryaanvragen aan de juiste partitie. 
+Wanneer een verzameling voldoet aan de [partitioneren vereisten](#prerequisites), het partitioneren is transparant voor uw toepassing. Azure Cosmos DB ondersteunt snelle leesbewerkingen en schrijfbewerkingen, query's, transactionele logica, consistentieniveaus en verfijnd toegangsbeheer via methoden/API's aan een enkele container-resource. Aanvragen aan de juiste partitie query uitvoeren op de service-ingangen gegevens over fysieke en logische partities verdeeld en routering. 
 
-Hoe partitioneren werkt? Elk item moet hebben een partitiesleutel en een rijsleutel die worden geïdentificeerd. De partitiesleutel fungeert als een logische partitie voor uw gegevens en de grens van een natuurlijke Azure Cosmos DB biedt voor het distribueren van gegevens meerdere partities. Kort samengevat: dit is hoe partitioneren werkt in Azure Cosmos DB:
+## <a name="how-does-partitioning-work"></a>Hoe partitioneren werkt
 
-* Inrichten van een Azure DB die Cosmos-container met `T` aanvragen/s doorvoer.
-* Achter de schermen, richt Azure Cosmos DB partities nodig om te fungeren `T` aanvragen/s. Als `T` hoger is dan de maximale doorvoer per partitie `t`, vervolgens Azure Cosmos DB bepalingen `N`  =  `T/t` partities.
-* Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de `N` partities. Dus elke partitie (fysieke partitie) hosts `1/N` partitie sleutelwaarden (logische partities).
-* Wanneer een fysieke partitie `p` bereikt de opslaglimiet bereikt, Azure Cosmos DB naadloos splitst `p` in twee nieuwe partities, `p1` en `p2`. Deze distribueert waarden die overeenkomen met ongeveer de helft van de sleutels aan elk van de partities. Deze bewerking gesplitste is onzichtbaar voor uw toepassing.
-* Op dezelfde manier als het inrichten van doorvoer die hoger is dan `t*N`, Azure Cosmos DB splitst een of meer van de partities ter ondersteuning van de hogere doorvoer.
+Hoe partitioneren werkt? Elk item moet hebben een partitiesleutel en een rijsleutel die worden geïdentificeerd. De partitiesleutel fungeert als een logische partitie voor uw gegevens en de grens van een natuurlijke Azure Cosmos DB biedt voor het distribueren van gegevens meerdere partities. Houd er rekening mee dat een logische partitie kan meerdere fysieke partities omvatten, maar het beheer van de fysieke partitie wordt beheerd door Azure Cosmos DB. 
+
+Kort samengevat: dit is hoe partitioneren werkt in Azure Cosmos DB:
+
+* Inrichten van een Azure DB die Cosmos-container met **T** aanvragen per tweede doorvoer.
+* Achter de schermen, richt Azure Cosmos DB partities nodig om te fungeren **T** aanvragen per seconde. Als **T** hoger is dan de maximale doorvoer per partitie **t**, vervolgens Azure Cosmos DB bepalingen **N = T/t** partities.
+* Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de **N** partities. Dus elke partitie (fysieke partitie) hosts **1/N** partitie sleutelwaarden (logische partities).
+* Wanneer een fysieke partitie **p** bereikt de opslaglimiet bereikt, Azure Cosmos DB naadloos splitst **p** in twee nieuwe partities, **p1** en **p2** . Deze distribueert waarden die overeenkomen met ongeveer de helft van de sleutels aan elk van de partities. Deze bewerking gesplitste is onzichtbaar voor uw toepassing. De splitsbewerking wordt niet uitgevoerd als een fysieke partitie de opslaglimiet bereikt en alle gegevens in de fysieke partitie hoort bij dezelfde logische partitiesleutel. Dit komt doordat de gegevens voor een sleutel die één logische partitie zich op dezelfde fysieke partitie bevinden moet en dus de fysieke partitie in p1 en p2 kan niet worden opgesplitst. In dit geval moet de strategie voor een andere partitie worden gebruikt.
+* Wanneer u de doorvoer die hoger is dan inrichten  **t*N**, Azure Cosmos DB splitst een of meer van de partities ter ondersteuning van de hogere doorvoer.
 
 De semantiek voor partitiesleutels zijn enigszins verschillen overeenkomen met de semantiek van elke API, zoals wordt weergegeven in de volgende tabel:
 
@@ -54,19 +64,28 @@ De semantiek voor partitiesleutels zijn enigszins verschillen overeenkomen met d
 | Graph | Aangepaste partitie sleuteleigenschap | Probleem met `id` opgelost | 
 | Tabel | Probleem met `PartitionKey` opgelost | Probleem met `RowKey` opgelost | 
 
-Azure Cosmos DB gebruikt op basis van de hash partitionering. Bij het schrijven van een item wordt Azure Cosmos DB de waarde voor de partitiesleutel-hashes en gebruikt het hash-resultaat om te bepalen welke partitie voor het opslaan van het item in. Azure Cosmos DB slaat alle items met dezelfde partitiesleutel op dezelfde fysieke partitie. De keuze van de partitiesleutel is een belangrijke beslissing die u moet aanbrengen in de ontwerpfase. U moet een eigenschapsnaam die heeft een breed scala aan waarden en zelfs toegangspatronen kiezen.
+Azure Cosmos DB gebruikt op basis van de hash partitionering. Bij het schrijven van een item wordt Azure Cosmos DB de waarde voor de partitiesleutel-hashes en gebruikt het hash-resultaat om te bepalen welke partitie voor het opslaan van het item in. Azure Cosmos DB slaat alle items met dezelfde partitiesleutel op dezelfde fysieke partitie. De keuze van de partitiesleutel is een belangrijke beslissing die u moet aanbrengen in de ontwerpfase. U moet een eigenschapsnaam die heeft een breed scala aan waarden en zelfs toegangspatronen kiezen. Als een fysieke partitie heeft de opslaglimiet bereikt en dezelfde partitiesleutel op de gegevens in de partitie is, Azure Cosmos DB de fout "de partitiesleutel bereikt maximale grootte van 10 GB retourneert" en de partitie niet is gesplitst, dus het kiezen van een partitiesleutel is een zeer importeren besluit ant.
 
 > [!NOTE]
 > Het is een best practice om een partitiesleutel met veel afzonderlijke waarden (500 en 5000 liggen minimaal).
 >
 
-Azure DB Cosmos-containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een container als onbeperkt, moet u een minimale doorvoer van 1000 RU/s en moet u een partitiesleutel opgeven.
+Azure DB Cosmos-containers kunnen worden gemaakt als *vaste* of *onbeperkte* in de Azure portal. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een container als onbeperkt, moet u een minimale doorvoer van 1000 RU/s en moet u een partitiesleutel opgeven.
 
 Er is een goed idee om te controleren hoe uw gegevens wordt gedistribueerd in partities. U kunt dit controleren in de portal, gaat u naar uw Azure DB die Cosmos-account en klik op **metrische gegevens** in **bewaking** sectie en klik vervolgens op op in het rechterdeelvenster **opslag** tab om te zien hoe uw gegevens gepartitioneerd in verschillende fysieke partitie.
 
 ![Resource partitioneren](./media/partition-data/partitionkey-example.png)
 
 De afbeelding links geeft het resultaat van een ongeldige partitiesleutel en de juiste afbeelding toont het resultaat van een goede partitiesleutel. In afbeelding links ziet u dat de gegevens worden niet gelijkmatig verdeeld over de partities. U moet streven voor het distribueren van uw gegevens, zodat uw grafiek op de juiste installatiekopie lijkt.
+
+<a name="prerequisites"></a>
+## <a name="prerequisites-for-partitioning"></a>Vereisten voor het partitioneren
+
+Voor fysieke partities voor automatisch in te splitsen **p1** en **p2** zoals beschreven in [hoe werkt partitionering](#how-does-partitioning-work), de container moet worden gemaakt met een doorvoersnelheid van 1000 RU/s of meer , en een partitiesleutel moet worden opgegeven. Bij het maken van een container in Azure portal, selecteer de **onbeperkt** opslagoptie de capaciteit om te profiteren van de partitionerings- en automatisch schalen. 
+
+Als u een container in Azure portal of programmatisch gemaakt en de initiële doorvoer 1000 RU/s of meer is, en uw gegevens een partitiesleutel bevatten, u profiteren kunt van het partitioneren van zonder wijzigingen in de container - dit omvat **vast**  grootte containers, zolang de initiële container is gemaakt met ten minste 1000 RU/s in througput en een partitiesleutel aanwezig in de gegevens is.
+
+Als u hebt gemaakt een **vast** grootte container met geen partitie key of gemaakte een **vast** grootte container met doorvoer minder dan 1000 RU/s, de container kan niet automatisch splitsing zoals beschreven in dit artikel. Om gegevens te migreren van de container als volgt aan een onbeperkte container (een met ten minste 1000 RU/s in de doorvoer en een partitiesleutel), die u wilt gebruiken, de [hulpprogramma voor gegevensmigratie](import-data.md) of de [wijziging gegevensfeedbibliotheek](change-feed.md) naar de wijzigingen worden gemigreerd. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partitionering en ingerichte doorvoer
 Azure Cosmos DB is ontworpen voor voorspelbare prestaties. Wanneer u een container maakt, u doorvoer in termen van reserveren  *[aanvraageenheden](request-units.md) (RU) per seconde*. Elke aanvraag wordt RU kosten met zich mee die evenredig aan de hoeveelheid systeembronnen, zoals CPU, geheugen en i/o verbruikt door de bewerking is toegewezen. Het lezen van een document 1 KB met sessieconsistentie verbruikt 1 RU. Een leesbewerking is 1 RU ongeacht het aantal items die zijn opgeslagen of het aantal gelijktijdige aanvragen die actief zijn op hetzelfde moment. Grotere items moet hoger RUs afhankelijk van de grootte. Als u de grootte van de entiteiten en het aantal leesbewerkingen die u wilt ondersteunen voor uw toepassing weet, kunt u de exacte hoeveelheid doorvoer die nodig is voor uw toepassing moet vindt inrichten. 

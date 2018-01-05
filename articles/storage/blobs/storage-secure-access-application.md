@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Veilige toegang tot de gegevens van een toepassing in de cloud
 
@@ -55,7 +55,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Deel een van deze zelfstudie reeks, werd de webtoepassing installatiekopieën van een openbare container weergegeven. In dit deel van de reeks u [Secure Access Signature (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens voor het ophalen van de miniatuurafbeeldingen. SAS-tokens kunnen u beperkte toegang bieden tot een container of blob op basis van IP, protocol, tijdsinterval of rechten die zijn toegestaan.
 
-In dit voorbeeld wordt de bron-opslagplaats code gebruikt de `sasTokens` vertakking waarvoor een voorbeeld van de bijgewerkte code. Verwijder de bestaande GitHub-implementatie met de [az webapp implementatie bron verwijderen](/cli/azure/webapp/deployments/source#delete). Configureer vervolgens de GitHub-implementatie naar de web-app met de [az webapp implementatieconfiguratie bron](/cli/azure/webapp/deployment/source#config) opdracht.  
+In dit voorbeeld wordt de bron-opslagplaats code gebruikt de `sasTokens` vertakking waarvoor een voorbeeld van de bijgewerkte code. Verwijder de bestaande GitHub-implementatie met de [az webapp implementatie bron verwijderen](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Configureer vervolgens de GitHub-implementatie naar de web-app met de [az webapp implementatieconfiguratie bron](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) opdracht.  
 
 In de volgende opdracht `<web-app>` is de naam van uw web-app.  
 
@@ -194,7 +194,7 @@ Date: Mon, 11 Sep 2017 19:27:46 GMT
 
 ## <a name="enable-https-only"></a>Alleen HTTPS inschakelen
 
-Om ervoor te zorgen dat de aanvragen voor gegevens die naar en van een opslagaccount beveiligd zijn, kunt u alleen aanvragen om HTTPS te beperken. Het account vereist opslagprotocol bijwerken met behulp van de [az storage account bijwerken](/cli/azure/storage/account#update) opdracht.
+Om ervoor te zorgen dat de aanvragen voor gegevens die naar en van een opslagaccount beveiligd zijn, kunt u alleen aanvragen om HTTPS te beperken. Het account vereist opslagprotocol bijwerken met behulp van de [az storage account bijwerken](/cli/azure/storage/account#az_storage_account_update) opdracht.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true

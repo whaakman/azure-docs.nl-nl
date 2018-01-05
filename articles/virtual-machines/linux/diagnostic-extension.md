@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux-extensie voor diagnostische gebruiken om te controleren van Logboeken en metrische gegevens
 
@@ -134,6 +134,10 @@ storageAccountEndPoint | (optioneel) Het eindpunt voor het identificeren van de 
 storageAccountSasToken | Een [Account-SAS-token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) voor Blob- en -services (`ss='bt'`), van toepassing op containers en objecten (`srt='co'`), welke verleent toevoegen, maken, weergeven, bijwerken en schrijfmachtigingen (`sp='acluw'`). Voer *niet* voorloopspaties vraagteken (?) bevatten.
 mdsdHttpProxy | (optioneel) HTTP-proxy-informatie die nodig zijn voor de extensie inschakelen voor het verbinding maken met het opgegeven opslagaccount en een eindpunt.
 sinksConfig | (optioneel) Details van alternatieve doelen waarvoor metrische gegevens en gebeurtenissen kunnen worden geleverd. De specifieke details van elke gegevens sink ondersteund door de extensie worden in de volgende secties besproken.
+
+
+> [!NOTE]
+> Bij het implementeren van de uitbreiding met de sjabloon van een Azure-implementatie, de storage-account en SAS-token van tevoren gemaakt en vervolgens doorgegeven aan de sjabloon. U kan niet een VM, het opslagaccount implementeren en configureren van de uitbreiding in één sjabloon. Maken van een SAS-token binnen een sjabloon is momenteel niet ondersteund.
 
 U kunt gemakkelijk de vereiste SAS-token via de Azure portal opstellen.
 

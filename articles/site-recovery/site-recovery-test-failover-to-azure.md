@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Testen van Failover naar Azure in Site Recovery
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/18/2017
 
 Dit artikel wordt beschreven hoe u een herstel na noodgevallen detailanalyse uitvoert naar Azure, met een testfailover van Site Recovery.  
 
-U uitvoeren een testfailover voor het valideren van de replicatie en de strategie voor noodherstel reecovery zonder verlies van gegevens of uitvaltijd. Heeft geen invloed op een testfailover lopende replicatie of uw productieomgeving. U kunt een testfailover uitvoeren op een specifieke virtuele machine (VM) of op een [herstelplan](site-recovery-create-recovery-plans.md) met meerdere virtuele machines. 
+U uitvoeren een testfailover voor het valideren van de replicatie en de strategie voor noodherstel zonder verlies van gegevens of uitvaltijd. Heeft geen invloed op een testfailover lopende replicatie of uw productieomgeving. U kunt een testfailover uitvoeren op een specifieke virtuele machine (VM) of op een [herstelplan](site-recovery-create-recovery-plans.md) met meerdere virtuele machines. 
 
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren

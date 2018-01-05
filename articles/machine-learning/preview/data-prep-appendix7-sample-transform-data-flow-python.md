@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4a716c1934258e687eb48ecb4077c6be7b269c1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Voorbeeld van aangepaste gegevensstroom transformaties (Python) 
 De naam van de transformatie in het menu is **transformeren gegevensstroom (Script)**. Lees voordat u deze bijlage lezen, [Python uitbreidbaarheid overzicht](data-prep-python-extensibility-overview.md).
@@ -82,3 +82,8 @@ De gegevens ziet er nu als volgt uit:
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
+
+### <a name="min-max-normalization"></a>Min Max normalisatie
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

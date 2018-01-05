@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Overzicht van beschikbaarheid Zones in Azure (Preview)
 
@@ -54,7 +54,7 @@ De evaluatieversie van de beschikbaarheid van Zones is beschikbaar in de VS-Oost
 3. Kies een regio die ondersteuning biedt voor beschikbaarheid Zones.
 4. Gebruik een van de volgende koppelingen om te starten met behulp van de beschikbaarheid van Zones met uw service. 
     - [Een virtuele machine maken](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Maken van een zonal virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Maken van een virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Voeg een schijf worden beheerd met behulp van PowerShell toe](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Load balancer](../load-balancer/load-balancer-standard-overview.md)
 
