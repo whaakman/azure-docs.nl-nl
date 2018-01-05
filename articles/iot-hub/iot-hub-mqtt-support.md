@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw iothub met behulp van de protocollen MQTT-protocol
 
@@ -62,6 +62,9 @@ Als een apparaat niet kan het apparaat-SDK's, kan deze nog steeds verbinding mak
 
     Bijvoorbeeld, als de naam van uw IoT-hub is **contoso.azure devices.net** en als de naam van uw apparaat **MyDevice01**, de volledige **gebruikersnaam** veld moetbevatten`contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * Voor de **wachtwoord** veld, gebruikt u een SAS-token. De indeling van het SAS-token is hetzelfde als voor de HTTPS- en het AMQP-protocollen:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+
+    >[!NOTE]
+    >SAS-token wachtwoorden zijn niet vereist als u verificatie van x.509-certificaat gebruiken. Zie voor meer informatie [x.509-beveiliging instellen in uw Azure-IoT-Hub][lnk-x509]
 
     Zie voor meer informatie over het genereren van SAS-tokens de apparaat-sectie van [IoT Hub met behulp van beveiligingstokens][lnk-sas-tokens].
 
@@ -137,7 +140,7 @@ Zie voor meer informatie [Messaging-handleiding voor ontwikkelaars][lnk-messagin
 
 ### <a name="receiving-cloud-to-device-messages"></a>Cloud-naar-apparaat-berichten ontvangen
 
-Voor het ontvangen van berichten uit IoT Hub, een apparaat moet abonneren met `devices/{device_id}/messages/devicebound/#` als een **onderwerp Filter**. Het jokerteken met meerdere niveaus  **#**  in het onderwerp Filter wordt alleen gebruikt om aanvullende eigenschappen ontvangen in de onderwerpnaam van het apparaat toestaan. IoT Hub is niet toegestaan voor het gebruik van de  **#**  of **?** jokertekens voor het filteren van de onderliggende onderwerpen. Omdat in IoT Hub is niet algemeen pub sub messaging broker, ondersteunt deze alleen de gedocumenteerde onderwerpnamen en onderwerp filters.
+Voor het ontvangen van berichten uit IoT Hub, een apparaat moet abonneren met `devices/{device_id}/messages/devicebound/#` als een **onderwerp Filter**. Het jokerteken met meerdere niveaus `#` in het onderwerp Filter wordt alleen gebruikt om aanvullende eigenschappen ontvangen in de onderwerpnaam van het apparaat toestaan. IoT Hub is niet toegestaan voor het gebruik van de `#` of `?` jokertekens voor het filteren van de onderliggende onderwerpen. Omdat in IoT Hub is niet algemeen pub sub messaging broker, ondersteunt deze alleen de gedocumenteerde onderwerpnamen en onderwerp filters.
 
 Het apparaat niet ontvangt berichten uit IoT Hub, totdat deze is geabonneerd op het eindpunt apparaatspecifieke, vertegenwoordigd door de `devices/{device_id}/messages/devicebound/#` onderwerp filter. Nadat een geslaagde abonnement is ingesteld, wordt het apparaat wordt gestart alleen cloud-naar-apparaat-berichten dat is verzonden naar deze na de tijd van het abonnement ontvangen. Als het apparaat verbinding met maakt **CleanSession** vlag ingesteld op **0**, het abonnement over de verschillende sessies worden bewaard. In dit geval wordt de volgende keer dat deze verbinding maakt met **CleanSession 0** het apparaat heeft openstaande berichten die zijn verzonden naar het terwijl er geen verbinding was ontvangen. Als het apparaat gebruikmaakt van **CleanSession** vlag ingesteld op **1** echter er komt geen ontvangen alle berichten uit IoT Hub totdat het apparaat-eindpunt worden bijgehouden.
 
@@ -147,9 +150,9 @@ Wanneer een app voor het apparaat is lid van een onderwerp met **QoS 2**, IoT-Hu
 
 ### <a name="retrieving-a-device-twins-properties"></a>Ophalen van de eigenschappen van een apparaat-twin
 
-Eerst een apparaat is lid van `$iothub/twin/res/#`, voor het ontvangen van reacties van de bewerking. Vervolgens wordt een leeg bericht verzonden naar onderwerp `$iothub/twin/GET/?$rid={request id}`, met de ingestelde waarde voor **aanvraag-id**. De service verzendt vervolgens een antwoordbericht, waarin de gegevens van het apparaat twin op onderwerp `$iothub/twin/res/{status}/?$rid={request id}`, met behulp van dezelfde **aanvraag-id** als de aanvraag.
+Eerst een apparaat is lid van `$iothub/twin/res/#`, voor het ontvangen van reacties van de bewerking. Vervolgens wordt een leeg bericht verzonden naar onderwerp `$iothub/twin/GET/?$rid={request id}`, met de ingestelde waarde voor **aanvraag-ID**. De service verzendt vervolgens een antwoordbericht, waarin de gegevens van het apparaat twin op onderwerp `$iothub/twin/res/{status}/?$rid={request id}`, met behulp van dezelfde **aanvraag-ID** als de aanvraag.
 
-Aanvraag-id mag geldige waarde voor de waarde van een bericht eigenschap conform [messaging Ontwikkelaarshandleiding voor IoT-Hub][lnk-messaging], en de status wordt gevalideerd als een geheel getal.
+Aanvraag-ID mag geldige waarde voor de waarde van een bericht eigenschap conform [messaging Ontwikkelaarshandleiding voor IoT-Hub][lnk-messaging], en de status wordt gevalideerd als een geheel getal.
 Hoofdtekst van de reactie bevat het eigenschappengedeelte van het apparaat twin:
 
 De hoofdtekst van de identiteit registervermelding beperkt tot het lid 'Eigenschappen', bijvoorbeeld:
@@ -184,9 +187,9 @@ De volgende procedure wordt beschreven hoe een apparaat bijgewerkt voor de gerap
 
 1. Een apparaat moet zich eerst abonneren op de `$iothub/twin/res/#` onderwerp van de bewerking reacties van IoT-Hub ontvangt.
 
-1. Een apparaat verzendt een bericht met de apparaat-twin update naar de `$iothub/twin/PATCH/properties/reported/?$rid={request id}` onderwerp. Dit bericht bevat een **aanvraag-id** waarde.
+1. Een apparaat verzendt een bericht met de apparaat-twin update naar de `$iothub/twin/PATCH/properties/reported/?$rid={request id}` onderwerp. Dit bericht bevat een **aanvraag-ID** waarde.
 
-1. De service verzendt vervolgens een antwoordbericht met de nieuwe ETag-waarde voor de verzameling gemelde eigenschappen op onderwerp `$iothub/twin/res/{status}/?$rid={request id}`. Dit antwoordbericht maakt gebruik van dezelfde **aanvraag-id** als de aanvraag.
+1. De service verzendt vervolgens een antwoordbericht met de nieuwe ETag-waarde voor de verzameling gemelde eigenschappen op onderwerp `$iothub/twin/res/{status}/?$rid={request id}`. Dit antwoordbericht maakt gebruik van dezelfde **aanvraag-ID** als de aanvraag.
 
 De berichttekst voor de aanvraag bevat een JSON-document, wat zorgt voor nieuwe waarden voor de gerapporteerde eigenschappen (geen andere eigenschap of metagegevens kan worden aangepast).
 Elk lid in het JSON-document updates of het bijbehorende lid in de apparaat-twin document toevoegen. Een lid is ingesteld op `null`, verwijdert u het lid van het containerobject. Bijvoorbeeld:
@@ -228,7 +231,7 @@ Zie voor meer informatie [Ontwikkelaarshandleiding voor apparaat horende][lnk-de
 
 Eerst een apparaat heeft om zich te abonneren op `$iothub/methods/POST/#`. IoT Hub verzendt methodeaanvragen naar het onderwerp `$iothub/methods/POST/{method name}/?$rid={request id}`, met een geldige JSON of een lege hoofdtekst.
 
-Om te reageren, het apparaat verzendt een bericht met een geldige JSON of een lege hoofdtekst naar het onderwerp `$iothub/methods/res/{status}/?$rid={request id}`, waarbij **aanvraag-id** moet overeenkomen met de naam in het aanvraagbericht en **status** moet een geheel getal zijn.
+Om te reageren, het apparaat verzendt een bericht met een geldige JSON of een lege hoofdtekst naar het onderwerp `$iothub/methods/res/{status}/?$rid={request id}`, waarbij **aanvraag-ID** moet overeenkomen met de naam in het aanvraagbericht en **status** moet een geheel getal zijn.
 
 Zie voor meer informatie [directe methode Ontwikkelaarshandleiding voor][lnk-methods].
 
@@ -250,7 +253,7 @@ Zie voor meer informatie over het plannen van de implementatie van uw IoT-Hub:
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -270,6 +273,7 @@ Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

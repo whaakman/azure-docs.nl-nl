@@ -4,15 +4,17 @@ description: Het samenvatten en analyseren van een grote verzameling van documen
 services: machine-learning
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Document verzameling analyse
 
@@ -83,15 +85,15 @@ Er zijn negen velden in het gegevensbestand. De veldnamen en de beschrijvingen w
 
 | Veldnaam | Type | Beschrijving | Ontbrekende waarde bevatten |
 |------------|------|-------------|---------------|
-| `ID` | Reeks | De ID van de factuur/resolutie. De indeling van dit veld is [bill_type] [aantal]-[congress]. Bijvoorbeeld 'hconres1-93' betekent dat het factuurtype 'hconres' (staat House gelijktijdige resolutie verwijzen naar [dit document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), het aantal factuur is ' 1 'en het aantal congress is 93'. | Nee |
-| `Text` | Reeks | De inhoud van de factuur/resolutie. | Nee |
-| `Date` | Reeks | De datum van de factuur/resolutie in eerste instantie voorgesteld. In de indeling van 'jjjj-mm-dd'. | Nee |
-| `SponsorName` | Reeks | De naam van de primaire sponsor die de factuur/oplossing wordt voorgesteld. | Ja |
-| `Type` | Reeks | Het type van de titel van de primaire sponsor 'rep' (medewerker) of 'afzen' (senator). | Ja |
-| `State` | Reeks | De status van de primaire sponsor. | Ja |
+| `ID` | Tekenreeks | De ID van de factuur/resolutie. De indeling van dit veld is [bill_type] [aantal]-[congress]. Bijvoorbeeld 'hconres1-93' betekent dat het factuurtype 'hconres' (staat House gelijktijdige resolutie verwijzen naar [dit document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), het aantal factuur is ' 1 'en het aantal congress is 93'. | Nee |
+| `Text` | Tekenreeks | De inhoud van de factuur/resolutie. | Nee |
+| `Date` | Tekenreeks | De datum van de factuur/resolutie in eerste instantie voorgesteld. In de indeling van 'jjjj-mm-dd'. | Nee |
+| `SponsorName` | Tekenreeks | De naam van de primaire sponsor die de factuur/oplossing wordt voorgesteld. | Ja |
+| `Type` | Tekenreeks | Het type van de titel van de primaire sponsor 'rep' (medewerker) of 'afzen' (senator). | Ja |
+| `State` | Tekenreeks | De status van de primaire sponsor. | Ja |
 | `District` | Geheel getal | Het aantal regionale van de primaire sponsor als de titel van de sponsor een representatief is. | Ja |
-| `Party` | Reeks | De partij van de primaire sponsor. | Ja |
-| `Subjects` | Reeks | De certificaathouder voorwaarden cumulatief door de Library of Congress aan de factuur toegevoegd. De voorwaarden worden samengevoegd door komma's. Deze voorwaarden zijn geschreven door een persoon in de bibliotheek of Congress en zijn niet meestal aanwezig wanneer informatie over de factuur voor het eerst wordt gepubliceerd. Ze kunnen op elk gewenst moment worden toegevoegd. Dus aan het einde van de levensduur van een factuur sommige onderwerp mogelijk niet relevant zijn meer. | Ja |
+| `Party` | Tekenreeks | De partij van de primaire sponsor. | Ja |
+| `Subjects` | Tekenreeks | De certificaathouder voorwaarden cumulatief door de Library of Congress aan de factuur toegevoegd. De voorwaarden worden samengevoegd door komma's. Deze voorwaarden zijn geschreven door een persoon in de bibliotheek of Congress en zijn niet meestal aanwezig wanneer informatie over de factuur voor het eerst wordt gepubliceerd. Ze kunnen op elk gewenst moment worden toegevoegd. Dus aan het einde van de levensduur van een factuur sommige onderwerp mogelijk niet relevant zijn meer. | Ja |
 
 ## <a name="scenario-structure"></a>Scenario-structuur
 

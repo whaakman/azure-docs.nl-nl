@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Zelfstudie: Azure Active Directory-integratie met Benefitsolver
 
@@ -123,7 +123,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam| Waarde kenmerk|
+    | Naam van kenmerk| De waarde van kenmerk|
     |---------------|----------------|
     | ClientID | U moet deze waarde van uw [Benefitsolver Client ondersteuningsteam](https://www.businessolver.com/contact).|
     | ClientKey | U moet deze waarde van uw [Benefitsolver Client ondersteuningsteam](https://www.businessolver.com/contact).|
@@ -142,7 +142,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     d. Klik op **OK**.
 
-6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadta XML** en sla het bestand met metagegevens op uw computer.
+6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -150,7 +150,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Eenmalige aanmelding configureren op **Benefitsolver** zijde, moet u de gedownloade verzenden **Metadta XML** naar [Benefitsolver ondersteuningsteam](https://www.businessolver.com/contact).
+8. Eenmalige aanmelding configureren op **Benefitsolver** zijde, moet u de gedownloade verzenden **Metadata XML** naar [Benefitsolver ondersteuningsteam](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > Het ondersteuningsteam Benefitsolver heeft te maken van de werkelijke SSO-configuratie. U ontvangt een melding wanneer SSO is ingeschakeld voor uw abonnement.
@@ -235,7 +235,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Benefitsolver in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Benefitsolver.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

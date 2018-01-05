@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
 ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor Data Protection Manager (DPM)-servers
 In dit artikel leest u hoe u PowerShell gebruikt Azure Backup-installatie op een DPM-server en het beheren van back-up en herstel.
@@ -119,7 +119,7 @@ Hiermee installeert u de agent met de standaardopties. De installatie duurt een 
 
 De agent wordt weergegeven in de lijst met geïnstalleerde programma's. De lijst met geïnstalleerde programma's wilt bekijken, gaat u naar **Configuratiescherm** > **programma's** > **programma's en onderdelen**.
 
-![Agent is geïnstalleerd](./media/backup-dpm-automation/installed-agent-listing.png)
+![De agent is geïnstalleerd](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opties voor de installatie
 Overzicht van alle opties die beschikbaar is via de opdrachtregel de volgende opdracht gebruiken:

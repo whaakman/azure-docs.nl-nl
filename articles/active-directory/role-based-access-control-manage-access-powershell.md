@@ -15,15 +15,15 @@ ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.openlocfilehash: 631274ec57586a777df8ee07a18b0ad72b905222
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Toegangsbeheer op basis van rollen beheren met Azure PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
-> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [Azure-CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 U kunt op rollen gebaseerde toegangsbeheer (RBAC) in de Azure portal en Azure Resource Management-API gebruiken om toegang te beheren voor uw abonnement heel nauwkeurig. Met deze functie kunt u toegang tot Active Directory-gebruikers, groepen of service-principals verlenen door sommige rollen toewijzen aan deze bij een bepaald bereik.

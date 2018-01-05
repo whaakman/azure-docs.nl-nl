@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Selfservice voor wachtwoordherstel oplossen
 
@@ -165,7 +165,18 @@ In het algemeen als u wilt uw service op de snelste manier herstelt, wordt aange
 
 ### <a name="confirm-network-connectivity"></a>Controleer de netwerkverbinding
 
-Het meest voorkomende storingspunt of de firewall is en of proxy-poorten en niet-actieve time-outs zijn onjuist geconfigureerd. Raadpleeg voor meer informatie de connectiviteit-vereisten in de [vereisten voor Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) artikel.
+Het meest voorkomende storingspunt of de firewall is en of proxy-poorten en niet-actieve time-outs zijn onjuist geconfigureerd. 
+
+Voor Azure AD Connect versie 1.1.443.0 en hoger, u moet uitgaande HTTPS toegang tot het volgende:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.Windows.NET
+
+Verwijst naar de bijgewerkte lijst met meer granulatie [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) elke woensdag bijgewerkt en de volgende tot stand is gebracht maandag.
+
+Raadpleeg voor meer informatie de connectiviteit-vereisten in de [vereisten voor Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) artikel.
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>De service Azure AD Connect-synchronisatie opnieuw starten
 

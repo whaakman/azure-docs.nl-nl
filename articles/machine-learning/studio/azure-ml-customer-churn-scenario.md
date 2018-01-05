@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Traject van de klant analyseren met Azure Machine Learning
 ## <a name="overview"></a>Overzicht
-Dit artikel bevat een verwijzing implementatie van een klant verloop analysis project is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken gekoppelde algemene modellen voor het oplossen van het probleem van industriële customer verloop holistische. We ook de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning meten en we routebeschrijving voor verdere ontwikkeling beoordelen.  
+Dit artikel bevat een verwijzing implementatie van een klant verloop analysis project is gebouwd met behulp van Azure Machine Learning. In dit artikel wordt besproken gekoppelde algemene modellen voor het oplossen van het probleem van industriële customer verloop holistische. We ook meet de nauwkeurigheid van modellen die zijn gebouwd met behulp van Machine Learning en beoordelen routebeschrijving voor verdere ontwikkeling.  
 
 ### <a name="acknowledgements"></a>Bevestigingen
 Dit experiment is ontwikkeld en getest door Serge Berger, Principal gegevens wetenschappelijk bij Microsoft en Roger Barga, voorheen Product Manager van Microsoft Azure Machine Learning. Het team van Azure-documentatie dank erkent hun expertise en ze Bedankt voor het delen van dit document.
@@ -37,14 +37,14 @@ Dit experiment is ontwikkeld en getest door Serge Berger, Principal gegevens wet
 ## <a name="the-problem-of-customer-churn"></a>Het probleem van klanten verloop
 Bedrijven in de markt consumer en in alle sectoren voor ondernemingen hebben om te gaan met het verloop. Soms verloop uitzonderlijk veel en beleidsbeslissingen beïnvloedt. De traditionele oplossing is te hoog investeringsneiging churners voorspellen en hun behoeften via een service concierge marketingcampagnes, of door het toepassen van speciale dispensaties. Deze methoden kunnen variëren op branche bedrijfstak en zelfs op een bepaalde consumer-cluster naar een andere binnen één industry (bijvoorbeeld telecommunicatie).
 
-De algemene factor is dat bedrijven moeten deze speciale klant bewaren inspanningen minimaliseren. Dus kan een natuurlijke methodologie worden score van elke klant met de waarschijnlijkheid van verloop en los van de bovenste N die zijn. De belangrijkste klanten mogelijk het meest winstgevend die zijn; bijvoorbeeld, meer geavanceerde scenario's, een functie winst in dienst is tijdens de selectie van kandidaten voor speciale dispensatie. Deze overwegingen zijn echter slechts een deel van de holistische strategie voor het omgaan met verloop. Bedrijven hebben ook rekening account risico (en bijbehorende risicotolerantie), wordt het niveau en de kosten van de tussenkomst en aannemelijke klant segmentering.  
+De algemene factor is dat bedrijven moeten deze speciale klant bewaren inspanningen minimaliseren. Dus kan een natuurlijke methodologie worden score van elke klant met de waarschijnlijkheid van verloop en los van de bovenste N die zijn. De belangrijkste klanten mogelijk het meest winstgevend die zijn. In meer geavanceerde scenario's een winst-functie gebruikt tijdens de selectie van kandidaten voor speciale dispensatie. Deze overwegingen zijn echter slechts een deel van de complete strategie voor het omgaan met verloop. Bedrijven hebben ook rekening account risico (en bijbehorende risicotolerantie), wordt het niveau en de kosten van de tussenkomst en aannemelijke klant segmentering.  
 
 ## <a name="industry-outlook-and-approaches"></a>Bedrijfstak outlook en methoden
 Geavanceerde verwerking van verloop is een teken van een goed ontwikkelde industrie. Het klassieke voorbeeld is de branche telecommunicatie waar abonnees bekend is dat ze vaak overschakelen van één provider naar het andere. Deze vrijwillige verloop zijn de belangrijkste zorgen. Bovendien providers aanzienlijke kennis hebben verzameld over *verloop van stuurprogramma's*, zijn de factoren die van station klanten om over te schakelen.
 
-Telefoon- of apparaat keuze is voor het exemplaar een bekende stuurprogramma van het verloop in het bedrijf mobiele telefoon. Als gevolg hiervan is een populair beleid voor de prijs van een toestel subsidize voor nieuwe abonnees en een volledige prijs voor bestaande klanten voor een upgrade in rekening gebracht. Dit beleid heeft in het verleden hebben geleid tot klanten hopping van één provider naar een andere nieuwe korting die op zijn beurt is gevraagd om hun strategieën verfijnen te krijgen.
+Telefoon- of apparaat keuze is voor het exemplaar een bekende stuurprogramma van het verloop in het bedrijf mobiele telefoon. Als gevolg hiervan is een populair beleid voor de prijs van een toestel subsidize voor nieuwe abonnees en een volledige prijs voor bestaande klanten voor een upgrade. Dit beleid heeft in het verleden hebben geleid tot klanten hopping van één provider naar een andere nieuwe korting te krijgen. Dit heeft providers hun strategieën verfijnen op zijn beurt gevraagd.
 
-Hoge volatiliteit in de offerings telefoon is een factor waardoor zeer snel modellen van het verloop op basis van huidige telefoon-modellen. Mobiele telefoons zijn bovendien niet alleen de apparaten telecommunicatie; ze zijn ook wijze instructies (Overweeg de iPhone) en deze sociale variabelen zijn buiten het bereik van reguliere telecommunicatie gegevenssets.
+Hoge volatiliteit in de offerings telefoon is een factor waardoor snel modellen van het verloop op basis van huidige telefoon-modellen. Bovendien worden mobiele telefoons zijn niet alleen telecommunicatie apparaten, zijn ook wijze instructies (Overweeg de iPhone). Deze sociale variabelen vallen buiten het bereik van reguliere telecommunicatie gegevenssets.
 
 Het resultaat voor modellering is dat u een geluid beleid kan niet ontwerpen gewoon doordat bekende redenen voor het verloop. Een strategie voor een continue modellering, met inbegrip van klassieke modellen die categorische variabelen (zoals beslissingsstructuren kwantificeren) is in feite **verplichte**.
 
@@ -211,16 +211,6 @@ We hopen dat naar dit onderwerp in de toekomst, met name betrekking hebben op bi
 ## <a name="conclusion"></a>Conclusie
 Dit artikel beschrijft een praktische strategie om het aanpakken van het algemene probleem van klanten verloop met behulp van een algemene framework. We beschouwd als een prototype voor score berekenen voor modellen en geïmplementeerd met Azure Machine Learning. Ten slotte wordt de nauwkeurigheid en prestaties van de oplossing prototype met betrekking tot vergelijkbare algoritmen in SAS beoordeeld.  
 
-**Voor meer informatie:**  
-
-Dit artikel kunt u? Geef ons uw feedback. Vertel ons op een schaal van 1 (slecht) tot en met 5 (uitstekend), welke beoordeling zou u dit artikel worden en waarom hebt u het deze classificatie? Bijvoorbeeld:  
-
-* Zijn u classificatie het hoge vanwege de goede voorbeelden, uitstekende schermafdrukken, schakelt u schrijft, of een andere reden hebben?
-* Weet u classificatie het lage wegens slechte voorbeelden, fuzzy schermopnamen of onduidelijk schrijven?  
-
-Deze feedback helpt ons de kwaliteit van whitepapers we brengen verbeteren.   
-
-[Feedback verzenden](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Verwijzingen

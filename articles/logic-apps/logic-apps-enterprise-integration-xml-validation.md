@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>XML-validatie voor enterprise-integratie
 
@@ -30,29 +30,29 @@ Vaak in B2B-scenario's, moeten de partners in een overeenkomst ervoor zorgen dat
 
 2. Voeg een **aanvraag: wanneer een HTTP-aanvraag wordt ontvangen** trigger aan uw logische app.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. Om toe te voegen de **XML-validatie** actie, kies **een actie toevoegen**.
 
 4. De acties met de fout die u wilt filteren, voeren *xml* in het zoekvak. Kies **XML-validatie**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. Als u de XML-inhoud die u wilt valideren, schakelt u **inhoud**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. Selecteer de label body als de inhoud die u wilt valideren.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. Om op te geven van het schema dat u gebruiken wilt voor het valideren van de vorige *inhoud* invoeren, kies **SCHEMANAAM**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. Sla uw werk  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 Nu bent u klaar met het instellen van uw validatie-connector. In een toepassing werkelijkheid is het raadzaam de gevalideerde gegevens opslaan in een line-of-business (LOB)-app zoals SalesForce. De uitvoer van de gevalideerde om naar te verzenden Salesforce, moet u een actie toevoegen.
 

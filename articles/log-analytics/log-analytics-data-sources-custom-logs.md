@@ -1,6 +1,6 @@
 ---
-title: Verzamelen van aangepaste logboeken in OMS Log Analytics | Microsoft Docs
-description: "Log Analytics kunt verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers.  In dit artikel wordt beschreven hoe een nieuwe aangepaste logboek en details van de records die ze in de OMS-opslagplaats maken definiëren."
+title: Verzamelen van aangepaste logboeken in Azure Log Analytics | Microsoft Docs
+description: "Log Analytics kunt verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers.  In dit artikel wordt beschreven hoe een nieuwe aangepaste logboek en details van de records die ze in de werkruimte voor logboekanalyse maken definiëren."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
-De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in het logboek in afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
+De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
 
 ![Aangepaste logboekgegevens verzameld](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ De logboekbestanden moeten worden verzameld, moeten overeenkomen met de volgende
 Gebruik de volgende procedure voor het definiëren van een aangepaste logboekbestand.  Ga naar het einde van dit artikel voor een overzicht van een steekproef van een aangepaste logboekbestanden toe te voegen.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Step 1. Open de Wizard aangepaste logboek
-De Wizard aangepaste logboek wordt uitgevoerd in de OMS-portal en kunt u een nieuwe aangepaste logboekgegevens verzamelen definiëren.
+De Wizard aangepaste logboek wordt uitgevoerd in de Azure portal en kunt u een nieuwe aangepaste logboekgegevens verzamelen definiëren.
 
-1. In de OMS-portal, gaat u naar **instellingen**.
-2. Klik op **gegevens** en vervolgens **aangepaste logboeken**.
+1. Selecteer in de Azure-portal **logboekanalyse** > uw werkruimte > **geavanceerde instellingen**.
+2. Klik op **gegevens** > **aangepaste logboeken**.
 3. Standaard worden alle configuratiewijzigingen automatisch naar alle agents gepusht.  Voor Linux-agents wordt een configuratiebestand verzonden naar de gegevensverzamelaarset Fluentd.  Als u wijzigen van dit bestand handmatig op elke Linux-agent wilt, schakel het selectievakje *toepassen op de onderstaande configuratie op mijn Linux-machines*.
 4. Klik op **toevoegen +** om het aangepaste logboek Wizard te openen.
 
@@ -54,7 +54,7 @@ Begint u met het uploaden van een steekproef van het aangepaste logboek.  De wiz
 
 **Nieuwe regel** is het standaardscheidingsteken en wordt gebruikt voor logboekbestanden met één vermelding per regel.  Als de regel met een datum en tijd in een van de beschikbare indelingen begint en vervolgens kunt u een **tijdstempel** scheidingsteken die ondersteuning biedt voor vermeldingen die meer dan één regel omvatten.
 
-Als een tijdstempel scheidingsteken wordt gebruikt, wordt de eigenschap TimeGenerated van elke record in OMS worden ingevuld met de datum/tijd opgegeven voor deze vermelding in het logboekbestand.  Als een nieuwe regel scheidingsteken wordt gebruikt, wordt TimeGenerated gevuld met de datum en tijd of Log Analytics de vermelding verzameld.
+Als een tijdstempel scheidingsteken wordt gebruikt, wordt de eigenschap TimeGenerated van elke record in logboekanalyse worden ingevuld met de datum/tijd opgegeven voor deze vermelding in het logboekbestand.  Als een nieuwe regel scheidingsteken wordt gebruikt, wordt TimeGenerated gevuld met de datum en tijd of Log Analytics de vermelding verzameld.
 
 
 1. Klik op **Bladeren** en blader naar een voorbeeldbestand.  Let op deze knop kan mogelijk worden gelabeld **bestand kiezen** in sommige browsers.
@@ -103,13 +103,12 @@ De volledige logboekvermelding worden opgeslagen in één eigenschap aangeroepen
 
 Gedetailleerde stappen voor het parseren van de aangepaste logboekvermelding worden niet hier beschreven.  Raadpleeg de [aangepaste velden](log-analytics-custom-fields.md) documentatie voor deze informatie.
 
-## <a name="disabling-a-custom-log"></a>Een aangepast logboek uitschakelen
-U kunt de definitie van een aangepaste logboek niet verwijderen, zodra deze is gemaakt, maar u deze uitschakelen kunt door het verwijderen van alle de paden van de verzameling.
+## <a name="removing-a-custom-log"></a>Verwijderen van een aangepaste logboek
+Gebruik het volgende proces in de Azure portal om te verwijderen van een aangepaste logboek dat u eerder hebt gedefinieerd.
 
-1. In de OMS-portal, gaat u naar **instellingen**.
-2. Klik op **gegevens** en vervolgens **aangepaste logboeken**.
-3. Klik op **Details** naast de definitie van het aangepaste logboek wilt uitschakelen.
-4. Elk van de verzameling paden voor de definitie van de aangepaste logboekgegevens verwijderd.
+1. Van de **gegevens** menu in de **geavanceerde instellingen** selecteren voor uw werkruimte **aangepaste logboeken** voor een lijst met alle aangepaste logboeken.
+2. Klik op **verwijderen** naast het aangepaste logboek om te verwijderen.
+
 
 ## <a name="data-collection"></a>Gegevensverzameling
 Log Analytics worden nieuwe gegevens worden verzameld uit elk aangepast logboek ongeveer elke 5 minuten.  De agent wordt plaats registreren in elk logboekbestand die worden verzameld uit.  Als de agent voor een bepaalde periode offline gaat, klikt u vervolgens verzamelt Log Analytics vermeldingen van waar het laatst werd afgebroken, zelfs als deze vermeldingen zijn gemaakt terwijl de agent offline was.
@@ -127,7 +126,7 @@ Een type met de naam van het logboek dat u opgeeft en de eigenschappen van hebbe
 | ManagementGroupName |De naam van de beheergroep voor System Center Operations beheren agents.  Dit is voor andere agents AOI -\<werkruimte-ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Logboek van zoekopdrachten met aangepaste logboekrecords
-Records van aangepaste logboeken worden opgeslagen in de OMS-opslagplaats net als records uit een andere gegevensbron.  Hebben ze een type dat overeenkomt met de naam die u opgeeft bij het definiëren van het logboek, zodat u de eigenschap Type in de zoekopdracht kunt records verzameld van een specifieke logboek op te halen.
+Records van aangepaste logboeken worden opgeslagen in de werkruimte voor logboekanalyse net als records uit een andere gegevensbron.  Hebben ze een type dat overeenkomt met de naam die u opgeeft bij het definiëren van het logboek, zodat u de eigenschap Type in de zoekopdracht kunt records verzameld van een specifieke logboek op te halen.
 
 De volgende tabel bevat voorbeelden van logboek-zoekopdrachten die records uit de aangepaste logboeken ophalen.
 
@@ -172,5 +171,5 @@ We gebruiken van aangepaste velden voor het definiëren van de *EventTime*, *Cod
 ![Logboek query met aangepaste velden](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [aangepaste velden](log-analytics-custom-fields.md) parseren van de vermeldingen in het aangepaste logboek in afzonderlijke velden.
+* Gebruik [aangepaste velden](log-analytics-custom-fields.md) parseren van de vermeldingen in de aangepaste aanmelding bij afzonderlijke velden.
 * Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) om de gegevens verzameld van gegevensbronnen en oplossingen te analyseren.

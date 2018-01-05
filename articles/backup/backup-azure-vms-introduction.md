@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
-In dit artikel biedt de prestaties en suggesties voor het plannen van uw back-upinfrastructuur VM resource. Definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn capaciteitsplanning en planning. Als u hebt [uw omgeving voorbereid](backup-azure-vms-prepare.md), is de volgende stap plannen voordat u begint met [back-up van virtuele machines](backup-azure-vms.md). Als u meer informatie over virtuele machines in Azure nodig hebt, raadpleegt u de [documentatie Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+In dit artikel biedt de prestaties en suggesties voor het plannen van uw back-upinfrastructuur VM resource. Definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn capaciteitsplanning en planning. Als u hebt [uw omgeving voorbereid](backup-azure-arm-vms-prepare.md), is de volgende stap plannen voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over virtuele machines in Azure nodig hebt, raadpleegt u de [documentatie Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Hoe biedt Azure back-up van virtuele machines?
 Wanneer een back-uptaak de Azure Backup-service op het geplande tijdstip begint, wordt de Backup-extensie om een momentopname punt in tijd geactiveerd. De Azure Backup-service wordt gebruikt de _VMSnapshot_ de extensie in Windows, en de _VMSnapshotLinux_ extensie in Linux. De uitbreiding wordt geïnstalleerd tijdens de eerste VM back-up. Voor het installeren van de uitbreiding voor moet de virtuele machine worden uitgevoerd. Als de virtuele machine niet wordt uitgevoerd, maakt de Backup-service een momentopname van de onderliggende opslag (omdat er geen schrijfbewerkingen toepassing optreden terwijl de virtuele machine is gestopt).
@@ -97,7 +97,7 @@ Voor elke schijf back-up wordt gemaakt, Azure Backup leest de blokken op de schi
 ## <a name="total-vm-backup-time"></a>Totale tijd voor VM-back-up
 Hoewel de meeste van de back-tijd is besteed aan het lezen van en kopiëren van gegevens, worden andere bewerkingen bijdragen aan de totale tijd die nodig zijn voor de back-up van een virtuele machine:
 
-* Tijd die nodig zijn voor [installeren of bijwerken van de Backup-extensie](backup-azure-vms.md).
+* Tijd die nodig zijn voor [installeren of bijwerken van de Backup-extensie](backup-azure-arm-vms.md).
 * Momentopname-tijd is de tijd die nodig is voor het activeren van een momentopname. Momentopnamen worden dicht bij de geplande back-uptijd geactiveerd.
 * Wachttijd in. Omdat de Backup-service met het verwerken van de back-ups van meerdere klanten, back-upgegevens kopiëren vanuit een momentopname naar de back-up of een Recovery Services-kluis mogelijk niet onmiddellijk starten. In tijden van piek geladen, de wachttijd kunt uitrekken tot acht uur vanwege het aantal back-ups wordt verwerkt. De totale tijd van de VM-back-up is echter minder dan 24 uur voor dagelijkse back-upbeleid.
 * Overdrachtstijd gegevens, de tijd die nodig is voor Backup-service voor het berekenen van de incrementele wijzigingen van eerdere back-up en dragen deze wijzigingen naar de opslag-kluis.
@@ -131,7 +131,7 @@ Prijzen voor back-ups van virtuele machines is *niet* op basis van de maximale o
 
 Een standaard A2 grote virtuele machine die twee extra gegevensschijven met een maximale grootte van 1 TB heeft bijvoorbeeld op te halen. De volgende tabel bevat de werkelijke hoeveelheid gegevens die zijn opgeslagen op elk van deze schijven:
 
-| Schijftype | Maximale grootte | Werkelijke gegevens aanwezig |
+| Schijftype | Max. grootte | Werkelijke gegevens aanwezig |
 | --- | --- | --- |
 | Besturingssysteemschijf |1023 GB |17 GB |
 | Lokale schijf / Resource-schijf |135 GB |5 GB (niet voor back-up opgenomen) |
@@ -148,7 +148,7 @@ Financieel voor een opgegeven virtuele machine stopt alleen als de beveiliging i
 Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Back-up van virtuele machines](backup-azure-vms.md)
+* [Back-up van virtuele machines](backup-azure-arm-vms.md)
 * [Back-up van virtuele machine beheren](backup-azure-manage-vms.md)
-* [Virtuele machines herstellen](backup-azure-restore-vms.md)
+* [Virtuele machines herstellen](backup-azure-arm-restore-vms.md)
 * [VM-back-problemen](backup-azure-vms-troubleshoot.md)

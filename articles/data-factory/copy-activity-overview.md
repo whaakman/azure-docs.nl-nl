@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -148,7 +148,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 
 De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken worden geretourneerd in het resultaat van uitgevoerde Kopieeractiviteit -> sectie uitvoer. Hieronder volgt een lijst met uitgeput. Informatie over het bewaken van de activiteit die wordt uitgevoerd van [Quick Start sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). U kunt vergelijken de prestaties en de configuratie van uw scenario om door te kopiëren van de activiteit [prestaties verwijzing](copy-activity-performance.md#performance-reference) van het intern testen.
 
-| De naam van eigenschap  | Beschrijving | Eenheid |
+| Naam van eigenschap  | Beschrijving | Eenheid |
 |:--- |:--- |:--- |
 | dataRead | Gegevensgrootte van het lezen van bron | Waarde voor Int64 in bytes |
 | dataWritten | Gegevensgrootte opvangen geschreven | Waarde voor Int64 in bytes |
@@ -192,6 +192,12 @@ Standaard kopieeractiviteit stopt met het kopiëren van gegevens en retourneert 
 ## <a name="performance-and-tuning"></a>Prestaties en afstemmen
 
 Zie de [Kopieeractiviteit prestaties en prestatieafstemming handleiding](copy-activity-performance.md), waarin belangrijke factoren die van invloed op de prestaties van de verplaatsing van gegevens (Kopieeractiviteit) in Azure Data Factory wordt beschreven. Ook hier worden de waargenomen prestaties tijdens interne tests en worden verschillende manieren om te optimaliseren van de prestaties van de Kopieeractiviteit besproken.
+
+## <a name="incremental-copy"></a>Incrementele kopie 
+Data Factory versie 2 ondersteunt scenario's voor het kopiëren van deltagegevens stapsgewijs uit een gegevensopslag van bron naar een doelgegevensopslagplaats. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Gepartitioneerde gegevens lezen en schrijven
+Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de SliceStart/SliceEnd/WindowStart/WindowEnd systeemvariabelen. In versie 2, kunt u dit gedrag kunt bereiken met behulp van een pipeline-parameter en van de trigger geplande tijd/begintijd als een waarde van de parameter. Zie voor meer informatie [het lezen of schrijven gepartitioneerd gegevens](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende snelstartgidsen, zelfstudies en voorbeelden:

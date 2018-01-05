@@ -1,24 +1,16 @@
 ---
-title: Architectuur voor Hyper-V-replicatie naar een secundaire site met Azure Site Recovery bekijken | Microsoft Docs
+title: Hyper-V-replicatie met de architectuur van de secundaire site in de Azure Site Recovery | Microsoft Docs
 description: "Dit artikel biedt een overzicht van de architectuur voor het repliceren van on-premises Hyper-V-VM’s naar een secundaire System Center VMM-site met Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V-replicatie naar een secundaire site
 
@@ -51,20 +43,18 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 
 ## <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
-1. U kunt één machine failover of herstelplannen, indelen failover van meerdere machines maken.
-2. U kunt een geplande of niet-geplande failover tussen on-premises sites uitvoeren. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
+- U kunt één machine failover of herstelplannen, indelen failover van meerdere machines maken.
+- U kunt een geplande of niet-geplande failover tussen on-premises sites uitvoeren. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
     - Als u een niet-geplande failover naar een secundaire site uitvoeren nadat de failover-machines in de secundaire locatie zijn niet beveiligd.
     - Als u een geplande failover hebt uitgevoerd, zijn de machines op de secundaire locatie na de failover beveiligd.
-3. Nadat de initiële failover wordt uitgevoerd, wijst u het toe, voor het starten van de toegang tot de werkbelasting van de replica-VM.
-
-Wanneer de primaire locatie weer beschikbaar is, kunt u failback uit.
-
-1. U initiëren omgekeerde replicatie voor het starten van de secundaire site repliceren naar de primaire. Omgekeerde replicatie geeft de virtuele machines een beveiligde status, maar het secundaire datacenter is nog steeds de actieve locatie.
-2. Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
+- Nadat de initiële failover wordt uitgevoerd, wijst u het toe, voor het starten van de toegang tot de werkbelasting van de replica-VM.
+- Wanneer de primaire locatie weer beschikbaar is, kunt u failback uit.
+    - U initiëren omgekeerde replicatie voor het starten van de secundaire site repliceren naar de primaire. Omgekeerde replicatie geeft de virtuele machines een beveiligde status, maar het secundaire datacenter is nog steeds de actieve locatie.
+    - Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de ondersteuningsmatrix Volg de zelfstudie Hyper-V-replicatie tussen de VMM-clouds in te schakelen.
-Voer een failover en failback.
+
+Ga als volgt [in deze zelfstudie](tutorial-vmm-to-vmm.md) Hyper-V-replicatie tussen de VMM-clouds in te schakelen.

@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Projecten met een structuur met de sjabloon Team gegevens wetenschappelijke processen
 
 Dit document bevat instructies voor het maken van gegevens wetenschappelijke projecten in Azure Machine Learning met sjablonen Team gegevens wetenschap proces (TDSP). Deze sjablonen helpen de structuur projecten voor samenwerking en reproduceerbaarheid. 
 
 
-## <a name="what-is-the-team-data-science-process"></a>Wat is de procedure voor wetenschappelijke gegevens Team?
+## <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 De TDSP is een flexibele, herhalende, gegevens wetenschap-proces voor het uitvoeren van en geavanceerde analytics-oplossingen leveren. Het is ontworpen voor het verbeteren van de samenwerking en efficiëntie van gegevens wetenschappelijke teams binnen ondernemingen. Deze ondersteuning biedt voor deze doelstellingen met vier belangrijke onderdelen:
 
    * Een standaard [gegevens wetenschappelijke lifecycle](../team-data-science-process/lifecycle.md) definitie.
@@ -67,11 +68,11 @@ Open Azure Machine Learning voor het maken van een nieuw project. Onder **projec
 ### <a name="create-a-new-tdsp-structured-project"></a>Een nieuw TDSP gestructureerd-project maken
    1. Geef de parameters en de informatie in het relevante selectievakje of de lijst:
 
-      - Naam van het project
+      - Projectnaam
       - Projectmap
       - Projectbeschrijving
       - Een leeg pad van de Git-opslagplaats
-      - De Werkruimtenaam van de
+      - Naam van de werkruimte
 
    2. Klik in de **Search** Voer **TDSP**. 
    3. Wanneer de **structuur van een project met TDSP** optie wordt weergegeven, selecteert u dat de sjabloon. 

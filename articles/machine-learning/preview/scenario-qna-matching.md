@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Met Q & een overeenkomend met behulp van Azure Machine Learning-workbench
 Open beëindigd vragen te beantwoorden, is moeilijk en vaak vereist handmatige inspanning van deskundigen (bestemd). Om te beperken van de vereisten op interne bestemd, maken bedrijven vaak een lijst met veelgestelde vragen (FAQ's) als een manier om gebruikers te helpen. In dit voorbeeld gepresenteerd verschillende effectieve machine learning-methoden zodat deze overeenkomen met open beëindigd query's naar het reeds bestaande Veelgestelde vragen over antwoorden/waardeparen. Dit voorbeeld wordt een eenvoudige manier kunt ontwikkelen-proces voor het bouwen van een dergelijke oplossing met behulp van de Azure Machine Learning-Workbench. 
@@ -84,11 +85,11 @@ Het gegevensschema en de directe downloadkoppelingen van de drie gegevenssets vi
 | [vragen](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Tekenreeks | De unieke vraag-ID (primaire sleutel)
 |  | AnswerId | Tekenreeks | De ID uniek antwoord per vraag
 |  | text0 | Tekenreeks | De onbewerkte gegevens zoals de titel en de hoofdtekst van de vraag
-|  | CreationDate | tijdstempel | De tijdstempel van wanneer de vraag is gevraagd
+|  | CreationDate | Timestamp | De tijdstempel van wanneer de vraag is gevraagd
 | [duplicaten](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | Tekenreeks | De duplicatie van de unieke ID (primaire sleutel)
 |  | AnswerId | Tekenreeks | De antwoord-ID die is gekoppeld aan de duplicatie
 |  | text0 | Tekenreeks | De onbewerkte gegevens met inbegrip van de duplicatie titel en tekst
-|  | CreationDate | tijdstempel | De tijdstempel van wanneer de duplicatie is gevraagd
+|  | CreationDate | Timestamp | De tijdstempel van wanneer de duplicatie is gevraagd
 | [antwoorden](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Tekenreeks | De unieke antwoord-ID (primaire sleutel)
 |  | text0 | Tekenreeks | De onbewerkte gegevens van het antwoord
 

@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Wordt uitgevoerd met de beste nauwkeurigheid en de duur van de laagste zoeken
 Opgegeven meerdere wordt uitgevoerd, is een gebruiksvoorbeeld uitgevoerd met de beste nauwkeurigheid vinden. Een aanpak is het gebruik van de opdrachtregelinterface (CLI) met een [JMESPath](http://jmespath.org/) query. Zie voor meer informatie over het gebruik van JMESPath in de Azure CLI [JMESPath gebruiken query's met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In het volgende voorbeeld worden vier wordt uitgevoerd met nauwkeurigheid waarden van 0, 0,98 1 en 1 gemaakt. Wordt uitgevoerd als ze in het bereik worden gefilterd `[MaxAccuracy-Threshold, MaxAccuracy]` waar `Threshold = .03`.

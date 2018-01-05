@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure-Stack beheren
 
@@ -53,7 +53,7 @@ Shares op volumes bevatten tenant gegevens. Gegevens van de tenant bevat pagina-
 Wanneer een share nog weinig vrije ruimte en de acties voor [vrijmaken](#reclaim-capacity) ruimte niet zijn geslaagd of niet beschikbaar, de Azure-Stack cloud-operator kunt [migreren](#migrate-a-container-between) de blob-containers van een share naar een andere.
 
 - Zie voor meer informatie over de containers en blobs [Blob storage](azure-stack-key-features.md#blob-storage) in sleutel-functies en -concepten in Azure-Stack.
-- Zie voor meer informatie over hoe tenant gebruikers met opslag in Azure-Stack blog werken [Azure Stack Storage-services](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Zie voor meer informatie over hoe tenant gebruikers met blob storage in Azure-Stack werken [Azure Stack Storage-services](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Containers
