@@ -6,7 +6,6 @@
 
 # Aan de slag
 ## [Een naamruimte maken](service-bus-create-namespace-portal.md)
-### [Wachtrijen, onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md)
 ## Wachtrijen gebruiken
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +36,7 @@
 
 ## Ontwikkelen
 ### Afhandeling van berichten
+#### [Wachtrijen, onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md)
 #### [Berichten, nettoladingen en serialisatie](service-bus-messages-payloads.md)
 #### [Berichten overdragen, vergrendelen en verwerken](message-transfers-locks-settlement.md)
 #### [Berichtvolgorde en -timestamps](message-sequencing.md)
