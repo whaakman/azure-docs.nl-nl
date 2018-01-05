@@ -36,7 +36,7 @@ Wanneer u schijven beheerd, zijn de volgende factureringsvoorwaarden van toepass
 
 * Schijfgrootte
 
-* Het aantal transacties
+* Aantal transacties
 
 * Uitgaande gegevensoverdracht
 
@@ -51,9 +51,9 @@ We gaan deze nader bekijken.
 
 Hier volgen de schijfgrootte beschikbaar voor premium-beheerde schijven:
 
-| **Premium beheerd <br>schijftype** | **P4** | **P6** |**P10** | **P20** | **P30** | **P 40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Schijfgrootte        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium beheerd <br>schijftype** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P 40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Schijfgrootte        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Hier volgen de schijfgrootte beschikbaar voor een standard-beheerde schijven:
@@ -82,7 +82,7 @@ Controleer deze bronnen voor meer informatie over het maken van momentopnamen me
 * [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
-## <a name="images"></a>Installatiekopieën
+## <a name="images"></a>Afbeeldingen
 
 Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aangepaste installatiekopie. U kunt een installatiekopie van het maken van uw aangepaste VHD in een opslagaccount of rechtstreeks van een gegeneraliseerde (sys DomainPrep) VM. Dit wordt vastgelegd in één installatiekopie alle schijven die zijn gekoppeld aan een virtuele machine, met inbegrip van zowel het besturingssysteem en gegevensschijven die worden beheerd. Hierdoor maken honderden virtuele machines met uw aangepaste installatiekopie zonder de noodzaak om te kopiëren of beheren van alle opslagaccounts.
 
