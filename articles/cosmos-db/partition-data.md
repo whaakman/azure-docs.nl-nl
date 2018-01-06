@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ U kunt in Azure Cosmos DB, opslaan en opvragen van schema minder gegevens met de
 
 Containers zijn logische resources en kunnen een of meer fysieke partities of servers omvatten. Het aantal partities wordt bepaald door Azure Cosmos DB op basis van de grootte van de opslagruimte en de ingerichte doorvoer van de container. 
 
-Een fysieke partitie is een vast bedrag van gereserveerde back SSD opslag, met maximaal 10 GB. Elke fysieke partitie worden gerepliceerd voor hoge beschikbaarheid. Een of meer fysieke partities vormen een container. Fysieke partitie management volledig wordt beheerd door Azure Cosmos DB en u hoeft te complexe code schrijven of beheren van de partities. Azure DB Cosmos-containers zijn onbeperkte in termen van opslag en doorvoer. 
+Een fysieke partitie is een vast bedrag van gereserveerde back SSD opslag. Elke fysieke partitie worden gerepliceerd voor hoge beschikbaarheid. Een of meer fysieke partities vormen een container. Fysieke partitie management volledig wordt beheerd door Azure Cosmos DB en u hoeft te complexe code schrijven of beheren van de partities. Azure DB Cosmos-containers zijn onbeperkte in termen van opslag en doorvoer. 
 
-Een logische partitie is een partitie in een fysieke partitie, worden alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie opgeslagen. In het volgende diagram wordt in een enkele container drie logische partities heeft. Elke logische partitie bevat de gegevens voor een partitiesleutel LAX AMS en MEL respectievelijk. Alle logische partities LAX AMS en MEL kan niet worden uitgebreid voorbij de maximale fysieke partitie limiet van 10 GB. 
+Een logische partitie is een partitie in een andere fysieke partitie worden alle gegevens die zijn gekoppeld aan een sleutelwaarde van één partitie opgeslagen. Een logische partitie is maximaal 10 GB. In het volgende diagram wordt in een enkele container drie logische partities heeft. Elke logische partitie bevat de gegevens voor een partitiesleutel LAX AMS en MEL respectievelijk. Alle logische partities LAX AMS en MEL kan niet worden uitgebreid voorbij de maximale logische partitie limiet van 10 GB. 
 
 ![Resource partitioneren](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Wanneer een verzameling voldoet aan de [partitioneren vereisten](#prerequisites)
 
 ## <a name="how-does-partitioning-work"></a>Hoe partitioneren werkt
 
-Hoe partitioneren werkt? Elk item moet hebben een partitiesleutel en een rijsleutel die worden geïdentificeerd. De partitiesleutel fungeert als een logische partitie voor uw gegevens en de grens van een natuurlijke Azure Cosmos DB biedt voor het distribueren van gegevens meerdere partities. Houd er rekening mee dat een logische partitie kan meerdere fysieke partities omvatten, maar het beheer van de fysieke partitie wordt beheerd door Azure Cosmos DB. 
+Hoe partitioneren werkt? Elk item moet hebben een partitiesleutel en een rijsleutel die worden geïdentificeerd. De partitiesleutel fungeert als een logische partitie voor uw gegevens en biedt een grens van een natuurlijke Azure Cosmos DB voor gegevens over fysieke partities verdeeld. Houd er rekening mee dat de gegevens voor één logische partitie zich in een enkele fysieke partitie bevinden moet, maar fysieke partitie management wordt beheerd door Azure Cosmos DB. 
 
 Kort samengevat: dit is hoe partitioneren werkt in Azure Cosmos DB:
 

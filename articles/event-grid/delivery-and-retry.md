@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Gebeurtenis raster berichtbezorging en probeer het opnieuw 
 
@@ -62,7 +62,31 @@ Gebeurtenis raster voegt een kleine willekeurige toe aan alle intervallen voor o
 
 ## <a name="retry-duration"></a>Probeer duur
 
-Tijdens de preview verloopt Azure gebeurtenis raster alle gebeurtenissen die niet worden bezorgd binnen twee uur. Voordat u algemeen beschikbaar is, wordt deze tijd worden verhoogd tot 24 uur. 
+Tijdens de preview verloopt Azure gebeurtenis raster alle gebeurtenissen die niet worden bezorgd binnen twee uur.
+
+## <a name="monitoring"></a>Bewaking
+
+U kunt de portal gebruiken om de status van de gebeurtenis leveringen te bekijken.
+
+Zoeken naar metrische gegevens voor een gebeurtenisabonnement vindt **gebeurtenisabonnementen** in de beschikbare services en selecteer deze.
+
+![Zoek naar gebeurtenisabonnementen](./media/delivery-and-retry/select-event-subscriptions.png)
+
+Filteren op het type gebeurtenis, het abonnement en locatie. Selecteer **metrische gegevens** voor het abonnement om weer te geven.
+
+![Abonnementen voor gebeurtenissen filteren](./media/delivery-and-retry/filter-events.png)
+
+De metrische gegevens voor het onderwerp over de gebeurtenis en een abonnement weergeven.
+
+![Metrische gegevens weergeven gebeurtenis](./media/delivery-and-retry/subscription-metrics.png)
+
+Als u een aangepaste onderwerp hebt gepubliceerd, kunt u de metrische gegevens weergeven voor. Selecteer de resourcegroep met het onderwerp en het onderwerp selecteren.
+
+![Aangepaste onderwerp selecteren](./media/delivery-and-retry/select-custom-topic.png)
+
+De metrische gegevens voor de aangepaste gebeurtenisonderwerp weergeven.
+
+![Metrische gegevens weergeven gebeurtenis](./media/delivery-and-retry/custom-topic-metrics.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

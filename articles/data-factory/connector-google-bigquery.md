@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory (bèta)
 
@@ -48,12 +48,12 @@ De volgende eigenschappen worden ondersteund voor Google BigQuery service gekopp
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **GoogleBigQuery** | Ja |
-| Project | Het standaard BigQuery project aan de query op.  | Ja |
-| additionalProjects | Een door komma's gescheiden lijst van de openbare BigQuery projecteert om toegang te hebben.  | Nee |
+| Project | De project-ID van het standaard BigQuery project aan de query op.  | Ja |
+| additionalProjects | Een door komma's gescheiden lijst met project-id van de openbare BigQuery projecteert om toegang te hebben.  | Nee |
 | requestGoogleDriveScope | Of u wilt toegang vragen tot Google Drive. Google Drive toegang toe te staan, schakelt u ondersteuning voor federatieve tabellen die gegevens met gegevens uit de Google Drive BigQuery combineren. De standaardwaarde is ingesteld op false.  | Nee |
 | authenticationType | Het OAuth 2.0-verificatiemechanisme gebruikt voor verificatie. ServiceAuthentication kan alleen worden gebruikt op de host zichzelf IR <br/>Toegestane waarden zijn: **ServiceAuthentication**, **UserAuthentication** | Ja |
 | refreshToken | Het vernieuwingstoken dat is verkregen van Google om toegang te verlenen BigQuery voor UserAuthentication. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Nee |
-| e-mailen | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication en kan alleen worden gebruikt op de host zichzelf IR  | Nee |
+| e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication en kan alleen worden gebruikt op de host zichzelf IR  | Nee |
 | keyFilePath | Het volledige pad naar het sleutelbestand .p12 die wordt gebruikt voor verificatie van het e-mailadres van de service-account en kan alleen worden gebruikt op de host zichzelf IR  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met de vertrouwde CA-certificaten voor het controleren van de server om verbinding te maken via SSL. Deze eigenschap kan alleen worden ingesteld wanneer u SSL op host zichzelf IR De standaardwaarde is het bestand cacerts.pem is geïnstalleerd met de IR  | Nee |
 | useSystemTrustStore | Hiermee geeft u op of u een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven PEM-bestand. De standaardwaarde is ingesteld op false.  | Nee |
@@ -66,13 +66,13 @@ De volgende eigenschappen worden ondersteund voor Google BigQuery service gekopp
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }

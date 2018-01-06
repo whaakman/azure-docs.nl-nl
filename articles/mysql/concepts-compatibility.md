@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 7578ae710a3d6c81fdfa2952c53a20c2cdccb6d0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-stuurprogramma's en compatibel zijn met Azure-Database voor de MySQL-beheerhulpprogramma 's
 Dit artikel worden de stuurprogramma's en beheerhulpprogramma's die compatibel met Azure voor MySQL-Database zijn.
@@ -24,8 +24,8 @@ Azure MySQL-Database maakt gebruik van de wereld populairste community edition v
 | **Stuurprogramma** | **Koppelingen** | **Compatibele versies** | **Incompatibel versies** | **Opmerkingen bij de** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | http://PHP.NET/downloads.php | 5.5 5,6 7.x | 5.3 | Voor PHP 7.0 verbinding met SSL MySQLi, voegt u MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT in de verbindingstekenreeks. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` optie in op false.|
-| .Net | [MySqlConnector op Github]: https://github.com/mysql-net/MySqlConnector/releases <br> [Installatiepakket vanuit Nuget]:<br> https://www.nuget.org/Packages/MySqlConnector/ | 0,27 en na | 0.26.5 en vóór | |
-| nodejs |  [MySQLjs op Github]:<br> https://github.com/mysqljs/MySQL/releases <br> [Installatiepakket van NPM]:<br> Voer 'npm installeren mysql' van NPM | 2.15 | 2.14.1 en vóór | |
+| .Net | [MySqlConnector op GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installatiepakket van Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0,27 en na | 0.26.5 en vóór | |
+| nodejs |  [MySQLjs op GitHub](https://github.com/mysqljs/mysql/releases) <br> Installatiepakket van NPM:<br> Voer `npm install mysql` van NPM | 2.15 | 2.14.1 en vóór | |
 | GA | https://github.com/go-SQL-Driver/MySQL/releases | 1.3 | 1.2 en vóór | Gebruik allowNativePasswords = true in de verbindingsreeks |
 | Python | https://pypi.Python.org/pypi/MySQL-connector-Python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 en vóór | |
 | Java | https://downloads.mariadb.org/connector-Java/ | 2.1 2.0 1.6 | 1.5.5 en vóór | |

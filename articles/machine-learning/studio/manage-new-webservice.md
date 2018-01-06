@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Beheren van een webservice via de portal voor Azure Machine Learning-webservices
 U kunt uw Machine Learning nieuwe en klassieke webservices met behulp van de Microsoft Azure Machine Learning Web Services-portal beheren. Aangezien klassieke webservices en nieuwe Web-services zijn gebaseerd op verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
@@ -110,7 +110,7 @@ Het dashboard plan bevat de volgende informatie:
 
 ## <a name="manage-classic-web-services"></a>Klassieke webservices beheren
 > [!NOTE]
-> De procedures in deze sectie zijn relevant zijn voor het beheer van klassieke webservices via de portal voor Azure Machine Learning-webservices. Zie voor informatie over het beheren van klassieke webservices door middel van de Machine Learning Studio en de klassieke Azure portal, [beheren van een Azure Machine Learning-werkruimte](manage-workspace.md).
+> De procedures in deze sectie zijn relevant zijn voor het beheer van klassieke webservices via de portal voor Azure Machine Learning-webservices. Zie voor informatie over het beheer van klassieke Web services via de Machine Learning Studio en de Azure portal, [beheren van een Azure Machine Learning-werkruimte](manage-workspace.md).
 > 
 > 
 

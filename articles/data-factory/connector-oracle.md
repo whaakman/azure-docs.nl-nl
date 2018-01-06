@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure Data Factory met Oracle
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor Oracle gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Oracle** | Ja |
-| connectionString | Geef informatie op die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString. | Ja |
+| connectionString | Geef informatie op die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString.<br><br>**Verbindingstype ondersteund**: u kunt gebruiken **Oracle SID** of **Oracle-servicenaam** voor het identificeren van de database:<br>-Met behulp van de beveiligings-id:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Met behulp van de servicenaam:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 **Voorbeeld:**
@@ -208,25 +208,25 @@ Bij het kopiëren van gegevens van/naar Oracle, worden de volgende toewijzingen 
 |:--- |:--- |
 | BBESTAND |Byte] |
 | BLOB |Byte]<br/>(alleen ondersteund voor Oracle 10g en hoger) |
-| CHAR |Reeks |
-| CLOB |Reeks |
+| CHAR |Tekenreeks |
+| CLOB |Tekenreeks |
 | DATUM |Datum en tijd |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
-| LANG |Reeks |
+| LANG |Tekenreeks |
 | LANGE ONBEWERKTE |Byte] |
-| NCHAR |Reeks |
-| NCLOB |Reeks |
+| NCHAR |Tekenreeks |
+| NCLOB |Tekenreeks |
 | AANTAL |Decimaal, tekenreeks (als precision > 28) |
-| NVARCHAR2 |Reeks |
+| NVARCHAR2 |Tekenreeks |
 | ONBEWERKTE |Byte] |
-| ROWID |Reeks |
+| ROWID |Tekenreeks |
 | TIJDSTEMPEL |Datum en tijd |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Reeks |
-| TIJDSTEMPEL MET TIJDZONE |Reeks |
+| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Tekenreeks |
+| TIJDSTEMPEL MET TIJDZONE |Tekenreeks |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
-| VARCHAR2 |Reeks |
-| XML |Reeks |
+| VARCHAR2 |Tekenreeks |
+| XML |Tekenreeks |
 
 > [!NOTE]
 > Gegevenstype INTERVAL jaar, maand en INTERVAL dag aan worden tweede niet ondersteund.

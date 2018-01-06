@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery-experimenten | Microsoft Docs
-description: Detecteren en experimenten in Cortana Intelligence Gallery delen.
+title: Azure AI-galerie experimenten | Microsoft Docs
+description: Detecteren en experimenten in de galerie van Azure AI delen.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Experimenten in Cortana Intelligence Gallery detecteren
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Experimenten in de galerie van Azure AI detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experimenten voor Machine Learning Studio
@@ -45,7 +45,7 @@ U kunt meer informatie over een experiment op de pagina experiment details ophal
 ## <a name="download"></a>Downloaden
 U kunt een kopie van een experiment in de galerie downloaden naar uw werkruimte van Machine Learning Studio. Vervolgens kunt u uw exemplaar voor het maken van uw eigen oplossingen wijzigen.
 
-Cortana Intelligence Gallery biedt twee methoden voor het importeren van een kopie van een experiment:
+Azure AI-galerie biedt twee methoden voor het importeren van een kopie van een experiment:
 
 * **In de galerie**. Als u een experiment die u in de galerie, zoals vinden, kunt u een kopie downloaden en opent u het in uw werkruimte van Machine Learning Studio.
 * **Vanuit Machine Learning Studio**. In Machine Learning Studio, kunt u een experiment in de galerie als een sjabloon voor het maken van een nieuw experiment.
@@ -132,7 +132,7 @@ Als u wilt, kunt u wijzigingen aanbrengen aan de werkstroom in een experiment di
 
 U kunt een van de volgende informatie voor uw experiment rechtstreeks in de galerie wijzigen:
 
-* De naam van het experiment
+* Naam van experiment
 * Samenvatting of beschrijving
 * Tags
 * Installatiekopie

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Moet u helpen bij de portal voor mijn Apps?
 
@@ -51,17 +51,17 @@ Als u uw wachtwoord bent vergeten, nooit ontvangen van uw IT-personeel, is vergr
 Als een eindgebruiker, kunt u uw wachtwoord opnieuw instellen of uw account ontgrendelen zonder contact op met de selfservice voor wachtwoordherstel (SSPR) met behulp van een persoon. Voordat u deze functie kunt gebruiken, moet u verificatiemethoden registreren of de vooraf gedefinieerde verificatiemethoden bevestigen die uw beheerder heeft ingevuld. Zie voor meer informatie [registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Ik ondervind problemen bij het installeren van de extensie van de portal browser mijn Apps
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Ik ondervind problemen bij het installeren van de extensie mijn Apps beveiligen aanmelden
 
 Controleer of u voldoet aan de vereisten voor browsers:
 
 - De portal is een browser die JavaScript ondersteunt vereist en CSS is ingeschakeld. Als u op basis van wachtwoorden eenmalige aanmelding apps gebruikt, moet u ook de bijbehorende uitbreiding geïnstalleerd. Deze extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor op basis van wachtwoorden eenmalige aanmelding apps starten.
 
 - De browservereisten voor de uitbreiding zijn:
-    - Internet Explorer 8, 9, 10, 11 op Windows 7 of hoger
     - Rand verjaardagseditie van Windows 10 of hoger
     - Chrome op Windows 7 of hoger, en op Mac OS X of hoger
     - Firefox 26,0 op Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger
+    - Internet Explorer 8, 9, 10, 11 op Windows 7 of hoger (beperkte ondersteuning)
 
 U kunt ook de uitbreiding voor Chrome en rand downloaden via de rechtstreekse koppelingen hieronder:
 
@@ -76,6 +76,32 @@ Nadat de installatie de volgende stappen uit als er problemen zijn:
 - Start uw browser en meld u aan bij de portal mijn Apps.
 
 - Cookies van uw browser te wissen en meld u aan bij de portal mijn Apps.
+- Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) handleiding voor toegang voor een hulpprogramma voor diagnostische gegevens en stapsgewijze instructies over het configureren van de extensie voor IE.
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Hoe gebruik ik de extensie mijn Apps beveiligen aanmelden?
+Het wijzigen van de standaard-URL voor mijn Apps voor de extensie
+
+Als u van een andere mijn Apps URL dan https://myapps.microsoft.com gebruikmaakt vervolgens moet u uw standaard-URL echter de volgende stappen uit:
+1. Terwijl niet aangemeld bij de extensie **Klik met de rechtermuisknop** het extensie-pictogram.
+2. Klik op **URL voor mijn Apps selecteren** in het menu.
+3. **Selecteer** uw standaard-URL.
+4. Klik op het pictogram extensie.
+5. Aanmelden bij de extensie door te selecteren **melden aan de slag**.
+
+Meld u aan rechtstreeks in een app van de browser
+1. Na de installatie van de extensie, aanmelding bij de extensie door te selecteren **melden aan de slag**.
+2. Navigeer naar de **aanmelding URL** van de app die u aanmelden wilt bij dit wordt meestal de URL van de app die wordt weergegeven het aanmeldingsformulier.
+3. De extensie moet een statuswijziging en kunt u dat een wachtwoord verkrijgbaar is, klikt u op de **extensie pictogram** aan te melden
+
+Een app van de extensie openen
+1. Na de installatie van de extensie, aanmelding bij de extensie door te selecteren **melden aan de slag**.
+2. Klik op het pictogram extensie om het menu te openen.
+3. **Search** voor een app in de portal voor mijn Apps beschikbaar.
+4. Klik op de app vanuit de **zoekresultaten** zodat deze toepassing.
+5. De laatste drie apps gestart wordt ook weergegeven in de **recent gebruikte** snelkoppeling lijst
+
+> [!NOTE]
+> Deze opties zijn alleen beschikbaar voor de rand, Chrome, Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Hoe kan ik een nieuwe app toevoegen
 
@@ -92,9 +118,9 @@ Nadat de installatie de volgende stappen uit als er problemen zijn:
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Hoe beheer ik mijn groepslidmaatschappen?
 
-1. Klik op de tegel van de app groepen. 
-2. Klik op groep maken voor het maken van een groep onder ik eigenaar, groepen en volg de instructies.
-3. Als u wilt deelnemen aan een groep, onder de groepen die ik in, klik op lid worden van groep en volg de instructies.
+1. Klik op de **groepen** tegel. 
+2. Als u wilt maken van een groep, onder de groepen die ik eigenaar bent, klikt u op **groep maken**, en volg de instructies.
+3. Als u wilt deelnemen aan een groep, onder de groepen die ik in, klikt u op **lid worden van groep**, en volg de instructies.
 
 **Opmerkingen:**
 

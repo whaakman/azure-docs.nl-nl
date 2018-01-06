@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor C
 Onzekerheid over het Gastbesturingssysteem is of hoe de Gast OS releases werk? Lees [dit](#how-it-works) sectie.
 
 ## <a name="news-updates"></a>Nieuws
+###### <a name="january-4-2018"></a>**4 januari 2018**
+Het Gastbesturingssysteem januari is vrijgegeven voor OS-familie 4 (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) en bevat belangrijke beveiligingspatches.  
 
 ###### <a name="january-4-2018"></a>**4 januari 2018**
 Het Gastbesturingssysteem december heeft uitgegeven.
@@ -88,6 +90,7 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Post 5.17 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.13_201711-01 |14 december 2017 |Post 5.15 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
@@ -112,6 +115,7 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Post 4.52 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Post 4,51 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.48_201711-01 |14 december 2017 |Post 4.50 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Overzicht: Exporteren naar SQL van Application Insights met Stream Analytics
 Dit artikel laat zien hoe u verplaatst uw telemetriegegevens van [Azure Application Insights] [ start] in een Azure SQL database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 In dit voorbeeld gebruiken we gegevens van paginaweergaven. Overzicht van de gegevens beschikbaar Inspecteer de JSON-uitvoer en Zie de [exporteren gegevensmodel](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics-exemplaar maken
-Van de [klassieke Azure Portal](https://manage.windowsazure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
+Van de [Azure-portal](https://portal.azure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Als de nieuwe taak is gemaakt, vouwt u de details ervan:
+Wanneer de nieuwe taak is gemaakt, selecteert u **gaat u naar de resource**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Locatie van de blob instellen
+#### <a name="add-a-new-input"></a>Een nieuwe invoer toevoegen
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Stel deze in op invoer van uw blob continue Export nemen:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Nu moet u de primaire toegangssleutel van uw Opslagaccount die u eerder hebt genoteerd. Stel dit in als de sleutel van het Opslagaccount.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Set pad voorvoegselpatroon
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Zorg ervoor dat de datumnotatie instellen op **jjjj-MM-DD** (met **streepjes**).
+**Zorg ervoor dat de datumnotatie ingesteld op jjjj-MM-DD (met streepjes).**
 
 Het pad naar het voorvoegsel patroon geeft aan hoe de invoerbestanden in Stream Analytics worden gevonden in de opslag. U moet worden ingesteld in overeenstemming met continue Export hoe de gegevens opslaat. Stel deze als volgt:
 
@@ -178,22 +178,12 @@ In dit voorbeeld:
 
 Als u de naam en sleutel van uw Application Insights-resource, Essentials open op de overzichtspagina, of instellingen.
 
-#### <a name="finish-initial-setup"></a>De eerste installatie voltooien
-Bevestig de serialisatie-indeling:
-
-![Bevestigen en de wizard te sluiten](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-De wizard te sluiten en wacht totdat de installatie te voltooien.
-
 > [!TIP]
 > De voorbeeld-functie gebruiken om te controleren of u het ingevoerde pad correct hebt ingesteld. Als dit mislukt: Controleer of er gegevens in de opslag voor de voorbeeld-periode die u hebt gekozen. Bewerk de definitie van de invoer en controleer u de storage-account, het pad voorvoegsel ingesteld en datumnotatie correct.
 > 
 > 
-
 ## <a name="set-query"></a>Set-query
 Open de querysectie:
-
-![Selecteer in de stream analytics, Query](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Vervang de standaardquery met:
 
@@ -238,22 +228,20 @@ U ziet dat de eerste enkele eigenschappen specifiek voor paginaweergavegegevens 
 ## <a name="set-up-output-to-database"></a>Instellen van uitvoer naar de database
 Selecteer SQL als uitvoer.
 
-![Selecteer in de stream analytics, uitvoer](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![Selecteer in de stream analytics, uitvoer](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Geef de SQL-database.
 
-![Vul de details van de database](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Vul de details van de database](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 De wizard te sluiten en wachten op een melding dat de uitvoer is ingesteld.
 
 ## <a name="start-processing"></a>Verwerking starten
 Start de taak van de actiebalk:
 
-![Klik op Start in de stream analytics,](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![Klik op Start in de stream analytics,](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 U kunt kiezen of verwerken van de gegevens vanaf nu of beginnen met oudere gegevens wordt gestart. De laatste is handig als u hebt continue Export is al een tijdje wordt uitgevoerd.
-
-![Klik op Start in de stream analytics,](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Ga terug naar SQL Server-beheerprogramma's na een paar minuten en bekijk de gegevens die. Gebruik bijvoorbeeld een query als volgt:
 

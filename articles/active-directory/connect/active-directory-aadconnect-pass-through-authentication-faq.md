@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass-through-verificatie: Veelgestelde vragen
 
@@ -81,6 +81,12 @@ Ja. Als WPAD Web Proxy Auto-Discovery () is ingeschakeld in uw on-premises-omgev
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan ik twee of meer Pass through-verificatie Agents installeren op dezelfde server?
 
 Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u wilt een Pass through-verificatie configureren voor hoge beschikbaarheid, volg de instructies in [Azure Active Directory Pass-through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hoe kan ik een Pass through-verificatie-Agent verwijderen?
+
+Als een Pass through-verificatie-Agent wordt uitgevoerd, blijft actief en aanmelden gebruikersaanvragen voortdurend worden verwerkt. Als u een verificatie-Agent verwijderen wilt, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en verwijderen van zowel de **Microsoft Azure AD Connect-verificatie Agent** en de  **Microsoft Azure AD Connect Agent Updater** programma's.
+
+Als u de blade Pass through-verificatie inschakelt op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) nadat de vorige stap is voltooid, ziet u de verificatie-Agent weergegeven als **inactief**. Dit is _verwacht_. De verificatie-Agent wordt automatisch verwijderd uit de lijst na een paar dagen.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Ik heb al AD FS aan te melden bij Azure AD gebruiken. Hoe kan ik het schakelen Pass through-verificatie?
 

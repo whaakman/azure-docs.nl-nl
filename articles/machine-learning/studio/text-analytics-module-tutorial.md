@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Tekstanalysemodellen maken in Azure Machine Learning Studio
 U kunt Azure Machine Learning gebruiken om te bouwen en text analytics-modellen operationeel maken. Deze modellen kunt u, bijvoorbeeld document classificatie of gevoel analysis problemen oplossen.
@@ -33,7 +33,7 @@ Een text analytics-experiment zou u meestal:
 
 In deze zelfstudie leert u deze stappen als we doorlopen een gevoel Analytics-model met Amazon adresboek beoordelingen gegevensset (Zie het onderzoeksrapport ' biografieën, Bollywood, giek vakken en Blenders: domein aanpassing voor gevoel classificatie ' door John Blitzer, Markeren Dredze en Fernando Pereira; Koppeling van rekenkundige Linguistics (ACL) 2007.) Deze gegevensset bestaat uit revisie scores (1-2 of 4 en 5) en vrije tekst. Het doel is het voorspellen van de score revisie: lage (1 - 2) of hoge (4-5).
 
-U vindt in deze zelfstudie wordt besproken in Cortana Intelligence Gallery experimenten:
+U vindt experimenten in deze zelfstudie wordt besproken in AI-galerie van Azure:
 
 [Beoordelingen adresboek voorspellen](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

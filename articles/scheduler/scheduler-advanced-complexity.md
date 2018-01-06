@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Het bouwen van complexe schema's en geavanceerde terugkeerpatronen met Azure Scheduler
 ## <a name="overview"></a>Overzicht
@@ -59,7 +59,7 @@ Maken van een eenvoudige planning met de [Azure Scheduler REST API](https://msdn
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Dit overzicht we Bespreek elk van deze elementen in detail.
 
 | **De naam van de JSON** | **Waardetype** | **Vereist?** | **Standaardwaarde** | **Geldige waarden** | **Voorbeeld** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |Tekenreeks |Nee |Geen |Datums en tijden volgens ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***terugkeerpatroon*** |Object |Nee |Geen |Recurrence-object |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequentie*** |Tekenreeks |Ja |Geen |'minuut', 'uur', 'day', 'week', 'maand' |<code>"frequency" : "hour"</code> |
-| ***interval*** |Aantal |Nee |1 |1 tot 1000. |<code>"interval":10</code> |
-| ***Eindtijd*** |Tekenreeks |Nee |Geen |Datum-/tijdwaarde van een moment in de toekomst |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***aantal*** |Aantal |Nee |Geen |>= 1 |<code>"count": 5</code> |
-| ***planning*** |Object |Nee |Geen |Schedule-object |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***startTime*** |Tekenreeks |Nee |None |Datums en tijden volgens ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***terugkeerpatroon*** |Object |Nee |None |Recurrence-object |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequentie*** |Tekenreeks |Ja |None |'minuut', 'uur', 'day', 'week', 'maand' |<code>"frequency" : "hour"</code> |
+| ***interval*** |Aantal |Ja |None |1 tot 1000. |<code>"interval":10</code> |
+| ***Eindtijd*** |Tekenreeks |Nee |None |Datum-/tijdwaarde van een moment in de toekomst |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***aantal*** |Aantal |Nee |None |>= 1 |<code>"count": 5</code> |
+| ***planning*** |Object |Nee |None |Schedule-object |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Deep Dive: *startTime*
 De volgende tabel opnamen hoe *startTime* bepaalt hoe een taak wordt uitgevoerd.
@@ -125,11 +125,11 @@ De volgende tabel beschrijft *planning* elementen in detail.
 
 | **De naam van de JSON** | **Beschrijving** | **Geldige waarden** |
 |:--- |:--- |:--- |
-| **minuten** |Minuten van het uur waarop de taak wordt uitgevoerd |<ul><li>Geheel getal, of</li><li>Matrix van gehele getallen</li></ul> |
-| **uren** |Uur van de dag waarop de taak wordt uitgevoerd |<ul><li>Geheel getal, of</li><li>Matrix van gehele getallen</li></ul> |
-| **Weekdagen** |Dagen van de week de taak wordt uitgevoerd. Kan alleen worden opgegeven met de frequency wekelijks. |<ul><li>"Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag" of "Zondag"</li><li>Matrix van elk van de bovenstaande waarden (maximale matrixgrootte van 7)</li></ul>*Niet* hoofdlettergevoelig |
+| **minuten** |Minuten van het uur waarop de taak wordt uitgevoerd |<ul><li>Matrix van gehele getallen</li></ul> |
+| **uren** |Uur van de dag waarop de taak wordt uitgevoerd |<ul><li>Matrix van gehele getallen</li></ul> |
+| **Weekdagen** |Dagen van de week de taak wordt uitgevoerd. Kan alleen worden opgegeven met de frequency wekelijks. |<ul><li>Matrix van elk van de onderstaande waarden (maximale grootte van de matrix 7)<ul><li>"Maandag"</li><li>"Dinsdag"</li><li>"Woensdag"</li><li>"Donderdag"</li><li>"Vrijdag"</li><li>"Zaterdag"</li><li>"Zondag"</li></ul></li></ul>*Niet* hoofdlettergevoelig |
 | **monthlyOccurrences** |Hiermee wordt bepaald welke dagen van de maand de taak wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. |<ul><li>Matrix van monthlyOccurrence objecten:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dag* is van de dag van de week de taak wordt uitgevoerd, bijvoorbeeld {zondag} is elke zondag van de maand. Vereist.</p><p>Het aantal exemplaren is *exemplaar* van de dag tijdens de maand, bijvoorbeeld {zondag, -1} is de laatste zondag van de maand. Optioneel.</p> |
-| **maanddagen** |Dag van de maand die de taak wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. |<ul><li>Een waarde < = -1 en > =-31.</li><li>Een willekeurige waarde > = 1 en < = 31.</li><li>Een matrix met bovenstaande waarden</li></ul> |
+| **maanddagen** |Dag van de maand die de taak wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. |<ul><li>Een matrix van onderstaande waarden</li><ul><li>Een waarde < = -1 en > =-31.</li><li>Een willekeurige waarde > = 1 en < = 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Voorbeelden: Terugkerende schema 's
 Hier volgen verschillende voorbeelden van terugkerende planningen – gericht op het object schema en de onderliggende elementen.

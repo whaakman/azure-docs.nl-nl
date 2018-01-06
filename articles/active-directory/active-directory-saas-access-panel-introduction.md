@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -70,7 +70,31 @@ Wanneer u bent geverifieerd, kunt u communiceren met de toepassingen die de behe
 
 Ten minste het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Voor de gebruiker zijn aangemeld via op basis van wachtwoorden eenmalige aanmelding (SSO) aan toepassingen, moet de extensie van het Configuratiescherm toegang in uw browser worden geïnstalleerd. De extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden selecteert.
 
-De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor Internet Explorer 8 en hoger, Microsoft Edge en Chrome Firefox browsers.
+De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor:
+-   Rand verjaardagseditie van Windows 10 of hoger 
+
+-   Chrome--Op Windows 7 of hoger, en op Mac OS X of hoger
+
+-   Firefox 26,0 of later--op Windows XP SP2 of hoger, en op Mac OS X 10,6 of hoger
+
+-   Internet Explorer 8, 9, 10, 11--op Windows 7 of hoger (beperkte ondersteuning)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Extensie Veilige aanmelding bij mijn apps
+De extensie is vereist voor gebruikers die zich aanmeldt bij op basis van wachtwoorden eenmalige aanmelding. Zodra de geïnstalleerde gebruikers ook aanvullende functies kunnen inschakelen door in te loggen de extensie door te klikken op **melden aan de slag**. 
+
+- Kunnen gebruikers zich aanmelden in apps via de app **aanmeldings-URL**. Wanneer de gebruiker naar de app aanmeldings-URL navigeert wordt de extensie detecteert DPM dit en wordt de optie voor de gebruiker zich aanmeldt bij deze van de extensie.
+- Gebruikers kunnen hun apps van de toegang Configuratiescherm met behulp ook openen de **snel zoeken** functie van de extensie. 
+- De uitbreiding wordt ook weergegeven voor gebruikers de laatste drie toepassingen die gestart onder **recent gebruikte** sectie.
+> [!NOTE]
+> Aanvullende functies zijn alleen beschikbaar voor de rand, Chrome, Firefox.
+
+
+Als u van een andere mijn Apps URL dan https://myapps.microsoft.com gebruikmaakt vervolgens moet u uw standaard-URL echter de volgende stappen uit:
+1. Terwijl niet aangemeld bij de extensie **Klik met de rechtermuisknop** het extensie-pictogram.
+2. Klik op **URL voor mijn Apps selecteren** in het menu.
+3. **Selecteer** uw standaard-URL.
+4. Klik op het pictogram extensie.
+5. Aanmelden bij de extensie door te selecteren **melden aan de slag**.
 
 ## <a name="mobile-app-support"></a>Ondersteuning voor mobiele Apps
 

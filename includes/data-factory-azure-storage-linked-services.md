@@ -27,7 +27,10 @@ Een shared access signature (SAS) biedt gedelegeerde toegang tot bronnen in uw o
 
 > [!IMPORTANT]
 > Azure Data Factory nu ondersteunt alleen het **Service-SAS** maar geen Account-SAS. Zie [typen van handtekeningen voor gedeelde toegang](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) voor meer informatie over deze twee typen en bouwen. Let op de SAS-URL generable vanuit Azure-portal of Opslagverkenner is een SAS-Account, wat niet wordt ondersteund.
-> 
+
+> [!TIP]
+> U kunt de onderstaande PowerShell-opdrachten voor het genereren van een SAS-Service voor uw opslagaccount (vervangen de houders van de locatie en de benodigde machtiging grant) uitvoeren:`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 De service Azure Storage SAS is gekoppeld, kunt u een Azure Storage-Account koppelen aan een Azure data factory met behulp van een Shared Access Signature (SAS). Het biedt de gegevensfactory beperkt/tijdsgebonden toegang tot alle/specifieke bronnen, (blobcontainer) / in de opslag. De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn voor Azure Storage SAS gekoppelde service. 
 

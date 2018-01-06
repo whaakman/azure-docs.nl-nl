@@ -1,4 +1,4 @@
-**[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)**  is een site-community op basis van beschikbare resources voor het detecteren en oplossingen delen gebouwd met Cortana Intelligence Suite.
+**[Azure AI-galerie](http://gallery.cortanaintelligence.com)**  is een site-community op basis van beschikbare resources voor het detecteren en oplossingen delen gebouwd met Cortana Intelligence Suite.
 De galerie heeft een aantal bronnen die u gebruiken kunt om uw eigen analytics-oplossingen te ontwikkelen.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.

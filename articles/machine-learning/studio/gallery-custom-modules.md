@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery aangepaste modules | Microsoft Docs
-description: Aangepaste machine learning-modules in Cortana Intelligence Gallery detecteren.
+title: Azure-galerie AI aangepaste modules | Microsoft Docs
+description: Aangepaste machine learning-modules in AI-galerie van Azure detecteren.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Aangepaste machine learning-modules in Cortana Intelligence Gallery detecteren
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Aangepaste machine learning-modules in AI-galerie van Azure detecteren
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Aangepaste modules voor Machine Learning Studio
-Cortana Intelligence Gallery biedt diverse [aangepaste modules](https://gallery.cortanaintelligence.com/customModules) die de mogelijkheden van Azure Machine Learning Studio uitbreiden. U kunt de modules gebruiken in uw experimenten, zodat u nog meer geavanceerde predictive analytics-oplossingen kunt ontwikkelen importeren.
+Azure AI-galerie biedt diverse [aangepaste modules](https://gallery.cortanaintelligence.com/customModules) die de mogelijkheden van Azure Machine Learning Studio uitbreiden. U kunt de modules gebruiken in uw experimenten, zodat u nog meer geavanceerde predictive analytics-oplossingen kunt ontwikkelen importeren.
 
 Op dit moment wordt de galerie modules biedt op *time series analytics*, *koppeling regels*, *algoritmen clustering* (buiten k-means) en *visualisaties*, en andere hulpprogramma werkpaard modules.
 
@@ -52,7 +52,7 @@ Op een aangepaste module pagina details van de **opmerkingen** sectie, u kunt op
 ## <a name="import"></a>Importeren
 U kunt een aangepaste module importeren uit de galerie naar uw eigen experimenten.
 
-Cortana Intelligence Gallery biedt twee manieren een kopie van de module importeren:
+Azure AI-galerie biedt twee manieren een kopie van de module importeren:
 
 * **In de galerie**. Als u een aangepaste module uit de galerie importeren, krijgt u ook een voorbeeldexperiment waarmee u een voorbeeld van het gebruik van de module.
 * **Vanuit Machine Learning Studio**. U kunt een aangepaste module importeren terwijl u in Machine Learning Studio werkt (in dit geval wordt er geen het voorbeeldexperiment).

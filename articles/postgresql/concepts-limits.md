@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure-Database voor PostgreSQL
 De Azure-Database voor PostgreSQL-service is in de openbare preview. De volgende secties beschrijven de capaciteit en functionele limieten in de database-service.
@@ -27,12 +27,12 @@ Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke servic
 | | |
 | :------------------------- | :---------------- |
 | **Maximum aantal verbindingen**        |                   |
-| Basic 50 Compute-eenheden     | 50-verbindingen    |
-| Basic 100 Compute-eenheden    | 100-verbindingen   |
-| Standaard 100 Compute-eenheden | 200-verbindingen   |
-| Standaard 200 Compute-eenheden | 300-verbindingen   |
-| Standaard 400 Compute-eenheden | 400-verbindingen   |
-| Standaard 800 Compute-eenheden | 500-verbindingen   |
+| Basic 50 Compute-eenheden     | 55-verbindingen    |
+| Basic 100 Compute-eenheden    | 105 verbindingen   |
+| Standaard 100 Compute-eenheden | 150 verbindingen   |
+| Standaard 200 Compute-eenheden | 250 verbindingen   |
+| Standaard 400 Compute-eenheden | 480 verbindingen   |
+| Standaard 800 Compute-eenheden | 950 verbindingen   |
 | **Maximale Compute-eenheden**      |                   |
 | Basisservicelaag         | 100 compute-eenheden |
 | Standaardservicelaag      | 800 compute-eenheden |
@@ -40,8 +40,9 @@ Er is een maximum aantal verbindingen, compute-eenheden en opslag in elke servic
 | Basisservicelaag         | 1 TB              |
 | Standaardservicelaag      | 1 TB              |
 
-Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
+Het Azure systeem vereist vijf verbindingen voor het bewaken van de Azure-Database voor PostgreSQL-server. Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 > Onherstelbare fout: er al te veel clients
+
 
 ## <a name="preview-functional-limitations"></a>Functionele beperkingen Preview
 ### <a name="scale-operations"></a>Schaalbewerkingen
@@ -52,7 +53,7 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 ### <a name="server-version-upgrades"></a>Server-versie-upgrades
 - Automatische migratie tussen versies van de primaire database-engine is momenteel niet ondersteund.
 
-### <a name="subscription-management"></a>Beheer van abonnementen
+### <a name="subscription-management"></a>Abonnementsbeheer
 - Dynamisch vooraf gemaakte servers verplaatsen tussen abonnement en resourcegroep is momenteel niet ondersteund.
 
 ### <a name="point-in-time-restore"></a>Een punt in de tijd herstellen

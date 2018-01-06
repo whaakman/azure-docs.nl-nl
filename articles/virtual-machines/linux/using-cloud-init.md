@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-ondersteuning voor virtuele machines in Azure
 Dit artikel wordt uitgelegd voor de ondersteuning die bestaat voor [cloud init](https://cloudinit.readthedocs.io) scale ingesteld voor het configureren van een virtuele machine (VM) of de virtuele machine (VMSS) bij het inrichten van de tijd in Azure. Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure.  
 
-## <a name="cloud-init-overview"></a>Cloud-init-overzicht
+## <a name="cloud-init-overview"></a>Overzicht van cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Omdat cloud init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of de vereiste agents naar uw configuratie toe te passen.  Voor meer informatie over de juiste indeling uw `#cloud-config` bestanden, Zie de [documentatiesite voor cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`bestanden zijn tekstbestanden gecodeerd in base64.
 
 Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
@@ -42,12 +42,12 @@ Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-i
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Wat is het verschil tussen cloud init- en Linux-Agent (WALA)?
 WALA is een Azure-platform-specifieke agent gebruikt voor het inrichten en verwerken van de Azure-extensies VM's configureren. We zijn verbeteren van de taak van de configuratie van virtuele machines voor het gebruik van cloud-init in plaats van de Linux-Agent om bestaande cloud init klanten om hun huidige cloud init-scripts te gebruiken.  Als u investeringen in de cloud init-scripts hebt voor het configureren van Linux-systemen, er zijn **geen aanvullende instellingen vereist** te maken. 
 
-Als u de opdrachtregeloptie AzureCLI niet opneemt `--custom-data` op het inrichten van tijd WALA neemt de minimale VM-inrichting van de vereiste parameters voor het inrichten van de virtuele machine en de implementatie met de standaardinstellingen te voltooien.  Als u verwijst naar de cloud-init `--custom-data` switch, wat is opgenomen in uw aangepaste gegevens (afzonderlijke instellingen of volledige script) onderdrukt de standaardwaarden WALA gedefinieerd. 
+Als u geen Azure CLI `--custom-data` switch op de tijd, WALA inrichting wordt de minimale VM-inrichting van de vereiste parameters voor het inrichten van de virtuele machine en de implementatie met de standaardinstellingen te voltooien.  Als u verwijst naar de cloud-init `--custom-data` switch, wat is opgenomen in uw aangepaste gegevens (afzonderlijke instellingen of volledige script) onderdrukt de standaardwaarden WALA. 
 
-WALA configuraties van virtuele machines zijn beperkt tot samenwerken om binnen de maximale duur van de VM-inrichting tijd.  Cloud-init-configuraties die zijn toegepast op virtuele machines hebben geen tijdsbeperkingen en leidt niet tot een implementatie mislukt door een time-out optreedt. 
+WALA configuraties van virtuele machines zijn binnen het maximum aantal VM-inrichting tijd werken beperkte tijd.  Cloud-init-configuraties die zijn toegepast op virtuele machines hebben geen tijdsbeperkingen en leidt niet tot een implementatie mislukt door een time-out optreedt. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Virtuele Machine voor het implementeren van een cloud-init ingeschakeld
-Een cloud-init ingeschakeld virtuele machine implementeert is net zo eenvoudig als het verwijst naar een distributiepunt cloud-init ingeschakeld tijdens de implementatie.  Linux-distributie instaan hebben te kiezen voor het inschakelen en cloud-init integreren in hun gepubliceerde basisinstallatiekopieën in Azure. Zodra u hebt vastgesteld dat de installatiekopie die u wilt implementeren cloud-init ingeschakeld is, kunt u de AzureCLI kunt gebruiken om de installatiekopie. 
+Een cloud-init ingeschakeld virtuele machine implementeert is net zo eenvoudig als het verwijst naar een distributiepunt cloud-init ingeschakeld tijdens de implementatie.  Linux-distributie instaan hebben te kiezen voor het inschakelen en cloud-init integreren in hun gepubliceerde basisinstallatiekopieën in Azure. Zodra u hebt vastgesteld dat de installatiekopie die u wilt implementeren cloud-init ingeschakeld is, kunt u de Azure CLI kunt gebruiken om de installatiekopie. 
 
 De eerste stap bij het implementeren van deze installatiekopie is voor het maken van een resourcegroep met de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
@@ -82,7 +82,7 @@ az vm create \
 Als de virtuele machine is gemaakt, de Azure CLI worden gegevens weergegeven specifiek zijn voor uw implementatie. Noteer het `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.  Het duurt enige tijd voor de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. U kunt SSH in de virtuele machine en de stappen in de sectie probleemoplossing gebruiken om de cloud init-logboeken weer te geven. 
 
 ## <a name="troubleshooting-cloud-init"></a>Cloud-init probleemoplossing
-Zodra de virtuele machine is ingericht, Cloud init wordt uitgevoerd via alle modules en scripts die zijn gedefinieerd in `--custom-data` om te configureren van de virtuele machine.  Als u oplossen wilt, fouten of nalatig gedrag van de configuratie, moet u zoeken naar de naam van de module (`disk_setup` of `runcmd` bijvoorbeeld) in het logboek cloud init - bevindt zich in **/var/log/cloud-init.log**.
+Zodra de virtuele machine is ingericht, cloud init wordt uitgevoerd via alle modules en scripts die zijn gedefinieerd in `--custom-data` om te configureren van de virtuele machine.  Als u oplossen wilt, fouten of nalatig gedrag van de configuratie, moet u zoeken naar de naam van de module (`disk_setup` of `runcmd` bijvoorbeeld) in het logboek cloud init - bevindt zich in **/var/log/cloud-init.log**.
 
 > [!NOTE]
 > Niet elke-modulefout resulteert in een cloud-init fatale fout bij het algemene configuratie. Bijvoorbeeld, met behulp van de `runcmd` -module, als het script is mislukt, cloud init nog steeds rapporteert inrichten is voltooid omdat de module runcmd uitgevoerd.

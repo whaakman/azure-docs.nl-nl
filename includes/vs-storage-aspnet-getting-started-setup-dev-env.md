@@ -1,37 +1,35 @@
 ## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 
-Deze sectie helpt bij het instellen van de ontwikkelomgeving, inclusief maken van een ASP.NET MVC-app, het toevoegen van een verbonden Services-verbinding toevoegen van een domeincontroller en de vereiste naamruimte richtlijnen geven.
+Deze sectie helpt bij het instellen van de ontwikkelomgeving. Dit omvat het maken van een ASP.NET MVC-app, een verbinding verbonden services toe te voegen, toevoegen van een domeincontroller en de vereiste naamruimte richtlijnen geven.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Een ASP.NET MVC-app-project maken
 
 1. Open Visual Studio.
 
-1. Selecteer **File -> Nieuw Project ->** vanuit het hoofdmenu
+1. Selecteer in het hoofdmenu **bestand** > **nieuw** > **Project**.
 
-1. Op de **nieuw Project** dialoogvenster, geeft u de opties zoals gemarkeerd in de volgende afbeelding:
+1. In de **nieuw Project** dialoogvenster, **Web** > **ASP.NET-webtoepassing (.NET Framework)**. In de **naam** veld **StorageAspNet**. Selecteer **OK**.
 
-    ![ASP.NET-project maken](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![Schermopname van dialoogvenster](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. Selecteer **OK**.
+1. In de **nieuwe ASP.NET-webtoepassing** dialoogvenster, **MVC**, en selecteer vervolgens **OK**.
 
-1. Op de **nieuw ASP.NET-Project** dialoogvenster, geeft u de opties zoals gemarkeerd in de volgende afbeelding:
+    ![Schermopname van nieuw ASP.NET-webtoepassing dialoogvenster](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-    ![Geef MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Verbonden services gebruiken voor verbinding met een Azure storage-account
 
-1. Selecteer **OK**.
+1. In **Solution Explorer**, met de rechtermuisknop op het project.
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Verbonden Services gebruiken om te verbinden met een Azure storage-account
+2. Selecteer in het contextmenu **toevoegen** > **Connected-Service**.
 
-1. In de **Solution Explorer**, met de rechtermuisknop op het project en selecteer in het contextmenu **toevoegen -> Service verbonden**.
+1. In de **verbonden Services** dialoogvenster, **Cloud-opslag met Azure Storage**, en selecteer vervolgens **configureren**.
 
-1. Op de **verbonden Service toevoegen** dialoogvenster Selecteer **Cloud-opslag met Azure Storage**, en selecteer vervolgens **configureren**.
+    ![In het dialoogvenster Schermafbeelding van de verbonden Services](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-    ![Het dialoogvenster van de gekoppelde Service](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
-
-1. Op de **Azure Storage** dialoogvenster, selecteer Azure Storage-account moet worden gebruikt voor deze zelfstudie.  Klik op om een nieuw Azure-opslagaccount **een nieuw Opslagaccount maken** en vult u het formulier.  Na het selecteren van een bestaand opslagaccount of een nieuwe maken, klikt u op **toevoegen**.  Visual Studio de NuGet-pakket wordt geïnstalleerd voor Azure-opslag- en storage-verbindingsreeksen **Web.config**.
+1. In de **Azure Storage** in het dialoogvenster Selecteer Azure storage-account moet worden gebruikt voor deze zelfstudie. U maakt een nieuwe Azure storage-account selecteren **maken van een nieuw Opslagaccount**, en het formulier te voltooien. Na het selecteren van een bestaand opslagaccount of een nieuwe maken, selecteer **toevoegen**. Visual Studio de NuGet-pakket installeert voor Azure-opslag- en storage-verbindingsreeksen **Web.config**.
 
 > [!TIP]
 > Voor informatie over het maken van een opslagaccount met de [Azure-portal](https://portal.azure.com), Zie [een opslagaccount maken](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 >
-> Een Azure storage-account kan ook worden gemaakt met [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), of de [Azure Cloud Shell](../articles/cloud-shell/overview.md).
+> U kunt ook een opslagaccount maken met behulp van [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), of [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 

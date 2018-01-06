@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Problemen met Azure Active Directory Pass-through-verificatie
 
@@ -57,7 +57,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/) en klik op een specifieke gebruiker aanmelden activiteit. Zoek naar de **SIGN-IN-FOUTCODE** veld. De waarde van dat veld worden toegewezen aan een reden voor fout en de oplossing met behulp van de volgende tabel:
 
-|Aanmelden foutcode|Aanmelding mislukt reden|Oplossing
+|Foutcode voor aanmelding|Aanmelding mislukt reden|Oplossing
 | --- | --- | ---
 | 50144 | Het Active Directory-wachtwoord van de gebruiker is verlopen. | Wachtwoord van de gebruiker in uw lokale Active Directory worden ingesteld.
 | 80001 | Er is geen verificatieagent beschikbaar. | Installeren en registreren van een verificatie-Agent.
@@ -165,7 +165,7 @@ Als logboekregistratie is ingeschakeld, kunt u meer informatie vinden in de beve
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Prestatiemeteritems
+## <a name="performance-monitor-counters"></a>Prestatiemeteritems
 
 Verificatie-Agents bewaken op een andere manier is om bij te houden van specifieke prestatiemeteritems op elke server waarop de verificatie-Agent is geïnstalleerd. Gebruik de volgende algemene items (**# PTA verificaties**, **#PTA mislukt verificaties** en **#PTA geslaagde verificaties**) en fout-prestatiemeteritems (**verificatiefouten # PTA**):
 

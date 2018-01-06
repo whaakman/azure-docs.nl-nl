@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -36,7 +36,7 @@ Azure Active Directory detecteert op dit moment zes typen risicogebeurtenissen d
 
 ![Risicogebeurtenis](./media/active-directory-reporting-risk-events/91.png)
 
-Het voor een risicogebeurtenis gedetecteerde dat u inzicht is gekoppeld aan uw abonnement Azure AD. Als u hebt een Azure AD Premium P1-editie (opgenomen in EMS E3 aanbieding), detecties die niet wordt gedekt door uw licentie worden gerapporteerd als **aanmelden met extra risico gedetecteerd**. Met andere woorden, ziet u een risicogebeurtenis aanmelden met extra risico voor detecties exclusieve naar Azure AD Identity Protection abonnees gedetecteerd.
+Het voor een risicogebeurtenis gedetecteerde dat u inzicht is gekoppeld aan uw abonnement Azure AD. Met de Azure AD Premium P2-editie, moet u de meest gedetailleerde informatie over alle onderliggende detecties ophalen. Met de editie Azure AD Premium-P1 detecties die niet wordt gedekt door uw licenties worden weergegeven als de risicogebeurtenis **aanmelden met extra risico gedetecteerd**.
 
 
 In dit onderwerp biedt u een gedetailleerd overzicht van welke gebeurtenissen van de risico's zijn en hoe u ze kunt gebruiken om de identiteiten van uw Azure AD te beschermen.

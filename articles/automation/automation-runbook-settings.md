@@ -1,6 +1,6 @@
 ---
 title: Runbookinstellingen | Microsoft Docs
-description: Beschrijft de configuratie-instellingen voor een runbook in Azure Automation en het wijzigen van deze met de Azure Management Portal en de Windows PowerShell.
+description: Beschrijft de configuratie-instellingen voor een runbook in Azure Automation en het wijzigen van deze met de Azure-portal en de Windows PowerShell.
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="runbook-settings"></a>Runbook-instellingen
 Elk runbook in Azure Automation heeft meerdere instellingen waarmee het kan worden geïdentificeerd en de logboekregistratie kan wijzigen. Elk van deze instellingen wordt hieronder beschreven en gevolgd door procedures voor het wijzigen van deze.
