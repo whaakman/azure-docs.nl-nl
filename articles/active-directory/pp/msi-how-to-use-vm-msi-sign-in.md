@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Meld u aan met een virtuele machine door de gebruiker toegewezen beheerde Service identiteit (MSI)
 
@@ -51,7 +51,7 @@ Het volgende script toont hoe:
 2. Aanroepen van Azure Resource Manager en de locatie van de Azure-regio voor een virtuele machine ophalen. CLI zorgt voor het beheren van de token overname/gebruik automatisch voor u. Zorg ervoor dat uw virtuele machine van de naam `<VM NAME>`, en de gebruiker toegewezen MSI resource-id voor `<MSI ID>`. De MSI-bron-id wordt geretourneerd als de `id` eigenschap tijdens het maken van een gebruiker toegewezen MSI (Zie [configureren van een gebruiker toegewezen beheerde Service identiteit (MSI) voor een virtuele machine met Azure CLI](msi-qs-configure-cli-windows-vm.md) voor voorbeelden van de `az identity create` opdracht ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

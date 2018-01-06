@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaat horende in IoT-Hub
 
 *Apparaat horende* zijn JSON-documenten die status apparaatgegevens, met inbegrip van metagegevens, configuraties en voorwaarden opslaan. Azure IoT Hub onderhoudt een apparaat twin voor elk apparaat dat u verbinding met IoT Hub maakt. Dit artikel wordt beschreven:
+
 
 * De structuur van het apparaat twin: *labels*, *gewenste* en *eigenschappen gerapporteerd*.
 * De bewerkingen die apparaat-apps en back-ends op het apparaat horende kunnen uitvoeren.
@@ -51,8 +52,7 @@ Een apparaat-twin is een JSON-document met:
 * **Labels**. Een gedeelte van de JSON-document dat de back-end oplossing kunt lezen en schrijven naar. Labels zijn niet zichtbaar voor apparaat-apps.
 * **Eigenschappen van de gewenste**. Gebruikt samen met de eigenschappen van de gerapporteerde synchroniseren apparaatconfiguratie of voorwaarden. De back-end oplossing kunt gewenste eigenschappen instellen en ze kan worden gelezen door de app voor het apparaat. De apparaat-app kan ook ontvangen van meldingen van wijzigingen in de gewenste eigenschappen.
 * **Eigenschappen gerapporteerd**. Gebruikt samen met de gewenste eigenschappen voor het synchroniseren van apparaatconfiguratie of voorwaarden. De app apparaat gemelde eigenschappen kunt instellen en de back-end oplossing kan lezen en hierin zoeken.
-
-De hoofdmap van het apparaat twin JSON-document bevat tevens de alleen-lezen eigenschappen van de bijbehorende apparaat-id opgeslagen in de [identiteitsregister][lnk-identity].
+* **Identiteitseigenschappen van apparaat**. De hoofdmap van het apparaat twin JSON-document bevat de eigenschappen voor alleen-lezen van de bijbehorende apparaat-id opgeslagen in de [identiteitsregister][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ Het volgende voorbeeld ziet u een apparaat twin JSON-document:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ Het volgende voorbeeld ziet u een apparaat twin JSON-document:
             }
         }
 
-In het hoofdobject Systeemeigenschappen en containerobjecten voor `tags` en beide `reported` en `desired` eigenschappen. De `properties` container bevat sommige alleen-lezen-elementen (`$metadata`, `$etag`, en `$version`) dat wordt beschreven in de [twin Apparaatmetagegevens] [ lnk-twin-metadata] en [ Optimistische gelijktijdigheid] [ lnk-concurrency] secties.
+In het hoofdobject het apparaat identiteitseigenschappen en containerobjecten voor `tags` en beide `reported` en `desired` eigenschappen. De `properties` container bevat sommige alleen-lezen-elementen (`$metadata`, `$etag`, en `$version`) dat wordt beschreven in de [twin Apparaatmetagegevens] [ lnk-twin-metadata] en [ Optimistische gelijktijdigheid] [ lnk-concurrency] secties.
 
 ### <a name="reported-property-example"></a>Voorbeeld van de gerapporteerde eigenschap
 In het vorige voorbeeld de apparaat-twin bevat een `batteryLevel` eigenschap die is gerapporteerd door de app voor het apparaat. Deze eigenschap kan doorzoeken en op apparaten die zijn gebaseerd op het niveau van de laatste gemelde batterij werkt. Andere voorbeelden zijn de apparaat-app apparaat rapportagemogelijkheden of opties voor netwerkconnectiviteit.
@@ -240,7 +246,7 @@ Labels, gewenste eigenschappen en gerapporteerde eigenschappen zijn JSON-objecte
 * Alle tekenreekswaarden mag maximaal 4 KB lang.
 
 ## <a name="device-twin-size"></a>De grootte van de apparaat-twin
-IoT Hub worden afgedwongen voor een beperking van 8KB grootte van de totale waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.
+IoT Hub worden afgedwongen voor een beperking van de grootte van 8KB op elk van de respectieve totale waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.
 De grootte wordt berekend door de telling van alle tekens, met uitzondering van Unicode-tekens (segmenten C0 en C1) en spaties bevatten die niet tekenreeksconstanten zijn.
 IoT Hub worden alle bewerkingen die u wilt de grootte van deze documenten boven de limiet verhogen geweigerd met een fout.
 

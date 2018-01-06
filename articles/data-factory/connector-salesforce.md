@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Gegevens kopiëren van/naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,10 +67,10 @@ De volgende eigenschappen worden ondersteund voor Salesforce gekoppelde service:
 | gebruikersnaam |Geef een naam op voor het gebruikersaccount. |Ja |
 | wachtwoord |Geef een wachtwoord voor het gebruikersaccount.<br/><br/>U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
 | securityToken |Geef een beveiligingstoken voor de gebruikersaccount. Zie [security token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen of ophalen van een beveiligingstoken. Zie voor informatie over het algemeen over beveiligingstokens, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of beveiligingstoken worden opgeslagen in Azure Sleutelkluis en de kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
+| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als bron gekoppeld-service heeft geen IR |
 
 >[!IMPORTANT]
->Om gegevens te kopiëren in Salesforce, expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Salesforce en koppelen in de gekoppelde service als het volgende voorbeeld.
+>Als u gegevens **in** Salesforce, standaard Azure integratie Runtime kan niet worden gebruikt om uit te voeren kopiëren. In een ander woord als de bron gekoppeld service beschikt niet over een opgegeven IR expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met een locatie in de buurt van uw Salesforce en koppelen in het Salesforce.
 
 **Voorbeeld: opslaan van referenties in ADF**
 
@@ -300,25 +300,25 @@ Bij het kopiëren van gegevens van Salesforce, worden de volgende toewijzingen v
 
 | SalesForce-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Automatische getal |Reeks |
+| Automatische getal |Tekenreeks |
 | Selectievakje |Boole-waarde |
 | Valuta |dubbele |
 | Date |Datum en tijd |
 | Datum/tijd |Datum en tijd |
-| E-mail |Reeks |
-| Id |Reeks |
-| Opzoekrelatie |Reeks |
-| Meervoudige selectie selectielijst |Reeks |
+| E-mail |Tekenreeks |
+| Id |Tekenreeks |
+| Opzoekrelatie |Tekenreeks |
+| Meervoudige selectie selectielijst |Tekenreeks |
 | Aantal |dubbele |
 | Procent |dubbele |
-| Telefoon |Reeks |
-| Selectielijst |Reeks |
-| Tekst |Reeks |
-| Tekstgebied |Reeks |
-| Tekstgebied (lang) |Reeks |
-| Tekstgebied (uitgebreid) |Reeks |
-| Tekst (versleuteld) |Reeks |
-| URL |Reeks |
+| Telefoon |Tekenreeks |
+| Selectielijst |Tekenreeks |
+| Tekst |Tekenreeks |
+| Tekstgebied |Tekenreeks |
+| Tekstgebied (lang) |Tekenreeks |
+| Tekstgebied (uitgebreid) |Tekenreeks |
+| Tekst (versleuteld) |Tekenreeks |
+| URL |Tekenreeks |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

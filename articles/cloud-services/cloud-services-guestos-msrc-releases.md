@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
+
+## <a name="january-guest-os"></a>Het Gastbesturingssysteem januari
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| N/A | [4056898] |Windows-beveiliging |4.50 |3 januari 2018 |
+| N/A | [4056890] |Windows-beveiliging |5.15 |3 januari 2018 |
 
 ## <a name="december-guest-os"></a>December Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -574,6 +580,9 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | N/A |[3007054] |Pincode afdrukken optie altijd ziet wanneer u een document binnen een Windows Store-toepassing in Windows afdrukken |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Ononderbroken lijnen in plaats van stippellijn worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

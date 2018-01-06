@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -47,10 +47,11 @@ Computers die u wilt migreren naar Azure moeten voldoen aan de Azure-vereisten e
 
 Nadat een machine is gemarkeerd als geschikt voor Azure, wijst Azure migreren deze toe aan een VM-grootte in Azure, met behulp van de volgende criteria:
 
-- **Opslag selectievakje**: Azure migreren probeert te koppelen van elke schijf die is gekoppeld aan de machine naar een schijf in Azure:-de i/o per seconde (IOPS) met de factor comfort Azure migreren vermenigvuldigen. Deze ook veelvouden de doorvoer (in MBps) van elke schijf met de factor comfort. Dit biedt de effectieve IOPS en doorvoerlimieten schijf. Op basis hiervan wijst Azure migreren de schijf naar een standaard of premium-schijf in Azure.
-    - Als de service een schijf met de vereiste IOPS & doorvoer vinden kan, wordt de computer als ongeschikt zijn gemarkeerd voor Azure.
-    - Als het een set geschikte schijven gevonden, selecteert Azure migreren degene die ondersteuning bieden voor de opslag redundantie methode en de locatie die is opgegeven in de instellingen van de assessment.
-    - Als er meerdere schijven voor in aanmerking komt, wordt deze met de laagste kosten geselecteerd.
+- **Controle van de opslag**: Azure migreren probeert te koppelen van elke schijf die is gekoppeld aan de machine naar een schijf in Azure:
+    - De i/o per seconde (IOPS) vermenigvuldigen Azure migreren met de factor comfort. Deze ook veelvouden de doorvoer (in MBps) van elke schijf met de factor comfort. Dit biedt de effectieve IOPS en doorvoerlimieten schijf. Op basis hiervan wijst Azure migreren de schijf naar een standaard of premium-schijf in Azure.
+      - Als de service een schijf met de vereiste IOPS & doorvoer vinden kan, wordt de computer als ongeschikt zijn gemarkeerd voor Azure.
+      - Als het een set geschikte schijven gevonden, selecteert Azure migreren degene die ondersteuning bieden voor de opslag redundantie methode en de locatie die is opgegeven in de instellingen van de assessment.
+      - Als er meerdere schijven voor in aanmerking komt, wordt deze met de laagste kosten geselecteerd.
 - **Schijf opslagdoorvoer**: [meer](../azure-subscription-service-limits.md#storage-limits) over Azure beperkt per schijf en de VM.
 - **Schijftype**: Azure migreren ondersteunt alleen beheerde schijven.
 - **Controle van het netwerk**: Azure migreren gezocht naar een virtuele machine van Azure die ondersteuning voor het aantal NIC's op de on-premises machine biedt.

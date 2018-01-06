@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.
@@ -49,13 +49,13 @@ Echter, als u nodig hebt om gegevens te behouden voor een langere periode, kunt 
 Wanneer u een automation-account in Microsoft Azure verwijdert, worden alle objecten in het account verwijderd waaronder runbooks, modules, configuraties, instellingen, taken en activa. De objecten kunnen niet worden hersteld nadat het account is verwijderd.  De volgende informatie kunt u back-up van de inhoud van uw automation-account voordat u het verwijdert. 
 
 ### <a name="runbooks"></a>Runbooks
-U kunt uw runbooks exporteren naar scriptbestanden met ofwel Azure Management Portal of de [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell.  Deze scriptbestanden kunnen worden geïmporteerd in een andere automation-account, zoals beschreven in [een Runbook maken of importeren](https://msdn.microsoft.com/library/dn643637.aspx).
+U kunt uw runbooks exporteren naar scriptbestanden met de Azure portal of de [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell.  Deze scriptbestanden kunnen worden geïmporteerd in een andere automation-account, zoals beschreven in [een Runbook maken of importeren](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Integratiemodules
 U kunt integratiemodules niet exporteren uit Azure Automation.  U moet ervoor zorgen dat ze beschikbaar is buiten het automation-account zijn.
 
 ### <a name="assets"></a>Assets
-Kan niet worden geëxporteerd [activa](https://msdn.microsoft.com/library/dn939988.aspx) van Azure Automation.  De Azure-beheerportal gebruikt, moet u de details van variabelen, referenties, certificaten, verbindingen en planningen noteren.  Vervolgens moet u handmatig maken elementen die worden gebruikt door runbooks die u in een andere automation importeren.
+Kan niet worden geëxporteerd [activa](https://msdn.microsoft.com/library/dn939988.aspx) van Azure Automation.  Met de Azure portal, moet u de details van variabelen, referenties, certificaten, verbindingen en planningen noteren.  Vervolgens moet u handmatig maken elementen die worden gebruikt door runbooks die u in een andere automation importeren.
 
 U kunt [Azure-cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) details van niet-versleutelde activa vallen of opslaan voor toekomstig gebruik ophalen of gelijkwaardige activa in een andere automation-account maken.
 
@@ -64,7 +64,7 @@ U kunt de waarde voor gecodeerde variabelen of het wachtwoordveld van referentie
 U kunt certificaten niet exporteren uit Azure Automation.  U moet ervoor zorgen dat alle certificaten buiten Azure beschikbaar zijn.
 
 ### <a name="dsc-configurations"></a>DSC-configuraties
-U kunt uw configuraties exporteren naar scriptbestanden met ofwel Azure Management Portal of de [Export AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet in Windows PowerShell. Deze configuraties kunnen worden geïmporteerd en gebruikt in een andere automation-account.
+U kunt uw configuraties exporteren naar scriptbestanden met de Azure portal of de [Export AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet in Windows PowerShell. Deze configuraties kunnen worden geïmporteerd en gebruikt in een andere automation-account.
 
 ## <a name="geo-replication-in-azure-automation"></a>Geo-replicatie in Azure Automation
 Geo-replicatie, standaard in Azure Automation-accounts, back-ups van gegevens naar een ander geografische regio voor de redundantie. U kunt een primaire regio kiezen bij het instellen van uw account en vervolgens een secundaire regio is toegewezen aan deze automatisch. De secundaire gegevens gekopieerd van de primaire regio wordt voortdurend bijgewerkt in geval van gegevensverlies.  

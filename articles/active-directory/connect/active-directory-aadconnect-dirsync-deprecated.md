@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d30a0a6e293bd6659c8d39f94f11b0bb448e166
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Upgrade van Windows Azure Active Directory-synchronisatie en Azure Active Directory-synchronisatie
 Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een fantastische tijd om te upgraden naar Azure AD Connect van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn gedeprecieerd en vanaf 13 April 2017 niet langer worden ondersteund.
@@ -62,7 +62,7 @@ Als u zien hoe u een in-place upgrade van DirSync naar Azure AD Connect wilt, ra
 De melding is ook verzonden naar klanten die gebruikmaken van Azure AD Connect met een build-nummer 1.0. \*.0 (met een pre-1.1-release). Microsoft raadt aan klanten kunnen de nieuwste versies van Azure AD Connect. De [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) 1.1 nieuwe functie kunt u gemakkelijk altijd een recente versie van Azure AD Connect geïnstalleerd hebt.
 
 **V: wordt DirSync/Azure AD Sync niet meer werken op 13 April 2017?**  
-DirSync/Azure AD Sync blijven werken op 13 April 2017.  Azure AD kan echter niet meer accepteren, communicatie van DirSync/Azure AD Sync na 31 December 2017.
+DirSync/Azure AD Sync blijven werken op 13 April 2017.  Azure AD mogelijk niet meer communicatie van DirSync/Azure AD Sync accepteren na 31 December 2017.
 
 **V: welke versies DirSync kan ik upgraden van**  
 Dit wordt ondersteund voor een upgrade uitvoert van een DirSync-release momenteel wordt gebruikt. Houd er rekening mee dat in-place upgrade van DirSync naar Azure AD Connect wordt niet ondersteund na December 31 2017. Klanten die gebruikmaken van DirSync na die datum en wilt overstappen op Azure AD Connect wellicht Voer in plaats daarvan een nieuwe installatie van Azure AD Connect.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Verlooptijd voor Office 365-groepen (preview) configureren
 
@@ -30,9 +30,7 @@ Verlopen van functies voor deze instelling kunt u nu de levenscyclus van Office 
 -   Een Office 365-groep die is verwijderd kan door de eigenaars Groepsbeleid of door de beheerder binnen 30 dagen worden hersteld
 
 > [!NOTE]
-> Vervaldatum voor Office 365-groepen moet een Azure AD Premium-licentie of een Azure AD Basic EDU voor alle leden van de groepen waartoe de vervaldatum instellingen worden toegepast.
-> 
-> Voor Azure AD Basic EDU in licentie klanten gegeven: voor dit beleid voor het eerst configureert, de Azure Active Directory PowerShell-cmdlets gebruiken. Daarna kunt u de instellingen voor verlooptijd met PowerShell of Azure AD-portal met een account dat een gebruiker accountbeheerder of de globale beheerder in uw Azure AD-tenant bijwerken.
+> Vervaldatum voor Office 365-groepen beschikt over een Azure AD Premium-licentie voor alle leden van de groepen waartoe de vervaldatum instellingen worden toegepast.
 
 Zie voor meer informatie over het downloaden en installeren van de Azure AD PowerShell-cmdlets [Azure Active Directory PowerShell voor Graph - openbare Preview-versie 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 

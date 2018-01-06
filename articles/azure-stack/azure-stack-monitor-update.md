@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Updates controleren in Azure-Stack met behulp van de bevoegde eindpunt
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
-Kunt u het eindpunt van de bevoegdheden om de voortgang van een Azure-Stack update-uitvoering, en te hervatten van een mislukte update uitvoeren vanaf de laatste geslaagde stap. 
+U kunt het bevoegde eindpunt de voortgang van een Azure-Stack update uitvoeren en hervatten van een mislukte update uitvoeren vanaf de laatste geslaagde stap moet u de Stack Azure portal niet meer beschikbaar.  Met de Stack van Azure-portal is de aanbevolen methode voor het beheren van updates in Azure-Stack.
 
 De volgende nieuwe PowerShell-cmdlets voor het updatebeheer van de zijn opgenomen in de update 1710 voor Azure-Stack geïntegreerd systemen.
 

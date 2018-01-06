@@ -1,5 +1,5 @@
 ---
-title: Een back-upkluis upgraden naar een Recovery Services-kluis (Preview) | Microsoft Docs
+title: Een back-upkluis upgraden naar een Recovery Services-kluis | Microsoft Docs
 description: Instructies en informatie over ondersteuning voor een upgrade van uw Azure Backup-kluis naar een Recovery Services-kluis.
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Een back-upkluis upgraden naar een Recovery Services-kluis
 
@@ -120,7 +120,7 @@ Wanneer u een naar een Recovery Services-kluis upgrade, rapporten configureren v
 Nee. Uw actieve back-ups niet wordt onderbroken tijdens en na de upgrade.
 
 **Als ik niet van plan bent over het upgraden van snel, wat gebeurt er met mijn kluizen?**</br>
-Omdat alle nieuwe functies alleen voor Recovery Services-kluizen gelden, raden we u aan uw kluizen upgraden. Microsoft zal uiteindelijk de klassieke portal afschaffen. Vanaf 1 September 2017 begint Microsoft back-upkluizen automatisch upgraden naar een Recovery Services-kluizen. Na November 30,2017, kunt u niet langer Backup-kluizen met behulp van PowerShell maken. Uw kluis kan automatisch worden bijgewerkt elk gewenst moment ertussen. Microsoft raadt dat u uw kluis zo snel mogelijk bijwerken.
+Omdat alle nieuwe functies alleen voor Recovery Services-kluizen gelden, raden we u aan uw kluizen upgraden. Vanaf 1 September 2017 begint Microsoft back-upkluizen automatisch upgraden naar een Recovery Services-kluizen. Na November 30,2017, kunt u niet langer Backup-kluizen met behulp van PowerShell maken. Uw kluis kan automatisch worden bijgewerkt elk gewenst moment ertussen. Microsoft raadt dat u uw kluis zo snel mogelijk bijwerken.
 
 **Wat houdt de upgrade voor mijn bestaande tooling?**</br>
 Werk uw tooling naar het Resource Manager-implementatiemodel. Recovery Services-kluizen zijn gemaakt voor gebruik in het Resource Manager-implementatiemodel. Planning voor het Resource Manager-implementatiemodel en accounting voor het verschil in uw kluizen zijn belangrijk. 
@@ -133,9 +133,6 @@ Nee. Terugdraaien wordt niet ondersteund nadat de resources hebt geüpgraded.
 
 **Kan ik mijn abonnement of bronnen om te zien als ze geschikt voor upgrade zijn valideren?**</br>
 Ja. De eerste stap bij de upgrade wordt gevalideerd of de bronnen kunnen van upgrade. Als de validatie van vereisten mislukt, kunt u berichten ontvangen voor de redenen die de upgrade kan niet worden voltooid.
-
-**Welke machtigingen moet ik hebben voor het activeren van de upgrade van de kluis?**</br>
-De kluis als upgrade wilt uitvoeren, moet u worden toegevoegd als medebeheerder voor het abonnement in de klassieke Azure portal. Dit is vereist, zelfs als u al als eigenaar in de Azure portal worden weergegeven. Probeer een CO-beheerder voor het abonnement toevoegen in de klassieke Azure-portal om te controleren of u medebeheerder voor het abonnement zijn. Als u niet kunt medebeheerder toevoegen, moet u contact op met een servicebeheerder of medebeheerder voor het abonnement, die u als medebeheerder toevoegen kunt.
 
 **Kan ik mijn back-up op basis van een CSP-kluis bijwerken?**</br>
 Nee. U kunt back-upkluizen op basis van een CSP op dit moment niet upgraden. Er wordt ondersteuning toevoegen voor op basis van een CSP Backup-kluizen in de volgende versies upgraden.

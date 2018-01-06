@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -210,10 +210,12 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
-In C# en C# script, toegang heeft tot de blob-gegevens met behulp van een methodeparameter zoals `Stream paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
+In C# en C# script, toegang heeft tot de blob-gegevens met behulp van een methodeparameter zoals `T paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`(in de richting 'inout' binding vereist *function.json*)
 * `CloudBlockBlob`(in de richting 'inout' binding vereist *function.json*)
 * `CloudPageBlob`(in de richting 'inout' binding vereist *function.json*)
@@ -498,10 +500,16 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 In C#-klassenbibliotheken en C# script, toegang krijgen tot de blob met een methodeparameter zoals `Stream paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader`(alleen invoer)
+* `string`(alleen invoer)
+* `Byte[]`(alleen invoer)
+* `TextWriter`(alleen uitvoer)
+* `out string`(alleen uitvoer)
+* `out Byte[]`(alleen uitvoer)
+*  `CloudBlobStream`(alleen uitvoer)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`(in de richting 'inout' binding vereist *function.json*)
 * `CloudBlockBlob`(in de richting 'inout' binding vereist *function.json*)
 * `CloudPageBlob`(in de richting 'inout' binding vereist *function.json*)

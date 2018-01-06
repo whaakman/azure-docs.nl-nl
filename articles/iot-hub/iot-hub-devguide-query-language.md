@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat horende, taken en het routeren van berichten
 
@@ -35,6 +35,17 @@ Stel bijvoorbeeld dat uw IoT hub apparaat horende de volgende structuur hebben:
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Deze groepering query zou een resultaat te retourneren vergelijkbaar met het vol
         "status": "Error"
     }
 ]
+```
+
+Projectie van query's kunnen ontwikkelaars om alleen de eigenschappen die ze interesseren te retourneren. Bijvoorbeeld, verbroken om op te halen van de laatste activiteitstijd van alle apparaten gebruik de volgende query:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>C#-voorbeeld

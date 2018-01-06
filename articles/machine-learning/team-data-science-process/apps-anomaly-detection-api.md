@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning eigen Afwijkingsdetectie API
 ## <a name="overview"></a>Overzicht
@@ -44,7 +44,7 @@ De aanbieding Afwijkingsdetectie wordt geleverd met nuttige hulpprogramma's om u
 >
 
 ## <a name="api-deployment"></a>API-implementatie
-Om de API gebruiken, moet u deze implementeren op uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dit implementeert twee AzureML-webservices (en hun verwante resources) naar uw Azure-abonnement - één voor afwijkingsdetectie seizoensgebonden opsporen en één zonder seizoensgebonden detectie.  Zodra de implementatie is voltooid, is het mogelijk voor het beheren van uw API's van de [AzureML-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina kunt u zich kunt vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor de API aanroept.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Om de API gebruiken, moet u deze implementeren op uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dit implementeert twee AzureML-webservices (en hun verwante resources) naar uw Azure-abonnement - één voor afwijkingsdetectie seizoensgebonden opsporen en één zonder seizoensgebonden detectie.  Zodra de implementatie is voltooid, is het mogelijk voor het beheren van uw API's van de [AzureML-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina kunt u zich kunt vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor de API aanroept.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>De API schalen
 Uw implementatie hebben standaard een gratis Dev/Test-abonnement waaronder 1000 transacties/en 2 compute uren/maand.  U kunt upgraden naar een ander plan volgens uw behoeften.  Informatie over de prijzen van verschillende abonnementen beschikbaar zijn [hier](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) onder 'Productie-Web-API prijzen'.
@@ -122,11 +122,11 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Geschiedenis (in het aantal gegevenspunten) gebruikt voor afwijkingsdetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van de tijdreeks |
 | detectors.spikesdips | Of moet worden gedetecteerd alleen bereikt, alleen dips of beide |Beide |opgesomd |Beide, Bronblokkades, Dips |Beide |
-| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbel |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbel |None |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.Sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.Sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
-| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N.v.t. |
+| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N/A |
 
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op de tijd reeksgegevens en retourneert afwijkingsdetectie scores en binaire piek indicatoren voor elk punt in tijd. De volgende tabel bevat de uitvoer van de API. 
@@ -157,19 +157,19 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | Invoerparameters | Beschrijving | Standaardinstelling | Type | Het geldige bereik | Voorgestelde bereik |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Aggregatie-interval in seconden voor het verzamelen van de tijdreeks invoer |0 (geen aggregatie wordt uitgevoerd) |geheel getal |0: aggregatie > 0 anders overslaan |5 minuten tot 1 dag, afhankelijk van de tijdreeks |
-| preprocess.aggregationFunc |Functie die wordt gebruikt voor het verzamelen van gegevens in de opgegeven AggregationInterval |gemiddelde |opgesomd |gemiddelde, sum, lengte |N.v.t. |
-| preprocess.replaceMissing |Waarden voor de ontbrekende gegevens rekenen |lkv (laatst bekende waarde) |opgesomd |nul, lkv, gemiddelde |N.v.t. |
+| preprocess.aggregationFunc |Functie die wordt gebruikt voor het verzamelen van gegevens in de opgegeven AggregationInterval |gemiddelde |opgesomd |gemiddelde, sum, lengte |N/A |
+| preprocess.replaceMissing |Waarden voor de ontbrekende gegevens rekenen |lkv (laatst bekende waarde) |opgesomd |nul, lkv, gemiddelde |N/A |
 | detectors.historyWindow |Geschiedenis (in het aantal gegevenspunten) gebruikt voor afwijkingsdetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van de tijdreeks |
 | detectors.spikesdips | Of moet worden gedetecteerd alleen bereikt, alleen dips of beide |Beide |opgesomd |Beide, Bronblokkades, Dips |Beide |
-| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbel |None |3,25-5 (minder waarden betekenen gevoeliger) |
+| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbel |None |3,25-5 (minder waarden betekenen gevoeliger) |
+| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |dubbel |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.Sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.Sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
-| seasonality.Enable |Hiermee wordt aangegeven of seizoensgebonden analyse wordt uitgevoerd |waar |Booleaanse waarde |True, false |Afhankelijk van de tijdreeks |
+| seasonality.Enable |Hiermee wordt aangegeven of seizoensgebonden analyse wordt uitgevoerd |waar |booleaans |True, false |Afhankelijk van de tijdreeks |
 | seasonality.numSeasonality |Maximum aantal periodieke cycli worden gedetecteerd |1 |geheel getal |1, 2 |1-2 |
-| seasonality.transform |Of seizoensgebonden (en) trend onderdelen moeten worden verwijderd voordat u afwijkingsdetectie |deseason |opgesomd |None, deseason, deseasontrend |N.v.t. |
-| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N.v.t. |
+| seasonality.transform |Of seizoensgebonden (en) trend onderdelen moeten worden verwijderd voordat u afwijkingsdetectie |deseason |opgesomd |None, deseason, deseasontrend |N/A |
+| postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N/A |
 
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op de tijd reeksgegevens en retourneert afwijkingsdetectie scores en binaire piek indicatoren voor elk punt in tijd. De volgende tabel bevat de uitvoer van de API. 

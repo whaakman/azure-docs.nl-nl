@@ -1,5 +1,5 @@
 ---
-title: Azure Functions externe tabel binding (Preview) | Microsoft Docs
+title: Externe tabelbinding voor Azure Functions (experimentele)
 description: Met behulp van de externe tabel bindingen in de Azure-functies
 services: functions
 documentationcenter: 
@@ -14,24 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Azure Functions externe tabel binding (Preview)
-In dit artikel laat zien hoe manipuleren tabelgegevens op aanbieders van SaaS (zoals Sharepoint, Dynamics) binnen de functie met ingebouwde bindingen. Azure Functions ondersteunt de invoer en uitvoer bindingen voor externe tabellen.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Externe tabelbinding voor Azure Functions (experimentele)
+
+In dit artikel wordt uitgelegd hoe werken met tabellaire gegevens op de SaaS-providers, zoals Sharepoint en Dynamics in Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor externe tabellen.
+
+> [!IMPORTANT]
+> De binding van de externe tabel experimentele en mogelijk nooit toegang tot de status in het algemeen beschikbaar (GA). Het is opgenomen in Azure alleen 1.x werkt en er zijn geen plannen toe te voegen aan de Azure Functions 2.x. Voor scenario's waarvoor toegang tot gegevens in de SaaS-providers, kunt u overwegen [logische apps die gebruikmaken van functies](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>API-verbindingen
 
-Tabelverbindingen gebruikmaken van externe verbindingen te verifiëren met 3e SaaS leveranciers die API. 
+Tabelverbindingen gebruikmaken van externe verbindingen te verifiëren met de SaaS-providers van derden die API. 
 
-Bij het toewijzen van een binding kunt u een nieuwe API-verbinding te maken of moet u een bestaande verbinding API binnen dezelfde resourcegroep gebruiken
+Bij het toewijzen van een binding kunt u een nieuwe API-verbinding maken of een bestaande verbinding API binnen dezelfde resourcegroep gebruiken.
 
-### <a name="supported-api-connections-tables"></a>Ondersteunde API-verbindingen (tabel) s
+### <a name="available-api-connections-tables"></a>Beschikbare API-verbindingen (tabellen)
 
 |Connector|Trigger|Invoer|Uitvoer|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ Bij het toewijzen van een binding kunt u een nieuwe API-verbinding te maken of m
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Verbindingen met externe tabel kunnen ook worden gebruikt [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> Verbindingen met externe tabel kunnen ook worden gebruikt [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Maken van een API-verbinding: stap voor stap
+## <a name="creating-an-api-connection-step-by-step"></a>Maken van een API-verbinding: stap voor stap
 
-1. Maak een functie > aangepaste functie ![geen aangepaste functie maken](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Scenario `Experimental`  >  `ExternalTable-CSharp` sjabloon > Maak een nieuwe `External Table connection` 
- ![invoer sjabloon kiezen](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Kies uw SaaS-provider > Kies/maken van een verbinding ![configureren SaaS-verbinding](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Selecteer uw API-verbinding > de functie maken ![tabelfunctie maken](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Selecteer`Integrate` > `External Table`
-    1. Configureer de verbinding voor het gebruik van de doeltabel. Deze instellingen wordt zeer tussen aanbieders van SaaS. Ze zijn overzicht hieronder in [gegevensbron instellingen](#datasourcesettings)
-![tabel configureren](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. Selecteer in de Azure portal-pagina voor de functie-app, het plusteken (**+**) voor het maken van een functie.
 
-## <a name="usage"></a>Gebruik
+1. In de **Scenario** de optie **Experimental**.
+
+1. Selecteer **externe tabel**.
+
+1. Selecteer een taal.
+
+2. Onder **externe tabel verbinding**, een bestaande verbinding selecteren of selecteer **nieuwe**.
+
+1. Configureer de instellingen voor een nieuwe verbinding en selecteer **autoriseren**.
+
+1. Selecteer **maken** voor het maken van de functie.
+
+1. Selecteer **integreren > externe tabel**.
+
+1. Configureer de verbinding voor het gebruik van de doeltabel. Deze instellingen variëren tussen aanbieders van SaaS. Voorbeelden zijn opgenomen in de volgende sectie.
+
+## <a name="example"></a>Voorbeeld
 
 In dit voorbeeld verbindt met een tabel met de naam 'Neem contact op met' met Id, LastName en FirstName kolommen. De code geeft een lijst van de contactpersoon entiteiten in de tabel en de voor- en achternamen registreert.
 
-### <a name="bindings"></a>Bindingen
+Hier volgt de *function.json* bestand:
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ In dit voorbeeld verbindt met een tabel met de naam 'Neem contact op met' met Id
   "disabled": false
 }
 ```
-`entityId`moet leeg zijn voor Tabelverbindingen.
 
-`ConnectionAppSettingsKey`identificeert de app-instelling die de API-verbindingsreeks opslaat. De app-instelling wordt automatisch gemaakt wanneer u een API-verbinding in de gebruikersinterface van de integreren toevoegen.
-
-Een in tabelvorm connector biedt gegevenssets en elke gegevensset tabellen bevat. De naam van de standaardgegevensset is 'standaard'. De titels van een gegevensset en een tabel in verschillende SaaS-providers worden hieronder weergegeven:
-
-|Connector|Gegevensset|Tabel|
-|:-----|:---|:---| 
-|**SharePoint**|Site|SharePoint-lijst
-|**SQL**|Database|Tabel 
-|**Google blad**|Spreadsheet|Werkblad 
-|**Excel**|Excel-bestand|Spreadsheet 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Gebruik in C# #
+Dit is de C#-scriptcode:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>SQL Server-gegevensbron
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-##Instellingen voor de gegevensbron
-
-### <a name="sql-server"></a>SQL Server
-
-Het script te maken en gegevens van de tabel Contact is lager dan. dataSetName is 'standaard'.
+Een tabel te maken in SQL Server voor gebruik met dit voorbeeld, is hier een script. `dataSetName`is 'standaard'.
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Google Sheets
-In Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. De connector niet de weergavenaam van het werkblad gebruiken. De interne naam (in de vet weergegeven) moet worden gebruikt als dataSetName, bijvoorbeeld: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  toevoegen de kolomnamen `Id`, `LastName`, `FirstName` naar de eerste rij vervolgens vullen gegevens op volgende rijen.
+### <a name="google-sheets-data-source"></a>Google bladen-gegevensbron
+
+Een tabel te maken voor gebruik met dit voorbeeld in Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. De connector niet de weergavenaam van het werkblad gebruiken. De interne naam (in de vet weergegeven) moet worden gebruikt als dataSetName, bijvoorbeeld: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  toevoegen de kolomnamen `Id`, `LastName`, `FirstName` naar de eerste rij vervolgens vullen gegevens op volgende rijen.
 
 ### <a name="salesforce"></a>SalesForce
-dataSetName is 'standaard'.
+
+In dit voorbeeld gebruiken met Salesforce, `dataSetName` is 'standaard'.
+
+## <a name="configuration"></a>Configuratie
+
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand.
+
+|de eigenschap Function.JSON | Beschrijving|
+|---------|----------------------|
+|**type** | moet worden ingesteld op `apiHubTable`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
+|**richting** | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
+|**naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
+|**verbinding**| Identificeert de app-instelling die de API-verbindingsreeks opslaat. De app-instelling wordt automatisch gemaakt wanneer u een API-verbinding in de gebruikersinterface van de integreren toevoegen.|
+|**dataSetName**|De naam van de gegevensset met de tabel om te lezen.|
+|**tableName**|De naam van de tabel|
+|**id van de entiteit**|Moet leeg zijn voor Tabelverbindingen.
+
+Een in tabelvorm connector biedt gegevenssets en elke gegevensset tabellen bevat. De naam van de standaardgegevensset is 'standaard'. De titels van een gegevensset en een tabel in verschillende SaaS-providers worden hieronder weergegeven:
+
+|Connector|Gegevensset|Tabel|
+|:-----|:---|:---| 
+|**SharePoint**|Site|SharePoint-lijst
+|**SQL**|Database|Tabel 
+|**Google blad**|Spreadsheet|Werkblad 
+|**Excel**|Excel-bestand|Spreadsheet 
 
 ## <a name="next-steps"></a>Volgende stappen
 

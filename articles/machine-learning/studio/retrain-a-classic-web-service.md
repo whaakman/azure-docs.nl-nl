@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Een klassieke webservice opnieuw trainen
 De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling score-eindpunt. Standaardeindpunten worden gesynchroniseerd met de oorspronkelijke training en experimenten score berekenen en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt opnieuw trainen van de webservice, moet u een nieuw eindpunt toevoegen aan de webservice. 
@@ -116,7 +116,7 @@ De *apiKey* en de *endpointUrl* voor de aanroep kan worden verkregen van endpoin
 
 De waarde van de *naam* parameter in *Resources* moet overeenkomen met de naam van de Resource van het opgeslagen getraind Model in de Voorspellend experiment. De resourcenaam ophalen:
 
-1. Aanmelden bij de [klassieke Azure portal](https://manage.windowsazure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het menu links op **Machine Learning**.
 3. Onder de naam, uw werkruimte op en klik op **webservices**.
 4. Klik onder de naam, **telling Model [voorspellende exp].** .

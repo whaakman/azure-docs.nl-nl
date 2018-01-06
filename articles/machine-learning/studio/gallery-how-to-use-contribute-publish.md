@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: Analytics bronnen en meer in de Cortana Intelligence Gallery detecteren en delen. Informatie over van andere en het maken van uw eigen bijdragen aan de community.
+title: Galerie van Azure AI | Microsoft Docs
+description: Detecteren van bronnen van de analyses en meer in de galerie van Azure AI en delen. Informatie over van andere en het maken van uw eigen bijdragen aan de community.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Delen en het detecteren van bronnen in de Cortana Intelligence Gallery
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Delen en het detecteren van bronnen in de galerie van Azure AI
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Wat kan ik vinden in de galerie?
-De Cortana Intelligence Gallery bevat een aantal bronnen die u gebruiken kunt om uw eigen analytics-oplossingen te ontwikkelen.
+De galerie van Azure AI bevat een aantal bronnen die u gebruiken kunt om uw eigen analytics-oplossingen te ontwikkelen.
 
 * **[Experimenten](gallery-experiments.md)**  -de galerie bevat een groot aantal experimenten die in Azure Machine Learning Studio zijn ontwikkeld. Deze variëren van snelle bewijs van concept experimenten die een specifieke machine learning techniek volle die oplossingen voor problemen met complexe machine learning te demonstreren.
 * **[Jupyter-Notebooks](gallery-jupyter-notebooks.md)**  - Jupyter-Notebooks code, gegevensvisualisaties, opnemen en documentatie in één interactieve canvas.
@@ -48,7 +48,7 @@ Deze eenvoudige galerie resources kunnen worden gegroepeerd logisch op een aanta
 
 Ten slotte  **[wedstrijden](gallery-competitions.md)**  bieden een interessante kans om van invloed zijn op de community van scientsts gegevens voor het oplossen van complexe problemen bij het gebruik van Cortana Intelligence Suite.
 
-![Startpagina van de Cortana Intelligence Gallery](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Startpagina van Azure AI-galerie](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Detecteren en meer informatie
 Iedereen kunt bladeren en de verschillende soorten resources zoeken in de galerie die is bijgedragen door Microsoft en de community geavanceerde analyses.

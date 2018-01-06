@@ -1,5 +1,5 @@
 ---
-title: Wat is Microsoft Power BI Embedded? | Microsoft Docs
+title: Over Azure Power BI Embedded | Microsoft Docs
 description: Power BI Embedded is bedoeld voor het vereenvoudigen van hoe onafhankelijke softwareleveranciers en ontwikkelaars gebruiken Power BI-mogelijkheden om hen snel geweldige visuele elementen, rapporten en dashboards in hun apps toevoegen.
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Wat is Power BI Embedded?
+# <a name="about-power-bi-embedded"></a>Over Power BI Embedded
 
 Power BI Embedded is bedoeld voor het vereenvoudigen van hoe onafhankelijke softwareleveranciers en ontwikkelaars Power BI-mogelijkheden gebruiken. Power BI Embedded vereenvoudigt de mogelijkheden van Power BI door zodat u snel geweldige visuele elementen, rapporten en dashboards toevoegen in uw apps. Vergelijkbaar met apps die zijn gebaseerd op het gebruik van Microsoft Azure-services zoals Machine Learning en IoT. ISV's toestaan door in te schakelen gegevensverkenning in hun apps gemakkelijk om te navigeren, hun klanten om snel en gefundeerde beslissingen te nemen in de context.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Gegevens kopiëren van/naar Dynamics 365 Dynamics CRM met Azure Data Factory
 
@@ -68,10 +68,10 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 | authenticationType | Het verificatietype dat verbinding maken met Dynamics-server. Geef **'Office365'** voor Dynamics Online. | Ja |
 | gebruikersnaam | Geef de gebruikersnaam voor verbinding maken met de Dynamics. | Ja |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. U moet het wachtwoord in de Azure Sleutelkluis te plaatsen en het wachtwoord als een 'AzureKeyVaultSecret' configureren. Klik hier als u meer wilt weten van [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
+| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als bron gekoppeld-service heeft geen IR |
 
 >[!IMPORTANT]
->Om gegevens te kopiëren naar Dynamics, expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Dynamics en koppelen in de gekoppelde service als het volgende voorbeeld.
+>Als u gegevens **in** Dynamics, standaard Azure integratie Runtime kan niet worden gebruikt om uit te voeren kopiëren. In een ander woord als de bron gekoppeld service beschikt niet over een opgegeven IR expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Dynamics en koppelen in de gekoppelde service Dynamics als in het volgende voorbeeld.
 
 **Voorbeeld: Office365 verificatie met behulp van Dynamics online**
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Problemen met Azure Active Directory naadloze eenmalige aanmelding
 
@@ -27,6 +27,7 @@ Dit artikel helpt u bij het oplossen van problemen informatie over veelvoorkomen
 ## <a name="known-problems"></a>Bekende problemen
 
 - In sommige gevallen kan naadloze eenmalige aanmelding inschakelen maximaal 30 minuten duren.
+- Als u uitschakelt en opnieuw naadloze eenmalige aanmelding voor uw tenant inschakelen, krijgen gebruikers niet de ervaring voor eenmalige aanmelding tot hun in de cache Kerberos-ticket, worden doorgaans geldig voor 10 uur zijn verlopen.
 - Edge-browser-ondersteuning is niet beschikbaar.
 - Starten van de Office-clients, met name in scenario's met gedeelde computer gebruikt, zorgt ervoor dat de extra aanmelden prompts voor gebruikers. Gebruikers moeten regelmatig hun gebruikersnamen, maar niet hun wachtwoord invoeren.
 - Als naadloze eenmalige aanmelding is gelukt, de gebruiker heeft geen selecteren **aangemeld blijven**. Vanwege dit probleem werken SharePoint en OneDrive toewijzing scenario's niet.
@@ -50,7 +51,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Blader naar **Azure Active Directory** > **aanmeldingen** in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/), en selecteer vervolgens de aanmeldingsactiviteiten van een specifieke gebruiker. Zoek naar de **SIGN-IN-FOUTCODE** veld. De waarde van dat veld worden toegewezen aan een reden voor fout en de oplossing met behulp van de volgende tabel:
 
-|Aanmelden foutcode|Aanmelding mislukt reden|Oplossing
+|Foutcode voor aanmelding|Aanmelding mislukt reden|Oplossing
 | --- | --- | ---
 | 81001 | Kerberos-ticket van de gebruiker is te groot. | Reduceer groepslidmaatschappen van de gebruiker en probeer het opnieuw.
 | 81002 | Kan geen Kerberos-ticket van de gebruiker te valideren. | Zie de [controlelijst voor probleemoplossing](#troubleshooting-checklist).
@@ -68,13 +69,15 @@ Blader naar **Azure Active Directory** > **aanmeldingen** in de [Azure Active Di
 Gebruik de volgende controlelijst naadloze eenmalige aanmelding problemen oplossen:
 
 - Zorg ervoor dat de functie naadloze eenmalige aanmelding is ingeschakeld in Azure AD Connect. Als u de functie (bijvoorbeeld als gevolg van een geblokkeerde-poort) kan niet inschakelt, zorg ervoor dat u alle de [vereisten](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) aanwezig.
+- Als u beide hebt ingeschakeld [Azure AD Join](../active-directory-azureadjoin-overview.md) en naadloze eenmalige aanmelding op uw tenant, zorg ervoor dat het probleem niet met Azure AD Join. Eenmalige aanmelding van Azure AD Join heeft voorrang op naadloze eenmalige aanmelding als het apparaat geregistreerd bij Azure AD zowel domein is. Met eenmalige aanmelding van Azure AD Join ziet de gebruiker een tegel aanmelden met de tekst 'Verbonden voor Windows'.
 - Zorg ervoor dat beide Azure AD URL's (https://autologon.microsoftazuread-sso.com en https://aadg.windows.net.nsatc.net) deel van de gebruiker Intranet-beveiligingszone-instellingen uitmaken.
 - Zorg ervoor dat het bedrijfsapparaat is toegevoegd aan het Active Directory-domein.
 - Zorg ervoor dat de gebruiker is aangemeld bij het apparaat via een Active Directory-domeinaccount.
 - Zorg ervoor dat het gebruikersaccount is van een Active Directory-forest waarbij naadloze eenmalige aanmelding is ingesteld.
 - Zorg ervoor dat het apparaat is verbonden met het bedrijfsnetwerk.
 - Zorg ervoor dat de tijd van het apparaat is gesynchroniseerd met de tijd in Active Directory en de domeincontrollers en dat ze zijn binnen vijf minuten van elkaar.
-- Lijst van de bestaande Kerberos-tickets op het apparaat met behulp van de `klist` opdracht vanaf een opdrachtprompt. Zorg ervoor dat de tickets uitgegeven voor de `AZUREADSSOACCT` computeraccount aanwezig zijn. Gebruikers Kerberos-tickets zijn doorgaans geldig 12 uur. Mogelijk hebt u verschillende instellingen in Active Directory.
+- Lijst van de bestaande Kerberos-tickets op het apparaat met behulp van de `klist` opdracht vanaf een opdrachtprompt. Zorg ervoor dat de tickets uitgegeven voor de `AZUREADSSOACCT` computeraccount aanwezig zijn. Gebruikers Kerberos-tickets zijn doorgaans geldig voor 10 uur. Mogelijk hebt u verschillende instellingen in Active Directory.
+- Als u uitgeschakeld en opnieuw ingeschakeld naadloze eenmalige aanmelding op uw tenant, krijgen gebruikers niet de ervaring voor eenmalige aanmelding tot hun in de cache Kerberos-ticket is verlopen.
 - Bestaande Kerberos-tickets opschonen van het apparaat met behulp van de `klist purge` opdracht en probeer het opnieuw.
 - Bekijk de logboeken van de console van de browser om te bepalen of er problemen met JavaScript zijn, (onder **hulpprogramma's voor ontwikkelaars**).
 - Controleer de [domain controller logboeken](#domain-controller-logs).

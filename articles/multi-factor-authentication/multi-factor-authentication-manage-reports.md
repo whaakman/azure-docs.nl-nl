@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: fb83e957a206bff29132973d2dd3e9a7b5f9f060
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 696f4ae3cb479a208e73e53a9a9a437caeabd294
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in Azure multi-factor Authentication
 
@@ -28,6 +28,7 @@ Azure multi-factor Authentication bevat verschillende rapporten die kunnen worde
 |:--- |:--- |:--- |
 | Geschiedenis geblokkeerde gebruikers | Azure AD > MFA-Server > gebruikers blokkeren/blokkering opheffen | Toont de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
 | Gebruiks- en fraude waarschuwingen | Azure AD > aanmeldingen | Bevat informatie over algemene gebruik Gebruikersoverzicht en gebruikersdetails; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
+| Gebruik voor on-premises onderdelen | Azure AD > MFA-Server > activiteitenrapport | Bevat informatie over algemene gebruik voor MFA via de uitbreiding NPS, AD FS, en de MFA-server. |
 | Geschiedenis overgeslagen gebruikers | Azure AD > MFA-Server > eenmalig overslaan | Geeft een geschiedenis van aanvragen voor het overslaan van multi-factor Authentication voor een gebruiker. |
 | Status van de server | Azure AD > MFA-Server > status van de Server | Geeft de status van de multi-factor Authentication-Servers die zijn gekoppeld aan uw account. |
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Beheren van updates in de Azure-Stack-overzicht
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
-Microsoft brengt updatepakketten voor Azure-Stack geïntegreerd systemen een reguliere uitgebracht die doorgaans op de vierde dinsdag van elke maand vallen begint bij algemene beschikbaarheid. Vraag uw OEM over hun specifieke notification-proces om ervoor te zorgen update meldingen reach voor uw organisatie of schakel dit selectievakje onder Concepts\Release notes\Integrated systemen release-opmerkingen voor meer informatie over specifieke releases.
+Microsoft brengt updatepakketten voor Azure-Stack geïntegreerd systemen een reguliere uitgebracht die doorgaans op de vierde dinsdag van elke maand vallen begint bij algemene beschikbaarheid. Vraag uw OEM over hun specifieke notification-proces om ervoor te zorgen update meldingen reach voor uw organisatie of schakel dit selectievakje onder Overview\Release Notes\Integrated systemen release-opmerkingen voor meer informatie over specifieke releases.
 
 Elke versie van Microsoft software-updates, wordt meegeleverd als één update-pakket. Als een Azure-Stack-operator, kunt u eenvoudig importeren, updatepakketten installeren en de voortgang van de installatie van deze monitor uit de beheerdersportal. 
 
