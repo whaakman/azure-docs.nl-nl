@@ -8,11 +8,11 @@ Met de openbaarmaking van het beveiligingsprobleem we [het tijdstip gepland onde
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Hoe kan ik zien welke van mijn VM's al is bijgewerkt? 
 
-U ziet de status van uw virtuele machines en als het opnieuw opstarten voltooid binnen de in de [VM lijst in de Azure portal](https://aka.ms/T08tdc). Uw virtuele machines wordt vermeld als 'Al bijgewerkt' als de update is toegepast, of 'Gepland' als de update nog steeds vereist is. Als u zien alleen uw virtuele machines wilt 'Geplande' naar verwijzen uw [Azure-servicestatus](https://portal.azure.com/).
+U ziet de status van uw virtuele machines, en als het opnieuw opstarten voltooid in de [VM lijst in de Azure portal](https://aka.ms/T08tdc). Uw virtuele machines worden weergegeven als 'Al bijgewerkt' als de update is toegepast, of 'Gepland' als de update nog steeds vereist is. Als u zien alleen uw virtuele machines wilt 'Geplande' naar verwijzen uw [Azure-servicestatus](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>Vind ik precies wanneer mijn virtuele machines opnieuw wordt opgestart?
 
-De beste manier om een waarschuwing over het opnieuw opstarten is voor het configureren van [gepland gebeurtenissen](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Dit biedt een melding 15 minuten van de virtuele machine tijdelijk niet beschikbaar vanwege onderhoud: een API-aanroep naar de virtuele machine maakt en daarnaast de logboekvermelding activiteit activeren Azure Monitor kan worden gebruikt voor het verzenden van e-mailberichten, SMS of webhooks. Het is niet mogelijk een eerdere kennisgeving op te nemen.
+De beste manier om een waarschuwing over het opnieuw opstarten is voor het configureren van [gepland gebeurtenissen](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Dit biedt een melding 15 minuten van de virtuele machine tijdelijk niet beschikbaar vanwege onderhoud.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>Kan ik handmatig opnieuw implementeren nu om uit te voeren van het vereiste onderhoud? 
 
@@ -24,7 +24,7 @@ De meeste herstarts duurt ongeveer **30 minuten**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Ondersteunt de Gast OS moeten worden bijgewerkt? 
 
-Deze update Azure-infrastructuur, lost het bekend beveiligingsprobleem op het niveau van de hypervisor en vereist geen een update voor uw Windows- of Linux-VM-installatiekopieën. Als altijd, moet u blijven echter aanbevolen beveiligingsprocedures voor uw VM-installatiekopieën toepassen. Neem contact op met de leverancier van uw besturingssysteem voor updates en instructies, indien nodig. Voor Windows Server-VM-klanten richtlijnen nu is gepubliceerd en is hier beschikbaar.
+Deze update Azure-infrastructuur, lost het bekend beveiligingsprobleem op het niveau van de hypervisor en vereist geen een update voor uw Windows- of Linux-VM-installatiekopieën. Als altijd, moet u blijven echter aanbevolen beveiligingsprocedures voor uw VM-installatiekopieën toepassen. Neem contact op met de leverancier van uw besturingssysteem voor updates en instructies, indien nodig. Voor Windows Server-VM-klanten richtlijnen nu is gepubliceerd en is beschikbaar [hier](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Komt er ook van invloed op de prestaties als gevolg van het oplossen van deze update?
 
