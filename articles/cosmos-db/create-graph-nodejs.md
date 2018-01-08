@@ -3,7 +3,7 @@ title: Een Azure Cosmos DB Node.js-toepassing ontwikkelen met behulp van de Grap
 description: Is een Node.js-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/29/2017
-ms.author: denlee
-ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: faec967c1f5405cd9a5b49c16fed575f6675478c
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-In dit artikel ziet u hoe u met Azure Portal een Azure Cosmos DB-account voor Graph API (preview), een database en een graaf kunt maken. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
+In dit artikel ziet u hoe u met Azure Portal een Azure Cosmos DB-account voor Graph API, een database en een graaf kunt maken. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
 
 ## <a name="prerequisites"></a>Vereisten
 

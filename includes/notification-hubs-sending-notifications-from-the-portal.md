@@ -1,6 +1,6 @@
 
 
-Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Apps of ASP.NET verzonden met een compatibele bibliotheek. U kunt de REST API ook direct gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end. 
+Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Apps of ASP.NET verzonden met een compatibele bibliotheek. U kunt de REST API ook rechtstreeks gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end.
 
 Hier volgt een lijst met andere zelfstudies die u kunt bekijken voor het verzenden van meldingen:
 
@@ -8,6 +8,4 @@ Hier volgt een lijst met andere zelfstudies die u kunt bekijken voor het verzend
 * ASP.NET: [gebruik Notification Hubs om meldingen naar gebruikers te pushen](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 * Azure Notification Hub Java SDK: zie [How to use Notification Hubs from Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) (Notification Hubs gebruiken vanuit Java) voor het verzenden van meldingen vanuit Java. Dit is getest in Eclipse voor Android-ontwikkeling.
 * PHP: zie [How to use Notification Hubs from PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md) (Notification Hubs gebruiken vanuit PHP).
-
-In de volgende sectie van de zelfstudie leert u hoe u de [REST-interface van Notification Hub](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kunt gebruiken om het meldingsbericht rechtstreeks vanuit uw app te verzenden. Alle geregistreerde apparaten ontvangen de melding die door elk type apparaat is verzonden.  
 

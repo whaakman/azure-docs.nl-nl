@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center (preview)
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
@@ -36,12 +36,11 @@ Adaptieve toepassingsbesturingselementen helpen bepalen welke toepassingen kunne
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hoe worden adaptieve toepassingsbesturingselementen ingeschakeld?
 Met adaptieve toepassingsbesturingselementen kunt u een set toepassingen definiëren die in de geconfigureerde resourcegroepen mogen worden uitgevoerd. Deze functie is alleen beschikbaar voor Windows-machines (alle versies, klassieke implementatie of Azure Resource Manager-implementatie). Met de onderstaande stappen kunt u de whitelist met toepassingen in Security Center configureren:
 
-1.  Open het **Security Center**-dashboard en klik op **Overzicht**.
-2.  Onder **Geavanceerde cloudbeveiliging** geeft de tegel **Adaptieve toepassingsbesturingselementen** aan voor hoeveel virtuele machines het besturingselement momenteel actief is in vergelijking met alle virtuele machines. Ook geeft de tegel het aantal problemen weer dat de afgelopen week is gevonden: 
+1.  Open het dashboard van **Security Center** en klik op **Besturingselementen voor adaptieve toepassingen** onder de sectie **Geavanceerde cloudbeveiliging** in het navigatiedeelvenster links.
 
-    ![Adaptieve toepassingsbesturingselementen](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Defensie](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Klik op de tegel **Adaptieve toepassingsbesturingselementen** voor meer opties.
+2. De pagina **Besturingselementen voor adaptieve toepassingen** wordt geopend.
 
     ![besturingselementen](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -145,7 +144,7 @@ De lijst bevat:
 - **VM’s**: het aantal virtuele machines in de resourcegroep.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u geleerd hoe u gebruik kunt maken van adaptieve toepassingsbesturingselementen in Azure Security Center om toepassingen die op virtuele Azure-machines worden uitgevoerd, op te nemen in de whitelist. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
+In dit document hebt u geleerd hoe u gebruik kunt maken van adaptieve toepassingsbesturingselementen in Azure Security Center om toepassingen die op virtuele Azure-machines worden uitgevoerd, op te nemen in de whitelist. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Inleiding tot Azure HDInsight, de Hadoop- en Spark-technologiestack
 Dit artikel bevat een inleiding tot Azure HDInsight, een volledig beheerde, zeer uitgebreide open-source analyseservice voor bedrijven. U kunt populaire opensourcekaders zoals Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, etc. gebruiken. 
@@ -137,6 +137,7 @@ Vertrouwde hulpprogramma‘s voor Business Intelligence (BI) zijn beschikbaar vo
 
 * [Apache Spark BI met gebruik van hulpmiddelen voor gegevensvisualisatie met Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Excel en Hadoop koppelen met Power Query](apache-hadoop-connect-excel-power-query.md): informatie over hoe u met behulp van Microsoft Power Query voor Excel verbinding maakt tussen Excel en het Azure Storage-account dat de gegevens uit uw HDInsight-cluster bevat. Windows-werkstation is vereist. 
 * [Excel en Hadoop koppelen met het stuurprogramma Microsoft Hive ODBC](apache-hadoop-connect-excel-hive-odbc-driver.md): informatie over hoe u gegevens importeert uit HDInsight met behulp van het stuurprogramma Microsoft Hive ODBC. Windows-werkstation is vereist. 
 * [Microsoft-cloudplatform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): informatie over Power BI voor Office 365, het downloaden van de proefversie van SQL Server, en het instellen van SharePoint Server 2013 en SQL Server BI.

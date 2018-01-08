@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Aan de slag met hybride Relay-verbindingen
 
@@ -28,7 +28,7 @@ Deze zelfstudie biedt een inleiding tot [hybride Relay-verbindingen van Azure](r
 
 ## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
 
-Omdat voor hybride verbindingen zowel een client- als een serveronderdeel is vereist, maken we in deze zelfstudie twee consoletoepassingen. Dit zijn de stappen:
+Omdat voor Hybride verbindingen zowel een client- als een serveronderdeel is vereist, maakt u in deze zelfstudie twee consoletoepassingen. Dit zijn de stappen:
 
 1. Een Relay-naamruimte maken met behulp van Azure Portal.
 2. Een hybride verbinding maken met behulp van Azure Portal.
@@ -56,13 +56,13 @@ Als u al een hybride verbinding hebt gemaakt, gaat u naar de sectie [Een servert
 
 ## <a name="3-create-a-server-application-listener"></a>3. Een servertoepassing (listener) maken
 
-We maken een Node.js-consoletoepassing om berichten van de Relay te beluisteren en te ontvangen.
+Maak een Node.js-consoletoepassing om berichten van de Relay te beluisteren en te ontvangen.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Een clienttoepassing maken (afzender)
 
-We maken een Node.js-consoletoepassing om berichten naar de Relay te verzenden.
+Maak een Node.js-consoletoepassing om berichten naar de Relay te verzenden.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ We maken een Node.js-consoletoepassing om berichten naar de Relay te verzenden.
 
 Gefeliciteerd, u hebt een end-to-endtoepassing met hybride verbindingen gemaakt met behulp van Node.js!
 
-## <a name="next-steps"></a>Volgende stappen:
+## <a name="next-steps"></a>Volgende stappen
 
 * [Veelgestelde vragen over Relay](relay-faq.md)
 * [Een naamruimte maken](relay-create-namespace-portal.md)

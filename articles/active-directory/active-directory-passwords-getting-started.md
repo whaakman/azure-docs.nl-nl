@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snelle implementatie van Azure AD-selfservice voor wachtwoordherstel
 
@@ -36,35 +36,38 @@ In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt va
 1. Selecteer in uw bestaande Azure AD-tenant de optie **Wachtwoord opnieuw instellen**.
 
 2. Op de pagina **Eigenschappen** kiest u onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** een van de volgende opties:
-    * **Geen**: niemand kan de SSPR-functionaliteit gebruiken.
-    * **Geselecteerd**: alleen leden van een specifieke Azure Active Directory-groep die u kiest kunnen de SSPR-functionaliteit gebruiken. Het is raadzaam om een groep gebruikers te definiëren en deze instelling te gebruiken wanneer u deze functionaliteit implementeert voor het testen van een concept.
-    * **Iedereen**: alle gebruikers met een account in uw Azure Active Directory-tenant kunnen de SSPR-functionaliteit gebruiken. U wordt aangeraden deze instelling te gebruiken wanneer u klaar bent voor het implementeren van deze functionaliteit in uw hele tenant nadat u het testen van een concept hebt voltooid.
+   * **Geen**: niemand kan de SSPR-functionaliteit gebruiken.
+   * **Geselecteerd**: alleen leden van een specifieke Azure Active Directory-groep die u kiest kunnen de SSPR-functionaliteit gebruiken. Het is raadzaam om een groep gebruikers te definiëren en deze instelling te gebruiken wanneer u deze functionaliteit implementeert voor het testen van een concept.
+   * **Iedereen**: alle gebruikers met een account in uw Azure Active Directory-tenant kunnen de SSPR-functionaliteit gebruiken. U wordt aangeraden deze instelling te gebruiken wanneer u klaar bent voor het implementeren van deze functionaliteit in uw hele tenant nadat u het testen van een concept hebt voltooid.
+
+   > [!IMPORTANT]
+   > U kunt de wachtwoorden voor Azure-beheerdersaccounts altijd opnieuw instellen, hoe deze optie ook is ingesteld. 
 
 3. Op de pagina **Verificatiemethoden** kiest u het volgende:
-    * **Aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen**: minimaal een en maximaal twee.
-    * **Methoden voor gebruikers**: er is er ten minste één nodig, maar het kan geen kwaad om een extra keuze beschikbaar te maken.
-        * **E-mailadres**: er wordt een e-mail met een code verstuurd naar het e-mailadres voor verificatie dat door de gebruiker is geconfigureerd.
-        * **Mobiele telefoon** geeft de gebruiker de keuze om een oproep of sms-bericht te ontvangen met een code, via het geconfigureerde mobiele telefoonnummer.
-        * **Zakelijke telefoon**: hiermee wordt de gebruiker voor een code gebeld via het geconfigureerde zakelijke telefoonnummer.
-        * **Beveiligingsvragen**: hiervoor moet u een optie kiezen:
-            * **Het aantal vragen dat is vereist voor de registratie**: het minimum aantal vragen voor een succesvolle registratie. Een gebruiker kan ervoor kiezen om meer vragen te beantwoorden en een groep vragen te maken waaruit vragen worden opgehaald. Deze optie kan worden ingesteld op drie, vier of vijf vragen. Het aantal moet gelijk zijn aan of groter zijn dan het aantal vragen dat vereist is om het wachtwoord opnieuw in te stellen. De gebruiker kan aangepaste vragen toevoegen als deze de knop **Aangepast** kiest tijdens het selecteren van de beveiligingsvragen.
-            * **Het aantal vragen dat is vereist om het wachtwoord opnieuw in te stellen**: kan worden ingesteld van drie tot vijf vragen. Deze vragen moeten correct worden beantwoord; daarna mag een gebruiker zijn of haar wachtwoord pas opnieuw instellen of ontgrendelen.
+   * **Aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen**: minimaal een en maximaal twee.
+   * **Methoden voor gebruikers**: er is er ten minste één nodig, maar het kan geen kwaad om een extra keuze beschikbaar te maken.
+      * **E-mailadres**: er wordt een e-mail met een code verstuurd naar het e-mailadres voor verificatie dat door de gebruiker is geconfigureerd.
+      * **Mobiele telefoon** geeft de gebruiker de keuze om een oproep of sms-bericht te ontvangen met een code, via het geconfigureerde mobiele telefoonnummer.
+      * **Zakelijke telefoon**: hiermee wordt de gebruiker voor een code gebeld via het geconfigureerde zakelijke telefoonnummer.
+      * **Beveiligingsvragen**: hiervoor moet u een optie kiezen:
+         * **Het aantal vragen dat is vereist voor de registratie**: het minimum aantal vragen voor een succesvolle registratie. Een gebruiker kan ervoor kiezen om meer vragen te beantwoorden en een groep vragen te maken waaruit vragen worden opgehaald. Deze optie kan worden ingesteld op drie, vier of vijf vragen. Het aantal moet gelijk zijn aan of groter zijn dan het aantal vragen dat vereist is om het wachtwoord opnieuw in te stellen. De gebruiker kan aangepaste vragen toevoegen als deze de knop **Aangepast** kiest tijdens het selecteren van de beveiligingsvragen.
+         * **Het aantal vragen dat is vereist om het wachtwoord opnieuw in te stellen**: kan worden ingesteld van drie tot vijf vragen. Deze vragen moeten correct worden beantwoord; daarna mag een gebruiker zijn of haar wachtwoord pas opnieuw instellen of ontgrendelen.
             
     ![Verificatie][Authentication]
 
 4. Aanbevolen: onder **Aanpassing** kunt u de koppeling **Contact opnemen met de beheerder** laten leiden naar een zelf gekozen pagina of e-mailadres. U wordt aangeraden om deze koppeling in te stellen op bijvoorbeeld een e-mailadres of een website die uw gebruikers al gebruiken voor ondersteuningsvragen.
 
 5. Optioneel: op de pagina **Registratie** hebben beheerders verschillende opties:
-    * Vereisen dat gebruikers zich bij aanmelding registreren.
-    * Het aantal dagen instellen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen.
+   * Vereisen dat gebruikers zich bij aanmelding registreren.
+   * Het aantal dagen instellen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen.
 
 6. Optioneel: op de pagina **Meldingen** hebben beheerders verschillende opties:
-    * Gebruikers een melding tonen over het opnieuw instellen van hun wachtwoord.
-    * Alle beheerders waarschuwen wanneer andere beheerders hun wachtwoord opnieuw instellen.
+   * Gebruikers een melding tonen over het opnieuw instellen van hun wachtwoord.
+   * Alle beheerders waarschuwen wanneer andere beheerders hun wachtwoord opnieuw instellen.
 
 U hebt op dit moment SSPR geconfigureerd voor uw Azure AD-tenant. Uw gebruikers kunnen de instructies in de artikelen [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md) en [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md) nu gebruiken om hun wachtwoord bij te werken zonder tussenkomst van de beheerder. U kunt hier stoppen als u alleen in de cloud werkt. U kunt ook doorgaan met de volgende sectie om de synchronisatie van wachtwoorden met een on-premises Active Directory-domein te configureren.
 
-> [!IMPORTANT]
+> [!TIP]
 > Test self-service voor wachtwoordherstel als een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](active-directory-passwords-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Synchronisatie met een bestaande identiteitsbron configureren

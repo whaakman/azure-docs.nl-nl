@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 724ccfbe6849c53f7c7e4e20444ac87197763e65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -50,12 +50,10 @@ Nadat de vereiste onderdelen zijn geïnstalleerd, wordt u gevraagd een eenmalige
 | Optie voor eenmalige aanmelding | Beschrijving |
 | --- | --- |
 | Wachtwoordhashsynchronisatie |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken. De wachtwoorden van gebruikers worden gesynchroniseerd naar Azure AD als een wachtwoord-hash en verificatie vindt plaats in de cloud. Zie [Wachtwoordhashsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. |
-|Pass-through-verificatie|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-controller voor validatie.
+|Pass-through-verificatie|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-domeincontroller voor validatie.
 | Federatie met AD FS |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  De gebruikers worden omgeleid naar hun on-premises AD FS-exemplaar om zich aan te melden en de verificatie vindt plaats on-premises. |
-| Niet configureren |Geen van beide onderdelen wordt geïnstalleerd en geconfigureerd. Kies deze optie als u al een federatieserver van derden of een andere bestaande oplossing heeft. |
-|Eenmalige aanmelding inschakelen|Deze optie is beschikbaar bij zowel wachtwoordsynchronisatie als Pass-through-verificatie en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk.  Zie [Eenmalige aanmelding](active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.</br>(als PTA niet op hetzelfde moment wordt gepubliceerd)
-|Aanmeldingsoptie|Deze optie is beschikbaar voor klanten die wachtwoordhashsynchronisatie gebruiken en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk.  </br>Zie [Eenmalige aanmelding](active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.
-
+| Niet configureren |Er is geen functie voor gebruikersaanmelding geïnstalleerd en geconfigureerd. Kies deze optie als u al een federatieserver van derden of een andere bestaande oplossing heeft. |
+|Eenmalige aanmelding inschakelen|Deze optie is beschikbaar bij zowel wachtwoordsynchronisatie als Pass-through-verificatie en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk. Zie [Eenmalige aanmelding](active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.</br>
 
 ### <a name="connect-to-azure-ad"></a>Verbinding maken met Azure AD
 Voer op het scherm Verbinding maken met Azure AD het account en wachtwoord van een globale beheerder in. Als u op de vorige pagina **Federatie met AD FS** hebt geselecteerd, meld u dan niet aan met een account in een domein waarvoor u federatie wilt inschakelen. Het is aan te raden om een account te gebruiken uit het standaarddomein **onmicrosoft.com**, dat bij uw Azure AD-directory wordt geleverd.
@@ -81,11 +79,10 @@ Nadat u de forestnaam hebt ingevoerd en op **Map toevoegen** hebt geklikt, wordt
 
 | Optie | Beschrijving |
 | --- | --- |
-| Bestaand account gebruiken | Selecteer deze optie als u wilt toestaan dat een bestaand AD DS-account wordt gebruikt door Azure AD Connect om verbinding te maken met de AD-forest tijdens directorysynchronisatie. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) voor meer informatie. |
 | Nieuw account maken | Selecteer deze optie als u wilt dat de Azure AD Connect-wizard het AD DS-account maakt dat Azure AD Connect nodig heeft om verbinding te maken met de AD-forest tijdens directorysynchronisatie. Voer wanneer deze optie is geselecteerd de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. Het opgegeven enterprisebeheerdersaccount wordt door de Azure AD Connect-wizard gebruikt om het vereiste AD DS-account te maken. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. |
+| Bestaand account gebruiken | Selecteer deze optie als u wilt toestaan dat een bestaand AD DS-account wordt gebruikt door Azure AD Connect om verbinding te maken met de AD-forest tijdens directorysynchronisatie. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) voor meer informatie. |
 
 ![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
-
 
 ### <a name="azure-ad-sign-in-configuration"></a>Aanmeldconfiguratie Azure AD
 Op deze pagina kunt u bekijken welke UPN-domeinen zich in de on-premises AD DS bevinden en in Azure AD zijn geverifieerd. Daarnaast kunt u op deze pagina het kenmerk configureren dat voor de userPrincipalName moet worden gebruikt.
@@ -239,7 +236,7 @@ AD FS is heel eenvoudig met een paar muisklikken met Azure AD Connect te configu
 >U kunt het SSL-certificaat van de AD FS-farm bijwerken met behulp van Azure AD Connect, zelfs als u Azure AD Connect niet gebruikt om de federatieve vertrouwensrelatie te beheren.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Vereisten voor de AD FS-configuratie
-Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Tabel 3 - Azure AD Connect en federatieve servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
+Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Zorg ervoor dat u de andere taken in [federatievereisten](active-directory-aadconnect-prerequisites.md#prerequisites-for-federation-installation-and-configuration) hebt uitgevoerd. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Tabel 3 - Azure AD Connect en federatieve servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Maak een nieuwe AD FS-farm aan of gebruik een bestaande AD FS-farm
 U kunt een bestaande AD FS-farm gebruiken of u kunt ervoor kiezen een nieuwe AD FS-farm aan te maken. Als u ervoor kiest om een nieuwe aan te maken, dan dient u het SSL-certificaat op te geven. Als het SSL-certificaat met een wachtwoord is beveiligd, dan wordt u gevraagd het wachtwoord op te geven.
@@ -252,7 +249,7 @@ Als u een bestaande AD FS-farm gebruikt, wordt u meteen doorgestuurd naar het sc
 >Azure AD Connect kan worden gebruikt om slechts één AD FS-farm te beheren. Als op de geselecteerde AD FS-farm al een federatieve vertrouwensrelatie is geconfigureerd, wordt deze relatie helemaal opnieuw gemaakt met Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Geef de AD FS-servers op
-Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Koppel alle servers aan Active Directory voordat u deze configuratie uitvoert. Het wordt door Microsoft aangeraden om voor proefimplementaties één AD FS-server te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren.
+Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Koppel alle AD FS-servers (niet vereist voor de WAP-servers) aan Active Directory voordat u deze configuratie uitvoert. Het wordt door Microsoft aangeraden om voor proefimplementaties één AD FS-server te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren.
 
 > [!NOTE]
 > Zorg ervoor dat alle servers aan een AD-domein zijn gekoppeld voordat u deze configuratie uitvoert.
@@ -265,7 +262,7 @@ Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoef
 Voer de servers in die u als uw webtoepassingsproxyservers wilt gebruiken. De webtoepassingsproxyserver wordt in uw DMS (extranetgericht) geïmplementeerd en ondersteunt verificatieaanvragen van het extranet. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Het wordt door Microsoft aangeraden om voor proefimplementaties één webtoepassingsproxyserver te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren. Het is aan te raden een gelijk aantal proxyservers te hebben om aan de verificatie van het intranet te voldoen.
 
 > [!NOTE]
-> <li> Als het account dat u gebruikt geen lokale beheerder op de AD FS-servers is, wordt u gevraagd om beheerreferenties.</li>
+> <li> Als het account dat u gebruikt geen lokale beheerder op de WAP-servers is, wordt u gevraagd om beheerreferenties.</li>
 > <li> Zorg ervoor dat er een HTTP/HTTPS-verbinding tussen de Azure AD Connect-server en de webtoepassingsproxyserver is voordat u deze stap uitvoert.</li>
 > <li> Zorg ervoor dat er een HTTP/HTTPS-verbinding tussen de webtoepassingsserver en de AD FS-server is, zodat verificatieaanvragen door kunnen stromen.</li>
 >

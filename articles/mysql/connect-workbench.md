@@ -10,17 +10,17 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: MySQL Workbench gebruiken om verbinding te maken en gegevens op te vragen
 In deze quickstart ziet u hoe u met behulp van een MySQL Workbench-toepassing verbinding maakt met een Azure Database for MySQL. 
 
 ## <a name="prerequisites"></a>Vereisten
-In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -32,7 +32,7 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en ga naar de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
 
 3. Klik op de servernaam.
 
@@ -69,7 +69,7 @@ Verbinding maken met Azure MySQL Server met behulp van het GUI-hulpprogramma MyS
         Er wordt een nieuw SQL-tabblad geopend met een lege editor waar u uw query's kunt typen.
     
         > [!NOTE]
-        > Standaard wordt SSL-verbindingsbeveiliging vereist. Deze wordt afgedwongen op uw Azure Database for MySQL-server. Er wordt gewoonlijk geen aanvullende configuratie met SSL-certificaten vereist om MySQL Workbench verbinding met de server te laten maken. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie over SSL.  Als u SSL wilt uitschakelen, gaat u naar Azure Portal en klikt u op de pagina Verbindingsbeveiliging om de wisselknop SSL-verbinding afdwingen op Uit te zetten.
+        > Standaard wordt SSL-verbindingsbeveiliging vereist. Deze wordt afgedwongen op uw Azure Database for MySQL-server. Hoewel er gewoonlijk geen aanvullende configuratie met SSL-certificaten is vereist om MySQL Workbench verbinding met de server te laten maken, verdient het aanbeveling de SSL CA-certificering te binden aan MySQL Workbench. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie over het downloaden en binden van de certificering.  Als u SSL wilt uitschakelen, gaat u naar Azure Portal en klikt u op de pagina Verbindingsbeveiliging om de wisselknop SSL-verbinding afdwingen op Uit te zetten.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Tabel maken, gegevens invoegen, gegevens lezen, gegevens bijwerken, gegevens verwijderen
 1. Kopieer de SQL-voorbeeldcode en plak deze in een leeg SQL-tabblad om enkele voorbeeldgegevens te illustreren.

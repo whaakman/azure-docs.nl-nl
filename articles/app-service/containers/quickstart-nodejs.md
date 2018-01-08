@@ -15,15 +15,19 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3f75a49c697898ee52bcec68e520f103061752a8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Een Node.js-web-app maken in Azure App Service op Linux
 
-[Azure App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een Node.js-app implementeert in Azure App Service op Linux met een ingebouwde installatiekopie. U maakt de web-app met de ingebouwde installatiekopie via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om de code van Node.js in de web-app te implementeren.
+> [!NOTE]
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een Node.js-web-app maken in Azure](../app-service-web-get-started-nodejs.md) om een app te implementeren in App Service onder _Windows_.
+>
+
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een Node.js-app implementeert in Azure App Service op Linux met een ingebouwde installatiekopie. U maakt de web-app met de ingebouwde installatiekopie via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om de code van Node.js in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -31,7 +35,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze quickstart:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 * <a href="https://nodejs.org/" target="_blank">Node.js en NPM installeren</a>
@@ -46,7 +50,7 @@ Voer in een terminalvenster op uw computer de volgende opdracht uit om de opslag
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Dit terminalvenster gebruikt u om alle opdrachten in deze quickstart uit te voeren.
+Dit terminalvenster gebruikt u om alle opdrachten in deze Quickstart uit te voeren.
 
 Ga naar de map die de voorbeeldcode bevat.
 

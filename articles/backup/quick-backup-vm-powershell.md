@@ -1,5 +1,5 @@
 ---
-title: Azure Quick Start - Een back-up van een VM maken met PowerShell | Microsoft Docs
+title: Azure-quickstart - Een back-up van een VM maken met PowerShell | Microsoft Docs
 description: Lees hoe u een back-up van virtuele machines maakt via Azure PowerShell
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
@@ -13,21 +13,21 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 98a86652b13f62ef7acade9eb69e81852b2fc091
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9abb85c7a23a1fadc0afc1c4716c81aae712f30b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Een back-up van een virtuele machine maken in Azure met PowerShell
 De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. U kunt uw gegevens beschermen door regelmatig back-ups te maken. Gebruik Azure Backup om herstelpunten te maken die kunnen worden opgeslagen in geografisch redundante kluizen van Recovery Services. In dit artikel wordt uitgelegd hoe u een back-up van een virtuele machine (VM) maakt met de Azure PowerShell-module. U kunt deze stappen ook uitvoeren met [Azure CLI](quick-backup-vm-cli.md) of [Azure Portal](quick-backup-vm-portal.md).
 
-Deze Quick Start is bedoeld voor een back-up van een bestaande VM in Azure. Als u nog een VM wilt maken, kan dat ook [met Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Deze quickstart is bedoeld voor een back-up van een bestaande VM in Azure. Als u nog een VM wilt maken, kan dat ook [met Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Voor deze Quick Start is moduleversie 4.4 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze quickstart is moduleversie 4.4 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
@@ -136,7 +136,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze Quick Start hebt u een Recovery Services-kluis gemaakt, de beveiliging op een VM ingeschakeld en het eerste herstelpunt gemaakt. Volg de andere zelfstudies als u nog meer wilt weten over Azure Backup en Recovery Services.
+In deze quickstart hebt u een Recovery Services-kluis gemaakt, de beveiliging op een VM ingeschakeld en het eerste herstelpunt gemaakt. Volg de andere zelfstudies als u nog meer wilt weten over Azure Backup en Recovery Services.
 
 > [!div class="nextstepaction"]
 > [Back-up maken van meerdere virtuele Azure-machines](./tutorial-backup-vm-at-scale.md)

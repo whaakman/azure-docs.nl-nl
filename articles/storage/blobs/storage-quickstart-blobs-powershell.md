@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Objecten overdragen naar/van Azure Blob-opslag met Azure PowerShell
 
@@ -27,13 +27,13 @@ De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-re
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze Quick Start is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze quickstart is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## <a name="create-a-container"></a>Een container maken
 
-Blobs worden altijd naar een container geüpload. Hierdoor kunt u groepen blobs ordenen net zoals u bestanden in mappen op de computer ordent.
+Blobs worden altijd naar een container geüpload. U kunt groepen blobs ordenen net zoals u bestanden op uw computer in mappen ordent.
 
 Stel de containernaam in en maak vervolgens de container met behulp van [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), waarbij u de machtigingen instelt op de waarde Blob voor openbare toegang tot de bestanden. De containernaam in dit voorbeeld is *quickstartblobs*.
 
@@ -48,7 +48,7 @@ Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. VHD-bestanden
 
 Als u een bestand wilt uploaden naar een blok-blob, haalt u een containerverwijzing op en haalt u vervolgens een verwijzing op naar de blok-blob in deze container. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
 
-In de volgende voorbeelden worden Image001.jpg en Image002.png uit de map D:\\_TestImages op de lokale schijf geüpload naar de container die u zojuist hebt gemaakt.
+In de volgende voorbeelden worden Image001.jpg en Image002.png uit de map D:\\_TestImages op de lokale schijf geüpload naar de container die u hebt gemaakt.
 
 ```powershell
 # upload a file
@@ -118,7 +118,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
+In deze quickstart hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
 
 > [!div class="nextstepaction"]
 > [Instructies voor bewerkingen in Blob-opslag](storage-how-to-use-blobs-powershell.md)

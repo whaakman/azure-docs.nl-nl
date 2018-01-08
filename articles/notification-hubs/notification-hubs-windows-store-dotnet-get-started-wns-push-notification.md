@@ -3,22 +3,22 @@ title: Aan de slag met Azure Notification Hubs voor Universeel Windows-platform-
 description: In deze zelfstudie leert u hoe u Azure Notification Hubs gebruikt om meldingen naar een Windows Universal Platform-toepassing te pushen.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Aan de slag met Notification Hubs voor Universeel Windows-platform-apps
 
@@ -40,7 +40,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) of later
 * [Ontwikkelhulpprogramma's voor UWP-apps geïnstalleerd](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 * Een actief Azure-account  
-    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F) voor meer informatie.
+    Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F) voor meer informatie.
 * Een actief Windows Store-account
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor UWP-apps.
@@ -81,8 +81,8 @@ Als u pushmeldingen naar UWP-apps wilt verzenden, koppelt u uw app aan de Window
 ## <a name="configure-your-notification-hub"></a>Uw Notification Hub configureren
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p>Selecteer <b>Notification Services</b> > <b>Windows (WNS)</b> en voer het wachtwoord voor het toepassingsgeheim in in het vak <b>Beveiligingssleutel</b>. Voer in het vak <b>Pakket-SID</b> de waarde in die u in het vorige gedeelte van WNS hebt gekregen en selecteer <b>Opslaan</b>.</p>
+<ol start="6">
+<li><p>Onder <b>Notification Services</b> selecteert u <b>Windows (WNS)</b> en geeft u het wachtwoord voor het toepassingsgeheim op in het vak <b>Security Key</b>. Voer in het vak <b>Pakket-SID</b> de waarde in die u in het vorige gedeelte van WNS hebt gekregen en selecteer <b>Opslaan</b>.</p>
 </li>
 </ol>
 
@@ -162,56 +162,6 @@ In deze zelfstudie wordt gedemonstreerd hoe u uw client-app kunt testen door mel
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
-## <a name="optional-send-notifications-from-a-console-app"></a>(Optioneel) Meldingen verzenden vanuit een console-app
-Als u meldingen wilt verzenden met een .NET-consoletoepassing, gaat u als volgt te werk: 
-
-1. Klik met de rechtermuisknop op de oplossing, selecteer **Toevoegen** > **Nieuw project**. Selecteer onder **Visual C#** de opties **Windows** en **Consoletoepassing** en selecteer **OK**.
-   
-    Er wordt een nieuwe Visual C#-consoletoepassing aan de oplossing toegevoegd. U kunt het project ook toevoegen in een afzonderlijke oplossing.
-
-2. Selecteer in Visual Studio achtereenvolgens **Tools**, **NuGet Package Manager** en **Package Manager Console**.
-   
-    Hiermee wordt de Package Manager Console in Visual Studio weergegeven.
-
-3. Stel in het venster Package Manager Console het **standaardproject** in op uw nieuwe consoletoepassingsproject en voer vervolgens in het consolevenster de volgende opdracht uit:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    Met deze actie wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-   
-    ![De naam van het standaardproject](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-
-4. Open het bestand Program.cs en voeg de volgende `using`-instructie toe:
-   
-        using Microsoft.Azure.NotificationHubs;
-
-5. Voeg in de klasse **Program** de volgende methode toe:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast);
-        }
-   
-    >[!NOTE]
-    >* Vervang de tijdelijke aanduiding voor uw **hubnaam** door de naam van de Notification Hub, zoals die wordt weergegeven in Azure Portal. 
-    >* Vervang de tijdelijke aanduiding met de verbindingsreeks door de verbindingsreeks **DefaultFullSharedAccessSignature** die afkomstig is van de pagina **Access Policies** (toegangsbeleid) van de Notification Hub in de sectie Configure your notification hub (De Notification Hub configureren).
-    >* Gebruik de verbindingsreeks met het toegangsrecht *Full*, dus niet *Listen*. Met een verbindingsreeks met het toegangsrecht Luisteren kunnen geen meldingen worden verzonden.
-   > 
-   > 
-6. Voeg de volgende regels in de **Main**-methode toe:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-
-7. Klik met de rechtermuisknop op het consoletoepassingsproject in Visual Studio en selecteer **Set as StartUp Project** om het project als opstartproject in te stellen. Selecteer vervolgens de toets **F5** om de toepassing uit te voeren.
-   
-    U ontvangt een pop-upmelding op alle geregistreerde apparaten. Als u de banner van de pop-up selecteert of erop tikt, wordt de app geladen.
-
-U vindt alle ondersteunde nettoladingen in de onderwerpen [pop-upcatalogus], [tegelcatalogus] en [badge-overzicht] op MSDN.
-
 ## <a name="next-steps"></a>Volgende stappen
 In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Windows-apparaten via de portal of een console-app. Voor de volgende stap kunt u het beste de zelfstudie [Use Notification Hubs to push notifications to users] (Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden) doornemen. Hierin ziet u hoe u meldingen van een ASP.NET-back-end verzendt met tags voor specifieke gebruikers.
 
@@ -230,7 +180,7 @@ Zie [Notification Hubs guidance](notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-[pop-upcatalogus]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tegelcatalogus]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge-overzicht]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  

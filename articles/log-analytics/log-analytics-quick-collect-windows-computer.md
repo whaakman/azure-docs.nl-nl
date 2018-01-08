@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/16/2017
+ms.date: 12/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6da36184baee921c828b037e1337df2d14c79462
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 4462276724628de09fdefb21ff0f3eb61561a09e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Gegevens verzamelen van Windows-computers die in uw omgeving worden gehost
 [Azure Log Analytics](log-analytics-overview.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Windows-computers en andere bronnen in uw omgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie.  In deze quickstart wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Windows-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](log-analytics-quick-collect-azurevm.md), voor informatie over virtuele Windows-machines in Azure.  
+
+Raadpleeg [Gegevens uit uw omgeving verzamelen met Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites) voor informatie over de netwerk- en systeemvereisten voor het implementeren van de Windows-agent.
  
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
