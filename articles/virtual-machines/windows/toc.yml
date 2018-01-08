@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Gepland onderhoud
           href: maintenance-notifications.md
+        - name: Speculatieve uitvoering beperken
+          href: mitigate-se.md
         - name: Veelgestelde vragen over versneld onderhoud
           href: accelerated-maintenance.md
         - name: Geplande gebeurtenissen

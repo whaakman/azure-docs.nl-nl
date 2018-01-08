@@ -39,17 +39,21 @@
       href: kubernetes-helm.md
     - name: Toepassingen ontwikkelen met Draft
       href: kubernetes-draft.md
-    - name: Gegevens behouden met Azure Files
-      href: azure-files.md
     - name: Integreren met Azure met behulp van OSBA
       href: integrate-azure.md
     - name: Kubernetes-dashboard gebruiken
       href: kubernetes-dashboard.md
     - name: Een service-principal maken
       href: kubernetes-service-principal.md
+    - name: Gegevensvolumes configureren
+      items:
+        - name: Azure Files - permanent volume
+          href: azure-files-dynamic-pv.md
+        - name: Azure Files - volume
+          href: azure-files.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks

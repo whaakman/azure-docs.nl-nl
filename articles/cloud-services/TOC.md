@@ -44,6 +44,7 @@
 ### [Verbinding maken met een aangepaste domeincontroller](cloud-services-connect-to-custom-domain.md)
 
 ## Services beheren
+### [Speculatieve uitvoering beperken] (mitigate-se.md}
 ### [Veelvoorkomende beheertaken](cloud-services-how-to-manage-portal.md)
 ### [Een cloudservice configureren](cloud-services-how-to-configure-portal.md)
 ### [Een cloudservice beheren met Azure Automation](automation-manage-cloud-services.md)
@@ -61,7 +62,7 @@
 ### [Cloud Services en beheercertificaten](cloud-services-certs-create.md)
 ### [SSL configureren](cloud-services-configure-ssl-certificate-portal.md)
 
-## Bewaken
+## Controleren
 ### [Cloud Services controleren](cloud-services-how-to-monitor.md)
 ### [Prestaties testen](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testen met Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
