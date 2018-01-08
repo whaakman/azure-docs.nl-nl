@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
 Het is een best practice in Azure Automation schrijven herbruikbare, modulaire runbooks met een aparte functie die kan worden gebruikt door andere runbooks. Een bovenliggend runbook roept vaak een of meer onderliggende runbooks om uit te voeren van de vereiste functionaliteit. Er zijn twee manieren om aan te roepen, een onderliggend runbook en elke manier kent duidelijke verschillen die u moet begrijpen zodat u kunt bepalen wat de beste optie voor uw verschillende scenario's.
@@ -30,7 +30,7 @@ Als u een runbook inline aanroept, deze wordt uitgevoerd in dezelfde taak als he
 
 Wanneer een runbook wordt gepubliceerd, moet alle onderliggende runbooks die daardoor worden aangeroepen al zijn gepubliceerd. Dit is omdat Azure Automation een koppeling met onderliggende runbooks maakt wanneer een runbook wordt gecompileerd. Als ze niet, is het bovenliggende runbook correct wordt gepubliceerd wordt weergegeven, maar wordt een uitzondering gegenereerd wanneer deze wordt gestart. Als dit gebeurt, kunt u het bovenliggende runbook opnieuw publiceren om correct wordt verwezen naar de onderliggende runbooks. U hoeft niet naar het bovenliggende runbook opnieuw publiceren als een van de onderliggende runbooks worden gewijzigd omdat de koppeling wordt al zijn gemaakt.
 
-Elk gegevenstype met inbegrip van complexe objecten kunnen worden door de parameters van een onderliggend runbook dat inline wordt aangeroepen en er is geen [JSON-serialisatie](automation-starting-a-runbook.md#runbook-parameters) omdat er bij het starten van het runbook met behulp van de Azure-beheerportal of met de cmdlet Start-AzureRmAutomationRunbook.
+Elk gegevenstype met inbegrip van complexe objecten kunnen worden door de parameters van een onderliggend runbook dat inline wordt aangeroepen en er is geen [JSON-serialisatie](automation-starting-a-runbook.md#runbook-parameters) omdat er bij het starten van het runbook met de Azure portal of met de De cmdlet start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Runbooktypen
 Welke typen kunnen bellen elkaar:
