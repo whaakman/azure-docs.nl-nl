@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Beveiligingsstatus bewaken in Azure Security Center
 Dit artikel bevat informatie over het gebruik van de bewakingsmogelijkheden in Azure Security Center om naleving van het beleid te controleren.
@@ -45,13 +45,14 @@ Wanneer u klikt op de tegel **Compute** tegel, ziet u drie tabbladen:
 
 ![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem. 
+Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem.
 
 #### <a name="monitoring-recommendations"></a>Aanbevelingen ten aanzien van controle
-In deze sectie wordt het totale aantal virtuele machines en computers weergegeven dat is geïnitialiseerd voor het automatisch inrichten en de huidige status. Als u op deze vermelding klikt, wordt **VM-agent ontbreekt of reageert niet** geopend. 
+In deze sectie wordt het totale aantal virtuele machines en computers weergegeven dat is geïnitialiseerd voor het automatisch inrichten en de huidige status. Wanneer u op deze vermelding klikt, wordt **Problemen met de agentstatus controleren** geopend.
 
-![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Problemen met de agentstatus controleren](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Virtuele machines en computers die Security Center niet kan controleren, worden vermeld. Selecteer een virtuele machine of computer voor gedetailleerde informatie. De **Controlestatus** definieert het probleem.
 
 #### <a name="recommendations"></a>Aanbevelingen
 Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine en computer](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal virtuele machines en computers weer dat wordt beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding:
@@ -79,7 +80,7 @@ De **Ontbrekende systeemupdates** hebben een overzicht van essentiële updates i
   * **Gemiddeld**: er zijn niet-kritieke of extra stappen nodig om een proces te voltooien of een beveiligingsprobleem op te lossen.
   * **Laag**: een beveiligingsprobleem moet worden opgelost, maar dit vereist niet uw onmiddellijke aandacht. (Aanbevelingen met de ernstaanduiding Laag worden niet standaard weergegeven, maar u kunt hierop filteren als u deze aanbevelingen wilt bekijken.)
 
-Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling weer te geven. 
+Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling weer te geven.
 
 ![Ontbrekende systeemupdates voor een specifieke virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ Bij een scenario waarin u een aanbeveling krijgt (wat in het vorige voorbeeld ni
 
 ![Details van de cloudservice](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op **Besturingssysteemversie bijwerken** onder de kolom **BESCHRIJVING**. 
+Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op **Besturingssysteemversie bijwerken** onder de kolom **BESCHRIJVING**.
 
 ![Aanbevelingen ten aanzien van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -214,7 +215,7 @@ Hier vindt u een lijst met alle aanbevelingen voor deze toepassing. Als u klikt 
 ![Het dialoogvenster Web Application Firewall toevoegen](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
+In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): leer hoe u beveiligingsinstellingen configureert in Azure Security Center.
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.

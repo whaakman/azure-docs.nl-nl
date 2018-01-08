@@ -16,13 +16,17 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Een .NET Core-web-app maken in App Service on Linux
+
+> [!NOTE]
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een ASP.NET Core-web-app maken in Azure](../app-service-web-get-started-dotnet.md) om een app te implementeren in App Service onder _Windows_.
+>
 
 [App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een [.NET Core](https://docs.microsoft.com/aspnet/core/)-app maakt in App Service on Linux. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en gebruikt Git om de .NET Core-code in de web-app te implementeren.
 
@@ -32,10 +36,10 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze QuickStart:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">De .NET Core-SDK installeren</a>
+* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">.NET Core SDK 1.1 installeren</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -140,7 +144,7 @@ De Node.js-voorbeeldcode wordt uitgevoerd in een web-app met een ingebouwde inst
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in App Service on Linux.
+**Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in Azure App Service on Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
 

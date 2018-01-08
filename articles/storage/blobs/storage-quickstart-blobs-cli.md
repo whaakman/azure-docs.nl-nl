@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Objecten overdragen naar/van Azure Blob-opslag met Azure CLI
 
@@ -35,7 +35,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-container"></a>Een container maken
 
-Blobs worden altijd naar een container geüpload. Met containers kunt u groepen blobs ordenen net zoals u bestanden in mappen op uw computer ordent.
+Blobs worden altijd naar een container geüpload. U kunt groepen blobs ordenen net zoals u bestanden op uw computer in mappen ordent.
 
 Gebruik de opdracht [az storage container create](/cli/azure/storage/container#create) om een container te maken voor het opslaan van blobs.
 
@@ -47,7 +47,10 @@ az storage container create --name mystoragecontainer
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. De meeste bestanden die zijn opgeslagen in Blob-opslag hebben de vorm van blok-blobs. Toevoeg-blobs worden gebruikt wanneer gegevens moeten worden toegevoegd aan een bestaande blob zonder de bestaande inhoud te wijzigen, zoals in het geval van logboekregistratie. Pagina-blobs ondersteunen de VHD-bestanden van virtuele IaaS-machines.
 
-In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob#upload) een blob geüpload naar de container die we in de laatste stap hebben gemaakt.
+Maak eerst een bestand om dat naar een blob te uploaden.
+Als u met de Azure Cloud Shell werkt, gebruik dan de volgende procedure om een bestand te maken: `vi helloworld` wanneer het bestand wordt geopend, drukt u op **Insert**, typt u 'Hallo wereld', drukt u op **Esc**, typt u `:x` en drukt u op **Enter**.
+
+In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob#upload) een blob geüpload naar de container die u in de laatste stap hebt gemaakt.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Als u de eerder beschreven methode hebt gebruikt om een bestand in uw Azure Cloud Shell te maken, kunt u in plaats daarvan deze CLI-opdracht gebruiken (u hoefde geen pad op te geven omdat het bestand in de basismap werd gemaakt; normaal gesproken moet u wel een pad opgeven):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als dat wel het geval is. Upload zoveel bestanden als u nodig hebt, voordat u doorgaat.
+
+Als u meerdere bestanden tegelijk wilt uploaden, kunt u de opdracht [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch) gebruiken.
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
@@ -70,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Een blob downloaden
 
-Gebruik de opdracht [az storage blobs downloaden](/cli/azure/storage/blob#download) om een blob te downloaden die u eerder hebt geüpload.
+Gebruik de opdracht [az storage blob download](/cli/azure/storage/blob#download) om de blob te downloaden die u eerder hebt geüpload.
 
 ```azurecli-interactive
 az storage blob download \

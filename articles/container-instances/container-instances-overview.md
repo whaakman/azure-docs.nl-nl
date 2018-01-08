@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 Containers worden in snel tempo de voorkeursmethode voor het verpakken, implementeren en beheren van cloudtoepassingen. Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.
 
-Azure Container Instances is een ideale oplossing voor elk scenario dat kan werken in geïsoleerde containers, met inbegrip van eenvoudige toepassingen, taakautomatisering en het bouwen van taken. Voor scenario's waarin u een volledige indeling met containers nodig hebt, waaronder servicedetectie in meerdere containers, automatisch schalen en gecoördineerde toepassingsupgrades, raden wij de [Azure Container Service](https://docs.microsoft.com/azure/container-service/) aan.
+Azure Container Instances is een ideale oplossing voor elk scenario dat kan werken in geïsoleerde containers, met inbegrip van eenvoudige toepassingen, taakautomatisering en het bouwen van taken. Voor scenario's waarin u een volledige indeling met containers nodig hebt, waaronder servicedetectie in meerdere containers, automatisch schalen en gecoördineerde toepassingsupgrades, raden wij [Azure Container Service (AKS)](../aks/index.yml) aan.
 
 ## <a name="fast-startup-times"></a>Snel opstarten
 
@@ -27,7 +27,7 @@ Containers bieden aanzienlijke opstartvoordelen ten opzichte van virtuele machin
 
 ## <a name="hypervisor-level-security"></a>Beveiliging op hypervisorniveau
 
-In het verleden boden containers toepassingsafhankelijke isolatie en resourcebesturing, maar werden ze niet voldoende veilig beschouwd voor onveilig multitenant gebruik. Met Azure Container Instances is uw toepassing even geïsoleerd in een container als deze op een virtuele machine zou zijn.
+In het verleden boden containers toepassingsafhankelijke isolatie en resourcebesturing, maar werden ze geschikt geacht voor onveilig multitenant gebruik. Met Azure Container Instances is uw toepassing even geïsoleerd in een container als deze op een virtuele machine zou zijn.
 
 ## <a name="custom-sizes"></a>Aangepaste grootten
 
@@ -39,7 +39,7 @@ Met Azure Container Instances kunt u uw containers direct weergeven op internet 
 
 ## <a name="persistent-storage"></a>Permanente opslag
 
-Voor het ophalen en persisteren van statuswaarden met exemplaren van Azure Container Instances, bieden we direct koppelen van een Azure-bestandsshares.
+Voor het ophalen en persisteren van statuswaarden met exemplaren van Azure Container Instances, bieden we direct [koppelen van Azure Files-shares](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="linux-and-windows-containers"></a>Linux- en Windows-containers
 
@@ -47,8 +47,8 @@ Met Azure Container Instances kunt u Windows- en Linux-containers met dezelfde A
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 
-Azure Container Instances biedt ondersteuning voor planning van meerdere containergroepen die een hostmachine, lokaal netwerk, opslag en levenscyclus delen. Hiermee kunt u uw hoofdtoepassing combineren met andere die een ondersteunende rol uitvoeren, zoals logboekregistratie.
+Azure Container Instances biedt ondersteuning voor planning van [meerdere containergroepen](container-instances-container-groups.md) die een hostmachine, lokaal netwerk, opslag en levenscyclus delen. Hiermee kunt u uw hoofdtoepassing combineren met andere die een ondersteunende rol uitvoeren, zoals logboekregistratie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Probeer met behulp van onze [quickstart](container-instances-quickstart.md) een container te implementeren naar Azure met een enkele opdracht.
+Probeer met behulp van onze [snelstartgids](container-instances-quickstart.md) een container te implementeren naar Azure met een enkele opdracht.

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 673cbc71202ffb3861ab1d2be6368ec7a07bb5d3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: a8a6bf83f0e76aebdfd5accd3e86cccda8f36eed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) implementeren
 
@@ -21,7 +21,7 @@ In deze quickstart implementeert u een AKS-cluster met behulp van Azure Portal. 
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-In deze quickstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Raadpleeg de [Kubernetes-documentatie](https://kubernetes.io/docs/home/) voor gedetailleerde informatie over Kubernetes.
+In deze quickstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -77,13 +77,13 @@ Na enkele ogenblikken is het AKS-cluster geïmplementeerd en klaar voor gebruik.
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
-Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), de Kubernetes-opdrachtregelclient. De kubectl-client is vooraf geïnstalleerd in Azure Cloud Shell.
+Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. De kubectl-client is vooraf geïnstalleerd in Azure Cloud Shell.
 
 Open Cloud Shell met behulp van de knop in de rechterbovenhoek van Azure Portal.
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
-Gebruik de opdracht [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials) om kubectl zo te configureren dat deze verbinding maakt met het Kubernetes-cluster.
+Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om kubectl zo te configureren dat deze verbinding maakt met het Kubernetes-cluster.
 
 Kopieer en plak de volgende opdracht in Cloud Shell. Wijzig de naam van de resourcegroep en van het cluster, indien nodig.
 
@@ -91,7 +91,7 @@ Kopieer en plak de volgende opdracht in Cloud Shell. Wijzig de naam van de resou
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) om een lijst met clusterknooppunten te retourneren.
+Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kubectl get][kubectl-get] om een lijst met clusterknooppunten te retourneren.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -110,7 +110,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld wordt een manifest gebruikt om alle objecten te maken die nodig zijn om de Azure Vote-toepassing uit te voeren.
 
-Maak een bestand met de naam `azure-vote.yml` en kopieer hierin de volgende YAML-code. Als u werkt in Azure Cloud Shell, kunt u dit bestand maken met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
+Maak een bestand met de naam `azure-vote.yaml` en kopieer hierin de volgende YAML-code. Als u werkt in Azure Cloud Shell, kunt u dit bestand maken met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -173,10 +173,10 @@ spec:
     app: azure-vote-front
 ```
 
-Gebruik de opdracht [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) om de toepassing uit te voeren.
+Gebruik de opdracht [kubectl create][kubectl-create] om de toepassing uit te voeren.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yml
+kubectl create -f azure-vote.yaml
 ```
 
 Uitvoer:
@@ -190,9 +190,9 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>De toepassing testen
 
-Terwijl de toepassing wordt uitgevoerd, wordt er een [Kubernetes-service](https://kubernetes.io/docs/concepts/services-networking/service/) gemaakt die de front-end van de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren.
+Terwijl de toepassing wordt uitgevoerd, wordt er een [Kubernetes-service][kubernetes-service] gemaakt die de front-end van de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren.
 
-Gebruik de opdracht [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) met het argument `--watch` om de voortgang te controleren.
+Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -217,7 +217,7 @@ Nu kunt u naar het externe IP-adres browsen voor een overzicht van de Azure Vote
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
-Wanneer het cluster niet meer nodig is, kunt u de clusterresourcegroep verwijderen. Hierdoor worden ook alle bijbehorende resources verwijderd. Dit kan worden voltooid in Azure Portal door de resourcegroep te selecteren en op de knop Verwijderen te klikken. U kunt ook de opdracht [az group delete](/cli/azure/group#delete) gebruiken in Cloud Shell.
+Wanneer het cluster niet meer nodig is, kunt u de clusterresourcegroep verwijderen. Hierdoor worden ook alle bijbehorende resources verwijderd. Dit kan worden voltooid in Azure Portal door de resourcegroep te selecteren en op de knop Verwijderen te klikken. U kunt ook de opdracht [az group delete][az-group-delete] gebruiken in Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
@@ -227,7 +227,7 @@ az group delete --name myAKSCluster --no-wait
 
 In deze quickstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
 
-[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+[https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -236,5 +236,19 @@ In deze quickstart hebt u een Kubernetes-cluster geïmplementeerd en vervolgens 
 Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot implementatie gaat u naar de zelfstudie over Kubernetes-clusters.
 
 > [!div class="nextstepaction"]
-> [Een AKS-cluster beheren](./tutorial-kubernetes-prepare-app.md)
+> [Een AKS-cluster beheren][aks-tutorial]
+
+<!-- LINKS - external -->
+[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az-group-delete]: /cli/azure/group#delete
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+
 

@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Uw Azure AD-directory beheren
 
@@ -80,7 +80,6 @@ Via deze portals (en cmdlets) kunt u het volgende doen:
 * On-premises integratie met services van Azure AD voor identiteitscontrole en verificatie instellen
 
 Het beheercentrum van Azure AD, het Office 365-beheercentrum, de Microsoft Intune-accountportal en de Azure AD-cmdlets lezen uit en schrijven naar één gedeeld exemplaar van Azure AD dat is gekoppeld aan de directory van uw organisatie. Elk van deze hulpprogramma's fungeert als een front-interface die gegevens in de directory ophaalt of wijzigt.
-
 Wanneer u gegevens van uw organisatie wijzigt via een van de portals of cmdlets terwijl u bent aangemeld in de context van een van deze services, worden de wijzigingen ook weergegeven in de andere portals als u zich de volgende keer aanmeldt. Deze gegevens worden gedeeld tussen de Microsoft-cloudservices waarop u bent geabonneerd.
 
 Als u bijvoorbeeld het Office 365-beheercentrum gebruikt om de aanmelding van een gebruiker te blokkeren, kan die gebruiker zich ook niet meer aanmelden bij andere services waarop uw organisatie momenteel is geabonneerd. Als u hetzelfde gebruikersaccount bekijkt in de Microsoft Intune-accountportal, ziet u dat de gebruiker daar ook is geblokkeerd.
@@ -117,8 +116,8 @@ Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Azure AD Forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Azure Multi-Factor Authentication-forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Vragen over Azure op Stack Overflow (Engelstalig)](http://stackoverflow.com/questions/tagged/azure)
+* [Azure AD Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Azure Multi-Factor Authentication-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow voor Azure-vragen](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Beheerdersrollen toewijzen in Azure AD](active-directory-assign-admin-roles-azure-portal.md)

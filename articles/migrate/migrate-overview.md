@@ -1,24 +1,16 @@
 ---
 title: Over Azure Migrate | Microsoft Docs
 description: Biedt een overzicht van de service Azure Migrate.
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -41,13 +33,12 @@ Azure Migrate helpt u bij het volgende:
 - Op dit moment kunt u on-premises virtuele machines (VM's) met VMware beoordelen voor migratie naar virtuele Azure-machines.
 
 > [!NOTE]
-> Ondersteuning voor Hyper-V staat in de roadmap en komt over enkele maanden beschikbaar. Ondertussen raden we u aan Azure Site Recovery Deployment Planner te gebruiken om de migratie van Hyper-V-werkbelastingen te plannen. 
+> Ondersteuning voor Hyper-V staat in de roadmap en komt binnenkort beschikbaar. Ondertussen raden we u aan [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) te gebruiken om de migratie van Hyper-V-werkbelastingen te plannen. 
 
-- U kunt maximaal 1000 virtuele machines beoordelen in één evaluatie en maximaal 1500 machines in één Azure Migrate-project. Als u meer moet beoordelen, kunt u het aantal projecten of evaluaties verhogen. [Meer informatie](how-to-scale-assessment.md).
+- U kunt maximaal 1000 virtuele machines detecteren in een enkele detectieronde en maximaal 1500 virtuele machines in een enkel project. Bovendien kunt u maximaal 400 VM's beoordelen in een enkele beoordeling. Als u meer moet detecteren of beoordelen, kunt u het aantal detecties of beoordelingen verhogen. [Meer informatie](how-to-scale-assessment.md).
 - Virtuele machines die u wilt beoordelen, moeten worden beheerd door een vCenter Server, versie 5.5, 6.0 of 6.5.
 - U kunt een Azure Migrate-project alleen maken in de regio West-centraal VS. Dit is echter niet van invloed op de mogelijkheid om uw migratie te plannen voor een andere Azure-doellocatie. De locatie van het migratieproject wordt alleen gebruikt om de gedetecteerde metagegevens uit de on-premises omgeving op te slaan.
-- De Azure Migrate-portal is momenteel alleen beschikbaar in het Engels. 
-- Azure Migrate ondersteunt momenteel alleen replicatie van [lokaal redundante opslag (LRS)](../storage/common/storage-introduction.md#replication).
+- Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Waar moet ik voor betalen?
 
@@ -91,7 +82,7 @@ De tabel geeft een overzicht van de poorten die nodig zijn voor communicatie met
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate-service   |TCP 443        |De collector maakt verbinding met de service via SSL-poort 443|
 |Collector          |vCenter Server          |Standaard 9443   | Standaard maakt de collector verbinding met de vCenter-server op poort 9443. Als de server op een andere poort luistert, moet deze worden geconfigureerd als uitgaande poort in de collector-VM. |
-|On-premises virtuele machine     | Overzicht van Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |De MMA-agent gebruikt TCP 443 om verbinding te maken met Log Analytics. U hebt deze poort alleen nodig als u de functie voor visualisatie van afhankelijkheden gebruikt en de Microsoft Monitoring Agent-agent (MMA) installeert. |
+|On-premises virtuele machine     | Overzicht van Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |De MMA-agent gebruikt TCP 443 om verbinding te maken met Log Analytics. U hebt deze poort alleen nodig als u de functie voor visualisatie van afhankelijkheden gebruikt en de Microsoft Monitoring Agent-agent (MMA) installeert. |
 
 
   

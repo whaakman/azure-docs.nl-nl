@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Een .NET-Service Fabric-toepassing maken in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -31,15 +31,15 @@ Deze Quick Start laat zien hoe u uw eerste .NET-toepassing in Service Fabric imp
 Met behulp van deze toepassing leert u hoe u:
 > [!div class="checklist"]
 > * een toepassing kunt maken met .Net en Service Fabric
-> * ASP.NET Core kunt gebruiken als een webfront-end
-> * Toepassingsgegevens in een stateful service kunt opslaan
-> * Lokaal problemen met uw toepassing kunt oplossen
-> * De toepassing in een cluster in Azure kunt implementeren
-> * De toepassing op meerdere knooppunten kunt uitschalen
-> * Een rolling upgrade op een toepassingen kunt uitvoeren
+> * ASP.NET Core gebruiken als een webfront-end
+> * Toepassingsgegevens in een stateful service opslaan
+> * Lokaal problemen met uw toepassing oplossen
+> * De toepassing in een cluster in Azure implementeren
+> * De toepassing op meerdere knooppunten uitschalen
+> * Een rolling upgrade op een toepassingen uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze quickstart:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 1. [Visual Studio 2017 installeren](https://www.visualstudio.com/) met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingworkloads**.
 2. [Git installeren](https://git-scm.com/)
 3. [Microsoft Azure Service Fabric SDK installeren](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -49,7 +49,7 @@ Dit zijn de vereisten voor het voltooien van deze quickstart:
     ```
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
-Voer in een opdrachtvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
+Voer in een opdrachtvenster de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen op de lokale computer.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
@@ -92,7 +92,7 @@ Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor ee
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 1. Open het bestand **/VotingWeb/Controllers/VotesController.cs** en stel een onderbrekingspunt in de methode **Put** van de web-API (regel 47) in. U kunt in Solution Explorer in Visual Studio naar het bestand zoeken.
 
-2. Open het bestand **/VotingData/ControllersVoteDataController.cs** en stel een onderbrekingspunt in de methode **Put** van deze web-API (regel 50) in.
+2. Open het bestand **/VotingData/Controllers/VoteDataController.cs** en stel een onderbrekingspunt in de methode **Put** van deze web-API (regel 50) in.
 
 3. Ga terug naar de browser en klik op een stemoptie of voeg een nieuwe stemoptie toe. U komt uit bij het eerste onderbrekingspunt in de API-controller van de web-front-end.
     - Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
@@ -150,7 +150,7 @@ Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
 1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-2. Klik op het weglatingsteken (drie punten) naast het knooppunt **t** in de structuurweergave en kies **Service schalen**.
+2. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -171,7 +171,7 @@ Service Fabric voert de implementatie van nieuwe updates voor uw toepassing op e
 Als u de toepassing wilt upgraden, gaat u als volgt te werk:
 
 1. Open in Visual Studio het bestand **/VotingWeb/Views/Home/Index.cshtml**.
-2. Wijzig de <h2> kop van de pagina door de tekst toe te voegen of bij te werken. Wijzig de kop bijvoorbeeld in 'Voorbeeld van Service Fabric Voting v2'.
+2. Wijzig de kop van de pagina door tekst toe te voegen of bij te werken. Wijzig de kop bijvoorbeeld in 'Voorbeeld van Service Fabric Voting v2'.
 3. Sla het bestand op.
 4. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 5. Klik op de knop **Manifestversie** om de versie van de service en de toepassing te wijzigen.
@@ -190,7 +190,7 @@ Als u de toepassing wilt upgraden, gaat u als volgt te werk:
 10. U kunt de toepassing blijven gebruiken terwijl de upgrade wordt uitgevoerd. Omdat er twee exemplaren van de service in het cluster worden uitgevoerd, wordt als reactie op een aantal van uw aanvragen mogelijk een bijgewerkte versie van de toepassing verstrekt, terwijl op basis van andere aanvragen mogelijk nog steeds de oude versie wordt verstrekt.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze quickstart hebt u de volgende zaken geleerd:
+In deze snelstartgids hebt u de volgende zaken geleerd:
 
 > [!div class="checklist"]
 > * een toepassing maken met .NET en Service Fabric

@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 4d0cbe09b1482221f88e57eed249fc2b56eec10d
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Een PHP-web-app maken in App Service on Linux
+
+> [!NOTE]
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een PHP-web-app maken in Azure](../app-service-web-get-started-php.md) om een app te implementeren in App Service onder _Windows_.
+>
 
 [App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een PHP-app in Azure App Service on Linux implementeert. U maakt de web-app met de ingebouwde installatiekopie via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, en gebruikt Git om de code van PHP in de web-app te implementeren.
 
@@ -31,7 +35,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze quickstart:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 * <a href="https://php.net" target="_blank">PHP installeren</a>
