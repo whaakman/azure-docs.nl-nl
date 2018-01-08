@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a>Een cloudservice integreren met Azure CDN
 Een cloudservice kan worden geïntegreerd met Azure CDN, voor de inhoud van de locatie van de cloudservice. Deze aanpak kunt u de volgende voordelen:
@@ -111,7 +111,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 ## <a name="create-a-new-cdn-endpoint"></a>Nieuwe CDN-eindpunten maken
 **Een nieuw CDN-eindpunt voor uw opslagaccount maken**
 
-1. In de [Azure Management Portal](https://portal.azure.com), gaat u naar uw CDN-profiel.  Mogelijk hebt u het profiel in de vorige stap vastgemaakt aan het dashboard.  Als dit niet het geval is, kunt u het dashboard zoeken door op **Bladeren** en vervolgens **CDN-profielen** te klikken en op het profiel te klikken die u aan het eindpunt wilt toevoegen.
+1. Navigeer in [Azure Portal](https://portal.azure.com) naar uw CDN-profiel.  Mogelijk hebt u het profiel in de vorige stap vastgemaakt aan het dashboard.  Als dit niet het geval is, kunt u het dashboard zoeken door op **Bladeren** en vervolgens **CDN-profielen** te klikken en op het profiel te klikken die u aan het eindpunt wilt toevoegen.
    
     De blade CDN-profiel wordt weergegeven
    

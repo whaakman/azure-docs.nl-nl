@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-Stack 1712 update
 
@@ -31,17 +31,9 @@ Dit artikel worden de verbeteringen beschreven en wordt in dit updatepakket beke
 
 ## <a name="build-reference"></a>Verwijzing bouwen
 
-Het buildnummer van Azure Stack 1712 update **180103.2**.
+Het buildnummer van Azure Stack 1712 update **180106.1**. Als een klant is geïmplementeerd **180103.2** eerder, u niet wilt toepassen **180106.1**.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-
-> [!WARNING]
-> Als u momenteel in een actieve interactieve PEP externe sessie bent, moet u om af te sluiten van de sessie voordat u begint de Azure-Stack update-installatieproces. U kunt typen **sluiten** in de remote console om af te sluiten van de sessie.
-> U kunt controleren of er geen bestaande PEP externe sessies door twee PowerShell-opdrachten, eerst **Get-PSSession** die een lijst met alle actieve externe sessies vervolgens **Remove-PSSession** te beëindigen en Verwijder de actieve externe sessies. De PowerShell-opdrachten moeten worden uitgevoerd vanaf een machine die wordt gebruikt voor het maken van PEP externe sessies in de Azure-Stack-omgeving. Dit is het PowerShell-opdracht-voorbeeld:
-```
-Get-PSSession | Remove-PSSession
-```
-Bovendien PEP sessie zelfs nadat de Azure-Stack-update is gestart niet maken.
 
 > [!IMPORTANT]
 > Probeer geen virtuele machines maken tijdens het installatieproces 1712 update. Zie [beheren van updates in het overzicht van Azure-Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) voor meer informatie.
@@ -100,7 +92,7 @@ Deze sectie vindt bekende problemen die tijdens de installatie van de 1712 updat
 
 ### <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
 
-Deze sectie bevat na de installatie bekende problemen met build **180103.2**.
+Deze sectie bevat na de installatie bekende problemen met build **180106.1**.
 
 #### <a name="portal"></a>Portal
 
@@ -161,6 +153,11 @@ In Azure Active Directory Federation Services (ADFS) geïmplementeerd omgevingen
 
 U kunt het pakket met de Azure-Stack 1712 update downloaden [hier](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Meer informatie
+
+Microsoft is een manier om te controleren en updates met behulp van de bevoegde eindpunt (PEP) is geïnstalleerd met Update 1712 hervatten opgegeven.
+
+- Zie de [in Azure-Stack met behulp van de bevoegde endpoint-documentatie-updates controleren](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Zie ook
 
 - Zie [beheren van updates in het overzicht van Azure-Stack](azure-stack-updates.md) voor een overzicht van de update management in Azure-Stack.

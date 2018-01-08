@@ -1,6 +1,6 @@
 ---
-title: Herstellen van de OS-beveiligingslekken in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** herstellen OS beveiligingslekken **.
+title: Herstellen van beveiligingsconfiguraties in Azure Security Center | Microsoft Docs
+description: Dit document ziet u hoe u de aanbeveling Azure Security Center implementeert **herstellen beveiligingsconfiguraties**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>OS-beveiligingslekken in Azure Security Center oplossen
-Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie waardoor de virtuele machines en computers kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van uw besturingssysteem komt niet overeen met de aanbevolen configuratieregels en raadt aan om de configuratiewijzigingen voor deze beveiligingsproblemen te verhelpen.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Herstellen van beveiligingsconfiguraties in Azure Security Center
+Azure Security Center analyseert dagelijks het besturingssysteem (OS) van uw virtuele machines (VM's) en de computers voor een configuratie waardoor de virtuele machines en computers kwetsbaar voor aanvallen. Security Center raadt aan dat u beveiligingsproblemen oplossen wanneer de configuratie van uw besturingssysteem komt niet overeen met de aanbevolen configuratie van de beveiligingsregels en raadt aan om de configuratiewijzigingen voor deze beveiligingsproblemen te verhelpen.
 
-> [!NOTE]
-> Zie voor meer informatie over de specifieke configuraties die worden bewaakt de [lijst met regels van de aanbevolen configuratie](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Zie voor meer informatie over de specifieke configuraties die worden bewaakt de [lijst met regels van de aanbevolen configuratie](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Zie [OS beveiligingsconfiguraties aanpassen](security-center-customize-os-security-config.md) voor informatie over het aanpassen van beoordelingen van configuratie van de veiligheid in Security Center.
 
 ## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
-Herstellen van OS zwakke plekken die wordt weergegeven als een aanbeveling in Security Center. Deze aanbeveling wordt weergegeven onder **aanbevelingen** en klikt u onder **Compute**.
+Beveiliging configuraties verschil wordt weergegeven als een aanbeveling in Security Center oplossen. Deze aanbeveling wordt weergegeven onder **aanbevelingen** en klikt u onder **Compute**.
 
-In dit voorbeeld kijken we de **herstellen OS-beveiligingsproblemen (door Microsoft)** aanbeveling onder **Compute**.
+In dit voorbeeld kijken we de **herstellen beveiligingsconfiguraties** aanbeveling onder **Compute**.
 1. Selecteer **Compute** onder het hoofdmenu Security Center.
 
-   ![Beveiligingsproblemen met het besturingssysteem herstellen][1]
+   ![Beveiligingsconfiguraties herstellen][1]
 
-2. Onder **Compute**, selecteer **herstellen OS-beveiligingsproblemen (door Microsoft)**. De **OS-beveiligingsproblemen (door Microsoft) verschil** dashboard wordt geopend.
+2. Onder **Compute**, selecteer **herstellen beveiligingsconfiguraties**. **Beveiligingsconfiguraties** wordt geopend.
 
-   ![Beveiligingsproblemen met het besturingssysteem herstellen][2]
+   ![Beveiligingsconfiguraties][2]
 
   De bovenkant van het dashboard biedt:
 
@@ -77,11 +74,11 @@ In dit voorbeeld kijken we de **herstellen OS-beveiligingsproblemen (door Micros
   - WERKELIJKE waarde--Waarde geretourneerd na analyse van uw besturingssysteem voor VM-configuratie op basis van de regel
   - --REGEL regel-bewerking door Security Center gebruikt tijdens de analyse van de configuratie van het besturingssysteem van virtuele machine op basis van de regel
 
-4. Selecteer de **Search** pictogram in het bovenste lint. Zoeken wordt aanbieding werkruimten die virtuele machines en computers waarop het geselecteerde OS beveiligingslek hebt geopend. Deze werkruimte selectie blade wordt alleen weergegeven als de geselecteerde regel van toepassing op meerdere virtuele machines die zijn verbonden met verschillende werkruimten.
+4. Selecteer de **Search** pictogram in het bovenste lint. Zoeken wordt geopend in de lijst werkruimten die virtuele machines en computers waarop het geselecteerde beveiligingsbereik configuraties volgende niet overeenkomt. Deze werkruimte selectie blade wordt alleen weergegeven als de geselecteerde regel van toepassing op meerdere virtuele machines die zijn verbonden met verschillende werkruimten.
 
   ![Vermelde werkruimten][4]
 
-5. Selecteer een werkruimte. Een zoekquery logboekanalyse geopend gefilterde naar de werkruimte met de kwetsbaarheid van het besturingssysteem.
+5. Selecteer een werkruimte. Een Log Analytics-zoekquery wordt geopend gefilterde naar de werkruimte met het volgende niet overeenkomt configuraties van beveiliging.
 
   ![Werkruimte met OS-beveiligingsproblemen][5]
 
@@ -90,7 +87,9 @@ In dit voorbeeld kijken we de **herstellen OS-beveiligingsproblemen (door Micros
   ![Gefilterd voor die computer][6]
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u implementeert de aanbeveling Security Center "Herstellen OS beveiligingslekken." U kunt de reeks configuratieregels bekijken [hier](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center gebruikt CCE (algemene configuratie opsomming) om de unieke id's voor configuratieregels toewijzen. Ga naar de [CCE](https://nvd.nist.gov/cce/index.cfm) website voor meer informatie.
+In dit artikel hebt u geleerd hoe u implementeert de aanbeveling Security Center 'Herstellen beveiligingsconfiguraties'. Zie [OS beveiligingsconfiguraties aanpassen](security-center-customize-os-security-config.md) voor informatie over het aanpassen van beoordelingen van configuratie van de veiligheid in Security Center.
+
+U kunt de reeks configuratieregels bekijken [hier](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center gebruikt CCE (algemene configuratie opsomming) om de unieke id's voor configuratieregels toewijzen. Ga naar de [CCE](https://nvd.nist.gov/cce/index.cfm) website voor meer informatie.
 
 Zie de volgende bronnen voor meer informatie over Security Center:
 
