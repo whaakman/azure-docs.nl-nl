@@ -56,7 +56,7 @@
 #### [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Beveiligingsproblemen met het besturingssysteem herstellen](security-center-remediate-os-vulnerabilities.md)
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
-#### [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
+#### [Evaluatie van beveiligingsproblemen is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
 ### [Beveiligingsstatus bewaken](security-center-monitoring.md)
 ### [Identiteit en toegang](security-center-identity-access.md)
 
@@ -90,6 +90,7 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Roadmap naar Security Center-gereedheid](security-center-readiness-roadmap.md)
 ## [Blog over veiligheid, privacy en naleving met betrekking tot Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Overzicht van services](https://azure.microsoft.com/services/security-center/)

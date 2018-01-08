@@ -346,7 +346,7 @@
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure PowerShell-cmdlets](/powershell/azure/overview)
 ## [Naslaginformatie over de Java-API](/java/api)
-## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Servicelimieten en -beperkingen](active-directory-service-limits-restrictions.md)
 
 # Verwant

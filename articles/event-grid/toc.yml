@@ -36,9 +36,11 @@
   items:
     - name: Gegevens uit Event Hubs naar DataWarehouse streamen
       href: event-grid-event-hubs-integration.md
+    - name: Sjablonen voor gebeurtenisabonnementen
+      href: event-subscription-template.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/eventgrid
     - name: PowerShell
       href: /powershell/module/azurerm.eventgrid

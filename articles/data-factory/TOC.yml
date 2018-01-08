@@ -303,13 +303,15 @@
       items:
         - name: Een planningstrigger maken
           href: how-to-create-schedule-trigger.md
+        - name: Een tumblingvenstertrigger maken
+          href: how-to-create-tumbling-window-trigger.md
 - name: Naslaginformatie
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/azurerm.datafactoryv2/
-    - name: REST API
+    - name: REST-API
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python

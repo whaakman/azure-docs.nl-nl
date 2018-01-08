@@ -59,7 +59,7 @@
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
-    - name: Azure CLI
+    - name: Azure-CLI
       href: functions-cli-samples.md
 - name: Concepten
   items:
@@ -71,10 +71,10 @@
       items:
         - name: Ondersteunde talen
           href: supported-languages.md
-        - name: 'C#-script'
-          href: functions-reference-csharp.md
-        - name: .NET-klassenbibliotheek
+        - name: 'C# (klassebibliotheek)'
           href: functions-dotnet-class-library.md
+        - name: 'C#-script (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: Javascript
@@ -147,7 +147,7 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: De runtimeversie instellen
           href: functions-versions.md
-    - name: Bewaken
+    - name: Controleren
       href: functions-monitoring.md
     - name: Integreren
       items:
