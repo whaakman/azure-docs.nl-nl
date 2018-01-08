@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Gegevenswetenschap voor beginnende gebruikers reeks
 Een van de handelsgeheimen van wetenschappelijke gegevens is anderen voor uw werk voor u ophalen. Een voorbeeld van een clustering algoritme niet vinden in de galerie van Azure AI moet worden gebruikt voor uw eigen machine learning-experiment.
 
 > [!IMPORTANT]
-> Cortana Intelligence Gallery is gewijzigd **AI-galerie van Azure**. Als gevolg hiervan, afwijken tekst en afbeeldingen in dit verslag enigszins van de video dat gebruikmaakt van de oude naam.
+> **Cortana Intelligence Gallery** is gewijzigd **AI-galerie van Azure**. Als gevolg hiervan, afwijken tekst en afbeeldingen in dit verslag enigszins van de video dat gebruikmaakt van de oude naam.
 >
 
 Als u optimaal gebruik van de reeks, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ In dit voorbeeld leert u een plaats om te zoeken naar voorbeelden die u uit als 
 
 Een van de handelsgeheimen van wetenschappelijke gegevens is anderen voor uw werk voor u ophalen.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Voorbeelden niet vinden in de galerie van Azure AI Intelligence
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Voorbeelden niet vinden in de galerie van Azure AI
 
 Microsoft heeft een cloud-gebaseerde service die wordt aangeroepen [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) dat u uiteraard voor gratis uitproberen. Het geeft u een werkruimte waarin u kunt experimenteren met andere machine learning-algoritmen en, indien u hebt uw oplossing gewerkt, kunt u deze starten als een webservice.
 

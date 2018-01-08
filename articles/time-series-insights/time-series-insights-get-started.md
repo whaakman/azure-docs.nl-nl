@@ -3,19 +3,19 @@ title: Een Azure Time Series Insights-omgeving maken | Microsoft Docs
 description: In dit artikel wordt beschreven hoe de Azure portal gebruiken om een nieuwe Time Series Insights-omgeving te maken.
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Een nieuwe Time Series Insights-omgeving maken in Azure Portal
 Dit artikel wordt beschreven hoe u een nieuwe Time Series Insights-omgeving met de Azure portal maakt.
@@ -41,7 +41,7 @@ Volg deze stappen voor het maken van een omgeving:
    
    Instelling|Voorgestelde waarde|Beschrijving
    ---|---|---
-   De omgevingsnaam van de | Een unieke naam | Deze naam vertegenwoordigt de omgeving in [time series explorer](https://insights.timeseries.azure.com)
+   Naam van de omgeving | Een unieke naam | Deze naam vertegenwoordigt de omgeving in [time series explorer](https://insights.timeseries.azure.com)
    Abonnement | Uw abonnement | Als u meerdere abonnementen hebt, kiest u het abonnement dat bij voorkeur de gebeurtenisbron bevat. Time Series Insights kan Azure IoT Hub- en Event Hub-resources die in hetzelfde abonnement aanwezig zijn, automatisch detecteren.
    Resourcegroep | Maak een nieuwe of bestaande gebruiken | Een resourcegroep is een verzameling Azure-resources die samen worden gebruikt. U kunt een bestaande resourcegroep, bijvoorbeeld de database met uw Event Hub of IoT Hub. Of u kunt een nieuwe maken als deze resource is niet gerelateerd aan de andere bronnen.
    Locatie | Dichtstbijzijnde uw gebeurtenisbron | Kies bij voorkeur dezelfde data center locatie met de brongegevens gebeurtenis in de poging om te voorkomen dat toegevoegd regio-overschrijdende en cross-zone bandbreedtekosten en latentie toegevoegd bij het verplaatsen van gegevens buiten de regio.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document begeleidt u bij het gebruik van de aanbevelingen in Azure Security Center voor hulp bij het beveiligen van uw Azure-resources.
@@ -73,7 +73,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | Aanbeveling | Beschrijving |
 | --- | --- |
 | [Gegevensverzameling voor abonnementen inschakelen](security-center-enable-data-collection.md) |Raadt aan dat u het verzamelen van gegevens in het beveiligingsbeleid voor elk van uw abonnementen en alle virtuele Azure-machines (VM's) en niet-Azure computers inschakelen. |
-| [Beveiligingsproblemen met het besturingssysteem herstellen](security-center-remediate-os-vulnerabilities.md) |Raadt aan dat u uw besturingssysteemconfiguraties met de aanbevolen configuratieregels, bijvoorbeeld uitlijnen, niet toestaan dat wachtwoorden worden opgeslagen. |
+| [Beveiligingsconfiguraties herstellen](security-center-remediate-os-vulnerabilities.md) |Raadt aan dat u uw besturingssysteemconfiguraties met de aanbevolen configuratie beveiligingsregels, bijvoorbeeld uitlijnen, niet toestaan dat wachtwoorden worden opgeslagen. |
 | [Systeemupdates toepassen](security-center-apply-system-updates.md) |Raadt aan dat u ontbrekende system beveiligingsupdates en essentiële updates op uw Windows- en Linux-machines en computers implementeren. |
 | [Toepassen van een Just-In-Time netwerk toegangsbeheer](security-center-just-in-time.md) | Adviseert toe te passen alleen bij het VM-time-toegang. De just-in tijd functie in preview is en beschikbaar zijn op de prijscategorie Standard van Security Center. Zie [prijzen](security-center-pricing.md) voor meer informatie over Security Center de prijscategorie. |
 | [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates) |Hiermee wordt aanbevolen om een VM opnieuw op te starten om het proces van het toepassen van systeemupdates te voltooien. |
@@ -91,7 +91,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | [Schijfversleuteling toepassen](security-center-apply-disk-encryption.md) |Hiermee wordt aanbevolen om de VM-schijven te versleutelen met behulp van Azure Disk Encryption. (Voor VM's van Windows en Linux.) Versleuteling wordt aanbevolen voor het besturingssysteem en voor de gegevensvolumes op de VM. |
 | [Contactgegevens voor beveiliging verstrekken](security-center-provide-security-contact-details.md) |Raadt u beveiliging bieden de contactgegevens voor elk van uw abonnementen. Contactgegevens is een e-mailadres en telefoonnummer getal. De informatie wordt gebruikt voor het contact met u opnemen als onze beveiligingsteam vindt dat uw resources worden getroffen. |
 | [Besturingssysteemversie bijwerken](security-center-update-os-version.md) |Raadt aan dat u de versie van het besturingssysteem (OS) voor uw Cloud-Service naar de meest recente versie beschikbaar voor uw OS-familie bijwerken.  Zie voor meer informatie over Cloudservices, de [Cloud Services-overzicht](../cloud-services/cloud-services-choose-me.md). |
-| [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md) |Hiermee wordt aanbevolen om een oplossing voor de beoordeling van beveiligingslekken te installeren op de VM. |
+| [Evaluatie van beveiligingsproblemen is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md) |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
 | [Beveiligingsproblemen herstellen](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Hiermee ziet u beveiligingsproblemen in het systeem en in de toepassing die zijn gedetecteerd met de oplossing voor beveiligingslekken die op de VM is geïnstalleerd. |
 | [Schakel versleuteling voor Azure Storage-Account](security-center-enable-encryption-for-storage-account.md) | Raadt aan dat u Azure Storage-Service: versleuteling voor gegevens in rust inschakelen. Versleuteling voor opslag-Service (SSE) werkt door de gegevens te versleutelen wanneer deze wordt geschreven naar Azure-opslag en voordat ophalen ontsleutelt. SSE is momenteel alleen beschikbaar voor de Azure Blob-service en kan worden gebruikt voor blok-blobs, pagina-blobs en toevoeg-blobs. Zie voor meer informatie, [Service versleuteling van opslag voor gegevens in rust](../storage/common/storage-service-encryption.md).</br>SSE wordt alleen ondersteund op Resource Manager storage-accounts. |
 

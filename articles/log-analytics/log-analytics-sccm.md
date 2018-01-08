@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Maak verbinding met Configuration Manager met Log Analytics
 U kunt System Center Configuration Manager verbinden met logboekanalyse in OMS sync verzameling apparaatgegevens. Dit zijn de gegevens van uw Configuration Manager-hiërarchie beschikbaar in OMS.
@@ -30,8 +30,8 @@ Log Analytics biedt ondersteuning voor System Center Configuration Manager curre
 ## <a name="configuration-overview"></a>Configuratie-overzicht
 De volgende stappen geven een overzicht van het proces voor Configuration Manager verbinding met logboekanalyse.  
 
-1. Configuration Manager registreert als een webtoepassing en/of Web-API-app in de Azure-beheerportal en zorg ervoor dat u de client-ID en een geheime sleutel van de client van de registratie van Azure Active Directory. Zie [portal gebruik maken van Active Directory-toepassing en service-principal die toegang bronnen tot](../azure-resource-manager/resource-group-create-service-principal-portal.md) voor gedetailleerde informatie over het uitvoeren van deze stap.
-2. In de Azure-beheerportal [Geef de Configuration Manager (de geregistreerde web-app) met machtigingen voor toegang tot OMS](#provide-configuration-manager-with-permissions-to-oms).
+1. Configuration Manager registreert als een webtoepassing en/of Web-API-app in de Azure-portal en zorg ervoor dat u de client-ID en een geheime sleutel van de client van de registratie van Azure Active Directory. Zie [portal gebruik maken van Active Directory-toepassing en service-principal die toegang bronnen tot](../azure-resource-manager/resource-group-create-service-principal-portal.md) voor gedetailleerde informatie over het uitvoeren van deze stap.
+2. In de Azure portal [Geef de Configuration Manager (de geregistreerde web-app) met machtigingen voor toegang tot OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. In Configuration Manager [toevoegen van een verbinding met de Wizard OMS-verbinding toevoegen](#add-an-oms-connection-to-configuration-manager).
 4. In Configuration Manager [werk de verbindingseigenschappen](#update-oms-connection-properties) als de geheime sleutel met het wachtwoord of client ooit is verlopen of verloren gegaan is.
 5. Met informatie uit de OMS-portal [downloaden en installeren van Microsoft Monitoring Agent](#download-and-install-the-agent) op de computer waarop de Configuration Manager service connection point sitesysteemrol. De agent verzendt gegevens van Configuration Manager met OMS.
@@ -41,7 +41,7 @@ De volgende stappen geven een overzicht van het proces voor Configuration Manage
 Meer informatie over het aansluiten van Configuration Manager met OMS op [synchroniseren van gegevens uit Configuration Manager met de Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Geef de Configuration Manager met OMS met machtigingen
-De volgende procedure bevat de Azure-beheerportal met machtigingen voor toegang tot OMS. U moet in het bijzonder verlenen de *rol van Inzender* voor gebruikers in de resourcegroep om de Azure-beheerportal wilt verbinden van Configuration Manager met OMS.
+De volgende procedure bevat de Azure-portal met machtigingen voor toegang tot OMS. U moet in het bijzonder verlenen de *rol van Inzender* voor gebruikers in de resourcegroep om de Azure-portal voor het verbinden van Configuration Manager met OMS.
 
 > [!NOTE]
 > U moet machtigingen opgeven in OMS voor Configuration Manager. Anders wordt een foutbericht weergegeven wanneer u de configuratiewizard in Configuration Manager gebruiken.
@@ -81,9 +81,9 @@ Als u wilt een OMS-verbinding toevoegen, uw Configuration Manager-omgeving moet 
 1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS Connector**. Hiermee opent u de **OMS verbinding Wizard toevoegen**. Selecteer **volgende**.
 2. Op de **algemene** scherm, bevestig dat u de volgende acties hebt gedaan en dat u hebt de details voor elk item, en selecteer **volgende**.
 
-   1. In de Azure-beheerportal, hebt u Configuration Manager geregistreerd als een webtoepassing en/of Web-API-app en die u hebt de [client-ID van de registratie](../active-directory/active-directory-integrating-applications.md).
-   2. U kunt een geheime sleutel van de app voor de geregistreerde app in Azure Active Directory hebt gemaakt in de Azure-beheerportal.  
-   3. In de Azure-beheerportal kunt u de geregistreerde web-app hebt opgegeven met de machtiging voor toegang tot OMS.  
+   1. In de Azure portal hebt u Configuration Manager geregistreerd als een webtoepassing en/of Web-API-app en die u hebt de [client-ID van de registratie](../active-directory/active-directory-integrating-applications.md).
+   2. U kunt een geheime sleutel van de app voor de geregistreerde app in Azure Active Directory hebt gemaakt in de Azure portal.  
+   3. In de Azure portal kunt u de geregistreerde web-app hebt opgegeven met de machtiging voor toegang tot OMS.  
       ![Verbinding met OMS Wizard algemene pagina](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Op de **Azure Active Directory** scherm, instellingen voor de verbinding met OMS configureren door te geven uw **Tenant**, **Client-ID**, en **Client geheime sleutel** , selecteer daarna **volgende**.  
    ![Verbinding met OMS Wizard Azure Active Directory-pagina](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
