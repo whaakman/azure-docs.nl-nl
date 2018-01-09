@@ -7,6 +7,5 @@
 -   Als u de beste prestaties voor uw virtuele machines wilt, moet u het aantal gegevensschijven naar 2 schijven per vCPU beperken.
 - **Netwerkbandbreedte verwacht** wordt de maximale geaggregeerd [bandbreedte per virtuele machine type toegewezen](../articles/virtual-network/virtual-machine-network-throughput.md) op alle NIC's voor alle bestemmingen. Bovengrenzen worden niet gegarandeerd, maar zijn bedoeld als richtlijn voor het selecteren van het juiste VM-type voor de bedoelde toepassing. De werkelijke netwerkprestaties zijn afhankelijk van verschillende factoren, waaronder netwerkcongestie, toepassingsbelastingen en netwerkinstellingen. Zie [Netwerkdoorvoer optimaliseren voor Windows en Linux](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md) voor meer informatie over het optimaliseren van de netwerkdoorvoer. Om de verwachte netwerkprestaties op Linux en Windows te bereiken, kan het noodzakelijk zijn een specifieke versie te selecteren of de VM te optimaliseren. Zie [How to reliably test for virtual machine throughput](../articles/virtual-network/virtual-network-bandwidth-testing.md) (Betrouwbaar testen van de doorvoer van virtuele machines) voor meer informatie.
 
-- &#8224; 16 vCPU-prestaties zullen in een toekomstige release consistent de bovengrens bereiken.
 
 

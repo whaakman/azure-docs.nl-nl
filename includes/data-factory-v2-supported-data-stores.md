@@ -9,7 +9,7 @@
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Search-index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure-tabelopslag](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Databases/datawarehouses** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Inzoomen (bèta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
@@ -61,9 +61,9 @@
 | &nbsp; |[ServiceNow (bèta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (bèta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Vierkante (bèta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Webtabel (HTML-tabel)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
+| &nbsp; |[Webtabel (HTML-tabel)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (bèta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (bèta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Elke connector gemarkeerd als *Beta* betekent dat u deze proberen kunt out en geef ons feedback en maken geen gebruik in productieomgevingen.
+> Elke connector gemarkeerd als *Beta* betekent uit te proberen en ons feedback te geven. Als u maken van Beta-connectors in uw oplossing wilt, contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/).

@@ -101,6 +101,10 @@ Azure-beheerde schijven ondersteunt momenteel alleen lokaal redundante opslag be
 
 Nee. Deze functie is momenteel niet ondersteund. 
 
+**Kan ik een lease opsplitsen op de schijf**
+
+Nee. Dit wordt momenteel niet ondersteund omdat een lease is geïnstalleerd om te voorkomen dat per ongeluk verwijderen als de schijf wordt gebruikt.
+
 **Kan ik de naameigenschap van de computer wijzigen wanneer een gespecialiseerde (niet gemaakt met behulp van het hulpprogramma voor systeemvoorbereiding of gegeneraliseerd) schijf van besturingssysteem wordt gebruikt voor het inrichten van een virtuele machine?**
 
 Nee. U kunt de naameigenschap van de computer niet bijwerken. De nieuwe virtuele machine overgenomen van de bovenliggende VM die is gebruikt voor het maken van de besturingssysteemschijf. 

@@ -61,7 +61,7 @@ ACU: 160-180
 
 <sup>1</sup> M-serie van de virtuele machine functie Intel® Hyper-Threading-technologie
 
-<sup>2</sup> meer dan 64 vCPU vereisen een van deze ondersteunde gastbesturingssystemen: Windows Server 2016, Ubuntu 16.04 TNS, SLES 12 SP2, en Red Hat Enterprise Linux of CentOS 7.3 met LIS 4.2.1 
+<sup>2</sup> meer dan 64 vCPU vereisen een van deze ondersteunde gastbesturingssystemen: Windows Server 2016, Ubuntu 16.04 TNS, SLES 12 SP2, en Red Hat Enterprise Linux, CentOS 7.3 of Oracle Linux 7.3 met LIS 4.2.1 
 
 <sup>3</sup> beperkte core grootten beschikbaar.
 
