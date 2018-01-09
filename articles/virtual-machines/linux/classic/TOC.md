@@ -1,59 +1,39 @@
 # [Overzicht](../overview.md)
-## [Installatiekopieën](about-images.md)
-## [VM-extensies](agents-and-extensions.md)
-## [Beschikbaarheid](configure-availability.md)
-## [Veelgestelde vragen](faq.md)
+## [VM-extensies](agents-and-extensions-classic.md)
+## [Beschikbaarheid](configure-availability-classic.md)
+## [Veelgestelde vragen](faq-classic.md)
 
 # Aan de slag
-## [Een virtuele Linux-machine maken met behulp van Azure Portal](createportal.md)
-## [Azure CLI installeren](../../../cli-install-nodejs.md)
-## [SSH-sleutels maken](../mac-create-ssh-keys.md)
+## [Een virtuele Linux-machine maken met behulp van Azure Portal](createportal-classic.md)
 
 # Procedures
 ## Compute
-### [Een aangepaste VM maken](create-custom.md)
-### [Een VM vastleggen](capture-image.md)
-### [Extern bureaublad gebruiken met een Linux-VM](remote-desktop.md)
-### [VM-extensies beheren](manage-extensions.md)
-### [VM’s beheren met Visual Studio](manage-visual-studio.md)
-### [VM’s controleren met de diagnostische VM-extensie](../diagnostic-extension.md)
+### [Een aangepaste VM maken](create-custom-classic.md)
+### [Een VM vastleggen](capture-image-classic.md)
+### [Extern bureaublad gebruiken met een Linux-VM](remote-desktop-classic.md)
+### [VM-extensies beheren](manage-extensions-classic.md)
 ### [VM’s controleren met v2.x van de diagnostische VM-extensie](diagnostic-extension-v2.md)
-### [Aangepaste gegevens invoeren](inject-custom-data.md)
-### [Wachtwoorden of sleutels voor Linux opnieuw instellen, SSH-problemen oplossen en schijven controleren](reset-access.md)
-### [Onderhoud](planned-maintenance-schedule.md)
-### [Een Docker-host maken via CLI](cli-use-docker.md)
-### [Een Docker-host maken via Azure Portal](portal-use-docker.md)
-### [Docker gebruiken met Swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Wachtwoorden of sleutels voor Linux opnieuw instellen, SSH-problemen oplossen en schijven controleren](reset-access-classic.md)
+### [Onderhoud](planned-maintenance-schedule-classic.md)
 
 ## Storage gebruiken
-### [Een gegevensschijf koppelen](attach-disk.md)
-### [Een gegevensschijf ontkoppelen](detach-disk.md)
+### [Een gegevensschijf koppelen](attach-disk-classic.md)
+### [Een gegevensschijf ontkoppelen](detach-disk-classic.md)
 
 ## Netwerk
 ### [Poorten naar de VM openen](setup-endpoints.md)
-### [VM’s verbinden met een virtueel netwerk of cloudservice](connect-vms.md)
-
-## Installatiekopieën implementeren
-### [Een VHD maken en uploaden](create-upload-vhd.md)
-### [Een FreeBSD VHD maken en uploaden](freebsd-create-upload-vhd.md)
-### [Lijst met Oracle-VM-installatiekopieën](oracle-images.md)
 
 ## Workloads beheren
-### [SAP](sap-get-started.md)
-### MySQL en MariaDB
-#### [Zelfstudie MariaDB-cluster](mariadb-mysql-cluster.md)
-#### [MySQL installeren op een OpenSUSE-VM](mysql-on-opensuse.md)
-#### [Taakverdelingssets gebruiken voor het clusteren van MySQL](mysql-cluster.md)
-#### [MySQL-prestaties optimaliseren](optimize-mysql.md)
+### [Zelfstudie MariaDB-cluster](mariadb-mysql-cluster.md)
+### [MySQL installeren op een OpenSUSE-VM](mysql-on-opensuse.md)
+### [Taakverdelingssets gebruiken voor het clusteren van MySQL](mysql-cluster.md)
+### [MySQL-prestaties optimaliseren](optimize-mysql.md)
 
 ## Toepassingen uitvoeren
-### [Ruby on Rails-webtoepassing](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Ruby on Rails-webtoepassing](ruby-rails-web-app.md)
 ### [Cassandra en Node.js-client](cassandra-nodejs.md)
-### [LAMP-stack](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Webtoepassing met Visual Studio](web-app-visual-studio.md)
 ### [RDMA-cluster voor het uitvoeren van MPI-toepassingen](rdma-cluster.md)
-### [De slave-invoegtoepassing van Azure gebruiken met Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Een cluster maken voor Linux-workloads](hpcpack-cluster-powershell-script.md)
 #### [Een cluster met Linux-knooppunten beheren](hpcpack-cluster.md)

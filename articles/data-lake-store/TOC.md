@@ -12,7 +12,7 @@
 
 # Procedures
 ## Gegevens laden en verplaatsen
-### [Azure Data Factory gebruiken](../data-factory/data-factory-azure-datalake-connector.md)
+### [Azure Data Factory gebruiken](../data-factory/connector-azure-data-lake-store.md)
 ### [AdlCopy gebruiken](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
