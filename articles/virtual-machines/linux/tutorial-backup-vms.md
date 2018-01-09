@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Back-up van Linux virtuele machines in Azure
 
@@ -62,7 +62,7 @@ De eerste back-up duurt ongeveer 20 minuten. Ga naar het volgende gedeelte van d
 
 ## <a name="restore-a-file"></a>Een bestand te herstellen
 
-Als u per ongeluk verwijdert of wijzigingen in een bestand aanbrengen, kunt u bestandsherstel het bestand te herstellen vanuit uw back-upkluis. Bestandsherstel maakt gebruik van een script dat wordt uitgevoerd op de virtuele machine te koppelen van het herstelpunt als lokale schijf. Deze stations blijft gekoppelde 12 uur zodat u kunt bestanden van het herstelpunt kopiëren en deze naar de virtuele machine terugzetten.  
+Als u per ongeluk verwijdert of wijzigingen in een bestand aanbrengen, kunt u bestandsherstel het bestand te herstellen vanuit uw back-upkluis. Bestandsherstel maakt gebruik van een script dat wordt uitgevoerd op de virtuele machine, het herstelpunt dat als een lokaal station koppelen. Deze stations blijft gekoppelde 12 uur zodat u kunt bestanden van het herstelpunt kopiëren en deze naar de virtuele machine terugzetten.  
 
 In dit voorbeeld laten we zien hoe de standaard nginx webpagina /var/www/html/index.nginx-debian.html herstellen. Het openbare IP-adres van de virtuele machine in dit voorbeeld is *13.69.75.209*. U vindt het IP-adres van het gebruik van uw vm:
 
@@ -157,7 +157,7 @@ In dit voorbeeld laten we zien hoe de standaard nginx webpagina /var/www/html/in
 
     ![Standaard nginx-webpagina](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Op de lokale computer terug naar het browsertabblad voor de Azure-portal en in **stap 3: Ontkoppel de schijven na het herstel** klikt u op de **schijven ontkoppelen** knop. Als u vergeet Voer deze stap, is de verbinding met het koppelpunt wordt automatisch sluiten na 12 uur. Na deze 12 uur moet u een nieuw script voor het maken van een nieuwe koppelpunt downloaden.
+18. Op de lokale computer terug naar het browsertabblad voor de Azure-portal en in **stap 3: Ontkoppel de schijven na het herstel** klikt u op de **schijven ontkoppelen** knop. Als u vergeet Voer deze stap, wordt de verbinding met het koppelpunt automatisch gesloten na 12 uur. Na deze 12 uur moet u een nieuw script voor het maken van een nieuwe koppelpunt downloaden.
 
 
 ## <a name="next-steps"></a>Volgende stappen

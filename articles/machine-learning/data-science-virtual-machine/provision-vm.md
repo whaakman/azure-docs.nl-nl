@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van Windows gegevens wetenschappelijke virtuele Machine in Azure
 De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtuele machine (VM) vooraf is geïnstalleerd en geconfigureerd met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevensanalyse en machine learning. De hulpprogramma's zijn:
@@ -200,5 +200,5 @@ Hier volgen enkele volgende stappen om door te gaan uw leren en te verkennen.
 * Navigeer naar **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** voor voorbeelden weergegeven met behulp van de bibliotheek RevoScaleR in R die ondersteuning biedt voor gegevensanalyse die op grote schaal enterprise.  
 * Lees het artikel: [10 dingen die u op de virtuele Machine voor gegevenswetenschap doen kunt](http://aka.ms/dsvmtenthings)
 * Informatie over het bouwen van end-to-end analyseoplossingen systematischer met behulp van de [Team gegevens wetenschap proces](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Ga naar de [galerie van Azure Machine Learning](http://gallery.cortanaintelligence.com) voor machine learning en analytics voorbeelden die gebruikmaken van Azure Machine learning en verwante services in Azure. We hebben ook een pictogram opgegeven op de **Start** menu en op het bureaublad van de virtuele machine aan deze galerie.
+* Ga naar de [AI-galerie van Azure](http://gallery.cortanaintelligence.com) voor machine learning en analytics voorbeelden die gebruikmaken van Azure Machine learning en verwante services in Azure. We hebben ook een pictogram opgegeven op de **Start** menu en op het bureaublad van de virtuele machine aan deze galerie.
 

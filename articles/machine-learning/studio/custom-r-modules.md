@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Aangepaste R-modules maken in Azure Machine Learning
 In dit onderwerp wordt beschreven hoe ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Het maken van de bestanden die een module te definiëren en het registreren van de module voor implementatie in een Machine Learning-werkruimte worden geïllustreerd. De elementen en kenmerken die worden gebruikt in de definitie van de aangepaste module worden vervolgens in meer detail beschreven. Het gebruik van aanvullende functionaliteit, bestanden en meerdere uitgangen wordt ook beschreven. 
@@ -28,7 +28,7 @@ In dit onderwerp wordt beschreven hoe ontwerpen en implementeren van een aangepa
 ## <a name="what-is-a-custom-r-module"></a>Wat is een aangepaste R-module?
 Een **aangepaste module** is een door de gebruiker gedefinieerde module die kan worden geüpload naar uw werkruimte en kan worden uitgevoerd als onderdeel van een Azure Machine Learning-experiment. Een **aangepaste R-module** is een aangepaste module die wordt uitgevoerd een R door de gebruiker gedefinieerde functie. **R** is een programmeertaal voor statistische computing en afbeeldingen die veel door statistici en gegevens verzameld gebruikt wordt voor het implementeren van de algoritmen. R is momenteel de enige ondersteunde in aangepaste modules, maar ondersteuning voor extra talen is gepland voor toekomstige releases taal.
 
-Aangepaste modules hebben **eersteklas status** in Azure Machine Learning in de zin dat ze net als elke andere module kunnen worden gebruikt. Ze kunnen worden uitgevoerd met andere modules, opgenomen in gepubliceerde experimenten of visualisaties. Hebt u controle over de algoritme die wordt geïmplementeerd door de module, de invoer en uitvoerpoorten die worden gebruikt, de parameters modelleren en andere verschillende runtime-bewerkingen. Een experiment met aangepaste modules kan ook worden gepubliceerd in de Cortana Intelligence Gallery delen.
+Aangepaste modules hebben **eersteklas status** in Azure Machine Learning in de zin dat ze net als elke andere module kunnen worden gebruikt. Ze kunnen worden uitgevoerd met andere modules, opgenomen in gepubliceerde experimenten of visualisaties. Hebt u controle over de algoritme die wordt geïmplementeerd door de module, de invoer en uitvoerpoorten die worden gebruikt, de parameters modelleren en andere verschillende runtime-bewerkingen. Een experiment met aangepaste modules kan ook worden gepubliceerd in de galerie van Azure AI voor eenvoudig delen.
 
 ## <a name="files-in-a-custom-r-module"></a>Bestanden in een aangepaste R-module
 Een aangepaste R-module is gedefinieerd door een ZIP-bestand met ten minste twee bestanden:
@@ -288,14 +288,14 @@ Een module-parameter is gedefinieerd met behulp van de **Arg** onderliggend elem
     * Numeriek
     * Boole-waarde
     * Categorische gegevens
-    * Reeks
+    * Tekenreeks
     * Label
     * Functie
     * Score
     * Alle
   * **standaard** -geldige standaardselecties voor de kolomkiezer omvatten: 
     
-    * Geen
+    * None
     * NumericFeature
     * NumericLabel
     * NumericScore

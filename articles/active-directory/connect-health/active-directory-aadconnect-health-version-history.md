@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versiegeschiedenis van status Azure AD Connect
 Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerkt met nieuwe functies en functionaliteit. Dit artikel worden de versies en onderdelen die zijn uitgebracht.
@@ -34,6 +34,12 @@ Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerk
   1. Toegevoegde nieuwe agent voor probleemoplossing opdrachten
   2. Verbeteringen van de agent-beschikbaarheid 
   3. Algemene verbeteringen en oplossingen voor problemen
+  
+## <a name="october-2017"></a>Oktober 2017
+**Agentupdate:**
+
+ * Azure AD Connect Health-agent voor synchronisatie (versie 3.0.129.0) uitgebracht met Azure AD Connect versie 1.1.649.0
+<br></br> Een compatibiliteitsprobleem versie tussen Azure AD Connect en Azure AD Connect Health-Agent voor synchronisatie, vast. Dit probleem is van invloed op klanten die Azure AD Connect in-place upgrade naar versie 1.1.647.0 uitvoert, maar heeft momenteel Health Agent versie 3.0.127.0. Na de upgrade kan de Health-Agent niet meer statusgegevens over Azure AD Connect-synchronisatieservice verzenden naar Azure AD Health-Service. Met deze oplossing wordt Health Agent versie 3.0.129.0 geïnstalleerd tijdens een upgrade ter plekke van Azure AD Connect. Health-Agent versie 3.0.129.0 heeft geen compatibiliteitsprobleem met Azure AD Connect versie 1.1.649.0.
 
 ## <a name="july-2017"></a>Juli 2017
 **Agentupdate:**
@@ -44,6 +50,8 @@ Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerk
 *   Azure AD Connect Health-agent voor AD FS (versie 3.0.68.0)
   1. Algemene verbeteringen en oplossingen voor problemen
   2. Soevereine cloud-ondersteuning
+* Azure AD Connect Health-agent voor synchronisatie (versie 3.0.68.0) uitgebracht met Azure AD Connect versie 1.1.614.0
+1. Ondersteuning voor Microsoft Azure Government Cloud en Microsoft Cloud Duitsland
 
 ## <a name="april-2017"></a>April 2017      
 **Agentupdate:**
@@ -58,13 +66,13 @@ Azure AD Connect Health het team van Azure Active Directory regelmatig bijgewerk
 **Agentupdate:**
 
 * Azure AD Connect Health-agent voor AD FS \(versie 2.6.408.0\)
-  1. Verbeteringen in het client-IP-adressen in verificatieaanvragen detecteren
-  2. Oplossingen voor problemen die zijn gerelateerd aan waarschuwingen
+1. Verbeteringen in het client-IP-adressen in verificatieaanvragen detecteren
+2. Oplossingen voor problemen die zijn gerelateerd aan waarschuwingen
 * Azure AD Connect Health-agent voor AD DS (versie 2.6.408.0)
-  1. Oplossingen voor problemen gerelateerd aan waarschuwingen.
+1. Oplossingen voor problemen gerelateerd aan waarschuwingen.
 * Azure AD Connect Health-agent voor synchronisatie (versie 2.6.353.0) uitgebracht met Azure AD Connect versie 1.1.281.0
-  1. Geef de vereiste gegevens voor de foutenrapporten voor synchronisatie
-  2. Oplossingen voor problemen betrekking hebben op waarschuwingen
+1. Geef de vereiste gegevens voor de foutenrapporten voor synchronisatie
+2. Oplossingen voor problemen betrekking hebben op waarschuwingen
 
 **Nieuwe preview-functies:**
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Een MPEG-DASH adaptieve Streaming Video insluiten in een toepassing HTML5 met DASH.js
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Een MPEG-DASH adaptieve Streaming Video insluiten in een toepassing HTML5 met DASH.js
 ## <a name="overview"></a>Overzicht
-MPEG-DASH is een ISO-norm voor adaptief streamen van video-inhoud, die biedt aanzienlijke voordelen voor gebruikers die u wilt leveren van hoge kwaliteit, adaptief videostreaming-uitvoer. Met MPEG-DASH wordt de video-stream automatisch verwijderen voor de definitie van een lagere wanneer het netwerk overbelast raakt. Dit vermindert de kans van de viewer 'onderbroken' video zien terwijl de speler wordt gedownload de volgende enkele seconden om af te spelen (aka buffer). Zoals opstoppingen in het netwerk wordt beperkt, wordt op zijn beurt de video speler naar een hogere quality-stroom geretourneerd. Deze mogelijkheid aan te passen aan de vereiste bandbreedte resulteert ook in een snellere begintijd voor video. Dat betekent dat de eerste paar seconden kunnen worden afgespeeld in een lagere quality-segment van fast te downloaden en vervolgens de buffer van stap tot een hogere eenmaal voldoende kwaliteit-inhoud is opgeslagen.
+MPEG-DASH is een ISO-norm voor adaptief streamen van video-inhoud, die biedt aanzienlijke voordelen voor gebruikers die u wilt leveren van hoge kwaliteit, adaptief videostreaming-uitvoer. Met MPEG-DASH wordt de video-stream automatisch verwijderen voor de definitie van een lagere wanneer het netwerk overbelast raakt. Dit vermindert de kans van de viewer 'onderbroken' video zien terwijl de speler wordt gedownload de volgende enkele seconden om af te spelen (aka buffer). Zoals opstoppingen in het netwerk wordt beperkt, wordt op zijn beurt de video speler naar een hogere kwaliteit-stroom geretourneerd. Deze mogelijkheid aan te passen aan de vereiste bandbreedte resulteert ook in een snellere begintijd voor video. Dat betekent dat de eerste paar seconden kunnen worden afgespeeld in een lagere quality-segment van fast te downloaden en vervolgens de buffer van stap tot een hogere eenmaal voldoende kwaliteit-inhoud is opgeslagen.
 
-Dash.js is een open-source MPEG-DASH-speler geschreven in JavaScript. Het doel is te bieden een robuuste, platformoverschrijdende-speler vrijelijk in toepassingen waarvoor afspelen van video's kan worden gebruikt. Het biedt MPEG-DASH afspelen in browsers die ondersteuning biedt voor W3C Media bron extensies (muis) vandaag Chrome, Microsoft Edge en IE11 (andere browsers hebt aangegeven dat hun bedoeld ter ondersteuning van de muis). Js Zie voor meer informatie over DASH.js de GitHub-opslagplaats dash.js.
+Dash.js is een open source MPEG-DASH-speler geschreven in JavaScript. Het doel is te bieden een robuuste, platformoverschrijdende-speler vrijelijk in toepassingen waarvoor afspelen van video's kan worden gebruikt. Het biedt MPEG-DASH afspelen in browsers die ondersteuning biedt voor W3C Media bron extensies (muis) vandaag Chrome, Microsoft Edge en IE11 (andere browsers hebt aangegeven dat hun bedoeld ter ondersteuning van de muis). Js Zie voor meer informatie over DASH.js de GitHub-opslagplaats dash.js.
 
 ## <a name="creating-a-browser-based-streaming-video-player"></a>Maken van een browser gebaseerde streaming video-speler
 Besturingselementen voor het maken van een eenvoudige pagina die wordt weergegeven een video-speler met de verwachte dergelijke een play, onderbreken, terugspoelen enz., moet u:
@@ -51,7 +51,7 @@ De eerste stap is het maken van een standaard HTML-pagina met de **video** eleme
     </html>
 
 ## <a name="adding-the-dashjs-player"></a>Windows Media Player DASH.js toevoegen
-Voor de implementatie van dash.js verwijzing toevoegen aan de toepassing, moet u het bestand dash.all.js van versie 1.0 van dash.js project halen. Dit moet worden opgeslagen in de JavaScript-map van uw toepassing. Dit bestand is een gemak-bestand dat alle benodigde dash.js code tot één bestand verzamelt. Als u een kijkje rond de opslagplaats dash.js hebt, u de afzonderlijke bestanden niet vinden, testen code en nog veel meer, maar als u wilt doen gebruik dash.js, wordt het bestand dash.all.js is wat u nodig hebt.
+Voor de implementatie van dash.js verwijzing toevoegen aan de toepassing, moet u het bestand dash.all.js van versie 1.0 van dash.js project halen. Dit moet worden opgeslagen in de JavaScript-map van uw toepassing. Dit bestand is een gemak-bestand dat alle benodigde dash.js code tot één bestand verzamelt. Als u een kijkje rond de opslagplaats dash.js hebt, u de afzonderlijke bestanden niet vinden, test code en nog veel meer, maar als u wilt doen is dash.js, gebruik dan het bestand dash.all.js is wat u nodig hebt.
 
 Toevoegen als u wilt de speler dash.js toevoegen aan uw toepassingen, scriptcode naar de sectie head van basicPlayer.html:
 
@@ -73,9 +73,9 @@ Maak vervolgens een functie voor het initialiseren van de speler als de pagina w
     }
     </script>
 
-Deze functie maakt eerst een DashContext. Dit wordt gebruikt voor het configureren van de toepassing voor een specifieke runtime-omgeving. Vanuit technisch oogpunt Hiermee definieert u de klassen die voor de afhankelijkheid injectie framework wordt gebruikt bij het maken van de toepassing. In de meeste gevallen gebruikt u Dash.di.DashContext.
+Deze functie maakt eerst een DashContext. Dit wordt gebruikt voor het configureren van de toepassing voor een specifieke runtime-omgeving. Vanuit technisch oogpunt Hiermee definieert u de klassen die voor de afhankelijkheid injectie framework wordt gebruikt bij het maken van de toepassing. In de meeste gevallen moet u Dash.di.DashContext gebruiken.
 
-Vervolgens exemplaar maken van de primaire klasse van het framework dash.js, Media Player. Deze klasse bevat de belangrijkste methoden die nodig zijn, zoals afspelen en onderbreken, beheert de relatie met de video-element en beheert ook de interpretatie van het bestand Media presentatie beschrijving (MPD) waarin de video wordt afgespeeld.
+Vervolgens exemplaar maken van de primaire klasse van het framework dash.js, Media Player. Deze klasse bevat de belangrijkste methoden die nodig zijn, zoals afspelen en onderbreken, beheert de relatie met de video-element en beheert ook de interpretatie van het bestand Media presentatie beschrijving (MPD), die beschrijft de video wordt afgespeeld.
 
 De functie startup() van de Media Player-klasse wordt aangeroepen om ervoor te zorgen dat Windows media player gereed is voor het afspelen van video. Onder andere deze functie zorgt ervoor dat alle benodigde klassen (zoals gedefinieerd door de context) zijn geladen. Zodra de speler gereed is, kunt u de video element aan met behulp van de functie attachView() koppelen. Hierdoor kunnen de Media Player naar de videostream invoeren in het element en ook het afspelen indien nodig.
 

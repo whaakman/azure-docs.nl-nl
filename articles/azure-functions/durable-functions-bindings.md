@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindingen voor duurzame functies (Azure-functies)
 
@@ -66,7 +66,7 @@ Hieronder vindt u informatie over de orchestration-trigger:
 
 De orchestration-trigger binding ondersteunt zowel invoer en uitvoer. Hier volgen enkele dingen die u moet weten over invoer en uitvoer van de verwerking van:
 
-* **invoer** -Orchestration-functies ondersteunen alleen [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) als een parametertype. Deserialisatie invoer rechtstreeks in de functiehandtekening worden niet ondersteund. Code moet gebruiken de [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) methode voor het ophalen van orchestrator-functie invoer. Deze invoer moet JSON-serialiseerbaar typen.
+* **invoer** -Orchestration-functies ondersteunen alleen [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) als een parametertype. Deserialisatie van invoer rechtstreeks in de functiehandtekening wordt niet ondersteund. Code moet gebruiken de [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) methode voor het ophalen van orchestrator-functie invoer. Deze invoer moet JSON-serialiseerbaar typen.
 * **levert** -Orchestration triggers ondersteunen zowel uitvoerwaarden als invoer. De retourwaarde van de functie wordt gebruikt voor het toewijzen van de uitvoerwaarde en moet een JSON-serialiseerbaar. Als een functie retourneert `Task` of `void`, een `null` waarde wordt opgeslagen als de uitvoer.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-De meeste orchestrator-functies aanroepen andere functies, dus hier is een voorbeeld van een 'Hallo wereld' die laat zien hoe u een functie aanroept:
+De meeste orchestrator-functies aanroepen activiteit functies, dus hier is een voorbeeld van een 'Hallo wereld' die laat zien hoe u een functie van de activiteit:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Hieronder vindt u informatie over de trigger activiteit:
 De activiteit trigger binding ondersteunt zowel invoer en uitvoer, net als de orchestration-trigger. Hier volgen enkele dingen die u moet weten over invoer en uitvoer van de verwerking van:
 
 * **invoer** -activiteit functies systeemeigen gebruiken [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) als een parametertype. Een functie van de activiteit kan ook worden gedeclareerd met de parametertype dat JSON-serialiseerbaar. Als u werkt met `DurableActivityContext`, u kunt aanroepen [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) invoer voor het ophalen en deserialiseren van de functie van de activiteit.
-* **levert** -activiteit triggers ondersteunen zowel uitvoerwaarden als invoer. De retourwaarde van de functie wordt gebruikt voor het toewijzen van de uitvoerwaarde en moet een JSON-serialiseerbaar. Als een functie retourneert `Task` of `void`, een `null` waarde wordt opgeslagen als de uitvoer.
+* **levert** -activiteit werkt ondersteuning uitvoerwaarden als invoer. De retourwaarde van de functie wordt gebruikt voor het toewijzen van de uitvoerwaarde en moet een JSON-serialiseerbaar. Als een functie retourneert `Task` of `void`, een `null` waarde wordt opgeslagen als de uitvoer.
 * **metagegevens** -functies van de activiteit kunnen worden verbonden met een `string instanceId` -parameter voor de exemplaar-ID van de bovenliggende orchestration niet ophalen.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ De orchestration-client binding kunt u het schrijven van functies die communicer
 
 Als u Visual Studio gebruikt, kunt u binden aan de orchestration-client met behulp van de [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET-kenmerk.
 
-Als u scripttalen (bijvoorbeeld *.csx* bestanden) voor ontwikkeling, de orchestration-trigger wordt gedefinieerd door de volgende JSON-object in de `bindings` matrix van function.json:
+Als u scripttalen (bijvoorbeeld *.csx* bestanden) voor ontwikkeling, de orchestration-trigger wordt gedefinieerd door de volgende JSON-object in de `bindings` matrix van *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Als u scripttalen (bijvoorbeeld *.csx* bestanden) voor ontwikkeling, de orchestr
 ```
 
 * `taskHub`: Wordt gebruikt in scenario's waarbij meerdere functie apps delen hetzelfde opslagaccount maar moeten worden van elkaar geïsoleerd. Als niet wordt opgegeven, de standaardwaarde van `host.json` wordt gebruikt. Deze waarde moet overeenkomen met de waarde die wordt gebruikt door de doel-orchestrator-functies.
-* `connectionName`-De naam van een app-instelling met een verbindingsreeks voor opslag. Het opslagaccount dat wordt vertegenwoordigd door deze verbindingsreeks moet hetzelfde account dat door de doel-orchestrator-functies gebruikt. Als niet wordt opgegeven, wordt de standaard-verbindingsreeks voor de functie-app gebruikt.
+* `connectionName`-De naam van een app-instelling met een verbindingsreeks voor opslag-account. Het opslagaccount dat wordt vertegenwoordigd door deze verbindingsreeks moet hetzelfde account dat door de doel-orchestrator-functies gebruikt. Als niet wordt opgegeven, wordt de verbindingsreeks standaard storage-account voor de functie-app gebruikt.
 
 > [!NOTE]
 > In de meeste gevallen wordt aangeraden dat u deze eigenschappen weglaten en zijn afhankelijk van het standaardgedrag.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Clientvoorbeeld (geen Visual Studio)
 
-Als u Visual Studio niet voor ontwikkeling gebruikt, kunt u het volgende function.json-bestand maken. In dit voorbeeld ziet u hoe een wachtrij geactiveerd functie die gebruikmaakt van de binding duurzame orchestration-client configureren:
+Als u Visual Studio niet voor ontwikkeling gebruikt, kunt u de volgende *function.json* bestand. In dit voorbeeld ziet u hoe een wachtrij geactiveerd functie die gebruikmaakt van de binding duurzame orchestration-client configureren:
 
 ```json
 {

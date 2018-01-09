@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Wat zijn App-wachtwoorden in Azure multi-factor Authentication?
 Bepaalde niet-browsertoepassingen, zoals de systeemeigen e-mailclient van Apple die gebruikmaakt van Exchange Active Sync, ondersteunen momenteel geen multi-factor authentication-server. Multi-factor authentication is ingeschakeld per gebruiker. Dit betekent dat als een gebruiker is ingeschakeld voor multi-factor authentication en ze zijn bij het gebruik van niet-browsertoepassingen, ze zich niet te doen. Een app-wachtwoord maakt dit mogelijk. Als u multi-factor Authentication via beleid voor voorwaardelijke toegang en niet via MFA per gebruiker afdwingen, kunt u geen app-wachtwoorden maken. Toepassingen die gebruikmaken van beleidsregels voor voorwaardelijke toegang om toegang te beheren, hoeft geen app-wachtwoorden.
@@ -55,30 +55,12 @@ Tijdens de eerste aanmelden krijgt u een app-wachtwoord die u kunt gebruiken.  U
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>App-wachtwoorden in de Azure portal beheren
 Als u verificatie in twee stappen met Azure gebruikt, die u wilt maken van app-wachtwoorden via de Azure portal.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Appwachtwoorden te maken in de Azure portal
-1. Meld u aan bij de klassieke Azure-portal.
-2. Aan de bovenkant met de rechtermuisknop op uw gebruikersnaam en aanvullende beveiligingsverificatie.
-3. Selecteer op de pagina proofup aan de bovenkant app-wachtwoorden
-4. Klik op **Create**.
-5. Voer een naam voor het app-wachtwoord en klik op **volgende**
-6. Het app-wachtwoord naar het Klembord kopiëren en plakken in uw app.
-
-   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Verwijderen van app-wachtwoorden in de Azure portal
-1. Meld u aan bij de klassieke Azure-portal.
-2. Aan de bovenkant met de rechtermuisknop op uw gebruikersnaam en aanvullende beveiligingsverificatie.
-3. Selecteer aan de bovenkant naast aanvullende beveiligingsverificatie **app-wachtwoorden.**
-4. Naast het app-wachtwoord dat u wilt verwijderen, selecteert u **verwijderen**.
-5. De verwijdering bevestigen door te klikken op **Ja**.
-6. Als het app-wachtwoord wordt verwijderd, klikt u op **sluiten**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>App-wachtwoorden met de portal MyApps beheren.
 Als u niet zeker weet hoe u meervoudige verificatie gebruiken, kunt klikt u altijd maken en verwijderen van app-wachtwoorden via de portal myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Een appwachtwoord met behulp van de portal Myapps maken
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Een appwachtwoord met behulp van de portal MyApps maken
 1. Aanmelden bij [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Klik op uw naam in de rechterbovenhoek en kies **profiel**.
 3. Selecteer **aanvullende beveiligingsverificatie**.
@@ -92,7 +74,7 @@ Als u niet zeker weet hoe u meervoudige verificatie gebruiken, kunt klikt u alti
 7. Het app-wachtwoord naar het Klembord kopiëren en plakken in uw app.
    ![Een app-wachtwoord maken](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Een app-wachtwoord met behulp van de portal Myapps verwijderen
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Een app-wachtwoord met behulp van de portal MyApps verwijderen
 1. Aanmelden bij [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Aan de bovenkant profiel te selecteren.
 3. Selecteer **aanvullende beveiligingsverificatie**.

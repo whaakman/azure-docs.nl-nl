@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Streaming-eindpunten met de Azure-portal beheren
 
-Dit onderwerp leest hoe de Azure portal gebruiken voor het beheren van streaming-eindpunten. 
+In dit artikel laat zien hoe de Azure portal gebruiken voor het beheren van streaming-eindpunten. 
 
 >[!NOTE]
->Leest de [overzicht](media-services-streaming-endpoints-overview.md) onderwerp. 
+>Leest de [overzicht](media-services-streaming-endpoints-overview.md) artikel. 
 
-Zie voor meer informatie over het schalen van het streaming-eindpunt [dit](media-services-portal-scale-streaming-endpoints.md) onderwerp.
+Zie voor meer informatie over het schalen van het streaming-eindpunt [dit](media-services-portal-scale-streaming-endpoints.md) artikel.
 
 ## <a name="start-managing-streaming-endpoints"></a>Beginnen met het streaming-eindpunten beheren 
 
@@ -69,7 +69,7 @@ Streaming-eindpunt, kunt u de volgende eigenschappen configureren:
 Zie voor gedetailleerde informatie over deze eigenschappen [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
->Wanneer de CDN is ingeschakeld, kunt u IP-toegang niet openen. IP-toegang is alleen van toepassing wanneer u geen CDN hebt.
+>Wanneer CDN is ingeschakeld, kunt u IP-toegang niet openen. IP-toegang is alleen van toepassing wanneer u geen CDN hebt.
 
 U kunt de streaming-eindpunt configureren als volgt:
 
@@ -86,17 +86,17 @@ Hier volgt een korte beschrijving van de velden.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Schalen van uw Premium streaming-eindpunt
 
-Raadpleeg [dit](media-services-portal-scale-streaming-endpoints.md) onderwerp voor meer informatie.
+Raadpleeg [dit artikel](media-services-portal-scale-streaming-endpoints.md) voor meer informatie.
 
 ## <a id="enable_cdn"></a>Integratie van Azure CDN inschakelen
 
 Wanneer u een nieuw account maakt, wordt standaard Streaming-eindpunt Azure CDN-integratie is standaard ingeschakeld.
 
-Als u later de CDN inschakelen/uitschakelen, uw streaming-eindpunt moet in de **gestopt** status. Dit kan maximaal twee uur voor de integratie van Azure CDN ophalen ingeschakeld en de wijzigingen worden actief zijn op alle de CDN POP's duren. Echter, u kunt uw streaming-eindpunt en stream zonder onderbrekingen starten vanaf het streaming-eindpunt en zodra de integratie voltooid is, de stroom vanaf de CDN worden geleverd. Tijdens het inrichtingsproces periode uw streaming-eindpunt worden weergegeven in **vanaf** status en u merkt wellicht degredad prestaties.
+Als u later de CDN inschakelen/uitschakelen, uw streaming-eindpunt moet in de **gestopt** status. Dit kan maximaal twee uur voor de integratie van Azure CDN ophalen ingeschakeld en de wijzigingen worden actief zijn op alle de CDN POP's duren. Echter, u kunt uw streaming-eindpunt en stream zonder onderbrekingen te starten vanaf het streaming-eindpunt en zodra de integratie voltooid is, de stream wordt geleverd vanaf de CDN. Tijdens het inrichtingsproces periode uw streaming-eindpunt worden weergegeven in **vanaf** status en u merkt wellicht degredad prestaties.
 
-CDN-integratie is ingeschakeld in de Azure datacenters execpt China en Federal Goverment regio's.
+CDN-integratie is ingeschakeld in de Azure-datacenters met uitzondering van China en overheid regio's.
 
-Zodra deze is ingeschakeld, de **toegangsbeheer**, **aangepaste hostnaam** en **Akamai Signature-verificatie** configuratie opgehaald uitgeschakeld.
+Zodra deze is ingeschakeld, de **toegangsbeheer**, ** aangepaste hostnaam, en **Akamai Signature-verificatie** configuratie opgehaald uitgeschakeld.
  
 > [!IMPORTANT]
 > Azure Media Services-integratie met Azure CDN is geïmplementeerd op **Azure CDN van Verizon** voor standaard streaming-eindpunten. Premium-streaming-eindpunten kan worden geconfigureerd met alle **Azure CDN prijzen lagen en providers**. Zie voor meer informatie over de functies van Azure CDN de [overzicht van CDN](../cdn/cdn-overview.md).
@@ -106,7 +106,7 @@ Zodra deze is ingeschakeld, de **toegangsbeheer**, **aangepaste hostnaam** en **
 * Wanneer CDN voor streaming-eindpunt is ingeschakeld, kunnen geen clients inhoud opvragen rechtstreeks vanuit de oorsprong. Als u de mogelijkheid om uw inhoud met of zonder CDN te testen, kunt u een ander streaming-eindpunt dat niet ingeschakeld CDN is kunt maken.
 * Hostnaam van uw streaming-eindpunt hetzelfde is gebleven na het inschakelen van CDN. U hoeft niet te wijzigen voor uw media services-werkstroom nadat CDN is ingeschakeld. Bijvoorbeeld, als uw streaming endpoint-hostnaam strasbourg.streaming.mediaservices.windows.net, nadat de CDN is ingeschakeld, wordt de exacte dezelfde hostnaam gebruikt.
 * Voor nieuwe streaming-eindpunten, kunt u CDN inschakelen door te maken van een nieuw eindpunt; voor bestaande streaming-eindpunten moet u eerst het eindpunt te stoppen en klik vervolgens in-of uitschakelen de CDN.
-* Standaard streaming-eindpunt kan alleen worden geconfigureerd met behulp van **Verizon standaard CDN-provider** met behulp van Azure-beheerportal. U kunt echter andere Azure CDN-providers met REST API's inschakelen.
+* Standaard streaming-eindpunt kan alleen worden geconfigureerd met behulp van **Verizon standaard CDN-provider** met behulp van de klassieke Azure-portal. U kunt echter andere Azure CDN-providers met REST API's inschakelen.
 
 ## <a name="configure-cdn-profile"></a>CDN-profiel configureren
 

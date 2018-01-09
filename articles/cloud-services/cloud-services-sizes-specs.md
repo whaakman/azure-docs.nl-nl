@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Grootten voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor Cloudservice rolexemplaren (webrollen en werkrollen). Het biedt tevens overwegingen voor de implementatie moet letten bij het plannen van deze bronnen te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte beschikbaar zijn op de [Cloud Services-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
@@ -188,10 +188,10 @@ Als de aard van uw werkbelasting wordt gewijzigd of nieuwe VM-grootten beschikba
 >
 
 ## <a name="get-a-list-of-sizes"></a>Een lijst met grootten
-U kunt PowerShell of de REST-API gebruiken voor een lijst met grootten. De REST-API wordt beschreven [hier](https://msdn.microsoft.com/library/azure/dn469422.aspx). De volgende code is een PowerShell-opdracht met de momenteel beschikbare grootten voor de Cloudservice.
+U kunt PowerShell of de REST-API gebruiken voor een lijst met grootten. De REST-API wordt beschreven [hier](https://msdn.microsoft.com/library/azure/dn469422.aspx). De volgende code is een PowerShell-opdracht die een met alle grootten voor een opgegeven locatie lijst wordt. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRmVMSize -Location 'West Europe'
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

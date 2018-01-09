@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard schema | Microsoft Docs
-description: Het onderwerp overzicht een van de Media Encoder Standard schema.
+description: Het artikel biedt een overzicht van de Media Encoder Standard schema.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard schema
-In dit onderwerp worden enkele van de elementen en typen van het XML-schema beschreven waarop [Media Encoder Standard voorinstellingen](media-services-mes-presets-overview.md) zijn gebaseerd. Het onderwerp geeft een uitleg van de elementen en hun geldige waarden. Het volledige schema wordt gepubliceerd op een later tijdstip.  
+In dit artikel worden enkele van de elementen en typen van het XML-schema beschreven waarop [Media Encoder Standard voorinstellingen](media-services-mes-presets-overview.md) zijn gebaseerd. Het artikel geeft uitleg van de elementen en hun geldige waarden.  
 
 ## <a name="Preset"></a>Voorinstelling (hoofdelement)
 Hiermee definieert u een codering voorinstelling.  
@@ -35,10 +35,10 @@ Hiermee definieert u een codering voorinstelling.
 ### <a name="attributes"></a>Kenmerken
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **Versie**<br/><br/> Vereist |**xs:decimal** |De vooraf ingestelde versie. Gelden de volgende beperkingen: xs:fractionDigits waarde = "1" en xs:minInclusive value = "1" bijvoorbeeld **versie = "1.0"**. |
+| **Versie**<br/><br/> Vereist |**xs: decimaal** |De vooraf ingestelde versie. Gelden de volgende beperkingen: xs:fractionDigits waarde = "1" en xs:minInclusive value = "1" bijvoorbeeld **versie = "1.0"**. |
 
 ## <a name="Encoding"></a>Codering
-Bevat een reeks van de volgende elementen.  
+Bevat een reeks van de volgende elementen:  
 
 ### <a name="elements"></a>Elementen
 | Naam | Type | Beschrijving |
@@ -54,20 +54,20 @@ Bevat een reeks van de volgende elementen.
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs = '0' |**xs:Boolean** |Codering in slechts één keer wordt momenteel ondersteund. |
-| **KeyFrameInterval**<br/><br/> minOccurs = '0'<br/><br/> **standaardwaarde = "00: 00:02 '** |**xs:time** |Bepaalt de vaste afstand tussen IDR frames in eenheden van seconden. Ook de duur GOP genoemd. Zie **SceneChangeDetection** (Zie hieronder) voor het beheren van of het coderingsprogramma van deze waarde afwijken kan. |
-| **SceneChangeDetection**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = "false" |**xs:Boolean** |Als is ingesteld op true, encoder probeert te detecteren scene wijziging in de video en een frame IDR invoegen. |
+| **KeyFrameInterval**<br/><br/> minOccurs = '0'<br/><br/> **standaardwaarde = "00: 00:02 '** |**xs:time** |Bepaalt de vaste afstand tussen IDR frames in eenheden van seconden. Ook de duur GOP genoemd. Zie **SceneChangeDetection** voor het beheren van of het coderingsprogramma van deze waarde afwijken kan. |
+| **SceneChangeDetection**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = "false" |**xs: Booleaanse** |Als is ingesteld op true, encoder probeert te detecteren scene wijziging in de video en een frame IDR invoegen. |
 | **Complexiteit**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Evenwichtig' |**xs:String** |Hiermee bepaalt u de verhouding tussen coderen snelheid en video. Kan een van de volgende waarden zijn: **snelheid**, **Gebalanceerd**, of **kwaliteit**<br/><br/> Standaardwaarde: **met gelijke taakverdeling** |
-| **SyncMode**<br/><br/> minOccurs = '0' | |Functie wordt in een toekomstige releases worden blootgesteld. |
+| **SyncMode**<br/><br/> minOccurs = '0' | |Functie zichtbaar in een toekomstige release. |
 | **H264Layers**<br/><br/> minOccurs = '0' |[H264Layers](media-services-mes-schema.md#H264Layers) |Verzameling van uitvoer video lagen. |
 
 ### <a name="attributes"></a>Kenmerken
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **Voorwaarde** |**xs:String** | Wanneer de invoer geen video heeft, is het raadzaam om af te dwingen van het coderingsprogramma invoegen monochroom video bijgehouden. Hiertoe voorwaarde gebruiken = 'InsertBlackIfNoVideoBottomLayerOnly' (voor een video invoegen op alleen de laagste bitrate) of voorwaarde = 'InsertBlackIfNoVideo' (een video helemaal invoegen uitvoer bitsnelheden). Raadpleeg [dit](media-services-advanced-encoding-with-mes.md#no_video) onderwerp voor meer informatie.|
+| **Voorwaarde** |**xs:String** | Wanneer de invoer geen video heeft, is het raadzaam om af te dwingen van het coderingsprogramma invoegen monochroom video bijgehouden. Hiertoe voorwaarde gebruiken = 'InsertBlackIfNoVideoBottomLayerOnly' (voor een video invoegen op alleen de laagste bitrate) of voorwaarde = 'InsertBlackIfNoVideo' (een video helemaal invoegen uitvoer bitsnelheden). Raadpleeg [dit artikel](media-services-advanced-encoding-with-mes.md#no_video) voor meer informatie.|
 
 ## <a name="H264Layers"></a>H264Layers
 
-Standaard als u de invoer voor de codering met alleen audio en geen video verzendt bevat de uitvoerasset bestanden met alleen audiogegevens. Sommige spelers kan wellicht geen dergelijke uitvoerstromen verwerkt. U kunt de H264Video **InsertBlackIfNoVideo** kenmerk instelling om af te dwingen van het coderingsprogramma video bijgehouden toevoegen aan de uitvoer in dat scenario. Raadpleeg [dit](media-services-advanced-encoding-with-mes.md#no_video) onderwerp voor meer informatie.
+Als u de invoer voor de codering met alleen audio en geen video verzendt bevat de uitvoerasset standaard bestanden met alleen audiogegevens. Sommige spelers kan wellicht geen dergelijke uitvoerstromen verwerkt. U kunt de H264Video **InsertBlackIfNoVideo** kenmerk instelling om af te dwingen van het coderingsprogramma video bijgehouden toevoegen aan de uitvoer in dat scenario. Raadpleeg [dit artikel](media-services-advanced-encoding-with-mes.md#no_video) voor meer informatie.
               
 ### <a name="elements"></a>Elementen
 | Naam | Type | Beschrijving |
@@ -83,18 +83,18 @@ Standaard als u de invoer voor de codering met alleen audio en geen video verzen
 ### <a name="elements"></a>Elementen
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **Profiel**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Auto' |**xs:String** |Kan niet van een van de volgende **xs:string** waarden: **automatisch**, **basislijn**, **Main**, **hoge**. |
-| **Niveau**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Auto' |**xs:String** | |
+| **Profiel**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Auto' |**xs: tekenreeks** |Kan niet van een van de volgende **xs: tekenreeks** waarden: **automatisch**, **basislijn**, **Main**, **hoge**. |
+| **Niveau**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Auto' |**xs: tekenreeks** | |
 | **Bitrate**<br/><br/> minOccurs = '0' |**xs:int** |De bitrate gebruikt voor deze video laag, opgegeven in kbps. |
-| **MaxBitrate**<br/><br/> minOccurs = '0' |**xs:int** |De maximale bitrate gebruikt voor deze video laag, opgegeven in kbps. |
-| **BufferWindow**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = "00: 00:05 ' |**xs:time** |De lengte van de video buffer. |
-| **Breedte**<br/><br/> minOccurs = '0' |**xs:int** |De breedte van de video frame van uitvoer in pixels.<br/><br/> Houd er rekening mee dat op dit moment moet u zowel de breedte en hoogte. De breedte en hoogte moeten even getallen. |
-| **Hoogte**<br/><br/> minOccurs = '0' |**xs:int** |De hoogte van de video frame van uitvoer in pixels.<br/><br/> Houd er rekening mee dat op dit moment moet u zowel de breedte en hoogte. De breedte en hoogte moeten even getallen.|
-| **BFrames**<br/><br/> minOccurs = '0' |**xs:int** |Het aantal B frames tussen verwijzing frames. |
+| **MaxBitrate**<br/><br/> minOccurs = '0' |**xs: int** |De maximale bitrate gebruikt voor deze video laag, opgegeven in kbps. |
+| **BufferWindow**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = "00: 00:05 ' |**xs: tijd** |De lengte van de video buffer. |
+| **Breedte**<br/><br/> minOccurs = '0' |**xs: int** |De breedte van de video frame van uitvoer in pixels.<br/><br/> Op dit moment moet u zowel de breedte en hoogte. De breedte en hoogte moeten even getallen. |
+| **Hoogte**<br/><br/> minOccurs = '0' |**xs:int** |De hoogte van de video frame van uitvoer in pixels.<br/><br/> Op dit moment moet u zowel de breedte en hoogte. De breedte en hoogte moeten even getallen.|
+| **BFrames**<br/><br/> minOccurs = '0' |**xs: int** |Het aantal B frames tussen verwijzing frames. |
 | **ReferenceFrames**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = "3" |**xs:int** |Aantal frames in een GOP verwijzing. |
-| **EntropyMode**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Cabac' |**xs:String** |Kan een van de volgende waarden zijn: **Cabac** en **Cavlc**. |
-| **Framesnelheid**<br/><br/> minOccurs = '0' |rationele getal |Bepaalt de framesnelheid van de uitvoervideo. De standaardwaarde van '0/1' het coderingsprogramma de dezelfde framesnelheid gebruiken als invoer video laten gebruiken. Toegestane waarden zijn bedoeld voor algemene video framesnelheid, zoals hieronder wordt weergegeven. Echter, een geldige rationele is toegestaan. Bijvoorbeeld 1/1 1 fps zou zijn en geldig is.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25/1 (25 fps)<br/><br/>  -30/1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Opmerking** als u een aangepaste voorinstelling voor het coderen van meerdere bitrate vervolgens alle lagen van de vooraf ingestelde **moet** framesnelheid dezelfde waarde gebruiken.|
-| **AdaptiveBFrame**<br/><br/> minOccurs = '0' |**xs:Boolean** |Kopiëren van Azure media encoder |
+| **EntropyMode**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'Cabac' |**xs: tekenreeks** |Kan een van de volgende waarden zijn: **Cabac** en **Cavlc**. |
+| **Framesnelheid**<br/><br/> minOccurs = '0' |rationele getal |Bepaalt de framesnelheid van de uitvoervideo. De standaardwaarde van '0/1' het coderingsprogramma de dezelfde framesnelheid gebruiken als invoer video laten gebruiken. Toegestane waarden zijn algemene video framesnelheid verwacht. Echter, een geldige rationele is toegestaan. Bijvoorbeeld: 1/1 1 fps zou zijn en is geldig.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25/1 (25 fps)<br/><br/>  -30/1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Opmerking** als u een aangepaste voorinstelling voor het coderen van meerdere bitrate vervolgens alle lagen van de vooraf ingestelde **moet** framesnelheid dezelfde waarde gebruiken.|
+| **AdaptiveBFrame**<br/><br/> minOccurs = '0' |**xs: Booleaanse** |Kopiëren van Azure media encoder |
 | **Segmenten**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = '0' |**xs:int** |Hiermee wordt bepaald hoeveel segmenten een frame is onderverdeeld in. Raden het gebruik van standaard. |
 
 ## <a name="AACAudio"></a>AACAudio
@@ -105,15 +105,15 @@ Standaard als u de invoer voor de codering met alleen audio en geen video verzen
 ### <a name="elements"></a>Elementen
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **Profiel**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'AACLC' |**xs:String** |Kan een van de volgende waarden zijn: **AACLC**, **HEAACV1**, of **HEAACV2**. |
+| **Profiel**<br/><br/> minOccurs = '0'<br/><br/> standaardwaarde = 'AACLC' |**xs: tekenreeks** |Kan een van de volgende waarden zijn: **AACLC**, **HEAACV1**, of **HEAACV2**. |
 
 ### <a name="attributes"></a>Kenmerken
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **Voorwaarde** |**xs:String** |Als u wilt dat de codering voor het produceren van een activum met een achtergrond-nummer invoer heeft geen audio, geeft u de waarde 'InsertSilenceIfNoAudio'.<br/><br/> Standaard als u de invoer voor de codering met alleen video en geen audio verzendt bevat vervolgens de uitvoerasset bestanden die alleen video gegevens bevatten. Sommige spelers kan wellicht geen dergelijke uitvoerstromen verwerkt. U kunt deze instelling gebruiken om af te dwingen van het coderingsprogramma een achtergrond-nummer toevoegen aan de uitvoer in dat scenario. |
+| **Voorwaarde** |**xs: tekenreeks** |Als u wilt dat de codering voor het produceren van een activum met een achtergrond-nummer invoer heeft geen audio, geeft u de waarde 'InsertSilenceIfNoAudio'.<br/><br/> Standaard als u de invoer voor de codering met alleen video en geen audio verzendt bevat vervolgens de uitvoerasset bestanden die alleen video gegevens bevatten. Sommige spelers kan wellicht geen dergelijke uitvoerstromen verwerkt. U kunt deze instelling gebruiken om af te dwingen van het coderingsprogramma een achtergrond-nummer toevoegen aan de uitvoer in dat scenario. |
 
 ### <a name="groups"></a>Groepen
-| Naslaginformatie | Beschrijving |
+| Referentie | Beschrijving |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = '0' |Zie de beschrijving van [AudioGroup](media-services-mes-schema.md#AudioGroup) weten van het juiste aantal kanalen, samplefrequentie en bitsnelheid die kan worden ingesteld voor elk profiel. |
 
@@ -123,9 +123,9 @@ Zie de onderstaande tabel "Audio codec gegevens" voor meer informatie over welke
 ### <a name="elements"></a>Elementen
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **Kanalen**<br/><br/> minOccurs = '0' |**xs:int** |Het aantal audio kanalen die zijn gecodeerd. De volgende geldige opties zijn: 1, 2, 5, 6, 8.<br/><br/> Standaard: 2. |
-| **SamplingRate**<br/><br/> minOccurs = '0' |**xs:int** |De audio samplefrequentie, opgegeven in Hz. |
-| **Bitrate**<br/><br/> minOccurs = '0' |**xs:int** |De bitrate gebruikt wanneer de audio-codering opgegeven in kbps. |
+| **Kanalen**<br/><br/> minOccurs = '0' |**xs: int** |Het aantal audio kanalen die zijn gecodeerd. De volgende geldige opties zijn: 1, 2, 5, 6, 8.<br/><br/> Standaard: 2. |
+| **SamplingRate**<br/><br/> minOccurs = '0' |**xs: int** |De audio samplefrequentie, opgegeven in Hz. |
+| **Bitrate**<br/><br/> minOccurs = '0' |**xs: int** |De bitrate gebruikt wanneer de audio-codering opgegeven in kbps. |
 
 ### <a name="audio-codec-details"></a>Audio-codec details
 Audio-Codec|Details  
@@ -170,17 +170,17 @@ Audio-Codec|Details
 | **PreserveResolutionAfterRotation** |**xs:Boolean** |Zie de volgende sectie voor een gedetailleerde uitleg: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a>PreserveResolutionAfterRotation
-Het is raadzaam de vlag PreserveResolutionAfterRotation gebruiken in combinatie met resolutiewaarden uitgedrukt in percentages (Width = "100%", hoogte = "100%").  
+Het is raadzaam de **PreserveResolutionAfterRotation** vlag in combinatie met de omzetting van waarden die zijn uitgedrukt in percentages (Width = "100%", hoogte = "100%").  
 
-Standaard worden de coderen resolutie-instellingen (Width en Height) in de standaardinstellingen voor Media Encoder Standard (MES) gericht op video's met 0 graden. Bijvoorbeeld, als uw invoervideo 1280 x 720 met nul graden, klikt u vervolgens de standaardinstellingen van de standaard Zorg ervoor dat de uitvoer dezelfde resolutie. Zie de volgende afbeelding.  
+Standaard worden de coderen resolutie-instellingen (Width en Height) in de standaardinstellingen voor Media Encoder Standard (MES) gericht op video's met 0 graden. Bijvoorbeeld, als uw invoervideo 1280 x 720 met nul graden, klikt u vervolgens de standaardinstellingen van de standaard Zorg ervoor dat de uitvoer dezelfde resolutie.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-Dit betekent dat als de invoer video is opgenomen met niet-nul draaihoek (bv. een smartphone of tablet ondergebracht verticaal), vervolgens MES standaard wordt de coderen resolutie-instellingen (Width en Height) van toepassing op de video invoer en vervolgens voor de draaihoek compenseren. Bijvoorbeeld, Zie de volgende afbeelding. De vooraf ingestelde gebruikt breedte = "100%", hoogte = "100%", die MES wordt opgevat als het vereisen van de uitvoer moet 1280 pixels breed en 720 pixels hoog. Na het roteren van de video wordt deze vervolgens de afbeelding in dit venster inpast leidt tot pillar-box gebieden op links, rechts kleiner.  
+Als de invoer video is opgenomen met niet-nul draaihoek (bijvoorbeeld een smartphone of tablet ondergebracht verticaal), vervolgens MES standaard de instellingen voor het omzetten coderen (Width en Height) van toepassing is op de video invoer en vervolgens compenseren voor de draaihoek. Bijvoorbeeld, Zie de volgende afbeelding. De vooraf ingestelde gebruikt breedte = "100%", hoogte = "100%", die MES wordt opgevat als het vereisen van de uitvoer moet 1280 pixels breed en 720 pixels hoog. Na het roteren van de video wordt deze vervolgens de afbeelding in dit venster inpast leidt tot pillar-box gebieden op links, rechts kleiner.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Als het bovenstaande niet het gewenste gedrag is, dan kunt u het gebruik van de vlag PreserveResolutionAfterRotation en wordt ingesteld op 'true' (de standaardwaarde is "false"). Dus als uw vooraf ingestelde breedte = heeft "100%", hoogte = "100%" en PreserveResolutionAfterRotation ingesteld op 'true', een invoervideo die 1280 pixels breed en 720 pixels hoog met 90 graden produceert een uitvoer met nul graden, maar 720 pixels breed en 1280 pixels hoog. Zie de volgende afbeelding.  
+U kunt ook kunt u het gebruik van de **PreserveResolutionAfterRotation** vlag en wordt ingesteld op 'true' (de standaardwaarde is "false"). Dus als uw vooraf ingestelde breedte = heeft "100%", hoogte = "100%" en PreserveResolutionAfterRotation ingesteld op 'true', een invoervideo die 1280 pixels breed en 720 pixels met 90 graden hoog is, wordt een uitvoer met nul graden maar 720 pixels breed en 1280 pixels hoog. Zie de volgende afbeelding:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

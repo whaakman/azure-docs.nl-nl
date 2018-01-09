@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -34,6 +34,9 @@ Azure Cosmos DB en Azure Functions, kunt u voor het integreren van uw databases 
 * Een Azure-functie ook koppelen aan een Azure Cosmos DB verzameling met een **invoer binding**. Wanneer een functie wordt uitgevoerd, invoer bindingen gegevens lezen uit een container.
 * Een functie binden aan een Azure Cosmos DB verzameling met een **uitvoer binding**. Wanneer een functie is voltooid, uitvoer bindingen gegevens schrijven naar een container.
 
+> [!NOTE]
+> Op dit moment worden de Azure DB die Cosmos trigger bindingen invoer en uitvoer bindingen met SQL-API en Graph API-accounts werken.
+
 Het volgende diagram illustreert elk van deze drie integraties: 
 
 ![De manier waarop Azure Cosmos DB en Azure Functions integreert](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ De Azure DB die Cosmos trigger, binding invoer en uitvoer binding kunnen worden 
 * Een Azure DB die Cosmos-trigger kan worden gebruikt met een uitvoer-binding met een andere Azure DB die Cosmos-container. Nadat een functie een actie uitgevoerd op een item in de feed wijzigen kunt u het schrijven naar een andere container (schrijven naar de container die is afkomstig van een recursieve lus effectief te maken). Of u kunt een Azure DB die Cosmos-trigger effectief alle gewijzigde items uit een container te migreren naar een andere container, met het gebruik van een uitvoer-binding.
 * Bindingen voor invoer en uitvoer bindingen voor Azure Cosmos DB kunnen worden gebruikt in dezelfde Azure-functie. Dit werkt goed in gevallen wanneer u wilt zoeken van bepaalde gegevens met de invoer binding, wijzigen in de Azure-functie en vervolgens opslaan in dezelfde container of een andere container na de wijziging.
 * Een invoer-binding aan een Azure DB die Cosmos-container kan worden gebruikt in dezelfde functie uit als een Azure DB die Cosmos-trigger en kan worden gebruikt met of zonder binding ook uitvoer. U kunt deze combinatie up-to-date valuta exchange-gegevens (opgehaald met een invoer-binding aan een exchange-container) toepassen op de feed wijziging van de nieuwe orders in uw winkelwagen winkelwagen-service. De winkelwagen winkelwagen Totaal bijgewerkt, kan met de huidige valutaconversie toegepast, worden geschreven naar een derde container met een uitvoer-binding.
-
-> [!NOTE]
-> Op dit moment worden de Azure DB die Cosmos trigger bindingen invoer en uitvoer bindingen met SQL-API en Graph API-accounts werken.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 

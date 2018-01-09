@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom gebruiken om Widevine-licenties te leveren aan Azure Media Services
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ In dit artikel wordt beschreven hoe integreren en Widevine-licentieserver beheer
 * Een JWT-token genereren om te voldoen aan de vereisten voor productlicenties server;
 * Azure Media Player-app die aanschaf van licentie met JWT-token verificatie zorgt; ontwikkelt
 
-Het volledige systeem en de stroom van inhoud die en de belangrijkste-ID, sleutel seed, JTW token en de claims kan beste door het volgende diagram worden beschreven.
+Het volledige systeem als de stroom van inhoudssleutel, sleutel-ID, sleutel seed JTW token en de claims kunnen beste door het volgende diagram worden beschreven:
 
 ![DASH en CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -47,13 +47,13 @@ Zie voor het configureren van dynamische beveiliging en belangrijke leveringsbel
 
 U kunt dynamische CENC beveiliging configureren met multi-DRM voor beide van de volgende streaming DASH:
 
-1. PlayReady-beveiliging voor MS Edge en IE11 die kan een token autorisatiebeperkingen hebben. Beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een Secure Token Service (STS), zoals Azure Active Directory.
+1. PlayReady-beveiliging voor MS Edge en IE11 die een token autorisatie-beperking kan hebben. Beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een Secure Token Service (STS), zoals Azure Active Directory.
 2. Widevine-beveiliging voor Chrome, kan deze tokenverificatie vereisen met token dat is uitgegeven door een andere STS. 
 
 Zie [genereren van JWT-tokens](media-services-axinom-integration.md#jwt-token-generation) sectie voor waarom Azure Active Directory kan niet worden gebruikt als een STS voor Axinom van Widevine-licentieserver.
 
 ### <a name="considerations"></a>Overwegingen
-1. Moet u de opgegeven Axinom sleutel seed (8888000000000000000000000000000000000000) en de gegenereerde of geselecteerde ID voor het genereren van de inhoudssleutel voor het configureren van de service voor het leveren van sleutel van de sleutel. Licentieserver Axinom verleent alle licenties die inhoud sleutels op basis van de dezelfde sleutel seed die geldig voor testen en productie is.
+1. Moet u de opgegeven Axinom sleutel seed (8888000000000000000000000000000000000000) en de gegenereerde of geselecteerde ID voor het genereren van de inhoudssleutel voor het configureren van de service voor het leveren van sleutel van de sleutel. Axinom licentieserver alle licenties die inhoud sleutels op basis van de dezelfde sleutel seed die geldig voor testen en productie is.
 2. De URL Widevine-licentie verkrijgen voor het testen: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). HTTP- en HTTS zijn toegestaan.
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player voorbereiding
@@ -65,14 +65,14 @@ De Widevine-licentie geleverd door Axinom JWT-token is verificatie vereist. De J
 
 De rest van AMP code is standaard AMP API zoals in het document AMP [hier](http://amp.azure.net/libs/amp/latest/docs/).
 
-Houd er rekening mee dat bovenstaande javascript voor aangepaste autorisatie-header instelling nog steeds een korte termijn benadering voordat de officiële benadering van de lange termijn in AMP wordt vrijgegeven.
+De bovenstaande javascript voor instelling aangepaste autorisatie-header is nog steeds een korte termijn benadering voordat de officiële op lange termijn benadering in AMP wordt uitgebracht.
 
 ## <a name="jwt-token-generation"></a>Genereren van JWT-tokens
 Axinom Widevine-licentie voor het testen van JWT-token is verificatie vereist. Bovendien is een van de claims in de JWT-token van een complex type in plaats van een primitief gegevenstype.
 
 Azure AD kunt helaas alleen JWT-tokens uitgeven met primitieve typen. Op deze manier kunt .NET Framework-API (System.IdentityModel.Tokens.SecurityTokenHandler en JwtPayload) u alleen voor het invoeren van complexe objecttype als claims. De claims zijn echter nog steeds geserialiseerd als tekenreeks. Er kan daarom geen gebruikmaken van de twee voor het genereren van de JWT-token voor Widevine-licentie-aanvraag.
 
-John Sheehan van [JWT Nuget-pakket](https://www.nuget.org/packages/JWT) voldoet aan de behoeften, dus gaan we gebruiken deze Nuget-pakket.
+John Sheehan van [JWT NuGet-pakket](https://www.nuget.org/packages/JWT) voldoet aan de behoeften, dus gaan we gebruiken deze NuGet-pakket.
 
 Hieronder volgt de code voor het genereren van JWT-token met de benodigde claims door de server voor Axinom Widevine-licentie vereist voor het testen:
 
@@ -136,12 +136,12 @@ Axinom Widevine-licentieserver
 
 ### <a name="considerations"></a>Overwegingen
 1. Hoewel AMS PlayReady-service voor het leveren van licentie is vereist ' Bearer = "geen verificatietoken verdergaat Axinom Widevine-licentieserver gebruikt deze niet.
-2. De communicatie Axinom sleutel wordt gebruikt als de handtekeningsleutel. Houd er rekening mee dat de sleutel is een hexadecimale tekenreeks op, maar deze moet worden behandeld als een reeks bytes niet naar een tekenreeks als codering. Dit wordt bereikt door de methode ConvertHexStringToByteArray.
+2. De communicatie Axinom sleutel wordt gebruikt als de handtekeningsleutel. De sleutel is een hexadecimale tekenreeks, maar deze moet worden behandeld als een reeks bytes niet naar een tekenreeks als codering. Dit wordt bereikt door de methode ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Bij het ophalen van sleutel-ID
 U mogelijk opgevallen dat in de code voor het genereren van een JWT-token, sleutel-ID is vereist. Aangezien de JWT-token behoeften gereed is voordat het laden van de AMP player sleutel moet-ID worden opgehaald om te genereren van JWT-token.
 
-Uiteraard er zijn meerdere manieren voor ophalen van sleutel-id. Bijvoorbeeld, een kan opslaan ID sleutel samen met de metagegevens van inhoud in een database. Of u kunt ophalen sleutel-ID van het streepje MPD (beschrijving Media presentatie)-bestand. De volgende code is voor de laatste.
+Natuurlijk, er zijn meerdere manieren om op te halen van de blokkering van sleutel-id. Bijvoorbeeld, een kan opslaan ID sleutel samen met de metagegevens van inhoud in een database. Of u kunt ophalen sleutel-ID van het streepje MPD (beschrijving Media presentatie)-bestand. De volgende code is voor de laatste.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise-integratie met XML-transformaties
 ## <a name="overview"></a>Overzicht
@@ -72,6 +72,28 @@ U kunt nu de transformatie testen door een aanvraag voor het HTTP-eindpunt.
 * Gebruik de functie Test-kaart toevoegen van een bericht van de XML-voorbeeld. U kunt met een enkele klik testen van de kaart die u hebt gemaakt en verschijnt de gegenereerde uitvoer.  
 * Bestaande maps uploaden  
 * Biedt ondersteuning voor de XML-indeling.
+
+## <a name="adanced-features"></a>Adanced functies
+De volgende functies kunnen alleen worden benaderd vanuit de codeweergave.
+
+### <a name="byte-order-mark"></a>Byte Order Mark
+Standaard wordt het antwoord van de transformatie met Byte Order Mark (BOM) gestart. Geef om deze functionaliteit is uitgeschakeld, `disableByteOrderMark` voor de `transformOptions` eigenschap:
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## <a name="learn-more"></a>Meer informatie
 * [Meer informatie over het Enterprise-integratiepakket](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  

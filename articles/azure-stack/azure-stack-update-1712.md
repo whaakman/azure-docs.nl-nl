@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 
 #### <a name="new-features"></a>Nieuwe functies
 
-- Nieuwe gebruikerservaring bij het maken van items in de Marketplace
 - Test AzureStack cmdlet voor het valideren van de Azure-Stack Cloud beschikbaar via bevoorrechte-eindpunt
 - Mogelijkheid om te registreren van een niet-verbonden implementatie van Azure-Stack
 - Bewaking van waarschuwingen voor verlopen van certificaat en de gebruiker
@@ -76,7 +75,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 
 - [Januari, 3e-2018: KB4056890 (OS-Build 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Deze update bevat de software-oplossingen voor het beveiligingsprobleem voor een algemeen geaccepteerde beschreven door [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces kan controleren
 
 Deze sectie vindt bekende problemen die tijdens de installatie van de 1712 update optreden kunnen.
@@ -103,7 +102,7 @@ Deze sectie bevat na de installatie bekende problemen met build **180106.1**.
 
    - Mogelijk ziet u een lege rij boven aan de lijst. U moet nog steeds mogelijk een item selecteren zoals verwacht.
    - Als de lijst met items in de vervolgkeuzelijst kort is, kan het niet mogelijk om een van de namen van items weer te geven.
-   - Als u meerdere gebruikersabonnementen hebt, kan de lijst met resources groep vervolgkeuzelijst leeg zijn. 
+   - Als u meerdere gebruikersabonnementen hebt, kan de lijst met resources groep vervolgkeuzelijst leeg zijn.
 
         > [!NOTE]
         > Om de problemen met de laatste twee omzeilen, kunt u de naam van het abonnement of resourcegroep (als u deze kent) typen of u kunt in plaats daarvan PowerShell gebruiken.
@@ -124,16 +123,16 @@ Deze sectie bevat na de installatie bekende problemen met build **180106.1**.
 - U kunt een virtuele machine beschikbaarheidsset alleen met een domein met fouten van een en een updatedomein van een configureren.
 - Er is geen marketplace-ervaring voor het maken van virtuele-machineschaalsets. U kunt een schaal ingesteld met behulp van een sjabloon maken.
 - Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Netwerken
 - U kunt een load balancer met een openbaar IP-adres maken met behulp van de portal. Als tijdelijke oplossing kunt u PowerShell gebruiken voor het maken van de load balancer.
 - Wanneer u een network load balancer maken, moet u een regel network address translation (NAT) maken. Als u dat niet doet, ontvangt u een fout wanneer u probeert een NAT-regel toevoegen nadat de load balancer is gemaakt.
 - U kunt een openbare IP-adres van een virtuele machine (VM) kan niet loskoppelen nadat de virtuele machine is gemaakt en gekoppeld aan dat IP-adres. Disassociation wordt weergegeven om te werken, maar de eerder toegewezen openbaar IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine. Dit gebeurt zelfs als u een nieuwe virtuele machine het IP-adres toewijzen (gewoonlijk aangeduid als een *VIP's wisselen*). Alle toekomstige verbinding probeert te maken via dit resultaat van de IP-adres in van een verbinding met de oorspronkelijk gekoppelde virtuele machine en niet naar het nieuwe bericht. U moet nieuwe openbare IP-adressen op dit moment alleen gebruiken voor het maken van nieuwe virtuele machine.
 - Azure Stack-operators kunnen mogelijk geen implementeren, verwijderen, wijzigen Vns of Netwerkbeveiligingsgroepen. Dit probleem is hoofdzakelijk zichtbaar op latere update pogingen van hetzelfde pakket. Dit wordt veroorzaakt door een probleem pakketten met een update die op dit moment onderzocht wordt.
 - MAC-adressen verwerkt interne Load Balancing (ILB) niet goed voor back-end virtuele machines waarop Linux, alle exemplaren wordt verbroken.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Dit kan een uur duren voordat tenants databases in een nieuwe SQL- of MySQL SKU kunnen maken. 
+- Dit kan een uur duren voordat tenants databases in een nieuwe SQL- of MySQL SKU kunnen maken.
 - Maken van artikelen die rechtstreeks op de SQL- en MySQL die als host fungeert voor servers die niet worden uitgevoerd door de resourceprovider wordt niet ondersteund en kan leiden tot een niet-overeenkomende staat.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ U kunt het pakket met de Azure-Stack 1712 update downloaden [hier](https://aka.m
 Microsoft is een manier om te controleren en updates met behulp van de bevoegde eindpunt (PEP) is geïnstalleerd met Update 1712 hervatten opgegeven.
 
 - Zie de [in Azure-Stack met behulp van de bevoegde endpoint-documentatie-updates controleren](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## <a name="see-also"></a>Zie ook
 
 - Zie [beheren van updates in het overzicht van Azure-Stack](azure-stack-updates.md) voor een overzicht van de update management in Azure-Stack.
