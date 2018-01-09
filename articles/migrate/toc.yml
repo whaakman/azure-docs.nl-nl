@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: Machines groeperen met behulp van machineafhankelijkheden
       href: how-to-create-group-machine-dependencies.md
-    - name: Machines groeperen met behulp van VMware-tagging
-      href: how-to-tag-v-center.md
     - name: Een groep verfijnen met behulp van groepsafhankelijkheden
       href: how-to-create-group-dependencies.md
     - name: Een beoordeling aanpassen
