@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Verwerken van externe gebeurtenissen in duurzame functies (Azure-functies)
 
@@ -26,7 +26,7 @@ Orchestrator-functies hebben de mogelijkheid om te wachten en het luisteren naar
 
 ## <a name="wait-for-events"></a>Wachten op gebeurtenissen
 
-De [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) methode biedt de mogelijkheid een orchestrator-functie asynchroon wachten en het luisteren naar een externe gebeurtenis. De aanroeper verklaart de *naam* van de gebeurtenis en de *vorm van de gegevens* deze verwacht te ontvangen.
+De [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) methode biedt de mogelijkheid een orchestrator-functie asynchroon wachten en het luisteren naar een externe gebeurtenis. De luisterende orchestrator-functie verklaart de *naam* van de gebeurtenis en de *vorm van de gegevens* deze verwacht te ontvangen.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-Het vorige voorbeeld voor één gebeurtenis luistert en actie wordt uitgevoerd wanneer het ontvangen.
+Het vorige voorbeeld luistert naar een specifieke enkelvoudige gebeurtenis en actie wordt uitgevoerd wanneer het ontvangen.
 
 U kunt luisteren naar meerdere gebeurtenissen gelijktijdig, zoals in het volgende voorbeeld wordt gewacht op een van drie mogelijke gebeurtenismeldingen.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) voor onbepaalde tijd gewacht op sommige invoer.  De functie-app kan worden veilig verwijderd tijdens het wachten. Als een gebeurtenis voor dit exemplaar orchestration binnenkomt, wordt automatisch geactiveerd en onmiddellijk de gebeurtenis wordt verwerkt.
 
 > [!NOTE]
-> Geen kosten verbonden zijn terwijl een orchestrator-functie in afwachting van een taak vanuit `WaitForExternalEvent`, ongeacht hoe lang deze wacht.
+> Als de functie-app het verbruik van plan bent gebruikt, geen kosten verbonden zijn terwijl een orchestrator-functie in afwachting van een taak vanuit `WaitForExternalEvent`, ongeacht hoe lang deze wacht.
 
 Als de nettolading kan niet worden omgezet in het verwachte type `T`, er een uitzondering gegenereerd.
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure Stack registreren bij uw Azure-abonnement
 
@@ -36,7 +36,7 @@ Voordat u registreert Stack van Azure met Azure, moet u het volgende hebben:
 
 - De abonnement-ID voor een Azure-abonnement. Als u de ID, zich aanmelden bij Azure, klikt u op **meer services** > **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de **Abonnements-ID**. China, Duitsland en US government-cloudabonnementen zijn momenteel niet ondersteund.
 - De gebruikersnaam en het wachtwoord voor een account dat is eigenaar van het abonnement (MSA/2FA accounts worden ondersteund).
-- *Niet vereist vanaf Azure Stack 1712 updateversie (1.0.180103.2):* de Azure Active Directory voor het Azure-abonnement. U kunt deze map vinden in Azure door de muiswijzer op uw avatar in de rechterbovenhoek van de Azure portal.
+- *Niet vereist vanaf Azure Stack 1712 updateversie (180106.1):* de Azure Active Directory voor het Azure-abonnement. U kunt deze map vinden in Azure door de muiswijzer op uw avatar in de rechterbovenhoek van de Azure portal.
 
 Als u geen een Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/en-us/free/?b=17.06). Azure-Stack registreren maakt geen kosten op uw Azure-abonnement.
 
@@ -126,7 +126,7 @@ Als u wilt de facturering model of de functies voor uw installatie syndicatie wi
 
 
 ## <a name="disconnected-registration"></a>Niet-verbonden registratie
-*De informatie in deze sectie geldt die begint met de updateversie Azure Stack 1712 (1.0.180103.2) en wordt niet ondersteund in eerdere versies.*
+*De informatie in deze sectie geldt die begint met de updateversie Azure Stack 1712 (180106.1) en wordt niet ondersteund in eerdere versies.*
 
 Als u Azure-Stack in een omgeving zonder verbinding registreert, moet u een registratie-token ophalen uit de Stack van Azure-omgeving en dat token vervolgens gebruiken op een computer die verbinding met Azure voor registratie maken kan.  
 

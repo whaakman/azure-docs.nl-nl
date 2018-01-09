@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filteren van netwerkverkeer met netwerk- en beveiligingsgroepen (Preview)
 
@@ -33,7 +33,7 @@ Dit artikel bevat stappen voor het maken van netwerk beveiligingsgroepen via het
 > [!NOTE]
 > Deze zelfstudie maakt gebruik van netwerk groep beveiligingsfuncties die zich momenteel in preview-versie. Functies in de preview-versie beschikt niet over de beschikbaarheid en de betrouwbaarheid als functies in het algemeen release. In de preview, de functies zijn alleen beschikbaar in de volgende gebieden: WestCentralUS. Als u wilt netwerkbeveiliging groepen in het algemeen alleen functies met de release te implementeren, Zie [maken van een netwerkbeveiligingsgroep](virtual-networks-create-nsg-arm-pportal.md). 
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
 Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, Linux of Mac OS uitvoeren. Er zijn echter scripting verschillen tussen de houders van het besturingssysteem. De scripts in de volgende stappen uitvoeren in een Bash-shell. 
 
@@ -42,14 +42,14 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 3. Aanmelden bij Azure met de `az login` opdracht.
 4. Registreren voor de preview hiertoe de volgende opdrachten:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 6. Voer het volgende bash-script voor het maken van een resourcegroep:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 7. Drie toepassing beveiligingsgroepen maken, één voor elk servertype:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 8. Een netwerkbeveiligingsgroep maken:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 9. Beveiligingsregels voor verbindingen binnen het NSG, instellen van de toepassing-beveiligingsgroepen als doel maken:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 10. Een virtueel netwerk maken: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 11. De netwerkbeveiligingsgroep voor het subnet in het virtuele netwerk koppelen:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
     
 12. Maak drie netwerkinterfaces, één voor elk servertype: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       --application-security-groups "DatabaseServers"
     ```
 
-    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 9 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *WebRule* is van kracht voor *myNic1*, omdat de netwerkinterface lid van is de *endwebservers servers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *endwebservers servers* toepassing beveiligingsgroep als doel. De *AppRule* en *DatabaseRule* regels worden niet toegepast op *myNic1*, omdat de netwerkinterface geen lid van is de *AppServers*en *DatabaseServers* toepassing beveiligingsgroepen.
+    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 9 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *AppRule* regel is van kracht voor *myNic2*, omdat de netwerkinterface lid van is de *AppServers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *AppServers* toepassing beveiligingsgroep als doel. De *WebRule* en *DatabaseRule* regels worden niet toegepast op *myNic2*, omdat de netwerkinterface geen lid van is de *endwebservers servers*en *DatabaseServers* toepassing beveiligingsgroepen. Zowel de *WebRule* en *AppRule* regels zijn geschikt voor *myNic1* echter omdat de *myNic1* netwerkinterface is lid van zowel de *endwebservers servers* en *AppServers* toepassing beveiligingsgroepen en de regels geeft de *endwebservers servers* en *AppServers* toepassing beveiligingsgroepen als hun doelen. 
 
 13. Een virtuele machine maken voor elk servertype, de bijbehorende netwerkinterface koppelen aan elke virtuele machine. In dit voorbeeld maakt u virtuele machines van Windows, maar u kunt wijzigen *win2016datacenter* naar *UbuntuLTS* Linux virtuele machines in plaats daarvan maken.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Een netwerkbeveiligingsgroep maken:
@@ -361,7 +363,7 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 8 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *WebRule* is van kracht voor *myNic1*, omdat de netwerkinterface lid van is de *endwebservers servers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *endwebservers servers* toepassing beveiligingsgroep als doel. De *AppRule* en *DatabaseRule* regels worden niet toegepast op *myNic1*, omdat de netwerkinterface geen lid van is de *AppServers*en *DatabaseServers* toepassing beveiligingsgroepen.
+    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 8 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *AppRule* regel is van kracht voor *myNic2*, omdat de netwerkinterface lid van is de *AppServers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *AppServers* toepassing beveiligingsgroep als doel. De *WebRule* en *DatabaseRule* regels worden niet toegepast op *myNic2*, omdat de netwerkinterface geen lid van is de *endwebservers servers*en *DatabaseServers* toepassing beveiligingsgroepen. Zowel de *WebRule* en *AppRule* regels zijn geschikt voor *myNic1* echter omdat de *myNic1* netwerkinterface is lid van zowel de *endwebservers servers* en *AppServers* toepassing beveiligingsgroepen en de regels geeft de *endwebservers servers* en *AppServers* toepassing beveiligingsgroepen als hun doelen. 
 
 13. Een virtuele machine maken voor elk servertype, de bijbehorende netwerkinterface koppelen aan elke virtuele machine. In dit voorbeeld maakt u virtuele machines van Windows, maar voordat het script wordt uitgevoerd, kunt u *-Windows* naar *- Linux*, *legitieme Microsoft Windows Server* naar *Canonieke*, *Windows Server* naar *UbuntuServer* en *2016 Datacenter* naar *14.04.2-LTS*Linux virtuele machines in plaats daarvan maken.
 
@@ -429,6 +431,33 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
 
 14. **Optionele**: verwijderen van de resources die u in deze zelfstudie maakt via de stappen in [resources verwijderen](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Een NIC verwijderen uit een ASG
+Wanneer u een netwerkinterface uit de beveiligingsgroep van een toepassing verwijdert, worden geen van de regels die specificeren van de groep van toepassingen beveiliging toegepast op de netwerkinterface die u verwijdert.
+
+### <a name="azure-cli"></a>Azure-CLI
+
+Verwijderen van *myNic3* uit alle beveiligingsgroepen van toepassing, voer de volgende opdracht:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Verwijderen van *myNic3* uit alle beveiligingsgroepen van toepassing, voer de volgende opdrachten:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Resources verwijderen
 
 Als u deze zelfstudie hebt voltooid, is het raadzaam de resources verwijderen die u hebt gemaakt, zodat u geen gebruik kosten. Verwijderen van een resourcegroep, verwijdert tevens alle bronnen die zich in de resourcegroep.
@@ -443,7 +472,7 @@ Als u deze zelfstudie hebt voltooid, is het raadzaam de resources verwijderen di
 
 Voer de volgende opdracht in een sessie CLI:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

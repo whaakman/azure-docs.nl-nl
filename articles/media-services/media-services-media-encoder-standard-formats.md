@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Formats and Codecs (Indelingen en codecs voor Media Encoder Standard)
 Dit document bevat een lijst met de meest voorkomende importeren en exporteren bestandsindelingen die u met Media Encoder Standard gebruiken kunt.
@@ -39,20 +39,20 @@ Dit document bevat een lijst met de meest voorkomende importeren en exporteren b
 | QuickTime (MOV) |Ja |
 
 > [!NOTE]
-> Een lijst van de meer veelvoorkomende bestandsextensies is hoger. Media Encoder Standard ondersteunt vele andere (bijvoorbeeld: .m2ts, .mpeg2video, .qt). Als u probeert een bestand te coderen en u krijgt een foutbericht over de indeling die niet wordt ondersteund, geeft u een feedback [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Een lijst van de meer veelvoorkomende bestandsextensies is hoger. Media Encoder Standard ondersteunt vele andere (bijvoorbeeld: .m2ts, .mpeg2video, .qt). Als u probeert een bestand te coderen en u krijgt een foutbericht over de indeling die niet wordt ondersteund, uw feedback [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Audio-indelingen in invoer-containers
 Media Encoder Standard biedt ondersteuning voor uitvoering van de volgende audio-indelingen in invoer-containers:
 
-* MXF, GXF en QuickTime bestanden die hebben audio houdt met interleaved stereo of 5.1-voorbeelden
+* MXF, GXF en QuickTime bestanden waarvoor audio houdt met interleaved stereo of 5.1-voorbeelden
 
 of
 
-* MXF, GXF en QuickTime bestanden waarin de audio wordt uitgevoerd als afzonderlijke PCM-nummers, maar de kanaaltoewijzing (in stereo of 5.1) kan worden afgeleid van metagegevens van het bestand
+* MXF, GXF en QuickTime bestanden waar de audio wordt uitgevoerd als afzonderlijke PCM-nummers, maar de kanaaltoewijzing (in stereo of 5.1) kunnen worden afgeleid van metagegevens van het bestand
 
-Houd er rekening mee dat er geen ondersteuning voor kanaaltoewijzing expliciete/een gebruiker opgegeven in de nabije toekomst zal worden opgegeven.
+Ondersteuning voor expliciete/een gebruiker opgegeven kanaaltoewijzing wordt in de nabije toekomst worden geleverd.
 
 ## <a name="input-video-codecs"></a>Video-Codecs invoer
 | Video-Codecs invoer | Ondersteund |
@@ -62,7 +62,7 @@ Houd er rekening mee dat er geen ondersteuning voor kanaaltoewijzing expliciete/
 | DVCPro/DVCProHD (in MXF) |Ja |
 | Digitale video (DV) (in AVI-bestanden) |Ja |
 | JPEG 2000 |Ja |
-| MPEG-2 (maximaal 422 profiel en een hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10) |Maximaal 422 profiel |
+| MPEG-2 (maximaal 422 profiel en een hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD XDCAM IMX, CableLabs® en D10) |Maximaal 422 profiel |
 | MPEG-1 |Ja |
 | VC-1/WMV9 |Ja |
 | Canopus hoofdkantoor/HQX |Nee |

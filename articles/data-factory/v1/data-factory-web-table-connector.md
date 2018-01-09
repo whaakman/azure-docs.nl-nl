@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Verplaatsen van gegevens uit een tabel Webbron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ Data factory ondersteunt momenteel alleen zwevend gegevens uit een tabel Web naa
 
 > [!IMPORTANT]
 > Deze Web-connector ondersteunt momenteel alleen uitpakken tabelinhoud uit een HTML-pagina. Voor informatie over het ophalen van gegevens van een HTTP/s-eindpunt gebruik [HTTP connector](data-factory-http-connector.md) in plaats daarvan.
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor het gebruik van deze tabel Web connector, moet u een Self-hosted integratie Runtime (ook wel Data Management Gateway) instellen en configureren de `gatewayName` eigenschap in de sink gekoppelde service. Bijvoorbeeld wilt kopiëren uit de tabel Web naar Azure Blob-opslag, configureert u de gekoppelde Azure Storage-service als het volgende:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Aan de slag
 U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens vanuit een on-premises Cassandra-gegevensopslag verplaatst met behulp van verschillende hulpprogramma's voor API's. 
@@ -86,8 +103,8 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type |Het type van de gegevensset. moet worden ingesteld op **WebTable** |Ja |
-| Pad |Een relatieve URL naar de resource die de tabel bevat. |Nee. Als het pad niet wordt opgegeven, worden alleen de URL die is opgegeven in de definitie van de gekoppelde service wordt gebruikt. |
-| Index |De index van de tabel in de resource. Zie [Get-index van een tabel in een HTML-pagina](#get-index-of-a-table-in-an-html-page) sectie voor stappen voor het ophalen van de index van een tabel in een HTML-pagina. |Ja |
+| pad |Een relatieve URL naar de resource die de tabel bevat. |Nee. Als het pad niet wordt opgegeven, worden alleen de URL die is opgegeven in de definitie van de gekoppelde service wordt gebruikt. |
+| index |De index van de tabel in de resource. Zie [Get-index van een tabel in een HTML-pagina](#get-index-of-a-table-in-an-html-page) sectie voor stappen voor het ophalen van de index van een tabel in een HTML-pagina. |Ja |
 
 **Voorbeeld:**
 
@@ -156,7 +173,8 @@ Het volgende voorbeeld laat zien hoe gegevens kopiëren van een Web-tabel naar e
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licentieverlening Microsoft® Smooth Streaming Client Kit overdragen
 ## <a name="overview"></a>Overzicht
-Microsoft Smooth Streaming Client overdragen Kit (**SSPK** voor korte) is een Smooth Streaming clientimplementatie die is geoptimaliseerd om te helpen fabrikanten embedded-apparaat, kabel en mobiele operators inhoud serviceproviders, telefoon fabrikanten, onafhankelijke softwareleveranciers (ISV's) en oplossingsproviders producten en services voor adaptief streamen streaming inhoud in de indeling Smooth Streaming te maken. SSPK is een onafhankelijke implementatie voor apparaten en platforms van Smooth Streaming-client die kan worden geïmplementeerd door de licentiehouder aan een apparaat en het platform. 
+Microsoft Smooth Streaming Client overdragen Kit (**SSPK** voor korte) is een Smooth Streaming clientimplementatie die is geoptimaliseerd om u te helpen bij embedded-apparaatfabrikanten, kabel en mobiele operators, inhoud serviceproviders, telefoon fabrikanten, onafhankelijke softwareleveranciers (ISV's) en oplossingsproviders voor het maken van producten en services voor streaming adaptieve inhoud in Smooth Streaming-indeling. SSPK is een apparaat en platformonafhankelijk uitvoering van Smooth Streaming-client die kan worden geïmplementeerd door de licentiehouder aan een apparaat en het platform. 
 
-Hieronder vindt u een hoog niveau architectuur is en IIS Smooth Streaming overdragen Kit vak is de implementatie van de Smooth Streaming Client geleverd door Microsoft en bevat alle corelogica voor het afspelen van inhoud Smooth Streaming. Dit wordt vervolgens door partners voor een specifiek apparaat of platform overgezet door het juiste interfaces implementeren. 
+Hieronder vindt u is een architectuur op hoog niveau en IIS Smooth Streaming overdragen Kit is de implementatie van de Smooth Streaming Client geleverd door Microsoft en bevat alle corelogica voor het afspelen van inhoud Smooth Streaming. Deze inhoud wordt vervolgens door partners voor een specifiek apparaat of platform overgezet door het juiste interfaces implementeren. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ Het Smooth Streaming Client uiteindelijke Product wordt aangeboden onder een mod
 * Er is geen royalty voor eerste 10.000 apparaat implementaties jaarlijks 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Licentieverlening Procedure en SSPK toegang
-Stuur een e-mail [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) licentieverlening voor alle query's.
+E-mailadres [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) licentieverlening voor alle query's.
 
 De [SSPK distributie portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) toegankelijk is voor de geregistreerde Interim-licenties.
 
@@ -103,7 +103,7 @@ Tussentijdse en definitieve SSPK licentiehouders technische vragen om te kunnen 
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL technologie Electronics (Huizhou) Co., Ltd.
 * Top overwinning investeringen, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret W.S.
 * VisualOn, Inc.

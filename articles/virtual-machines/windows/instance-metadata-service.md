@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -76,7 +76,7 @@ De volgende tabel bevat een verwijzing naar andere indelingen met de die API 's 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
 /Instance | JSON | Tekst
-/scheduledevents | JSON | Geen
+/scheduledevents | JSON | geen
 
 Geef de vereiste indeling als een parameter van de querytekenreeks worden opgegeven in de aanvraag voor toegang tot een niet-standaard antwoordindeling moet. Bijvoorbeeld:
 
@@ -283,10 +283,10 @@ Gegevens | Beschrijving | Versie geïntroduceerd
 -----|-------------|-----------------------
 location | Azure-regio de virtuele machine wordt uitgevoerd in de | 2017-04-02 
 naam | Naam van de virtuele machine | 2017-04-02
-Aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
+aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
 Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
 SKU | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
-Versie | Versie van de VM-afbeelding | 2017-04-02
+versie | Versie van de VM-afbeelding | 2017-04-02
 besturingssysteemtype | Linux- of Windows | 2017-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Taal | Voorbeeld 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.RB
-Ga Lang  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
+Aan de slag  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.cs
 Javascript | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>Veelgestelde vragen

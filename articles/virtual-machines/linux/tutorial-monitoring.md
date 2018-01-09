@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Het controleren en bijwerken van een virtuele Linux-machine in Azure
 
@@ -130,7 +130,7 @@ Een Linux-VM heeft toegewezen host in Azure die deze met samenwerkt. Metrische g
 >
 > Versie 3.0 van de Linux-extensie voor diagnostische kan in plaats daarvan worden ingeschakeld. Zie voor meer informatie [de documentatie](./diagnostic-extension.md).
 
-De basic host metrische gegevens zijn beschikbaar, maar meer gedetailleerd en VM-specifieke metrische gegevens en u moet de extensie Azure diagnostics installeren op de virtuele machine. De extensie Azure diagnostics kan aanvullende controle en diagnostische gegevens worden opgehaald van de virtuele machine. U kunt deze maatstaven voor prestaties weergeven en waarschuwingen op basis van de manier waarop de virtuele machine uitvoert. De diagnostische extensie wordt geïnstalleerd via de Azure portal als volgt:
+De basic host metrische gegevens beschikbaar zijn, maar om meer gedetailleerde en VM-specifieke metrische gegevens ziet, moet u de extensie Azure diagnostics installeren op de virtuele machine. De extensie Azure diagnostics kan aanvullende controle en diagnostische gegevens worden opgehaald van de virtuele machine. U kunt deze maatstaven voor prestaties weergeven en waarschuwingen op basis van de manier waarop de virtuele machine uitvoert. De diagnostische extensie wordt geïnstalleerd via de Azure portal als volgt:
 
 1. Klik in de Azure-portal op **resourcegroepen**, selecteer **myResourceGroup**, en selecteer vervolgens **myVM** in de lijst met resources.
 1. Klik op **diagnose instellingen**. De lijst ziet u dat *opstarten diagnostics* al uit de vorige sectie zijn ingeschakeld. Klik op het selectievakje voor *basismetrieken*.
@@ -167,7 +167,7 @@ Het volgende voorbeeld wordt een waarschuwing voor het gemiddelde CPU-gebruik.
 
 Via updatebeheer kunt u pakket updates en patches voor uw Azure Linux VM's beheren. Rechtstreeks van uw virtuele machine, u kunt snel de status van de beschikbare updates te beoordelen, installatie van vereiste updates plannen en Implementatieresultaten om te controleren of updates met succes zijn toegepast op de virtuele machine bekijken.
 
-Zie voor informatie over prijzen, [Automation prijzen voor updatebeheer](https://azure.microsoft.com/pricing/details/automation/)
+Zie [Automation-prijzen voor updatebeheer](https://azure.microsoft.com/pricing/details/automation/) voor prijsinformatie.
 
 ### <a name="enable-update-management-preview"></a>Schakel het beheer van Update (Preview)
 
@@ -177,40 +177,40 @@ Beheer van de Update voor uw virtuele machine inschakelen
 1. Selecteer een virtuele machine in de lijst.
 1. Op het scherm VM in de **Operations** sectie, klikt u op **updatebeheer**. De **updatebeheer inschakelen** scherm wordt geopend.
 
-Validatie is uitgevoerd om te bepalen of het beheer van updates is ingeschakeld voor deze virtuele machine. De validatie worden controles uitgevoerd voor een werkruimte voor logboekanalyse en gekoppelde Automation-account, en als de oplossing in de werkruimte is.
+Er wordt een validatie uitgevoerd om te bepalen of updatebeheer is ingeschakeld voor deze virtuele machine. De validatie bevat controles voor een Log Analytics-werkruimte en het gekoppelde Automation-account en controleert of de oplossing zich in de werkruimte bevindt.
 
-Een werkruimte voor logboekanalyse wordt voor het verzamelen van gegevens die worden gegenereerd door de functies en services zoals updatebeheer gebruikt. De werkruimte biedt één locatie om te bekijken en analyseren van gegevens uit meerdere bronnen. Aanvullende als actie wilt uitvoeren op virtuele machines die updates vereisen, kunt Azure Automation u het uitvoeren van scripts uitvoeren op virtuele machines, zoals downloaden en toepassen van updates.
+Een werkruimte voor logboekanalyse wordt voor het verzamelen van gegevens die worden gegenereerd door de functies en services zoals updatebeheer gebruikt. De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren. Aanvullende als actie wilt uitvoeren op virtuele machines die updates vereisen, kunt Azure Automation u het uitvoeren van scripts uitvoeren op virtuele machines, zoals downloaden en toepassen van updates.
 
-Tijdens het validatieproces controleert ook als de virtuele machine is ingericht met de Microsoft Monitoring Agent (MMA) en hybride worker. Deze agent wordt gebruikt om te communiceren met de virtuele machine en informatie opvragen over de status van de update. 
+Tijdens het validatieproces wordt ook gecontroleerd of de VM is ingericht met Microsoft Monitoring Agent (MMA) en Hybrid Worker. Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update. 
 
 Als niet aan deze vereisten wordt voldaan, verschijnt er een banner waarin u de optie voor het inschakelen van de oplossing.
 
-![Update Management vrijgeven configuratie banner](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+![Banner voor onboardconfiguratie van Updatebeheer](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
 Klik op de banner om de oplossing in te schakelen. Als een van de volgende vereisten zijn gevonden te zijn verdwenen na de validatie, worden ze automatisch toegevoegd:
 
-* [Meld u Analytics](../../log-analytics/log-analytics-overview.md) werkruimte
+* [Log Analytics](../../log-analytics/log-analytics-overview.md)-werkruimte
 * [Automatisering](../../automation/automation-offering-get-started.md)
-* Een [hybride runbook worker](../../automation/automation-hybrid-runbook-worker.md) is ingeschakeld op de virtuele machine
+* Een [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) wordt ingeschakeld op de VM.
 
 De **updatebeheer inschakelen** scherm wordt geopend. Configureer de instellingen en klik op **inschakelen**.
 
 ![Voor updatebeheer inschakelen](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
 Inschakelen van de oplossing, kan maximaal 15 minuten duren en gedurende deze tijd moet u het browservenster niet sluiten. Nadat de oplossing is ingeschakeld, wordt informatie over ontbrekende updates van de package manager op de virtuele machine met logboekanalyse loopt.
-Het kost tussen 30 minuten en 6 uur voor de gegevens beschikbaar zijn voor analyse.
+Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor analyse.
 
 ### <a name="view-update-assessment"></a>Update-evaluatie bekijken
 
 Na de **updatebeheer** oplossing is ingeschakeld, de **updatebeheer** scherm wordt weergegeven. U ziet een lijst met ontbrekende updates op het tabblad **Ontbrekende updates**.
 
-![Status van de update weergeven](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+![Updatestatus bekijken](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
 ### <a name="schedule-an-update-deployment"></a>Een update-implementatie plannen
 
 Plannen om updates te installeren, een implementatie die volgt op de release-venster voor planning en onderhoud.
 
-Een nieuwe Update-implementatie plannen voor de virtuele machine door te klikken op **schema-update-implementatie** boven aan de **updatebeheer** scherm. In de **New-update-implementatie** scherm, geeft u de volgende informatie:
+Een nieuwe Update-implementatie plannen voor de virtuele machine door te klikken op **schema-update-implementatie** boven aan de **updatebeheer** scherm. Geef de volgende gegevens op in het scherm **Nieuwe update-implementatie**:
 
 * **Naam**: geef een unieke naam op voor het identificeren van de update-implementatie.
 * **Updates moeten worden uitgesloten** -met deze optie op de namen van pakketten moeten worden uitgesloten van de update opgeven.
@@ -235,18 +235,18 @@ Als de implementatie momenteel wordt uitgevoerd, wordt de status weergegeven als
 Als er een fout met een of meer updates in de implementatie, de status is **mislukt**.
 Klik op de voltooide update-implementatie om het dashboard voor de betreffende update-implementatie te bekijken.
 
-![Update-implementatie status dashboard voor specifieke implementatie](./media/tutorial-monitoring/manage-updates-view-results.png)
+![Statusdashboard voor update-implementatie voor specifieke implementatie](./media/tutorial-monitoring/manage-updates-view-results.png)
 
 In **Updateresultaten** tegel is een overzicht van het totale aantal updates en van de Implementatieresultaten op de virtuele machine.
 In de tabel aan de rechterkant vindt u gedetailleerde informatie over elke update en het resultaat van de installatie. Een van de volgende waarden wordt hier weergegeven:
 
-* **Niet geprobeerd** -de update is niet geïnstalleerd omdat er onvoldoende tijd is beschikbaar op basis van de duur van het venster Onderhoud gedefinieerd.
+* **Niet geprobeerd**: de update is niet geïnstalleerd omdat er onvoldoende tijd beschikbaar was op basis van de opgegeven onderhoudsperiode.
 * **Geslaagd** -de update is gedownload en geïnstalleerd op de virtuele machine
 * **Kan geen** -de update kan niet worden gedownload of geïnstalleerd op de virtuele machine.
 
 Klik op **Alle logboeken** voor een overzicht van alle logboekvermeldingen die tijdens de implementatie zijn gemaakt.
 
-Klik op de **uitvoer** tegel voor taakstroom van het runbook verantwoordelijk voor het beheren van de implementatie van de update op de doel-virtuele machine.
+Klik op de tegel **Uitvoer** om de taakstroom te bekijken van het runbook dat verantwoordelijk is voor het beheer van de implementatie van de updates op de doel-VM.
 
 Klik op **Fouten** voor gedetailleerde informatie over fouten die zijn opgetreden tijdens de implementatie.
 

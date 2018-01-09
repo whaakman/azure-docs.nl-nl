@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Store
 Informatie over het inschakelen van diagnostische logboekregistratie voor uw Data Lake Store-account en het weergeven van de logboeken die worden verzameld voor uw account.
 
-Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Azure Data Lake Store-account voor het verzamelen van gegevens audittrails voor bestandstoegang, waarmee informatie, zoals de lijst van gebruikers die toegang tot de gegevens, hoe vaak de gegevens worden gebruikt, hoeveel gegevens worden opgeslagen in het account enz.
+Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Azure Data Lake Store-account voor het verzamelen van gegevens audittrails voor bestandstoegang, waarmee informatie, zoals de lijst van gebruikers die toegang tot de gegevens, hoe vaak de gegevens worden gebruikt, hoeveel gegevens worden opgeslagen in het account enz. Wanneer dit is ingeschakeld, worden de diagnostische gegevens en/of de aanvragen op basis van best-effort worden geregistreerd. Logboekvermeldingen zowel aanvragen en diagnostische gegevens worden alleen gemaakt als er aanvragen voor het service-eindpunt zijn.
 
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
@@ -116,25 +116,25 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 #### <a name="request-log-schema"></a>Schema voor aanvraag-logboek
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Reeks |De ID van de resource die bewerking vond plaats op |
-| category |Reeks |De logboek-categorie. Bijvoorbeeld: **aanvragen**. |
-| operationName |Reeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
-| resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
-| callerIpAddress |Reeks |Het IP-adres van de client die de aanvraag |
-| correlationId |Reeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
+| tijd |Tekenreeks |De tijdstempel (in UTC) van het logboek |
+| resourceId |Tekenreeks |De ID van de resource die bewerking vond plaats op |
+| category |Tekenreeks |De logboek-categorie. Bijvoorbeeld: **aanvragen**. |
+| operationName |Tekenreeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
+| resultType |Tekenreeks |De status van de bewerking, bijvoorbeeld 200. |
+| callerIpAddress |Tekenreeks |Het IP-adres van de client die de aanvraag |
+| correlationId |Tekenreeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
 | identity |Object |De identiteit die door het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
 
 #### <a name="request-log-properties-schema"></a>Aanvraag logboek eigenschappen schema
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| HttpMethod |Reeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
-| Pad |Reeks |Het pad van de bewerking is uitgevoerd op |
+| HttpMethod |Tekenreeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
+| Pad |Tekenreeks |Het pad van de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| clientRequestId |Reeks |De ID die is uniek voor deze aanvraag |
-| StartTime |Reeks |Het tijdstip waarop de server de aanvraag ontvangen |
-| Eindtijd |Reeks |Het tijdstip waarop de server een antwoord verzonden |
+| clientRequestId |Tekenreeks |De ID die is uniek voor deze aanvraag |
+| StartTime |Tekenreeks |Het tijdstip waarop de server de aanvraag ontvangen |
+| Eindtijd |Tekenreeks |Het tijdstip waarop de server een antwoord verzonden |
 
 ### <a name="audit-logs"></a>Controlelogboeken
 Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. Elke blob heeft een basis-object aangeroepen **records** die een matrix van logboek-objecten bevat
@@ -162,19 +162,19 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 #### <a name="audit-log-schema"></a>Audit log schema
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| tijd |Reeks |De tijdstempel (in UTC) van het logboek |
-| resourceId |Reeks |De ID van de resource die bewerking vond plaats op |
-| category |Reeks |De logboek-categorie. Bijvoorbeeld: **Audit**. |
-| operationName |Reeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
-| resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
-| correlationId |Reeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
+| tijd |Tekenreeks |De tijdstempel (in UTC) van het logboek |
+| resourceId |Tekenreeks |De ID van de resource die bewerking vond plaats op |
+| category |Tekenreeks |De logboek-categorie. Bijvoorbeeld: **Audit**. |
+| operationName |Tekenreeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
+| resultType |Tekenreeks |De status van de bewerking, bijvoorbeeld 200. |
+| correlationId |Tekenreeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
 | identity |Object |De identiteit die door het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
 
 #### <a name="audit-log-properties-schema"></a>Audit log eigenschappen schema
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| StreamName |Reeks |Het pad van de bewerking is uitgevoerd op |
+| StreamName |Tekenreeks |Het pad van de bewerking is uitgevoerd op |
 
 ## <a name="samples-to-process-the-log-data"></a>Voorbeelden voor het verwerken van de logboekgegevens
 Bij het verzenden van Logboeken van Azure Data Lake Store met Azure Log Analytics (Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse), de volgende query retourneert een tabel met een lijst van gebruikers namen van de tijd van de gebeurtenissen en het aantal gebeurtenissen weer voor de tijd van de gebeurtenis samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van de gebruikers-GUID of andere kenmerken:

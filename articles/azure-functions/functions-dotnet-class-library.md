@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8bd46adc475af35d32b9e329a3765e064120a6e3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f48c9ef6b66cb3c9a687f1d063859e413866e88c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -89,7 +89,22 @@ Het doel van dit bestand informatie wordt verstrekt aan de controller schaal moe
 
 De gegenereerde *function.json* bestand bevat een `configurationSource` eigenschap bevatten die de runtime .NET-kenmerken worden gebruikt voor bindingen, plaats *function.json* configuratie. Hier volgt een voorbeeld:
 
-{'generatedBy': 'Microsoft.NET.Sdk.Functions-1.0.0.0', 'configurationSource': 'kenmerken', 'bindingen': [{'type': 'queueTrigger', 'wachtrijnaam': '% invoer wachtrijnaam %', 'name': "myQueueItem"}], 'disabled': false 'scriptbestand': '... \\bin\\FunctionApp1.dll ', 'entryPoint': "FunctionApp1.QueueTrigger.Run"}
+```json
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "queueName": "%input-queue-name%",
+      "name": "myQueueItem"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApp1.dll",
+  "entryPoint": "FunctionApp1.QueueTrigger.Run"
+}
+```
 
 De *function.json* Bestandsgeneratie wordt uitgevoerd door het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). De broncode is beschikbaar in de GitHub-repo [azure\-functies\-tegenover\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

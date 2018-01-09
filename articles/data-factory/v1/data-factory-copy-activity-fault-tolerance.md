@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Fouttolerantie toevoegen in de kopieerbewerking door niet-compatibele rijen overgeslagen
 > [!NOTE]
@@ -43,6 +43,9 @@ Kopieeractiviteit ondersteunt drie scenario's voor het detecteren, wordt overges
 - **Primaire sleutel is geschonden bij het schrijven naar een relationele database**
 
     Bijvoorbeeld: gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die in de bron voorkomen kunnen niet worden gekopieerd naar de sink. Alleen de eerste rij van de brongegevens Kopieeractiviteit gekopieerd naar de sink. De volgende bronrijen met dubbele primaire sleutelwaarde zijn gedetecteerd als niet compatibel en worden overgeslagen.
+
+>[!NOTE]
+>Deze functie is niet van toepassing wanneer kopieeractiviteit is geconfigureerd voor het aanroepen van externe gegevens laden met inbegrip van mechanisme [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) of [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase, PolyBase van systeemeigen fouttolerantie ondersteuning door te geven '[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)' in de kopieerbewerking.
 
 ## <a name="configuration"></a>Configuratie
 Het volgende voorbeeld bevat een JSON-definitie voor het configureren van de niet-compatibele rijen in de kopieerbewerking wordt overgeslagen:

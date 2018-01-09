@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Algoritmen kiezen voor Microsoft Azure Machine Learning
 Het antwoord op de vraag 'Welke machine learning-algoritme moet ik gebruiken?' is altijd "Deze afhankelijk is." Dit is afhankelijk van de grootte, kwaliteit en aard van de gegevens. Dit is afhankelijk van wat u wilt doen met het antwoord. Dit is afhankelijk van hoe de berekening van het algoritme is vertaald naar instructies voor de computer die u gebruikt. En dit is afhankelijk van hoeveel tijd die u hebt. Zelfs de meest ervaren gegevenswetenschappers kunnen niet zien welk algoritme best zal uitvoeren voordat u ze.
@@ -42,7 +42,7 @@ Lezen van het pad en de algoritme labels in de grafiek als ' voor  *&lt;pad labe
 Geen van hen worden soms past perfect. Ze zijn bedoeld als regel van de miniatuur aanbevelingen, dus u hoeft het exacte wordt.
 Verschillende gegevenswetenschappers die ik gehad met genoemde die de enige manier om te zoeken de allerbeste algoritme is om te proberen ze allemaal.
 
-Hier volgt een voorbeeld van de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) van een experiment die probeert verschillende algoritmen tegen dezelfde gegevens en de resultaten vergelijkt: [vergelijken met meerdere klasse classificaties: Letter erkenning](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Hier volgt een voorbeeld van de [AI-galerie van Azure](http://gallery.cortanaintelligence.com/) van een experiment die probeert verschillende algoritmen tegen dezelfde gegevens en de resultaten vergelijkt: [vergelijken met meerdere klasse classificaties: Letter erkenning](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.

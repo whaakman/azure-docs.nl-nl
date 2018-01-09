@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: basisbeginselen van Machine Learning met algoritmevoorbeelden
 Download deze gemakkelijk te begrijpen infographic overzicht van machine learning basisprincipes voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden. Algoritme-voorbeelden laten zien hoe de machine learning beginnende begrijpen welke algoritmen moet gebruiken en wat ze gebruikt.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Populaire algoritmen in Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor predictive analytics. De infographic vier populaire families van algoritmen - regressie, afwijkingsdetectie, clustering en classificatie - identificeert en vindt u koppelingen naar werkende voorbeelden in de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). De galerie bevat voorbeeld experimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
+[Azure Machine Learning Studio](https://studio.azureml.net/) wordt geleverd met een grote bibliotheek met algoritmen voor predictive analytics. De infographic vier populaire families van algoritmen - regressie, afwijkingsdetectie, clustering en classificatie - identificeert en vindt u koppelingen naar werkende voorbeelden in de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/). De galerie bevat voorbeeld experimenten en zelfstudies die laten zien hoe deze algoritmen in veel werkelijke oplossingen kunnen worden toegepast.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>De infographic met algoritme voorbeelden downloaden
 **[Download: Infographic van machine learning basisbeginselen met koppelingen naar algoritme voorbeelden (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Download deze gemakkelijk te begrijpen infographic overzicht van machine learnin
 * Zie voor een lijst door de categorie van alle de machine learning-algoritmen in Machine Learning Studio [Model initialiseren] [ initialize-model] in de Machine Learning Studio algoritme en de Module Help.
 * Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio [lijst A-Z van Machine Learning Studio-modules] [ a-z-list] in de Help van de Module en Machine Learning Studio-algoritme.
 * Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
-* Zie voor een overzicht van de Cortana Intelligence Gallery en veel community is opgesteld resources beschikbaar, [Share en het detecteren van bronnen in de Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
+* Zie voor een overzicht van de AI-galerie van Azure en veel community is opgesteld resources beschikbaar, [Share en het detecteren van bronnen in de galerie van Azure AI](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

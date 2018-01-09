@@ -22,7 +22,7 @@ In de volgende aanbiedingen vindt hier u de aanbevolen acties in uw besturingssy
 <td>Azure Linux virtuele Machines</td> <td>Updates installeren vanaf uw besturingssysteem provider indien beschikbaar. </td>
 </tr>
 <tr>
-<td>Windows Azure virtuele Machines </td> <td><ul><li>Controleer of u een ondersteunde antivirusprogramma toepassing worden uitgevoerd voordat u updates voor het besturingssysteem installeert. Neem contact op met de leverancier van uw antivirussoftware voor informatie over de compatibiliteit. </li> <li> Installeer de [totalisering van de beveiliging januari](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Windows Azure virtuele Machines </td> <td>Controleer of u een ondersteunde antivirusprogramma toepassing worden uitgevoerd voordat u updates voor het besturingssysteem installeert. Neem contact op met de leverancier van uw antivirussoftware voor informatie over de compatibiliteit.<p> Installeer de [totalisering van de beveiliging januari](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Andere Azure PaaS-Services</td> <td>Er is geen actie nodig is voor klanten die gebruikmaken van deze services. Azure blijft automatisch de versies van het besturingssysteem up-to-date. </td>

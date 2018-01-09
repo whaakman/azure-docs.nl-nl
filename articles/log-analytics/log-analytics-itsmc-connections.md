@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector (Preview)
 In dit artikel bevat informatie over verbinding maken met uw ITSM product of dienst aan IT Service Management Connector (ITSMC) in OMS en centraal beheren van uw werkitems. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -90,7 +90,7 @@ Gebruik de geautomatiseerde [script](log-analytics-itsmc-service-manager-script.
 Voer het script door de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
-- De naam van resourcegroep
+- Naam resourcegroep
 - Locatie
 - Details van Service Manager-server (server name, domein, gebruikersnaam en wachtwoord)
 - Site-voorvoegsel voor uw Web-app
@@ -171,17 +171,21 @@ De installatiekopie van het volgende voorbeeld ziet u de details van de verbindi
 De volgende secties bevatten meer informatie over het verbinding maken met uw ServiceNow-product ITSMC in OMS.
 
 ### <a name="prerequisites"></a>Vereisten
-
 Zorg ervoor dat de volgende vereisten wordt voldaan:
-
 - ITSMC geïnstalleerd. Meer informatie: [toevoegen van de IT-Service Management-Connector oplossing](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow versies – Fuji, Geneva, Helsinki ondersteund.
+- ServiceNow ondersteunde versies: ondersteuning, Istanboel, Helsinki, Geneva
 
-ServiceNow Admins moet in hun ServiceNow-exemplaar het volgende doen:
-- Client-ID en clientgeheim voor het product ServiceNow genereren. Zie voor meer informatie over het maken van de client-ID en geheim [OAuth-installatie](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Installeer de App gebruiker voor Microsoft OMS-integratie (ServiceNow-app). [Meer informatie](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**De volgende items in hun ServiceNow-exemplaar moet doen door ServiceNow Admins**:
+- Client-ID en clientgeheim voor het product ServiceNow genereren. Zie de volgende informatie zoals vereist voor informatie over het maken van de client-ID en geheim:
+
+    - [Instellen van OAuth voor ondersteuning](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [OAuth voor Istanboel instellen](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [OAuth voor Helsinki instellen](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [OAuth voor Geneva instellen](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Installeer de App gebruiker voor Microsoft OMS-integratie (ServiceNow-app). [Meer informatie](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Maak gebruikersrol voor integratie voor de gebruiker app is geïnstalleerd. Informatie over het maken van de gebruikersrol integratie [hier](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Verbindingsprocedure**
 Gebruik de volgende procedure om een ServiceNow-verbinding te maken:

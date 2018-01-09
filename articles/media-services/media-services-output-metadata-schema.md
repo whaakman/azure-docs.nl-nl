@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Metagegevens
 ## <a name="overview"></a>Overzicht
@@ -26,10 +26,10 @@ Een codeertaak is gekoppeld aan een invoer asset (of activa) op waarop u wilt ui
 
 Als u onderzoeken metagegevensbestand van de wilt, kunt u een **SAS** locator en download het bestand op uw lokale computer.  
 
-In dit onderwerp worden de elementen en typen van het XML-schema waarop de uitvoer metada (&lt;source_file_name&gt;_manifest.xml) is gebaseerd. Zie voor meer informatie over het bestand met metagegevens over de invoer asset [invoer metagegevens](media-services-input-metadata-schema.md).  
+Dit artikel worden de elementen en typen van het XML-schema beschreven waarin de uitvoer metada (&lt;source_file_name&gt;_manifest.xml) is gebaseerd. Zie voor meer informatie over het bestand met metagegevens over de invoer asset [invoer metagegevens](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> U vindt de volledige schema-code en de XML-voorbeeld aan het einde van dit onderwerp.  
+> U vindt de volledige schema-code en de XML-voorbeeld aan het einde van dit artikel.  
 >
 >
 
@@ -55,7 +55,7 @@ U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.
 | Naam | Beschrijving |
 | --- | --- |
 | **Bronnen** |Verzameling van de invoerbron/mediabestanden, dat werd verwerkt om deze AssetFile produceren. Zie voor meer informatie [bronelement](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = '1' |Elke fysieke AssetFile kan nul of meer video houdt interleaved naar een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze video houdt. Zie voor meer informatie [VideoTracks element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = '1' |Elke fysieke AssetFile mag in deze video's nul of meer houdt interleaved naar een indeling voor de juiste container. Zie voor meer informatie [VideoTracks element](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs = "0" maxOccurs = '1' |Elke fysieke AssetFile kan nul of meer audio houdt interleaved naar een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze audio houdt. Zie voor meer informatie [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a>Bronnen-element
@@ -79,7 +79,7 @@ U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.
 | **Naam**<br/><br/> Vereist |**xs:String** |Bestandsnaam van de invoerbron. |
 
 ## <a name="VideoTracks "></a>VideoTracks element
-Elke fysieke AssetFile kan nul of meer video houdt interleaved naar een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze video houdt.  
+Elke fysieke AssetFile mag in deze video's nul of meer houdt interleaved naar een indeling voor de juiste container. De **VideoTracks** element vertegenwoordigt een verzameling van de video sporen.  
 
 U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
@@ -96,7 +96,7 @@ U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.
 ### <a name="attributes"></a>Kenmerken
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
-| **ID**<br/><br/> minInclusive = '0'<br/><br/> Vereist |**xs:int** |Op nul gebaseerde index van deze video bijhouden. **Opmerking:** dit is niet noodzakelijkerwijs de TrackID zoals gebruikt in een MP4-bestand. |
+| **ID**<br/><br/> minInclusive = '0'<br/><br/> Vereist |**xs:int** |Op nul gebaseerde index van deze video bijhouden. **Opmerking:** dit **Id** is niet noodzakelijk de TrackID zoals gebruikt in een MP4-bestand. |
 | **Code**<br/><br/> Vereist |**xs:String** |Video-codec code code. |
 | **Profiel** |**xs:String** |Geselecteerde instelling H264-profiel (alleen van toepassing op de geselecteerde instelling H264 codec). |
 | **Niveau** |**xs:String** |Geselecteerde instelling H264 niveau (alleen van toepassing op de geselecteerde instelling H264 codec). |
@@ -111,7 +111,7 @@ U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.
 | **MaxGOPBitrate**<br/><br/> minInclusive = '0' |**xs:int** |Gemiddelde bitrate Max GOP voor deze video spoor in kilobits per seconde. |
 
 ## <a name="AudioTracks "></a>AudioTracks element
-Elke fysieke AssetFile kan nul of meer audio houdt interleaved naar een indeling voor de juiste container in het bevatten. Dit is een verzameling van deze audio houdt.  
+Elke fysieke AssetFile kan nul of meer audio houdt interleaved naar een indeling voor de juiste container in het bevatten. De **AudioTracks** element vertegenwoordigt een verzameling die audio houdt.  
 
 U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.md#xml).  
 
@@ -510,7 +510,8 @@ U vindt een XML-voorbeeld [XML-voorbeeld](media-services-output-metadata-schema.
 
 
 ## <a name="xml"></a>XML-voorbeeld
- Hier volgt een voorbeeld van het uitvoerbestand voor metagegevens.  
+
+De volgende XML is een voorbeeld van het metagegevensbestand van de uitvoer.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

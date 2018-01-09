@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Traject van de klant analyseren met Azure Machine Learning
 ## <a name="overview"></a>Overzicht
@@ -28,14 +28,14 @@ Dit artikel bevat een verwijzing implementatie van een klant verloop analysis pr
 Dit experiment is ontwikkeld en getest door Serge Berger, Principal gegevens wetenschappelijk bij Microsoft en Roger Barga, voorheen Product Manager van Microsoft Azure Machine Learning. Het team van Azure-documentatie dank erkent hun expertise en ze Bedankt voor het delen van dit document.
 
 > [!NOTE]
-> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Retail verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> De gegevens die worden gebruikt voor dit experiment is niet openbaar beschikbaar. Zie voor een voorbeeld van het bouwen van een machine learning-model voor verloop analyse: [Retail verloop model sjabloon](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [AI-galerie van Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Het probleem van klanten verloop
-Bedrijven in de markt consumer en in alle sectoren voor ondernemingen hebben om te gaan met het verloop. Soms verloop uitzonderlijk veel en beleidsbeslissingen beïnvloedt. De traditionele oplossing is te hoog investeringsneiging churners voorspellen en hun behoeften via een service concierge marketingcampagnes, of door het toepassen van speciale dispensaties. Deze methoden kunnen variëren op branche bedrijfstak en zelfs op een bepaalde consumer-cluster naar een andere binnen één industry (bijvoorbeeld telecommunicatie).
+Bedrijven in de markt consumer en in alle sectoren voor ondernemingen hebben om te gaan met het verloop. Soms verloop uitzonderlijk veel en beleidsbeslissingen beïnvloedt. De traditionele oplossing is te hoog investeringsneiging churners voorspellen en hun behoeften via een service concierge marketingcampagnes, of door het toepassen van speciale dispensaties. Deze methoden kunnen bedrijfstak bedrijfstak variëren. Ze kunnen zelfs verschillen vanaf een cluster bepaalde consument binnen één industry (bijvoorbeeld telecommunicatie).
 
 De algemene factor is dat bedrijven moeten deze speciale klant bewaren inspanningen minimaliseren. Dus kan een natuurlijke methodologie worden score van elke klant met de waarschijnlijkheid van verloop en los van de bovenste N die zijn. De belangrijkste klanten mogelijk het meest winstgevend die zijn. In meer geavanceerde scenario's een winst-functie gebruikt tijdens de selectie van kandidaten voor speciale dispensatie. Deze overwegingen zijn echter slechts een deel van de complete strategie voor het omgaan met verloop. Bedrijven hebben ook rekening account risico (en bijbehorende risicotolerantie), wordt het niveau en de kosten van de tussenkomst en aannemelijke klant segmentering.  
 
@@ -109,7 +109,7 @@ De volgende afbeeldingen laten zien dat de gegevens die is gebruikt.
  
 
 > Houd er rekening mee dat deze gegevens persoonlijke zijn en daarom het model en gegevens kunnen niet worden gedeeld.
-> Er wordt echter in dit voorbeeld experimenteren voor een vergelijkbaar model met openbaar beschikbare gegevens, de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco klant verloop](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Er wordt echter in dit voorbeeld experimenteren voor een vergelijkbaar model met openbaar beschikbare gegevens, de [AI-galerie van Azure](http://gallery.cortanaintelligence.com/): [Telco klant verloop](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Voor meer informatie over hoe u een verloop Analytics-model met behulp van Cortana Intelligence Suite kunt implementeren, wordt ook aangeraden [in deze video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) door Senior Program Manager Westerse Hyong Tok. 
 > 
@@ -222,7 +222,7 @@ Dit artikel beschrijft een praktische strategie om het aanpakken van het algemen
 
 [4] [big Data Marketing: uw klanten effectiever benaderen en waarde station](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco verloop model sjabloon](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Telco verloop model sjabloon](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [AI-galerie van Azure](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Bijlage

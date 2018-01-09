@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Overzichtskaart voor Machine Learning-algoritme voor Microsoft Azure Machine Learning Studio
 De **Microsoft Azure Machine Learning-algoritme cheats blad** helpt u de juiste algoritme voor een predictive analytics-model kiezen.
@@ -53,7 +53,7 @@ Downloaden en afdrukken van het Machine Learning-algoritme cheats blad in a3-gro
 
 * De suggesties aangeboden in dit algoritme-referentieoverzicht zijn bij benadering regels van de miniatuur. Sommige kunnen worden verbogen en sommige flagrantly kunnen worden geschonden. Dit is bedoeld als een beginpunt voorstellen. Wees niet bang voor het uitvoeren van een man concurrentie tussen verschillende algoritmen voor uw gegevens. Er is gewoon geen vervanging voor meer informatie over de beginselen van elk algoritme en inzicht in het systeem dat uw gegevens gegenereerd.
 
-* Elke machine learning-algoritme heeft een eigen stijl of *inductieve afwijking*. Voor een specifiek probleem verschillende algoritmen is wellicht beter en één algoritme is mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk weet die geschikt is. In dergelijke gevallen worden verschillende algoritmen samen weergegeven in de referentieoverzicht. Een strategie voor een juiste kan worden één algoritme, en als de resultaten nog niet voldoende, probeer de andere. Hier volgt een voorbeeld van de [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) van een experiment die probeert verschillende algoritmen tegen dezelfde gegevens en de resultaten vergelijkt: [vergelijken met meerdere klasse classificaties: Letter erkenning](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Elke machine learning-algoritme heeft een eigen stijl of *inductieve afwijking*. Voor een specifiek probleem verschillende algoritmen is wellicht beter en één algoritme is mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk weet die geschikt is. In dergelijke gevallen worden verschillende algoritmen samen weergegeven in de referentieoverzicht. Een strategie voor een juiste kan worden één algoritme, en als de resultaten nog niet voldoende, probeer de andere. Hier volgt een voorbeeld van de [AI-galerie van Azure](http://gallery.cortanaintelligence.com/) van een experiment die probeert verschillende algoritmen tegen dezelfde gegevens en de resultaten vergelijkt: [vergelijken met meerdere klasse classificaties: Letter erkenning](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Er zijn drie hoofdcategorieën van machine learning: **onder supervisie learning**, **leren zonder supervisie**, en **versterking learning**.
 
