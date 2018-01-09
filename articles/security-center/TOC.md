@@ -21,6 +21,7 @@
 ### [Beveiligingsbeleid op basis van Azure-beleid](security-center-azure-policy.md)
 ### [E-mailmeldingen](security-center-provide-security-contact-details.md)
 ### [Prijscategorie](security-center-pricing.md)
+### [Beveiligingsconfiguraties](security-center-customize-os-security-config.md)
 
 ## [Onboarding](security-center-onboarding.md)
 ## [Gebeurtenissen](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [VM-agent inschakelen](security-center-enable-vm-agent.md)
 #### [Eindpuntbeveiliging installeren](security-center-install-endpoint-protection.md)
 #### [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Beveiligingsproblemen met het besturingssysteem herstellen](security-center-remediate-os-vulnerabilities.md)
+#### [Beveiligingsconfiguraties herstellen](security-center-remediate-os-vulnerabilities.md)
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
 #### [Evaluatie van beveiligingsproblemen is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
 ### [Beveiligingsstatus bewaken](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Roadmap naar Security Center-gereedheid](security-center-readiness-roadmap.md)
+## [Roadmap naar gereedheid](security-center-readiness-roadmap.md)
 ## [Blog over veiligheid, privacy en naleving met betrekking tot Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Overzicht van services](https://azure.microsoft.com/services/security-center/)
