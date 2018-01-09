@@ -35,7 +35,9 @@
 #### [Media Services bijwerken na gebruik toegangssleutels voor opslag](media-services-roll-storage-access-keys.md)
 #### [Assets beheren voor meerdere opslagaccounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quota en beperkingen](media-services-quotas-and-limitations.md)
-
+## [Postman configureren](media-rest-apis-with-postman.md)
+### [Omgeving](postman-environment.md)
+### [Verzameling](postman-collection.md)
 ## Inhoud uploaden
 ### Bestanden uploaden in een account
 #### [Azure Portal](media-services-portal-upload-files.md)
@@ -206,7 +208,7 @@
 ### [Azure Functions gebruiken met Media Services](media-services-dotnet-how-to-use-azure-functions.md)
 ### [Voorbeelden van Azure Functions met Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
-## Bewaken
+## Controleren
 ### Taakvoortgang controleren
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Azure Portal](media-services-portal-check-job-progress.md)
