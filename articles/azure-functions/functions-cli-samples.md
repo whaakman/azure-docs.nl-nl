@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
 
@@ -34,12 +34,17 @@ De volgende tabel bevat koppelingen naar bash scripts voor Azure-functies die ge
 | | |
 |**Integreren**||
 | [Een functie-app maken en verbinding maken met een opslagaccount](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Een functie-app maken en verbinden met een opslagaccount. |
-| [Een functie-app maken en maak verbinding met een Azure-Cosmos-database](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Een functie-app maken en te verbinden met een Cosmos Azure DB |
+| [Een functie-app maken en maak verbinding met een Azure-Cosmos-database](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Een functie-app maken en verbinden met een Cosmos Azure DB. |
+| | |
+|**Doorlopende implementatie**||
+| [Implementeren vanuit GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Maak een functie-app vanuit een GitHub-opslagplaats implementeert.  |
+| [Implementeren vanaf VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Maak een functie-app die vanuit de opslagplaats van een Visual Studio Team Services (VSTS) implementeert.  |
 | | |
 |**App configureren**||
 | [Een aangepast domein toewijzen aan een functie-app](scripts/functions-cli-configure-custom-domain.md) | Definieer een aangepast domein voor uw functies.  |
 | [Een SSL-certificaat binden aan een functie-app](scripts/functions-cli-configure-ssl-certificate.md)  |  SSL-certificaten voor functies in een aangepast domein uploaden. |
-<!--
+
+<!---
 
 |**Scale app**||
 

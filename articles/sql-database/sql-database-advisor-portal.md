@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -91,6 +91,10 @@ Indien gewenst, kunt u toevoegen verwijderde items terug naar de **aanbevelingen
 2. Selecteer een verwijderde item uit de lijst om de details ervan weer te geven.
 3. Klik desgewenst op **ongedaan negeren** om toe te voegen van de index terug naar de belangrijkste lijst van **aanbevelingen**.
 
+> [!NOTE]
+> Houd er rekening mee dat als SQL-Database [automatische afstemming](sql-database-automatic-tuning.md) is ingeschakeld, en als u handmatig een aanbeveling uit de lijst hebt verwijderd, de aanbeveling nooit automatisch worden toegepast. Verwijderen van een aanbeveling is een handige manier voor gebruikers om automatische afstemming ingeschakeld ingeval wanneer vereisen dat een specifieke aanbeveling mag niet worden toegepast.
+> U kunt dit gedrag herstellen door het toevoegen van verwijderde aanbevelingen terug naar de lijst met aanbevelingen door de optie negeren ongedaan maken.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Automatisch instellen inschakelen
 U kunt de Azure SQL Database voor het implementeren van aanbevelingen automatisch instellen. Aanbevelingen beschikbaar komen, worden automatisch toegepast. Net als bij alle aanbevelingen worden beheerd door de service als het prestatieresultaat negatief is, is de aanbeveling is hersteld.
@@ -119,11 +123,11 @@ Toepassen van een aanbeveling kan niet direct gebeuren. De portal biedt informat
 | Status | Beschrijving |
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en is gepland voor uitvoering toepassen. |
-| Uitvoeren |De aanbeveling wordt toegepast. |
+| In uitvoering |De aanbeveling wordt toegepast. |
 | Controleren |Aanbeveling is toegepast en de service is de voordelen te meten. |
 | Geslaagd |Aanbeveling is toegepast en voordelen zijn gemeten. |
 | Fout |Er is een fout opgetreden tijdens het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |
-| Herstellen van instellingen |De aanbeveling is toegepast, maar heeft vastgesteld dat is niet zodat en automatisch wordt omgezet. |
+| Terugdraaien |De aanbeveling is toegepast, maar heeft vastgesteld dat is niet zodat en automatisch wordt omgezet. |
 | Teruggedraaid |De aanbeveling is hersteld. |
 
 Klik op een aanbeveling in proces uit de lijst voor meer informatie:
@@ -153,7 +157,7 @@ Bewaken van uw aanbevelingen en blijven toepassen om de prestaties te verfijnen.
 * Zie [prestaties aanbevelingen](sql-database-advisor.md) voor een overzicht van Azure SQL Database prestaties aanbevelingen.
 * Zie [inzichten voor queryprestaties](sql-database-query-performance.md) voor meer informatie over het weergeven van de prestatie-invloed van de meest gebruikte query's.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [INDEX MAKEN](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md)

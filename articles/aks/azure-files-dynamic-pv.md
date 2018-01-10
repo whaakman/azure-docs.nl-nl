@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Permanente volumes met Azure files - dynamische inrichten
 
@@ -79,7 +79,7 @@ parameters:
 Een claim permanente volume maakt gebruik van het opslagobject klasse te richten op dynamische wijze een stukje opslag. Wanneer u een Azure-bestanden, wordt een Azure-bestandsshare wordt gemaakt in de storage-account zijn geselecteerd of opgegeven in het opslagobject klasse.
 
 >  [!NOTE]
->   Zorg ervoor dat een geschikte storage-account vooraf is gemaakt in dezelfde resourcegroep bevinden als het cluster AKS. De claim permanente volume niet inrichten van de Azure-bestandsshare als een opslagaccount is niet beschikbaar. 
+>   Ervoor zorgen dat een geschikte storage-account is vooraf gemaakte in dezelfde resourcegroep bevinden als de clusterbronnen AKS. Deze resourcegroep heeft een naam zoals *MC_myAKSCluster_myAKSCluster_eastus*. De claim permanente volume niet inrichten van de Azure-bestandsshare als een opslagaccount is niet beschikbaar. 
 
 Het volgende manifest kan worden gebruikt voor het maken van een claim permanente volume `5GB` aan de grootte van `ReadWriteOnce` toegang. Zie voor meer informatie over de toegangsmodi PVC [toegangsmodi][access-modes].
 

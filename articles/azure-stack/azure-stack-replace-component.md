@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Vervangen van een hardware-onderdeel op een Azure-Stack scale unit-knooppunt
 
@@ -55,6 +55,10 @@ De status van de Azure-Stack en het bewakingssysteem houden de status van netwer
 De volgende stappen bevatten een overzicht van het proces voor het onderdeel vervangen. Volg deze stappen niet zonder te verwijzen naar de OEM geleverde FRU-documentatie.
 
 1. Gebruik de [leegmaakt](azure-stack-node-actions.md#scale-unit-node-actions) actie het scale unit-knooppunt in onderhoudsmodus te plaatsen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
+
+   > [!NOTE]
+   > In elk geval slechts één knooppunt kan worden geleegd en op hetzelfde moment zonder dat u de S2D uitgeschakeld (opslagruimten Direct).
+
 2. Nadat het scale unit-knooppunt in de onderhoudsmodus bevindt is, gebruikt u de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) in te grijpen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
  
    > [!NOTE]

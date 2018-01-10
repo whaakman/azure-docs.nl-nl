@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiency die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Eerste volledige back-ups brengen grote hoeveelheden gegevens doorgaans en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / incrementele worden overgedragen. Azure back-up comprimeren van de eerste back-ups. Door het proces van het offline seeding kunt Azure Backup schijven gebruiken voor het uploaden van de gecomprimeerde eerste back-upgegevens offline naar Azure.  
@@ -46,7 +46,7 @@ Nadat het uploaden van de back-upgegevens naar Azure is voltooid, Azure Backup b
   * Een Azure Backup-kluis is gemaakt.
   * Referenties voor de kluis zijn gedownload.
   * De Azure Backup agent is geïnstalleerd op Windows Server/Windows client- of System Center Data Protection Manager en de computer is geregistreerd bij de Azure Backup-kluis.
-* [Downloaden van de instellingen voor het publiceren van Azure](https://manage.windowsazure.com/publishsettings) op de computer van waaruit u wilt back-up van uw gegevens.
+* [Downloaden van de instellingen voor het publiceren van Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) op de computer van waaruit u wilt back-up van uw gegevens.
 * Bereid de faseringslocatie, dit is mogelijk een netwerkshare of een extra schijf op de computer. De faseringslocatie tijdelijke opslag en tijdelijk tijdens deze werkstroom wordt gebruikt. Zorg ervoor dat de faseringslocatie onvoldoende schijfruimte beschikbaar voor het opslaan van uw eerste kopie. Bijvoorbeeld, als u back-up van een bestandsserver van 500 GB wilt, zorg ervoor dat het faseringsgebied ten minste 500 GB. (Een lager bedrag wordt gebruikt als gevolg van comprimering.)
 * Zorg ervoor dat u een ondersteunde station. Alleen 2,5 inch SSD of 2.5 of 3.5-inch SATA III-II interne harde schijven worden ondersteund voor gebruik met de Import/Export-service. U kunt harde schijven tot 10 TB. Controleer de [documentatie van de service Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) voor de meest recente set met schijven die ondersteuning biedt voor de service.
 * BitLocker inschakelen op de computer waarop de writer SATA-station is aangesloten.
@@ -67,7 +67,7 @@ De informatie in deze sectie helpt u de werkstroom voor offline back-up uitvoere
 
     * **Tijdelijke locatie**: de tijdelijke opslaglocatie waarnaar de eerste back-up is geschreven. Dit kan zijn op een netwerkshare of een lokale computer. Als de computer van de kopie en de broncomputer verschillen, raden wij aan dat u het pad van het volledige netwerk van de faseringslocatie opgeeft.
     * **Azure Import-taaknaam**: de unieke naam welke Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden.
-    * **Azure Publish Settings**: een XML-bestand dat informatie over het profiel van uw abonnement bevat. Het bevat ook beveiligde referenties die gekoppeld aan uw abonnement zijn. U kunt [download het bestand](https://manage.windowsazure.com/publishsettings). Geef het lokale pad naar het bestand publicatie-instellingen.
+    * **Azure Publish Settings**: een XML-bestand dat informatie over het profiel van uw abonnement bevat. Het bevat ook beveiligde referenties die gekoppeld aan uw abonnement zijn. U kunt [download het bestand](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Geef het lokale pad naar het bestand publicatie-instellingen.
     * **Azure-abonnements-ID**: de Azure-abonnements-ID voor het abonnement waarbij u van plan bent om te starten van de Azure Import-taak. Als u meerdere Azure-abonnementen hebt, gebruikt u de ID van het abonnement dat u wilt koppelen aan de import-taak.
     * **Azure Storage-Account**: het opslagaccount in de Azure-abonnement gekoppeld aan de Azure Import-taak.
     * **Azure Storage-Container**: de naam van de bestemmings-blob-opslag in de Azure storage-account waarin gegevens van deze taak worden geïmporteerd.

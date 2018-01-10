@@ -1,107 +1,67 @@
 ---
-title: Machines voor het instellen van herstel na noodgevallen tussen Azure-regio's na de migratie naar Azure met behulp van Site Recovery voorbereiden | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u voorbereidt machines voor het instellen van herstel na noodgevallen tussen Azure-regio's na de migratie naar Azure met behulp van Azure Site Recovery.
+title: Instellen van herstel na noodgevallen voor Azure VM's na de migratie naar Azure met Azure Site Recovery | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u voorbereidt machines voor het instellen van herstel na noodgevallen tussen Azure-regio's na de migratie naar Azure met Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: ponatara
-manager: abhemraj
-editor: 
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: 2aee0fb8d1ba1ff1584bee91b4d1cc34b654d97f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Virtuele Azure-machines repliceren naar een andere regio na de migratie naar Azure met behulp van Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Instellen van herstel na noodgevallen voor Azure VM's na de migratie naar Azure 
 
 >[!NOTE]
-> Azure Site Recovery-replicatie voor virtuele Azure-machines (VM's) is momenteel in preview.
+> Herstel na noodgevallen voor Azure VM's met Azure Site Recovery is momenteel in preview.
 
-## <a name="overview"></a>Overzicht
-
-In dit artikel helpt u bij het voorbereiden van virtuele machines in Azure voor replicatie tussen twee Azure-regio's nadat deze machines zijn gemigreerd vanuit een on-premises-omgeving naar Azure met behulp van Azure Site Recovery.
-
-## <a name="disaster-recovery-and-compliance"></a>Herstel na noodgevallen en naleving
-Vandaag de dag verplaatst meer bedrijven hun werkbelasting naar Azure. Met ondernemingen verplaatsen bedrijfskritieke on-premises productie werkbelastingen naar Azure instellen van herstel na noodgevallen voor deze werkbelastingen is verplicht voor naleving en beveiliging tegen onderbrekingen in een Azure-regio.
-
-## <a name="steps-for-preparing-migrated-machines-for-replication"></a>Stappen voor het voorbereiden van de gemigreerde machines voor replicatie
-Gemigreerd machines voor het instellen van de replicatie naar een andere Azure-regio om voor te bereiden:
-
-1. Voltooi de migratie.
-2. Installeer de Azure-agent, indien nodig.
-3. Verwijder de Mobility-service.  
-4. Start opnieuw op de virtuele machine.
-
-Deze stappen worden in de volgende secties nader beschreven.
-
-### <a name="step-1-migrate-workloads-running-on-hyper-v-vms-vmware-vms-and-physical-servers-to-run-on-azure-vms"></a>Stap 1: Migreren van werkbelastingen die worden uitgevoerd op Hyper-V-machines, virtuele VMware-machines en fysieke servers worden uitgevoerd op Azure Virtual machines
-
-De replicatie instellen en migreren van uw on-premises Hyper-V, VMware en fysieke werkbelasting naar Azure, volg de stappen in de [migreren Azure IaaS virtuele machines tussen Azure-regio's met Azure Site Recovery](site-recovery-migrate-to-azure.md) artikel. 
-
-Na de migratie moet u niet doorvoeren of verwijderen van een failover. Selecteer in plaats daarvan de **volledige migratie** optie voor elke computer die u wilt migreren:
-1. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine en klik vervolgens op **Volledige migratie**. Klik op **OK** om de stap te voltooien. U kunt de voortgang in de VM-eigenschappen volgen door de bewaking van de taak uitvoeren van de migratie van **Site Recovery-taken**.
-2. De **volledige migratie** action het migratieproces is voltooid, verwijdert u de replicatie voor de machine en Hiermee stopt u Site Recovery facturering voor de machine.
-
-   ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-
-### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Stap 2: Installeer de Azure VM-agent op de virtuele machine
-De Azure [VM-agent](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) moet worden geïnstalleerd op de virtuele machine voor de uitbreiding van de Site Recovery werkt en bescherming van de virtuele machine.
-
->[!IMPORTANT]
->Vanaf versie 9.7.0.0, op Windows virtuele machines, installeert het installatieprogramma van de Mobility-service ook de meest recente beschikbare Azure VM-agent. De virtuele machine voldoet aan de vereisten voor het gebruik van een VM-extensie, inclusief de Site Recovery-extensie de installatie van de agent op migratie. De Azure VM-agent moet handmatig worden geïnstalleerd alleen als de Mobility-service op de gemigreerde computer geïnstalleerde versie 9,6 of lager.
-
-De volgende tabel bevat aanvullende informatie over het installeren van de VM-agent en valideren is geïnstalleerd:
-
-| **Bewerking** | **Windows** | **Linux** |
-| --- | --- | --- |
-| De VM-agent installeren |Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet administrator-bevoegdheden om de installatie te voltooien. |Installeer de meest recente [Linux-agent](../virtual-machines/linux/agent-user-guide.md). U moet administrator-bevoegdheden om de installatie te voltooien. Het is raadzaam om de installatie van de agent van uw opslagplaats voor distributie. We *wordt niet aanbevolen* installeren van de Linux-VM-agent rechtstreeks vanuit GitHub.  |
-| De installatie van de VM-agent valideren |1. Blader naar de map C:\WindowsAzure\Packages in de Azure VM. Hier ziet u het bestand WaAppAgent.exe. <br>2. Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. De **productversie** veld moet 2.6.1198.718 of hoger. |N.v.t. |
+In dit artikel gebruiken nadat u hebt [lokale machines hebt gemigreerd virtuele Azure-machines](tutorial-migrate-on-premises-to-azure.md) met behulp van de [siteherstel](site-recovery-overview.md) service. In dit artikel helpt u bij het voorbereiden van de Azure VM's voor het instellen van herstel na noodgevallen naar een secundair Azure-regio met Site Recovery.
 
 
-### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Stap 3: De Mobility-service van de gemigreerde virtuele machine verwijderen
 
-Als u uw lokale VMware-machines of fysieke servers op Windows of Linux hebt gemigreerd, moet u handmatig verwijderen of het verwijderen van de gemigreerde virtuele machine van de Mobility-service.
+## <a name="before-you-start"></a>Voordat u begint
 
->[!IMPORTANT]
->Deze stap is niet vereist voor Hyper-V-machines naar Azure gemigreerde.
+Voordat u herstel na noodgevallen hebt ingesteld, controleert u of de migratie is voltooid zoals verwacht. Voor het voltooien van een migratie met succes, na de failover moet u de **volledige migratie** optie voor elke computer die u wilt migreren. 
 
-#### <a name="uninstall-the-mobility-service-on-a-windows-server-vm"></a>Verwijder de Mobility-service op een virtuele machine van Windows Server
-Gebruik een van de volgende methoden voor het verwijderen van de Mobility-service op een Windows Server-computer.
 
-##### <a name="uninstall-by-using-the-windows-ui"></a>Verwijder met behulp van de gebruikersinterface van Windows
-1. Selecteer in het Configuratiescherm **programma's**.
-2. Selecteer **Microsoft Azure Site Recovery Mobility Service/hoofddoelserver**, en selecteer vervolgens **verwijderen**.
 
-##### <a name="uninstall-at-a-command-prompt"></a>Bij een opdrachtprompt verwijderen
-1. Open een opdrachtpromptvenster als administrator.
-2. Voer de volgende opdracht voor het verwijderen van de Mobility-service:
+## <a name="install-the-azure-vm-agent"></a>De Azure VM-agent installeren
 
-   ```
-   MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-   ```
+De Azure [VM-agent](../virtual-machines/windows/agent-user-guide.md) moet worden geïnstalleerd op de virtuele machine, zodat de Site-Recovery kan worden gerepliceerd.
 
-#### <a name="uninstall-the-mobility-service-on-a-linux-computer"></a>Verwijder de Mobility-service op een Linux-computer
-1. Op uw Linux-server, moet u zich aanmelden als een **hoofdmap** gebruiker.
-2. Ga in een terminal naar /user/local/ASR.
-3. Voer de volgende opdracht voor het verwijderen van de Mobility-service:
 
-   ```
-   uninstall.sh -Y
-   ```
+1. Als u wilt de VM-agent installeren op virtuele machines waarop Windows wordt uitgevoerd, downloaden en uitvoeren van de [installatieprogramma van agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersbevoegdheden op de virtuele machine om de installatie te voltooien.
+2. Als u wilt de VM-agent installeren op virtuele machines waarop Linux wordt uitgevoerd, installeer de meest recente [Linux-agent](../virtual-machines/linux/agent-user-guide.md). U moet administrator-bevoegdheden om de installatie te voltooien. We raden dat u installeren vanuit de opslagplaats van uw distributiepunt. Niet aanbevolen voor het installeren van de Linux-VM-agent rechtstreeks vanuit GitHub. 
 
-### <a name="step-4-restart-the-vm"></a>Stap 4: De virtuele machine opnieuw opstarten
 
-Nadat u de Mobility-service hebt verwijderd, start opnieuw op de virtuele machine voordat u de replicatie naar een andere Azure-regio instellen.
+## <a name="validate-the-installation-on-windows-vms"></a>Valideren van de installatie op Windows-VM 's
+
+1. Op de virtuele machine van Azure, in de map C:\WindowsAzure\Packages ziet u het bestand WaAppAgent.exe.
+2. Met de rechtermuisknop op het bestand en in **eigenschappen**, selecteer de **Details** tabblad.
+3. Controleer de **productversie** veld bevat 2.6.1198.718 of hoger.
+
+
+
+## <a name="migration-from-vmware-vms-or-physical-servers"></a>Migratie van virtuele VMware-machines of fysieke servers
+
+Als u lokale virtuele VMware-machines (of fysieke servers) naar Azure migreert, houd er rekening mee dat:
+
+- U hoeft alleen de Azure VM-agent installeren als de Mobility-service geïnstalleerd op de gemigreerde machine v9.6 of lager.
+- Op Windows virtuele machines waarop versie 9.7.0.0 van de Mobility-service en hoger wordt uitgevoerd, installeert het installatieprogramma van de service de meest recente beschikbare Azure VM-agent. Wanneer u migreert, wordt in deze virtuele machines al voldoen aan vereisten voor elke VM-extensie, inclusief de Site Recovery-extensie de installatie van de agent.
+- U moet de Mobility-service handmatig verwijderen van de virtuele machine van Azure, met een van de volgende methoden. De virtuele machine opnieuw configureren van replicatie.
+    - Voor Windows, in het Configuratiescherm > **programma's toevoegen/verwijderen**, verwijder **Microsoft Azure Site Recovery Mobility Service/hoofddoelserver**. Voer bij een opdrachtprompt met verhoogde bevoegdheid:
+        ```
+        MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+        ```
+    - Meld u aan voor Linux, een een hoofdgebruiker. Ga in een terminal naar **/user/local/ASR**, en voer de volgende opdracht:
+        ```
+        uninstall.sh -Y
+        ```
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Beginnen met het beveiligen van uw werkbelastingen door [virtuele Azure-machines repliceren](site-recovery-azure-to-azure.md).
-- Meer informatie over [richtlijnen voor het repliceren van virtuele machines van Azure toegang](site-recovery-azure-to-azure-networking-guidance.md).
+
+[Snel repliceren](azure-to-azure-quickstart.md) een Azure-VM met een secundaire regio.

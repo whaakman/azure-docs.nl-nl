@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: f48c9ef6b66cb3c9a687f1d063859e413866e88c
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 57edd392d25be20c237185d6780335e4ca9ba3e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -259,7 +259,7 @@ Definieer een imperatieve binding als volgt:
 
 ### <a name="single-attribute-example"></a>Voorbeeld van één kenmerk
 
-De volgende voorbeeldcode maakt een [Storage-blob uitvoer binding](functions-bindings-storage-blob.md#input--output) met blob pad dat gedefinieerd tijdens runtime, hierna schrijft een tekenreeks naar de blob.
+De volgende voorbeeldcode maakt een [Storage-blob uitvoer binding](functions-bindings-storage-blob.md#output) met blob pad dat gedefinieerd tijdens runtime, hierna schrijft een tekenreeks naar de blob.
 
 ```cs
 public static class IBinderExample
@@ -315,7 +315,7 @@ De volgende tabel bevat de trigger en binding-kenmerken die beschikbaar in een A
 
 | Trigger | Invoer | Uitvoer|
 |------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [BLOB](functions-bindings-storage-blob.md#input--output---attributes)| [BLOB](functions-bindings-storage-blob.md#input--output---attributes)|
+| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [BLOB](functions-bindings-storage-blob.md#input---attributes)| [BLOB](functions-bindings-storage-blob.md#output---attributes)|
 | [CosmosDBTrigger](functions-bindings-documentdb.md#trigger---attributes)| [DocumentDB](functions-bindings-documentdb.md#input---attributes)| [DocumentDB](functions-bindings-documentdb.md#output---attributes) |
 | [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
 | [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerken modi voor service Fabric-container
 
@@ -183,7 +183,7 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
    |Bron |VirtualNetwork | |
    |Doel | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
-   |Actie | Toestaan  | |
+   |Bewerking | Toestaan  | |
    | | |
 
 4. Geef de modus voor netwerken in het toepassingsmanifest voor elke service: `<NetworkConfig NetworkType="Open">`. **Open** networking modus resultaten in de service een toegewijde IP-adres ophalen. Als een modus niet is opgegeven, de service wordt standaard ingesteld op **nat** modus. In het volgende voorbeeld van de manifest de `NodeContainerServicePackage1` en `NodeContainerServicePackage2` services kunnen elke luisteren op dezelfde poort (beide services luisteren `Endpoint1`). Wanneer Open netwerken modus wordt opgegeven, `PortBinding` configuraties kunnen niet worden opgegeven.
@@ -220,6 +220,16 @@ Als een containerservice opnieuw wordt opgestart of naar een ander knooppunt in 
     >[!NOTE]
     >Op Linux-clusters wordt combineren netwerken modi voor verschillende services niet ondersteund. 
     >
+
+5. Wanneer de **Open** modus is ingeschakeld, de **eindpunt** definitie in het servicemanifest moet expliciet verwijzen naar het codepakket overeenkomt met het eindpunt, zelfs als het servicepakket slechts één code heeft pakket in het. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)

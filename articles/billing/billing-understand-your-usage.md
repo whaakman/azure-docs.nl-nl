@@ -1,5 +1,5 @@
 ---
-title: Het gebruik van uw Azure gedetailleerde begrijpen | Microsoft Docs
+title: Het gebruik van uw Azure gedetailleerde begrijpen
 description: Informatie over het lezen van en inzicht in de secties van gedetailleerde gebruik van uw CSV voor uw Azure-abonnement
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Termen in uw Microsoft Azure gedetailleerde gebruikskosten begrijpen 
+
 Het gebruik van gedetailleerde kosten CSV-bestand bevat dagelijks en meter niveau gebruikskosten voor de huidige factureringsperiode. 
 
 Als u het bestand met gedetailleerde informatie over het gebruik, Zie [het ophalen van uw Azure facturering facturen en dagelijks gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,15 +29,14 @@ Het is beschikbaar in een indeling met door komma's gescheiden waarden (.csv) da
 
 Gebruikskosten zijn het totale aantal **maandelijkse** kosten voor een abonnement. De gebruikskosten rekening geen gehouden met eventuele tegoed of kortingen.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Gedetailleerde voorwaarden en beschrijvingen van het bestand met gedetailleerde informatie over het gebruik
+
 De volgende secties worden de belangrijke termen die wordt weergegeven in versie 2 van het bestand gedetailleerde informatie over het gebruik.
 
-### <a name="statement"></a>Instructie
+### <a name="statement"></a>Verklaring
+
 Het bovenste gedeelte van het CSV-bestand voor gedetailleerde informatie over het gebruik ziet u de services die u hebt gebruikt tijdens de maand factureringsperiode. De volgende tabel bevat de voorwaarden en beschrijvingen in deze sectie wordt weergegeven.
 
 | Termijn | Beschrijving |

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
 
@@ -46,7 +46,7 @@ U hebt de mogelijkheid toegang toe te voegen aan extra Blob en Data lake slaat t
 U kunt ook [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) als een opslagoptie voor gebruik op de edge-knooppunt. Azure Files kunt u een bestandsshare die is gemaakt in Azure Storage naar het bestandssysteem van Linux te koppelen. Zie voor meer informatie over deze opties voor het opslaan van gegevens voor R Server op HDInsight-cluster [Azure Storage-opties voor clusters op HDInsight R Server](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>-R Server op het cluster
-U kunt verbinding maken met R Server op de edge-knooppunt met een browser. Dit is standaard geïnstalleerd tijdens het maken van het cluster. Zie voor meer informatie [stared ophalen met op HDInsight R Server](r-server-get-started.md).
+U kunt verbinding maken met R Server op de edge-knooppunt met een browser. Dit is standaard geïnstalleerd tijdens het maken van het cluster. Zie voor meer informatie [aan de slag met op HDInsight R Server](r-server-get-started.md).
 
 U kunt ook verbinding maken met het R-Server vanaf de opdrachtregel met behulp van SSH/PuTTY toegang tot de R-console. 
 

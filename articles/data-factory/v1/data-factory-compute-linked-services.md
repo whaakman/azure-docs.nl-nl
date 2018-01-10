@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3f519f9d6c92dde50d02009220a6eb1eea1bfeb7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 > [!NOTE]
@@ -49,8 +49,7 @@ Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die
 Na 15 December 2017:
 
 - U wordt niet langer Linux gebaseerde HDInsight versie 3.3 (of eerdere versies) maken met behulp van gekoppelde On-Demand HDInsight-Service in Azure Data Factory-v1-clusters. 
-
-- Als de [besturingssysteemtype en/of de eigenschap Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) zijn niet expliciet is opgegeven in de bestaande Azure Data Factory v1 On-Demand HDInsight gekoppelde Service JSON definities, de standaardwaarde wordt gewijzigd van **versie 3.1, besturingssysteemtype = = Windows** naar **versie 3.6, besturingssysteemtype = Linux =**.
+- Als de [besturingssysteemtype en/of de eigenschap Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) zijn niet expliciet is opgegeven in de bestaande Azure Data Factory v1 On-Demand HDInsight gekoppelde Service JSON definities, de standaardwaarde wordt gewijzigd van **versie 3.1, besturingssysteemtype = = Windows** naar **versie =[meest recente versie van de HDI standaard](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), besturingssysteemtype Linux =**.
 
 Na 31 juli 2018:
 
@@ -100,17 +99,15 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-Voor het gebruik van een HDInsight op basis van Windows-cluster instellen **besturingssysteemtype** naar **windows** of de eigenschap niet gebruiken als de standaardwaarde is: windows.  
 
 > [!IMPORTANT]
 > Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid. 
@@ -125,10 +122,10 @@ Voor het gebruik van een HDInsight op basis van Windows-cluster instellen **best
 | type                         | De eigenschap type moet worden ingesteld op **HDInsightOnDemand**. | Ja      |
 | De clustergrootte                  | Het aantal worker/gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over de Standard_D3-laag. | Ja      |
 | TimeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft.<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, kan het cluster niet-actieve onnodig wat resulteert in hoge kosten blijven. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen. | Ja      |
-| versie                      | Versie van het HDInsight-cluster. De standaardwaarde is 3.1 voor Windows-cluster en 3.2 voor Linux-cluster. | Nee       |
+| versie                      | Raadpleeg de versie van het HDInsight-cluster [ondersteunde versies van HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) toegestaan voor versies van HDInsight. Als niet wordt opgegeven, wordt de [meest recente versie van de HDI standaard](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Nee       |
 | linkedServiceName            | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p> | Ja      |
 | additionalLinkedServiceNames | Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. | Nee       |
-| besturingssysteemtype                       | Type besturingssysteem. Toegestane waarden zijn: (standaard) voor Windows en Linux | Nee       |
+| besturingssysteemtype                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows. Als u niet opgeeft, wordt Linux standaard gebruikt.  <br/>We recommand sterk met Linux gebaseerde HDInsight-clusters als de intrekkingsdatum voor HDInsight in Windows is 31 juli 2018. | Nee       |
 | hcatalogLinkedServiceName    | De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. | Nee       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-voorbeeld
@@ -162,6 +159,8 @@ U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van het
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",

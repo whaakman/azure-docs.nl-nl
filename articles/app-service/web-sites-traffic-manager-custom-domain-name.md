@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 69c7984d0620b4a0fd40252129023093c09d6e56
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configureren van een aangepaste domeinnaam voor een web-app in Azure App Service met behulp van Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,7 +56,7 @@ Uw aangepaste domein koppelt u een web-app in Azure App Service, moet u een nieu
 Terwijl de details van elke domeinprovider variëren, wijst u *van* uw aangepaste domeinnaam (zoals **contoso.com**) *naar* de naam van het Traffic Manager-domein ( **Contoso.trafficmanager.NET**) die is geïntegreerd met uw web-app.
    
 > [!NOTE]
-> Als een record al in gebruik is en u moet uw apps pre-emptively binden aan, kunt u een extra CNAME-record maken. Om bijvoorbeeld te binden pre-emptively **www.contoso.com** aan uw web-app maakt u een CNAME-record van **awverify.www** naar **contoso.trafficmanager.net**. U kunt vervolgens 'www.contoso.com' toevoegen aan uw Web-App zonder te wijzigen van de 'www' CNAME-record. Zie voor meer informatie [maken DNS-records voor een web-app in een aangepast domein][CREATEDNS].
+> Als een record al in gebruik is en u moet uw apps optie preventief binden aan, kunt u een extra CNAME-record maken. Bijvoorbeeld, optie preventief binden **www.contoso.com** aan uw web-app maakt u een CNAME-record van **awverify.www** naar **contoso.trafficmanager.net**. U kunt vervolgens 'www.contoso.com' toevoegen aan uw Web-App zonder te wijzigen van de 'www' CNAME-record. Zie voor meer informatie [maken DNS-records voor een web-app in een aangepast domein][CREATEDNS].
 > 
 > 
 

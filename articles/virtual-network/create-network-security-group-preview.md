@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filteren van netwerkverkeer met netwerk- en beveiligingsgroepen (Preview)
 
@@ -31,7 +31,7 @@ De volgende secties vindt u stappen die u ondernemen kunt netwerk om beveiliging
 Dit artikel bevat stappen voor het maken van netwerk beveiligingsgroepen via het Resource Manager-implementatiemodel het implementatiemodel dat wordt u aangeraden is bij het maken van netwerk-beveiligingsgroepen. Als u wilt maken van een netwerkbeveiligingsgroep (klassiek), Zie [maken van een netwerkbeveiligingsgroep (klassiek)](virtual-networks-create-nsg-classic-ps.md). Als u niet bekend met Azure implementatiemodellen bent, Zie [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> Deze zelfstudie maakt gebruik van netwerk groep beveiligingsfuncties die zich momenteel in preview-versie. Functies in de preview-versie beschikt niet over de beschikbaarheid en de betrouwbaarheid als functies in het algemeen release. In de preview, de functies zijn alleen beschikbaar in de volgende gebieden: WestCentralUS. Als u wilt netwerkbeveiliging groepen in het algemeen alleen functies met de release te implementeren, Zie [maken van een netwerkbeveiligingsgroep](virtual-networks-create-nsg-arm-pportal.md). 
+> Deze zelfstudie maakt gebruik van netwerk groep beveiligingsfuncties die zich momenteel in preview-versie. Functies in de preview-versie beschikt niet over de beschikbaarheid en de betrouwbaarheid als functies in het algemeen release. Als u wilt netwerkbeveiliging groepen in het algemeen alleen functies met de release te implementeren, Zie [maken van een netwerkbeveiligingsgroep](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>Azure-CLI
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 52eaf66f829f22313c72bd6eeea38b796ff18465
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Veelgestelde vragen (FAQ's)
 Deze pagina antwoorden op veelgestelde vragen over Azure Active Directory Domain Services. Houd regelmatig op updates controleren.
@@ -47,9 +47,6 @@ De service zelf ondersteunt dit scenario niet direct. Uw beheerde domein is besc
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Kan ik Azure AD Domain Services met behulp van PowerShell inschakelen?
 Ja. Zie [hoe het inschakelen van Azure AD Domain Services met behulp van PowerShell](active-directory-ds-enable-using-powershell.md).
-
-#### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD Domain Services beschikbaar is in de nieuwe Azure portal?
-Ja. Azure AD Domain Services kunnen worden geconfigureerd met de [Azure-portal](https://portal.azure.com). De [klassieke Azure portal](https://manage.windowsazure.com) wordt niet langer ondersteund.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan ik Azure AD Domain Services met een Resource Manager-sjabloon inschakelen?
 Ja. Zie [hoe het inschakelen van Azure AD Domain Services met behulp van PowerShell](active-directory-ds-enable-using-powershell.md).

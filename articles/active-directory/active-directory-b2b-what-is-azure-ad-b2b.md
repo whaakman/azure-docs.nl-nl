@@ -17,15 +17,15 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: eef95f80f8107c13cd057c56eb5219a353acc854
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Wat is Azure AD B2B-samenwerking? (Engelstalig artikel)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Azure AD-business-to-business (B2B) samenwerkingsmogelijkheden inschakelen voor elke organisatie gebruikmaken van Azure AD veilig werken met gebruikers vanaf elke organisatie klein of groot. Organisaties kunnen met Azure AD of zonder, of zelfs met een IT-organisatie of zonder te zijn. 
 

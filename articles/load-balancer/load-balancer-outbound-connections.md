@@ -3,8 +3,8 @@ title: Inzicht in uitgaande verbindingen in Azure | Microsoft Docs
 description: Dit artikel wordt uitgelegd hoe de Azure VM's om te communiceren met het openbare internetservices kunt.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Uitleg over uitgaande verbindingen in Azure
 
@@ -46,7 +46,7 @@ U kunt [Log Analytics voor Load Balancer](load-balancer-monitor-log.md) en [waar
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Taakverdeling met virtuele machine geen Instance Level Public IP-adres
 
-In dit scenario is de virtuele machine deel uitmaakt van een Load Balancer van Azure-toepassingen.  De virtuele machine heeft geen een openbaar IP-adres toegewezen. De Load Balancer-bron moet worden geconfigureerd met een regel voor het koppelen van het openbare IP-frontend met de back-endpool.  Als u deze configuratie niet uitvoert, is het gedrag zoals beschreven in de voorgaande sectie voor [Standalone VM met geen Instance Level Public IP](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+In dit scenario is de virtuele machine deel uitmaakt van een Load Balancer van Azure-toepassingen.  De virtuele machine heeft geen een openbaar IP-adres toegewezen. De Load Balancer-bron moet worden geconfigureerd met een load balancer-regel om een koppeling tussen het openbare IP-frontend met de back-endpool te maken. Als u deze configuratie niet uitvoert, is het gedrag zoals beschreven in de voorgaande sectie voor [Standalone VM met geen Instance Level Public IP](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Wanneer de VM Netwerktaakverdeling een uitgaande stroom maakt, vertaalt Azure het persoonlijke bron-IP-adres van de uitgaande stroom voor het openbare IP-adres van de openbare Load Balancer-frontend. Azure gebruikt bron Network Address Translation (snat omzetten) om deze functie niet uitvoeren. Kortstondige poorten van het openbare IP-adres van de Load Balancer worden gebruikt om te onderscheiden van afzonderlijke stromen afkomstig is van het door de virtuele machine. Kortstondige poorten snat omzetten dynamisch toegewezen wanneer uitgaande stromen worden gemaakt. In deze context worden de kortstondige poorten gebruikt voor snat omzetten aangeduid als snat omzetten poorten.
 

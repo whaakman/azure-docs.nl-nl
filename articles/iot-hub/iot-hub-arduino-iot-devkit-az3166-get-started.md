@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Verbinding maken met IoT DevKit AZ3166 Azure IoT Hub in de cloud
 
@@ -104,7 +104,7 @@ De standaard-app uitgevoerd op de DevKit controleert de meest recente versie van
 > [!NOTE] 
 > Sinds v1.1 kunnen DevKit ST-SAFE in bootloader. U moet firmware bijwerken als u om u dit waarschijnlijk onder v1.1 uitvoert.
 
-Als u een upgrade nodig, wordt het scherm de huidige en de meest recente firmware-versies weergegeven. Als u wilt upgraden, volgt u de [firmware bijwerken](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) handleiding.
+Als u een upgrade nodig, wordt het scherm de huidige en de meest recente firmware-versies weergegeven. Als u wilt upgraden, volgt u de [firmware bijwerken](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) handleiding.
 
 ![Weergave van de huidige en de meest recente firmware-versies](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 

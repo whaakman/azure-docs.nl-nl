@@ -1,22 +1,22 @@
 ---
-title: Een functie-App maken en implementeren van functiecode vanuit GitHub | Microsoft Docs
-description: Een functie-App maken en implementeren van functiecode vanuit GitHub
+title: "Maken van een functie in Azure die is geïmplementeerd vanuit GitHub | Microsoft Docs"
+description: Een functie-app maken en implementeren van de functiecode van een GitHub-opslagplaats met behulp van Azure Functions.
 services: functions
 ms.service: functions
 keywords: 
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 8b148651d041bbc27e2deccec57b1759ce0095d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Maak een App Service
+# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>Maken van een functie in Azure die is geïmplementeerd vanuit GitHub
 
 Dit voorbeeldscript maakt een functie-app met de [verbruik plan](../functions-scale.md#consumption-plan) met de bijbehorende resources en continu implementeert uw functiecode van een GitHub-opslagplaats. In dit voorbeeld hebt u het volgende nodig:
 
@@ -27,7 +27,7 @@ Dit voorbeeldscript maakt een functie-app met de [verbruik plan](../functions-sc
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u in plaats daarvan de Azure CLI lokaal, moet u het installeren en gebruiken van versie 2.0 of hoger. Om te bepalen van de versie van Azure CLI, voert `az --version`. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
@@ -39,7 +39,7 @@ Dit voorbeeld maakt u een Azure-functie-app en implementeert functiecode vanuit 
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht. Dit script maakt gebruik van het volgende:
+Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht. Dit script maakt gebruik van de volgende opdrachten:
 
 | Opdracht | Opmerkingen |
 |---|---|

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2aed60c2b35d750c892bc61c0e2693d6407c641f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) configureren voor een virtuele machine met Azure CLI
 
@@ -106,7 +106,7 @@ Het antwoord bevat de details voor de gebruiker toegewezen MSI gemaakt, ziet er 
 2. De gebruiker toegewezen MSI toewijzen voor het gebruik van uw VM [az vm toewijzen-identity](/cli/azure/vm#az_vm_assign_identity). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<VM NAME>` parameterwaarden met uw eigen waarden. De `<MSI ID>` wordt de gebruiker toegewezen MSI-resource worden `id` eigenschap, in de vorige stap hebt gemaakt:
 
     ```azurecli-interactive
-    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities <MSI ID>
+    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
     ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Verwijder de MSI van een Azure VM

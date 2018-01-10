@@ -4,7 +4,7 @@ description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query'
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: LalithaMV
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: arramac
-ms.openlocfilehash: 0bd24082f3b323919493fc8e9fdb642f065afb47
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos-DB
 
@@ -305,7 +305,7 @@ De volgende binaire operators worden momenteel ondersteund en kunnen worden gebr
 <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
 </tr>
 <tr>
-<td>Reeks</td>    
+<td>Tekenreeks</td>    
 <td>|| (samenvoegen)</td>
 </tr>
 </table>  
@@ -932,7 +932,7 @@ De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQ
 | SOM   | Retourneert de som van alle waarden in de expressie. |
 | MIN   | Retourneert de minimale waarde in de expressie. |
 | MAX   | Retourneert de maximumwaarde in de expressie. |
-| GEM.   | Retourneert het gemiddelde van de waarden in de expressie. |
+| GEM   | Retourneert het gemiddelde van de waarden in de expressie. |
 
 Statistische functies kunnen ook worden uitgevoerd via de resultaten van een matrix herhaling. Zie voor meer informatie [herhaling van de matrix in query's](#Iteration).
 
@@ -1394,7 +1394,7 @@ Cosmos DB ondersteunt ook een aantal ingebouwde functies voor algemene bewerking
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wiskundige functies  | ABS, maximum, EXP, FLOOR, logboek, LOG10, POWER, ROUND, aanmelding, SQRT, VIERKANT, geheel, BOOGCOS, ASIN, BOOGTAN, ATN2, Cosinus, COT, graden PI, radialen, SIN en TAN |
 | Controle van de functies van het type | IS_ARRAY, IS_BOOL IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED en IS_PRIMITIVE                                                           |
-| Tekenreeks-functies        | CONCAT, bevat ENDSWITH, INDEX_OF, links, lengte, kleine, LTRIM, vervangen, REPLICEREN, REVERSE, rechts, RTRIM, STARTSWITH, SUBTEKENREEKS en hoofdletters       |
+| Tekenreeksfuncties        | CONCAT, bevat ENDSWITH, INDEX_OF, links, lengte, kleine, LTRIM, vervangen, REPLICEREN, REVERSE, rechts, RTRIM, STARTSWITH, SUBTEKENREEKS en hoofdletters       |
 | Matrixfuncties         | ARRAY_CONCAT, ARRAY_CONTAINS ARRAY_LENGTH en ARRAY_SLICE                                                                                         |
 | Ruimtelijke functies       | ST_DISTANCE, ST_WITHIN ST_INTERSECTS, ST_ISVALID en ST_ISVALIDDETAILED                                                                           | 
 
@@ -1495,7 +1495,7 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
 
     [true]
 
-### <a name="string-functions"></a>Tekenreeks-functies
+### <a name="string-functions"></a>Tekenreeksfuncties
 De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren. Hier volgt een lijst met ingebouwde tekenreeks-functies:
 
 | Gebruik | Beschrijving |

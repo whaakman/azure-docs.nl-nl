@@ -1,6 +1,6 @@
 ---
-title: IIS-logboeken in Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) slaat gebruikersactiviteit in de logboekbestanden die kunnen worden verzameld door logboekanalyse.  Dit artikel wordt beschreven voor het configureren van de verzameling van IIS-logboeken en details van de records die ze in de OMS-opslagplaats maken.
+title: Geregistreerd in Azure Log Analytics | Microsoft Docs
+description: Internet Information Services (IIS) slaat gebruikersactiviteit in de logboekbestanden die kunnen worden verzameld door logboekanalyse.  In dit artikel wordt beschreven hoe verzameling van IIS-logboeken en details van de records die ze in de werkruimte voor logboekanalyse maken configureren.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS-logboeken in Log Analytics
 Internet Information Services (IIS) slaat gebruikersactiviteit in de logboekbestanden die kunnen worden verzameld door logboekanalyse.  

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -74,26 +74,38 @@ Voor Windows-clusters, wordt een andere manier om te controleren van de onderdee
 Zie [HDInsight releaseopmerkingen](hdinsight-release-notes.md) voor extra release-opmerkingen op de nieuwste versies van HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>Ondersteunde versies van HDInsight
-De volgende tabel geeft de versies van HDInsight die momenteel beschikbaar op de Azure-portal zijn. De HDP-versies die met elke versie HDInsight overeenkomen worden samen met de release product datums weergegeven. De datums voor verlopen en buiten gebruik stellen worden ook gegeven wanneer deze zijn bepaald.
+De volgende tabellen worden de versies van HDInsight. De HDP-versies die met elke versie HDInsight overeenkomen worden samen met de release product datums weergegeven. De datums voor verlopen en buiten gebruik stellen worden ook gegeven wanneer deze zijn bepaald.
+
+### <a name="available-versions"></a>Beschikbare versies
+
+De volgende tabel geeft de versies van HDInsight die beschikbaar in de Azure Portal, evenals andere deployement-methoden zoals PowerShell en .NET SDK zijn.
+
+| HDInsight-versie | HDP versie | BESTURINGSSYSTEEM VAN VIRTUELE MACHINE | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 TNS |4 april 2017 | | |Ja |Ja |
+| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 TNS |30 september 2016 |5 september 2017 |31 mei 2018 |Ja |Ja |
+| HDInsight 3.3 |2.3 HDP |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
 
 > [!NOTE]
 > Na de ondersteuning voor een versie is verlopen, deze mogelijk niet beschikbaar is via de Microsoft Azure portal. Clusterversies blijven echter zijn beschikbaar via de `Version` parameter in de Windows PowerShell [nieuw AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) opdracht en de .NET SDK totdat de einddatum van de versie.
-> 
-> Maximaal beschikbare clusters met twee hoofdknooppunten worden standaard voor HDInsight versie 2.1 en hoger geïmplementeerd. Ze zijn niet beschikbaar voor HDInsight versie 1.6-clusters.
+>
 
-| HDInsight-versie | HDP versie | BESTURINGSSYSTEEM VAN VIRTUELE MACHINE | Hoge beschikbaarheid | Releasedatum | Beschikbaarheid in de Azure portal | Ondersteuning voor vervaldatum | Vervaldatum |
+### <a name="retired-versions"></a>Buiten gebruik gestelde versies
+
+De volgende tabel bevat de versies van HDInsight die zijn **niet** beschikbaar in de Azure-Portal.
+
+| HDInsight-versie | HDP versie | BESTURINGSSYSTEEM VAN VIRTUELE MACHINE | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Ja |4 april 2017 |Ja | | |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16 |Ja |30 september 2016 |Ja |5 september 2017 |31 mei 2018 |
-| HDInsight 3.4 |2.4 HDP |Ubuntu 14.0.4 TNS |Ja |29 maart 2016 |Ja |29 december 2016 |9 januari 2018 |
-| HDInsight 3.3 |2.3 HDP |Windows Server 2012 R2 |Ja |2 december 2015 |Ja |27 juni 2016 |31 juli 2018 |
-| HDInsight 3.3 |2.3 HDP |Ubuntu 14.0.4 TNS |Ja |2 december 2015 |Ja |27 juni 2016 |31 juli 2017 |
-| 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |Ja |18 februari 2015 |Nee |1 maart 2016 |1 april 2017 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Ja |24 juni 2014 |Nee |18 mei 2015 |30 juni 2016 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Ja |11 februari 2014 |Nee |17 september 2014 |30 juni 2015 |
-| HDInsight 2.1 |1.3 HDP |Windows Server 2012 R2 |Ja |28 oktober 2013 |Nee |12 mei 2014 |31 mei 2015 |
-| HDInsight 1.6 |HDP 1.1 | |Nee |28 oktober 2013 |Nee |26 april 2014 |31 mei 2015 |
+| HDInsight 3.4 |2.4 HDP |Ubuntu 14.0.4 TNS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
+| HDInsight 3.3 |2.3 HDP |Ubuntu 14.0.4 TNS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nee |
+| 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |1 april 2017 |Ja |Nee |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 mei 2015 |30 juni 2016 |Ja |Nee |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nee |
+| HDInsight 2.1 |1.3 HDP |Windows Server 2012 R2 |28 oktober 2013 |12 mei 2014 |31 mei 2015 |Ja |Nee |
+| HDInsight 1.6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |31 mei 2015 |Nee |Nee |
 
+> [!NOTE]
+> Maximaal beschikbare clusters met twee hoofdknooppunten worden standaard voor HDInsight versie 2.1 en hoger geïmplementeerd. Ze zijn niet beschikbaar voor HDInsight versie 1.6-clusters.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise-beveiligingspakket voor HDInsight
 
@@ -144,7 +156,7 @@ Beginnen met HDInsight versie 3.4, heeft Microsoft HDInsight alleen op de Linux-
 ## <a name="faqs"></a>Veelgestelde vragen
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>Wat is de planning voor het buiten gebruik stellen HDInsight op Windows?
-31 juli 2018, is de intrekkingsdatum voor HDInsight in Windows. Als de geplande intrekkingsdatum voor uw regio verschilt, u ontvangt een melding afzonderlijk. 
+31 juli 2018, is de intrekkingsdatum voor HDInsight in Windows. Als de geplande intrekkingsdatum voor uw regio verschilt, wordt u afzonderlijk gewaarschuwd. 
 
 ### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>Wat zijn de gevolgen van het buiten gebruik stellen van HDInsight in Windows voor bestaande klanten?
 Nadat HDInsight op Windows is buiten gebruik gesteld, kan u een nieuw HDInsight Windows-cluster maken of vergroten of verkleinen van een bestaand HDInsight Windows-cluster. Ondersteuning voor HDInsight versie 3.3 verlopen op 27 juni 2016. Er is daarom geen ondersteuning of oplossingen voor problemen voor HDInsight 3.3 of eerdere versies. Toekomstige versies van HDInsight zijn alleen beschikbaar voor de Linux-besturingssysteem. Er zijn geen toekomstige versies van HDInsight in Windows.
@@ -162,7 +174,7 @@ Ga naar de overzichtspagina van HDInsight-Cluster in de Azure-portal en zoek **t
 Het HDInsight Windows-cluster wordt uitgevoerd als-is, maar u kunt een nieuw HDInsight Windows-cluster maken of een bestaand HDInsight Windows-cluster vergroten of verkleinen. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Mijn cluster heeft een .NET-afhankelijkheid. Hoe kan ik deze afhankelijkheid op Linux oplossen?
-U kunt uw Linux-cluster afhankelijkheid oplossen met behulp van de [Mono project](http://www.mono-project.com/). Deze implementatie open-source van .NET is beschikbaar voor HDInsight Linux-clusters. Meer informatie in de [HDInsight migratie document](hdinsight-migrate-from-windows-to-linux.md). 
+U kunt uw Linux-cluster afhankelijkheid oplossen met behulp van de [Mono project](http://www.mono-project.com/). Deze implementatie open source van .NET is beschikbaar voor HDInsight Linux-clusters. Meer informatie in de [HDInsight migratie document](hdinsight-migrate-from-windows-to-linux.md). 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Ik ben een nieuwe klant voor HDInsight in Windows. Hoe kan ik een HDInsight Windows-cluster maken?
 Vanaf 3 juli 2017 kunnen alleen bestaande HDInsight Windows-klanten nieuwe HDInsight Windows clusters maken. Nieuwe klanten kunnen een HDInsight Windows-cluster maken in de Azure-portal met behulp van PowerShell of de SDK. U kunt het beste nieuwe klanten een Linux-HDInsight-cluster maken. Bestaande klanten kunnen nieuwe HDInsight Windows clusters maken totdat de HDInsight op Windows intrekkingsdatum. 
@@ -171,9 +183,9 @@ Vanaf 3 juli 2017 kunnen alleen bestaande HDInsight Windows-klanten nieuwe HDIns
 Nee, is hetzelfde voor HDInsight op beide OS prijzen. 
 
 ### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>Wat zijn de voordelen van de klant die zijn gekoppeld aan de overstap naar alleen met HDInsight op Linux?
-* Snellere tijd op de markt voor open-source big data-technologieën via de HDInsight-service
+* Snellere tijd op de markt voor open source big data-technologieën via de HDInsight-service
 * Een grote community en ecosysteem voor ondersteuning
-* Mogelijkheid om uit te oefenen active ontwikkeld door de community open-source voor Hadoop en andere technologieën voor big data
+* Mogelijkheid om uit te oefenen active ontwikkeld door de open source-community voor Hadoop en andere technologieën voor big data
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Biedt HDInsight op Linux aanvullende functionaliteit naast wat beschikbaar in HDInsight op Windows is?
 Beginnen met HDInsight versie 3.4, heeft Microsoft HDInsight alleen op de Linux-besturingssysteem. Hierdoor kunnen zijn sommige van de onderdelen in HDInsight beschikbaar voor Linux alleen. Deze omvatten Apache Zwerver, Kafka, interactieve Query, Spark, HDInsight-toepassingen en Azure Data Lake Store als de primaire-bestandssysteem. 
