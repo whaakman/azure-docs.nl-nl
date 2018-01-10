@@ -1,12 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: toepassingsregistratie | Microsoft Docs'
+title: Toepassingsregistratie - Azure Active Directory B2C
 description: Uw toepassing registreren met Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: uw toepassing registreren
 
@@ -28,7 +27,7 @@ Met behulp van deze Quickstart kunt u binnen enkele minuten een toepassing regis
 
 Als u een toepassing wilt maken waarin consumenten zich kunnen registreren en aanmelden, moet u de toepassing eerst registreren bij een Azure Active Directory B2C-tenant. Haal uw eigen tenant op aan de hand van de stappen in [Een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md).
 
-Toepassingen die zijn gemaakt vanaf de blade Azure AD B2C in Azure Portal, moeten vanaf dezelfde locatie worden beheerd. Als u de B2C-toepassingen bewerkt met PowerShell of een andere portal, worden de toepassingen niet meer ondersteund en werken ze niet met Azure AD B2C. Zie voor meer informatie de sectie [Mislukte toepassingen](#faulted-apps). 
+Toepassingen die zijn gemaakt in Azure Portal, moeten vanaf dezelfde locatie worden beheerd. Als u de Azure AD B2C-toepassingen bewerkt met PowerShell of een andere portal, worden de toepassingen niet meer ondersteund en werken ze niet met Azure AD B2C. Zie voor meer informatie de sectie [Mislukte toepassingen](#faulted-apps). 
 
 Dit artikel bevat uitleg waarmee u met onze voorbeelden aan de slag kunt gaan. U kunt in de volgende artikelen meer over deze voorbeelden te weten komen.
 
@@ -117,7 +116,7 @@ U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste antwoord-UR
 
 Er zijn twee belangrijke overwegingen bij het kiezen van een omleidings-URI voor mobiele/native toepassingen:
 
-* **Uniek**: het schema van de omleidings-URI moet voor elke toepassing uniek zijn. In ons voorbeeld (com.onmicrosoft.contoso.app-naam://redirect/pad) gebruiken we com.onmicrosoft.contoso.app-naam als het schema. We raden aan dit patroon te volgen. Als twee toepassingen hetzelfde schema delen, ziet de gebruiker een dialoogvenster voor het kiezen van een app. Als de gebruiker een foute keuze maakt, mislukt de aanmelding.
+* **Uniek**: het schema van de omleidings-URI moet voor elke toepassing uniek zijn. In het voorbeeld (com.onmicrosoft.contoso.app-naam://redirect/pad) is com.onmicrosoft.contoso.app-naam het schema. We raden aan dit patroon te volgen. Als twee toepassingen hetzelfde schema delen, ziet de gebruiker een dialoogvenster voor het kiezen van een app. Als de gebruiker een foute keuze maakt, mislukt de aanmelding.
 * **Volledig**: de omleidings-URI moet een schema en een pad hebben. Het pad moet ten minste één forward slash bevatten na het domein (zo werkt //contoso/ bijvoorbeeld wel en //contoso niet).
 
 Zorg ervoor dat er geen speciale tekens zoals onderstrepingstekens in de omleidings-URI staan.
@@ -126,16 +125,16 @@ Zorg ervoor dat er geen speciale tekens zoals onderstrepingstekens in de omleidi
 
 B2C-toepassingen moeten niet worden bewerkt:
 
-* Op andere appbeheerportals zoals de [klassieke Azure-portal](https://manage.windowsazure.com/) en de [portal voor appregistratie](https://apps.dev.microsoft.com/).
+* Op andere appbeheerportals zoals de [portal voor appregistratie](https://apps.dev.microsoft.com/).
 * Met Graph API of PowerShell
 
-Als u de B2C-toepassing bewerkt zoals hierboven wordt beschreven en de toepassing opnieuw probeert te bewerken op de blade Azure AD B2C-functies in Azure Portal, verandert deze in een mislukte toepassing die niet meer kan worden gebruikt met Azure AD B2C. U moet de toepassing verwijderen en deze opnieuw maken.
+Als u de Azure AD B2C-toepassing bewerkt zoals hierboven wordt beschreven en de toepassing opnieuw probeert te bewerken in Azure AD B2C-functies in Azure Portal, verandert deze in een mislukte toepassing die niet meer kan worden gebruikt met Azure AD B2C. U moet de toepassing verwijderen en deze opnieuw maken.
 
 Als u de toepassing wilt verwijderen, gaat u naar de [portal voor appregistratie](https://apps.dev.microsoft.com/) en verwijdert u daar de toepassing. De toepassing is alleen zichtbaar als u de eigenaar van de toepassing bent (en niet een beheerder van de tenant).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een toepassing hebt die is geregistreerd bij Azure AD B2C, kunt u snel aan de slag gaan aan de hand van een van [onze snelstartzelfstudies](active-directory-b2c-overview.md#get-started).
+Nu u een toepassing hebt die is geregistreerd bij Azure AD B2C, kunt u snel aan de slag gaan aan de hand van een van [de snelstartzelfstudies](active-directory-b2c-overview.md#get-started).
 
 > [!div class="nextstepaction"]
 > [Een ASP.NET-web-app maken met registreren, aanmelden en wachtwoord opnieuw instellen](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

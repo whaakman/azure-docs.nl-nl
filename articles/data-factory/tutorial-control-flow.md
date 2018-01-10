@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
@@ -452,7 +452,7 @@ In de eerste sectie van onze pijplijn worden parameters gedefinieerd.
 
 - sourceBlobContainer - parameter in the pijplijn die door de bronblobgegevensset wordt verbruikt
 - sinkBlobContainer - parameter in the pijplijn die door de sinkblobgegevensset wordt verbruikt
-- receiver - parameter in de pijplijn die wordt verbruikt door de twee webactiviteiten voor welk e-mailadres het e-mailbericht ontvangt
+- ontvanger - deze parameter wordt gebruikt door de twee webactiviteiten in de pijplijn waarmee een e-mail met een succesbericht of een e-mail met een foutmelding wordt gestuurd aan de ontvanger die door deze parameter wordt gespecificeerd.
 
 
 ```csharp

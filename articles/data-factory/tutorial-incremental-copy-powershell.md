@@ -1,6 +1,6 @@
 ---
 title: "Stapsgewijs een tabel kopiëren met behulp van Azure Data Factory | Microsoft Docs"
-description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure Blob-opslag stapsgewijs worden gekopieerd naar een Azure SQL-database.
+description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure SQL- database stapsgewijs worden gekopieerd naar Azure Blob Storage.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5317e2426111a813960db462ac6d6ab3980d0e00
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit Azure SQL Database laden in Azure Blob Storage
-In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee wijzigingsgegevens uit een tabel in een Azure SQL-database naar een Azure Blob-opslag worden gekopieerd. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
+In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u [Documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 
 In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
-> * Bereid de gegevensopslag voor om de grenswaarde in op te slaan.   
+> * Bereid de gegevensopslag voor om de grenswaarde in op te slaan.
 > * Maak een gegevensfactory.
 > * Maak gekoppelde services. 
 > * Maak bron-, sink- en grenswaardegegevenssets.
@@ -39,35 +39,38 @@ In deze zelfstudie voert u de volgende stappen uit:
 > * De pijplijnuitvoering controleert. 
 
 ## <a name="overview"></a>Overzicht
-De diagramoplossing op hoog niveau is: 
+Hier volgt de diagramoplossing op hoog niveau: 
 
 ![Stapsgewijs gegevens laden](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
-Dit zijn de belangrijke stappen bij het maken van deze oplossing: 
+Dit zijn de belangrijke stappen voor het maken van deze oplossing: 
 
 1. **Selecteer de grenswaardekolom**.
     Selecteer één kolom in de brongegevensopslag die kan worden gebruikt om de nieuwe of bijgewerkte records voor elke uitvoering te segmenteren. Normaal gesproken nemen de gegevens in deze geselecteerde kolom (bijvoorbeeld, last_modify_time of id) toe wanneer de rijen worden gemaakt of bijgewerkt. De maximale waarde in deze kolom wordt gebruikt als grenswaarde.
+
 2. **Bereid een gegevensopslag voor om de grenswaarde in op te slaan**.   
-    In deze zelfstudie slaat u de grenswaarde op in een Azure SQL-database.
-3. **Maak een pijplijn met de volgende werkstroom:** 
+    In deze zelfstudie slaat u de grenswaarde op in een SQL-database.
+    
+3. **Maak een pijplijn met de volgende werkstroom**: 
     
     De pijplijn in deze oplossing heeft de volgende activiteiten:
   
-    1. Maak twee **opzoekactiviteiten**. Gebruik de eerste opzoekactiviteit om de laatste grenswaarde op te halen. Gebruik de tweede opzoekactiviteit om de nieuwe grenswaarde op te halen. Deze grenswaarden worden doorgegeven aan de kopieeractiviteit. 
-    2. Maak een **kopieeractiviteit** waarmee rijen uit de brongegevensopslag worden gekopieerd met een waarde uit de grenswaardekolom die groter is dan de oude grenswaarde en kleiner dan de nieuwe grenswaarde. Vervolgens worden de deltagegevens uit de brongegevensopslag als een nieuw bestand gekopieerd naar een Blob-opslag. 
-    3. Maak een **opgeslagen procedureactiviteit** waarmee de grenswaarde wordt bijgewerkt voor de pijplijn die de volgende keer wordt uitgevoerd. 
+    * Maak twee opzoekactiviteiten. Gebruik de eerste opzoekactiviteit om de laatste grenswaarde op te halen. Gebruik de tweede opzoekactiviteit om de nieuwe grenswaarde op te halen. Deze grenswaarden worden doorgegeven aan de kopieeractiviteit. 
+    * Maak een kopieeractiviteit waarmee rijen uit de brongegevensopslag worden gekopieerd met een waarde uit de grenswaardekolom die groter is dan de oude grenswaarde en kleiner dan de nieuwe grenswaarde. Vervolgens worden de deltagegevens uit de brongegevensopslag als een nieuw bestand gekopieerd naar een Blob-opslag. 
+    * Maak een opgeslagen-procedureactiviteit waarmee de grenswaarde wordt bijgewerkt voor de pijplijn die de volgende keer wordt uitgevoerd. 
 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure SQL-database**. U gebruikt de database als de **brongegevensopslag**. Als u geen Azure SQL-database hebt, raadpleegt u het artikel [Een Azure SQL-database maken](../sql-database/sql-database-get-started-portal.md) voor de stappen voor het maken van een account.
-* **Azure Storage-account**. U gebruikt de Blob-opslag als de **sinkgegevensopslag**. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor de stappen voor het maken van een account. Maak een container met de naam **adftutorial**. 
-* **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren).
+* **Azure SQL-database**. U gebruikt de database als de brongegevensopslag. Als u geen SQL-database hebt, raadpleegt u het artikel [Een Azure SQL-database maken](../sql-database/sql-database-get-started-portal.md) om een database te maken.
+* **Azure Storage**. U gebruikt de Blob-opslag als de sinkgegevensopslag. Als u geen opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om een account te maken. Maak een container met de naam adftutorial. 
+* **Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps).
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Een gegevensbrontabel maken in de Azure SQL-database
-1. Open **SQL Server Management Studio**. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
-2. Voer de volgende SQL-opdracht uit voor de Azure SQL-database om een tabel met de naam `data_source_table` te maken als gegevensbronopslag.  
+### <a name="create-a-data-source-table-in-your-sql-database"></a>Een gegevensbrontabel maken in uw SQL-database
+1. Open SQL Server Management Studio. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
+
+2. Voer de volgende SQL-opdracht uit voor de SQL-database om een tabel met de naam `data_source_table` te maken als de gegevensbronopslag: 
     
     ```sql
     create table data_source_table
@@ -86,7 +89,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     (4, 'dddd','9/4/2017 3:21:00 AM'),
     (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-    In deze zelfstudie gebruikt u **LastModifytime** als de **grenswaardekolom**.  De gegevens in de brongegevensopslag worden weergegeven in de volgende tabel:
+    In deze zelfstudie gebruikt u LastModifytime als de grenswaardekolom. De gegevens in de brongegevensopslag worden weergegeven in de volgende tabel:
 
     ```
     PersonID | Name | LastModifytime
@@ -98,8 +101,8 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     5 | eeee | 2017-09-05 08:06:00.000
     ```
 
-### <a name="create-another-table-in-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in SQL Database maken om de bovengrenswaarde op te slaan
-1. Voer de volgende SQL-opdracht uit voor de Azure SQL-database om een tabel met de naam `watermarktable` te maken om de grenswaarde op te slaan.  
+### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Nog een tabel in uw SQL-database maken om de bovengrenswaarde op te slaan
+1. Voer de volgende SQL-opdracht uit op de SQL-database om een tabel met de naam `watermarktable` te maken om de grenswaarde op te slaan:  
     
     ```sql
     create table watermarktable
@@ -109,13 +112,13 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     WatermarkValue datetime,
     );
     ```
-3. Stel de **standaardwaarde** van de bovengrens in met de tabelnaam van de brongegevensopslag.  (In deze zelfstudie is de tabelnaam: **data_source_table**)
+2. Stel de standaardwaarde van de bovengrens in met de tabelnaam van de brongegevensopslag. In deze zelfstudie is de tabelnaam data_source_table.
 
     ```sql
     INSERT INTO watermarktable
     VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
-4. Controleer de gegevens in de tabel: `watermarktable`.
+3. Controleer de gegevens in de tabel `watermarktable`.
     
     ```sql
     Select * from watermarktable
@@ -128,9 +131,9 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     data_source_table | 2010-01-01 00:00:00.000
     ```
 
-### <a name="create-a-stored-procedure-in-azure-sql-database"></a>Een opgeslagen procedure maken in een Azure SQL-database 
+### <a name="create-a-stored-procedure-in-your-sql-database"></a>Een opgeslagen procedure maken in uw SQL-database 
 
-Voer de volgende opdracht uit om een opgeslagen procedure te maken in de Azure SQL-database.
+Voer de volgende opdracht uit om een opgeslagen procedure te maken in uw SQL-database:
 
 ```sql
 CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -146,14 +149,15 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
-1. Definieer een variabele voor de naam van de resourcegroep die u later gaat gebruiken in PowerShell-opdrachten. Kopieer de tekst van de volgende opdracht naar PowerShell, geef tussen dubbele aanhalingstekens een naam op voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en voer de opdracht uit. Bijvoorbeeld: `"adfrg"`. 
+1. Definieer een variabele voor de naam van de resourcegroep die u later gaat gebruiken in PowerShell-opdrachten. Kopieer de tekst van de volgende opdracht naar PowerShell, geef tussen dubbele aanhalingstekens een naam op voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en voer de opdracht uit. Een voorbeeld is `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit.
-2. Definieer een variabele voor de locatie van de data factory: 
+
+2. Definieer een variabele voor de locatie van de data factory. 
 
     ```powershell
     $location = "East US"
@@ -163,8 +167,9 @@ END
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit. 
-3. Definieer een variabele voor de naam van de data factory. 
+    Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit.
+
+4. Definieer een variabele voor de naam van de data factory. 
 
     > [!IMPORTANT]
     >  Werk de naam van de data factory zodanig bij dat deze uniek is. Bijvoorbeeld: ADFTutorialFactorySP1127. 
@@ -180,20 +185,21 @@ END
 
 Houd rekening met de volgende punten:
 
-* De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende fout zich voordoet, wijzigt u de naam en probeert u het opnieuw.
+* De naam van de data factory moet een Globally Unique Identifier zijn. Als de volgende fout zich voordoet, wijzigt u de naam en probeert u het opnieuw:
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn.
-* Momenteel kunt u met Data Factory versie 2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+
+* Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen Inzender of Eigenaar, of moet dit een beheerder van het Azure-abonnement zijn.
+* Momenteel kunt u met Data Factory versie 2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Storage, SQL Database, enzovoort) en berekeningen (Azure HDInsight, enzovoort) die worden gebruikt door de data factory, kunnen zich in andere regio's bevinden.
 
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in het Azure Storage-account en de Azure SQL-database. 
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in uw opslagaccount en de SQL-database. 
 
-### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maakt.
-1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADF** met de volgende inhoud: (Maak de map ADF als deze nog niet bestaat.) Vervang voordat u het bestand opslaat `<accountName>`, `<accountKey>` door de naam en de sleutel van uw Azure Storage-account.
+### <a name="create-a-storage-linked-service"></a>Een gekoppelde Storage-service maken
+1. Maak een JSON-bestand met de naam AzureStorageLinkedService.json in de map C:\ADF folder met de volgende inhoud. (Maak de map ADF als deze nog niet bestaat.) Vervang `<accountName>` en `<accountKey>` door de naam en sleutel van uw opslagaccount voordat u het bestand opslaat.
 
     ```json
     {
@@ -209,8 +215,9 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
         }
     }
     ```
-2. Schakel in **Azure PowerShell** over naar de map **ADF**.
-3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureStorageLinkedService** te maken. In het volgende voorbeeld geeft u de waarden door voor de parameters **ResourceGroupName** en **DataFactoryName**. 
+2. Schakel in PowerShell over naar de map ADF.
+
+3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service AzureStorageLinkedService te maken. In het volgende voorbeeld geeft u de waarden door voor de parameters *ResourceGroupName* en *DataFactoryName*: 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -225,8 +232,8 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADF** met de volgende inhoud: (maak de map ADF als deze nog niet bestaat.) Vervang voordat u het bestand opslaat **&lt;server&gt; &lt;database&gt;, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, database, gebruikers-id en wachtwoord. 
+### <a name="create-a-sql-database-linked-service"></a>Een gekoppelde SQL Database-service maken
+1. Maak een JSON-bestand met de naam AzureSQLDatabaseLinkedService.json in de map C:\ADF folder met de volgende inhoud. (Maak de map ADF als deze nog niet bestaat.) Vervang voordat u het bestand opslaat &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; en &lt;password&gt; door de naam van uw server, database, gebruikers-id en wachtwoord. 
 
     ```json
     {
@@ -242,8 +249,9 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
         }
     }
     ```
-1. Schakel in **Azure PowerShell** over naar de map **ADF**.
-2. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureSQLDatabaseLinkedService** te maken. 
+2. Schakel in PowerShell over naar de map ADF.
+
+3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service AzureSQLDatabaseLinkedService te maken. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -282,8 +290,9 @@ In deze stap maakt u gegevenssets om de bron- en sinkgegevens te vertegenwoordig
     }
    
     ```
-    In deze zelfstudie wordt de tabelnaam: **data_source_table** gebruikt. Vervang deze naam als u een tabel gebruikt met een andere naam. 
-2.  Voer de cmdlet Set-AzureRmDataFactoryV2Dataset uit om de gegevensset te maken: SourceDataset
+    In deze zelfstudie wordt de tabelnaam data_source_table gebruikt. Vervang deze naam als u een tabel gebruikt met een andere naam.
+
+2. Voer de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit om de gegevensset SourceDataset te maken.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -324,8 +333,9 @@ In deze stap maakt u gegevenssets om de bron- en sinkgegevens te vertegenwoordig
     ```
 
     > [!IMPORTANT]
-    > In dit fragment wordt ervan uitgegaan dat u een blobcontainer hebt met de naam **adftutorial** in de Azure Blob-opslag. Maak de container als deze bestaat niet (of) stel deze in op de naam van een bestaande container. De uitvoermap `incrementalcopy` wordt automatisch gemaakt als deze niet bestaat in de container. In deze zelfstudie wordt de bestandsnaam dynamisch gegenereerd met behulp van de expressie: `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
-2.  Voer de cmdlet Set-AzureRmDataFactoryV2Dataset uit om de gegevensset te maken: SinkDataset
+    > In dit fragment wordt ervan uitgegaan dat u een blobcontainer hebt met de naam adftutorial in uw Blob-opslag. Maak de container als deze bestaat niet of stel deze in op de naam van een bestaande container. De uitvoermap `incrementalcopy` wordt automatisch gemaakt als deze niet bestaat in de container. In deze zelfstudie wordt de bestandsnaam dynamisch gegenereerd met behulp van de expressie `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+
+2. Voer de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit om de gegevensset SinkDataset te maken.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -341,7 +351,7 @@ In deze stap maakt u gegevenssets om de bron- en sinkgegevens te vertegenwoordig
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset    
     ```
 
-## <a name="create-a-dataset-for-watermark"></a>Een gegevensset maken voor de grenswaarde
+## <a name="create-a-dataset-for-a-watermark"></a>Een gegevensset maken voor een grenswaarde
 In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde. 
 
 1. Maak een JSON-bestand met de naam WatermarkDataset.json in dezelfde map met de volgende inhoud: 
@@ -361,7 +371,7 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
         }
     }    
     ```
-2.  Voer de cmdlet Set-AzureRmDataFactoryV2Dataset uit om de gegevensset te maken: WatermarkDataset
+2.  Voer de cmdlet **Set-AzureRmDataFactoryV2Dataset** uit om de gegevensset WatermarkDataset te maken.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -381,7 +391,7 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
 In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopieeractiviteit en één opgeslagen procedureactiviteit als keten in één pijplijn. 
 
 
-1. Maak een JSON-bestand: IncrementalCopyPipeline.json in dezelfde map met de volgende inhoud: 
+1. Maak een JSON-bestand met de naam IncrementalCopyPipeline.json in dezelfde map met de volgende inhoud: 
 
     ```json
     {
@@ -493,7 +503,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     ```
     
 
-2. Voer de cdmlet Set-AzureRmDataFactoryV2Pipeline uit om de pijplijn IncrementalCopyPipeline te maken.
+2. Voer de cdmlet **Set-AzureRmDataFactoryV2Pipeline** uit om de pijplijn IncrementalCopyPipeline te maken.
     
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -511,12 +521,12 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
  
 ## <a name="run-the-pipeline"></a>De pijplijn uitvoeren
 
-1. Voer de pijplijn **IncrementalCopyPipeline** uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en gegevensfactory.
+1. Voer de pijplijn IncrementalCopyPipeline uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en data factory.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Controleer de status van de pijplijn door de cmdlet Get-AzureRmDataFactoryV2ActivityRun uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters RunStartedAfter en RunStartedBefore.  In deze zelfstudie gaat u -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15" gebruiken.
+2. Controleer de status van de pijplijn door de cmdlet **Get-AzureRmDataFactoryV2ActivityRun** uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters *RunStartedAfter* en *RunStartedBefore*. In deze zelfstudie gaat u *-RunStartedAfter "2017/09/14"* en *-RunStartedBefore "2017/09/15"* gebruiken.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -585,7 +595,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 
 ## <a name="review-the-results"></a>De resultaten bekijken
 
-1. In de Azure Blob-opslag (sinkopslag) ziet u dat de gegevens zijn gekopieerd naar het bestand dat is gedefinieerd in de SinkDataset.  In de huidige zelfstudie is de bestandsnaam `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`.  Open het bestand. U ziet records in het bestand die hetzelfde zijn als de gegevens in de Azure SQL-database.
+1. In de Blob-opslag (sinkopslag) ziet u dat de gegevens zijn gekopieerd naar het bestand dat is gedefinieerd in SinkDataset. In de huidige zelfstudie is de bestandsnaam `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`. Open het bestand. U ziet records in het bestand die hetzelfde zijn als de gegevens in de SQL-database.
 
     ```
     1,aaaa,2017-09-01 00:56:00.0000000
@@ -594,7 +604,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
     ``` 
-2. Ga naar de laatste waarde in `watermarktable`. U ziet nu dat de grenswaarde is bijgewerkt.
+2. Controleer de laatste waarde van `watermarktable`. U ziet dat de grenswaarde is bijgewerkt.
 
     ```sql
     Select * from watermarktable
@@ -606,9 +616,9 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     --------- | --------------
     data_source_table   2017-09-05  8:06:00.000
 
-### <a name="insert-data-into-data-source-store-to-verify-delta-data-loading"></a>Gegevens invoegen in de gegevensbronopslag om te controleren of de deltagegevens worden geladen
+### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Gegevens invoegen in de gegevensbronopslag om te controleren of de deltagegevens worden geladen
 
-1. Nieuwe gegevens invoegen in een Azure SQL-database (brongegevensopslag):
+1. Voeg nieuwe gegevens in de SQL-database (brongegevensopslag) in.
 
     ```sql
     INSERT INTO data_source_table
@@ -618,7 +628,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    De bijgewerkte gegevens in de Azure SQL-database zijn:
+    De bijgewerkte gegevens in de SQL-database zijn:
 
     ```
     PersonID | Name | LastModifytime
@@ -631,12 +641,12 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     6 | newdata | 2017-09-06 02:23:00.000
     7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. Voer de pijplijn **IncrementalCopyPipeline** opnieuw uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en gegevensfactory.
+2. Voer de pijplijn IncrementalCopyPipeline opnieuw uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en data factory.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Controleer de status van de pijplijn door de cmdlet **Get-AzureRmDataFactoryV2ActivityRun** uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters RunStartedAfter en RunStartedBefore.  In deze zelfstudie gaat u -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15" gebruiken.
+3. Controleer de status van de pijplijn door de cmdlet **Get-AzureRmDataFactoryV2ActivityRun** uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters *RunStartedAfter* en *RunStartedBefore*. In deze zelfstudie gaat u *-RunStartedAfter "2017/09/14"* en *-RunStartedBefore "2017/09/15"* gebruiken.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -702,8 +712,9 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     Error             : {errorCode, message, failureType, target}
 
     ```
-4.  In de Azure Blob-opslag ziet u dat een ander bestand is gemaakt in Azure Blob-opslag. In deze zelfstudie is de nieuwe bestandsnaam `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Als u dit bestand opent, ziet u 2 rijen met records:
-5.  Ga naar de laatste waarde in `watermarktable`. U ziet nu dat de grenswaarde opnieuw is bijgewerkt
+4. In de Blob-opslag ziet u dat een ander bestand is gemaakt. In deze zelfstudie is de nieuwe bestandsnaam `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`. Als u dit bestand opent, ziet u twee rijen met records.
+
+5. Controleer de laatste waarde van `watermarktable`. U ziet dat de grenswaarde opnieuw is bijgewerkt.
 
     ```sql
     Select * from watermarktable
@@ -719,15 +730,15 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 In deze zelfstudie hebt u de volgende stappen uitgevoerd: 
 
 > [!div class="checklist"]
-> * Definieer een **grenswaardekolom** en sla deze op in Azure SQL Database.  
+> * Bereid de gegevensopslag voor om de grenswaarde in op te slaan. 
 > * Maak een gegevensfactory.
-> * Maak gekoppelde services voor SQL Database en Blob-opslag. 
-> * Maak bron- en sinkgegevenssets.
+> * Maak gekoppelde services. 
+> * Maak bron-, sink- en grenswaardegegevenssets.
 > * Maak een pijplijn.
 > * Voer de pijplijn uit.
 > * De pijplijnuitvoering controleert. 
 
-In deze zelfstudie heeft de pijplijn gegevens uit **één tabel** in een Azure SQL-database naar een Azure-blobopslag gekopieerd. Ga door naar de volgende zelfstudie voor meer informatie over het kopiëren van gegevens uit **meerdere tabellen** in een on-premises SQL Server-database naar een Azure SQL-database. 
+In deze zelfstudie heeft de pijplijn gegevens uit één tabel in een SQL-database naar een Blob-opslag gekopieerd. Ga door naar de volgende zelfstudie voor meer informatie over het kopiëren van gegevens uit meerdere tabellen in een on-premises SQL Server-database naar een SQL-database. 
 
 > [!div class="nextstepaction"]
 >[Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL Database kopiëren](tutorial-incremental-copy-multiple-tables-powershell.md)

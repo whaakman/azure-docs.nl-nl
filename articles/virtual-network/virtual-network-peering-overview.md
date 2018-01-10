@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -63,13 +63,15 @@ Bij het configureren van peering in virtuele netwerken kunt u de netwerkbeveilig
 
 ## <a name="service-chaining"></a>Servicechaining
 
-U kunt door gebruikers gedefinieerde routes configureren die naar virtuele machines in gekoppelde virtuele netwerken verwijzen als het 'volgende hop'-IP-adres om servicechaining in te schakelen. Met servicechaining kunt u verkeer van een virtueel netwerk naar een virtueel apparaat in een gekoppeld virtueel netwerk leiden, door middel van door gebruikers gedefinieerde routes.
+U kunt door gebruikers gedefinieerde routes configureren die naar virtuele machines in gekoppelde virtuele netwerken of naar virtuele netwerkgateways verwijzen als het *volgende hop*-IP-adres om servicechaining in te schakelen. Met servicechaining kunt u verkeer van een virtueel netwerk naar een virtueel apparaat of een virtuele netwerkgateway in een gekoppeld virtueel netwerk leiden, door middel van door gebruikers gedefinieerde routes.
 
-U kunt ook effectief hub en spoke-achtige omgevingen bouwen waarin de hub infrastructuuronderdelen kan hosten, zoals een virtueel netwerkapparaat. Alle virtuele spoke-netwerken kunnen vervolgens worden gekoppeld aan het virtuele hub-netwerk. Door virtuele netwerkapparaten die worden uitgevoerd in het virtuele hub-netwerk kan verkeer stromen. Kort gezegd, met peering in virtuele netwerken kan het 'volgende hop'-IP-adres op de door de gebruiker gedefinieerde route het IP-adres zijn van een virtuele machine in het gekoppelde virtuele netwerk. Zie [Door de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md) voor meer informatie over door de gebruiker gedefinieerde routes. Zie [Hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) voor meer informatie over het maken van een hub-en-spokenetwerktopologie.
+U kunt ook hub en spoke-omgevingen implementeren waarin het virtuele hub-netwerk infrastructuuronderdelen kan hosten, zoals een virtueel netwerkapparaat of een VPN-gateway. Alle virtuele spoke-netwerken kunnen vervolgens worden gekoppeld aan het virtuele hub-netwerk. Door virtuele netwerkapparaten of VPN-gateways die worden uitgevoerd in het virtuele hub-netwerk kan verkeer stromen. 
+
+Met peering van virtuele netwerken kan de volgende hop op de door de gebruiker gedefinieerde route het IP-adres zijn van een virtuele machine in het gekoppelde virtuele netwerk of VPN-gateway. U kunt echter geen verkeer doorsturen tussen virtuele netwerken met een door de gebruiker gedefinieerde route waarin de ExpressRoute-gateway is opgegeven als het volgende hoptype. Zie [Door de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined) voor meer informatie over door de gebruiker gedefinieerde routes. Zie [Hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) voor meer informatie over het maken van een hub-en-spokenetwerktopologie.
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways en on-premises connectiviteit
 
-Elk virtueel netwerk, ongeacht of het gekoppeld is aan een ander virtueel netwerk, kan nog steeds een eigen gateway hebben en gebruiken om te verbinden met een on-premises netwerk. U kunt ook [virtueel-netwerk-naar-virtueel-netwerk-verbindingen](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) configureren door gateways te gebruiken, ook al zijn de virtuele netwerken gekoppeld.
+Elk virtueel netwerk, ongeacht of het gekoppeld is aan een ander virtueel netwerk, kan nog steeds een eigen gateway hebben en gebruiken om te verbinden met een on-premises netwerk. U kunt ook [virtueel-netwerk-naar-virtueel-netwerk-verbindingen](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) configureren door gateways te gebruiken, ook al zijn de virtuele netwerken gekoppeld.
 
 Wanneer beide opties voor interconnectiviteit tussen virtuele netwerken zijn geconfigureerd, loopt het verkeer tussen de virtuele netwerken via de peering-configuratie (dat wil zeggen, via de Azure-backbone).
 
@@ -98,20 +100,17 @@ Als u bijvoorbeeld de virtuele netwerken genaamd mijnVirtueelNetwerkA en mijnVir
 
 ## <a name="monitor"></a>Bewaken
 
-Wanneer u twee virtuele netwerken koppelt die zijn gemaakt via Resource Manager, moet voor elk virtueel netwerk een peering worden geconfigureerd.
-U kunt de status van de peeringverbinding controleren. De peeringstatus is een van de volgende statussen:
+Wanneer u twee virtuele netwerken koppelt die zijn gemaakt via Resource Manager, moet voor elk virtueel netwerk een peering worden geconfigureerd. U kunt de status van de peeringverbinding controleren. De peeringstatus is een van de volgende statussen:
 
-* **Gestart**: wanneer u de peering naar het tweede virtuele netwerk vanuit het eerste virtuele netwerk maakt, is de peeringstatus Gestart.
-
-* **Verbonden**: wanneer u de peering vanuit het tweede virtuele netwerk naar het eerste virtuele netwerk maakt, is de peeringstatus Verbonden. Als u de peeringstatus voor het eerste virtuele netwerk bekijkt, ziet u dat de status ervan is gewijzigd van Gestart in Verbonden. De peering is pas gelukt als de peeringstatus van beide virtueel netwerk-peerings Verbonden is.
-
-* **Verbinding verbroken**: als een van de peeringkoppelingen wordt verwijderd nadat een verbinding tot stand is gebracht, verandert de peeringstatus in Verbinding verbroken.
+* **Gestart**: de status die wordt weergegeven wanneer u de peering vanuit het eerste virtuele netwerk naar het tweede virtuele netwerk maakt.
+* **Verbonden**: de status die wordt weergegeven wanneer u de peering vanuit het tweede virtuele netwerk naar het eerste virtuele netwerk maakt. De status van de peering voor het eerste virtuele netwerk wordt gewijzigd van *Gestart* naar *Verbonden*. De peering van het virtuele netwerk is pas gelukt als de status van beide virtueel netwerk-peerings *Verbonden* is.
+* **Verbinding verbroken**: de status die wordt weergegeven wanneer de peering van het ene virtuele netwerk naar het andere wordt verwijderd nadat een peering is vastgesteld tussen twee virtuele netwerken.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
-U kunt problemen met verkeer dat via de peeringverbinding loopt oplossen door [uw effectieve routes te controleren](virtual-network-routes-troubleshoot-portal.md).
+Om de peering op een virtueel netwerk te bevestigen, kunt u de [effectieve routes controleren](virtual-network-routes-troubleshoot-portal.md) voor een netwerkinterface in een subnet van een virtueel netwerk. Als een peering op een virtueel netwerk bestaat, hebben alle subnets binnen het virtuele netwerk routes met het volgende hoptype *VNet-peering* voor elke adresruimte in elk gekoppeld virtueel netwerk.
 
-U kunt problemen met de verbinding met een virtuele machine in een gekoppeld virtueel netwerk ook oplossen met behulp van de [connectiviteitscontrole](../network-watcher/network-watcher-connectivity-portal.md) van Network Watcher. De connectiviteitscontrole laat zien hoe verkeer rechtstreeks vanaf de netwerkinterface van de bron-VM wordt doorgestuurd naar de netwerkinterface van de doel-VM.
+U kunt problemen met de verbinding met een virtuele machine in een gekoppeld virtueel netwerk ook oplossen met behulp van de [connectiviteitscontrole](../network-watcher/network-watcher-connectivity-portal.md) van Network Watcher. Met connectiviteitscontrole kunt u zien hoe verkeer wordt doorgestuurd van de netwerkinterface van een virtuele bronmachine naar de netwerkinterface van een virtuele doelmachine.
 
 ## <a name="limits"></a>Limieten
 

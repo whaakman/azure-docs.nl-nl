@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
 
@@ -54,11 +54,12 @@ De functie [Hybride verbindingen van Azure Relay](relay-hybrid-connections-proto
 
 De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
 
-## <a name="wcf-relays"></a>WCF-relays
+## <a name="wcf-relay"></a>WCF-relay
 
-De WCF-Relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud.
+WCF-relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](relay-wcf-dotnet-get-started.md) voor meer informatie.
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: verwerken van inkomende relay-aanvragen
+
 Wanneer een client een verzoek naar de [Azure Relay](/azure/service-bus-relay/)-service verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Als de aanvraag een aanvraag voor luisteren is, maakt het gateway-knooppunt een nieuwe relay. Als de aanvraag een verbindingsaanvraag is voor een specifieke relay, verzendt het gateway-knooppunt de verbindingsaanvraag door naar het gateway-knooppunt dat eigenaar is van de relay. Het gateway-knooppunt dat eigenaar is van de relay verzendt een ontmoetingsaanvraag naar de luisterende client om een tijdelijk kanaal te maken naar het gateway-knooppunt dat de verbindingsaanvraag heeft ontvangen.
 
 Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.

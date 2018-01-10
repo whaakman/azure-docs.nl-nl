@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
 
@@ -49,21 +49,20 @@ Site Recovery biedt als volgt beveiliging op toepassingsniveau en herstel:
 ## <a name="workload-summary"></a>Workloadoverzicht
 Met Site Recovery kan elke app die wordt uitgevoerd op een ondersteunde machine, worden gerepliceerd. Bovendien wordt er samengewerkt met productteams om aanvullende toepassingsspecifieke tests uit te voeren.
 
-| **Workload** | **Virtuele Hyper-V-machines repliceren naar een secundaire site** | **Virtuele Hyper-V-machines repliceren naar Azure** | **Virtuele VMware-machines repliceren naar een secundaire site** | **Virtuele VMware-machines repliceren naar Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |J |J |J |J |
-| Web-apps (IIS, SQL) |J |J |J |J |
-| System Center Operations Manager |J |J |J |J |
-| SharePoint |J |J |J |J |
-| SAP<br/><br/>SAP-site repliceren naar Azure voor niet-cluster |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |
-| Exchange (niet-DAG) |J |J |J |J |
-| Extern bureaublad/VDI |J |J |J |N.v.t. |
-| Linux (besturingssysteem en apps) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |
-| Dynamics AX |J |J |J |J |
-| Dynamics CRM |J |Binnenkort beschikbaar |J |Binnenkort beschikbaar |
-| Oracle |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |
-| Windows-bestandsserver |J |J |J |J |
-| Citrix XenApp en XenDesktop |N.v.t. |J |N.v.t. |J |
+| **Workload** |**Virtuele Azure-machines repliceren naar Azure** |**Virtuele Hyper-V-machines repliceren naar een secundaire site** | **Virtuele Hyper-V-machines repliceren naar Azure** | **Virtuele VMware-machines repliceren naar een secundaire site** | **Virtuele VMware-machines repliceren naar Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |J |J |J |J |J|
+| Web-apps (IIS, SQL) |J |J |J |J |J|
+| System Center Operations Manager |J |J |J |J |J|
+| SharePoint |J |J |J |J |J|
+| SAP<br/><br/>SAP-site repliceren naar Azure voor niet-cluster |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest)|
+| Exchange (niet-DAG) |J |J |J |J |J|
+| Extern bureaublad/VDI |J |J |J |J |J|
+| Linux (besturingssysteem en apps) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest)|
+| Dynamics AX |J |J |J |J |J|
+| Oracle |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest)|
+| Windows-bestandsserver |J |J |J |J |J|
+| Citrix XenApp en XenDesktop |J|N.v.t. |J |N.v.t. |J |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory en DNS repliceren
 Voor de meeste zakelijke apps zijn een Active Directory- en DNS-infrastructuur essentieel. Tijdens het herstel na noodgevallen moet u deze infrastructuuronderdelen beveiligen en herstellen voordat u uw workloads en apps herstelt.
@@ -106,13 +105,16 @@ Met Azure Site Recovery kunt u op de volgende manier uw Dynamics AX ERP-oplossin
 Met Extern bureaublad-services (ook wel RDS genoemd) worden virtuele-desktopinfrastructuren (VDI) en op sessies gebaseerde bureaubladen en toepassingen ingeschakeld, waardoor gebruikers waar dan ook kunnen werken. Met Azure Site Recovery kunt u het volgende doen:
 
 * Beheerde of onbeheerde gepoolde virtuele bureaubladen repliceren naar een secundaire site, en externe toepassingen en sessies naar een secundaire site of Azure.
+
 * Dit is wat u kunt repliceren:
 
-| **RDS** | **Virtuele Hyper-V-machines repliceren naar een secundaire site** | **Virtuele Hyper-V-machines repliceren naar Azure** | **Virtuele VMware-machines repliceren naar een secundaire site** | **Virtuele VMware-machines repliceren naar Azure** | **Fysieke servers repliceren naar een secundaire site** | **Fysieke servers repliceren naar Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Gepoold virtueel bureaublad (onbeheerd)** |Ja |Nee |Ja |Nee |Ja |Nee |
-| **Gepoold virtueel bureaublad (beheerd en zonder UDP)** |Ja |Nee |Ja |Nee |Ja |Nee |
-| **Externe toepassingen en bureaubladsessies (zonder UDP)** |Ja |Ja |Ja |Ja |Ja |Ja |
+| **RDS** |**Virtuele Azure-machines repliceren naar Azure** | **Virtuele Hyper-V-machines repliceren naar een secundaire site** | **Virtuele Hyper-V-machines repliceren naar Azure** | **Virtuele VMware-machines repliceren naar een secundaire site** | **Virtuele VMware-machines repliceren naar Azure** | **Fysieke servers repliceren naar een secundaire site** | **Fysieke servers repliceren naar Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Gepoold virtueel bureaublad (onbeheerd)** |Nee|Ja |Nee |Ja |Nee |Ja |Nee |
+| **Gepoold virtueel bureaublad (beheerd en zonder UDP)** |Nee|Ja |Nee |Ja |Nee |Ja |Nee |
+| **Externe toepassingen en bureaubladsessies (zonder UDP)** |Ja|Ja |Ja |Ja |Ja |Ja |Ja |
+
+[Herstel na noodgevallen voor RDS met Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Meer informatie](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) over het beveiligen van RDS.
 
@@ -138,7 +140,7 @@ Gebruik Site Recovery om uw SAP-implementatie als volgt te beveiligen:
 ## <a name="protect-iis"></a>IIS beveiligen
 Gebruik Site Recovery om uw IIS-implementatie als volgt te beveiligen:
 
-Azure Site Recovery biedt herstel na noodgevallen door de belangrijke onderdelen in uw omgeving te repliceren naar een koude externe site of een openbare cloud, zoals Microsoft Azure. Omdat de virtuele machine met de webserver en de database worden gerepliceerd naar de herstelsite, hoeft er geen afzonderlijke back-up te worden gemaakt van configuratiebestanden of certificaten. De toepassingstoewijzingen en -bindingen die afhankelijk zijn van omgevingsvariabelen die na failover zijn gewijzigd, kunnen worden bijgewerkt via scripts die zijn geïntegreerd in de plannen voor herstel na noodgevallen. Virtuele machines worden alleen in het geval van een failover naar de herstelsite gebracht. Door u de volgende mogelijkheden te bieden, helpt Azure Site Recovery daarnaast ook bij de organisatie van een complete failover:
+Azure Site Recovery biedt herstel na noodgevallen door de belangrijke onderdelen in uw omgeving te repliceren naar een koude externe site of een openbare cloud, zoals Microsoft Azure. Omdat de virtuele machines met de webserver en de database worden gerepliceerd naar de herstelsite, hoeft er geen afzonderlijke back-up te worden gemaakt van configuratiebestanden of certificaten. De toepassingstoewijzingen en -bindingen die afhankelijk zijn van omgevingsvariabelen die na failover zijn gewijzigd, kunnen worden bijgewerkt via scripts die zijn geïntegreerd in de plannen voor herstel na noodgevallen. Virtuele machines worden alleen in het geval van een failover naar de herstelsite gebracht. Door u de volgende mogelijkheden te bieden, helpt Azure Site Recovery daarnaast ook bij de organisatie van een complete failover:
 
 -   Sequentiëring van het afsluiten en opstarten van virtuele machines in de verschillende categorieën.
 -   Het toevoegen van scripts voor het bijwerken van toepassingsafhankelijkheden en -bindingen op de virtuele machines nadat deze zijn gestart. De scripts kunnen ook worden gebruikt om de DNS-server zo bij te werken dat deze naar de herstelsite wijst.
