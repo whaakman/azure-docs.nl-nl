@@ -51,7 +51,7 @@
 ### [Indexeerfunctie voor Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indexeerfunctie voor Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indexeerfunctie voor Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure Cosmos DB-indexeerfunctie](search-howto-index-documentdb.md)
+### [Azure Cosmos DB-indexeerfunctie](search-howto-index-cosmosdb.md)
 ### [CSV-blobs indexeren](search-howto-index-csv-blobs.md)
 ### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
 ### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -84,7 +84,7 @@
 ### [Analyse zoekverkeer](search-traffic-analytics.md)
 ### [Prestaties en optimalisatie](search-performance-optimization.md)
 
-# Naslaginformatie
+# Verwijzing
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (beheer)](/dotnet/api/?term=microsoft.azure.management.search)
