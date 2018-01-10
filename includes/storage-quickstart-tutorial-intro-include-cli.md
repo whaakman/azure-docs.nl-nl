@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
 
-Maak een algemeen standaardopslagaccount met de opdracht [az storage account create](/cli/azure/storage/account#create). Het algemeen standaardopslagaccount kan voor alle vier de services worden gebruikt: blobs, bestanden, tabellen en wachtrijen. 
+Maak een algemeen opslagaccount met de opdracht [az storage account create](/cli/azure/storage/account#create). Het algemeen opslagaccount kan voor alle vier de services worden gebruikt: blobs, bestanden, tabellen en wachtrijen. 
 
 ```azurecli-interactive
 az storage account create \

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Het rapport van de Azure Site Recovery-implementatieplanner analyseren
 Het gegenereerde Microsoft Excel-rapport bevat de volgende werkbladen:
@@ -188,7 +188,7 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **Piek voor R/W IOPS (met groeifactor)**: de piekworkload-IOPS voor lezen/schrijven op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). De totale IOPS voor lezen/schrijven van een virtuele machine is niet altijd de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven van de virtuele machine. De piek-IOPS voor lezen/schrijven van de virtuele machine is namelijk de piek van de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven voor elke minuut van de profileringsperiode.
 
-**Piek voor gegevensverloop in Mbps (met groeifactor)**: het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
+**Piek voor gegevensverloop in Mb/s (met groeifactor)**: het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
 
 **Azure VM-grootte**: de ideale toegewezen grootte voor virtuele machines van Azure Cloud Services voor deze on-premises virtuele machine. De toewijzing is gebaseerd op het geheugen, het aantal schijven/kerngeheugens/NIC’s en de IOPS voor lezen/schrijven van de on-premises virtuele machine. De aanbeveling is altijd de laagste Azure VM-grootte die overeenkomt met alle kenmerken van de on-premises virtuele machine.
 
@@ -235,15 +235,15 @@ Het Microsoft Excel-rapport dat is gegenereerd door de Azure Site Recovery-imple
 
 * De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 80.000 per schijf.
 
-* Het gemiddelde gegevensverloop overschrijdt de ondersteunde Azure Site Recovery-limiet voor gegevensverloop van 10 MBps voor de gemiddelde I/O-grootte voor de schijf.
+* Het gemiddelde gegevensverloop van de bron-VM overschrijdt de ondersteunde Azure Site Recovery-limiet voor gegevensverloop van 10 MB/s voor de gemiddelde I/O-grootte voor de schijf.
 
-* De gemiddelde effectieve schrijf-IOPS overschrijdt de ondersteunde IOPS-limiet van Azure Site Recovery van 840 voor schijven.
+* De gemiddelde effectieve schrijf-IOPS van de bron-VM overschrijdt de ondersteunde IOPS-limiet van Azure Site Recovery van 840 voor schijven.
 
 * De berekende opslag voor momentopnamen overschrijdt de ondersteunde opslaglimiet van 10 TB voor momentopnamen.
 
 **Piek voor R/W IOPS (met groeifactor)**: de piekworkload-IOPS op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). De totale IOPS voor lezen/schrijven van een virtuele machine is niet altijd de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven van de virtuele machine. De piek-IOPS voor lezen/schrijven van de virtuele machine is namelijk de piek van de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven voor elke minuut van de profileringsperiode.
 
-**Piek voor gegevensverloop in Mbps (met groeifactor)**: het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
+**Piek voor gegevensverloop in Mb/s (met groeifactor)**: het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
 
 **Aantal schijven**: het totale aantal VHD's van de virtuele machine.
 
@@ -260,14 +260,11 @@ Het Microsoft Excel-rapport dat is gegenereerd door de Azure Site Recovery-imple
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery-limieten
 De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, zelfs na het plannen van de implementatie, is het altijd beter om toepassingen uitgebreid te testen met behulp van een testfailover. Zo krijgt u een nauwkeurig inzicht in de prestaties van de applicatie.
  
-**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
+**Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bron-VM** |**Gemiddeld gegevensverloop van bron-VM** | **Totale gegevensverloop van bron-VM per dag**
 ---|---|---|---
-Standard Storage | 8 kB | 2 Mbps | 168 GB per schijf
-Premium P10 of P15 schijf | 8 kB  | 2 Mbps | 168 GB per schijf
-Premium P10 of P15 schijf | 16 kB | 4 Mbps |  336 GB per schijf
-Premium P10 of P15 schijf | 32 kB of meer | 8 MBps | 672 GB per schijf
-Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 Mbps | 421 GB per schijf
-Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 Mbps | 842 GB per schijf
+Standard Storage | 8 kB | 2 MB/s per VM | 168 GB per VM
+Premium Storage | 8 kB  | 5 MB/s per VM | 421 GB per VM
+Premium Storage | 16 kB of hoger| 10 MB/s per VM | 842 GB per VM
 
 Deze limieten zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Azure Site Recovery kan hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
 

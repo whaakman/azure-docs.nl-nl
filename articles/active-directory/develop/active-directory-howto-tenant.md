@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant verkrijgen
 In Azure Active Directory (Azure AD) is een [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) representatief voor een organisatie.  Het is een toegewezen exemplaar van de Azure AD-service die een organisatie ontvangt en waarvan de organisatie de eigenaar is wanneer deze zich registreert voor een Microsoft-cloudservice, zoals Azure, Microsoft Intune of Office 365.  Elke Azure AD-tenant is uniek en werkt afzonderlijk van andere Azure AD-tenants.  
@@ -61,6 +61,4 @@ Voer hiervoor de volgende stappen uit.  U kunt ook een nieuwe tenant en een behe
 Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  In [Azure Portal](https://portal.azure.com) vindt u een tenant wanneer u naar Meer services en Azure Active Directory navigeert.  U kunt deze tenant naar wens gebruiken.
 
 ## <a name="start-from-scratch"></a>De procedure vanaf het begin uitvoeren
-U hoeft zich geen zorgen te maken als u de bovenstaande informatie niet begrijpt.  Ga naar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) om u aan te melden voor Azure met een nieuwe organisatie.  Wanneer u de procedure hebt voltooid, hebt u uw eigen Azure AD-tenant met de domeinnaam die u hebt gekozen tijdens het aanmelden.  In [Azure Portal](https://portal.azure.com) kunt u uw tenant zoeken door in het linkernavigatievenster naar Azure Active Directory te gaan.
-
-Tijdens de aanmeldingsprocedure voor Azure moet u uw creditcardgegevens opgeven.  U kunt gerust doorgaan. Er worden namelijk geen kosten in rekening gebracht voor het publiceren van toepassingen in Azure AD of het maken van nieuwe tenants.
+U hoeft zich geen zorgen te maken als u de bovenstaande informatie niet begrijpt. Ga naar [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) om een nieuwe Azure AD-directory te maken. Wanneer u de procedure hebt voltooid, krijgt u uw eigen Azure AD-tenant met de domeinnaam die u hebt gekozen tijdens het aanmelden.  In [Azure Portal](https://portal.azure.com) kunt u uw tenant zoeken door in het linkernavigatievenster naar **Azure Active Directory** te gaan.

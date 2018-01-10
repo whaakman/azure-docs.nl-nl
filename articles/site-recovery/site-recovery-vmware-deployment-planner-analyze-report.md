@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport Azure Site Recovery-implementatieplanner
 Het gegenereerde Microsoft Excel-rapport bevat de volgende bladen:
@@ -131,20 +131,20 @@ De grafiek toont de weergave Samenvatting van de geschatte totale noodherstel (D
 
 ![Kostenraming samenvatting](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
-De samenvatting helpt u bij het begrijpen van de kosten die u nodig hebt om te betalen voor opslag, rekensnelheid, netwerk en licentie wanneer u alle compatibele virtuele machines naar Azure met Azure Site Recovery beveiligt. De kosten worden berekend voor compatibele virtuele machines en niet op de geprofileerde virtuele machines.  
+De samenvatting helpt u bij het begrijpen van de kosten die u nodig hebt om te betalen voor opslag, rekensnelheid, netwerk en licentie wanneer u alle compatibele virtuele machines naar Azure met Azure Site Recovery beveiligt. De kosten worden berekend op basis van compatibele virtuele machines en niet op basis van alle geprofileerde virtuele machines.  
  
-U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [ondersteunde doelregio's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) en [ondersteunde valuta](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
+U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [ondersteunde doelregio's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) en [ondersteunde valuta's](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Kosten per onderdelen** De totale kosten voor Noodherstel zijn onderverdeeld in vier onderdelen: Compute, Storage, netwerk en Azure Site Recovery-licentiekosten. De kosten worden berekend op basis van het verbruik dat zal plaatsvinden tijdens de replicatie en bij Noodherstel de tijd voor de rekensnelheid, opslag (premium en standard), de ExpressRoute/VPN die is geconfigureerd tussen de lokale site en Azure, en Azure Site Recovery-licentie.
+**Kosten per onderdelen** De totale kosten voor Noodherstel zijn onderverdeeld in vier onderdelen: Compute, Storage, netwerk en Azure Site Recovery-licentiekosten. De kosten worden berekend op basis van het verbruik dat zal plaatsvinden tijdens de replicatie, en bij Noodherstel de tijd voor de rekensnelheid, opslag (premium en standard), de ExpressRoute/VPN die is geconfigureerd tussen de lokale site en Azure, en Azure Site Recovery-licentie.
 
-**Kosten per statussen** De totale noodherstel (DR) kosten is gebaseerd op twee verschillende statussen - Replicatie en Noodherstel. 
+**Kosten per statussen** De kosten voor een totaal noodherstel (DR) zijn is gebaseerd op twee verschillende statussen: Replicatie en Noodherstel. 
 
 **Replicatiekosten**: de kosten die zullen worden gemaakt tijdens de replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
 
-**Details voor DR-kosten**: de kosten die zullen worden gemaakt tijdens de testfailovers. Azure Site Recovery draait virtuele machines tijdens de testfailover. De details voor DR-kosten bevatten de kosten voor de actieve VM's berekenings- en opslagkosten. 
+**Kosten voor DR-oefeningen**: de kosten die zullen worden gemaakt tijdens de testfailovers. Azure Site Recovery laat virtuele machines draaien tijdens de testfailover. De details voor DR-kosten zijn de kosten voor de berekenings- en opslagkosten van de actieve virtuele machines. 
 
 **Azure-opslagkosten per maand-jaar** Dit toont de totale opslagkosten die zullen worden gemaakt voor premium en standard-opslag voor replicatie en details voor DR.
-Vindt u gedetailleerde kostenanalyse per virtuele machine in het blad [kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md).
+U vindt een gedetailleerde kostenanalyse per virtuele machine op het werkblad [Kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Groeifactor en gebruikte percentielwaarden
 Deze sectie onder aan het werkblad toont de percentielwaarde die voor alle prestatiemeteritems van de geprofileerde virtuele machines wordt gebruikt (standaard is dit het 95e percentiel), plus de groeifactor in procenten die in alle berekeningen wordt gebruikt (standaard 30%).
@@ -190,7 +190,7 @@ Het is mogelijk dat u om wat voor reden dan ook niet meer dan x Mbps bandbreedte
 * 1025 GB tot 2048 GB is een P40.
 * 2049 GB tot 4095 GB is een P50.
 
-Als de kenmerken van de workload van een schijf overeenkomen met de categorie P20 of P30, maar de schijf door grootte aan een lagere categorie schijftype voor Premium Storage wordt gekoppeld, markeert het hulpprogramma die virtuele machine als **Ja**\*. Het hulpprogramma adviseert ook om ofwel de grootte van de bronschijf te wijzigen zodat deze overeenkomt met het schijftype voor Premium Storage of de post-failover van het doelschijftype te wijzigen.
+Als de kenmerken van de workload van een schijf overeenkomen met de categorie P20 of P30, maar de schijf op grond van de grootte ervan aan een lagere categorie schijftype voor Premium Storage wordt gekoppeld, markeert het hulpprogramma die virtuele machine als **Ja**\*. Het hulpprogramma adviseert ook om ofwel de grootte van de bronschijf te wijzigen zodat deze overeenkomt met het schijftype voor Premium Storage of de post-failover van het doelschijftype te wijzigen.
 
 **Opslagtype**: Standard of Premium.
 
@@ -234,8 +234,8 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 * Totale grootte van virtuele machine (replicatie + TFO) overschrijdt de ondersteunde limiet voor opslagaccounts (35 TB). Dit probleem treedt meestal op wanneer één schijf in de virtuele machine een prestatiekenmerk heeft dat groter is dan de maximaal ondersteunde limieten voor Standard-opslag van Azure of Site Recovery. De virtuele machine komt dan in aanmerking voor Premium Storage. De maximaal ondersteunde grootte van een Premium Storage-account is echter 35 TB en één beveiligde virtuele machine kan niet worden beveiligd via meerdere opslagaccounts. Houd er ook rekening mee dat bij het uitvoeren van een testfailover op een beveiligde virtuele machine, deze wordt uitgevoerd in het opslagaccount waarin ook de replicatie plaatsvindt. Stel in dit geval 2 x de grootte van de schijf in om replicatie mogelijk te maken en het testen van failover parallel uit te voeren.
 * De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 5000 per schijf.
 * De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 80.000 per schijf.
-* Het gemiddelde gegevensverloop overschrijdt de ondersteunde Site Recovery-limiet voor gegevensverloop van 10 MBps voor de gemiddelde IO-grootte voor de schijf.
-* Het totale gegevensverloop voor alle schijven in de virtuele machine overschrijdt de maximaal ondersteunde limiet voor Site Recovery-gegevensverloop van 54 MBps per virtuele machine.
+* Het gemiddelde gegevensverloop overschrijdt de ondersteunde Site Recovery-limiet voor gegevensverloop van 10 MB/s voor de gemiddelde IO-grootte voor de schijf.
+* Het totale gegevensverloop voor alle schijven in de virtuele machine overschrijdt de maximaal ondersteunde limiet voor Site Recovery-gegevensverloop van 54 MB/s per virtuele machine.
 * De gemiddelde effectieve schrijf-IOPS overschrijdt de ondersteunde IOPS-limiet van Site Recovery van 840 voor schijven.
 * De berekende opslag voor momentopnamen overschrijdt de ondersteunde opslaglimiet van 10 TB voor momentopnamen.
 
@@ -263,12 +263,12 @@ De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn geba
  
 **Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
-Standard Storage | 8 kB | 2 Mbps | 168 GB per schijf
-Premium P10 of P15 schijf | 8 kB  | 2 Mbps | 168 GB per schijf
-Premium P10 of P15 schijf | 16 kB | 4 Mbps |  336 GB per schijf
-Premium P10 of P15 schijf | 32 kB of meer | 8 MBps | 672 GB per schijf
-Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 Mbps | 421 GB per schijf
-Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 Mbps | 842 GB per schijf
+Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
+Premium P10 of P15 schijf | 8 kB  | 2 MB/s | 168 GB per schijf
+Premium P10 of P15 schijf | 16 kB | 4 MB/s |  336 GB per schijf
+Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
+Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
 
 Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery kan een hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
 

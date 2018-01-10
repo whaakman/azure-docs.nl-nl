@@ -3,8 +3,8 @@ title: Werken met grote Azure Virtual Machine Scale Sets | Microsoft Docs
 description: Wat u moet weten wanneer u grote Azure-virtuele-machineschaalsets wilt gaan gebruiken
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: guybo
-ms.openlocfilehash: b2d6aba2c8efa7f20753de7bfb79c2f22b07318b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: negat
+ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Werken met grote virtuele-machineschaalsets
 U kunt nu Azure-[virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) maken met een capaciteit van maximaal 1000 virtuele machines. In dit document wordt een _grote virtuele-machineschaalset_ gedefinieerd als een schaalset waarmee u kunt schalen tot meer dan 100 virtuele machines. Deze mogelijkheid wordt ingesteld met een schaalseteigenschap (_singlePlacementGroup=False_). 
 
 Bepaalde aspecten van grote schaalsets, zoals taakverdeling en foutdomeinen, werken anders dan in een standaardschaalset. In dit document worden de kenmerken van grote schaalsets uitgelegd en wordt beschreven wat u moet weten om ze in uw toepassingen te gebruiken. 
 
-Een algemene aanpak voor de implementatie van een grootschalige cloudinfrastructuur is het maken van een reeks _schaaleenheden_, bijvoorbeeld door meerdere virtuele-machineschaalsets op meerdere VNETs en opslagaccounts te maken. Deze aanpak is eenvoudiger te beheren dan enkelvoudige virtuele machines, en meerdere schaaleenheden zijn nuttig voor veel toepassingen, met name voor toepassingen die ook andere stapelbare onderdelen nodig hebben, zoals meerdere virtuele netwerken en eindpunten. Als uw toepassing echter een groot cluster nodig heeft, is het misschien eenvoudiger om één schaalset van maximaal 1000 virtuele machines te implementeren. Voorbeeldscenario's zijn gecentraliseerde big data-implementaties, of rekenrasters die een eenvoudig beheer van een grote groep werkrolknooppunten vereisen. In combinatie met aan een VM-schaalset [gekoppelde gegevensschijven](virtual-machine-scale-sets-attached-disks.md) kunt u met grootschalige sets in één bewerking een schaalbare infrastructuur van duizenden vCPU’s en petabytes aan opslag implementeren.
+Een algemene aanpak voor de implementatie van een grootschalige cloudinfrastructuur is het maken van een reeks _schaaleenheden_, bijvoorbeeld door meerdere virtuele-machineschaalsets op meerdere VNETs en opslagaccounts te maken. Deze aanpak is eenvoudiger te beheren dan enkelvoudige virtuele machines, en meerdere schaaleenheden zijn nuttig voor veel toepassingen, met name voor toepassingen die ook andere stapelbare onderdelen nodig hebben, zoals meerdere virtuele netwerken en eindpunten. Als uw toepassing echter een groot cluster nodig heeft, is het misschien eenvoudiger om één schaalset van maximaal 1000 virtuele machines te implementeren. Voorbeeldscenario's zijn gecentraliseerde big data-implementaties, of rekenrasters die een eenvoudig beheer van een grote groep werkrolknooppunten vereisen. In combinatie met aan een virtuele-machineschaalset [gekoppelde gegevensschijven](virtual-machine-scale-sets-attached-disks.md) kunt u met grootschalige sets in één bewerking een schaalbare infrastructuur van duizenden vCPU's en petabytes aan opslag implementeren.
 
 ## <a name="placement-groups"></a>Plaatsingsgroepen 
 Wat een _grote_ schaalset zo bijzonder maakt, is niet het aantal virtuele machines, maar het aantal _plaatsingsgroepen_ dat deze bevat. Een plaatsingsgroep is een constructie die vergelijkbaar is met een Azure-beschikbaarheidsset, met eigen foutdomeinen en upgradedomeinen. Standaard bestaat een schaalset uit één plaatsingsgroep met een omvang van maximaal 100 virtuele machines. Als een schaaleigenschap met de naam _singlePlacementGroup_ is ingesteld op _onwaar_, kan de schaal bestaan uit meerdere plaatsingsgroepen en heeft deze een capaciteit van 0-1000 virtuele machines. Als de eigenschap de standaardwaarde _waar_ heeft, bestaat een schaalset uit één plaatsingsgroep en heeft deze een capaciteit van 0-100 virtuele machines.
@@ -80,7 +80,7 @@ Als u een grote schaalset maakt door een Azure Resource Manager-sjabloon te make
 Voor een volledig voorbeeld van een schaalsetsjabloon raadpleegt u [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Een bestaande schaalset converteren zodat deze meerdere plaatsingsgroepen omvat
-Als u een bestaande VM-schaalset geschikt wilt maken voor schaling naar meer dan 100 virtuele machines, moet u de eigenschap _singlePlacementGroup_ in het schaalsetmodel wijzigen in _false_. Met de [Azure Resource Explorer](https://resources.azure.com/) kunt u controleren of deze eigenschap is gewijzigd. Zoek een bestaande schaalset, selecteer _Edit_ (Bewerken) en wijzig de eigenschap _singlePlacementGroup_. Als u deze eigenschap niet ziet, bekijkt u de schaalset misschien met een oudere versie van de Microsoft.Compute-API.
+Als u een bestaande virtuele-machineschaalset geschikt wilt maken voor schaling naar meer dan 100 virtuele machines, moet u de eigenschap _singlePlacementGroup_ in het schaalsetmodel wijzigen in _false_. Met de [Azure Resource Explorer](https://resources.azure.com/) kunt u controleren of deze eigenschap is gewijzigd. Zoek een bestaande schaalset, selecteer _Edit_ (Bewerken) en wijzig de eigenschap _singlePlacementGroup_. Als u deze eigenschap niet ziet, bekijkt u de schaalset misschien met een oudere versie van de Microsoft.Compute-API.
 
 >[!NOTE] 
 U kunt een schaalset zo wijzigen dat deze in plaats van slechts één plaatsingsgroep (de standaardinstelling) ondersteuning biedt voor meerdere plaatsingsgroepen. Andersom is echter niet mogelijk. Zorg daarom dat u begrijpt waarvoor de eigenschappen van grote schaalsets dienen, voordat u deze converteert.

@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -72,6 +72,22 @@ Met de parameter `timeSeriesDefinitions=<collection of term objects>` geeft u de
 - `predicate=<string>`
   - De *where*-component voor filteren aan de serverzijde.
 
+De parameter multiChartStack=<true/false> maakt stapeling in het diagram mogelijk en de parameter multiChartSameScale=<true/false> maakt dezelfde schaling van de Y-as mogelijk voor verschillende onderdelen binnen een optionele parameter.  
+
+- multiChartStack=false
+  - True is standaard ingeschakeld. Gebruik dus false voor stapeling.
+- multiChartStack=false&multiChartSameScale=true 
+  - Stapelen moet zijn ingeschakeld om dezelfde schaling van de Y-as te gebruiken voor verschillende onderdelen.  Standaard is false ingesteld, dus als u true doorgeeft, wordt deze functionaliteit ingeschakeld.  
+  
+Met timeBucketUnit =<Unit>& timeBucketSize =<integer> kunt u de interval van de schuifregelaar aanpassen voor een gedetailleerdere of een soepelere, meer geaggregeerde weergave van het diagram.  
+- timeBucketUnit=<Unit>&timeBucketSize=<integer>
+  - Eenheden = dagen, uren, minuten, seconden en milliseconden.  Gebruik altijd een hoofdletter voor de eenheid.
+  - Definieer het aantal eenheden door het gewenste gehele getal voor timeBucketSize op te geven.  Rond af naar 7 dagen.  
+  
+Met de parameter timezoneoffset is =<integer> kunt u instellen dat de tijdzone in het diagram kan worden weergegeven als een UTC-verschuiving.  
+  - timezoneOffset=-<integer>
+    - Het gehele getal is altijd in milliseconden.  
+    - Deze functionaliteit verschilt enigszins van wat wordt ingeschakeld in de TSI-verkenner, waarin u lokaal (browsertijd) of UTC kunt kiezen.  
  
 ### <a name="examples"></a>Voorbeelden
 

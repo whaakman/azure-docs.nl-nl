@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -206,7 +206,7 @@ U kunt nu de realtime webservice maken.
 1. Gebruik de volgende opdracht om een realtime webservice te maken:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    Met deze opdracht wordt een webservice-id gegenereerd die u later kunt gebruiken.
 
@@ -216,6 +216,7 @@ U kunt nu de realtime webservice maken.
    * `--model-file`: het modelbestand. In dit geval is dit het pickled model.pkl-bestand.
    * `-r`: het modeltype. In dit geval is het een Python-model.
    * `--collect-model-data true`: schakelt de gegevensverzameling in.
+   * `-c`: Pad naar het conda-afhankelijkheidsbestand waar aanvullende pakketten worden gespecificeerd.
 
    >[!IMPORTANT]
    >De naam van de service (wat ook de naam is van de nieuwe Docker-installatiekopie) mag alleen uit kleine letters bestaan. Anders krijgt u een foutmelding. 
@@ -254,10 +255,10 @@ Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-ins
 
 3. Een Docker-installatiekopie maken.
 
-   Als u een Docker-installatiekopie wilt maken, gebruikt u de volgende opdracht en geeft u de manifest-id op die in de vorige stap is gegenereerd:
+   Als u een Docker-installatiekopie wilt maken, gebruikt u de volgende opdracht en geeft u de manifest-id op die in de vorige stap is gegenereerd. U kunt eventueel ook conda-afhankelijkheden opnemen met behulp van de `-c`-schakelaar.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    Er wordt nu een id voor de Docker-installatiekopie gegenereerd.
    

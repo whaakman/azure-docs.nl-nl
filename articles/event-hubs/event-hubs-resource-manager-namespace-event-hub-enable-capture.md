@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Een Event Hubs-naamruimte met een gebeurtenishub maken en Capture inschakelen met behulp van een Azure Resource Manager-sjabloon
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Een naamruimte maken met Event Hub en Capture inschakelen met behulp van een sjabloon
 
 In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Event Hubs-naamruimte te maken met één exemplaar van de gebeurtenishub en de [functie Capture](event-hubs-capture-overview.md) op de gebeurtenishub in te schakelen. In het artikel wordt beschreven hoe u kunt aangeven welke resources worden geïmplementeerd en hoe u de parameters definieert die bij de uitvoering van de implementatie zijn opgegeven. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
@@ -161,7 +161,7 @@ Het tijdsinterval waarin Event Hubs Capture begint met het vastleggen van de geg
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ De abonnements-id voor de Event Hubs-naamruimte en Azure Data Lake Store. Deze t
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ De Azure Data Lake Store-naam voor de vastgelegde gebeurtenissen.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Het pad naar de doelmap voor de vastgelegde gebeurtenissen. Dit is de map in uw Data Lake Store waarnaar gebeurtenissen worden verzonden vanuit Capture. Voor het instellen van machtigingen voor deze map raadpleegt u het artikel [Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
+Het pad naar de doelmap voor de vastgelegde gebeurtenissen. Dit is de map in uw Data Lake Store waarnaar de gebeurtenissen tijdens het vastleggen wordt gestuurd. Zie [Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md) voor het instellen van machtigingen voor deze map.
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Resources om te implementeren met Azure Storage als doel voor vastgelegde gebeurtenissen
 
-Hiermee maakt u een naamruimte van het type **EventHubs** met één gebeurtenishub, en wordt ook Capture ingeschakeld voor gebruik met Azure Blob Storage.
+Hiermee maakt u een naamruimte van het type **EventHub** met één gebeurtenishub, en wordt ook Capture ingeschakeld voor gebruik met Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ Hiermee maakt u een naamruimte van het type **EventHubs** met één gebeurtenish
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Resources om te implementeren met Azure Data Lake Store als doel
 
-Hiermee maakt u een naamruimte van het type **EventHubs** met één gebeurtenishub, en wordt ook Capture ingeschakeld voor gebruik met Azure Data Lake Store.
+Hiermee maakt u een naamruimte van het type **EventHub** met één gebeurtenishub, en wordt ook Capture ingeschakeld voor gebruik met Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure Blob Storage kiezen als doel:
+Azure Blob Storage als doel:
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Azure Data Lake Store kiezen als doel:
+Azure Data Lake Store als doel:
 
 ```azurecli
 azure config mode arm

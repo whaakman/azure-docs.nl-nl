@@ -3,8 +3,8 @@ title: Overzicht van virtuele-machineschaalsets in Azure | Microsoft Docs
 description: Meer informatie over virtuele-machineschaalsets in Azure
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Wat zijn virtuele-machineschaalsets in Azure?
-Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Met behulp van schaalsets worden alle virtuele machines op dezelfde manier geconfigureerd en automatisch geschaald. U hoeft de virtuele machines dus niet vooraf in te richten. Hierdoor wordt het gemakkelijker om grootschalige services te ontwikkelen voor Big Compute, big data en beperkte workloads.
+Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Met behulp van schaalsets worden alle virtuele machines op dezelfde manier geconfigureerd en automatisch geschaald. U hoeft de virtuele machines dus niet vooraf in te richten. Hierdoor wordt het gemakkelijker om grootschalige services te ontwikkelen voor Big Compute, grote gegevens en beperkte workloads.
 
 Voor toepassingen die compute-resources in en uit moeten schalen, worden schaalaanpassingen impliciet verdeeld over fout- en updatedomeinen. Raadpleeg de [aankondiging in de Azure-blog](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/) voor een verdere introductie van schaalsets.
 
@@ -50,7 +50,7 @@ Voor de Quick Start-sjabloonvoorbeelden is een knop 'Implementeren naar Azure' i
 ## <a name="autoscale"></a>Automatisch schalen
 Om consistente toepassingsprestaties te behouden, kunt u het aantal VM-exemplaren in de schaalset automatisch vergroten of verkleinen. Dankzij deze mogelijkheid voor automatisch schalen hoeft u minder te controleren en kunt u de schaalset optimaliseren als de klantvraag in de loop van de tijd verandert. U definieert regels op basis van metrische gegevens voor prestaties, reactietijd van toepassingen of een vast schema, en uw schaalset wordt automatisch vergroot of verkleind indien nodig.
 
-Voor basisregels voor automatisch schalen kunt u hostgebaseerde metrische gegevens voor prestaties gebruiken, zoals CPU-gebruik of schijf-I/O. Deze hostgebaseerde metrische gegevens voor prestaties zijn gebruiksklaar beschikbaar, zonder extra agents of extensies te hoeven installeren en configureren. Regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische gegevens, kunnen worden gemaakt met een van de volgende hulpprogramma's:
+Voor basisregels voor automatisch schalen kunt u hostgebaseerde metrische gegevens voor prestaties gebruiken, zoals CPU-gebruik of schijf-I/O. Deze hostgebaseerde metrische gegevens voor prestaties zijn automatisch beschikbaar, zonder extra agents of extensies te hoeven installeren en configureren. Regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische gegevens, kunnen worden gemaakt met een van de volgende hulpprogramma's:
 
 - [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,7 +159,7 @@ In dit gedeelte wordt een aantal typische scenario's voor schaalsets genoemd. De
 
 **V:** Kan ik een uitvoeringsvolgorde toepassen wanneer ik meerdere extensies in een schaalset gebruik?
 
-**A:** Niet direct, maar bij de customScript-extensie kunt u uw script laten wachten op de voltooiing van een andere extensie. Meer informatie over de uitvoeringsvolgorde van extensies vindt u in het blogbericht: [Extensievolgorde bij VM-schaalsets in Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**A:** Niet direct, maar bij de customScript-extensie kunt u uw script laten wachten op de voltooiing van een andere extensie. Meer informatie over de uitvoeringsvolgorde van extensies vindt u in het blogbericht: [Extensievolgorde bij virtuele-machineschaalsets in Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **V:** Maken schaalsets gebruik van beschikbaarheidssets van Azure?
 

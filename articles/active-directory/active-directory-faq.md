@@ -1,6 +1,6 @@
 ---
 title: Veelgestelde vragen over Azure Active Directory | Microsoft Docs
-description: Veelgestelde vragen over Azure Active Directory bevat antwoorden op vragen over toegang tot Azure en Azure Active Directory, wachtwoordbeheer en toegang tot toepassingen.
+description: Veelgestelde vragen over Azure Active Directory bevat antwoorden op algemene vragen over Azure en Azure Active Directory, wachtwoordbeheer en toegang tot toepassingen.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -27,9 +27,9 @@ Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer infor
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Toegang tot Azure en Azure Active Directory
-**V: Waarom wordt 'Geen abonnementen gevonden' weergegeven wanneer ik Azure AD wil openen in de klassieke Azure-portal?**
+**V: Waarom wordt 'Geen abonnementen gevonden' weergegeven wanneer ik Azure AD wil openen in Azure Portal?**
 
-**A:** Voor toegang tot de klassieke Azure-portal moet elke gebruiker machtigingen hebben in een Azure-abonnement. Als u een betaald abonnement voor Office 365 of Azure AD hebt, gaat u naar [http://aka.ms/accessAAD](http://aka.ms/accessAAD) voor eenmalige activering in één stap. Anders moet u een gratis [Azure-account](https://azure.microsoft.com/pricing/free-trial/) activeren of een betaald abonnement afsluiten.
+**A:** Voor toegang tot Azure Portal moet elke gebruiker machtigingen hebben in een Azure-abonnement. Als u een betaald abonnement voor Office 365 of Azure AD hebt, gaat u naar [http://aka.ms/accessAAD](http://aka.ms/accessAAD) voor eenmalige activering in één stap. Anders moet u een gratis [Azure-account](https://azure.microsoft.com/pricing/free-trial/) activeren of een betaald abonnement afsluiten.
 
 Zie voor meer informatie:
 
@@ -44,11 +44,9 @@ Zie voor meer informatie:
 Alle gebruikers die webservices kunnen gebruiken, worden gedefinieerd als gebruikersaccounts in een of meer exemplaren van Azure AD. U kunt deze accounts instellen voor gratis Azure AD-functies, zoals toegang tot cloudtoepassingen.
 
 Betaalde Azure AD-services zoals Enterprise Mobility + Security vormen een aanvulling op andere webservices, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor beheer en beveiliging die ook geschikt zijn voor grote organisaties.
-- - -
-**V: Waarom kan ik me aanmelden bij Azure Portal, maar niet bij de klassieke Azure-portal?**
 
-**A:** Azure Portal vereist geen geldig abonnement. Dit is anders bij de klassieke portal, waarvoor wel een geldig abonnement nodig is.  Als u geen abonnement hebt, kunt u zich niet aanmelden bij de klassieke portal.
 - - -
+
 **V: Wat zijn de verschillen tussen de rol Abonnementsbeheerder en de rol Directorybeheerder?**
 
 **A:** De rol Abonnementsbeheerder wordt standaard aan u toegewezen wanneer u zich registreert bij Azure. Een Abonnementsbeheerder kan een Microsoft-account of werk- of schoolaccount zijn uit de directory waaraan het Azure-abonnement is gekoppeld.  Deze rol is gemachtigd om services in Azure Portal te beheren.
@@ -56,7 +54,7 @@ Betaalde Azure AD-services zoals Enterprise Mobility + Security vormen een aanvu
 Als anderen zich moeten aanmelden en services willen gebruiken met hetzelfde abonnement, kunt u hen toevoegen als medebeheerders. Deze rol heeft dezelfde toegangsrechten als de rol Servicebeheerder, maar kan de koppeling van abonnementen aan Azure-directory's niet wijzigen.  Zie voor meer informatie over Abonnementsbeheerders [Beheerdersrollen in Azure toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md) en [Hoe Azure-abonnementen zijn gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD heeft een andere set beheerdersrollen voor het beheren van de directory en identiteitsgerelateerde functies.  Deze beheerders hebben toegang tot verschillende functies in Azure Portal of de klassieke Azure-portal. De rol van de beheerder bepaalt welke acties hij kan uitvoeren, zoals gebruikers maken of bewerken, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden herstellen, gebruikerslicenties beheren of domeinen beheren.  Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) voor meer informatie over Directorybeheerders en hun rollen in Azure AD.
+Azure AD heeft een andere set beheerdersrollen voor het beheren van de directory en identiteitsgerelateerde functies.  Deze beheerders hebben toegang tot verschillende functies in Azure Portal. De rol van de beheerder bepaalt welke acties hij kan uitvoeren, zoals gebruikers maken of bewerken, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden herstellen, gebruikerslicenties beheren of domeinen beheren.  Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) voor meer informatie over Directorybeheerders en hun rollen in Azure AD.
 
 Daarnaast vormen betaalde Azure AD-services zoals Enterprise Mobility + Security een aanvulling op andere webservices, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor beheer en beveiliging die ook geschikt zijn voor grote organisaties.
 
@@ -137,16 +135,20 @@ Beheerders kunnen wachtwoorden van Azure AD-accounts via een van de volgende opt
 
 - - -
 ## <a name="security"></a>Beveiliging
-**V: Worden accounts na een bepaald aantal mislukte pogingen vergrendeld of wordt een meer geavanceerde strategie gebruikt?**</br>
+**V: Worden accounts na een bepaald aantal mislukte pogingen vergrendeld of wordt een meer geavanceerde strategie gebruikt?**
+
 We gebruiken een geavanceerdere strategie om account te vergrendelen.  Dit is gebaseerd op het IP-adres van de aanvraag en op de ingevoerde wachtwoorden. De duur van de vergrendeling wordt ook langer op basis van de kans dat het een aanval betreft.  
 
-**V: Bepaalde (algemene) wachtwoorden worden geweigerd met de melding dat het wachtwoord te vaak is gebruikt. Heeft dit betrekking op wachtwoorden die worden gebruikt in de huidige Active Directory?**</br>
+**V: Bepaalde (algemene) wachtwoorden worden geweigerd met de melding dat het wachtwoord te vaak is gebruikt. Heeft dit betrekking op wachtwoorden die worden gebruikt in de huidige Active Directory?**
+
 Dit verwijst naar wachtwoorden die in het algemeen veel voorkomen, zoals varianten van `Wachtwoord` en ´123456´.
 
-**V: Worden aanmeldingsaanvragen van twijfelachtige bronnen (botnets, tor-eindpunten) in een B2C-tenant geblokkeerd of is hiervoor een Basic- of Premium-tenant vereist?**</br>
+**V: Worden aanmeldingsaanvragen van twijfelachtige bronnen (botnets, tor-eindpunten) in een B2C-tenant geblokkeerd of is hiervoor een Basic- of Premium-tenant vereist?**
+
 We hebben wel een gateway waarmee aanvragen worden gefilterd en die enige bescherming biedt tegen botnets. Deze wordt toegepast op alle B2C-tenants.
 
 ## <a name="application-access"></a>Toegang tot toepassingen
+
 **V: Waar vind ik een lijst met toepassingen die vooraf zijn geïntegreerd met Azure AD en de bijbehorende mogelijkheden?**
 
 **A:** Azure AD bevat meer dan 2.600 vooraf geïntegreerde toepassingen van Microsoft, toepassingsserviceproviders en partners. Alle vooraf geïntegreerde toepassingen bieden ondersteuning voor eenmalige aanmelding (SSO). Via SSO kunt u uw bedrijfsreferenties gebruiken om toegang te krijgen tot uw apps. Een aantal toepassingen ondersteunt ook geautomatiseerde inrichting en het ongedaan maken van de inrichting.

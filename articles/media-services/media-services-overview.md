@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: a1e56a6d31568d1d36e713b9a1000d84c6446bac
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4cec6db8b05fa0023cc0166726159b1ec2de8edb
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-media-services-overview"></a>Overzicht van Azure Media Services 
 
@@ -58,6 +58,10 @@ Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
 * Bestaande hulpprogramma's:
     * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is een Winforms-/C#-toepassing voor Windows)
+
+> [!NOTE]
+> Zie [Aan de slag met de SDK voor Java-clients voor Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use) om de nieuwste versie van de Java SDK op te halen en te ontwikkelen met Java. <br/>
+> Om de nieuwste PHP SDK voor Media Services te downloaden, zoekt u versie 0.5.7 van het pakket Microsoft/WindowAzure in de [Packagist- opslagplaats](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="code-samples"></a>Codevoorbeelden
 

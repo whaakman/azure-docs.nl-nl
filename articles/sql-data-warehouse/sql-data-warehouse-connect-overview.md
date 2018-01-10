@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Verbinding maken met Azure SQL Data Warehouse
 In dit artikel wordt beschreven hoe u voor de eerste keer verbinding kunt maken met SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Uw servernaam vinden
-De eerste stap bij het maken van verbinding met SQL Data Warehouse is weten hoe u de naam van uw server kunt vinden.  De naam van de server in het volgende voorbeeld is bijvoorbeeld sample.database.windows.net. Ga als volgt te werk om de volledig gekwalificeerde servernaam te vinden:
+De eerste stap bij het maken van verbinding met SQL Data Warehouse is weten hoe u de naam van uw server kunt vinden.  De naam van de server in het volgende voorbeeld is bijvoorbeeld samplesvr.database.windows.net. Ga als volgt te werk om de volledig gekwalificeerde servernaam te vinden:
 
 1. Ga naar [Azure Portal][Azure portal].
-2. Klik op **SQL-databases** 
-3. Klik op de database waarmee u verbinding wilt maken.
+2. Klik op **SQL data Warehouses**.
+3. Klik op de datawarehouse waarmee u verbinding wilt maken.
 4. Zoek de volledige servernaam.
    
     ![Volledige servernaam][1]
@@ -93,6 +93,6 @@ Zie [Query’s uitvoeren met Visual Studio][Query with Visual Studio] als u verb
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 
