@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 1a36c11fcce33c0148fa7d0a4e947a9cc37cd276
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-app-service"></a>Aanbevolen procedures voor Azure App Service
 In dit artikel bevat een overzicht van aanbevolen procedures voor het gebruik van [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -35,9 +35,9 @@ Collocatie in dezelfde regio wordt aanbevolen voor het samenstellen van een oplo
 Wanneer u een app verbruikt meer geheugen hebben dan verwacht, omdat aangegeven via bewaking of rekening houden met serviceaanbevelingen ziet de [functie-App Service automatisch herstel](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Een van de opties voor de functie automatisch herstel duurt aangepaste acties op basis van een drempelwaarde voor geheugen. Acties omvatten het spectrum van e-mailmeldingen voor onderzoek via geheugendump naar de positie risicobeperking door het werkproces wordt gerecycled. Automatisch herstel kan worden geconfigureerd via web.config en via een beschrijvende gebruikersinterface zoals beschreven op in dit blogbericht voor de [Appuitbreiding Service ondersteuning Site](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
 ## <a name="CPUresources"></a>Wanneer de meer CPU dan verwacht voor het gebruiken van apps
-Wanneer er dat een app verbruikt meer CPU dan verwacht of optreedt herhaald CPU, pieken aangegeven via bewaking of serviceaanbevelingen rekening houden met omhoog schalen of uitbreiden van de App Service-abonnement. Als uw toepassing statefull, is omhoog schalen de enige optie, terwijl als de toepassing is staatloze, scaling out u meer flexibiliteit en hogere schaal potentieel krijgt. 
+Wanneer er dat een app verbruikt meer CPU dan verwacht of optreedt herhaald CPU, pieken aangegeven via bewaking of serviceaanbevelingen rekening houden met omhoog schalen of uitbreiden van de App Service-abonnement. Als uw toepassing stateful, is omhoog schalen de enige optie, terwijl als de toepassing is staatloze, scaling out u meer flexibiliteit en hogere schaal potentieel krijgt. 
 
-Voor meer informatie over 'statefull' vs 'stateless' toepassingen kunt Bekijk deze video: [Planning van een toepassing met meerdere lagen schaalbare End-to-End voor Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Lees voor meer informatie over App Service-opties voor schaalbaarheid en automatisch schalen: [schalen van een Web-App in Azure App Service](web-sites-scale.md).  
+Voor meer informatie over 'stateful' vs 'stateless' toepassingen kunt Bekijk deze video: [Planning van een toepassing met meerdere lagen schaalbare End-to-End voor Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Lees voor meer informatie over App Service-opties voor schaalbaarheid en automatisch schalen: [schalen van een Web-App in Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Wanneer de socket-resources zijn uitgeput
 Een veelvoorkomende reden voor put uitgaande TCP-verbindingen is het gebruik van clientbibliotheken die niet worden geïmplementeerd om TCP-verbindingen opnieuw te gebruiken, of in het geval van een hoger niveau protocol zoals HTTP - keepalive-niet gebruikt. Raadpleeg de documentatie voor elk van de bibliotheken waarnaar wordt verwezen door de apps in uw App Service-abonnement om te controleren of ze zijn geconfigureerd of toegankelijk is in uw code voor efficiënte hergebruik van uitgaande verbindingen. Volgt tevens de bibliotheek documentatie richtlijnen voor het maken van goede en release of cleanup om te voorkomen dat verbindingen lekken. Bij dergelijke clientbibliotheken onderzoeken in voortgang van de gevolgen zijn mogelijk worden verholpen door uitbreiden naar meerdere exemplaren.

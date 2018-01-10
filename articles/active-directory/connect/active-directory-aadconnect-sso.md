@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: billmath
-ms.openlocfilehash: f259474e8e3ba8b9a3d9d1ad83c8d848e06cff8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory naadloze eenmalige aanmelding (Azure AD naadloze SSO) wordt automatisch aangemeld gebruikers wanneer ze zijn op hun zakelijke apparaten die zijn verbonden met uw bedrijfsnetwerk. Wanneer dit is ingeschakeld, wordt gebruikers hoeft te typen in hun wachtwoord aanmelden bij Azure AD en meestal, zelfs in hun gebruikersnamen typt. Deze functie biedt uw gebruikers eenvoudig toegang krijgen tot uw cloud-gebaseerde toepassingen zonder extra on-premises onderdelen.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden.
 
@@ -55,13 +55,13 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisat
 - Er is een gratis functie en u hoeft niet elke betaald edities van Azure AD om deze te gebruiken.
 - Het wordt ondersteund op het web browser gebaseerde en Office-clients die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga) op platforms en browsers die geschikt is voor Kerberos-verificatie:
 
-| OS\Browser |Internet Explorer|Rand|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja|Nee|Ja|Ja\*|N.v.t.
-|Windows 8.1|Ja|N.v.t.|Ja|Ja\*|N.v.t.
-|Windows 8|Ja|N.v.t.|Ja|Ja\*|N.v.t.
-|Windows 7|Ja|N.v.t.|Ja|Ja\*|N.v.t.
-|Mac OS X|N.v.t.|N.v.t.|Ja\*|Ja\*|Ja\*
+|Windows 10|Ja|Nee|Ja|Ja\*|N/A
+|Windows 8.1|Ja|N/A|Ja|Ja\*|N/A
+|Windows 8|Ja|N/A|Ja|Ja\*|N/A
+|Windows 7|Ja|N/A|Ja|Ja\*|N/A
+|Mac OS X|N/A|N/A|Ja\*|Ja\*|Ja\*
 
 \*Vereist [aanvullende configuratie](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

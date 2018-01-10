@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -200,7 +200,6 @@ Beleid ondersteunt de volgende typen van kracht:
 * **Toevoeg-**: voegt de gedefinieerde set velden toe aan de aanvraag
 * **AuditIfNotExists**: kunt controleren als een resource niet bestaat
 * **DeployIfNotExists**: implementeert een resource als deze niet al bestaat. Hiertoe wordt momenteel alleen ondersteund via het ingebouwde beleid.
-* **DenyIfNotExists**: het maken van een exist weigert als deze niet bestaat
 
 Voor **toevoegen**, moet u de volgende details opgeven:
 
@@ -216,7 +215,7 @@ Voor **toevoegen**, moet u de volgende details opgeven:
 
 De waarde kan niet een tekenreeks of een object van JSON-indeling.
 
-Met **AuditIfNotExists**, **DeployIfNotExists**, en **DenyIfNotExists**, kunt u het bestaan van een onderliggende resource evalueren en een regel en een bijbehorende effect toepassen Wanneer deze resource bestaat niet. U kunt bijvoorbeeld vereisen dat een netwerk-watcher wordt geïmplementeerd voor alle virtuele netwerken.
+Met **AuditIfNotExists** en **DeployIfNotExists** kunt u het bestaan van een onderliggende resource evalueren en toepassen van een regel en een bijbehorende effect wanneer die resource niet bestaat. U kunt bijvoorbeeld vereisen dat een netwerk-watcher wordt geïmplementeerd voor alle virtuele netwerken.
 Zie voor een voorbeeld van het controle-wanneer de extensie van een virtuele machine niet is geïmplementeerd, [controleren als de extensie is niet opgenomen](scripts/audit-ext-not-exist.md).
 
 

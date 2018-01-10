@@ -7,4 +7,5 @@
 3. Klik in de Firebase-console op het tandwiel voor uw project en klik vervolgens op **Project Settings**.
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. Klik op het tabblad **Cloud Messaging** in de instellingen van uw project en kopieer de waarde van **Server Key** en **Sender ID**. Deze waarden worden later gebruikt voor het configureren van het toegangsbeleid voor de Notification Hub en uw wijzigingsmelding in de app.
+4. Klik op de **algemene** tabblad in de instellingen van uw project en downloadt u de **google services.json** -bestand met de Server-API-sleutel en de Client-ID.
+5. Klik op de **Cloud Messaging** tabblad in de instellingen van uw project en kopieer de waarde van de **Legacy-serversleutel**. Deze waarde wordt gebruikt voor het configureren van het toegangsbeleid van de notification hub.

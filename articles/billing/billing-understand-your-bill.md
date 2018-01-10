@@ -1,5 +1,5 @@
 ---
-title: Inzicht in uw factuur voor Azure | Microsoft Docs
+title: Inzicht in uw factuur voor Azure
 description: Meer informatie over het gelezen en begrepen gebruiks- en factuur voor uw Azure-abonnement
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
 Voor inzicht in uw Azure-factuur, Vergelijk uw factuur met de gedetailleerde dagelijks gebruik-bestand en de kosten-rapporten in de Azure portal.
@@ -34,9 +34,8 @@ Zie voor gedetailleerde voorwaarden en beschrijvingen van uw factuur en gedetail
 Zie voor meer informatie over de kosten-rapporten, [Azure-portal kostenbeheer](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Hoe maak ik ervoor dat de kosten in mijn factuur correct zijn?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Als er een kosten op uw factuur die u op meer informatie wilt, moet u er een aantal opties zijn.
 

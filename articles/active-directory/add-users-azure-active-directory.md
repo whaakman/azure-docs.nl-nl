@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snelstartgids: Nieuwe gebruikers toevoegen aan Azure Active Directory
-In dit artikel wordt uitgelegd hoe u nieuwe gebruikers toevoegen in uw organisatie in Azure Active Directory (Azure AD) een op een tijdstip met de Azure portal of door het synchroniseren van uw on-premises Windows Server AD-gegevens voor account van gebruiker. 
+In dit artikel wordt uitgelegd hoe verwijderen of toevoegen van gebruikers in uw organisatie in uw orgnization Azure Active Directory (Azure AD)-tenant met de Azure portal of door het synchroniseren van uw on-premises Windows Server AD-gegevens voor account van gebruiker. 
 
 ## <a name="add-cloud-based-users"></a>Cloud-gebaseerde gebruikers toevoegen
 1. Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de map.
@@ -48,8 +48,11 @@ In dit artikel wordt uitgelegd hoe u nieuwe gebruikers toevoegen in uw organisat
 
 ### <a name="learn-more"></a>Meer informatie 
 * [Gastgebruikers van een andere map toevoegen](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Een gebruiker toewijzen aan een rol in uw Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
+* [Een verwijderde gebruiker herstellen](active-directory-users-restore.md)
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze snelstartgids hebt u geleerd hoe u nieuwe gebruikers toevoegen aan Azure AD Premium. 

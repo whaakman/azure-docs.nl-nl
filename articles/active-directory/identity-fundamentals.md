@@ -1,5 +1,5 @@
 ---
-title: De grondbeginselen van Azure identiteitsbeheer | Microsoft Docs
+title: Grondbeginselen van Azure identity management
 description: Cloud-gebaseerde identiteiten zijn nu de beste manier om de controle behouden en inzicht in hoe en wanneer gebruikers toegang krijgen tot zakelijke toepassingen en gegevens.
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grondbeginselen van Azure identity management
+
 Meer digitale bedrijfsbronnen Live buiten het bedrijfsnetwerk in de cloud en op apparaten, wordt een geweldige cloud-gebaseerde identiteit en toegang beheeroplossing noodzakelijk. Cloud-gebaseerde identiteiten zijn nu de beste manier om de controle behouden en inzicht in hoe en wanneer gebruikers toegang krijgen tot zakelijke toepassingen en gegevens.
 
 Microsoft heeft identiteiten voor een cloud-gebaseerde is beveiligen via een tien jaar en nu met [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), deze dezelfde beveiliging systemen voor u beschikbaar zijn. Met Azure AD zorg Ondernemingsadministrators eenvoudig gebruiker en de beheerder accountability met betere beveiliging en beheeracties dan ooit tevoren.
@@ -27,7 +28,7 @@ Microsoft heeft identiteiten voor een cloud-gebaseerde is beveiligen via een tie
 Azure AD Premium is een cloud-gebaseerde identiteit en toegang beheeroplossing met geavanceerde beveiliging mogelijkheden waarmee een beveiligde identiteit voor alle apps, identity protection (verbeterde door de [Microsoft intelligence beveiliging grafiek](https://www.microsoft.com/en-us/security/intelligence)), en Privileged Identity Management. Niet gewoon een bewaking of rapportage, Azure AD Premium kunt beveiligen van uw gebruikersidentiteiten in realtime en kunt u risico, adaptief toegangsbeleid ter bescherming van gegevens van uw organisatie te maken.
 
 Bekijk deze korte video voor een snel overzicht van Azure AD identity management en beveiliging:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Microsoft biedt niet alleen een identiteit waarmee u overal gaat, maar ook een set hulpprogramma's te automatiseren, helpen beveiligen en beheren IT binnen uw organisatie. Zelfs na de komst van cloudcomputing nog zich steeds verzoek om te beheren en controleren van de IT-taken, zoals de helpdesk wordt gebeld gebruikerswachtwoorden opnieuw instellen, beheer van de groep gebruikers en aanvragen van toepassingen. Verder dingen complicerende, meebrengen werknemers nu hun persoonlijke apparaten tot werk en het gebruik van direct beschikbaar SaaS-toepassingen. Hierdoor kunt u beheren van controle over hun toepassingen verschillende bedrijfsdatacenters en openbare cloudplatforms een belangrijke uitdaging.
 

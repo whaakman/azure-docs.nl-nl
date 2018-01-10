@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Aan de slag met Azure AD
 Moderne identiteitsbeheer vereist een schaalbare, consistente reliablity om te controleren of de beschikbaarheid van toepassingen en services aan alleen geverifieerde gebruikers. Om voldoende ondersteunen de identity management-behoeften van gebruikers, IT-afdeling moet een manier om toegang te bieden tot erkende, openbare software als een service (SaaS)-apps, kunt u interne line-host of-business-apps, en zelfs manieren voor het verbeteren van on-premises ontwikkeling van Apps en het gebruik. Al deze vereisten voldoen verwijzen aan de behoeften van een oplossing voor identiteitsbeheer cloud-gebaseerde.      
 
 Azure Active Directory (Azure AD) is de cloud gebaseerde directory en identity management-service, Microsoft van meerdere tenants. Azure AD combineert core directoryservices, governance geavanceerde identiteit en toegang Toepassingsbeheer. Het ontwerp van multitenant, geografisch verspreide, hoge beschikbaarheid van Azure AD-betekent dat u erop voor uw meest kritieke zakelijke behoeften vertrouwen kunt.
 
-Azure AD bevat een volledige reeks mogelijkheden voor identiteitsbeheer inclusief de mogelijkheid om te synchroniseren van lokale resourcegegevens, aanpasbare huisstijl, eenvoudige Licentiebeheer en beheer van zelfs selfservice voor wachtwoordherstel.  Deze eenvoudige voor het instellen van mogelijkheden kunt aan de slag met Azure AD beveiligde cloud-gebaseerde toepassingen, IT-processen te stroomlijnen, kosten knippen en ervoor te zorgen dat de doelstellingen van de naleving wordt voldaan.
+Azure AD bevat een volledige reeks mogelijkheden voor identiteitsbeheer inclusief de mogelijkheid om te synchroniseren van lokale resourcegegevens, aanpasbare huisstijl, eenvoudige Licentiebeheer en beheer van zelfs selfservice voor wachtwoordherstel. Deze mogelijkheden eenvoudig te implementeren kunnen u helpen aan de slag met Azure AD cloud-gebaseerde toepassingen beveiligen, IT-processen te stroomlijnen, kosten knippen en ervoor te zorgen dat de doelstellingen van de naleving wordt voldaan.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -80,7 +80,7 @@ U kunt de licentietoewijzing op basis van een groep gebruiken voor het instellen
 ### <a name="verification-step"></a>Verificatiestap
 Controleer toegewezen en beschikbare licenties onder **Azure Active Directory** > **licenties** > **alle producten**.
 
-## <a name="configure-self-service-password-reset"></a>Selfservice voor wachtwoordherstel configureren
+## <a name="configure-self-service-password-reset"></a>De self-service voor wachtwoord opnieuw instellen configureren
 [Selfservice voor wachtwoordherstel (SSPR)](active-directory-passwords-getting-started.md) biedt een eenvoudige methode voor IT-beheerders kunnen gebruikers opnieuw instellen of hun wachtwoorden of accounts ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem gebruiken. U ontvangt ook meldingen om u te waarschuwen over misbruik.
 
 ### <a name="verification-step"></a>Verificatiestap
@@ -88,6 +88,6 @@ Controleren ingeschakeld SSPR eigenschappen onder **Azure Active Directory** > *
 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure Active Directory-productpagina](https://azure.microsoft.com/services/active-directory/)
+[Pagina van de service Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory informatiepagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/)

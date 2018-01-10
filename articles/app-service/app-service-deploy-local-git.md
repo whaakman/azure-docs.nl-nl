@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 Deze zelfstudie leert u hoe u uw app implementeert [Azure Web Apps](app-service-web-overview.md) van een Git-opslagplaats op uw lokale computer. App Service ondersteunt deze methode met de **lokale Git** Implementatieoptie wordt gebruikt in de [Azure Portal].  
@@ -32,7 +32,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * Een Microsoft Azure-account. Als u geen account hebt, kunt u zich [aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> Als u wilt dat aan de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke app kunt maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.  
+> Als u wilt dat aan de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke app kunt maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.  
 > 
 > 
 
@@ -72,7 +72,7 @@ De volgende stappen om in te schakelen van een Git-opslagplaats voor uw App Serv
 2. Klik op de blade van uw App Service-app **instellingen > implementatiebron**. Klik op **bron kiezen**, klikt u vervolgens op **lokale Git-opslagplaats**, en klik vervolgens op **OK**.  
    
     ![Lokale Git-opslagplaats](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Als dit de eerste keer instellen van een opslagplaats in Azure, moet u aanmeldingsreferenties voor het maken. U gebruikt deze aan te melden bij de Azure-opslagplaats en push wijzigingen vanaf uw lokale Git-opslagplaats. Op de blade van uw app, klikt u op **instellingen > implementatiereferenties**, configureert u uw implementatie gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **opslaan**.
+3. Als dit de eerste keer instellen van een opslagplaats in Azure, moet u aanmeldingsreferenties voor het maken. U gebruikt deze aan te melden bij de Azure-opslagplaats en push wijzigingen vanaf uw lokale Git-opslagplaats. Op de blade van uw app, klikt u op **implementatie > implementatiereferenties**, configureert u uw implementatie gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **opslaan**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -168,7 +168,7 @@ git config --global http.postBuffer 524288000
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Git-documentatie](http://git-scm.com/documentation)
 * [Project Kudu documentatie](https://github.com/projectkudu/kudu/wiki)
-* [Continue implementatie in Azure App Service](app-service-continuous-deployment.md)
+* [Doorlopende implementatie in Azure App Service](app-service-continuous-deployment.md)
 * [PowerShell voor Azure gebruiken](/powershell/azure/overview)
 * [Het gebruik van de Azure-opdrachtregelinterface](../cli-install-nodejs.md)
 

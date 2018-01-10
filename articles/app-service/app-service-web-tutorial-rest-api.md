@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
 
@@ -84,7 +84,7 @@ Wanneer in Swaggerize om een projectnaam wordt gevraagd, gebruikt u *ContactList
 1. Kopieer de map *lib* naar de map *ContactList* die door `yo swaggerize` is gemaakt en wijzig de map naar *ContactList*.
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -246,14 +246,22 @@ Implementeer uw code in de API-app door doorvoeracties van uw lokale Git-opslagp
     node_modules/
     ```
     Bevestig met `git status` dat de `node_modules`-map wordt genegeerd.
+    
+4. Voeg de volgende regels in `package.json`. De code die wordt gegenereerd door Swaggerize opgeven niet een versie op voor de Node.js-engine. Zonder de specificatie versie gebruikt Azure de standaardversie van `0.10.18`, die niet compatibel is met de gegenereerde code.
 
-4. Voer de wijzigingen door in de map.
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. Voer de wijzigingen door in de map.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
 ## <a name="test-the-api--in-azure"></a>De API testen in Azure
 

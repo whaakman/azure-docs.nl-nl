@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -75,8 +75,8 @@ De volgende omgevingen worden ondersteund:
 
 1. [Application Insights inschakelen in uw web-app van ASP.NET Core](app-insights-asp-net-core.md), als u dit nog niet hebt gedaan.
 
-> [!NOTE]
-> Niet zeker van te zijn dat uw toepassing verwijst naar versie 2.1.1 of nieuwere van het pakket Microsoft.ApplicationInsights.AspNetCore.
+    > [!NOTE]
+    > Niet zeker van te zijn dat uw toepassing verwijst naar versie 2.1.1 of nieuwere van het pakket Microsoft.ApplicationInsights.AspNetCore.
 
 2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Voor toepassingen die zijn _niet_ gehost in App Service, de uploader-logboeken zijn in dezelfde map als de minidumps: `%TEMP%\Dumps\<ikey>` (waarbij `<ikey>` is uw instrumentatiesleutel).
 
-Voor rollen in Cloudservices, de tijdelijke standaardmap mogelijk te klein voor de bestanden met Mini-geheugendump. In dat geval kunt u een alternatieve map via de eigenschap TempFolder in ApplicationInsights.config.
+### <a name="troubleshooting-cloud-services"></a>Problemen met Cloudservices oplossen
+Voor rollen in Cloudservices, de tijdelijke standaardmap mogelijk te klein voor de bestanden met Mini-geheugendump, wat leidt tot verloren momentopnamen.
+De ruimte die nodig zijn, is afhankelijk van de totale werkset van uw toepassing en het aantal gelijktijdige momentopnamen.
+De werkset van een 32-bits ASP.NET-Webrol is meestal tussen 200 MB en 500 MB.
+U moet voor ten minste twee gelijktijdige momentopnamen toestaan.
+Bijvoorbeeld, als uw toepassing gebruikmaakt van 1 GB van totale werkset, moet u zorgen dat er ten minste 2 GB aan schijfruimte voor het opslaan van momentopnamen is.
+Volg deze stappen voor uw Cloudservice rol configureren met een specifieke lokale bron voor momentopnamen.
 
+1. Een nieuwe lokale resource toevoegen aan uw Cloud-Service door de Service in de Cloud-definitiebestand (.csdf) te bewerken. Het volgende voorbeeld definieert een resource aangeroepen `SnapshotStore` met een grootte van 5 GB.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Wijzigen van uw rol `OnStart` methode voor het toevoegen van een omgevingsvariabele die naar verwijst de `SnapshotStore` lokale resource.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Bijwerken van uw rol ApplicationInsights.config-bestand voor het overschrijven van de locatie van de tijdelijke map die wordt gebruikt door`SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Gebruik Application Insights zoeken uitzonderingen met momentopnamen

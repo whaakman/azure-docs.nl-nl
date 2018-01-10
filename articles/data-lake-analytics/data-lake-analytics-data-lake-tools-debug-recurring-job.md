@@ -14,60 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2017
 ms.author: yanacai
-ms.openlocfilehash: a358f94b117c12511028a875e56b5c9dba8d3382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b60c861810d6577b33aa0cdf14f26dc2cfc0e4d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="how-to-troubleshoot-an-abnormal-recurring-job"></a>Problemen met een abnormale terugkerende taak oplossen
+# <a name="troubleshoot-an-abnormal-recurring-job"></a>Problemen met een abnormale terugkerende taak oplossen
 
-In dit document, stellen we het gebruik van [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) terugkerende taak problemen oplossen. Meer informatie over de pijplijn en terugkerende taken van [hier](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
-Terugkerende taken worden meestal dezelfde logica van de query en vergelijkbare invoergegevens delen. Bijvoorbeeld: u hebt een terugkerende taak uitgevoerd op elk etmaal maandag 8 uur telling van de laatste week wekelijkse actieve gebruiker, de scripts voor deze taken één script sjabloon de logica query bevat delen en de invoer voor deze taken zijn de gebruiksgegevens voor vorige week. Delen van dezelfde logica opvragen en vergelijkbare invoercode van meestal betekent prestaties van deze taken is vergelijkbaar en stabiele, als een van uw terugkerende taken plotseling abnormale, mislukt of vertragen veel u uitvoert mogelijk wilt:
+Dit artikel laat zien hoe u [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) oplossen van problemen met terugkerende taken. Meer informatie over de pijplijn en terugkerende taken van de [Azure Data Lake en Azure HDInsight blog](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
-1.  Zie de Statistiekenrapporten voor de voorbeelden worden uitgevoerd van de periodieke taak om te zien wat er gebeurd is.
-2.  Vergelijk de abnormale taak met een normale om te achterhalen wat is gewijzigd.
+Terugkerende taken worden meestal dezelfde logica van de query en vergelijkbare invoergegevens delen. Stel bijvoorbeeld dat u hebt een terugkerende taak elk etmaal maandag 8 uur uitgevoerd voor het tellen van afgelopen week wekelijkse actieve gebruiker. De scripts voor deze taken delen één script sjabloon de logica van de query bevat. De invoer voor deze taken zijn de gebruiksgegevens voor vorige week. Delen de dezelfde query-logica en vergelijkbare invoer meestal betekent dat de prestaties van deze taken vergelijkbare en stabiele. Als een van uw terugkerende taken plotseling abnormaal, mislukt voert of veel trager, u mogelijk wilt:
+
+- Zie de Statistiekenrapporten voor de vorige wordt uitgevoerd van de periodieke taak om te zien wat er gebeurd is.
+- Vergelijk de abnormale taak met een normale om te achterhalen wat is gewijzigd.
 
 **Taak weergeven gerelateerd** in Azure Data Lake Tools voor Visual Studio kunt u de voortgang van de problemen met beide gevallen versnellen.
 
 ## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Stap 1: Terugkerende taken vinden en openen van verwante taak weergeven
 
-Gebruik van gerelateerde taak weergave terugkerende taak probleem kan oplossen, moet u eerst de terugkerende taak niet vinden in Visual Studio en open vervolgens de bijbehorende taak weergeven.
+Verwante taak als weergave wilt gebruiken een terugkerende taak probleem op te lossen, moet u eerst de terugkerende taak niet vinden in Visual Studio en open vervolgens gerelateerde taak weergeven.
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Voorbeeld 1: U hebt de URL voor de terugkerende taak
 
-Via **Extra > Data Lake > taakweergave**, kunt u de URL van de taak taak als weergave wilt openen in Visual Studio plakken en via weergave gerelateerde taken te openen taak weergeven gerelateerd.
+Via **extra** > **Data Lake** > **taakweergave**, kunt u de URL van de taak taak als weergave wilt openen in Visual Studio plakken. Selecteer **gerelateerde taken weergeven** om verwante taakweergave te openen.
 
-![Data Lake Analytics Tools weergeven gerelateerde taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
+![Koppeling voor weergave van gerelateerde taken in Data Lake Analytics-Tools](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Voorbeeld 2: U hebt de pijplijn voor de periodieke taak, maar niet de URL
 
-In Visual Studio, kunt u Browser via pijplijn openen **Server Explorer > uw Data Lake Analytics-account > pijplijnen** (als u dit knooppunt niet in Server Explorer vinden, kun je het meest recente versie hulpprogramma [hier](http://aka.ms/adltoolsvs)). In de Browser pijplijn alle pijplijnen voor het account ADLA aan de linkerkant worden vermeld, kunt u de pijplijnen om te zoeken naar alle terugkerende taken, klikt u op uitbreiden die problemen heeft, de verwante taakweergave opent rechts.
+In Visual Studio, kunt u pijplijn Browser via Server Explorer openen > uw Azure Data Lake Analytics-account > **pijplijnen**. (Als u dit knooppunt niet in Server Explorer vinden [download de meest recente invoegtoepassing](http://aka.ms/adltoolsvs).) 
 
-![Data Lake Analytics Tools weergeven gerelateerde taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
+![Het knooppunt pijplijnen selecteren](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 
-![Data Lake Analytics Tools weergeven gerelateerde taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
+In de Browser pijplijn staan alle pijplijnen voor het Data Lake Analytics-account aan de linkerkant. U kunt uitvouwen pijplijnen om te zoeken naar alle terugkerende taken, en selecteer vervolgens een die problemen heeft. Verwante taakweergave geopend rechts.
 
-## <a name="step-2-analyze-statistics-report"></a>Stap 2: Statistieken rapport analyseren
+![Een pijplijn selecteren en openen van verwante taak weergeven](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-Een samenvatting en een rapport statistieken worden weergegeven boven aan de bijbehorende taak weergeven, waarmee u de potentiële hoofdoorzaak van het abnormale krijgt. 
+## <a name="step-2-analyze-a-statistics-report"></a>Stap 2: Een rapport statistieken analyseren
 
-1.  U moet eerst de abnormale taak niet vinden in het rapport. De X-as laat zien taak verzending via welke u de abnormale taak kunt vinden.
-2.  Volg onderstaande procedure voor het controleren van de statistieken en de inzichten van de abnormale en de mogelijke oplossingen ophalen.
+Een samenvatting en een rapport statistieken worden weergegeven boven aan de bijbehorende taak weergeven. U vindt er, de potentiële hoofdoorzaak van het probleem. 
 
-![Data Lake Analytics Tools weergeven gerelateerde taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
+1.  In het rapport wordt de x-as de tijd van de verzending van taak. Gebruik dit voor de abnormale taak vinden.
+2.  Gebruik het proces in het volgende diagram statistieken controleren en inzichten over het probleem en mogelijke oplossingen verkrijgen.
 
-## <a name="step-3-compare-the-abnormal-recurring-job-to-a-normal-job"></a>Stap 3: De abnormale terugkerende taak is een normale taak vergelijken
+![Procesdiagram voor het controleren van statistieken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-U vindt dat alle terugkerende taken via takenlijst aan de onderkant van gerelateerde taakweergave verzonden. U kunt de taak abnormale door een vorige normale meer inzicht en mogelijke oplossingen vinden in de weergave van de taak Diff vergelijken tot en met de rechtermuisknop te klikken op.
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Stap 3: De taak is een normale taak abnormale vergelijken
 
-![Data Lake Analytics Tools weergeven gerelateerde taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
+U vindt dat alle terugkerende taken via de lijst onderaan gerelateerde taakweergave verzonden. Ga voor meer inzicht en mogelijke oplossingen, met de rechtermuisknop op de abnormale taak. De taak Diff-weergave gebruiken om de abnormale taak door een vorige normale vergelijken.
 
-Normaal gesproken moet u aandacht te besteden aan de grote verschillen tussen deze 2 taken als ze zich waarschijnlijk de redenen die prestatieproblemen veroorzaken, en kunt u onderstaande stappen om te doen verdere controle volgen.
+![Snelmenu voor het vergelijken van taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
 
-![Data Lake Analytics Tools weergeven gerelateerde taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
+Let op de grote verschillen tussen deze twee taken. Deze verschillen veroorzaken waarschijnlijk de prestatieproblemen. Gebruik de stappen in het volgende diagram verdere controleren:
+
+![Procesdiagram voor het controleren van de verschillen tussen taken](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Het fouten opsporen en oplossen van problemen met de scheeftrekken](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [Fouten opsporen in U-SQL-taak is mislukt voor de gebruiker gedefinieerde foutcode](data-lake-analytics-debug-u-sql-jobs.md)
+* [Gegevens tijdverschil problemen oplossen](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
+* [Foutopsporing van de gebruiker gedefinieerde C#-code voor mislukte U-SQL-taken](data-lake-analytics-debug-u-sql-jobs.md)

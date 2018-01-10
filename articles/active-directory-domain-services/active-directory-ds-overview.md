@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>(AD) voor Azure Active Directory Domain Services
 ## <a name="overview"></a>Overzicht
@@ -37,15 +37,17 @@ Alle deze benaderingen lijden onder blokkering van de hoge kosten en administrat
 We ontworpen Azure AD Domain Services bieden een eenvoudiger alternatief.
 
 ### <a name="watch-an-introductory-video"></a>Een inleidende video bekijken
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Inleiding tot Azure AD Domain Services
+
 Azure AD Domain Services beheerd domein van services zoals domeindeelname, groep-beleid, LDAP, Kerberos/NTLM-verificatie, die volledig compatibel zijn met Windows Server Active Directory biedt. U kunt deze domain-services zonder de noodzaak om te implementeren, beheren en domeincontrollers in de cloud patch verbruiken. Azure AD Domain Services kan worden geïntegreerd met uw bestaande Azure AD-tenant, waardoor het mogelijk dat gebruikers zich aanmelden met hun bedrijfsreferenties. Bovendien kunt u bestaande groepen en accounts van gebruikers toegang te krijgen tot bronnen, zodat de soepeler 'lift-en-verschuiving' van een on-premises resources voor Azure-infrastructuurservices.
 
 Azure AD Domain Services-functionaliteit werkt naadloos samen ongeacht of uw Azure AD-tenant alleen in de cloud of gesynchroniseerd met uw lokale Active Directory.
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Azure AD Domain Services voor organisaties die alleen in de cloud
+
 Een alleen-Azure AD-tenant (vaak aangeduid als 'beheerde tenants') beschikt niet over een lokale identiteit footprint. Met andere woorden, zijn gebruikersaccounts, hun wachtwoorden en groepslidmaatschappen alle systeemeigen naar de cloud - dat wil zeggen, gemaakt en beheerd in Azure AD. Kijk eens naar dat Contoso een alleen is-Azure AD-tenant. Zoals u in de volgende afbeelding, heeft de beheerder van Contoso een virtueel netwerk geconfigureerd in Azure Infrastructure Services. Toepassingen en serverwerkbelastingen worden geïmplementeerd in dit virtuele netwerk in Azure virtuele machines. Aangezien Contoso een alleen-tenant is, worden alle gebruikers-id's, hun referenties en groepslidmaatschappen gemaakt en beheerd in Azure AD.
 
 ![Overzicht van Azure AD Domain Services](./media/active-directory-domain-services-overview/aadds-overview.png)

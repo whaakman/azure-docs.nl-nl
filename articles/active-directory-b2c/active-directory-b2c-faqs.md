@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -105,7 +105,7 @@ Nee, Azure AD B2C ondersteunt geen dezelfde set rapporten als Azure AD Premium. 
 Ja.  Meer informatie over [taal aanpassing](active-directory-b2c-reference-language-customization.md), deze bevindt zich in de openbare preview.  Wij vertalingen voor 36 talen en u kunt een willekeurige tekenreeks aan uw behoeften te overschrijven.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Kan ik mijn eigen URL's op mijn zich kunnen registreren en aanmelden pagina's die worden behandeld door Azure AD B2C gebruiken? Bijvoorbeeld, kan ik de URL van login.microsoftonline.com naar login.contoso.com wijzigen?
-Momenteel niet. Deze functie is op onze roadmap. Verifiëren van uw domein in de **domeinen** tabblad in de klassieke Azure portal biedt geen dit doel te bereiken.
+Momenteel niet. Deze functie is op onze roadmap. Verifiëren van uw domein in de **domeinen** tabblad in de Azure portal biedt geen dit doel te bereiken.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hoe verwijder ik mijn Azure AD B2C-tenant?
 Volg deze stappen voor het verwijderen van uw Azure AD B2C-tenant:

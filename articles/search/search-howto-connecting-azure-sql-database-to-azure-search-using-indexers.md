@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties
 
@@ -26,7 +26,7 @@ Voordat u kunt een query een [Azure Search-index](search-what-is-an-index.md), m
 
 In dit artikel bevat informatie over het mechanisme voor het gebruik van [indexeerfuncties](search-indexer-overview.md), maar ook functies die alleen beschikbaar in Azure SQL-databases (bijvoorbeeld geïntegreerd wijzigingen bijhouden) beschreven. 
 
-Naast Azure SQL-databases, biedt Azure Search indexeerfuncties voor [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), en [Azure-tabelopslag](search-howto-indexing-azure-tables.md). Vraag ondersteuning voor andere gegevensbronnen, uw feedback geven over de [forum met feedback van Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Naast Azure SQL-databases, biedt Azure Search indexeerfuncties voor [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), en [Azure-tabelopslag](search-howto-indexing-azure-tables.md). Vraag ondersteuning voor andere gegevensbronnen, uw feedback geven over de [forum met feedback van Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexeerfuncties en gegevensbronnen
 
@@ -294,8 +294,8 @@ De **softDeleteMarkerValue** moet een tekenreeks-de tekenreeksweergave van uw we
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografie |Edm.GeographyPoint |Alleen Geografie exemplaren van het type punt met SRID 4326 (dit is de standaardinstelling) worden ondersteund |
-| ROWVERSION |N.v.t. |Kolommen van de rij-versie kunnen niet worden opgeslagen in de search-index, maar ze kunnen worden gebruikt voor het bijhouden |
-| tijd, timespan, binary, varbinary, image, xml, geometry, CLR-typen |N.v.t. |Niet ondersteund |
+| ROWVERSION |N/A |Kolommen van de rij-versie kunnen niet worden opgeslagen in de search-index, maar ze kunnen worden gebruikt voor het bijhouden |
+| tijd, timespan, binary, varbinary, image, xml, geometry, CLR-typen |N/A |Niet ondersteund |
 
 ## <a name="configuration-settings"></a>Configuratie-instellingen
 SQL-indexeerfunctie beschrijft de verschillende configuratie-instellingen:

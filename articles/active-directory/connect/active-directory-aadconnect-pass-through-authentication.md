@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Gebruiker aanmelden met Azure Active Directory Pass-through-verificatie
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory (Azure AD)-Pass through-verificatie kunnen uw gebruikers zich aanmelden bij zowel on-premises en cloudtoepassingen met dezelfde wachtwoorden. Deze functie biedt uw gebruikers een betere ervaring - één minder wachtwoord te onthouden is, en verlaagt de kosten voor IT-helpdesk omdat uw gebruikers is het minder waarschijnlijk vergeten aanmelden. Wanneer gebruikers zich met behulp van Azure AD aanmelden, valideert deze functie rechtstreeks op uw lokale Active Directory-wachtwoorden van gebruikers.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Deze functie is een alternatief voor [Azure AD synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md), waarmee u de dezelfde voordeel van cloud-verificatie voor organisaties. Beleid voor beveiliging en naleving in bepaalde organisaties niet evenwel toestaan dat deze organisaties wachtwoorden van gebruikers, zelfs in een formulier hash buiten de grenzen van de interne verzenden. Pass through-verificatie is de juiste oplossing voor deze organisaties.
 
