@@ -1,41 +1,41 @@
 ---
-title: Overzicht van Azure-locatie op basis van Services | Microsoft Docs
-description: Een inleiding tot Azure locatie op basis van Services (preview)
+title: Overzicht van Azure Location Based Services | Microsoft Docs
+description: Een inleiding tot Azure Location Based Services (preview)
 services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="an-introduction-to-azure-location-based-services-preview"></a>Een inleiding tot Azure locatie op basis van Services (preview)
-Services voor Azure op basis van locatie is een portfolio van georuimtelijke-services die service API's voor kaarten, Search, routering, verkeer en tijdzones bevatten. De portfolio van compatibele OneAPI Azure-services kunt u bekend ontwikkelhulpprogramma's gebruiken voor het snel ontwikkelen en scale-oplossingen die informatie over de locatie in uw Azure-oplossingen integreren. Services voor Azure op basis van locatie biedt ontwikkelaars van alle branches georuimtelijke krachtige mogelijkheden die zijn verpakt met nieuwe toewijzing gegevens imperatieve te bieden geografische context voor webtoepassingen en mobiele toepassingen. Services voor Azure op basis van locatie is een Azure één API compatibele REST-API's samen met een JavaScript-web gebaseerde besturingselement aanbrengen ontwikkeling super eenvoudig en flexibel draagbare over meerdere media set. 
+# <a name="an-introduction-to-azure-location-based-services-preview"></a>Een inleiding tot Azure Location Based Services (preview)
+Azure Location Based Services is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met Azure OneAPI-compatibele services kunt u gebruikmaken van vertrouwde hulpprogramma’s om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Location Based Services biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn wanneer u webtoepassingen en mobiele toepassingen wilt voorzien van geografische context. Azure Location Based Services bestaat uit een Azure One API-compatibele set REST API's en een JavaScript-besturingselement op basis van het web, waarmee ontwikkelen voor meerdere mediums heel gemakkelijk, flexibel en mobiel wordt. 
 
-Services voor Azure op basis van locatie bestaat uit vijf belangrijke services aan het Azure-toepassingen vereisen geografische context vergroot. Elk van de services wordt hieronder in detail uitgelegd.
+Azure Location Based Services bestaat uit vijf primaire services ter ondersteuning van Azure-toepassingen waarvoor geografische context is vereist. Elk van de services wordt hieronder gedetailleerd beschreven.
 
-**Renderen Service** – de renderen-Service is ontworpen voor ontwikkelaars voor het maken van webtoepassingen en mobiele toepassingen om de toewijzing. De service maakt gebruik van hoge kwaliteit raster grafische afbeeldingen, beschikbaar in 19 zoomniveaus of Kaartafbeeldingen volledig aanpasbare vector-indeling.
+**Render Service**: de Render Service is ontworpen voor ontwikkelaars voor het maken van webtoepassingen en mobiele toepassingen met betrekking tot kaarten. De service maakt gebruik van een raster met grafische afbeeldingen van hoge kwaliteit, beschikbaar in 19 zoomniveaus, of volledig aanpasbare kaartafbeeldingen in een vectorindeling.
 
-![Azure-locatie op basis van Services Map.png](media/about-location-based-services/Introduction_Map.png)
+![Azure Location Based Services Map.png](media/about-location-based-services/Introduction_Map.png)
 
-**Route Service** – de Route-Service is gebouwd met een robuuste infrastructuur voor echte geometrie berekeningen en meerdere vervoer modus richtingen. De service worden toegestaan voor ontwikkelaars voor het berekenen van aanwijzingen over een aantal reizen modi zoals auto, vrachtwagen, fiets of lopen; evenals, een aantal invoerwaarden zoals verkeer voorwaarden, gewichtsbeperkingen of gevaarlijke materiaal transport.
+**Route Service**: de Route Service is gebouwd met een robuuste infrastructuur voor echte geometrische berekeningen en routebeschrijvingen voor meerdere routetypen. Met deze service kunnen ontwikkelaars routebeschrijvingen berekenen voor een aantal routetypen, zoals auto, vrachtwagen, fiets of te voet. Ook biedt de service informatie over zaken zoals verkeersomstandigheden, gewichtsbeperkingen of vervoer van gevaarlijke stoffen.
 
-![Azure-locatie op basis van Services Route.png](media/about-location-based-services/Introduction_Route.png)
+![Azure Location Based Services Route.png](media/about-location-based-services/Introduction_Route.png)
 
-**Search-Service** – de Search-Service is ontworpen voor ontwikkelaars om te zoeken naar adressen, plaatsen, lijsten met de naam of categorie bedrijven en andere geografische informatie. De Search-Service kan ook [geocode reverse](https://en.wikipedia.org/wiki/Reverse_geocoding) adressen en cross streets op basis van een breedtegraad/lengtegraad. 
+**Search Service**: de Search Service is ontworpen voor ontwikkelaars om te zoeken naar adressen, plaatsen, bedrijfsvermeldingen op naam of categorie, en andere geografische informatie. Met de Search Service kan ook [de geocode worden omgekeerd](https://en.wikipedia.org/wiki/Reverse_geocoding) voor adressen en dwarsstraten op basis van een breedtegraad/lengtegraad. 
 
-![Azure-locatie op basis van Services Search.png](media/about-location-based-services/Introduction_Search.png)
+![Azure Location Based Services Search.png](media/about-location-based-services/Introduction_Search.png)
 
-**Tijdzone Service** – de tijdzone-Service kunt u huidige, historische en toekomstige tijdzone-informatie van een query met behulp van de breedtegraad lengtegraad paren of een [IANA-ID](http://www.iana.org/). De tijdzone-service staat ook tijdzone-id's van Microsoft Windows converteren naar IANA tijdzones, een tijdzoneverschil naar UTC ophalen en ophalen van de huidige tijd in een bijbehorende tijdzone. Een typische JSON-antwoord voor een query met de tijdzone-Service ziet er als volgt:
+**Time Zone Service**: met de Time Zone Service kunt u huidige, afgelopen en toekomstige tijdzonegegevens opvragen met behulp van breedtegraad/lengtegraad-combinaties of een [IANA-id](http://www.iana.org/). Met de Time Zone service kunnen ook id’s voor Microsoft Windows-tijdzones worden geconverteerd naar IANA-tijdzones, door een tijdzoneverschil naar UTC op te halen en de huidige tijd op te halen in een respectieve tijdzone. Een typisch JSON-antwoord voor een query in de Time Zone Service ziet er als volgt uit:
 
 ```JSON
 {
@@ -55,22 +55,22 @@ Services voor Azure op basis van locatie bestaat uit vijf belangrijke services a
 }
 ```
 
-**Verkeer van de Service** – de verkeer-Service is een reeks webservices die zijn ontworpen voor ontwikkelaars voor het maken van webtoepassingen en mobiele toepassingen vereisen van verkeer. De aanbieding is onderverdeeld in het volgende:
-1. Verkeer van de stroom - biedt realtime waargenomen snelheden en reizen tijden voor alle belangrijke wegen in het netwerk. en, 
-2. Verkeer van incidenten - biedt een nauwkeurige weergave over de Files en incidenten rond het netwerk weg.
+**Traffic Service**: de Traffic Service is een suite met webservices die is ontworpen voor ontwikkelaars voor het maken van webtoepassingen en mobiele toepassingen die te maken hebben met verkeer. De aanbieding is onderverdeeld in het volgende:
+1. Verkeersstroom - biedt waargenomen snelheden en reistijden in realtime voor alle belangrijke wegen in het netwerk; en, 
+2. Verkeersincidenten - biedt een nauwkeurige weergave van files en incidenten op het wegennet.
 
-![Azure-locatie op basis van verkeer](media/about-location-based-services/Introduction_Traffic.png)
+![Azure Location Based Services - verkeer](media/about-location-based-services/Introduction_Traffic.png)
 
-Services voor Azure op basis van locatie is gebouwd voor mobiliteit en toepassingen voor meerdere platforms kunt inschakelen omdat het programmeermodel agnostisch is en JSON-uitvoer via REST API's ondersteunt. Daarnaast biedt Azure LBS een handige JavaScript-Kaartbesturingselement met een eenvoudige programmeermodel voor snelle eenvoudig ontwikkeling van web- en mobiele toepassingen. 
+Azure Location Based Services is gebouwd voor mobiliteit en kan toepassingen hosten op verschillende platforms omdat het programmeermodel agnostisch is en ondersteuning biedt voor JSON-uitvoer via REST API’s. Daarnaast biedt Azure LBS een handig kaartbesturingselement in JavaScript met een ongecompliceerd programmeermodel voor een snelle eenvoudige ontwikkeling van webtoepassingen en mobiele toepassingen. 
 
-Services voor Azure op basis van locatie maakt gebruik van een schema voor verificatie op basis van sleutels, zodat toegang tot de services is een kwestie van het navigeren naar de [Azure-portal](http://portal.azure.com) en het maken van een locatie op basis van Azure-Services-account. Uw account wordt geleverd met twee sleutels vooraf voor u gegenereerd. Start deze mogelijkheden locatie rechtstreeks in uw toepassingen integreren met een van uw sleutels in de aanvragen naar de locatie op basis van Azure-Services-service.
+Azure Location Based Services maakt gebruik van een verificatieschema op basis van sleutels. Voor toegang tot de services gaat u naar [Azure Portal](http://portal.azure.com) en maakt u een Azure Location Based Services-account. Uw account wordt geleverd met twee sleutels die vooraf voor u zijn gegenereerd. U kunt deze locatiemogelijkheden direct integreren in uw toepassingen met behulp van een van de sleutels in de aanvragen voor de Azure Location Based Services-service.
 
-Aanmelden voor een [Services van Azure-locatie op basis van account vandaag!](http://aka.ms/azurelbsportal)
+Registreer u vandaag nog voor een [Azure Location Based Services-account!](http://aka.ms/azurelbsportal)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu een overzicht van de Azure op basis van Locatiediensten (preview). De volgende stap is het uitproberen van een voorbeeld-app met de Services op basis van locatie, evenals een end-to-end-scenario in uw webtoepassing te maken.
+U hebt nu een overzicht van de Azure Location Based Services (preview). De volgende stap is het uitproberen van een voorbeeld-app met Location Based Services, evenals het maken van een end-to-endscenario in uw webtoepassing.
 
 > [!div class="nextstepaction"]
-> [Een demo interactieve kaart search met behulp van Azure op basis van Locatieservices (preview) starten](quick-demo-map-app.md)
-> [zoeken in de buurt interessante met Azure locatie op basis van Services](tutorial-search-location.md)
+> [Een demo van een interactieve kaartzoekopdracht starten met behulp van Azure Location Based Services (preview)](quick-demo-map-app.md)
+> [Een nabijgelegen nuttige plaats zoeken met behulp van Azure Location Based Services](tutorial-search-location.md)
