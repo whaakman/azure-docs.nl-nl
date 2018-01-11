@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Netwerken voor virtuele-machineschaalsets in Azure
 
@@ -28,7 +28,7 @@ Wanneer u een virtuele-machineschaalset van Azure instelt via de portal, zijn be
 U kunt alle functies die in dit artikel configureren met behulp van Azure Resource Manager-sjablonen. Er zijn ook Azure CLI- en PowerShell-voorbeelden toegevoegd voor bepaalde functies. Gebruik CLI 2.10 en PowerShell 4.2.0 of hoger.
 
 ## <a name="accelerated-networking"></a>Versneld netwerken
-[Versnelde netwerken](../virtual-network/virtual-network-create-vm-accelerated-networking.md) in Azure verbetert de prestaties van het netwerk door het inschakelen van I/O-virtualisatie met één hoofdmap (SR-IOV) bij een virtuele machine. Als u versneld netwerken wilt gebruiken met schaalsets, stelt u enableAcceleratedNetworking in op **true** in de instelling networkInterfaceConfigurations van uw schaalset. Bijvoorbeeld:
+Versneld netwerken in Azure verbetert de prestaties van het netwerk door het inschakelen van I/O-virtualisatie met één hoofdmap (SR-IOV) bij een virtuele machine. Zie Versneld netwerken voor virtuele machines met [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) of [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) voor meer informatie over het gebruik van Versneld netwerken. Als u versneld netwerken wilt gebruiken met schaalsets, stelt u enableAcceleratedNetworking in op **true** in de instelling networkInterfaceConfigurations van uw schaalset. Bijvoorbeeld:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
