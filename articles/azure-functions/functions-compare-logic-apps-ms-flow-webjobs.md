@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Kiezen tussen Stroom, Logische apps, Functies en WebJobs
 In dit artikel worden de volgende services in de Microsoft-cloud met elkaar vergeleken. Dit zijn allemaal services die integratieproblemen kunnen oplossen en bedrijfsprocessen kunnen automatiseren:
@@ -41,18 +41,18 @@ We kunnen Microsoft Flow en Azure Logic Apps samen bespreken omdat het allebei s
 * Ze hebben dezelfde ontwerpfunctie voor werkstromen
 * [Connectors](../connectors/apis-list.md) werken in beide services
 
-Flow stelt kantoormedewerkers in staat om eenvoudige integraties tot stand te brengen (bijvoorbeeld om een sms te krijgen voor belangrijke e-mailberichten) zonder tussenkomst van ontwikkelaars of IT. Logic Apps daarentegen maakt het mogelijk om geavanceerde of bedrijfskritieke integraties te realiseren (zoals B2B-processen) waarvoor DevOps-procedures en beveiligingsprocessen vereist zijn. Het is normaal dat een werkstroom voor een bedrijfsproces na verloop van tijd toeneemt in complexiteit. U kunt daarom eerst met een stroom beginnen en deze later omzetten in een logische app als dat nodig is.
+Flow stelt kantoormedewerkers in staat om eenvoudige integraties tot stand te brengen (bijvoorbeeld een goedkeuringsproces voor een documentbibliotheek in SharePoint) zonder tussenkomst van ontwikkelaars of IT. Logic Apps daarentegen maakt het mogelijk om geavanceerde integraties te realiseren (zoals B2B-processen) waarvoor DevOps-procedures en beveiligingsprocessen vereist zijn. Het is normaal dat een werkstroom voor een bedrijfsproces na verloop van tijd toeneemt in complexiteit. U kunt daarom eerst met een stroom beginnen en deze later omzetten in een logische app als dat nodig is.
 
 Raadpleeg de volgende tabel om te bepalen of Flow of Logic Apps het meest geschikt is voor een bepaalde integratie.
 
 |  | Stroom | Logic Apps |
 | --- | --- | --- |
-| Doelgroep |Kantoorpersoneel, zakelijke gebruikers |IT-professionals, ontwikkelaars |
-| Scenario's |Selfservice |Essentieel |
+| Doelgroep |Kantoorpersoneel, zakelijke gebruikers, SharePoint-beheerders |Professionele integrators en ontwikkelaars, IT-professionals |
+| Scenario's |Selfservice |Geavanceerde integraties |
 | Ontwerpomgeving |In browser en mobiele app, alleen UI |In browser en [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [codeweergave](../logic-apps/logic-apps-author-definitions.md) beschikbaar |
-| DevOps |Ad-hoc ontwikkelen in productie |resourcebeheer, testen, ondersteuning, en automatisering en beheersbaarheid in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Beheerervaring |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Beveiliging |Standaardprocedures: [onafhankelijke gegevens](https://wikipedia.org/wiki/Technological_Sovereignty), [versleuteling in rust](https://wikipedia.org/wiki/Data_at_rest#Encryption) voor gevoelige gegevens, enzovoort. |Beveiligingsondersteuning van Azure: [Azure-beveiliging](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [auditlogboeken](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) en meer. |
+| Beheer van toepassingslevenscyclus |Ontwerpen en testen in niet-productieomgevingen, niveau verhogen naar productie wanneer u klaar bent. |DevOps: resourcebeheer, testen, ondersteuning, automatisering en beheersbaarheid in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Beheerervaring |Beleidsregels voor stroomomgevingen en preventie van gegevensverlies beheren, licenties bijhouden [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Resourcegroepen, verbindingen, toegangsbeheer en logboekregistratie beheren [https://portal.azure.com](https://portal.azure.com) |
+| Beveiliging |Office 365-beveiliging en auditlogboeken voor naleving, preventie van gegevensverlies, [inactieve versleuteling](https://wikipedia.org/wiki/Data_at_rest#Encryption) voor gevoelige gegevens, etc. |Beveiligingsondersteuning van Azure: [Azure-beveiliging](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [auditlogboeken](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) en meer. |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ Of u moet kiezen voor Functions of WebJobs hangt uiteindelijk af van wat u al do
 Zoals eerder gezegd, is uw situatie bepalend voor de service die het meest geschikt voor u is. 
 
 * Voor niets meer dan optimalisatie van uw bedrijfsprocessen is Flow de aangewezen keuze.
-* Als uw integratiescenario te geavanceerde is voor Flow, of als u DevOps-mogelijkheden en beveiligingsnaleving nodig hebt, kiest u voor Logic Apps.
+* Als uw integratiescenario te geavanceerd is voor Flow, of als u DevOps-mogelijkheden nodig hebt, kiest u voor Logic Apps.
 * Als voor een stap in uw integratiescenario aanzienlijk aangepaste transformatie of speciale code vereist is, schrijft u een functie en triggert u die functie als een actie in uw logische app.
 
 U kunt een logische app aanroepen in een stroom. U kunt ook een functie aanroepen in een logische app, en een logische app in een functie. De integratie tussen Flow, Logic Apps en Functions wordt alleen maar beter. U kunt iets bouwen in de ene service en gebruiken in de andere services. Elke investering in deze drie technologieën is dan ook meer dan de moeite waard.

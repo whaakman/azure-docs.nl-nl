@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0fcd25183617de879ada6d1f7d2a8fcf9551d6de
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Een demo starten over interactief zoeken naar kaarten met de Azure Location Based Services (preview)
 
@@ -44,7 +44,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Download of kopieer de inhoud van het bestand [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Sla de inhoud van dit bestand lokaal op als **AzureMapDemo.html** en open de inhoud in een teksteditor.
-3. Zoek naar de tekenreeks **<insert-key>** en vervang deze door de waarde voor de **Primaire sleutel** die u in de voorgaande sectie hebt verkregen. 
+3. Zoek naar de tekenreeks **&#60;insert-key&#62;** en vervang deze door de waarde voor de **Primaire sleutel** die u in het voorgaande gedeelte hebt verkregen. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>De demo-toepassing voor Azure-kaarten starten

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/02/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Een door Azure Cosmos DB geactiveerde functie maken
 
@@ -50,20 +50,20 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Zoek en selecteer de sjabloon **Azure CosmosDBTrigger** voor de gewenste taal.
+2. Typ `cosmos` in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor de Azure Cosmos DB.
 
-    ![Maak de door Azure Cosmos DB geactiveerde functie](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![De Azure Cosmos DB-trigger kiezen](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Configureer de nieuwe trigger met de instellingen zoals opgegeven in de tabel onder de afbeelding.
 
-    ![De door Azure Cosmos DB geactiveerde functie maken](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+    ![Maak de door Azure Cosmos DB geactiveerde functie](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
     
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Een naam voor de functie opgeven** | Standaard | Gebruik de standaardnaam voor de functie die wordt voorgesteld in de sjabloon. |
-    | **Databasenaam** | Taken | Naam van de database met de verzameling die moet worden gecontroleerd. |
+    | **Naam** | Standaard | Gebruik de standaardnaam voor de functie die wordt voorgesteld in de sjabloon. |
     | **Naam van verzameling** | Items | Naam van de verzameling die moet worden gecontroleerd. |
     | **Leaseverzameling maken als deze nog niet bestaat** | Geselecteerd | De verzameling bestaat nog niet, dus moet u deze maken. |
+    | **Databasenaam** | Taken | Naam van de database met de verzameling die moet worden gecontroleerd. |
 
 4. Selecteer **Nieuw** naast het label **De verbinding met het Azure Cosmos DB-account**, en kies een bestaand Cosmos DB-account of kies **+ Nieuwe maken**. 
  
@@ -149,4 +149,4 @@ U hebt een functie gemaakt die wordt uitgevoerd wanneer een document wordt toege
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Zie [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Opslagwachtrijbindingen van Azure Functions) voor meer informatie over activeringen van Queue Storage.
+Zie [Azure Cosmos DB bindings for Azure Functions](functions-bindings-documentdb.md) (Azure Cosmos DB-bindingen voor Azure Functions) voor meer informatie over Azure Cosmos DB-triggers.

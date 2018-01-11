@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Een door een algemene webhook geactiveerde functie maken
 
@@ -48,9 +48,13 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Selecteer de sjabloon **Algemene webhook - C#**. Typ een naam voor de C#-functie en selecteer vervolgens **Maken**.
+2. Typ `generic` in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor de algemene webhook. In dit onderwerp wordt gebruikgemaakt van een C#-functie.
 
-     ![Een door een algemene webhook geactiveerde functie maken in Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![De trigger-sjabloon voor de algemene webhook kiezen](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Typ een **Naam** voor de functie en selecteer vervolgens **Maken**. 
+
+     ![Een door een algemene webhook geactiveerde functie maken in Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. Klik in de nieuwe functie op **</> Functie-URL ophalen**, kopieer de waarde en sla deze op. U gebruikt deze waarde om de webhook te configureren. 
 

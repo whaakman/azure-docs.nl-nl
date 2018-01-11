@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Een door Azure Blob Storage geactiveerde functie maken
 
@@ -51,19 +51,23 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Selecteer de sjabloon **BlobTrigger** voor de gewenste taal en gebruik de instellingen die zijn opgegeven in de tabel.
+2. Typ `blob` in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor de blob-opslag.
 
-    ![Maak de door Blob Storage geactiveerde functie.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Kies de trigger-sjabloon voor blob-opslag.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Gebruik de instellingen zoals opgegeven in de tabel onder de afbeelding.
+
+    ![Maak de door Blob Storage geactiveerde functie.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
-    | **Pad**   | mycontainer/{name}    | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de _naam_-parameter.  |
-    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
-    | **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
+    | **Naam** | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
+    | **Pad**   | samples-workitems/{name}    | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de _naam_-parameter.  |
+    | **Opslagaccountverbinding** | AzureWebJobsStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
 
 3. Klik op **Maken** om de functie te maken.
 
-Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de **mycontainer**-container.
+Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de **voorbeeldwerkitems**-container.
 
 ## <a name="create-the-container"></a>De container maken
 
@@ -79,7 +83,7 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de **mycon
 
     ![Voer de opslagreferenties in en maak verbinding.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Blob-containers**, klik op **Blob-container maken**, typ `mycontainer` en druk op Enter.
+1. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Blob-containers**, klik op **Blob-container maken**, typ `samples-workitems` en druk op Enter.
 
     ![Maak een opslagwachtrij.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ U hebt nu een blob-container en u kunt de functie testen door een bestand naar d
 
 1. Blader in Azure Portal naar de functie, vouw de **Logboeken** onderaan de pagina uit en zorg ervoor dat logboekstreaming niet wordt onderbroken.
 
-1. Vouw in Storage Explorer uw opslagaccount, **Blob-containers** en **mycontainer** uit. Klik op **Uploaden** en klik vervolgens op **Bestanden uploaden...**.
+1. Vouw in Storage Explorer uw opslagaccount, **Blob-containers** en **voorbeeldwerkitems** uit. Klik op **Uploaden** en klik vervolgens op **Bestanden uploaden...**.
 
     ![Upload een bestand naar de blob-container.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
