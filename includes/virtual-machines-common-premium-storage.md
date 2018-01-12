@@ -60,7 +60,7 @@ Hier volgen enkele van de functies van Premium-opslag:
     Azure maakt gebruik van uw storage-account als een container voor uw niet-beheerde schijven. Wanneer u een Azure Active Directory-serie, DSv2-serie GS-serie, maakt of Fs-serie-VM met niet-beheerde schijven, en u selecteert een premium storage-account, het besturingssysteem en gegevensschijven worden opgeslagen in dit opslagaccount.
 
 ## <a name="supported-vms"></a>Ondersteunde virtuele machines
-Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie en virtuele machines Fs-serie. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
+Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie Fs-serie en B-serie virtuele machines. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
 
 Zie voor meer informatie over de VM-typen en groottes in Azure voor Windows [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md). Zie voor meer informatie over de VM-typen en groottes in Azure voor Linux [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md).
 
