@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementeren en verwijderen van toepassingen met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 Eenmaal een [toepassingstype zijn ingepakt][10], deze gereed is voor implementatie in een Azure Service Fabric-cluster. Implementatie omvat de volgende drie stappen:
 
-1. Het toepassingspakket uploaden naar de image store
-2. Het toepassingstype registreren
-3. Maken van het toepassingsexemplaar
+1. Het toepassingspakket uploaden naar de image store.
+2. Het toepassingstype registreren met het relatieve pad naar afbeelding store.
+3. Exemplaar van de toepassing maken.
 
-Nadat een toepassing wordt geïmplementeerd en een exemplaar in het cluster wordt uitgevoerd, kunt u het toepassingsexemplaar van de en het toepassingstype verwijderen. Omvat de volgende stappen om een toepassing volledig te verwijderen uit het cluster:
+Zodra de geïmplementeerde toepassing niet langer vereist is, kunt u het toepassingsexemplaar van de en het toepassingstype verwijderen. Omvat de volgende stappen om een toepassing volledig te verwijderen uit het cluster:
 
-1. De uitgevoerd verwijderen (of verwijderen) toepassingsexemplaar
-2. Hef de registratie van het toepassingstype als u deze niet langer nodig hebt
-3. Het toepassingspakket verwijderen uit de image store
+1. De uitgevoerd verwijderen (of verwijderen) toepassingsexemplaar.
+2. Hef de registratie van het toepassingstype als u deze niet langer nodig hebt.
+3. Het toepassingspakket verwijderen uit de image store.
 
 Als u Visual Studio gebruikt voor het implementeren en foutopsporing van toepassingen op uw lokale ontwikkeling-cluster, worden automatisch alle voorgaande stappen afgehandeld via een PowerShell-script.  Dit script is gevonden in de *Scripts* map van het toepassingsproject. Dit artikel vindt achtergrond op script doet zodat u dezelfde bewerkingen buiten Visual Studio kunt uitvoeren. 
+
+Er is een andere manier om een toepassing te implementeren met behulp van externe inrichten. Het toepassingspakket kan worden [verpakte als `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) en geüpload naar een externe winkel. Uploaden naar de image store is niet nodig. Implementatie moet de volgende stappen uit:
+
+1. Upload de `sfpkg` naar een externe store. Het externe archief kan een archief dat toegang biedt tot een REST-eindpunt voor http of https zijn.
+2. Registreren van het type van de toepassing met het downloaden van de externe URI en de type-informatie van toepassing.
+2. Exemplaar van de toepassing maken.
+
+Voor opschonen van de exemplaren van een toepassing verwijderen en registratie van het toepassingstype. Omdat het pakket is niet gekopieerd naar de image store, is er geen tijdelijke locatie op te schonen. Inrichting via externe store is beschikbaar vanaf Service Fabric versie 6.1.
+
+>[!NOTE]
+> Visual Studio biedt momenteel geen ondersteuning voor externe inrichten.
+
  
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 Voordat u een PowerShell-opdrachten in dit artikel uitvoert, wordt altijd gestart via [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) verbinding maken met de Service Fabric-cluster. Voor verbinding met het lokaal ontwikkelcluster, voert u de volgende:
@@ -123,7 +135,7 @@ Dit is bijvoorbeeld compressie statistieken voor sommige pakketten, die de eerst
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Nadat u een pakket is gecomprimeerd, kan deze worden geüpload naar een of meerdere Service Fabric-clusters naar behoefte. Het mechanisme deployment is hetzelfde voor gecomprimeerde en ongecomprimeerde pakketten. Als het pakket is gecomprimeerd, wordt deze als zodanig in het archief van de cluster-installatiekopie is opgeslagen en wordt deze op het knooppunt wordt gedecomprimeerd voordat de toepassing wordt uitgevoerd.
+Nadat u een pakket is gecomprimeerd, kan deze worden geüpload naar een of meerdere Service Fabric-clusters naar behoefte. Het mechanisme deployment is hetzelfde voor gecomprimeerde en ongecomprimeerde pakketten. Gecomprimeerde pakketten worden als zodanig opgeslagen in het archief van de cluster-installatiekopie. De pakketten zijn gedecomprimeerd op het knooppunt voordat de toepassing wordt uitgevoerd.
 
 
 Het volgende voorbeeld wordt het pakket geüpload naar het archief van de installatiekopie naar een map met de naam 'MyApplicationV1':
@@ -162,17 +174,27 @@ Het toepassingstype en de versie is gedeclareerd in het toepassingsmanifest word
 
 Voer de [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet het toepassingstype registreren in het cluster en het beschikbaar voor implementatie:
 
+### <a name="register-the-application-package-copied-to-image-store"></a>Het toepassingspakket gekopieerd naar de installatiekopieopslag registreren
+Wanneer een pakket is eerder hebt gekopieerd naar de image store, geeft de registerbewerking het relatieve pad in de image store.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 'MyApplicationV1' is de map in de image store waar het toepassingspakket zich bevindt. Het toepassingstype met de naam 'MyApplicationType' en '1.0.0' (zowel gevonden in het toepassingsmanifest) versie is nu geregistreerd in het cluster.
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Het toepassingspakket gekopieerd naar een externe winkel registreren
+Beginnen met het Service Fabric versie 6.1, inrichten ondersteunt het pakket downloaden vanaf een externe winkel. Het downloaden van de URI het pad naar vertegenwoordigt de [ `sfpkg` toepassingspakket](service-fabric-package-apps.md#create-an-sfpkg) waar het toepassingspakket kan worden gedownload met behulp van HTTP of HTTPS-protocollen. Het pakket moet zijn eerder hebt geüpload naar deze externe locatie. De URI moet leestoegang toestaan om Service Fabric kan het bestand downloaden. De `sfpkg` bestand moet de extensie '.sfpkg' hebben. De inrichtingsbewerking moet de informatie van het type toepassing, zoals gevonden in het toepassingsmanifest bevatten.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 De [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) opdracht retourneert alleen nadat het systeem heeft het toepassingspakket geregistreerd. Hoe lang duurt registratie afhankelijk van de grootte en de inhoud van het toepassingspakket. Indien nodig, de **- TimeoutSec** parameter kan worden gebruikt om op te geven van een langere time-out (de standaardtime-out is 60 seconden).
 
-Als u een grote toepassing van het pakket of als u time-outs ondervindt, gebruikt u de **Async -** parameter. De opdracht retourneert wanneer het cluster de opdracht register accepteert en de verwerking wordt nu zo nodig.
-De [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) opdracht geeft een lijst van alle versies van het type toepassing is geregistreerd en hun registratiestatus. U kunt deze opdracht gebruiken om te bepalen wanneer de registratie is uitgevoerd.
+Als u een grote toepassing van het pakket of als u time-outs ondervindt, gebruikt u de **Async -** parameter. De opdracht retourneert wanneer het cluster de opdracht register accepteert. De registerbewerking wordt voortgezet zoals nodig.
+De [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) opdracht geeft de versies van het type toepassingen en hun registratiestatus. U kunt deze opdracht gebruiken om te bepalen wanneer de registratie is uitgevoerd.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Een toepassingspakket verwijderen uit de image store
-Het verdient aanbeveling dat u het toepassingspakket verwijderen nadat de toepassing is geregistreerd.  Toepassingspakketten verwijderen uit de image store vrijgemaakt systeembronnen.  Schijfopslag verbruikt en leidt tot een toepassing prestatieproblemen in ongebruikte toepassingspakketten houden.
+Als een pakket is gekopieerd naar de image store, moet u deze verwijderen vanuit de tijdelijke locatie nadat de toepassing is geregistreerd. Toepassingspakketten verwijderen uit de image store vrijgemaakt systeembronnen. Schijfopslag verbruikt en leidt tot een toepassing prestatieproblemen in ongebruikte toepassingspakketten houden.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Registratie van een toepassingstype
-Wanneer een bepaalde versie van het type van een toepassing niet meer nodig is, moet u de toepassing gebruikt registratie de [Unregister ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Registratie ongebruikte toepassing typen releases opslagruimte die wordt gebruikt door de image store door het verwijderen van de binaire bestanden van toepassingen. De registratie van een toepassingstype, verwijdert niet het toepassingspakket. Een toepassingstype kan ongedaan worden zolang geen toepassingen worden geïnstantieerd tegen en niet in afwachting van toepassing upgrades hiernaar wordt verwezen.
+Wanneer een bepaalde versie van het type van een toepassing niet meer nodig is, moet u de toepassing gebruikt registratie de [Unregister ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. De registratie van ongebruikte toepassingstypen versies opslagruimte die wordt gebruikt door de image store door het type toepassingsbestanden te verwijderen. De registratie van een toepassingstype verwijdert niet het toepassingspakket gekopieerd naar de image store tijdelijke locatie, als kopiëren naar de image store is gebruikt. Een toepassingstype kan ongedaan worden zolang geen toepassingen worden geïnstantieerd tegen en niet in afwachting van toepassing upgrades hiernaar wordt verwezen.
 
 Voer [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) om te zien van de toepassingstypen die zijn geregistreerd in het cluster:
 
@@ -334,6 +356,8 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+[Toepassingspakket maken](service-fabric-package-apps.md)
+
 [Upgrade van de service Fabric-toepassing](service-fabric-application-upgrade.md)
 
 [Service Fabric health Inleiding](service-fabric-health-introduction.md)

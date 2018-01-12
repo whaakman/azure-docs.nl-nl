@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Pass-through-verificatie: Huidige beperkingen
 
@@ -46,6 +46,7 @@ De volgende scenario's zijn _niet_ ondersteund:
 - Detectie van gebruikers met [gelekte referenties](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services moet zijn ingeschakeld op de tenant synchronisatie van wachtwoordhash. Daarom huurders die gebruikmaken van Pass-through-verificatie _alleen_ werken niet voor scenario's waarvoor Azure AD Domain Services.
 - Pass through-verificatie is niet geïntegreerd met [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- Het Apple Device Enrollment Program (DEP van Apple) biedt geen ondersteuning voor moderne verificatie.  Apple DEP-apparaten mislukt inschrijven in Intune voor domeinen die gebruikmaken van Pass-through-verificatie.
 
 >[!IMPORTANT]
 >Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard.

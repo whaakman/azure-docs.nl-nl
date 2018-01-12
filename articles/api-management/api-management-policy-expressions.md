@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expressies voor API Management-beleid
 De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
@@ -26,13 +26,13 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 > [!TIP]
 >  Zie voor meer informatie over beleidsexpressies de [Beleidsexpressies](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
 >   
->  Zie voor demonstraties van het configureren van beleidsregels met behulp van beleidsexpressies [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). In deze video bevat de volgende expressie demonstraties voor beleid.  
+>  Zie voor demonstraties van het configureren van beleidsregels met behulp van beleidsexpressies [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). In deze video bevat de volgende expressie demonstraties voor beleid:  
 >   
->  -   10:30 - informatie over het toepassen van beleid voor de API-niveau op te geven contextgegevens met de back-end-service via de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) en [ingesteld HTTP-header](api-management-transformation-policies.md#SetHTTPheader) beleid. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u deze beleidsregels op kantoor kunt zien.  
-> -   Informatie over het gebruiken van 13:50 - de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid vooraf toegang verlenen aan bewerkingen op basis van claims token. Snel doorsturen naar 15:00 voor een overzicht van het beleid dat is geconfigureerd in de beleidseditor en vervolgens naar 18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met als zonder de vereiste verificatietoken.  
-> -   21:00 - zien hoe u een [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace om te zien hoe beleid wordt geëvalueerd en de resultaten van de evaluatie.  
-> -   25:25 - informatie over het gebruiken van voor expressies met de [ophalen uit de cache](api-management-caching-policies.md#GetFromCache) en [Store aan cache](api-management-caching-policies.md#StoreToCache) beleid voor het configureren van API Management cachebewerkingen reactieduur die overeenkomt met het antwoord in cache plaatsen van de back-end service zoals opgegeven door de back-service `Cache-Control` richtlijn.  
-> -   34:30 - informatie over het uitvoeren van de inhoud filteren van door gegevenselementen te verwijderen uit het antwoord ontvangen van de back-end-service via de [transportbesturing](api-management-advanced-policies.md#choose) en [instantie ingesteld](api-management-transformation-policies.md#SetBody) beleid. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
+>  -   10:30 - Zie contextinformatie met uw back endservice op te geven. Gebruik de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) en [ingesteld HTTP-header](api-management-transformation-policies.md#SetHTTPheader) beleid om deze informatie te geven. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u deze beleidsregels op kantoor kunt zien.  
+> -   Informatie over het gebruiken van 13:50 - de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid vooraf toegang verlenen aan bewerkingen op basis van claims token. Snel door te sturen naar 15:00 om te zien hoe de beleidsregels zijn geconfigureerd in de beleidseditor. Zie een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met en zonder de vereiste verificatietoken op 18:50.  
+> -   21:00 - gebruik een [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace om te zien hoe beleid wordt geëvalueerd en de resultaten van deze evaluatie.  
+> -   25:25 - informatie over het gebruiken van expressies met de [ophalen uit de cache](api-management-caching-policies.md#GetFromCache) en [Store aan cache](api-management-caching-policies.md#StoreToCache) beleid om caching van API Management-antwoord te configureren. Stel een duur die overeenkomt met het antwoord in cache plaatsen van de back-endservice zoals opgegeven door de back-service `Cache-Control` richtlijn.  
+> -   34:30 - informatie over het uitvoeren van webinhoud te filteren. Gegevenselementen verwijderen uit het antwoord van de back-end via de [transportbesturing](api-management-advanced-policies.md#choose) en [instantie ingesteld](api-management-transformation-policies.md#SetBody) beleid. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
 > -   Zie voor het downloaden van de beleid-instructies in deze video gebruikt de [api-management-voorbeelden/beleid](https://github.com/Azure/api-management-samples/tree/master/policies) github-opslagplaats.  
   
   
@@ -68,10 +68,10 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a>Gebruik  
- Expressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management [beleid](api-management-policies.md), tenzij de naslaginformatie over beleid iets anders aangeeft.  
+ Expressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in een API Management [beleid](api-management-policies.md) (tenzij de naslaginformatie over beleid iets anders aangeeft).  
   
 > [!IMPORTANT]
->  Houd er rekening mee dat wanneer u beleidsexpressies gebruikt, is dit alleen beperkt verificatie van de beleidsexpressies als het beleid is gedefinieerd. Aangezien de expressies worden uitgevoerd tijdens de uitvoering in de pijplijn binnenkomend of uitgaand door de gateway, resulteert runtime-uitzonderingen die worden gegenereerd door de beleidsexpressies in een runtime-fout in de API-aanroep.  
+>  Wanneer u beleidsexpressies gebruikt, is dit alleen beperkt verificatie van de beleidsexpressies als het beleid is gedefinieerd. Expressies worden uitgevoerd door de gateway tijdens runtime, eventuele uitzonderingen die worden gegenereerd door beleid expressies resulteren in een runtime-fout.  
   
 ##  <a name="CLRTypes"></a>.NET framework-typen die zijn toegestaan in beleidsexpressies voor  
  De volgende tabel bevat de typen .NET Framework en hun leden die zijn toegestaan in beleidsexpressies voor.  
@@ -140,7 +140,7 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |System.Text.RegularExpressions.Group|Opnamen, geslaagd|  
 |System.Text.RegularExpressions.GroupCollection|Count, Item|  
 |System.Text.RegularExpressions.Match|Leeg, groepen, resultaat|  
-|System.Text.RegularExpressions.Regex|.ctor, IsMatch, overeenkomen, overeenkomt met, vervangen|  
+|System.Text.RegularExpressions.Regex|(Constructor) IsMatch, overeen, komt overeen met, vervangen|  
 |System.Text.RegularExpressions.RegexOptions|Gecompileerd IgnoreCase, IgnorePatternWhitespace, Multiline, None, RightToLeft, Singleline|  
 |System.DateTime|Alle|  
 |System.Tuple|Alle|  
@@ -173,38 +173,38 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |Context variabele|Methoden, eigenschappen en parameterwaarden toegestaan|  
 |----------------------|-------------------------------------------------------|  
 |Context|API: IApi<br /><br /> Implementatie<br /><br /> LastError<br /><br /> Bewerking<br /><br /> Product<br /><br /> Aanvraag<br /><br /> Aanvraag-id: Guid<br /><br /> Antwoord<br /><br /> Abonnement<br /><br /> Tracering: bool<br /><br /> Gebruiker<br /><br /> Variabelen: IReadOnlyDictionary < tekenreeks, object ><br /><br /> VOID Trace(message: string)|  
-|context. API|ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> ServiceUrl: IUrl|  
+|context. API|ID: tekenreeks<br /><br /> IsRevisionCurrent: bool<br /><br />  Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Revisie: tekenreeks<br /><br /> ServiceUrl: IUrl<br /><br /> Versie: tekenreeks |  
 |context. Implementatie|Regio: tekenreeks<br /><br /> Servicenaam: tekenreeks<br /><br /> Certificaten: IReadOnlyDictionary < tekenreeks, X509Certificate2 >|  
 |context. LastError|Bron: tekenreeks<br /><br /> Reden: tekenreeks<br /><br /> Bericht: tekenreeks<br /><br /> Bereik: tekenreeks<br /><br /> Sectie: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> PolicyId: tekenreeks<br /><br /> Voor meer informatie over de context. LastError, Zie [foutafhandeling](api-management-error-handling-policies.md).|  
 |context. Bewerking|ID: tekenreeks<br /><br /> Methode: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> UrlTemplate: tekenreeks|  
 |context. Product|API's: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Status: enum ProductState {NotPublished, gepubliceerde}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
 |context. Aanvraag|Hoofdtekst: IMessageBody<br /><br /> Certificaat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adres: tekenreeks<br /><br /> MatchedParameters: IReadOnlyDictionary < tekenreeks, tekenreeks ><br /><br /> Methode: tekenreeks<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
-|tekenreekscontext. Request.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert door komma's gescheiden waarden voor aanvraag-header of `defaultValue` als de header is niet gevonden.|  
+|tekenreekscontext. Request.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden aanvraag met de headerwaarden of `defaultValue` als de header is niet gevonden.|  
 |context. Antwoord|Hoofdtekst: IMessageBody<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: tekenreeks|  
-|tekenreekscontext. Response.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Door komma's gescheiden-antwoord geretourneerd met de headerwaarden of `defaultValue` als de header is niet gevonden.|  
+|tekenreekscontext. Response.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Door komma's gescheiden antwoord geretourneerd met de headerwaarden of `defaultValue` als de header is niet gevonden.|  
 |context. Abonnement|CreatedTime: datum/tijd<br /><br /> EndDate: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Sleutel: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> PrimaryKey: tekenreeks<br /><br /> Secundaire sleutel: tekenreeks<br /><br /> StartDate: DateTime?|  
 |context. Gebruiker|E-mailadres: tekenreeks<br /><br /> Voornaam: tekenreeks<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Identiteiten: IEnumerable < IUserIdentity\><br /><br /> Achternaam: tekenreeks<br /><br /> Opmerking: tekenreeks<br /><br /> RegistrationDate: datum/tijd|  
 |IApi|ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Protocollen: IEnumerable < tekenreeks\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|ID: tekenreeks<br /><br /> Naam: tekenreeks|  
-|IMessageBody|Als < T\>(preserveContent: bool = false): waar T: tekenreeks, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> De `context.Request.Body.As<T>` en `context.Response.Body.As<T>` methoden worden gebruikt voor het lezen van een aanvraag en -antwoord de berichttekst in een bepaald type `T`. De methode gebruikt standaard de oorspronkelijke instantie berichtenstroom en reneders het is niet beschikbaar na het resultaat. Om te voorkomen dat door de methode op een kopie van de hoofdstroom werkt, stel de `preserveContent` -parameter voor `true`. Ga [hier](api-management-transformation-policies.md#SetBody) voor een voorbeeld.|  
+|IMessageBody|Als < T\>(preserveContent: bool = false): waar T: tekenreeks, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> De `context.Request.Body.As<T>` en `context.Response.Body.As<T>` methoden worden gebruikt voor het lezen van een aanvraag en -antwoord de berichttekst in een bepaald type `T`. Standaard wordt de methode maakt gebruik van de oorspronkelijke instantie berichtenstroom en maakt het niet beschikbaar is nadat deze retourneert. Om te voorkomen dat door de methode op een kopie van de hoofdstroom werkt, stel de `preserveContent` -parameter voor `true`. Ga [hier](api-management-transformation-policies.md#SetBody) voor een voorbeeld.|  
 |IUrl|Host: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Poort: int<br /><br /> Query: IReadOnlyDictionary < string, string [] ><br /><br /> QueryString: tekenreeks<br /><br /> Schema: tekenreeks|  
 |IUserIdentity|ID: tekenreeks<br /><br /> Provider: tekenreeks|  
 |ISubscriptionKeyParameterNames|Koptekst: tekenreeks<br /><br /> Query: tekenreeks|  
-|tekenreeks IUrl.Query.GetValueOrDefault (queryParameterName: string, defaultValue: tekenreeks)|queryParameterName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert met door komma's gescheiden parameterwaarden of `defaultValue` als de parameter is niet gevonden.|  
+|tekenreeks IUrl.Query.GetValueOrDefault (queryParameterName: string, defaultValue: tekenreeks)|queryParameterName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden parameterwaarden of `defaultValue` als de parameter is niet gevonden.|  
 |T-context. Variables.GetValueOrDefault < T\>(variabelenaam: string, defaultValue: T)|Variabelenaam: tekenreeks<br /><br /> Standaardwaarde: T<br /><br /> Retourneert de waarde van variabele geconverteerd naar type `T` of `defaultValue` als de variabele is niet gevonden.<br /><br /> Deze methode genereert een uitzondering als het opgegeven type komt niet overeen met het werkelijke type van de geretourneerde variabele.|  
 |BasicAuthCredentials AsBasic(input: this string)|invoer: tekenreeks<br /><br /> Als de invoerparameter een geldige HTTP basisverificatie autorisatie aanvraag-header-waarde bevat, de methode retourneert een object van het type `BasicAuthCredentials`; anders is de methode retourneert null.|  
-|BOOL TryParseBasic (invoer: deze tekenreeks, resultaat: uit BasicAuthCredentials)|invoer: tekenreeks<br /><br /> resultaat: uit BasicAuthCredentials<br /><br /> Als de invoerparameter geldig HTTP-basisverificatie autorisatie aanvraag-headerwaarde bevat, de methode retourneert `true` en de resultatenparameter bevat een waarde van het type `BasicAuthCredentials`; anders is de methode retourneert `false`.|  
+|BOOL TryParseBasic (invoer: deze tekenreeks, resultaat: uit BasicAuthCredentials)|invoer: tekenreeks<br /><br /> resultaat: uit BasicAuthCredentials<br /><br /> Als de invoerparameter een geldige HTTP-basisverificatie autorisatiewaarde in de aanvraagheader bevat de methode retourneert `true` en de resultatenparameter bevat een waarde van het type `BasicAuthCredentials`; anders is de methode retourneert `false`.|  
 |BasicAuthCredentials|Wachtwoord: tekenreeks<br /><br /> Gebruikers-id: tekenreeks|  
 |Jwt AsJwt(input: this string)|invoer: tekenreeks<br /><br /> Als de invoerparameter geen geldige waarde van de JWT-token bevat, de methode retourneert een object van het type `Jwt`; anders is de methode retourneert `null`.|  
 |BOOL TryParseJwt (invoer: deze tekenreeks, resultaat: uit Jwt)|invoer: tekenreeks<br /><br /> resultaat: uit Jwt<br /><br /> De methode retourneert als de invoerparameter een geldige waarde van de JWT-token bevat, `true` en de resultatenparameter bevat een waarde van het type `Jwt`; anders is de methode retourneert `false`.|  
 |Jwt|Algoritme: tekenreeks<br /><br /> Doelgroep: IEnumerable < tekenreeks\><br /><br /> Claims: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Uitgever: tekenreeks<br /><br /> NotBefore: DateTime?<br /><br /> Onderwerpnaam: tekenreeks<br /><br /> Type: tekenreeks|  
-|tekenreeks Jwt.Claims.GetValueOrDefault (claimName: string, defaultValue: tekenreeks)|claimName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden claimwaarden of `defaultValue` als de header is niet gevonden.|
+|tekenreeks Jwt.Claims.GetValueOrDefault (claimName: string, defaultValue: tekenreeks)|claimName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert door komma's gescheiden claimwaarden of `defaultValue` als de header is niet gevonden.|
 |byte [] coderen (invoer: deze byte [], alg: string, sleutel: byte [], iv:byte[])|invoer - tekst zonder opmaak worden versleuteld<br /><br />Alg - naam van een symmetrische versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak versleuteld.|
 |byte [] coderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - tekst zonder opmaak worden versleuteld<br /><br />Alg - versleutelingsalgoritme<br /><br />Retourneert tekst zonder opmaak versleuteld.|
 |byte [] coderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - tekst zonder opmaak worden versleuteld<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak versleuteld.|
-|byte [] ontsleutelen (invoer: deze byte [], alg: string, sleutel: byte [], iv:byte[])|invoer - cyphertext te ontsleutelen<br /><br />Alg - naam van een symmetrische versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
-|byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - cyphertext te ontsleutelen<br /><br />Alg - versleutelingsalgoritme<br /><br />Retourneert tekst zonder opmaak.|
-|byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - invoer - cyphertext te ontsleutelen<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
+|byte [] ontsleutelen (invoer: deze byte [], alg: string, sleutel: byte [], iv:byte[])|invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - naam van een symmetrische versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
+|byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />Retourneert tekst zonder opmaak.|
+|byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - invoer - ineens tekst die moet worden gedecodeerd<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
 
 ## <a name="video"></a>Video
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,8 @@ In het bijzonder ondersteunt deze DB2-connector de volgende IBM DB2-platforms en
 Voor het gebruik van de gegevens kopiëren uit een DB2-database die niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie voor meer informatie over host zichzelf integratie runtimes, [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel. De Runtime-integratie biedt een ingebouwd DB2-stuurprogramma, dus u hoeft niet te handmatig installeren van een stuurprogramma bij het kopiëren van gegevens uit een DB2.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar DB2-connector.
 
@@ -177,11 +178,11 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Type DB2-Database | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binaire |Byte] |
+| Binair bestand |Byte] |
 | Blob |Byte] |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
-| Date |Datum/tijd |
+| Date |Datum en tijd |
 | DB2DynArray |Tekenreeks |
 | DbClob |Tekenreeks |
 | Decimale |Decimale |
@@ -193,11 +194,11 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | LongVarBinary |Byte] |
 | LongVarChar |Tekenreeks |
 | LongVarGraphic |Tekenreeks |
-| numerieke |Decimale |
-| Real |Één |
+| Numeriek |Decimale |
+| Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| tijdstempel |Datum/tijd |
+| Timestamp |Datum en tijd |
 | VarBinary |Byte] |
 | VarChar |Tekenreeks |
 | VarGraphic |Tekenreeks |

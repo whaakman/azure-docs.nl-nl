@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster uit de verpakking. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook ordent ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -100,7 +100,7 @@ HealthEvents          :
 ```
 
 
-### <a name="certificate-expiration"></a>Vervaldatum van het certificaat
+### <a name="certificate-expiration"></a>Certificaat verloopt
 **System.FabricNode** rapporten van een waarschuwing wanneer certificaten worden gebruikt door het knooppunt bijna is verlopen zijn. Er zijn drie certificaten per knooppunt: **Certificate_cluster**, **Certificate_server**, en **Certificate_default_client**. Wanneer de vervaldatum ten minste twee weken is, is de status van het rapport OK. Wanneer de vervaldatum binnen twee weken is, is het rapporttype dat een waarschuwing. TTL van deze gebeurtenissen is oneindig, en ze worden verwijderd wanneer een knooppunt de cluster verlaat.
 
 * **SourceId**: System.FabricNode
@@ -581,7 +581,7 @@ Voor elke replica wordt verkregen met de volgende informatie:
 - Rol van de vorige configuratie
 - De huidige rol van de configuratie
 - [Replicastatus](service-fabric-concepts-replica-lifecycle.md)
-- Knooppunt-ID
+- Knooppunt-id
 - Replica-ID
 
 De herconfiguratie deblokkeren:
@@ -708,7 +708,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>Systeemstatusrapporten DeployedApplication
 **System.Hosting** is de instantie voor geïmplementeerde entiteiten.
 
-### <a name="activation"></a>activering
+### <a name="activation"></a>Activering
 System.Hosting rapporteert als OK als u een toepassing is geactiveerd op het knooppunt. Anders wordt een fout opgetreden.
 
 * **SourceId**: System.Hosting

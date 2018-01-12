@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Parameters van de server in Azure-Database configureren voor MySQL met behulp van de Azure-portal
 
@@ -32,8 +32,7 @@ Azure MySQL-Database ondersteunt de configuratie van bepaalde parameters van de 
 De lijst met ondersteunde serverparameters groeit voortdurend. Gebruik het tabblad van de parameters-server in Azure-portal voor de definitie en parameters van de server op basis van de toepassingsvereisten van uw configureren. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Serverparameters Nonconfigurable
-
-De volgende parameters zijn niet configureerbaar en gekoppeld aan uw [prijscategorie](concepts-service-tiers.md). 
+De buffergroep InnoDB en maximum aantal verbindingen zijn niet configureerbaar en gekoppeld aan uw [prijscategorie](concepts-service-tiers.md). 
 
 | **Prijscategorie** | **InnoDB buffergroep (MB)** | **Maximum aantal verbindingen** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ De volgende parameters zijn niet configureerbaar en gekoppeld aan uw [prijscateg
 | Standaard 400 | 10240 | 800 | 
 | Standaard 800 | 20480 | 1600 |
 
- Innodb_file_per_table in basisstaffel: uit
+Deze extra serverparameters zijn nonconfigurable in het systeem <br>
+ Innodb_file_per_table in basisstaffel: uit<br>
+ innodb_flush_log_at_trx_commit = 1<br>
+ sync_binlog = 1<br>
+ innodb_log_file_size = 512MB<br>
  
-Alle andere serverparameters die niet worden weergegeven in de vorige tabel zijn ingesteld op de standaardwaarden voor versies [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) en [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Andere parameters van de server die hier niet worden weergegeven zijn ingesteld op MySQL out of box standaardwaarden voor versies [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) en [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Verbindingsbibliotheken voor Azure-Database voor MySQL](concepts-connection-libraries.md).

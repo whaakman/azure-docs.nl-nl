@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Azure-locatie op basis van Services - Geocodering dekking
-Azure locatie op basis van Services (LBS) biedt gedetailleerde geocodering-informatie voor het opzoeken van adressen, plaatsen en andere geografische entiteiten over de hele wereld. Dit is belangrijk voor klanten die weten waar ze kunnen en kunnen niet verwacht willen te vinden van verschillende niveaus van betrouwbaarheid bij het zoeken van adressen in de Search-Service. Wanneer u zoekt regio's met lage fidelity dekking, kunt u lagere vertrouwen zoekresultaten kan niet verwacht. De volgende tabel bevat informatie voor Azure LBS zoeken Geocodering dekking.
+Azure locatie op basis van Services (LBS) biedt gedetailleerde geocodering-informatie voor het opzoeken van adressen, plaatsen en andere geografische entiteiten over de hele wereld. Dit is belangrijk voor klanten die weten waar ze kunnen en kunnen niet verwacht willen te vinden van verschillende niveaus van betrouwbaarheid bij het zoeken van adressen in de Search-Service. Wanneer u zoekt regio's met lage fidelity dekking, kunt u verwachten lagere vertrouwen zoekresultaten. De volgende tabel bevat informatie voor Azure LBS zoeken Geocodering dekking.
 
 
 |Regio  |Adres verwijst  |Huis cijfers |Straat niveau|
@@ -135,7 +135,7 @@ Azure locatie op basis van Services (LBS) biedt gedetailleerde geocodering-infor
 |Turkije     |✓         |✓         |✓         |
 |Oekraïne     |         | ✓        | ✓        |
 |Verenigd Koninkrijk     |✓         | ✓        |✓         |
-|Vaticaanstad     |         |         |✓         |
+|Heilige Stoel (Vaticaanstad)     |         |         |✓         |
 |     |         |         |         |
 |**Midden-Oosten en Afrika**     |         |         |         |
 |Algerije     |         |         |✓         |
@@ -149,7 +149,7 @@ Azure locatie op basis van Services (LBS) biedt gedetailleerde geocodering-infor
 |Kaapverdië     |         |         |✓         |
 |Centraal-Afrikaanse Republiek     |         |         |✓         |
 |Tsjaad     |         |         |✓         |
-|Congo-Brazzaville     |         |         |✓         |
+|Congo     |         |         |✓         |
 |Ivoorkust     |         |         |✓         |
 |Congo-Kinshasa     |         |         |✓         |
 |Djibouti     |         |         |✓         |
@@ -160,7 +160,7 @@ Azure locatie op basis van Services (LBS) biedt gedetailleerde geocodering-infor
 |Gabon    |         |         |✓         |
 |Ghana     |         |         |✓         |
 |Guinee     |         |         |✓         |
-|Guinea-Bissau     |         |         |✓         |
+|Guinee-Bissau     |         |         |✓         |
 |Irak     |         |         |✓         |
 |Jordanië     |✓         |         |✓         |
 |Kenia     |         |         |✓         |
@@ -172,7 +172,7 @@ Azure locatie op basis van Services (LBS) biedt gedetailleerde geocodering-infor
 |Madagaskar     |         |         |✓         |
 |Malawi     |         |         |✓        |
 |Mali     |         |         |✓         |
-|Mauretanië     |         |         |✓         |
+|Mauritanië     |         |         |✓         |
 |Mauritius     |         |         |✓        |
 |Mayotte     |         |         |✓         |
 |Marokko     |         |✓         |✓         |
@@ -236,14 +236,14 @@ Azure LBS biedt niveau plaats nauwkeurig bij het zoeken in de volgende gebieden:
 |     |Cocos-Keeling-eilanden         |
 |     |Comoren         |
 |     |Cookeilanden         |
-|     |Democratische republiek Timor-Leste         |
+|     |Oost-Timor         |
 |     |Fiji         |
 |     |Frans-Polynesië         |
 |     |Heard- en McDonald-eilanden         |
 |     |Japan        |
 |     |Kiribati         |
 |     |Laos         |
-|     |Micronesië       |
+|     |Micronesia       |
 |     |Mongolië         |
 |     |Nauru         |
 |     |Napal         |
@@ -294,7 +294,7 @@ Azure LBS biedt niveau plaats nauwkeurig bij het zoeken in de volgende gebieden:
 |     |Marshalleilanden         |
 |     |Myanmar         |
 |     |Palestijnse Autoriteit         |
-|     |Saint Helena         |
+|     |Sint-Helena         |
 |     |Somalië         |
 |     |Syrië         |
 |     |West Bank         |

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Met behulp van de operator ANOMALYDETECTION
 
@@ -89,7 +89,7 @@ Een afwijkingsdetectie van een bepaald type wordt gedetecteerd wanneer een van d
 
 **ANOMALYDETECTION** venster semantiek, wat betekent dat de berekening wordt uitgevoerd per gebeurtenis die voert u de functie en een score wordt geproduceerd voor die gebeurtenis Verschuivend gebruikt. De berekening is gebaseerd op kunnen Martingales die werken door te controleren of de distributie van de waarden van de gebeurtenis is gewijzigd. Zo ja, er is een mogelijke afwijkingsdetectie gedetecteerd. De geretourneerde score is een indicatie van het niveau van betrouwbaarheid van die afwijkingsdetectie. Als een interne optimalisatie **ANOMALYDETECTION** berekent de score van de afwijkingsdetectie van een gebeurtenis op basis van *d* naar *2d* gebeurtenissen, waarbij *d*is de opgegeven detectie venstergrootte.
 
-**ANOMALYDETECTION** invoer tijdreeks uniform worden verwacht. Een stroom gebeurtenissen kan uniform worden gemaakt door via een daling aggregeren of hopping venster. In scenario's waarin het hiaat tussen gebeurtenissen altijd kleiner zijn dan het venster aggregatie, is een tumblingvenster voldoende zijn voor het maken van de tijdreeks uniform. Wanneer de ruimte kan niet groter zijn, kunnen de hiaten door te herhalen van de laatste waarde met behulp van een hoppingvenster worden ingevuld. Deze beide scenario's kunnen worden verwerkt door het volgende voorbeeld. Op dit moment wordt de `FillInMissingValuesStep` stap kan niet worden overgeslagen. Omdat u niet hoeft deze stap resulteert in een compilatiefout opgetreden.
+**ANOMALYDETECTION** invoer tijdreeks uniform worden verwacht. Een stroom gebeurtenissen kan uniform worden gemaakt door via een daling aggregeren of hopping venster. In scenario's waarin het hiaat tussen gebeurtenissen altijd kleiner zijn dan het venster aggregatie, is een tumblingvenster voldoende zijn voor het maken van de tijdreeks uniform. Wanneer de ruimte kan niet groter zijn, kunnen de hiaten door te herhalen van de laatste waarde met behulp van een hoppingvenster worden ingevuld. Deze beide scenario's kunnen worden verwerkt door het volgende voorbeeld.
 
 ## <a name="performance-guidance"></a>Richtlijnen voor prestaties
 
@@ -105,8 +105,6 @@ Een afwijkingsdetectie van een bepaald type wordt gedetecteerd wanneer een van d
 
 De volgende query kan worden gebruikt voor uitvoer van een waarschuwing als er een afwijkingsdetectie wordt gedetecteerd.
 Wanneer de invoerstroom niet uniform, moet u de stap aggregatie kunt transformeren in een uniform tijdreeks. In het voorbeeld wordt **Gem** maar het specifieke type van de aggregatie is afhankelijk van het gebruikersscenario. Bovendien, als een tijdreeks hiaten groter is dan het venster aggregatie heeft, zal er geen gebeurtenissen in de tijdreeks voor afwijkingsdetectie trigger (volgens de semantiek voor venster Verschuivend). De veronderstelling van homogeniteit worden hierdoor verbroken wanneer de volgende gebeurtenis ontvangen. In dergelijke gevallen moet een manier invullen in de hiaten in de tijdreeks. Een mogelijke aanpak is het nemen van de laatste gebeurtenis in alle vensters hop, zoals hieronder wordt weergegeven.
-
-Zoals al eerder is vermeld, sla niet de `FillInMissingValuesStep` stap nu. Als deze stap wordt weggelaten leidt tot een compilatiefout opgetreden.
 
     WITH AggregationStep AS 
     (

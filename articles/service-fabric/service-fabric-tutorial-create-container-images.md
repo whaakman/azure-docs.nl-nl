@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Maken van installatiekopieën van de container voor Service Fabric
 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-De container-tutorial-map bevat een map met de naam 'azure-stem'. Deze map 'azure-stem' bevat de broncode van de front-end- en een Dockerfile om de front-end samen te stellen. De container-tutorial-map bevat ook de map 'redis' waarvoor de Dockerfile het redis-image. Deze mappen bevatten de benodigde activa voor deze zelfstudie. 
+De oplossing bevat twee mappen en een ' docker-compse.yml' bestand. De map 'azure-stem' bevat de Python frontend service samen met de Dockerfile gebruikt voor het samenstellen van de installatiekopie. De map 'Voting' bevat het Service Fabric-toepassingspakket dat is geïmplementeerd op het cluster. Deze mappen bevatten de benodigde activa voor deze zelfstudie.  
 
 ## <a name="create-container-images"></a>Maken van installatiekopieën van de container
 
-Voer de volgende opdracht voor het bouwen van de afbeelding voor de web-front-component in de map 'azure-stem'. Met deze opdracht maakt gebruik van de Dockerfile in deze map voor het bouwen van de installatiekopie. 
+In de **azure stem** map en voer de volgende opdracht voor het bouwen van de afbeelding voor de web-front-component. Met deze opdracht maakt gebruik van de Dockerfile in deze map voor het bouwen van de installatiekopie. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-In de map 'redis' en voer de volgende opdracht voor het bouwen van de afbeelding voor de redis-back-end. Met deze opdracht maakt gebruik van de Dockerfile in de map voor het bouwen van de installatiekopie. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-Wanneer het voltooid, gebruiken de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om te zien van de gemaakte afbeeldingen.
+Met deze opdracht kan enige tijd duren, omdat de vereiste afhankelijkheden moeten worden opgehaald uit de Docker-Hub. Wanneer het voltooid, gebruiken de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om te zien van de gemaakte afbeeldingen.
 
 ```bash
 docker images
 ```
 
-U ziet dat vier afbeeldingen gedownload of gemaakt. De *azure stem voorgrond* installatiekopie van de toepassing bevat. Deze is afgeleid van een *python* afbeelding van Docker-Hub. De installatiekopie van het Redis is van Docker-Hub gedownload.
+U ziet dat twee installatiekopieën gedownload of gemaakt. De *azure stem voorgrond* installatiekopie van de toepassing bevat. Deze is afgeleid van een *python* afbeelding van Docker-Hub.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Register met Azure Container implementeren
 
-Voer de [az aanmelding](/cli/azure/login) opdracht zich aanmelden bij uw Azure-account. 
+Voer de **az aanmelding** opdracht zich aanmelden bij uw Azure-account. 
 
-Gebruik vervolgens de [az account](/cli/azure/account#set) opdracht voor het kiezen van uw abonnement te maken van het register van de Azure-Container. 
+```bash
+az login
+```
+
+Gebruik vervolgens de **az account** opdracht voor het kiezen van uw abonnement te maken van het register van de Azure-Container. U moet de abonnement-ID van uw Azure-abonnement in plaats van < subscription_id > invoeren. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 Wanneer u een Azure Container Registry implementeert, moet u eerst een resourcegroep. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* wordt gemaakt in de *westus* regio. Kies de resourcegroep in een regio in de buurt. 
+Een resourcegroep maken met de opdracht **az group create**. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* wordt gemaakt in de *westus* regio.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Maken van een Azure-Container register met de [az acr maken](/cli/azure/acr#create) opdracht. De naam van een Container register **moeten uniek zijn**.
+Maken van een Azure-Container register met de **az acr maken** opdracht. Vervang \<acrName > met de naam van de container-registersleutel die u in uw abonnement wilt maken. Deze naam moet alfanumerieke en uniek zijn. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-In de rest van deze zelfstudie gebruiken we 'acrname' als tijdelijke aanduiding voor de container register-naam die u hebt gekozen.
+In de rest van deze zelfstudie gebruiken we 'acrName' als tijdelijke aanduiding voor de container register-naam die u hebt gekozen. Controleer deze waarde. 
 
 ## <a name="log-in-to-your-container-registry"></a>Meld u aan het register van de container bij
 
-Meld u aan bij uw ACR-exemplaar voordat u installatiekopieën aan. Gebruik de [az acr aanmelding](/cli/azure/acr?view=azure-cli-latest#az_acr_login) opdracht om de bewerking te voltooien. Geef de unieke naam krijgen tot het register van de container wanneer deze is gemaakt.
+Meld u aan bij uw ACR-exemplaar voordat u installatiekopieën aan. Gebruik de **az acr aanmelding** opdracht om de bewerking te voltooien. Geef de unieke naam krijgen tot het register van de container wanneer deze is gemaakt.
 
 ```bash
 az acr login --name <acrName>
@@ -141,9 +137,7 @@ Uitvoer:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,16 +147,18 @@ Als u de naam van de loginServer, voer de volgende opdracht:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
+Hiermee wordt een tabel met de volgende resultaten. Dit resultaat wordt gebruikt voor het label uw **azure stem voorgrond** afbeelding voordat u deze in het register van de container in de volgende stap.
+
+```bash
+Result
+------------------
+<acrName>.azurecr.io
+```
+
 Tag nu de *azure stem voorgrond* installatiekopie met de loginServer van het register van de container. Ook toe te voegen `:v1` aan het einde van de naam van de installatiekopie. Deze code geeft de versie van de installatiekopie.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
-```
-
-Tag vervolgens de *azure-stem-back* installatiekopie met de loginServer van het register van de container. Ook toe te voegen `:v1` aan het einde van de naam van de installatiekopie. Deze code geeft de versie van de installatiekopie.
-
-```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Wanneer gecodeerd, docker-installatiekopieën uitvoeren om te controleren of de bewerking.
@@ -172,11 +168,8 @@ Uitvoer:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ Push de *azure stem voorgrond* afbeelding in het register.
 In het volgende voorbeeld vervangen door de naam van de loginServer ACR de loginServer uit uw omgeving.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Push de *azure-stem-back* afbeelding in het register. 
-
-In het volgende voorbeeld vervangen door de naam van de loginServer ACR de loginServer uit uw omgeving.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 De docker-push-opdrachten nemen een aantal minuten in beslag.
@@ -214,7 +199,6 @@ Uitvoer:
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 

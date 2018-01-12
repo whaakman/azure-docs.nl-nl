@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 28ac55dd21e9496a9e7c480d984a518dd03e4c94
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Gegevens kopiëren van ServiceNow met behulp van Azure Data Factory (bèta)
 
@@ -37,7 +37,7 @@ Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, d
 
 ## <a name="getting-started"></a>Aan de slag
 
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar ServiceNow-connector.
 
@@ -48,7 +48,7 @@ De volgende eigenschappen worden ondersteund voor ServiceNow gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **ServiceNow** | Ja |
-| eindpunt | Het eindpunt van de ServiceNow-server. (dat wil zeggen, http://ServiceNowData.com)  | Ja |
+| endpoint | Het eindpunt van de ServiceNow-server. (dat wil zeggen, http://ServiceNowData.com)  | Ja |
 | authenticationType | Het verificatietype dat moet worden gebruikt. <br/>Toegestane waarden zijn: **Basic**, **OAuth2** | Ja |
 | gebruikersnaam | De gebruikersnaam voor verbinding met de server ServiceNow voor Basic en OAuth2-verificatie gebruikt.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam voor de verificatie Basic en OAuth2. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Nee |

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Bijhouden van aangepaste bewerkingen met Application Insights-SDK voor .NET
 
@@ -40,14 +40,14 @@ De Application Insights web SDK verzamelt automatisch HTTP-aanvragen voor ASP.NE
 
 Een ander voorbeeld waarvoor aangepaste bijhouden is de werknemer die items uit de wachtrij ontvangt. Voor sommige wachtrijen, wordt de aanroep van een bericht toevoegen aan deze wachtrij bijgehouden als een afhankelijkheid. De bewerking voor op hoog niveau die worden beschreven berichtverwerking is echter niet automatisch verzameld.
 
-Laten we zien hoe deze bewerkingen kunnen worden bijgehouden.
+Laten we zien hoe deze acties kunnen worden bijgehouden.
 
 Op hoog niveau, wordt de taak is het maken van `RequestTelemetry` en bekende eigenschappen instellen. Nadat de bewerking is voltooid, kunt u de telemetrie bijhouden. Het volgende voorbeeld wordt met deze taak.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>HTTP-aanvraag in host zichzelf Owin-app
-In dit voorbeeld volgt we de [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). U moet verwacht te ontvangen van de headers die er worden beschreven.
+In dit voorbeeld trace context wordt doorgegeven volgens de [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). U moet verwacht te ontvangen van de headers die er worden beschreven.
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -121,16 +121,18 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Het HTTP-Protocol voor correlatie declareert ook de `Correlation-Context` header. Echter, dit wordt weggelaten hier voor eenvoud.
 
 ## <a name="queue-instrumentation"></a>Wachtrij instrumentation
-Wij hebben een protocol om te slagen correlatie details gemaakt voor HTTP-communicatie. Met de sommige wachtrijen protocollen, kunt u aanvullende metagegevens samen met het bericht en met anderen die u niet doorgeven.
+Hoewel er [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) correlatie details met de HTTP-aanvraag doorgeven, elke wachtrij-protocol is om te definiëren hoe de details van de hetzelfde bericht in de wachtrij worden doorgegeven. Sommige protocollen wachtrij (zoals AMQP) kunnen doorgeven aanvullende metagegevens en andere (deze Azure-Opslagwachtrij) moeten de context om te worden gecodeerd in de nettolading van het bericht.
 
 ### <a name="service-bus-queue"></a>Service Bus-wachtrij
-Met de Azure [Service Bus-wachtrij](../service-bus-messaging/index.md), kunt u een eigenschappenverzameling samen met het bericht doorgeven. We gebruiken deze om door te geven van de correlatie-ID.
+Application Insights houdt aanroepen met de nieuwe Service Bus-berichtenservice [Microsoft Azure Service Bus-Client voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versie 3.0.0 en hoger.
+Als u [bericht handler patroon](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) voor het verwerken van berichten, u klaar bent: alle Service Bus-aanroepen doen door de service automatisch worden bijgehouden en gecorreleerd met andere telemetrie-items. Raadpleeg de [Service Bus-clienttoepassing traceren met Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) als u handmatig berichten verwerkt.
 
-De Service Bus-wachtrij maakt gebruik van TCP-protocollen. Application Insights niet automatisch bijgehouden voor bewerkingen van de wachtrij, zodat we ze handmatig bijhouden. De wachtrij halen-bewerking is een push-stijl-API en kan niet worden bijhouden.
+Als u [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pakket verder - leest volgen voorbeelden laten zien hoe u houden (en correleren) zoals AMQP-protocol maakt gebruik van Service Bus-wachtrij en Application Insights niet aan de Service Bus-aanroepen wachtrij-bewerkingen automatisch worden bijgehouden.
+Correlatie-id's worden in de berichteigenschappen doorgegeven.
 
 #### <a name="enqueue"></a>In de wachtrij plaatsen
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -168,7 +170,7 @@ public async Task Enqueue(string payload)
 ```
 
 #### <a name="process"></a>Proces
-```C#
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -208,7 +210,7 @@ Zorg ervoor dat u hebt `Microsoft.ApplicationInsights.DependencyCollector.HttpDe
 
 Als u de Application Insights handmatig configureert, moet u maken en initialiseren `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` als:
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -224,14 +226,14 @@ Ook kunt u correlaties zichtbaar maken tussen de Application Insights bewerkings
 #### <a name="enqueue"></a>In de wachtrij plaatsen
 Omdat opslagwachtrijen de HTTP-API ondersteunt, worden alle bewerkingen met de wachtrij automatisch bijgehouden door de Application Insights. In veel gevallen kan moeten deze instrumentation voldoende. Echter voor de bijbehorende traceringen aan de kant van de consument met producent traceringen, moet u doorgeven context correlatie op dezelfde manier aan hoe we in het HTTP-Protocol voor correlatie doen. 
 
-In dit voorbeeld wordt de optionele bijhouden `Enqueue` bewerking. U kunt:
+Dit voorbeeld ziet u het bijhouden van de `Enqueue` bewerking. U kunt:
 
  - **Nieuwe pogingen correleren (indien aanwezig)**: alle hebben een gemeenschappelijke bovenliggende die heeft de `Enqueue` bewerking. Ze zijn anders bijgehouden als onderliggende elementen van de binnenkomende aanvraag. Als er meerdere logische aanvragen naar de wachtrij, kan het lastig zijn om te zoeken welke aanroep heeft nieuwe pogingen.
  - **Opslag logboeken correleren (of en wanneer nodig)**: ze zijn gecorreleerd met Application Insights telemetrie.
 
 De `Enqueue` bewerking is het onderliggende lid van een bovenliggende-bewerking (bijvoorbeeld, een binnenkomende HTTP-aanvraag). De HTTP-aanroep voor afhankelijkheid is het onderliggende lid van de `Enqueue` bewerking en de onderliggend van de inkomende aanvraag:
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -285,7 +287,7 @@ De `Dequeue` bewerking is lastig. HTTP-aanvragen automatisch worden bijgehouden 
 
 In veel gevallen is het mogelijk dat het nuttig om de HTTP-aanvraag naar de wachtrij correleren met andere traceringen ook. Het volgende voorbeeld laat zien hoe om dat te doen:
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Proces
 
-In het volgende voorbeeld wordt een binnenkomend bericht op een manier om hoe we een binnenkomende HTTP-aanvraag wilt traceren op dezelfde manier te traceren:
+In het volgende voorbeeld wordt wordt een binnenkomend bericht bijgehouden in een manier op dezelfde manier naar inkomende HTTP-aanvraag:
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -366,7 +368,7 @@ public async Task Process(MessagePayload message)
 
 Op dezelfde manier kunnen andere bewerkingen wachtrij worden geïmplementeerd. Een bewerking peek moet geïnstrumenteerd op een vergelijkbare manier als een bewerking van de wachtrij halen. Wachtrij-beheerbewerkingen instrumenteren is niet nodig. Application Insights houdt bewerkingen zoals HTTP en in de meeste gevallen is voldoende.
 
-Wanneer u softwareontwikkelaars verwijdering van berichten, zorg er dan voor dat u de bewerking-id's (correlatie) instellen. U kunt ook de `Activity` API. U hoeft niet vervolgens bewerking-id's op de telemetrie-items niet instellen omdat Application Insights dit gebeurt:
+Wanneer u softwareontwikkelaars verwijdering van berichten, zorg er dan voor dat u de bewerking-id's (correlatie) instellen. U kunt ook de `Activity` API. U hoeft niet vervolgens bewerking-id's op de telemetrie-items niet instellen omdat Application Insights-SDK dit gebeurt:
 
 - Maak een nieuwe `Activity` nadat u hebt een item uit de wachtrij.
 - Gebruik `Activity.SetParentId(message.ParentId)` als Logboeken correleren.
@@ -383,7 +385,7 @@ Elk bericht moet worden verwerkt in de eigen asynchrone Controlestroom. Zie voor
 ## <a name="long-running-background-tasks"></a>Achtergrondtaken langlopende
 Sommige toepassingen starten langlopende bewerkingen die kunnen worden veroorzaakt door het aanvragen van gebruikers. Vanuit het perspectief tracering/instrumentation verschilt niet van de aanvraag of een afhankelijkheid instrumentation: 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -411,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-In dit voorbeeld gebruiken we `telemetryClient.StartOperation` maken `RequestTelemetry` en vult u de context van de correlatie. Stel dat u hebt een bovenliggende-bewerking die is gemaakt door de inkomende aanvragen dat de bewerking gepland. Zolang `BackgroundTask` begint in dezelfde asynchrone transportbesturing als een inkomende aanvraag, deze worden gecorreleerd met die bovenliggende voor deze bewerking. `BackgroundTask`en alle geneste telemetrie-items automatisch worden gecorreleerd met de aanvraag, waardoor er, zelfs nadat de aanvraag wordt beëindigd.
+In dit voorbeeld `telemetryClient.StartOperation` maakt `RequestTelemetry` en vult u de context van de correlatie. Stel dat u hebt een bovenliggende-bewerking die is gemaakt door de inkomende aanvragen dat de bewerking gepland. Zolang `BackgroundTask` begint in dezelfde asynchrone transportbesturing als een inkomende aanvraag, deze worden gecorreleerd met die bovenliggende voor deze bewerking. `BackgroundTask`en alle geneste telemetrie-items automatisch worden gecorreleerd met de aanvraag, waardoor er, zelfs nadat de aanvraag wordt beëindigd.
 
 Wanneer de taak wordt gestart vanuit de achtergrondthread die geen bewerkingen (`Activity`) gekoppeld, `BackgroundTask` heeft een bovenliggende geen. Echter, het kan hebben genest bewerkingen. Alle telemetrie-items gerapporteerd door de taak zijn gecorreleerd met de `RequestTelemetry` gemaakt in `BackgroundTask`.
 
@@ -428,9 +430,33 @@ De algemene benadering voor het bijhouden van aangepaste afhankelijkheid is:
 - Stoppen van de bewerking met `StopOperation` wanneer deze voltooid.
 - Uitzonderingen worden verwerkt.
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+Verwijdering van de bewerking wordt de bewerking moet worden gestopt zodat u dit in plaats van aanroepen doen kunt `StopOperation`.
+
+*Waarschuwing*: in sommige gevallen kan dit unhanded uitzondering [te voorkomen dat](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` moet worden aangeroepen zodat bewerkingen kunnen niet worden bijgehouden.
+
+### <a name="parallel-operations-processing-and-tracking"></a>Parallelle bewerkingen kunnen worden verwerkt en bijhouden
+
 `StopOperation`alleen stopt de bewerking die is gestart. Als de huidige actieve bewerking, komt niet overeen met de versie die u stoppen wilt, `StopOperation` , gebeurt er niets. Deze situatie kan gebeuren als u meerdere bewerkingen parallel in dezelfde uitvoeringscontext starten:
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -440,31 +466,31 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Zorg ervoor dat u altijd aanroepen `StartOperation` en voert u de taak in een eigen context:
-```C#
-public async Task RunMyTaskAsync()
+Zorg ervoor dat u altijd aanroepen `StartOperation` en verwerken van de bewerking in dezelfde **asynchrone** methode voor het isoleren van bewerkingen parallelle uitvoering. Als de bewerking is synchroon (of geen asynchrone) proces Inpakken en bij te houden met `Task.Run`:
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 

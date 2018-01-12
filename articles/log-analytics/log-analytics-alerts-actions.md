@@ -1,6 +1,6 @@
 ---
-title: Antwoorden op waarschuwingen in OMS Log Analytics | Microsoft Docs
-description: Waarschuwingen in logboekanalyse kunnen belangrijke informatie in de OMS-opslagplaats te identificeren en proactief zullen u informeren over problemen of acties uit om te proberen op te lossen ze aanroepen.  In dit artikel beschrijft het maken van een waarschuwingsregel en details van de verschillende acties die ze kunnen ondernemen.
+title: Antwoorden op waarschuwingen in de Azure Log Analytics | Microsoft Docs
+description: Waarschuwingen in logboekanalyse kunnen belangrijke informatie in uw Azure-werkruimte te identificeren en proactief zullen u informeren over problemen of acties uit om te proberen op te lossen ze aanroepen.  In dit artikel beschrijft het maken van een waarschuwingsregel en details van de verschillende acties die ze kunnen ondernemen.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Acties toevoegen aan de regels voor waarschuwingen in Log Analytics
 Wanneer een [waarschuwing is gemaakt in logboekanalyse](log-analytics-alerts.md), hebt u de optie [configureren van de waarschuwingsregel](log-analytics-alerts.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende acties die beschikbaar zijn en meer informatie over het configureren van elk type.
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 |:--|:--|
 | [E-mail](#email-actions) | Verzend een e-mailbericht met de details van de waarschuwing naar een of meer geadresseerden. |
 | [Webhook](#webhook-actions) | Een extern proces via één HTTP POST-aanvraag worden aangeroepen. |
@@ -39,7 +39,7 @@ E-bewerkingen moet de eigenschappen in de volgende tabel.
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Onderwerp |Onderwerpen in het e-mailbericht.  U kunt de hoofdtekst van het e-mailbericht niet wijzigen. |
-| ontvangers |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen met een puntkomma (;). |
+| Geadresseerden |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen met een puntkomma (;). |
 
 
 ## <a name="webhook-actions"></a>Webhookacties
@@ -57,7 +57,7 @@ Webhookacties vereisen de eigenschappen in de volgende tabel.
 Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens naar de externe service verzonden.  De nettolading van de neemt standaard de waarden in de volgende tabel.  U kunt deze nettolading vervangen door een aangepaste van uzelf.  In dat geval kunt u de variabelen in de tabel voor elk van de parameters voor hun waarde bevatten in de aangepaste nettolading.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de nettolading van de webook is gewijzigd.  Details van de indeling zijn [REST-API van Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  U ziet een voorbeeld in [voorbeelden](#sample-payload) hieronder.
+> Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](log-analytics-log-search-upgrade.md), is de webhookpayload gewijzigd.  Details van de indeling zijn te vinden in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  U ziet een voorbeeld in [voorbeelden](#sample-payload) hieronder.
 
 | Parameter | Variabele | Beschrijving |
 |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens na
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Begintijd voor de query in UTC-notatie. |
 | searchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel. |
 | Zoekresultaten |Hieronder vindt u de |Records geretourneerd door de query in JSON-indeling.  Beperkt tot de eerste 5000 records. |
-| WorkspaceID |#workspaceid |ID van de OMS-werkruimte. |
+| WorkspaceID |#workspaceid |ID van de werkruimte voor logboekanalyse. |
 
 Bijvoorbeeld, kunt u opgeven de volgende aangepaste nettolading met een enkele parameter aangeroepen *tekst*.  De service die deze webhook aanroepen, zou deze parameter worden verwacht.
 
@@ -97,11 +97,11 @@ Bijvoorbeeld: voor het maken van een aangepaste nettolading met alleen de naam v
     }
 
 
-U kunt een compleet voorbeeld van een waarschuwingsregel maken met een webhook om een externe service op te starten doorlopen [maken van een actie waarschuwing webhook in OMS Log Analytics bericht te verzenden naar Slack](log-analytics-alerts-webhooks.md).
+U kunt een compleet voorbeeld van een waarschuwingsregel maken met een webhook om een externe service op te starten doorlopen [maken van een actie waarschuwing webhook in logboekanalyse bericht te verzenden naar Slack](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Runbook-acties
-Runbook-acties starten van een runbook in Azure Automation.  Om dit type actie gebruiken, hebt u de [Automation-oplossing](log-analytics-add-solutions.md) geïnstalleerd en geconfigureerd in de OMS-werkruimte.  U kunt kiezen uit de runbooks in het automation-account die u hebt geconfigureerd in de Automation-oplossing.
+Runbook-acties starten van een runbook in Azure Automation.  Om dit type actie gebruiken, hebt u de [Automation-oplossing](log-analytics-add-solutions.md) geïnstalleerd en geconfigureerd in de werkruimte voor logboekanalyse.  U kunt kiezen uit de runbooks in het automation-account die u hebt geconfigureerd in de Automation-oplossing.
 
 Runbook-bewerkingen moet de eigenschappen in de volgende tabel.
 
@@ -115,7 +115,7 @@ Runbook-acties, start het runbook met behulp van een [webhook](../automation/aut
 U kan niet rechtstreeks vullen met de parameters van het runbook, maar de [$WebhookData parameter](../automation/automation-webhooks.md) bevat de details van de waarschuwing, met inbegrip van de resultaten van de zoekopdracht logboek waarvan deze is gemaakt.  Het runbook moet definiëren **$WebhookData** als parameter voor deze toegang krijgt tot de eigenschappen van de waarschuwing.  Gegevens van de waarschuwing is beschikbaar in json-indeling in één eigenschap aangeroepen **SearchResult** (voor runbook acties en webhookacties met standaard nettolading) of **zoekresultaten** (webhookacties met aangepaste nettolading inclusief **IncludeSearchResults ': true**) in de **RequestBody** eigenschap van **$WebhookData**.  Dit heeft met de eigenschappen in de volgende tabel.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de nettolading van de runbook is gewijzigd.  Details van de indeling zijn [REST-API van Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  U ziet een voorbeeld in [voorbeelden](#sample-payload) hieronder.  
+> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de nettolading van de runbook is gewijzigd.  Details van de indeling zijn te vinden in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  U ziet een voorbeeld in [voorbeelden](#sample-payload) hieronder.  
 
 | Knooppunt | Beschrijving |
 |:--- |:--- |

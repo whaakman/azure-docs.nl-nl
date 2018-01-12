@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Maken van een bestand van de oplossing voor beheer in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
@@ -39,7 +39,7 @@ Gebruik een teksteditor kunt u werken met oplossingsbestanden, maar we raden geb
 
 
 ## <a name="structure"></a>structuur
-De basisstructuur van een bestand van management-oplossing is hetzelfde als een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md#template-format) die is als volgt.  Elk van de volgende secties worden de elementen van het hoogste niveau beschreven en en de inhoud in een oplossing.  
+De basisstructuur van een bestand van management-oplossing is hetzelfde als een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md#template-format), die is als volgt.  Elk van de volgende secties wordt beschreven in de bovenste elementen en de inhoud in een oplossing.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -86,12 +86,12 @@ De volgende tabel bevat de standaardparameters voor alle beheeroplossingen voor.
 
 | Parameter | Type | Beschrijving |
 |:--- |:--- |:--- |
-| Accountnaam |Tekenreeks |Azure Automation-accountnaam. |
-| pricingTier |Tekenreeks |De prijscategorie van de werkruimte voor logboekanalyse zowel Azure Automation-account. |
-| regionId |Tekenreeks |De regio van het Azure Automation-account. |
-| SolutionName |Tekenreeks |Naam van de oplossing.  Als u uw oplossing via snelstartsjablonen implementeert, moet vervolgens u definiëren solutionName als een parameter zodat definieert u een tekenreeks in plaats daarvan vereisen dat de gebruiker een opgeven. |
-| workspaceName |Tekenreeks |Meld u aan de naam van de werkruimte Analytics. |
-| workspaceRegionId |Tekenreeks |De regio van de werkruimte voor logboekanalyse. |
+| Accountnaam |tekenreeks |Azure Automation-accountnaam. |
+| pricingTier |tekenreeks |De prijscategorie van de werkruimte voor logboekanalyse zowel Azure Automation-account. |
+| regionId |tekenreeks |De regio van het Azure Automation-account. |
+| SolutionName |tekenreeks |Naam van de oplossing.  Als u uw oplossing via snelstartsjablonen implementeert, moet vervolgens u definiëren solutionName als een parameter zodat definieert u een tekenreeks in plaats daarvan vereisen dat de gebruiker een opgeven. |
+| workspaceName |tekenreeks |Meld u aan de naam van de werkruimte Analytics. |
+| workspaceRegionId |tekenreeks |De regio van de werkruimte voor logboekanalyse. |
 
 
 Hieronder volgt de structuur van de standaard parameters die u kunt kopiëren en plakken in uw oplossingsbestand.  
@@ -166,7 +166,7 @@ In dit geval u verwijzen naar variabelen binnen de oplossing met de syntaxis **v
 
 
 ### <a name="dependencies"></a>Afhankelijkheden
-De **dependsOn** elementen bevat een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) op een andere resource.  Wanneer de oplossing is geïnstalleerd, wordt een bron is niet gemaakt totdat alle afhankelijkheden ervan zijn gemaakt.  Bijvoorbeeld: uw oplossing mogelijk [een runbook start](operations-management-suite-solutions-resources-automation.md#runbooks) wanneer deze geïnstalleerd met behulp van een [taak resource](operations-management-suite-solutions-resources-automation.md#automation-jobs).  De bron van de taak is afhankelijk van de runbook-bron om ervoor te zorgen dat het runbook is gemaakt voordat de taak is gemaakt.
+De **dependsOn** element geeft een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) op een andere resource.  Wanneer de oplossing is geïnstalleerd, wordt een bron is niet gemaakt totdat alle afhankelijkheden ervan zijn gemaakt.  Bijvoorbeeld: uw oplossing mogelijk [een runbook start](operations-management-suite-solutions-resources-automation.md#runbooks) wanneer deze geïnstalleerd met behulp van een [taak resource](operations-management-suite-solutions-resources-automation.md#automation-jobs).  De bron van de taak is afhankelijk van de runbook-bron om ervoor te zorgen dat het runbook is gemaakt voordat de taak is gemaakt.
 
 ### <a name="oms-workspace-and-automation-account"></a>OMS-werkruimte en de Automation-account
 Oplossingen vereisen een [OMS-werkruimte](../log-analytics/log-analytics-manage-access.md) bevat weergaven en een [Automation-account](../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten worden voldaan voordat de resources in de oplossing zijn gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [een werkruimte en de account opgeven](operations-management-suite-solutions.md#oms-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar als de auteur moet u rekening houden met de volgende punten.
@@ -176,7 +176,7 @@ Elke oplossing vereist een resource-vermelding in de **resources** element dat d
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Elke oplossing vereist een resource-vermelding in de **resources** element dat d
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -225,8 +225,8 @@ De **plan** entiteit van de oplossing-bron heeft de eigenschappen in de volgende
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | naam |Naam van de oplossing. |
-| Versie |De versie van de oplossing zoals wordt bepaald door de auteur. |
-| Product |Unieke tekenreeks voor het identificeren van de oplossing. |
+| versie |De versie van de oplossing zoals wordt bepaald door de auteur. |
+| product |Unieke tekenreeks voor het identificeren van de oplossing. |
 | Uitgever |Uitgever van de oplossing. |
 
 

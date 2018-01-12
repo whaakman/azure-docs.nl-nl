@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Ongeldige gateway-probleemoplossing in Application Gateway
 
@@ -80,7 +80,7 @@ Indien aanwezig, zorg ervoor dat de DNS-server kunnen omzetten van lid back-end-
 
 | Test-eigenschap | Waarde | Beschrijving |
 | --- | --- | --- |
-| WebTest-URL |http://127.0.0.1/ |URL-pad |
+| Test-URL |http://127.0.0.1/ |URL-pad |
 | Interval |30 |Testinterval in seconden |
 | Time-out |30 |Test time-out in seconden |
 | Drempelwaarde voor onjuiste status |3 |Aantal nieuwe pogingen-test. De back-endserver is gemarkeerd als niet actief nadat de foutentelling opeenvolgende test heeft de drempelwaarde voor onjuiste status bereikt. |
@@ -118,8 +118,7 @@ Valideren dat de aangepaste Health test is geconfigureerd als de voorgaande tabe
 * Als Application Gateway is geconfigureerd voor een enkele site, standaard ingesteld op de Host moet naam worden opgegeven als '127.0.0.1', tenzij anders is geconfigureerd in aangepaste test.
 * Zorg ervoor dat een aanroep naar http://\<host\>:\<poort\>\<pad\> retourneert de resultaatcode van een HTTP 200.
 * Zorg ervoor dat Interval, Time-out en UnhealtyThreshold in het acceptabele bereik liggen.
-* Als via een HTTPS-test, ervoor zorgen dat de back-endserver SNI geen vereist door een fallback-certificaat op de back-endserver zelf configureren. 
-* Zorg ervoor dat Interval, Time-out en UnhealtyThreshold in het acceptabele bereik liggen.
+* Als via een HTTPS-test, ervoor zorgen dat de back-endserver SNI geen vereist door een fallback-certificaat op de back-endserver zelf configureren.
 
 ## <a name="request-time-out"></a>Time-out voor aanvraag
 

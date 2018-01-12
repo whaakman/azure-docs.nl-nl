@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Als een Azure-Stack-operator, moet u de beheerdersportal PowerShell of Azure Resource Manager-API's gebruiken voor meest dagelijkse beheertaken. Evenwel sommige minder algemene bewerkingen u wilt gebruiken, de *bevoegde eindpunt*. Dit eindpunt is een vooraf geconfigureerde externe PowerShell console waarmee u net voldoende mogelijkheden om u te helpen bij het uitvoeren van een vereiste taak. Het eindpunt maakt gebruik van PowerShell JEA (net genoeg beheer) om een beperkte set cmdlets weer te geven. Als u wilt toegang tot de bevoegde eindpunt en de beperkte set cmdlets worden aangeroepen, wordt een account met beperkte bevoegdheden gebruikt. Er is geen administrator-accounts zijn vereist. Voor extra beveiliging, is uitvoeren van scripts niet toegestaan.
+Als een Azure-Stack-operator, moet u de beheerdersportal PowerShell of Azure Resource Manager-API's gebruiken voor meest dagelijkse beheertaken. Evenwel sommige minder algemene bewerkingen u wilt gebruiken, de *bevoegde eindpunt* (PEP). Dit eindpunt is een vooraf geconfigureerde externe PowerShell console waarmee u net voldoende mogelijkheden om u te helpen bij het uitvoeren van een vereiste taak. Het eindpunt maakt gebruik van PowerShell JEA (net genoeg beheer) om een beperkte set cmdlets weer te geven. Als u wilt toegang tot de bevoegde eindpunt en de beperkte set cmdlets worden aangeroepen, wordt een account met beperkte bevoegdheden gebruikt. Er is geen administrator-accounts zijn vereist. Voor extra beveiliging, is uitvoeren van scripts niet toegestaan.
 
 Het eindpunt bevoorrechte kunt u taken uitvoert zoals het volgende:
 
@@ -98,6 +98,7 @@ Het is raadzaam dat u verbinding met het bevoorrechte eindpunt alleen vanaf de h
     - Verwijder CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test AzureStack
     - Stop AzureStack
     - Get-ClusterLog
 

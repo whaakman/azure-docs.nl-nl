@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine vanaf een speciale VHD in een opslagaccount maken
 
 Maak een nieuwe virtuele machine door het koppelen van een gespecialiseerde onbeheerde schijf als de OS-schijf met behulp van Powershell. Een speciale schijf is een kopie van de VHD van een bestaande virtuele machine die de gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM onderhoudt. 
 
 U hebt hiervoor twee opties:
-* [Een VHD uploaden](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Kopieer de VHD van een bestaande virtuele machine in Azure](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Een VHD uploaden](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Kopieer de VHD van een bestaande virtuele machine in Azure](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u PowerShell gebruikt, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht om deze te installeren.

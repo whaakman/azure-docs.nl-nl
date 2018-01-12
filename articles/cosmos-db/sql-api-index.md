@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8de2a541f307adfed1125dbfc25825b3e28d9c48
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL-API-documentatie
 
@@ -102,12 +102,12 @@ Azure Cosmos DB biedt een aantal SDK's om de ontwikkeling van toepassingen aan c
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 
 - [REST](/rest/api/documentdb/)
 - [REST-resourceprovider](/rest/api/documentdbresourceprovider/)
 - [Naslaginformatie voor de SQL-query](sql-api-sql-query-reference.md)
-- [Naslaginformatie over Azure Functions](../azure-functions/functions-bindings-documentdb.md)
+- [Naslaginformatie over Azure Functions](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## <a name="samples"></a>Voorbeelden
 

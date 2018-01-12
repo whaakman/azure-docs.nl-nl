@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Gegevens kopiëren van de OData-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ In het bijzonder ondersteunt deze OData-connector:
 - Kopiëren van gegevens met behulp van de volgende verificaties: **anoniem**, **Basic**, en **Windows**.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar OData-connector.
 
@@ -50,7 +51,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **OData** |Ja |
-| URL | De URL van de hoofdmap van de OData-service. |Ja |
+| url | De URL van de hoofdmap van de OData-service. |Ja |
 | authenticationType | Het soort verificatie gebruikt voor verbinding met de OData-bron.<br/>Toegestane waarden zijn: **anoniem**, **Basic**, en **Windows**. Houd er rekening mee dat OAuth wordt niet ondersteund. | Ja |
 | Gebruikersnaam | Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. | Nee |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als SecureString. | Nee |
@@ -132,7 +133,7 @@ Om gegevens te kopiëren uit OData, stel de eigenschap type van de gegevensset *
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **ODataResource** | Ja |
-| Pad | Pad naar de OData-bron. | Nee |
+| pad | Pad naar de OData-bron. | Nee |
 
 **Voorbeeld**
 
@@ -208,10 +209,10 @@ Bij het kopiëren van gegevens uit OData, worden de volgende toewijzingen van OD
 | Edm.Binary | Byte] |
 | Edm.Boolean | BOOL |
 | Edm.Byte | Byte] |
-| Edm.DateTime | Datum/tijd |
+| Edm.DateTime | Datum en tijd |
 | Edm.Decimal | Decimale |
 | Edm.Double | dubbele |
-| Edm.Single | Één |
+| Edm.Single | Single |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

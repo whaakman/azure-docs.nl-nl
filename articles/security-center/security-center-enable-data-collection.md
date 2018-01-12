@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. Gegevens worden verzameld met behulp van Microsoft Monitoring Agent, die verschillende configuraties betrekking hebben op beveiliging en gebeurtenislogboeken van de machine leest en kopieert de gegevens naar de werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. Crashdumpbestanden Microsoft Monitoring Agent ook gekopieerd naar de werkruimte.
@@ -40,7 +40,7 @@ Inschakelen van automatische inrichting van de Microsoft Monitoring Agent:
 
 ![Automatische inrichting inschakelen][1]
 
-## <a name="default-workspace-configuration"></a>Standaardconfiguratie van de werkruimte
+## <a name="default-workspace-configuration"></a>Configuratie van de standaardwerkruimte
 Gegevens die worden verzameld door Security Center wordt opgeslagen in workspace(s) logboekanalyse.  U kunt kiezen om gegevens verzameld van de Azure VM's die zijn opgeslagen in de werkruimten die zijn gemaakt door Security Center of in een bestaande werkruimte die u hebt gemaakt.
 
 Uw bestaande werkruimte voor logboekanalyse gebruiken:
@@ -90,14 +90,24 @@ Security Center kunt u het aantal gebeurtenissen verminderen behoud voldoende ge
 
 Om te bepalen van de gebeurtenissen die tot behoren de **algemene** en **minimale** gebeurtenis sets, hebben we in samenwerking met klanten en industrienormen voor meer informatie over de ongefilterde frequentie van elke gebeurtenis en hun gebruik. We de volgende richtlijnen in dit proces gebruikt:
 
-- **Minimale** -Zorg ervoor dat deze set behandelt alleen gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld: deze set bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden is belangrijk voor controle, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. De meeste van het gegevensvolume van deze set is de aanmeldgebeurtenissen en gebeurtenis (gebeurtenis-ID 4688) van een proces gemaakt.
+- **Minimale** -Zorg ervoor dat deze set behandelt alleen gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld: deze set bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden is belangrijk voor controle, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. Het merendeel van het gegevensvolume van deze set is de aanmelding gebeurtenissen en de gebeurtenis voor proces maken (gebeurtenis-ID 4688, Zie het Beveiligingscentrum [Veelgestelde vragen over](security-center-faq.md#what-happens-when-data-collection-is-enabled) voor meer informatie over het maken van gebeurtenis voor proces 4688).
 - **Algemene** -bieden een volledige gebruiker audittrail in deze set. Deze verzameling bevat bijvoorbeeld gebruikersaanmeldingen en afmelding (gebeurtenis-ID 4634). We opnemen controle van acties zoals wijzigingen in de groep beveiliging, key domain controller Kerberos bewerkingen en andere gebeurtenissen die zijn aanbevolen door industriële organisaties.
 
 Gebeurtenissen die zeer lage volume hebt zijn opgenomen in de gemeenschappelijke set als de belangrijkste doel te kiezen dat via alle gebeurtenissen is op het volume verkleinen en niet op specifieke gebeurtenissen filteren.
 
 Dit is een volledig overzicht van de beveiligings- en App Referentiekluis gebeurtenis-id's voor elke set:
 
-   ![Gebeurtenis-id 's][4]
+| Gegevenslaag | Verzamelde gebeurtenis indicatoren |
+| --- | --- |
+| minimale | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Algemene (standaard) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
+| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
+| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
+| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
+| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
+| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 Uw beleid voor filteren volgt kiezen:
 1. Op de **beveiligingsbeleid & instellingen voor** blade, selecteer uw filteren beleid onder **beveiligingsgebeurtenissen**.
@@ -137,6 +147,5 @@ In dit artikel hebt u geleerd hoe gegevens verzamelen en automatische inrichting
 [1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

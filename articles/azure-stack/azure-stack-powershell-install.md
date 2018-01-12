@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
 
@@ -31,7 +31,7 @@ In dit artikel bevat gedetailleerde instructies voor het installeren van PowerSh
 > [!NOTE]
 > De volgende stappen moet PowerShell 5.0. U kunt uw versie controleren door $PSVersionTable.PSVersion uitvoeren en het vergelijken van de ' ' hoofdversie.
 
-PowerShell-opdrachten voor Azure-Stack zijn geïnstalleerd via de PowerShell-galerie. Aan de opslagplaats PSGallery regiser, open een PowerShell-sessie met verhoogde bevoegdheden van de development kit of van een externe Windows-client als u bent via VPN-verbinding verbonden en voer de volgende opdracht:
+PowerShell-opdrachten voor Azure-Stack zijn geïnstalleerd via de PowerShell-galerie. Voor het registreren van de opslagplaats PSGallery, open een PowerShell-sessie met verhoogde bevoegdheden van de development kit of van een externe Windows-client als u bent via VPN-verbinding verbonden en voer de volgende opdracht:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Voordat u de vereiste versie installeert, moet u eventuele bestaande Azure Power
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Meld u op de development kit, of op de externe Windows-client als u van plan bent een VPN-verbinding tot stand brengen. De mappen die met 'Azure beginnen' verwijderen uit de `C:\Program Files (x86)\WindowsPowerShell\Modules` en `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden eventuele bestaande PowerShell-modules van de 'AzureStackAdmin' en 'global' gebruiker bereiken. 
+* Meld u op de development kit, of op de externe Windows-client als u van plan bent een VPN-verbinding tot stand brengen. De mappen die met 'Azure beginnen' verwijderen uit de `C:\Program Files\WindowsPowerShell\Modules` en `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden eventuele bestaande PowerShell-modules van de 'AzureStackAdmin' en 'global' gebruiker bereiken. 
 
 De volgende secties beschrijven de stappen voor het installeren van PowerShell voor Azure-Stack. PowerShell kan worden geïnstalleerd op Azure-Stack die wordt gebruikt in verbonden, gedeeltelijk is verbonden, of in een scenario met niet-verbonden. 
 
@@ -126,7 +126,6 @@ In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machi
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 

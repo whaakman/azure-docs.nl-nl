@@ -4,7 +4,7 @@ description: Legt uit hoe u een nieuwe StorSimple-apparaat inschakelen, inschake
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Op of het apparaat van de serie StorSimple 8000 uitschakelen
 
@@ -147,16 +147,16 @@ Een actieve StorSimple-apparaat moet mogelijk worden afgesloten als hij wordt ve
 * [Apparaat met EBOD behuizing](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Apparaat met primaire behuizing<a name="8100a">
-Om het apparaat in een geordende en gecontroleerde manier afsluiten, kunt u dit doen via de klassieke Azure portal of via de Windows PowerShell voor StorSimple. 
+Om het apparaat in een geordende en gecontroleerde manier afsluiten, kunt u dit doen via de Azure-portal of via de Windows PowerShell voor StorSimple. 
 
 > [!IMPORTANT]
 > Niet worden afgesloten een apparaat uitgevoerd met behulp van de knop op de achterkant van het apparaat.
 > 
-> Voordat het apparaat wordt afgesloten, zorg ervoor dat alle apparaatonderdelen goed. Navigeer in de klassieke Azure portal naar **apparaten** > **onderhoud** > **hardwarestatus**, en controleer of de status van alle onderdelen van groen. Dit geldt alleen voor een goede systeem. Als het systeem wordt afgesloten omlaag naar een niet-functionerende onderdeel vervangen, moet u ziet een mislukte (rode) of gedegradeerd (geel) status voor het betreffende onderdeel in de **hardwarestatus**.
+> Voordat het apparaat wordt afgesloten, zorg ervoor dat alle apparaatonderdelen goed. Navigeer in de Azure-portal naar **apparaten** > **Monitor** > **Hardware health**, en controleer of de status van alle onderdelen van groen. Dit geldt alleen voor een goede systeem. Als het systeem wordt afgesloten omlaag naar een niet-functionerende onderdeel vervangen, moet u ziet een mislukte (rode) of gedegradeerd (geel) status voor het betreffende onderdeel in de **hardwarestatus**.
 > 
 > 
 
-Wanneer u de Windows PowerShell voor StorSimple of de klassieke Azure portal, volg de stappen in [een StorSimple-apparaat afsluiten](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Wanneer u de Windows PowerShell voor StorSimple of Azure portal, volg de stappen in [een StorSimple-apparaat afsluiten](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Apparaat met EBOD behuizing<a name="8600a">
 > [!IMPORTANT]

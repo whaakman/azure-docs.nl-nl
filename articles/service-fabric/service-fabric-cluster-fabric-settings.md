@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
-Dit document wordt beschreven hoe verschillende fabric-instellingen aanpassen en het bijwerken van beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
+Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
 
 > [!NOTE]
 > Niet alle instellingen zijn beschikbaar in de portal. Als een instelling hieronder vermelde niet beschikbaar via de portal aanpassen met behulp van een Azure Resource Manager-sjabloon.
@@ -52,14 +52,14 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ### <a name="section-name-diagnostics"></a>Sectienaam: diagnostische gegevens
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-| ConsumerInstances |Reeks | Dynamisch |De lijst van DCA consumer exemplaren. |
-| ProducerInstances |Reeks | Dynamisch |De lijst van DCA producent exemplaren. |
+| ConsumerInstances |Tekenreeks | Dynamisch |De lijst van DCA consumer exemplaren. |
+| ProducerInstances |Tekenreeks | Dynamisch |De lijst van DCA producent exemplaren. |
 | AppEtwTraceDeletionAgeInDays |Int, de standaardwaarde is 3 | Dynamisch |Aantal dagen waarna we oude ETL-bestanden met ETW toepassingstraceringen verwijderen. |
 | AppDiagnosticStoreAccessRequiresImpersonation |BOOL, de standaardwaarde is true | Dynamisch |Imitatie wel of niet is vereist wanneer toegang tot diagnostische voor de toepassing is opslaat. |
 | MaxDiskQuotaInMB |Int, de standaardwaarde is 65536 | Dynamisch |Schijfquota in MB voor Windows Fabric-logboekbestanden. |
 | DiskFullSafetySpaceInMB |Int, standaard is 1024 | Dynamisch |Resterende schijfruimte in MB te beschermen tegen door DCA worden gebruikt. |
 | ApplicationLogsFormatVersion |Int, de standaardwaarde is 0 | Dynamisch |Versie voor de toepassing Logboeken indeling. Ondersteunde waarden zijn 0 en 1. Versie 1 bevat meer velden uit de record ETW-gebeurtenis dan versie 0. |
-| ClusterId |Reeks | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
+| ClusterId |Tekenreeks | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
 | EnableTelemetry |BOOL, de standaardwaarde is true | Dynamisch |Dit zal in- of uitschakelen van telemetrie. |
 | EnableCircularTraceSession |BOOL, de standaardwaarde is ONWAAR | Statisch |Vlag geeft aan of cirkelvormige traceersessies moeten worden gebruikt. |
 
@@ -73,16 +73,16 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 | IsEnabled |BOOL, de standaardwaarde is true | Dynamisch |Vlag wordt aangegeven of het verzamelen van prestatiemeteritems op het lokale knooppunt is ingeschakeld. |
 | SamplingIntervalInSeconds |Int, de standaardwaarde is 60 | Dynamisch |Steekproefinterval voor prestatiemeteritems worden verzameld. |
-| Prestatiemeteritems |Reeks | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
+| Prestatiemeteritems |Tekenreeks | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
 | MaxCounterBinaryFileSizeInMB |Int, de standaardwaarde is 1 | Dynamisch |Maximale grootte (in MB) voor elk prestaties prestatiemeteritems binaire bestand. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, de standaardwaarde is 10 | Dynamisch |Maximale interval (in seconden) waarna een nieuw prestaties prestatiemeteritems binaire bestand is gemaakt. |
 
 ### <a name="section-name-setup"></a>Sectienaam: Setup
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-| FabricDataRoot |Reeks | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
-| FabricLogRoot |Reeks | Niet toegestaan |Hoofdmap voor service fabric-logboek. Dit is waar SF-logboeken en traceringen worden geplaatst. |
-| ServiceRunAsAccountName |Reeks | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
+| FabricDataRoot |Tekenreeks | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
+| FabricLogRoot |Tekenreeks | Niet toegestaan |Hoofdmap voor service fabric-logboek. Dit is waar SF-logboeken en traceringen worden geplaatst. |
+| ServiceRunAsAccountName |Tekenreeks | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
 | SkipFirewallConfiguration |BOOL, de standaardwaarde is ONWAAR | Niet toegestaan |Hiermee geeft u aan als firewall-instellingen worden ingesteld door het systeem moeten of niet. Dit geldt alleen als u windows firewall gebruikt. Als u firewalls van derden gebruikt, moet vervolgens u de poorten openen voor het systeem en -toepassingen gebruiken |
 |NodesToBeRemoved|tekenreeks, standaardwaarde is ""| Dynamisch |De knooppunten die moeten worden verwijderd als onderdeel van de upgrade van de configuratie. (Alleen voor zelfstandige implementaties)|
 |ContainerNetworkSetup|BOOL, standaard is ONWAAR| Statisch |Hiermee geeft u op of u voor het instellen van een container-netwerk.|
@@ -107,8 +107,8 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | CheckpointThresholdInMB |Int, de standaardwaarde is 50 |Statisch|Een controlepunt wordt gestart wanneer het logboek-Gebruik deze waarde overschrijdt. |
 | MaxAccumulatedBackupLogSizeInMB |Int, de standaardwaarde is 800 |Statisch|Maximale verzameld grootte (in MB) van de back-uplogboeken in een keten van de opgegeven back-uplogboek. Een incrementele back-aanvragen mislukken als de incrementele back-up een back-uplogboek waardoor de totale back-uplogboeken sinds de relevante volledige back-up niet groter zijn dan de grootte van deze genereert. Gebruiker is in dergelijke gevallen vereist voor een volledige back-up te maken. |
 | MaxWriteQueueDepthInKB |Int, de standaardwaarde is 0 |Niet toegestaan| Int voor maximum schrijven wachtrijdiepte die het logboek core zoals opgegeven in kilobytes kunt gebruiken voor het logboek dat is gekoppeld aan deze replica. Deze waarde is het maximum aantal bytes dat in behandeling tijdens het bijwerken van de core berichtenlogboek zijn kan. 0 zijn voor het logboek core berekenen een geschikte waarde of een meervoud van 4 kan zijn. |
-| SharedLogId |Reeks |Niet toegestaan|Gedeelde logboek-id. Dit is een guid en moet uniek zijn voor elke gedeelde logboek. |
-| SharedLogPath |Reeks |Niet toegestaan|Pad naar het gedeelde logboek. Het standaard gedeelde logboek wordt gebruikt als deze waarde leeg is. |
+| SharedLogId |Tekenreeks |Niet toegestaan|Gedeelde logboek-id. Dit is een guid en moet uniek zijn voor elke gedeelde logboek. |
+| SharedLogPath |Tekenreeks |Niet toegestaan|Pad naar het gedeelde logboek. Het standaard gedeelde logboek wordt gebruikt als deze waarde leeg is. |
 | SlowApiMonitoringDuration |Tijd in seconden, is standaard 300 |Statisch| Duur voor api opgeven voordat de waarschuwing health gebeurtenis wordt geactiveerd.|
 | MinLogSizeInMB |Int, de standaardwaarde is 0 |Statisch|De minimumgrootte van de transactionele logboek. Het logboek niet mag worden afgekapt tot een grootte dan deze instelling. 0 geeft aan dat de replicator de minimale logboekgrootte volgens andere instellingen bepaalt. Deze waarde verhoogt, wordt de mogelijkheid van de handeling gedeeltelijke kopie en incrementele back-ups sinds de kans op relevante logboekrecords worden afgekapt wordt verlaagd. |
 
@@ -678,7 +678,7 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 |GetCodePackageActivationContextTimeout|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Geef de interval in seconden. De time-outwaarde voor de CodePackageActivationContext aanroepen. Dit geldt niet voor ad-hoc-services. |
 |IPProviderEnabled|BOOL, standaard is ONWAAR|Statisch|Maakt beheer van IP-adressen. |
 |NTLMAuthenticationEnabled|BOOL, standaard is ONWAAR|Statisch| Hiermee wordt ondersteuning geboden voor het gebruik van NTLM door de code-pakketten die uitgevoerd als andere gebruikers worden zodat de processen over machines veilig kunnen communiceren. |
-|NTLMAuthenticationPasswordSecret|SecureString, de standaardwaarde is Common::SecureString(L"")|Statisch|Is een versleutelde hash die wordt gebruikt voor het genereren van het wachtwoord voor NTLM-gebruikers. Moet worden ingesteld als NTLMAuthenticationEnabled ingesteld op true is. Gevalideerd door de deployer. |
+|NTLMAuthenticationPasswordSecret|SecureString, de standaardwaarde is Common::SecureString(L"")|Statisch|Is dat een versleutelde heeft die wordt gebruikt voor het genereren van het wachtwoord voor NTLM-gebruikers. Moet worden ingesteld als NTLMAuthenticationEnabled ingesteld op true is. Gevalideerd door de deployer. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromMinutes(3)|Dynamisch|Geef de interval in seconden. Omgeving-specifieke instellingen voor de periodieke interval op welke Hosting scant op nieuwe certificaten worden gebruikt voor FileStoreService NTLM-configuratie. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, de standaardwaarde is Common::TimeSpan::FromMinutes(4)|Dynamisch| Geef de interval in seconden. De time-out voor het configureren van NTLM-gebruikers met behulp van de algemene naam van het certificaat. De NTLM-gebruikers zijn nodig voor FileStoreService shares. |
 |RegisterCodePackageHostTimeout|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Geef de interval in seconden. De time-outwaarde voor de aanroep van de synchronisatie FabricRegisterCodePackageHost. Dit geldt voor alleen meerdere code pakket toepassingshosts zoals FWP |
@@ -686,6 +686,7 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 |RunAsPolicyEnabled| BOOL, standaard is ONWAAR|Statisch| Hiermee kunt u code pakketten uitgevoerd als lokale gebruiker dan de gebruiker onder welke infrastructuur proces wordt uitgevoerd. Om in te schakelen van dit beleid moet als SYSTEEMACCOUNT of als de gebruiker die SeAssignPrimaryTokenPrivilege heeft Fabric worden uitgevoerd. |
 |ServiceFactoryRegistrationTimeout| TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Geef de interval in seconden. De time-outwaarde voor de synchronisatie registreren (Stateless/Stateful) ServiceFactory aanroep |
 |ServiceTypeDisableGraceInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Dynamisch|Geef de interval in seconden. Tijdsinterval waarna type van de service kan worden uitgeschakeld |
+|EnableDockerHealthCheckIntegration|BOOL, standaard is ingesteld op TRUE|Statisch|Hiermee is integratie mogelijk van docker-statuscontrole gebeurtenissen met de Service Fabric system statusrapport |
 
 ### <a name="section-name-federation"></a>Sectienaam: Federation
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
@@ -772,8 +773,8 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 |MaxPrimaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de wachtrij voor de primaire replicatie in bytes.|
 |MaxSecondaryReplicationQueueSize|uint, standaard is 2048|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de secundaire replicatiewachtrij. Houd er rekening mee dat deze een macht van 2 moet.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes.|
-|QueueHealthMonitoringInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Statisch|Geef de interval in seconden. Deze waarde bepaalt de periode die wordt gebruikt door de replicatie voor het bewaken van de waarschuwing/fout health-gebeurtenissen in de bewerking replicatiewachtrijen. De waarde '0' wordt uitgeschakeld statuscontrole. |
-|QueueHealthWarningAtUsagePercent|uint, standaard is 80|Statisch|Deze waarde bepaalt de replicatie wachtrij gebruik (in percentage) waarna er waarschuwing rapporteren over het gebruik van hoge wachtrij. We doen dit na een interval van de respijtperiode van QueueHealthMonitoringInterval. Als de wachtrij-gebruik lager is dan dit percentage in het interval respijtperiode de waarschuwing niet gerapporteerd.|
+|QueueHealthMonitoringInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Statisch|Geef de interval in seconden. Deze waarde bepaalt de periode die wordt gebruikt door de replicatie voor het bewaken van de waarschuwing/fout health-gebeurtenissen in de bewerking replicatiewachtrijen. De waarde '0' wordt uitgeschakeld statuscontrole |
+|QueueHealthWarningAtUsagePercent|uint, standaard is 80|Statisch|Deze waarde bepaalt de replicatie wachtrij gebruik (in percentage) waarna er waarschuwing rapporteren over het gebruik van hoge wachtrij. We doen dit na een interval van de respijtperiode van QueueHealthMonitoringInterval. Als de wachtrij-gebruik lager is dan dit percentage in het interval respijtperiode|
 |retryInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Statisch|Geef de interval in seconden. Wanneer een bewerking verloren is gegaan of afgewezen deze timer bepaalt hoe vaak de replicatie wordt opnieuw geprobeerd de bewerking uit te verzenden.|
 
 ### <a name="section-name-transport"></a>Sectienaam: Transport

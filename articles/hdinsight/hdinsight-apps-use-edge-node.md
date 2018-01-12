@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Hadoop-clusters in HDInsight gebruiken
 
@@ -64,7 +64,7 @@ De virtuele machinegrootte van het edge-knooppunt moet voldoen aan de vereiste g
 Nadat u een edge-knooppunt hebt gemaakt, kunt u verbinding maken met het edge-knooppunt met behulp van SSH en clienthulpprogramma's voor toegang tot het Hadoop-cluster in HDInsight worden uitgevoerd.
 
 > [!WARNING] 
-> Gebruik een lege edge-knooppunt met HDInsight is momenteel in preview. Aangepaste onderdelen die zijn geïnstalleerd op de edge-knooppunt ontvangt binnen commercieel redelijke ondersteuning van Microsoft. Dit kan leiden bij het oplossen van problemen die kunnen optreden. Of u kan worden verwezen naar community-bronnen voor verdere ondersteuning. Hier volgen enkele van de meest actieve sites voor het ophalen van de help van de community:
+> Aangepaste onderdelen die zijn geïnstalleerd op de edge-knooppunt ontvangt binnen commercieel redelijke ondersteuning van Microsoft. Dit kan leiden bij het oplossen van problemen die kunnen optreden. Of u kan worden verwezen naar community-bronnen voor verdere ondersteuning. Hier volgen enkele van de meest actieve sites voor het ophalen van de help van de community:
 >
 > * [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).

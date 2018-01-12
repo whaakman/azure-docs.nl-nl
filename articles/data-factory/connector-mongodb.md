@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ In het bijzonder ondersteunt deze MongoDB-connector:
 Om gegevens te kopiëren uit een MongoDB-database die niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie. De Runtime-integratie biedt een ingebouwde stuurprogramma's voor MongoDB, dus u hoeft niet te handmatig installeren van een stuurprogramma bij het kopiëren van gegevens van/naar MongoDB.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met MongoDB-connector.
 
@@ -176,13 +177,13 @@ Bij het kopiëren van gegevens van MongoDB, worden de volgende toewijzingen van 
 
 | MongoDB-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Binaire |Byte] |
-| Booleaanse waarde |Booleaanse waarde |
-| Date |Datum/tijd |
+| Binair bestand |Byte] |
+| Boole-waarde |Boole-waarde |
+| Date |Datum en tijd |
 | NumberDouble |dubbele |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| Object-id |Tekenreeks |
+| ObjectID |Tekenreeks |
 | Tekenreeks |Tekenreeks |
 | UUID |GUID |
 | Object |Renormalized plat in kolommen met '_' als geneste scheidingsteken |
@@ -205,17 +206,17 @@ Virtuele tabellen verwijzen naar de gegevens in de echte tabel, waardoor het stu
 
 Hier ExampleTable is bijvoorbeeld een MongoDB-tabel met één kolom met een matrix van objecten in elke cel – facturen en één kolom met een matrix van scalaire typen – classificaties.
 
-| _id | Naam van de klant | Facturen | Serviceniveau | De classificaties |
+| _id | Naam van de klant | Facturen | Servicelaag | De classificaties |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: '123' item: 'toaster', de prijs: '456' korting: "0,2"}, {invoice_id: '124' item: 'ingesteld', prijs: '1235' korting: "0,2"}] |Zilver |[5,6] |
-| 2222 |XYZ |[{invoice_id: item '135': 'koelkast', prijs: '12543' korting: "0,0"}] |Goud |[1,2] |
+| 2222 |XYZ |[{invoice_id: item '135': 'koelkast', prijs: '12543' korting: "0,0"}] |Goudkleurig |[1,2] |
 
 Het stuurprogramma genereert meerdere virtuele tabellen te deze één tabel vertegenwoordigen. De eerste virtuele tabel is de basistabel met de naam 'ExampleTable', weergegeven in het voorbeeld. De basistabel bevat alle gegevens van de oorspronkelijke tabel, maar de gegevens van de matrices is weggelaten en in de virtuele tabellen is uitgevouwen.
 
-| _id | Naam van de klant | Serviceniveau |
+| _id | Naam van de klant | Servicelaag |
 | --- | --- | --- |
 | 1111 |ABC |Zilver |
-| 2222 |XYZ |Goud |
+| 2222 |XYZ |Goudkleurig |
 
 De volgende tabellen tonen de virtuele tabellen waarbij de oorspronkelijke matrices in het voorbeeld. Deze tabellen bevatten het volgende:
 

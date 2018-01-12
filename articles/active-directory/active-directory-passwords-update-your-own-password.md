@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk of school-wachtwoord opnieuw instellen
 
@@ -122,7 +122,7 @@ Nu moet u toegang tot uw account. Als dit niet het geval is, neem dan contact op
 
 | Foutaanvraag| Welke fout ziet u?| Oplossing |
 | --- | --- | --- |
-| Er wordt een foutbericht wanneer ik wil mijn wachtwoord wijzigen. | Helaas bevat uw wachtwoord een woord, woordgroep of patroon waardoor uw wachtwoord gemakkelijk te raden. Probeer het opnieuw met een ander wachtwoord. | Kies een wachtwoord dat is meer difficlt te achterhalen. |
+| Er wordt een foutbericht wanneer ik wil mijn wachtwoord wijzigen. | Helaas bevat uw wachtwoord een woord, woordgroep of patroon waardoor uw wachtwoord gemakkelijk te raden. Probeer het opnieuw met een ander wachtwoord. | Kies een wachtwoord dat is moeilijker te raden. |
 | Een pagina 'Neem contact op met uw beheerder' verschijnt na het invoeren van mijn gebruikers-ID | Neem contact op met uw beheerder. <br> <br> We hebben vastgesteld dat het wachtwoord voor uw gebruikersaccount niet wordt beheerd door Microsoft. Als gevolg hiervan zijn er niet automatisch opnieuw instellen van uw wachtwoord. <br> <br> Zo moet u contact op met uw IT-personeel voor verdere ondersteuning. | U ziet dit bericht omdat uw IT-personeel beheert uw wachtwoord in uw on-premises omgeving. U kunt het wachtwoord van de koppeling 'Geen toegang tot uw account' kan niet opnieuw instellen. <br> <br> Om uw wachtwoord opnieuw instellen, rechtstreeks voor hulp contact op met uw IT-personeel en laat ze weten dat u wilt uw wachtwoord opnieuw instellen zodat ze voor u deze functie kunnen inschakelen.|
 | Wordt een foutbericht 'uw account is niet ingeschakeld voor wachtwoordherstel' na het invoeren van mijn gebruikers-ID | Uw account is niet ingeschakeld voor wachtwoordherstel. <br> <br> We vinden het jammer, maar uw IT-personeel is niet ingesteld uw account voor het gebruik van deze service. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat uw IT-personeel niet ingeschakeld voor wachtwoordherstel voor uw organisatie van de koppeling 'Geen toegang tot uw account', of u de functie is niet een licentie. <br> <br> Om uw wachtwoord opnieuw instelt, selecteert u de 'contact op met de koppeling van een beheerder' een e-mailbericht verzenden naar uw bedrijf laten weten u wilt uw wachtwoord opnieuw instellen zodat ze voor u deze functie kunnen inschakelen en van IT-personeel. |
 | Wordt een foutbericht ' We kunnen uw account niet verifiëren' na het invoeren van mijn gebruikers-ID | We kunnen uw account niet verifiëren. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat u bent ingeschakeld voor wachtwoordherstel, maar u nog niet geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, gaat u naar http://aka.ms/ssprsetup wanneer u toegang tot je account hebt hersteld. <br> <br> Als u wilt uw wachtwoord opnieuw instelt, selecteert u de koppeling 'contact op met de beheerder' een e-mailbericht verzenden naar uw bedrijf IT-personeel. |
@@ -141,4 +141,3 @@ Nu moet u toegang tot uw account. Als dit niet het geval is, neem dan contact op
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 vallen auteurs Update scherm opnieuw instellen van wachtwoord aanmeldingskoppeling"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Uw authenticatiegegevens controleren"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Uw wachtwoord wijzigen"
-

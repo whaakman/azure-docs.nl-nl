@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Het pakket en containers implementeren als een Service Fabric-toepassing
 
@@ -65,10 +65,11 @@ Service fabric bevat steigers hulpmiddelen voor het maken van toepassingen van d
     ```bash
     yo azuresfcontainer
     ```
-2. Naam van uw toepassing 'TestContainer' en naam van de toepassing service 'azurevotefront'.
-3. Geef het pad van de container-installatiekopie in ACR voor de frontend-repo - bijvoorbeeld test.azurecr.io/azure-vote-front:v1. 
-4. Druk op Enter om te laten de opdrachten sectie leeg.
-5. Geef een aantal exemplaren van 1.
+2. Typ 'TestContainer' als naam voor uw toepassing
+3. Typ 'azurevotefront' als naam voor uw toepassingsservice.
+4. Geef op het pad van de container-installatiekopie in ACR voor de opslagplaats frontend - bijvoorbeeld '\<acrName >.azurecr.io / azure-stem-voorzijde: v1'. De \<acrName > veld moet gelijk zijn aan de waarde die is gebruikt in de vorige zelfstudie.
+5. Druk op Enter om te laten de opdrachten sectie leeg.
+6. Geef een aantal exemplaren van 1.
 
 Hieronder vindt u de invoer en uitvoer van het uitvoeren de yo opdracht:
 
@@ -86,12 +87,12 @@ Hieronder vindt u de invoer en uitvoer van het uitvoeren de yo opdracht:
    create TestContainer/uninstall.sh
 ```
 
-Voer de volgende stappen uit als u nog een containerservice wilt toevoegen aan een toepassing die al is gemaakt met yeoman:
+Als een andere containerservice toevoegen aan een toepassing die al is gemaakt met behulp van Yeoman, moet u de volgende stappen uitvoeren:
 
-1. Map wijzigen naar de **TestContainer** directory
+1. Eén niveau van de directory te wijzigen de **TestContainer** directory, bijvoorbeeld *. / TestContainer*
 2. Voer `yo azuresfcontainer:AddService` uit. 
 3. Naam van de service azurevoteback
-4. Geef het pad van de container-installatiekopie in ACR voor de back-end-repo - bijvoorbeeld test.azurecr.io/azure-vote-back:v1
+4. Geef het pad van de container-installatiekopie voor Redis - ' alpine: redis'
 5. Druk op Enter om te laten de opdrachten sectie leeg
 6. Geef '1' exemplaar op.
 
@@ -99,7 +100,7 @@ De vermeldingen voor het toevoegen van de service die gebruikt worden alle weerg
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
+? Input the Image Name: alpine:redis
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -107,13 +108,16 @@ De vermeldingen voor het toevoegen van de service die gebruikt worden alle weerg
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Voor de rest van deze zelfstudie we werken de **TestContainer** directory.
+Voor de rest van deze zelfstudie we werken de **TestContainer** directory. Bijvoorbeeld: *./TestContainer/TestContainer*. De inhoud van deze map moet als volgt.
+```bash
+$ ls
+ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
+```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Het toepassingsmanifest met referenties voor Azure Container register configureren
 Service Fabric voor het ophalen van de installatiekopieën van de container in Azure Container register, moet de referenties in de **ApplicationManifest.xml**. 
 
-
-Aanmelden bij uw ACR-exemplaar. Gebruik de [az acr aanmelding](/cli/azure/acr#az_acr_login) opdracht om de bewerking te voltooien. Geef de unieke naam krijgen tot het register van de container wanneer deze is gemaakt.
+Aanmelden bij uw ACR-exemplaar. Gebruik de **az acr aanmelding** opdracht om de bewerking te voltooien. Geef de unieke naam krijgen tot het register van de container wanneer deze is gemaakt.
 
 ```bash
 az acr login --name <acrName>
@@ -127,7 +131,7 @@ Voer vervolgens de volgende opdracht om op te halen van het wachtwoord van het r
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-In de **ApplicationManifest.xml**, Voeg het volgende codefragment onder de **ServiceManifestImport** element voor elk van de services. Voeg uw **acrName** voor de **AccountName** veld en het wachtwoord dat wordt geretourneerd door de vorige opdracht wordt gebruikt voor de **wachtwoord** veld. Een volledige **ApplicationManifest.xml** aan het einde van dit document wordt geleverd. 
+In de **ApplicationManifest.xml**, Voeg het volgende codefragment onder de **ServiceManifestImport** element voor de front-end-service. Voeg uw **acrName** voor de **AccountName** veld en het wachtwoord dat wordt geretourneerd door de vorige opdracht wordt gebruikt voor de **wachtwoord** veld. Een volledige **ApplicationManifest.xml** aan het einde van dit document wordt geleverd. 
 
 ```xml
 <Policies>
@@ -140,7 +144,7 @@ In de **ApplicationManifest.xml**, Voeg het volgende codefragment onder de **Ser
 
 ### <a name="configure-communication-port"></a>Communicatiepoort configureren
 
-Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren.  Open de *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* bestands- en declareert een endpoint-bron in de **ServiceManifest** element.  Voeg het protocol, de poort en de naam toe. Voor deze zelfstudie wordt de service luistert op poort 80. 
+Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren. Open de *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* bestands- en declareert een endpoint-bron in de **ServiceManifest** element.  Voeg het protocol, de poort en de naam toe. Voor deze zelfstudie wordt de service luistert op poort 80. Het volgende fragment wordt geplaatst in de *ServiceManifest* tag op in de resource.
   
 ```xml
 <Resources>
@@ -154,21 +158,21 @@ Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren.
 
 ```
   
-Op dezelfde manier wijzigen Service Manifest voor de back-endservice. Voor deze zelfstudie wordt de standaardwaarde redis van 6379 bijgehouden.
+Op dezelfde manier wijzigen Service Manifest voor de back-endservice. Open de *./TestContainer/azurevotebackPkg/ServiceManifest.xml* en declareert een endpoint-bron in de **ServiceManifest** element. Voor deze zelfstudie wordt de standaardwaarde redis van 6379 bijgehouden. Het volgende fragment wordt geplaatst in de *ServiceManifest* tag op in de resource.
+
 ```xml
 <Resources>
   <Endpoints>
     <!-- This endpoint is used by the communication listener to obtain the port on which to 
             listen. Please note that if your service is partitioned, this port is shared with 
             replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+    <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
   </Endpoints>
 </Resources>
 ```
 Geven de **UriScheme**automatisch wordt geregistreerd, het eindpunt van de container met de naamgeving van Service Fabric-service voor detectie. Een volledige ServiceManifest.xml voorbeeld-bestand voor de back-endservice is verstrekt aan het einde van dit artikel als voorbeeld. 
 
 ### <a name="map-container-ports-to-a-service"></a>Container poorten toewijzen aan een service
-    
 Als u wilt weergeven van de containers in het cluster, moeten we ook maakt u een poortbinding in de 'ApplicationManifest.xml'. De **PortBinding** beleid verwijst naar de **eindpunten** is gedefinieerd in de **ServiceManifest.xml** bestanden. Binnenkomende aanvragen naar deze eindpunten toegewezen aan de container-poorten die worden geopend en wordt begrensd hier. In de **ApplicationManifest.xml** bestand, voeg de volgende code om poort 80 en 6379 binden aan de eindpunten. Een volledige **ApplicationManifest.xml** is beschikbaar op het einde van dit document. 
   
 ```xml
@@ -195,13 +199,13 @@ Voor Service Fabric deze DNS-naam toewijzen aan de back-endservice, de naam moet
 </Service>
 ```
 
-De frontend-service leest een omgevingsvariabele als u wilt weten van de DNS-naam van het Redis-exemplaar. De omgevingsvariabele is gedefinieerd in de Dockerfile, zoals wordt weergegeven:
+De frontend-service leest een omgevingsvariabele als u wilt weten van de DNS-naam van het Redis-exemplaar. Deze omgevingsvariabele is al gedefinieerd in de Dockerfile dat is gebruikt voor het genereren van de installatiekopie van het Docker en er is geen actie moet worden ondernomen hier.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-Het python-script dat samenstelt front end gebruikt deze DNS-naam oplossen en verbinding maken met de back-end redis store, zoals wordt weergegeven:
+Het volgende codefragment ziet u hoe de front-Python-code de omgevingsvariabele beschreven in de Dockerfile opneemt. Er is geen actie moet worden ondernomen hier. 
 
 ```python
 # Get DNS Name
@@ -218,15 +222,15 @@ Gebruik uw eigen cluster of een cluster van derden om de toepassing te implement
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Deze wordt beheerd door het Service Fabric-team waar iedereen toepassingen implementeren en meer informatie over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
-Zie voor meer informatie over het maken van uw eigen cluster [Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Bouw en implementeer de toepassing aan het cluster
 De Azure-cluster met behulp van de Service Fabric-CLI kunt u de toepassing implementeren. Als Service Fabric CLI op uw computer niet is geïnstalleerd, voert u de instructies [hier](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) om deze te installeren. 
 
-Maak verbinding met het Service Fabric-cluster in Azure.
+Maak verbinding met het Service Fabric-cluster in Azure. Het eindpunt van de tijdelijke aanduiding vervangt door uw eigen. Het eindpunt moet een volledige lijkt op de onderstaande URL.
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:19080
+sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
 ```
 
 Gebruik het script voor installatie is opgegeven in de **TestContainer** directory voor het kopiëren van het toepassingspakket naar het archief van de installatiekopie van het cluster, het toepassingstype registreren en geen exemplaar maken van de toepassing.
@@ -269,7 +273,6 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
       <Policies> 
         <ContainerHostPolicies CodePackageRef="Code">
-          <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
       </Policies>
@@ -303,7 +306,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>acrName.azurecr.io/azure-vote-front:v1</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -316,7 +319,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="8080" Protocol="http"/>
+      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     </Endpoints>
   </Resources>
 
@@ -337,7 +340,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-back:v1</ImageName>
+            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -349,7 +352,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+      <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
     </Endpoints>
   </Resources>
  </ServiceManifest>

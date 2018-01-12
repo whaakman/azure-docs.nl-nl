@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Werken met de .NET-back-endserver-SDK voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ U kunt verificatie toevoegen aan uw serverproject door het uitbreiden van de **M
 Zie voor meer informatie over het verifiëren van clients in uw back-end van Mobile Apps, [verificatie toevoegen aan uw app](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Procedure: aangepaste verificatie voor uw toepassing gebruiken
+> [!IMPORTANT]
+> Om aangepaste verificatie inschakelt, moet u eerst een App Service-verificatie inschakelen zonder het selecteren van een serviceprovider voor uw App-Service in de Azure portal. Hiermee schakelt u de omgevingsvariabele WEBSITE_AUTH_SIGNING_KEY wanneer deze wordt gehost.
+> 
+> 
 Als u niet gebruiken een van de App Service-verificatie/autorisatie-providers wilt, kunt u uw eigen systeem aanmelding te implementeren. Installeer de [Microsoft.Azure.Mobile.Server.Login] pakket om u te helpen bij het genereren van de verificatie-tokens.  Geef uw eigen code voor het valideren van gebruikersreferenties. U kunt bijvoorbeeld controleren tegen gezouten en hash-wachtwoorden in een database. In het onderstaande voorbeeld de `isValidAssertion()` methode (elders gedefinieerd) is verantwoordelijk voor deze controles.
 
 De aangepaste verificatie wordt blootgelegd door een ApiController maken en blootstellen `register` en `login` acties. De client moet een aangepaste gebruikersinterface gebruiken voor het verzamelen van de informatie van de gebruiker.  De informatie wordt vervolgens verzonden naar de API met een standaard HTTP POST-aanroep. Zodra de verklaring worden geverifieerd door de server een token is verleend met behulp van de `AppServiceLoginHandler.CreateToken()` methode.  De ApiController **beter niet** gebruiken de `[MobileAppController]` kenmerk.

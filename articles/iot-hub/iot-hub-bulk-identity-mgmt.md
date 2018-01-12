@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Beheren van uw IoT Hub apparaat-id's in bulk
 
@@ -27,6 +27,8 @@ Elke IoT-hub heeft een id-register die kunt u per apparaat om resources te maken
 Importeren en exporteren bewerkingen plaatsvinden in de context van *taken* waarmee u kunt het uitvoeren van de service bulkbewerkingen tegen een IoT-hub.
 
 De **RegistryManager** klasse bevat de **ExportDevicesAsync** en **ImportDevicesAsync** methoden die gebruikmaken van de **taak** framework. Deze methoden kunnen u exporteren, importeren en synchroniseren van het geheel van een id-register van IoT hub.
+
+In dit onderwerp beschrijft het gebruik van de **RegistryManager** klasse en **taak** system bulkimport en uitvoer van apparaten en naar een IoT-hub identiteitsregister uit te voeren. U kunt ook de Azure IoT Hub apparaat inrichtingsservice gebruiken om in te schakelen zonder tussenkomst, just-in-time inrichten van een of meer IoT hubs zonder menselijke tussenkomst. Zie voor meer informatie, de [documentatie service inrichten][lnk-dps].
 
 ## <a name="what-are-jobs"></a>Wat zijn taken?
 
@@ -405,10 +407,16 @@ In dit artikel hebt u geleerd hoe u andere bulkbewerkingen tegen de register-id'
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
+
+Als u wilt verkennen met behulp van de IoT Hub apparaat inrichtingsservice om in te schakelen zonder tussenkomst, Zie just-in-time-inrichting: 
+
+* [Azure IoT Hub apparaat-Service inricht][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

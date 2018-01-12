@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Gegevens kopiëren van Teradata met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Voor het gebruik van deze Teradata-connector, moet u:
 - Installeer de [.NET-gegevensprovider voor Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versie 14 of hoger op de machine integratie Runtime.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Teradata-connector.
 
@@ -171,7 +172,7 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | ByteInt |Int16 |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
-| Date |Datum/tijd |
+| Date |Datum en tijd |
 | Decimale |Decimale |
 | dubbele |dubbele |
 | Afbeelding |Tekenreeks |
@@ -198,7 +199,7 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Tijd met de tijdzone |Tekenreeks |
-| tijdstempel |Datum/tijd |
+| Timestamp |Datum en tijd |
 | Tijdstempel met tijdzone |DateTimeOffset |
 | VarByte |Byte] |
 | VarChar |Tekenreeks |

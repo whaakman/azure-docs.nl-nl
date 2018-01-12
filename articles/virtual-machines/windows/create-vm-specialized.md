@@ -4,7 +4,7 @@ description: Maak een nieuwe Windows VM door het koppelen van een gespecialiseer
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -13,23 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 39cbd30102813a4502cd25811589d04a9adb0aa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk"></a>Een virtuele Windows-machine maken van een gespecialiseerde schijf
+# <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Een Windows-virtuele machine maken vanaf een speciale schijf met behulp van PowerShell
 
-Maak een nieuwe virtuele machine door het koppelen van een gespecialiseerde beheerde schijf als de OS-schijf met behulp van Powershell. Een speciale schijf is een kopie van de virtuele harde schijf (VHD) van een bestaande virtuele machine die de gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM onderhoudt. 
+Maak een nieuwe virtuele machine door het koppelen van een gespecialiseerde beheerde schijf als de besturingssysteemschijf. Een speciale schijf is een kopie van de virtuele harde schijf (VHD) van een bestaande virtuele machine die de gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM onderhoudt. 
 
 Wanneer u een nieuwe virtuele machine maken met een gespecialiseerde VHD, behoudt de nieuwe virtuele machine de naam van de computer van de oorspronkelijke virtuele machine. Andere computer-specifieke informatie wordt ook opgeslagen en in sommige gevallen kan deze dubbele gegevens problemen kan veroorzaken. Zich bewust zijn van welke typen computerspecifieke informatie uw toepassingen afhankelijk zijn van bij het kopiëren van een virtuele machine.
 
-U hebt hiervoor twee opties:
-* [Een VHD uploaden](#option-1-upload-a-specialized-vhd)
-* [Kopiëren van een bestaande virtuele machine in Azure](#option-2-copy-an-existing-azure-vm)
+U hebt verschillende mogelijkheden:
+* [Gebruik een bestaande beheerde schijf](#option-1-use-an-existing-disk). Dit is handig als u hebt een virtuele machine die niet goed werkt. U kunt de VM opnieuw gebruiken de beheerde schijf te maken van een nieuwe virtuele machine verwijderen. 
+* [Een VHD uploaden](#option-2-upload-a-specialized-vhd) 
+* [Kopiëren van een bestaande virtuele machine van Azure met momentopnamen](#option-3-copy-an-existing-azure-vm)
+
+U kunt ook de Azure portal om te gebruiken [maken van een nieuwe virtuele machine vanaf een speciale VHD](create-vm-specialized-portal.md).
 
 Dit onderwerp leest u hoe u beheerde schijven te gebruiken. Als u een verouderde implementatie hebt waarvoor een opslagaccount gebruikt, Zie [een virtuele machine vanaf een speciale VHD in een opslagaccount maken](sa-create-vm-specialized.md)
 
@@ -41,8 +44,20 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Zie voor meer informatie [Azure PowerShell Versioning](/powershell/azure/overview).
 
+## <a name="option-1-use-an-existing-disk"></a>Optie 1: Een bestaande schijf gebruiken
 
-## <a name="option-1-upload-a-specialized-vhd"></a>Optie 1: Een gespecialiseerde VHD uploaden
+Als u had een virtuele machine die u hebt verwijderd en u gebruiken als de OS-schijf wilt naar een nieuwe virtuele machine maken, gebruikt u [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
+
+```powershell
+$resourceGroupName = 'myResourceGroup'
+$osDiskName = 'myOsDisk'
+$osDisk = Get-AzureRmDisk `
+-ResourceGroupName $resourceGroupName `
+-DiskName $osDiskName
+```
+Nu kunt u deze schijf koppelen als de besturingssysteemschijf voor een [nieuwe virtuele machine](#create-the-new-vm).
+
+## <a name="option-2-upload-a-specialized-vhd"></a>Optie 2: Een gespecialiseerde VHD uploaden
 
 U kunt de VHD van een speciale virtuele machine gemaakt met een lokale virtualisatie hulpprogramma, zoals Hyper-V of een virtuele machine die zijn geëxporteerd uit een andere cloud uploaden.
 
@@ -76,14 +91,20 @@ Als u wilt maken van een opslagaccount, als volgt te werk:
     Maken van een resourcegroep met de naam *myResourceGroup* in de *VS-West* regio, type:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup `
+       -Name myResourceGroup `
+       -Location "West US"
     ```
 
 2. Maken van een opslagaccount met de naam *mystorageaccount* in deze resourcegroep met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
-        -SkuName "Standard_LRS" -Kind "Storage"
+    New-AzureRmStorageAccount `
+       -ResourceGroupName myResourceGroup `
+       -Name mystorageaccount `
+       -Location "West US" `
+       -SkuName "Standard_LRS" `
+       -Kind "Storage"
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>De VHD te uploaden naar uw opslagaccount 
@@ -92,8 +113,9 @@ Gebruik de [toevoegen AzureRmVhd](/powershell/module/azurerm.compute/add-azurerm
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName -Destination $urlOfUploadedVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+   -Destination $urlOfUploadedVhd `
+   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
 
@@ -121,7 +143,8 @@ Een nieuwe resourcegroep maken voor de nieuwe virtuele machine.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 Nieuwe schijf met het besturingssysteem van de geüploade VHD maken. 
@@ -130,12 +153,13 @@ Nieuwe schijf met het besturingssysteem van de geüploade VHD maken.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
+    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-2-copy-an-existing-azure-vm"></a>Optie 2: Een bestaande virtuele machine van Azure kopiëren
+## <a name="option-3-copy-an-existing-azure-vm"></a>Optie 3: Een bestaande virtuele machine van Azure kopiëren
 
 U kunt een kopie van een virtuele machine dat maakt gebruik van schijven die worden beheerd door het maken van een momentopname van de virtuele machine en vervolgens met die momentopname maken van een nieuwe schijf- en een nieuwe virtuele machine beheerde maken.
 
@@ -156,24 +180,33 @@ $snapshotName = 'mySnapshot'
 Haal het VM-object.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+$vm = Get-AzureRmVM -Name $vmName `
+   -ResourceGroupName $resourceGroupName
 ```
 Haal de naam van de OS-schijf.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.StorageProfile.OsDisk.Name
+$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+   -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 De configuratie van de momentopname maken. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
+$snapshotConfig =  New-AzureRmSnapshotConfig `
+   -SourceUri $disk.Id `
+   -OsType Windows `
+   -CreateOption Copy `
+   -Location $location 
 ```
 
 De momentopname.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
+$snapShot = New-AzureRmSnapshot `
+   -Snapshot $snapshotConfig `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName
 ```
 
 
@@ -187,7 +220,8 @@ Een nieuwe resourcegroep maken voor de nieuwe virtuele machine.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 De naam Besturingssysteemschijf ingesteld. 
@@ -218,15 +252,20 @@ Het subNet maken. In dit voorbeeld wordt een subnet met de naam **mySubNet**, in
    
 ```powershell
 $subnetName = 'mySubNet'
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+   -Name $subnetName `
+   -AddressPrefix 10.0.0.0/24
 ```
 
 Het vNet maken. Dit voorbeeld wordt de naam van het virtuele netwerk moet **myVnetName**, de locatie voor het **VS-West**, en het adresvoorvoegsel voor het virtuele netwerk naar **10.0.0.0/16**. 
    
 ```powershell
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinationResourceGroup -Location $location `
-    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+$vnet = New-AzureRmVirtualNetwork `
+   -Name $vnetName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -AddressPrefix 10.0.0.0/16 `
+   -Subnet $singleSubnet
 ```    
 
 
@@ -242,8 +281,10 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGroup -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
+$nsg = New-AzureRmNetworkSecurityGroup `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -Name $nsgName -SecurityRules $rdpRule
     
 ```
 
@@ -256,7 +297,9 @@ Het openbare IP-adres maken. In dit voorbeeld wordt de openbare naam van de IP-a
    
 ```powershell
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
+$pip = New-AzureRmPublicIpAddress `
+   -Name $ipName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
    -AllocationMethod Dynamic
 ```       
 
@@ -264,8 +307,11 @@ Maken van de NIC. In dit voorbeeld wordt de naam van de NIC is ingesteld op **my
    
 ```powershell
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface -Name $nicName `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location -SubnetId $vnet.Subnets[0].Id `
+   -PublicIpAddressId $pip.Id `
+   -NetworkSecurityGroupId $nsg.Id
 ```
 
 

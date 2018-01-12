@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie configureren voor Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP-/ S implementatie](app-service-deploy-ftp.md). Deze zijn niet hetzelfde zijn als uw Azure Active Directory-referenties.
@@ -55,7 +55,7 @@ Als u de referenties voor uw implementatie hebt ingesteld, kunt u vinden de *Git
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-en en *FTP* gebruikersnaam van de implementatie in uw app **eigenschappen**.
+en *FTP* gebruikersnaam van de implementatie in uw app **eigenschappen**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 

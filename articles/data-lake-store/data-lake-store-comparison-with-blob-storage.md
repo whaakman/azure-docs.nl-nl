@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8881d28e1625664d0a124057821192aabfe1180b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Store en Azure Blob-opslag
 De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data Lake Store en Azure Blob Storage langs een aantal belangrijke aspecten van big data-verwerking. Azure Blob Storage is een algemeen, schaalbare object store, die is ontworpen voor een groot aantal scenario's voor opslag. Azure Data Lake Store is een verwerkingsservice voor grote hoeveelheden-opslagplaats die is geoptimaliseerd voor big data-analyses werkbelastingen.

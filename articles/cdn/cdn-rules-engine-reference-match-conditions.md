@@ -1,6 +1,6 @@
 ---
-title: Voldoen aan bepaalde voorwaarden voor de engine voor het Content Delivery Network regels | Microsoft Docs
-description: Documentatie bij Azure Content Delivery Network regels overeen motor en onderdelen.
+title: Voldoen aan bepaalde voorwaarden voor de engine van Azure CDN regels | Microsoft Docs
+description: Documentatie bij Azure Content Delivery Network regels motor overeen.
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>Voldoen aan bepaalde voorwaarden voor de Content Delivery Network regels-engine
-Dit artikel vindt u gedetailleerde beschrijvingen van de voorwaarden van de overeenkomst beschikbaar voor het Azure Content Delivery Network [regelengine](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Voldoen aan bepaalde voorwaarden voor de regels-engine van Azure CDN
+Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare overeenkomst voorwaarden voor het Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
 
 Het tweede gedeelte van een regel wordt de voorwaarde van de overeenkomst. De voorwaarde van een overeenkomst identificeert specifieke typen aanvragen waarvoor een reeks functies worden uitgevoerd.
 
@@ -106,7 +106,7 @@ URL-Query jokertekens | De opgegeven waarde op basis van de queryreeks van de aa
 
 De voorwaarde van de overeenkomst altijd geldt een aantal functies voor alle aanvragen.
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -125,7 +125,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -141,7 +141,7 @@ Belangrijke informatie:
  - Het toegangspunt inhoud de service identificeert die de gevraagde inhoud fungeren moet.
  - Gebruik een instructie en als niet aan bepaalde voorwaarden overeen combineren. Een voorwaarde CDN oorsprong overeen met de voorwaarde van een klant oorsprong overeen combineren zou bijvoorbeeld een patroon overeen die nooit overeen maken. Om deze reden kunnen niet twee CDN oorsprong overeenkomst voorwaarden via een instructie en als worden gecombineerd.
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -164,7 +164,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -193,7 +193,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -222,7 +222,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -243,7 +243,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -257,7 +257,7 @@ Belangrijke informatie:
   - Een edge CNAME-configuratie
 - Gebruik een instructie en als niet aan bepaalde voorwaarden overeen combineren. Een voorwaarde klant oorsprong overeen met de voorwaarde van een oorsprong CDN overeen combineren zou bijvoorbeeld een patroon overeen die nooit overeen maken. Om deze reden kunnen niet via een instructie en als worden gecombineerd met twee voorwaarden van de oorsprong van de klant overeen.
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -292,7 +292,7 @@ Releasedatum | % {wurfl_cap_release_date} | Een tekenreeks die het jaar en maand
 Hoogte van de oplossing | % {wurfl_cap_resolution_height} | Een geheel getal dat van het apparaat hoogte in pixels aangeeft. | 768
 Breedte van de oplossing | % {wurfl_cap_resolution_width} | Een geheel getal dat aangeeft het apparaat de breedte in pixels dat. | 1024
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -309,7 +309,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -329,7 +329,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -350,7 +350,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -377,7 +377,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd 
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -405,7 +405,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -430,7 +430,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -446,7 +446,7 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
-[Terug naar boven](#azure-cdn-rules-engine-match-conditions)
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

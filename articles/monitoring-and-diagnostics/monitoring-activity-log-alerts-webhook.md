@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor Azure activiteit logboek waarschuwingen
 Als onderdeel van de definitie van een actiegroep, kunt u de webhook-eindpunten voor het ontvangen van meldingen van waarschuwingen activiteit logboek configureren. Met webhooks, kunt u deze meldingen met andere systemen voor na verwerking of aangepaste acties te routeren. Dit artikel laat zien hoe de nettolading voor de HTTP POST naar een webhook eruit ziet.
@@ -145,16 +145,16 @@ Zie voor meer informatie voor een specifiek schema bij alle waarschuwingen van a
 | resourceId |Bron-ID van de betrokken resource. |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource. |
 | properties |Een set `<Key, Value>` paren (dat wil zeggen, `Dictionary<String, String>`) die bevat details over de gebeurtenis. |
-| Gebeurtenis |Element met metagegevens over de gebeurtenis. |
+| gebeurtenis |Element met metagegevens over de gebeurtenis. |
 | Autorisatie |De eigenschappen van de gebeurtenis die toegangsbeheer op basis van rollen. Deze eigenschappen zijn meestal de actie, de rol en het bereik. |
 | category |De categorie van de gebeurtenis. Ondersteunde waarden zijn Administrative, waarschuwing, beveiliging, ServiceHealth en aanbeveling. |
-| aanroeper |E-mailadres van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen zijn. |
+| oproepende functie |E-mailadres van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen zijn. |
 | correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
 | eventDescription |De beschrijving van de statische tekst van de gebeurtenis. |
 | eventDataId |De unieke id voor de gebeurtenis. |
 | EventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
 | httpRequest |De aanvraag bevat meestal de clientRequestId, clientIpAddress en HTTP-methode (bijvoorbeeld plaatsen). |
-| niveau |Een van de volgende waarden: kritiek, fout, waarschuwing, informatief van aard en uitgebreid. |
+| niveau |Een van de volgende waarden: kritiek, fout, waarschuwing en ter informatie. |
 | operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |
 | operationName |De naam van de bewerking. |
 | properties |Eigenschappen van de gebeurtenis. |

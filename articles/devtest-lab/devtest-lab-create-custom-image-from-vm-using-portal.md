@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/09/2018
 ms.author: v-craic
-ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dc315bcc625ea98244bb5804ce6ff1c13d0ec7b1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Een aangepaste installatiekopie van een virtuele machine maken
 
@@ -30,25 +30,30 @@ U kunt een aangepaste installatiekopie maken van een ingerichte virtuele machine
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
+1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 
 1. Selecteer de gewenste testomgeving uit de lijst van labs.  
 
-1. Selecteer op de labblade **mijn virtuele machines**.
+1. Selecteer in het lab hoofdvenster **mijn virtuele machines**.
  
-1. Op de **mijn virtuele machines** blade, selecteert u de virtuele machine van waaruit u wilt maken van de aangepaste installatiekopie.
+1. Op de **mijn virtuele machines** deelvenster, selecteert u de virtuele machine van waaruit u wilt maken van de aangepaste installatiekopie.
 
-1. Selecteer op de VM-blade **maken aangepaste installatiekopie (VHD)**.
+1. Selecteer op de VM management deelvenster **maken aangepaste installatiekopie (VHD)**.
 
     ![Afbeelding van aangepaste menu-item maken](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Op de **afbeelding maken** blade een naam en beschrijving voor de aangepaste installatiekopie opgeven. Deze informatie wordt weergegeven in de lijst met databases wanneer u een virtuele machine maken.
+1. Op de **aangepaste installatiekopie** deelvenster, voer een naam en beschrijving voor de aangepaste installatiekopie. Deze informatie wordt weergegeven in de lijst met databases wanneer u een virtuele machine maken.
 
-    ![Blade voor aangepaste installatiekopie maken](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Deelvenster van de aangepaste installatiekopie maken](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Geef op of sysprep is uitgevoerd op de virtuele machine. Als de sysprep is niet uitgevoerd op de virtuele machine, moet u opgeven of u wilt dat sysprep uitgevoerd wanneer een virtuele machine wordt gemaakt van deze aangepaste installatiekopie.
 
 1. Selecteer **OK** wanneer u klaar bent met het maken van de aangepaste installatiekopie.
+
+Na een paar minuten de aangepaste installatiekopie wordt gemaakt en wordt opgeslagen in het lab-opslagaccount. Wanneer een lab-gebruiker wil een nieuwe virtuele machine maken, is de installatiekopie beschikbaar in de lijst met basisinstallatiekopieën.
+
+![Aangepaste installatiekopie beschikbaar in de lijst met basisinstallatiekopieën](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -57,6 +62,6 @@ U kunt een aangepaste installatiekopie maken van een ingerichte virtuele machine
 - [Aangepaste installatiekopieën of formules?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopiëren van aangepaste installatiekopieën tussen Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - [Een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm.md)

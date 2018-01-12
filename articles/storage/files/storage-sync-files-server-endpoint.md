@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Een eindpunt van de server synchroniseren met Azure-bestand (preview) toevoegen of verwijderen
 Met Azure File Sync (preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -32,7 +32,7 @@ Een om servereindpunt te maken, moet u eerst controleren of de volgende criteria
 - De server de Azure-bestand Sync-agent is geïnstalleerd en is geregistreerd. Instructies voor het installeren van de Azure-bestand Sync-Agent kunnen worden gevonden in de [Register/unregister een server met het synchroniseren van Azure-bestand (preview)](storage-sync-files-server-registration.md) artikel. 
 - Zorg ervoor dat een opslag-Sync-Service is geïmplementeerd. Zie [het implementeren van Azure File-synchronisatie (preview)](storage-sync-files-deployment-guide.md) voor meer informatie over het implementeren van een opslag-Sync-Service. 
 - Zorg ervoor dat een groep voor synchronisatie is geïmplementeerd. Meer informatie over hoe [maken van een groep voor synchronisatie](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Zorg ervoor dat de server is verbonden met internet en of Azure toegankelijk is.
+- Zorg ervoor dat de server is verbonden met internet en of Azure toegankelijk is. We gebruiken poort 443 voor alle communicatie tussen de server en onze service.
 
 ## <a name="add-a-server-endpoint"></a>Het servereindpunt van een toevoegen
 Als u wilt een servereindpunt toevoegt, gaat u naar de gewenste sync-groep en selecteer 'servereindpunt toevoegen'.

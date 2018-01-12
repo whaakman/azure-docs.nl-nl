@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>De oplossing Serviceoverzicht gebruiken in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met het Serviceoverzicht, kunt u uw servers weergeven in de manier waarop u denkt ze dat: als onderling verbonden systemen die essentiële services leveren. Serviceoverzicht ziet u de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding waarvoor geen configuratie nodig andere dan de installatie van een agent.
@@ -333,34 +333,34 @@ Records van het type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 
 ### <a name="list-all-known-machines"></a>Lijst van alle bekende machines
-Type = ServiceMapComputer_CL | Ontdubbeling ResourceId
+ServiceMapComputer_CL | overzicht van arg_max(TimeGenerated, *) door ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lijst van de capaciteit van het fysieke geheugen van alle beheerde computers.
-Type = ServiceMapComputer_CL | Selecteer PhysicalMemory_d, ComputerName_s | Ontdubbeling ResourceId
+ServiceMapComputer_CL | overzicht van arg_max(TimeGenerated, *) door ResourceId | Project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Computernaam van de lijst, DNS, IP- en OS.
-Type = ServiceMapComputer_CL | Selecteer ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s | Ontdubbeling ResourceId
+ServiceMapComputer_CL | overzicht van arg_max(TimeGenerated, *) door ResourceId | Project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Alle processen met 'sql' niet vinden in de opdrachtregel
-Type = ServiceMapProcess_CL CommandLine_s = \*sql\* | Ontdubbeling ResourceId
+ServiceMapProcess_CL | waar CommandLine_s contains_cs 'sql' | overzicht van arg_max(TimeGenerated, *) door ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Een machine (meest recente record) vinden met de resourcenaam
-Type = "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" ServiceMapComputer_CL | Ontdubbeling ResourceId
+zoeken in (ServiceMapComputer_CL) 'm-4b9c93f9-bc37-46df-b43c-899ba829e07b' | overzicht van arg_max(TimeGenerated, *) door ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Een machine (meest recente record) vinden door IP-adres
-Type = "10.229.243.232" ServiceMapComputer_CL | Ontdubbeling ResourceId
+zoeken in (ServiceMapComputer_CL) '10.229.243.232' | overzicht van arg_max(TimeGenerated, *) door ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lijst van alle bekende processen op een opgegeven computer
-Type ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b =" | Ontdubbeling ResourceId
+ServiceMapProcess_CL | waar MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | overzicht van arg_max(TimeGenerated, *) door ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Lijst van alle computers met SQL
-Type ServiceMapComputer_CL ResourceName_s IN = {Type = ServiceMapProcess_CL \*sql\* | Afzonderlijke MachineResourceName_s} | Ontdubbeling ResourceId | Afzonderlijke ComputerName_s
+ServiceMapComputer_CL | waar ResourceName_s in ((zoeken in (ServiceMapProcess_CL) '\*sql\*' | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lijst van alle unieke productversies van curl in mijn datacenter
-Type = ServiceMapProcess_CL ExecutableName_s = curl | Afzonderlijke ProductVersion_s
+ServiceMapProcess_CL | waar ExecutableName_s == "curl" | afzonderlijke ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Maak een computergroep van alle computers met CentOS
-Type = ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Afzonderlijke ComputerName_s
+ServiceMapComputer_CL | waar OperatingSystemFullName_s contains_cs 'CentOS' | afzonderlijke ComputerName_s
 
 
 ## <a name="rest-api"></a>REST-API

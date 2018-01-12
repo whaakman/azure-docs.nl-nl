@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
@@ -56,7 +56,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |_claim_sources|
 |access_token|
 |Account_type|
-|ACR|
+|acr|
 |Actor|
 |actortoken|
 |AIO|
@@ -95,13 +95,13 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|e-mailen|
-|eindpunt|
+|e-mail|
+|endpoint|
 |enfpolids|
 |EXP|
 |expires_on|
 |grant_type|
-|Grafiek|
+|grafiek|
 |group_sids|
 |groepen|
 |hasgroups|
@@ -118,7 +118,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |identityprovider|
 |IDP|
 |in_corp|
-|Exemplaar|
+|instantie|
 |IpAddr|
 |isbrowserhostedapp|
 |ISS|
@@ -154,7 +154,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|Bron|
+|resource|
 |rol|
 |rolls|
 |Bereik|
@@ -285,7 +285,7 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|Achternaam|Familienaam|
 |Gebruiker|Voornaam|Voornaam|
 |Gebruiker|weergavenaam|Weergavenaam|
-|Gebruiker|object-id|Object-id|
+|Gebruiker|object-id|ObjectID|
 |Gebruiker|E-mail|E-mailadres|
 |Gebruiker|userPrincipalName|User principal name|
 |Gebruiker|Afdeling|Afdeling|
@@ -322,7 +322,7 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|Werknemer-id|Werknemer-id|
 |Gebruiker|facsimiletelephonenumber|Faxbericht telefoonnummer|
 |toepassing, resource, doelgroep|weergavenaam|Weergavenaam|
-|toepassing, resource, doelgroep|objecten|Object-id|
+|toepassing, resource, doelgroep|objecten|ObjectID|
 |toepassing, resource, doelgroep|tags|Service-Principal label|
 |Bedrijf|tenantcountry|Land van tenant|
 
@@ -403,7 +403,7 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabel 6: Transformatie methoden zijn toegestaan voor SAML-NameID
 |TransformationMethod|Beperkingen|
 | ----- | ----- |
-|ExtractMailPrefix|Geen|
+|ExtractMailPrefix|None|
 |Koppelen|Het achtervoegsel wordt toegevoegd, moet een geverifieerd domein van de resource-tenant.|
 
 ### <a name="custom-signing-key"></a>Aangepaste ondertekeningssleutel
@@ -490,7 +490,7 @@ In dit voorbeeld maakt u een beleid dat u een aangepaste claim 'JoinedData' moet
     1. Voor het maken van het beleid, moet u deze opdracht uitvoeren: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Voer de volgende opdracht om te zien van het nieuwe beleid en het beleid voor object-id ophalen: 

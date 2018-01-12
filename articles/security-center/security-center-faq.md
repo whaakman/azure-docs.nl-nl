@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen over de antwoorden op vragen over Azure Security Center, een service waarmee u detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -61,6 +61,10 @@ U kunt de gegevensverzameling inschakelen voor uw Azure-abonnement in het beveil
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Wat gebeurt er wanneer gegevensverzameling is ingeschakeld?
 Wanneer gegevensverzameling is ingeschakeld, wordt Microsoft Monitoring Agent automatisch geconfigureerd zijn op alle bestaande en nieuw ondersteunde virtuele machines die zijn geïmplementeerd in het abonnement.
+
+De agent kan de gebeurtenis proces maken 4688 en de *CommandLine* veld binnen 4688-gebeurtenis. Nieuwe processen die zijn gemaakt op de virtuele machine zijn vastgelegd door EventLog en bewaakt door Security Center van detectie van services. Zie voor informatie over de details voor elke nieuwe proces vastgelegd [beschrijving velden in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). De agent verzamelt de 4688 gebeurtenissen die zijn gemaakt op de virtuele machine ook en slaat ze op in de zoekopdracht.
+
+Als Security Center verdachte activiteiten op de virtuele machine detecteert, wordt de klant per e-mail verwittigd als [beveiliging contactgegevens](security-center-provide-security-contact-details.md) is opgegeven. Een waarschuwing wordt ook weergegeven in Security Center de beveiliging waarschuwingen-dashboard.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>De Monitoring Agent heeft invloed op de prestaties van mijn servers?
 De agent een nominaal hoeveelheid systeembronnen verbruikt en moet weinig invloed hebben op de prestaties. Zie voor meer informatie over de gevolgen voor de prestaties en de agent en de extensie, de [plannen en de operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).

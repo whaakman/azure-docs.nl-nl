@@ -4,7 +4,7 @@ description: Informatie over het aan te melden ondersteuning aan te vragen en on
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
 
@@ -30,7 +30,7 @@ Apparaatbeheer StorSimple biedt de mogelijkheid om te **Meld u een nieuw onderst
 
 Controleer de [StorSimple 8000 Series ondersteuning Sla's en informatie](https://msdn.microsoft.com/library/mt433077.aspx) voordat u een ondersteuningsaanvraag maken.
 
-## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
+## <a name="create-a-support-request"></a>Maak een ondersteuningsaanvraag
 
 Afhankelijk van uw [ondersteuningsplan](https://azure.microsoft.com/support/plans/), kunt u ondersteuningstickets voor een probleem voor uw StorSimple-apparaat rechtstreeks vanuit de samenvatting blade voor Apparaatbeheer van StorSimple-service maken. Voer de volgende stappen uit om een ondersteuningsaanvraag te maken:
 
@@ -97,7 +97,7 @@ Voer de volgende stappen uit om een ondersteuningssessie te starten:
 
 #### <a name="to-start-a-support-session"></a>Ondersteuningssessie starten
 
-1. Toegang tot het apparaat via de seriële console of via een Telnet-sessie vanaf een externe computer. Volg hiervoor de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Toegang tot het apparaat via de seriële console of via een Telnet-sessie vanaf een externe computer. Volg hiervoor de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. In de sessie die wordt geopend, drukt u op de **Enter** sleutel om op te halen vanaf de opdrachtprompt.
 3. Selecteer in het menu van de seriële console optie 1, **aanmelden met volledige toegang**.
 4. Typ het volgende wachtwoord bij de opdrachtprompt:
@@ -115,4 +115,4 @@ Voer de volgende stappen uit om een ondersteuningssessie te starten:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe [opsporen en oplossen van problemen met betrekking tot uw StorSimple 8000 series apparaat](storsimple-troubleshoot-deployment.md)
+Meer informatie over hoe [opsporen en oplossen van problemen met betrekking tot uw StorSimple 8000 series apparaat](storsimple-8000-troubleshoot-deployment.md)

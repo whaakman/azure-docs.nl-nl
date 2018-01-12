@@ -4,7 +4,7 @@ description: Beschrijft hoe uitpakken, op rek monteren en bekabelen uw StorSimpl
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Unpack, rack koppelen, en uw StorSimple 8600-apparaat bekabelen
 ## <a name="overview"></a>Overzicht
@@ -38,7 +38,7 @@ Voordat u uw apparaat uitpakken, controleert u de volgende informatie.
 Vervolgens wordt de volgende stappen uit te pakken van uw apparaat.
 
 #### <a name="to-unpack-your-device"></a>Uitpakken van het apparaat
-1. Controleer het en het schuim verpakking voor crushes, delen, water schade of andere duidelijk schade. Als het vak of verpakking ernstig is beschadigd, opent u het niet. Neem [contact op met Microsoft Support](storsimple-contact-microsoft-support.md) om te bepalen of het apparaat zich in goede staat.
+1. Controleer het en het schuim verpakking voor crushes, delen, water schade of andere duidelijk schade. Als het vak of verpakking ernstig is beschadigd, opent u het niet. Neem [contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om te bepalen of het apparaat zich in goede staat.
 2. Open het buitenste en los van de twee selectievakjes die overeenkomt met de primaire en EBOD behuizingen. U kunt nu de primaire en behuizingen EBOD uitpakken. De volgende afbeelding ziet de uitgepakte weergave van een van de bijlagen.
    
     ![Uitpakken van uw opslagapparaat](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Vervolgens wordt de volgende stappen uit te pakken van uw apparaat.
    * 2 rack mount kits (4 side rails met koppelen van de hardware, 2 voor de primaire behuizing en EBOD behuizing), 1 in elk vak
    * Gestarte documentatie ophalen
      
-     Als u een van de hierboven vermelde items niet ontvangen [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Als u een van de hierboven vermelde items niet ontvangen [contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 De volgende stap is het rack koppelen van uw apparaat.
 
@@ -234,7 +234,7 @@ Wanneer het apparaat bekabeling, wordt de minimale configuratie vereist:
 Houd er rekening mee voor hoge beschikbaarheid en prestaties:
 
 * Indien mogelijk, configureert u een andere combinatie voor iSCSI (10 GbE aanbevolen) en een combinatie van netwerkinterface voor toegang tot de cloud (1 GbE) op elke domeincontroller.
-* Indien mogelijk verbinding met twee verschillende switches om ervoor te zorgen beschikbaarheid op basis van een storing van de switch netwerkinterfaces van elke domeincontroller. De afbeelding ziet u twee 10 GbE netwerkinterfaces, DATA 2 en DATA 3 uit elke domeincontroller die is verbonden met twee verschillende switches. Raadpleeg voor meer informatie de **netwerkinterfaces** onder de [vereisten voor hoge beschikbaarheid voor uw StorSimple-apparaat](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Indien mogelijk verbinding met twee verschillende switches om ervoor te zorgen beschikbaarheid op basis van een storing van de switch netwerkinterfaces van elke domeincontroller. De afbeelding ziet u twee 10 GbE netwerkinterfaces, DATA 2 en DATA 3 uit elke domeincontroller die is verbonden met twee verschillende switches. Raadpleeg voor meer informatie de **netwerkinterfaces** onder de [vereisten voor hoge beschikbaarheid voor uw StorSimple-apparaat](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Als SFP + infraroodzenders met uw 10 GbE-netwerkinterfaces, gebruikt u de opgegeven QSFP-SFP + adapters. Ga voor meer informatie naar [ondersteunde hardware voor de 10 GbE-netwerkinterfaces op uw StorSimple-apparaat](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -266,5 +266,5 @@ De volgende stappen uitvoeren om te kabel van de seriële poort.
 U hebt uw apparaat voor voeding, toegang tot het netwerk en seriële verbinding bekabeling. De volgende stap is het configureren van de software op uw apparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar om [implementeren en configureren van uw on-premises StorSimple-apparaat](storsimple-deployment-walkthrough-u2.md).
+U bent nu klaar om [implementeren en configureren van uw on-premises StorSimple-apparaat](storsimple-8000-deployment-walkthrough-u2.md).
 

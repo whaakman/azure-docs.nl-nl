@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: functieverwijzing
 In Azure AD Connect worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -155,12 +155,6 @@ Retourneert die een datum/tijd op basis van de werknemer begintijd
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Retourneert een DateTime-waarde die aangeeft ' 2013-01-11-12:00 AM '
-
-
-
-
-
-
 
 
 - - -
@@ -546,7 +540,7 @@ De functie DNComponent retourneert de waarde van een opgegeven DN-onderdeel van 
 * ComponentNumber: Het onderdeel in de DN-naam te retourneren
 
 **Voorbeeld:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 Als een DN-naam is "cn Kees, ou = =..., ' Jan wordt
 
 - - -
@@ -564,8 +558,8 @@ De functie DNComponentRev retourneert de waarde van een opgegeven DN-onderdeel v
 
 **Voorbeeld:**  
 Als een DN-naam is "cn Kees, ou = Atlanta, ou = GA, ou = = US, dc = contoso, dc = com" vervolgens  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Beide retourneren ons.
 
 - - -
@@ -1248,7 +1242,7 @@ Waarde kan ook worden de functie fout, die een aangepaste tekenreeks geretournee
 Retourneert de taal gesproken in sommige steden, anders wordt een fout geretourneerd.
 
 - - -
-### <a name="trim"></a>Knippen
+### <a name="trim"></a>Trim
 **Beschrijving:**  
 De functie spaties verwijdert voorloopspaties en afsluitende spaties uit een tekenreeks.
 

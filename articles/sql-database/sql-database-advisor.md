@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
+# <a name="performance-recommendations"></a>Prestatieaanbevelingen
 
 Azure SQL Database leert en aanpast aan uw toepassing en bevat aangepaste aanbevelingen zodat u voor de prestaties van uw SQL-databases. Prestaties van uw wordt continu beoordeeld door het analyseren van uw gebruiksgeschiedenis SQL-Database. De aanbevelingen die worden verstrekt zijn gebaseerd op een patroon van de unieke werkbelasting database en de prestaties te verbeteren.
 
@@ -36,7 +36,7 @@ Indexen die zijn gemaakt met behulp van de aanbevelingen zijn altijd gemarkeerd 
 
 Zodra de indexaanbeveling maken wordt toegepast, wordt in Azure SQL Database prestaties van de query's met de basislijn vergelijken. Als u nieuwe index gebracht verbeteringen in de prestaties, aanbeveling gemarkeerd als geslaagd en impact rapport beschikbaar. Als de index niet doen om de voordelen, worden deze automatisch hersteld. Op deze manier Azure SQL Database zorgt ervoor dat met behulp van aanbevelingen alleen de prestaties van de database verbeteren wordt.
 
-Alle **Create index** aanbeveling heeft een vorige uit beleid dat wordt toegestaan als de database of een groep DTU-gebruik hoger dan 80% in de afgelopen 20 minuten of is als de opslag dan 90% van het gebruik van is de aanbeveling zijn toegepast. In dit geval wordt de aanbeveling worden uitgesteld.
+Alle **Create index** aanbeveling heeft een vorige uit beleid dat wordt toegestaan de aanbeveling toepassen als het brongebruik van een database of de groep van toepassingen hoog is. Vorige uitgeschakeld beleid houdt account CPU, IO-gegevens, i/o-logboek en beschikbare opslag. Als de CPU, IO-gegevens of i/o-logboek groter is dan 80% in de afgelopen 30 minuten maken wordt index worden uitgesteld. Als beschikbare opslag dan 10% zijn zou nadat de index is gemaakt, gaat u naar de foutstatus aanbeveling. Als na een paar dagen nog steeds automatische afstemming gelooft dat index kan worden gemaakt tijdens het proces opnieuw gestart. Dit proces wordt herhaald totdat er onvoldoende opslagruimte beschikbaar maken van een index of index wordt niet beschouwd als nuttige meer.
 
 ## <a name="drop-index-recommendations"></a>Aanbevelingen voor indexen verwijderen
 Naast het herkennen van een ontbrekende index in Azure SQL Database voortdurend de prestaties van de bestaande indexen analyseert. Als de index wordt niet gebruikt, wordt Azure SQL Database het beste neer te zetten. Verwijderen van een index wordt in beide gevallen aangeraden:
