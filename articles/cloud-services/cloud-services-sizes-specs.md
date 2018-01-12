@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Grootten voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor Cloudservice rolexemplaren (webrollen en werkrollen). Het biedt tevens overwegingen voor de implementatie moet letten bij het plannen van deze bronnen te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte beschikbaar zijn op de [Cloud Services-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
@@ -32,7 +32,7 @@ Dit onderwerp beschrijft de beschikbare grootten en opties voor Cloudservice rol
 Er zijn meerdere standaardgrootten waaruit u in Azure kunt kiezen. Enkele overwegingen voor een aantal van deze grootten zijn:
 
 * Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-core-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
-* De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
+* Dv3-serie, Dv2-serie, een opvolger van de oorspronkelijke D-reeks, biedt een krachtige CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 * Virtuele machines uit de G-serie bieden het meeste geheugen en worden uitgevoerd op hosts met een processor uit de Intel Xeon E5 V3-familie.
 * De A-serie virtuele machines kunnen worden geïmplementeerd op verschillende hardwaretypen en processors. De grootte is beperkt, op basis van de hardware, voor het exemplaar dat wordt uitgevoerd, ongeacht de hardware die deze is geïmplementeerd op een consistente processorprestaties aanbieden. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
 * De A0-grootte wordt overgeschreven naar de fysieke hardware. Alleen bij deze specifieke grootte kunnen implementaties van andere klanten invloed hebben op de prestaties van uw uitgevoerde workload. De relatieve prestaties worden hieronder beschreven, zoals de verwachte basislijn, met een variabiliteit van ongeveer 15 procent.
@@ -42,7 +42,7 @@ De grootte van de virtuele machine heeft invloed op de prijs. De grootte heeft o
 De volgende overwegingen kunnen u helpen bij het kiezen van een grootte:
 
 * Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz. Zie voor gedetailleerde informatie en overwegingen over het gebruik van deze formaten [hoge prestaties compute-VM-grootten](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dv2-serie, D-reeks, G-serie zijn ideaal voor toepassingen die snellere CPU's, betere lokale schijf van de prestaties of hebben hogere geheugen eisen. Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
+* Dv3-serie, Dv2-serie, D-reeks, G-serie zijn ideaal voor toepassingen die vraag snellere CPU's, voor betere prestaties van de lokale schijf of hebben hogere geheugen eisen. Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
 * Sommige fysieke hosts in Azure-datacenters bieden mogelijk geen ondersteuning voor grotere VM-formaten, zoals A5 – A11. Als gevolg hiervan wordt er het foutbericht **configureren van de virtuele machine {machine name} is mislukt** of **kan virtuele machine {machine name} niet maken** wanneer het formaat van een bestaande virtuele machine naar een nieuwe grootte. maken van een nieuwe virtuele machine in een virtueel netwerk gemaakt vóór 16 April 2013; of een nieuwe virtuele machine toe te voegen aan een bestaande cloudservice. Zie [fout: 'Is mislukt voor het configureren van de virtuele machine'](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) op het ondersteuningsforum voor tijdelijke oplossingen voor elk implementatiescenario.
 * Het is ook mogelijk dat uw abonnement het aantal kernen beperkt dat u in een bepaalde groottefamilie mag implementeren. Neem contact op met ondersteuning van Azure als u een quotum wilt verhogen.
 
@@ -61,12 +61,13 @@ We het concept van het Azure Compute Unit (ACU) op een manier om computerprestat
 | [ExtraSmall](#a-series) |50 |
 | [Klein zijn](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
+| [Een v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E-v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 ACU's die met een * zijn gemarkeerd, maken gebruik van Intel® Turbo-technologie om de CPU-frequentie te verhogen en nóg betere prestaties te leveren. Hoe groot die extra prestaties zijn, is afhankelijk van de VM-grootte, de workload en de andere workloads die op dezelfde host worden uitgevoerd.
@@ -142,6 +143,29 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/zeer hoog |
 | Standard_D15_v2 | 20        | 140          | 1000                | 8/zeer hoog |
 
+## <a name="dv3-series"></a>Dv3-serie
+
+| Grootte            | CPU-kernen | Geheugen: GiB   | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2/gemiddeld |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2/hoog |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4/hoog |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8/zeer hoog |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8/zeer hoog |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8/zeer hoog |
+
+## <a name="ev3-series"></a>Ev3-serie
+
+| Grootte            | CPU-kernen | Geheugen: GiB   | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2/gemiddeld |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2/hoog |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4/hoog |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8/zeer hoog |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8/zeer hoog |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8/zeer hoog |
+
+
 ## <a name="g-series"></a>G-serie
 | Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Als de aard van uw werkbelasting wordt gewijzigd of nieuwe VM-grootten beschikba
 >
 
 ## <a name="get-a-list-of-sizes"></a>Een lijst met grootten
-U kunt PowerShell of de REST-API gebruiken voor een lijst met grootten. De REST-API wordt beschreven [hier](https://msdn.microsoft.com/library/azure/dn469422.aspx). De volgende code is een PowerShell-opdracht die een met alle grootten voor een opgegeven locatie lijst wordt. 
+U kunt PowerShell of de REST-API gebruiken voor een lijst met grootten. De REST-API wordt beschreven [hier](https://msdn.microsoft.com/library/azure/dn469422.aspx). De volgende code is een PowerShell-opdracht met alle de beschikbare grootten voor Cloud-Services. 
 
 ```powershell
-Get-AzureRmVMSize -Location 'West Europe'
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Pass-through-verificatie van Azure Active Directory: Smart accountvergrendeling
 
@@ -36,7 +36,7 @@ Smart accountvergrendeling is ook onderscheid gemaakt tussen de aanmeldingen van
 Pass through-verificatie stuurt wachtwoord validatie aanvragen door naar de lokale Active Directory, dus moet u voorkomen dat kwaadwillende personen buiten uw gebruikers Active Directory-accounts te sluiten. Active Directory heeft een eigen accountvergrendelingsbeleid in het bijzonder [accountvergrendelingsdrempel](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) en [accountvergrendelingsteller opnieuw instellen na](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) beleid. De Azure AD vergrendelen drempel en de vergrendelingsduur duurwaarden op de juiste wijze configureren om te filteren voordat ze op de lokale Active Directory bereiken aanvallen in de cloud.
 
 >[!NOTE]
->De functie Smart accountvergrendeling is gratis en is _op_ standaard voor alle klanten. Maar als u wijzigen van de Azure AD vergrendelen drempel en de vergrendelingsduur duurwaarden wilt met behulp van Graph API, uw tenant moet ten minste één Azure AD Premium P2-licentie hebt. U hoeft niet met een licentie voor Azure AD Premium-P2 _per gebruiker_ ophalen van de functie Smart accountvergrendeling met Pass through-verificatie.
+>>De functie Smart accountvergrendeling is gratis en is _op_ standaard voor alle klanten. Wijzigen van de Blokkeringsdrempel en de vergrendelingsduur waarden Graph API met Azure AD moet echter uw tenant voor Azure AD Premium-P2 worden geactiveerd. 
 
 Om ervoor te zorgen dat uw gebruikers op de lokale Active Directory-accounts goed zijn beveiligd, moet u ervoor te zorgen dat:
 

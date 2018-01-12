@@ -4,7 +4,7 @@ description: Beschrijft hoe uitpakken, op rek monteren en bekabelen uw StorSimpl
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Unpack, rack koppelen, en uw StorSimple 8100-apparaat bekabelen
 ## <a name="overview"></a>Overzicht
@@ -38,7 +38,7 @@ Voordat u uw apparaat uitpakken, controleert u de volgende informatie.
 Vervolgens wordt de volgende stappen uit te pakken van uw apparaat.
 
 #### <a name="to-unpack-your-device"></a>Uitpakken van het apparaat
-1. Controleer het en het schuim verpakking voor crushes, delen, water schade of andere duidelijk schade. Als het vak of verpakking ernstig is beschadigd, opent u het niet. Neem [contact op met Microsoft Support](storsimple-contact-microsoft-support.md) om te bepalen of het apparaat zich in goede staat.
+1. Controleer het en het schuim verpakking voor crushes, delen, water schade of andere duidelijk schade. Als het vak of verpakking ernstig is beschadigd, opent u het niet. Neem [contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) om te bepalen of het apparaat zich in goede staat.
 2. Pak het vak. De volgende afbeelding ziet u de uitgepakte weergave van uw StorSimple-apparaat.
    
      ![Uitpakken van uw opslagapparaat](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
@@ -64,7 +64,7 @@ Vervolgens wordt de volgende stappen uit te pakken van uw apparaat.
    * 1 met het rek monteren kit (2 side rails met koppelen van de hardware)
    * Getting Started-documentatie
      
-     Als u een van de hierboven vermelde items niet ontvangen [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
+     Als u een van de hierboven vermelde items niet ontvangen [contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 De volgende stap is het rack koppelen van uw apparaat.
 
@@ -220,7 +220,7 @@ Houd er rekening mee voor hoge beschikbaarheid en prestaties:
 * Indien mogelijk, configureert u een andere combinatie voor iSCSI (10 GbE aanbevolen) en een combinatie van netwerkinterface voor toegang tot de cloud (1 GbE) op elke domeincontroller.
 * Indien mogelijk verbinding met twee verschillende switches om ervoor te zorgen beschikbaarheid op basis van een storing van de switch netwerkinterfaces van elke domeincontroller. De afbeelding ziet u twee 10 GbE netwerkinterfaces, DATA 2 en DATA 3 uit elke domeincontroller die is verbonden met twee verschillende switches.
 
-Raadpleeg voor meer informatie de **netwerkinterfaces** onder de [vereisten voor hoge beschikbaarheid voor uw StorSimple-apparaat](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+Raadpleeg voor meer informatie de **netwerkinterfaces** onder de [vereisten voor hoge beschikbaarheid voor uw StorSimple-apparaat](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Als u met uw 10 GbE-netwerkinterfaces SFP + infraroodzenders gebruikt, gebruikt u de opgegeven QSFP-SFP + adapters. Ga voor meer informatie naar [ondersteunde hardware voor de 10 GbE-netwerkinterfaces op uw StorSimple-apparaat](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -246,5 +246,5 @@ De volgende stappen uitvoeren om te kabel van de seriële poort.
 Uw apparaat is nu bekabeld voor voeding, toegang tot het netwerk- en seriële verbinding. De volgende stap is de software configureren en implementeren van uw apparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe [implementeren en configureren van uw on-premises StorSimple-apparaat](storsimple-deployment-walkthrough-u2.md).
+Meer informatie over hoe [implementeren en configureren van uw on-premises StorSimple-apparaat](storsimple-8000-deployment-walkthrough-u2.md).
 

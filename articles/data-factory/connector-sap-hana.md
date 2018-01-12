@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Voor het gebruik van deze SAP HANA-connector, moet u:
 - Installeer het SAP HANA ODBC-stuurprogramma op de machine integratie Runtime. U kunt downloaden de SAP HANA ODBC-stuurprogramma van de [SAP Software Download Center](https://support.sap.com/swdc). Zoeken met het trefwoord **SAP HANA-CLIENT voor Windows**.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor SAP HANA-connector.
 
@@ -169,16 +170,16 @@ Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen
 | BLOB | Byte] |
 | BOOLEAANSE WAARDE | Byte |
 | CLOB | Byte] |
-| DATUM | Datum/tijd |
+| DATE | Datum en tijd |
 | DECIMALE | Decimale |
-| DOUBLE | Één |
+| DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | Tekenreeks |
-| ECHTE | Één |
-| SECONDDATE | Datum/tijd |
+| ECHTE | Single |
+| SECONDDATE | Datum en tijd |
 | SMALLINT | Int16 |
 | TIJD | TimeSpan |
-| TIJDSTEMPEL | Datum/tijd |
+| TIJDSTEMPEL | Datum en tijd |
 | TINYINT | Byte |
 | VARCHAR | Tekenreeks |
 

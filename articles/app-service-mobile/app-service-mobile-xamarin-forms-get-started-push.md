@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 9c7d56b19a72ec82ff834929790e5049b9369797
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Pushmeldingen toevoegen aan uw Xamarin.Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -194,7 +194,6 @@ U kunt met de back-end geconfigureerd met het FCM onderdelen en codes toevoegen 
                 notificationManager.Notify(0, notificationBuilder.Build());
             }
         }
-
 
     De `OnMessageReceived` methode, die wordt opgeroepen wanneer een toepassing een melding van FCM ontvangt, haalt het bericht inhoud en roept de `SendNotification` methode. Deze methode zet de inhoud van het bericht in een lokale melding dat wordt geopend terwijl de toepassing wordt uitgevoerd, met de melding wordt weergegeven in het systeemvak.
 

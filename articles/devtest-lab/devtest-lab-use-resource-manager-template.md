@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: v-craic
-ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 97822d5fb11c5c106c67aaaab0b8972e1ec8deee
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Een virtuele machine van Azure Resource Manager-sjabloon gebruiken
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Virtuele machines met een Azure Resource Manager-sjabloon maken 
 
 Wanneer u een virtuele machine (VM) maakt in DevTest Labs via de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), u kunt de Azure Resource Manager-sjabloon bekijken voordat u de virtuele machine opslaan. De sjabloon kan vervolgens worden gebruikt als basis voor het maken van meer lab virtuele machines met dezelfde instellingen.
 
-In dit artikel beschrijft de Resource Manager-sjabloon weergeven bij het maken van een virtuele machine en het implementeren van deze later voor het automatiseren van het maken van dezelfde virtuele machine.
+Dit artikel beschrijft Multi-VM versus één VM-resourcemanager-sjablonen en ziet u hoe weergeven en opslaan van een sjabloon bij het maken van een virtuele machine.
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Multi-VM versus één VM-resourcemanager-sjablonen
-Er zijn twee manieren virtuele machines maken in DevTest Labs met een Resource Manager-sjabloon: de bron Microsoft.DevTestLab/labs/virtualmachines inrichten of de resource Microsoft.Commpute/virtualmachines inrichten. Elke wordt gebruikt in verschillende scenario's en andere machtigingen zijn vereist.
+Er zijn twee manieren virtuele machines maken in DevTest Labs met een Resource Manager-sjabloon: de bron Microsoft.DevTestLab/labs/virtualmachines inrichten of de resource Microsoft.Commpute/virtualmachines inrichten. Elke wordt gebruikt in verschillende scenario's en andere machtigingen vereist.
 
 - Resource Manager-sjablonen die gebruikmaken van een resourcetype Microsoft.DevTestLab/labs/virtualmachines (zoals opgegeven in de eigenschap 'resource' in de sjabloon) kunnen afzonderlijke lab virtuele machines inrichten. Elke virtuele machine vervolgens wordt weergegeven als één item in de lijst van de virtuele machines DevTest Labs:
 
@@ -53,18 +53,15 @@ De rest van dit artikel wordt beschreven Resource Manager-sjablonen die Mirosoft
    ![Knop voor ARM-sjabloon weergeven](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Kopiëren en opslaan van de Resource Manager-sjabloon voor later gebruik maken van een andere virtuele machine.
 
-   ![Resource manager-sjabloon op te slaan voor later gebruik](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+   ![Resource Manager-sjabloon op te slaan voor later gebruik](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 Nadat u de Resource Manager-sjabloon hebt opgeslagen, moet u het gedeelte parameters van de sjabloon bijwerken voordat u deze kunt gebruiken. U kunt een parameter.json dat alleen de parameters buiten de werkelijke Resource Manager-sjabloon aanpast maken. 
 
-![Een JSON-bestand met parameters aanpassen](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+![Parameters in met behulp van een JSON-bestand aanpassen](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-## <a name="deploy-a-resource-manager-template-to-create-a-vm"></a>Een Resource Manager-sjabloon voor het maken van een virtuele machine implementeren
-Nadat u hebt opgeslagen van Resource Manager-sjabloon en het is afgestemd op uw behoeften, kunt u het maken van VM automatiseren. [Implementeren van resources met Resource Manager-sjablonen en Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) wordt beschreven hoe u Azure PowerShell gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources in Azure. [Implementeren van resources met Resource Manager-sjablonen en Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) wordt beschreven hoe u Azure CLI gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources in Azure.
-
-> [!NOTE]
-> Alleen een gebruiker met machtigingen van de eigenaar lab kunt virtuele machines maken van een Resource Manager-sjabloon met behulp van Azure PowerShell. Als u wilt automatiseren met behulp van een Resource Manager-sjabloon maken van VM en u alleen gebruikersmachtigingen hebt, kunt u de [ **az lab vm maken** opdracht in de CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+De Resource Manager-sjabloon is nu gereed voor gebruik bij [een virtuele machine maken](devtest-lab-create-environment-from-arm.md).
 
 ### <a name="next-steps"></a>Volgende stappen
 * Meer informatie over hoe [multi-VM-omgevingen maken met Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md).
-* Ontdek meer snel starten-Resource Manager-sjablonen voor het automatiseren van DevTest Labs vanuit de [openbare DevTest Labs GitHub-repo-](https://github.com/Azure/azure-quickstart-templates).
+* [Een Resource Manager-sjabloon voor het maken van een virtuele machine implementeren](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
+* Ontdek meer Quick Start-Resource Manager-sjablonen voor het automatiseren van DevTest Labs vanuit de [openbare DevTest Labs GitHub-repo-](https://github.com/Azure/azure-quickstart-templates).

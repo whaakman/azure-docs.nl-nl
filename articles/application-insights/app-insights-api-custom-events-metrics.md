@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -414,32 +414,34 @@ U kunt deze zelf ook aanroepen als u verzoeken wilt simuleren in een context waa
 De aanbevolen manier om het verzenden van aanvraagtelemetrie is echter waar de aanvraag fungeert als een <a href="#operation-context">bewerking context</a>.
 
 ## <a name="operation-context"></a>Bewerking context
-U kunt telemetrie-items bij elkaar koppelen door te koppelen aan een algemene bewerking-ID. De standaard-bijhouden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden tijdens het verwerken van een HTTP-aanvraag. In [Search](app-insights-diagnostic-search.md) en [Analytics](app-insights-analytics.md), kunt u de ID gemakkelijk terugvinden alle gebeurtenissen die zijn gekoppeld aan de aanvraag.
+U kunt telemetrie-items bij elkaar correleren door ze te koppelen met bewerking context. De standaard-bijhouden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden tijdens het verwerken van een HTTP-aanvraag. In [Search](app-insights-diagnostic-search.md) en [Analytics](app-insights-analytics.md), kunt u gemakkelijk alle gebeurtenissen die zijn gekoppeld aan de aanvraag met de bewerking-id vinden
 
-De eenvoudigste manier om in te stellen van de ID is het instellen van de context van een bewerking met behulp van dit patroon:
+Zie [correlatie van telemetrie in Application Insights](application-insights-correlation.md) voor meer informatie over de correlatie.
+
+Bij het volgen van telemetrie handmatig de eenvoudigste manier om ervoor te zorgen telemetrie correlatie met behulp van dit patroon:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Samen met het instellen van de context van een bewerking `StartOperation` maakt een telemetrie-item van het type dat u opgeeft. Het item telemetrie verzendt wanneer het verwijderen van de bewerking, of als u niet expliciet aanroepen `StopOperation`. Als u `RequestTelemetry` als de telemetrie-type, de duur is ingesteld op het getimed interval tussen starten en stoppen.
 
-Bewerking contexten kunnen niet worden genest. Als er al een bewerking context bestaat, wordt de bijbehorende ID gekoppeld aan alle opgenomen items is, met inbegrip van het item dat is gemaakt met `StartOperation`.
+Telemetrie-items die zijn gerapporteerd binnen een bereik van de bewerking worden 'kinderen' van deze bewerking. Bewerking contexten kunnen worden genest. 
 
 In de zoekopdracht op de context van de bewerking gebruikt voor het maken de **verwante Items** lijst:
 
@@ -900,7 +902,7 @@ U kunt de code voor het verwerken van uw telemetrie voordat deze wordt verzonden
 
 [Eigenschappen toevoegen](app-insights-api-filtering-sampling.md#add-properties) naar telemetrie door het implementeren van `ITelemetryInitializer`. U kunt bijvoorbeeld versienummers of berekende waarden toevoegen van andere eigenschappen.
 
-[Filteren](app-insights-api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcessor`. U bepaalt wat wordt verzonden naar of verwijderd, maar u moet voor het effect op de metrische gegevens over uw account. Afhankelijk van hoe u items negeren, kunt u de mogelijkheid om te navigeren tussen verwante items verliezen.
+[Filteren](app-insights-api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcesor`. U bepaalt wat wordt verzonden naar of verwijderd, maar u moet voor het effect op de metrische gegevens over uw account. Afhankelijk van hoe u items negeren, kunt u de mogelijkheid om te navigeren tussen verwante items verliezen.
 
 [Steekproef nemen](app-insights-api-filtering-sampling.md) is een ingepakte oplossing te verminderen de hoeveelheid gegevens die door uw app wordt verzonden naar de portal. Hierbij wordt zonder de weergegeven metrische gegevens. En zonder de mogelijkheid om te analyseren van problemen door te navigeren tussen verwante items zoals uitzonderingen, aanvragen en paginaweergaven beïnvloeden.
 

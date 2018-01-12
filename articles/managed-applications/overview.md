@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van door Azure beheerde toepassingen
 
@@ -48,6 +48,8 @@ Zie voor meer informatie over het publiceren van een Servicecatalogus beheerde t
 
 Leveranciers willen factureren voor hun services kunnen beheerde toepassingen beschikbaar maken via de Azure marketplace. Nadat de leverancier van een toepassing publiceert, is beschikbaar voor gebruikers buiten de organisatie. Met deze benadering, beheerde serviceproviders (MSPs), onafhankelijke softwareleveranciers (ISV's) en system kunnen SI's (SIs) hun oplossingen aanbieden aan alle Azure-klanten.
 
+Zie voor meer informatie over het publiceren van een beheerde toepassing in de Marketplace [marketplace-toepassing maken](publish-marketplace-app.md).
+
 ## <a name="resource-groups-for-managed-applications"></a>Resourcegroepen voor beheerde toepassingen
 
 De resources voor een beheerde toepassing zich doorgaans in twee resourcegroepen bevinden. De consument beheert een resourcegroep en de uitgever van de resourcegroep beheert. Bij het definiëren van de beheerde toepassing geeft de uitgever de toegangsniveaus. De volgende afbeelding toont een scenario waarbij de uitgever verzoekt om de rol van eigenaar voor de beheerde resourcegroep. De uitgever wordt een alleen-lezen-vergrendeling op deze resourcegroep geplaatst voor de consument.
@@ -70,4 +72,4 @@ Wanneer de gebruiker de beheerde toepassing verwijdert, wordt de beheerde resour
 
 * Voor een inleiding te definiëren en implementeren van beheerde toepassingen, Zie [maken en implementeren van een Azure beheerde toepassing met Azure CLI](managed-apps-quickstart-cli.md)
 * Zie voor meer informatie over het publiceren van een interne applicatie [-catalogus-servicetoepassing maken](publish-service-catalog-app.md).
-
+* Zie voor meer informatie over het uitgeven van beheerde toepassingen op de markt [marketplace-toepassing maken](publish-marketplace-app.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
 
@@ -138,9 +138,9 @@ De Azure-DHCP-servers toewijzen particulier IPv4-adres voor de [primaire IP-conf
 > [!WARNING]
 > Als het IPv4-adres instellen als de primaire IP-adres van een netwerkinterface in het besturingssysteem van een virtuele machine ooit anders dan de particulier IPv4-adres dat is toegewezen aan de primaire IP-adresconfiguratie van de primaire netwerkinterface is gekoppeld aan een virtuele machine in Azure, moet u verbinding met de virtuele machine verliezen.
 
-Er zijn scenario's waarin het nodig zijn voor het IP-adres van een netwerkinterface in het besturingssysteem van de virtuele machine handmatig instellen. Bijvoorbeeld, moet u de primaire en secundaire IP-adressen van een Windows-besturingssysteem handmatig instellen als u meerdere IP-adressen toevoegt aan een virtuele machine van Azure. Voor een virtuele Linux-machine moet u mogelijk alleen handmatig in te stellen de secundaire IP-adressen. Zie [toevoegen IP-adressen naar een VM-besturingssysteem](virtual-network-multiple-ip-addresses-portal.md#os-config) voor meer informatie. Als u het IP-adres in het besturingssysteem handmatig instelt, wordt het aanbevolen dat u altijd de adressen toewijzen aan de IP-configuratie voor een netwerkinterface met de van statisch (plaats dynamische)-toewijzingsmethode. Het adres met de statische methode toe te wijzen, zorgt u ervoor dat het adres niet in Azure wijzigt. Als u ooit moet het adres dat is toegewezen aan een IP-configuratie wijzigen, is het raadzaam dat u:
+Er zijn scenario's waarin het nodig zijn voor het IP-adres van een netwerkinterface in het besturingssysteem van de virtuele machine handmatig instellen. Bijvoorbeeld, moet u de primaire en secundaire IP-adressen van een Windows-besturingssysteem handmatig instellen als u meerdere IP-adressen toevoegt aan een virtuele machine van Azure. Voor een virtuele Linux-machine moet u mogelijk alleen handmatig in te stellen de secundaire IP-adressen. Zie [toevoegen IP-adressen naar een VM-besturingssysteem](virtual-network-multiple-ip-addresses-portal.md#os-config) voor meer informatie. Als u ooit moet het adres dat is toegewezen aan een IP-configuratie wijzigen, is het raadzaam dat u:
 
-1. De toewijzing van het IP-adres wijzigen in DHCP in het besturingssysteem en de virtuele machine opnieuw opstarten zodat de virtuele machine een adres ontvangt van de Azure-DHCP-servers.
+1. Zorg ervoor dat de virtuele machine een adres van de Azure-DHCP-servers ontvangt. Zodra u hebt, wordt de toewijzing van het IP-adres wijzigen in DHCP in het besturingssysteem en de virtuele machine opnieuw opstarten.
 2. Gestopt (toewijzing ongedaan maken) de virtuele machine.
 3. Wijzig het IP-adres voor de IP-configuratie in Azure.
 4. Hiermee wordt de virtuele machine gestart.

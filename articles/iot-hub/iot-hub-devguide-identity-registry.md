@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -84,7 +84,7 @@ Zie voor gedetailleerde informatie over het importeren en exporteren API's, [res
 
 Het apparaatgegevens die een bepaalde IoT-oplossing zijn opgeslagen, is afhankelijk van de specifieke vereisten van deze oplossing. Maar ten minste een oplossing moet opslaan, apparaat-id's en verificatiesleutels. Azure IoT Hub bevat een identity-registry die waarden voor elk apparaat zoals-id's en verificatiesleutels statuscodes kunt opslaan. Een oplossing kunt u andere Azure-services zoals tabelopslag, blob-opslag of Cosmos-DB gebruiken voor het opslaan van een extra apparaatgegevens.
 
-*Mobiele apparaten inrichten* is het proces van de initiële gegevens toe te voegen aan de worden opgeslagen in uw oplossing. Zodat een nieuw apparaat verbinding maken met uw hub, moet u een apparaat-ID en sleutels toevoegen aan de id-register van IoT Hub. Als onderdeel van het proces van inrichting moet u mogelijk apparaatspecifieke gegevens in andere archieven oplossing initialiseren.
+*Mobiele apparaten inrichten* is het proces van de initiële gegevens toe te voegen aan de worden opgeslagen in uw oplossing. Zodat een nieuw apparaat verbinding maken met uw hub, moet u een apparaat-ID en sleutels toevoegen aan de id-register van IoT Hub. Als onderdeel van het proces van inrichting moet u mogelijk apparaatspecifieke gegevens in andere archieven oplossing initialiseren. U kunt ook de Azure IoT Hub apparaat inrichtingsservice gebruiken om in te schakelen zonder tussenkomst, just-in-time inrichten van een of meer IoT hubs zonder menselijke tussenkomst. Zie voor meer informatie, de [documentatie service inrichten][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Apparaat heartbeat
 
@@ -149,10 +149,10 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 | deviceId |vereist alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |vereist alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks maximaal 128 tekens. Deze waarde wordt gebruikt om te onderscheiden van apparaten met dezelfde **deviceId**wanneer ze zijn verwijderd en opnieuw gemaakt. |
 | ETag |vereist alleen-lezen |Een tekenreeks voor een zwakke ETag voor de identiteit van het apparaat als per [RFC7232][lnk-rfc7232]. |
-| auth |Optioneel |Een samengestelde-object met de informatie en beveiliging materiaal verificatie. |
-| auth.symkey |Optioneel |Een samengestelde-object met een primaire en secundaire sleutel, opgeslagen in base64-indeling. |
+| auth |optioneel |Een samengestelde-object met de informatie en beveiliging materiaal verificatie. |
+| auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, opgeslagen in base64-indeling. |
 | status |Vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat verbinding mag maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig eindpunt apparaat gerichte. |
-| statusReason |Optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id wordt opgeslagen. Alle UTF-8 tekens zijn toegestaan. |
+| statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id wordt opgeslagen. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
 | connectionState |alleen-lezen |Een veld dat aangeeft verbindingsstatus: beide **verbonden** of **verbroken**. Dit veld wordt de Iothub-weergave van de status van het apparaat. **Belangrijke**: dit veld mag alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. De verbindingsstatus wordt alleen voor apparaten met behulp van protocollen MQTT of AMQP zijn bijgewerkt. Bovendien is het gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts 5 minuten. Daarom kunnen er valse positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
 | connectionStateUpdatedTime |alleen-lezen |De datum en tijd van laatste status van de verbinding met een tijdelijke indicator is bijgewerkt. |
@@ -184,6 +184,11 @@ Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kun
 
 * [Aan de slag met Azure IoT Hub][lnk-getstarted-tutorial]
 
+Als u wilt verkennen met behulp van de IoT Hub apparaat inrichtingsservice om in te schakelen zonder tussenkomst, Zie just-in-time-inrichting: 
+
+* [Azure IoT Hub apparaat-Service inricht][lnk-dps]
+
+
 <!-- Links and images -->
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -205,3 +210,4 @@ Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kun
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

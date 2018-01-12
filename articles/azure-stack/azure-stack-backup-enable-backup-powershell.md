@@ -1,6 +1,6 @@
 ---
 title: Back-up inschakelen voor Azure Stack met PowerShell | Microsoft Docs
-description: De infrastructuur terug Service inschakelen met Windows PowerShell zodat Azure-Stack kan worden hersteld als er een storing optreedt.
+description: De back-up-Service van de infrastructuur met Windows PowerShell inschakelen zodat Azure-Stack kan worden hersteld als er een fout.
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Back-up inschakelen voor Azure Stack met PowerShell
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-De infrastructuur terug Service inschakelen met Windows PowerShell zodat Azure-Stack kan worden hersteld als er een storing optreedt. U kunt de PowerShell-cmdlets voor het inschakelen van de back-up, back-up starten en het verkrijgen van de back-upgegevens via het eindpunt van de management operator openen.
+De back-up-Service van de infrastructuur met Windows PowerShell inschakelen zodat Azure-Stack kan worden hersteld als er een fout. U kunt de PowerShell-cmdlets voor het inschakelen van de back-up, back-up starten en het verkrijgen van de back-upgegevens via het eindpunt van de management operator openen.
 
 ## <a name="download-azure-stack-tools"></a>Azure Stack-hulpprogramma's downloaden
 
@@ -90,6 +90,9 @@ Voer de volgende opdrachten in dezelfde PowerShell-sessie:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> U moet de AzureStack-hulpprogramma's gebruiken om de sleutel te genereren.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>De back-sleutel voor de share, referenties en versleuteling zodat back-up opgeven
 
 Bewerk in dezelfde PowerShell-sessie het volgende PowerShell-script door de variabelen voor uw omgeving toe te voegen. Voer het script bijgewerkt als de back-share, referenties en versleuteling sleutel wilt maken voor de Backup-Service-infrastructuur.
@@ -98,18 +101,18 @@ Bewerk in dezelfde PowerShell-sessie het volgende PowerShell-script door de vari
 |---              |---                                        |
 | $username       | Typ de **gebruikersnaam** met behulp van het domein en gebruikersnaam voor de locatie van de gedeelde schijf. Bijvoorbeeld `Contoso\administrator`. |
 | $password       | Typ de **wachtwoord** voor de gebruiker. |
-| $sharepath      | Typ het pad naar de **opslaglocatie back-up**. U moet een Universal Naming Convention (UNC)-tekenreeks voor het pad naar een bestandsshare die worden gehost op een afzonderlijk apparaat gebruiken. Een UNC-tekenreeks bevat de locatie van resources, zoals gedeelde bestanden of apparaten. Beschikbaarheid van de back-upgegevens, zodat moet het apparaat op een andere locatie. |
+| $sharepath      | Typ het pad naar de **opslaglocatie back-up**. U moet een tekenreeks Universal Naming Convention (UNC) gebruiken voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat. Een UNC-tekenreeks bevat de locatie van resources, zoals gedeelde bestanden of apparaten. Beschikbaarheid van de back-upgegevens, zodat moet het apparaat op een andere locatie. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Back-instellingen bevestigen
 
 Voer de volgende opdrachten in dezelfde PowerShell-sessie:

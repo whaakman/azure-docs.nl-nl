@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Gebruik het diagnostisch hulpprogramma van StorSimple 8000 series apparaat problemen kunt oplossen
 
@@ -32,15 +32,15 @@ Het diagnostisch hulpprogramma is voornamelijk bedoeld voor StorSimple 8000 seri
 
 Dit hulpprogramma kan worden uitgevoerd via de Windows PowerShell-interface van uw StorSimple-apparaat. Er zijn twee manieren toegang krijgen tot de lokale interface van uw apparaat:
 
-* [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Externe toegang tot het hulpprogramma via de Windows PowerShell voor StorSimple](storsimple-remote-connect.md).
+* [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Externe toegang tot het hulpprogramma via de Windows PowerShell voor StorSimple](storsimple-8000-remote-connect.md).
 
 In dit artikel gaan we ervan uit dat u hebt verbonden met de seriële console van het apparaat via de PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Het diagnostisch hulpprogramma uitvoeren
 
 Zodra u hebt gekoppeld aan de Windows PowerShell-interface van het apparaat, moet u de volgende stappen om te worden uitgevoerd van de cmdlet uitvoeren.
-1. Meld u aan bij de seriële console van het apparaat door de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Meld u aan bij de seriële console van het apparaat door de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Typ de volgende opdracht:
 
@@ -85,11 +85,11 @@ Deze test bepaalt de status van de hardware-onderdelen, het USM firmware en de f
 * De hardwareonderdelen die zijn gerapporteerd, zijn deze onderdelen die de test mislukt of zijn niet aanwezig in het systeem.
 * De USM firmware- en firmware-versies worden gerapporteerd voor de Controller 0, 1 van de domeincontroller, en gedeelde onderdelen in uw systeem. Voor een volledige lijst van hardware-onderdelen, gaat u naar:
 
-    * [Primaire behuizing-onderdelen](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [EBOD behuizing-onderdelen](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Primaire behuizing-onderdelen](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [EBOD behuizing-onderdelen](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Als de hardwaretest niet functionerende onderdelen, rapporteert [Meld u bij een serviceaanvraag met Microsoft Support](storsimple-contact-microsoft-support.md).
+> Als de hardwaretest niet functionerende onderdelen, rapporteert [Meld u bij een serviceaanvraag met Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Voorbeeld van uitvoer van de hardwaretest uitgevoerd op een 8100-apparaat
 
@@ -210,7 +210,7 @@ Deze test rapporteert de systeeminformatie, de updates die beschikbaar zijn, de 
 * De systeeminformatie omvat het model, apparaatserienummer tijdzone, status van de domeincontroller en de versie van de gedetailleerde software op het systeem. Voor informatie over de verschillende parameters voor het gerapporteerd als de uitvoer, gaat u naar [systeemgegevens interpreteren](#appendix-interpreting-system-information).
 
 * De beschikbaarheid van de rapporten of de reguliere en onderhoud modi beschikbaar zijn en de namen van de bijbehorende pakket. Als `RegularUpdates` en `MaintenanceModeUpdates` zijn `false`, dit geeft aan dat de updates niet beschikbaar zijn. Uw apparaat is bijgewerkt.
-* De cluster-informatie bevat de informatie over de verschillende logische onderdelen van de groepen voor de cluster HCS en hun respectieve statussen. Als u een offline clustergroep in deze sectie van het rapport ziet [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
+* De cluster-informatie bevat de informatie over de verschillende logische onderdelen van de groepen voor de cluster HCS en hun respectieve statussen. Als u een offline clustergroep in deze sectie van het rapport ziet [contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * De service-informatie bevat de namen en de status van alle HCS en CiS services uitgevoerd op uw apparaat. Deze informatie is nuttig voor het Microsoft Support bij het oplossen van het probleem van het apparaat.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Voorbeeld van uitvoer van systeem test uitgevoerd op een 8100-apparaat
@@ -419,7 +419,7 @@ Hier volgt een tabel met een beschrijving van wat de verschillende Windows Power
 | Naam                    | De beschrijvende naam van het apparaat zoals geconfigureerd via de Azure portal tijdens de implementatie van het apparaat. De beschrijvende naam van de standaard is het serienummer van het apparaat. |
 | Model                   | Het model van uw StorSimple 8000 serie-apparaat. Het model is 8100 of 8600.|
 | Serienummer            | Het serienummer van het apparaat in de fabriek is toegewezen en 15 tekens lang is. Bijvoorbeeld: 8600 SHX0991003G44HT Hiermee wordt aangegeven:<br> 8600 – is het model.<br>SHX – Is de productie-site.<br> 0991003 - is een specifiek product. <br> G44HT--de laatste 5 cijfers voor het maken van unieke serienummers worden verhoogd. Dit kan niet een sequentiële set zijn.|
-| Tijdzone                | De apparaat-tijdzone zoals geconfigureerd in de Azure-portal tijdens de implementatie van het apparaat.|
+| TimeZone                | De apparaat-tijdzone zoals geconfigureerd in de Azure-portal tijdens de implementatie van het apparaat.|
 | CurrentController       | De controller waaraan u via de Windows PowerShell-interface van uw StorSimple-apparaat verbonden bent.|
 | ActiveController        | De domeincontroller die actief is op uw apparaat en alle bewerkingen van de netwerk- en beheerd. Dit kan zijn Controller 0 of 1 van de domeincontroller.  |
 | Controller0Status       | De status van de Controller 0 op uw apparaat. De status van de domeincontroller kan normale in herstelmodus is of niet bereikbaar zijn.|

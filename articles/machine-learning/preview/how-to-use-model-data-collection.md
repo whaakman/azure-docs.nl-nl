@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Modelgegevens verzamelen met behulp van gegevensverzameling
 
-U kunt de functie voor het model in Azure Machine Learning Workbench archiveren model ingangen en de voorspellingen van een webservice.
+U kunt de functie voor het model in Azure Machine Learning archiveren model ingangen en de voorspellingen van een webservice.
 
 ## <a name="install-the-data-collection-package"></a>De gegevensverzamelingspakket installeren
 U kunt de verzameling gegevens bibliotheek systeemeigen installeren op Linux- en Windows.
@@ -37,6 +37,12 @@ Op Linux, installeert u eerst de libxml ++-bibliotheek. Voer de volgende opdrach
 Voer de volgende opdracht:
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>De omgevingsvariabelen instellen
+
+Model-gegevensverzameling is afhankelijk van twee omgevingsvariabelen. AML_MODEL_DC_STORAGE_ENABLED moet worden ingesteld op **true** (alle kleine letters) en AML_MODEL_DC_STORAGE moet worden ingesteld op de verbindingsreeks voor de Azure Storage-account waar u de gegevens worden opgeslagen.
+
+Deze omgevingsvariabelen zijn al ingesteld voor u, wanneer de web-service wordt uitgevoerd op een cluster in Azure. U moet zelf instellen bij lokale uitvoering. Als u Docker gebruikt, moet u de -e-parameter van de opdracht uitvoert docker gebruiken om door te geven van omgevingsvariabelen.
 
 ## <a name="collect-data"></a>Gegevens verzamelen
 

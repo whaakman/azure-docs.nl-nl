@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configureren van Firewalls voor Azure-opslag en virtuele netwerken (preview)
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.
@@ -39,6 +39,10 @@ Netwerk-regels kunnen worden toegepast op bestaande opslagaccounts of tijdens he
 Zodra het netwerk regels worden toegepast, worden ze afgedwongen voor alle aanvragen.  SAS-tokens die toegang tot een specifiek IP-adres-service verlenen leveren aan **limiet** de toegang van de houder token, maar nieuwe toegang niet verlenen buiten de geconfigureerde regels bieden. 
 
 Schijf voor virtuele Machine verkeer (waaronder koppelen en ontkoppelen van bewerkingen, en schijf-i/o) **niet** van invloed op een netwerk-regels.  REST-toegang tot de pagina-blobs is beveiligd met de netwerk-regels.
+
+> [!NOTE]
+> Back-up en herstel van virtuele Machines met niet-beheerde schijven in de storage-accounts met netwerk regels toegepast is momenteel niet ondersteund.  Zie voor meer informatie [beperkingen bij een back-up en herstellen van een virtuele machine](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Klassieke opslagaccounts **niet** ondersteuning voor Firewalls en virtuele netwerken.
 

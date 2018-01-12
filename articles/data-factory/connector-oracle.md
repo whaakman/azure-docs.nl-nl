@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 10db7959396b4ee9927e4272dec9939ac8c13580
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure Data Factory met Oracle
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ In het bijzonder deze Oracle-connector ondersteunt de volgende versies van Oracl
 Om gegevens te kopiëren van/naar een Oracle-database die niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) voor meer informatie over de integratie-runtime. De Runtime-integratie biedt een ingebouwd Oracle-stuurprogramma, dus u hoeft niet te handmatig installeren van een stuurprogramma bij het kopiëren van gegevens van/naar Oracle.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek op Oracle-connector.
 
@@ -210,7 +211,7 @@ Bij het kopiëren van gegevens van/naar Oracle, worden de volgende toewijzingen 
 | BLOB |Byte]<br/>(alleen ondersteund voor Oracle 10g en hoger) |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
-| DATUM |Datum en tijd |
+| DATE |Datum en tijd |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
 | LANG |Tekenreeks |

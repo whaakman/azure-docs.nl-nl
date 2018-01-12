@@ -1,6 +1,6 @@
 ---
 title: Maak een back-up van Azure-Stack | Microsoft Docs
-description: Een back-up van op aanvraag uitvoeren op Azure-Stack met back-up in plaats.
+description: Een op aanvraag back-up uitvoeren op Azure-Stack met back-up in plaats.
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="back-up-azure-stack"></a>Back-up van Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Een back-up van op aanvraag uitvoeren op Azure-Stack met back-up in plaats. Als u moet de infrastructuur back-up-Service wilt inschakelen, Zie [back-up inschakelen voor Azure-Stack van de beheerportal](azure-stack-backup-enable-backup-console.md).
+Een op aanvraag back-up uitvoeren op Azure-Stack met back-up in plaats. Als u moet de infrastructuur back-up-Service wilt inschakelen, Zie [back-up inschakelen voor Azure-Stack van de beheerportal](azure-stack-backup-enable-backup-console.md).
 
-## <a name="start-azure-stack-backup"></a>Azure Stack back-up starten
+## <a name="start-azure-stack-backup"></a>Azure-Stack back-up starten
 
 Open Windows PowerShell met een opdrachtprompt en voer de volgende opdrachten:
 
    ```powershell
-   Start-AzSBackup -Location $location
+   Start-AzSBackup -Location $location.Name
    ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Back-up is voltooid in de beheerportal bevestigen

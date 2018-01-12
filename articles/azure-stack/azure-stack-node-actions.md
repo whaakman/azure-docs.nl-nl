@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
 Dit artikel wordt beschreven hoe u kunt de status van een schaaleenheid en de bijbehorende knooppunten weergeven en het gebruik van de acties beschikbaar knooppunt. Knooppunt acties power op power zijn uitgeschakeld, leegmaakt, hervatten en herstellen. Meestal gebruikt u deze acties knooppunt tijdens veld vervanging van onderdelen of voor knooppunt herstelscenario's.
+
+> [!Important]  
+> Alle knooppunt acties beschreven in dit artikel moeten alleen doel één knooppunt tegelijk.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>De status van een schaaleenheid en de knooppunten ervan bekijken
 
@@ -75,13 +79,17 @@ De operationele status van het knooppunt bepaalt welke opties beschikbaar zijn.
 
 De **uitschakelen** actie schakelt het knooppunt. Dit is hetzelfde als wanneer u op de knop drukt. Dit gebeurt **niet** afsluiten signaal verzenden naar het besturingssysteem. Voor geplande uitschakelen bewerkingen, moet dat u eerst een scale unit knooppunt leegmaakt.
 
-Deze actie wordt doorgaans gebruikt wanneer een knooppunt in een toepassing is vastgelopen en niet meer op aanvragen reageert.  
+Deze actie wordt doorgaans gebruikt wanneer een knooppunt in een toepassing is vastgelopen en niet meer op aanvragen reageert.
+
+> [!Important] 
+> Deze functionaliteit is alleen beschikbaar via PowerShell. Deze zijn beschikbaar in de Azure-Stack-beheerdersportal opnieuw op een later tijdstip.
+
 
 Het uitschakelen van de actie via PowerShell uitvoeren:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, gebruikt u de BMC webinterface.
 
@@ -89,11 +97,14 @@ In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, geb
 
 De **inschakelen** actie Hiermee schakelt u het knooppunt. Dit is hetzelfde als wanneer u op de knop drukt. 
 
+> [!Important] 
+> Deze functionaliteit is alleen beschikbaar via PowerShell. Deze zijn beschikbaar in de Azure-Stack-beheerdersportal opnieuw op een later tijdstip.
+
 De macht op actie via PowerShell uitvoeren:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 In het onwaarschijnlijke geval dat de actie inschakelen niet werkt, gebruikt u de BMC webinterface.
 

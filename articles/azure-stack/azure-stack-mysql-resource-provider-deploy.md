@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 U kunt een MySQL-resourceprovider op Azure-Stack implementeren. Nadat u de resourceprovider hebt geïmplementeerd, kunt u MySQL-servers en -databases via Azure Resource Manager deployment sjablonen maken en MySQL-databases opgeven als een service. MySQL-databases die op websites gelden, ondersteuning voor verschillende platforms van de website. Als u bijvoorbeeld nadat u de bronprovider implementeert kunt u WordPress websites van de Web-Apps van Azure-platform als een service (PaaS)-invoegtoepassing voor Azure-Stack.
 
-Als u wilt implementeren de MySQL-provider op een systeem die geen toegang tot internet heeft, kunt u het bestand kopiëren [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) naar een lokale share. Vervolgens opgeven die sharenaam wanneer u wordt gevraagd. U moet ook de Azure en Azure Stack PowerShell-modules installeren.
+Als u wilt implementeren de MySQL-provider op een systeem die geen toegang tot internet heeft, kunt u het bestand kopiëren [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) naar een lokale share. Vervolgens opgeven die sharenaam wanneer u wordt gevraagd. U moet ook de Azure en Azure Stack PowerShell-modules installeren.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Architectuur van MySQL Server Resource Provider netwerkadapter
@@ -71,10 +71,9 @@ Het systeem-account moet hebben de volgende bevoegdheden:
 
     | Azure Stack Build | MySQL RP-installatieprogramma |
     | --- | --- |
-    | 1.0.180102.3 | **Wacht totdat voor meer informatie, huidige builds kunnen niet worden geïnstalleerd, maar wordt nog uitgevoerd op meerdere knooppunten na de upgrade van een Azure-Stack.** |
-    | 1.0.171122.1 | [MySQL RP versie 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 of 1.0.180106.1 (met meerdere knooppunten) | [MySQL RP versie 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP versie 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP versie 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP versie 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor ASDK, een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
 
@@ -165,7 +164,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
 | **AzCredential** | Geef de referenties voor de servicebeheerder voor Azure-Stack-account. De dezelfde referenties gebruiken als u gebruikt voor het implementeren van Azure-Stack). | _Vereist_ |
 | **VMLocalCredential** | Definieer de referenties voor het lokale administrator-account van de resourceprovider MySQL VM. | _Vereist_ |
 | **PrivilegedEndpoint** | Geef het IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ |
-| **DependencyFilesLocalPath** | Pad naar een lokale share met [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Als u een opgeeft, moet het certificaatbestand dat u in deze map ook worden geplaatst. | _optionele_ (_verplichte_ voor meerdere knooppunten) |
+| **DependencyFilesLocalPath** | Pad naar een lokale share met [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Als u een opgeeft, moet het certificaatbestand dat u in deze map ook worden geplaatst. | _optionele_ (_verplichte_ voor meerdere knooppunten) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat | _Vereist_ |
 | **MaxRetryCount** | Opgeven hoe vaak u wilt dat elke bewerking opnieuw als er een fout.| 2 |
 | **RetryDuration** | Definieer de time-out tussen nieuwe pogingen, in seconden. | 120 |

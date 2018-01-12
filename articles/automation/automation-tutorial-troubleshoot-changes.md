@@ -6,14 +6,14 @@ keywords: bijhouden, wijzigingen, automation
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Problemen met wijzigingen in uw omgeving oplossen
 
@@ -67,7 +67,7 @@ Klik op de banner om de oplossing in te schakelen.
 Als een van de volgende vereiste onderdelen ontbreekt na de validatie, wordt dit automatisch toegevoegd:
 
 * [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-werkruimte
-* [Automation](./automation-offering-get-started.md)
+* [Automatisering](./automation-offering-get-started.md)
 * Een [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) wordt ingeschakeld op de VM.
 
 Het scherm **Wijzigingen bijhouden en Inventaris** wordt weergegeven. Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt, en klik op **Inschakelen**. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de VM en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt.
@@ -158,7 +158,7 @@ Zodra de oplossing Wijzigingen bijhouden en Inventaris is ingeschakeld, kunt u d
 
 Selecteer vanuit de VM de optie **Wijzigingen bijhouden** onder **BEWERKINGEN**.
 
-![Een waarschuwing maken in de klassieke OMS-portal](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Schermafbeelding van de lijst met wijzigingen aan de virtuele machine](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 De grafiek toont wijzigingen die in de loop der tijd hebben plaatsgevonden.
 Nadat u een verbinding met een Azure-activiteitenlogboek hebt toegevoegd, toont de lijngrafiek bovenaan gebeurtenissen uit het Azure-actitviteitenlogboek.

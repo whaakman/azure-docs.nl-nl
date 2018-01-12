@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory - SQL-verificatie configureren | Microsoft Docs
-description: Informatie over het verbinding maken met SQL-Database en SQL Data Warehouse met behulp van Azure Active Directory-verificatie.
+description: Informatie over het verbinding maken met SQL-Database en SQL Data Warehouse met behulp van Azure Active Directory-verificatie - na het configureren van Azure AD.
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse
 
@@ -32,33 +29,14 @@ In dit artikel leest u hoe maken en Azure AD te vullen en vervolgens Azure AD te
 ## <a name="create-and-populate-an-azure-ad"></a>U maakt en vult u een Azure AD
 Maak een Azure AD en deze vullen met gebruikers en groepen. Azure AD de eerste Azure AD kan worden beheerd domein. Azure AD kan ook worden voor een lokale Active Directory Domain Services die is gefedereerd met Azure AD.
 
-Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/active-directory-aadconnect-ports.md) voor meer informatie.
+Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](../active-directory/active-directory-administer.md), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](..//active-directory/connect/active-directory-aadconnect-ports.md) voor meer informatie.
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Optioneel: Koppelen of de active directory die momenteel is gekoppeld aan uw Azure-abonnement wijzigen
-Als u wilt uw database koppelen aan de Azure AD-directory voor uw organisatie, de map een vertrouwde map maken voor de Azure-abonnement met de database. Zie [Hoe Azure-abonnementen worden gekoppeld aan Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx) voor meer informatie.
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory
 
-**Aanvullende informatie:** om Azure-abonnement heeft een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. U kunt zien welke directory wordt vertrouwd door uw abonnement onder de **instellingen** tab aan [https://manage.windowsazure.com/](https://manage.windowsazure.com/). De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort); deze resources lijken meer op onderliggende resources van een abonnement. Als een abonnement is verlopen, wordt toegang tot de andere resources die zijn gekoppeld aan het abonnement ook geblokkeerd. De directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directorygebruikers te blijven beheren. Zie voor meer informatie over bronnen [informatie over toegang tot bronnen in Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Koppel uw Azure-abonnement met Azure Active Directory door het maken van de map een vertrouwde map voor het hosten van de database Azure-abonnement. Zie voor meer informatie [hoe Azure-abonnementen worden gekoppeld aan Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Gebruik de schakelbaar directory in de Azure-portal overschakelen naar het abonnement is gekoppeld aan een domein.
 
-De volgende procedures laten zien hoe de bijbehorende map voor een bepaald abonnement wilt wijzigen.
-1. Verbinding maken met uw [klassieke Azure-Portal](https://manage.windowsazure.com/) met behulp van Azure-abonnementbeheerder.
-2. Selecteer op de links banner **instellingen**.
-3. Uw abonnementen weergegeven in het scherm. Als u het gewenste abonnement niet wordt weergegeven, klikt u op **abonnementen** vervolgkeuzelijst bovenaan de **FILTER door DIRECTORY** vak en selecteer de map waarin uw abonnementen en klik vervolgens op **Toepassen**.
-   
-    ![Abonnement selecteren][4]
-4. In de **instellingen** gebied, klikt u op uw abonnement en klik vervolgens op **DIRECTORY bewerken** aan de onderkant van de pagina.
-   
-    ![AD-instellingen-portal][5]
-5. In de **DIRECTORY bewerken** vak en klik vervolgens op de pijl voor volgende Selecteer de Azure Active Directory die is gekoppeld aan uw SQL Server of SQL Data Warehouse.
-   
-    ![bewerken-directory-selecteren][6]
-6. In de **bevestigen** directory dialoogvenster toewijzing, Controleer of '**alle medebeheerders wordt verwijderd.**'
-   
-    ![bewerken directory bevestigen][7]
-7. Klik op het selectievakje om opnieuw te laden van de portal.
-
-   > [!NOTE]
-   > Wanneer u de map en toegang tot alle medebeheerders, Azure AD-gebruikers en groepen, wijzigen en map back brongebruikers worden verwijderd en die niet langer toegang hebben tot dit abonnement of de bijbehorende bronnen. Alleen kunt, als servicebeheerder u toegang voor principals die zijn gebaseerd op de nieuwe map. Deze wijziging kan duren voordat een aanzienlijke hoeveelheid tijd doorgegeven aan alle resources. Wijzigen van de map ook de Azure AD-beheerder voor de SQL-Database en SQL Data Warehouse wordt gewijzigd en weigeren van toegang tot de database voor een bestaande Azure AD-gebruikers. De Azure AD-beheerder moet het opnieuw instellen (zoals hieronder wordt beschreven) en nieuwe Azure AD-gebruikers moeten worden gemaakt.
-   >  
+   **Aanvullende informatie:** om Azure-abonnement heeft een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort); deze resources lijken meer op onderliggende resources van een abonnement. Als een abonnement is verlopen, wordt toegang tot de andere resources die zijn gekoppeld aan het abonnement ook geblokkeerd. De directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directorygebruikers te blijven beheren. Zie voor meer informatie over bronnen [informatie over toegang tot bronnen in Azure](../active-directory/active-directory-b2b-admin-add-users.md). Voor meer informatie over deze vertrouwde relatie Zie [koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Een Azure AD-beheerder voor Azure SQL-server maken
 Elke Azure SQL-server (die als host fungeert voor een SQL-Database of SQL Data Warehouse) begint met een administrator-account voor één server die de beheerder van de hele Azure SQL-server. Een tweede SQL Server-beheerder moet worden gemaakt, die een Azure AD-account. Deze principal is gemaakt als de gebruiker van een ingesloten database in de database master. Als beheerder, het server-beheerder gebruikersaccounts lid zijn van de **db_owner** rol in elke gebruiker van de database en voert u de gebruikersdatabase van elke als de **dbo** gebruiker. Zie voor meer informatie over de beheerdersaccounts server [het beheren van Databases en aanmeldingen in Azure SQL Database](sql-database-manage-logins.md).
@@ -251,7 +229,7 @@ Gebruik deze methode als u bent aangemeld bij Windows met uw Azure Active Direct
 
     ![Selecteer de databasenaam][13]
 
-## <a name="active-directory-password-authentication"></a>Active Directory-wachtwoordverificatie
+## <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
 
 Gebruik deze methode als het domein te koppelen aan een Azure AD principal-naam met behulp van de Azure AD worden beheerd. U kunt deze ook gebruiken voor federatieve account zonder toegang tot het domein, bijvoorbeeld bij het op afstand werkt.
 
@@ -283,7 +261,7 @@ conn.Open();
 
 Het sleutelwoord van de verbindingsreeks ``Integrated Security=True`` wordt niet ondersteund voor het verbinden met Azure SQL Database. Bij het maken van een ODBC-verbinding, moet u spaties verwijderen en verificatie van 'ActiveDirectoryIntegrated' ingesteld.
 
-### <a name="active-directory-password-authentication"></a>Active Directory-wachtwoordverificatie
+### <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
 
 Voor verbinding met een database met behulp van geïntegreerde verificatie en de identiteit van een Azure AD, moet het sleutelwoord verificatie worden ingesteld op Active Directory-wachtwoord. De verbindingsreeks moet gebruikers-ID/UID en het wachtwoord/PWD sleutelwoorden en waarden bevatten. De volgende C#-voorbeeldcode maakt gebruik van ADO .NET.
 

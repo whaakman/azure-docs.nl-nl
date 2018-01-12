@@ -1,5 +1,5 @@
 ---
-title: 'Beleid: Azure AD SSPR | Microsoft Docs'
+title: Selfservice voor wachtwoordherstel beleid - Azure Active Directory
 description: Azure AD selfservice voor wachtwoordherstel beleidsopties
 services: active-directory
 keywords: Wachtwoordbeheer Active directory, wachtwoordbeheer, Azure AD self service voor wachtwoordherstel
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en -beperkingen in Azure Active Directory
 
@@ -37,16 +37,16 @@ Met een beleid twee gate hebben niet beheerders de mogelijkheid om met beveiligi
 * De volgende Azure-beheerdersrollen worden beïnvloed:
   * Helpdesk-beheerder
   * Serviceondersteuningsbeheerder
-  * Financieel medewerker
-  * Partner Tier1-ondersteuning
-  * Partner Tier2-ondersteuning
-  * Exchange-servicebeheerder
-  * Lync-servicebeheerder
+  * Factureringsbeheerder
+  * Laag1-ondersteuning voor partner
+  * Laag2-ondersteuning voor partner
+  * Exchange Service-beheerder
+  * Lync Service-beheerder
   * De beheerder van gebruiker
-  * Directory-schrijvers
+  * Schrijvers van mappen
   * Globale beheerder of bedrijfsbeheerder
   * SharePoint-servicebeheerder
-  * Naleving beheerder
+  * Beheerder voor naleving
   * Toepassingsbeheerder
   * Beveiligingsbeheerder
   * Beheerder met bevoorrechte rol

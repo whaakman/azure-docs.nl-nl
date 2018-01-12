@@ -3,7 +3,7 @@ title: Azure Stack 1712 Update | Microsoft Docs
 description: "Meer informatie over wat er in de update 1712 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-Stack 1712 update
 
@@ -58,7 +58,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 - Test AzureStack cmdlet voor het valideren van de Azure-Stack Cloud beschikbaar via bevoorrechte-eindpunt
 - Mogelijkheid om te registreren van een niet-verbonden implementatie van Azure-Stack
 - Bewaking van waarschuwingen voor verlopen van certificaat en de gebruiker
-- Toegevoegde Update BMCCredential cmdlet in PEP voor BMC wachtwoord rotatie
+- Toegevoegde Set BmcPassword cmdlet in PEP voor BMC wachtwoord rotatie
 - Netwerk logboekregistratie updates voor de ondersteuning van logboekregistratie op aanvraag
 - Ondersteuning voor terugzetten van de installatiekopie-bewerking voor de virtuele Machine kan worden geschaald Sets (VMSS)
 - Kioskmodus op ERCS VM voor CloudAdmin aanmelding inschakelen

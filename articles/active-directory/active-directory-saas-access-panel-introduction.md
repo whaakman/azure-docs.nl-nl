@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -85,9 +85,11 @@ De extensie is vereist voor gebruikers die zich aanmeldt bij op basis van wachtw
 - Kunnen gebruikers zich aanmelden in apps via de app **aanmeldings-URL**. Wanneer de gebruiker naar de app aanmeldings-URL navigeert wordt de extensie detecteert DPM dit en wordt de optie voor de gebruiker zich aanmeldt bij deze van de extensie.
 - Gebruikers kunnen hun apps van de toegang Configuratiescherm met behulp ook openen de **snel zoeken** functie van de extensie. 
 - De uitbreiding wordt ook weergegeven voor gebruikers de laatste drie toepassingen die gestart onder **recent gebruikte** sectie.
-> [!NOTE]
-> Aanvullende functies zijn alleen beschikbaar voor de rand, Chrome, Firefox.
 
+> [!NOTE]
+> Aanvullende functies zijn alleen beschikbaar voor rand en Chrome, Firefox.
+>
+>
 
 Als u van een andere mijn Apps URL dan https://myapps.microsoft.com gebruikmaakt vervolgens moet u uw standaard-URL echter de volgende stappen uit:
 1. Terwijl niet aangemeld bij de extensie **Klik met de rechtermuisknop** het extensie-pictogram.

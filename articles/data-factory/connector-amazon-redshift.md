@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Redshift met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ In het bijzonder ondersteunt deze connector Amazon Redshift ophalen van gegevens
 * Als u gegevens naar een Azure data store kopiëren wilt, raadpleegt u [Azure Data Center-IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653) voor de Compute-IP-adres en de SQL-adresbereiken die worden gebruikt door de Azure data centers.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Amazon Redshift-connector.
 
@@ -212,17 +213,17 @@ Bij het kopiëren van gegevens vanaf Amazon Redshift, worden de volgende toewijz
 | Amazon Redshift gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAANSE WAARDE |Reeks |
-| CHAR |Reeks |
-| DATUM |Datum en tijd |
+| BOOLEAANSE WAARDE |Tekenreeks |
+| CHAR |Tekenreeks |
+| DATE |Datum en tijd |
 | DECIMALE |Decimale |
 | DUBBELE PRECISIE |dubbele |
 | GEHEEL GETAL |Int32 |
 | ECHTE |Single |
 | SMALLINT |Int16 |
-| TEKST |Reeks |
+| TEKST |Tekenreeks |
 | TIJDSTEMPEL |Datum en tijd |
-| VARCHAR |Reeks |
+| VARCHAR |Tekenreeks |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Gebouw multi-factor Authentication in aangepaste Apps (SDK)
 
@@ -38,7 +38,7 @@ Omdat de API's geen toegang tot gebruikers die zijn geregistreerd bij Azure Acti
 
 
 ## <a name="download-the-sdk"></a>De SDK downloaden
-De Azure multi-factor Authentication SDK downloaden vereist een [Azure multi-factor Authentication-Provider](multi-factor-authentication-get-started-auth-provider.md).  Hiervoor moet een volledige Azure-abonnement, zelfs als het eigendom van Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties zijn. De openbare methoden voor het downloaden van de SDK is decomissioned omdat de SDK is afgeschaft. Als u wilt downloaden van de SDK, moet u een ondersteuningsaanvraag openen met Microsoft.
+De Azure multi-factor Authentication SDK downloaden vereist een [Azure multi-factor Authentication-Provider](multi-factor-authentication-get-started-auth-provider.md).  Hiervoor moet een volledige Azure-abonnement, zelfs als het eigendom van Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties zijn. De openbare methoden voor het downloaden van de SDK hebt gesteld, omdat de SDK is afgeschaft. Als u wilt downloaden van de SDK, moet u een ondersteuningsaanvraag openen met Microsoft. De SDK wordt geleverd alleen aan klanten die al van de SDK gebruikmaken. Nieuwe klanten worden niet vrijgegeven.
 
 ## <a name="whats-in-the-sdk"></a>Wat is er in de SDK
 De SDK bevat de volgende items:

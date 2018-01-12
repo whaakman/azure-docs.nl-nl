@@ -24,7 +24,7 @@ De meeste herstarts duurt ongeveer **30 minuten**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Ondersteunt de Gast OS moeten worden bijgewerkt? 
 
-Deze update Azure-infrastructuur, lost het bekend beveiligingsprobleem op het niveau van de hypervisor en vereist geen een update voor uw Windows- of Linux-VM-installatiekopieën. Als altijd, moet u blijven echter aanbevolen beveiligingsprocedures voor uw VM-installatiekopieën toepassen. Neem contact op met de leverancier van uw besturingssysteem voor updates en instructies, indien nodig. Voor Windows Server-VM-klanten richtlijnen nu is gepubliceerd en is beschikbaar [hier](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+Deze update Azure-infrastructuur, lost het bekend beveiligingsprobleem op het niveau van de hypervisor en vereist geen een update voor uw Windows- of Linux-VM-installatiekopieën. Als altijd, moet u blijven echter aanbevolen beveiligingsprocedures voor uw VM-installatiekopieën toepassen. Neem contact op met de leverancier van uw besturingssysteem voor updates en instructies, indien nodig. Voor Windows Server-VM-klanten richtlijnen nu is gepubliceerd en is beschikbaar [hier](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Komt er ook van invloed op de prestaties als gevolg van het oplossen van deze update?
 

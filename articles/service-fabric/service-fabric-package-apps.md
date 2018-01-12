@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-an-application"></a>Een toepassing van het pakket
 In dit artikel wordt beschreven hoe een Service Fabric-toepassing van het pakket en gereed is voor implementatie te maken.
@@ -115,11 +115,11 @@ Als uw toepassing [toepassingsparameters](service-fabric-manage-multiple-environ
 
 Als u het cluster waarop de toepassing wordt geïmplementeerd, kunt u doorgeeft in de `ImageStoreConnectionString` parameter. Het pakket wordt in dit geval ook gevalideerd met eerdere versies van de toepassing die al in het cluster worden uitgevoerd. Bijvoorbeeld: de validatie kan detecteren of een pakket met dezelfde versie maar verschillende inhoud al is geïmplementeerd.  
 
-Als de toepassing correct wordt verpakt en is gevalideerd, evalueren op basis van de grootte en het aantal bestanden als compressie is vereist.
+Als de toepassing correct wordt verpakt en is gevalideerd, overweeg het comprimeren van het pakket voor snellere implementatiebewerkingen.
 
 ## <a name="compress-a-package"></a>Een pakket comprimeren
 Wanneer een pakket grote of veel bestanden heeft, kunt u het comprimeren voor een snellere implementatie. Compressie vermindert het aantal bestanden en de grootte van het pakket.
-Voor een gecomprimeerde toepassingspakket [uploaden van het toepassingspakket](service-fabric-deploy-remove-applications.md#upload-the-application-package) kan het langer duren vergeleken met het uploaden van de niet-gecomprimeerde pakket (speciaal als compressie tijd zijn meeberekend), maar [registreren](service-fabric-deploy-remove-applications.md#register-the-application-package)en [afmelden het toepassingstype](service-fabric-deploy-remove-applications.md#unregister-an-application-type) voor een gecomprimeerde pakket sneller zijn.
+Voor een gecomprimeerde toepassingspakket [uploaden van het toepassingspakket](service-fabric-deploy-remove-applications.md#upload-the-application-package) kan het langer duren vergeleken met het uploaden van de niet-gecomprimeerde pakket, met name als compressie is uitgevoerd als onderdeel van de kopie. Met compressie, [registreren](service-fabric-deploy-remove-applications.md#register-the-application-package) en [afmelden het toepassingstype](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sneller.
 
 Het mechanisme deployment is hetzelfde voor gecomprimeerde en ongecomprimeerde pakketten. Als het pakket is gecomprimeerd, wordt deze als zodanig in het archief van de cluster-installatiekopie is opgeslagen en wordt deze op het knooppunt wordt gedecomprimeerd voordat de toepassing wordt uitgevoerd.
 De compressie vervangt het geldig Service Fabric-pakket met de gecomprimeerde versie. De map moet schrijfmachtigingen toestaan. Compressie uitgevoerd op een al gecomprimeerde pakket levert geen wijzigingen aangebracht.
@@ -127,8 +127,7 @@ De compressie vervangt het geldig Service Fabric-pakket met de gecomprimeerde ve
 U kunt een pakket met de Powershell-opdracht comprimeren [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) met `CompressPackage` overschakelen. U kunt het pakket met dezelfde decomprimeren opdracht met behulp `UncompressPackage` overschakelen.
 
 De volgende opdracht wordt het pakket gecomprimeerd zonder kopiëren naar de image store. U kunt een gecomprimeerde pakket kopiëren naar een of meer Service Fabric-clusters, indien nodig, met behulp van [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) zonder de `SkipCopy` vlag.
-Het pakket bevat nu ZIP-bestanden voor de `code`, `config`, en `data` pakketten. Het toepassingsmanifest en de manifesten voor de service zijn niet ingepakte, omdat ze nodig zijn voor veel interne bewerkingen (zoals pakket delen, een toepassing de naam en versie extraheren voor bepaalde validaties).
-Comprimeren van de manifesten zouden deze bewerkingen niet efficiënt.
+Het pakket bevat nu ZIP-bestanden voor de `code`, `config`, en `data` pakketten. Het toepassingsmanifest en de manifesten voor de service zijn niet ingepakte, omdat ze nodig zijn voor veel interne bewerkingen. Bijvoorbeeld, het delen van het pakket, de toepassing naam en versie extraheren nodig voor bepaalde alle validaties toegang tot de manifesten. Comprimeren van de manifesten zouden deze bewerkingen niet efficiënt.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -169,10 +168,9 @@ Als het pakket groot is, geeft u een hoog genoeg time-out zodat de tijd voor de 
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Service Fabric berekent intern controlesommen voor de toepassingspakketten voor validatie. Bij gebruik van compressie, worden de controlesommen berekend op de gecomprimeerde versies van elk pakket.
-Als u een niet-gecomprimeerde versie van het toepassingspakket gekopieerd en u wilt gebruik compressie voor hetzelfde pakket, moet u de versies van de `code`, `config`, en `data` pakketten om te voorkomen dat checksum komt niet overeen. Als de pakketten niet gewijzigd in plaats van de versie wijzigen zijn, kunt u [diff inrichting](service-fabric-application-upgrade-advanced.md). Met deze optie wordt het pakket ongewijzigd niet opnemen in plaats daarvan ernaar verwijzen vanuit het servicemanifest.
+Service Fabric berekent intern controlesommen voor de toepassingspakketten voor validatie. Bij gebruik van compressie, worden de controlesommen berekend op de gecomprimeerde versies van elk pakket. Genereren van een nieuwe zip van het toepassingspakket met dezelfde maakt verschillende controlesommen. Om validatiefouten te voorkomen, gebruikt u [diff inrichting](service-fabric-application-upgrade-advanced.md). Met deze optie niet opnemen de ongewijzigde pakketten in de nieuwe versie. In plaats daarvan verwijzing rechtstreeks naar de nieuwe servicemanifest.
 
-Als u een gecomprimeerde versie van het pakket hebt geüpload en u wilt een niet-gecomprimeerde pakket gebruiken, moet u ook de versies om te voorkomen dat de checksum komt niet overeen bijwerken.
+Als de diff-inrichting kan niet worden gebruikt en moet u de pakketten, genereren nieuwe versies voor de `code`, `config`, en `data` pakketten om te voorkomen dat checksum komt niet overeen. Genereren van nieuwe versies voor ongewijzigd pakketten is nodig wanneer een gecomprimeerde pakket wordt gebruikt, ongeacht het feit of eerdere versie compressie gebruikt.
 
 Het pakket is nu correct verpakt, gevalideerd en gecomprimeerd (indien nodig), zodat deze gereed is voor [implementatie](service-fabric-deploy-remove-applications.md) op een of meer Service Fabric-clusters.
 
@@ -186,6 +184,26 @@ U kunt opgeven dat Visual Studio te comprimeren van pakketten op implementatie d
         <CopyPackageParameters CompressPackage="true"/>
     </PublishProfile>
 ```
+
+## <a name="create-an-sfpkg"></a>Een sfpkg maken
+Vanaf versie 6.1, staat Service Fabric inrichting van een externe winkel.
+Met deze optie geen het toepassingspakket moet worden gekopieerd naar de image store. In plaats daarvan kunt u een `sfpkg` en upload het naar een externe winkel en geef vervolgens de download-URI naar Service Fabric bij het inrichten. Hetzelfde pakket kan worden ingericht met meerdere clusters. Inrichting van de externe winkel, slaat de benodigde tijd voor het pakket kopiëren naar een cluster.
+
+De `sfpkg` bestand is een zip dat het eerste toepassingspakket bevat en de extensie '.sfpkg' heeft.
+In het ZIP-bestand, kan het toepassingspakket worden wel of niet gecomprimeerd. De compressie van het toepassingspakket in het ZIP-bestand wordt uitgevoerd op code, configuratie en gegevens pakket niveaus, als [eerder genoemde](service-fabric-package-apps.md#compress-a-package).
+
+Maken van een `sfpkg`, beginnen met een map met het oorspronkelijke toepassingspakket of niet gecomprimeerd. Vervolgens gebruikt u een hulpprogramma naar de map met de extensie '.sfpkg' zip. Bijvoorbeeld: [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+
+```csharp
+ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
+```
+
+De `sfpkg` moet worden geüpload naar de externe store buiten band zijn, buiten de Service Fabric. Het externe archief kan een archief dat toegang biedt tot een REST-eindpunt voor http of https zijn. Tijdens het inrichten, Service Fabric wordt uitgevoerd een GET-bewerking voor het downloaden van de `sfpkg` toepassingspakket, zodat de store leestoegang voor het pakket moet toestaan.
+
+Gebruik externe inrichten, waarvoor de download-URI en informatie over de toepassing-type is vereist voor het inrichten van het pakket.
+
+>[!NOTE]
+> Inrichting op basis van het relatieve pad naar afbeelding store ondersteunt momenteel geen `sfpkg` bestanden. Daarom de `sfpkg` niet worden gekopieerd naar de image store.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Implementeren en toepassingen verwijderen] [ 10] wordt beschreven hoe u PowerShell gebruiken voor het beheren van toepassingsexemplaren

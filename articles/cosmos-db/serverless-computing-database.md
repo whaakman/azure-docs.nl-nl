@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -153,7 +153,7 @@ Nu gaan we Azure Cosmos DB en Azure Functions echt verbinden:
 * [Een Azure DB die Cosmos-trigger maken in de Azure-portal](https://aka.ms/cosmosdbtriggerportalfunc)
 * [De trigger van een HTTP-functies van Azure maken met een binding van Azure DB die Cosmos-invoer](https://aka.ms/cosmosdbinputbind)
 * [Opslaan van ongestructureerde gegevens met behulp van Azure Functions en Cosmos-DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure DB Cosmos-bindingen en wordt geactiveerd](../azure-functions/functions-bindings-documentdb.md)
+* [Azure DB Cosmos-bindingen en wordt geactiveerd](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

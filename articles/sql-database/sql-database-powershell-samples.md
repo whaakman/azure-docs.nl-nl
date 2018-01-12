@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 65f6600f6810024e00eaa50906d7924bd36768d3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Voorbeelden van Azure PowerShell voor Azure SQL Database
 
@@ -47,5 +47,5 @@ De volgende tabel bevat koppelingen naar Azure PowerShell-voorbeeldscripts voor 
 | **Gegevens tussen databases synchroniseren**||
 | [Gegevens synchroniseren tussen de SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deze PowerShell-script configureert synchroniseren van gegevens te synchroniseren tussen meerdere Azure SQL-databases. |
 | [Gegevens synchroniseren tussen on-premises SQL-Database en SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deze PowerShell-script configureert synchroniseren van gegevens te synchroniseren tussen een Azure SQL database en een lokale SQL Server-database. |
-|||
+| [Het synchroniseren van de SQL-gegevens synchroniseren schema bijwerken](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deze PowerShell-script toevoegen of verwijderen van items uit het schema van de synchronisatie synchroniseren van gegevens. |
 |||

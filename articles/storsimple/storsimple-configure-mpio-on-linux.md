@@ -4,7 +4,7 @@ description: MPIO configureren op verbonden met een Linux-host CentOS 6.6 met St
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>MPIO configureren op een StorSimple-host waarop van CentOS
 Dit artikel wordt uitgelegd hoe u Multipath I/O (MPIO) configureren op de hostserver Centos 6.6. De host-server is verbonden met uw Microsoft Azure StorSimple-apparaat voor hoge beschikbaarheid via iSCSI-initiators. Deze beschrijving gedetailleerde van de automatische detectie van multipath-apparaten en de specifieke instellingen alleen van StorSimple-volumes.
@@ -26,9 +26,8 @@ Dit artikel wordt uitgelegd hoe u Multipath I/O (MPIO) configureren op de hostse
 Deze procedure is van toepassing op alle modellen van apparaten voor StorSimple 8000-serie.
 
 > [!NOTE]
-> Deze procedure kan niet worden gebruikt voor een virtueel StorSimple-apparaat. Zie voor meer informatie het configureren van hostservers voor uw virtuele apparaat.
-> 
-> 
+> Deze procedure kan niet worden gebruikt voor een StorSimple-Cloud-apparaat. Zie voor meer informatie het configureren van hostservers voor uw toestel cloud.
+
 
 ## <a name="about-multipathing"></a>Over het gebruik van meerdere paden
 De functie multipath kunt u meerdere i/o-paden tussen een hostserver en een opslagapparaat configureren. Deze i/o-paden zijn fysieke SAN-verbindingen die afzonderlijke kabels, switches, netwerkinterfaces en domeincontrollers kunnen opnemen. Gebruik van meerdere paden cumuleert de i/o-paden voor het configureren van een nieuw apparaat dat is gekoppeld aan alle geaggregeerde paden.
@@ -298,7 +297,7 @@ Deze load balancing-algoritme maakt gebruik van alle beschikbare multipaths met 
 
     Als u slechts één host-interface en twee paden Hier ziet, moet u zowel de interfaces op de host voor iSCSI-inschakelen. U kunt volgen de [gedetailleerde instructies in de documentatie van Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Een volume wordt blootgesteld aan de server CentOS van het StorSimple-apparaat. Zie voor meer informatie [stap 6: een volume maken](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via de klassieke Azure portal op uw StorSimple-apparaat.
+2. Een volume wordt blootgesteld aan de server CentOS van het StorSimple-apparaat. Zie voor meer informatie [stap 6: een volume maken](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via de Azure-portal op uw StorSimple-apparaat.
 
 3. Controleer of de beschikbare paden. Type:
 
@@ -341,7 +340,7 @@ A. Als u aangebrachte wijzigingen in de `multipath.conf` -bestand, moet u het ge
 
 Q. Ik heb twee netwerkinterfaces op de StorSimple-apparaat en twee netwerkinterfaces op de host ingeschakeld. Wanneer ik de beschikbare paden, zie ik slechts twee paden. Ik verwachtte vier beschikbare paden.
 
-A. Zorg ervoor dat de twee paden zich op hetzelfde subnet en routeerbaar. Als de netwerkinterfaces zich op verschillende VLAN's en niet routeerbaar te maken, u slechts twee paden ziet. Er is een manier om dit te controleren om ervoor te zorgen dat u zowel de hostinterfaces van de netwerkinterface op het StorSimple-apparaat kunt bereiken. U moet [contact op met Microsoft Support](storsimple-contact-microsoft-support.md) zoals deze verificatie kan alleen worden uitgevoerd via een ondersteuningssessie voor.
+A. Zorg ervoor dat de twee paden zich op hetzelfde subnet en routeerbaar. Als de netwerkinterfaces zich op verschillende VLAN's en niet routeerbaar te maken, u slechts twee paden ziet. Er is een manier om dit te controleren om ervoor te zorgen dat u zowel de hostinterfaces van de netwerkinterface op het StorSimple-apparaat kunt bereiken. U moet [contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) zoals deze verificatie kan alleen worden uitgevoerd via een ondersteuningssessie voor.
 
 Q. Wanneer ik de lijst beschikbare paden, zie ik niet geen uitvoer.
 

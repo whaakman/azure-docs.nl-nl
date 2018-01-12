@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ In het bijzonder ondersteunt deze connector Cassandra:
 Om gegevens te kopiëren uit een Cassandra-database die niet openbaar toegankelijk is, moet u voor het instellen van een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie. De Runtime-integratie biedt een ingebouwd Cassandra stuurprogramma, dus u hoeft niet te handmatig installeren van een stuurprogramma bij het kopiëren van gegevens van/naar Cassandra.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met de kopieeractiviteit middels de .NET SDK, Python SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [kopie activiteit zelfstudie](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Cassandra-connector.
 
@@ -173,14 +174,14 @@ Bij het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen va
 | ASCII |Tekenreeks |
 | BIGINT |Int64 |
 | BLOB |Byte] |
-| BOOLEAANSE WAARDE |Booleaanse waarde |
+| BOOLEAANSE WAARDE |Boole-waarde |
 | DECIMALE |Decimale |
 | DOUBLE |dubbele |
-| FLOAT |Één |
+| FLOAT |Single |
 | INET |Tekenreeks |
 | INT |Int32 |
 | TEKST |Tekenreeks |
-| TIJDSTEMPEL |Datum/tijd |
+| TIJDSTEMPEL |Datum en tijd |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Tekenreeks |

@@ -4,7 +4,7 @@ description: Beschrijft hoe verwijderen, vervangen en onderhouden van de module 
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Vervang de module voor back-up batterij op uw StorSimple-apparaat
 
@@ -67,7 +67,7 @@ De back-up batterij-module voor uw StorSimple-apparaat is een field-replaceable 
    | 4 |PCM OK |
    | 5 |DC-stroomstoring |
    | 6 |Accu in orde |
-3. Volg de stappen in voor het verwijderen van de PCM met een mislukte batterij [verwijderen van een PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. Volg de stappen in voor het verwijderen van de PCM met een mislukte batterij [verwijderen van een PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Met de PCM verwijderd lift-pull-tot de batterij verwijderen en de ingang van de module accu omhoog draaien zoals aangegeven in de volgende afbeelding.
    
     ![Verwijderen van de batterij van PCM](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ Voer de volgende stappen uit voor het installeren van de vervangende accu module
 #### <a name="to-install-the-battery-module"></a>De batterij-module installeren
 1. De back-up batterij-module in de juiste richting in de PCM plaatsen.
 2. Houd de ingang van de module accu helemaal aan de connector.
-3. De PCM in de primaire behuizing vervangen door de richtlijnen in [vervangen van een stroom en koeling Module op uw StorSimple-apparaat](storsimple-power-cooling-module-replacement.md).
+3. De PCM in de primaire behuizing vervangen door de richtlijnen in [vervangen van een stroom en koeling Module op uw StorSimple-apparaat](storsimple-8000-power-cooling-module-replacement.md).
 4. Nadat de vervanging voltooid is, gaat u naar het apparaat en Ga naar **Monitor** > **Hardware health** in de Azure portal. Controleer de status van de batterij om ervoor te zorgen dat de installatie geslaagd is. Groene status geeft aan of de batterij in orde is.
 
 ## <a name="maintain-the-backup-battery-module"></a>De module back-up batterij onderhouden

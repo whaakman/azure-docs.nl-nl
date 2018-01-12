@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Azure-resources implementeren op meer dan één abonnement of resourcegroep
 
@@ -121,7 +121,7 @@ Het volgende voorbeeld worden twee storage-accounts: in de resourcegroep die is 
 
 Als u instelt `resourceGroup` op de naam van een resourcegroep die niet bestaat, mislukt de implementatie.
 
-Gebruik voor het implementeren van de voorbeeldsjabloon, een versie van Azure PowerShell of Azure CLI van mei 2017 of hoger.
+Voor het implementeren van de voorbeeldsjabloon, het gebruik van Azure PowerShell 4.0.0 of later of Azure CLI 2.0.0 of hoger.
 
 ## <a name="use-the-resourcegroup-function"></a>Gebruik de functie resourceGroup()
 

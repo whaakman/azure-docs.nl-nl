@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Met behulp van de Azure Storage REST-API
+# <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
 
 In dit artikel leest u het gebruik van de Blob Storage-Service REST API's en hoe u verifieert de aanroep naar de service. Deze vanuit het oogpunt van iemand die weet endtoepassing niets over REST en geen idee hoe u een REST-aanroep is geschreven, maar er is een ontwikkelaar. We kijken naar de documentatie bij een REST-aanroep en zien hoe u om te zetten in een werkelijke REST-aanroep – welke velden gaan waar? Na het instellen van een REST-aanroep leren, kunt u gebruikmaken van deze informatie voor het gebruik van een van de andere opslag Service REST API's.
 
@@ -32,7 +32,7 @@ De toepassing bevat de containers in blob-opslag voor een opslagaccount. Als u w
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-* Een algemeen opslagaccount. Als u niet alle opslagaccounts hebt, kunt u één die gebruikmaakt van de [Azure-portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), of [Azure CLI](storage-quickstart-create-storage-account-cli.md).
+* Een algemeen opslagaccount. Als u een opslagaccount nog geen hebt, raadpleegt u [een opslagaccount maken](storage-quickstart-create-account.md).
 
 * Het voorbeeld in dit artikel ziet hoe u de containers in een opslagaccount. Uitvoer, toe te voegen sommige containers naar de blob storage in de storage-account voordat u begint.
 
@@ -40,13 +40,13 @@ De toepassing bevat de containers in blob-opslag voor een opslagaccount. Als u w
 
 De voorbeeldtoepassing is een geschreven in C#-consoletoepassing.
 
-Gebruik [git](https://git-scm.com/) een kopie van de toepassing op uw ontwikkelomgeving te downloaden. 
+Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Met deze opdracht kloont de opslagplaats naar uw lokale git-map. Open de Visual Studio-oplossing, zoekt u naar de map storage-dotnet-rest-api-with-auth, openen en dubbelklik op StorageRestApiAuth.sln. 
+Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Open de Visual Studio-oplossing, zoekt u naar de map storage-dotnet-rest-api-with-auth, openen en dubbelklik op StorageRestApiAuth.sln. 
 
 ## <a name="why-do-i-need-to-know-rest"></a>Waarom moet ik te weten REST?
 

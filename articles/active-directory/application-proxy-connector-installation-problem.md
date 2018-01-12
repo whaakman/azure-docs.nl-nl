@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemen bij het installeren van de Connector voor toepassingsproxy-Agent
 
@@ -37,9 +37,9 @@ Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal 
 
 **Doelstelling:** Controleer of de machine connector verbinding met het eindpunt voor AAD Application Proxy-registratie, alsmede de aanmeldingspagina voor Microsoft maken kan.
 
-1.  Open een browser en Ga naar de volgende webpagina: <https://aadap-portcheck.connectorporttest.msappproxy.net> , en controleren of de verbinding met VS-midden en VS-Oost datacenters met poort 9090 en 9091 werkt.
+1.  Open een browser en Ga naar de volgende webpagina: <https://aadap-portcheck.connectorporttest.msappproxy.net> , en controleren of de verbinding met VS-midden en VS-Oost datacenters met poorten 80 en 443 werkt.
 
-2.  Als een van deze poorten is niet geslaagd (geen een groen vinkje), Controleer of de Firewall of een back-end-proxy heeft \*. msappproxy.net met poort 9090 en 9091 correct gedefinieerd.
+2.  Als een van deze poorten is niet geslaagd (geen een groen vinkje), Controleer of de Firewall of een back-end-proxy heeft \*. msappproxy.net met poorten 80 en 443 correct gedefinieerd.
 
 3.  Open een browser (door tabs gescheiden) en Ga naar de volgende webpagina: <https://login.microsoftonline.com>, zorg ervoor dat u op deze pagina aanmelden zich.
 

@@ -1,5 +1,5 @@
 ---
-title: Maken van een Linux virtuele-machineschaalset ingesteld in de Azure portal | Microsoft Docs
+title: Een virtuele-Machineschaalset maken in de Azure portal | Microsoft Docs
 description: Informatie over het snel een virtuele-machineschaalset maken in de Azure portal
 keywords: Virtuele-machineschaalsets
 services: virtual-machine-scale-sets
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa6bf6b34d8b93ffa9aceaf7c6112c63d4cb9f1c
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Een virtuele-Machineschaalset maken in de Azure portal
-Een virtuele-machineschaalset kunt u om te implementeren en beheren van een reeks identiek zijn, automatisch schalen virtuele machines. U kunt het aantal virtuele machines in de schaalset handmatig schalen of regels automatisch te schalen op basis van het gebruik van bronnen zoals CPU, geheugen-aanvraag of netwerkverkeer definiëren. In dit ophalen gestart artikel maakt u een virtuele-machineschaalset ingesteld in de Azure-portal. U kunt ook maken met een schaal ingesteld met de [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) of [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In dit ophalen gestart artikel maakt u een virtuele-machineschaalset ingesteld in de Azure-portal. U kunt ook maken met een schaal ingesteld met de [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) of [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -76,8 +76,8 @@ Wanneer deze niet meer nodig, de resourcegroep verwijderen, schaalset en alle bi
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel van het ophalen gestart, moet u een basic schaal ingesteld in de Azure-portal gemaakt. Vouw voor betere schaalbaarheid en automatisering schaal ingesteld met de volgende artikelen:
+In dit artikel van het ophalen gestart, moet u een basic schaal ingesteld in de Azure-portal gemaakt. Breid voor betere schaalbaarheid en automatisering uw schaalset uit met de volgende praktische artikelen:
 
-- [Implementeren van uw toepassing op virtuele-machineschaalsets](virtual-machine-scale-sets-deploy-app.md)
-- Automatisch schalen met [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), wordt de [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), of de [Azure-portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Automatische upgrades voor het besturingssysteem gebruiken voor uw scale set VM-exemplaren](virtual-machine-scale-sets-automatic-upgrade.md)
+- [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md) (Uw toepassing implementeren op virtuele-machineschaalsets)
+- Automatisch schalen met [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), de [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) of [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Use automatic OS upgrades for your scale set VM instances](virtual-machine-scale-sets-automatic-upgrade.md) (Automatische upgrades voor het besturingssysteem gebruiken voor de VM-instanties in uw schaalset)
