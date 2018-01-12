@@ -12,9 +12,11 @@
   items:
     - name: Beheerde toepassingsbestanden maken
       href: publish-service-catalog-app.md
+    - name: Een Marketplace-toepassing maken
+      href: publish-marketplace-app.md
 - name: Voorbeelden
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -28,9 +30,9 @@
       href: update-managed-resources.md
     - name: Portal gebruiken om te publiceren
       href: publish-portal.md
-- name: Naslaginformatie
+- name: Verwijzing
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/managedapp
     - name: PowerShell
       href: /powershell/module/azurerm.resources

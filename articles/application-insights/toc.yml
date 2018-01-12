@@ -265,7 +265,11 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
-- name: Naslaginformatie
+- name: Voorbeelden
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
+- name: Verwijzing
   items:
     - name: Querytaal voor analytische gegevens
       href: 'https://docs.loganalytics.io/'

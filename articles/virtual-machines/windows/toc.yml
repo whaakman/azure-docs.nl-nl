@@ -125,7 +125,11 @@
         - name: 'C# gebruiken'
           href: csharp.md
         - name: Een gespecialiseerde schijf gebruiken
-          href: create-vm-specialized.md
+          items:
+            - name: Portal
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Een sjabloon met C# gebruiken'
           href: csharp-template.md
         - name: Een virtuele machine maken met Chef
@@ -414,7 +418,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Geneste virtualisatie gebruiken
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Naslaginformatie
+- name: Verwijzing
   items:
     - name: Azure-CLI
       href: /cli/azure/vm

@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: Functions-proxy's
       href: functions-proxies.md
-    - name: Functions Runtime
+    - name: On-premises functies
       href: functions-runtime-overview.md
     - name: Durable Functions
       items:
@@ -175,14 +175,14 @@
           href: durable-functions-counter.md
         - name: Menselijke tussenkomst
           href: durable-functions-phone-verification.md
-- name: Naslaginformatie
+- name: Verwijzing
   items:
     - name: Bindingen
       items:
         - name: Blob Storage
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Extern bestand
