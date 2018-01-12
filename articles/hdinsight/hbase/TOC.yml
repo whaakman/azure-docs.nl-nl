@@ -86,7 +86,7 @@
             - name: Azure CLI gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: De Azure-portal gebruiken
+            - name: Azure Portal gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Azure Resource Manager-sjablonen gebruiken
@@ -121,6 +121,8 @@
         - name: Gegevens uploaden voor Hadoop-taken
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Bulksgewijs gegevens laden in Phoenix met psql
+          href: apache-hbase-phoenix-psql.md
         - name: Meerdere HDInsight-clusters met Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true
@@ -218,7 +220,7 @@
         - name: Cluster-prestaties bewaken
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Naslaginformatie
+- name: Verwijzing
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

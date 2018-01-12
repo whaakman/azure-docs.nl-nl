@@ -64,6 +64,7 @@
 #### [Entiteiten koppelen met automatisch doorsturen](service-bus-auto-forwarding.md)
 #### [Transactieverwerking](service-bus-transactions.md)
 #### [Gekoppelde naamruimte implementeren](service-bus-paired-namespaces.md)
+### [End-to-end tracering en diagnostische gegevens ](service-bus-end-to-end-tracing.md)
 ## Beheren
 ### [Service Bus bewaken met Azure-bewaking](service-bus-metrics-azure-monitor.md)
 ### [Service Bus-beheerbibliotheken](service-bus-management-libraries.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Azure PowerShell gebruiken om entiteiten in te richten](service-bus-manage-with-ps.md)
 
-# Naslaginformatie
+# Verwijzing
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

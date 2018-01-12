@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Security Center
+metadata:
+  title: 'Documentatie voor Azure Security Center: zelfstudies, API-verwijzing | Microsoft Docs'
+  meta.description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..
+  services: security-center
+  author: cmcclister
+  manager: carolz
+  ms.service: security-center
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/05/18
+  ms.author: cmcclister
+  ms.openlocfilehash: 2d0c22cc59e0185caa9c298e1c26026e00faf2a5
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 01/10/2018
+abstract:
+  description: "Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor verschillende hybride cloudworkloads. In onze snelstartgidsen en zelfstudies vindt u meer informatie over hoe u aan de slag gaat met Security Center, beveiligingsbeleid voor verschillende workloads toepast, blootstelling aan bedreigingen beperkt en adequaat op aanvallen reageert."
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u voor uw VM's en computers onboarding uitvoert voor Security Center en hoe u verbinding maakt met uw beveiligingsoplossingen.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /media/common/i_subscription.svg
+      text: Onboarding voor Azure-abonnementen
+      href: /azure/security-center/security-center-get-started
+    - image:
+        src: /media/logos/logo_Windows.svg
+      text: Onboarding voor Windows-computers
+      href: /azure/security-center/quick-onboard-windows-computer
+    - image:
+        src: /media/logos/logo_linux.svg
+      text: Onboarding voor Linux-computers
+      href: /azure/security-center/quick-onboard-linux-computer
+    - image:
+        src: /media/common/i_multi-connect.svg
+      text: Verbinding maken met beveiligingsoplossingen
+      href: /azure/security-center/quick-security-solutions
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u beveiligingsbeleid opstelt, uw resources beveiligt tegen schadelijke activiteit en adequaat reageert op beveiligingswaarschuwingen en incidenten.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/security-center/tutorial-security-policy">Beveiligingsbeleid opstellen en beoordelen</a>
+    - html: <a href="/azure/security-center/tutorial-protect-resources">Uw resources beveiligen</a>
+    - html: <a href="/azure/security-center/tutorial-security-incident">Reageren op beveiligingsincidenten</a>
+- title: Gratis videotraining
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Basisinformatie over Azure Security Center
+      href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+- title: Verwijzing
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Naslaginformatie over REST-API</a></p>

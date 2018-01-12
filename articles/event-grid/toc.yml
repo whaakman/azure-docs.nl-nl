@@ -38,7 +38,9 @@
       href: event-grid-event-hubs-integration.md
     - name: Sjablonen voor gebeurtenisabonnementen
       href: event-subscription-template.md
-- name: Naslaginformatie
+    - name: Gebeurtenisverzending bewaken
+      href: monitor-event-delivery.md
+- name: Verwijzing
   items:
     - name: Azure-CLI
       href: /cli/azure/eventgrid

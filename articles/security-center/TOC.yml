@@ -1,0 +1,190 @@
+- name: Documentatie over Security Center
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over Security Center
+      href: security-center-intro.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Azure-abonnementen
+      href: security-center-get-started.md
+    - name: Windows-computers
+      href: quick-onboard-windows-computer.md
+    - name: Linux-computers
+      href: quick-onboard-linux-computer.md
+    - name: Beveiligingsoplossingen
+      href: quick-security-solutions.md
+- name: Zelfstudies
+  items:
+    - name: Beveiligingsbeleid definiëren
+      href: tutorial-security-policy.md
+    - name: Uw resources beveiligen
+      href: tutorial-protect-resources.md
+    - name: Reageren op incidenten
+      href: tutorial-security-incident.md
+- name: Concepten
+  items:
+    - name: Machtigingen
+      href: security-center-permissions.md
+    - name: Gegevensbeveiliging
+      href: security-center-data-security.md
+- name: Handleidingen
+  items:
+    - name: Upgraden naar geavanceerde beveiliging
+      href: security-center-onboarding.md
+    - name: Beveiligingsbeleid instellen
+      href: security-center-policies-overview.md
+      items:
+        - name: Gegevensverzameling
+          href: security-center-enable-data-collection.md
+        - name: Beleidsdefinities
+          href: security-center-policies.md
+        - name: E-mailmeldingen
+          href: security-center-provide-security-contact-details.md
+        - name: Prijscategorie
+          href: security-center-pricing.md
+        - name: Beveiligingsconfiguraties
+          href: security-center-customize-os-security-config.md
+        - name: Beveiligingsbeleid op basis van Azure-beleid
+          href: security-center-azure-policy.md
+    - name: Beveiligingsstatus controleren
+      href: security-center-monitoring.md
+    - name: Identiteit en toegang
+      href: security-center-identity-access.md
+    - name: Aanbevelingen voor beveiliging implementeren
+      href: security-center-recommendations.md
+    - name: Computerbeveiliging
+      href: security-center-virtual-machine-recommendations.md
+      items:
+        - name: Schijfversleuteling toepassen
+          href: security-center-apply-disk-encryption.md
+        - name: Systeemupdates toepassen
+          href: security-center-apply-system-updates.md
+        - name: Versleuteling inschakelen voor opslagaccount
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: VM-agent inschakelen
+          href: security-center-enable-vm-agent.md
+        - name: Eindpuntbeveiliging installeren
+          href: security-center-install-endpoint-protection.md
+        - name: Opnieuw opstarten na systeemupdates
+          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Beveiligingsconfiguraties herstellen
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Besturingssysteemversie bijwerken
+          href: security-center-update-os-version.md
+        - name: Beoordeling van beveiligingslekken is niet geïnstalleerd
+          href: security-center-vulnerability-assessment-recommendations.md
+    - name: Netwerkbeveiliging
+      href: security-center-network-recommendations.md
+      items:
+        - name: Een firewall van de volgende generatie toevoegen
+          href: security-center-add-next-generation-firewall.md
+        - name: Netwerkbeveiligingsgroepen inschakelen
+          href: security-center-enable-network-security-groups.md
+        - name: Toegang beperken via internetgerichte eindpunten
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
+        - name: Verkeer alleen via NGFW sturen
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+    - name: Beveiliging voor opslag en gegevens
+      href: security-center-sql-service-recommendations.md
+      items:
+        - name: Controle en detectie van bedreigingen in SQL-databases inschakelen
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: Controle en detectie van bedreigingen op SQL-servers inschakelen
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Transparante gegevensversleuteling inschakelen
+          href: security-center-enable-transparent-data-encryption.md
+    - name: Toepassingsbeveiliging
+      href: security-center-application-recommendations.md
+      items:
+        - name: Een firewall voor webtoepassingen toevoegen
+          href: security-center-add-web-application-firewall.md
+        - name: Toepassingsbeveiliging voltooien
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+    - name: Cloudbeveiliging
+      items:
+        - name: Just-in-time-toegang
+          href: security-center-just-in-time.md
+        - name: Adaptieve toepassingsbesturingselementen
+          href: security-center-adaptive-application.md
+    - name: Beveiligingsoplossingen beheren
+      href: security-center-partner-integration.md
+      items:
+        - name: Verbonden oplossingen
+          href: security-center-partner-solutions.md
+        - name: Verbinding maken met Microsoft ATA
+          href: security-center-ata-integration.md
+        - name: Verbinding maken met Azure AD Identity Protection
+          href: security-center-aadip-integration.md
+    - name: Bedreigingen onderzoeken
+      href: security-center-detection-capabilities.md
+      items:
+        - name: Beveiligingswaarschuwingen
+          href: security-center-managing-and-responding-alerts.md
+        - name: Beveiligingsincidenten
+          href: security-center-incident.md
+        - name: Bedreigingsrapporten
+          href: security-center-threat-report.md
+        - name: Waarschuwingstypen
+          href: security-center-alerts-type.md
+        - name: Aangepaste waarschuwingen
+          href: security-center-custom-alert.md
+        - name: Waarschuwingen valideren
+          href: security-center-alert-validation.md
+        - name: Bedreigingsinformatiekaart
+          href: security-center-threat-intel.md
+        - name: Onderzoek
+          href: security-center-investigation.md
+    - name: Automatiseren en organiseren
+      items:
+        - name: Logic Apps-playbooks
+          href: security-center-playbooks.md
+        - name: Gebeurtenissen weergeven
+          href: security-center-events-dashboard.md
+        - name: Search
+          href: security-center-search.md
+    - name: Azure-logboekintegratie
+      href: security-center-integrating-alerts-with-log-integration.md
+    - name: Scenario's
+      items:
+        - name: Reageren op incidenten
+          href: security-center-incident-response.md
+        - name: Aanbevelingen gebruiken om de beveiliging te verbeteren
+          href: security-center-using-recommendations.md
+    - name: Problemen oplossen
+      href: security-center-troubleshooting-guide.md
+- name: Verwijzing
+  items:
+    - name: REST-API’s
+      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: security-center-faq.md
+    - name: Ondersteunde platforms
+      href: security-center-os-coverage.md
+    - name: Platformmigratie
+      href: security-center-platform-migration.md
+    - name: Veelgestelde vragen over platformmigratie
+      href: security-center-platform-migration-faq.md
+    - name: Planning en bewerkingen
+      href: security-center-planning-and-operations-guide.md
+    - name: Azure-beveiliging
+      href: /azure/security/
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Roadmap naar gereedheid
+      href: security-center-readiness-roadmap.md
+    - name: 'Blog over veiligheid, privacy en naleving met betrekking tot Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
