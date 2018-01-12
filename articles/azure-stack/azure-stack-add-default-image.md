@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>De Windows Server 2016 VM-installatiekopie toevoegen aan de Stack Azure Marketplace
 
@@ -34,11 +34,11 @@ Standaard zijn er geen installatiekopieën van virtuele machines beschikbaar in 
 
 2. Selecteer **meer services** > **Marketplace Management** > **toevoegen uit Azure**. 
 
-3. Zoeken of zoeken naar de **Windows Server 2016 Datacenter – Eval** installatiekopie en selecteer vervolgens **downloaden**.
+3. Zoeken of zoeken naar de **Windows Server 2016 Datacenter** installatiekopie en selecteer vervolgens **downloaden**.
 
    ![Afbeelding van Azure downloaden](media/azure-stack-add-default-image/download-image.png)
 
-Wanneer het downloaden is voltooid, is de afbeelding onder **Marketplace Management**. De installatiekopie van het is ook beschikbaar onder **virtuele Machines**.
+Wanneer het downloaden is voltooid, is de afbeelding onder **Marketplace Management**. De installatiekopie van het is ook beschikbaar onder **Compute** en is beschikbaar voor het maken van nieuwe virtuele machines.
 
 ## <a name="add-the-image-by-using-powershell"></a>De installatiekopie toevoegen met behulp van PowerShell
 
@@ -113,7 +113,7 @@ Voer de volgende vereisten uitvoeren vanuit de [development kit](azure-stack-con
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,7 +137,7 @@ Om ervoor te zorgen dat de Windows Server 2016 VM-installatiekopie de meest rece
 
 ## <a name="parameters"></a>Parameters
 
-|Nieuwe AzsServer2016VMImage parameters|Vereist?|Beschrijving|
+|Nieuwe AzsServer2016VMImage parameters|Vereist|Beschrijving|
 |-----|-----|------|
 |ISOPath|Ja|Het volledig gekwalificeerde pad naar de gedownloade ISO van Windows Server 2016.|
 |Net35|Nee|De runtime .NET 3.5 installeert op de installatiekopie van het Windows Server 2016. Deze waarde is standaard ingesteld op **true**.|
@@ -145,7 +145,7 @@ Om ervoor te zorgen dat de Windows Server 2016 VM-installatiekopie de meest rece
 |VHDSizeInMB|Nee|Hiermee stelt u de grootte (in MB) van de installatiekopie van het VHD moet worden toegevoegd aan uw Azure-Stack-omgeving. Deze waarde is standaard ingesteld op 40.960 MB.|
 |CreateGalleryItem|Nee|Hiermee geeft u op of een Marketplace-item moet worden gemaakt voor de installatiekopie van Windows Server 2016. Deze waarde is standaard ingesteld op **true**.|
 |location |Nee |Hiermee geeft u de locatie waarop de installatiekopie van het Windows Server 2016 moet worden gepubliceerd.|
-|IncludeLatestCU|Nee|De meest recente cumulatieve update voor Windows Server 2016 geldt voor de nieuwe VHD.|
+|IncludeLatestCU|Nee|De meest recente cumulatieve update voor Windows Server 2016 geldt voor de nieuwe VHD (Controleer of het script om ervoor te zorgen dat deze naar de meest recente update of gebruik een van de volgende twee opties verwijst). |
 |CUUri |Nee |Stelt de Windows Server 2016 cumulatieve update uitvoeren vanaf een specifieke URI. |
 |CUPath |Nee |De Windows Server 2016 sets cumulatieve update uitvoeren vanaf een lokaal pad. Deze optie is handig als u het Azure-Stack-exemplaar in een omgeving zonder verbinding hebt geïmplementeerd.|
 

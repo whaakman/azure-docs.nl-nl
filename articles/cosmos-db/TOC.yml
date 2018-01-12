@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Robomongo gebruiken
               href: mongodb-robomongo.md
+            - name: Mongoose gebruiken
+              href: mongodb-mongoose.md
             - name: Ondersteuning voor MongoDB-functies
               href: mongodb-feature-support.md
             - name: Reeks zelfstudies voor Angular
@@ -380,7 +382,7 @@
           href: odbc-driver.md
         - name: Spring Boot Starter gebruiken met SQL-API's
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Naslaginformatie
+- name: Verwijzing
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'

@@ -16,6 +16,7 @@
 ### [Virtuele machines maken](devtest-lab-add-vm.md)
 ### [Claimbare virtuele machines maken en beheren](devtest-lab-add-claimable-vm.md)
 ### [Virtuele machines maken en beheren met Azure CLI](devtest-lab-vmcli.md)
+### [Een virtuele machine maken op basis van een Resource Manager-sjabloon](devtest-lab-use-resource-manager-template.md)
 ### [Een virtuele machine opnieuw opstarten](devtest-lab-restart-vm.md)
 
 ## Omgevingen gebruiken in een lab
@@ -46,7 +47,6 @@
 
 ## Herbruikbare sjablonen beheren
 ### [Een Git-opslagplaats voor artefacten en sjablonen toevoegen](devtest-lab-add-artifact-repo.md)
-### [Een Resource Manager-sjabloon gebruiken](devtest-lab-use-resource-manager-template.md)
 ### [Formules beheren](devtest-lab-manage-formulas.md)
 
 ## Artefacten beheren
@@ -65,11 +65,11 @@
 ## Integratie met CI/CD
 ### [Labs integreren in uw VSTS CI/CD-pijplijn](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Naslaginformatie
+# Verwijzing
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Labs automatisch maken of wijzigen](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-## [REST-API](https://docs.microsoft.com/rest/api/dtl/)
+## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
 
 

@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags: clicktale
-ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 56e50d633b29d2a5ce14fb50515407ac9d3bd821
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,8 +102,9 @@ ms.lasthandoff: 01/02/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Resources beheren</h3>
+                                                <h3>Resources beveiligen en beheren</h3>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
                                                     <li><a class="barLink" href="/azure/cost-management/">Kostenbeheer van Azure</a></li>

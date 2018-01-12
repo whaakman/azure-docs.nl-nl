@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Multitenancy inschakelen
               href: azure-stack-enable-multitenancy.md
+        - name: Geheimen draaien
+          href: azure-stack-rotate-secrets.md
     - name: Services aanbieden
       items:
         - name: Overzicht van het service-aanbod
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnostische gegevens in Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Validatie voor Azure Stack
+          href: azure-stack-diagnostic-test.md
         - name: Azure Stack Development Kit opnieuw implementeren
           href: azure-stack-redeploy.md
 - name: Referentie

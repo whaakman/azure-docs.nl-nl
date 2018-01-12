@@ -44,6 +44,7 @@
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
 ### [Gebruikers aan beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
+### [Een verwijderde gebruiker herstellen](active-directory-users-restore.md)
 ### [Gastgebruikers toevoegen van een andere directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Beheerders die B2B-gebruikers toevoegen](active-directory-b2b-admin-add-users.md)
 #### [Informatiewerkers die B2B-gebruikers toevoegen](active-directory-b2b-iw-add-users.md)
@@ -108,7 +109,7 @@
 #### [Benoemde locaties configureren](active-directory-named-locations.md)
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
 #### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Naslaginformatie
+### Verwijzing
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
@@ -216,7 +217,7 @@
 #### [Inrichting van gebruikersaccount beheren](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Eenmalige aanmelding voor zakelijke apps beheren](active-directory-enterprise-apps-manage-sso.md)
 #### [Geavanceerde certificaatondertekening voor SAML-apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Een app van een externe partij verbergen voor een gebruiker](active-directory-coreapps-hide-third-party-app.md)
+#### [Een toepassing verbergen voor een gebruiker](active-directory-coreapps-hide-third-party-app.md)
 ### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
@@ -282,6 +283,7 @@
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 #### [Besturingselementen](active-directory-conditional-access-controls.md)
+#### [Locatievoorwaarde](active-directory-conditional-access-locations.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
@@ -342,7 +344,7 @@
 ### [PoC Playbook: bouwstenen](active-directory-playbook-building-blocks.md)
 
 
-# Naslaginformatie
+# Verwijzing
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure PowerShell-cmdlets](/powershell/azure/overview)
 ## [Naslaginformatie over de Java-API](/java/api)
