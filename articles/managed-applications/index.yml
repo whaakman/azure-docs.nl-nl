@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
-  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: Met door Azure beheerde toepassingen kunt u uw cloudoplossingen aan interne en externe klanten aanbieden. U definieert de infrastructuur voor de oplossing en de voorwaarden voor het doorlopende beheer van de oplossing. De facturering voor uw oplossing wordt verwerkt door middel van Azure-facturering.
 sections:
@@ -30,18 +30,18 @@ sections:
     items:
     - image:
         src: /azure/managed-applications/media/index/cli.svg
-      text: Azure CLI
+      text: Azure-CLI
       href: /azure/managed-applications/managed-apps-quickstart-cli
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
     text: Informatie over het ontwikkelen van beheerde toepassingen en het aanbieden van deze toepassingen via de Azure Marketplace.
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: ordered
     items:
     - html: <a href="/azure/managed-applications/publish-service-catalog-app">Een beheerde toepassing publiceren voor interne gebruikers</a>
-- title: Naslaginformatie
+    - html: <a href="/azure/managed-applications/publish-marketplace-app">Een beheerde toepassing publiceren voor externe gebruikers</a>
+- title: Verwijzing
   items:
   - type: list
     style: cards
