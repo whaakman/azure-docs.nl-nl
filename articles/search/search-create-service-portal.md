@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Maak een Azure Search-service in de portal
 
-Informatie over het maken of een Azure Search-service in de portal inrichten. Zie voor instructies PowerShell [Azure Search beheren met PowerShell](search-manage-powershell.md).
+Informatie over het maken of een Azure Search-service in de portal inrichten. 
+
+Voorkeur PowerShell? Gebruik de Azure Resource Manager [servicesjabloon](https://azure.microsoft.com/resources/templates/101-azure-search-create/). Zie voor meer informatie aan de slag [Azure Search beheren met PowerShell](search-manage-powershell.md) voor de achtergrond.
 
 ## <a name="subscribe-free-or-paid"></a>Abonneren (gratis of betaalde)
 

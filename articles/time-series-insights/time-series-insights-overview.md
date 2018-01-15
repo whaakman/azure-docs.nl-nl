@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Wat is Azure Time Series Insights?
 
 Time Series Insights is gebouwd voor het opslaan, visualiseren en opvragen van grote hoeveelheden tijd reeksgegevens, zoals die worden gegenereerd door de IoT-apparaten.  Als u wilt opslaan, beheren, opvragen of visualiseren time series-gegevens in de cloud, is Time Series Insights geschikt voor u.  
 
-Als u een toepassing, voor intern verbruik of voor externe klanten moet worden gebruikt, bouwt kunt Time Series Insights worden gebruikt als een back-end voor indexeren, opslaan en aggregeren van tijd reeksgegevens.  U kunt een aangepaste visualisatie en gebruikerservaring samenstellen op de voorgrond.  Time Series Insights beschrijft REST-API-Query's om dit scenario.  
+Time Series Insights heeft vier belangrijke taken:
+
+- Eerst, het volledig geïntegreerd met cloud-gateways zoals Azure IoT Hub en Azure Event Hubs. Eenvoudig verbinding maakt met deze bronnen van gebeurtenissen en JSON parseert van berichten en -structuren die gegevens in schone rijen en kolommen hebben. Het lid wordt van de metagegevens met Telemetrie en indexen van uw gegevens in een store, op kolommen.
+- Ten tweede beheert Time Series Insights de opslag van uw gegevens. Gegevens altijd eenvoudig toegankelijk is, zodat gegevens worden opgeslagen uw van geheugen en SSD van maximaal 400 dagen. U kunt interactief miljarden gebeurtenissen (in seconden): op aanvraag opvragen.
+- Tot slot biedt Time Series Insights out-of-the-box-visualisatie via de Verkenner TSI.  
+- Time Series Insights biedt vierde, een queryservice, zowel in de Verkenner TSI en met behulp van API's die eenvoudig kunnen worden geïntegreerd voor het insluiten van de tijd reeksgegevens in aangepaste toepassingen.  
+
+Als u bij het bouwen van een toepassing, voor intern verbruik of voor externe klanten moet worden gebruikt, kan Time Series Insights worden gebruikt als een back-end voor indexeren, opslaan en samenvoegen van reeksgegevens. U kunt een aangepaste visualisatie en gebruikerservaring samenstellen op de voorgrond.  Time Series Insights beschrijft Query-API's om dit scenario.  
 
 Als u zeker weet of uw gegevens tijdreeks is, is wat u moet weten.  Tijd van reeksgegevens vertegenwoordigt hoe een actief of proces gedurende een bepaalde periode verandert.  Deze is uniek in dat er een tijdstempel en meest zinvolle als een as is.  Tijd van reeksgegevens doorgaans binnenkomt in volgorde van de tijd en meestal wordt behandeld als een invoeging in plaats van een update voor uw database.  Omdat de Time Series Insights legt vast en slaat elke nieuwe gebeurtenis als een rij, wordt wijziging gemeten gedurende een periode, zodat u achterwaarts zoeken en te voorspellen van toekomstige wijziging.  In grote volumes, kunt opslaan, het indexeren, het uitvoeren van query's, analyseren en gegevens te visualiseren reeks lastig zijn.  
 

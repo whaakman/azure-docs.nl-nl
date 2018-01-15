@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: toepassingsconsistente back-ups van virtuele Linux-machines | Microsoft Docs'
-description: Scripts gebruiken voor het garanderen van toepassingsconsistente back-ups naar Azure voor uw virtuele Linux-machines. De scripts alleen van toepassing op Linux VM's in een implementatie van Resource Manager; de scripts niet van toepassing op VM's van Windows of service manager-implementaties. In dit artikel leert u de stappen voor het configureren van de scripts, inclusief het oplossen van problemen.
+description: "Maak toepassingsconsistente back-ups van uw virtuele Linux-machines naar Azure. Dit artikel wordt uitgelegd in de script-framework back-up Azure geïmplementeerd virtuele Linux-machines te configureren. In dit artikel bevat ook informatie over probleemoplossing."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Toepassingsconsistente back-up van Azure Linux VM's (preview)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Toepassingsconsistente back-up van Linux virtuele machines van Azure
 
-Dit artikel vertelt over het Linux vooraf script en framework en hoe deze kan worden gebruikt te ondernemen toepassingsconsistente back-ups van Linux virtuele Azure-machines na een script.
-
-> [!Note]
-> Het script voor vóór en na-framework wordt alleen ondersteund voor Linux Azure Resource Manager geïmplementeerde virtuele machines. Scripts voor consistentie van de toepassing worden niet ondersteund voor Service Manager geïmplementeerde virtuele machines of virtuele machines van Windows.
->
+Bij het maken van back-momentopnamen van uw virtuele machines, consistentie van de toepassing betekent dat uw toepassingen starten wanneer de virtuele machines opstarten na wordt hersteld. Consistentie van de toepassing is zeer belangrijk, als u zich kunt voorstellen. Uw virtuele Linux-machines zijn om ervoor te zorgen toepassing consistente, dat kunt u het Linux-script voor vóór en na-framework te ondernemen toepassingsconsistente back-ups. Het script voor vóór en na-framework biedt ondersteuning voor Linux Azure Resource Manager geïmplementeerde virtuele machines. Scripts voor consistentie van de toepassing bieden geen ondersteuning voor Service Manager geïmplementeerde virtuele machines of virtuele machines van Windows.
 
 ## <a name="how-the-framework-works"></a>De werking van het framework
 
-Het framework biedt een optie voor het uitvoeren van aangepaste scripts voor vóór en na scripts tijdens het maken van VM-momentopnamen. Vooraf scripts worden uitgevoerd voordat u de VM-momentopname en na scripts worden uitgevoerd onmiddellijk nadat de momentopname van het VM. Dit biedt u de flexibiliteit om te bepalen van uw toepassing en de omgeving tijdens het maken van VM-momentopnamen.
+Het framework biedt een optie voor het uitvoeren van aangepaste scripts voor vóór en na scripts tijdens het maken van VM-momentopnamen. Vooraf scripts uitgevoerd net voordat u de VM-momentopname en na uitgevoerd onmiddellijk nadat de momentopname van het VM-scripts uitvoeren. Scripts voor vóór en na scripts bieden de flexibiliteit om te bepalen van uw toepassing en de omgeving, tijdens het maken van VM-momentopnamen.
 
-In dit scenario is het belangrijk om ervoor te zorgen toepassingsconsistente back-up van virtuele machine. Het vooraf script kunt aanroepen toepassing systeemeigen API's voor stilleggen de IOs en leegmaken van de inhoud in het geheugen naar de schijf. Dit zorgt ervoor dat de momentopname toepassingsconsistente (dat wil zeggen dat de toepassing wordt geleverd up wanneer de virtuele machine wordt opgestart na herstellen). Na script kan worden gebruikt voor de IOs ontdooien. Dit gebeurt met behulp van de toepassing-systeemeigen API's zodat de toepassing normale bewerkingen post-VM-momentopname hervatten kunt.
+Vooraf scripts systeemeigen toepassing API's, welke stilleggen de IOs aanroepen en leegmaken van de inhoud in het geheugen naar de schijf. Deze acties Zorg ervoor dat de momentopname van de toepassing die in overeenstemming is. Systeemeigen toepassing API's na scripts gebruiken voor de IOs-, waardoor de toepassing normale bewerkingen hervatten nadat de VM-momentopname ontdooien.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Stappen voor het script voor vóór en na configureren
 
 1. Meld u aan als hoofdgebruiker voor Linux VM die u back wilt-up.
 
-2. Download **VMSnapshotScriptPluginConfig.json** van [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), en vervolgens kopiëren naar de **/etc/azure** map op de virtuele machines die u back wilt-up. Maak de **/etc/azure** directory als deze niet al bestaat.
+2. Van [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), downloaden **VMSnapshotScriptPluginConfig.json** en kopieer het naar de **/etc/azure** map voor alle virtuele machines die u back wilt-up. Als de **/etc/azure** map niet bestaat, maakt deze.
 
 3. Kopieer het script dat vóór en na voor uw toepassing op alle virtuele machines die u back wilt-up. U kunt de scripts kopiëren naar een locatie op de virtuele machine. Zorg ervoor dat het volledige pad van de scriptbestanden in de **VMSnapshotScriptPluginConfig.json** bestand.
 
@@ -51,8 +47,8 @@ In dit scenario is het belangrijk om ervoor te zorgen toepassingsconsistente bac
    - **Na script** machtiging "700." Alleen 'root' gebruiker moet bijvoorbeeld 'lezen', 'schrijven' en 'uitvoeren' machtigingen voor dit bestand.
 
    > [!Important]
-   > Het framework geeft gebruikers veel stroom. Het is belangrijk dat het is veilig en dat alleen 'root' gebruiker toegang tot kritieke bestanden voor JSON en het script heeft.
-   > Als de vorige vereisten zijn niet voldaan, wordt het script niet uitgevoerd. Dit resulteert in het bestand system/crash consistente back-up.
+   > Het framework geeft gebruikers veel stroom. Beveiligen van het framework en zorg ervoor dat alleen 'root' gebruiker toegang heeft tot kritieke JSON en scriptbestanden.
+   > Als aan de vereisten zijn niet voldaan, het script niet uitgevoerd, waardoor het in een bestand systeem vastlopen en inconsistent back-up.
    >
 
 5. Configureer **VMSnapshotScriptPluginConfig.json** zoals hier wordt beschreven:
@@ -62,9 +58,9 @@ In dit scenario is het belangrijk om ervoor te zorgen toepassingsconsistente bac
 
     - **postScriptLocation**: Geef het volledige pad van het script dat volgt op de virtuele machine die u wilt back-up worden gemaakt.
 
-    - **preScriptParams**: bieden de volgende optionele parameters die moeten worden doorgegeven aan de Pre-script. Alle parameters moeten tussen aanhalingstekens, en moeten door komma's gescheiden als er meerdere parameters.
+    - **preScriptParams**: bieden de volgende optionele parameters die moeten worden doorgegeven aan de Pre-script. Alle parameters moet tussen aanhalingstekens. Als u meerdere parameters gebruikt, scheidt u de parameters met een komma.
 
-    - **postScriptParams**: bieden de volgende optionele parameters die moeten worden doorgegeven aan de na-script. Alle parameters moeten tussen aanhalingstekens, en moeten door komma's gescheiden als er meerdere parameters.
+    - **postScriptParams**: bieden de volgende optionele parameters die moeten worden doorgegeven aan de na-script. Alle parameters moet tussen aanhalingstekens. Als u meerdere parameters gebruikt, scheidt u de parameters met een komma.
 
     - **preScriptNoOfRetries**: het aantal keren dat het script vooraf moet opnieuw worden geprobeerd, als er een fout voordat het wordt beëindigd is. Nul betekent dat slechts één probeer en geen nieuwe poging als er een storing optreedt.
 
@@ -82,7 +78,7 @@ In dit scenario is het belangrijk om ervoor te zorgen toepassingsconsistente bac
 
 Zorg ervoor dat u passende logboekregistratie tijdens het schrijven van uw script voor vóór en na toevoegen en bekijk de logboeken van uw script om op te lossen problemen script. Als u nog steeds problemen bij het uitvoeren van scripts hebt, raadpleegt u de volgende tabel voor meer informatie.
 
-| Fout | Foutbericht | Aanbevolen actie |
+| Fout | Bericht invoeren | Aanbevolen actie |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Het vooraf script heeft een fout, dus mogelijk toepassingsconsistente back-up niet.   | Bekijk de logboeken is mislukt voor uw script om het probleem te verhelpen.|  
 |   Post-ScriptExecutionFailed |    Het script voor na een fout die voor de toepassingsstatus gevolgen mogelijk geretourneerd. |    Bekijk de logboeken is mislukt voor uw script om los het probleem en controleer de toepassingsstatus van de. |

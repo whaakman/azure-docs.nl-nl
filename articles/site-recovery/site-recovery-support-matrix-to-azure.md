@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van on-premises naar Azure
 
@@ -68,34 +68,34 @@ De volgende tabel geeft een overzicht van ondersteuning voor gerepliceerde bestu
 
  **VMware of fysieke server** | **Hyper-V (met/zonder VMM)** |
 --- | --- |
-64-bits Windows Server 2016 (Server Core, Server met Bureaubladbelevenis)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1<br/><br/> Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0-7.3 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0-7.3 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade van de computers van SLES 11 SP3 repliceren naar SLES 11 SP4 wordt niet ondersteund. Als een gerepliceerde machine is bijgewerkt van SLES 11SP3 naar SLES 11 SP4 is geïnstalleerd, moet u replicatie uitschakelen en beveiligt de machine opnieuw na de upgrade.) | Een gastbesturingssysteem [ondersteund door Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bits Windows Server 2016 (Server Core, Server met Bureaubladbelevenis)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1<br/><br/> Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4<br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade van de computers van SLES 11 SP3 repliceren naar SLES 11 SP4 wordt niet ondersteund. Als een gerepliceerde machine is bijgewerkt van SLES 11SP3 naar SLES 11 SP4 is geïnstalleerd, moet u replicatie uitschakelen en beveiligt de machine opnieuw na de upgrade.) | Een gastbesturingssysteem [ondersteund door Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server wordt niet ondersteund.
-
->[!IMPORTANT]
->(Geldt voor VMware/fysieke servers repliceren naar Azure)
 >
-> Kernel versie 3.10.0-514 wordt ondersteund vanaf versie 9,8 van de Azure Site Recovery Mobility-service op Red Hat Enterprise Linux Server 7 + en CentOS 7 + servers.<br/><br/>
-> Klanten in de kernel 3.10.0-514 met een versie van de Mobility-service die lager is dan versie 9,8 zijn vereist voor het uitschakelen van replicatie, de versie van de Mobility-service bijwerken naar versie 9,8 en schakel vervolgens opnieuw te worden gerepliceerd.
+> Op Linux-distributies, worden alleen de vooraf gedefinieerde kernels die deel van de secundaire versie release/bijwerken van de verdeling uitmaken ondersteund.
+>
+> Upgrades tussen primaire versies van een Linux-distributie op een Azure Site Recovery beveiligde virtuele VMware-machine of fysieke server wordt niet ondersteund. Tijdens het upgraden van het besturingssysteem op de primaire versies (bijvoorbeeld CentOS 6.* naar CentOS 7.*), schakelt u replicatie voor de machine uit, werk het besturingssysteem op de machine en vervolgens replicatie opnieuw inschakelen.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ondersteunde versies van Ubuntu kernel voor VMware/fysieke servers
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-14.04 TNS | 9.9 | 3.13.0-24-Generic naar 3.13.0-117-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-75-generic |
 14.04 TNS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
 14.04 TNS | 9.11 | 3.13.0-24-Generic naar 3.13.0-128-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-91-generic |
 14.04 TNS | 9.12 | 3.13.0-24-Generic naar 3.13.0-132-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-96-generic |
+14.04 TNS | 9.13 | 3.13.0-24-Generic naar 3.13.0-137-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-104-generic |
 16.04 TNS | 9.10 | 4.4.0-21-Generic naar 4.4.0-81-generic,<br/>4.8.0-34-Generic naar 4.8.0-56-generic,<br/>4.10.0-14-Generic naar 4.10.0-24-generic |
 16.04 TNS | 9.11 | 4.4.0-21-Generic naar 4.4.0-91-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-32-generic |
 16.04 TNS | 9.12 | 4.4.0-21-Generic naar 4.4.0-96-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-35-generic |
+16.04 TNS | 9.13 | 4.4.0-21-Generic naar 4.4.0-104-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Ondersteunde bestandssystemen en Gast opslagconfiguraties op Linux (VMware of fysieke servers)
 
-Het volgende bestand systemen en opslag configuratiesoftware wordt ondersteund op Linux-servers met VMware of fysieke servers:
+De volgende bestandssystemen en opslag configuratiesoftware worden op Linux-servers met VMware of fysieke servers ondersteund:
 * -Bestandssystemen: ext3, ext4, ReiserFS (Suse Linux Enterprise Server alleen), XFS
 * Volumebeheer: LVM2
 * Multipath-software: apparaat toewijzen
@@ -105,8 +105,7 @@ Meerdere wachtrij blok i/o-apparaten worden niet ondersteund.<br/>
 Fysieke servers met de opslagcontroller HP CCISS worden niet ondersteund.<br/>
 
 >[!Note]
-> Op Linux-servers de volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) moet worden op dezelfde schijf (schijf met het besturingssysteem) op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc<br/><br/>
-> XFSv5 functies op XFS bestandssystemen zoals metagegevens controlesom worden ondersteund vanaf versie 9.10 van de Mobility-service. Als u XFSv5 functies gebruikt, zorg ervoor dat u versie van de Mobility-Service uitvoert 9.10 of hoger. U kunt het hulpprogramma xfs_info gebruiken om te controleren van de superblock XFS voor de partitie. Als ftype is ingesteld op 1, worden klikt u vervolgens XFSv5 functies gebruikt.
+> Op Linux-servers de volgende mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) moet worden op dezelfde schijf (schijf met het besturingssysteem) op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc; en/Boot moet zich bevinden in de schijfpartitie van een en niet een volume LVM<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ NIC-koppeling | Nee | Nee
 IPv4 | Ja | Ja
 IPv6 | Nee | Nee
 Vaste IP-adres (Windows) | Ja | Ja
-Vaste IP-adres (Linux) | Ja <br/><br/>Virtuele machines is geconfigureerd voor gebruik van DHCP op failback  | Nee
+Vaste IP-adres (Linux) | Ja <br/><br/>Virtuele machines zijn geconfigureerd voor gebruik van DHCP op failback  | Nee
 Meerdere NIC 's | Ja | Ja
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuratie van failover Azure VM-netwerken

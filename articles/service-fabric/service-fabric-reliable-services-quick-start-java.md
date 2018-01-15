@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: ab675207094bc8ee317573192c33c20039780fe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -200,7 +200,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is een dictionary-implementatie die u gebruiken kunt om op te slaan op betrouwbare wijze staat in de service. Met Service Fabric en betrouwbare Hashmaps, kunt u gegevens opslaan rechtstreeks in uw service zonder de noodzaak van een externe permanente archief. Betrouwbare Hashmaps uw gegevens maximaal beschikbaar maken. Service Fabric bewerkstelligt dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het bevat ook een API die weg de complexiteit isoleert van het beheren van deze replica's en hun statusovergangen.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is een dictionary-implementatie die u gebruiken kunt om op te slaan op betrouwbare wijze staat in de service. Met Service Fabric en betrouwbare Hashmaps, kunt u gegevens opslaan rechtstreeks in uw service zonder de noodzaak van een externe permanente archief. Betrouwbare Hashmaps uw gegevens maximaal beschikbaar maken. Service Fabric bewerkstelligt dit door het maken en beheren van meerdere *replica's* van uw service voor u. Het bevat ook een API die weg de complexiteit isoleert van het beheren van deze replica's en hun statusovergangen.
 
 Betrouwbare verzamelingen kunnen elk type Java, met inbegrip van uw aangepaste typen, met een aantal aanvullende opmerkingen worden opgeslagen.
 

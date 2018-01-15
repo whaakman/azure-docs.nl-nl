@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Azure IoT rand implementeren op een gesimuleerd apparaat in Linux - voorbeeld
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Azure IoT rand implementeren op een gesimuleerd apparaat in Linux- of Mac OS - voorbeeld
 
 Azure IoT-rand kunt u voor het uitvoeren van analyses en het verwerken van gegevens op uw apparaten, in plaats van alle gegevens push naar de cloud. De rand van de IoT-zelfstudies laten zien hoe u verschillende soorten modules die zijn gebouwd op basis van de Azure-services of aangepaste code implementeren, maar u moet eerst een apparaat om te testen. 
 
@@ -33,10 +33,14 @@ Het gesimuleerde apparaat die u in deze zelfstudie maakt is een monitor die temp
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine waarop Linux wordt uitgevoerd om te simuleren dat een Internet of Things-apparaat. De volgende services zijn vereist voor een IoT-randapparaat met succes implementeren:
+Deze zelfstudie maakt gebruik van uw computer of virtuele machine, zoals een Internet of Things-apparaat. Als u wilt uw machine in een Edge van de IoT-apparaat, zijn de volgende services zijn vereist:
 
-- [Docker voor Linux installeren] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
-- De meeste Linux-distributies, Ubuntu, waaronder nog Python 2.7 geïnstalleerd. Gebruik de volgende opdracht om ervoor te zorgen dat pip is geïnstalleerd: `sudo apt-get install python-pip`.
+* Python pip voor het installeren van de rand van de IoT-runtime.
+   * Linux: `sudo apt-get install python-pip`.
+   * Mac OS: `sudo easy_install pip`.
+* Docker om uit te voeren van de rand IoT modules
+   * [Docker voor Linux installeren] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
+   * [Docker voor Mac installeert] [ lnk-docker-mac] en zorg ervoor dat deze wordt uitgevoerd. 
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
@@ -130,4 +134,5 @@ Deze zelfstudie is de vereiste voor alle van de andere zijde van de IoT-zelfstud
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

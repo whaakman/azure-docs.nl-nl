@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen in Azure Security Center
 Dit artikel helpt u te begrijpen welke verschillende typen beveiligingswaarschuwingen en bijbehorende inzichten er beschikbaar zijn in Azure Security Center. Lees [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md) voor meer informatie over het beheren van waarschuwingen en incidenten.
@@ -144,7 +144,6 @@ Security Center maakt gebruik van geavanceerde analyses om verdachte resources t
 * **Suspicious document credentials**: deze waarschuwing wijst op een verdachte, vooraf berekende algemene wachtwoordhash die wordt gebruikt door malware om een bestand uit te voeren.
 * **Dynamic PS script construction**: Deze waarschuwing geeft aan dat een PowerShell-script dynamisch wordt samengesteld. Aanvallers gebruiken deze techniek om geleidelijk een script te maken om IDS-systemen te omzeilen.
 * **Metaploit indicators**: deze waarschuwing wijst op een activiteit die is gekoppeld aan het Metasploit-framework, dat een reeks mogelijkheden en hulpprogramma's voor aanvallers biedt.
-* **SENSE tampering**: deze waarschuwing wijst op een poging om SENSE, de beveiligingscontroleservice van Windows Defender ATP, uit te schakelen.
 * **Suspicious account activity**: deze waarschuwing wijst op een poging om verbinding te maken met een computer door gebruik te maken van een account dat onlangs is aangetast.
 * **Possible suspicious scheduling tasks access**: deze waarschuwing geeft aan dat een Cron-taak is uitgevoerd, die door aanvallers kan worden gebruikt om schadelijke programma's volgens een gepland schema uit te voeren.
 * **Possible suspicious command history file access**: deze waarschuwing wijst op abnormale toegang tot het opdrachtengeschiedenisbestand.

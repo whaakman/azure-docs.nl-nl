@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie voor Azure Database voor PostgreSQL
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: 'Documentatie voor Azure PostgreSQL - zelfstudies, API-verwijzing'
+  title: Documentatie voor Azure PostgreSQL - zelfstudies, API-verwijzing
   description: Azure Database voor PostgreSQL is een relationele databaseservice in de Microsoft Cloud die is gebouwd voor ontwikkelaars op basis van de open-source PostgreSQL-database-engine.
   services: postgresql
   author: czeumault
@@ -14,49 +14,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: ef78955bf3b7453702725d0899f3f6813fa29ef2
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Azure Database voor PostgreSQL is een relationele databaseservice op basis van de open-source PostgreSQL-database-engine.  Deze volledig beheerde Database as a Service kan bedrijfskritieke workloads verwerken met voorspelbare prestaties, beveiliging, hoge beschikbaarheid en dynamische schaalbaarheid.  Ontwikkel toepassingen met Azure Database voor PostgreSQL met behulp van open-sourcehulpprogramma''s en een platform naar keuze.  Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database voor PostgreSQL gebruikt.'
+  description: Azure Database voor PostgreSQL is een relationele databaseservice op basis van de open-source PostgreSQL-database-engine.  Deze volledig beheerde Database as a Service kan bedrijfskritieke workloads verwerken met voorspelbare prestaties, beveiliging, hoge beschikbaarheid en dynamische schaalbaarheid.  Ontwikkel toepassingen met Azure Database voor PostgreSQL met behulp van open-sourcehulpprogramma's en een platform naar keuze.  Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database voor PostgreSQL gebruikt.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Lees hoe u een PostgreSQL-database maakt met:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lees hoe u een PostgreSQL-database maakt met:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
-            text: Azure CLI
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Azure-portal
+      href: /azure/postgresql/quickstart-create-server-database-portal
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+      text: Azure-CLI
+      href: /azure/postgresql/quickstart-create-server-database-azure-cli
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Leer hoe u het volgende doet:'
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Leer hoe u het volgende doet:'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Een database ontwerpen: <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Een webtoepassing maken met Python en de CLI</a>
-  - title: Voorbeelden
+    - html: 'Een database ontwerpen: <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Een webtoepassing maken met Python en de CLI</a>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: Zoek scripts om algemene taken te beheren.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Zoek scripts om algemene taken te beheren.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure-CLI</a>
-  - title: Naslaginformatie
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure-CLI</a>
+- title: Verwijzing
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/cli/azure">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">REST-API</a></p>
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure">Azure-CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/postgresql">REST API</a></p>

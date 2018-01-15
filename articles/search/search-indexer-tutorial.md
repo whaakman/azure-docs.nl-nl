@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Een Azure SQL-database verkennen met de indexeerfuncties van Azure Search
 
@@ -119,7 +119,7 @@ U kunt de Azure Portal en het bestand *hotels.sql* uit het voorbeeld gebruiken o
 
 In de volgende oefening wordt ervan uitgegaan dat er geen bestaande server of database is en u maakt beide in stap 2. Als u een bestaande resource hebt, kunt u de tabel hotels er desgewenst aan toevoegen vanaf stap 4.
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/). 
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/). 
 
 2. Klik op **Nieuw** > **SQL-database** om een database, server en resourcegroep te maken. U kunt de standaardinstellingen en de laagste prijscategorie gebruiken. Eén voordeel van het maken van een server is dat u de gebruikersnaam en het wachtwoord van een beheerder kunt opgeven die in een latere stap nodig zijn om tabellen te maken en te laden.
 
@@ -278,7 +278,7 @@ Alle indexeerfuncties, inclusief de functie die u zojuist via programmacode hebt
 
 Als u deze services verder niet gaat gebruiken, volgt u deze stappen om alle resources te verwijderen die met deze zelfstudie in de Azure Portal zijn gemaakt. 
 
-1. Klik in het menu aan de linkerkant in de Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
+1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
 2. Klik op de pagina van uw resourcegroep op **Resourcegroep verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -286,8 +286,8 @@ Als u deze services verder niet gaat gebruiken, volgt u deze stappen om alle res
 Raadpleeg de volgende artikelen voor meer informatie en taken die specifiek zijn voor andere ondersteunde gegevensbronnen:
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-csv-blobs.md)
 * [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-json-blobs.md)

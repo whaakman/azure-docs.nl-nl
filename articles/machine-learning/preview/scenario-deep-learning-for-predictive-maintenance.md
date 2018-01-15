@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 6019437763f82fa14b8677b6c7ec7f0c6938fda7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Grondige learning voor voorspeld onderhoud praktijkscenario 's
 
@@ -28,7 +28,7 @@ In scenario's voor voorspeld onderhoud, worden gegevens verzameld na verloop van
 
 In deze zelfstudie maken we een LSTM netwerk voor de gegevensset en het scenario dat wordt beschreven op [voorspeld onderhoud](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). We gebruiken het netwerk te voorspellen van de resterende levensduur van vliegtuigmotoren. De sjabloon maakt gebruik van gesimuleerde vliegtuig sensorwaarden te voorspellen wanneer een vliegtuigmotor in de toekomst zal mislukken. Met behulp van deze voorspelling kan onderhoud worden gepland, vooraf om te voorkomen dat is mislukt.
 
-Deze zelfstudie wordt gebruikgemaakt van de [Keras](https://keras.io/) grondige leren van tapewisselaar en de Microsoft cognitieve Toolkit [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) als een back-end.
+Deze zelfstudie wordt gebruikgemaakt van de [Keras](https://keras.io/) grondige leren van tapewisselaar en de Microsoft cognitieve Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) als een back-end.
 
 De openbare GitHub-opslagplaats met voorbeelden voor deze zelfstudie is op [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -44,7 +44,7 @@ Het is raadzaam dat u de gegevensindeling onderzoeken en alle drie stappen van d
 
 - Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies beschikbaar zijn).
 - Azure Machine Learning Workbench, met een werkruimte gemaakt.
-- Voor het model uitoefening: Azure Machine Learning uitoefening, met een lokale implementatieomgeving instellen, en een [Azure Machine Learning-Model Management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- Voor het model uitoefening: Azure Machine Learning uitoefening, met een lokale implementatieomgeving instellen, en een [Azure Machine Learning-Model Management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## <a name="create-a-new-workbench-project"></a>Maak een nieuw project in de Workbench
 
@@ -128,7 +128,7 @@ U kunt belangrijke onderdelen van dit scenario bewerken, en probeer het probleem
 
 ## <a name="references"></a>Verwijzingen
 
-- [Oplossingssjabloon voorspeld onderhoud](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Oplossingssjabloon voorspeld onderhoud](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Handleiding voor het modelleren van voorspeld onderhoud](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Voorspeld onderhoud Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [Met behulp van de PySpark voor voorspeld onderhoud](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)

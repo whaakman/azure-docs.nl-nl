@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 47808fcdb419dd44cfbd19ac7882b78b4c846b2c
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnose van verwijderde meldingen in Notification Hubs
 
@@ -272,7 +272,7 @@ Dit bericht geeft aan dat ongeldige referenties zijn geconfigureerd in Notificat
 [Apparaat-registraties weergeven voor notification hubs]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
 [Diepgaand: Visual Studio 2013 Update 2 RC en Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [Versie van Visual Studio 2013 Update 3 en Azure SDK 2.4 aangekondigd]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
-[EnableTestSend]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Telemetrie programmatische toegang]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Telemetrie toegang via de API-voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Gegevens importeren in Azure Search via de portal
 In het Azure Search-dashboard van Azure Portal vindt u de wizard **Gegevens importeren** waarmee u gegevens in een index kunt laden. 
@@ -60,7 +60,7 @@ Een platte gegevensset is een vereiste invoer. U kunt slechts importeren uit é�
 | **SQL Server op virtuele Azure-machine** |Geef een FQDN-servicenaam, gebruikers-ID en wachtwoord en de database als een verbindingsreeks op. Voor het gebruik van deze gegevensbron moet u eerder een certificaat hebben geïnstalleerd in het lokale archief dat de verbinding versleutelt. Zie [SQL VM-verbinding met Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) voor instructies. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
 | **Azure Cosmos DB** |Vereisten zijn het account, de database en de verzameling. Alle documenten in de verzameling worden opgenomen in de index. U kunt een query definiëren om de rijenset plat te maken of te filteren of voor het detecteren van gewijzigde documenten voor verdere gegevensvernieuwingsbewerkingen. |
 | **Azure Blob Storage** |Vereisten zijn het opslagaccount en een container. Als blob-namen een virtuele naamconventie voor groeperingsdoeleinden volgen, kunt u desgewenst het gedeelte van de virtuele map van de naam als een map onder de container opgeven. Zie [Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md) voor meer informatie. |
-| **Azure-tabelopslag** |Vereisten zijn het opslagaccount en een tabelnaam. U kunt desgewenst een query opgeven om een subset van de tabellen op te halen. Zie [Table Storage indexeren](search-howto-indexing-azure-tables.md) voor meer informatie. |
+| **Azure Table Storage** |Vereisten zijn het opslagaccount en een tabelnaam. U kunt desgewenst een query opgeven om een subset van de tabellen op te halen. Zie [Table Storage indexeren](search-howto-indexing-azure-tables.md) voor meer informatie. |
 
 ## <a name="customize-target-index"></a>Doelindex aanpassen
 Een voorlopige index is meestal afgeleid van de gegevensset. U kunt velden toevoegen, bewerken of verwijderen om het schema te voltooien. Stel daarnaast kenmerken op het veldniveau in om het daaropvolgende zoekgedrag te bepalen.
@@ -113,7 +113,7 @@ Bewerkingen waarvoor de index niet opnieuw hoeft te worden gemaakt, zijn onder a
 Bekijk deze koppelingen voor meer informatie over indexeerfuncties:
 
 * [Azure SQL Database indexeren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB indexeren](search-howto-index-documentdb.md)
+* [Azure Cosmos DB indexeren](search-howto-index-cosmosdb.md)
 * [Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage indexeren](search-howto-indexing-azure-tables.md)
 

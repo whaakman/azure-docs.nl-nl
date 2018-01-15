@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ad9a66e02318ad4a84d65062114c916721047888
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Verificatie van de eindgebruiker met Data Lake Store met .NET SDK
 > [!div class="op_single_selector"]
@@ -62,27 +62,32 @@ In dit artikel leert u hoe u met de .NET SDK eindgebruiker Authentication uitvoe
         ![Een NuGet-bron toevoegen](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Een nieuw Azure Data Lake-account maken")
    4. Sluit de **NuGet Package Manager**.
 
-6. Open **Program.cs**, verwijder de bestaande code en neem de volgende instructies op om verwijzingen naar naamruimten toe te voegen.
+6. Open **Program.cs**
+7. Het gebruik van replease instructies met de volgende regels:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>Verificatie van de eindgebruiker
 In dit fragment in uw clienttoepassing .NET toevoegen. Vervang de tijdelijke aanduiding voor waarden met de waarden die zijn opgehaald van een systeemeigen Azure AD-toepassing (aangeduid met de vereiste). In dit fragment kunt u verificatie van uw toepassing **interactief** met Data Lake Store, wat betekent dat u wordt gevraagd uw Azure-referenties invoeren.
 
 Het volgende fragment voor eenvoudig te gebruiken, worden de standaardwaarden voor client-ID en omleidings-URI die geldig zijn voor een Azure-abonnement gebruikt. In het volgende fragment hoeft u alleen de waarde opgeven voor uw tenant-ID. U kunt met behulp van de instructies op de Tenant-ID ophalen [ophalen van de tenant-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- De functie Main() vervangen door de volgende code:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ Het volgende fragment voor eenvoudig te gebruiken, worden de standaardwaarden vo
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 Een aantal dingen te weten over het bovenstaande codefragment:
 

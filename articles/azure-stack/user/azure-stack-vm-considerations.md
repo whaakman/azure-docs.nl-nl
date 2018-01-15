@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
 
@@ -40,9 +40,9 @@ Virtuele machines zijn op aanvraag, schaalbare computerbronnen die worden aangeb
 |Virtuele machine beschikbaarheidssets|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere domeinen van de update<br>Ondersteuning voor schijven beheerd|Één foutdomein<br>Één updatedomein<br>Er is geen ondersteuning voor beheerde schijven|
 |Virtuele-machineschaalsets|Automatisch geschaald ondersteund|Automatisch geschaald niet ondersteund.<br>Meer exemplaren toevoegen aan een schaal ingesteld met de portal, Resource Manager-sjablonen of PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Grootten van virtuele machines 
+## <a name="virtual-machine-sizes"></a>Grootten van virtuele machines
 
-De Azure-Stack Development Kit ondersteunt de volgende grootten: 
+Azure-Stack ondersteunt de volgende grootten:
 
 | Type | Grootte | Aantal ondersteunde formaten |
 | --- | --- | --- |
@@ -55,9 +55,9 @@ De Azure-Stack Development Kit ondersteunt de volgende grootten:
 |Geoptimaliseerd geheugen|DS-serie|DS11 - DS14|
 |Geoptimaliseerd geheugen |DSv2-serie|DS11_v2 - DS14_v2|
 
-Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Dit omvat bijvoorbeeld de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
+Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Deze consistentie bevat bijvoorbeeld de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
 
-## <a name="virtual-machine-extensions"></a>Extensies van de virtuele machine 
+## <a name="virtual-machine-extensions"></a>Extensies van de virtuele machine
 
  De Azure-Stack Development Kit ondersteunt de volgende versies van de virtuele machine-extensie:
 
@@ -65,15 +65,15 @@ Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn con
 
 Gebruik de volgende PowerShell-script om de lijst met extensies van virtuele machine die beschikbaar in uw Azure-Stack-omgeving zijn:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>API-versies 
+## <a name="api-versions"></a>API-versies
 
 Functies van de virtuele machine in Azure Stack Development Kit ondersteunen de volgende API-versies:
 
@@ -81,7 +81,7 @@ Functies van de virtuele machine in Azure Stack Development Kit ondersteunen de 
 
 Ophalen van de API-versies voor de functies van de virtuele machine die beschikbaar in uw Azure-Stack-omgeving zijn kunt u het volgende PowerShell-script:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `

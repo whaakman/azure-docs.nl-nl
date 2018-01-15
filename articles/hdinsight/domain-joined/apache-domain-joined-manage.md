@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Domein-HDInsight-clusters beheren
 Informatie over de gebruikers en de rollen in HDInsight domein en het domein van de HDInsight-clusters beheren.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Toegang tot de clusters met Enterprise-beveiligingspakket.
+
+Enterprise-beveiligingspakket (voorheen bekend als HDInsight Premium) biedt meerdere gebruikers toegang tot het cluster, waarbij de verificatie wordt uitgevoerd door Active Directory en toestemming van Apache Zwerver en opslag ACL's (ADLS-ACL's). Autorisatie biedt veilige grenzen door meerdere gebruikers en kan alleen bevoegde gebruikers toegang hebben tot de gegevens op basis van het autorisatiebeleid.
+
+Beveiligings- en gebruikersgegevens isolatie zijn belangrijk voor een HDInsight-cluster met Enterprise-beveiligingspakket. Om te voldoen aan deze vereisten, is SSH toegang tot het cluster met Enterprise-beveiligingspakket geblokkeerd. De volgende tabel bevat de aanbevolen toegangsmethoden voor elk clustertype:
+
+|Workload|Scenario|Toegangsmethode|
+|--------|--------|-------------|
+|Hadoop|Hive – interactieve taken query 's |<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Interactieve taken/query's PySpark interactieve|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin met Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Batch-scenario's, Spark indienen, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Interactieve Query (LLAP)|Interactief|<ul><li>[Beeline](#beeline)</li><li>[Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio-hulpprogramma 's](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Alle|Aangepaste toepassing installeren|<ul><li>[Scriptacties](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Met de standard-API's kunt u vanuit het oogpunt van beveiliging van. Bovendien profiteren van de volgende voordelen:
+
+1.  **Management** – u kunt uw code te beheren en automatiseren van taken met behulp van standaard-API's – Livy, HS2 enzovoort.
+2.  **Audit** – met SSH, er is geen manier om te controleren, welke gebruikers SSH moest het cluster. Dit zou het geval niet als taken via standaard eindpunten worden samengesteld als ze zouden worden uitgevoerd in de context van de gebruiker. 
+
+
+
+### <a name="beeline"></a>Gebruik Beeline 
+Beeline installeren op uw computer en verbinding maken via het openbare internet, voert u de volgende parameters: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Als u Beeline lokaal geïnstalleerd hebben en verbinding via een virtueel Azure-netwerk maken, gebruikt u de volgende parameters: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Gebruik de volledig gekwalificeerde domeinnaam van een headnode vindt de informatie in de HDInsight beheren met behulp van de Ambari REST-API-document.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Gebruikers van domein HDInsight-clusters
 Een HDInsight-cluster is niet domein heeft twee gebruikersaccounts die zijn gemaakt tijdens het maken van het cluster:
 
-* **Ambari admin**: dit account wordt ook wel *Hadoop gebruiker* of *HTTP gebruiker*. Dit account kan worden gebruikt voor aanmelding bij Ambari op https://&lt;clustername >. azurehdinsight.net. Het kan ook worden gebruikt voor query's uitvoeren op de Ambari-weergaven, taken via externe hulpprogramma's (dat wil zeggen PowerShell, Templeton, Visual Studio) uitvoeren en verifiëren met de Hive ODBC-stuurprogramma en de BI-tools (dat wil zeggen Excel, Power BI of Tableau).
+* **Ambari admin**: dit account wordt ook wel *Hadoop gebruiker* of *HTTP gebruiker*. Dit account kan worden gebruikt voor aanmelding bij Ambari op https://&lt;clustername >. azurehdinsight.net. Het kan ook worden gebruikt voor query's uitvoeren op de Ambari-weergaven, taken via externe hulpprogramma's (bijvoorbeeld PowerShell, Templeton, Visual Studio) uitvoeren en verifiëren met de Hive ODBC-stuurprogramma en de BI-tools (bijvoorbeeld, Excel, Power BI of Tableau).
 * **SSH-gebruiker**: dit account kan worden gebruikt met SSH en sudo-opdrachten uit te voeren. Deze heeft bevoegdheden van de hoofdmap voor de virtuele Linux-machines.
 
 Een domein HDInsight-cluster heeft drie nieuwe gebruikers naast Ambari Admin en SSH-gebruiker.
@@ -43,7 +95,7 @@ Een domein HDInsight-cluster heeft drie nieuwe gebruikers naast Ambari Admin en 
     Let op dat de AD-gebruikers hebben deze rechten.
 
     Er zijn een aantal eindpunten binnen het cluster (bijvoorbeeld Templeton) die niet worden beheerd door Zwerver en daarom zijn niet beveiligd. Deze eindpunten zijn vergrendeld voor alle gebruikers behalve de domeingebruiker van de cluster-beheerder.
-* **Reguliere**: tijdens het maken van het cluster, kunt u meerdere active directory-groepen opgeven. De gebruikers in deze groepen worden gesynchroniseerd naar Zwerver en Ambari. Deze gebruikers zijn domeingebruikers en hebben toegang tot alleen Zwerver beheerde eindpunten (bijvoorbeeld Hiveserver2). Alle het RBAC beleid en de controle zal van toepassing zijn op deze gebruikers.
+* **Reguliere**: tijdens het maken van het cluster, kunt u meerdere active directory-groepen opgeven. De gebruikers in deze groepen worden gesynchroniseerd met Zwerver en Ambari. Deze gebruikers zijn domeingebruikers en hebben toegang tot alleen Zwerver beheerde eindpunten (bijvoorbeeld Hiveserver2). Alle het RBAC beleid en de controle zal van toepassing zijn op deze gebruikers.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Rollen zijn van een domein HDInsight-clusters
 HDInsight domein hebben de volgende rollen:
@@ -63,8 +115,9 @@ HDInsight domein hebben de volgende rollen:
     ![HDInsight-rolmachtigingen domein](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>De gebruikersinterface voor het beheer van de Ambari openen
+
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Open uw HDInsight-cluster in een blade. Zie [lijst en geeft weer clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Open uw HDInsight-cluster. Zie [lijst en geeft weer clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Klik op **Dashboard** in het menu bovenaan om Ambari te openen.
 4. Meld u bij de Ambari met het cluster administrator domeingebruikersnaam en wachtwoord.
 5. Klik op de **Admin** vervolgkeuzemenu in de rechterbovenhoek hoek naar rechts en klik vervolgens op **Ambari beheren**.

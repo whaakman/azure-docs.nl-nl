@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
@@ -39,7 +39,7 @@ U moet maken van een Azure AD DS voordat u een HDInsight-cluster kunt maken. Zie
 > [!NOTE]
 > Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. 
 
-Nadat de domeinservice is ingericht, moet u voor het maken van een serviceaccount in de **beheerders van Azure AD-DC** groep maken van het HDInsight-cluster. De service-account moet een globale beheerder op de Azure AD.
+Nadat de domeinservice is ingericht, moet u voor het maken van een serviceaccount in de **beheerders van Azure AD-DC** groep maken van het HDInsight-cluster. Het serviceaccount moet een globale beheerder op de Azure AD.
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Een domein HDInsight-cluster maken
 

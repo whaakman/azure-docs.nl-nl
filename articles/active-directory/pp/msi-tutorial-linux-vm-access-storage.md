@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 61d59f3d02a3fd12f251486e76228e67b28e6275
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM te gebruiken voor toegang tot Azure Storage
 
@@ -134,10 +134,10 @@ Omdat bestanden blob-opslag is vereist, moet u een blobcontainer in om op te sla
 
 Met behulp van een MSI-bestand, krijgt uw code toegangstokens voor verificatie naar bronnen die ondersteuning bieden voor Azure AD-verificatie. In deze zelfstudie gebruikt u Azure Storage.
 
-Eerst u de MSI identiteit toegang verlenen tot een Azure Storage-container. In dit geval gebruikt u de container die eerder hebt gemaakt. Werk de waarden voor `<MSI CLIENTID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, en `<CONTAINER NAME>` afhankelijk van wat geschikt is voor uw omgeving. Vervang `<CLIENT ID>` met de `clientId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi):
+Eerst u de MSI identiteit toegang verlenen tot een Azure Storage-container. In dit geval gebruikt u de container die eerder hebt gemaakt. Werk de waarden voor `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, en `<CONTAINER NAME>` afhankelijk van wat geschikt is voor uw omgeving. Vervang `<CLIENT ID>` met de `clientId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI CLIENTID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Het antwoord bevat de details voor de roltoewijzing gemaakt:
@@ -189,7 +189,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 4. Het toegangstoken nu gebruiken voor toegang tot Azure Storage, bijvoorbeeld lezen van de inhoud van het voorbeeldbestand die u eerder hebt geüpload naar de container. Vervang de waarden van `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, en `<FILE NAME>` met de waarden die u eerder hebt opgegeven en `<ACCESS TOKEN>` aan het token geretourneerd in de vorige stap.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Het antwoord bevat de inhoud van het bestand:

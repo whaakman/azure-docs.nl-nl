@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-13-deploy"></a>Les 13: Implementeren
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="deploy"></a>Implementeren
 
 In deze les gaat u eigenschappen voor de implementatie configureren. U gaat een Azure Analysis Services-server voor implementatie en een naam voor het model opgeven. Vervolgens implementeert u het model naar dat exemplaar. Na de implementatie van het model kunnen gebruikers er via een rapportageclienttoepassing verbinding mee maken. Zie [Implementeren naar Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) voor meer informatie.  
   

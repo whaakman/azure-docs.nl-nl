@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: ca16a7fe424e9c50ce87b150442dd18ff0d6ce91
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -80,7 +80,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
    <a id="max-connection"></a>
 3. **MaxPoolSize per host verhogen als u de Gateway-modus**
 
-    Azure DB van de Cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van Gateway-modus en zijn onderworpen aan de standaardlimiet verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxPoolSize ingesteld op een hogere waarde (200-1000), zodat meerdere gelijktijdige verbindingen met Azure Cosmos DB van de clientbibliotheek gebruikmaken kan. In de SDK voor Java, de standaardwaarde voor [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) is 100. Gebruik [setMaxPoolSize]( https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) de waarde te wijzigen.
+    Azure DB van de Cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van Gateway-modus en zijn onderworpen aan de standaardlimiet verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxPoolSize ingesteld op een hogere waarde (200-1000), zodat meerdere gelijktijdige verbindingen met Azure Cosmos DB van de clientbibliotheek gebruikmaken kan. In de SDK voor Java, de standaardwaarde voor [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) is 100. Gebruik [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) de waarde te wijzigen.
 
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
@@ -96,7 +96,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 5. **Backoff getRetryAfterInMilliseconds intervallen implementeren**
 
-    Tijdens het testen van prestaties, moet u load verhogen tot een klein aantal aanvragen ophalen beperkt. Als beperkt, moet de clienttoepassing backoff op vertraging voor de server opgegeven interval. De backoff te respecteren, zorgt u ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor nieuwe pogingen Groepsbeleid is opgenomen in versie 1.8.0 en hoger van de [Java SDK](documentdb-sdk-java.md). Zie voor meer informatie [Exceeding gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [getRetryAfterInMilliseconds](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Tijdens het testen van prestaties, moet u load verhogen tot een klein aantal aanvragen ophalen beperkt. Als beperkt, moet de clienttoepassing backoff op vertraging voor de server opgegeven interval. De backoff te respecteren, zorgt u ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor nieuwe pogingen Groepsbeleid is opgenomen in versie 1.8.0 en hoger van de [Java SDK](documentdb-sdk-java.md). Zie voor meer informatie [Exceeding gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
 6. **Uitbreiden van de werkbelasting van uw client**
 
     Als u op niveaus met hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing mogelijk het knelpunt als gevolg van de machine beperking af op CPU- of -gebruik. Als u deze punt bereikt, kunt u blijven voor de push-het account van Azure DB die Cosmos verder door het uitbreiden van uw clienttoepassingen op meerdere servers.
@@ -112,7 +112,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Verminder het aantal netwerk retouren vereist voor het ophalen van alle toepasselijke resultaten, verhoogt u de pagina grootte met behulp van de [x-ms-max-item-aantal](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) aanvraagheader en maximaal 1000. In gevallen waarin u wilt alleen enkele resultaten weer te geven bijvoorbeeld, als uw gebruikers-interface of toepassing API retourneert alleen 10 een tijd resulteert, u kunt ook de paginagrootte van de op 10 tot en met de doorvoer verbruikt voor leesbewerkingen en query's verminderen verlagen.
 
-    U kunt ook instellen dat de pagina grootte gebruikt het de [setPageSize methode](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    U kunt ook instellen dat de pagina grootte gebruikt het de [setPageSize methode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Indexeringsbeleid
  
@@ -143,7 +143,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     De complexiteit van een query heeft gevolgen voor het aantal aanvraageenheden voor een bewerking worden verbruikt. Het aantal predicaten, aard van de predicaten, aantal UDF's en de grootte van de bron-gegevensset alle invloed hebben op de kosten van querybewerkingen.
 
-    Voor het meten van de overhead van bewerkingen (maken, bijwerken of verwijderen) Inspecteer de [x-ms-aanvraag-kosten](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header (of de equivalente RequestCharge-eigenschap in [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) of [FeedResponse<T> ](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_response) voor het meten van het aantal aanvraageenheden verbruikt door deze bewerkingen.
+    Voor het meten van de overhead van bewerkingen (maken, bijwerken of verwijderen) Inspecteer de [x-ms-aanvraag-kosten](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header (of de equivalente RequestCharge-eigenschap in [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) of [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) voor het meten van het aantal aanvraageenheden verbruikt door deze bewerkingen.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -163,7 +163,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     De SDK's alle impliciet dit antwoord catch, wordt de server opgegeven probeer het opnieuw nadat de header en de aanvraag opnieuw proberen. Tenzij uw account wordt door meerdere clients tegelijkertijd geopend, wordt de volgende poging slaagt.
 
-    Als er meer dan één client cumulatief werken consistent boven het percentage aanvragen, het aantal nieuwe pogingen van standaard ingesteld op 9 intern door de client niet toereikend zijn; in dit geval wordt de client genereert een [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) met de status code 429 tot de toepassing. Het aantal standaard pogingen kan worden gewijzigd met behulp van [setRetryOptions](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) op de [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) exemplaar. Standaard wordt de DocumentClientException met statuscode 429 na een cumulatieve wachttijd van 30 seconden geretourneerd, als de aanvraag blijft werken boven het percentage aanvragen. Dit gebeurt zelfs als het huidige aantal pogingen is kleiner dan het maximale aantal, worden deze de standaardwaarde van 9 of een door de gebruiker gedefinieerde waarde.
+    Als er meer dan één client cumulatief werken consistent boven het percentage aanvragen, het aantal nieuwe pogingen van standaard ingesteld op 9 intern door de client niet toereikend zijn; in dit geval wordt de client genereert een [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) met de status code 429 tot de toepassing. Het aantal standaard pogingen kan worden gewijzigd met behulp van [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) op de [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) exemplaar. Standaard wordt de DocumentClientException met statuscode 429 na een cumulatieve wachttijd van 30 seconden geretourneerd, als de aanvraag blijft werken boven het percentage aanvragen. Dit gebeurt zelfs als het huidige aantal pogingen is kleiner dan het maximale aantal, worden deze de standaardwaarde van 9 of een door de gebruiker gedefinieerde waarde.
 
     Terwijl het gedrag voor het automatisch opnieuw kan worden verbeterd tolerantie en bruikbaarheid voor de meeste toepassingen, kan deze op odds zijn bij het uitvoeren van prestatiebenchmarks, vooral wanneer latentie meten.  De latentie waargenomen-client wordt pieken als het experiment treffers in de beperking van de server en zorgt ervoor dat de client SDK achtergrond opnieuw proberen. Meten van de kosten die zijn geretourneerd door elke bewerking om te voorkomen latentiepieken tijdens prestaties experimenten, en zorg ervoor dat aanvragen worden gebruikt onder het gereserveerde percentage. Zie voor meer informatie [Aanvraageenheden](request-units.md).
 3. **Ontwerp voor kleinere documenten voor een hogere doorvoer**

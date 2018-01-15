@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
-Voor het implementeren van uw oplossing, kunt u één sjabloon of een belangrijkste sjabloon kunt gebruiken met meerdere gekoppelde sjablonen. Voor kleine tot middelgrote oplossingen is één sjabloon gemakkelijker te begrijpen en onderhouden. U zijn kunt zien van de resources en waarden in een enkel bestand. Voor geavanceerde scenario's, gekoppelde sjablonen kunnen u de oplossing in de betreffende onderdelen uitgesplitst en sjablonen hergebruiken.
+Voor het implementeren van uw oplossing, kunt u één sjabloon of een belangrijkste sjabloon kunt gebruiken met meerdere verwante sjablonen. De verwante sjabloon mag een afzonderlijk bestand dat is gekoppeld aan een van de belangrijkste sjabloon of een sjabloon die is genest binnen de belangrijkste sjabloon.
+
+Voor kleine tot middelgrote oplossingen is één sjabloon gemakkelijker te begrijpen en onderhouden. U zijn kunt zien van de resources en waarden in een enkel bestand. Voor geavanceerde scenario's, gekoppelde sjablonen kunnen u de oplossing in de betreffende onderdelen uitgesplitst en sjablonen hergebruiken.
 
 Wanneer met behulp van gekoppelde sjabloon maakt u een belangrijkste sjabloon die de parameterwaarden die tijdens de implementatie ontvangt. De belangrijkste sjabloon bevat de gekoppelde sjablonen en waarden doorgegeven aan deze sjablonen naar behoefte.
 
 ![gekoppelde sjablonen](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Koppelen aan een sjabloon
+## <a name="link-or-nest-a-template"></a>Een sjabloon nesten of koppelen
 
 Als u wilt koppelen aan een andere sjabloon, Voeg een **implementaties** resource toe aan uw belangrijkste sjabloon.
 
@@ -40,17 +42,17 @@ Als u wilt koppelen aan een andere sjabloon, Voeg een **implementaties** resourc
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-De eigenschappen die u voor de implementatie van resource opgeeft variëren, afhankelijk van of u koppelen aan een externe-sjabloon of het insluiten van een inline-sjabloon in de belangrijkste sjabloon.
+De eigenschappen die u voor de implementatie van resource opgeeft variëren, afhankelijk van of u koppelen aan een externe-sjabloon of het nesten van een inline-sjabloon in de belangrijkste sjabloon.
 
-### <a name="inline-template"></a>Inline-sjabloon
+### <a name="nested-template"></a>Geneste sjabloon
 
-U kunt de gekoppelde sjabloon insluiten, met de **sjabloon** eigenschap en bevatten de sjabloon.
+Als u wilt nesten van de sjabloon in de belangrijkste sjabloon gebruiken de **sjabloon** eigenschap en geeft u de sjabloonsyntaxis van de.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ U kunt de gekoppelde sjabloon insluiten, met de **sjabloon** eigenschap en bevat
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ U kunt de gekoppelde sjabloon insluiten, met de **sjabloon** eigenschap en bevat
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Voor geneste sjablonen kunt u parameters en variabelen die zijn gedefinieerd binnen de geneste sjabloon niet gebruiken. U kunt de parameters en variabelen van de belangrijkste sjabloon gebruiken. In het voorgaande voorbeeld `[variables('storageName')]` haalt een waarde van de belangrijkste sjabloon, niet de geneste sjabloon. Deze beperking geldt niet voor externe sjablonen.
 
 ### <a name="external-template-and-external-parameters"></a>Externe sjabloon en externe parameters
 
@@ -176,7 +177,7 @@ De volgende voorbeelden laten zien hoe u verwijst naar een gekoppelde sjabloon e
 }
 ```
 
-De sjabloon voor bovenliggend implementeert de gekoppelde sjabloon en de geretourneerde waarde opgehaald. U ziet dat deze verwijst naar de implementatie-resource met de naam en de naam van de eigenschap die is geretourneerd door de gekoppelde sjabloon gebruikt.
+De belangrijkste sjabloon implementeert de gekoppelde sjabloon en de geretourneerde waarde opgehaald. U ziet dat deze verwijst naar de implementatie-resource met de naam en de naam van de eigenschap die is geretourneerd door de gekoppelde sjabloon gebruikt.
 
 ```json
 {
@@ -309,9 +310,9 @@ Als u het openbare IP-adres van de voorgaande sjabloon bij het implementeren van
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Gekoppelde sjablonen in de implementatiegeschiedenis
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Gekoppelde en geneste sjablonen in de implementatiegeschiedenis
 
-Resource Manager verwerkt elke gekoppelde sjabloon als een afzonderlijke implementatie in de implementatiegeschiedenis van de. Daarom een sjabloon voor bovenliggend met drie gekoppelde sjablonen wordt weergegeven in de geschiedenis van de implementatie als:
+Elke sjabloon verwerkt Resource Manager als een afzonderlijke implementatie in de implementatiegeschiedenis van de. Daarom een belangrijkste sjabloon met drie gekoppelde of geneste sjablonen wordt weergegeven in de geschiedenis van de implementatie als:
 
 ![Implementatiegeschiedenis](./media/resource-group-linked-templates/deployment-history.png)
 

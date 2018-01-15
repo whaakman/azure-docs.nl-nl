@@ -6,16 +6,16 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module van de Azure-portal naar een Linux-apparaat implementeren - voorbeeld
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module naar een Linux- of Mac-apparaat implementeren - voorbeeld
 
 Azure IoT-rand wordt verplaatst van de kracht van de cloud op uw Internet of Things-apparaten. Informatie over het gebruik van de cloud-interface vooraf gedefinieerde code om extern te implementeren naar een IoT-randapparaat in dit onderwerp.
 
@@ -23,10 +23,14 @@ Als u geen een actief Azure-abonnement hebt, maakt u een [gratis account] [ lnk-
 
 ## <a name="prerequisites"></a>Vereisten
 
-Gebruik uw computer of een virtuele machine te simuleren een Internet of Things-apparaat voor het uitvoeren van deze taak. De volgende services zijn vereist voor een IoT-randapparaat met succes implementeren:
+Deze snelstartgids maakt gebruik van uw computer of virtuele machine, zoals een Internet of Things-apparaat. Als u wilt uw machine in een Edge van de IoT-apparaat, zijn de volgende services zijn vereist:
 
-- [Docker installeren op Linux] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
-- De meeste Linux-distributies, Ubuntu, waaronder nog Python 2.7 geïnstalleerd. Gebruik de volgende opdracht om ervoor te zorgen dat pip is geïnstalleerd: `sudo apt-get install python-pip`.
+* Python pip voor het installeren van de rand van de IoT-runtime.
+   * Linux: `sudo apt-get install python-pip`.
+   * Mac OS: `sudo easy_install pip`.
+* Docker om uit te voeren van de rand IoT modules
+   * [Docker voor Linux installeren] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
+   * [Docker voor Mac installeert] [ lnk-docker-mac] en zorg ervoor dat deze wordt uitgevoerd. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Een iothub maken met Azure CLI
 
@@ -135,6 +139,7 @@ U hebt geleerd hoe een module IoT rand implementeert op een rand van de IoT-appa
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

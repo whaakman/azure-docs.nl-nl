@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>De service Manager voor StorSimple-apparaat voor StorSimple 8000 series apparaten implementeren
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 De StorSimple-apparaat Manager-service wordt uitgevoerd in Microsoft Azure en verbinding maakt met meerdere StorSimple-apparaten. Nadat u de service hebt gemaakt, kunt u deze kunt gebruiken voor het beheren van de apparaten die zijn verbonden met de service Manager voor StorSimple-apparaat vanaf een centrale locatie, waardoor administratieve last voor het minimaliseren.
 
 Deze zelfstudie worden de stappen beschreven voor het maken, verwijderen, migratie van de service en het beheer van de serviceregistratiesleutel nodig. De informatie in dit artikel is alleen van toepassing op StorSimple 8000 series apparaten. Voor meer informatie over virtuele StorSimple-matrices, gaat u naar [implementeren van een service Manager voor StorSimple-apparaat voor uw virtuele StorSimple-matrix](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Alle klassieke StorSimple-apparaat managers zijn automatisch verplaatst naar de nieuwe Azure portal. Als u vragen hebt, raadpleegt u [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md). De Azure Service Management (ASM) PowerShell-cmdlets worden niet ondersteund na de overstap naar de nieuwe Azure portal. Bijwerken van de scripts voor het beheren van uw apparaten en gaat u naar de [scripts voor het beheren van StorSimple-apparaten op basis van gebruik Azure Resource Manager SDK](storsimple-8000-automation-azurerm-scripts.md) voor meer informatie. De nieuwe Azure portal ondersteunt apparaten met Update 5.0 of hoger. Als uw apparaat niet up-to-date te houden is, onmiddellijk te installeren Update 5. Ga voor meer informatie naar [installeren Update 5](storsimple-8000-install-update-5.md). Als u een StorSimple-Cloud-apparaat (8010/8020), kunt u een cloud-apparaat niet bijwerken. Gebruik de nieuwste versie van software voor het maken van een nieuwe cloud-apparaat met Update 5.0 en vervolgens een failover uitvoeren naar het nieuwe cloud toestel gemaakt. Alle apparaten met Update 4.0 of eerder merken [verminderd beheerfunctionaliteit](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Een service maken
 Voor het maken van een StorSimple-apparaat Manager-service moet u beschikken over:
@@ -57,86 +60,6 @@ Voor elke service Manager voor StorSimple-apparaat bestaat de volgende kenmerken
 * **Status** – de status van de service, die kan worden **Active**, **maken**, of **Online**.
 * **Locatie** – de geografische locatie op waarin het StorSimple-apparaat wordt geïmplementeerd.
 * **Abonnement** – het Facturering abonnement dat is gekoppeld aan uw service.
-
-## <a name="move-a-service-to-azure-portal"></a>Verplaatsen van een service naar de Azure-portal
-StorSimple 8000-serie kunnen nu worden beheerd in de Azure portal. Als u een bestaande service voor het beheren van de StorSimple-apparaten hebt, wordt u aangeraden dat u uw service naar de Azure-portal verplaatst. De klassieke Azure portal voor de StorSimple Manager-service wordt niet ondersteund na 30 September 2017. Als u verplaatsen naar de nieuwe Azure portal wilt, raadpleegt u [overwegingen voor overgang](#considerations-for-transition). 
-
-> [!NOTE]
-> 5 oktober 2017 wordt uw klassieke managers van de StorSimple-apparaat automatisch verplaatst naar de nieuwe Azure portal. Dit is een gefaseerde implementatie en wordt bijgewerkt u over de verplaatsing via e-mail en -portal meldingen. Als u vragen hebt, raadpleegt u [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Overwegingen voor overgang
-
-Bekijk het effect van de migratie naar de nieuwe Azure portal voordat u verdergaat met de service.
-
-> [!NOTE]
-> De bestaande Azure Service Management (ASM) PowerShell-cmdlets worden niet ondersteund nadat u hebt verplaatst naar de nieuwe Azure portal. Werk de scripts voor het beheren van uw apparaten via de SDK van Azure Resource Manager. Ga voor meer informatie naar de [scripts voor het beheren van StorSimple-apparaten op basis van gebruik Azure Resource Manager SDK](storsimple-8000-automation-azurerm-scripts.md).
-> De nieuwe Azure portal ondersteunt apparaten met Update 3.0 of hoger. Als uw apparaat niet actueel is, wordt aangeraden dat u Update 5 zo snel mogelijk worden toegepast.
-
-#### <a name="before-you-transition"></a>Voordat u overgang
-
-* Uw apparaat wordt Update uitgevoerd 3.0 of hoger. Als het apparaat een oudere versie wordt uitgevoerd, wordt aangeraden dat u Update 5 via de hotfix-methode installeert. Ga voor meer informatie naar [installeren Update 5](storsimple-8000-install-update-5.md). Als een StorSimple-Cloud-apparaat (8010/8020) wordt gebruikt, kunt u een cloud-apparaat niet bijwerken. Gebruik de nieuwste versie van software voor het maken van een nieuwe cloud-apparaat met Update 5.0 en vervolgens een failover uitvoeren naar het nieuwe cloud toestel gemaakt.
-
-* Zodra u naar de nieuwe Azure portal overgezet, kunt u de klassieke Azure portal niet gebruiken voor het beheren van uw StorSimple-apparaat.
-
-* De overgang ononderbroken en er geen uitvaltijd voor het apparaat.
-
-* Alle beheerders voor StorSimple-apparaat onder het opgegeven abonnement zijn overgegaan.
-
-#### <a name="during-the-transition"></a>Tijdens de overgang
-
-* U kunt uw apparaat niet kan beheren vanuit de portal.
-* Bewerkingen zoals lagen en geplande back-ups blijven optreden.
-* Verwijder de oude Managers van de StorSimple-apparaat niet terwijl de overgang uitgevoerd wordt.
-
-#### <a name="after-the-transition"></a>Na de overgang
-
-* U kunt niet langer uw apparaten beheren vanuit de klassieke portal.
-
-* De bestaande Azure Service Management (ASM) PowerShell-cmdlets worden niet ondersteund. Werk de scripts voor het beheren van uw apparaten via de Azure Resource Manager. Voor voorbeelden van scripts met Resource Manager SDK, raadpleegt u de [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* Configuratie van de service en het apparaat worden bewaard. Alle volumes en back-ups zijn ook is overgegaan naar de Azure portal.
-
-### <a name="begin-transition"></a>Begin overgang
-
-Voer de volgende stappen uit om de overgang van uw service naar de Azure portal.
-
-1. Ga naar uw bestaande StorSimple Manager-service in de nieuwe Azure portal.
-    ![Meer services](./media/storsimple-8000-manage-service/service-browse01.png) ![selecteer Apparaatbeheer](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. U ziet een melding dat informeert de service Manager voor StorSimple-apparaat is nu beschikbaar in de Azure-portal. In de Azure-portal de service aangeduid als de service Manager voor StorSimple-apparaat.
-    ![Migratie-melding](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Zorg ervoor dat u de volledige invloed van de migratie hebt bekeken.
-    2. Bekijk de lijst van de StorSimple-apparaat Managers die vanuit de klassieke portal wordt verplaatst.
-
-3. Klik op **migreren**. De overgang begint en duurt een paar minuten.
-
-Zodra de overgang voltooid is, kunt u uw apparaten via de service Manager voor StorSimple-apparaat in de Azure portal kunt beheren. Als u een optie om te migreren naar Azure-portal niet ziet, maar u verplaatsen wilt, kunt u [een aanvraag indienen](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Ondersteunde bewerkingen op apparaten met eerdere versies Update 3.0
-In de Azure portal, worden alleen de StorSimple-apparaten met Update 3.0 en hoger ondersteund. De apparaten waarop oudere versies worden in beperkte mate ondersteunt. Nadat u hebt gemigreerd naar de Azure portal, gebruikt u de volgende tabel om te begrijpen welke bewerkingen worden ondersteund op apparaten met eerdere versies Update 3.0.
-
-| Bewerking                                                                                                                       | Ondersteund      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Een apparaat registreren                                                                                                               | Ja            |
-| Instellingen voor apparaten zoals algemene-, netwerk- en beveiliging configureren                                                                | Ja            |
-| Scannen, downloaden en installeren van updates                                                                                             | Ja            |
-| Apparaat deactiveren                                                                                                               | Ja            |
-| Apparaat verwijderen                                                                                                                   | Ja            |
-| Maken, wijzigen en verwijderen van een volumecontainer                                                                                   | Nee             |
-| Maken, wijzigen en verwijderen van een volume                                                                                             | Nee             |
-| Maken, wijzigen en verwijderen van een back-upbeleid                                                                                      | Nee             |
-| Maak een handmatige back-up                                                                                                            | Nee             |
-| Maak een geplande back-up                                                                                                         | Niet van toepassing |
-| Herstellen vanuit een back-upset                                                                                                        | Nee             |
-| Klonen op een apparaat met Update 3.0 en hoger <br> Het bronapparaat wordt versie vóór de Update 3.0 uitgevoerd.                                | Ja            |
-| Klonen op een apparaat met eerdere versies Update 3.0                                                                          | Nee             |
-| Failover als Bronapparaat <br> (van een apparaat met versie vóór de Update 3.0 op een apparaat met Update 3.0 en hoger)                                                               | Ja            |
-| Failover als doelapparaat <br> (op een apparaat met softwareversie vóór de Update 3.0)                                                                                   | Nee             |
-| Een waarschuwing wissen                                                                                                                  | Ja            |
-| Back-upbeleid, back-upcatalogus, volumes, volumecontainers, bewaking grafieken, taken en waarschuwingen die zijn gemaakt in de klassieke portal weergeven | Ja            |
-| In-of uitschakelen apparaatcontrollers                                                                                              | Ja            |
-
 
 ## <a name="delete-a-service"></a>Een service verwijderen
 
@@ -262,6 +185,31 @@ Voer de volgende stappen uit voor het bijwerken van de versleuteling van de serv
 2. Open PowerShell en typ het volgende achter de opdrachtprompt:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Dit script zorgt ervoor dat gegevensversleutelingssleutel van service is ingesteld op de 8010/8020 cloud toestellen onder Apparaatbeheer.
+
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Ondersteunde bewerkingen op apparaten met eerdere versies Update 5.0
+In de Azure portal, worden alleen de StorSimple-apparaten met Update 5.0 of hoger en ondersteund. De apparaten waarop oudere versies worden in beperkte mate ondersteunt. Nadat u hebt gemigreerd naar de Azure portal, gebruikt u de volgende tabel om te begrijpen welke bewerkingen worden ondersteund op apparaten met eerdere versies Update 5.0.
+
+| Bewerking                                                                                                                       | Ondersteund      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Een apparaat registreren                                                                                                               | Ja            |
+| Instellingen voor apparaten zoals algemene-, netwerk- en beveiliging configureren                                                                | Ja            |
+| Scannen, downloaden en installeren van updates                                                                                             | Ja            |
+| Apparaat deactiveren                                                                                                               | Ja            |
+| Apparaat verwijderen                                                                                                                   | Ja            |
+| Maken, wijzigen en verwijderen van een volumecontainer                                                                                   | Nee             |
+| Maken, wijzigen en verwijderen van een volume                                                                                             | Nee             |
+| Maken, wijzigen en verwijderen van een back-upbeleid                                                                                      | Nee             |
+| Maak een handmatige back-up                                                                                                            | Nee             |
+| Maak een geplande back-up                                                                                                         | Niet van toepassing |
+| Herstellen vanuit een back-upset                                                                                                        | Nee             |
+| Klonen op een apparaat met Update 3.0 en hoger <br> Het bronapparaat wordt versie vóór de Update 3.0 uitgevoerd.                                | Ja            |
+| Klonen op een apparaat met eerdere versies Update 3.0                                                                          | Nee             |
+| Failover als Bronapparaat <br> (van een apparaat met versie vóór de Update 3.0 op een apparaat met Update 3.0 en hoger)                                                               | Ja            |
+| Failover als doelapparaat <br> (op een apparaat met softwareversie vóór de Update 3.0)                                                                                   | Nee             |
+| Een waarschuwing wissen                                                                                                                  | Ja            |
+| Back-upbeleid, back-upcatalogus, volumes, volumecontainers, bewaking grafieken, taken en waarschuwingen die zijn gemaakt in de klassieke portal weergeven | Ja            |
+| In-of uitschakelen apparaatcontrollers                                                                                              | Ja            |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de [StorSimple-implementatieproces](storsimple-8000-deployment-walkthrough-u2.md).

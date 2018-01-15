@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -118,7 +118,7 @@ Na het aanmelden, kan de Workbench-app op een leeg scherm ophalen vastgelopen me
 3. De app opnieuw starten.
 
 ## <a name="cant-delete-experimentation-account"></a>Experimenteren Account verwijderen niet
-U kunt de CLI gebruiken om een Account experimenteren te verwijderen, maar u moet de onderliggende werkruimten en de onderliggende projecten in deze werkruimten onderliggende eerst verwijderen. Anders wordt er een fout opgetreden.
+U kunt de CLI gebruiken om een Account experimenteren te verwijderen, maar u moet de onderliggende werkruimten en de onderliggende projecten in deze werkruimten onderliggende eerst verwijderen. Anders raadpleegt u de fout 'kan resource pas verwijderen ingesloten resources zijn verwijderd."
 
 ```azure-cli
 # delete a project
@@ -145,6 +145,8 @@ Als u een experimenteren uitgevoerd met behulp van starten `az ml experiment sub
 - Op Mac OS, gebruikt u Ctrl-c
 
 Houd er rekening mee dat dit alleen de uitvoerstroom in het venster CLI-interrupts. Deze stopt daadwerkelijk niet een taak die wordt uitgevoerd. Als u annuleren een actieve taak wilt, gebruikt u `az ml experiment cancel -r <run_id> -t <target name>` opdracht.
+
+Op Windows-computers met toetsenborden waarvoor geen toets Break zijn mogelijke alternatieven Fn-B, Ctrl-Fn-B of Fn + Esc. Raadpleeg de documentatie van de hardwareleverancier van uw voor een bepaalde combinatie van sleutel.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker-fout ' lezen: verbinding geweigerd '
 Wanneer u deze uitvoert op basis van een lokale Docker-container, soms mogelijk ziet u de volgende fout: 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 U kunt ook een gegevensschijf toevoegen en configureren van Docker-engine voor het gebruik van de gegevensschijf voor het opslaan van afbeeldingen. Hier volgt [het toevoegen van een gegevensschijf](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). U kunt vervolgens [wijzigen waar de installatiekopieën worden opgeslagen in Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)

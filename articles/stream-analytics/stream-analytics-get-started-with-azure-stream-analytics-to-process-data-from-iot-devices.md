@@ -4,7 +4,7 @@ description: IoT-sensortags en -gegevensstromen met Stream Analytics en realtime
 keywords: IOT-oplossing, aan de slag met iot
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten
 In deze zelfstudie leert u hoe u stroomverwerkingslogica schrijft om gegevens te verzamelen van IoT-apparaten (Internet of Things). We gebruiken hier een echte IoT-gebruikstoepassing (Internet of Things) om aan te tonen hoe u snel en economisch een oplossing maakt.
@@ -31,11 +31,7 @@ In deze zelfstudie leert u hoe u stroomverwerkingslogica schrijft om gegevens te
 ## <a name="scenario"></a>Scenario
 Contoso, een bedrijf op het gebied van industriële automatisering, heeft hun fabricageproces volledig geautomatiseerd. De machines in dit bedrijf hebben sensoren die in realtime gegevensstromen kunnen genereren. In dit scenario wil een werkvloerbeheerder realtime-inzichten op basis van de sensorgegevens om naar patronen te zoeken en hierop te reageren. We passen de SAQL (Stream Analytics Query Language) op de sensorgegevens toe om interessante patronen te vinden in de stroom inkomende gegevens.
 
-Hier worden gegevens gegenereerd met een Texas Instrument Sensor Tag-apparaat.
-
-![Texas Instruments Sensor Tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-De nettolading van de gegevens heeft de JSON-indeling en ziet er ongeveer als volgt uit:
+Hier worden gegevens gegenereerd met een Texas Instrument Sensor Tag-apparaat. De nettolading van de gegevens heeft de JSON-indeling en ziet er ongeveer als volgt uit:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -68,7 +64,7 @@ Voor het gebruiksgemak biedt deze introductiehandleiding een bestand met voorbee
    
     ![taak wordt gemaakt](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Een Azure Stream Analytics-query maken
+## <a name="create-an-azure-stream-analytics-query"></a>Een Azure Stream Analytics-query maken
 Nadat de taak is gemaakt, is het tijd om deze te openen en een query te bouwen. U kunt de taak eenvoudig openen door op de bijbehorende tegel te klikken.
 
 ![Taaktegel](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

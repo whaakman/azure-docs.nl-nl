@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Het inschakelen van eenmalige aanmelding voor cross-app voor iOS met ADAL
 Mits eenmalige aanmelding (SSO) zodat gebruikers alleen moeten eenmaal hun referenties invoeren en deze referenties automatisch laten samenwerken binnen wordt nu toepassingen door klanten verwacht. De problemen in hun gebruikersnaam en wachtwoord invoeren op een klein scherm, vaak keren gecombineerd met een extra factor (2FA), zoals een telefoongesprek of ge-code, resulteert in een snelle ergernis als een gebruiker heeft om dit te doen meer dan één keer voor het product.
@@ -294,10 +294,7 @@ Voorbeeld: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Stap 4: iOS9: een configuratieparameter toevoegen aan uw app
 – CanOpenURL maakt gebruik van ADAL: om te controleren of de broker op het apparaat is geïnstalleerd. In iOS vergrendeld 9 Apple wat schema's een toepassing kunnen opvragen. U moet 'msauth' toevoegen aan de sectie LSApplicationQueriesSchemes van uw `info.plist file`.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array><string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array> <string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>U kunt eenmalige aanmelding hebt geconfigureerd.
 Nu wordt de Microsoft Identity-SDK automatisch zowel referenties delen in uw toepassingen en aanroepen van de broker, indien aanwezig zijn op hun apparaat.

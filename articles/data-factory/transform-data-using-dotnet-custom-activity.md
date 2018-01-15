@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -331,7 +331,7 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
    - Microsoft.Azure.Management.DataFactories NuGet-pakket is niet langer vereist. 
    - De code compileren, uitvoerbaar bestand en de afhankelijkheden uploaden naar Azure Storage en het pad in de eigenschap folderPath definiëren. 
 
-Voor een compleet voorbeeld van hoe de end-to-end-DLL en pijplijn voorbeeld dat wordt beschreven in de Data Factory V1-document [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) mag herschrijven in de stijl van de Data Factory V2 aangepaste activiteit. Verwijzen naar een [sample Data Factory V2 aangepaste activiteit](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Voor een compleet voorbeeld van hoe de end-to-end-DLL en pijplijn voorbeeld dat wordt beschreven in de Data Factory V1-document [aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) mag herschrijven in de stijl van de Data Factory V2 aangepaste activiteit. Verwijzen naar een [sample Data Factory V2 aangepaste activiteit](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatische schaling van Azure Batch
 U kunt ook maken met een Azure Batch-pool met **automatisch schalen** functie. U kunt bijvoorbeeld een azure batch-pool maken met 0 toegewezen virtuele machines en een formule voor automatisch schalen is op basis van het aantal in behandeling zijnde taken. 

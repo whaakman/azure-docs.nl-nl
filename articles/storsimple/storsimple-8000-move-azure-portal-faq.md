@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>StorSimple-apparaat Manager-service verplaatsen van klassiek naar Azure-portal: veelgestelde vragen (FAQ)
 
@@ -38,7 +38,7 @@ Vragen en antwoorden worden gerangschikt in de volgende categorieën:
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>Eenmaal ik hebt verplaatst naar Azure-portal, kan ik daar nog steeds een StorSimple Manager-service in de klassieke portal maken?
 
-Nee. Nadat u uw StorSimple Manager-service naar de Azure-portal hebt gemigreerd, kunt u een nieuwe service kan niet maken in de klassieke portal. U kunt uw apparaat via de klassieke portal ook niet beheren. Ga voor meer informatie naar [uw service verplaatsen naar Azure-portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Nee. Nadat u uw StorSimple Manager-service naar de Azure-portal hebt gemigreerd, kunt u een nieuwe service kan niet maken in de klassieke portal. Bovendien [de klassieke portal is niet beschikbaar is via 8 januari 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>Ik heb meerdere StorSimple Managers uitgevoerd in de klassieke portal. Kan ik kiezen welke u wilt verplaatsen naar de Azure-portal?
 
@@ -67,14 +67,14 @@ Ja. De virtuele machines die zijn gekoppeld aan bestaande 8010/8020 cloud-appara
 
 Als u hebt gemaakt StorSimple Cloud toestellen model 8010/8020 met Update 3.0 en hoger, u niet beïnvloed door uw service verplaatsen naar de nieuwe Azure portal. U moet mogelijk uw cloud-apparaten zonder problemen volledig te beheren. 
 
-Als u cloud toestellen versies vóór de Update 3.0 wordt uitgevoerd in de klassieke portal hebt, klikt beperkt u alleen functionaliteit beschikbaar. Ga voor meer informatie naar de [lijst met niet-ondersteunde bewerkingen voor apparaten met eerdere versies Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Als u cloud toestellen versies vóór de Update 3.0 wordt uitgevoerd in de klassieke portal hebt, klikt beperkt u alleen functionaliteit beschikbaar. Ga voor meer informatie naar de [lijst met niet-ondersteunde bewerkingen voor apparaten met eerdere versies Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Een cloudapparaat kan niet worden bijgewerkt. Gebruik de nieuwste versie van software voor het maken van een nieuw cloud toestel en voert vervolgens failover uit via de bestaande volumecontainers op het nieuwe cloud toestel gemaakt. Ga voor meer informatie naar [failover naar de cloud-apparaat](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>Mijn apparaat StorSimple 8000-serie kan Update 2.0 wordt uitgevoerd. Ik mijn service gemigreerd naar de nieuwe Azure portal. Mijn apparaat is verbonden, maar het lijkt erop dat ik niet volledig beheren mijn apparaat. Hoe kan ik dit probleem oplossen?
 
-De nieuwe Azure portal wordt alleen ondersteund voor StorSimple-apparaten met Update 3.0 en hoger. Als het apparaat werd Update 2.0 worden uitgevoerd, hebt u alleen beschikbaar voor dit apparaat functionaliteit beperkt. Ga voor meer informatie naar de [lijst met niet-ondersteunde bewerkingen voor apparaten met eerdere versies Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+De nieuwe Azure portal wordt alleen ondersteund voor StorSimple-apparaten met Update 3.0 en hoger. Als het apparaat werd Update 2.0 worden uitgevoerd, hebt u alleen beschikbaar voor dit apparaat functionaliteit beperkt. Ga voor meer informatie naar de [lijst met niet-ondersteunde bewerkingen voor apparaten met eerdere versies Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Volledig beheer van uw apparaat, de meest recente update te installeren op uw apparaat. Ga voor meer informatie naar [installeren Update 5](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ Nee. Met uw service verplaatsen naar de nieuwe Azure portal, moet er niet van in
 
 ## <a name="moving-storsimple-data-manager-service"></a>Het verplaatsen van StorSimple Data Manager-service
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>Ik gebruik StorSimple Data Manager-service. Hoe moet ik wilt u doorgaan met deze verplaatsen?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>Ik gebruik StorSimple Data Manager-service in de klassieke Azure-portal. Hoe moet ik wilt u doorgaan met deze verplaatsen?
 
-Als u StorSimple Data Manager-service gebruikt, moet u eerst uw StorSimple-apparaat Managers verplaatsen naar de Azure portal. Zodra de verplaatsing voltooid is, maakt u nieuwe StorSimple gegevens Managers in de Azure portal. StorSimple gegevens Managers gemaakt vóór de verplaatsing werken niet.
-
-Voor meer informatie over de migratie van de service Manager voor StorSimple-apparaat, gaat u naar [uw service verplaatsen naar Azure-portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). Ga voor meer informatie over het maken van StorSimple Data Manager naar [maken van een StorSimple Data Manager-service](storsimple-data-manager-ui.md).
+Als u StorSimple Data Manager-service gebruikt, hebt u automatisch is verplaatst naar de Azure-portal.
 
 ## <a name="miscellaneous"></a>Diversen
 
@@ -148,7 +146,7 @@ Nee. U kunt niet hernoemen apparaten, volumes, volumecontainers of back-upbeleid
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe u stapsgewijs [verplaatsen van uw StorSimple-apparaat Manager-service naar de Azure-portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Meer informatie over [bewerkingen op apparaten met eerdere versies Update 5.0 ondersteund](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

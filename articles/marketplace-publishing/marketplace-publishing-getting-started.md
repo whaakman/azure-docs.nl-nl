@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 > [!NOTE]
-> Deze documentatie is niet meer actueel en is niet nauwkeurig. In plaats daarvan gaat u naar de Azure Marketplace [verkoper handleiding](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) voor hulp bij het publiceren van een aanbieding voor Azure Marketplace.
+> Deze documentatie is niet meer actueel en is niet nauwkeurig. In plaats daarvan gaat u naar de Azure Marketplace [verkoper handleiding](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) voor hulp bij het publiceren van een aanbieding voor Azure Marketplace.
 
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publiceren en beheren van een aanbieding in Azure Marketplace
 In dit artikel is bedoeld om ontwikkelaars maken, implementeren en beheren van hun oplossingen die worden vermeld in de Azure Marketplace voor andere Azure-klanten en partners aan te schaffen en gebruiken op te geven.
@@ -103,5 +103,5 @@ Beheren van uw oplossing met behulp van de volgende bronnen:
 * [Het facturering model naar productiewaarden herstellen](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [De zichtbaarheidsinstelling van een vermelde SKU om de waarde van de productie te herstellen](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 [Instellen van Azure PowerShell](marketplace-publishing-powershell-setup.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw VSTS continue integratie en de pijplijn voor levering
 U kunt de *Azure DevTest Labs taken* -extensie die in Visual Studio Team Services (VSTS) op eenvoudige wijze geïnstalleerd uw build-en release CI/CD pijplijn integreren met Azure DevTest Labs. De uitbreiding is geïnstalleerd drie taken: 
@@ -111,7 +111,7 @@ De volgende fase van de implementatie is het maken van de virtuele machine wilt 
    > [!NOTE]
    > Zie het maken van de virtuele machine moet worden gebruikt voor toekomstige implementaties [Azure DevTest Labs taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare Azure serviceverbindingen** lijst of maak een meer beperkte machtigingen verbinding met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare Azure serviceverbindingen** lijst of maak een meer beperkte machtigingen verbinding met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Voor **Labnaam**, selecteert u de naam van het exemplaar dat u eerder hebt gemaakt.
 
@@ -141,7 +141,7 @@ De volgende fase van de implementatie is het maken van de virtuele machine wilt 
 
    a. Voor **Azure verbindingstype**, selecteer **Azure Resource Manager**.
 
-   b. Voor **Azure RM-abonnement**, selecteer een verbinding in de lijst onder **beschikbare Azure serviceverbindingen**, of een meer beperkte machtigingen verbinding maken met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. Voor **Azure RM-abonnement**, selecteer een verbinding in de lijst onder **beschikbare Azure serviceverbindingen**, of een meer beperkte machtigingen verbinding maken met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    c. Voor **scripttype**, selecteer **scriptbestand**.
  
@@ -168,7 +168,7 @@ De volgende fase is het maken van een installatiekopie van de geïmplementeerde 
    > [!NOTE]
    > Zie het maken van de installatiekopie van het [Azure DevTest Labs taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Voor **Azure RM-abonnement**, in de **beschikbare Azure serviceverbindingen** lijst, selecteert u een verbinding in de lijst of maak een meer beperkte machtigingen verbinding met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Voor **Azure RM-abonnement**, in de **beschikbare Azure serviceverbindingen** lijst, selecteert u een verbinding in de lijst of maak een meer beperkte machtigingen verbinding met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Voor **Labnaam**, selecteert u de naam van het exemplaar dat u eerder hebt gemaakt.
 
@@ -189,7 +189,7 @@ De laatste fase is het verwijderen van de virtuele machine die u hebt geïmpleme
       > [!NOTE]
       > Zie het verwijderen van de virtuele machine [Azure DevTest Labs taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare Azure serviceverbindingen** lijst of maak een meer beperkte machtigingen verbinding met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare Azure serviceverbindingen** lijst of maak een meer beperkte machtigingen verbinding met uw Azure-abonnement. Zie voor meer informatie [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. Voor **ID van de virtuele testomgeving**, als u de standaardnaam van de omgevingsvariabele die automatisch is ingevuld met de ID van het testlab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)**.
 

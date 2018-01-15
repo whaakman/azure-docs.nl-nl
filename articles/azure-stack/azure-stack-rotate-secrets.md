@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9b65a3cb5cdcc8a558e5c989026f2eee2f527bb5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0a4118a8927e4261fafa307af5b9c29623ce5c3f
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure-Stack draaien
 
@@ -30,7 +30,7 @@ De wachtwoorden voor Azure-Stack-onderdelen op een reguliere uitgebracht bijwerk
 
 De baseboard management controllers (BMC) bewaken de fysieke status van uw servers. De specificaties en instructies voor het bijwerken van het wachtwoord van de BMC variëren, afhankelijk van de leverancier van uw oorspronkelijke leveranciers (OEM)-hardware.
 
-1. Werk de BMC op uw server door de OEM-instructies te volgen. Het wachtwoord voor elke BMC in uw omgeving moet hetzelfde zijn.
+1. Werk de BMC op fysieke servers van de Azure-Stack door de OEM-instructies te volgen. Het wachtwoord voor elke BMC in uw omgeving moet hetzelfde zijn.
 2. Open een bevoorrechte eindpunt in Azure Stack-sessies. Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md).
 3. Nadat uw PowerShell-prompt is gewijzigd in **[IP-adres of ERCS VM name]: PS >** of **[azs ercs01]: PS >**, afhankelijk van de omgeving, voeren `Set-BmcPassword` door het uitvoeren van `invoke-command`. Uw sessievariabele bevoorrechte eindpunt als parameter doorgeven.  
 Bijvoorbeeld:

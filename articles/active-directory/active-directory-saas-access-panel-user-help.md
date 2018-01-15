@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Moet u helpen bij de portal voor mijn Apps?
 
@@ -76,7 +76,7 @@ Nadat de installatie de volgende stappen uit als er problemen zijn:
 - Start uw browser en meld u aan bij de portal mijn Apps.
 
 - Cookies van uw browser te wissen en meld u aan bij de portal mijn Apps.
-- Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) handleiding voor toegang voor een hulpprogramma voor diagnostische gegevens en stapsgewijze instructies over het configureren van de extensie voor IE.
+- Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) handleiding voor toegang voor een hulpprogramma voor diagnostische gegevens en stapsgewijze instructies over het configureren van de extensie voor IE.
 
 ## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Hoe gebruik ik de extensie mijn Apps beveiligen aanmelden?
 Het wijzigen van de standaard-URL voor mijn Apps voor de extensie

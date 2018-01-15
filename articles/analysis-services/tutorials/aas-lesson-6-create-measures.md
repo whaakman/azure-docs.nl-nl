@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Les 6: Metingen maken
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Metingen maken
 
 In deze les maakt u metingen voor het model. Net als bij de berekende kolommen die u in de vorige les hebt gemaakt, wordt voor het maken van een meting ook een DAX-formule gebruikt. In tegenstelling tot berekende kolommen worden metingen echter geëvalueerd op basis van een *filter* dat de gebruiker selecteert, zoals een bepaalde kolom of een slicer die is toegevoegd aan het veld Rijlabels in een draaitabel. Vervolgens wordt voor elke cel in het filter een waarde berekend door de toegepaste meting. Metingen zijn krachtige, flexibele berekeningen die u in bijna alle tabellaire modellen zult gebruiken om dynamische berekeningen ui te voeren op numerieke gegevens. Zie [Metingen](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular) voor meer informatie.
   

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Docker volume-invoegtoepassingen en stuurprogramma's voor logboekregistratie in de container gebruiken
 Azure Service Fabric ondersteunt het opgeven van [Docker volume invoegtoepassingen](https://docs.docker.com/engine/extend/plugins_volume/) en [Docker-logboekregistratie stuurprogramma's](https://docs.docker.com/engine/admin/logging/overview/) voor uw containerservice. U kunt deze persistent maken uw gegevens in [Azure Files](https://azure.microsoft.com/services/storage/files/) wanneer uw container wordt verplaatst of opnieuw gestart op een andere host.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 Datacenter biedt geen ondersteuning voor SMB-koppelingen op de host ([alleen ondersteund op Windows Server versie 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Dit voorkomt dat gebruik van bepaalde volume stuurprogramma's zoals Azure Files volume stuurprogramma's. In plaats daarvan een de shares rechtstreeks in het gebruik van de container kunt koppelen **gebruik net**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Geef de invoegtoepassing of stuurprogramma in het manifest
 De invoegtoepassingen zijn opgegeven in het toepassingsmanifest als volgt:

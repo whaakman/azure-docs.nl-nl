@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Het StorSimple-Apparaatbeheer gebruiken voor het beheren van waarschuwingen voor de virtuele StorSimple-matrix
 
@@ -125,7 +125,6 @@ De volgende tabellen worden enkele van de StorSimple-waarschuwingen die u tegenk
 * [Waarschuwingen met betrekking tot taak](#job-failure-alerts)
 * [Waarschuwingen over toepassingsprestaties](#performance-alerts)
 * [Beveiligingswaarschuwingen](#security-alerts)
-* [Waarschuwingen bijwerken](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Connectiviteitswaarschuwingen cloud
 
@@ -164,13 +163,6 @@ De volgende tabellen worden enkele van de StorSimple-waarschuwingen die u tegenk
 | Tekst van de waarschuwing | Gebeurtenis | Meer informatie / aanbevolen acties |
 |:--- |:--- |:--- |
 | Wachtwoord voor <*apparaatnaam*> verloopt over <*getal*> dagen. |Waarschuwing: wachtwoord. |Uw wachtwoord verloopt < nummer < dagen. U kunt uw wachtwoord te wijzigen. Ga voor meer informatie naar [wijzigen van het beheerderswachtwoord van het virtuele StorSimple-matrix apparaat](storsimple-virtual-array-change-device-admin-password.md). |
-
-### <a name="update-alerts"></a>Waarschuwingen bijwerken
-
-| Tekst van de waarschuwing | Gebeurtenis | Meer informatie / aanbevolen acties |
-|:--- |:--- |:--- |
-| Er zijn nieuwe updates beschikbaar zijn voor uw apparaat. |Updates voor de virtuele StorSimple-matrix zijn beschikbaar. |U kunt nieuwe updates van installeren de **onderhoud** pagina. |
-| Kan niet gescand op nieuwe updates op <*apparaatnaam*>. |Bijwerken is mislukt. |Er is een fout opgetreden tijdens het installeren van nieuwe updates. U kunt de updates handmatig installeren. Als het probleem zich blijft voordoen, neem dan contact op met [Microsoft Support](storsimple-contact-microsoft-support.md). |
 
 ## <a name="next-steps"></a>Volgende stappen
 

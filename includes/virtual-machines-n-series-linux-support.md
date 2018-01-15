@@ -11,7 +11,7 @@
 
 | Distributie | Stuurprogramma |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>7.3 op basis van CentOS | NVIDIA RASTER 5.0, stuurprogramma vertakking R384|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>7.3 op basis van CentOS | NVIDIA RASTER 5.2 stuurprogramma vertakking R384|
 
 > [!NOTE]
 > Microsoft distribueert NVIDIA RASTER stuurprogramma installatieprogramma's voor virtuele machines NV opnieuw. Alleen deze RASTER stuurprogramma's installeren op Azure NV VM's. Deze stuurprogramma's omvatten de licentieverlening voor RASTER Virtual GPU-Software in Azure.

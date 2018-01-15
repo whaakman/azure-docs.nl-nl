@@ -16,8 +16,8 @@
 
 | OS | Stuurprogramma |
 | -------- |------------- |
-| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016 | [RASTER 5.2 (386.09)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [RASTER 5.2 (386.09)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
 
 > [!NOTE]
 > Microsoft distribueert NVIDIA RASTER stuurprogramma installatieprogramma's voor virtuele machines NV opnieuw. Alleen deze RASTER stuurprogramma's installeren op Azure NV VM's. Deze stuurprogramma's omvatten de licentieverlening voor RASTER Virtual GPU-Software in Azure.

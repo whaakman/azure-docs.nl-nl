@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -111,8 +111,6 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Eindpunt voor Azure-portal en Powershell |Intern |
 | * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure Storage, Azure Service Bus en Azure Active Directory (indien van toepassing).|Externe & interne | 
 | * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure SQL-eindpunten** |Externe & interne |
-| * / 11000 - 11999 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot de V12 Azure SQL** |Externe & interne |
-| * / 14000 - 14999 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot de V12 Azure SQL** |Externe & interne |
 | * / 5671, 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek Event Hub-beleid en bewakingsagent |Externe & interne |
 | * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure-bestandsshare voor GIT |Externe & interne |
 | * / 25028 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten |Externe & interne |
