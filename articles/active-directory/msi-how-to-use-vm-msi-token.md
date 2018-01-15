@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Dit artikel bevat verschillende voorbeelden van code en scripts voor het token verkrijgen, evenals richtlijnen over belangrijke onderwerpen, zoals het verwerken van verlopen van het token en HTTP-fouten.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Dit artikel bevat verschillende voorbeelden van code en scripts voor het token verkrijgen, evenals richtlijnen over belangrijke onderwerpen, zoals het verwerken van verlopen van het token en HTTP-fouten.
 
 ## <a name="prerequisites"></a>Vereisten
 

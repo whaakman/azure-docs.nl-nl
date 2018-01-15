@@ -1,6 +1,6 @@
 ---
 title: Azure Functions uitvoeren met Azure Stream Analytics-taken | Microsoft Docs
-description: Informatie over het configureren van Azure-functie als uitvoerlocatie naar de stroom analytische taken.
+description: Informatie over het configureren van Azure Functions als uitvoerlocatie aan Stream Analytics-taken.
 keywords: gegevens uitvoert, streamen van gegevens van Azure-functie
 documentationcenter: 
 services: stream-analytics
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: adc147fc9f47e78cc0a2fcaf53f064bcfa5eee2c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren met Azure Stream Analytics-taken 
  
 > [!IMPORTANT]
 > Deze functionaliteit is in preview.
 
-U kunt Azure Functions uitvoeren met Azure Stream Analytics met Azure Functions configureren als een van de PUT uitvoer naar de Stream Analytics-taak. Azure-functie is een gebeurtenissen, compute-on-demand-ervaring waarmee u de code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren. Deze mogelijkheid van Azure-functie om te reageren op triggers maakt het een natuurlijke uitvoer naar Azure Stream Analytics-taak.
+U kunt Azure Functions uitvoeren met Azure Stream Analytics door functies te configureren als een van de PUT uitvoer naar de Stream Analytics-taak. Functies is een gebeurtenisafhankelijke, compute-on-demand-ervaring waarmee u de code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren. Deze mogelijkheid van functies om te reageren op triggers wordt het een natuurlijke uitvoer voor Stream Analytics-taken.
 
-Azure Stream Analytics roept Azure-functie met HTTP-triggers. De uitvoeradapter van de Azure-functie kan gebruikers verbinding maken met de Azure Functions Stream Analytics zodanig dat de gebeurtenissen kunnen worden geactiveerd op basis van de Stream Analytics query's. 
+Stream Analytics roept functies via HTTP-triggers. De uitvoeradapter van de functies kan gebruikers verbinding maken functies met Stream Analytics, zodat de gebeurtenissen kunnen worden geactiveerd op basis van de Stream Analytics query's. 
 
-Deze zelfstudie laat zien hoe u verbinding maken met Azure Stream Analytics voor [Azure Redis-Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) met [Azure Functions](../azure-functions/functions-overview.md). 
+Deze zelfstudie laat zien hoe u verbinding maken met Stream Analytics voor [Azure Redis-Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md), met behulp van [Azure Functions](../azure-functions/functions-overview.md). 
 
-## <a name="configure-stream-analytics-job-to-run-an-azure-function"></a>Stream Analytics-taak voor uitvoering van een Azure-functie configureren 
+## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configureren van een Stream Analytics-taak voor het uitvoeren van een functie 
 
-Deze sectie wordt gedemonstreerd hoe u een Stream Analytics-taak voor uitvoering van een Azure-functie die u gegevens naar Azure Redis-Cache schrijft configureren. De Stream Analytics-taak gebeurtenissen van de Event Hub leest, voert een query die de Azure-functie activeert. Deze functie Azure gegevens van de Stream Analytics-taak leest en schrijft deze naar de Azure Redis-Cache.
+Deze sectie wordt gedemonstreerd hoe u een Stream Analytics-taak voor uitvoering van een functie die u gegevens naar Azure Redis-Cache schrijft configureren. De Stream Analytics-taak gebeurtenissen worden gelezen uit Azure Event Hubs en voert een query die de functie activeert. Deze functie gegevens van de Stream Analytics-taak leest en schrijft deze naar Azure Redis-Cache.
 
-![Afbeelding ter illustratie van de zelfstudie](./media/stream-analytics-with-azure-functions/image1.png)
+![Diagram van de relaties tussen de Azure-services](./media/stream-analytics-with-azure-functions/image1.png)
 
 De volgende stappen zijn vereist voor deze taak te bereiken:
-* [Stream Analytics-taak maken met Event Hub als invoer.](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Maak een Azure Redis-Cache.](#create-an-azure-redis-cache)  
-* [Maak een Azure-functie die gegevens naar de Redis-Cache kan schrijven.](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Werk de stroom analytische taak met Azure-functie als uitvoer.](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Controleer de Redis-Cache voor de resultaten.](#check-redis-cache-for-results)  
+* [Maken van een Stream Analytics-taak met Event Hubs als invoer](#create-stream-analytics-job-with-event-hub-as-input)  
+* [Azure Redis-Cache-exemplaar maken](#create-an-azure-redis-cache)  
+* [Maak een functie in Azure-functies die gegevens naar de Azure Redis-Cache kan schrijven](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
+* [Bijwerken van de Stream Analytics-taak met de functie als uitvoer](#update-the-stream-analytic-job-with-azure-function-as-output)  
+* [Azure Redis-Cache voor de resultaten controleren](#check-redis-cache-for-results)  
 
-## <a name="create-stream-analytics-job-with-event-hub-as-input"></a>Stream Analytics-taak maken met Event Hub als invoer
+## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Maken van een Stream Analytics-taak met Event Hubs als invoer
 
-Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detection.md) zelfstudie voor het maken van een event hub, de toepassing van de generator gebeurtenis wordt gestart en maken van een Azure Stream Analytics (overslaan bij de stappen voor het maken van de query en de uitvoer, in plaats daarvan stelt een Azure Functions uitvoer in de volgende sectie.)
+Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detection.md) zelfstudie voor het maken van een event hub, start de gebeurtenis generator-toepassing en een Stream Analytics-taak maken. (De stappen voor het maken van de query en de uitvoer overslaan. In plaats daarvan, Zie de volgende secties voor het instellen van de uitvoer van de functies.)
 
-## <a name="create-an-azure-redis-cache"></a>Maak een Azure Redis Cache
+## <a name="create-an-azure-redis-cache-instance"></a>Azure Redis-Cache-exemplaar maken
 
-1. Maken van een Azure Redis-Cache met behulp van de stappen in [een cache maken](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) sectie van het artikel Redis-Cache.  
+1. Maken van een cache in Azure Redis-Cache met behulp van de stappen in [een cache maken](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Nadat de Redis-Cache is gemaakt, gaat u naar de gemaakte cache > **toegangssleutels** > en noteer de **primaire verbindingsreeks**.
+2. Nadat u de cache onder gemaakt **instellingen**, selecteer **toegangstoetsen**. Noteer de **primaire verbindingsreeks**.
 
-   ![Redis-Cache-verbindingsreeks](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Schermopname van Azure Redis-Cache-verbindingsreeks](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-an-azure-function-that-can-write-data-to-the-redis-cache"></a>Een Azure-functie die u gegevens naar de Redis-Cache schrijven kunt maken
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Maak een functie in Azure-functies die gegevens naar Azure Redis-Cache kan schrijven
 
-1. Gebruik de [maken van een functie-app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) gedeelte van de Azure Functions-documentatie voor het maken van een Azure-functie-App en een [Azure-functie voor HTTP-geactiveerde](../azure-functions/functions-create-first-azure-function.md#create-function) (aka Webhook) met behulp van **CSharp** taal.  
+1. Zie de [maken van een functie-app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) gedeelte van de documentatie van de functies. Hiermee wordt u begeleid bij het maken van een functie-app en een [HTTP-geactiveerde functie in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), met behulp van de CSharp-taal.  
 
-2. Navigeer naar de **run.csx** functioneren en bijwerken met de volgende code (Zorg ervoor dat u de '\<de redis-cache-verbindingsreeks hier\>' tekst met primaire verbindingsreeks voor de Redis-Cache die u hebt opgehaald in de vorige sectie):  
+2. Blader naar de **run.csx** functie. Bijwerken met de volgende code. (Zorg ervoor dat u '\<de redis-cache-verbindingsreeks hier\>"met de verbindingsreeks die u hebt opgehaald in de vorige sectie primaire van Azure Redis-Cache.)  
 
    ```c#
    using System;
@@ -107,11 +107,11 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
       }
 
       return req.CreateResponse(HttpStatusCode.OK, "Got");
-}    
+    }    
 
    ```
 
-   Wanneer Azure Stream Analytics 413 (HTTP-aanvragen entiteit te groot) uitzondering van de functie Azure ontvangt, vermindert het de grootte van de batches naar Azure Functions verzendt. Gebruik de volgende code om te controleren dat de Azure Stream Analytics te grote batches niet verzenden in uw Azure-functie. Zorg ervoor dat de maximale batch-aantal en grootte waarden zijn gebruikt in de functie consistent met de waarden die zijn opgegeven in de Stream Analytics-portal zijn.
+   Wanneer de uitzondering 'HTTP-aanvragen entiteit te groot' Stream Analytics van de functie ontvangt, vermindert het de grootte van de batches naar functies verzendt. In de functie, de volgende code gebruiken om te controleren dat Stream Analytics te grote batches niet verzenden. Zorg ervoor dat de maximale batch-aantal en grootte waarden zijn gebruikt in de functie consistent met de waarden die zijn opgegeven in de Stream Analytics-portal zijn.
 
    ```c#
    if (dataArray.ToString().Length > 262144)
@@ -120,7 +120,7 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
       }
    ```
 
-3. Maak een JSON-bestand met de naam in een teksteditor van uw keuze, **project.json** met de volgende code en sla deze op uw lokale computer. Dit bestand bevat de NuGet-pakketafhankelijkheden vereist door de c#-functie.  
+3. Maak een JSON-bestand met de naam in een teksteditor van uw keuze, **project.json**. Gebruik de volgende code en sla deze op uw lokale computer. Dit bestand bevat de NuGet-pakketafhankelijkheden vereist door de C#-functie.  
    
    ```json
        {
@@ -136,35 +136,35 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
 
    ```
  
-4. Ga terug naar de Azure portal > navigeren naar uw Azure-functie > van de **platformfuncties** tabblad > Klik op **App Service-Editor** die zich bevindt onder **ontwikkelingsprogramma's**. 
+4. Ga terug naar de Azure-portal. Van de **platformfuncties** tabblad, blader naar de functie. Onder **ontwikkelingsprogramma's**, selecteer **App Service-Editor**. 
  
-   ![Scherm App service-editor](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Schermopname van App Service-Editor](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. In de App Service-Editor, klik met de rechtermuisknop op uw hoofdmap en upload de **project.json** bestand. Nadat het uploaden is voltooid, wordt de pagina vernieuwt, wordt u ziet nu een automatisch gegenereerde-bestand met de naam **project.lock.json**.  Het bestand automatisch gegenereerde bevat verwijzingen naar het dll-bestanden die zijn opgegeven in het bestand Project.json.  
+5. In de App Service-Editor met de rechtermuisknop op uw hoofdmap en upload de **project.json** bestand. Nadat het uploaden voltooid is, wordt de pagina vernieuwen. U ziet nu een automatisch gegenereerde-bestand met de naam **project.lock.json**. Het bestand automatisch gegenereerde bevat verwijzingen naar het dll-bestanden die zijn opgegeven in het bestand project.json.  
 
-   ![Project.json-bestand uploaden](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Schermopname van App Service-Editor](./media/stream-analytics-with-azure-functions/image4.png)
 
  
 
-## <a name="update-the-stream-analytic-job-with-azure-function-as-output"></a>Update de stroom analytische taak met de Azure-functie als uitvoer
+## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Bijwerken van de Stream Analytics-taak met de functie als uitvoer
 
-1. Open uw Azure Stream Analytics-taak op de Azure-portal.  
+1. Open uw Stream Analytics-taak op de Azure-portal.  
 
-2. Navigeer naar uw Azure-functie > **overzicht** > **uitvoer** > **toevoegen** een nieuwe uitvoer > Selecteer **Azure-functie** voor de optie Sink. De uitvoeradapter van de nieuwe Azure-functie is beschikbaar met de volgende eigenschappen:  
+2. Blader naar de functie en selecteer **overzicht** > **uitvoer** > **toevoegen**. Selecteer om een nieuwe uitvoer toe **Azure-functie** voor de optie sink. De nieuwe functies uitvoeradapter is beschikbaar met de volgende eigenschappen:  
 
    |**De naam van eigenschap**|**Beschrijving**|
    |---|---|
    |Uitvoeraliassen| Een gebruiksvriendelijke naam die u in query om te verwijzen naar de uitvoer van de taak gebruikt. |
-   |Optie importeren| U kunt azure functie uit het huidige abonnement gebruiken of de instellingen handmatig opgeven als de functie in een ander abonnement bevindt zich. |
-   |Functie-app| Naam van uw Azure-functie-App. |
-   |Functie| De naam van de functie in uw App functie (naam van de functie run.csx).|
-   |Maximale batchgrootte|Deze eigenschap wordt gebruikt voor de maximale grootte voor elke batch uitvoer, die is verzonden naar uw Azure-functie. Deze waarde is standaard ingesteld op 256 KB.|
-   |Maximale Batch-aantal|Deze eigenschap kunt u het maximum aantal gebeurtenissen in elke batch die wordt verzonden naar de Azure-functie. De standaardwaarde voor de maximale batch-aantal is 100. Deze eigenschap is optioneel.|
-   |Sleutel|Deze eigenschap kunt u een Azure-functie van een ander abonnement gebruiken. Geef de waarde van de sleutel voor toegang tot uw functie. Deze eigenschap is optioneel.|
+   |Optie importeren| U kunt de functie van het huidige abonnement gebruiken of de instellingen handmatig opgeven als de functie in een ander abonnement bevindt zich. |
+   |Functie-app| Naam van uw app functies. |
+   |Functie| De naam van de functie in uw app functies (naam van de functie run.csx).|
+   |Maximale batchgrootte|Hiermee stelt u de maximale grootte voor elke batch uitvoer, die is verzonden naar de functie. Deze waarde is standaard ingesteld op 256 KB.|
+   |Maximale Batch-aantal|Hiermee geeft u het maximum aantal gebeurtenissen in elke batch die wordt verzonden naar de functie. De standaardwaarde is 100. Deze eigenschap is optioneel.|
+   |Sleutel|Hiermee kunt u een functie van een ander abonnement gebruiken. Geef de waarde van de sleutel voor toegang tot uw functie. Deze eigenschap is optioneel.|
 
-3. Geef een naam voor de uitvoeralias. In deze zelfstudie we deze naam **saop1** (u kunt een andere naam van uw keuze) en andere details invullen.  
+3. Geef een naam voor de uitvoeralias. In deze zelfstudie we deze naam **saop1** (u kunt elke willekeurige naam van uw keuze). Vul in andere details.  
 
-4. Open uw Stream Analytics-taak en bijwerken van de query voor de volgende (Zorg ervoor dat de tekst "saop1" wordt vervangen als u hebt de naam van de uitvoerlocatie anders):  
+4. Open uw Stream Analytics-taak en bijwerken van de query met de volgende. (Zorg ervoor dat de tekst "saop1" wordt vervangen als u hebt de naam van de uitvoerlocatie anders.)  
 
    ```sql
     SELECT 
@@ -177,26 +177,25 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. De toepassing telcodatagen.exe starten met de volgende opdracht op de opdrachtregel (de opdracht wordt de indeling - `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`)  
+5. De toepassing telcodatagen.exe starten met de volgende opdracht op de opdrachtregel (Gebruik de notatie `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
    **telcodatagen.exe 1000.2 2**
     
-6.  Start de Stream Analytics-taak.
+6.  De Stream Analytics-taak starten.
 
-## <a name="check-redis-cache-for-results"></a>Redis-Cache voor de resultaten controleren
+## <a name="check-azure-redis-cache-for-results"></a>Azure Redis-Cache voor de resultaten controleren
 
-1. Ga naar de Azure-portal en zoek uw Redis-Cache > Selecteer **Console**.  
+1. Blader naar de Azure-portal en zoeken van uw Azure Redis-Cache. Selecteer **Console**.  
 
-2. Gebruik [Redis-cache opdrachten](https://redis.io/commands) om te controleren of uw gegevens in Redis-cache. (De opdracht wordt de indeling-Get {sleutel}). Bijvoorbeeld:
+2. Gebruik [Redis-cache opdrachten](https://redis.io/commands) om te controleren of uw gegevens in Redis-cache. (De opdracht heeft de notatie {sleutel} Get.) Bijvoorbeeld:
 
    **Ophalen van ' 12/19/2017 21:32:24-123414732 '**
 
    Met deze opdracht moet de waarde voor de opgegeven sleutel afdrukken:
 
-   ![Redis-Cache-uitvoer](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Schermopname van Azure Redis-Cache-uitvoer](./media/stream-analytics-with-azure-functions/image5.png)
 
 ## <a name="known-issues"></a>Bekende problemen
 
-* In de Azure portal, wanneer u probeert te herstellen van de grootte van de maximale Batch / maximale Batch-aantal van waarde naar empty(default), verandert deze terug naar de eerder ingevoerde waarde bij het opslaan. Opzettelijk de standaardwaarden invoeren voor deze velden in dit geval.
+In de Azure portal, wanneer u probeert te herstellen van de grootte van de maximale Batch / maximale Batch-aantal value leegmaken (standaard), de waarde gewijzigd terug naar de eerder ingevoerde waarde bij het opslaan. Typ in dit geval de standaardwaarden voor deze velden.
 
-## <a name="next-steps"></a>Volgende stappen

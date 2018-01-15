@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 82da49924e71a38ca557f244f2830e1da45826b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Apparaatinschrijvingen met Azure apparaat inrichten Service-SDK's beheren
 Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep apparaten die mogelijk op een bepaald moment geregistreerd bij de Service voor het inrichten van apparaten. De record van inschrijving bevat de eerste gewenste configuratie voor de apparaten als onderdeel van dat de inschrijving, met inbegrip van de gewenste IoT-hub. In dit artikel laat zien hoe apparaatinschrijvingen voor uw provisioning service programmatisch met behulp van de Azure IoT inrichting Service SDK's beheren.  De SDK's zijn beschikbaar op GitHub in dezelfde opslagplaats als Azure IoT SDK's.
@@ -29,18 +29,18 @@ In dit artikel controleert de concepten van hoog niveau voor het beheren van app
 ## <a name="prerequisites"></a>Vereisten
 * Verbindingsreeks uit een apparaat inrichtingsservice-exemplaar
 * Apparaat beveiliging artefacten:
-    * [**TPM**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
+    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Afzonderlijke inschrijving: registratie-ID en TPM-goedkeuringssleutel vanaf een fysiek apparaat of van TPM-Simulator.
         * Inschrijvingsgroep geldt niet voor attestation TPM.
-    * [**X.509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-        * Afzonderlijke inschrijving: de [Leaf certificaat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#leaf-certificate) van fysieke apparaat of Emulator OPDELEN.
-        * Inschrijvingsgroep: de [basiscertificaat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate)die worden gebruikt voor het produceren van certificaat voor apparaten op een fysiek apparaat.  Het kan ook worden gegenereerd van de Emulator OPDELEN.
+    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+        * Afzonderlijke inschrijving: de [Leaf certificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) van fysieke apparaat of Emulator OPDELEN.
+        * Inschrijvingsgroep: de [basiscertificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)die worden gebruikt voor het produceren van certificaat voor apparaten op een fysiek apparaat.  Het kan ook worden gegenereerd van de Emulator OPDELEN.
 
 ## <a name="create-a-device-enrollment"></a>Maken van een inschrijving van apparaten
 
 Er zijn twee manieren waarop u uw apparaten met de inrichting service kunt inschrijven:
 
-* Een **inschrijvingsgroep** is een vermelding voor een groep apparaten die een gemeenschappelijke attestation-mechanisme van X.509-certificaten delen, ondertekend door de [basiscertificaat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat ](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate). Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten met een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant. Houd er rekening mee dat u alleen de apparaten die gebruikmaken van het mechanisme voor X.509 attestation als kan inschrijven *inschrijving groepen*. 
+* Een **inschrijvingsgroep** is een vermelding voor een groep apparaten die een gemeenschappelijke attestation-mechanisme van X.509-certificaten delen, ondertekend door de [basiscertificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten met een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant. Houd er rekening mee dat u alleen de apparaten die gebruikmaken van het mechanisme voor X.509 attestation als kan inschrijven *inschrijving groepen*. 
 
     U kunt een registratie-groep maken met de SDK's die deze werkstroom te volgen:
 

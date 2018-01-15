@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-10-create-partitions"></a>Les 10: Partities maken
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-partitions"></a>Partities maken
 
 In deze les gaat u partities maken om de tabel FactInternetSales op te splitsen in kleinere, logische delen die onafhankelijk van andere partities kunnen worden verwerkt (vernieuwd). Elke tabel die u in een model opneemt, heeft standaard één partitie, met daarin alle kolommen en rijen van de tabel. Voor de tabel FactInternetSales willen we de gegevens per jaar opsplitsen; één partitie voor elk van vijf jaren in de tabel. Elke partitie kan vervolgens onafhankelijk worden verwerkt. Zie [Partities](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular) voor meer informatie. 
   

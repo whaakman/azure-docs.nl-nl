@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Semi-gestructureerde gegevens zoeken in de cloud-opslag
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Deel 2: Zoeken semi-gestructureerde gegevens in de cloudopslag
 
-In deze zelfstudie reeks tweedelige leert u hoe moet worden gezocht semi-gestructureerde en ongestructureerde gegevens met behulp van Azure search. Deze zelfstudie laat zien hoe u semi-gestructureerde gegevens, zoals JSON, opgeslagen in Azure blobs zoeken. Semi-gestructureerde gegevens bevat labels of markeringen die inhoud in de gegevens te scheiden. Het verschil van gestructureerde gegevens in dat het is niet formeel gestructureerd volgens een gegevensmodel, zoals een relationele database-schema.
+In een tweedelige zelfstudie reeks leert u hoe moet worden gezocht semi-gestructureerde en ongestructureerde gegevens met behulp van Azure search. [Deel 1](../storage/blobs/storage-unstructured-search.md) doorlopen u zoeken via ongestructureerde gegevens, maar ook belangrijke vereisten voor deze zelfstudie, zoals het maken van het opslagaccount is opgenomen. 
 
-In dit gedeelte wordt uitgelegd hoe:
+In deel 2 verplaatst focus naar semi-gestructureerde gegevens, zoals JSON, opgeslagen in Azure blobs. Semi-gestructureerde gegevens bevat labels of markeringen die inhoud in de gegevens te scheiden. Hiermee splitst u het verschil tussen ongestructureerde gegevens die wholistically moet worden geïndexeerd en formeel gestructureerde gegevens die in overeenstemming is met een gegevensmodel, zoals een relationele database-schema, dat op basis van veld per kan worden benaderd.
+
+In deel 2, leest u hoe:
 
 > [!div class="checklist"]
-> * Maken en een index in een Azure Search-Service vullen
-> * Gebruik de Azure Search-Service voor zoeken in uw index
+> * Een Azure Search-gegevensbron voor een Azure blob-container
+> * U maakt en vult u een Azure Search-index en een indexeerfunctie met de container verkennen en uitpakken van inhoud
+> * Zoeken in de index die u zojuist hebt gemaakt
 
 > [!NOTE]
-> "Ondersteuning voor JSON-matrix is een preview-functie in Azure Search. Het is momenteel niet beschikbaar in de portal. Om deze reden we maken gebruik van de preview REST-API waarmee deze functie en een REST-clienthulpprogramma de API aan te roepen."
+> Deze zelfstudie wordt gebruikgemaakt van JSON matrix ondersteuning, momenteel een preview-functie in Azure Search is. Het is niet beschikbaar in de portal. Om deze reden we maken gebruik van de preview REST-API waarmee deze functie en een REST-clienthulpprogramma de API aan te roepen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
-* Voltooi de [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md)
-    * Deze zelfstudie wordt gebruikgemaakt van de storage-account en zoek service zijn gemaakt in de vorige zelfstudie
-* Een REST-client installeren en te begrijpen hoe een HTTP-aanvraag opstellen
+* Voltooiing van de [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md) bieden de storage-account en zoek service gemaakt in de vorige zelfstudie.
 
+* Installatie van een REST-client en een goed begrip van het maken van een HTTP-aanvraag. Voor de doeleinden van deze zelfstudie gebruiken we [Postman](https://www.getpostman.com/). U kunt een andere REST-client gebruiken als u al vertrouwd met een bepaald bent.
 
-## <a name="set-up-the-rest-client"></a>Instellen van de REST-client
+## <a name="set-up-postman"></a>Postman instellen
 
-U moet een REST-client om deze zelfstudie te voltooien. Voor de doeleinden van deze zelfstudie gebruiken we [Postman](https://www.getpostman.com/). U kunt een andere REST-client gebruiken als u al vertrouwd met een bepaald bent.
+Start Postman en instellen van een HTTP-aanvraag. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Fiddler of Postman](search-fiddler.md) voor meer informatie.
 
-Na de installatie van Postman, start u deze.
-
-Als dit de eerste keer dat het REST-aanroepen naar Azure, Hier volgt een korte inleiding tot de belangrijke onderdelen voor deze zelfstudie: de aanvraagmethode voor elke aanroep in deze zelfstudie is "POST". De header-sleutels zijn 'Content-type' en "api-sleutel." De waarden van de header-sleutels zijn ' application/json' en de administratorsleutel' ' (de beheersleutel is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht) respectievelijk. De hoofdtekst is waar u de werkelijke inhoud van de aanroep van plaatsen. Afhankelijk van de client die u gebruikt, mogelijk zijn er enkele variaties op de manier waarop u uw query samenstelt, maar zijn de basisprincipes.
+De aanvraagmethode voor elke aanroep in deze zelfstudie is "POST". De header-sleutels zijn 'Content-type' en "api-sleutel." De waarden van de header-sleutels zijn ' application/json' en de administratorsleutel' ' (de beheersleutel is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht) respectievelijk. De hoofdtekst is waar u de werkelijke inhoud van de aanroep van plaatsen. Afhankelijk van de client die u gebruikt, mogelijk zijn er enkele variaties op de manier waarop u uw query samenstelt, maar zijn de basisprincipes.
 
   ![Semi-gestructureerde zoeken](media/search-semi-structured-data/postmanoverview.png)
 

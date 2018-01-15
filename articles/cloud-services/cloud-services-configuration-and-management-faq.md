@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 7a1dc5d755303d12aa070308a19ab81ef2b911fb
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -105,8 +105,8 @@ De **Get-AzurePublishSettingsFile** maakt een nieuw beheercertificaat in **abonn
 U kunt deze taak automatiseren met behulp van een opstartscript (cmd-batch/PowerShell) en die opstartscript registreren in het servicedefinitiebestand. Zowel het opstartscript en het certificaat (.p7b-bestand) in de projectmap van dezelfde map van het opstartscript toevoegen.
 
 Raadpleeg voor meer informatie de volgende artikelen:
-- [Het configureren en starten van de taken uitvoeren voor een Cloudservice](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
-- [Algemene taken voor Cloud-Service starten](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Het configureren en starten van de taken uitvoeren voor een Cloudservice](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Algemene taken voor Cloud-Service starten](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Controle en logboekregistratie
 

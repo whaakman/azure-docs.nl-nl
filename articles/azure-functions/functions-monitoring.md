@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions bewaken
 
@@ -37,7 +37,7 @@ Voor een functie-app om gegevens te verzenden naar Application Insights moet wet
 
 * [Maken van een verbonden exemplaar van de Application Insights wanneer u de functie-app maakt](#new-function-app).
 * [Een Application Insights-instantie verbinden met een bestaande app in de functie](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Nieuwe functie-app
 
 Application Insights op de functie-App inschakelen **maken** pagina:
@@ -66,6 +66,14 @@ De instrumentatiesleutel ophalen en opslaan in een functie-app:
 
 1. Klik op **Opslaan**.
 
+## <a name="disable-built-in-logging"></a>Ingebouwde logboekregistratie uitschakelen
+
+Als u Application Insights inschakelt, kunt u uitschakelen het beste de [ingebouwde logboekregistratie die gebruikmaakt van Azure storage](#logging-to-storage). De ingebouwde logboekregistratie is handig voor het testen met lichte werkbelastingen, maar is niet bedoeld voor gebruik in productieomgevingen hoge belasting. Voor productie, bewaking, wordt Application Insights aanbevolen. Als de ingebouwde logboekregistratie wordt gebruikt in productie, is het mogelijk dat de record logboekregistratie onvolledig vanwege een beperking op Azure Storage.
+
+Ingebouwde als logboekregistratie wilt uitschakelen, verwijdert u de `AzureWebJobsDashboard` app-instelling. Zie voor meer informatie over het verwijderen van app-instellingen in de Azure portal de **toepassingsinstellingen** sectie van [het beheren van een functie-app](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Wanneer u Application Insights en ingebouwde logboekregistratie uitschakelen, inschakelen de **Monitor** tabblad voor een functie in de Azure portal, u naar Application Insights gaat.
+
 ## <a name="view-telemetry-data"></a>Telemetrie-gegevens weergeven
 
 Om te navigeren naar de verbonden Application Insights-exemplaar van een functie-app in de portal, selecteer de **Application Insights** koppeling op een van de functie app **overzicht** pagina.
@@ -78,7 +86,7 @@ In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md),
 
 Op de [fouten](../application-insights/app-insights-asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u implementeert [aangepaste telemetrie](#custom-telemetry-in-c-functions) voor afhankelijkheden.
 
-![Fouten](media/functions-monitoring/failures.png)
+![Mislukte pogingen](media/functions-monitoring/failures.png)
 
 Op de [prestaties](../application-insights/app-insights-performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
 
@@ -464,58 +472,41 @@ Voor het rapporteren van een probleem met Application Insights-integratie in fun
 
 ## <a name="monitoring-without-application-insights"></a>Bewaking zonder Application Insights
 
-Beter Application Insights voor controlefuncties omdat het biedt meer gegevens en betere manieren om de gegevens te analyseren. Maar u kunt ook zoeken Telemetrie en logboekgegevens opgeslagen in de Azure portal-pagina's voor een functie-app. 
+Beter Application Insights voor controlefuncties omdat het biedt meer gegevens en betere manieren om de gegevens te analyseren. Maar u kunt ook zoeken logboeken en telemetriegegevens in de Azure portal-pagina's voor een functie-app.
 
-Selecteer de **Monitor** tabblad voor een functie en u een lijst van de functies die ophalen. Selecteer een functie wordt uitgevoerd om te controleren van de duur van de invoergegevens, fouten en bijbehorende logboekbestanden.
+### <a name="logging-to-storage"></a>Logboekregistratie naar de opslag
 
-> [!IMPORTANT]
-> Wanneer u de [verbruik die als host fungeert voor plan](functions-overview.md#pricing) voor Azure Functions, de **bewaking** tegel in de functie-App worden geen gegevens weergegeven. Dit is omdat het platform dynamisch schaalbaar en beheert de compute-exemplaren voor u. Deze metrische gegevens zijn niet op een plan verbruik zinvolle.
+Ingebouwde logboekregistratie maakt gebruik van het opslagaccount dat is opgegeven door de verbindingsreeks in de `AzureWebJobsDashboard` app-instelling. Als die appinstelling is geconfigureerd, kunt u de logboekgegevens in de Azure portal kunt zien. Selecteer een functie in een functie-app-pagina, en selecteer vervolgens de **Monitor** tabblad, en u een lijst van de functies die ophalen. Selecteer een functie wordt uitgevoerd om te controleren van de duur van de invoergegevens, fouten en bijbehorende logboekbestanden.
+
+Als u Application Insights en hebt [ingebouwde logboekregistratie uitgeschakeld](#disable-built-in-logging), wordt de **Monitor** tabblad gaat u naar Application Insights.
 
 ### <a name="real-time-monitoring"></a>Realtime-controle
 
-Realtime-controle is beschikbaar door te klikken op **Live gebeurtenis Stream** op de functie **Monitor** tabblad. De stream live gebeurtenis wordt weergegeven in een grafiek in een nieuw browsertabblad.
+U kunt logboekbestanden op een opdrachtregel-sessie op een lokaal werkstation met streamen de [Azure opdrachtregelinterface (CLI) 2.0](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Er is een bekend probleem dat ertoe leiden uw gegevens dat kan niet kunnen worden ingevuld. U wilt het browsertabblad met de stream live gebeurtenis sluiten en klik vervolgens op **Live gebeurtenis Stream** opnieuw toe te staan dat uw stream gebeurtenisgegevens correct te vullen. 
-
-Deze statistieken zijn realtime maar de werkelijke grafieken van de uitvoering van gegevens mogelijk van de latentie van ongeveer 10 seconden.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Logboekbestanden van de monitor vanaf een opdrachtregel
-
-U kunt logboekbestanden op een opdrachtregel-sessie op een lokaal werkstation met de Azure opdrachtregelinterface (CLI) 1.0 of PowerShell streamen.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>De functie app-logboekbestanden met de Azure CLI 1.0 bewaken
-
-Aan de slag [installeren van de Azure CLI 1.0](../cli-install-nodejs.md) en [aanmelden bij Azure](/cli/azure/authenticate-azure-cli).
-
-Gebruik de volgende opdrachten klassieke Service Management-modus inschakelen, kiest u uw abonnement en stream logboekbestanden:
+Gebruik de volgende opdrachten om te melden, kiest u uw abonnement en de logboekbestanden van de stroom voor Azure CLI 2.0:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Controleer de functie app-logboekbestanden met PowerShell
-
-Aan de slag [Azure PowerShell installeren en configureren](/powershell/azure/overview).
-
-Gebruik de volgende opdrachten naar uw Azure-account toevoegen, kiest u uw abonnement en stream logboekbestanden:
+Gebruik de volgende opdrachten naar uw Azure-account toevoegen, kiest u uw abonnement en de logboekbestanden van de stroom voor Azure PowerShell:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Zie voor meer informatie [hoe: logboeken voor web-apps Stream](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Zie voor meer informatie [hoe logboeken stream](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Meer informatie over Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Zie de volgende bronnen voor meer informatie:
 
-> [!div class="nextstepaction"]
-> [Meer informatie over het framework voor logboekregistratie die gebruikmaakt van functies](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET Core logboekregistratie](/aspnet/core/fundamentals/logging/)

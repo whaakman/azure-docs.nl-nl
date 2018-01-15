@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -51,7 +51,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 * Windows 10 (de instructies in dit voorbeeld zijn in het algemeen hetzelfde voor Mac OS-systemen).
 * Een Data wetenschappelijke virtuele Machine (DSVM) voor Linux (Ubuntu), bij voorkeur in VS-Oost-regio waar de gegevens zoekt. U kunt een Ubuntu DSVM inrichten door [deze instructies](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). U ziet ook [deze snelstartgids](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). U wordt aangeraden een virtuele machine gebruiken met ten minste 8 kernen en 32 GB geheugen. 
 
-Ga als volgt de [instructie](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) wachtwoordloze sudoer toegang op de virtuele machine inschakelen voor AML Workbench.  U kunt gebruiken [SSH verificatie op basis van een sleutel voor het maken en het gebruik van de virtuele machine in de Workbench AML](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de DSVM-gegevens voor de volgende stappen:
+Ga als volgt de [instructie](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) wachtwoordloze sudoer toegang op de virtuele machine inschakelen voor AML Workbench.  U kunt gebruiken [SSH verificatie op basis van een sleutel voor het maken en het gebruik van de virtuele machine in de Workbench AML](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de DSVM-gegevens voor de volgende stappen:
 
  Veldnaam| Waarde |  
  |------------|------|

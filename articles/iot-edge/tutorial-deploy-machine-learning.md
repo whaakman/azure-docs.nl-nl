@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/13/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2afdb257421b1333f451eb9d0dd4c2af5a12e946
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementeren van Azure Machine Learning als een module van de rand van de IoT - voorbeeld
 
@@ -35,7 +35,7 @@ De Azure Machine Learning-module die u in deze zelfstudie maakt leest de tempera
 * Azure IoT apparaat aan de rand die u hebt gemaakt in de Quick Start of de eerste zelfstudie.
 * De verbindingsreeks voor de IoT Hub voor uw IoT-Edge-apparaat verbinding met maakt IoT-hub.
 * Een Azure Machine Learning-account. Volg de instructies in voor het maken van een account [maken Azure Machine Learning-accounts en installeer Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). U hoeft niet te installeren van de workbench-toepassing voor deze zelfstudie. 
-* Beheer van de module voor Azure ML op uw computer. Volg de instructies in voor het instellen van uw omgeving en maak een account, [Model beheerinstellingen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration).
+* Beheer van de module voor Azure ML op uw computer. Volg de instructies in voor het instellen van uw omgeving en maak een account, [Model beheerinstellingen](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>De Azure ML-container maken
 In deze sectie download de bestanden van het getrainde model en omzetten in een Azure ML-container.  

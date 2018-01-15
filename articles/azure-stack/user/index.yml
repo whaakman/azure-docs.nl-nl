@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie voor Azure Stack-gebruiker
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Documentatie voor Azure Stack - zelfstudies, API-verwijzing'
+  title: Documentatie voor Azure Stack - zelfstudies, API-verwijzing
   description: Informatie over het gebruik van Azure-Stack-services en apps maken voor Azure-Stack.
   services: azure-stack
   author: carolz
@@ -14,58 +14,63 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
+  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: MT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure. Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.<br/><br/>Als u een Azure-Stack-operator die de infrastructuur beheert en -services biedt, Zie onze <a href="/azure/azure-stack/">operator documentatie</a>.'
+  description: Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure. Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.<br/><br/>Als u een Azure-Stack-operator die de infrastructuur beheert en -services biedt, Zie onze <a href="/azure/azure-stack/">operator documentatie</a>.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Meer informatie over het implementeren van een virtuele Windows-machine in Azure Stack:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Meer informatie over het implementeren van een virtuele Windows-machine in Azure Stack:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portal
-            href: azure-stack-quick-windows-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-windows-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-windows-cli.md
-      - type: paragraph
-        text: 'Meer informatie over het implementeren van een virtuele Linux-machine in Azure Stack:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portal
-            href: azure-stack-quick-linux-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-linux-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-linux-cli.md
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portal
+      href: azure-stack-quick-windows-portal.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI
+      href: azure-stack-quick-create-vm-windows-cli.md
+  - type: paragraph
+    text: 'Meer informatie over het implementeren van een virtuele Linux-machine in Azure Stack:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Toepassingen implementeren in zowel Azure en Azure-Stack.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Apps implementeren in Azure Stack en in Azure</a>
-  - title: Naslaginformatie
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portal
+      href: azure-stack-quick-linux-portal.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI
+      href: azure-stack-quick-create-vm-linux-cli.md
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Toepassingen implementeren in zowel Azure en Azure-Stack.
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI-Stack</a></p>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Apps implementeren in Azure Stack en in Azure</a>
+- title: Referentie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Opdrachtregel
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI-Stack</a></p>

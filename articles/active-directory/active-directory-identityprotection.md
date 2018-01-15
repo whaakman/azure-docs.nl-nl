@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -119,7 +119,7 @@ U kunt verbinden, de onderzoeksactiviteiten van uw naar het [meldingen](active-d
 De volgende secties bieden u meer informatie en de stappen die zijn gerelateerd aan een onderzoek.  
 
 
-## <a name="risky-sign-ins"></a>Riskant aanmeldingen
+## <a name="risky-sign-ins"></a>Riskante aanmeldingen
 
 Azure Active Directory detecteert [risico gebeurtenistypen](active-directory-reporting-risk-events.md#risk-event-types) in realtime en offline. Elke risicogebeurtenis dat is aangetroffen voor een aanmelding van een gebruiker bijdraagt aan een logisch concept is aangeroepen riskant aanmelden. Een riskante aanmelden is een indicator voor een aanmeldingspoging die mogelijk niet uitgevoerd door de legitieme eigenaar van een gebruikersaccount.
 
@@ -132,7 +132,7 @@ Een risiconiveau aanmelden is een indicatie (hoog, Gemiddeld of laag) van de kan
 
 Een beperking is een actie die de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat zonder dat de identiteit of het apparaat hersteld naar een veilige status beperken. Een risicobeperking vorige aanmelden risicogebeurtenissen die zijn gekoppeld aan de identiteit of het apparaat niet is opgelost.
 
-U kunt aanmelden risico beveiliging policicies configureren riskant aanmeldingen automatisch om's te beperken. Met deze beleidsregels, u rekening houden met het risiconiveau van de gebruiker of de aanmeldingspagina riskant aanmeldingen wordt geblokkeerd of dat de gebruiker naar de multi-factor authentication uitvoeren. Deze acties kunnen voorkomen dat een aanvaller gebruikmaakt van de identiteit van een gestolen om te leiden tot beschadiging en mogelijk hebt u enige tijd voor het beveiligen van de identiteit.
+U kunt aanmelden risico beveiligingsbeleid configureren riskant aanmeldingen automatisch om's te beperken. Met deze beleidsregels, u rekening houden met het risiconiveau van de gebruiker of de aanmeldingspagina riskant aanmeldingen wordt geblokkeerd of dat de gebruiker naar de multi-factor authentication uitvoeren. Deze acties kunnen voorkomen dat een aanvaller gebruikmaakt van de identiteit van een gestolen om te leiden tot beschadiging en mogelijk hebt u enige tijd voor het beveiligen van de identiteit.
 
 ### <a name="sign-in-risk-security-policy"></a>Beveiligingsbeleid Aanmelden risico
 Een beleid voor aanmelden risico is een beleid voor voorwaardelijke toegang dat het risico op een specifieke aanmelden wordt geëvalueerd en oplossingen op basis van vooraf gedefinieerde voorwaarden en regels van toepassing is.

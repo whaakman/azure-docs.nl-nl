@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="indexers-in-azure-search"></a>Indexeerfuncties in Azure Search
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/13/2017
 > * [Overzicht](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 > * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-> * [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
+> * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
 
 Een *indexeerfunctie* in Azure Search is een verkenner die doorzoekbare gegevens en metagegevens uit een externe gegevensbron ophaalt en een index vult op basis van veld-naar-veld-verwijzingen tussen de index en de gegevensbron. Deze aanpak wordt ook wel het 'pull-model' genoemd, omdat de service de gegevens ophaalt zonder dat u code hoeft te schrijven om de gegevens naar de index te pushen.
@@ -57,9 +57,9 @@ Indexeerfuncties kunnen functies bieden die uniek voor de gegevensbron zijn. In 
 Een indexeerfunctie haalt gegevens op uit een *gegevensbron* die informatie bevat, zoals een verbindingsreeks en mogelijk aanmeldingsgegevens. Momenteel worden de volgende gegevensbronnen ondersteund:
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob-opslag](search-howto-indexing-azure-blob-storage.md) voor bepaalde inhoudstypen
-* [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 Gegevensbronnen worden geconfigureerd en onafhankelijk van de indexeerfuncties beheerd die gebruikmaken van de gegevensbronnen. Dit betekent dat een gegevensbron door meerdere indexeerfuncties kan worden gebruikt om tegelijkertijd meer dan één index te laden.
 
@@ -76,8 +76,8 @@ De definitie van de indexeerfunctie is een constructie die de index, gegevensbro
 Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken te bekijken die specifiek zijn voor elk gegevensbrontype.
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-csv-blobs.md)
 * [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-json-blobs.md)

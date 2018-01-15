@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/13/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 682e8c9fc9e7f16d6b69cd73535c76e6c53c6b49
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -47,7 +47,7 @@ Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van gegevensbeheerbe
    | Category |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
-4. Klik op **OK** om het project te maken.
+4. Klik op **OK** om het project aan te maken.
 5. Voeg de NuGet-pakketten toe aan het project.
 
    1. Klik in Solution Explorer met de rechtermuisknop op de projectnaam en klik op **Manage NuGet Packages**.
@@ -100,7 +100,7 @@ Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van gegevensbeheerbe
 
 In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden voor het uitvoeren van bewerkingen, zoals verificatie, het uploaden van bestanden enzovoort.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 * Zie [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Eindgebruikersverificatie met Data Lake Store met behulp van .NET SDK) voor de verificatie van eindgebruikers voor uw toepassing.
 * Zie [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van .NET SDK) voor service-naar-serviceverificatie voor uw toepassing.

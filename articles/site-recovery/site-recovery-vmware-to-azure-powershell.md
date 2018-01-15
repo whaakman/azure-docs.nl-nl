@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 14/12/2017
+ms.date: 1/02/2018
 ms.author: bsiva
-ms.openlocfilehash: 3cf2478eb810961604e1218731f5303abd0f611a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ee4847a61392a8eacde82ea62c3812d601b489f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>Repliceren en failover virtuele VMware-machines naar Azure met Azure Site Recovery PowerShell
 
@@ -109,7 +109,7 @@ Gebruik de gedownloade kluisregistratiesleutel en volg de stappen in de artikele
 ## <a name="set-the-vault-context"></a>De context van de kluis instellen
 
 > [!TIP]
-> De Azure Site Recovery PowerShell-module (AzureRm.RecoveryServices.SiteRecovery module) wordt geleverd met eenvoudig te gebruiken voor de meeste cmdlets-aliassen. De cmdlets in de module de indeling nemen  *\<bewerking >-**AzureRmRecoveryServicesAsr**\<Object >* en equivalent hebt aliassen die de vorm  *\<bewerking >-**ASR**\<Object >*. In dit artikel gebruikt de cmdlet-aliassen voor betere leesbaarheid.
+> De Azure Site Recovery PowerShell-module (AzureRm.RecoveryServices.SiteRecovery module) wordt geleverd met eenvoudig te gebruiken voor de meeste cmdlets-aliassen. De cmdlets in de module de indeling nemen  *\<bewerking >-**AzureRmRecoveryServicesAsr**\<Object >* en gelijkwaardige aliassen die de vorm hebben  *\<Bewerking >-**ASR**\<Object >*. In dit artikel gebruikt de cmdlet-aliassen voor betere leesbaarheid.
 
 De context van de kluis met de cmdlet Set-ASRVaultContext instellen. Nadat deze is ingesteld, worden verdere Azure Site Recovery-bewerkingen in de PowerShell-sessie uitgevoerd in de context van de geselecteerde kluis. In het onderstaande voorbeeld de details van de kluis van de $vault wordt variabele gebruikt om op te geven van de kluis context voor de PowerShell-sessie.
  ```azurepowershell
@@ -329,7 +329,7 @@ Het duurt ongeveer 15-20 minuten voor virtuele machines moeten worden gedetectee
 U moet de volgende informatie om een gedetecteerde virtuele machine te beveiligen:
 * De beveiligbare item worden gerepliceerd.
 * Het opslagaccount voor replicatie van de virtuele machine. Bovendien is een logboek-opslag vereist voor het beveiligen van virtuele machines naar een premium-opslagaccount.
-* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.  
+* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.
 * Het account moet worden gebruikt voor de software voor de Mobility-service op de machines push-installatie. De lijst met beschikbare accounts is opgehaald en opgeslagen in de ***$AccountHandles*** variabele.
 * De toewijzing van de container beveiliging voor het replicatiebeleid moet worden gebruikt voor replicatie.
 * De resourcegroep waarin virtuele machines op failover moet worden gemaakt.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>HDInsight domein sandbox-omgeving configureren
 
@@ -27,11 +27,18 @@ Meer informatie over het instellen van een Azure HDInsight-cluster met zelfstand
 
 Zonder HDInsight-cluster lid van een domein, kan alleen elk cluster hebben een Hadoop-HTTP-account voor gebruikers en een SSH-account.  De verificatie met meerdere gebruikers kan worden bereikt met:
 
--   Een zelfstandige Active Directory uitgevoerd op Azure IaaS
--   Azure Active Directory
+-   Een zelfstandige Active Directory uitgevoerd op Azure IaaS.
+-   Azure Active Directory.
 -   Active Directory wordt uitgevoerd op de klant on-premises omgeving.
 
-Een zelfstandige Active Directory wordt uitgevoerd op Azure IaaS in dit artikel beschreven. Het is de eenvoudigste architectuur die van de klant volgen kunt om ondersteuning voor meerdere gebruikers op HDInsight. 
+Een zelfstandige Active Directory wordt uitgevoerd op Azure IaaS in dit artikel beschreven. Het is de eenvoudigste architectuur die van de klant volgen kunt om ondersteuning voor meerdere gebruikers op HDInsight. In dit artikel komen twee benaderingen voor deze configuratie:
+
+- Optie 1: Wordt een Azure-resource management-sjabloon gebruiken om zowel de zelfstandige active directory en het HDInsight-cluster te maken.
+- Optie 2: Het hele proces is onderverdeeld in de volgende stappen uit:
+    - Maak een Active Directory met een sjabloon.
+    - Het instellen van LDAPS.
+    - AD-gebruikers en groepen maken
+    - HDInsight-cluster maken
 
 > [!IMPORTANT]
 > Oozie is niet ingeschakeld op HDInsight domein.
@@ -39,7 +46,50 @@ Een zelfstandige Active Directory wordt uitgevoerd op Azure IaaS in dit artikel 
 ## <a name="prerequisite"></a>Vereiste
 * Azure-abonnement
 
-## <a name="create-an-active-directory"></a>Maak een Active Directory
+## <a name="option-1-one-step-approach"></a>Optie 1: één stap benadering
+In deze sectie kunt u een Azure-resource management-sjabloon openen vanuit de Azure-portal. De sjabloon wordt gebruikt voor het maken van een zelfstandige Active Directory en een HDInsight-cluster. U kunt momenteel domein Hadoop-cluster, Spark-cluster en interactieve Query cluster maken.
+
+1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/).
+   
+    Een Spark-cluster maken:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Een interactieve Query-cluster maken:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Maken van een Hadoop-cluster:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. Voer de waarden in, selecteert u **ik ga akkoord met de voorwaarden en bepalingen hierboven**, selecteer **vastmaken aan dashboard**, en klik vervolgens op **aankoop**. Houd de muisaanwijzer over het teken uitleg naast de velden om te zien van de beschrijvingen. De meeste van de waarden zijn ingevuld. U kunt de standaardwaarden of uw eigen waarden.
+
+    - **Resourcegroep**: Voer de naam van een Azure-resourcegroep.
+    - **Locatie**: Kies een locatie die dicht bij u is.
+    - **Naam van nieuw Opslagaccount**: Voer de naam van een Azure-Opslagaccount. Dit nieuwe opslagaccount wordt gebruikt door de PDC, de BDC en het HDInsight-cluster als het standaardopslagaccount.
+    - **Admin Username**: Voer de gebruikersnaam van de domein-beheerder.
+    - **Beheerderswachtwoord**: Voer het beheerderswachtwoord van het domein.
+    - **Domeinnaam**: de standaardnaam is *contoso.com*.  Als u de domeinnaam wijzigt, moet u ook bijwerken de **Secure LDAP certificaat** veld en de **organisatie-eenheid DN** veld.
+    - **Clusternaam**: Voer de naam van het HDInsight-cluster.
+    - **Type cluster**: deze waarde niet wijzigen. Als u wilt dat de clustertype wilt wijzigen, moet u de specifieke sjabloon gebruiken in de vorige stap.
+
+    Sommige van de waarden zijn vastgelegd in de sjabloon, bijvoorbeeld het aantal exemplaren van worker-knooppunt is twee.  De vastgelegde waarden, klikt u op **template bewerken**.
+
+    ![Template van HDInsight-cluster domein bewerken](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+Nadat de sjabloon is voltooid, zijn er 23 resources in de resourcegroep hebt gemaakt.
+
+## <a name="option-2-multi-step-approach"></a>Optie 2: meerledige aanpak
+
+Er zijn vier stappen in deze sectie:
+
+1. Maak een Active Directory met een sjabloon.
+2. Het instellen van LDAPS.
+3. AD-gebruikers en groepen maken
+4. HDInsight-cluster maken
+
+### <a name="create-an-active-directory"></a>Maak een Active Directory
 
 Azure Resource Manager-sjabloon maakt het gemakkelijker te maken van Azure-resources. In deze sectie maakt u een [Azure QuickStart-sjabloon](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) maken van een nieuw forest en domein met twee virtuele machines. De twee virtuele machines die fungeert als een primaire domeincontroller en een back-domeincontroller.
 
@@ -69,7 +119,7 @@ Azure Resource Manager-sjabloon maakt het gemakkelijker te maken van Azure-resou
 
 Het duurt ongeveer 20 minuten om de resources te maken.
 
-## <a name="setup-ldaps"></a>Setup LDAPS
+### <a name="setup-ldaps"></a>Setup LDAPS
 
 Lightweight Directory Access Protocol (LDAP) wordt gebruikt voor het lezen van en schrijven naar AD.
 
@@ -102,11 +152,11 @@ Lightweight Directory Access Protocol (LDAP) wordt gebruikt voor het lezen van e
 
     ![HDInsight lid van domein AD-certificaat configureren](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Klik op ** Selecteer functieservices aan de linkerkant **certificeringsinstantie**, en klik vervolgens op **volgende**.
+2. Klik op **functieservices** Selecteer aan de linkerkant **certificeringsinstantie**, en klik vervolgens op **volgende**.
 3. Volg de wizard, gebruikt u de standaardinstellingen voor de rest van de procedure (Klik op **configureren** op de laatste stap).
 4. Klik op **Sluiten** om de wizard te sluiten.
 
-## <a name="optional-create-ad-users-and-groups"></a>(Optioneel) AD-gebruikers en groepen maken
+### <a name="optional-create-ad-users-and-groups"></a>(Optioneel) AD-gebruikers en groepen maken
 
 **Maken van gebruikers en groepen in de AD**
 1. Verbinding maken met de primaire domeincontroller met behulp van extern bureaublad
@@ -122,7 +172,7 @@ Lightweight Directory Access Protocol (LDAP) wordt gebruikt voor het lezen van e
 > [!IMPORTANT]
 > U moet de PDC-virtuele machine opnieuw worden opgestart voordat u een domein HDInsight-cluster maakt.
 
-## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Een HDInsight-cluster in het VNet maken
+### <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Een HDInsight-cluster in het VNet maken
 
 In deze sectie kunt u de Azure portal gebruiken voor het toevoegen van een HDInsight-cluster in het virtuele netwerk dat hebt gemaakt met behulp van de Resource Manager-sjabloon eerder in de zelfstudie. In dit artikel bevat alleen informatie over de specifieke informatie voor domein-clusterconfiguratie.  Voor algemene informatie, Zie [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 

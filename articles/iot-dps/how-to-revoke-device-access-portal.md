@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7985fba68ef2c6f651c64756f8c534928b573de5
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6f1dad648b228163219c8f722eed3897f4ba4d22
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Het Apparaattoegang tot uw provisioning-service in de Azure Portal te trekken
 
 Goed beheer van het apparaat is van cruciaal belang voor hoogwaardig systemen zoals IoT-oplossingen. Er is een best practice voor dergelijke systemen een duidelijke plan voor het intrekken van toegang voor apparaten in gevallen waar hun referenties of een SAS-token of een X.509-certificaat kunnen worden geknoeid. In dit artikel wordt beschreven hoe apparaten toegang op de stap inrichting in te trekken.
 
-Voor meer informatie over het Apparaattoegang tot een IoT-hub intrekken nadat het apparaat is ingericht. Zie [apparaten uitschakelen](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Voor meer informatie over het Apparaattoegang tot een IoT-hub intrekken nadat het apparaat is ingericht. Zie [apparaten uitschakelen](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Let op het beleid voor opnieuw proberen van apparaten die u toegang voor intrekken. Bijvoorbeeld, probeert een apparaat met een oneindige herhaling beleid continu te registreren bij de inrichting service, service-bronnen en mogelijk van invloed op de prestaties.

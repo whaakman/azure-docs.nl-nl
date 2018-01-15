@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Beheerdersaccounts voor EMS-toegang beheren in Azure AD 
 
@@ -48,11 +48,11 @@ Een mogelijkheid is zodat gebruikers permanent lid zijn van de *hoofdbeheerder* 
 
 Om het risico van een aanval ten gevolge van een wachtwoord waarmee is geknoeid, Azure AD raadt aan dat u multi-factor Authentication voor alle afzonderlijke gebruikers vereisen. Deze groep moet zijn voor administrators en alle andere (bijvoorbeeld financieel medewerkers) waarvan het account waarmee is geknoeid aanzienlijke gevolgen zou hebben. 
 
-Echter als uw organisatie geen gedeelde apparaten is multi-factor Authentication niet mogelijk deze accounts voor Noodtoegang. Als u een beleid voor voorwaardelijke toegang om te vereisen configureert [multi-factor Authentication-registratie voor elke beheerder](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) voor Azure AD en andere verbonden software als een service (SaaS)-apps, moet u mogelijk beleid configureren uitsluitingen accounts voor Noodtoegang uitsluiten van deze vereiste.
+Echter als uw organisatie geen gedeelde apparaten is multi-factor Authentication niet mogelijk deze accounts voor Noodtoegang. Als u een beleid voor voorwaardelijke toegang om te vereisen configureert [multi-factor Authentication-registratie voor elke beheerder](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) voor Azure AD en andere verbonden software als een service (SaaS)-apps, moet u mogelijk beleid configureren uitsluitingen accounts voor Noodtoegang uitsluiten van deze vereiste.
 
 ### <a name="initial-configuration-with-approvals"></a>Initiële configuratie met goedkeuringen
 
-Een andere optie is uw gebruikers configureren als in aanmerking komende en fiatteurs voor het activeren van de *hoofdbeheerder* rol. Deze optie vereist voor uw organisatie Azure AD Premium-P2 abonnementen hebt. Het moet ook een multi-Factor Authentication-optie die geschikt is voor gedeelde gebruik van meerdere personen en de netwerkomgeving. Deze vereisten zijn omdat activering van de *hoofdbeheerder* rol moet gebruikers multi-factor Authentication eerder hebt uitgevoerd. Zie voor meer informatie [vereisen meervoudige verificatie in Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Een andere optie is uw gebruikers configureren als in aanmerking komende en fiatteurs voor het activeren van de *hoofdbeheerder* rol. Deze optie vereist voor uw organisatie Azure AD Premium-P2 abonnementen hebt. Het moet ook een multi-Factor Authentication-optie die geschikt is voor gedeelde gebruik van meerdere personen en de netwerkomgeving. Deze vereisten zijn omdat activering van de *hoofdbeheerder* rol moet gebruikers multi-factor Authentication eerder hebt uitgevoerd. Zie voor meer informatie [vereisen meervoudige verificatie in Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
 We raden niet met multi-factor Authentication die is gekoppeld aan persoonlijke apparaten voor accounts voor Noodtoegang. In een noodsituatie werkelijke, de persoon die toegang tot een multi-Factor Authentication geregistreerd apparaat nodig heeft mogelijk geen degene die het persoonlijke apparaat. 
 
@@ -60,7 +60,7 @@ U kunt ook de mate van gevaar. Bijvoorbeeld, ontstaan een onvoorziene omstandigh
 
 ## <a name="ongoing-monitoring"></a>Continue bewaking
 
-Monitor voor de [aanmelden van Azure AD en audit logboeken](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) voor alle aanmeldingen en controle-activiteit van de EMS-toegangsaccounts. Normaal gesproken deze accounts niet moeten worden aangemeld en moeten niet worden u wijzigingen aanbrengt, zodat te gebruiken is het waarschijnlijk afwijkend en beveiliging onderzoek vereisen.
+Monitor voor de [aanmelden van Azure AD en audit logboeken](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) voor alle aanmeldingen en controle-activiteit van de EMS-toegangsaccounts. Normaal gesproken deze accounts niet moeten worden aangemeld en moeten niet worden u wijzigingen aanbrengt, zodat te gebruiken is het waarschijnlijk afwijkend en beveiliging onderzoek vereisen.
 
 ## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Validatie van controle van de account moet plaatsvinden met regelmatige tussenpozen
 

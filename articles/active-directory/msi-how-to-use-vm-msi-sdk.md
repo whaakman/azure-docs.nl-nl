@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 46fd75668999537dfbc9fd82c1f166e126b6f547
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c9bd57080c95e4aad45515a0814471194261286
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) met Azure SDK 's 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Dit artikel bevat een lijst met de SDK-voorbeelden die gebruik van de ondersteuning van hun respectieve Azure SDK voor MSI aantonen.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Dit artikel bevat een lijst met de SDK-voorbeelden die gebruik van de ondersteuning van hun respectieve Azure SDK voor MSI aantonen.
 
 ## <a name="prerequisites"></a>Vereisten
 

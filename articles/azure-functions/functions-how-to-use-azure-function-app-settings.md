@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Het beheren van een functie-app in de Azure portal 
 
@@ -70,7 +70,7 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 | | |
 |-|-|
-| ![Toepassingsinstellingen voor functie-app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | De App Service **toepassingsinstellingen** blade is waar u configureren en beheren van de framework-versies, foutopsporing op afstand, app-instellingen en verbindingsreeksen. Wanneer u de functie-app met andere Azure en services van derden integreren, kunt u deze instellingen hier wijzigen. |
+| ![Toepassingsinstellingen voor functie-app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | De App Service **toepassingsinstellingen** blade is waar u configureren en beheren van de framework-versies, foutopsporing op afstand, app-instellingen en verbindingsreeksen. Wanneer u de functie-app met andere Azure en services van derden integreren, kunt u deze instellingen hier wijzigen. Als u wilt verwijderen van een instelling, schuif naar rechts en selecteer de **X** pictogram aan de rechterkant van de regel (niet weergegeven in de volgende afbeelding).
 
 ![Configureer toepassingsinstellingen](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 

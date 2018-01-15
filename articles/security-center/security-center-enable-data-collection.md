@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. Gegevens worden verzameld met behulp van Microsoft Monitoring Agent, die verschillende configuraties betrekking hebben op beveiliging en gebeurtenislogboeken van de machine leest en kopieert de gegevens naar de werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. Crashdumpbestanden Microsoft Monitoring Agent ook gekopieerd naar de werkruimte.
@@ -79,7 +79,7 @@ Selecteer een bestaande werkruimte voor logboekanalyse:
 Security Center kunt u het aantal gebeurtenissen verminderen behoud voldoende gebeurtenissen voor onderzoek, controle en detectie van dreigingen. U kunt het recht voor het filteren van beleid voor uw abonnementen en werkruimten uit vier sets met gebeurtenissen moeten worden verzameld door de agent.
 
 - **Alle gebeurtenissen** – voor klanten die u wilt ervoor zorgen dat alle gebeurtenissen verzameld worden. Dit is de standaardinstelling.
-- **Algemene** – dit is een reeks gebeurtenissen die voldoet aan de meeste klanten en kan ze een proefversie volledige controle.
+- **Algemene** – dit is een reeks gebeurtenissen die voldoet aan de meeste klanten en kan ze een volledige audittrail.
 - **Minimale** – een kleiner aantal gebeurtenissen voor klanten die willen het volume van de gebeurtenis te minimaliseren.
 - **Geen** – beveiligingsgebeurtenissen te verzamelen van het AppLocker-logboeken en beveiliging uitschakelen. Voor klanten die deze optie kiest, hebben hun dashboards beveiliging alleen de logboeken van Windows Firewall en proactieve beoordelingen zoals anti-malware, basislijn en de update.
 
@@ -90,7 +90,7 @@ Security Center kunt u het aantal gebeurtenissen verminderen behoud voldoende ge
 
 Om te bepalen van de gebeurtenissen die tot behoren de **algemene** en **minimale** gebeurtenis sets, hebben we in samenwerking met klanten en industrienormen voor meer informatie over de ongefilterde frequentie van elke gebeurtenis en hun gebruik. We de volgende richtlijnen in dit proces gebruikt:
 
-- **Minimale** -Zorg ervoor dat deze set behandelt alleen gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld: deze set bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden is belangrijk voor controle, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. Het merendeel van het gegevensvolume van deze set is de aanmelding gebeurtenissen en de gebeurtenis voor proces maken (gebeurtenis-ID 4688, Zie het Beveiligingscentrum [Veelgestelde vragen over](security-center-faq.md#what-happens-when-data-collection-is-enabled) voor meer informatie over het maken van gebeurtenis voor proces 4688).
+- **Minimale** -Zorg ervoor dat deze set behandelt alleen gebeurtenissen die kunnen wijzen op een geslaagde inbreuk en belangrijke gebeurtenissen die een zeer lage volume hebt. Bijvoorbeeld: deze set bevat geslaagde en mislukte gebruikersaanmelding (gebeurtenis-id's 4624, 4625), maar het afmelden is belangrijk voor controle, maar niet zinvol is voor de detectie en relatief hoog volume heeft geen bevat. De meeste van het gegevensvolume van deze set is de aanmeldgebeurtenissen en gebeurtenis (gebeurtenis-ID 4688) van een proces gemaakt.
 - **Algemene** -bieden een volledige gebruiker audittrail in deze set. Deze verzameling bevat bijvoorbeeld gebruikersaanmeldingen en afmelding (gebeurtenis-ID 4634). We opnemen controle van acties zoals wijzigingen in de groep beveiliging, key domain controller Kerberos bewerkingen en andere gebeurtenissen die zijn aanbevolen door industriële organisaties.
 
 Gebeurtenissen die zeer lage volume hebt zijn opgenomen in de gemeenschappelijke set als de belangrijkste doel te kiezen dat via alle gebeurtenissen is op het volume verkleinen en niet op specifieke gebeurtenissen filteren.
@@ -108,6 +108,11 @@ Dit is een volledig overzicht van de beveiligings- en App Referentiekluis gebeur
 | | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> Als u een groepsbeleidsobject (GPO) gebruikt, is het aanbevolen controlebeleid proces maken gebeurtenis 4688 in te schakelen en de *CommandLine* veld binnen 4688-gebeurtenis. Zie voor meer informatie over het proces maken gebeurtenis 4688 van Security Center [Veelgestelde vragen over](security-center-faq.md#what-happens-when-data-collection-is-enabled). Voor meer informatie over deze controlebeleid, Zie [Audit beleid aanbevelingen](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 Uw beleid voor filteren volgt kiezen:
 1. Op de **beveiligingsbeleid & instellingen voor** blade, selecteer uw filteren beleid onder **beveiligingsgebeurtenissen**.

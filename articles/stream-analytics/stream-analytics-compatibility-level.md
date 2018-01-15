@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa82f5d8a909121c42742bb5261d6c9b8570de
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Het compatibiliteitsniveau voor Azure Stream Analytics-taken
  
@@ -29,7 +29,7 @@ Het compatibiliteitsniveau zorgt ervoor dat bestaande taken worden uitgevoerd zo
  
 ## <a name="set-a-compatibility-level"></a>Een compatibiliteitsniveau instellen 
 
-Het compatibiliteitsniveau bepaalt het runtimegedrag van een stream analytics-taak. U kunt het compatibiliteitsniveau van een Stream Analytics-taak instellen met behulp van de portal of met behulp van de [taak REST API-aanroep maken](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics ondersteunt momenteel twee compatibiliteit niveaus-"1.0" en '1.1'. Het compatibiliteitsniveau is standaard ingesteld op "1.0" dat tijdens de algemene beschikbaarheid van Azure Stream Analytics werd geïntroduceerd. Voor het bijwerken van de standaardwaarde, gaat u naar uw bestaande Stream Analytics-taak > Selecteer de **compatibiliteitsniveau** optie in **configureren** sectie en wijzig de waarde. 
+Het compatibiliteitsniveau bepaalt het runtimegedrag van een stream analytics-taak. U kunt het compatibiliteitsniveau van een Stream Analytics-taak instellen met behulp van de portal of met behulp van de [taak REST API-aanroep maken](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics ondersteunt momenteel twee compatibiliteit niveaus-"1.0" en '1.1'. Het compatibiliteitsniveau is standaard ingesteld op "1.0" dat tijdens de algemene beschikbaarheid van Azure Stream Analytics werd geïntroduceerd. Voor het bijwerken van de standaardwaarde, gaat u naar uw bestaande Stream Analytics-taak > Selecteer de **compatibiliteitsniveau** optie in **configureren** sectie en wijzig de waarde. 
 
 Zorg ervoor dat u de taak stoppen voordat u het compatibiliteitsniveau bijwerkt. U kunt het compatibiliteitsniveau niet bijwerken als de taak actief is is. 
 

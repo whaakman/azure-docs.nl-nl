@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Technische specificaties en naleving voor de StorSimple-apparaat
 
@@ -80,7 +80,7 @@ De StorSimple-apparaten zijn een combinatie van harde schijven en SSD-stations v
 | Totale bruikbare capaciteit * |~ 15 TB |~ 38 TB |
 | Maximale oplossing capaciteit (met inbegrip van de cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *De totale bruikbare capaciteit bevat de beschikbare capaciteit voor gegevens, metagegevens en buffers.*
+<sup>* </sup>- *De totale bruikbare capaciteit bevat de beschikbare capaciteit voor gegevens, metagegevens en buffers. U kunt lokaal vastgemaakte volumes inrichten tot 8.5 TB op het 8100-apparaat of tot 22,5 TB op groter 8600-apparaat. Ga voor meer informatie naar [StorSimple lokaal vastgemaakte volumes](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Behuizing dimensies en gewicht specificaties
 
@@ -116,7 +116,7 @@ Deze sectie vindt de specificaties die betrekking hebben op de behuizing-omgevin
 
 | Behuizing | Temperatuurbereik | De relatieve vochtigheid | Maximale NAT bol |
 | --- | --- | --- | --- |
-| Operationele |5 TEMPERATUUR - 35° C (41° F - 95° F) |20% tot 80% niet-voegen tot- |28° C (82° F) |
+| Operationeel |5 TEMPERATUUR - 35° C (41° F - 95° F) |20% tot 80% niet-voegen tot- |28° C (82° F) |
 | Niet-operationeel |-40 TEMPERATUUR - 70° C (40° F - 158° F) |5-100% niet-voegen tot |29° C (84° F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luchtstroom, hoogte, gebruik, trillingen, richting, veiligheid en EMC

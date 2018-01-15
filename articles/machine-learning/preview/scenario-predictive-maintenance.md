@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Real-world scenario voor voorspeld onderhoud.
 
@@ -32,7 +32,7 @@ Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats: [https://gi
 
 Een groot probleem managementoverhead voor ondernemingen in asset zware branches is de aanzienlijke kosten die gekoppeld aan vertragingen mechanische problemen zijn. De meeste bedrijven zijn geïnteresseerd in voorspellen wanneer deze zich problemen voordoen om proactief te voorkomen dat ze voordat ze optreden. Het doel is de kosten te verlagen door de uitvaltijd beperken en het eventueel verhogen veiligheid. 
 
-Dit scenario gaat ideeën uit de [voorspeld onderhoud playbook](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) ter illustratie van het bouwen van een Voorspellend model voor een gesimuleerde gegevensset. De bijvoorbeeld gegevens is afgeleid van standaardelementen waargenomen in veel gevallen voorspeld onderhoud.
+Dit scenario gaat ideeën uit de [voorspeld onderhoud playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) ter illustratie van het bouwen van een Voorspellend model voor een gesimuleerde gegevensset. De bijvoorbeeld gegevens is afgeleid van standaardelementen waargenomen in veel gevallen voorspeld onderhoud.
 
 Het zakelijke probleem voor deze gesimuleerde gegevens is om te voorspellen problemen veroorzaakt door onderdelen falen. De vraag van het bedrijf is daarom '*wat is de kans dat een computer uitgeschakeld vanwege een fout van een onderdeel wordt*? " Dit probleem is opgemaakt als een probleem multiklassen classificatie (meerdere onderdelen per machine) en een machine learning-algoritme wordt gebruikt om de voorspellende model te maken. Het model wordt getraind op historische gegevens verzameld van computers. In dit scenario wordt de gebruiker gaat door de verschillende stappen voor het model binnen de omgeving Azure Machine Learning Workbench implementeren.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e8c7b788061b3eb18b3e6c282339a03d93ab8b1c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met Java SDK
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://azure.microsoft.com/documentat
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 * Zie [End-user-authentication with Data Lake Store using Java](data-lake-store-end-user-authenticate-java-sdk.md) (Eindgebruikersverificatie met Data Lake Store met behulp van Java) voor de verificatie van eindgebruikers voor uw toepassing.
 * Zie [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van Java) voor service-naar-serviceverificatie voor uw toepassing.

@@ -27,7 +27,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | Maximumaantal leveringen voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |100 |
 | Maximale TTL voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |2 dagen |
 | Maximale grootte van apparaatdubbel <br/> (tags, gerapporteerde eigenschappen en gewenste eigenschappen) | 8 kB |
-| Maximale grootte van tekenreekswaarde van apparaatdubbel | 512 bytes |
+| Maximale grootte van tekenreekswaarde van apparaatdubbel | 4 KB |
 | Maximale diepte van object in apparaatdubbel | 5 |
 | Maximale grootte van de nettolading van directe methode | 8 kB |
 | Maximale bewaartermijn van taakgeschiedenis | 30 dagen |

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Het beheren van apparaatinschrijvingen met Azure-Portal
 
@@ -27,7 +27,7 @@ Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep 
 
 Er zijn twee manieren waarop u uw apparaten met de inrichting service kunt inschrijven:
 
-* Een **inschrijvingsgroep** is een vermelding voor een groep apparaten die delen een gemeenschappelijke attestation-mechanisme van X.509-certificaten, ondertekend door de dezelfde handtekeningcertificaat, wat kan de [basiscertificaat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate)die worden gebruikt voor het produceren van certificaat voor apparaten op het fysieke apparaat. Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten met een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant. Houd er rekening mee dat u alleen de apparaten die gebruikmaken van het mechanisme voor X.509 attestation als kan inschrijven *inschrijving groepen*. 
+* Een **inschrijvingsgroep** is een vermelding voor een groep apparaten die delen een gemeenschappelijke attestation-mechanisme van X.509-certificaten, ondertekend door de dezelfde handtekeningcertificaat, wat kan de [basiscertificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)die worden gebruikt voor het produceren van certificaat voor apparaten op het fysieke apparaat. Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten met een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant. Houd er rekening mee dat u alleen de apparaten die gebruikmaken van het mechanisme voor X.509 attestation als kan inschrijven *inschrijving groepen*. 
 
     U kunt een registratie-groep maken in de portal voor een groep van apparaten met behulp van de volgende stappen uit:
 

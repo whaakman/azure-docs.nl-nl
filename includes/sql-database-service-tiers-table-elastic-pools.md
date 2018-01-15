@@ -10,7 +10,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Opgenomen opslag per groep van toepassingen (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Maximum aantal opslagopties per groep (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. |
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximaal aantal gelijktijdige aanmeldingen per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -26,7 +26,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Opgenomen opslag per groep van toepassingen (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Maximum aantal opslagopties per groep (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | 
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
 | Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximaal aantal gelijktijdige aanmeldingen per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
@@ -42,7 +42,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Opgenomen opslag per groep van toepassingen (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Maximum aantal opslagopties per groep (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | 
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
 | Maximaal aantal databases per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximaal aantal gelijktijdige aanmeldingen per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/). Opslag groter zijn dan de hoeveelheid opslagruimte die opgenomen zijn in preview en extra kosten gelden. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* In de Premium-laag is op dit moment opslag van meer dan 1 TB beschikbaar in de volgende regio's: VS Oost 2, VS West, VS (overheid) Virginia, West-Europa, Duitsland Centraal, Zuidoost-Azië, Japan - oost, Australië - oost, Canada Centraal en Canada Oost. 
+> \*In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Canada centraal, Canada Oost, Frankrijk centraal, Duitsland centraal, Japan-Oost, centraal Korea Zuid-centraal VS Zuid-Oost-Azië, ons East2 , VS-west, VS Gov Virginia en West-Europa. 
 >
 >\*\*Min/max edtu's per database vanaf op 200 edtu's en hoger **standaard** pools zijn Preview-versie.
 >

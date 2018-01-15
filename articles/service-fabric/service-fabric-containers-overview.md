@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric en containers
 > [!NOTE]
-> Containers implementeren op een Service Fabric-cluster in Windows 10 wordt nog niet ondersteund. 
+> Containers implementeren naar een Service Fabric-cluster in Windows 10 of met Docker CE wordt niet ondersteund. 
 >   
+
+> [!NOTE]
+> Service Fabric versie 6.1 heeft preview-ondersteuning voor Windows Server versie 1709. Open netwerk- en DNS-Service voor Service Fabric werken niet met Windows Server versie 1709. 
+> 
 
 ## <a name="introduction"></a>Inleiding
 Azure Service Fabric is een [orchestrator](service-fabric-cluster-resource-manager-introduction.md) van services in een cluster van machines met jaar gebruiks- en optimalisatie in grootschalige services bij Microsoft. Services kunnen worden ontwikkeld op tal van manieren van het gebruik van de [Service Fabric modellen programming](service-fabric-choose-framework.md) tot het implementeren van [Gast uitvoerbare bestanden](service-fabric-deploy-existing-app.md). Standaard wordt Service Fabric implementeert en deze services als processen wordt geactiveerd. Processen bieden de snelste activation en hoogste dichtheid gebruik van de resources in een cluster. Service Fabric kunnen ook services implementeren in container-installatiekopieën. Belangrijker nog, kunt u services in processen en -services in containers in dezelfde toepassing elkaar.   

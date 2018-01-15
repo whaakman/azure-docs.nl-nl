@@ -3,7 +3,7 @@ documentType: LandingData
 title: Virtuele Linux-machines
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: 'Documentatie voor virtuele Linux-machines in Azure - zelfstudies, API-verwijzing'
+  title: Documentatie voor virtuele Linux-machines in Azure - zelfstudies, API-verwijzing
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
   author: czeumault
@@ -14,99 +14,104 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: 41531cf8ea7d4f94caafac0fd2ecaa1902eb8988
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Virtuele Azure Linux-machines bieden zeer schaalbare, beveiligde, gevirtualiseerde infrastructuur op aanvraag met behulp van Red Hat, Ubuntu of de Linux-distributie van uw keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u virtuele Linux-machines maakt, configureert, beheert, bijwerkt en schaalt.'
+  description: Virtuele Azure Linux-machines bieden zeer schaalbare, beveiligde, gevirtualiseerde infrastructuur op aanvraag met behulp van Red Hat, Ubuntu of de Linux-distributie van uw keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u virtuele Linux-machines maakt, configureert, beheert, bijwerkt en schaalt.
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
-      src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png'
+      src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png
       width: 250
-    title: 'Maak een virtuele Linux-machine. (4:11)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/'
+    title: Maak een virtuele Linux-machine. (4:11)
+    href: https://azure.microsoft.com/resources/videos/create-linux-virtual-machine/
     width: 250
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Meer informatie over het implementeren van een NGINX-webserver binnen een virtuele machine met Ubuntu:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Meer informatie over het implementeren van een NGINX-webserver binnen een virtuele machine met Ubuntu:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Azure CLI
-            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure-CLI
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure-portal
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Meer informatie over het implementeren, beheren en schalen van virtuele Linux-machines in Azure
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Meer informatie over het implementeren, beheren en schalen van virtuele Linux-machines in Azure'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Virtuele Linux-machines maken en beheren</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">VM-schijven maken en beheren</a></li>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">VM-configuratie automatiseren</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Aangepaste VM-installatiekopieën maken</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Virtuele machines met hoge beschikbaarheid maken</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Een VM-schaalset maken</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Taakverdelingen maken voor virtuele machines</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Virtuele machines en virtuele netwerken beheren</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Back-ups maken van virtuele machines</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">VM's bewaken en bijwerken</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Beveiliging van virtuele machines beheren</a>
-          - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Een CI/CD-infrastructuur maken met Jenkins, Docker en GitHub</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD met Team Services</a>
-          - html: 'Een webserverstack maken met <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> of <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Een webserver beveiligen met SSL</a>
-  - title: Gratis Pluralsight-videotraining
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Virtuele Linux-machines maken en beheren</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">VM-schijven maken en beheren</a></li>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">VM-configuratie automatiseren</a>
+    - html: "<a href=\"/azure/virtual-machines/linux/tutorial-custom-images\">Aangepaste VM-installatiekopieën maken</a>"
+    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Virtuele machines met hoge beschikbaarheid maken</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Een VM-schaalset maken</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Taakverdelingen maken voor virtuele machines</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Virtuele machines en virtuele netwerken beheren</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Back-ups maken van virtuele machines</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">VM's bewaken en bijwerken</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Beveiliging van virtuele machines beheren</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Een CI/CD-infrastructuur maken met Jenkins, Docker en GitHub</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD met Team Services</a>
+    - html: Een webserverstack maken met <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> of <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Een webserver beveiligen met SSL</a>
+- title: Gratis Pluralsight-videotraining
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Infrastructuur beheren in Azure
-            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - title: Ga aan de slag met Azure Virtual Machines
-            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - title: Aan de slag met IaaS-controle
-            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-  - title: Voorbeelden
+    - title: Infrastructuur beheren in Azure
+      href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Ga aan de slag met Azure Virtual Machines
+      href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Aan de slag met IaaS-controle
+      href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: Implementeer uw eerste toepassing in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Implementeer uw eerste toepassing in Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure-CLI</a>
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
-  - title: Naslaginformatie
+    - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure-CLI</a>
+    - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+- title: Verwijzing
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/cli/azure/vm">Azure-CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-          - title: Talen
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/compute">Naslaginformatie over REST-API</a></p>
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure/vm">Azure-CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+    - title: Talen
+      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/compute">Naslaginformatie over REST-API</a></p>

@@ -1,5 +1,7 @@
 
-**Laatste document update**: 6 januari 6:30 PM PST.
+
+
+**Laatste document update**: 12 januari 3:00 PM PST.
 
 De recente openbaarmaking van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering side-kanaal aanvallen heeft geleid tot vragen van klanten meer duidelijkheid te zoeken.  
 
@@ -43,9 +45,7 @@ Als u met behulp van Linux en niet-vertrouwde code te hosten, moet u ook Linux b
 
 
 
-
-
-
+Er wordt nog deze best practices bijwerken wanneer we microcode-updates van hardwareleveranciers ontvangen. Controleer of terug naar het bijgewerkte richtlijnen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

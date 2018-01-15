@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Codering schalen met .NET SDK
 > [!div class="op_single_selector"]
@@ -54,9 +54,6 @@ Om te wijzigen van het type gereserveerde eenheid en het aantal gereserveerde ee
 
 ## <a name="opening-a-support-ticket"></a>Een Ondersteuningsticket openen
 Standaard elke Media Services-account kan worden geschaald tot maximaal 25 codering en 5 On Demand gereserveerde Streaming-eenheden. U kunt een hogere limiet aanvragen door een ondersteuningsticket openen.
-
-### <a name="open-a-support-ticket"></a>Een ondersteuningsticket opent
-In de Azure portal, gaat u naar [Help + ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Als u niet bent aangemeld bij Azure, wordt u gevraagd uw referenties in te voeren.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

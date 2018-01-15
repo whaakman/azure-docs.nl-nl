@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: 20bc3f31897cec4a3cec9ca409062229133102f5
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Twitter-gevoel met word insluitingen voorspellen met behulp van het Team gegevens wetenschap proces
 
@@ -131,7 +131,7 @@ De laatste stap is implementatie van het model van de voorspelling getraind gevo
 
 ![Kubernetes-dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Zie voor meer informatie over het proces uitoefening [implementeren van een Azure Machine Learning-model als een webservice](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+Zie voor meer informatie over het proces uitoefening [implementeren van een Azure Machine Learning-model als een webservice](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
 
 ## <a name="conclusion"></a>Conclusie
 
@@ -140,11 +140,11 @@ In dit artikel hebt u geleerd hoe u een word-insluiting model trainen met behulp
 
 ## <a name="references"></a>Verwijzingen
 
-* [Team gegevens wetenschappelijke processen](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team gegevens wetenschappelijke processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Het gebruik van Team gegevens wetenschap proces (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [De projectsjablonen TDSP voor Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
 * [VS inkomsten gegevensset uit UCI ML-opslagplaats](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Herkenning met behulp van sjablonen TDSP biomedische entiteit](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Herkenning met behulp van sjablonen TDSP biomedische entiteit](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
 * [Mikolov, Tomas, et al. 'Representaties van woorden en woordgroepen en hun Compositionality gedistribueerd. Verplaatst in neural informatie verwerkingssystemen." 2013.](https://arxiv.org/abs/1310.4546)
 * [Mat, Duyu, et al. 'Learning gevoel-specifieke Word insluiten voor Twitter-gevoel classificatie'. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

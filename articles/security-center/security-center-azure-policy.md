@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integratie van Security Center-beveiligingsbeleid met Azure Policy
-In dit artikel leest u hoe u Azure Security Center-beveiligingsbeleid configureert met Azure Policy. 
+In dit artikel leest u hoe u Azure Security Center-beveiligingsbeleid configureert met Azure Policy.
 
 ## <a name="how-security-policies-work"></a>Hoe beveiligingsbeleid werkt
 In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. U kunt het beleid bewerken in Security Center of [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) gebruiken om het volgende doen:
@@ -51,7 +51,7 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
 5. Als u een beleidsdefinitie wilt verwijderen, selecteert u onder **Beleidsregels en parameters** de definitie die u wilt verwijderen. Selecteer vervolgens **Verwijderen**.
 
 6. Klik op **Opslaan**.  
-    Het venster **Beschikbare definities** wordt geopend en geeft het standaardbeleid weer dat is toegewezen aan Security Center via Azure Policy. 
+    Het venster **Beschikbare definities** wordt geopend en geeft het standaardbeleid weer dat is toegewezen aan Security Center via Azure Policy.
 
 7. (Optioneel) In het venster **Beschikbare definities** voert u een van de volgende handelingen uit:
 
@@ -68,12 +68,12 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
 
 ## <a name="available-security-policy-definitions"></a>Beschikbare beveiligingsbeleiddefinities
 
-Bekijk de volgende tabel om inzicht te krijgen in de beleidsdefinities die beschikbaar zijn in het standaardbeveiligingsbeleid: 
+Bekijk de volgende tabel om inzicht te krijgen in de beleidsdefinities die beschikbaar zijn in het standaardbeveiligingsbeleid:
 
 | Beleid | Wat het ingeschakelde beleid doet |
 | --- | --- |
 | Systeemupdates |Hiermee wordt via Windows Update of Windows Server Update Services een dagelijkse lijst opgehaald van beschikbare beveiligingsupdates en essentiële updates. De opgehaalde lijst varieert per service die is geconfigureerd voor uw virtuele machines, en bevat aanbevelingen voor het toepassen van ontbrekende updates. Voor Linux-systemen maakt het beleid gebruik van het door de distributie beschikbaar gestelde pakketbeheersysteem om te bepalen voor welke pakketten er updates beschikbaar zijn. Ook wordt bij [virtuele Azure Cloud Services-machines](../cloud-services/cloud-services-how-to-configure-portal.md) gecontroleerd of er beveiligingsupdates en essentiële updates zijn. |
-| Beveiligingsproblemen van besturingssystemen |Hiermee worden dagelijks besturingssysteemconfiguraties gecontroleerd om te bepalen of er problemen zijn die de virtuele machine kwetsbaar kan maken voor aanvallen. Vanuit het beleid zal ook worden aangeraden om deze beveiligingslekken aan te pakken door wijzigingen in de configuratie aan te brengen. Zie de [lijst met aanbevolen basislijnen](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor meer informatie over de specifieke configuraties die worden bewaakt. (Op dit moment wordt Windows Server 2016 niet volledig ondersteund.) |
+| Beveiligingsconfiguraties |Hiermee worden dagelijks besturingssysteemconfiguraties gecontroleerd om te bepalen of er problemen zijn die de virtuele machine kwetsbaar kan maken voor aanvallen. Vanuit het beleid zal ook worden aangeraden om deze beveiligingslekken aan te pakken door wijzigingen in de configuratie aan te brengen. Zie de [lijst met aanbevolen basislijnen](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor meer informatie over de specifieke configuraties die worden bewaakt. (Op dit moment wordt Windows Server 2016 niet volledig ondersteund.) |
 | Eindpuntbeveiliging |Hiermee wordt aanbevolen dat voor alle virtuele machines in Windows eindpuntbeveiliging wordt ingesteld om virussen, spyware en andere schadelijke software op te sporen en te verwijderen. |
 | Schijfversleuteling |Hiermee wordt aanbevolen om schijfversleuteling in te schakelen in alle virtuele machines om de beveiliging van opgeslagen gegevens te verbeteren. |
 | Netwerkbeveiligingsgroepen |Hiermee wordt aanbevolen om [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) te configureren om binnenkomend en uitgaand verkeer naar VM's met openbare eindpunten te beheren. Netwerkbeveiligingsgroepen die zijn geconfigureerd voor een subnet, worden overgenomen door alle netwerkinterfaces van virtuele machines, tenzij anders wordt aangegeven. Behalve dat wordt gecontroleerd of een netwerkbeveiligingsgroep is geconfigureerd, worden met deze beleidsregel ook de beveiligingsregels voor binnenkomend verkeer beoordeeld die binnenkomend verkeer toestaan. |
