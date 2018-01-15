@@ -44,16 +44,20 @@
     - name: Opslagplaatsen weergeven
       href: container-registry-repositories.md
     - name: Een service-principal maken
-      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
-    - name: Verifiëren met een register
-      href: container-registry-authentication.md
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.jso
     - name: Een klassiek register upgraden
       href: container-registry-upgrade.md
     - name: ACR-webhooks gebruiken
       href: ./container-registry-webhook.md
-- name: Naslaginformatie
+    - name: Verificatie
+      items:
+        - name: Verificatieoverzicht
+          href: container-registry-authentication.md
+        - name: Azure Container Service
+          href: ./container-registry-auth-aks.md
+- name: Verwijzing
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/acr
     - name: REST
       href: /rest/api/containerregistry

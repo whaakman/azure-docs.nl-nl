@@ -194,7 +194,7 @@
             - name: Azure CLI gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: De Azure-portal gebruiken
+            - name: Azure Portal gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Azure Resource Manager-sjablonen gebruiken
@@ -216,13 +216,19 @@
             - name: Azure CLI gebruiken
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
-        - name: Clusters beheren met Ambari-webinterface
+        - name: Clusters beheren met de Ambari-webinterface
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Clusters optimaliseren met de Ambari-webinterface
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Ambari REST-API gebruiken
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Logboeken beheren voor een HDInsight-cluster
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Opslagaccounts toevoegen
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -242,7 +248,7 @@
             - name: Uitvoeren met cURL
               href: ../hadoop/apache-hadoop-use-sqoop-curl.md
               maintainContext: true
-            - name: Uitvoeren met .NET-SDK
+            - name: Uitvoeren met .NET SDK
               href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
               maintainContext: true
             - name: Uitvoeren met Azure PowerShell
@@ -271,6 +277,9 @@
           maintainContext: true
     - name: Problemen oplossen
       items:
+        - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Problemen met Spark oplossen
           href: apache-troubleshoot-spark.md
         - name: Problemen met HDFS oplossen
@@ -354,7 +363,7 @@
         - name: Cluster-prestaties bewaken
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Naslaginformatie
+- name: Verwijzing
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
@@ -366,7 +375,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: .NET (Avro)
       href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
-    - name: REST API
+    - name: REST-API
       href: /rest/api/hdinsight/
     - name: REST-API (Spark)
       href: /rest/api/hdinsightspark/

@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Aanvullende les: Onregelmatige hiërarchieën
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In deze aanvullende les gaat u een probleem oplossen dat vaak optreedt bij het maken van een draaitabel van hiërarchieën die op verschillende niveaus lege waarden (leden) bevatten. Dit is bijvoorbeeld het geval als een hoge manager in een organisatie zowel afdelingsmanagers als niet-managers als direct ondergeschikten heeft. Of bij een geografische hiërarchie die bestaat uit land-provincie-stad, waarbij voor sommige steden geen bovenliggende provincie is ingevoerd. Wanneer een hiërarchie lege leden heeft, worden deze vaak overgebracht naar andere, afwijkende niveaus waardoor er een onregelmatige hiërarchie ontstaat.
 
