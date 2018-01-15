@@ -16,7 +16,7 @@
 #### [Variabelen](resource-manager-templates-variables.md)
 #### [Bronnen](resource-manager-templates-resources.md)
 #### [Uitvoer](resource-manager-templates-outputs.md)
-### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
+### [Gekoppelde en geneste sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
 ### [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -28,7 +28,7 @@
 #### [Sjabloon implementeren](resource-group-template-deploy.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-powershell-sas-token.md)
 #### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-powershell.md)
-### Azure CLI
+### Azure-CLI
 #### [Sjabloon implementeren](resource-group-template-deploy-cli.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-cli-sas-token.md)
 #### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-cli.md)
@@ -42,7 +42,7 @@
 
 ## Beheren
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
-### [Azure CLI](xplat-cli-azure-resource-manager.md)
+### [Azure-CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
@@ -54,7 +54,7 @@
 ## Toegang beheren
 ### Een service-principal maken
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure-CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
@@ -80,7 +80,7 @@
 #### [Windows-implementatieproblemen](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Inzicht in implementatiefouten](resource-manager-troubleshoot-tips.md)
 
-# Naslaginformatie
+# Verwijzing
 ## [Sjabloonindeling](/azure/templates/)
 ## [Sjabloonfuncties](resource-group-template-functions.md)
 ### [Matrix- en objectfuncties](resource-group-template-functions-array.md)
@@ -91,7 +91,7 @@
 ### [Resourcefuncties](resource-group-template-functions-resource.md)
 ### [Tekenreeksfuncties](resource-group-template-functions-string.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
-## [Azure CLI](/cli/azure/resource)
+## [Azure-CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
