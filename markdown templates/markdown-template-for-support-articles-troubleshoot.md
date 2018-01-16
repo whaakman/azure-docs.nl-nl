@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titel (maximaal 120 tekens, doel het primaire sleutelwoord)
 *Gebruik secundaire 2-3-trefwoorden in de beschrijving.*
@@ -67,7 +67,7 @@ Deze {fouten} | {Problemen} optreden als {zeer algemene reason}.
 
 *In het algemeen, zolang de fout betekent niet 'de aangevraagde VM-grootte wordt niet ondersteund', u kunt altijd opnieuw uitvoeren op een later tijdstip, zoals onvoldoende bronnen kan is vrijgemaakt in het cluster aan uw aanvraag. Als het probleem dat het aangevraagde VM-grootte wordt niet ondersteund is, kunt u een ander VM-grootte. anders is de enige optie als de vastmaken beperking wilt verwijderen.*
 
-## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
+## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
 *De oplossingen in de volgorde van bruikbaarheid en eenvoud, wat betekent dat de meest eenvoudige lijst, de meest effectieve en nuttige oplossing eerste moet gaan.*
 
 *Selecteer een van de versies die van toepassing zijn op uw situatie.*

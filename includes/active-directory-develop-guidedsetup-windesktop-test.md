@@ -21,7 +21,7 @@ Nadat u zich aanmeldt, ziet u de gebruikersprofielgegevens die wordt geretournee
 |**Naam** |Volledige naam van gebruiker |De gebruiker eerst de- en achternaam.|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam die wordt gebruikt om de gebruiker te identificeren.|
 |**Token is verlopen** |Datum en tijd |De tijd waarop het token verloopt. MSAL breidt de verloopdatum te vernieuwen van het token indien nodig.|
-|**Toegangstoken** |Reeks |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
+|**Toegangstoken** |Tekenreeks |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Meer informatie over bereikwaarden en gedelegeerde machtigingen

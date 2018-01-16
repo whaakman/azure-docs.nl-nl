@@ -10,7 +10,7 @@ Op de eerste start vraagt Cloud-Shell u om te koppelen van een nieuwe of bestaan
 ### <a name="create-new-storage"></a>Maken van nieuwe opslag
 
 Wanneer u basisinstellingen en alleen een abonnement selecteren, maakt Cloud Shell drie bronnen in de ondersteunde regio die het dichtst bij u namens jou:
-* Resourcegroep:`cloud-shell-storage-<region>`
+* Resourcegroep: `cloud-shell-storage-<region>`
 * Storage-account:`cs<uniqueGuid>`
 * Bestandsshare:`cs-<user>-<domain>-com-<uniqueGuid>`
 
