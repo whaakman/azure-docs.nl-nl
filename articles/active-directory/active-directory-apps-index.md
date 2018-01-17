@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 276997bb6800fda9cb432384ebaaaa717b8426ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -160,7 +160,7 @@ Om te beheren die toegang moeten hebben tot welke bronnen, kunt Azure Active Dir
 | Artikel handleiding |  |
 |:---:| --- |
 | Een overzicht van Azure AD access management-functies |[Inleiding tot het beheren van toegang tot Apps](active-directory-managing-access-to-apps.md)<br /><br />[De werking van toegangsbeheer in Azure AD](active-directory-manage-groups.md)<br /><br />[Groepen gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md) |
-| Beheer van apps en groepen selfservice inschakelen |[Selfservice Toepassingsbeheer](active-directory-self-service-application-access.md)<br /><br />[Self-Service groepsbeheer](active-directory-accessmanagement-self-service-group-management.md) |
+| Beheer van apps en groepen selfservice inschakelen |[Selfservice Toepassingsbeheer](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
 | Instructies voor het instellen van de groepen in Azure AD |[Het maken van beveiligingsgroepen](active-directory-groups-create-azure-portal.md)<br /><br />[Het opgeven van de eigenaars van een groep](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Het gebruik van de groep 'Alle gebruikers'](active-directory-accessmanagement-dedicated-groups.md) |
 | Dynamische groepen gebruiken voor het automatisch vullen van groepslidmaatschappen met lidmaatschapsregels op basis van kenmerken |[Lidmaatschap van dynamische groep: Geavanceerde regels](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -172,7 +172,7 @@ Als uw bedrijf met andere bedrijven samen werkt, is het waarschijnlijk dat u moe
 | Artikel handleiding |  |
 |:---:| --- |
 | Een overzicht van andere Azure AD functies dat kunt u helpt externe gebruikers zoals partners, klanten, enzovoort. |[Vergelijking van mogelijkheden voor het beheren van externe identiteiten in Azure AD](active-directory-b2b-compare-external-identities.md) |
-| Een inleiding tot B2B-samenwerking en hoe u aan de slag |[Veilige, eenvoudige Cloud Partner-integratie met Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B-samenwerking](active-directory-b2b-collaboration-overview.md) |
+| Een inleiding tot B2B-samenwerking en hoe u aan de slag |[Veilige, eenvoudige Cloud Partner-integratie met Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
 | Zie voor meer informatie naar Azure AD B2B-samenwerking en het gebruik ervan |[B2B-samenwerking: Hoe het werkt](active-directory-b2b-how-it-works.md)<br /><br />[Huidige beperkingen van Azure AD B2B-samenwerking](active-directory-b2b-current-limitations.md)<br /><br />[Gedetailleerd overzicht van het gebruik van Azure AD B2B-samenwerking](active-directory-b2b-detailed-walkthrough.md) |
 | Verwijzing naar artikelen met technische gegevens over de werking van Azure AD B2B-samenwerking |[CSV-indeling voor het toevoegen van gebruikers van partners](active-directory-b2b-references-csv-file-format.md)<br /><br />[De kenmerken van de gebruiker is van invloed op een Azure AD B2B-samenwerking](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Token indeling van de gebruiker voor de Partner-gebruikers](active-directory-b2b-references-external-user-token-format.md) |
 
@@ -210,4 +210,4 @@ Om te zien welke rapporten zijn opgenomen in verschillende versies van Azure Act
 
 [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
-[Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
+[Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)

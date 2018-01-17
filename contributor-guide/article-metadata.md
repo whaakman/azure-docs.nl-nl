@@ -4,4 +4,4 @@
 
 In deze richtlijnen is verplaatst naar de docs.microsoft.com interne-Inzender handleiding.
 
-Zie [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)
+See [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)

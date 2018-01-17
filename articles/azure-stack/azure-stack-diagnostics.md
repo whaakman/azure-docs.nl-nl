@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -121,7 +121,7 @@ if($s)
    | ACS                     | ACSFabric              | ACSFrontEnd        |
    | ACSTableMaster          | ACSTableServer         | ACSWac             |
    | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | KPI                |
+   | BRP                     | CA                     | CPI                |
    | CRP                     | DeploymentMachine      | DHCP               |
    | Domein                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
@@ -129,13 +129,13 @@ if($s)
    | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | AANVRAAGPAD                    | SQL                |   
+   | SeedRingServices        | SLB                    | SQL                |   
    | SRP                     | Storage                | StorageController  |
-   | URP                     | UsageBridge            | Virtuele machines    |  
-   | IS                     | WASPUBLIC              | WDS                |
+   | URP                     | UsageBridge            | VirtualMachines    |  
+   | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Verzamelen van logboeken met behulp van een grafische gebruikersinterface
+### <a name="bkmk_gui"></a>Verzamelen van logboeken met behulp van een grafische gebruikersinterface
 In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub extra opslagplaats op http://aka.ms/AzureStackTools.
 
 De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de laatst beschikbare versie hebt, moet u deze rechtstreeks vanuit http://aka.ms/ERCS downloaden. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als er geen parameters zijn opgegeven, wordt het script wordt standaard ingesteld op te vragen voor parameters via een grafische gebruikersinterface.
@@ -159,3 +159,4 @@ U kunt bekijken voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell
 
 ## <a name="next-steps"></a>Volgende stappen
 [Microsoft Azure-Stack probleemoplossing](azure-stack-troubleshooting.md)
+

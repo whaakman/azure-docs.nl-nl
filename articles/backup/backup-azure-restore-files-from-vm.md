@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele machine van Azure
 
@@ -64,13 +64,16 @@ Als u bestanden of mappen herstellen van het herstelpunt, gaat u naar de virtuel
 
     Als u het script op een computer met beperkte toegang uitvoert, zorg dat er toegang tot:
 
-    - Download.Microsoft.com
-    - Azure-eindpunten die wordt gebruikt voor back-ups van virtuele machine in Azure
+    - download.microsoft.com
+    - [Azure-eindpunten die wordt gebruikt voor back-ups van virtuele machine in Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - uitgaande poort 3260
 
-   Het script vereist voor Linux 'open-iscsi' en 'lshw' onderdelen verbinding maken met het herstelpunt. Als de componenten niet bestaan op de computer waarop het script wordt uitgevoerd, wordt het script vraagt om de machtiging om de onderdelen te installeren. Geef toestemming voor het installeren van de vereiste onderdelen.  
-         
-   U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de back-up-VM. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#system-requirements) voor compatibele besturingssystemen. Als de beveiligde virtuele machine van Azure Windows Storage Spaces (voor Windows Azure VM's) of LVM/RAID-Arrays (voor Linux VM's) gebruikt, kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op een andere machine met een compatibel besturingssysteem.
+    Het script vereist voor Linux 'open-iscsi' en 'lshw' onderdelen verbinding maken met het herstelpunt. Als de componenten niet bestaan op de computer waarop het script wordt uitgevoerd, wordt het script vraagt om de machtiging om de onderdelen te installeren. Geef toestemming voor het installeren van de vereiste onderdelen.
+    
+    De toegang tot download.microsoft.com is vereist voor het downloaden van de onderdelen die worden gebruikt voor het bouwen van een beveiligd kanaal tussen de computer waarop het script wordt uitgevoerd en de gegevens in het herstelpunt.         
+
+    U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de back-up-VM. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#system-requirements) voor compatibele besturingssystemen. Als de beveiligde virtuele machine van Azure Windows Storage Spaces (voor Windows Azure VM's) of LVM/RAID-Arrays (voor Linux VM's) gebruikt, kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op een andere machine met een compatibel besturingssysteem.
+ 
 
 ### <a name="identifying-volumes"></a>Identificeren van Volumes
 
@@ -166,7 +169,7 @@ Als de schijf RAID een andere LVM geconfigureerd in het heeft, gebruikt u de voo
 
 De volgende tabel ziet u de compatibiliteit tussen server en de computer-besturingssystemen. Tijdens het herstellen van bestanden, kunt u bestanden niet terugzetten naar een vorige of toekomstige besturingssysteemversie. U terugzetten niet bijvoorbeeld een bestand vanaf een Windows Server 2016 VM naar Windows Server 2012 of een computer met Windows 8. U kunt bestanden terugzetten van een virtuele machine op hetzelfde server-besturingssysteem, of op het besturingssysteem compatibel client.   
 
-|Serverbesturingssysteem | Compatibel clientbesturingssysteem  |
+|Server OS | Compatibel clientbesturingssysteem  |
 | --------------- | ---- |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |

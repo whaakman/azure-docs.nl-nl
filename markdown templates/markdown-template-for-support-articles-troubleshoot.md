@@ -18,7 +18,7 @@ ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titel (maximaal 120 tekens, doel het primaire sleutelwoord)
 *Gebruik secundaire 2-3-trefwoorden in de beschrijving.*
@@ -74,7 +74,7 @@ Deze {fouten} | {Problemen} optreden als {zeer algemene reason}.
 
 | <em>Versie 1: Uw artikel is implementatie model networkdirect</em> | <em>Versie 2: Stappen voor het Resource Manager en Classic grotendeels hetzelfde zijn</em> | <em>Versie 3: De stappen voor het Resource Manager en Classic zijn voornamelijk verschillende. <br />In dit geval gebruiken de <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">enkelvoudige Selector techniek in GitHub</a>. <br />Opmerking: VM artikelen voor ARM zijn uitzonderingen en de selector ARM/klassieke dient niet te gebruiken.</em> |
 |:--- |:--- |:--- |
-| <p><h3>[Probleem 1] \ |[Fout 1]</h3><h4>Oorzaak</h4>[Oorzaak details]</p><p><h4>Oplossing 1</h4><em>(de eenvoudigste en meest effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><p><h4>Oplossing 2</h4><em>(de minder eenvoudige of effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><p><h3>[Probleem 2] \ |[Fout 2]</h3><h4>Oorzaak</h4>[Oorzaak details]</p><p><h4>Oplossing 1</h4><em>(de eenvoudigste en meest effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><p><h4>Oplossing 2</h4><em>(de eenvoudigste en meest effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
+| <p><h3>[Probleem 1] \ |[Fout 1]</h3><h4>Oorzaak</h4>[Oorzaak details]</p><p><h4>Oplossing 1</h4><em>(de eenvoudigste en meest effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><p><h4>Oplossing 2</h4><em>(de minder eenvoudige of effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><p><h3>[Issue 2] \ |[Fout 2]</h3><h4>Oorzaak</h4>[Oorzaak details]</p><p><h4>Oplossing 1</h4><em>(de eenvoudigste en meest effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><p><h4>Oplossing 2</h4><em>(de eenvoudigste en meest effectieve)</em></p><ol><li>[Stap 1]</li><li>[Stap 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
 ## <a name="next-steps"></a>Volgende stappen
 *Zijn deze sectie als er 1 -3 concrete, zeer relevant Vervolgstappen die rekening met de gebruiker houden moet. Als er geen Vervolgstappen verwijderen. Dit is niet een plaats voor een lijst met koppelingen. Als u koppelingen naar de volgende stappen bevatten, moet u tekst om uit te leggen waarom de volgende stappen zijn relevante / belangrijk op te nemen.*

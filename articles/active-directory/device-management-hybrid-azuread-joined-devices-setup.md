@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -41,7 +41,7 @@ In dit onderwerp gebruikt ter verbetering van de leesbaarheid van de beschrijvin
 
 ### <a name="windows-current-devices"></a>Huidige Windows-apparaten
 
-- Voor apparaten waarop het besturingssysteem van de Windows-bureaublad wordt uitgevoerd, wordt u aangeraden speciale Update (versie 1607) voor Windows 10 of hoger. 
+- Voor apparaten waarop het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Update voor Windows 10 Verjaardag (versie 1607) of hoger. 
 - De registratie van de huidige Windows-apparaten **is** in niet-gefedereerde omgevingen zoals wachtwoord-hash-synchronisatie configuraties ondersteund.  
 
 
@@ -69,11 +69,11 @@ Azure AD Connect:
 
 Zorg ervoor dat de volgende URL's toegankelijk vanaf computers in het netwerk van uw organisatie voor de registratie van computers met Azure AD zijn:
 
-- https://enterpriseregistration.Windows.NET
+- https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
 
-- https://Device.Login.microsoftonline.com
+- https://device.login.microsoftonline.com
 
 Als uw organisaties vereist toegang tot Internet via een uitgaande proxyconfiguratie, moet Web Proxy Auto-Discovery (WPAD) zodat Windows 10-computers te registreren bij Azure AD implementeren.
 

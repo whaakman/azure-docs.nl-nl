@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Verklarende woordenlijst voor beveiliging van Azure Active Directory-identiteit
 ### <a name="at-risk-user"></a>Risico (gebruiker)
@@ -58,7 +58,7 @@ Een risicogebeurtenis geactiveerd wanneer er twee aanmeldingen voor dezelfde geb
 ### <a name="investigation"></a>Onderzoek
 Het proces voor het controleren van de activiteiten, logboeken en andere relevante informatie die betrekking hebben op een risicogebeurtenis om te bepalen of de updateherstel- of risicobeperking stappen vereist zijn, begrijpt als en hoe de identiteit is geknoeid en begrijpen hoe de identiteit van de verdachte is gebruikt.
 
-### <a name="leaked-credentials"></a>Gelekte aanmeldingsreferenties
+### <a name="leaked-credentials"></a>Gelekte referenties
 Een risicogebeurtenis geactiveerd wanneer de huidige gebruikersreferenties (gebruikersnaam en wachtwoord) worden gevonden door onze onderzoekers openbaar in het donkere web geplaatst.
 
 ### <a name="mitigation"></a>Oplossing
@@ -100,7 +100,7 @@ Een risico gebeurtenisstatus handmatig instellen door een gebruiker Identity Pro
 ### <a name="risk-event-status"></a>De gebeurtenisstatus risico
 Een eigenschap van een risicogebeurtenis die aangeeft of de gebeurtenis actief is, en als gesloten, de reden waarom u deze sluit.
 
-### <a name="risk-event-type"></a>Gebeurtenistype risico
+### <a name="risk-event-type"></a>Type risicogebeurtenis
 Een categorie voor de risicogebeurtenis, die het type van de afwijkingsdetectie waardoor de gebeurtenis worden overwogen riskant aangeeft.
 
 ### <a name="risk-level-risk-event"></a>Risiconiveau (risicogebeurtenis)
@@ -139,7 +139,7 @@ Een risicogebeurtenis wordt geactiveerd nadat een geslaagde aanmelden van een-IP
 ### <a name="sign-in-from-unfamiliar-location"></a>Aanmelden van onbekende locatie
 Een risicogebeurtenis geactiveerd wanneer een gebruiker zich met succes aanmeldt vanaf een nieuwe locatie (IP-breedtegraad/lengtegraad en ASN).
 
-### <a name="sign-in-risk"></a>Aanmelden risico
+### <a name="sign-in-risk"></a>Aanmeldingsrisico
 Zie risico niveau (sign-in)
 
 ### <a name="sign-in-risk-policy"></a>Beleid voor aanmeldingsrisico's
@@ -148,7 +148,7 @@ Een beleid voor voorwaardelijke toegang dat het risico op een specifieke aanmeld
 ### <a name="user-compromise-risk"></a>Gebruiker risico op inbreuk
 Zie risico niveau (gebruiker inbreuk)
 
-### <a name="user-risk"></a>Gebruiker risico
+### <a name="user-risk"></a>Gebruikersrisico
 Zie risico niveau (gebruiker inbreuk).
 
 ### <a name="user-risk-policy"></a>Beleid voor gebruikersrisico's

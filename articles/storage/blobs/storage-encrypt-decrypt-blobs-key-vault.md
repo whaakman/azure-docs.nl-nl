@@ -2,23 +2,17 @@
 title: 'Zelfstudie: Blobs versleutelen en ontsleutelen in Azure Storage met Azure Sleutelkluis | Microsoft Docs'
 description: Het versleutelen en ontsleutelen van een blob met client-side '-codering voor Microsoft Azure Storage met Azure Sleutelkluis.
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Zelfstudie: Blobs versleutelen en ontsleutelen in Microsoft Azure Storage met Azure Sleutelkluis
 ## <a name="introduction"></a>Inleiding
@@ -167,10 +161,6 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
-
-Hieronder volgt een schermafbeelding van de [klassieke Azure-Portal](https://manage.windowsazure.com) voor een blob die zijn versleuteld met behulp van versleuteling aan clientzijde met een sleutel die wordt opgeslagen in de Sleutelkluis. De **KeyId** eigenschap is de URI voor de Sleutelkluis die als de KEK fungeert-sleutel. De **EncryptedKey** eigenschap bevat de versleutelde versie van de CEK.
-
-![Schermopname van de metagegevens van de Blob die versleutelingsmetagegevens bevat](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > Als u de constructor BlobEncryptionPolicy bekijkt, ziet u dat deze een sleutel-en/of een resolver kan accepteren. Let die op dit moment kunt u een conflictoplosser voor versleuteling heeft momenteel geen ondersteuning bieden voor een standaardsleutel.

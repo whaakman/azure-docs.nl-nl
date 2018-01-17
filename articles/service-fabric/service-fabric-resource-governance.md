@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>Resource governance 
 
@@ -115,8 +115,7 @@ Resource governance limieten zijn opgegeven in het toepassingsmanifest (ServiceM
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ In dit voorbeeld wordt het servicepakket aangeroepen **ServicePackageA** één k
 Dus in dit voorbeeld CodeA1 twee derde van een kern opgehaald en CodeA2 opgehaald een derde van een kern (en een reservering soft-garantie van dezelfde). Als CpuShares niet zijn opgegeven voor code-pakketten, verdeelt Service Fabric de kernen evenveel ertussen.
 
 Geheugenlimieten zijn absolute, zodat u beide pakketten code zijn beperkt tot 1024 MB aan geheugen (en een reservering soft-garantie van dezelfde). Code-pakketten (containers of processen) kunnen niet meer geheugen dan deze limiet en probeert te doen in dat geval resulteert in een uitzondering-geheugen toewijzen. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
+
+### <a name="using-application-parameters"></a>Met behulp van toepassingsparameters
+
+Bij het opgeven van de resource governance is het mogelijk te gebruiken [toepassingsparameters](service-fabric-manage-multiple-environment-app-configuration.md) voor het beheren van configuraties met meerdere app. Het volgende voorbeeld ziet u het gebruik van parameters voor de toepassing:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+In dit voorbeeld zijn standaardwaarden voor parameters ingesteld voor de productie-omgeving, waarbij elk pakket Service krijgt 4 kernen en 2 GB geheugen. Het is mogelijk standaardwaarden wijzigen met de parameter voor toepassingsbestanden. In dit voorbeeld wordt kan een parameterbestand worden gebruikt voor het testen van de toepassing lokaal door waar deze minder resources dan in de productieomgeving zou krijgen: 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Geven resource governance met toepassingsparameters is beschikbaar vanaf met Service Fabric versie 6.1.<br> 
+>
+> Als parameters voor de toepassing worden gebruikt voor het opgeven van de resource governance, kan niet naar een versie voorafgaand aan versie 6.1 Service Fabric worden verlaagd. 
+
 
 ## <a name="other-resources-for-containers"></a>Andere bronnen voor containers
 Naast de CPU en geheugen is het mogelijk andere limieten voor containers opgeven. Deze limieten zijn opgegeven op het niveau van codepakket en worden toegepast wanneer de container wordt gestart. In tegenstelling tot met CPU en geheugen, won't Cluster Resource Manager is niet op de hoogte gebracht van deze bronnen en eventuele capaciteit controles uitvoeren of taakverdeling voor deze. 

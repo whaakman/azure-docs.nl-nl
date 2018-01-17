@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric-omgekeerde proxy
 Omgekeerde proxy is ingebouwd in Azure Service Fabric helpt microservices uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die HTTP-eindpunten hebben.
@@ -39,11 +39,13 @@ Omgekeerde proxy beschrijft een of meer eindpunten op het lokale knooppunt voor 
 
 ![Interne communicatie][1]
 
+> [!NOTE]
 > **Ondersteunde Platforms**
 >
 > Omgekeerde proxy in Service Fabric ondersteunt momenteel de volgende platforms
 > * *Windows-Cluster*: Windows 8 en hoger of WindowsServer 2012 en hoger
 > * *Linux-Cluster*: Reverse Proxy is momenteel niet beschikbaar voor Linux-clusters
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Microservices van buiten het cluster is bereikt
 Het model van de externe communicatie standaard voor microservices is een opt-in-model waarbij elke service rechtstreeks van externe clients kan niet worden geopend. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), die een netwerkgrens tussen microservices en externe clients voert netwerkadresomzetting en externe aanvragen voor het interne IP: poort eindpunten worden doorgestuurd. U kunt een microservice eindpunt rechtstreeks toegankelijk naar externe clients, moet u eerst de Load Balancer voor het doorsturen van verkeer naar elke poort die de service in het cluster gebruikt configureren. Bovendien worden de meeste microservices, met name stateful microservices niet live op alle knooppunten van het cluster. De microservices kunt verplaatsen tussen knooppunten op failover. In dergelijke gevallen Load Balancer kan effectief niet bepalen de locatie van het doelknooppunt van de replica's waarnaar verkeer moet worden doorgestuurd.

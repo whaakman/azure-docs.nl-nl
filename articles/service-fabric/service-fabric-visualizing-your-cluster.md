@@ -1,10 +1,10 @@
 ---
-title: Uw cluster met behulp van Service Fabric Explorer visualiseren | Microsoft Docs
-description: Service Fabric Explorer is een Webhulpprogramma voor te bekijken en beheren van cloudtoepassingen en -knooppunten in een Microsoft Azure Service Fabric-cluster.
+title: Uw cluster met behulp van Azure Service Fabric Explorer visualiseren | Microsoft Docs
+description: Service Fabric Explorer is een verzoek om te bekijken en beheren van cloudtoepassingen en -knooppunten in een Microsoft Azure Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
@@ -12,25 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
-ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/08/2018
+ms.author: mikhegn
+ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisern van uw cluster met Service Fabric Explorer
-Service Fabric Explorer is een Webhulpprogramma voor te bekijken en beheren van toepassingen en de knooppunten in een Azure Service Fabric-cluster. Service Fabric Explorer wordt gehost rechtstreeks in het cluster, zodat deze altijd beschikbaar is, ongeacht waar uw cluster wordt uitgevoerd.
+
+Service Fabric Explorer (SFX) is een open source-hulpprogramma te bekijken en beheren van Azure Service Fabric-clusters. Service Fabric Explorer is een bureaubladtoepassing voor Windows en Linux. Ondersteuning voor Mac OS is binnenkort beschikbaar.
+
+## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer downloaden
+
+Gebruik de volgende koppelingen voor het downloaden van Service Fabric Explorer als een bureaubladtoepassing:
+
+- Windows
+  - https://aka.ms/sfx-windows
+
+- Linux
+  - https://aka.ms/sfx-linux-x86
+  - https://aka.ms/sfx-linux-x64
+
+> [!NOTE]
+> De bureaubladversie van Service Fabric Explorer kan meer of minder mogelijkheden dan de clusterondersteuning hebben. U kunt terugvallen op de versie van de Service Fabric Explorer geïmplementeerd op het cluster volledig functie compatibiliteit te garanderen.
+>
+>
+
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Service Fabric Explorer uitvoeren vanaf het cluster
+
+Service Fabric Explorer wordt ook in een Service Fabric-cluster HTTP-eindpunt gehost. Als u wilt starten SFX in een webbrowser, blader naar HTTP-eindpunt van het cluster vanuit elke browser - bijvoorbeeld https://clusterFQDN:19080.
+
+Voor ontwikkelaars werkstation setup, kunt u op uw lokale cluster Service Fabric Explorer starten door te navigeren naar http://localhost: 19080/Explorer. Dit artikel om te kijken [uw ontwikkelingsomgeving voorbereiden](service-fabric-get-started.md).
+
+## <a name="connect-to-a-service-fabric-cluster"></a>Verbinding maken met een Service Fabric-cluster
+Voor verbinding met een Service Fabric-cluster, moet u de clusters eindpunt (FQDN-naam/het IP-) en het hulpprogramma voor het eindpunt van de HTTP-beheerpoort (19080 standaard). Bijvoorbeeld https://mysfcluster.westus.cloudapp.azure.com:19080. Gebruik het selectievakje "Localhost verbinden" verbinding maken met een lokaal cluster op uw werkstation.
+
+### <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
+U kunt de clienttoegang beheren met uw Service Fabric-cluster met certificaten of met behulp van Azure Active Directory (AAD).
+
+Als u probeert verbinding maken met een beveiligde cluster, vervolgens afhankelijk van de configuratie van het cluster moet u een clientcertificaat of meld u aan met AAD.
 
 ## <a name="video-tutorial"></a>Zelfstudievideo
 
 Voor informatie over het gebruik van Service Fabric Explorer, bekijk de volgende video voor Microsoft Virtual Academy:
 
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+> [!NOTE]
+> Deze video ziet dat service Fabric Explorer gehost in een Service Fabric-cluster, de bureaubladversie.
+>
+>
 
-## <a name="connect-to-service-fabric-explorer"></a>Verbinding maken met Service Fabric Explorer
-Als u de instructies voor het hebt gevolgd [uw ontwikkelingsomgeving voorbereiden](service-fabric-get-started.md), kunt u de Service Fabric Explorer starten op uw lokale cluster door te navigeren naar http://localhost: 19080/Explorer.
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Inzicht in de indeling van de Service Fabric Explorer
 U kunt via Service Fabric Explorer navigeren met behulp van de structuur aan de linkerkant. In de hoofdmap van de structuur overzicht cluster-dashboard van uw cluster, inclusief een overzicht van de toepassing en het knooppunt status.
@@ -68,25 +101,6 @@ Bijvoorbeeld, als u wilt verwijderen van instantie van een toepassing, kies de t
 > [!TIP]
 > U kunt dezelfde acties uitvoeren door te klikken op het weglatingsteken naast elk element.
 >
->
-
-De volgende tabel bevat de acties die beschikbaar zijn voor elke entiteit:
-
-| **Entiteit** | **Actie** | **Beschrijving** |
-| --- | --- | --- |
-| Toepassingstype |Type inrichting |Hiermee verwijdert u het toepassingspakket uit het archief van de installatiekopie van het cluster. Vereist dat alle toepassingen van dat type moet eerst worden verwijderd. |
-| Toepassing |Toepassing verwijderen |De toepassing, met inbegrip van alle services en hun status (indien aanwezig) verwijderen. |
-| Service |Verwijderen van de Service |De service en de status verwijderd (indien aanwezig). |
-| Knooppunt |Activeren |Activeren van het knooppunt. |
-| Knooppunt | Deactiveren (pause) | Het knooppunt in de huidige status onderbreken. Services kunnen blijven uitvoeren maar Service Fabric wordt niet proactief verplaatst alles naar of uit deze tenzij deze is vereist om te voorkomen dat een inconsistentie onderbreking of gegevens. Deze actie wordt meestal gebruikt voor foutopsporing services op een specifiek knooppunt om ervoor te zorgen dat ze niet tijdens controle verplaatsen in te schakelen. | |
-| Knooppunt | (Opnieuw opstarten) deactiveren | Veilig Verplaats alle in het geheugen services een knooppunt uit en sluit permanente services. Doorgaans gebruikt wanneer de hostprocessen of de computer moet opnieuw worden opgestart. | |
-| Knooppunt | Deactiveren (gegevens verwijderen) | Alle services die worden uitgevoerd op het knooppunt na het bouwen van voldoende spare replica's sluiten. Doorgaans gebruikt wanneer een knooppunt (of ten minste bijbehorende opslag) is buiten het Commissie permanent genomen. | |
-| Knooppunt | Status van knooppunt verwijderen | Kennis van replica's van een knooppunt uit het cluster verwijdert. Doorgaans gebruikt wanneer een knooppunt al onherstelbare wordt geacht. | |
-| Knooppunt | Opnieuw starten | Een knooppuntfout simuleren door het knooppunt opnieuw te starten. Meer informatie [hier](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
-
-Aangezien veel acties destructieve, wordt u mogelijk gevraagd om te bevestigen dat uw bedoeling voordat de actie is voltooid.
-
-> [!TIP]
 > Elke actie die kan worden uitgevoerd via Service Fabric Explorer kan ook worden uitgevoerd via PowerShell of REST-API om te automatiseren.
 >
 >
@@ -96,27 +110,11 @@ U kunt ook een Service Fabric Explorer gebruiken om toepassingsexemplaren voor e
 ![Instantie van een toepassing maken in Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> Exemplaren van een toepassing gemaakt via Service Fabric Explorer kunnen niet op dit moment parameters worden gebruikt. Ze zijn gemaakt met behulp van de standaardwaarden voor parameters.
+> Service Fabric Explorer biedt geen ondersteuning voor parameters bij het maken van exemplaren van een toepassing. Exemplaren van een toepassing gebruik standaardwaarden voor parameters.
 >
 >
-
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Verbinding maken met een externe Service Fabric-cluster
-Als u eindpunt van het cluster kent en voldoende machtigingen hebt u toegang tot Service Fabric Explorer vanuit elke browser. Dit komt doordat het Service Fabric Explorer is gewoon een service die wordt uitgevoerd in het cluster.
-
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Het eindpunt van de Service Fabric Explorer voor een cluster met externe detecteren
-Service Fabric Explorer voor een bepaald cluster bereiken, wijst u uw browser:
-
-http://&lt;uw cluster-eindpunt&gt;: 19080/Explorer
-
-De volledige URL is ook beschikbaar in het cluster essentials deelvenster van de Azure portal voor Azure-clusters.
-
-### <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
-U kunt de clienttoegang beheren met uw Service Fabric-cluster met certificaten of met behulp van Azure Active Directory (AAD).
-
-Als u probeert verbinding maken met Service Fabric Explorer op een beveiligde cluster, vervolgens afhankelijk van de configuratie van het cluster u gevraagd een clientcertificaat of meld u aan met AAD.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Overzicht van testbaarheid](service-fabric-testability-overview.md)
 * [Het beheren van uw Service Fabric-toepassingen in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementatie van de service Fabric-toepassing met behulp van PowerShell](service-fabric-deploy-remove-applications.md)
 

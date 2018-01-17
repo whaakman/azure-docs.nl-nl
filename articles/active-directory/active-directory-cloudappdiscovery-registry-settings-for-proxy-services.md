@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Cloud App Discovery-registerinstellingen voor proxyservices
 Het doel van dit onderwerp wordt uitgelegd hoe u kunt uitvoeren om in te stellen de vereiste poort op de computers waarop de Cloud App Discovery-agent wordt uitgevoerd. De Cloud App Discovery-agent is standaard geconfigureerd om alleen de poorten 80 of 443 te gebruiken. Als u van plan bent over het installeren van Cloud App Discovery in een omgeving met een proxyserver die van een aangepaste poort (geen 80 of 443 gebruikmaakt), moet u de agents voor het gebruik van deze poort configureren. De configuratie is gebaseerd op een registersleutel.
@@ -29,7 +29,7 @@ Het doel van dit onderwerp wordt uitgelegd hoe u kunt uitvoeren om in te stellen
 ## <a name="modify-the-port-used-by-the-computer-running-the-cloud-app-discovery-agent"></a>De poort die wordt gebruikt door de computer met de Cloud App Discovery-agent wijzigen
 
 1. Start de Registereditor.
-  ![Uitvoeren](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
+  ![Run](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
 2. Ga naar of maak de volgende registersleutel: **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint**
 3. Maak een nieuwe **met meerdere tekenreeksen** waarde met de naam **poorten**. 
   ![Nieuw](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
@@ -47,7 +47,7 @@ Het doel van dit onderwerp wordt uitgelegd hoe u kunt uitvoeren om in te stellen
    **4080** <br>
    **443** <br>
    **1110** <br><br>
-   ![Met meerdere tekenreeksen bewerken](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
+   ![Edit Multi-String](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Klik op **OK** sluiten de **met meerdere tekenreeksen bewerken** dialoogvenster.
 
 ## <a name="next-steps"></a>Volgende stappen

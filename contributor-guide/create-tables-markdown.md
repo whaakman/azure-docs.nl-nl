@@ -2,4 +2,4 @@
 
 In deze richtlijnen is verplaatst naar de docs.microsoft.com interne-Inzender handleiding.
 
-Zie [https://aka.ms/markdown-tables](https://aka.ms/markdown-tables)
+See [https://aka.ms/markdown-tables](https://aka.ms/markdown-tables)

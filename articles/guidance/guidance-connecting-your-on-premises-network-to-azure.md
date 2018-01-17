@@ -19,7 +19,7 @@ ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Verbinding maken met uw on-premises netwerk naar Azure
 Microsoft biedt verschillende soorten cloudservices. Terwijl u verbinding met alle services die via het openbare Internet maken kunt, kunt u ook verbinding maken met enkele van de services met een virtueel particulier netwerk (VPN)-tunnel via Internet of via een directe, particuliere verbinding naar Microsoft. In dit artikel kunt u bepalen welke connectiviteitsoptie het beste voldoet aan uw behoeften op basis van de typen Microsoft-cloudservices die u wilt gebruiken. De meeste organisaties gebruikmaken van meerdere verbindingstypen die hieronder worden beschreven.
@@ -31,7 +31,7 @@ Dit verbindingstype biedt toegang tot Microsoft cloud-services rechtstreeks via 
 
 Deze verbinding is doorgaans het eerste type gebruikt voor het verbinden met Microsoft-cloudservices. De volgende tabel bevat de voor- en nadelen van dit verbindingstype.
 
-| **Voordelen** | **Overwegingen** |
+| **Benefits** | **Overwegingen** |
 | --- | --- |
 | Vereist geen wijziging in uw on-premises netwerk, zolang alle apparaten van clients hebben onbeperkte toegang tot alle IP-adressen en poorten op het Internet. |Al het verkeer wordt vaak versleuteld via HTTPS, kan deze worden onderschept onderweg omdat deze het openbare Internet passeert. |
 | Kan verbinding maken met alle Microsoft-cloudservices blootgesteld aan het openbare Internet. |Onvoorspelbare latentie omdat de verbinding over het Internet wordt verzonden. |
@@ -47,7 +47,7 @@ Dit verbindingstype biedt toegang tot sommige Microsoft-cloudservices via een tu
 
 De verbinding wordt gemaakt via uw bestaande internetverbinding, maar gebruik van een Azure VPN-Gateway vereist. De volgende tabel bevat de voor- en nadelen van dit verbindingstype.
 
-| **Voordelen** | **Overwegingen** |
+| **Benefits** | **Overwegingen** |
 | --- | --- |
 | Vereist geen wijziging in uw on-premises netwerk, zolang alle apparaten van clients hebben onbeperkte toegang tot alle IP-adressen en poorten op het Internet. |Al het verkeer is versleuteld met IPSec, kan deze worden onderschept onderweg omdat deze het openbare Internet passeert. |
 | Gebruikt uw bestaande internetverbinding. |Onvoorspelbare latentie omdat de verbinding over het Internet wordt verzonden. |
@@ -65,7 +65,7 @@ Dit verbindingstype biedt toegang tot sommige Microsoft-cloudservices via een IP
 
 De verbinding wordt gemaakt via uw bestaande internetverbinding, maar gebruik van een Azure VPN-Gateway met de bijbehorende prijzen en uitgaande gegevensoverdracht prijzen vereist. De volgende tabel bevat de voor- en nadelen van dit verbindingstype.
 
-| **Voordelen** | **Overwegingen** |
+| **Benefits** | **Overwegingen** |
 | --- | --- |
 | Alle apparaten in uw on-premises netwerk kunnen communiceren met de Azure-services verbonden met een VNet is niet nodig om afzonderlijke verbindingen voor elk apparaat te configureren. |Al het verkeer is versleuteld met IPSec, kan deze worden onderschept onderweg omdat deze het openbare Internet passeert. |
 | Gebruikt uw bestaande internetverbinding. |Onvoorspelbare latentie omdat de verbinding over het Internet wordt verzonden. |
@@ -85,7 +85,7 @@ Dit verbindingstype biedt toegang tot alle Microsoft cloud-services via een spec
 
 De verbinding vereist gebruik van de service ExpressRoute en een verbinding met een connectiviteitsprovider. De volgende tabel bevat de voor- en nadelen van dit verbindingstype.
 
-| **Voordelen** | **Overwegingen** |
+| **Benefits** | **Overwegingen** |
 | --- | --- |
 | Verkeer kan niet worden onderschept tijdens de overdracht via het openbare Internet aangezien wordt gebruikt voor een specifieke verbinding via een serviceprovider. |On-premises router beheer vereist. |
 | Bandbreedte maximaal 10 Gb/s per ExpressRoute-circuit en de doorvoer maximaal 2 Gb/s naar elke gateway. |Een speciale verbinding vereist met een connectiviteitsprovider. |
