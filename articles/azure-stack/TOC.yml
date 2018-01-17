@@ -19,7 +19,7 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Azure Stack implementeren
+    - name: Azure Stack evalueren
       href: azure-stack-deploy-overview.md
 - name: Zelfstudies
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Concepten
   items:
-    - name: Aandachtspunten voor de planning
-      href: azure-stack-planning-considerations.md
     - name: Servicebeleid
       href: azure-stack-servicing-policy.md
     - name: Belangrijke functies en concepten
@@ -43,7 +41,7 @@
       href: azure-stack-manage-basics.md
 - name: Handleidingen
   items:
-    - name: Implementeren
+    - name: De ASDK implementeren
       items:
         - name: Vereisten
           href: azure-stack-deploy.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Een test-VM maken
           href: azure-stack-provision-vm.md
+    - name: Azure-Stack geïntegreerd systemen implementeren
+      items:
+        - name: Overwegingen bij de planning van de implementatie
+          href: azure-stack-deployment-planning.md
+        - name: Beslissingen voor de distributie planning
+          href: azure-stack-deployment-decisions.md
+        - name: Implementeren met Azure bent verbonden
+          href: azure-stack-connected-deployment.md
+        - name: Implementatie van Azure is verbroken
+          href: azure-stack-disconnected-deployment.md
+        - name: Azure Stack PKI implementatievereisten
+          href: azure-stack-pki-certs.md
+          items:
+            - name: PKI-certificaten voor de implementatie van Azure-Stack ophalen
+              href: azure-stack-get-pki-certs.md
+        - name: Azure Stack registreren
+          href: azure-stack-registration.md
     - name: Datacenter-integratie
       items:
         - name: DNS
