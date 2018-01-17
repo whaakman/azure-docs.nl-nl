@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/03/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ca0817b37b6baaa4ef63dfb76790fb3b3735b55f
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -36,6 +36,14 @@ Een ontwikkelcomputer waarop wordt uitgevoerd:
 Een Windows-cluster met drie of meer knooppunten die worden uitgevoerd op Windows Server 2016 met containers - [Een cluster maken](service-fabric-cluster-creation-via-portal.md) of [Service Fabric gratis uitproberen](https://aka.ms/tryservicefabric).
 
 Een register in Azure Container Registry - [Een containerregister maken](../container-registry/container-registry-get-started-portal.md) in uw Azure-abonnement.
+
+> [!NOTE]
+> Containers implementeren in een Service Fabric-cluster in Windows 10 of in een cluster dat Docker CE niet ondersteunt. Met behulp van deze stapsgewijze handleiding test u lokaal de Docker-engine in Windows 10 en implementeert u de containerservices in een Windows Server-cluster in Azure met Docker EE. 
+>   
+
+> [!NOTE]
+> Service Fabric versie 6.1 biedt preview-ondersteuning voor Windows Server versie 1709. Open netwerken en de DNS-service voor Service Fabric werken niet met Windows Server versie 1709. 
+> 
 
 ## <a name="define-the-docker-container"></a>De Docker-container definiëren
 Bouw een installatiekopie op basis van de [Python-installatiekopie](https://hub.docker.com/_/python/) die zich in de Docker-hub bevindt.
@@ -294,7 +302,8 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > De hyperv-isolatiemodus is beschikbaar in de Azure-SKU's Ev3 en Dv3 aangezien die ondersteuning voor geneste virtualisatie bieden. Zorg ervoor dat de Hyper-V-rol op de hosts is geïnstalleerd. U kunt dit controleren door verbinding te maken met de hosts.
+   > De hyperv-isolatiemodus is beschikbaar in de Azure-SKU's Ev3 en Dv3 aangezien die ondersteuning voor geneste virtualisatie bieden. 
+   >
    >
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
@@ -309,6 +318,31 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
   </Policies>
 </ServiceManifestImport>
 ```
+## <a name="configure-docker-healthcheck"></a>Docker-STATUSCONTROLE configureren 
+
+Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de **dockerfile** die wordt gebruikt tijdens het genereren van de containerinstallatiekopie. 
+
+![HealthCheckHealthy][3]
+
+![HealthCheckUnealthyApp][4]
+
+![HealthCheckUnhealthyDsp][5]
+
+U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren door **HealthConfig**-opties op te geven als onderdeel van **ContainerHostPolicies** in ApplicationManifest.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+Standaard is *IncludeDockerHealthStatusInSystemHealthReport* ingesteld op **true** en *RestartContainerOnUnhealthyDockerHealthStatus* op **false**. Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **true**, wordt een herhaaldelijk niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
+
+Als u de **STATUSCONTROLE**-integratie voor het hele Service Fabric-cluster wilt uitschakelen, stelt u [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) in op **false**.
 
 ## <a name="deploy-the-container-application"></a>De containertoepassing implementeren
 Sla al uw wijzigingen op en bouw de toepassing. Klik in Solution Explorer met de rechtermuisknop op **MyFirstContainer** en selecteer **Publish** om uw toepassing te publiceren.
@@ -324,7 +358,7 @@ De toepassing is gereed bij een ```Ready```-status: ![Gereed][2]
 Open een browser en ga naar http://containercluster.westus2.cloudapp.azure.com:8081. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ## <a name="clean-up"></a>Opruimen
-Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
+Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-cluster-delete.md).  [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
 
 Nadat u de installatiekopie naar het containerregister hebt gepusht, kunt u de lokale installatiekopie op de ontwikkelcomputer verwijderen:
 
@@ -332,6 +366,34 @@ Nadat u de installatiekopie naar het containerregister hebt gepusht, kunt u de l
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
+
+## <a name="specify-os-build-version-specific-container-images"></a>Containerinstallatiekopieën opgeven die specifiek zijn voor de build-versie van het besturingssysteem 
+
+Windows Server-containers (procesisolatiemodus) zijn mogelijk niet compatibel met nieuwere versies van het besturingssysteem. Windows Server-containers die zijn gebouwd met Windows Server 2016, zijn bijvoorbeeld niet geschikt voor Windows Server versie 1709. Als de clusterknooppunten worden bijgewerkt naar de nieuwste versie, werken containerservices die in eerdere versies van het besturingssysteem zijn gebouwd, daarom mogelijk niet meer correct. Om dit met versie 6.1 en later van de runtime te omzeilen, ondersteunt Service Fabric het opgeven van meerdere besturingssysteemkopieën per container en het taggen hiervan met de build-versie van het besturingssysteem (verkregen door `winver` uit te voeren in de Windows-opdrachtprompt).  Het is raadzaam om eerst per besturingssysteemversie de toepassingsmanifesten bij te werken en het gebruik van specifieke installatiekopieën op te geven, en pas daarna het besturingssysteem op de knooppunten bij te werken. Het volgende fragment toont hoe u meerdere containerinstallatiekopieën opgeeft in het toepassingsmanifest **ApplicationManifest.xml**:
+
+
+```xml
+<ContainerHostPolicies> 
+         <ImageOverrides> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
+         </ImageOverrides> 
+     </ContainerHostPolicies> 
+```
+De build-versie voor Windows Server 2016 is 14393, voor Windows Server versie 1709 is dat 16299. Het servicemanifest blijft slechts één installatiekopie per containerservice opgeven, zoals u hier ziet:
+
+```xml
+<ContainerHost>
+    <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName> 
+</ContainerHost>
+```
+
+   > [!NOTE]
+   > De tagfunctionaliteit voor de build-versie van het besturingssysteem is alleen beschikbaar voor Service Fabric in Windows
+   >
+
+Als het onderliggende besturingssysteem op de VM build 16299 (versie 1709) is, kiest Service Fabric de containerinstallatiekopie die overeenkomt met die versie van Windows Server.  Als in het toepassingsmanifest een containerinstallatiekopie zonder tag wordt opgegeven samen met een containerinstallatiekopie met tag, behandelt Service Fabric de installatiekopie zonder tag als installatiekopie die in meerdere versies werkt. Het is raadzaam om containerinstallatiekopieën expliciet te taggen.
+
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
 Dit zijn de volledige manifesten voor de service en toepassing die in dit artikel worden gebruikt.
@@ -451,7 +513,7 @@ Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch
 U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt.  Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
@@ -467,6 +529,33 @@ U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebrui
 De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`. 
 
 
+## <a name="configure-container-image-download-time"></a>Downloadtijd van de containerinstallatiekopie configureren
+
+Standaard wijst de Service Fabric-runtime een periode van 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken. Voor de meeste containerinstallatiekopieën is dat voldoende. Voor grote kopieën, of als de netwerkverbinding langzaam is, kan het echter nodig zijn om de toegewezen tijd te verlengen, zodat het downloaden en uitpakken van de installatiekopie niet voortijdig wordt afgebroken. U geeft dit op met het kenmerk **ContainerImageDownloadTimeout** in het gedeelte **Hosting** van het clustermanifest, zoals u in het volgende fragment ziet:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>Bewaarbeleid voor containers instellen
+
+Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service Fabric (versie 6.1 of hoger) het bewaren van containers die zijn gestopt of niet kunnen opstartten. Dit beleid kan worden ingesteld in het bestand **ApplicationManifest.xml**, zoals u in het volgende fragment ziet:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer er bij het kenmerk **ContainersRetentionCount** niets is opgegeven, worden er geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies doet u er verstandig aan plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
@@ -476,3 +565,6 @@ De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de 
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
