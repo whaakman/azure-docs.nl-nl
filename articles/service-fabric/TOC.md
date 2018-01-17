@@ -96,6 +96,7 @@
 ##### [Parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md)
 ##### [Gegevensserialisatie in toepassingsupgrades](service-fabric-application-upgrade-data-serialization.md)
 ##### [Toepassingsupgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md)
+#### [Toepassingen voor meerdere omgevingen beheren](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Toepassingen testen met foutanalyse](service-fabric-testability-overview.md)
 #### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Werken in een Windows-/VS-ontwikkelomgeving
 ### [Toepassingen beheren in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Beveiligde verbindingen configureren in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Uw toepassing configureren voor meerdere omgevingen](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Fouten opsporen in een .NET-service in Visual Studio](service-fabric-debugging-your-application.md)
 ### [Veelvoorkomende fouten en uitzonderingen](service-fabric-errors-and-exceptions.md)
 ### [Lokaal bewaken en diagnoses uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Toepassingslevenscyclus beheren
 ### [Toepassingspakket maken](service-fabric-package-apps.md)
+### [Parameters met configuratiebestanden gebruiken](service-fabric-how-to-parameterize-configuration-files.md)
+### [Poortnummers opgeven met behulp van parameters](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Omgevingsvariabelen opgeven](service-fabric-how-to-specify-environment-variables.md)
 
 ### Toepassingen implementeren of verwijderen
 #### [Toepassingen implementeren in een lokaal cluster](service-fabric-get-started-with-a-local-cluster.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [XML-schema van servicemodel](service-fabric-service-model-schema.md)
+## [Omgevingsvariabelen](service-fabric-environment-variables-reference.md)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
