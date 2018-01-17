@@ -10,20 +10,20 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/7/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 30cda1997ca93f237dafd34cfffc2a86b86d6c7c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Objecten overdragen naar/van Azure Blob-opslag met Ruby
 In deze snelstartgids leert u hoe u Ruby kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze snelstartgids: 
+Dit zijn de vereisten voor het voltooien van deze Quickstart: 
 * [Ruby](https://www.ruby-lang.org/en/downloads/) installeren
-* Installeer de [Azure Storage-bibliotheek voor Ruby](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) met het pakket rubygem. 
+* Installeer de [Azure Storage-bibliotheek voor Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) met het pakket rubygem. 
 
 ```
 gem install azure-storage
@@ -131,7 +131,7 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_service.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Gebruik de methode **create\_block\_list()** om een gedeeltelijke update van de inhoud van een blok-blob uit te voeren. Blok-blobs kunnen tot 4,7 TB groot zijn en kunnen van alles zijn: van Excel-spreadsheets tot grote videobestanden. Pagina-blobs worden met name gebruikt voor de VHD-bestanden die worden gebruikt ter ondersteuning van IaaS-VM‘s. Toevoeg-blobs worden gebruikt voor logboekregistratie, bijvoorbeeld wanneer u wilt schrijven naar een bestand en vervolgens meer gegevens wilt blijven toevoegen. Een toevoeg-blob moet worden gebruikt in een enkelvoudige schrijfmodus. De meeste objecten die worden opgeslagen in Blob-opslag, zijn blok-blobs.
+Gebruik de methode **create\_block\_list()** om een gedeeltelijke update van de inhoud van een blok-blob uit te voeren. Blok-blobs kunnen tot 4,7 TB groot zijn en kunnen van alles zijn: van Excel-spreadsheets tot grote videobestanden. Pagina-blobs worden met name gebruikt voor de VHD-bestanden die worden gebruikt ter ondersteuning van IaaS-VM‘s. Toevoeg-blobs worden gebruikt voor logboekregistratie, bijvoorbeeld wanneer u gegevens wilt wegschrijven naar een bestand en vervolgens gegevens wilt blijven toevoegen. Een toevoeg-blob moet worden gebruikt in een enkelvoudige schrijfmodus. De meeste objecten die worden opgeslagen in Blob-opslag, zijn blok-blobs.
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 

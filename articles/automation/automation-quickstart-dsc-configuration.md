@@ -6,14 +6,14 @@ keywords: dsc, configuratie, automatiseren
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Een virtuele Linux-machine met Desired State Configuration configureren
 
@@ -21,7 +21,7 @@ Door Desired State Configuration (DSC) in te schakelen, kunt u de configuraties 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze quickstart te voltooien:
+U hebt het volgende nodig om deze snelstartgids te voltooien:
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [maak dan een gratis account](https://azure.microsoft.com/free/).
 * Een Azure Automation-account. Zie [Azure Uitvoeren-als-account](automation-sec-configure-azure-runas-account.md) voor instructies over het maken van een Azure Automation Uitvoeren-als-account.
@@ -31,7 +31,7 @@ U hebt het volgende nodig om deze quickstart te voltooien:
 Meld u aan bij Azure via https://portal.azure.com.
 
 ## <a name="onboard-a-virtual-machine"></a>Een virtuele machine onboarden
-Er zijn veel verschillende methoden voor het uitvoeren van onboarding op een machine en om Desired State Configuration in te schakelen. Deze quickstart bevat informatie over onboarding via een Automation-account. Lees het artikel over [onboarding](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding) voor meer informatie over de verschillende methoden voor de onboarding van uw machines naar Desired State Configuration.
+Er zijn veel verschillende methoden voor het uitvoeren van onboarding op een machine en om Desired State Configuration in te schakelen. Deze quickstart bevat informatie over onboarding via een Automation-account. Lees het artikel over [onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) voor meer informatie over de verschillende methoden voor de onboarding van uw machines naar Desired State Configuration.
 
 1. Selecteer in het linkerdeelvenster van Azure Portal de optie **Automation-accounts**. Als die niet in het linkerdeelvenster wordt weergegeven, klikt u op **Alle services** en zoekt u ernaar in de weergave die u dan ziet.
 1. Selecteer een Automation-account in de lijst.
@@ -39,7 +39,7 @@ Er zijn veel verschillende methoden voor het uitvoeren van onboarding op een mac
 1. Klik op de menuoptie **Azure VM toevoegen**.
 1. Zoek naar de virtuele machine waarvoor u DSC wilt inschakelen DSC. U kunt het zoekveld en de filteropties gebruiken om een specifieke virtuele machine te vinden.
 1. Klik op de virtuele machine en selecteer vervolgens **Verbinden**
-1. Selecteer de juiste DSC-instellingen voor de virtuele machine. Als u al een configuratie hebt voorbereid, kunt u deze opgeven als *knooppuntconfiguratienaam*. U kunt de [configuratiemodus](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig) instellen om het configuratiegedrag voor de machine te bepalen.
+1. Selecteer de juiste DSC-instellingen voor de virtuele machine. Als u al een configuratie hebt voorbereid, kunt u deze opgeven als *knooppuntconfiguratienaam*. U kunt de [configuratiemodus](https://docs.microsoft.com/powershell/dsc/metaconfig) instellen om het configuratiegedrag voor de machine te bepalen.
 1. Klik op **OK**
 
 ![De onboarding van virtuele Azure-machine voor DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ De configuratie importeren:
 
 ## <a name="compile-a-configuration"></a>Een configuratie compileren
 
-DSC-configuraties moeten worden gecompileerd naar een knooppuntconfiguratie (MOF-document) voordat deze aan een knooppunt worden toegewezen. Tijdens de compilatie wordt de configuratie gevalideerd en is het mogelijk parameterwaarden in te voeren. Zie [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile) (Configuraties compileren in Azure Automation DSC) voor meer informatie over het compileren van een configuratie.
+DSC-configuraties moeten worden gecompileerd naar een knooppuntconfiguratie (MOF-document) voordat deze aan een knooppunt worden toegewezen. Tijdens de compilatie wordt de configuratie gevalideerd en is het mogelijk parameterwaarden in te voeren. Zie [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile) (Configuraties compileren in Azure Automation DSC) voor meer informatie over het compileren van een configuratie.
 
 De configuratie compileren:
 
@@ -141,6 +141,6 @@ In deze quickstart hebt u een onboarding uitgevoerd voor een virtuele Linux-mach
 > [!div class="nextstepaction"]
 > [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md) (Continue implementatie naar een virtuele machine met behulp van DSC en Chocolatey)
 
-* Zie voor meer informatie over PowerShell Desired State Configuration, [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/en-us/powershell/dsc/overview) (Overzicht van PowerShell Desired Configuration).
-* Zie [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0) voor meer informatie over het beheren van Automation DSC vanuit PowerShell.
-* Zie [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics) (DSC-rapporten doorsturen naar Log Analytics) voor informatie over het doorsturen van DSC-rapporten naar Log Analytics voor rapportage- en waarschuwingsdoeleinden. 
+* Zie voor meer informatie over PowerShell Desired State Configuration, [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Overzicht van PowerShell Desired Configuration).
+* Zie [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0) voor meer informatie over het beheren van Automation DSC vanuit PowerShell.
+* Zie [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) (DSC-rapporten doorsturen naar Log Analytics) voor informatie over het doorsturen van DSC-rapporten naar Log Analytics voor rapportage- en waarschuwingsdoeleinden. 

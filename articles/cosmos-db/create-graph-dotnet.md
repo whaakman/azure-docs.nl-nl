@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: een .NET Framework- of Core-toepassing ontwikkelen met Graph API
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze quickstart laat zien hoe u een Azure Cosmos DB-account, een database en een graaf (container) kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt u een console-app die is gebouwd op de [Graph API](graph-sdk-dotnet.md) en voert u deze uit.  
+Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een database en een graaf (container) kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt u een console-app die is gebouwd op de [Graph API](graph-sdk-dotnet.md) en voert u deze uit.  
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -65,7 +65,7 @@ In dit voorbeeldproject wordt de .NET Core-projectindeling gebruikt, en het proj
 
 Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.cs en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
 
-* De DocumentClient wordt geïnitialiseerd. In het voorbeeld hebben we een API voor het toevoegen van een graafextensie toegevoegd aan de Azure Cosmos DB-client. We werken op een zelfstandige graafclient die is losgekoppeld van de Azure Cosmos DB-client en -resources.
+* De DocumentClient wordt geïnitialiseerd. 
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -122,17 +122,11 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
 
-3. Als u uw grafiekdatabaseaccount hebt gemaakt voor 27 november 2017, wijzigt u `documents` naar `graphs` in de waarde `endpoint`. Als u uw grafiekdatabaseaccount hebt gemaakt op of na 27 november 2017, wijzigt u `documents` naar `gremlin.cosmosdb` in de waarde `endpoint`.
-
-    De eindpuntwaarde ziet er nu als volgt:
-
-    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` of  `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
-
-4. Kopieer vervolgens de waarde van uw **PRIMAIRE SLEUTEL** vanuit de portal en geef deze als authKey-waarde in App.config. Sla daarna uw wijzigingen op. 
+3. Kopieer vervolgens de waarde van uw **PRIMAIRE SLEUTEL** vanuit de portal en geef deze als authKey-waarde in App.config. Sla daarna uw wijzigingen op. 
 
     `"authkey": "FILLME"`
 
-5. Sla het bestand appsettings.json op. 
+4. Sla het bestand appsettings.json op. 
 
 U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
@@ -170,14 +164,14 @@ U kunt nu teruggaan naar Data Explorer in Azure Portal en door uw nieuwe graafge
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze quickstart zijn aangemaakt door onderstaande stappen te volgen in Azure Portal: 
+Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal: 
 
 1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een graaf gemaakt met Data Explorer en hebt u een app uitgevoerd. U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan. 
+In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een graaf gemaakt met Data Explorer en hebt u een app uitgevoerd. U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan. 
 
 > [!div class="nextstepaction"]
 > [Query’s uitvoeren met Gremlin](tutorial-query-graph.md)
