@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>De Azure Site Recovery-implementatieplanner voor VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -63,6 +63,7 @@ Vervang &lsaquo;servernaam&rsaquo;, &lsaquo;gebruikersnaam&rsaquo;, &lsaquo;wach
 
     ![Lijst met namen van virtuele machines in de implementatieplanner
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Profileren starten
 Als u de lijst met te profileren virtuele machines hebt opgesteld, kunt u het hulpprogramma uitvoeren in de profileringsmodus. Hier volgt een lijst met verplichte en optionele parameters van het hulpprogramma die u in de profileringsmodus kunt uitvoeren.
 
@@ -94,6 +95,17 @@ Het is raadzaam om de virtuele machines gedurende meer dan 7 dagen te profileren
 Tijdens het profileren kunt u eventueel de naam en sleutel van een opslagaccount doorgeven om vast te stellen wat de doorvoer is die Site Recovery kan behalen op het moment van replicatie vanaf de configuratieserver of processerver naar Azure. Als tijdens de profilering geen accountnaam en -sleutel wordt doorgegeven, wordt er geen bereikbare doorvoer berekend.
 
 U kunt meerdere exemplaren van het hulpprogramma uitvoeren voor verschillende sets virtuele machines. Zorg ervoor dat de namen van de virtuele machines niet worden herhaald in een van de profileringssets. Als u bijvoorbeeld tien virtuele machines hebt geprofileerd (VM1 tot en met VM10) en na een paar dagen vijf andere virtuele machines wilt profileren (VM11 tot en met VM15), kunt u voor de tweede set virtuele machines (VM11 tot en met VM15) het hulpprogramma uitvoeren vanuit een andere opdrachtregelconsole. Zorg er wel voor dat de tweede set virtuele machines geen namen bevat van de eerste reeks geprofileerde virtuele machines of gebruik voor de tweede set een andere uitvoerdirectory. Als er voor het profileren van dezelfde virtuele machines twee exemplaren van het hulpprogramma worden gebruikt en dezelfde uitvoerdirectory wordt gebruikt, is het gegenereerde rapport niet correct.
+
+Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines te profileren en te bewaken. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Met de standaardinstellingen worden er twee VMList.txt-bestanden gemaakt om bijvoorbeeld 1500 VM's te profileren. Een met 1000 VM's en een ander met 500 VM's. Voer de twee exemplaren van ASR Deployment Planner uit, één met VMList1.txt en een ander met VMList2.txt. U kunt hetzelfde directorypad gebruiken om de geprofileerde gegevens van beide VMList-VM's op te slaan. 
+
+Op basis van de hardwareconfiguratie hebben we gezien dat de bewerking kan mislukken vanwege onvoldoende geheugen, met name wat de omvang betreft van het RAM van de server waarop het hulpprogramma wordt uitgevoerd om het rapport te genereren. Als u goede hardware hebt, kunt u de waarde MaxVMsSupported verhogen.  
+
+Als u meerdere vCenter-servers hebt, moet u één exemplaar van ASRDeploymentPlanner uitvoeren voor elke vCenter-profileringsserver.
 
 De configuraties van de virtuele machines worden eenmaal aan het begin van de profilering vastgelegd en opgeslagen in een bestand met de naam VMDetailList.xml. Deze informatie wordt gebruikt bij het genereren van het rapport. Eventuele wijzigingen in de configuratie van een virtuele machine (bijvoorbeeld een groter aantal kerngeheugens, schijven of NIC's) vanaf het begin tot het einde van de profilering worden niet vastgelegd. Als de configuratie van een geprofileerde virtuele machine tijdens het profileren is gewijzigd, kunt u in de openbare preview de volgende oplossing gebruiken om de laatste gegevens van de virtuele machine te achterhalen wanneer u het rapport genereert:
 
@@ -158,6 +170,12 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 |-TargetRegion|(Optioneel) De Azure-regio waarop de replicatie is gericht. Omdat er voor Azure verschillende kosten per regio worden berekend, moet u voor het genereren van dit rapport deze parameter met een specifieke Azure-doelregio gebruiken.<br>De standaardwaarde is WestUS2, of de laatst gebruikte doelregio.<br>Raadpleeg de lijst met [ondersteunde doelregio's](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Optioneel) De aanbieding is gekoppeld aan het vermelde abonnement. De standaardwaarde is MS-AZR-0003P (betalen naar gebruik).|
 |-Currency|(Optioneel) De valuta waarin de kosten in het gegenereerde rapport worden weergegeven. Standaard is Amerikaanse Dollar ($) of de laatst gebruikte valuta.<br>Raadpleeg de lijst met [ondersteunde valuta's](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines te profileren en te bewaken. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Voorbeeld 1: een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
 ```

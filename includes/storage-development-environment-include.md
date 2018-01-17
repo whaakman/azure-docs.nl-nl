@@ -2,15 +2,15 @@
 Vervolgens stelt u in Visual Studio uw ontwikkelomgeving in, zodat u de codevoorbeelden in deze handleiding kunt uitproberen.
 
 ### <a name="create-a-windows-console-application-project"></a>Een Windows-consoletoepassingsproject maken
-Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2017, maar de stappen zijn hetzelfde in andere versies van Visual Studio.
+Maak in Visual Studio een nieuwe Windows-consoletoepassing. In de volgende stappen ziet u hoe u een consoletoepassing maakt in Visual Studio 2017. De stappen zijn nagenoeg gelijk in andere versies van Visual Studio.
 
-1. Selecteer **Bestand** > **Nieuw** > **Project**
-2. Selecteer **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Klassiek Windows-bureaublad**
-3. Selecteer **Consoletoepassing (.NET Framework)**
-4. Typ een naam voor de toepassing in het veld **Naam:**
-5. Selecteer **OK**
+1. Selecteer **Bestand** > **Nieuw** > **Project**.
+2. Selecteer **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Klassiek Windows-bureaublad**.
+3. Selecteer **Consoletoepassing (.NET Framework)**.
+4. Typ een naam voor de toepassing in het veld **Naam:**.
+5. Selecteer **OK**.
 
-![Dialoogvenster voor het maken van een project in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Schermopname van het dialoogvenster Nieuw project in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode `Main()` van het bestand `Program.cs` van de consoletoepassing.
 
@@ -25,13 +25,13 @@ Er zijn twee pakketten waarnaar u in uw project moet verwijzen om deze zelfstudi
 Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 
 1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
-2. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Storage-clientbibliotheek en de afhankelijkheden ervan te installeren.
-3. Zoek online naar 'WindowsAzure.ConfigurationManager' en klik op **Installeren** om Azure Configuration Manager te installeren.
+2. Zoek online naar 'WindowsAzure.Storage' en selecteer **Installeren** om de Storage-clientbibliotheek en de afhankelijkheden ervan te installeren.
+3. Zoek online naar 'WindowsAzure.ConfigurationManager' en selecteer **Installeren** om Azure Configuration Manager te installeren.
 
 > [!NOTE]
 > Het pakket met de Storage-clientbibliotheek is ook opgenomen in de [Azure-SDK voor .NET](https://azure.microsoft.com/downloads/). We raden u echter aan om ook de Storage-clientbibliotheek vanuit NuGet te installeren, zodat u zeker weet dat u altijd de meest recente versie van de clientbibliotheek hebt geïnstalleerd.
 > 
-> De ODataLib-afhankelijkheden in de Storage-clientbibliotheek voor .NET worden opgelost met de ODataLib-pakketten, die beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. De ODataLib-bibliotheken kunnen rechtstreeks worden gedownload of er kan vanuit het codeproject via NuGet naar worden verwezen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](http://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-opslagklassen worden gebruikt, zijn het verplichte afhankelijkheden voor het programmeren met de Storage-clientbibliotheek.
+> De ODataLib-afhankelijkheden in de Storage-clientbibliotheek voor .NET worden opgelost met de ODataLib-pakketten, die beschikbaar zijn op NuGet, en niet vanuit WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](http://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-opslagklassen worden gebruikt, zijn het verplichte afhankelijkheden voor het programmeren met de Storage-clientbibliotheek.
 > 
 > 
 
@@ -39,7 +39,7 @@ Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 U kunt de voorbeelden in deze gids in twee omgevingen uitvoeren:
 
 * U kunt de code uitvoeren met een Azure Storage-account in de cloud. 
-* U kunt de code uitvoeren met de Azure-opslagemulator. De opslagemulator is een lokale omgeving die een Azure Storage-account in de cloud emuleert. De emulator is een gratis optie waarmee u uw code kunt testen en fouten in de code kunt opsporen terwijl de toepassing nog in ontwikkeling is. De emulator maakt gebruik van een bekend account en een bekende sleutel. Zie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor ontwikkelen en testen) voor meer informatie.
+* U kunt de code uitvoeren met de Azure-opslagemulator. De opslagemulator is een lokale omgeving die een Azure Storage-account in de cloud emuleert. De emulator is een gratis optie waarmee u uw code kunt testen en fouten in de code kunt opsporen terwijl de toepassing nog in ontwikkeling is. De emulator maakt gebruik van een bekend account en een bekende sleutel. Zie [De Azure-opslagemulator gebruiken voor ontwikkeling en testen](../articles/storage/common/storage-use-emulator.md) voor meer informatie.
 
 Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toegangssleutel voor uw opslagaccount vanuit Azure Portal. Zie [Opslagtoegangssleutels bekijken en kopiëren](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) voor meer informatie.
 
@@ -54,7 +54,7 @@ De clientbibliotheek van Azure Storage voor .NET ondersteunt het gebruik van een
 Zie [Azure Storage-verbindingsreeksen configureren](../articles/storage/common/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
 
 > [!NOTE]
-> De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw opslagaccount altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel met Azure Portal als er mogelijk inbreuk op de sleutel heeft plaatsgevonden.
+> De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw opslagaccount altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel via de Azure-portal als er mogelijk inbreuk op de sleutel heeft plaatsgevonden.
 > 
 > 
 

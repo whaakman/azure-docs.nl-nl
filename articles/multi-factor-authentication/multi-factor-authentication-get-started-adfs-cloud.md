@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
 Als uw organisatie is gefedereerd met behulp van Azure Active Directory, kunt u Azure Multi-Factor Authentication of Active Directory Federation Services (AD FS) gebruiken om resources te beveiligen die door Azure AD worden gebruikt. Gebruik de volgende procedures voor het beveiligen van Azure Active Directory-resources met ofwel Azure Multi-Factor Authentication of Active Directory Federation Services.
@@ -83,16 +83,13 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee clai
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Goedgekeurde IP-adressen van Azure Multi-Factor Authentication configureren bij federatieve gebruikers
 Nu de claims zijn gemaakt, kunnen we goedgekeurde IP-adressen gaan configureren.
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Klik aan de linkerkant op **Active Directory**.
-3. Selecteer onder Adreslijst de adreslijst waar u de goedgekeurde IP-adressen wilt instellen.
-4. Klik op **Configureren** op de Adreslijst die u hebt geselecteerd.
-5. Klik in de sectie Multi-Factor Authentication op **Service-instellingen beheren**.
-6. Selecteer op de pagina Service-instellingen onder Goedgekeurde IP-adressen, **Meervoudige verificatie overslaan voor aanvragen van federatieve gebruikers op mijn intranet**.  
+1. Meld u aan bij [Azure Portal](https://portal.com).
+2. Selecteer **Azure Active Directory** > **Voorwaardelijke toegang** > **Benoemde locaties**.
+3. Selecteer in de blade **Voorwaardelijke toegang - Benoemde locaties** de optie **Vertrouwde IP's voor MFA configureren**
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Klik op **Opslaan**.
-8. Nadat de updates zijn toegepast, klikt u op **Sluiten**.
+   ![Azure AD voorwaardelijke toegang benoemde locaties Vertrouwde IP's voor MFA configureren](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. Selecteer op de pagina Service-instellingen onder **Vertrouwde IP's** de optie **Meervoudige verificatie overslaan voor aanvragen van federatieve gebruikers op mijn intranet**.  
+5. Klik op **Opslaan**.
 
 Dat is alles. Vanaf dit moment hoeven Office 365-gebruikers alleen MFA te gebruiken wanneer een claim afkomstig is van buiten het bedrijfsintranet.

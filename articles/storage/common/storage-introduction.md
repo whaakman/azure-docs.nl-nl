@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
@@ -35,9 +35,7 @@ In dit artikel komen de volgende onderwerpen aan bod:
 * gegevens overbrengen van of naar opslag
 * de verschillende opslagclientbibliotheken
 
-Raadpleeg een van de volgende Quick Starts om snel aan de slag te gaan met Azure Storage:
-* [Een opslagaccount maken met PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Een opslagaccount maken met CLI](storage-quickstart-create-storage-account-cli.md)
+Zie [Een opslagaccount maken](storage-quickstart-create-account.md) om aan de slag te gaan met Azure Storage.
 
 ## <a name="introducing-the-azure-storage-services"></a>Introductie van de Azure Storage-services
 
@@ -219,9 +217,7 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [Meer informatie over File Storage](../storage-files-introduction.md)
 * [Meer informatie over Queue Storage](../queues/storage-queues-introduction.md)
 
-Raadpleeg een van de volgende Quick Starts om snel aan de slag te gaan met Azure Storage:
-* [Een opslagaccount maken met PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Een opslagaccount maken met CLI](storage-quickstart-create-storage-account-cli.md)
+Zie [Een opslagaccount maken](storage-quickstart-create-account.md) om aan de slag te gaan met Azure Storage.
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

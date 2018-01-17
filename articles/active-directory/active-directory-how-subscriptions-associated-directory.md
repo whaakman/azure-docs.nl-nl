@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory
 
@@ -46,7 +46,7 @@ Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar
 
     ![Schermafbeelding waarin de directory wordt gewijzigd](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Klik op **Wijzigen**.
-6. Gelukt! Gebruik de directorywisselaar om naar de nieuwe directory te gaan.
+6. Gelukt! Gebruik de directorywisselaar om naar de nieuwe directory te gaan. Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.
 
     ![Schermafbeelding met het bericht dat het overschakelen naar een andere directory is geslaagd](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

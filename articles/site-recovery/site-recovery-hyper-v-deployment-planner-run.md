@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>De Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure uitvoeren
 
@@ -107,6 +107,15 @@ Tijdens het profileren kunt u eventueel de naam en sleutel van een opslagaccount
 
 U kunt meerdere exemplaren van het hulpprogramma uitvoeren voor verschillende sets virtuele machines. Zorg ervoor dat de namen van de virtuele machines niet worden herhaald in een van de profileringssets. Als u bijvoorbeeld tien virtuele machines hebt geprofileerd (VM1 tot en met VM10) en na een paar dagen vijf andere virtuele machines wilt profileren (VM11 tot en met VM15), kunt u voor de tweede set virtuele machines (VM11 tot en met VM15) het hulpprogramma uitvoeren vanuit een andere opdrachtregelconsole. Zorg er wel voor dat de tweede set virtuele machines geen namen bevat van de eerste reeks geprofileerde virtuele machines of gebruik voor de tweede set een andere uitvoerdirectory. Als er voor het profileren van dezelfde virtuele machines twee exemplaren van het hulpprogramma worden gebruikt en dezelfde uitvoerdirectory wordt gebruikt, is het gegenereerde rapport niet correct. 
 
+Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines te profileren en te bewaken. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Met de standaardinstellingen worden er twee VMList.txt-bestanden gemaakt om bijvoorbeeld 1500 VM's te profileren. Een met 1000 VM's en een ander met 500 VM's. Voer de twee exemplaren van ASR Deployment Planner uit, één met VMList1.txt en een ander met VMList2.txt. U kunt hetzelfde directorypad gebruiken om de geprofileerde gegevens van beide VMList-VM's op te slaan. 
+
+Op basis van de hardwareconfiguratie hebben we gezien dat de bewerking kan mislukken vanwege onvoldoende geheugen, met name wat de omvang betreft van het RAM van de server waarop het hulpprogramma wordt uitgevoerd om het rapport te genereren. Als u goede hardware hebt, kunt u de waarde MaxVMsSupported verhogen.  
+
 De configuraties van de virtuele machines worden eenmaal aan het begin van de profilering vastgelegd en opgeslagen in een bestand met de naam VMDetailList.xml. Deze informatie wordt gebruikt bij het genereren van het rapport. Eventuele wijzigingen in de configuratie van een virtuele machine (bijvoorbeeld een groter aantal kerngeheugens, schijven of NIC's) vanaf het begin tot het einde van de profilering worden niet vastgelegd. Als de configuratie van een geprofileerde virtuele machine tijdens het profileren is gewijzigd, kunt u de volgende oplossing gebruiken om de laatste gegevens van de virtuele machine te achterhalen wanneer u het rapport genereert:
 
 * Maak een back-up van VMdetailList.xml en verwijder het bestand van de huidige locatie.
@@ -169,6 +178,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-OfferId|(Optioneel) De aanbieding is gekoppeld aan het vermelde abonnement. De standaardwaarde is MS-AZR-0003P (betalen naar gebruik).|
 |-Currency|(Optioneel) De valuta waarin de kosten in het gegenereerde rapport worden weergegeven. Standaard is Amerikaanse Dollar ($) of de laatst gebruikte valuta.<br>Raadpleeg de lijst met [ondersteunde valuta's](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
 
+Standaard is het hulpprogramma geconfigureerd om maximaal 1000 virtuele machines te profileren en te bewaken. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+
 ### <a name="examples"></a>Voorbeelden
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Voorbeeld 1: een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
 ```
@@ -206,6 +221,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Percentielwaarde die voor de berekening wordt gebruikt
 **Welke standaardpercentielwaarde met betrekking tot de prestatiegerelateerde metrische gegevens die tijdens de profilering zijn verzameld, wordt tijdens het genereren van het rapport gebruikt?**

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: 0c3fc2d73a0caf0e0331cb9073bfcc0574240dac
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Blob-opslagbewerkingen uitvoeren met Azure CLI
 
@@ -165,7 +165,7 @@ az storage blob delete \
 
 ## <a name="set-the-content-type"></a>Type bestandsinhoud instellen
 
-Het type inhoud, ook wel bekend als het MIME-type, duidt de indeling aan van de gegevens in de blob. Browsers en andere software maken gebruik van het type inhoud om te bepalen hoe de gegevens verwerkt moeten worden. In het volgende voorbeeld wordt het type inhoud op `image/png` ingesteld.
+Het type inhoud, ook wel het MIME-type genoemd, geeft de indeling aan van de gegevens in de blob. Browsers en andere software maken gebruik van het type inhoud om te bepalen hoe de gegevens verwerkt moeten worden. In het volgende voorbeeld wordt het type inhoud op `image/png` ingesteld.
 
 ```azurecli-interactive
 # Set the content type
@@ -288,7 +288,7 @@ In deze zelfstudie hebt u de basisbeginselen geleerd van het werken met blobs in
 
 De volgende bronnen bevatten aanvullende informatie over het werken met Azure CLI en het werken met de resources in uw opslagaccount.
 
-* Azure CLI
+* Azure-CLI
   * [Aanmelden bij Azure CLI 2.0](/cli/azure/authenticate-azure-cli): meer informatie over de verschillende methoden voor verificatie met de CLI, met inbegrip van niet-interactieve aanmelding via [service-principal](/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal) voor het uitvoeren van Azure CLI-scripts zonder toezicht.
   * [Azure CLI 2.0-opdrachtenreferentie](/cli/azure/)
 * Microsoft Azure Storage Explorer

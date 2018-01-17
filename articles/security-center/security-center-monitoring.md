@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Beveiligingsstatus bewaken in Azure Security Center
 Dit artikel bevat informatie over het gebruik van de bewakingsmogelijkheden in Azure Security Center om naleving van het beleid te controleren.
@@ -48,11 +48,11 @@ Wanneer u klikt op de tegel **Compute** tegel, ziet u drie tabbladen:
 Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem.
 
 #### <a name="monitoring-recommendations"></a>Aanbevelingen ten aanzien van controle
-In deze sectie wordt het totale aantal virtuele machines en computers weergegeven dat is geïnitialiseerd voor het automatisch inrichten en de huidige status. Wanneer u op deze vermelding klikt, wordt **Problemen met de agentstatus controleren** geopend.
+In deze sectie wordt het totale aantal virtuele machines en computers weergegeven dat is geïnitialiseerd voor het automatisch inrichten en de huidige status. In dit voorbeeld is er één aanbeveling **Problemen met de agentstatus controleren**.  Selecteer deze aanbeveling.
 
 ![Problemen met de agentstatus controleren](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Virtuele machines en computers die Security Center niet kan controleren, worden vermeld. Selecteer een virtuele machine of computer voor gedetailleerde informatie. De **Controlestatus** definieert het probleem.
+**Problemen met de agentstatus controleren** wordt geopend. Virtuele machines en computers die Security Center niet kan controleren, worden vermeld. Selecteer een virtuele machine of computer voor gedetailleerde informatie. **BEWAKINGSSTATUS** toont de reden waarom Security Center niet kan bewaken. Raadpleeg de [Security Center probleemoplossingsgids](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) voor een lijst met waarden, beschrijvingen en probleemoplossingen voor de waarden van **BEWAKINGSSTATUS**.
 
 #### <a name="recommendations"></a>Aanbevelingen
 Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine en computer](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal virtuele machines en computers weer dat wordt beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding:

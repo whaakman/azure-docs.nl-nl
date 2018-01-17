@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
+# <a name="azure-analysis-services-overview"></a>Wat is Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services biedt een krachtige, cloudgebaseerde oplossing voor het modelleren van gegevens. Het is een volledig beheerd Platform as a Service (PaaS), geïntegreerd met de Azure Data Platform-services. 
@@ -95,7 +95,7 @@ Gebruik de cmdlets in de Azure Resource Manager-module (AzureRM-module) om behee
 ## <a name="your-data-is-secure"></a>Gegevens zijn beveiligd
 ![Gegevensvisualisaties](./media/analysis-services-overview/aas-overview-secure.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Verificatie
 Gebruikersverificatie voor Azure Analysis services wordt afgehandeld door [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Wanneer gebruikers zich willen aanmelden bij een Azure Analysis Services-database, moeten ze de id van een organisatie-account gebruiken die toegang heeft tot de database die ze willen raadplegen. Deze gebruikers-id's moeten lid zijn van de standaard Azure Active Directory voor het abonnement waarin de Azure Analysis Services-server is ondergebracht. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Gegevensbeveiliging

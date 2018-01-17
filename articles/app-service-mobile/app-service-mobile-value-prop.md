@@ -3,7 +3,7 @@ title: Mobile Apps in Azure App Service
 description: Lees welke voordelen App Service heeft voor de mobiele apps in uw onderneming.
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"> </a>Mobile Apps in Azure App Service
 Azure App Service is een volledig beheerde [PaaS-](https://azure.microsoft.com/overview/what-is-paas/)aanbieding (Platform as a Service) voor professionele ontwikkelaars. De service biedt een uitgebreide reeks mogelijkheden voor web-, mobiele en integratiescenario's. 
@@ -65,7 +65,7 @@ De volgende platformfuncties zijn handig voor mobiele productiesites:
 
   Lees meer over [Faseringsomgevingen].
 
-* **Doorlopende implementatie**: App Service kan worden geïntegreerd met veelgebruikte SCM-systemen (Supply Chain Management), zodat u automatisch een nieuwe versie van uw back-end kunt implementeren door een vertakking van uw SCM-systeem te pushen.
+* **Doorlopende implementatie**: App Service kan worden geïntegreerd met veelgebruikte broncodebeheersystemen (Source Control Management), zodat u automatisch een nieuwe versie van uw back-end kunt implementeren door een vertakking van uw SCM-systeem te pushen.
 
   Lees meer over [implementatieopties](../app-service/app-service-deploy-local-git.md).
 

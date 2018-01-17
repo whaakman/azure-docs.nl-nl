@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Bestanden uploaden naar een Media Services-account met behulp van de service Aspera Server On Demand in Azure
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u stapsgewijs hoe u bestanden uploadt naar een opslagac
 [Hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest) vindt u een voorbeeld waarin wordt uitgelegd hoe u Azure Functions gebruikt met Aspera en Media Services.
 
 >[!NOTE]
->Er is een maximale bestandsgrootte voor de verwerking met Azure Media Services-mediaprocessors (mp's). Raadpleeg [dit onderwerp](media-services-quotas-and-limitations.md) voor meer informatie over de maximale bestandsgrootte.
+>Er is een maximale bestandsgrootte voor de verwerking met Azure Media Services-mediaprocessors (mp's). Raadpleeg [dit](media-services-quotas-and-limitations.md) artikel voor meer informatie over de maximale bestandsgrootte.
 >
 
 ## <a name="prerequisites"></a>Vereisten 
