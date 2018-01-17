@@ -2,4 +2,4 @@
 
 In deze richtlijnen is verplaatst naar de docs.microsoft.com interne-Inzender handleiding.
 
-[https://aka.MS/GIT-Commands-master](https://aka.ms/git-commands-master)
+[https://aka.ms/git-commands-master](https://aka.ms/git-commands-master)

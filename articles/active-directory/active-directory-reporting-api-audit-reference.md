@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory-audit API-referentiemateriaal
 In dit onderwerp maakt deel uit van een verzameling van onderwerpen over de Azure Active Directory rapportage-API.  
@@ -114,7 +114,7 @@ DateTime-waarde moet in UTC-notatie
 | Category                         | Waarde     |
 | :--                              | ---       |
 | Hoofddirectory                   | Directory |
-| Self-service voor wachtwoordbeheer | SSPR      |
+| Selfservice voor wachtwoordbeheer | SSPR      |
 | Self-service voor groepsbeheer    | SSGM      |
 | Account inrichten             | Sync      |
 | Automatische wachtwoordoverschakeling      | Automatische wachtwoordoverschakeling |
@@ -130,7 +130,7 @@ DateTime-waarde moet in UTC-notatie
 
     $filter=category eq 'SSPR'
 - - -
-### <a name="activitystatus"></a>ActivityStatus
+### <a name="activitystatus"></a>activityStatus
 
 **Ondersteunde waarden**:
 
@@ -182,7 +182,7 @@ hoofdlettergevoelig
 Niet-hoofdlettergevoelige
 
 - - -
-### <a name="actorobjectid"></a>acteur/objectId
+### <a name="actorobjectid"></a>actor/objectId
 **Operators ondersteund**: eq
 
 **Voorbeeld**:
@@ -216,7 +216,7 @@ Niet-hoofdlettergevoelige
 * U moet de volledige naamruimte toevoegen bij het opvragen van Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
-### <a name="targetobjectid"></a>doel/objectId
+### <a name="targetobjectid"></a>target/objectId
 **Operators ondersteund**: eq
 
 **Voorbeeld**:

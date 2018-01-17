@@ -19,7 +19,7 @@ ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Verbinding maken met Dynamics 365 vanuit logic app-werkstromen
 
@@ -118,7 +118,7 @@ Veldtype  |Gebruiksinstructies  |Waar vind ik  |Naam  |Gegevenstype
 Tekstvelden|Tekstvelden vereisen een enkele regel tekst of dynamische inhoud die is een type tekstveld. Voorbeelden hiervan zijn de categorie en subcategorie velden.|Instellingen > Aanpassingen > past u het systeem > entiteiten > taak > velden |category |Enkele regel tekst        
 Velden geheel getal | Sommige velden vereist geheel getal of dynamische inhoud die een veld van het type geheel getal is. Voorbeelden zijn percentage voltooid en duur. |Instellingen > Aanpassingen > past u het systeem > entiteiten > taak > velden |PercentComplete |Geheel getal         
 Datumvelden | Sommige velden vereisen een datum is opgegeven in de notatie dd-mm-jjjj of dynamische inhoud die is een veld van het type datum. Voorbeelden zijn gemaakt op, begindatum, werkelijke begindatum laatste op de tijd houdt, Werkelijk einde en vervaldatum. | Instellingen > Aanpassingen > past u het systeem > entiteiten > taak > velden |createdon |Datum en tijd
-Typ velden waarvoor zowel een record-ID en lookup |Sommige velden die verwijzen naar een andere entiteitsrecord vereisen zowel de record-ID en het Opzoektype. |Instellingen > Aanpassingen > past u het systeem > entiteiten > Account > velden  | AccountId  | Primaire sleutel
+Typ velden waarvoor zowel een record-ID en lookup |Sommige velden die verwijzen naar een andere entiteitsrecord vereisen zowel de record-ID en het Opzoektype. |Instellingen > Aanpassingen > past u het systeem > entiteiten > Account > velden  | accountid  | Primaire sleutel
 
 ### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Typ voor meer voorbeelden van de velden die vereisen een record-ID en de lookup dat
 Voortbouwend op de vorige tabel, vindt hier u meer voorbeelden van de velden die niet met waarden die in de lijst met dynamische inhoud geselecteerd werken. Deze velden vereisen in plaats daarvan beide een lookup-ID en het recordtype in de velden in PowerApps ingevoerd.  

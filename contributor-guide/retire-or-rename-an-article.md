@@ -2,4 +2,4 @@
 
 In deze richtlijnen is verplaatst naar de docs.microsoft.com interne-Inzender handleiding.
 
-[https://aka.MS/retire-or-Rename](https://aka.ms/retire-or-rename)
+[https://aka.ms/retire-or-rename](https://aka.ms/retire-or-rename)

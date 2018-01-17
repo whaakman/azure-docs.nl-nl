@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -35,13 +35,13 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
 2.  Afhankelijk van de totale grootte van de gegevens, schaft u het vereiste aantal 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III harde schijven.
 3.  Koppelen van de harde schijven die rechtstreeks met SATA of met externe USB-adapters aan een windows-machine.
 4.  Maak één NTFS-volume op elke harde schijf en een stationsletter toewijzen aan het volume. Er is geen quorumbron:.
-5.  Schakel versleuteling in bits referentiekluis op het NTFS-volume. Volg de instructies op https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx to enable encryption on the windows machine.
+5.  Schakel bits BitLocker-versleuteling op het NTFS-volume voor het inschakelen van versleuteling op de windows-machine. Volg de instructies op https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 6.  Volledig gegevens kopiëren naar de versleutelde één NTFS-volumes op schijven met kopiëren & plakken of slepen en neerzetten of Robocopy of een dergelijk hulpmiddel.
 7.  WAImportExport V1 van https://www.microsoft.com/en-us/download/details.aspx?id=42659 downloaden
 8.  Uitpakken naar de map standaard waimportexportv1. Bijvoorbeeld: C:\WaImportExportV1  
 9.  Als Administrator uitvoeren en open een PowerShell of de opdrachtregel en wijzig map in de uitgepakte map. Bijvoorbeeld cd C:\WaImportExportV1
-10. Kopieer de hieronder vanaf de opdrachtregel naar een Kladblok en voor het maken van een opdrachtregel te bewerken.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session #1 /sk:***/t:D == /bk:*** /srcdir:D: \ /dstdir:ContainerName / /skipwrite
+10. Kopieer de volgende opdrachtregel naar een Kladblok en bewerken voor het maken van een opdrachtregel.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
     
     /j: de naam van een bestand journaalbestand met extensie .jrn genoemd. Een journal-bestand wordt gegenereerd per schijf en daarom wordt het aanbevolen het serienummer van de schijf gebruiken als de naam van het journaal.
     /SK: sleutel voor azure Storage-Account. / t: Stationsletter van de schijf moeten worden verzonden. Bijvoorbeeld, D /bk: de sleutel is bits referentiekluis van het station /srcdir: stationsletter van de schijf moeten worden verzonden, gevolgd door: \. Bijvoorbeeld: D:\
@@ -55,12 +55,12 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
 
 1. Meld u aan bij https://portal.azure.com/ en onder meer services -> opslag-"taken voor importeren/exporteren" > Klik op **maken voor importeren/exporteren taak**.
 
-2. In de sectie over de grondbeginselen, selecteer 'Importeren in Azure' Voer een tekenreeks voor de taaknaam van de, selecteer een abonnement, typ of Selecteer een resourcegroep. Voer een beschrijvende naam voor de import-taak. Houd er rekening mee dat de naam die u invoert alleen kleine letters, cijfers, afbreekstreepjes mogen en onderstrepingstekens bevatten, moet beginnen met een letter en mag geen spaties bevatten. U gebruikt de naam die u kiest voor het bijhouden van uw taken terwijl ze zijn uitgevoerd en wanneer ze zijn voltooid.
+2. In de sectie over de grondbeginselen, selecteer 'Importeren in Azure' Voer een tekenreeks voor de taaknaam van de, selecteer een abonnement, typ of Selecteer een resourcegroep. Voer een beschrijvende naam voor de import-taak. Houd er rekening mee dat de naam die u invoert alleen kleine letters, cijfers, afbreekstreepjes mogen en onderstrepingstekens bevatten, moet beginnen met een letter en mag geen spaties bevatten. U de naam die u kiest voor het bijhouden van uw taken terwijl ze zijn uitgevoerd en wanneer ze zijn voltooid.
 
-3. In de sectie details taak het station journaal bestanden uploaden die u hebt verkregen tijdens de stap station ter voorbereiding. Als waimportexport.exe version1 gedefinieerd is gebruikt, moet u een bestand voor elke schijf die u hebt voorbereid te uploaden. Selecteer het opslagaccount waarin de gegevens worden geïmporteerd in de sectie 'Importeren' Storage-account. De afgiftepunt worden automatisch ingevuld op basis van de regio van het geselecteerde opslagaccount.
+3. In de sectie details taak het station journaal bestanden uploaden die u hebt verkregen tijdens de stap station ter voorbereiding. Als waimportexport.exe version1 gedefinieerd is gebruikt, moet u een bestand voor elke schijf die u hebt voorbereid te uploaden. Selecteer het opslagaccount waarin de gegevens worden geïmporteerd in de sectie 'Importeren' Storage-account. De afgiftepunt wordt automatisch gevuld op basis van de regio van het geselecteerde opslagaccount.
    
    ![Stap 3 van importtaak - maken](./media/storage-import-export-service/import-job-03.png)
-4. In de back-upfunctie sectie gegevens van de provider selecteert in de vervolgkeuzelijst en voer een geldige carrier account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor het verzenden van de stations voor u zodra de import-taak is voltooid. Geef een volledig en geldig contactpersoon, telefoon, e, adres, stad, zip, staat/proviince en land/regio.
+4. In de back-upfunctie sectie gegevens van de provider selecteert in de vervolgkeuzelijst en voer een geldige carrier account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor de schijven naar u verzenden zodra de import-taak is voltooid. Geef een volledig en geldig contactpersoon, telefoon, e, adres, stad, zip, staat/proviince en land/regio.
    
 5. In de samenvatting wordt Azure DataCenter verzendadres moet worden gebruikt voor het verzenden van schijven naar Azure DC verstrekt. Zorg ervoor dat de taaknaam en het volledige adres worden vermeld op het label van de back-upfunctie. 
 
@@ -84,7 +84,7 @@ U kunt deze service, zoals in scenario's gebruiken:
 * Herstel van gegevens: grote hoeveelheid gegevens die zijn opgeslagen in de opslagruimte te herstellen en bezorgd bij uw on-premises locatie.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze sectie wordt de vereiste onderdelen voor het gebruik van deze service weergeven. Bekijk deze aandachtig door voordat verzending van uw schijven.
+In deze sectie wordt de vereiste onderdelen voor het gebruik van deze service weergeven. Lees deze zorgvuldig door voordat u verzendt uw schijven.
 
 ### <a name="storage-account"></a>Storage-account
 Er moet een bestaande Azure-abonnement en een of meer opslagaccounts de Import/Export-service gebruiken. Elke taak kan worden gebruikt voor gegevensoverdracht naar of van slechts één opslagaccount. Een enkel voor importeren/exporteren-taak kan niet met andere woorden, meerdere opslagaccounts overbruggen. Zie voor meer informatie over het maken van een nieuw opslagaccount [het maken van een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
@@ -96,13 +96,16 @@ U kunt Azure Import/Export-service gebruiken om gegevens te kopiëren **blok** b
 Als u wilt beginnen met het importeren of exporteren uit de opslag, moet u eerst een taak maken. Een taak kan een import-taak of een taak voor het exporteren worden uitgevoerd:
 
 * Maak een import-taak wanneer u uw Azure storage-account moet lokale gegevens overdraagt.
-* Een exporttaak maken wanneer u wilt overbrengen van gegevens die momenteel zijn opgeslagen in uw storage-account voor de harde schijven die worden geleverd aan ons. Wanneer u een taak maakt, waarschuwen u dat de Import/Export-service dat u een of meer harde schijven voor een Azure-Datacenter wordt verzending.
+* Een exporttaak maken wanneer u wilt overbrengen van gegevens die momenteel zijn opgeslagen in uw storage-account voor de harde schijven die worden verzonden naar Microsoft. Wanneer u een taak maakt, waarschuwen u dat de Import/Export-service dat u een of meer harde schijven voor een Azure-Datacenter wordt verzending.
 
 * Voor een import-taak wordt u harde schijven met uw gegevens verzending.
 * Voor een exporttaak wordt u lege harde schijven verzending.
 * U kunt maximaal 10 harde schijven per taak kan worden verzonden.
 
 U kunt maken van een import of exporteren van de taak met de Azure portal of de [REST-API van Azure Storage Import/Export](/rest/api/storageimportexport).
+
+> [!Note]
+> De RDFE-API's worden niet ondersteund en met 28 februari 2018 en hoger. Om door te gaan met de service migreren naar de [ARM voor importeren/exporteren REST-API's](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json). 
 
 ### <a name="waimportexport-tool"></a>WAImportExport hulpprogramma
 De eerste stap bij het maken van een **importeren** taak is het voorbereiden van uw schijven die worden verzonden voor importeren. Als u met het voorbereiden van uw schijven, moet u deze verbinding te maken met een lokale server en het hulpprogramma WAImportExport uitvoeren op de lokale server. Dit hulpprogramma WAImportExport vereenvoudigt het kopiëren van uw gegevens naar het station, de gegevens op het station met BitLocker versleutelen en het genereren van het station journaal-bestanden.
@@ -114,28 +117,28 @@ Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-bestur
 Download de nieuwste versie van de [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Zie voor meer informatie over het gebruik van het hulpprogramma WAImportExport de [met het hulpprogramma WAImportExport](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**Vorige versie:** kunt u [WAImportExpot V1 downloaden](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versie van het hulpprogramma en verwijzen naar [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1-versie van het hulpprogramma biedt ondersteuning voor **schijven voorbereiden wanneer gegevens al vooraf is geschreven naar de schijf**. U moet ook WAImportExpot V1-hulpprogramma gebruiken als de enige beschikbare sleutel SAS-sleutel.
+>**Vorige versie:** kunt u [WAImportExpot V1 downloaden](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versie van het hulpprogramma en verwijzen naar [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1-versie van het hulpprogramma biedt ondersteuning voor **schijven voorbereiden wanneer gegevens al vooraf is geschreven naar de schijf**. Als de sleutel is alleen beschikbaar SAS-sleutel is, moet u WAImportExpot V1-hulpprogramma te gebruiken.
 
 >
 
 ### <a name="hard-disk-drives"></a>Harde schijven
 Alleen 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III interne harde schijven worden ondersteund voor gebruik met de Import/Export-service. Een taak één importeren/exporteren kan maximaal 10 HDD SSD's en elke afzonderlijke harde schijven per SSD van elke grootte kunnen zijn. Groot aantal schijven kan worden verdeeld over meerdere taken en er is geen beperkingen op het aantal taken dat kan worden gemaakt. 
 
-Voor taken van gegevensimport worden alleen het eerste gegevensvolume op de schijf verwerkt. Het gegevensvolume moet zijn geformatteerd met NTFS.
+Voor taken van gegevensimport wordt alleen het eerste gegevensvolume op het station verwerkt. Het gegevensvolume moet zijn geformatteerd met NTFS.
 
 > [!IMPORTANT]
 > Externe harde schijven die worden geleverd met een ingebouwde USB-adapter worden niet ondersteund door deze service. Bovendien kan de schijf binnen het hoofdlettergebruik van een externe harde schijf kan niet worden gebruikt; Stuur geen externe HDD's.
 > 
 > 
 
-Hieronder volgt een lijst met externe USB-adapters die worden gebruikt om gegevens te kopiëren naar interne harde schijven. Anker 68UPSATAA - 02 door Anker 68UPSHHDS door Startech SATADOCK22UE Orico 6628SUS3 C BK (6628-serie) Thermaltake BlacX Hot Swap SATA externe harde schijf dockingstation (USB 2.0 & eSATA)
+Hier volgt een lijst met externe USB-adapters die worden gebruikt om gegevens te kopiëren naar interne harde schijven. Anker 68UPSATAA - 02 door Anker 68UPSHHDS door Startech SATADOCK22UE Orico 6628SUS3 C BK (6628-serie) Thermaltake BlacX Hot Swap SATA externe harde schijf dockingstation (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>Versleuteling
-De gegevens op de schijf moeten worden versleuteld met BitLocker-stationsversleuteling. Dit beschermt u uw gegevens terwijl het onderweg is.
+De gegevens op de schijf moeten worden versleuteld met BitLocker-stationsversleuteling. Deze versleuteling beschermt u uw gegevens terwijl het onderweg is.
 
 Er zijn twee manieren om uit te voeren van de versleuteling voor taken van gegevensimport. De eerste manier is om op te geven van de optie bij gebruik van CSV-bestand gegevensset tijdens het uitvoeren van het hulpprogramma WAImportExport tijdens de voorbereiding van het station. De tweede manier is het inschakelen van BitLocker-versleuteling handmatig op de schijf en geef de versleutelingssleutel in de driveset CSV wanneer WAImportExport hulpprogramma vanaf de opdrachtregel wordt uitgevoerd tijdens de voorbereiding van het station.
 
-Voor het exporteren, nadat uw gegevens worden gekopieerd naar de stations de service wordt het station versleutelen met BitLocker voordat deze terug naar de back-upfunctie. De versleutelingssleutel worden aan u verstrekt via de Azure-portal.  
+Voor het exporteren, nadat uw gegevens worden gekopieerd naar de stations de service wordt het station versleutelen met BitLocker voordat deze terug naar de back-upfunctie. De versleutelingssleutel is verleend via de Azure-portal.  
 
 ### <a name="operating-system"></a>Besturingssysteem
 U kunt een van de volgende 64-bits besturingssystemen voor het voorbereiden van de harde schijf met het hulpprogramma WAImportExport voordat het back-upfunctie het station naar Azure:
@@ -143,7 +146,7 @@ U kunt een van de volgende 64-bits besturingssystemen voor het voorbereiden van 
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2. Alle deze besturingssystemen ondersteunen BitLocker-stationsversleuteling.
 
 ### <a name="locations"></a>Locaties
-De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van alle openbare Azure-opslagaccounts. U kunt harde schijven op een van de volgende locaties kan worden verzonden. Als uw storage-account zich in een openbare Azure-locatie die wordt hier niet gespecificeerd, wordt een back-ups van alternatieve locatie worden opgegeven tijdens het maken van de taak met de Azure-portal of de REST-API voor importeren/exporteren.
+De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van alle openbare Azure-opslagaccounts. U kunt harde schijven op een van de locaties kan worden verzonden. Als uw storage-account zich in een openbare Azure-locatie die wordt hier niet gespecificeerd, wordt een back-ups van alternatieve locatie worden opgegeven tijdens het maken van de taak met de Azure-portal of de REST-API voor importeren/exporteren.
 
 Back-upfunctie locaties ondersteund:
 
@@ -180,30 +183,30 @@ Back-upfunctie locaties ondersteund:
 * Duitsland - centraal
 * Duitsland - noordoost
 
-### <a name="shipping"></a>Back-ups
+### <a name="shipping"></a>Verzenden
 **Back-ups van stations met Datacenter:**
 
-Bij het maken van een taak importeren of exporteren, krijgt u een back-ups van-adres van een van de ondersteunde locaties voor het verzenden van uw schijven. Het opgegeven adres van de back-upfunctie hangen af van de locatie van uw storage-account, maar deze mogelijk niet hetzelfde zijn als de opslaglocatie voor het account.
+Bij het maken van een taak importeren of exporteren, krijgt u een back-ups van-adres van een van de ondersteunde locaties voor het verzenden van uw schijven. Opgegeven adres van de back-upfunctie is afhankelijk van de locatie van uw storage-account, maar mogelijk niet hetzelfde zijn als de opslaglocatie voor het account.
 
 FedEx, UPS of DHL kan worden gebruikt voor het verzenden van uw schijven naar het adres van de back-upfunctie.
 
 **Back-upfunctie voor de schijven van het datacenter:**
 
-Bij het maken van een taak importeren of exporteren, moet u opgeven dat een retouradres voor Microsoft levert de stations terug nadat de taak voltooid is. Controleer of dat u een geldig retouradres om te voorkomen dat vertragingen bij het verwerken van opgeven.
+Bij het maken van een taak importeren of exporteren, moet u opgeven dat een retouradres voor Microsoft levert de stations terug nadat de taak voltooid is. Zorg ervoor dat u een geldig retouradres om te voorkomen dat vertragingen bij het verwerken van opgeven.
 
-De provider moet hebben met het juiste bijhouden om bewakingsketen onderhouden. U moet een geldige FedEx, UPS of DHL carrier opgeven dat moet worden gebruikt door Microsoft voor het verzenden van de stations back-account. Een nummer FedEx, UPS of DHL is vereist voor back-upfunctie stations terug van de Verenigde Staten en Europa locaties. Een nummer voor de DHL is vereist voor back-upfunctie stations terug vanaf Asia en Australië locaties. Kunt u een [FedEx](http://www.fedex.com/us/oadr/) (voor de Verenigde Staten en Europa) of [DHL](http://www.dhl.com/) carrier (Asia en Australië)-account als u nog geen abonnement hebt. Als u al een nummer voor de provider hebt, controleert u of geldig is.
+De provider moet hebben met het juiste bijhouden om bewakingsketen onderhouden. U moet een geldige FedEx, UPS, opgeven of DHL carrier account dat moet worden gebruikt door Microsoft voor het verzenden van de stations terug. Een nummer FedEx, UPS of DHL is vereist voor back-upfunctie stations terug van de Verenigde Staten en Europa locaties. Een nummer voor de DHL is vereist voor back-upfunctie stations terug vanaf Asia en Australië locaties. Als u geen abonnement hebt, kunt u een [FedEx](http://www.fedex.com/us/oadr/) (voor de Verenigde Staten en Europa) of [DHL](http://www.dhl.com/) (Asia en Australië) carrier-account. Als u al een nummer voor de provider hebt, controleert u of geldig is.
 
 In uw pakketten verzendt, moet u de voorwaarden op volgen [Microsoft Azure-servicevoorwaarden](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Houd er rekening mee dat de fysieke media die u levert mogelijk moet cross internationale grenzen heen. U bent zelf verantwoordelijk voor het garanderen dat uw fysieke media en de gegevens zijn geïmporteerd en/of geëxporteerd in overeenstemming met het toepasselijk recht. Voordat de back-ups van de fysieke media Neem contact op met uw adviseurs om te controleren of uw media en de gegevens kan dit wettelijk naar het geïdentificeerde datacenter worden verzonden. Dit helpt ervoor te zorgen dat het Microsoft tijdig is bereikt. Alle pakketten die worden internationale grenzen heen loopt moet bijvoorbeeld een commerciële factuur gepaard gaan met het pakket (met uitzondering van kruisende randen binnen de Europese Unie als). U kunt een gevulde kopie van de commerciële factuur van carrier website afdrukken. Voorbeeld van een commerciële facturen zijn [DHL commerciële factuur](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) en [FedEx commerciële factuur](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Zorg ervoor dat Microsoft niet als de exportfunctie is aangegeven.
+> Houd er rekening mee dat de fysieke media die u levert mogelijk moet cross internationale grenzen heen. U bent zelf verantwoordelijk voor het garanderen dat uw fysieke media en de gegevens zijn geïmporteerd en/of geëxporteerd in overeenstemming met het toepasselijk recht. Voordat de back-ups van de fysieke media Neem contact op met uw adviseurs om te controleren of uw media en de gegevens kan dit wettelijk naar het geïdentificeerde datacenter worden verzonden. Dit zorgt ervoor dat het Microsoft tijdig is bereikt. Alle pakketten die over internationale grenzen heen moet bijvoorbeeld een commerciële factuur gepaard gaan met het pakket (met uitzondering van kruisende randen binnen de Europese Unie als). U kunt een gevulde kopie van de commerciële factuur van carrier website afdrukken. Voorbeeld van een commerciële facturen zijn [DHL commerciële factuur](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) en [FedEx commerciële factuur](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Zorg ervoor dat Microsoft niet als de exportfunctie is aangegeven.
 > 
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Hoe werkt de Azure Import/Export-service?
 U kunt gegevens overbrengen tussen uw lokale site en de Azure-opslag met de Azure Import/Export-service door de taken te maken en verzenden van harde schijven naar een Azure-Datacenter. Elke harde schijf die u verzendt, is gekoppeld aan één taak. Elke taak is gekoppeld aan een enkele storage-account. Controleer de [vereisten sectie](#pre-requisites) zorgvuldig voor meer informatie over de details van deze service zoals de ondersteunde gegevenstypen, schijf-typen, locaties en back-upfunctie.
 
-In deze sectie worden beschreven op hoog niveau de stappen voor het importeren en exporteren van taken. Verderop in de [Quick Start-sectie](#quick-start), bieden we Stapsgewijze instructies voor het maken van een importeren en exporteren van de taak.
+In deze sectie worden beschreven van hoog niveau stappen voor het importeren en exporteren van taken. Verderop in de [Quick Start-sectie](#quick-start), stapsgewijze instructies voor het maken van een importeren en exporteren van de taak is opgegeven.
 
 ### <a name="inside-an-import-job"></a>Binnen een import-taak
 Op een hoog niveau omvat een import-taak de volgende stappen:
@@ -242,7 +245,7 @@ Op een hoog niveau omvat een exporttaak de volgende stappen:
     ![Afbeelding 2:Export taak stroom](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>De status van de taak en het station weergeven
-U kunt de status van de importbewerking volgen of taken exporteren vanuit de Azure-portal. Klik op de **voor importeren/exporteren** tabblad. Een lijst met uw taken worden weergegeven op de pagina.
+U kunt de status van de importbewerking volgen of taken exporteren vanuit de Azure-portal. Klik op de **voor importeren/exporteren** tabblad. Een lijst met uw taken wordt weergegeven op de pagina.
 
 ![Status van de taak weergeven](./media/storage-import-export-service/jobstate.png)
 
@@ -251,10 +254,10 @@ U ziet een van de volgende statussen van de taak afhankelijk van waar de schijf 
 | De Status van taak | Beschrijving |
 |:--- |:--- |
 | Maken | Nadat een taak is gemaakt, wordt de status is ingesteld op maken. Terwijl de taak de status maken wordt, de Import/Export-service wordt ervan uitgegaan dat de schijven nog niet zijn verzonden naar het datacenter. Een taak kan blijven in de status maken voor maximaal twee weken, waarna deze worden automatisch verwijderd door de service. |
-| Back-ups | Nadat u uw pakket verzendt, moet u de controle-informatie in de Azure portal bijwerken.  Hierdoor wordt de taak in 'Back-upfunctie'. De taak blijft in de status van de back-ups van twee weken. 
+| Verzenden | Nadat u uw pakket verzendt, moet u de controle-informatie in de Azure portal bijwerken.  Hierdoor wordt de taak in 'Back-upfunctie'. De taak blijft in de status van de back-ups van twee weken. 
 | Ontvangen | Nadat alle stations zijn ontvangen in het datacenter, wordt de taakstatus ingesteld in de ontvangen. |
-| Overdragen | Nadat ten minste één station is begonnen verwerking, wordt de taakstatus worden ingesteld op de overdragen. Zie de sectie station statussen hieronder voor meer informatie. |
-| Verpakking | Nadat alle stations verwerking is voltooid, wordt de taak in de status van de verpakking geplaatst totdat de stations worden verzonden naar u terug. |
+| Overbrengen | Nadat ten minste één station is begonnen verwerking, wordt de taakstatus worden ingesteld op de overdragen. Zie de sectie station statussen hieronder voor meer informatie. |
+| Verpakken | Nadat alle stations verwerking is voltooid, wordt de taak in de status van de verpakking geplaatst totdat de stations worden verzonden naar u terug. |
 | Voltooid | Nadat alle stations zijn verzonden naar de klant, als de taak is voltooid zonder fouten, wordt de taak ingesteld op de status voltooid. De taak worden, automatisch verwijderd na 90 dagen in de status voltooid. |
 | Gesloten | Nadat alle stations zijn verzonden naar de klant, als er fouten tijdens het verwerken van de taak zijn, wordt de taak ingesteld op de status Closed. De taak worden, automatisch verwijderd na 90 dagen in de status Closed. |
 
@@ -266,7 +269,7 @@ De volgende tabel beschrijft elke status die elk station in een taak kan doorgev
 | Opgegeven | Wanneer de taak is gemaakt vanuit de Azure-portal is de aanvankelijke status voor een station voor een import-taak de status van de opgegeven. Aangezien geen station opgeeft wanneer de taak is gemaakt, is de status van de eerste schijf voor een exporttaak de status Received hebben. |
 | Ontvangen | Het station overgangen naar de status Received hebben wanneer de stations die zijn ontvangen van het bedrijf back-upfunctie voor een import-taak is verwerkt door de operator Import/Export-service. Voor een exporttaak is de status van de eerste schijf de status Received hebben. |
 | NeverReceived | Het station wordt verplaatst naar de status NeverReceived wanneer het pakket voor een taak binnenkomt, maar het pakket niet het station bevat. Een station kunt ook verplaatsen naar deze status als deze twee weken is sinds de service heeft ontvangen van de back-ups van gegevens, maar het pakket nog niet in het datacenter ontvangen is. |
-| Overdragen | Een station wordt verplaatst naar de status van de overdragen wanneer de service begint met de gegevens van de schijf overbrengen naar Windows Azure Storage. |
+| Overbrengen | Een station wordt verplaatst naar de status van de overdragen wanneer de service begint met de gegevens van de schijf overbrengen naar Windows Azure Storage. |
 | Voltooid | Een station wordt verplaatst naar de status voltooid wanneer de service heeft de gegevens zonder fouten is overgedragen.
 | CompletedMoreInfo | Een station wordt verplaatst naar de status CompletedMoreInfo wanneer de service enkele problemen aangetroffen heeft tijdens het kopiëren van gegevens van of naar het station. De informatie kan bestaan fouten, waarschuwingen of informatieve berichten over het overschrijven van blobs.
 | ShippedBack | Het station wordt verplaatst naar de status ShippedBack wanneer deze is verzonden vanaf de achterkant van data center adres van de afzender. |
@@ -280,7 +283,7 @@ De volgende tabel beschrijft de statussen van de fout station en de acties die v
 | Status van station | Gebeurtenis | Resolutie / de volgende stap |
 |:--- |:--- |:--- |
 | NeverReceived | Een station dat is gemarkeerd als NeverReceived (omdat deze niet is ontvangen als onderdeel van de verzending van de taak) in een andere verzending binnenkomt. | Het operationele team wordt het station worden verplaatst naar de status Received hebben. |
-| N.v.t. | Een station dat geen deel uitmaakt van elke taak komt in het datacenter als onderdeel van een andere taak. | Het station wordt gemarkeerd als een extra schijf en naar de klant wordt geretourneerd wanneer de taak die is gekoppeld aan het oorspronkelijke pakket is voltooid. |
+| N/A | Een station dat geen deel uitmaakt van elke taak komt in het datacenter als onderdeel van een andere taak. | Het station wordt gemarkeerd als een extra schijf en naar de klant wordt geretourneerd wanneer de taak die is gekoppeld aan het oorspronkelijke pakket is voltooid. |
 
 ### <a name="time-to-process-job"></a>Tijd tot verwerkingstaak
 De hoeveelheid tijd die nodig is voor een taak van import/export, afhankelijk van verschillende factoren, zoals back-ups van tijd varieert, proces taak type, type en grootte van de gegevens worden gekopieerd en de grootte van de schijven die zijn opgegeven. De Import/Export-service beschikt niet over een SLA maar nadat de schijven worden ontvangen. de service wil de kopie in 7 tot 10 dagen voltooien. De REST-API kunt u de voortgang van de taak nauwkeuriger te volgen. Er is een percentage voltooid parameter in de lijst met taken bewerking waarmee een indicatie van de voortgang van de kopie. Bereiken voor ons. Als u een schatting maken om een tijd kritieke voor importeren/exporteren taak te voltooien.
@@ -420,13 +423,13 @@ Eerste controles van volgende worden aanbevolen voor het voorbereiden van uw sch
    | Begint met |/Music/ |Alle blobs in container exporteert **muziek** |
    | Begint met |hou muziek / |Alle blobs in container exporteert **muziek** die beginnen met het voorvoegsel **favoriete** |
    | Gelijk aan |$root/logo.bmp |Uitvoer-blob **logo.bmp** in de hoofdmap-container |
-   | Gelijk aan |videos/Story.mp4 |Uitvoer-blob **story.mp4** in de container **video's** |
+   | Gelijk aan |videos/story.mp4 |Uitvoer-blob **story.mp4** in de container **video's** |
    
    U kunt de blob-paden in geldige notaties om fouten te voorkomen tijdens de verwerking moet opgeven, zoals weergegeven in deze schermafbeelding.
    
    ![Maak exporttaak voor - stap 3](./media/storage-import-export-service/export-job-03.png)
 
-4. In stap 3 retourneren info verzenden, selecteert u de provider in de vervolgkeuzelijst en voer een geldige carrier account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor het verzenden van de stations voor u zodra de import-taak is voltooid. Geef een volledig en geldig contactpersoon, telefoon, e, adres, stad, zip, staat/proviince en land/regio...
+4. In stap 3 retourneren info verzenden, selecteert u de provider in de vervolgkeuzelijst en voer een geldige carrier account getal dat u hebt gemaakt met deze provider. Microsoft gebruikt deze account voor het verzenden van de stations voor u zodra de import-taak is voltooid. Geef een volledig en geldig contactpersoon, telefoon, e, adres, stad, zip, staat/proviince en land/regio.
    
  5. In de pagina overzicht wordt Azure DataCenter verzendadres moet worden gebruikt voor het verzenden van schijven naar Azure DC verstrekt. Zorg ervoor dat de taaknaam en het volledige adres worden vermeld op het label van de back-upfunctie. 
 
@@ -454,7 +457,7 @@ Ga via de sectie Veelgestelde vragen hieronder als dit de meest voorkomende vrag
 
 **Kan ik Azure File storage met behulp van de service Azure Import/Export kopiëren?**
 
-Ja, ondersteunt de service Azure Import/Export naar Azure bestand Storge importeren. Exporteren van het Azure-bestanden op dit moment ondersteunt niet.
+Ja, ondersteunt de Azure Import/Export-service importeren naar Azure File Storage. Exporteren van het Azure-bestanden op dit moment ondersteunt niet.
 
 **Is de Azure Import/Export-service beschikbaar voor abonnementen van de CSP?**
 
@@ -495,7 +498,7 @@ Nee. U moet worden geleverd stations voor beide importeren en exporteren van tak
 
 ** Hoe kan ik toegang tot gegevens die zijn geïmporteerd door deze service **
 
-De gegevens onder uw Azure storage-account toegankelijk zijn via Azure Portal of met behulp van een zelfstandige tool Opslagverkenner wordt aangeroepen. https://docs.Microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+De gegevens onder uw Azure storage-account toegankelijk zijn via Azure Portal of met behulp van een zelfstandige tool Opslagverkenner wordt aangeroepen. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Nadat de import-taak is voltooid, hoe worden mijn gegevens eruit in de storage-account? Mijn directory-hiërarchie worden bewaard?**
 

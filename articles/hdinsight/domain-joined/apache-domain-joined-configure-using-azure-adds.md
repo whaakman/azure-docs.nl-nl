@@ -3,7 +3,7 @@ title: Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Se
 description: Meer informatie over het instellen en domein HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
@@ -37,7 +37,7 @@ In dit artikel leert u hoe een domein HDInsight-cluster met behulp van Azure Act
 U moet maken van een Azure AD DS voordat u een HDInsight-cluster kunt maken. Zie voor het maken van een Azure wordt toegevoegd, [inschakelen Azure Active Directory Domain Services met Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. 
+> Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. In geval van een Azure Data Lake Storage - AAD-tenant waar >> inschakelen van AADDS moet de standaard-tenant van het abonnement waarin u de Azure Data Lake storage-account en een cluster maken.
 
 Nadat de domeinservice is ingericht, moet u voor het maken van een serviceaccount in de **beheerders van Azure AD-DC** groep maken van het HDInsight-cluster. Het serviceaccount moet een globale beheerder op de Azure AD.
 

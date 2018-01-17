@@ -18,7 +18,7 @@ ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure-Web-Apps kopen
 
@@ -171,9 +171,9 @@ Selecteer **hostnaam toevoegen**.
 ### <a name="configure-hostname"></a>Hostname configureren
 In de **hostnaam toevoegen** dialoogvenster, typt u de volledig gekwalificeerde domeinnaam van uw App Service-domein of een subdomein. Bijvoorbeeld:
 
-- kontoso.NET
-- www.kontoso.NET
-- ABC.kontoso.NET
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
 
 Wanneer u klaar bent, selecteert u **valideren**. Het recordtype hostnaam wordt automatisch geselecteerd voor u.
 

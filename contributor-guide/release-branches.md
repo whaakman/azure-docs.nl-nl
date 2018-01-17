@@ -2,4 +2,4 @@
 
 In deze richtlijnen is verplaatst naar de docs.microsoft.com interne-Inzender handleiding.
 
-[https://aka.MS/release-branches](https://aka.ms/release-branches)
+[https://aka.ms/release-branches](https://aka.ms/release-branches)

@@ -2,4 +2,4 @@
 
 In deze richtlijnen is verplaatst naar de docs.microsoft.com interne-Inzender handleiding.
 
-Zie [https://aka.ms/code-highlighting](https://aka.ms/code-highlighting)
+See [https://aka.ms/code-highlighting](https://aka.ms/code-highlighting)

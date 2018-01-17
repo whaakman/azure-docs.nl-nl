@@ -4,8 +4,8 @@ description: Zelfstudie voor de Stream Analytics IoT-oplossing van een scenario 
 keywords: IOT-oplossing, vensterfuncties
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van de Stream Analytics
+
 ## <a name="introduction"></a>Inleiding
 In deze zelfstudie leert u hoe u met Azure Stream Analytics realtime-inzichten verkrijgen van uw gegevens. Ontwikkelaars kunnen eenvoudig gegevensstromen, zoals Klik streams logboeken en gebeurtenissen die door de apparaten worden gegenereerd met historische records of referentiegegevens worden afgeleid van zakelijke inzichten combineren. Als een volledig beheerde, realtime stroom berekening service die wordt gehost in Microsoft Azure, biedt Azure Stream Analytics ingebouwde tolerantie, lage latentie en schaalbaarheid voor bent u in minuten uitgevoerd.
 
@@ -56,12 +57,12 @@ De gegevensstroom vermelding bevat informatie over auto's wanneer deze stations 
 
 | TollID | EntryTime | LicensePlate | Status | Maken | Model | VehicleType | VehicleWeight | Gratis | Label |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 |2014-09-10 12:01:00.000 |7001 JNB |NY |Honda |CRV |1 |0 |7 | |
+| 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
 | 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
 | 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
-| 1 |2014-09-10 12:03:00.000 |1007 BNJ |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
+| 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Hier volgt een korte beschrijving van de kolommen:
 
@@ -83,11 +84,11 @@ De gegevensstroom afsluiten bevat informatie over het station tolstation verlate
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000Z |7001 JNB |
+| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
 | 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
 | 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
 | 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
-| 1 |2014-09-10T12:08:00.0000000Z |1007 BNJ |
+| 1 |2014-09-10T12:08:00.0000000Z |BNJ 1007 |
 | 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
 
 Hier volgt een korte beschrijving van de kolommen:
@@ -105,7 +106,7 @@ De zelfstudie maakt gebruik van een momentopname van een registratiedatabase com
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
-| 1005 BACK |876133137 |1 |
+| BAC 1005 |876133137 |1 |
 | RIV 8632 |992711956 |0 |
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
@@ -175,24 +176,11 @@ U ziet ook een ander venster die vergelijkbaar is met de volgende schermopname. 
 U moet nu zien van uw resources in Azure-portal. Ga naar <https://portal.azure.com>, en meld u aan met referenties van uw account. Houd er rekening mee dat momenteel bepaalde functionaliteit maakt gebruik van de klassieke portal. Deze stappen worden duidelijk vermeld.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
-Klik in de Azure-portal op **meer services** aan de onderkant van het deelvenster links management. Type **Event hubs** opgegeven in het veld en klikt u op **Event hubs**. Dit start een nieuw browservenster om weer te geven de **SERVICE BUS** gebied in de **klassieke portal**. Hier ziet u de Event Hub gemaakt door het script Setup.ps1.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Klik op de computer die met begint *tolldata*. Klik op de **EVENT HUBS** tabblad. Ziet u twee event hubs met de naam *vermelding* en *sluiten* gemaakt in deze naamruimte.
-
-![Event Hubs-tabblad in de klassieke portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+Klik in de Azure-portal op **meer services** aan de onderkant van het deelvenster links management. Type **Event hubs** in het veld dat is opgegeven, ziet u een nieuwe Event Hub-naamruimte die met begint **tolldata**. Deze namesapce wordt gemaakt door het script Setup.ps1. Ziet u twee event hubs met de naam **vermelding** en **sluiten** gemaakt in deze naamruimte.
 
 ### <a name="azure-storage-container"></a>Azure Storage-container
-1. Ga terug naar het tabblad in uw browser geopend naar Azure-portal. Klik op **opslag** aan de linkerkant van de Azure portal om te zien van de Azure Storage-container die in de zelfstudie wordt gebruikt.
-   
-    ![Opslag menu-item](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Klik op de computer die beginnen met *tolldata*. Klik op de **CONTAINERS** tabblad voor een overzicht van de container gemaakt.
-   
-    ![Tabblad containers in de Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Klik op de **tolldata** container om te zien van het geüploade JSON-bestand met registratiegegevens vehicle verwerkt.
-   
-    ![Schermopname van het bestand registration.json in de container](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+Vanuit de Azure-portal bladert u naar de storage-accounts, ziet u een opslagaccount die met begint **tolldata**. Klik op de **tolldata** container om te zien van het geüploade JSON-bestand met registratiegegevens vehicle verwerkt.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 1. Ga terug naar de Azure-portal op het eerste tabblad die is geopend in de browser. Klik op **SQL-DATABASES** aan de linkerkant van de Azure portal om te zien van de SQL-database die wordt gebruikt in de zelfstudie en klik op **tolldatadb**.
@@ -323,9 +311,9 @@ Nu u uw eerste Azure Stream Analytics query hebt geschreven, is het tijd om deze
 
 Deze map bevat de volgende bestanden:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Vraag 1: Het aantal voertuigen een tolstation stand
 1. Open de Azure-portal en gaat u naar uw gemaakte Azure Stream Analytics-taak. Klik op de **QUERY** tabblad en plak de query uit de vorige sectie.
@@ -416,7 +404,7 @@ Azure Stream Analytics is ontworpen voor elastisch schalen zodat deze kan grote 
 
 Als u de taak start nu kunt Azure Stream Analytics werk verdelen over meer computerresources en een betere doorvoer behalen. Houd er rekening mee dat de toepassing TollApp ook gebeurtenissen gepartitioneerd door TollId verzendt.
 
-## <a name="monitor"></a>Bewaken
+## <a name="monitor"></a>Controleren
 De **MONITOR** gebied statistieken over actieve taak bevat. Eerste keer configuratie nodig is voor het gebruik van de opslag-account in dezelfde regio (tolstation naam als de rest van dit document).   
 
 ![Schermopname van monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)

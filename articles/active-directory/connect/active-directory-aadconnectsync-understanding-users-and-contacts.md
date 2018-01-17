@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: a08e3f3593e1ec04ebf65fef2880c965e02775d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd13ecfc1b92c6c4b2eb0f8665675c6646e469f2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers, groepen en contactpersonen
 Er zijn verschillende redenen waarom hebt u meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen bevat de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen, ook worden gebruikt. De standaardconfiguratie in Azure AD Connect-synchronisatie wordt niet wordt ervan uitgegaan dat een bepaald model maar, afhankelijk van hoe zoeken van overeenkomende gebruikers is geselecteerd in de installatiehandleiding, verschillende problemen kunnen worden waargenomen.

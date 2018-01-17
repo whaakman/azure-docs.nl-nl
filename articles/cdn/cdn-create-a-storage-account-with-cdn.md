@@ -12,112 +12,107 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/04/2018
 ms.author: mazha
-ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 022071f7825cb9184bd4c815c09e1c202a0a6f91
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Een Azure storage-account integreren met Azure CDN
-CDN worden ingeschakeld voor het cache-inhoud van uw Azure-opslag. Het biedt ontwikkelaars een globale oplossing voor hoge bandbreedte inhoud leveren door blobs en statische inhoud van de compute-exemplaren op fysieke knooppunten in de Verenigde Staten, Europa, Azië, Australië en Zuid-Amerika cache te plaatsen.
+U kunt Azure inhoud Delivery Network (CDN) inschakelen voor cache-inhoud uit Azure storage. Azure CDN biedt ontwikkelaars een globale oplossing voor het leveren van inhoud met hoge bandbreedte. Deze cache blobs en statische inhoud van de compute-exemplaren op fysieke knooppunten in de Verenigde Staten, Europa, Azië, Australië en Zuid-Amerika.
 
 ## <a name="step-1-create-a-storage-account"></a>Stap 1: Een opslagaccount maken
-Gebruik de volgende procedure voor het maken van een nieuw opslagaccount voor een Azure-abonnement. Een opslagaccount biedt toegang tot Azure storage-services. Het opslagaccount vertegenwoordigt het hoogste niveau van de naamruimte voor het openen van elk van de onderdelen van de Azure storage-service: Blob-services, wachtrijservices en services van de tabel. Raadpleeg voor meer informatie de [Inleiding tot Microsoft Azure Storage](../storage/common/storage-introduction.md).
+Gebruik de volgende procedure voor het maken van een nieuw opslagaccount voor een Azure-abonnement. Een opslagaccount biedt toegang tot Azure Storage-services. Het opslagaccount vertegenwoordigt het hoogste niveau van de naamruimte voor het openen van elk van de onderdelen van de Azure Storage-service: opslag in Azure Blob, wachtrijen en tabellen. Zie voor meer informatie [Inleiding tot Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
-Voor het maken van een opslagaccount, moet u de servicebeheerder of medebeheerder voor het gekoppelde abonnement.
+Als u wilt een opslagaccount maakt, moet u de servicebeheerder of een CO-beheerder voor het gekoppelde abonnement.
 
 > [!NOTE]
-> Er zijn verschillende methoden die u gebruiken kunt voor het maken van een opslagaccount, met inbegrip van de Azure Portal en Powershell.  Voor deze zelfstudie worden gebruikt de Azure-Portal.  
-> 
+> U kunt verschillende methoden gebruiken voor het maken van een opslagaccount, met inbegrip van de Azure-portal en PowerShell. Deze zelfstudie laat zien hoe de Azure portal gebruiken.   
 > 
 
 **Een opslagaccount voor een Azure-abonnement maken**
 
-1. Meld u aan bij [Azure-portal](https://portal.azure.com).
-2. Selecteer in de linkerbovenhoek **nieuw**. In de **nieuw** dialoogvenster **gegevens en opslag**, klikt u vervolgens op **opslagaccount**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer in de linkerbovenhoek **maken van een resource**. In de **nieuw** deelvenster **opslag**, en selecteer vervolgens **opslagaccount - blob, bestand, tabel, wachtrij**.
     
-    De **storage-account maken** blade wordt weergegeven.   
+    De **storage-account maken** deelvenster wordt weergegeven.   
 
-    ![Opslagaccount maken][create-new-storage-account]  
+    ![Deelvenster voor storage-account maken](./media/cdn-create-a-storage-account-with-cdn/cdn-create-new-storage-account.png)
 
-3. In de **naam** veld, typt u de subdomeinnaam. Deze vermelding kan 3 tot 24 kleine letters en cijfers bevatten.
+3. In de **naam** en voer de subdomeinnaam. Deze vermelding kan 3 tot 24 kleine letters en cijfers bevatten.
    
-    Deze waarde wordt de hostnaam van de in de URI die wordt gebruikt om Blob, wachtrij of tabel bronnen voor het abonnement. Om een container-bron in de Blob-service op te lossen, zou u een URI gebruikt in de volgende indeling waar  *&lt;StorageAccountLabel&gt;*  verwijst naar de waarde die u hebt opgegeven in **Voer een URL**:
+    Deze waarde wordt de hostnaam van de in de URI die wordt gebruikt om blob, wachtrij of tabel bronnen voor het abonnement. De bron van een container in Blob-opslag, gebruikt u een URI in de volgende indeling:
    
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+
+    waar  *&lt;StorageAccountLabel&gt;*  verwijst naar de waarde die u hebt ingevoerd in de **naam** vak.
    
-    **Belangrijk:** de URL label formulieren het subdomein van de URI van het opslagaccount en moet uniek zijn alle gehoste services in Azure.
+    > [!IMPORTANT]    
+    > Het URL-label vormt het subdomein van de URI van het opslagaccount en moet uniek zijn in alle gehoste services in Azure.
    
-    Deze waarde wordt ook gebruikt als de naam van dit opslagaccount in de portal of bij het openen van dit account via een programma.
-4. Laat de standaardwaarden voor **implementatiemodel**, **Account kind**, **prestaties**, en **replicatie**. 
-5. Selecteer de **abonnement** die met de storage-account worden gebruikt.
-6. Selecteer of maak een **resourcegroep**.  Zie [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
-7. Selecteer een locatie voor uw opslagaccount.
-8. Klik op **Create**. Het proces van het maken van het opslagaccount kan enkele minuten duren.
+    Deze waarde wordt ook gebruikt als de naam van het opslagaccount in de portal, of als u gebruik van dit account via een programma.
+    
+4. Gebruik de standaardwaarden voor **implementatiemodel**, **Account kind**, **prestaties**, en **replicatie**. 
+    
+5. Voor **abonnement**, selecteer het abonnement voor gebruik met de storage-account.
+    
+6. Voor **resourcegroep**selecteert of maakt u een resourcegroep. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+    
+7. Voor **locatie**, selecteer een locatie voor uw opslagaccount.
+    
+8. Selecteer **Maken**. Het proces van het storage-account maken kan enige tijd duren om te voltooien.
 
 ## <a name="step-2-enable-cdn-for-the-storage-account"></a>Stap 2: CDN inschakelen voor het opslagaccount
 
-Met de nieuwste integratie kunt u nu CDN inschakelen voor uw opslagaccount zonder de uitbreiding van uw storage-portal. 
+U kunt CDN inschakelen voor uw opslagaccount rechtstreeks vanuit uw opslagaccount. 
 
-1. Selecteer het opslagaccount, zoeken naar 'CDN' of schuif omlaag in het menu linkernavigatievenster aan en klik vervolgens op 'Azure CDN'.
+1. Selecteer een opslagaccount van het dashboard en selecteer vervolgens **Azure CDN** in het linkerdeelvenster. Als de **Azure CDN** knop niet onmiddellijk zichtbaar is, kunt u CDN in de **Search** vak van het linkerdeelvenster.
     
-    De **Azure CDN** blade wordt weergegeven.
+    De **Azure Content Delivery Network** deelvenster wordt weergegeven.
 
-    ![CDN inschakelen navigatie][cdn-enable-navigation]
+    ![CDN-eindpunt maken](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
     
-2. Maken van een nieuw eindpunt door te voeren van de vereiste informatie
-    - **CDN-profiel**: U kunt een nieuwe maken of een bestaand profiel gebruiken.
-    - **Prijscategorie**: U hoeft alleen een prijscategorie selecteren als u een nieuw CDN-profiel maakt.
-    - **De naam van de CDN-eindpunt**: Voer de naam van een eindpunt per uw keuze.
+2. Maak een nieuw eindpunt door te voeren van de vereiste gegevens:
+    - **CDN-profiel**: Maak een nieuw CDN-profiel of een bestaande CDN-profiel gebruiken.
+    - **Prijscategorie**: Selecteer een prijscategorie alleen als u een CDN-profiel maakt.
+    - **De naam van de CDN-eindpunt**: Voer de naam van een CDN-eindpunt.
 
     > [!TIP]
-    > Het gemaakte CDN-eindpunt wordt standaard de hostnaam van uw storage-account gebruikt als oorsprong.
+    > Standaard wordt een nieuw CDN-eindpunt de hostnaam van uw storage-account gebruikt als de bronserver.
 
-    ! [cdn-eindpunt maken van nieuwe] [cdn--eindpunt-maken van nieuwe]
+3. Selecteer **Maken**. Nadat het eindpunt is gemaakt, wordt deze weergegeven in de lijst met eindpunten.
 
-3. Na het maken, wordt het nieuwe eindpunt weergegeven in de bovenstaande endpoint-lijst.
-
-    ![storage-nieuwe CDN-eindpunt][cdn-storage-new-endpoint]
+    ![Opslag nieuw CDN-eindpunt](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
 > [!NOTE]
-> U kunt ook gaan naar de extensie Azure CDN CDN inschakelen. [Zelfstudie](#Tutorial-cdn-create-profile).
-> 
-> 
-
-[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
+> Als u wilt opgeven, geavanceerde configuratie-instellingen voor uw CDN-eindpunt, zoals het type optimalisatie, kunt u in plaats daarvan gebruiken de [Azure CDN extensie](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) om een CDN-eindpunt of een CDN-profiel te maken.
 
 ## <a name="step-3-enable-additional-cdn-features"></a>Stap 3: Extra CDN-functies inschakelen
 
-Blade 'Azure CDN' opslagaccount, klik op het CDN-eindpunt in de lijst om CDN configuratie blade te openen. U kunt aanvullende CDN-functies inschakelen voor uw levering, zoals compressie, queryreeks geo filteren. U kunt ook aangepaste domein toewijzing aan uw CDN-eindpunt toevoegen en inschakelen van aangepast domein HTTPS.
+Vanuit het opslagaccount **Azure CDN** deelvenster, selecteer het CDN-eindpunt in de lijst om de CDN configuratie deelvenster te openen. U kunt aanvullende CDN-functies inschakelen voor uw levering, zoals compressie, queryreeks en geo filteren. U kunt ook aangepaste domein toewijzing aan uw CDN-eindpunt toevoegen en inschakelen van aangepast domein HTTPS.
     
-![CDN-opslagconfiguratie cdn][cdn-storage-cdn-configuration]
+![Opslagconfiguratie van het CDN-eindpunt](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
 
 ## <a name="step-4-access-cdn-content"></a>Stap 4: Toegang tot CDN-inhoud
-Gebruik voor toegang tot de inhoud in cache op de CDN moet de CDN-URL in de portal. Het adres van een blob in de cache is vergelijkbaar met het volgende:
+Gebruik voor toegang tot de inhoud in cache op de CDN moet de CDN-URL in de portal. Het adres van een blob in de cache heeft de volgende indeling:
 
-http://<*EndpointName*\>.azureedge.net/ <*myPublicContainer*\>/<*BlobName*\>
+http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Wanneer u CDN toegang tot een opslagaccount hebt ingeschakeld, zijn alle openbaar beschikbare objecten in aanmerking komen voor CDN edge cache. Als u een object dat momenteel in cache in de CDN wijzigt, de nieuwe inhoud wordt niet meer beschikbaar via de CDN totdat de CDN wordt de inhoud vernieuwd wanneer het in cache opgeslagen inhoud time-to-live-periode is verstreken.
-> 
-> 
+> Nadat u CDN toegang tot een opslagaccount hebt ingeschakeld, zijn alle openbaar beschikbare objecten in aanmerking komen voor CDN edge cache. Als u een object dat momenteel in cache in de CDN wijzigt, wordt de nieuwe inhoud pas beschikbaar via CDN CDN wordt de inhoud vernieuwd nadat de time-to-live-outperiode voor inhoud in de cache is verlopen.
 
 ## <a name="step-5-remove-content-from-the-cdn"></a>Stap 5: De inhoud van het CDN verwijderen
-Als u niet langer in de cache van een object in de Azure Content Delivery Network (CDN) wenst, kunt u een van de volgende stappen uitvoeren:
+Als u niet langer in de cache van een object in Azure CDN wilt, kunt u een van de volgende stappen uitvoeren:
 
-* Kunt u de container private in plaats van openbaar. Zie [Anonieme leestoegang tot containers en blobs beheren](../storage/blobs/storage-manage-access-to-resources.md) voor meer informatie.
-* U kunt uitschakelen of verwijderen van het CDN-eindpunt met behulp van de beheerportal.
-* U kunt uw gehoste service niet meer reageren op aanvragen voor het object wijzigen.
+* De container persoonlijke in plaats van openbaar. Zie voor meer informatie [anonieme leestoegang tot containers en blobs beheren](../storage/blobs/storage-manage-access-to-resources.md).
+* Uitschakelen of verwijderen van het CDN-eindpunt met behulp van de Azure-portal.
+* De gehoste service niet meer reageren op aanvragen voor het object wijzigen.
 
-Een object dat al in de cache in de CDN blijft in de cache totdat de time-to-live voor het object zijn verstreken of het eindpunt wordt verwijderd. Wanneer de time-to-live-periode is verstreken, wordt de CDN gecontroleerd om te zien of het CDN-eindpunt nog geldig is en het object nog steeds anoniem toegankelijk. Als dit niet het geval is, klikt u vervolgens het object wordt niet langer in de cache opgeslagen.
+Een object dat al in de cache in Azure CDN blijft in de cache, totdat de time-to-live voor het object zijn verstreken of het eindpunt wordt verwijderd. Als de time-to-live-periode is verstreken, wordt Azure CDN controleert of het CDN-eindpunt nog geldig is en het object nog steeds anoniem toegankelijk is. Als dat niet het geval is, wordt het object niet langer in cache.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [CDN-inhoud toewijzen aan een aangepast domein](cdn-map-content-to-custom-domain.md)
-* [HTTPS inschakelen voor uw aangepaste domein](cdn-custom-ssl.md)
+* [Een aangepast domein aan uw CDN-eindpunt toevoegen](cdn-map-content-to-custom-domain.md)
+* [HTTPS configureren op een aangepaste Azure CDN-domein](cdn-custom-ssl.md)
 
-[create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
-[cdn-enable-navigation]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png
-[cdn-storage-new-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png
-[cdn-storage-cdn-configuration]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png 

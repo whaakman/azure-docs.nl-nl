@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7953e218614ba259db3cd45220de6b6c880608ad
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
 Dubbele kenmerk tolerantie is een functie in Azure Active Directory, die wordt veroorzaakt door wrijving elimineren **UserPrincipalName** en **ProxyAddress** veroorzaakt een conflict bij het uitvoeren van een van de hulpprogramma's voor Microsoft synchronisatie.
@@ -37,7 +37,7 @@ Als er een poging tot het inrichten van een nieuw object met een UPN- of ProxyAd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Gedrag met dubbel kenmerk tolerantie
 In plaats van volledig niet in te richten of bijwerken van een object met een dubbel kenmerk, quarantaine Azure Active Directory' ' het dubbele kenmerk dat de beperking voor uniekheid zou schenden. Als dit kenmerk vereist is voor het inrichten, zoals UserPrincipalName, wijst de service een tijdelijke aanduidingswaarde. De indeling van deze tijdelijke waarden is  
-"***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***'.  
+“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
 Als het kenmerk niet vereist is, zoals een **ProxyAddress**, Azure Active Directory gewoon quarantaine plaatst het kenmerk conflict en wordt doorgegaan met het maken van het object of de update.
 
 Bij het kenmerk in quarantaine plaatsen, wordt informatie over het conflict in de dezelfde fout rapport e-mail gebruikt in het oude gedrag verzonden. Deze informatie wordt alleen weergegeven in het foutenrapport één keer wanneer de quarantaine gebeurt, deze komt niet blijft echter in toekomstige e-mailberichten worden vastgelegd. Ook, omdat de uitvoer voor dit object is geslaagd, sync-client wordt niet geregistreerd voor een fout en probeert de maken niet opnieuw / update-bewerking op de volgende synchronisatiecycli.

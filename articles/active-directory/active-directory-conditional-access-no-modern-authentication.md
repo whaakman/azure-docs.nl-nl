@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8e8eee4155e490beef86d0dd59d272c638e42bf0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c527d4511ab2dd3bb349c10c1defb24723fef59a
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>SharePoint Online en Exchange Online instellen voor voorwaardelijke toegang van Azure Active Directory 
 
@@ -76,7 +76,7 @@ Exchange Active Sync ondersteunt moderne verificatie, maar er zijn enkele beperk
 
 - U kunt alleen de voorwaarde van de platforms apparaat configureren  
 
-    ![Apparaatplatforms](./media/active-directory-conditional-access-no-modern-authentication/05.png)
+    ![Apparaatplatformen](./media/active-directory-conditional-access-no-modern-authentication/05.png)
 
 - Instellen van de vereiste voor meervoudige verificatie wordt niet ondersteund  
 
@@ -92,7 +92,7 @@ Om toegang tot Exchange Online effectief beveiligen van Exchange ActiveSync, kun
 
     b. Selecteer **Exchange Active Sync** als **clientapp**, en selecteer vervolgens **beleid van toepassing alleen op ondersteunde platforms**.  
 
-    ![Apparaatplatforms](./media/active-directory-conditional-access-no-modern-authentication/03.png)
+    ![Apparaatplatformen](./media/active-directory-conditional-access-no-modern-authentication/03.png)
 
 - Exchange ActiveSync geblokkeerd via regels voor Active Directory Federation Services (AD FS).
 

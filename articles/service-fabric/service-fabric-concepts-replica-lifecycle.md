@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: b4a01752cf2658bcc8dea663462336ca5c610d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="replicas-and-instances"></a>Replica's en -exemplaren 
 In dit artikel biedt een overzicht van de levenscyclus van replica's van stateful services en exemplaren van stateless services.
@@ -97,7 +97,7 @@ Als de toepassingshost of het knooppunt voor de replica van een openen vastloopt
 
 De replicarol is niet relevant de status openen.
 
-### <a name="standby-sb"></a>Stand-by (SB)
+### <a name="standby-sb"></a>StandBy (SB)
 De replica van een stand-by is een replica van een permanente service die werd afgesloten en vervolgens is geopend. Deze replica kan worden gebruikt door Service Fabric als een andere replica toevoegen aan de replicaset (omdat de replica is al een gedeelte van de status en het buildproces sneller is). Na het verstrijken van de StandByReplicaKeepDuration wordt de stand-by-replica genegeerd.
 
 Als de toepassingshost of het knooppunt voor een stand-by-replica vastloopt, verandert deze in de status omlaag.

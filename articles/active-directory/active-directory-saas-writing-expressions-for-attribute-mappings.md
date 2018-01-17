@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
 Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -27,7 +27,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 * De volledige expressie moet worden gedefinieerd in termen van functies, die bestaan uit een naam die wordt gevolgd door haakjes argumenten: <br>
   *Functienaam (<< argument 1 >>, <<argument N>>)*
-* U kunt functies binnen elkaar nesten. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+* U kunt functies binnen elkaar nesten. Bijvoorbeeld: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * U kunt drie soorten argumenten doorgegeven aan functies:
   
   1. Kenmerken, die moeten worden tussen vierkante vierkante haken. Bijvoorbeeld: [attributeName]
@@ -49,7 +49,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject |
-| **achtervoegsel** |Vereist |Tekenreeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
+| **suffix** |Vereist |Tekenreeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
 ### <a name="formatdatetime"></a>formatDateTime
@@ -77,7 +77,7 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **scheidingsteken** |Vereist |Tekenreeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
+| **separator** |Vereist |Tekenreeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
 | ** bron1... bronN ** |Vereiste, variabele-aantal keren |Tekenreeks |Tekenreekswaarden samen worden toegevoegd. |
 
 - - -
@@ -135,7 +135,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **oldValue** |Optioneel |Tekenreeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
 | **regexPattern** |Optioneel |Tekenreeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
 | **regexGroupName** |Optioneel |Tekenreeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
-| **vervangende waarde** |Optioneel |Tekenreeks |Nieuwe waarde ter vervanging van oude met. |
+| **replacementValue** |Optioneel |Tekenreeks |Nieuwe waarde ter vervanging van oude met. |
 | **replacementAttributeName** |Optioneel |Tekenreeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
 | **sjabloon** |Optioneel |Tekenreeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
 
@@ -174,9 +174,9 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
 | **bron** |Vereist |Tekenreeks |**Bron** waarde om te werken. |
-| **Standaardwaarde** |Optioneel |Tekenreeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
+| **defaultValue** |Optioneel |Tekenreeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
 | **sleutel** |Vereist |Tekenreeks |**Sleutel** vergelijken **bron** waarde met. |
-| **waarde** |Vereist |Tekenreeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
+| **value** |Vereist |Tekenreeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
 ## <a name="examples"></a>Voorbeelden
 ### <a name="strip-known-domain-name"></a>Strook bekende domeinnaam
@@ -212,7 +212,7 @@ U moet een gebruiker alias genereren door middel van eerste 3 letters van de voo
 
 * **INVOER** (givenName): "Jan"
 * **INVOER** (voornaam): 'De Vries'
-* **UITVOER**: 'JohDoe'
+* **OUTPUT**:  "JohDoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
 Wilt u datums verzenden naar een SaaS-toepassing in een bepaalde indeling. <br>
@@ -224,8 +224,8 @@ U wilt bijvoorbeeld datums voor ServiceNow opmaken.
 
 **I/o-voorbeeld:**
 
-* **INVOER** (extensionAttribute1): '20150123105347.1Z'
-* **UITVOER**: '2015-01-23'
+* **INPUT** (extensionAttribute1): "20150123105347.1Z"
+* **OUTPUT**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Een waarde op basis van vooraf gedefinieerde set opties vervangen
 U moet de tijdzone van de gebruiker op basis van de status code opgeslagen in Azure AD te definiëren. <br>
