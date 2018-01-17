@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: e4f2a4d5263b30b16ffd137c47fb63caa8340e16
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1073c8eb0bfb8176f81826c4ea8967d5c04098ec
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Aan de slag met een voorbeeld van Apache HBase in HDInsight
 
@@ -38,7 +38,7 @@ Voordat u begint met dit HBase-voorbeeld, moet u beschikken over de volgende ite
 ## <a name="create-hbase-cluster"></a>Een HBase-cluster maken
 In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters.
 
-1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in een openbare blob-container. 
+1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Voer op de blade **Aangepaste implementatie** de volgende waarden in:
@@ -47,7 +47,7 @@ In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om e
    * **Resourcegroep**: maak een Azure-resourcebeheergroep of gebruik een bestaande.
    * **Locatie**: geef de locatie van de resourcegroep op. 
    * **Clusternaam**: voer een naam in voor het HBase-cluster.
-   * **Aanmeldgegevens voor het cluster**: de standaardaanmeldnaam is **admin**.
+   * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
    * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
      
      Andere parameters zijn optioneel.  

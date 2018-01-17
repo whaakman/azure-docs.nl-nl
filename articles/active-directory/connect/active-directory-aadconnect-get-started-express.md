@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Aan de slag met Azure AD Connect met expresinstellingen
 **Expresinstellingen** van Azure AD Connect worden gebruikt wanneer u een singleforesttopologie hebt en [wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor verificatie. **Expresinstellingen** is de standaardoptie en wordt gebruikt voor het meest geïmplementeerde scenario. U bent slechts enkele snelle klikken verwijderd van uitbreiding van uw on-premises directory naar de cloud.
@@ -36,7 +36,8 @@ In de sectie met [video's](#videos) kunt u zien hoe deze stappen in de praktijk 
 4. Klik in het scherm Expresinstellingen op **Expresinstellingen gebruiken**.  
    ![Welkom bij Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in van een hoofdbeheerder voor Azure AD. Klik op **Volgende**.  
-   ![Verbinding maken met Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Als u een foutbericht ontvangt en problemen hebt met de connectiviteit, raadpleegt u [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Verbinding maken met Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)  
+   Zie [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md) als u een foutbericht krijgt en u problemen hebt met de connectiviteit.
 6. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. Klik op **Volgende**.  
    ![Verbinding maken met AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. De pagina [**Configuratie van aanmelding bij Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) wordt alleen weergegeven als u de [domeinen niet hebt geverifieerd](../active-directory-domains-add-azure-portal.md) bij de [vereisten](active-directory-aadconnect-prerequisites.md).
@@ -53,8 +54,8 @@ In de sectie met [video's](#videos) kunt u zien hoe deze stappen in de praktijk 
 Voor een video over het gebruik van expresinstallatie gaat u naar:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u Azure AD Connect geïnstalleerd hebt, kunt u [de installatie verifiëren en licenties toewijzen](active-directory-aadconnect-whats-next.md).
@@ -66,10 +67,10 @@ Lees meer over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>Verwante documentatie
-| Onderwerp |
-| --- | --- |
-| Overzicht Azure AD Connect |
-| Installeren met behulp van aangepaste instellingen |
-| Upgraden van DirSync |
-| Accounts die worden gebruikt voor installatie |
 
+| Onderwerp | Koppeling |
+| --- | --- |
+| Overzicht Azure AD Connect | [Uw on-premises directory's integreren met Azure Active Directory](active-directory-aadconnect.md)
+| Installeren met behulp van aangepaste instellingen | [Aangepaste installatie van Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
+| Upgraden van DirSync | [Upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+| Accounts die worden gebruikt voor installatie | [Meer informatie over referenties en machtigingen van Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |

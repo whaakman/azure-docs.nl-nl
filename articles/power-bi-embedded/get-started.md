@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Aan de slag met Microsoft Power BI Embedded
 
@@ -46,6 +46,9 @@ Er zijn voorbeelden om u op weg te helpen. Voor een stapsgewijze behandeling van
 ## <a name="get-capacity-and-move-to-production"></a>Capaciteit verkrijgen en verplaatsen naar productie
 
 Creëer Power BI Embedded-capaciteit in Microsoft Azure om uw toepassing naar productie te verplaatsen. Voor meer informatie over het creëren van capaciteit raadpleegt u [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Power BI Embedded-capaciteit creëren in de Azure-portal).
+
+> [!IMPORTANT]
+> Omdat insluittokens alleen zijn bedoeld voor het testen van een ontwikkeling, kan een Power BI-hoofdaccount maar een beperkt aantal insluittokens genereren. Voor productie-insluitscenario's moet een [capaciteit worden aangeschaft](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Er is geen limiet voor het genereren van insluittokens wanneer een capaciteit is aangeschaft.
 
 Uw capaciteit beheren vanuit de Power BI-beheerportal. Wijs een werkruimtetoewijzer toe om u te helpen bij uw app-werkruimten. Voor meer informatie raadpleegt u [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Capaciteit beheren in Power BI Premium en Power BI Embedded).
 

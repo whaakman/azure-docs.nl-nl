@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
 ## <a name="introduction"></a>Inleiding
@@ -57,7 +57,7 @@ Binnen elk van deze vijf fasen zijn er verschillende vereisten voor de apparaato
     *Meer weten*: [Aan de slag met apparaatdubbels][lnk-twins-getstarted], [Meer informatie over apparaatdubbels][lnk-twins-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties].
 * **Inrichten**: nieuwe apparaten veilig inrichten voor IoT Hub en operators in staat stellen apparaatmogelijkheden onmiddellijk te detecteren.  Gebruik het id-register van IoT Hub om flexibele apparaat-id's en -referenties te maken. Voer dit uit in één bulkbewerking met behulp van een taak. Bouw apparaten om hun mogelijkheden en voorwaarden via apparaateigenschappen te rapporteren in de apparaatdubbel.
   
-    *Meer weten*: [Apparaatidentiteiten beheren][lnk-identity-registry], [Apparaatidentiteiten bulksgewijs beheren][lnk-bulk-identity], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties].
+    *Meer weten*: [Apparaatidentiteiten beheren][lnk-identity-registry], [Apparaatidentiteiten bulksgewijs beheren][lnk-bulk-identity], [apparaatdubbeleigenschappen gebruiken][lnk-twin-properties], [Azure IoT Hub Device Provisioning-service][lnk-dps].
 * **Configureren**: bulksgewijze configuratiewijzigingen en firmware-updates op apparaten ondersteunen terwijl de status en beveiliging behouden blijven. Voer deze apparaatbeheerbewerkingen bulksgewijs uit met behulp van de gewenste eigenschappen of met rechtstreekse methoden en broadcast-taken.
   
     *Meer weten*: [Rechtstreekse methoden gebruiken][lnk-c2d-methods], [Een rechtstreekse methode aanroepen op een apparaat][lnk-methods-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Taken plannen en uitzenden][lnk-jobs], [Taken op meerdere apparaten plannen][lnk-jobs-devguide].
@@ -113,3 +113,4 @@ Zie de zelfstudie [Aan de slag met apparaatbeheer][lnk-get-started] voor meer in
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

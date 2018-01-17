@@ -13,19 +13,17 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>Les 1: Een nieuw modelproject maken in tabelvorm
+# <a name="create-a-tabular-model-project"></a>Een project voor een tabellair model maken
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-In deze les gebruikt u SQL Server Data Tools (SSDT) om een nieuw project voor een tabellair model te maken op het compatibiliteitsniveau 1400. Zodra het nieuwe project is gemaakt, kunt u gegevens gaan toevoegen en het model gaan ontwerpen. In deze les krijgt u ook een korte inleiding op de omgeving in SSDT voor het ontwerpen van een tabellair model.  
+In deze les gebruikt u Visual Studio met SQL Server Data Tools (SSDT) om een nieuw project voor een tabellair model te maken op het compatibiliteitsniveau 1400. Zodra het nieuwe project is gemaakt, kunt u gegevens gaan toevoegen en het model gaan ontwerpen. In deze les krijgt u ook een korte inleiding op de omgeving in Visual Studio voor het ontwerpen van een tabellair model.  
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
@@ -36,7 +34,7 @@ Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair mode
   
 #### <a name="to-create-a-new-tabular-model-project"></a>Een nieuw project voor een tabellair model maken:  
   
-1.  Open in SSDT het menu **File** en klik op **New** > **Project**.  
+1.  Open in Visual Studio het menu **File** en klik op **New** > **Project**.  
   
 2.  Vouw in het dialoogvenster **New Project** **Installed** > **Business Intelligence** > **Analysis Services** uit en klik vervolgens op **Analysis Services Tabular Project**.  
   
@@ -48,7 +46,7 @@ Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair mode
   
 5.  Selecteer **Integrated workspace** in het dialoogvenster **Tabular model designer**.  
   
-    De werkruimte bevat tijdens het ontwerpen van het model een tabellaire modeldatabase met dezelfde naam als het project. De optie Integrated workspace betekent dat SSDT een ingebouwd exemplaar gebruikt, zodat u niet alleen voor het ontwerpen van het model een afzonderlijke Analysis Services-server hoeft te installeren.
+    De werkruimte bevat tijdens het ontwerpen van het model een tabellaire modeldatabase met dezelfde naam als het project. De optie Integrated workspace betekent dat Visual Studio een ingebouwd exemplaar gebruikt, zodat u niet alleen voor het ontwerpen van het model een afzonderlijke Analysis Services-server hoeft te installeren.
       
 6.  Selecteer **SQL Server 2017 / Azure Analysis Services (1400)** bij **Compatibility level**.   
  
@@ -58,9 +56,9 @@ Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair mode
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Overzicht van de SSDT-ontwerpomgeving voor tabellaire modellen  
-U hebt net een nieuw project voor een tabellair model gemaakt. Het is handig om nu eerst even de omgeving van SSDT voor het ontwerpen van tabellaire modellen te bekijken.  
+U hebt net een nieuw project voor een tabellair model gemaakt. Het is handig om nu eerst even de omgeving van Visual Studio voor het ontwerpen van tabellaire modellen te bekijken.  
   
-Nadat uw project is gemaakt, wordt het geopend in SSDT. Aan de rechterkant, bij **Tabular Model Explorer**, ziet u een structuurweergave van de objecten in uw model. Aangezien u nog geen gegevens hebt geïmporteerd, zijn de mappen leeg. Klik met de rechtermuisknop op een objectmap om bewerkingen uit te voeren. De beschikbare opties zijn ook op te roepen via de menubalk. Tijdens het doorlopen van de stappen van deze zelfstudie, kunt u Tabular Model Explorer gebruiken om door verschillende objecten in uw modelproject te bladeren.
+Nadat uw project is gemaakt, wordt het geopend in Visual Studio. Aan de rechterkant, bij **Tabular Model Explorer**, ziet u een structuurweergave van de objecten in uw model. Aangezien u nog geen gegevens hebt geïmporteerd, zijn de mappen leeg. Klik met de rechtermuisknop op een objectmap om bewerkingen uit te voeren. De beschikbare opties zijn ook op te roepen via de menubalk. Tijdens het doorlopen van de stappen van deze zelfstudie, kunt u Tabular Model Explorer gebruiken om door verschillende objecten in uw modelproject te bladeren.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Aan de slag met Azure Mobile Engagement voor Android-apps
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -32,7 +32,7 @@ Voltooiing van deze zelfstudie vereist de [Android-hulpprogramma's voor ontwikke
 Ook is [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) vereist.
 
 > [!IMPORTANT]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started) voor meer informatie.
 >
 >
 
@@ -40,7 +40,7 @@ Ook is [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) vereist.
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ## <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Uw app verbinden met de back-end van Mobile Engagement
-Deze zelfstudie toont een 'basisintegratie', de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. U maakt een eenvoudige app met Android Studio ter illustratie van de integratie.
+Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. U maakt een eenvoudige app met Android Studio ter illustratie van de integratie.
 
 De volledige integratiedocumentatie is te vinden in de [Mobile Engagement Android SDK-integratie](mobile-engagement-android-sdk-overview.md).
 
@@ -91,7 +91,7 @@ Android Studio maakt nu de demo-app waarin we Mobile Engagement gaan integreren.
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. Ga terug naar de klassieke Azure-portal op de pagina **Verbindingsgegevens** van de app en kopieer de **verbindingsreeks**.
+3. Ga terug naar de Azure-portal op de pagina **Verbindingsgegevens** van de app en kopieer de **verbindingsreeks**.
 
       ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 

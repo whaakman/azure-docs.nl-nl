@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
-> [!div class="op_single_selector"]
-> * [Virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
-> * [Virtuele machines beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
->
->
 
 In deze zelfstudie leert u hoe u een Recovery Services-kluis maakt en back-ups maakt van een virtuele machine (VM) van Azure. Recovery Services-kluizen beveiligen:
 
@@ -48,13 +43,11 @@ Kijk [hier](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-rest
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Afhankelijk van het aantal virtuele machines dat u wilt beveiligen, kunt u vanaf verschillende beginpunten starten. Als u in één bewerking een back-up wilt maken van meerdere virtuele machines, gaat u naar de Recovery Services-kluis en [start u de back-uptaak vanuit het dashboard van de kluis](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Als u een back-up van één virtuele machine wilt maken, kunt u de back-uptaak starten vanaf de VM-beheerblade.
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>De back-uptaak configureren vanaf de VM-beheerblade
 
-Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. Deze stappen zijn niet van toepassing op virtuele machines in de klassieke portal.
+Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. De volgende stappen gelden alleen voor virtuele machines in de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik in het menu Hub op **Meer services** en typ **Virtuele machines** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer u Virtuele machines ziet, selecteert u deze optie.

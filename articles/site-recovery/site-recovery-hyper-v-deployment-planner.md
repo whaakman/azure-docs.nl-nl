@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0baf595266e71fad2df16996d63af3ba7d23a6ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Azure Site Recovery Deployment Planner voor Hyper-V naar Azure
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type Hyper-V-naar-Azure.
@@ -28,7 +28,7 @@ Voordat u een virtuele Hyper-V-machine gaat beveiligen met behulp van Site Recov
 
 Daarnaast is het belangrijk dat u het juiste type en aantal opslagaccounts maakt in Azure. U kunt kiezen tussen Standard- of Premium Storage-accounts, waarbij u rekening moet houden met groei van uw productieservers door toegenomen gebruik na verloop van tijd. U bepaalt per virtuele machine het opslagtype, op basis van kenmerken van de werkbelasting (zoals I/O-bewerkingen voor lezen/schrijven per seconde [IOPS] of gegevensverloop) en limieten van Azure Site Recovery. 
 
-De Azure Site Recovery-implementatieplanner (versie 2) is een opdrachtregelprogramma beschikbaar voor zowel Hyper-V naar Azure en VMware naar Azure herstel na noodgevallen. U kunt uw virtuele Hyper-V-machines op meerdere Hyper-V-hosts met dit hulpprogramma op afstand profileren (zonder enige productie-invloed) om inzicht te krijgen in de bandbreedte en in de Azure-opslagvereisten voor succesvolle replicatie en testfailover / failover. U kunt het hulpprogramma uitvoeren zonder dat u on-premises onderdelen van Azure Site Recovery hoeft te installeren. We raden echter aan, als u nauwkeurige bereikte doorvoerresultaten wilt, de planner uit te voeren op een Windows Server met dezelfde hardwareconfiguratie als die van een van de Hyper-V-servers die u gebruikt voor het inschakelen van de noordherstelbeveiliging naar Azure. 
+De Azure Site Recovery-implementatieplanner is een opdrachtregelprogramma voor zowel Hyper-V naar Azure en VMware naar Azure herstel na noodgevallen. U kunt uw virtuele Hyper-V-machines op meerdere Hyper-V-hosts met dit hulpprogramma op afstand profileren (zonder enige productie-invloed) om inzicht te krijgen in de bandbreedte en in de Azure-opslagvereisten voor succesvolle replicatie en testfailover / failover. U kunt het hulpprogramma uitvoeren zonder dat u on-premises onderdelen van Azure Site Recovery hoeft te installeren. We raden echter aan, als u nauwkeurige bereikte doorvoerresultaten wilt, de planner uit te voeren op een Windows Server met dezelfde hardwareconfiguratie als die van een van de Hyper-V-servers die u gebruikt voor het inschakelen van de noordherstelbeveiliging naar Azure. 
 
 Het hulpprogramma levert de volgende gegevens:
 
@@ -121,9 +121,9 @@ De aanbevolen configuratie van de virtuele machine: 8 Vcpu, 16 GB RAM-geheugen, 
 3.  Pak de gecomprimeerde map uit.
 De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
 
-Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR Deployment Planner_v2.0.zip
+Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Bijwerken naar de nieuwste versie van de implementatieplanner
 Als u een eerdere versie van de implementatieplanner hebt, doe dan het volgende:
@@ -136,6 +136,11 @@ Als u een eerdere versie van de implementatieplanner hebt, doe dan het volgende:
   >Wanneer u gaat profileren met de nieuwe versie, geef dan dezelfde uitvoerdirectory op zodat het hulpprogramma profielgegevens kan toevoegen aan de bestaande bestanden. Er wordt een volledige set geprofileerde gegevens gebruikt om het rapport te genereren. Als u een andere uitvoerdirectory opgeeft, worden er nieuwe bestanden gemaakt en worden oude profileringsgegevens niet gebruikt bij het genereren van het rapport.
   >
   >Elke nieuwe implementatieplanner is een cumulatieve update van het ZIP-bestand. U hoeft dus niet de nieuwste bestanden naar de vorige map te kopiëren. U kunt een nieuwe map maken en deze gebruiken.
+
+## <a name="version-history"></a>Versiegeschiedenis
+De meest recente versie van het hulpprogramma ASR Deployment Planner is 2.1.
+Raadpleeg de pagina [Versiegeschiedenis van ASR Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) voor de oplossingen die zijn toegevoegd in elke update.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [De implementatieplanner uitvoeren](site-recovery-hyper-v-deployment-planner-run.md).

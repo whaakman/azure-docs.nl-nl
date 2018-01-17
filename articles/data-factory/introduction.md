@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Wanneer de gegevens eenmaal aanwezig zijn in een gecentraliseerd gegevensarchief
 ### <a name="publish"></a>Publiceren
 Nadat de onbewerkte gegevens zijn omgezet in gebruiksklare bedrijfsgegevens, laadt u de gegevens in Azure Data Warehouse, Azure SQL Database, Azure CosmosDB of een andere analyse-engine waar gebruikers in uw bedrijf naar kunnen verwijzen met hun hulpprogramma's voor business intelligence.
 
-### <a name="monitor"></a>Bewaken
+### <a name="monitor"></a>Controleren
 Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd, en op die manier toegevoegde waarde biedt met getransformeerde gegevens, controleert u hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite en statusvensters in Azure Portal.
 
 ## <a name="top-level-concepts"></a>Concepten van het hoogste niveau
@@ -119,12 +119,12 @@ U kunt op dit moment gegevensfactory’s maken in de regio's VS - oost, VS - oos
 
 Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde werkstromen mee maken om de verplaatsing van gegevens te beheren tussen ondersteunde gegevensarchieven en om er gegevens mee te verwerken middels Compute Services in andere regio's of in een on-premises omgeving. U kunt er ook werkstromen mee bewaken en beheren met zowel programmatische als gebruikersinterfacemechanismen.
 
-Hoewel Data Factory alleen beschikbaar is in VS - oost, VS - oost 2 en West-Europa, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, wereldwijd beschikbaar in meerdere regio's. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een gegevensbeheergateway die is geïnstalleerd in uw on-premises omgeving.
+Hoewel Data Factory alleen beschikbaar is in VS - oost, VS - oost 2 en West-Europa, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, wereldwijd beschikbaar in meerdere regio's. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een Integration Runtime (zelf-hostend) die is geïnstalleerd in uw on-premises omgeving.
 
-Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in Noord-Europa en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
+Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in VS Oost of VS Oost 2 en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
 
 ## <a name="compare-with-version-2"></a>Vergelijken met versie 2
 Zie [Compare with version 1](compare-versions.md) (Vergelijken met versie 1) voor een lijst met verschillen tussen versie 1 en versie 2 van de Data Factory-service. 
 
 ## <a name="next-steps"></a>Volgende stappen
-In de volgende QuickStarts vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) en Azure Portal. 
+In de volgende snelstartgidsen vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) en Azure Portal. 

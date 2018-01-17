@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport Azure Site Recovery-implementatieplanner
 Het gegenereerde Microsoft Excel-rapport bevat de volgende bladen:
@@ -214,9 +214,9 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **NIC's**: het aantal NIC's van de virtuele machine.
 
-**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines.
+**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn.  Op dit moment biedt Azure Site Recovery ondersteuning voor Windows Server EFI-VM's (Windows Server 2012, 2012 R2 en 2016), als het aantal partities in de opstartschijf minder is dan 4 en de opstartsector 512 bytes groot is. Als u EFI-VM's wilt beveiligen, moet Azure Site Recovery Mobility Service versie 9.13 of hoger zijn. Alleen failover wordt ondersteund voor EFI-VM's. Failback wordt niet ondersteund.  
 
-**Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
+**Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows of Linux zijn, of een ander besturingssysteem op basis van de sjabloon die in VMware vSphere is gekozen tijdens het maken van de VM.  
 
 ## <a name="incompatible-vms"></a>Niet-compatibele VM's
 
@@ -228,20 +228,31 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 **VM-compatibiliteit**: geeft aan waarom de virtuele machine niet compatibel is voor gebruik met Site Recovery. De redenen worden voor elke niet-compatibele schijf van de virtuele machine beschreven. Op basis van gepubliceerde [opslaglimieten](https://aka.ms/azure-storage-scalbility-performance) kan dit een van de volgende redenen zijn:
 
 * De schijf is groter dan 4095 GB. Azure Storage biedt momenteel geen ondersteuning voor gegevensschijven groter dan 4095 GB.
+
 * De besturingssysteemschijf is groter dan 2048 GB. Azure Storage biedt momenteel geen ondersteuning voor besturingssysteemschijven groter dan 2048 GB.
-* Opstarttype is EFI. Azure Site Recovery ondersteunt op dit moment alleen virtuele machines met het BIOS-opstarttype.
 
 * Totale grootte van virtuele machine (replicatie + TFO) overschrijdt de ondersteunde limiet voor opslagaccounts (35 TB). Dit probleem treedt meestal op wanneer één schijf in de virtuele machine een prestatiekenmerk heeft dat groter is dan de maximaal ondersteunde limieten voor Standard-opslag van Azure of Site Recovery. De virtuele machine komt dan in aanmerking voor Premium Storage. De maximaal ondersteunde grootte van een Premium Storage-account is echter 35 TB en één beveiligde virtuele machine kan niet worden beveiligd via meerdere opslagaccounts. Houd er ook rekening mee dat bij het uitvoeren van een testfailover op een beveiligde virtuele machine, deze wordt uitgevoerd in het opslagaccount waarin ook de replicatie plaatsvindt. Stel in dit geval 2 x de grootte van de schijf in om replicatie mogelijk te maken en het testen van failover parallel uit te voeren.
-* De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 5000 per schijf.
+
+* De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 7500 per schijf.
+
 * De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 80.000 per schijf.
+
 * Het gemiddelde gegevensverloop overschrijdt de ondersteunde Site Recovery-limiet voor gegevensverloop van 10 MB/s voor de gemiddelde IO-grootte voor de schijf.
-* Het totale gegevensverloop voor alle schijven in de virtuele machine overschrijdt de maximaal ondersteunde limiet voor Site Recovery-gegevensverloop van 54 MB/s per virtuele machine.
+
+* Het gemiddelde gegevensverloop overschrijdt de ondersteunde Site Recovery-limiet voor gegevensverloop van 25 MB/s voor de gemiddelde IO-grootte voor de VM (som van het verloop van alle schijven).
+
+* Het piekgegevensverloop voor alle schijven in de virtuele machine overschrijdt de maximaal ondersteunde limiet voor het piekgegevensverloop van Site Recovery van 54 MB/s per virtuele machine.
+
 * De gemiddelde effectieve schrijf-IOPS overschrijdt de ondersteunde IOPS-limiet van Site Recovery van 840 voor schijven.
+
 * De berekende opslag voor momentopnamen overschrijdt de ondersteunde opslaglimiet van 10 TB voor momentopnamen.
 
-**R/W IOPS (met groeifactor)**: de piekworkload-IOPS op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). De totale IOPS voor lezen/schrijven van een virtuele machine is niet altijd de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven van de virtuele machine. De piek-IOPS voor lezen/schrijven van de virtuele machine is namelijk de piek van de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven voor elke minuut van de profileringsperiode.
+* Totaal gegevensverloop per dag overschrijdt het ondersteunde verloop per daglimiet van 2 TB per processerver.
 
-**Gegevensverloop in Mbps (met groeifactor)**: het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
+
+**Piek R/W IOPS (met groeifactor)**: de piekworkload-IOPS op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). De totale IOPS voor lezen/schrijven van een virtuele machine is niet altijd de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven van de virtuele machine. De piek-IOPS voor lezen/schrijven van de virtuele machine is namelijk de piek van de som van de IOPS voor lezen/schrijven van de afzonderlijke schijven voor elke minuut van de profileringsperiode.
+
+**Piekgegevensverloop in Mbps (met groeifactor)**: het piekverloop op de schijf (standaard het 95e percentiel) met inbegrip van de toekomstige groeifactor (standaard 30%). Houd er rekening mee dat de totale gegevensverloopwaarde van de virtuele machine niet altijd de som is van het gegevensverloop van de afzonderlijke schijven van de virtuele machine. De piekwaarde voor het gegevensverloop van de virtuele machine is namelijk de piek van de som van het gegevensverloop van de individuele schijven voor elke minuut van de profileringsperiode.
 
 **Aantal schijven**: het totale aantal VMDK's van de virtuele machine.
 
@@ -253,14 +264,13 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **NIC's**: het aantal NIC's van de virtuele machine.
 
-**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines.
+**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn.  Op dit moment biedt Azure Site Recovery ondersteuning voor Windows Server EFI-VM's (Windows Server 2012, 2012 R2 en 2016), als het aantal partities in de opstartschijf minder is dan 4 en de opstartsector 512 bytes groot is. Als u EFI-VM's wilt beveiligen, moet Azure Site Recovery Mobility Service versie 9.13 of hoger zijn. Alleen failover wordt ondersteund voor EFI-VM's. Failback wordt niet ondersteund.
 
-**Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
-
+**Type besturingssysteem**: is het type besturingssysteem van de virtuele machine. Dit kan Windows of Linux zijn, of een ander besturingssysteem op basis van de sjabloon die in VMware vSphere is gekozen tijdens het maken van de VM. 
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery-limieten
 De volgende tabel bevat de Azure Site Recovery-limieten. Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, zelfs na het plannen van de implementatie, is het altijd beter om toepassingen uitgebreid te testen met behulp van een testfailover. Zo krijgt u een nauwkeurig inzicht in de prestaties van de applicatie.
- 
+
 **Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per schijf
@@ -270,7 +280,14 @@ Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
 
+**brongegevensverloop** | **Maximumlimiet**
+---|---
+Gemiddeld gegevensverloop per VM| 25 MB/s 
+Piekgegevensverloop over alle schijven op een VM | 54 MB/s
+Maximumgegevensverloop per dag dat wordt ondersteund door een processerver | 2 TB 
+
 Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery kan een hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
+
 
 ## <a name="cost-estimation"></a>Kostenraming
 Meer informatie over [kostenraming](site-recovery-vmware-deployment-planner-cost-estimation.md). 

@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Les 2: Gegevens ophalen
+# <a name="get-data"></a>Gegevens ophalen
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-In deze les gebruikt u Get Data in SSDT om verbinding te maken met de AdventureWorksDW2014-voorbeelddatabase, gegevens te selecteren, een voorbeeld van de gegevens te bekijken en ze te filteren, en ze ten slotte in uw modelwerkruimte te importeren.  
+In deze les gebruikt u Get Data in SSDT om verbinding te maken met de AdventureWorks-voorbeelddatabase, gegevens te selecteren, een voorbeeld van de gegevens te bekijken en ze te filteren, en ze ten slotte in uw modelwerkruimte te importeren.  
   
 Met behulp van Get Data kunt u gegevens importeren uit een groot aantal gegevensbronnen: Azure SQL Database, Oracle, Sybase, OData-Feed, Teradata, bestanden en meer. U kunt ook query's uitvoeren op gegevens met een formule-expressie van Power Query M.
 
 > [!NOTE]
-> De taken en afbeeldingen in deze zelfstudie laten zien hoe u verbinding maakt met een AdventureWorksDW2014-database op een on-premises server. In sommige gevallen kan een AdventureWorksDW2014-database in Azure afwijken.
+> De taken en afbeeldingen in deze zelfstudie laten zien hoe u verbinding maakt met een AdventureWorksDW2014-database op een on-premises server. In sommige gevallen kan een AdventureWorks-database in Azure afwijken.
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   

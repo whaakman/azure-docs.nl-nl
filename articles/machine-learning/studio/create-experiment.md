@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Zelfstudie over Machine Learning: uw eerste gegevenswetenschapexperiment maken in Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ In deze machine learning-zelfstudie volgt u vijf eenvoudige stappen in Machine L
 [Stap 5: prijzen van nieuwe auto's voorspellen]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> U vindt een werkende kopie van het volgende experiment in de [Cortana Intelligence-galerie](https://gallery.cortanaintelligence.com). Ga naar **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** en klik op **Open in Studio** om een kopie van het experiment naar uw Machine Learning Studio-werkruimte te downloaden.
+> U vindt een werkende kopie van het volgende experiment in de [Azure AI Gallery](https://gallery.cortanaintelligence.com). Ga naar **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** en klik op **Open in Studio** om een kopie van het experiment naar uw Machine Learning Studio-werkruimte te downloaden.
 
 
 ## <a name="step-1-get-data"></a>Stap 1: gegevens ophalen
@@ -327,7 +327,7 @@ Het laatste experiment ziet er ongeveer als volgt uit:
 Nu u de aanvankelijke machine learning-zelfstudie hebt voltooid en een experiment hebt gemaakt, kunt u het model verder verbeteren en uiteindelijk implementeren als voorspellende webservice.
 
 - **Herhalen om het model te verbeteren** - U kunt bijvoorbeeld andere kenmerken gebruiken in uw voorspelling. Of u kunt de eigenschappen wijzigen van het algoritme [Linear Regression][linear-regression] of een compleet ander algoritme proberen. U kunt zelfs meerdere machine learning-algoritmen tegelijk aan uw experiment toevoegen en de module [Evaluate Model][evaluate-model] gebruiken om twee algoritmen te vergelijken.
-Zie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in de [Cortana Intelligence-galerie](https://gallery.cortanaintelligence.com) voor een voorbeeld van hoe u meerdere modellen in één experiment vergelijkt.
+Zie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in de [Azure AI Gallery](https://gallery.cortanaintelligence.com) voor een voorbeeld van hoe u meerdere modellen in één experiment vergelijkt.
 
     > [!TIP]
     > Gebruik de knop **SAVE AS** onder aan de pagina om herhalingen van uw experiment te kopiëren. U kunt alle herhalingen van uw experiment weergeven door onder aan de pagina op **VIEW RUN HISTORY** te klikken. Zie [Iteraties van experimenten beheren in Azure Machine Learning Studio][runhistory] voor meer informatie.

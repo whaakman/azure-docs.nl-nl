@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Een interne load balancer maken in Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure-CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 
@@ -43,7 +43,7 @@ Gebruik de volgende stappen om een interne load balancer te maken vanuit Azure P
 1. Open een browser, ga naar [Azure Portal](http://portal.azure.com) en meld u aan met uw Azure-account.
 2. Klik linksboven in het scherm op **Nieuw** > **Netwerken** > **Load balancer**.
 3. Voer op de blade **Load balancer maken** een **naam** in voor de load balancer.
-4. Klik onder **Schema** op **Intern**.
+4. Klik onder **Type** op **Intern**.
 5. Klik op **Virtueel netwerk** en selecteer het virtuele netwerk waarin u de load balancer wilt maken.
 
    > [!NOTE]
@@ -56,7 +56,7 @@ Gebruik de volgende stappen om een interne load balancer te maken vanuit Azure P
    > Als u voor het gebruik van een statisch IP-adres kiest, moet u een adres voor de load balancer opgeven.
 
 8. Geef onder **Resourcegroep** de naam op van een nieuwe resourcegroep voor de load balancer of klik op **Bestaande selecteren** en selecteer een bestaande resourcegroep.
-9. Klik op **Maken**.
+9. Klik op **Create**.
 
 ## <a name="configure-load-balancing-rules"></a>Taakverdelingsregels configureren
 
@@ -66,16 +66,16 @@ Configureer een back-endadresgroep en een test voordat u een taakverdelingsregel
 ### <a name="step-1-configure-a-backend-pool"></a>Stap 1: Een back-endgroep configureren
 
 1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u eerder hebt gemaakt.
-2. Klik op de blade **Instellingen** op **Back-endgroepen**.
-3. Klik op de blade **Back-endadresgroepen** op **Toevoegen**.
-4. Voer op de blade **Back-endgroep toevoegen** een **Naam** in voor de back-endgroep en klik op **OK**.
+2. Klik op de pagina **Instellingen** op **Back-endgroepen**.
+3. Klik op de pagina **Back-endadresgroepen** op **Toevoegen**.
+4. Voer op de pagina **Back-endgroep toevoegen** een **Naam** in voor de back-endgroep en klik op **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Stap 2: Een test configureren
 
 1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u eerder hebt gemaakt.
-2. Klik op de blade **Instellingen** op **Tests**.
-3. Klik op de blade **Tests** op **Toevoegen**.
-4. Voer op de blade **Test toevoegen** een **Naam** in voor de test.
+2. Klik op de pagina **Instellingen** op **Statuscontroles**.
+3. Klik op de pagina **Statuscontroles** op **Toevoegen**.
+4. Voer op de pagina **Test toevoegen** een **Naam** in voor de test.
 5. Selecteer onder **Protocol** **HTTP** (voor websites) of **TCP** (voor andere TCP-toepassingen).
 6. Geef onder **Poort** op welke poort u voor de test wilt gebruiken.
 7. Geef onder **Pad** (alleen voor HTTP-tests) het pad op dat u voor de test wilt gebruiken.
@@ -86,10 +86,10 @@ Configureer een back-endadresgroep en een test voordat u een taakverdelingsregel
 ### <a name="step-3-configure-load-balancing-rules"></a>Stap 3: Taakverdelingsregels configureren
 
 1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u eerder hebt gemaakt.
-2. Klik op de blade **Instellingen** op **Taakverdelingsregels**.
-3. Klik op de blade **Taakverdelingsregels** op **Toevoegen**.
-4. Voer op de blade **Taakverdelingsregel toevoegen** een **Naam** in voor de regel.
-5. Selecteer onder **Protocol** **HTTP** (voor websites) of **TCP** (voor andere TCP-toepassingen).
+2. Klik op de pagina **Instellingen** op **Taakverdelingsregels**.
+3. Klik op de pagina **Taakverdelingsregels** op **Toevoegen**.
+4. Voer op de pagina **Taakverdelingsregel toevoegen** een **Naam** in voor de regel.
+5. Selecteer onder **Protocol** de optie **TCP** of **UDP**.
 6. Geef onder **Poort** op via welke poort clients verbinding maken met de load balancer.
 7. Geef onder **Back-endpoort** de poort op die in de back-endgroep moet worden gebruikt (gewoonlijk zijn de load balancer-poort en de back-endpoort hetzelfde).
 8. Selecteer onder **Back-endgroep** de back-endgroep die u eerder hebt gemaakt.

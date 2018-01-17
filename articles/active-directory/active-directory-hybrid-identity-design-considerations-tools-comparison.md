@@ -5,20 +5,19 @@ services: active-directory
 documentationcenter: 
 author: billmath
 manager: mtillman
-editor: curtand
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: b26d455d2a0d2c39ca7318e19ebbea46e938c3c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78ca910b4dfd5a706d2f1df7f70291fb48f096f5
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Vergelijking van hulpprogramma’s voor directory-integratie voor hybride identiteit
 In de afgelopen jaren hebben de hulpprogramma's voor directory-integratie zich enorm ontwikkeld.  Dit document geeft een overzicht van deze hulpprogramma's en hierin worden de beschikbare functies in elk hulpprogramma vergeleken.
@@ -44,13 +43,16 @@ PP = Openbare preview
 | Verbinding maken met één on-premises AD-forest |● |● |● |● |● |
 | Verbinding maken met meerdere on-premises AD-forests |● |● | |● |● |
 | Verbinding maken met meerdere on-premises Exchange-organisaties |● | | | | |
-| Verbinding maken met één on-premises LDAP-adreslijst |FR | | |● |● |
-| Verbinding maken met meerdere on-premises LDAP-adreslijsten |FR | | |● |● |
-| Verbinding maken met on-premises AD- en on-premises LDAP-adreslijsten |FR | | |● |● |
+| Verbinding maken met één on-premises LDAP-adreslijst |●* | | |● |● |
+| Verbinding maken met meerdere on-premises LDAP-adreslijsten |●*  | | |● |● |
+| Verbinding maken met on-premises AD- en on-premises LDAP-adreslijsten |●* | | |● |● |
 | Verbinding maken met aangepaste systemen (SQL, Oracle, MySQL enzovoort) |FR | | |● |● |
 | Door de klant gedefinieerde kenmerken synchroniseren (directory-extensies) |● | | | | |
 | Verbinding maken met on-premises HR (SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Biedt ondersteuning voor FIM-synchronisatieregels en -connectors voor de inrichting van on-premises systemen. | | | |● |● |
+&#42; Momenteel worden hiervoor twee opties ondersteund.  Dit zijn:
+   1. U kunt de algemene LDAP-connector gebruiken en deze buiten Azure AD Connect inschakelen.  Dit is ingewikkeld en hiervoor moet een worden betrokken en een Premier Support-overeenkomst worden gehandhaafd.  Met deze optie kunnen zowel één als meerdere LDAP-adreslijsten worden verwerkt.
+   2. U kunt uw eigen oplossing ontwikkelen voor het verplaatsen van objecten van LDAP naar Active Directory.  Daarna synchroniseert u de objecten met Azure AD Connect.  MIM of FIM kan worden gebruikt als een mogelijke oplossing voor het verplaatsen van de objecten.
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Synchronisatie van cloud naar on-premises
 | Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

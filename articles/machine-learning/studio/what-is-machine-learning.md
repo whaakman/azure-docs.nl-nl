@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Inleiding tot machine learning in de Azure-cloud
 
@@ -33,7 +33,7 @@ Probeer de videoreeks [Gegevenswetenschap voor beginners](data-science-for-begin
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Wat is Machine Learning in de Microsoft Azure-cloud?
 Azure Machine Learning is een cloudservice voor predictive analytics waarmee u snel voorspellende modellen kunt maken en implementeren als analytics-oplossingen.
 
-U kunt werken vanuit een kant-en-klare bibliotheek met algoritmen. Gebruik ze om modellen te maken op een pc met een internetverbinding en implementeer snel de voorspellende oplossing. Begin met gebruiksklare voorbeelden en oplossingen in de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
+U kunt werken vanuit een kant-en-klare bibliotheek met algoritmen. Gebruik ze om modellen te maken op een pc met een internetverbinding en implementeer snel de voorspellende oplossing. Begin met kant-en-klare voorbeelden en oplossingen in de [Azure AI Gallery](https://gallery.cortanaintelligence.com/).
 
 ![Wat is machine learning? De basiswerkstroom om predictive analytics operationeel te maken in Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Azure Machine Learning heeft alles wat u nodig hebt om volledige predictive anal
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: voorspellende modellen maken
 In [Machine Learning Studio](what-is-ml-studio.md) kunt u snel voorspellende modellen maken door modules te slepen, te verwijderen en te verbinden. U kunt gemakkelijk experimenteren met verschillende combinaties en dit [gratis uitproberen](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* In de [Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md) kunt u analyseoplossingen van andere proberen of uw eigen oplossing bijdragne. U kunt vragen en opmerkingen over experimenten plaatsen in de community en koppelingen naar experimenten delen via sociale netwerken, zoals LinkedIn en Twitter.
+* In de [Azure AI Gallery](gallery-how-to-use-contribute-publish.md) kunt u analyseoplossingen van anderen proberen of uw eigen oplossing bijdragen. U kunt vragen en opmerkingen over experimenten plaatsen in de community en koppelingen naar experimenten delen via sociale netwerken, zoals LinkedIn en Twitter.
 
-  ![Probeer voorspellende experimenten of deel uw eigen experimenten in de Azure Cortana Intelligence Gallery](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Voorspellende experimenten proberen of uw eigen experimenten bijdragen in de Azure AI Gallery](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Gebruik een grote bibliotheek met [Machine Learning-algoritmen en -modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio om snel aan de slag te gaan met voorspellende modellen. Kies uit voorbeeldexperimenten, R- en Python-pakketten en de allerbeste algoritmen van Microsoft-bedrijven als Xbox en Bing. Breid Studio-modules uit met uw eigen aangepaste [R](extend-your-experiment-with-r.md)- en [Python](execute-python-scripts.md)-scripts.
 
   ![Wat is predictive analytics? Voorbeeld van een predictive analytics-experiment in Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

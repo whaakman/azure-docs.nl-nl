@@ -2,7 +2,7 @@
 
 Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toegang geven tot uw API-sleutel. Dit kunt u doen door uw sleutel te configureren en in te voeren in de Mobile Engagement-portal.
 
-1. Controleer in de klassieke Azure-portal of u zich in de app bevindt die we voor dit project gebruiken en klik vervolgens op de knop **Engage** onderaan:
+1. Controleer in de Azure-portal of u zich bevindt in de app die we voor dit project gebruiken en klik vervolgens op de knop **Engage** onderaan:
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

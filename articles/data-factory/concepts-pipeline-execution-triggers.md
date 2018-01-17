@@ -11,28 +11,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 88ae5dfbf6246ecf92d6528ad3d9a8e5fb57e4b0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory 
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-scheduling-and-execution.md)
 > * [Versie 2 - Preview](concepts-pipeline-execution-triggers.md)
 
-Een **pijplijnuitvoering** is een term in versie 2 van Azure Data Factory waarmee een exemplaar van de uitvoering van een pijplijn wordt aangeduid. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8 uur, 9 uur en 10 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd (pijplijnuitvoeringen). Elke pijplijnuitvoering heeft een unieke pijplijn-ID. Dit is een unieke GUID die de betreffende specifieke pijplijnuitvoering definieert. Pijplijnuitvoeringen worden doorgaans geïnstantieerd doordat argumenten worden doorgegeven aan gedefinieerde parameters in de pijplijnen. Er zijn twee manieren om een pijplijn uit te voeren: **handmatig** of via een **trigger**. In dit artikel bevat informatie over beide manieren om een pijplijn uit te voeren. 
+Een **pijplijnuitvoering** is een term in versie 2 van Azure Data Factory waarmee een exemplaar van de uitvoering van een pijplijn wordt aangeduid. Stel dat u een pijplijn hebt die wordt uitgevoerd om 8 uur, 9 uur en 10 uur. In dit geval wordt de pijplijn drie keer afzonderlijk uitgevoerd (pijplijnuitvoeringen). Elke pijplijnuitvoering heeft een unieke pijplijn-ID. Dit is een unieke GUID die de betreffende specifieke pijplijnuitvoering definieert. Pijplijnuitvoeringen worden doorgaans geïnstantieerd doordat argumenten worden doorgegeven aan gedefinieerde parameters in de pijplijnen. Er zijn twee manieren om een pijplijn uit te voeren: **handmatig** of via een **trigger**. In dit artikel bevat informatie over beide manieren om een pijplijn uit te voeren.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [plannen en uitvoeren in Data Factory V1](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="run-pipeline-on-demand"></a>Pijplijn op aanvraag uitvoeren
-Bij deze methode moet u de pijplijn handmatig uitvoeren. Dit wordt ook beschouwd als de uitvoering op aanvraag van een pijplijn. 
+Bij deze methode moet u de pijplijn handmatig uitvoeren. Dit wordt ook beschouwd als de uitvoering op aanvraag van een pijplijn.
 
-Stel dat u een pijplijn met de naam **copyPipeline** hebt die u wilt uitvoeren. De pijplijn is een eenvoudige pijplijn met één activiteit, waarmee items worden gekopieerd uit een bronmap in Azure Blob Storage naar een doelmap in dezelfde opslagplaats. Hier volgt de definitie van de voorbeeldpijplijn: 
+Stel dat u een pijplijn met de naam **copyPipeline** hebt die u wilt uitvoeren. De pijplijn is een eenvoudige pijplijn met één activiteit, waarmee items worden gekopieerd uit een bronmap in Azure Blob Storage naar een doelmap in dezelfde opslagplaats. Hier volgt de definitie van de voorbeeldpijplijn:
 
 ```json
 {
@@ -76,11 +76,11 @@ Stel dat u een pijplijn met de naam **copyPipeline** hebt die u wilt uitvoeren. 
 }
 
 ```
-De pijplijn heeft twee parameters: sourceBlobContainer en sinkBlobContainer, zoals weergegeven in de JSON-definitie. Tijdens runtime geeft u waarden door aan deze parameters. 
+De pijplijn heeft twee parameters: sourceBlobContainer en sinkBlobContainer, zoals weergegeven in de JSON-definitie. Tijdens runtime geeft u waarden door aan deze parameters.
 
-Als u de pijplijn handmatig wilt uitvoeren, kunt u een van de volgende manieren gebruiken: .NET, PowerShell, REST en Python. 
+Als u de pijplijn handmatig wilt uitvoeren, kunt u een van de volgende manieren gebruiken: .NET, PowerShell, REST en Python.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 Hier volgt een voorbeeldopdracht in REST:  
 
 ```
@@ -90,7 +90,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 Zie [Snelstartgids: een data factory maken met REST API](quickstart-create-data-factory-rest-api.md) voor een compleet voorbeeld.
 
 ### <a name="powershell"></a>PowerShell
-Hier volgt een voorbeeldopdracht in PowerShell: 
+Hier volgt een voorbeeldopdracht in PowerShell:
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
@@ -116,8 +116,8 @@ De nettolading van de reactie is een unieke ID van de pijplijnuitvoering:
 
 Zie [Snelstartgids: een data factory maken met PowerShell](quickstart-create-data-factory-powershell.md) voor een compleet voorbeeld.
 
-### <a name="net"></a>.NET 
-Hier volgt een voorbeeldaanroep in .NET: 
+### <a name="net"></a>.NET
+Hier volgt een voorbeeldaanroep in .NET:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -129,11 +129,11 @@ Zie [Snelstartgids: een data factory maken met .NET](quickstart-create-data-fact
 > U kunt de .NET API gebruiken om Data Factory-pijplijnen vanuit Azure Functions, uw eigen webservices, enzovoort aan te roepen.
 
 ## <a name="triggers"></a>Triggers
-Triggers zijn de tweede manier om een pijplijnuitvoering te activeren. Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Data Factory ondersteunt momenteel een trigger die een pijplijn volgens een wandklokschema aanroept. Dit heet een **scheduler-trigger**. Op dit moment ondersteunt Data Factory geen triggers op basis van gebeurtenissen, zoals een trigger van een pijplijnuitvoering wanneer een bestand wordt ontvangen.
+Triggers zijn de tweede manier om een pijplijnuitvoering te activeren. Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Op dit moment ondersteunt Data Factory twee soorten triggers: 1)**Schematriggers**, triggers die een pijplijn activeren volgens een wandklokschema 2)**Tumblingvenstertriggers**, triggers die met een periodiek interval worden uitgevoerd terwijl ze hun status behouden. Op dit moment ondersteunt Data Factory geen triggers op basis van gebeurtenissen, zoals een trigger van een pijplijnuitvoering wanneer een bestand wordt ontvangen.
 
 Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. In de volgende JSON-definitie van een trigger verwijst de eigenschap **pijplijnen** naar een lijst van de pijplijnen die worden geactiveerd door de betreffende trigger, en naar waarden voor pijplijnparameters.
 
-### <a name="basic-trigger-definition"></a>Basisdefinitie voor triggers: 
+### <a name="basic-trigger-definition"></a>Basisdefinitie voor triggers:
 ```json
     "properties": {
         "name": "MyTrigger",
@@ -159,8 +159,14 @@ Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen
     }
 ```
 
-## <a name="scheduler-trigger"></a>Scheduler-trigger
-Scheduler-trigger voert pijplijnen uit volgens een wandklokschema. Deze trigger ondersteunt periodieke en geavanceerde kalenderopties (wekelijks, maandag om 17:00 uur en donderdag om 21:00). Deze is flexibel doordat hij losstaat van het gegevenssetpatroon en er geen onderscheid wordt gemaakt tussen gegevens uit tijdreeksen en gegevens die niet uit tijdreeksen afkomstig zijn.
+## <a name="schedule-trigger"></a>Schematrigger
+Schematriggers voeren pijplijnen uit volgens een wandklokschema. Deze trigger ondersteunt periodieke en geavanceerde kalenderopties (wekelijks, maandag om 17:00 uur en donderdag om 21:00). Deze is flexibel doordat hij losstaat van het gegevenssetpatroon en er geen onderscheid wordt gemaakt tussen gegevens uit tijdreeksen en gegevens die niet uit tijdreeksen afkomstig zijn.
+
+Voor meer informatie over Schematriggers en voorbeelden raadpleegt u [Procedure: Schematriggers maken](how-to-create-schedule-trigger.md)
+
+## <a name="tumbling-window-trigger"></a>Tumblingvenstertrigger
+Tumblingvenstertriggers zijn triggers die vanaf een opgegeven begintijd worden geactiveerd met een periodiek tijdsinterval en die hun status behouden. Tumblingvensters zijn een reeks niet-overlappende en aaneengesloten tijdsintervallen van vaste duur.
+Zie [Procedure: Tumblingvenstertriggers maken](how-to-create-tumbling-window-trigger.md) voor meer informatie over tumblingvenstertriggers en voorbeelden.
 
 ### <a name="scheduler-trigger-json-definition"></a>JSON-definitie van een scheduler-trigger
 Wanneer u een scheduler-trigger maakt, kunt u de planning en een terugkeerpatroon opgeven met JSON, zoals weergegeven in het voorbeeld in deze sectie. 
@@ -174,7 +180,7 @@ Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -229,6 +235,16 @@ interval | Het interval is een positief geheel getal. Het geeft het interval aan
 schedule | Een trigger met een opgegeven frequency wijzigt de recurrence op basis van een terugkerende schedule. Een schedule bevat wijzigingen op basis van de minuten, uren, weekdagen, dagen van de maand en het weeknummer.
 
 
+## <a name="tumbling-window-trigger-vs-schedule-trigger"></a>Tumblingvenstertrigger vs. Schematrigger
+Als tumblingvenstertriggers en schematriggers beide volgens tijdschema's werken, wat is dan het verschil?
+Voor de tumblingvenstertrigger:
+* **Backfillscenario's**: tumblingvenstertriggers ondersteunen backfillscenario's omdat hiermee uitvoeringen kunnen worden gepland voor vensters in het verleden. Schematriggers kunnen alleen worden uitgevoerd voor perioden vanaf het heden.
+* **Betrouwbaarheid:** met tumblingvenstertriggers kunnen vanaf een begindatum pijplijnuitvoeringen voor alle vensters worden gepland zonder onderbrekingen en met 100% betrouwbaarheid.
+* **Opnieuw proberen**: tumblingvenstertriggers hebben de functionaliteit Opnieuw proberen. Het standaardbeleid voor nieuwe pogingen van pijplijnuitvoeringen is 0 of 1; dit heeft de gebruiker in de triggerdefinitie opgegeven. Een pijplijnuitvoering wordt bovendien automatisch opnieuw geprobeerd op exemplaren wanneer een uitvoering mislukt vanwege gelijktijdigheids-, server- of aanvraagbeperkingen, met andere woorden: statuscode 400 (gebruikersfout) 429 (te veel aanvragen) en 500 (interne serverfout).
+* **Gelijktijdigheid**: tumblingvenstertriggers staan toe dat gebruikers expliciet gelijktijdigheidslimieten instellen voor de trigger (maximaal 1-50 gelijktijdige getriggerde pijplijnuitvoeringen)
+* **Begin- en eindvariabelen voor venster**: voor tumblingvenstertriggers hebben gebruikers toegang tot de triggersysteemvariabelen triggerOutputs().windowStartTime en triggerOutputs().windowEndTime in de triggerdefinitie. Deze geven respectievelijk de begin- en eindtijden van het venster aan. Als u bijvoorbeeld een tumblingvenstertrigger hebt die elk uur wordt uitgevoerd, heeft het venster 01:00 - 2:00 de systeemvariabelen triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z en triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
+* **Relatie tussen pijplijn en trigger**: schematriggers hebben een n:m-relatie met pijplijnen. Een schematrigger kan meerdere pijplijnen activeren. Tumblingvenstertriggers hebben een 1:1-relatie met pijplijnen. Een tumblingvenstertrigger kan maar één pijplijn activeren.
+
 ### <a name="schedule-trigger-example"></a>Voorbeeld van schedule-trigger
 
 ```json
@@ -267,11 +283,11 @@ schedule | Een trigger met een opgegeven frequency wijzigt de recurrence op basi
 
 JSON-naam | Waardetype | Vereist? | Standaardwaarde | Geldige waarden | Voorbeeld
 --------- | ---------- | --------- | ------------- | ------------ | -------
-startTime | Tekenreeks | Ja | Geen | Datums en tijden volgens ISO 8601 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
+startTime | Tekenreeks | Ja | None | Datums en tijden volgens ISO 8601 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
 recurrence | Object | Ja | Geen | Recurrence-object | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-interval | Aantal | Nee | 1 | 1 tot 1000. | ```"interval":10```
+interval | Aantal | Ja | None | 1 tot 1000. | ```"interval":10```
 endTime | Tekenreeks | Ja | Geen | Datum-/tijdwaarde van een moment in de toekomst | `"endTime" : "2013-02-09T09:30:00-08:00"`
-schedule | Object | Nee | Geen | Schedule-object | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
+schedule | Object | Nee | None | Schedule-object | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
 ### <a name="deep-dive-starttime"></a>Gedetailleerde informatie over startTime
 De volgende tabel wordt uitgelegd hoe startTime bepaalt hoe een trigger wordt uitgevoerd:
@@ -301,11 +317,11 @@ In de volgende tabel worden de schedule-elementen in detail beschreven:
 
 JSON-naam | Beschrijving | Geldige waarden
 --------- | ----------- | ------------
-minutes | Minuten van het uur waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul>
-hours | Uren van de dag waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul>
-weekDays | Dagen van de week waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency wekelijks. | <ul><li>Maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag of zondag</li><li>Matrix van elk van de waarden (maximale matrixgrootte van 7)</li></p>Niet hoofdlettergevoelig</p>
+minutes | Minuten van het uur waarop de trigger wordt uitgevoerd. | <ul><li>Matrix van gehele getallen</li></ul>
+hours | Uren van de dag waarop de trigger wordt uitgevoerd. | <ul><li>Matrix van gehele getallen</li></ul>
+weekDays | Dagen van de week waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency wekelijks. | <ul><li>Matrix van elk van onderstaande waarden (maximale matrixgrootte is 7)<ul><li>Maandag</li><li>Dinsdag</li><li>Woensdag</li><li>Donderdag</li><li>Vrijdag</li><li>Zaterdag</li><li>Zondag</li></ul></li></p>Niet hoofdlettergevoelig</p>
 monthlyOccurrences | Hiermee wordt bepaald op welke dagen van de maand de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. | Matrix met monthlyOccurence-objecten: `{ "day": day,  "occurrence": occurence }`. <p> Day is de dag van de week waarop de trigger wordt uitgevoerd. `{Sunday}` is bijvoorbeeld elke zondag van de maand. Vereist.<p>Occurrence geeft aan op welke dag de trigger wordt uitgevoerd. `{Sunday, -1}` is bijvoorbeeld de laatste zondag van de maand. Optioneel.
-monthDays | Dag van de maand waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. | <ul><li>Alle waarden < = -1 en > =-31</li><li>Alle waarden > = -1 en < =-31</li><li>Een matrix met waarden</li>
+monthDays | Dag van de maand waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. | <ul><li>Een matrix van onderstaande waarden</li><ul><li>Alle waarden < = -1 en > =-31</li><li>Alle waarden > = -1 en < =-31</li></ul></ul> |
 
 
 ## <a name="examples-recurrence-schedules"></a>Voorbeelden: herhalingsplanningen
@@ -346,6 +362,8 @@ Voorbeeld | Beschrijving
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende zelfstudies: 
+Zie de volgende zelfstudies:
 
 - [Snelstartgids: een gegevensfactory maken met .NET](quickstart-create-data-factory-dot-net.md)
+- [Procedure: Een schematrigger maken](how-to-create-schedule-trigger.md)
+- [Procedure: Een tumblingvenstertrigger maken](how-to-create-tumbling-window-trigger.md)

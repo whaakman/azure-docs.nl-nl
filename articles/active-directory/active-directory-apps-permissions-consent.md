@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Apps, machtigingen en toestemming in Azure Active Directory
-In Azure Active Directory kunt u toepassingen toevoegen aan uw directory.  De toepassingen kunnen variëren afhankelijk van het type toepassing.  Als u toepassingen in de klassieke portal wilt bekijken, selecteert u een directory en kiest u toepassingen.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+In Azure Active Directory kunt u toepassingen toevoegen aan uw directory.  De toepassingen kunnen variëren afhankelijk van het type toepassing.  Als u toepassingen in de portal wilt bekijken, selecteert u een directory en kiest u toepassingen.
 
 > [!IMPORTANT]
-> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in de Azure-portal in plaats van de Azure-portal waarnaar in dit artikel wordt verwezen.
 
 ## <a name="types-of-apps"></a>App-typen
 
@@ -73,9 +71,7 @@ Samenvatting:
 
 ## <a name="controls"></a>Besturingselementen
 
-Hier volgt een lijst van de verschillende besturingselementen voor beheerders die beschikbaar zijn voor deze zaken. De besturingselementen voor beheerders kunnen worden geopend in de klassieke portal. Ga daarvoor naar Configureren in de map.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Hier volgt een lijst van de verschillende besturingselementen voor beheerders die beschikbaar zijn voor deze zaken.
 
 In Azure Portal gaat u onder **Beheren** naar **Gebruikersinstellingen**.
 
@@ -85,18 +81,14 @@ In Azure Portal gaat u onder **Beheren** naar **Gebruikersinstellingen**.
 
 - U bepaalt of gebruikers toestemming kunnen geven voor apps:
 
-Selecteer in de klassieke portal de optie **Users may give applications permissions to access their data.**
-![](media/active-directory-apps-permissions-consent/apps8.png) (Gebruikers mogen toepassingen machtigingen verlenen voor toegang tot hun gegevens.)
-
 In Azure Portal selecteert u de optie **Gebruikers kunnen apps toegang tot de gegevens verlenen**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- U bepaalt of gebruikers hun eigen LOB-apps met één tenant mogen registreren. In de klassieke portal selecteert u **Users may add integrated applications.**
-![](media/active-directory-apps-permissions-consent/apps9.png) (Gebruikers mogen geïntegreerde toepassingen toevoegen.)
+- U kunt als volgt bepalen of gebruikers hun eigen LOB-apps voor één tenant kunnen registreren:
 
-In Azure Portal selecteert u de optie **Gebruikers kunnen apps toegang tot de gegevens verlenen**.
+Selecteer in de Azure-portal **Gebruikers kunnen toepassingen registreren**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ In Azure Portal selecteert u de optie **Gebruikers kunnen apps toegang tot de ge
 >- Bij het registreren van LOB-apps met één tenant mogen gebruikers geen overgedragen machtigingen voor andere apps aanvragen als er toestemming van een beheerder voor nodig is.
 >- Gebruikers mogen geen wijzigingen aanbrengen aan apps waar ze geen eigenaar van zijn.
 
-
-
-- U bepaalt of gebruikers zelf vooraf geïntegreerde apps mogen toevoegen waarvoor eenmalige aanmelding met een wachtwoord wordt gebruikt ('password vaulting') ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- U bepaalt onder welke omstandigheden toepassingen kunnen worden geopend (voorwaardelijke toegang). Dit geldt zowel voor de client-app als de resource-app. U stelt dus beleid voor voorwaardelijke toegang in waarmee u verklaart dat de app Office 365 Exchange Online alleen kan worden geopend vanaf apparaten die aan de voorwaarden voldoen.  Dit beleid wordt ook gehandhaafd wanneer een gebruiker probeert een client-app te gebruiken die machtigingen voor Exchange Online aanvraagt.
-
-
-
-- U hebt inzicht in welke apps zijn goedgekeurd en in welke apps worden gebruikt.
-
-1.  Wanneer een gebruiker toestemming heeft voor een app, wordt er een ServicePrincipal-object gemaakt in de tenant. In het controlerapport staat ook dat het ServicePrincipal-object is gemaakt.
-2.  De gebruikersrapporten over aanmeldingsactiviteit staat bij welke apps de gebruiker zich aanmeldt. 
 
 ## <a name="example"></a>Voorbeeld
 

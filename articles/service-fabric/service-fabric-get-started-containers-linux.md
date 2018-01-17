@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3649cc2800e774f8dca1b88a1704744b4663a68d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -202,6 +202,30 @@ Configureer de poorttoewijzing poort-naar-host voor de container door een `PortB
     </Policies>
    </ServiceManifestImport>
 ``` 
+## <a name="configure-docker-healthcheck"></a>Docker-STATUSCONTROLE configureren 
+Vanaf versie 6.1 integreert Service Fabric automatisch [docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen naar diens statusrapport van het systeem. Dit betekent dat als uw container **STATUSCONTROLE** heeft ingeschakeld, Service Fabric de status rapporteert wanneer de status van de container volgens Docker verandert. Een statusrapport **OK** wordt weergegeven in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wanneer de *health_status* *gezond* is en  **WAARSCHUWING** verschijnt wanneer de *health_status* *niet gezond* is. De instructie **STATUSCONTROLE**, die verwijst naar de werkelijke controle die wordt uitgevoerd voor het controleren van de containerstatus, moet aanwezig zijn in de **dockerfile** die gebruikt wordt tijdens het genereren van de installatiekopie van de container. 
+
+![HealthCheckHealthy][1]
+
+![HealthCheckUnealthyApp][2]
+
+![HealthCheckUnhealthyDsp][3]
+
+U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren door opties van **HealthConfig** in te stellen als onderdeel van **ContainerHostPolicies** in ApplicationManifest.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+Standaard staat de *IncludeDockerHealthStatusInSystemHealthReport* ingesteld op **waar** en *RestartContainerOnUnhealthyDockerHealthStatus* op **onwaar**. Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **waar**, wordt een niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
+
+Als u de integratie van **STATUSCONTROLE** wilt uitschakelen voor de hele Service Fabric-cluster, moet u [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) instellen op **onwaar**.
 
 ## <a name="build-and-package-the-service-fabric-application"></a>De Service Fabric-toepassing bouwen en inpakken
 De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de toepassing via de terminal te maken. Ga als volgt te werk om de toepassing te maken en in te pakken:
@@ -231,6 +255,7 @@ Open een browser en navigeer naar de Service Fabric Explorer op http://localhost
 Maak verbinding met de actieve container.  Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd op poort 4000, bijvoorbeeld http://localhost:4000. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ![Hallo wereld!][hello-world]
+
 
 ## <a name="clean-up"></a>Opruimen
 Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het lokale ontwikkelomgevingscluster en de registratie van het toepassingstype op te heffen.
@@ -359,7 +384,6 @@ U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat d
 ```
 Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch is, wordt de time-out bijgewerkt bij een configuratie-upgrade van het cluster. 
 
-
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>De runtime configureren voor het verwijderen van ongebruikte containerinstallatiekopieën
 
 U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt.  Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
@@ -380,6 +404,33 @@ U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebrui
 
 De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`. 
 
+## <a name="configure-container-image-download-time"></a>Downloadtijd van containerinstallatiekopie configureren
+
+Standaard wijst de Service Fabric-runtime een periode van 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken, wat voor de meerderheid van de containerinstallatiekopieën werkt. Voor grote kopieën, of als de netwerkverbinding langzaam is, moet de tijd misschien iets worden verlengd voordat u het downloaden en uitpakken van de installatiekopie wordt afgebroken. Dit kan worden ingesteld met het kenmerk **ContainerImageDownloadTimeout** in de sectie **Hosting** van het clustermanifest zoals staat weergegeven in het volgende fragment:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>Containerbewaarbeleid instellen
+
+Om te helpen bij het diagnosticeren van opstartfouten van containers ondersteunt Service Fabric (versie 6.1 of hoger) het behouden van containers die stopten of niet opstartten. Dit beleid kan worden ingesteld in het bestand **ApplicationManifest.xml** zoals wordt weergegeven in het volgende fragment:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+De instelling **ContainersRetentionCount** geeft het aantal containers op die behouden moeten worden wanneer er fouten ontstaan. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers behouden. Wanneer het kenmerk **ContainersRetentionCount** niet is opgegeven, worden er geen containers behouden. Het kenmerk **ContainersRetentionCount** ondersteunt ook de Toepassingsparameters zodat gebruikers verschillende waarden voor de test en de productieclusters kunnen opgeven. Om te voorkomen dat de containerservice naar andere knooppunten wordt verplaatst, wordt het aanbevolen om gebruik te maken van plaatsingsbeperkingen om de containerservice te richten op een bepaald knooppunt wanneer u gebruikmaakt van deze functies. Containers die worden behouden door deze functie moeten handmatig worden verwijderd.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
@@ -389,3 +440,7 @@ De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de 
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
+
+[1]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[2]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Aanvullende les: Detailrijen
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In deze aanvullende les gaat u DAX Editor gebruiken voor het definiëren van een aangepaste detailrijenexpressie. Een detailrijenexpressie is een eigenschap van een meting die eindgebruikers meer informatie biedt over de cumulatieve resultaten van een meting. 
   
@@ -32,12 +30,12 @@ Geschatte tijd voor het voltooien van deze les: **10 minuten**
 ## <a name="prerequisites"></a>Vereisten  
 Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. U kunt de taken in deze aanvullende les pas uitvoeren nadat u alle voorgaande lessen hebt afgerond of het voorbeeldproject Adventure Works Internet Sales hebt voltooid.  
   
-## <a name="what-do-we-need-to-solve"></a>Wat moeten we oplossen?
+## <a name="whats-the-issue"></a>Wat is het probleem?
 Laten we eens kijken naar de details van onze meting InternetTotalSales, voordat we een detailrijenexpressie gaan toevoegen.
 
 1.  Klik in SSDT op het menu **Model** > **Analyze in Excel** om Excel te openen met een lege draaitabel.
   
-2.  Ga naar **Draaitabelvelden** en voeg de meting **InternetTotalSales** uit de tabel FactInternetSales toe aan **Waarden**, **CalendarYear** uit de tabel DimDate aan **Kolommen** en **EnglishCountryRegionName** aan **Rijen**. Onze draaitabel toont nu geaggregeerde resultaten van de meting InternetTotalSales per regio en per jaar. 
+2.  Ga naar **Draaitabelvelden** en voeg de meting **InternetTotalSales** uit de tabel FactInternetSales toe aan **Waarden**, **CalendarYear** uit de tabel DimDate aan **Kolommen** en **EnglishCountryRegionName** aan **Rijen**. De draaitabel toont nu geaggregeerde resultaten van de meting InternetTotalSales per regio en per jaar. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bij
 
 #### <a name="to-create-a-detail-rows-expression"></a>Een detailrijenexpressie maken: 
   
-1. Klik in SSDT, in het metingenraster van de tabel FactInternetSales, op de meting **InternetTotalSales**. 
+1. Klik in het metingenraster van de tabel FactInternetSales op de meting **InternetTotalSales**. 
 
 2. Ga naar **Properties** > **Detail Rows Expression** en klik op de knop hieronder om DAX Editor te openen.
 
@@ -82,6 +80,6 @@ Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bij
 
   
 ## <a name="see-also"></a>Zie ook  
-[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  (SELECTCOLUMNS, functie (DAX))  
+[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) (SELECTCOLUMNS, functie (DAX))  
 [Aanvullende les: Dynamische beveiliging](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Aanvullende les: Onregelmatige hiërarchieën](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
