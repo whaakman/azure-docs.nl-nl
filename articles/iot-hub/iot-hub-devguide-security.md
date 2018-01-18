@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -57,7 +57,7 @@ Bijvoorbeeld in een typische IoT-oplossing:
 > [!NOTE]
 > Zie [machtigingen](#iot-hub-permissions) voor gedetailleerde informatie.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Azure IoT Hub verleent toegang tot eindpunten door te controleren of een token tegen gedeeld toegangsbeleid en identiteit register beveiligingsreferenties.
 
@@ -134,8 +134,8 @@ Hier volgen de verwachte waarden:
 | --- | --- |
 | {handtekening} |Een tekenreeks HMAC SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: de sleutel is gedecodeerd van base64 en gebruikt als sleutel voor het uitvoeren van de berekening HMAC SHA256. |
 | {resourceURI} |De voorvoegsels van URI (door het segment) van de eindpunten die toegankelijk zijn met dit token, beginnen met de hostnaam van de IoT-hub (geen protocol). Bijvoorbeeld: `myHub.azure-devices.net/devices/device1` |
-| {verstrijken} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
-| {{URL-codering-resourceURI} |Lagere case URL-codering van de resource-URI van kleine letters |
+| {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
+| {URL-encoded-resourceURI} |Lagere case URL-codering van de resource-URI van kleine letters |
 | {policyName} |De naam van het beleid voor gedeelde toegang waarnaar dit token verwijst. Ontbrekende als verwijst het token naar apparaatregister referenties. |
 
 **Opmerking van het voorvoegsel**: de URI-voorvoegsel wordt berekend door het segment en niet door teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` maar niet voor `/a/bc`.
@@ -268,7 +268,7 @@ Het resultaat toegang tot alle functionaliteit voor device1 verleent, zou zijn:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparaat explorer] [ lnk-device-explorer] hulpprogramma of de cross-platform, op basis van een knooppunt [iothub explorer] [ lnk-iothub-explorer]opdrachtregelprogramma.
+> Het is mogelijk voor het genereren van een SAS-token met behulp van de .NET [apparaat explorer] [ lnk-device-explorer] hulpprogramma of de platformoverschrijdende Python gebaseerde [de IoT-extensie voor Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] opdrachtregelprogramma.
 
 ### <a name="use-a-shared-access-policy"></a>Gebruik een beleid voor gedeelde toegang
 
@@ -487,7 +487,7 @@ Als u uitproberen enkele concepten die worden beschreven in dit artikel wilt, ra
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

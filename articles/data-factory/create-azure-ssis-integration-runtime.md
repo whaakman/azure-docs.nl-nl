@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 7796df75d811ad34967aee66478eae992fd449fe
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.
@@ -44,7 +44,7 @@ Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en e
 > [!NOTE]
 > Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor een lijst met regio's die worden ondersteund door Azure Data Factory V2 en Azure-SSIS Integration Runtime. Vouw **Gegevens en analyses** uit om **Data Factory V2** en **SSIS Integration Runtime** te zien.
 
-## <a name="use-azure-portal"></a>Azure Portal gebruiken
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -142,7 +142,7 @@ Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en e
     ![Geef het type van integratie runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. Zie de [inrichten van een Azure-SSIS-integratie runtime](#provision-an-azure-ssis-integration-runtime) sectie voor de resterende stappen om een Azure-SSIS-IR in te stellen
 
-## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
+## <a name="azure-powershell"></a>Azure PowerShell
 
 ### <a name="create-variables"></a>Variabelen maken
 Definieer variabelen voor gebruik in het script in deze zelfstudie:
@@ -411,7 +411,69 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
+U kunt een Azure Resource Manager-sjabloon maken van een Azure-SSIS-integratie-runtime gebruiken. Hier volgt een voorbeeld-overzicht: 
 
+1. Maak een JSON-bestand met de volgende Resource Manager-sjabloon. Waarden in de punthaken (plaats houders) vervangen door uw eigen waarden. 
+
+    ```json
+    {
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": {},
+        "variables": {},
+        "resources": [{
+            "name": "<Specify a name for your data factory>",
+            "apiVersion": "2017-09-01-preview",
+            "type": "Microsoft.DataFactory/factories",
+            "location": "East US",
+            "properties": {},
+            "resources": [{
+                "type": "integrationruntimes",
+                "name": "<Specify a name for the Azure SSIS IR>",
+                "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "Managed",
+                    "typeProperties": {
+                        "computeProperties": {
+                            "location": "East US",
+                            "nodeSize": "Standard_D1_v2",
+                            "numberOfNodes": 1,
+                            "maxParallelExecutionsPerNode": 1
+                        },
+                        "ssisProperties": {
+                            "catalogInfo": {
+                                "catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+                                "catalogAdminUserName": "<Azure SQL user",
+                                "catalogAdminPassword": {
+                                    "type": "SecureString",
+                                    "value": "<Azure SQL Password>"
+                                },
+                                "catalogPricingTier": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
+    }
+    ```
+2. Voor het implementeren van de Resource Manager-sjabloon, voert u de opdracht New-AzureRmResourceGroupDeployment zoals weergegeven in het volgende voorbeeld. In dit voorbeeld is ADFTutorialResourceGroup de naam van de resourcegroep. ADFTutorialARM.json is het bestand bevat een JSON-definitie voor de gegevensfactory en de Azure-SSIS-IR 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    Deze opdracht maakt u de gegevensfactory en maakt u een Azure-SSIS-IR erin, maar de IR niet wordt gestart 
+3. Voer de opdracht Start-AzureRmDataFactoryV2IntegrationRuntime voor het starten van de Azure-SSIS-IR: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## <a name="deploy-ssis-packages"></a>SSIS-pakketten implementeren
 Gebruik nu SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) om uw SSIS-pakketten te implementeren in Azure. Maak verbinding met de Azure SQL-server waarop de SSIS-catalogus (SSISDB) is opgeslagen. De naam van de Azure SQL-server moet deze indeling hebben: &lt;servernaam&gt;. database.windows.net (voor Azure SQL Database). Zie het artikel [Pakketten implementeren](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) voor instructies. 

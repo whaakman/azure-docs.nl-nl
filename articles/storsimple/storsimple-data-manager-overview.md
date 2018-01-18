@@ -1,6 +1,6 @@
 ---
 title: Overzicht van Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: Biedt een overzicht van de StorSimple Data Manager-service (afgeschermd voorbeeld)
+description: Biedt een overzicht van de StorSimple Data Manager-service
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -12,62 +12,74 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
+ms.date: 01/16/2018
 ms.author: vidarmsft
-ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="storsimple-data-manager-overview-private-preview"></a>Overzicht van StorSimple Data Manager (afgeschermd voorbeeld)
+# <a name="storsimple-data-manager-solution-overview"></a>Overzicht van de oplossing StorSimple Data Manager
 
 ## <a name="overview"></a>Overzicht
 
-Microsoft Azure StorSimple is een hybride cloud-opslagoplossing die zijn gericht op de complexiteit van niet-gestructureerde gegevens die betrekking hebben op bestandsshares. StorSimple maakt gebruik van cloud-opslag als een uitbreiding van de on-premises oplossing en automatisch lagen gegevens voor de lokale opslag- en cloud-opslag. Gegevensbescherming, geïntegreerd met lokale en cloud worden opgeslagen, hoeft u voor een weids opslaginfrastructuur. Er is ook het archiveren en herstel na noodgevallen naadloze aan de cloud die fungeert als een externe locatie.
+Microsoft Azure StorSimple maakt gebruik van cloud-opslag als een uitbreiding van de on-premises oplossing en automatisch lagen gegevens voor lokale opslag en de cloud. Gegevens worden opgeslagen in de cloud in een ontdubbeld en niet-gecomprimeerde indeling voor maximale efficiëntie en lagere kosten. Als de gegevens worden opgeslagen in de indeling van de StorSimple, is het niet gemakkelijk worden gebruikt door andere cloudtoepassingen die u wilt gebruiken.
 
-De service voor de transformatie van gegevens die worden geïntroduceerd in dit document, kunt u naadloos toegang krijgen tot de StorSimple-gegevens in de cloud. Deze service biedt API's om de gegevens ophalen uit de StorSimple en deze voor andere Azure-services in een indeling die gemakkelijk kan worden gebruikt. De indelingen ondersteund in dit voorbeeld zijn Azure-blobs en activa Azure Media Services. Deze transformatie kunt u eenvoudig wire-services zoals Azure Media Services, Azure HDInsight Azure Machine Learning en Azure Search gegevens op StorSimple 8000 series on-premises apparaat werken.
+De Data StorSimple Manager kunt u naadloos toegang tot gegevens en gebruiken de StorSimple-indeling in de cloud. Dit gebeurt door het omzetten van StorSimple-indeling in systeemeigen blobs en bestanden die u met andere services zoals Azure Media Services, Azure HDInsights en Azure Machine Learning gebruiken kunt.
 
-Een hoog niveau diagram ter illustratie van deze worden hieronder weergegeven.
+Dit artikel bevat een overzicht van de oplossing StorSimple Data Manager. Ook wordt uitgelegd hoe u deze service om toepassingen die gebruikmaken van StorSimple-gegevens te schrijven en andere Azure-services kunt gebruiken in de cloud.
 
-![Diagram op hoog niveau](./media//storsimple-data-manager-overview/high-level-diagram.png)
+## <a name="how-it-works"></a>Hoe het werkt?
 
-Dit document wordt uitgelegd hoe u zich kunt aanmelden voor een persoonlijke voorbeeld van deze service. Ook wordt uitgelegd hoe u deze service om toepassingen die gebruikmaken van StorSimple-gegevens te schrijven en andere Azure-services kunt gebruiken in de cloud.
+De StorSimple Data Manager-service identificeert StorSimple-gegevens in de cloud van een StorSimple 8000 series on-premises-apparaat. De StorSimple-gegevens in de cloud is ontdubbelde, gecomprimeerd StorSimple-indeling. De Data Manager-service biedt API's voor het uitpakken van de gegevens van de indeling StorSimple maken en te transformeren naar andere indelingen, zoals Azure blobs en Azure-bestanden. Dit getransformeerd gegevens gemakkelijk vervolgens door Azure HDInsight en Azure Media services wordt gebruikt. De gegevenstransformatie, dus kan deze services worden bewerkt de getransformeerde gegevens StorSimple van StorSimple 8000 series on-premises-apparaat. Deze stroom wordt weergegeven in het volgende diagram.
 
-## <a name="sign-up-for-data-manager-preview"></a>Aanmelden voor de preview van Data Manager
-Voordat u zich registreert voor de service Manager gegevens, controleert u de volgende vereisten.
+![Diagram op hoog niveau](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
-### <a name="prerequisites"></a>Vereisten
 
-In deze oefening wordt ervan uitgegaan dat u hebt
-* Een actief Azure-abonnement.
-* toegang tot een geregistreerd StorSimple 8000 series apparaat
-* alle sleutels die zijn gekoppeld aan het apparaat van de serie StorSimple 8000.
+## <a name="data-manager-use-cases"></a>Gebruiksvoorbeelden voor Data Manager
 
-### <a name="sign-up"></a>Aanmelden
+U kunt Data Manager gebruiken met Azure Functions, Azure Automation en Azure Data Factory werkstromen dat wordt uitgevoerd op uw gegevens, zoals komt dit in StorSimple hebben. Het is raadzaam om te verwerken van uw media-inhoud opslaan op StorSimple met Azure Media Services of een Machine Learning-algoritme worden uitgevoerd op die gegevens of online zetten van een Hadoop-cluster om de gegevens die u op het StorSimple opslaat te analyseren. Met de enorme van services die beschikbaar zijn op Azure gecombineerd met de gegevens op StorSimple, kunt u de kracht van uw gegevens te ontgrendelen.
 
-De StorSimple Data Manager is private preview. Voer de volgende stappen voor het aanmelden voor een persoonlijke voorbeeld van deze service:
 
-1.  Meld u aan bij de Azure-portal met de extensie StorSimple Data Manager op: [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager). Uw Azure-referenties gebruiken om aan te melden.
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-2.  Klik op de  **+**  pictogram om een service te maken. Klik op **opslag** en klik vervolgens op **alle Zie** in de blade die wordt geopend.
+De StorSimple Data Manager is beschikbaar in de volgende 7 gebieden:
 
-    ![Pictogram voor StorSimple Manager gegevens zoeken](./media/storsimple-data-manager-overview/search-data-manager-icon.png)
+ - Zuidoost-Azië
+ - VS - oost
+ - VS - west
+ - VS - west 2
+ - West-centraal VS
+ - Noord-Europa
+ - West-Europa
 
-3. U ziet het pictogram StorSimple Data Manager.
+De Data StorSimple Manager kan echter worden gebruikt voor het transformeren van gegevens in de volgende regio's. 
 
-    ![Selecteer de gegevens van de StorSimple Manager-pictogram](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
+![Regio's beschikbaar voor gegevens](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
 
-4. Klik op het pictogram StorSimple Data Manager en klik vervolgens op **maken**. Selecteer het abonnement dat u wilt inschakelen voor de private preview en klik vervolgens op **inschrijven!**
+Deze verzameling is groter omdat de resource-implementatie in een van de bovenstaande regio's is geschikt voor u het proces transformatie in de onderstaande gebieden. Dus als uw gegevens zich bevinden in een van de 26 regio's, kunt u uw gegevens transformeren met behulp van deze service.
 
-    ![Inschrijven](./media/storsimple-data-manager-overview/sign-me-up.png)
 
-5. Dit wordt een aanvraag verzonden naar vrijgeven u. We zullen we u zo snel mogelijk. Nadat uw abonnement is ingeschakeld, kunt u een StorSimple Data Manager-service.
+## <a name="choosing-a-region"></a>Een regio kiezen
 
-6. Voor eenvoudig toegang tot de StorSimple Data Manager-service, klikt u op het sterpictogram op vastmaken aan uw Favorieten.
+We raden aan dat:
+ - Uw bron storage-account (de knop die zijn gekoppeld aan uw StorSimple-apparaat) en doel-opslagaccount (waar u de gegevens in native-indeling) zich in dezelfde Azure-regio.
+ - U een online zetten van de definitie van de Data Manager en de taak in de regio die het StorSimple-opslagaccount bevat. Als dit niet mogelijk is, brengt u de Data Manager in de dichtstbijzijnde Azure-regio en maak vervolgens de taakdefinitie in dezelfde regio bevinden als uw StorSimple-opslagaccount. 
 
-    ![Toegang tot gegevens van de StorSimple Managers](./media/storsimple-data-manager-overview/access-data-managers.png)
+    Als uw StorSimple-storage-account zich niet in de 26 regio's die ondersteuning bieden voor de definitie van het maken van taken, raden wij StorSimple Data Manager niet te uitgevoerd zoals u lang latenties en kosten voor uitgaande mogelijk hoog ziet.
 
+## <a name="security-considerations"></a>Beveiligingsoverwegingen
+
+De Data StorSimple Manager moet de gegevensversleutelingssleutel van service voor het transformeren van StorSimple-indeling naar native-indeling. De gegevensversleutelingssleutel van de service wordt gegenereerd wanneer het eerste apparaat bij de StorSimple-service registreert. Voor meer informatie over deze sleutel, gaat u naar [StorSimple security](storsimple-8000-security.md).
+
+De gegevensversleutelingssleutel van service opgegeven als invoer wordt opgeslagen in een sleutelkluis die wordt gemaakt bij het maken van een Data Manager. De kluis bevindt zich in dezelfde Azure-regio als uw StorSimple Data Manager. Deze sleutel wordt verwijderd wanneer u uw Data Manager-service verwijderen.
+
+Deze sleutel wordt gebruikt door de rekenresources voor het uitvoeren van de transformatie. Deze berekenen resources bevinden zich in dezelfde Azure-regio als de taakdefinitie van de. Deze regio kan of kunnen niet hetzelfde zijn als de regio waar u van uw Data Manager brengt.
+
+Als uw regio Data Manager af van uw taak definitie regio wijkt, is het belangrijk dat u weet welke gegevens/metadata bevindt zich in elk van deze gebieden. Het volgende diagram illustreert het effect van de verschillende regio's voor de definitie van Data Manager en de taak.
+
+![Definitie van de service en de taak in verschillende regio 's](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

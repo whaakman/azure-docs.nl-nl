@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8ff3c60ea2e0e96a9ade2e1f2d711197bb3252ed
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -203,7 +203,7 @@ Configureer de poorttoewijzing poort-naar-host voor de container door een `PortB
    </ServiceManifestImport>
 ``` 
 ## <a name="configure-docker-healthcheck"></a>Docker-STATUSCONTROLE configureren 
-Vanaf versie 6.1 integreert Service Fabric automatisch [docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen naar diens statusrapport van het systeem. Dit betekent dat als uw container **STATUSCONTROLE** heeft ingeschakeld, Service Fabric de status rapporteert wanneer de status van de container volgens Docker verandert. Een statusrapport **OK** wordt weergegeven in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wanneer de *health_status* *gezond* is en  **WAARSCHUWING** verschijnt wanneer de *health_status* *niet gezond* is. De instructie **STATUSCONTROLE**, die verwijst naar de werkelijke controle die wordt uitgevoerd voor het controleren van de containerstatus, moet aanwezig zijn in de **dockerfile** die gebruikt wordt tijdens het genereren van de installatiekopie van de container. 
+Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de **dockerfile** die wordt gebruikt tijdens het genereren van de containerinstallatiekopie. 
 
 ![HealthCheckHealthy][1]
 
@@ -211,7 +211,7 @@ Vanaf versie 6.1 integreert Service Fabric automatisch [docker-STATUSCONTROLE](h
 
 ![HealthCheckUnhealthyDsp][3]
 
-U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren door opties van **HealthConfig** in te stellen als onderdeel van **ContainerHostPolicies** in ApplicationManifest.
+U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren door **HealthConfig**-opties op te geven als onderdeel van **ContainerHostPolicies** in ApplicationManifest.
 
 ```xml
 <ServiceManifestImport>
@@ -223,9 +223,9 @@ U kunt het gedrag van de **STATUSCONTROLE** voor elke container configureren doo
     </Policies>
 </ServiceManifestImport>
 ```
-Standaard staat de *IncludeDockerHealthStatusInSystemHealthReport* ingesteld op **waar** en *RestartContainerOnUnhealthyDockerHealthStatus* op **onwaar**. Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **waar**, wordt een niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
+Standaard is *IncludeDockerHealthStatusInSystemHealthReport* ingesteld op **true** en *RestartContainerOnUnhealthyDockerHealthStatus* op **false**. Als *RestartContainerOnUnhealthyDockerHealthStatus* is ingesteld op **true**, wordt een herhaaldelijk niet goed werkende container opnieuw opgestart (mogelijk op andere knooppunten).
 
-Als u de integratie van **STATUSCONTROLE** wilt uitschakelen voor de hele Service Fabric-cluster, moet u [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) instellen op **onwaar**.
+Als u de **STATUSCONTROLE**-integratie voor het hele Service Fabric-cluster wilt uitschakelen, stelt u [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) in op **false**.
 
 ## <a name="build-and-package-the-service-fabric-application"></a>De Service Fabric-toepassing bouwen en inpakken
 De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de toepassing via de terminal te maken. Ga als volgt te werk om de toepassing te maken en in te pakken:
@@ -371,17 +371,20 @@ Voer de volgende stappen uit als u nog een containerservice wilt toevoegen aan e
 
 U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat de container wordt verwijderd nadat het verwijderen van een service (of het verplaatsen naar een ander knooppunt) is gestart. Als u een tijdsinterval configureert, wordt de `docker stop <time in seconds>` opdracht verzonden naar de container.   Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Het tijdsinterval dat moet worden gewacht, kunt u opgeven in de sectie `Hosting`. Het volgende fragment van een clustermanifest laat zien hoe u het wachtinterval instelt:
 
-```xml
+
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
           ...
-          }
         ]
 }
 ```
+
 Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch is, wordt de time-out bijgewerkt bij een configuratie-upgrade van het cluster. 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>De runtime configureren voor het verwijderen van ongebruikte containerinstallatiekopieën
@@ -389,13 +392,18 @@ Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch
 U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt.  Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "PruneContainerImages": “True”,
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
           ...
           }
         ]
@@ -404,9 +412,9 @@ U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebrui
 
 De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`. 
 
-## <a name="configure-container-image-download-time"></a>Downloadtijd van containerinstallatiekopie configureren
+## <a name="configure-container-image-download-time"></a>Downloadtijd van de containerinstallatiekopie configureren
 
-Standaard wijst de Service Fabric-runtime een periode van 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken, wat voor de meerderheid van de containerinstallatiekopieën werkt. Voor grote kopieën, of als de netwerkverbinding langzaam is, moet de tijd misschien iets worden verlengd voordat u het downloaden en uitpakken van de installatiekopie wordt afgebroken. Dit kan worden ingesteld met het kenmerk **ContainerImageDownloadTimeout** in de sectie **Hosting** van het clustermanifest zoals staat weergegeven in het volgende fragment:
+Standaard wijst de Service Fabric-runtime een periode van 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken. Voor de meeste containerinstallatiekopieën is dat voldoende. Voor grote kopieën, of als de netwerkverbinding langzaam is, kan het echter nodig zijn om de toegewezen tijd te verlengen, zodat het downloaden en uitpakken van de installatiekopie niet voortijdig wordt afgebroken. U geeft dit op met het kenmerk **ContainerImageDownloadTimeout** in het gedeelte **Hosting** van het clustermanifest, zoals u in het volgende fragment ziet:
 
 ```json
 {
@@ -421,15 +429,15 @@ Standaard wijst de Service Fabric-runtime een periode van 20 minuten toe om cont
 ```
 
 
-## <a name="set-container-retention-policy"></a>Containerbewaarbeleid instellen
+## <a name="set-container-retention-policy"></a>Bewaarbeleid voor containers instellen
 
-Om te helpen bij het diagnosticeren van opstartfouten van containers ondersteunt Service Fabric (versie 6.1 of hoger) het behouden van containers die stopten of niet opstartten. Dit beleid kan worden ingesteld in het bestand **ApplicationManifest.xml** zoals wordt weergegeven in het volgende fragment:
+Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service Fabric (versie 6.1 of hoger) het bewaren van containers die zijn gestopt of niet kunnen opstartten. Dit beleid kan worden ingesteld in het bestand **ApplicationManifest.xml**, zoals u in het volgende fragment ziet:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-De instelling **ContainersRetentionCount** geeft het aantal containers op die behouden moeten worden wanneer er fouten ontstaan. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers behouden. Wanneer het kenmerk **ContainersRetentionCount** niet is opgegeven, worden er geen containers behouden. Het kenmerk **ContainersRetentionCount** ondersteunt ook de Toepassingsparameters zodat gebruikers verschillende waarden voor de test en de productieclusters kunnen opgeven. Om te voorkomen dat de containerservice naar andere knooppunten wordt verplaatst, wordt het aanbevolen om gebruik te maken van plaatsingsbeperkingen om de containerservice te richten op een bepaald knooppunt wanneer u gebruikmaakt van deze functies. Containers die worden behouden door deze functie moeten handmatig worden verwijderd.
+De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer er bij het kenmerk **ContainersRetentionCount** niets is opgegeven, worden er geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies doet u er verstandig aan plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kabel gegevens 2.0 (Preview)-oplossing in Log Analytics
 
@@ -186,10 +186,10 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
 
-| **File** | **BESTURINGSSYSTEEM** | **Versie** | **SHA-256** |
+| **File** | **OS** | **Versie** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
@@ -217,9 +217,9 @@ Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkhe
 
 Opties van de volgende tabel gebruiken om te installeren vanaf een opdrachtregel. Een overzicht van de vlaggen voor de installatie kunt u het installatieprogramma uitvoeren met behulp van de /? markering als volgt.
 
-InstallDependencyAgent Windows.exe /?
+InstallDependencyAgent-Windows.exe /?
 
-| **Vlag** | **Beschrijving** |
+| **Flag** | **Beschrijving** |
 | --- | --- |
 | <code>/?</code> | Een lijst van de opdrachtregelopties ophalen. |
 | <code>/S</code> | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
@@ -244,7 +244,7 @@ Een overzicht van de vlaggen voor de installatie uitvoert het installatieprogram
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Vlag** | **Beschrijving** |
+| **Flag** | **Beschrijving** |
 | --- | --- |
 | <code>-help</code> | Een lijst van de opdrachtregelopties ophalen. |
 | <code>-s</code> | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
@@ -256,9 +256,9 @@ Bestanden voor de Agent voor afhankelijkheden worden geplaatst in de volgende ma
 | --- | --- |
 | Core-bestanden | /Opt/Microsoft/Dependency-agent |
 | Logboekbestanden | /var/opt/Microsoft/Dependency-agent/log |
-| De config-bestanden | /etc/opt/Microsoft/Dependency-agent/config |
+| De config-bestanden | /etc/opt/microsoft/dependency-agent/config |
 | Uitvoerbare bestanden voor service | /Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-agent<br><br>/Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-Agent-Manager |
-| Binaire opslag-bestanden | /var/opt/Microsoft/Dependency-agent/Storage |
+| Binaire opslag-bestanden | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="installation-script-examples"></a>Voorbeelden van scripts voor installatie
 
@@ -375,9 +375,6 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
 
 Nadat er agents zijn geïnstalleerd en u de oplossing hebt geïnstalleerd, wordt de kabel gegevens 2.0-tegel wordt weergegeven in de werkruimte.
 
-> [!NOTE]
-> Op dit moment moet u de OMS-portal om weer te geven draadgegevens worden geleverd. U niet de Azure portal gebruiken om weer te geven draadgegevens worden geleverd.
-
 ![Tegel draadgegevens worden geleverd](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Met behulp van de kabel gegevens 2.0-oplossing
@@ -427,7 +424,7 @@ Een record met een type _WireData_ is gemaakt voor elk type invoergegevens. Wire
 | LocalIP | IP-adres van de lokale computer |
 | SessionState | Verbonden of verbroken |
 | ReceivedBytes | Hoeveelheid ontvangen bytes |
-| Protocolnaam | Naam van het netwerkprotocol gebruikt |
+| ProtocolName | Naam van het netwerkprotocol gebruikt |
 | IPVersion | IP-versie |
 | Richting | Binnenkomend of uitgaand |
 | MaliciousIP | IP-adres van een bekende schadelijke bron |
@@ -441,7 +438,7 @@ Een record met een type _WireData_ is gemaakt voor elk type invoergegevens. Wire
 | LocalPortNumber | Lokale poortnummer |
 | RemoteIP | Extern IP-adres gebruikt door de externe computer |
 | RemotePortNumber | Poortnummer van het externe IP-adres |
-| Sessie-id | Een unieke waarde die sessie van de communicatie tussen twee IP-adressen aangeeft |
+| SessionID | Een unieke waarde die sessie van de communicatie tussen twee IP-adressen aangeeft |
 | SentBytes | Aantal verzonden bytes |
 | TotalBytes | Totaal aantal bytes dat tijdens de sessie is verzonden |
 | ApplicationProtocol | Type netwerkprotocol gebruikt   |

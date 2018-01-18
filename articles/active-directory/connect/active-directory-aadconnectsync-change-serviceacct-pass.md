@@ -4,7 +4,7 @@ description: Dit document onderwerp beschrijft de versleutelingssleutel en hoe d
 services: active-directory
 keywords: Azure AD sync-serviceaccount, wachtwoord
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Het wijzigen van het wachtwoord voor de Azure AD Connect sync-serviceaccount
 Als u het wachtwoord voor de Azure AD Connect sync-serviceaccount wijzigen, zich de Synchronization Service niet kunnen starten correct totdat u hebt de versleutelingssleutel afgebroken en het wachtwoord voor de Azure AD Connect sync-serviceaccount opnieuw geïnitialiseerd. 
@@ -43,7 +43,7 @@ Ten tweede onder bepaalde omstandigheden, kunnen als het wachtwoord wordt bijgew
 U ziet bijvoorbeeld fouten:
 
 - Onder Windows Service Control Manager als u probeert te starten van de synchronisatieservice en de versleutelingssleutel, kan niet worden opgehaald mislukt met fout "** Windows kan de Microsoft Azure AD-synchronisatie niet starten op de lokale Computer. Bekijk het gebeurtenislogboek van systeem voor meer informatie. Als dit een niet-Microsoft-service, neem contact op met de leverancier van de service en Raadpleeg servicespecifieke foutcode **-21451857952 ***. "
-- Onder Windows Logboeken, het logboek voor toepassingsgebeurtenissen bevat een fout opgetreden bij **gebeurtenis-ID 6028** en foutbericht *'**de versleutelingssleutel van de server kan niet worden geopend.* *'*
+- Onder Windows Logboeken, het logboek voor toepassingsgebeurtenissen bevat een fout opgetreden bij **gebeurtenis-ID 6028** en foutbericht *'**de versleutelingssleutel van de server kan niet worden geopend.**'*
 
 Volg de procedures in om ervoor te zorgen dat er geen deze fouten, [opgegeven van de versleutelingssleutel van de Azure AD Connect-synchronisatie](#abandoning-the-azure-ad-connect-sync-encryption-key) wanneer het wachtwoord wijzigt.
  
@@ -82,7 +82,7 @@ De bestaande versleutelingssleutel afbreken zodat deze nieuwe versleutelingssleu
 Als de bestaande wachtwoorden worden opgeslagen in de database kunnen niet meer worden ontsleuteld, moet u de Synchronization Service voorzien van het wachtwoord van de AD DS-account. De synchronisatieservice versleutelt de met de nieuwe versleutelingssleutel wachtwoorden:
 
 1. Synchronization Service Manager (START → Synchronization-Service) starten.
-</br>![Sync-Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
 2. Ga naar de **Connectors** tabblad.
 3. Selecteer de **AD-Connector** die overeenkomt met uw on-premises AD. Als u meer dan één AD-connector hebt, herhaalt u de volgende stappen uit voor elk van deze.
 4. Onder **acties**, selecteer **eigenschappen**.

@@ -1,5 +1,5 @@
 ---
-title: Active Directory Federation Services-beheer en aanpassingen met Azure AD Connect | Microsoft Docs
+title: Azure AD Connect - AD FS-beheer en de aanpassing | Microsoft Docs
 description: AD FS-beheer met Azure AD Connect en aanpassen van AD FS-aanmeldingspagina gebruikerservaring met Azure AD Connect en PowerShell.
 keywords: AD FS, ADFS, AD FS-beheer zijn AAD Connect, Connect, aanmelden, AD FS aanpassing, trust, O365, Federatie, relying party herstellen
 services: active-directory
@@ -15,18 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) verbinding maken. Dit omvat ook andere algemene AD FS-taken die u moet doen voor een volledige configuratie van een AD FS-farm.
 
 | Onderwerp | Er wordt aangegeven |
 |:--- |:--- |
-| **Beheren van AD FS** | |
+| **Manage AD FS** | |
 | [Herstellen van de vertrouwensrelatie](#repairthetrust) |Klik hier voor meer informatie over het herstellen van de federatieve vertrouwensrelatie met Office 365. |
 | [Gefedereerd met Azure AD met behulp van alternatieve aanmeldings-ID](#alternateid) | Federatie met behulp van alternatieve aanmeldings-ID configureren  |
 | [Een AD FS-server toevoegen](#addadfsserver) |Het uitbreiden van een AD FS-farm met een extra AD FS-server. |
@@ -261,7 +262,7 @@ De standaardregel gewoon duurt het UPN-achtervoegsel en wordt gebruikt in de cla
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**Claimwaarde:** http://sub.contoso.com/adfs/services/trust/
+**Claim value:**  http://sub.contoso.com/adfs/services/trust/
 
 Als u alleen het hoofddomein in de claimwaarde van de certificaatverlener wilt weergeven, wijzigen de claimregel zodat deze overeenkomt met het volgende:
 

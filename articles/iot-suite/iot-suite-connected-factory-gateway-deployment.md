@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Een gateway aan de rand voor de verbonden factory vooraf geconfigureerde oplossing op Windows of Linux implementeren
 
@@ -57,7 +57,7 @@ Selecteer een station op de hostcomputer te delen met Docker tijdens de installa
 ![Docker voor Windows installeren](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> U kunt deze stap ook uitvoeren na de installatie van docker van de **instellingen** dialoogvenster. Met de rechtermuisknop op de **Docker** pictogram in het Windows-systeemvak en kies **instellingen**.
+> U kunt deze stap ook uitvoeren na de installatie van docker van de **instellingen** dialoogvenster. Met de rechtermuisknop op de **Docker** pictogram in het Windows-systeemvak en kies **instellingen**. Als u belangrijke Windows-updates zijn geïmplementeerd op het systeem, zoals het maken van de vallen Windows update, ongedaan maken van de stations en deze opnieuw als u wilt vernieuwen van de toegangsrechten delen.
 
 Als u van Linux gebruikmaakt, wordt geen aanvullende configuratie vereist voor toegang tot het bestandssysteem.
 
@@ -65,7 +65,7 @@ Op Windows, maak een map op het station dat u hebt gedeeld met Docker, maak een 
 
 Als u verwijst naar de `<SharedFolder>` in een Docker-opdracht, moet u de juiste syntaxis gebruiken voor uw besturingssysteem. Hier vindt u twee voorbeelden, één voor Windows en één voor Linux:
 
-- Als u met behulp van de map `D:\shared` op Windows als uw `<SharedFolder>`, de syntaxis van de Docker-opdracht is `//d/shared`.
+- Als u met behulp van de map `D:\shared` op Windows als uw `<SharedFolder>`, de syntaxis van de Docker-opdracht is `d:/shared`.
 
 - Als u met behulp van de map `/shared` op Linux als uw `<SharedFolder>`, de syntaxis van de Docker-opdracht is `/shared`.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - De `<IoTHubOwnerConnectionString>` is de **iothubowner** gedeelde toegang beleid-verbindingsreeks uit de Azure-portal. U hebt deze verbindingsreeks in de vorige stap hebt gekopieerd. U hoeft alleen deze verbindingsreeks voor de eerste uitvoering van OPC-Publisher. Op latere uitvoeringen moet u het weglaten omdat dit een beveiligingsrisico inhouden.
 
-- De `<SharedFolder>` u gebruikt en de syntaxis is beschreven in de sectie [installeren en configureren van Docker](#install-and-configure-docker). OPC Publisher gebruikt de `<SharedFolder>` om het lezen van het configuratiebestand OPC-uitgever, het logboekbestand schrijven en maken beide deze bestanden beschikbaar buiten de container.
+- De `<SharedFolder>` u gebruikt en de syntaxis is beschreven in de sectie [installeren en configureren van Docker](#install-and-configure-docker). OPC Publisher gebruikt de `<SharedFolder>` schrijven naar het logboekbestand om te lezen en schrijven naar het configuratiebestand OPC-uitgever, en beide deze bestanden beschikbaar zijn buiten de container maken.
 
-- OPC Publisher leest de configuratie van de **publishednodes.json** bestand, dat u moet plaatsen in de `<SharedFolder>/docker` map. Dit configuratiebestand wordt gedefinieerd welke OPC UA knooppuntgegevens op een bepaalde OPC UA-server die moet u de uitgever OPC abonneren op.
-
-- Wanneer de OPC UA-server OPC-uitgever van gewijzigde gegevens meldt, worden de nieuwe waarde wordt verzonden naar IoT Hub. Afhankelijk van de batchen instellingen worden de gegevens eerst de uitgever van de OPC verzameld voordat de gegevens naar IoT Hub worden verzonden in een batch.
-
-- De volledige syntaxis van de **publishednodes.json** bestand zoals is beschreven in de [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) pagina op GitHub.
-
-    Het volgende fragment toont een eenvoudig voorbeeld van een **publishednodes.json** bestand. Dit voorbeeld ziet u hoe u publiceert de **CurrentTime** waarde van een OPC UA-server met hostnaam **win10pc**:
+- OPC Publisher leest de configuratie van de **publishednodes.json** bestand, dat is gelezen uit en geschreven naar de `<SharedFolder>/docker` map. Dit configuratiebestand wordt gedefinieerd welke OPC UA knooppuntgegevens op een bepaalde OPC UA-server die moet u de uitgever OPC abonneren op. De volledige syntaxis van de **publishednodes.json** bestand zoals is beschreven in de [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) pagina op GitHub. Wanneer u een gateway toevoegt, plaatst u een lege **publishednodes.json** naar de map:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    In de **publishednodes.json** -bestand, het OPC UA server is opgegeven door de eindpunt-URL. Als u de hostnaam met behulp van een label hostnaam opgeven (zoals **win10pc**) zoals in het vorige voorbeeld in plaats van een IP-adres, de adresomzetting netwerk in de container moet kunnen dit label hostnaam omzetten in een IP-adres.
+- Wanneer de OPC UA-server OPC-uitgever van gewijzigde gegevens meldt, worden de nieuwe waarde wordt verzonden naar IoT Hub. Afhankelijk van de batchen instellingen worden de gegevens eerst de uitgever van de OPC verzameld voordat de gegevens naar IoT Hub worden verzonden in een batch.
 
 - Docker biedt geen ondersteuning voor NetBIOS-naamomzetting, alleen DNS-naamomzetting. Als u geen DNS-server op het netwerk hebt, kunt u de tijdelijke oplossing weergegeven in het vorige voorbeeld van de opdrachtregel. Het vorige voorbeeld van de opdrachtregel gebruikt de `--add-host` parameter een vermelding in het hosts-bestand van containers toe te voegen. Deze vermelding kan hostnaam zoekactie voor de opgegeven `<OpcServerHostname>`, het omzetten van het opgegeven IP-adres `<IpAddressOfOpcServerHostname>`.
 
@@ -169,11 +155,16 @@ U kunt nu verbinding met de gateway vanuit de cloud en u bent klaar OPC UA serve
 
 Vooraf geconfigureerde oplossing voor uw eigen OPC UA-servers toevoegen aan de verbonden factory:
 
-1. Blader naar de **verbinding maken met uw eigen OPC UA-server** pagina in de oplossingsportal verbonden factory. Volg dezelfde stappen als in de vorige sectie om een vertrouwensrelatie tussen de verbonden factory-portal en de OPC UA-server te maken.
+1. Blader naar de **verbinding maken met uw eigen OPC UA-server** pagina in de oplossingsportal verbonden factory.
 
-    ![Oplossingsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Start de OPC UA-server die verbinding wilt maken. Zorg ervoor dat uw OPC UA-server kan worden bereikt vanaf het OPC-uitgever en OPC Proxy uitgevoerd in de container (Zie de vorige opmerkingen over naamomzetting).
+    1. Voer de eindpunt-URL van uw OPC UA-server (`opc.tcp://<host>:<port>`) en klik op **Connect**.
+    1. Als onderdeel van de installatie van de verbinding een vertrouwensrelatie tussen de verbonden factory-portal (OPC UA-client) en het OPC UA-server die u probeert verbinding tot stand is gebracht. In het dashboard verbonden factory krijgt u een **certificaat van de server die u wilt verbinden, kan niet worden geverifieerd** waarschuwing. Wanneer er een certificaatwaarschuwing weergegeven, klikt u op **doorgaan**.
+    1. Moeilijker te setup is van het OPC UA-server die u probeert verbinding maken met de configuratie van het certificaat. Voor PC OPC UA-servers gebaseerde, krijgt u mogelijk slechts een waarschuwingsdialoogvenster in het dashboard die u kunt bevestigen. Raadpleeg de documentatie van uw OPC UA-server om te zoeken hoe deze taak wordt uitgevoerd voor ingesloten OPC UA-server-systemen. Als u wilt deze taak uitvoeren, moet u het certificaat van de verbonden factory-portal OPC UA-client. Een beheerder kan dit certificaat downloaden op de **verbinding maken met uw eigen OPC UA-server** pagina:
 
-1. Bladeren in de structuur van de knooppunten OPC UA van uw OPC UA-server, met de rechtermuisknop op de OPC-knooppunten die u wilt verzenden naar verbonden factory en selecteer **publiceren**.
+        ![Oplossingsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Bladeren in de structuur van de knooppunten OPC UA van uw OPC UA-server, met de rechtermuisknop op de gewenste waarden verzenden naar verbonden factory en selecteer OPC-knooppunten **publiceren**.
 
 1. Telemetrie loopt nu van het gateway-apparaat. Vindt u de telemetrie in de **Factory locaties** weergave van de portal verbonden factory onder **New Factory**.
 

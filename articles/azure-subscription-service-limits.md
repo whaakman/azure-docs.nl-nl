@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -52,7 +52,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Application Insights](#application-insights-limits)
 * [Automatisering](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
-* [Azure Event raster](#azure-event-grid-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis-cache](#azure-redis-cache-limits)
 * [Een back-up maken](#backup-limits)
 * [Batch](#batch-limits)
@@ -61,6 +61,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Container Service (AKS)](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -77,8 +78,8 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Controle](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Netwerken](#networking-limits)
-* [Netwerk-Watcher](#network-watcher-limits)
-* [Notification Hub-Service](#notification-hub-service-limits)
+* [Network Watcher](#network-watcher-limits)
+* [Notification Hub Service](#notification-hub-service-limits)
 * [Resourcegroep](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
 * [Zoeken](#search-limits)
@@ -127,6 +128,9 @@ De volgende beperkingen gelden bij gebruik van de Azure Resource Manager en Azur
 De volgende tabel worden de functies en de ondergrenzen van de Basic, Standard en Premium [Servicelagen](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Limieten voor container Service (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Netwerklimieten
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -301,7 +305,7 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 ### <a name="key-vault-limits"></a>Limieten voor Sleutelkluis
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Meervoudige verificatie
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Limieten voor Automation

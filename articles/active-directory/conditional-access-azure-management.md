@@ -3,7 +3,7 @@ title: Toegang tot Azure management met voorwaardelijke toegang in Azure Active 
 description: Meer informatie over het gebruik van voorwaardelijke toegang in Azure AD voor het beheren van toegang tot beheer van Azure.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
-ms.openlocfilehash: 6b5ca97c0a6360a250bc3e91f6a8ece179a7725f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Toegang tot beheer van Azure met voorwaardelijke toegang beheren
 
@@ -30,7 +30,7 @@ Voor het maken van een beleid voor het beheer van Azure die u selecteert **Micro
 
 ![Voorwaardelijke toegang voor Azure-beheer](./media/conditional-access-azure-mgmt.png)
 
-Het beleid dat u maakt is van toepassing op alle Azure management eindpunten, met inbegrip van de klassieke Azure-portal, Azure-portal, Azure Resource Manager-provider, klassieke Service Management-API's en PowerShell.
+Het beleid dat u maakt is van toepassing op alle Azure management eindpunten, met inbegrip van de klassieke Azure-portal, Azure-portal, Azure Resource Manager-provider, klassieke Service Management-API's en Azure PowerShell.
 
 > [!CAUTION]
 > Zorg dat u begrijpt hoe voorwaardelijke toegang werkt voordat u een beleid voor het beheren van toegang tot Azure management instelt. Zorg ervoor dat u de voorwaarden die uw eigen toegang tot de portal kunnen blokkeren niet maken.

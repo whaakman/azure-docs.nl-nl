@@ -109,7 +109,7 @@
 #### [Benoemde locaties configureren](active-directory-named-locations.md)
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
 #### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Verwijzing
+### Naslaginformatie
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
@@ -288,6 +288,7 @@
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
 #### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
+#### [Hulpprogramma What-If](active-directory-conditional-access-whatif.md)
 #### Taken
 ##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
@@ -344,7 +345,7 @@
 ### [PoC Playbook: bouwstenen](active-directory-playbook-building-blocks.md)
 
 
-# Verwijzing
+# Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure PowerShell-cmdlets](/powershell/azure/overview)
 ## [Naslaginformatie over de Java-API](/java/api)

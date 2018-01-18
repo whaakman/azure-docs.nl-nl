@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installeren van de Mobility-Service (VMware of fysieke naar Azure)
 Azure Site Recovery Mobility-Service gegevens schrijfbewerkingen op een computer vastlegt en ze doorstuurt naar de processerver. Implementeer Mobility-Service op elke computer (VMware VM of fysieke server) die u wilt repliceren naar Azure. U kunt de Mobility-Service implementeren op de servers die u beveiligen wilt met behulp van de volgende methoden:
@@ -50,16 +45,16 @@ Deze vereiste stappen voltooien voordat u Mobility-Service handmatig op uw serve
 
 | Naam van het installatiebestand sjabloon| Besturingssysteem |
 |---|--|
-|Microsoft ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bits) </br> WindowsServer 2012 (64-bits) </br> Windows Server 2012 R2 (64-bits) </br> WindowsServer 2016 (64-bits) |
-|Microsoft ASR\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) |
-|Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (alleen 64-bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (alleen 64-bits) |
-|Microsoft ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (alleen 64-bits)|
-|Microsoft ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (alleen 64-bits)|
-|Microsoft ASR\_UA\*OL6 64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (alleen 64-bits)|
-|Microsoft ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (alleen 64-bits)|
-|Microsoft ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 TNS server (alleen 64-bits)|
-|Microsoft ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (alleen 64-bits)|
-|Microsoft ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8 (alleen 64-bits)|
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> WindowsServer 2012 (64-bits) </br> Windows Server 2012 R2 (64-bit) </br> WindowsServer 2016 (64-bits) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (alleen 64-bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (alleen 64-bits) |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (alleen 64-bits)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (alleen 64-bits)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (alleen 64-bits)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (alleen 64-bits)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 TNS server (alleen 64-bits)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (alleen 64-bits)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (alleen 64-bits)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Mobility-Service handmatig te installeren met behulp van de gebruikersinterface
@@ -92,7 +87,7 @@ Nadat de Mobility-Service is geïnstalleerd, in de Azure portal, selecteert u de
 ## <a name="update-mobility-service"></a>Bijwerken van de Mobility-Service
 
 > [!WARNING]
-> Zorg ervoor dat de configuratieserver, Scale-out processervers en servers hoofddoel die een deel van uw implementatie wordt bijgewerkt, voordat u begint met het bijwerken van de Mobility-Service op de beveiligde servers zijn. Meer informatie over [het bijwerken van de configuratieserver](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) en [het bijwerken van uw servers Scale-out-proces](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Zorg ervoor dat de configuratieserver, Scale-out processervers en servers hoofddoel die een deel van uw implementatie wordt bijgewerkt, voordat u begint met het bijwerken van de Mobility-Service op de beveiligde servers zijn.
 
 1. Op de Azure portal bladeren naar <Your Vault> -> gerepliceerde Items weergeven.
 2. Als de **configuratieserver** al is bijgewerkt naar de nieuwste versie, en vervolgens ziet u een melding die leest *nieuwe Site recovery replicatie agentupdate beschikbaar is. Klik om te installeren*

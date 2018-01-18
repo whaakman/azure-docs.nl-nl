@@ -13,22 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
+# <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
 ### <a name="what-is-azure-cosmos-db"></a>Wat is Azure Cosmos DB?
 Azure Cosmos-database is een wereldwijd gerepliceerde en modellen database-service waarmee die biedt uitgebreide query over gegevens zonder schema configureerbare en betrouwbare prestaties leveren en maakt snelle ontwikkeling. Dit wordt bereikt door middel van een beheerd platform dat wordt ondersteund door de kracht en het bereik van Microsoft Azure. 
 
 Azure Cosmos-database is de juiste oplossing voor web-, gaming- en IoT-toepassingen wanneer voorspelbare doorvoer, hoge beschikbaarheid, lage latentie en een gegevensmodel zonder schema belangrijke vereisten zijn. Levert schemaflexibiliteit en geavanceerde indexeren en transactionele ondersteuning voor meerdere documenten met geïntegreerde JavaScript bevat. 
 
-Voor meer databasevragen, antwoorden en instructies voor het implementeren en het gebruik van deze service, raadpleegt u de [Azure DB die Cosmos-documentatiepagina] ((https://docs.microsoft.com/azure/cosmos-db/).
+Zie voor meer databasevragen, antwoorden en instructies voor het implementeren en gebruiken van deze service, de [documentatiepagina voor Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Wat is er gebeurd met de API DocumentDB?
 
@@ -74,7 +74,16 @@ Als u niet bekend met Azure bent, kunt u zich aanmelden voor een [gratis Azure-a
 U kunt ook de [Azure Cosmos DB Emulator](local-emulator.md) te ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement. Wanneer u tevreden bent over hoe uw toepassing in de Azure-Emulator Cosmos DB werkt, kunt u overschakelen naar het met een Azure DB die Cosmos-account in de cloud.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Hoe kan ik aanvullende ondersteuning voor Azure Cosmos DB krijgen?
-Als u hulp nodig hebt, bereiken ons op [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) of de [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), of een gesprek voert chatten met het technische team van Azure DB die Cosmos plannen door het verzenden van e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+
+Als u een technische vraag vragen, kunt u posten naar een van deze twee vraag en antwoord forums:
+* [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Stack-overloop](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack-overloop wordt aanbevolen voor het programmeren van vragen. Controleer of uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [vindt u informatie van zo veel mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask). 
+
+Om aan te vragen van nieuwe functies, kunt u een nieuwe aanvraag maken op [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+U herstelt een probleem met uw account door het bestand een [ondersteuningsaanvraag](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in de Azure portal.
+
+Andere vragen kunnen worden verstuurd naar het team via [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); maar dit niet een alias voor technische ondersteuning is. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Probeer Azure DB die Cosmos-abonnementen
@@ -180,7 +189,7 @@ Naast de algemene foutcodes voor MongoDB heeft de MongoDB-API een eigen specifie
 | Fout               | Code  | Beschrijving  | Oplossing  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Het totale aantal aanvraageenheden verbruikt is groter dan de frequentie van ingerichte aanvraag-eenheid voor de verzameling en is beperkt. | Overweeg het schalen van de doorvoer van de verzameling van de Azure-portal of u opnieuw probeert te. |
-| ExceededMemoryLimit | 16501 | Als een multitenant-service heeft de bewerking van de client geheugen aandeel overschreden. | Verminder het bereik van de bewerking via de meest beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: 'Andy'}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Als een multitenant-service heeft de bewerking van de client geheugen aandeel overschreden. | Verminder het bereik van de bewerking via de meest beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Met de tabel API ontwikkelen
 
@@ -206,10 +215,10 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azure Cosmos DB tabel API in termen van de REST-API:
 | Rest-methode(n) | Rest-eindpunt/Query-optie | Doc-URL 's | Uitleg |
 | ------------| ------------- | ---------- | ----------- |
-| GET, PUT | /? restype =service@comp= eigenschappen| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
-| OPTIES | / < resource-tabelnaam > | [Vooraf vlucht CORS tabel aanvraag](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit is onderdeel van CORS die Azure Cosmos DB momenteel niet ondersteund. |
+| GET, PUT | /?restype=service@comp=properties| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
+| OPTIES | /<table-resource-name> | [Vooraf vlucht CORS tabel aanvraag](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit is onderdeel van CORS die Azure Cosmos DB momenteel niet ondersteund. |
 | GET | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
-| GET, PUT | /MyTable? comp acl = | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
+| GET, PUT | /mytable?comp=acl | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
 
 Daarnaast ondersteunt Azure Cosmos DB tabel API alleen de JSON-indeling niet ATOM.
 
@@ -219,8 +228,8 @@ Voor de .NET SDK in het bijzonder, zijn er bepaalde klassen en methoden die Azur
 
 | Klasse | Niet-ondersteunde methode |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats * |
+| CloudTableClient | \*ServiceProperties* |
+|                  | \*ServiceStats* |
 | CloudTable | SetPermissions * |
 |            | GetPermissions * |
 | TableServiceContext | * (is deze klasse daadwerkelijk afgeschaft) |
@@ -235,7 +244,7 @@ U kunt uw feedback delen in een van de volgende manieren:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [StackOverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Stack-overloop](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack-overloop wordt aanbevolen voor het programmeren van vragen. Controleer of uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [vindt u informatie van zo veel mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Wat is de verbindingsreeks die ik moet verbinding maken met de tabel-API gebruiken?
 De verbindingsreeks is:

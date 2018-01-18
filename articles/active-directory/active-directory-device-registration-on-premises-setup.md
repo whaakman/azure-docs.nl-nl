@@ -1,5 +1,5 @@
 ---
-title: Instellen van lokale voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie | Microsoft Docs
+title: Voorwaardelijke toegang tot lokale in Azure Active Directory instellen | Microsoft Docs
 description: Een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.custom: seohack1
+ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
 Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -69,7 +70,7 @@ Voer de taken in de volgende controlelijst in volgorde voor het implementeren va
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>Deel 1: Enable Azure Active Directory-apparaatregistratie
 Volg de stappen in de controlelijst inschakelen en configureren van de Azure Active Directory device registratieservice.
 
-| Taak | Naslaginformatie | 
+| Taak | Referentie | 
 | --- | --- |
 | Schakel apparaatregistratie in uw Azure Active Directory-tenant om apparaten die aan de werkplek koppelen. Azure multi-factor Authentication is standaard niet ingeschakeld voor de service. We raden echter aan dat u multi-factor Authentication gebruiken wanneer u een apparaat registreren. Voordat u multi-factor Authentication inschakelt in de registratieservice van Active Directory, zorg ervoor dat de AD FS is geconfigureerd voor een multi-factor Authentication-provider. |[Azure Active Directory-apparaatregistratie inschakelen](active-directory-device-registration-get-started.md)| 
 |Uw Azure Active Directory device registratieservice detecteren apparaten door te zoeken naar bekende DNS-records. Uw bedrijfs-DNS configureren zodat apparaten de apparaatregistratieservice van Azure Active Directory detecteren kunnen. |[Azure Active Directory device registration detectie configureren](active-directory-device-registration-get-started.md)| 
@@ -77,13 +78,13 @@ Volg de stappen in de controlelijst inschakelen en configureren van de Azure Act
 
 ## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>Deel 2: Implementeren en configureren van Windows Server 2012 R2 Active Directory Federation Services en stelt u een federatieve relatie met Azure AD
 
-| Taak | Naslaginformatie |
+| Taak | Referentie |
 | --- | --- |
 | Active Directory Domain Services implementeren met de schema-uitbreidingen voor Windows Server 2012 R2. U hoeft niet een van uw domeincontrollers upgraden naar Windows Server 2012 R2. De schema-upgrade is de enige vereiste. |[Uw Active Directory Domain Services-schema bijwerken](#upgrade-your-active-directory-domain-services-schema) |
 | Uw Azure Active Directory device registratieservice detecteren apparaten door te zoeken naar bekende DNS-records. Uw bedrijfs-DNS configureren zodat apparaten de apparaatregistratieservice van Azure Active Directory detecteren kunnen. |[Voorbereiden van uw Active Directory ondersteuning voor apparaten](#prepare-your-active-directory-to-support-devices) |
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Deel 3: Schakel apparaat terugschrijven in Azure AD
-| Taak | Naslaginformatie |
+| Taak | Referentie |
 | --- | --- |
 | Deel 2 van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, keert u terug naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
@@ -93,7 +94,7 @@ Sterk aanbevolen een van de verschillende opties voor multi-factor Authenticatio
 ## <a name="part-5-verification"></a>Deel 5: verificatie
 De implementatie is voltooid en u een aantal scenario's kunt uitproberen. Gebruik de volgende koppelingen om te experimenteren met de service en vertrouwd raken met de functies.
 
-| Taak | Naslaginformatie |
+| Taak | Referentie |
 | --- | --- |
 | Sommige apparaten koppelt aan uw werkplek met behulp van Azure Active Directory device registration-service. U kunt deelnemen aan iOS-, Windows- en Android-apparaten. |[Apparaten koppelt aan uw werkplek met Azure Active Directory device registratieservice](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | Weergeven en in- of uitschakelen van geregistreerde apparaten met behulp van de beheerdersportal. In deze taak kunt u een aantal geregistreerde apparaten weergeven met behulp van de beheerdersportal. |[Azure Active Directory device Registratieoverzicht van service](active-directory-device-registration-get-started.md) |

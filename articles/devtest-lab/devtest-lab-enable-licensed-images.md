@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Inschakelen van de installatiekopie van een gelicentieerde in uw lab in Azure DevTest Labs
 
@@ -53,12 +53,14 @@ Om te zorgen dat de installatiekopie van een licentie is beschikbaar voor gebrui
 
 U kunt programmatische implementatie voor de installatiekopie van een gelicentieerde inschakelen met de volgende stappen:
 
-1. In de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) in de lijst met **Marketplace-installatiekopieën**, identificeren van de installatiekopie van een gelicentieerde waarvoor u wilt dat gebruikers toegang moet hebben, maar die niet zijn geaccepteerd. Bijvoorbeeld, ziet u mogelijk een gegevens wetenschappelijke virtuele Machine die de status van een wordt **voorwaarden geaccepteerd** of **controleren die nodig zijn de voorwaarden**.
+1. In de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), gaat u naar de lijst met **Marketplace-installatiekopieën**.
+
+1. Identificeer een gelicentieerde installatiekopie voor die u wilt dat gebruikers toegang moet hebben, maar waarvan de bepalingen zijn niet geaccepteerd. Bijvoorbeeld, ziet u mogelijk een gegevens wetenschappelijke virtuele Machine die de status van een wordt **voorwaarden geaccepteerd** of **controleren die nodig zijn de voorwaarden**.
 
     ![Venster programmatische implementatie configureren](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Gegevens wetenschappelijke VM's zijn installatiekopieën van virtuele Machine van Azure, vooraf is geïnstalleerd, geconfigureerd en getest met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevens analytics, machine learning en AI training. [Inleiding op Azure gegevens wetenschappelijke virtuele Machine voor Linux en Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) biedt een grote hoeveelheid informatie over DSVMs.
+   > Gegevens wetenschappelijke VM's zijn installatiekopieën van virtuele Machine van Azure, vooraf is geïnstalleerd en getest met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevens analytics, machine learning en AI training geconfigureerd. [Inleiding op Azure gegevens wetenschappelijke virtuele Machine voor Linux en Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) biedt een grote hoeveelheid informatie over DSVMs.
    >
    >
 

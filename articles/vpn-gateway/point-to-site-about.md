@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 010/19/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site VPN-
 
@@ -36,7 +36,7 @@ Punt-naar-site VPN kunt gebruiken, een van de volgende protocollen:
 Als u een gemengde client-omgeving die bestaan uit Windows en Mac-apparaten hebt, SSTP en IKEv2 configureren.
 
 >[!NOTE]
->IKEv2 voor P2S is momenteel in Preview en is beschikbaar voor het Resource Manager-implementatiemodel.
+>IKEv2 voor P2S is beschikbaar voor het Resource Manager-implementatiemodel. Het is niet beschikbaar voor het klassieke implementatiemodel.
 >
 
 ## <a name="authentication"></a>Hoe kan ik P2S-VPN-clients geverifieerd?
@@ -57,28 +57,36 @@ AD-domein verificatie kunnen gebruikers verbinding maken met Azure met de domein
 
 Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe identiteit. Hiermee opent u tal van opties voor P2S-VPN, inclusief opties voor multi-factor authentication.
 
->[!NOTE]
->RADIUS-verificatie voor P2S is momenteel in Preview.
->
-
-![punt-naar-site]](./media/point-to-site-about/p2s.png "Punt-naar-Site")
+! [punt-naar-site]] (./media/point-to-site-about/p2s.png "Punt-naar-Site")
 
 ### <a name="configuration-requirements-for-client-devices"></a>Configuratievereisten voor clientapparaten
 
 Gebruikers gebruiken de systeemeigen VPN-clients op Windows en Mac-apparaten voor P2S. Azure biedt een VPN-client configuration zip-bestand met instellingen die vereist zijn door deze systeemeigen clients verbinding maken met Azure.
 
-  * Voor Windows-apparaten bestaat de configuratie van de VPN-client uit een installatiepakket dat gebruikers op hun apparaten installeren.
-  * Voor Mac-apparaten bestaat uit het bestand mobileconfig die gebruikers op hun apparaten installeren.
+* Voor Windows-apparaten bestaat de configuratie van de VPN-client uit een installatiepakket dat gebruikers op hun apparaten installeren.
+* Voor Mac-apparaten bestaat uit het bestand mobileconfig die gebruikers op hun apparaten installeren.
 
 Het zip-bestand bevat ook de waarden van een aantal belangrijke instellingen op de Azure-zijde die u gebruiken kunt om uw eigen profiel voor deze apparaten te maken. De waarden onder andere het VPN-gateway-adres, geconfigureerde tunneltypen, routes en het basiscertificaat voor de validatie van de gateway.
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a>Welke Gateway-SKU's ondersteuning P2S VPN?
+### <a name="gwsku"></a>Welke Gateway-SKU's ondersteuning P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
 * De Benchmark cumulatieve doorvoer is gebaseerd op de metingen van meerdere tunnels die via één gateway worden gecombineerd. Het is niet een gegarandeerde doorvoer vanwege internetverkeer en het gedrag van uw toepassingen.
 * Prijsinformatie kunt u vinden op de pagina met prijzen 
 * Gegevens SLA (Service Level Agreement) vindt u op de pagina SLA.
+
+>[!NOTE]
+>De basis-SKU biedt geen ondersteuning voor IKEv2 of RADIUS-verificatie.
+>
+
+## <a name="configure"></a>Hoe kan ik een P2S-verbinding configureren?
+
+Een P2S-configuratie is vereist voor een aantal specifieke stappen uitvoeren. De volgende artikelen bevatten de stappen voor het helpt u stapsgewijs door de P2S-configuratie en koppelingen naar de apparaten van VPN-client configureren:
+
+* [Een verbinding P2S - RADIUS-verificatie configureren](point-to-site-how-to-radius-ps.md)
+
+* [Een verbinding P2S - Azure systeemeigen certificaatverificatie configureren](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## <a name="faqcert"></a>Veelgestelde vragen over de systeemeigen Azure certificaatverificatie
 
@@ -90,6 +98,6 @@ Het zip-bestand bevat ook de waarden van een aantal belangrijke instellingen op 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[P2S-verbindingen - RADIUS-verificatie configureren](point-to-site-how-to-radius-ps.md)
+* [Een verbinding P2S - RADIUS-verificatie configureren](point-to-site-how-to-radius-ps.md)
 
-[P2S-verbindingen - Azure systeemeigen certificaatverificatie configureren](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Een verbinding P2S - Azure systeemeigen certificaatverificatie configureren](vpn-gateway-howto-point-to-site-rm-ps.md)

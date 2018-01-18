@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 De replica's die deel uitmaken van servicepartities beheren.
@@ -30,7 +30,7 @@ De replica's die deel uitmaken van servicepartities beheren.
 |    geïmplementeerd  | Hiermee haalt u de details van replica is geïmplementeerd op een Service Fabric-knooppunt.|
 |    geïmplementeerd lijst| Hiermee haalt u de lijst van replica's die zijn geïmplementeerd op een Service Fabric-knooppunt.|
 |    status    | Hiermee haalt u de status van een Service Fabric stateful service replica of stateless service-exemplaar.|
-|    Info      | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie.|
+|    info      | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie.|
 |    lijst      | Hiermee haalt u de informatie over de replica's van de partitie van een Service Fabric-service.|
 |    verwijderen    | Hiermee verwijdert u de replica van een service uitgevoerd op een knooppunt.|
 |    rapport-status| Verzendt een statusrapport voor de Service Fabric-replica.|
@@ -55,7 +55,7 @@ Hiermee haalt u de details van de replica die is geïmplementeerd op een Service
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -79,7 +79,7 @@ Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilte
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o              | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -103,7 +103,7 @@ De respons bevatten de ID, rol, status, status, knooppuntnaam, bedrijfstijd en a
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -127,7 +127,7 @@ De respons bevatten de ID, rol, status, status, knooppuntnaam, bedrijfstijd en a
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -145,14 +145,14 @@ Deze API wordt gesimuleerd van een Service Fabric-replica-fout door het verwijde
 | --knooppuntnaam [vereist]| De naam van het knooppunt.|
 | --partitie-id [vereist]| De identiteit van de partitie.|
 | --replica-id [vereist]| De id van de replica.|
-| --geforceerd verwijderen        | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
+| --force-remove        | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
 | --time-out -t          | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -176,7 +176,7 @@ De replica van een service van een permanente service uitgevoerd op een knooppun
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 0d293d3874b0cb43cee9f85c6c575e87c48ad291
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2cfeb212213088bb8d871e4c82daee559e4b36ff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Gegevens kopiëren van de SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Voor het gebruik van basisverificatie, stelt u 'authenticationType'-eigenschap i
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
+| userName | De gebruiker die toegang tot de SFTP-server heeft. |Ja |
 | wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString. | Ja |
 
 **Voorbeeld:**
@@ -100,10 +100,10 @@ Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenscha
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | Gebruiker die toegang tot de SFTP-server heeft |Ja |
+| userName | Gebruiker die toegang tot de SFTP-server heeft |Ja |
 | privateKeyPath | Geef het absolute pad naar het persoonlijke sleutelbestand waartoe integratie Runtime toegang heeft. Geldt alleen als host zichzelf soort integratie Runtime is opgegeven in 'connectVia'. | Geef ofwel de `privateKeyPath` of `privateKeyContent`.  |
 | privateKeyContent | Base64-gecodeerde SSH-inhoud met persoonlijke sleutel. Persoonlijke SSH-sleutel moet OpenSSH-indeling. Dit veld markeren als een SecureString. | Geef ofwel de `privateKeyPath` of `privateKeyContent`. |
-| Wachtwoordzin | Geef de pass woordgroep en het wachtwoord voor het ontsleutelen van de persoonlijke sleutel als het sleutelbestand is beveiligd met een wachtwoordzin. Dit veld markeren als een SecureString. | Ja als u een bestand met de persoonlijke sleutel wordt beveiligd door een wachtwoordzin. |
+| passPhrase | Geef de pass woordgroep en het wachtwoord voor het ontsleutelen van de persoonlijke sleutel als het sleutelbestand is beveiligd met een wachtwoordzin. Dit veld markeren als een SecureString. | Ja als u een bestand met de persoonlijke sleutel wordt beveiligd door een wachtwoordzin. |
 
 > [!NOTE]
 > SFTP-connector ondersteunt alleen OpenSSH-sleutel. Zorg ervoor dat uw sleutelbestand in de juiste indeling. U kunt Putty hulpprogramma ppk converteren naar OpenSSH-indeling.
@@ -219,7 +219,7 @@ Om gegevens te kopiëren van SFTP, stelt u het brontype in de kopieerbewerking n
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **FileSystemSource** |Ja |
-| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
+| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Opmerking Wanneer recursieve is ingesteld op true en sink is bestandsgebaseerde opslag, lege map/subbewerkingen-folder niet worden gekopieerd/gemaakt op de sink.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
 
 **Voorbeeld:**
 

@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: operationele taken en overwegingen | Mi
 description: Dit onderwerp beschrijft operationele taken voor Azure AD Connect-synchronisatie en voorbereiden voor de werking van dit onderdeel.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4252a5ff3dd985185745060073cbe5432dba726a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: operationele taken en afweging
 Het doel van dit onderwerp is om operationele taken voor Azure AD Connect-synchronisatie te beschrijven.
@@ -51,7 +51,7 @@ Als u wilt toepassen op deze methode, de volgende stappen uit:
 1. [Voorbereiden](#prepare)
 2. [Configuratie](#configuration)
 3. [Importeren en synchroniseren](#import-and-synchronize)
-4. [Controleer of](#verify)
+4. [Verify](#verify)
 5. [Actieve switchserver](#switch-active-server)
 
 #### <a name="prepare"></a>Voorbereiden

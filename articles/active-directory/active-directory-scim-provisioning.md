@@ -1,5 +1,5 @@
 ---
-title: Met behulp van systeem voor identiteitsbeheer van verschillende domeinen automatisch worden ingericht, gebruikers en groepen van Azure Active Directory voor toepassingen | Microsoft Docs
+title: Inrichting van apps in Azure Active Directory met behulp van SCIM automatiseren | Microsoft Docs
 description: Azure Active Directory kunnen automatisch worden ingericht, gebruikers en groepen naar een toepassing of identiteit store die door een webservice is fronted met de interface die is gedefinieerd in de specificatie SCIM protocol
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor het identiteitsbeheer van verschillende domeinen gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
@@ -352,34 +352,34 @@ User-bronnen worden geïdentificeerd door de schema-id en urn: ietf:params:scim:
 Groep resources worden geïdentificeerd door de schema-id en http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabel 2 hieronder bevat de standaardtoewijzing van de kenmerken van groepen in Azure Active Directory op de kenmerken van http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group resources.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabel 1: Standaard Gebruikerskoppeling kenmerk
-| Azure Active Directory-gebruiker | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |actief |
-| Weergavenaam |Weergavenaam |
-| Fax TelephoneNumber |phoneNumbers type eq 'fax'.value |
-| Voornaam |name.givenName |
-| Functie |titel |
+| displayName |displayName |
+| Facsimile-TelephoneNumber |phoneNumbers type eq 'fax'.value |
+| givenName |name.givenName |
+| jobTitle |titel |
 | E-mail |e-mailberichten type eq 'werk'.value |
 | mailNickname |externalId |
-| Manager |Manager |
-| mobiele |phoneNumbers type eq 'mobiel'.value |
-| object-id |id |
-| Postcode |adressen type eq 'werk'.postalCode |
+| manager |manager |
+| mobiele |phoneNumbers[type eq "mobile"].value |
+| objectId |id |
+| postalCode |addresses[type eq "work"].postalCode |
 | proxy-adressen |e-mailberichten [Geef eq 'andere']. Waarde |
-| fysieke-levering-OfficeName |adressen [Geef eq 'andere']. Indeling |
+| physical-Delivery-OfficeName |adressen [Geef eq 'andere']. Indeling |
 | StreetAddress |adressen type eq 'werk'.streetAddress |
 | Achternaam |name.familyName |
 | Telefoonnummer |phoneNumbers type eq 'werk'.value |
-| primaire gebruiker-naam |Gebruikersnaam |
+| user-PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabel 2: Standaard kenmerk apparaatgroeptoewijzing
-| Azure Active Directory-groep | http://schemas.Microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
+| Azure Active Directory-groep | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
-| Weergavenaam |externalId |
+| displayName |externalId |
 | E-mail |e-mailberichten type eq 'werk'.value |
-| mailNickname |Weergavenaam |
+| mailNickname |displayName |
 | leden |leden |
-| object-id |id |
+| objectId |id |
 | proxyAddresses |e-mailberichten [Geef eq 'andere']. Waarde |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Gebruikers inrichten en de inrichting
@@ -442,11 +442,11 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
     }
   ````
   In het volgende voorbeeld van een query voor een gebruiker met een opgegeven waarde voor het kenmerk externalId zijn de waarden van de argumenten doorgegeven aan de Query-methode: 
-  * parameters. AlternateFilters.Count: 1
+  * parameters.AlternateFilters.Count: 1
   * parameters. AlternateFilters.ElementAt(0). AttributePath: 'externalId'
   * parameters. AlternateFilters.ElementAt(0). Vergelijkingsoperator: ComparisonOperator.Equals
   * parameters. AlternateFilter.ElementAt(0). ComparisonValue: 'jyoung'
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
+  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Als het antwoord op een query met de webservice voor een gebruiker met een kenmerkwaarde externalId die overeenkomt met de waarde van het mailNickname-kenmerk van een gebruiker niet alle gebruikers, klikt u vervolgens Azure Active Directory-aanvragen dat de service een gebruiker die overeenkomt met het inrichten in Azure Active Directory.  Hier volgt een voorbeeld van een aanvraag: 
   ````
@@ -526,7 +526,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
   ````
   In het voorbeeld van een aanvraag voor het ophalen van de huidige status van een gebruiker zijn de waarden van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters als volgt uit: 
   
-  * -ID: '54D382A4-2050-4C03-94D1-E769F1D15682'
+  * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
 
 4. Als een verwijzingskenmerk is worden bijgewerkt, wordt de service om te bepalen of de huidige waarde van het verwijzingskenmerk in de store identiteit op de al fronted door de service Azure Active Directory een query overeenkomt met de waarde van dit kenmerk in Azure Active De map. Voor gebruikers is het enige kenmerk waarvan de huidige waarde op deze manier wordt opgevraagd het kenmerk manager. Hier volgt een voorbeeld van een aanvraag om te bepalen of het kenmerk manager van een bepaalde gebruiker-object een bepaalde waarde heeft: 
@@ -538,15 +538,15 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
 
   Als de service is gebouwd met behulp van de Common Language Infrastructure-bibliotheken voor het implementeren van services SCIM door Microsoft geleverd, wordt de aanvraag omgezet in een aanroep van de Query-methode van de service provider. De waarde van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters zijn als volgt: 
   
-  * parameters. AlternateFilters.Count: 2
+  * parameters.AlternateFilters.Count: 2
   * parameters. AlternateFilters.ElementAt(x). AttributePath: 'id'
   * parameters. AlternateFilters.ElementAt(x). Vergelijkingsoperator: ComparisonOperator.Equals
-  * parameters. AlternateFilter.ElementAt(x). ComparisonValue: '54D382A4-2050-4C03-94D1-E769F1D15682'
+  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * parameters. AlternateFilters.ElementAt(y). AttributePath: 'manager'
-  * parameters. AlternateFilters.ElementAt(y). Vergelijkingsoperator: ComparisonOperator.Equals
-  * parameters. AlternateFilter.ElementAt(y). ComparisonValue: '2819c223-7f76-453a-919d-413861904646'
+  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
   * parameters. RequestedAttributePaths.ElementAt(0): 'id'
-  * parameters. SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
+  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
   Hier de waarde van de x-index kan niet 0 en 1, is de waarde van de index y mogelijk of de waarde van x mogelijk 1 en de waarde van y kan zijn ingesteld op 0, afhankelijk van de volgorde van de expressies van de queryparameter filter.   
 
@@ -653,7 +653,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
   ````
     In het voorbeeld van een aanvraag voor het bijwerken van een gebruiker heeft het object dat is opgegeven als de waarde van de patch-argument waarden van deze eigenschappen: 
   
-  * ResourceIdentifier.Identifier: '54D382A4-2050-4C03-94D1-E769F1D15682'
+  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
   * (PatchRequest als PatchRequest2). Operations.Count: 1
   * (PatchRequest als PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
@@ -679,7 +679,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
   ````
   Het object dat is opgegeven als de waarde van het argument resourceIdentifier heeft waarden van deze eigenschappen in het voorbeeld van een aanvraag voor het inrichten van een gebruiker ongedaan: 
   
-  * ResourceIdentifier.Identifier: '54D382A4-2050-4C03-94D1-E769F1D15682'
+  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Groep inrichting en ongedaan inrichten

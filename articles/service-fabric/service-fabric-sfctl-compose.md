@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-compose"></a>sfctl opstellen
 Maken, verwijderen en beheren van Docker Compose implementaties.
@@ -45,7 +45,7 @@ Hiermee maakt u een Service Fabric implementatie opstellen.
 | --bestandspad [vereist]| Pad naar het doelbestand voor de Docker Compose.|
  |   --implementatienaam [vereist]| De naam van de implementatie.|
 |    --versleuteld op te geven             | Gebruik in plaats van naar een container register wachtwoord wordt gevraagd een wachtwoordzin al is versleuteld.|
-|    --heeft op te geven                   | Als u wordt gevraagd om een wachtwoord in het register van de container.|
+|    --has-pass                   | Als u wordt gevraagd om een wachtwoord in het register van de container.|
 |    --time-out -t                 | Server time-out in seconden.  Standaard: 60.|
  |   --user                       | De naam van de gebruiker verbinding maken met container register.|
 
@@ -53,7 +53,7 @@ Hiermee maakt u een Service Fabric implementatie opstellen.
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -69,14 +69,14 @@ Hiermee haalt u de status van de opstellen-implementaties die zijn gemaakt of di
 |Argument|Beschrijving|
 | --- | --- |
 | --vervolgtoken| De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen.      Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
-| --max-resultaten    | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's.      Deze parameter bepaalt de bovengrens van het aantal resultaten geretourneerd.      Als ze niet in het bericht aan de hand van de maximale bericht groottebeperkingen gedefinieerd in de configuratie passen, zijn de resultaten minder dan het opgegeven maximum aantal resultaten. Als deze parameter nul is of niet is opgegeven, wordt in de wisselbare query's zo veel resultaten bevatten mogelijk die in het retourbericht passen.|
+| --max-results    | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's.      Deze parameter bepaalt de bovengrens van het aantal resultaten geretourneerd.      Als ze niet in het bericht aan de hand van de maximale bericht groottebeperkingen gedefinieerd in de configuratie passen, zijn de resultaten minder dan het opgegeven maximum aantal resultaten. Als deze parameter nul is of niet is opgegeven, wordt in de wisselbare query's zo veel resultaten bevatten mogelijk die in het retourbericht passen.|
 | --time-out -t     | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h        | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o      | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query          | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -98,7 +98,7 @@ Hiermee verwijdert u een bestaande Service Fabric opstellen implementatie.
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -120,7 +120,7 @@ Retourneert de status van de implementatie die is gemaakt, of nog moet worden ge
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -136,29 +136,29 @@ Evalueert de opgegeven parameters voor het bijwerken en begint met het upgraden 
 | --- | --- |
 |    --bestandspad [vereist]| Pad naar het doelbestand voor de Docker Compose.|
 |    --implementatienaam [vereist]| De naam van de implementatie.|
-|    --Standaard-svc-type-health-kaart| JSON gecodeerde woordenlijst die het statusbeleid dat wordt gebruikt beschrijft voor het evalueren van de status van services.|
+|    --default-svc-type-health-map| JSON gecodeerde woordenlijst die het statusbeleid dat wordt gebruikt beschrijft voor het evalueren van de status van services.|
 |    --versleuteld op te geven             | Gebruik in plaats van naar een container register wachtwoord wordt gevraagd een wachtwoordzin al is versleuteld.|
  |   --actie bij fout             | Mogelijke waarden zijn: 'Ongeldig', 'Terugdraaiactie', 'Manual'.|
-|    --geforceerd opnieuw opstarten              | Geforceerd opnieuw opstarten.|
- |   --heeft op te geven                   | Als u wordt gevraagd om een wachtwoord in het register van de container.|
-|    --health-controle-probeer het opnieuw         | Health selectievakje opnieuw time, gemeten in milliseconden.|
+|    --force-restart              | Geforceerd opnieuw opstarten.|
+ |   --has-pass                   | Als u wordt gevraagd om een wachtwoord in het register van de container.|
+|    --health-check-retry         | Health selectievakje opnieuw time, gemeten in milliseconden.|
 |    --health-controle-stabiel        | Serverstatus controleren stabiele duur van de gemeten in milliseconden.|
 |    --wachtduur          | Health controle wacht duur gemeten in milliseconden.|
-|    --replica set controleren          | Upgrade replicaset selectievakje time, gemeten in seconden.|
-|    --svc-type-health-kaart        | JSON gecodeerde lijst met objecten die een beschrijving van het statusbeleid dat wordt gebruikt voor het evalueren van de status van verschillende typen.|
+|    --replica-set-check          | Upgrade replicaset selectievakje time, gemeten in seconden.|
+|    --svc-type-health-map        | JSON gecodeerde lijst met objecten die een beschrijving van het statusbeleid dat wordt gebruikt voor het evalueren van de status van verschillende typen.|
 |    --time-out -t                 | Server time-out in seconden.  Standaard: 60.|
 |    --slecht-app              | Het maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding.        Bijvoorbeeld, zodat 10% van toepassingen beschadigd is deze waarde 10. Het percentage vertegenwoordigt het verdragen maximumpercentage van toepassingen die beschadigd worden kunnen voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht toepassingstype is, worden de status wordt geëvalueerd als de waarschuwing. Dit percentage wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster.|
-|    --time-out-domein-upgrade     | Time-out upgradedomein gemeten in milliseconden.|
+|    --upgrade-domain-timeout     | Time-out upgradedomein gemeten in milliseconden.|
 |    --upgrade-type               | Standaard: Rolling.|
 |    --upgrade-modus               | Mogelijke waarden zijn: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard: UnmonitoredAuto.|
-|    --upgrade-time-out            | Upgrade time, gemeten in milliseconden.|
+|    --upgrade-timeout            | Upgrade time, gemeten in milliseconden.|
 |    --user                       | De naam van de gebruiker verbinding maken met container register.|
 |    --waarschuwing als fout           | Waarschuwingen worden met de ernst van de dezelfde fouten behandeld.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
  |Argument|Beschrijving|
 | --- | --- |
-|   --fouten opsporen                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+|   --debug                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 |    --help -h                    | Deze help-bericht en afsluiten weergeven.|
  |   --uitvoer -o                  | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.
                                    Standaard: json.|

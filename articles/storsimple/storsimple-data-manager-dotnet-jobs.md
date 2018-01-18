@@ -1,10 +1,10 @@
 ---
 title: .NET SDK gebruiken voor Microsoft Azure StorSimple Data Manager-taken | Microsoft Docs
-description: Informatie over het gebruik van .NET SDK StorSimple Data Manager-taken (private preview) starten
+description: Informatie over het gebruik van .NET SDK StorSimple Data Manager-taken starten
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,65 +12,83 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
-ms.author: vidarmsft
-ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/16/2018
+ms.author: alkohli
+ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>De .net SDK gebruiken om te zetten van gegevenstransformatie (afgeschermd voorbeeld)
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>De .net SDK gebruiken om te zetten van gegevenstransformatie
 
 ## <a name="overview"></a>Overzicht
 
-Dit artikel wordt uitgelegd hoe u de functie voor transformatie van gegevens in de StorSimple Data Manager-service kunt gebruiken voor het transformeren van gegevens van de StorSimple-apparaat. De getransformeerde gegevens worden vervolgens die door andere Azure-services in de cloud gebruikt. Het artikel heeft ook een overzicht voor het maken van een steekproef .NET-consoletoepassing een transformatie-taak starten en te volgen voor de voltooiing.
+Dit artikel wordt uitgelegd hoe u de functie voor transformatie van gegevens in de StorSimple Data Manager-service kunt gebruiken voor het transformeren van gegevens van de StorSimple-apparaat. De getransformeerde gegevens worden vervolgens die door andere Azure-services in de cloud gebruikt.
+
+U kunt een transformatie-taak op twee manieren starten:
+
+ - De .NET SDK gebruiken
+ - Gebruik Azure Automation-runbook
+ 
+ Dit artikel wordt uitgelegd hoe u een voorbeeld .NET-consoletoepassing een transformatie-taak starten en te volgen voor voltooiing maakt. Voor meer informatie over het initiëren van gegevenstransformatie via Automation, gaat u naar [gebruik Azure Automation-runbook trigger data transformation baan](storsimple-data-manager-job-using-automation.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg ervoor dat u hebt voordat u begint:
-*   Een systeem met Visual Studio 2012, 2013 of 2015 2017 geïnstalleerd.
-*   Azure Powershell is geïnstalleerd. [Download de Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   Configuratie-instellingen voor het initialiseren van de taak gegevenstransformatie (instructies voor het verkrijgen van deze instellingen zijn opgenomen hier).
-*   De taakdefinitie van een die correct is geconfigureerd in een hybride Gegevensresource binnen een resourcegroep.
-*   Alle vereiste dll. Download deze DLL-bestanden van de [GitHub-opslagplaats](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   `Get-ConfigurationParams.ps1`[script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) uit de github-opslagplaats.
+*   Een computer met:
 
-## <a name="step-by-step"></a>Stapsgewijs
+    - Visual Studio 2012, 2013 of 2015 2017.
+
+    - Azure Powershell. [Download de Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Een juist geconfigureerde taakdefinitie in StorSimple Data Manager binnen een resourcegroep.
+*   Alle vereiste dll. Download deze DLL-bestanden van de [GitHub-opslagplaats](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)script van de GitHub-opslagplaats.
+
+## <a name="step-by-step-procedure"></a>Stapsgewijze instructies
 
 De volgende stappen voor het gebruik van .NET starten van een transformatie-taak uitvoeren.
 
 1. Voor het ophalen van de configuratieparameters, voer de volgende stappen uit:
-    1. Download de `Get-ConfigurationParams.ps1` uit het script github-opslagplaats in `C:\DataTransformation` locatie.
-    1. Voer de `Get-ConfigurationParams.ps1` script vanaf de github-opslagplaats. Typ de volgende opdracht:
+    1. Download de `Get-ConfigurationParams.ps1` uit het script GitHub-opslagplaats in `C:\DataTransformation` locatie.
+    1. Voer de `Get-ConfigurationParams.ps1` script vanaf de GitHub-opslagplaats. Typ de volgende opdracht:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
          ```
         U kunt geen waarden doorgeven voor de ActiveDirectoryKey en AppName.
 
-
 2. Dit script levert de volgende waarden:
-    * Client-ID
+    * Client-id
     * Tenant-id
     * Active Directory-sleutel (zelfde als een dat hierboven is opgegeven)
     * Abonnements-id
 
+        ![De uitvoer van het script voor configuratie-parameters](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
+
 3. Met behulp van Visual Studio 2012, 2013 of 2015, en maak een C# .NET-consoletoepassing.
 
     1. Start **Visual Studio 2012-2013-2015**.
-    1. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
-    2. Vouw **Templates** uit en selecteer **Visual C#**.
-    3. Selecteer **Console Application** uit de lijst met projecttypen aan de rechterkant.
-    4. Voer **DataTransformationApp** voor de **naam**.
-    5. Selecteer **C:\DataTransformation** voor de **locatie**.
-    6. Klik op **OK** om het project te maken.
+    1. Selecteer **bestand > Nieuw > Project**.
 
-4.  Voeg nu alle dll's aanwezig zijn in de [dll's](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) map als **verwijzingen** in het project dat u hebt gemaakt. Voor het downloaden van de dll-bestanden het volgende doen:
+        ![Een 1-project maken](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
+    2. Selecteer **geïnstalleerd > Sjablonen > Visual C# > consoletoepassing**.
+    3. Voer **DataTransformationApp** voor de **naam**.
+    4. Selecteer **C:\DataTransformation** voor de **locatie**.
+    6. Klik op **OK** om het project aan te maken.
+
+        ![Een 2-project maken](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
+
+4.  Voeg nu alle dll's aanwezig zijn in de [dll's map](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) als **verwijzingen** in het project dat u hebt gemaakt. Voor het downloaden van de dll-bestanden het volgende doen:
 
     1. In Visual Studio, gaat u naar **weergave > Solution Explorer**.
-    1. Klik op de pijl naar links van Data Transformation App-project. Klik op **verwijzingen** en klik vervolgens met de rechtermuisknop op **verwijzing toevoegen**.
-    2. Blader naar de locatie van de map pakketten, selecteert u alle dll's en op **toevoegen**, en klik vervolgens op **OK**.
+    2. Klik op de pijl naar links van Data Transformation App-project. Klik op **verwijzingen** en klik vervolgens met de rechtermuisknop op **verwijzing toevoegen**.
+    
+        ![DLL's 1 toevoegen](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+
+    3. Blader naar de locatie van de map pakketten, selecteert u alle dll's en op **toevoegen**, en klik vervolgens op **OK**.
+
+        ![DLL's 2 toevoegen](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Voeg de volgende **using**-instructies toe aan het bronbestand (Program.cs) in het project.
 
@@ -82,9 +100,8 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
     ```
-
-
-6. De volgende code initialiseert het taakexemplaar voor transformatie van gegevens. Voeg deze in de **Main-methode**. Vervang de waarden van configuratieparameters als u eerder hebt verkregen. Sluit de waarden van **Resourcegroepnaam** en **hybride gegevens resourcenaam**. De **Resourcegroepnaam** die als host fungeert voor de hybride Gegevensresource waarop de taakdefinitie is geconfigureerd.
+    
+6. De volgende code initialiseert het taakexemplaar voor transformatie van gegevens. Voeg deze in de **Main-methode**. Vervang de waarden van configuratieparameters als u eerder hebt verkregen. Sluit de waarden van **Resourcegroepnaam** en **ResourceName**. De **ResourceGroupName** is gekoppeld met het gegevensbeheer van StorSimple waarop de taakdefinitie is geconfigureerd. De **ResourceName** is de naam van uw StorSimple Data Manager-service.
 
     ```
     // Setup the configuration parameters.
@@ -102,6 +119,9 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
 
     ```
+   Zodra de code is geplakt, moet u de oplossing bouwen. Hier volgt een schermopname van het codefragment initialiseren van het exemplaar van data transformation taak.
+
+   ![Codefragment transformatie-taak gegevens initialiseren](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
 7. Geef de parameters waarmee de taakdefinitie moet worden uitgevoerd
 
@@ -176,7 +196,9 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
     Console.Read();
 
     ```
+ Hier volgt een schermopname van het gehele codevoorbeeld gebruikt voor het activeren van de taak met .NET.
 
+ ![Volledige codefragment voor het activeren van een .NET-taak](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

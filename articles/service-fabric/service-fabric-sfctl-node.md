@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-node"></a>sfctl knooppunt
 Beheren van de knooppunten die fungeren als een cluster wordt gevormd.
@@ -30,7 +30,7 @@ Beheren van de knooppunten die fungeren als een cluster wordt gevormd.
 |    uitschakelen       | Een Service Fabric-clusterknooppunt met de opgegeven deactivering wordt intentie deactiveren.|
 |    inschakelen        | Activeren van een Service Fabric-clusterknooppunt is gedeactiveerd.|
 |    Status        | Hiermee haalt u de status van een Service Fabric-knooppunt.|
-|    Info          | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.|
+|    info          | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.|
 |    lijst          | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.|
 |    laden          | Hiermee haalt u de informatie laden van een Service Fabric-knooppunt.|
 |    status verwijderen  | Service Fabric waarschuwt dat de permanente status op een knooppunt is permanent verwijderd of verloren.|
@@ -57,7 +57,7 @@ Een Service Fabric-clusterknooppunt met de opgegeven deactivering wordt intentie
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h          | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o        | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query            | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -79,7 +79,7 @@ Hiermee activeert u een Service Fabric-clusterknooppunt die momenteel wordt gede
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h          | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o        | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query            | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -102,7 +102,7 @@ Hiermee haalt u de status van een Service Fabric-knooppunt. EventsHealthStateFil
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o              | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -124,7 +124,7 @@ Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-c
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h          | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o        | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query            | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -147,7 +147,7 @@ Het eindpunt van de knooppunten retourneert informatie over de knooppunten in he
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h        | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o      | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query          | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -169,7 +169,7 @@ Hiermee haalt u de informatie laden van een Service Fabric-knooppunt.
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h          | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o        | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query            | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -185,7 +185,7 @@ Start opnieuw op het knooppunt van een Service Fabric-cluster die al is gestart.
 |Argument|Beschrijving|
 | --- | --- |
 | --knooppuntnaam [vereist]| De naam van het knooppunt.|
-| --maken fabric dump  | Geef waar voor het maken van een dump van het proces fabric-knooppunt. Dit is hoofdlettergevoelig.  Standaard: False.|
+| --create-fabric-dump  | Geef waar voor het maken van een dump van het proces fabric-knooppunt. Dit is hoofdlettergevoelig.  Standaard: False.|
 | --knooppunt-exemplaar-id | De exemplaar-ID van het doelknooppunt. Als exemplaar-ID van het knooppunt opnieuw wordt gestart alleen als deze met het huidige exemplaar van het knooppunt overeenkomt is opgegeven. Een standaardwaarde van '0' overeenkomen met een exemplaar-ID. De exemplaar-ID kan worden verkregen met behulp van de query voor get-knooppunt.  Standaard: 0.|
 | --time-out -t       | Server time-out in seconden.  Standaard: 60.|
 
@@ -193,7 +193,7 @@ Start opnieuw op het knooppunt van een Service Fabric-cluster die al is gestart.
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug            | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h          | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o        | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query            | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -220,7 +220,7 @@ In 'Start' voor de parameter NodeTransitionType doorgeven voor het starten van e
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                       Standaard: json.|
 | --query                           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|

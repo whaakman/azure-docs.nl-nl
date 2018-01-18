@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Controle van Azure SQL datawarehouse
-> [!div class="op_single_selector"]
-> * [Controle](sql-data-warehouse-auditing-overview.md)
-> * [Detectie van bedreigingen](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-Controle van SQL Data Warehouse kunt u record gebeurtenissen in de database naar een auditlogboek in uw Azure Storage-account worden geregistreerd. Controle, kunt u de naleving van regelgeving onderhouden, de activiteit in een database begrijpen en meer inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen. Controle van SQL Data Warehouse ook worden geïntegreerd met Microsoft Power BI voor inzoomen rapportage en analyse.
+Controle van SQL Data Warehouse kunt u record gebeurtenissen in de database naar een auditlogboek in uw Azure Storage-account worden geregistreerd. Controle, kunt u de naleving van regelgeving onderhouden, de activiteit in een database begrijpen en meer inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen. Controle van SQL Data Warehouse ook worden geïntegreerd met Microsoft Power BI voor rapportage en analyse.
 
 Controleprogramma's inschakelen en voldoen aan de nalevingsstandaards vergemakkelijken, maar niet garanderen dat. Zie voor meer informatie over Azure programma's die nalevingsscan standaarden, de <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Vertrouwenscentrum</a>.
 
-* [Basisbeginselen van de database-controle]
-* [Controle voor uw database instellen]
-* [Controlelogboeken en -rapporten analyseren]
-
-## <a id="subheading-1"></a>Basisbeginselen van Azure SQL Data Warehouse-Database controleren
+## <a id="subheading-1"></a>Controle-basisbeginselen
 Controle van SQL Data Warehouse-database, kunt u:
 
 * **Behouden** een audittrail van de geselecteerde gebeurtenissen. Categorieën van databaseacties moeten worden gecontroleerd, kunt u definiëren.
@@ -59,19 +50,19 @@ Zie voor meer informatie over de activiteiten en gebeurtenissen die worden gecon
 
 Auditlogboeken worden opgeslagen in uw Azure storage-account. U kunt een bewaarperiode van audit log definiëren.
 
-Een controlebeleid kan worden gedefinieerd voor een specifieke database of als een standaardbeleid voor de server. Een controle standaardbeleid voor server geldt voor alle databases op een server die niet over een specifieke database controle beleid gedefinieerd.
+U kunt een controlebeleid voor een specifieke database of als een server standaardbeleid definiëren. Een controle standaardbeleid voor server geldt voor alle databases op een server waarop geen een specifieke database controle beleid gedefinieerd.
 
 Voordat u kunt instellen audit controle selectievakje in als u een ['Downlevel Client'.](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Controle voor uw database instellen
 1. Start de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>.
-2. Ga naar de **instellingen** blade van de SQL Data Warehouse die u wilt controleren. In de **instellingen** blade Selecteer **controle en detectie van bedreigingen**.
+2. Ga naar **instellingen** voor de SQL Data Warehouse die u wilt controleren. Selecteer **controle en detectie van bedreigingen**.
    
     ![][1]
 3. Schakel vervolgens de controle door te klikken op de **ON** knop.
    
     ![][3]
-4. Selecteer in de blade controle configuratie **OPSLAGGROEP** om de blade Audit logboeken opslag te openen. Selecteer de Azure-opslagaccount waarin de logboeken worden opgeslagen en de bewaarperiode. 
+4. Selecteer in het deelvenster controle configuratie **OPSLAGGROEP** om het deelvenster Audit logboeken opslag te openen. Selecteer de Azure storage-account voor de logboeken en de bewaarperiode. 
 >[!TIP]
 >Gebruik hetzelfde opslagaccount voor alle gecontroleerde databases optimaal buiten de vooraf geconfigureerde rapporten sjablonen.
    
@@ -91,11 +82,12 @@ De sjabloon met fictieve voorbeeldgegevens erin en kunt u Power Query voor het i
 ## <a id="subheading-4"></a>Opslag van sessiesleutels
 In productie bent u waarschijnlijk uw opslagsleutels periodiek te vernieuwen. Wanneer uw sleutels vernieuwen, moet u het beleid op te slaan. Het proces is als volgt:
 
-1. Overschakelen op de controle configuratie blade (hierboven beschreven in de sectie controle-instellingen) de **toegangssleutel voor opslag** van *primaire* naar *secundaire* en **Opslaan**.
+1. Wijzig in het Configuratiescherm, die wordt beschreven in de voorgaande sectie controle-instellingen, controle de **toegangssleutel voor opslag** van *primaire* naar *secundaire* en  **Sla**.
 
    ![][4]
-2. Ga naar de blade van de configuratie van opslag en **genereren** de *primaire toegangssleutel*.
-3. Ga terug naar de blade met controle configuratie, schakelt u de **toegangssleutel voor opslag** van *secundaire* naar *primaire* en druk op **opslaan**.
+2. Ga naar het deelvenster van de configuratie van opslag en **genereren** de *primaire toegangssleutel*.
+3. Ga terug naar het deelvenster controle configuratie 
+4. schakelt de **toegangssleutel voor opslag** van *secundaire* naar *primaire* en druk op **opslaan**.
 4. Ga terug naar de opslag gebruikersinterface en **genereren** de *secundaire toegangssleutel* (als voorbereiding op de volgende sleutels vernieuwen cyclus.
 
 ## <a id="subheading-5"></a>Automation (PowerShell/REST API)
@@ -103,18 +95,41 @@ U kunt ook configureren om controle in Azure SQL Data Warehouse met behulp van d
 
 * **PowerShell-cmdlets**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Verwijder AzureRMSqlDatabaseAuditing][103]
-   * [Verwijder AzureRMSqlServerAuditing][104]
-   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Gebruik AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Ondersteuning voor downlevel-clients voor controle en dynamische gegevensmaskering
+Controle werkt met SQL-clients die ondersteuning bieden voor omleiden van TDS.
+
+Een client die wordt geïmplementeerd TDS 7.4 ook ondersteunen omleiding. Uitzonderingen op deze omvatten JDBC 4.0 waarin de functie voor omleiding wordt niet volledig ondersteund en Tedious voor Node.JS in welke omleiding is niet geïmplementeerd.
+
+Voor 'Downlevel-clients' die TDS-versie 7.3 ondersteunen en hieronder, wijzigt de FQDN-naam van de server in de verbindingstekenreeks als volgt:
+
+- Oorspronkelijke server FQDN-naam in de verbindingsreeks: <*servernaam*>. database.windows.net
+- Gewijzigde FQDN van de server in de verbindingsreeks: <*servernaam*> .database. **beveiligde**. windows.net
+
+Een gedeeltelijke lijst met 'Downlevel-clients' omvat:
+
+* .NET 4.0 en lager,
+* ODBC-10.0 en lager.
+* JDBC (Hoewel JDBC TDS 7.4 ondersteunt, de TDS-omleiding-functie is niet volledig ondersteund)
+* Omslachtig (voor Node.JS)
+
+**Opmerking:** de voorgaande server FDQN wijziging mogelijk handig ook voor het toepassen van een beleid voor controle van SQL Server op zonder behoefte aan een configuratie stap in elke database (tijdelijke risicobeperking).     
+
+
+
 
 <!--Anchors-->
-[Basisbeginselen van de database-controle]: #subheading-1
-[Controle voor uw database instellen]: #subheading-2
-[Controlelogboeken en -rapporten analyseren]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ U kunt ook configureren om controle in Azure SQL Data Warehouse met behulp van d
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

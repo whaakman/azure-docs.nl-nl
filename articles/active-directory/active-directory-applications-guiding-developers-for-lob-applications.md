@@ -1,5 +1,5 @@
 ---
-title: Apps ontwikkelen voor Azure AD | Microsoft-Docs
+title: Uw toepassing te gebruiken van Azure Active Directory registreren | Microsoft Docs
 description: In dit artikel bevat voor IT-professionals wordt geschreven, richtlijnen voor het Azure-toepassingen integreren met Active Directory.
 services: active-directory
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 01/14/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30e070b6c7e7ace929e79ea579767cefa0c22321
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Line-of-business-apps ontwikkelen voor Azure Active Directory
 Deze handleiding biedt een overzicht van het ontwikkelen van line-of-business (LoB)-toepassingen voor Azure Active Directory (AD). De doelgroep is globale beheerders Active Directory/Office 365.
@@ -76,7 +76,7 @@ Voor toepassingen die u vertrouwt, kunt u de gebruikerservaring met ermee akkoor
 
 Zie voor meer informatie over de toestemming van de gebruiker en de toestemming in Azure optreden, [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>Verwante artikelen
+## <a name="related-articles"></a>Gerelateerde artikelen
 * [Veilige externe toegang tot on-premises toepassingen met Azure AD-toepassingsproxy inschakelen](active-directory-application-proxy-get-started.md)
 * [Voorwaardelijke toegang tot Azure Preview voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)
 * [Het beheren van toegang tot apps met Azure AD](active-directory-managing-access-to-apps.md)

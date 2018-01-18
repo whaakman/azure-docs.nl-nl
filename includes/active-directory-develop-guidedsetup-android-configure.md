@@ -1,49 +1,52 @@
 
-## <a name="create-an-application-express"></a>Maken van een toepassing (snelle)
-Nu gaat u naar het registreren van uw toepassing in de *Portal voor registratie van Microsoft-toepassing*:
-1. Registreren van uw toepassingen via de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
-2.  Voer een naam voor uw toepassing en uw e-mailadres
-3.  Zorg ervoor dat de optie voor begeleide Setup is ingeschakeld
-4.  Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code
+## <a name="register-your-application"></a>Uw toepassing registreren
+U kunt uw toepassing op twee manieren registreren, zoals beschreven in de volgende twee secties.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>De registratiegegevens van uw toepassing toevoegen aan uw oplossing (Geavanceerd)
-Nu gaat u naar het registreren van uw toepassing in de *Portal voor registratie van Microsoft-toepassing*:
-1. Ga naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app) een toepassing registreren
-2. Voer een naam voor uw toepassing en uw e-mailadres 
-3. Zorg ervoor dat de optie voor begeleide Setup is uitgeschakeld
-4. Klik op `Add Platform`, selecteer daarna `Native Application` en klik op Opslaan
-5.  Open `MainActivity` (onder `app`  >  `java`  >   *`{host}.{namespace}`* )
-6.  Vervang de *[Voer de toepassing Id hier]* in de regel die begint met `final static String CLIENT_ID` met de toepassings-ID die u zojuist hebt geregistreerd:
+### <a name="option-1-express-mode"></a>Optie 1: Snelle modus
+U kunt snel uw toepassing registreren als volgt:
+1. Ga naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+2.  In de **toepassingsnaam** Voer een naam voor uw toepassing.
 
-```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-```
+3. Zorg ervoor dat de **Begeleide instelprocedure** selectievakje is geselecteerd en selecteer vervolgens **maken**.
+
+4. Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code.
+
+### <a name="option-2-advanced-mode"></a>Optie 2: Geavanceerde modus
+Uw toepassing registreren en de registratiegegevens van uw toepassing toevoegen aan uw oplossing, kunt u het volgende:
+1. Als u al uw toepassing nog niet hebt geregistreerd, gaat u naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app).
+2. In de **toepassingsnaam** Voer een naam voor uw toepassing. 
+
+3. Zorg ervoor dat de **Begeleide instelprocedure** selectievakje is uitgeschakeld en selecteer vervolgens **maken**.
+
+4. Selecteer **toevoegen Platform**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
+
+5. Onder **app** > **java** > **{host}. { naamruimte}**Open `MainActivity`. 
+
+6.  Vervang *[Voer de toepassing Id hier]* in de volgende regel met de toepassings-ID die u zojuist hebt geregistreerd:
+
+    ```java
+    final static String CLIENT_ID = "[Enter the application Id here]";
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="7">
-<li>
-Open `AndroidManifest.xml` (onder `app`  >  `manifests`) toevoegen van de volgende activiteiten `manifest\application` knooppunt. Hiermee registreert een `BrowserTabActivity` waarmee het besturingssysteem op uw toepassing na het voltooien van de verificatie hervatten:
-</li>
-</ol>
+7. Onder **app** > **manifesten**, open de *AndroidManifest.xml* bestand.
 
-```xml
-<!--Intent filter to capture System Browser calling back to our app after Sign In-->
-<activity
-    android:name="com.microsoft.identity.client.BrowserTabActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        
-        <!--Add in your scheme/host from registered redirect URI-->
-        <!--By default, the scheme should be similar to 'msal[appId]' -->
-        <data android:scheme="msal[Enter the application Id here]"
-            android:host="auth" />
-    </intent-filter>
-</activity>
-```
+8. In de `manifest\application` knooppunt, de volgende activiteit toevoegen. In dat geval registers doet een `BrowserTabActivity` activiteit waarmee het besturingssysteem op uw toepassing hervatten nadat de verificatie is voltooid:
+
+    ```xml
+    <!--Intent filter to capture System Browser calling back to our app after sign-in-->
+    <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            
+            <!--Add in your scheme/host from registered redirect URI-->
+            <!--By default, the scheme should be similar to 'msal[appId]' -->
+            <data android:scheme="msal[Enter the application Id here]"
+                android:host="auth" />
+        </intent-filter>
+    </activity>
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="8">
-<li>
-In de `BrowserTabActivity`, Vervang `[Enter the application Id here]` met de toepassings-ID.
-</li>
-</ol>
+9. In de `BrowserTabActivity` knooppunt vervangen `[Enter the application Id here]` met de toepassings-ID.

@@ -3,7 +3,7 @@ title: Connector versiegeschiedenis van Release | Microsoft Docs
 description: In dit onderwerp geeft een lijst van alle versies van de Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
-ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: billmath
+ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
 De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
@@ -84,8 +84,8 @@ Verwante koppelingen:
 * Lotus Notes:
   * Wanneer de optie **aangepaste certifiers toestaan voor organisatie/organisatorische eenheden** is uitgeschakeld en vervolgens de connector is mislukt tijdens het exporteren (Update) na de export-stroom alle kenmerken worden geëxporteerd naar Domino maar op het moment van exporteren een KeyNotFoundException wordt geretourneerd om te synchroniseren. 
     * Dit gebeurt omdat de naamswijziging mislukt als er wordt geprobeerd DN-naam (kenmerk UserName) wijzigen door het wijzigen van een van de volgende kenmerken:  
-      - Achternaam
-      - Voornaam
+      - LastName
+      - FirstName
       - MiddleInitial
       - AltFullName
       - AltFullNameLanguage
@@ -152,7 +152,7 @@ Uitgebracht: 2017 maart
  * Wizard einden wanneer geen UPN-kenmerken worden gedetecteerd vanuit de LDAP-directory-schema
  * Delta-invoer is mislukt met detectie-fouten is niet aanwezig zijn tijdens de volledige import, als 'objectclass'-kenmerk niet is geselecteerd
  * Een pagina van de configuratie 'Partities en hiërarchieën configureren' wordt niet weergegeven van alle objecten welk type gelijk is aan de partitie voor de nieuwe servers in de algemene  
-MA LDAP. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
+LDAP MA. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
 
 
 * Algemene SQL:
@@ -181,7 +181,7 @@ Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsyn
 
 * Algemene LDAP-Connector:
   * Ondersteuning toegevoegd voor de delta-import met Isode.
-* Web Services-Connector:
+* Web Services Connector:
   * Bijgewerkt in de csEntryChangeResult en setImportErrorCode activiteit om toe te staan fouten object terug naar de synchronisatie-engine wordt geretourneerd.
   * De SAP6 en SAP6User sjablonen voor het gebruik van de nieuwe functionaliteit van de object-fout op niveau wordt bijgewerkt.
 * Lotus Domino-Connector:
@@ -193,7 +193,7 @@ Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsyn
   * Voor IBM Tivoli DS, sommige reference-kenmerken zijn niet correct is gedetecteerd.
   * Voor Open LDAP tijdens een delta-import zijn spaties aan het begin en einde van tekenreeksen afgekapt.
   * Voor Novell en NetIQ hernoemd exporteren van een die een object tussen de organisatie-eenheden/containers en tegelijkertijd verplaatst het object is mislukt.
-* Web Services-Connector:
+* Web Services Connector:
   * Als de web-service meerdere eindpunten voor dezelfde binding heeft, is klikt u vervolgens de Connector niet correct detecteren deze eindpunten.
 * Lotus Domino-Connector:
   * Exporteren van een van de volledige naam-kenmerk met een database mail in werkt niet.
@@ -203,29 +203,29 @@ Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsyn
 ## <a name="older-releases"></a>Oudere versies
 De Connectors zijn vóór maart 2016 uitgebracht als ondersteuning onderwerpen.
 
-**Algemene LDAP**
+**Generic LDAP**
 
 * [KB3078617](https://support.microsoft.com/kb/3078617) -1.0.0597, September 2015
-* [KB3044896](https://support.microsoft.com/kb/3044896) -1.0.0549, van maart 2015
+* [KB3044896](https://support.microsoft.com/kb/3044896) - 1.0.0549, 2015 March
 * [KB3031009](https://support.microsoft.com/kb/3031009) -1.0.0534, januari 2015
-* [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, September 2014
-* [KB2936070](https://support.microsoft.com/kb/2936070) -4.3.1082, 2014 maart
+* [KB3008177](https://support.microsoft.com/kb/3008177) - 1.0.0419, 2014 September
+* [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082, 2014 March
 
 **WebServices**
 
-* [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, September 2014
+* [KB3008178](https://support.microsoft.com/kb/3008178) - 1.0.0419, 2014 September
 
 **PowerShell**
 
-* [KB3008179](https://support.microsoft.com/kb/3008179) -1.0.0419, September 2014
+* [KB3008179](https://support.microsoft.com/kb/3008179) - 1.0.0419, 2014 September
 
 **Lotus Domino**
 
 * [KB3096533](https://support.microsoft.com/kb/3096533) -1.0.0597, September 2015
-* [KB3044895](https://support.microsoft.com/kb/3044895) -1.0.0549, van maart 2015
+* [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549, 2015 March
 * [KB2977286](https://support.microsoft.com/kb/2977286) -5.3.0712, 2014-augustus
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003, februari 2014  
-* [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, oktober 2013
+* [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013 October
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013-augustus
 
 ## <a name="troubleshooting"></a>Problemen oplossen 

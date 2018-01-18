@@ -3,7 +3,7 @@ title: Problemen met een object dat niet kan worden gesynchroniseerd naar Azure 
 description: Waarom een object niet kan worden gesynchroniseerd naar Azure AD.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Problemen met een object dat niet kan worden gesynchroniseerd naar Azure AD
 
@@ -59,7 +59,7 @@ De fouttekenreeks op te starten (**sync regel-fout-functie-geactiveerde** in de 
 U kunt met de rechtermuisknop de **call stack informatie** Kies **Alles selecteren**, en **kopie**. Vervolgens kunt u de stack kopiëren en bekijk de fout in uw favoriete teksteditor, zoals Kladblok.
 
 * Als de fout van is **SyncRulesEngine**, en vervolgens de informatie van de stack aanroep eerst een lijst met alle kenmerken voor het object heeft. Schuif omlaag totdat u de kop ziet **InnerException = >**.  
-  ![Sync-Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
+  ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
   De regel na ziet u de fout. In de bovenstaande afbeelding wordt de fout is van een aangepaste regel-Fabrikam voor synchronisatie is gemaakt.
 
 Als de fout zich niet voldoende informatie geven heeft, wordt het tijd om te kijken naar de gegevens zelf. U kunt op de koppeling met de object-id en gaat u verder de [connector ruimte van het geïmporteerde object](#cs-import).
@@ -85,7 +85,7 @@ Wanneer u een object cs opent, zijn er meerdere tabbladen boven. De **importeren
 ![CS-object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 De **oude waarde** ziet u wat momenteel wordt opgeslagen in het Connect en de **nieuwe waarde** wat is ontvangen van het bronsysteem en is nog niet toegepast. Als er een fout op het object, worden wijzigingen niet verwerkt.
 
-**Fout**  
+**Error**  
 ![CS-object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 De **synchronisatiefout** tabblad is alleen zichtbaar als er een probleem met het object. Zie voor meer informatie [synchronisatiefouten oplossen](#troubleshoot-errors-in-operations-tab).
 
@@ -93,7 +93,7 @@ De **synchronisatiefout** tabblad is alleen zichtbaar als er een probleem met he
 Het tabblad afkomst ziet u hoe het connectorobject ruimte is gerelateerd aan het metaverse-object. U kunt zien wanneer een wijziging in de Connector laatste worden geïmporteerd vanuit het verbonden systeem en welke regels toegepast op het vullen van de gegevens in de metaverse.  
 ![CS-afkomst](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineage.png)  
 In de **actie** kolom, kunt u zien er is een **inkomend** synchronisatieregel met de actie **inrichten**. Die aangeeft, zolang deze connectorobject ruimte aanwezig is, wordt het metaverse-object blijft. Als de lijst met regels voor synchronisatie in plaats daarvan ziet u een synchronisatieregel met richting **uitgaand** en **inrichten**, betekent dit dat dit object wordt verwijderd wanneer de metaverse-object is verwijderd.  
-![Sync-Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
 U kunt ook zien in de **PasswordSync** kolom die het inkomende connectorgebied overgebracht kan bijdragen tot het wachtwoord wordt gewijzigd omdat een synchronisatieregel de waarde heeft **True**. Dit wachtwoord wordt dan gezonden naar Azure AD via de uitgaande regel.
 
 Op het tabblad afkomst hebt u de metaverse door te klikken op [eigenschappen Metaverse-Object](#mv-attributes).
@@ -102,9 +102,9 @@ Aan de onderkant van alle tabs zijn twee knoppen: **Preview** en **logboek**.
 
 ### <a name="preview"></a>Preview
 De voorbeeldpagina wordt gebruikt voor het synchroniseren van een enkel object. Dit is handig als u bepaalde regels aangepaste synchronisatie oplossen wilt en wilt zien van het effect van een wijziging in een enkel object. U kunt kiezen tussen **volledige synchronisatie** en **Deltasynchronisatie**. U kunt ook selecteren tussen **Preview genereren**, die alleen de wijziging blijft in het geheugen en **doorvoeren Preview**, die de metaverse bijgewerkt en alle wijzigingen naar de doel-connectorspaces fasen.  
-![Sync-Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 U kunt het object en welke regel wordt toegepast voor een bepaalde kenmerkstroom inspecteren.  
-![Sync-Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Logboek
 De pagina wordt gebruikt om te zien van de synchronisatiestatus van wachtwoord en de geschiedenis. Zie voor meer informatie [Wachtwoordsynchronisatie oplossen](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
@@ -114,7 +114,7 @@ Meestal is het beter om te beginnen met het zoeken van de Active Directory-bron 
 
 ### <a name="search-for-an-object-in-the-mv"></a>Zoeken naar een object in de MV
 In **Synchronization Service Manager**, klikt u op **Metaverse zoeken**. Maak een query die u weet dat de gebruiker is gevonden. U kunt zoeken naar gangbare kenmerken, zoals accountName (sAMAccountName) en userPrincipalName. Zie voor meer informatie [Metaverse zoeken](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
-![Sync-Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
 In de **zoekresultaten** venster, klikt u op het object.
 

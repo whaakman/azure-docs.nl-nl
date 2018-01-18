@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4ca3c35c34736c3b4824f956a6a72002c891877
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-store"></a>sfctl store
 Basic-bestand niveau bewerkingen uitvoeren op de cluster image store.
@@ -28,7 +28,7 @@ Basic-bestand niveau bewerkingen uitvoeren op de cluster image store.
 |Opdracht|Beschrijving|
 | --- | --- |
 |    verwijderen| Hiermee verwijdert u de bestaande installatiekopie opslaan van inhoud.|
-|    basis-info| Hiermee haalt u informatie over de inhoud in de hoofdmap van de image store.|
+|    root-info| Hiermee haalt u informatie over de inhoud in de hoofdmap van de image store.|
 |    Stat  | Hiermee haalt u de image store-inhoudsinformatie.|
 
 
@@ -48,7 +48,7 @@ Hiermee verwijdert u het image store inhoud wordt gevonden binnen de opgegeven i
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -70,7 +70,7 @@ Retourneert de informatie over de inhoud van de store op het opgegeven contentPa
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|

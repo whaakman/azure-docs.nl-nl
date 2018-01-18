@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -90,7 +90,7 @@ Als u wilt herstellen naar een punt in tijd met de Azure portal, open de pagina 
 ![punt in tijd terugzetten](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Herstellen van verwijderde database
-U kunt een verwijderde database herstellen naar de tijd voor het verwijderen van een verwijderde database op dezelfde logische server met de Azure portal [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST (createMode = herstellen)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+U kunt een verwijderde database herstellen naar de tijd voor het verwijderen van een verwijderde database op dezelfde logische server met de Azure portal [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST (createMode = herstellen)](https://msdn.microsoft.com/library/azure/mt163685.aspx). U kunt een verwijderde database herstellen naar een eerder tijdens het gebruik van de retentie [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Zie voor een PowerShell-voorbeeldscript waarin wordt beschreven hoe u een verwijderde database te herstellen, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -104,10 +104,10 @@ U kunt een verwijderde database herstellen naar de tijd voor het verwijderen van
 
 Een verwijderde database tijdens het herstellen ervan [bewaarperiode](sql-database-service-tiers.md) met de Azure portal, open de pagina voor uw server en in het gebied van bewerkingen, klikt u op **databases verwijderd**.
 
-![verwijderd-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
+![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
 
-![verwijderd-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
+![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 ## <a name="geo-restore"></a>Geo-herstel
 U kunt een SQL-database op elke server in een Azure-regio herstellen met de meest recente geogerepliceerde volledige en differentiële back-ups. Geo-herstel een geografisch redundante back-up gebruikt als de bron- en kan worden gebruikt voor het herstellen van een database, zelfs als de database of het datacenter niet toegankelijk wegens een storing is. 
@@ -142,10 +142,10 @@ Als eerder beschreven, naast de Azure portal, databaseherstel, worden uitgevoerd
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Een SQL-database herstelt. |
 |  | |
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 | API | Beschrijving |
 | --- | --- |
-| [REST (createMode = Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Hiermee herstelt u een database |
+| [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Hiermee herstelt u een database |
 | [Get maken of bijwerken van de databasestatus](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Hiermee wordt de status geretourneerd tijdens een terugzetbewerking |
 |  | |
 

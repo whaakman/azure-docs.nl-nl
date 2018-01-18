@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure-Cloud-Shell insluiten
 
 Cloud-Shell insluiten kan ontwikkelaars en schrijvers van de inhoud rechtstreeks Cloud-Shell openen vanuit een specifieke URL, [shell.azure.com](https://shell.azure.com). Hiermee onmiddellijk de kracht van Cloud-Shell-verificatie, tooling, en up-to-date Azure CLI/Azure PowerShell hulpprogramma's voor uw gebruikers.
 
+Knop voor normale grootte
+
 [![](https://shell.azure.com/images/launchcloudshell.png "Azure-Cloud-Shell starten")](https://shell.azure.com)
+
+Grote grootte knop
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Azure-Cloud-Shell starten")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Uitleg
 
@@ -44,9 +50,9 @@ De HTML-code voor het insluiten van een pop-Cloud-Shell lager is dan:
 Stel een specifieke shell-ervaring door het uitbreiden van de URL van uw.
 |Ervaring   |URL   |
 |---|---|
-|Onlangs gebruikte shell   |Shell.Azure.com           |
-|Bash                       |Shell.Azure.com/Bash       |
-|PowerShell                 |Shell.Azure.com/PowerShell |
+|Onlangs gebruikte shell   |shell.azure.com           |
+|Bash                       |shell.azure.com/bash       |
+|PowerShell                 |shell.azure.com/powershell |
 
 ## <a name="next-steps"></a>Volgende stappen
 [In de Cloud Shell snel Bash](quickstart.md)<br>

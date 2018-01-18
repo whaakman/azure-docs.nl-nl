@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
 
@@ -62,7 +62,7 @@ Omwille van de technische Java inschakelen voor uw app .NET, PHP en Python worde
 **Foutopsporing op afstand**. Hiermee schakelt u foutopsporing op afstand. Wanneer dit is ingeschakeld, kunt u de externe foutopsporing in Visual Studio direct verbinding maken met uw web-app. Foutopsporing op afstand blijft ingeschakeld voor 48 uur. 
 
 ### <a name="app-settings"></a>App-instellingen
-Deze sectie bevat de naam/waarde-paren die u web-app wordt geladen op start. 
+Deze sectie bevat de naam/waarde-paren die uw web-app wordt geladen op start. 
 
 * Voor .NET-toepassingen, deze instellingen zijn opgenomen in de configuratie van uw .NET `AppSettings` tijdens runtime, overschrijven bestaande instellingen. 
 * PHP, Python, Java en knooppunt toepassingen hebben toegang tot deze instellingen als omgevingsvariabelen tijdens runtime. Twee omgevingsvariabelen zijn gemaakt voor elke app-instelling. een met de naam die is opgegeven door de vermelding van de instelling app en andere met het voorvoegsel APPSETTING_. Beide bevatten dezelfde waarde.
@@ -74,8 +74,8 @@ Voor .NET-toepassingen, deze verbindingsreeksen zijn opgenomen in de configurati
 
 Deze instellingen zijn beschikbaar als omgevingsvariabelen tijdens runtime, voorafgegaan door het verbindingstype voor PHP, Python, knooppunt en Java-toepassingen. De omgeving variabele voorvoegsels zijn als volgt: 
 
-* SQL Server:`SQLCONNSTR_`
-* MySQL:`MYSQLCONNSTR_`
+* SQL Server: `SQLCONNSTR_`
+* MySQL: `MYSQLCONNSTR_`
 * SQL-Database:`SQLAZURECONNSTR_`
 * Aangepaste:`CUSTOMCONNSTR_`
 
@@ -106,7 +106,7 @@ Opties voor het schrijven van diagnostische logboeken vanuit een webtoepassing d
 
 * **Toepassingslogboeken**. Toepassingslogboeken schrijft naar het bestandssysteem. Logboekregistratie duurt gedurende een periode van 12 uur. 
 
-**Niveau**. Wanneer de toepassing-logboekregistratie is ingeschakeld, wordt deze optie geeft u de hoeveelheid gegevens die worden geregistreerd (fout, waarschuwing, informatie of uitgebreid).
+**Level**. Wanneer de toepassing-logboekregistratie is ingeschakeld, wordt deze optie geeft u de hoeveelheid gegevens die worden geregistreerd (fout, waarschuwing, informatie of uitgebreid).
 
 **Logboekregistratie van webserver**. Logboeken worden opgeslagen in de indeling van het W3C-uitgebreide logboekbestand. 
 

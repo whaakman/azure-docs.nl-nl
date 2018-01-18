@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Iothub-explorer gebruiken voor het beheer van Azure IoT Hub-apparaten
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [iothub explorer](https://github.com/azure/iothub-explorer) is een CLI-hulpprogramma dat u op een host uitvoert computer voor het beheren van apparaat-id's in het register van IoT hub. Het wordt geleverd met opties die u kunt verschillende taken uit te voeren.
 
 | Beheeroptie          | Taak                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Directe methoden             | Een apparaat fungeren zoals starten of stoppen van verzenden van berichten of het apparaat opnieuw maken.                                        |
 | Eigenschappen van de gewenste Twin    | Een apparaat in een bepaalde status, zoals een LED in groen instellen of het instellen van het interval voor het verzenden van telemetrie tot 30 minuten geplaatst.         |
 | Dubbele eigenschappen gerapporteerd   | Ophalen van de gerapporteerde status van een apparaat. Bijvoorbeeld, meldt het apparaat dat de LED nu knippert.                                    |
@@ -54,9 +54,9 @@ Voer iothub explorer met verschillende opties.
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
 - Zelfstudie [instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md) voltooid die wordt ingegaan op de volgende vereisten:
-  - Een actief Azure-abonnement.
-  - Een Azure-IoT-hub in uw abonnement.
-  - Een clienttoepassing dat berichten naar uw Azure-IoT-hub verzendt.
+- Een actief Azure-abonnement.
+- Een Azure-IoT-hub in uw abonnement.
+- Een clienttoepassing dat berichten naar uw Azure-IoT-hub verzendt.
 - Zorg ervoor dat uw apparaat wordt uitgevoerd met de clienttoepassing tijdens deze zelfstudie.
 - iothub-explorer [iothub explorer installeren](https://github.com/azure/iothub-explorer) op uw ontwikkelcomputer.
 
@@ -114,7 +114,6 @@ Voeg een veld rol = temperatuur en vochtigheid aan het apparaat met de volgende 
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Gebruik iothub-explorer met de Cloud-naar-apparaat-berichten

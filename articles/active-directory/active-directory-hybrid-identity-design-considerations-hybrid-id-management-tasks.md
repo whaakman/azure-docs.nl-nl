@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hybride identiteit ontwerpoverwegingen - beheertaken voor hybride identiteit Bepaal | Microsoft Docs
+title: Ontwerp van hybride identiteit - beheertaken Azure | Microsoft Docs
 description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan voor de levenscyclus van hybride identiteit
 Identiteit is een van de basisprincipes van uw strategie voor enterprise mobility en de toepassing. Of u aan te bij uw mobiele apparaat of SaaS-app melden bent, is uw identiteit de sleutel tot het toegang krijgen tot alles. Op het hoogste niveau omvat een oplossing voor identiteitsbeheer samen te voegen en gesynchroniseerd tussen uw opslagplaatsen identiteit waaronder automatiseren en centraal opslaan van het proces voor het leveren van bronnen. De identiteitsoplossing moet zijn van de identiteit van een gecentraliseerde via on-premises en cloud en ook gebruiken een vorm van identiteitsfederatie centrale verificatie onderhouden en veilig delen en samenwerken met externe gebruikers en bedrijven. Resources variëren van besturingssystemen en toepassingen naar mensen in of gekoppeld aan een organisatie. Organisatiestructuur kan worden gewijzigd zodat de inrichting beleidsregels en procedures.

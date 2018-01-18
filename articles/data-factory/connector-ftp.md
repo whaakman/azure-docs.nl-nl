@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 36466ffe31a728e3267ef5002e4e69f52889577c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Gegevens kopiëren van de FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ De volgende eigenschappen worden ondersteund voor FTP-gekoppelde service:
 | enableSsl | Geef op of FTP gebruiken via een SSL/TLS-kanaal.<br/>Toegestane waarden zijn: **true** (standaard), **false**. | Nee |
 | enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal.<br/>Toegestane waarden zijn: **true** (standaard), **false**. | Nee |
 | authenticationType | Geef het verificatietype.<br/>Toegestane waarden zijn: **Basic**, **anoniem** | Ja |
-| Gebruikersnaam | De gebruiker die toegang tot de FTP-server heeft opgeven. | Nee |
+| userName | De gebruiker die toegang tot de FTP-server heeft opgeven. | Nee |
 | wachtwoord | Geef het wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als SecureString. | Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
@@ -164,7 +164,7 @@ Om gegevens te kopiëren van FTP, stelt u het brontype in de kopieerbewerking na
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **FileSystemSource** |Ja |
-| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
+| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Opmerking Wanneer recursieve is ingesteld op true en sink is bestandsgebaseerde opslag, lege map/subbewerkingen-folder niet worden gekopieerd/gemaakt op de sink.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
 
 **Voorbeeld:**
 

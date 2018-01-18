@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybride identiteit ontwerpoverwegingen - strategie voor de ingebruikname van een hybride identiteit definiëren | Microsoft Docs"
+title: Ontwerp van hybride identiteit - strategie voor ingebruikname Azure | Microsoft Docs
 description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit acceptatie definiëren
 In deze taak definieert u de hybride identiteit acceptatie strategie voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die zijn beschreven in:
@@ -64,7 +65,7 @@ Meld u in de gebruikerservaring worden bepaald door de strategie die u gebruikt.
 | Webbrowsers |Op formulieren gebaseerde verificatie |eenmalige aanmelding op, soms moeten organisatie-ID opgeven |
 | Outlook |Prompt voor referenties |Prompt voor referenties |
 | Skype voor bedrijven (Lync) |Prompt voor referenties |eenmalige aanmelding voor Lync, referenties gevraagd voor Exchange |
-| SkyDrive Pro |Prompt voor referenties |eenmalige aanmelding |
+| Skydrive Pro |Prompt voor referenties |eenmalige aanmelding |
 | Office Professional Plus abonnement |Prompt voor referenties |eenmalige aanmelding |
 
 **Externe of niet-vertrouwde bronnen**:

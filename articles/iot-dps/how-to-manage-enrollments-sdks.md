@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Apparaatinschrijvingen met Azure apparaat inrichten Service-SDK's beheren
 Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep apparaten die mogelijk op een bepaald moment geregistreerd bij de Service voor het inrichten van apparaten. De record van inschrijving bevat de eerste gewenste configuratie voor de apparaten als onderdeel van dat de inschrijving, met inbegrip van de gewenste IoT-hub. In dit artikel laat zien hoe apparaatinschrijvingen voor uw provisioning service programmatisch met behulp van de Azure IoT inrichting Service SDK's beheren.  De SDK's zijn beschikbaar op GitHub in dezelfde opslagplaats als Azure IoT SDK's.
@@ -25,6 +25,7 @@ Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep 
 In dit artikel controleert de concepten van hoog niveau voor het beheren van apparaatinschrijvingen voor uw provisioning service programmatisch met behulp van de Azure IoT inrichting Service SDK's.  Exacte API-aanroepen kunnen afwijken als gevolg van verschillende talen.  Lees de controles die we op GitHub voor meer informatie bieden:
 * [Voorbeelden van Java-inrichting Service-Client](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Voorbeelden van node.js-Client-Service-inrichting](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [Voorbeelden van de Client-Service van .NET-inrichting](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Vereisten
 * Verbindingsreeks uit een apparaat inrichtingsservice-exemplaar

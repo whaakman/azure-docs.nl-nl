@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbea84511c37cf52c3d98f0247e5ce3c0b2a05c3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starten, stoppen en te rapporteren voor de test chaos service.
@@ -43,14 +43,14 @@ Kunt u de ContinuationToken als u het volgende segment van het rapport Chaos opg
 | --- | --- |
 | --vervolgtoken| De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten bevat vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
 | --end--utc-tijd   | Het aantal maatstreepjes dat vertegenwoordigt de eindtijd van de periode waarvoor een Chaos rapport is gegenereerd. Neem contact op met [DateTime.Ticks eigenschap](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) voor meer informatie over de maatstreepjes.|
-| --start--utc-tijd | Het aantal maatstreepjes dat vertegenwoordigt de starttijd van de periode waarvoor een Chaos rapport is gegenereerd. Neem contact op met [DateTime.Ticks eigenschap](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) voor meer informatie over de maatstreepjes.|
+| --start-time-utc | Het aantal maatstreepjes dat vertegenwoordigt de starttijd van de periode waarvoor een Chaos rapport is gegenereerd. Neem contact op met [DateTime.Ticks eigenschap](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) voor meer informatie over de maatstreepjes.|
 | --time-out -t     | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h        | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o      | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query          | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -64,9 +64,9 @@ Als Chaos nog niet wordt uitgevoerd in het cluster wordt gestart met Chaos met d
 |Argument|Beschrijving|
 | --- | --- |
 | --app-type-health-beleid-kaart  | JSON gecodeerde lijst met slechte toepassingen voor specifieke toepassingstypen maximale percentage. Elke vermelding wordt als een sleutel van de naam van het toepassingstype en als een waarde een geheel getal dat het percentage MaxPercentUnhealthyApplications is gebruikt geeft voor het evalueren van de toepassingen van het type van de opgegeven toepassing.|
-| --disable-move-replica-fouten | Schakelt de verplaatsing primaire en secundaire fouten te verplaatsen.|
+| --disable-move-replica-faults | Schakelt de verplaatsing primaire en secundaire fouten te verplaatsen.|
 | --max-cluster-stabilization| De maximale hoeveelheid tijd te wachten totdat alle entiteiten stabiel en orde cluster.  Standaard: 60.|
-| --max-gelijktijdige-fouten    | Het maximum aantal gelijktijdige fouten veroorzaakte per herhaling.           Standaard: 1.|
+| --max-concurrent-faults    | Het maximum aantal gelijktijdige fouten veroorzaakte per herhaling.           Standaard: 1.|
 | --max-procent-slecht-apps  | Bij het evalueren van de gezondheid van het cluster tijdens Chaos, de de maximaal toegestane percentage van de beschadigde toepassingen voordat een foutbericht.|
 | --max procent-slecht-knooppunten | Bij het evalueren van de gezondheid van het cluster tijdens Chaos, de de maximaal toegestane percentage beschadigde knooppunten voordat u een foutmelding.|
 | --tijd-en-klaar              | Totale tijd (in seconden) waarvoor Chaos voordat automatisch gestopt wordt uitgevoerd. De maximaal toegestane waarde is 4.294.967.295 (System.UInt32.MaxValue).  Standaard: 4294967295.|
@@ -79,7 +79,7 @@ Als Chaos nog niet wordt uitgevoerd in het cluster wordt gestart met Chaos met d
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                  | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.           Standaard: json.|
 | --query                    | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -100,7 +100,7 @@ Stopt Chaos uit het plannen van verdere fouten; maar de onderweg fouten worden n
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h| Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|

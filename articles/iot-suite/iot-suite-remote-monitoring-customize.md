@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle aanpassen
 
@@ -24,6 +24,10 @@ Dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van
 
 * De GitHub-opslagplaatsen die de broncode en resources voor de microservices die gezamenlijk de vooraf geconfigureerde oplossing bevatten.
 * Algemene scenario's voor aanpassingen zoals het toevoegen van een nieuwe apparaattype.
+
+De volgende video biedt een overzicht van de opties voor het aanpassen van de vooraf geconfigureerde oplossing voor externe controle:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Overzicht van project
 
@@ -46,8 +50,8 @@ Deze tabel bevat een overzicht van de huidige beschikbaarheid van elke microserv
 | ----------------- | ----------- | ---- | ---- |
 | Web-UI            | Web-app voor de oplossing voor externe controle. Gebruikersinterface met behulp van React.js framework implementeert. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | IoT Hub Manager   | Communicatie met de IoT Hub worden verwerkt.        | [Beschikbaar](https://github.com/Azure/iothub-manager-java) | [Beschikbaar](https://github.com/Azure/iothub-manager-dotnet)   |
-| Authentication    |  Azure Active Directory-integratie beheert.  | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/pcs-auth-dotnet)   |
-| Apparaat simulatie | Een pool van de gesimuleerde apparaten beheert. | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/device-simulation-dotnet)   |
+| Verificatie    |  Azure Active Directory-integratie beheert.  | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/pcs-auth-dotnet)   |
+| Apparaatsimulatie | Een pool van de gesimuleerde apparaten beheert. | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/device-simulation-dotnet)   |
 | Telemetrie         | Maakt de apparaattelemetrie beschikbaar voor de gebruikersinterface. | [Beschikbaar](https://github.com/Azure/device-telemetry-java) | [Beschikbaar](https://github.com/Azure/device-telemetry-dotnet)   |
 | Telemetrie-Agent   | De telemetriestroom analyseert, slaat de berichten van Azure IoT Hub en genereert waarschuwingen volgens de gedefinieerde regels.  | [Beschikbaar](https://github.com/Azure/telemetry-agent-java) | [Beschikbaar](https://github.com/Azure/telemetry-agent-dotnet)   |
 | UI-configuratie         | Beheert de configuratiegegevens van de gebruikersinterface. | [Beschikbaar](https://github.com/azure/pcs-ui-config-java) | [Beschikbaar](https://github.com/azure/pcs-ui-config-dotnet)   |
@@ -205,8 +209,8 @@ Als u wilt wijzigen verder de connectiviteit van apparaten en streaming laag in 
 
 * [De Apparaattelemetrie (.NET)](https://github.com/Azure/device-telemetry-dotnet)
 * [De Apparaattelemetrie (Java)](https://github.com/Azure/device-telemetry-java)
-* [Telemetrie-Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetrie-Agent (Java)](https://github.com/Azure/telemetry-agent-java)
+* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
+* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
 
 ## <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
 
@@ -223,8 +227,8 @@ See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-rem
 
 Voor het wijzigen van de gegevensverwerking en analytics laag in de oplossing voor externe controle, kunt u de code bewerken. De relevante GitHub-opslagplaatsen zijn:
 
-* [Telemetrie-Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetrie-Agent (Java)](https://github.com/Azure/telemetry-agent-java)
+* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
+* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
 
 ## <a name="infrastructure"></a>Infrastructuur
 

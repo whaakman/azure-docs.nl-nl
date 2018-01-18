@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 23008d3619af4606703bca41f370e14cf020a16a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst van IoT-Hub
 In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub.
@@ -26,7 +26,7 @@ In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub
 ## <a name="advanced-message-queueing-protocol"></a>Geavanceerde Message Queueing-Protocol
 [Geavanceerde Message Queueing-Protocol (AMQP)](https://www.amqp.org/) is een van de messaging-protocollen die [IoT Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub ondersteunt [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 De [Azure CLI](../cli-install-nodejs.md) is een hulpprogramma cross-platform, open-source, op basis van shell-opdracht voor het maken en beheren van resources in Microsoft Azure. Deze versie van de CLI is geïmplementeerd met behulp van Node.js.
 
 ## <a name="azure-cli-20"></a>Azure CLI 2.0
@@ -140,7 +140,7 @@ Een [directe methode](iot-hub-devguide-direct-methods.md) is een manier voor het
 ## <a name="endpoint"></a>Eindpunt
 Een iothub toont meerdere [eindpunten](iot-hub-devguide-endpoints.md) die ervoor zorgen dat uw apps kunnen verbinding maken met de IoT-hub. Er zijn apparaat gerichte eindpunten waarmee apparaten uitvoeren van bewerkingen zoals het zenden van [apparaat-naar-cloud](#device-to-cloud) berichten en ontvangst [cloud-naar-apparaat](#cloud-to-device) berichten. Er zijn service gerichte management eindpunten waarmee [back-end apps](#back-end-app) bewerkingen uitvoeren zoals [apparaat-id](#device-identity) beheer- en Apparaatbeheer twin. Er zijn service gerichte [ingebouwde eindpunten](#built-in-endpoints) voor het lezen van apparaat-naar-cloud-berichten. U kunt maken [aangepaste eindpunten](#custom-endpoints) ontvangen van apparaat-naar-cloud-berichten die zijn verzonden door een [routeringsregel](#routing-rules).
 
-## <a name="event-hubs-service"></a>Event Hubs-service
+## <a name="event-hubs-service"></a>Event Hubs service
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is een uiterst schaalbare gegevens ingress-service die, miljoenen opnemen kan gebeurtenissen per seconde. De service kunt u om te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Zie voor een vergelijking met de service IoT Hub [vergelijking van Azure IoT Hub en Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## <a name="event-hub-compatible-endpoint"></a>Event Hub-compatibel eindpunt
@@ -178,8 +178,8 @@ U kunt de [IoT Hub Resource Provider REST-API](https://docs.microsoft.com/rest/a
 ## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite-pakketten meerdere Azure-services met vooraf geconfigureerde oplossingen. Deze vooraf geconfigureerde oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie [wat is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>iothub explorer
-De [iothub explorer](https://github.com/azure/iothub-explorer) is een platformoverschrijdende, opdrachtregel-hulpprogramma. Het hulpprogramma kunt u uw apparaten beheren in de [identiteitsregister](#identity-registry), verzenden en ontvangen van berichten en bestanden van uw apparaten en uw IoT hub-bewerkingen te controleren.
+## <a name="the-iot-extension-for-azure-cli-20"></a>De IoT-extensie voor Azure CLI 2.0
+[De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een platformoverschrijdende, opdrachtregel-hulpprogramma. Het hulpprogramma kunt u uw apparaten beheren in de [identiteitsregister](#identity-registry), verzenden en ontvangen van berichten en bestanden van uw apparaten en uw IoT hub-bewerkingen te controleren.
 
 ## <a name="job"></a>Job
 De back-end van uw oplossing kunt [taken](iot-hub-devguide-jobs.md) plannen en bijhouden van activiteiten op een reeks apparaten die zijn geregistreerd bij uw IoT-hub. Activiteiten omvatten apparaat twin bijwerken [gewenst eigenschappen](#desired-properties), bijwerken apparaat twin [labels](#tags), en het aanroepen van [methoden directe](#direct-method). [IoT Hub](#iot-hub) wordt ook gebruikgemaakt van taken naar [om te importeren en exporteren](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) van de [identiteitsregister](#identity-registry).
@@ -223,7 +223,7 @@ U configureert [routeringsregels](iot-hub-devguide-messages-read-custom.md) in u
 ## <a name="sasl-plain"></a>SASL ZONDER OPMAAK
 SASL zonder opmaak is een protocol dat de [AMQP](#advanced-message-queue-protocol) protocol gebruikt voor het overzetten van beveiligingstokens.
 
-## <a name="shared-access-signature"></a>Shared access signature voor
+## <a name="shared-access-signature"></a>Shared Access Signature
 Shared Access Signatures (SAS) zijn een verificatiemethode op basis van beveiligde SHA-256-hashes of URI's. SAS verificatie bestaat uit twee onderdelen: een _beleid voor gedeelde toegang_ en een _Shared Access Signature_ (vaak een token genoemd). SAS wordt gebruikt voor verificatie met een IoT-hub van een apparaat. [Back-end apps](#back-end-app) SAS ook gebruiken voor verificatie met de service gerichte-eindpunten op een IoT-hub. Normaal gesproken het opnemen van de SAS-token in de [verbindingsreeks](#connection-string) dat een app gebruikmaakt van een verbinding maken met een IoT-hub.
 
 ## <a name="shared-access-policy"></a>Beleid voor gedeelde toegang

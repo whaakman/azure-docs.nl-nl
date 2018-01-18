@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -135,6 +135,8 @@ Als u afzonderlijke bestanden niet kunnen synchroniseren:
 
     > [!NOTE]
     > Azure File-synchronisatie wordt periodiek VSS-momentopnamen bestanden met open ingangen synchroniseren.
+
+We momenteel geen ondersteuning voor resource verplaatsen naar een ander abonnement of, verplaatsen naar een andere Azure AD-tenant.  Als het abonnement wordt verplaatst naar een andere tenant, wordt de Azure-bestandsshare niet toegankelijk voor de service op basis van de wijziging in eigendom. Als de tenant is gewijzigd, moet u de server-eindpunten en het cloudeindpunt te verwijderen (Zie Sync groepsbeheer sectie voor meer informatie het reinigen van de Azure-bestandsshare moet opnieuw worden gebruikt) en opnieuw maken van de groep voor synchronisatie.
 
 ## <a name="cloud-tiering"></a>Cloudopslaglagen 
 Er zijn twee paden op fouten in de cloud tiering:

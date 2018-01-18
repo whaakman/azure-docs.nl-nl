@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-service"></a>sfctl-service
 Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.
@@ -28,24 +28,24 @@ Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.
 |Opdracht|Beschrijving|
 | --- | --- |
 |    App-naam       | Hiermee haalt u de naam van de Service Fabric-toepassing voor een service.|
-|    code pakketlijst | Haalt de lijst met code-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
+|    code-package-list | Haalt de lijst met code-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
 |    maken         | De opgegeven Service Fabric-service maakt van de beschrijving.|
 |    verwijderen         | Hiermee verwijdert u een bestaande Service Fabric-service.|
 |    geïmplementeerd type  | Hiermee haalt u de informatie over een opgegeven service-type van de toepassing geïmplementeerd op een knooppunt in een Service Fabric-cluster.|
 |    geïmplementeerd type lijst| Hiermee wordt de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster opgehaald.|
 |    description    | Hiermee haalt u de beschrijving van een bestaande Service Fabric-service.|
-|    Status         | Hiermee wordt de status van de opgegeven Service Fabric-service opgehaald.|
-|    Info           | Hiermee haalt u de informatie over de specifieke service die horen bij een Service Fabric-toepassing.|
+|    status         | Hiermee wordt de status van de opgegeven Service Fabric-service opgehaald.|
+|    info           | Hiermee haalt u de informatie over de specifieke service die horen bij een Service Fabric-toepassing.|
 |    lijst           | Hiermee haalt u de informatie over alle services die horen bij de toepassing die is opgegeven door de toepassings-ID.|
-|    Manifest       | Hiermee haalt u de beschrijving van het servicetype van een manifest.|
-|    pakket implementeren | Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest aan het cachegeheugen van de installatiekopie op opgegeven knooppunt.|
-|    pakket-status | Hiermee haalt de informatie over de status van een servicepakket voor een bepaalde toepassing is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing.|
-|    pakket-info   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met de opgegeven naam.|
-|    pakket-lijst   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
+|    manifest       | Hiermee haalt u de beschrijving van het servicetype van een manifest.|
+|    package-deploy | Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest aan het cachegeheugen van de installatiekopie op opgegeven knooppunt.|
+|    package-health | Hiermee haalt de informatie over de status van een servicepakket voor een bepaalde toepassing is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing.|
+|    package-info   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met de opgegeven naam.|
+|    package-list   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
 |    herstellen        | Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet te herstellen van de opgegeven service, die momenteel is vastgelopen in quorumverlies.|
 |    rapport-status  | Verzendt een statusrapport voor de Service Fabric-service.|
-|    Oplossen        | Een Service Fabric-partitie worden omgezet.|
-|    lijst van type      | Hiermee haalt de lijst op met de informatie over servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster.|
+|    oplossen        | Een Service Fabric-partitie worden omgezet.|
+|    type-list      | Hiermee haalt de lijst op met de informatie over servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster.|
 |    bijwerken         | De opgegeven service met behulp van de updatebeschrijving van de opgegeven updates.|
 
 
@@ -66,30 +66,30 @@ De opgegeven Service Fabric-service maakt van de beschrijving.
 | --dns-naam            | De DNS-naam van de service moet worden gemaakt. De Service Fabric-DNS-service moet zijn ingeschakeld voor deze instelling.|
 | --aantal exemplaren      | Het aantal exemplaren. Dit geldt voor alleen stateless services.|
 | --int-schema          | Hiermee geeft u dat de service moet op uniforme wijze worden gepartitioneerd in een bereik van niet-ondertekende gehele getallen.|
-| --int-schema-telling    | Het aantal partities binnen het gehele getal key (voor een partitieschema uniform geheel getal) te maken.|
-| --int-schema-hoog     | Het einde van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
-| --int-schema-laag      | Het begin van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
+| --int-scheme-count    | Het aantal partities binnen het gehele getal key (voor een partitieschema uniform geheel getal) te maken.|
+| --int-scheme-high     | Het einde van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
+| --int-scheme-low      | Het begin van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
 | --load-metrische gegevens        | JSON gecodeerde lijst met metrische gegevens die gebruikt wordt wanneer services taakverdeling over knooppunten.|
 | --min-replica-set-grootte| De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --verplaatsen kosten           | Hiermee geeft u de move-kosten voor de service. Mogelijke waarden zijn: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'.|
-| --met de naam schema        | Hiermee geeft u dat de service moet meerdere benoemde partities hebben.|
+| --named-scheme        | Hiermee geeft u dat de service moet meerdere benoemde partities hebben.|
 | --met de naam-schema-lijst   | JSON gecodeerde lijst met namen voor het partitioneren van de service in, als het benoemde partitieschema gebruikt.|
 | --niet-persistent-status  | Indien waar, wordt hiermee de service heeft geen permanente status opgeslagen op de lokale schijf of alleen wordt status opgeslagen in het geheugen.|
 | --plaatsing beleidslijst  | JSON gecodeerde lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-verlies-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
-| --replica-opnieuw opstarten-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
+| --quorum-loss-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
+| --replica-restart-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
 | --singleton-schema    | Hiermee geeft de service moet één partitie hebben of een niet - gepartitioneerde service moet zijn.|
 | --stand door replica behouden  | De maximale duur in seconden, voor welke stand-by worden replica's bewaard voordat het wordt verwijderd. Dit geldt voor stateful services alleen.|
 | --stateful            | Geeft aan dat de service is een stateful service.|
 | --staatloze           | Geeft aan dat de service is een staatloze service.|
-| ---replica-set-doelgrootte| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
+| --target-replica-set-size| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --time-out -t          | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -105,14 +105,14 @@ Hiermee verwijdert u een bestaande Service Fabric-service. Een service moet word
 |Argument|Beschrijving|
 | --- | --- |
 | --[vereist]-service-id| De identiteit van de service. Dit wordt meestal de volledige naam van de service zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de servicenaam is fabric://myapp/app1/svc1 ', de service-identiteit zijn ' myapp ~ app1 ~ svc1 ' in 6.0 + en ' myapp/app1/svc1' in eerdere versies.|
-| --geforceerd verwijderen      | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
+| --force-remove      | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
 | --time-out -t        | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h           | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o         | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query             | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -134,7 +134,7 @@ Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. Een se
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h           | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o         | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query             | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -159,7 +159,7 @@ Hiermee haalt u de statusgegevens van de opgegeven service. EventsHealthStateFil
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                    | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                  | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                  Standaard: json.|
 | --query                      | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -182,7 +182,7 @@ Retourneert de informatie over de opgegeven service die horen bij de opgegeven S
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -199,14 +199,14 @@ Retourneert de informatie over alle services die horen bij de toepassing die is 
 | --- | --- |
 | --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de toepassingsnaam van de is 'fabric://myapp/app1', de toepassings-id zou zijn ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
 | --vervolgtoken    | De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
-| --service typenaam     | De naam van de service type is gebruikt voor het filteren van de services zoeken naar.|
+| --service-type-name     | De naam van de service type is gebruikt voor het filteren van de services zoeken naar.|
 | --time-out -t            | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -230,7 +230,7 @@ Hiermee haalt u de beschrijving van het servicetype van een manifest. Het antwoo
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                       Standaard: json.|
 | --query                           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -252,7 +252,7 @@ Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet t
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h           | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o         | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query             | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -277,7 +277,7 @@ Een partitie van de Service Fabric-service om op te halen van de eindpunten van 
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h           | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o         | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query             | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -299,19 +299,19 @@ De opgegeven service met behulp van de updatebeschrijving van de opgegeven updat
 | --min-replica-set-grootte| De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --verplaatsen kosten           | Hiermee geeft u de move-kosten voor de service. Mogelijke waarden zijn: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'.|
 | --plaatsing beleidslijst  | JSON gecodeerde lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-verlies-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
-| --replica-opnieuw opstarten-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
+| --quorum-loss-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
+| --replica-restart-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
 | --stand door replica behouden  | De maximale duur in seconden, voor welke stand-by worden replica's bewaard voordat het wordt verwijderd. Dit geldt voor stateful services alleen.|
 | --stateful            | Geeft dat de doelservice is een stateful service.|
 | --staatloze           | Geeft dat de doelservice is een staatloze service.|
-| ---replica-set-doelgrootte| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
+| --target-replica-set-size| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --time-out -t          | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hybride identiteit ontwerpoverwegingen - vereisten voor toegangsbeheer bepalen | Microsoft Docs
+title: Hybride identiteit ontwerpvereisten voor toegangsbeheer Azure | Microsoft Docs
 description: Bevat informatie over de stijlen van identiteit en het bepalen van de toegangsvereisten voor de bronnen voor gebruikers in een hybride omgeving.
 documentationcenter: 
 services: active-directory
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor toegangsbeheer voor uw oplossing voor hybride identiteit bepalen
 Wanneer een organisatie hun hybride identiteitsoplossing ontwerpt kunnen ze deze mogelijkheid ook gebruiken om te controleren van de toegangsvereisten voor de resources die ze willen beschikbaar maken voor gebruikers. De data access cross alle vier stijlen van identiteit, die zijn:
 
 * Beheer
-* Authentication
+* Verificatie
 * Autorisatie
 * Controleren
 

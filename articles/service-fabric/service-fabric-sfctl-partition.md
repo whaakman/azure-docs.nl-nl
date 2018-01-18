@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partitie
 Doorzoeken en beheren van partities voor elke service.
@@ -28,20 +28,20 @@ Doorzoeken en beheren van partities voor elke service.
 |Opdracht|Beschrijving|
 | --- | --- |
 |    verlies van gegevens      | Deze API induceert verlies van gegevens voor de opgegeven partitie.|
-|    status van gegevens verloren gaan  | Hiermee wordt de voortgang van een partitie gegevens verloren gaan bewerking gestart met de API StartDataLoss opgehaald.|
-|    Status         | Hiermee haalt u de status van de opgegeven Service Fabric-partitie.|
-|    Info           | Hiermee haalt u de informatie over een Service Fabric-partitie.|
+|    data-loss-status  | Hiermee wordt de voortgang van een partitie gegevens verloren gaan bewerking gestart met de API StartDataLoss opgehaald.|
+|    status         | Hiermee haalt u de status van de opgegeven Service Fabric-partitie.|
+|    info           | Hiermee haalt u de informatie over een Service Fabric-partitie.|
 |    lijst           | Hiermee wordt de lijst met partities van een Service Fabric-service opgehaald.|
 |    laden           | Hiermee haalt u de belasting van de opgegeven Service Fabric-partitie.|
-|    Load-reset     | Hiermee stelt u de huidige belasting van een Service Fabric-partitie.|
-|    quorumverlies    | Induceert quorumverlies voor een bepaalde stateful service-partitie.|
-|    quorum-verlies-status| Hiermee haalt u de voortgang van een bewerking voor het verlies van quorum in een partitie met de API StartQuorumLoss is gestart.|
+|    load-reset     | Hiermee stelt u de huidige belasting van een Service Fabric-partitie.|
+|    quorum-loss    | Induceert quorumverlies voor een bepaalde stateful service-partitie.|
+|    quorum-loss-status| Hiermee haalt u de voortgang van een bewerking voor het verlies van quorum in een partitie met de API StartQuorumLoss is gestart.|
 |    herstellen        | Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet te herstellen van een specifieke partitie, die momenteel is vastgelopen in quorumverlies.|
 |    herstellen-alle    | Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet te herstellen (inclusief systeemservices) services die momenteel zijn vastgelopen in quorumverlies.|
 |    rapport-status  | Verzendt een statusrapport op de Service Fabric-partitie.|
 |    opnieuw opstarten        | Deze API wordt opnieuw opgestart enkele of alle replica's of exemplaren van de opgegeven partitie.|
-|    opnieuw opstarten-status | Hiermee wordt de voortgang van een PartitionRestart-bewerking gestart met StartPartitionRestart opgehaald.|
-|    SVC-naam       | Hiermee haalt u de naam van de Service Fabric-service voor een partitie.|
+|    restart-status | Hiermee wordt de voortgang van een PartitionRestart-bewerking gestart met StartPartitionRestart opgehaald.|
+|    svc-name       | Hiermee haalt u de naam van de Service Fabric-service voor een partitie.|
 
 
 ## <a name="sfctl-partition-health"></a>sfctl partitie health
@@ -57,14 +57,14 @@ ReplicasHealthStateFilter gebruiken voor het filteren van de verzameling van obj
 | --partitie-id [vereist]| De identiteit van de partitie.|
 | --gebeurtenissen-health-status-filter  | Hiermee kunt u filteren van de verzameling HealthEvent objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen.                Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen die worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8.                -All - Filter dat overeenkomt met invoer met de waarde van een HealthState.                De waarde is 65535.|
 |--uitsluiten-health-statistieken   | Hiermee wordt aangegeven of de statistieken van de status moet worden geretourneerd als onderdeel van het queryresultaat. Standaard False. De statistieken tonen het aantal onderliggende items entiteiten in de status Ok, waarschuwing en fout.|
-| --replica's-health-status-filter| Hiermee kunt u filteren van de verzameling van objecten ReplicaHealthState op de partitie. De waarde kan worden verkregen van leden of een bitsgewijze bewerkingen op leden van HealthStateFilter. Alleen de replica's die overeenkomen met het filter worden geretourneerd. Alle replica's worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
+| --replicas-health-state-filter| Hiermee kunt u filteren van de verzameling van objecten ReplicaHealthState op de partitie. De waarde kan worden verkregen van leden of een bitsgewijze bewerkingen op leden van HealthStateFilter. Alleen de replica's die overeenkomen met het filter worden geretourneerd. Alle replica's worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
 | --time-out -t               | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                  | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                Standaard: json.|
 | --query                    | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/. |
@@ -86,7 +86,7 @@ Het eindpunt van de partities retourneert informatie over de opgegeven partitie.
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -109,7 +109,7 @@ Hiermee wordt de lijst met partities van een Service Fabric-service opgehaald. H
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h           | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o         | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query             | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -131,7 +131,7 @@ Retourneert informatie over de opgegeven partitie. Het antwoord bevat een lijst 
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -153,7 +153,7 @@ Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet t
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query               | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|
@@ -178,7 +178,7 @@ Deze API is handig voor het testen van failover. Als gebruikt voor het doel van 
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                         | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                         | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                       | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                     | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                     Standaard: json.|
 | --query                         | JMESPath queryreeks. Zie voor meer informatie over en voorbeelden http://jmespath.org/.|

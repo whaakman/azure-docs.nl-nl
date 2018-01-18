@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect-synchronisatie: LargeObject afhandeling van fouten als gevolg van userCertificate-kenmerk | Microsoft Docs'
+title: Azure AD Connect - LargeObject fouten worden veroorzaakt door userCertificate-kenmerk | Microsoft Docs
 description: Dit onderwerp bevat de herstelstappen voor LargeObject fouten worden veroorzaakt door userCertificate-kenmerk.
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: LargeObject afhandeling van fouten als gevolg van userCertificate-kenmerk
 
@@ -89,9 +90,9 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
     | Kenmerk | Waarde |
     | --- | --- |
     | Richting |**Uitgaand** |
-    | MV-objecttype |**Persoon** |
+    | MV-objecttype |**Person** |
     | Connector |*naam van uw Azure AD-connector* |
-    | Connector-objecttype |**gebruiker** |
+    | Connector-objecttype |**user** |
     | MV-kenmerk |**userCertificate** |
 
 3. Als u OOB-synchronisatie (out of box) regels voor Azure AD-connector gebruikt voor het kenmerk userCertficiate voor gebruikersobjecten exporteren, ontvangt u de *'Uit naar AAD – gebruiker ExchangeOnline'* regel.
@@ -103,7 +104,7 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
+    | sourceObjectType | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Stap 3. De synchronisatieregel voor uitgaande vereist maken
@@ -116,7 +117,7 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereik filter** en **hogere
     | Naam | *Geef een naam* | Bijvoorbeeld *'Uit voor AAD – aangepaste onderdrukking voor userCertificate'* |
     | Beschrijving | *Geef een beschrijving* | Bijvoorbeeld *"Als userCertificate-kenmerk meer dan 15 waarden heeft, exporteren NULL."* |
     | Verbonden systeem | *Selecteer de Azure AD-Connector* |
-    | Verbonden systeem objecttype | **gebruiker** | |
+    | Verbonden systeem objecttype | **user** | |
     | Metaverse-objecttype | **persoon** | |
     | Koppelingstype | **Koppelen** | |
     | Prioriteit | *Kies een getal tussen 1 en 99 liggen* | Het aantal gekozen mogen niet worden gebruikt door een bestaande synchronisatieregel en heeft een lagere waarde (en dus hogere prioriteit) dan de bestaande synchronisatieregel. |

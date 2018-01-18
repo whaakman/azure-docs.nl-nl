@@ -1,10 +1,10 @@
 ---
 title: Gebruikersinterface van Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: Beschrijft hoe u StorSimple Data Manager service UI (afgeschermd voorbeeld)
+description: Beschrijft hoe u StorSimple Data Manager service gebruikersinterface
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,98 +12,151 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
-ms.author: vidarmsft
-ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/16/2018
+ms.author: alkohli
+ms.openlocfilehash: d704cf8e6840c6a7b0a637c404d421f9f1497c46
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>Beheren met behulp van de service StorSimple Data Manager UI (afgeschermd voorbeeld)
+# <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Beheren van de StorSimple Data Manager-service in Azure-portal
 
-Dit artikel wordt uitgelegd hoe u kunt de StorSimple Data Manager UI gegevenstransformatie voor gegevens die zich op de apparaten uit de StorSimple 8000 serie uitvoeren. De getransformeerde gegevens kunnen vervolgens worden gebruikt door andere Azure-services zoals Azure Media Services, Azure HDInsight Azure Machine Learning en Azure Search. 
+Dit artikel wordt uitgelegd hoe u de UI StorSimple Data Manager kunt gebruiken om de gegevens die zich op de apparaten uit de StorSimple 8000 serie te transformeren. De getransformeerde gegevens kunnen vervolgens worden gebruikt door andere Azure-services zoals Azure Media Services, Azure HDInsight Azure Machine Learning en Azure Search.
 
 
 ## <a name="use-storsimple-data-transformation"></a>StorSimple gegevenstransformatie gebruiken
 
-De StorSimple Data Manager is de bron waarbinnen gegevenstransformatie kan worden gemaakt. De Data Transformation service kunt u gegevens van uw on-premises StorSimple apparaat naar de blobs in Azure-opslag verplaatsen. In de werkstroom moet u daarom de details over uw StorSimple-apparaat en de gegevens van belang dat u wilt verplaatsen naar het opslagaccount opgeven.
+De StorSimple Data Manager is de bron binnen welke gegevens transformatie wordt geïnstantieerd. De Data Transformation service kunt u gegevens van de StorSimple-indeling naar native-indeling in blobs of Azure-bestanden te transformeren. Voor het transformeren van de gegevens van de oorspronkelijke indeling StorSimple, moet u de details over uw StorSimple 8000 series apparaat en de gegevens van belang dat u wilt transformeren opgeven.
 
 ### <a name="create-a-storsimple-data-manager-service"></a>Een StorSimple Data Manager-service maken
 
 De volgende stappen uitvoeren om te maken van een StorSimple Data Manager-service.
 
-1. Als u wilt maken van een StorSimple Data Manager-service, gaat u naar [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager)
+1. Gebruik de referenties van uw Microsoft-account om u aan te melden bij [Azure Portal](https://portal.azure.com/).
 
-2. Klik op de  **+**  pictogram en de zoekcriteria voor StorSimple Data Manager. Klik op uw StorSimple Data Manager-service en klik vervolgens op **maken**.
+2. Klik op **+ maken van een resource** en de zoekcriteria voor StorSimple Data Manager.
 
-3. Als uw abonnement voor het maken van deze service is ingeschakeld, ziet u de volgende blade.
+    ![Maken van een StorSimple Data Manager-service 1](./media/storsimple-data-manager-ui/create-service-1.png)
 
-    ![Maak een resource StorSimple gegevens Managers](./media/storsimple-data-manager-ui/create-new-data-manager-service.png)
+3. StorSimple Data Manager en klik op **maken**.
+    
+    ![Maken van een StorSimple Data Manager-service 2](./media/storsimple-data-manager-ui/create-service-3.png)
 
-4. Voer de invoer en klik op **maken**. De opgegeven locatie moet zijn met uw storage-accounts en uw StorSimple Manager-service. Op dit moment worden alleen VS-West en West-Europa regio's ondersteund. Daarom moeten uw StorSimple Manager-service, Data Manager-service en het bijbehorende opslagaccount alle in de voorgaande ondersteunde regio's. Het duurt ongeveer een minuut om de service te maken.
+3. Voor de nieuwe service het volgende opgeven:
+
+    1. Geef een unieke **servicenaam** voor uw StorSimple Data Manager. Dit is een beschrijvende naam die kan worden gebruikt om de service te identificeren. De naam kan tussen 3 en 24 tekens die letters, cijfers en afbreekstreepjes worden kunnen hebben. De naam moet beginnen en eindigen met een letter of cijfer.
+
+    2. Kies een **abonnement** uit de vervolgkeuzelijst. Het abonnement is gekoppeld aan uw factureringsrekening. Dit veld is automatisch ingevulde (en niet geselecteerd) als u slechts één abonnement hebt.
+
+    3. Selecteer een bestaande resourcegroep of maak een nieuwe groep. Zie [Azure-resourcegroepen](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) voor meer informatie.
+
+    4. Geef de **locatie** voor uw service met de storage-accounts en uw StorSimple Data Manager-service. Uw StorSimple-apparaat Manager-service, Data Manager-service en het bijbehorende opslagaccount moeten in de ondersteunde regio's.
+    
+    5. Als u een koppeling naar deze service op uw dashboard, selecteert u **vastmaken aan dashboard**.
+    
+    6. Klik op **Create**.
+
+    ![Maken van een StorSimple Data Manager-service 3](./media/storsimple-data-manager-ui/create-service-4.png)
+
+Het maken van de service duurt enkele minuten. U ziet een melding nadat de service is gemaakt en de nieuwe service die wordt weergegeven.
 
 ### <a name="create-a-data-transformation-job-definition"></a>Een definitie van de transformatie-taak maken
 
-Binnen een StorSimple Data Manager-service moet u een taakdefinitie voor transformatie van gegevens maken. De taakdefinitie van een geeft de details van de gegevens die u geïnteresseerd bent in het verplaatsen naar een opslagaccount in de oorspronkelijke indeling. 
+Binnen een StorSimple Data Manager-service moet u een taakdefinitie voor transformatie van gegevens maken. De taakdefinitie van een geeft de details van de StorSimple-gegevens die u geïnteresseerd bent in het verplaatsen naar een opslagaccount in de oorspronkelijke indeling. Wanneer u de taakdefinitie van een maakt, vervolgens u kunt deze taak uitvoeren opnieuw met andere runtime-instellingen.
 
-De volgende stappen voor het maken van een nieuwe data transformation taakdefinitie uitvoeren.
+De volgende stappen voor het maken van de taakdefinitie van een uitvoeren.
 
-1.  Navigeer naar de service die u hebt gemaakt. Klik op **+ taak definitie**.
+1. Navigeer naar de service die u hebt gemaakt. Ga naar **Management > taakdefinities**.
 
-    ![Klik op + taakdefinitie](./media/storsimple-data-manager-ui/click-add-job-definition.png)
+2. Klik op **+ taak definitie**.
 
-2. De nieuwe taak definitie blade wordt geopend. Geef een naam op voor de taakdefinitie van de en klik op **bron**. In de **gegevensbron configureren** blade, geef de details van uw StorSimple-apparaat en de gegevens van belang.
+    ![Klik op + taakdefinitie](./media/storsimple-data-manager-ui/create-job-definition-1.png)
 
-    ![Taakdefinitie maken](./media/storsimple-data-manager-ui//create-new-job-deifnition.png)
+3. Geef een naam voor de taakdefinitie. De naam mag tussen de 3 en 63 tekens lang zijn. De naam kunt hoofdletters en kleine letters, cijfers en afbreekstreepjes bevatten.
 
-3. Aangezien dit een nieuwe Data Manager-service, worden geen gegevens opslagplaatsen geconfigureerd. Klik op als u uw StorSimple Manager als een gegevensopslagplaats **nieuwe toevoegen** in de vervolgkeuzelijst opslagplaats voor gegevens en klik op **gegevensopslagplaats toevoegen**.
+4. Geef een locatie waarin de taak wordt uitgevoerd. Deze locatie kan afwijken van de locatie waar de service is geïmplementeerd.
 
-4. Kies **StorSimple 8000-serie Manager** als de opslagplaats te typen van de eigenschappen van en uw **StorSimple Manager**. Voor de **Resource-Id** veld, moet u het nummer voor de **:** in de registratiesleutel van uw StorSimple manager.
+5. Klik op **bron** om op te geven van de data source-opslagplaats.
 
-    ![Gegevensbron maken](./media/storsimple-data-manager-ui/create-new-data-source.png)
+    ![Bron-repo-gegevens configureren](./media/storsimple-data-manager-ui/create-job-definition-2.png)
 
-5.  Klik op **OK** wanneer u klaar bent. Hiermee slaat u de gegevensopslagplaats van uw en deze StorSimple Manager in andere taakdefinities zonder opnieuw invoeren van deze parameters kunnen worden gebruikt. Het duurt enkele seconden nadat u op **OK** voor de StorSimple Manager worden weergegeven in de vervolgkeuzelijst.
+6. Aangezien dit een nieuwe Data Manager-service, worden geen gegevens opslagplaatsen geconfigureerd. In **gegevensbron configureren**, geef de details van uw StorSimple 8000 series apparaat en de gegevens van belang.
 
-6.  In de **gegevensbron configureren** blade, voer de naam van het apparaat en de naam van het volume dat de gegevens van belang.
+   Als u wilt uw StorSimple-apparaat Manager toevoegen als een gegevensopslagplaats, klikt u op **nieuwe toevoegen** in de vervolgkeuzelijst opslagplaats voor gegevens en klik op **gegevensopslagplaats toevoegen**.
 
-7.  In de **Filter** subsectie, voert u de hoofdmap waarin de gegevens van belang (dit veld moet beginnen met een `\`). U kunt ook een bestandsfilters hier toevoegen.
+    ![Toevoegen van nieuwe gegevens opslagplaats](./media/storsimple-data-manager-ui/create-job-definition-3.png)
+  
+    1. Kies **StorSimple 8000-serie Manager** als het gegevenstype van de opslagplaats.
+    
+    2. Voer een beschrijvende naam voor de bron-gegevensopslagplaats.
+    
+    3. Kies een abonnement dat is gekoppeld aan uw StorSimple-apparaat Manager-service in de vervolgkeuzelijst.
+    
+    4. Geef de naam van het StorSimple-Apparaatbeheer voor de **Resource**.
 
-8.  De data transformation service werkt op de gegevens die naar de Azure via momentopnamen van is gepusht. Wanneer deze taak wordt uitgevoerd, kunt u een back-up uitvoeren telkens wanneer deze taak wordt uitgevoerd (om te werken op de meest recente gegevens) of voor het gebruik van de laatste bestaande back-up in de cloud (als u op sommige gearchiveerde gegevens werkt).
+    5. Voer de **Service gegevensversleuteling** sleutel voor de service Manager voor StorSimple-apparaat. 
 
-    ![Nieuwe details van gegevensbron](./media/storsimple-data-manager-ui/new-data-source-details.png)
+    ![Bron gegevens opslagplaats 1 configureren](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-9. Vervolgens moeten de doel-instellingen worden geconfigureerd. Er zijn 2 soorten ondersteunde doelen – Azure Storage-accounts en Azure Media Services-accounts. Kies de storage-accounts, bestanden in BLOB's in het account te plaatsen. Media services-account om bestanden naar activa in het account kiezen. Opnieuw, moet een opslagplaats toevoegen. Selecteer in de vervolgkeuzelijst **nieuwe toevoegen** en vervolgens **configureren**.
+    Klik op **OK** wanneer u klaar bent. Hiermee slaat u de gegevensopslagplaats van uw. Dit apparaat StorSimple Manager in andere taakdefinities hergebruiken zonder deze parameters opnieuw invoeren. Het duurt enkele seconden nadat u op **OK** voor de opslagplaats van de zojuist gemaakte gegevensbron worden weergegeven in de vervolgkeuzelijst.
 
-    ![Gegevens sink maken](./media/storsimple-data-manager-ui/create-new-data-sink.png)
+7. In de vervolgkeuzelijst voor **gegevensopslagplaats**, selecteer de gegevensopslagplaats die u hebt gemaakt. 
 
-10. Hier kunt u het type van de opslagplaats die u wilt toevoegen en de andere parameters die zijn gekoppeld aan de opslagplaats. In beide gevallen wordt een opslagwachtrij gemaakt wanneer de taak wordt uitgevoerd. Deze wachtrij wordt gevuld met berichten over getransformeerde blobs wanneer deze gereed zijn. De naam van deze wachtrij is hetzelfde als de naam van de taakdefinitie. Als u selecteert **Media Services** als het type opslagplaats vervolgens kunt u ook opgeven opslagaccountreferenties waarop de wachtrij is gemaakt.
+    1. Voer de naam van het StorSimple 8000 series apparaat met de gegevens van belang.
 
-    ![Nieuwe gegevens sink-details](./media/storsimple-data-manager-ui/new-data-sink-details.png)
+    2. Geef de naam van het volume op het StorSimple-apparaat dat de gegevens van belang.
 
-11. Na het toevoegen van de gegevensopslagplaats (die duurt een paar seconden) vindt u de opslagplaats in de vervolgkeuzelijst in de **doel-accountnaam**.  Kies de doelmap die u nodig hebt.
+    3. In de **Filter** subsectie, voert u de hoofdmap waarin de gegevens van belang in _\MyRootDirectory\Data_ indeling. Stationsletters zoals _\C:\Data_ worden niet ondersteund. U kunt ook een bestandsfilters hier toevoegen.
 
-12. Klik op **OK** voor het maken van de taakdefinitie. De taakdefinitie van de is nu ingesteld. U kunt deze taakdefinitie meerdere keren via de gebruikersinterface.
+    4. De data transformation service werkt op de gegevens die naar de Azure via momentopnamen van is gepusht. Wanneer u deze taak uitvoert, kunt u een back-up uitvoeren telkens wanneer deze taak wordt uitgevoerd (om te werken op de meest recente gegevens) of gebruik de laatste bestaande back-up in de cloud (als u op sommige gearchiveerde gegevens werkt).
 
-    ![Nieuwe taakdefinitie toevoegen](./media/storsimple-data-manager-ui/add-new-job-definition.png)
+    5. Klik op **OK**.
+
+    ![Bron gegevens opslagplaats 2 configureren](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+
+8. De doel-gegevensopslagplaats moet vervolgens worden geconfigureerd. Kies de storage-accounts, bestanden in BLOB's in het account te plaatsen. Selecteer in de vervolgkeuzelijst **nieuwe toevoegen** en vervolgens **configureren**.
+
+9. Selecteer het type van de doelopslagplaats die u wilt toevoegen en de andere parameters die zijn gekoppeld aan de opslagplaats.
+
+    Als u een doel Storage account selecteert, kunt u een beschrijvende naam abonnement opgeven (Kies gelijk zijn aan die van de service of andere), en een opslagaccount.
+        ![Doel gegevens opslagplaats 1 configureren](./media/storsimple-data-manager-ui/create-job-definition-10.png)
+
+    Storage-wachtrij wordt gemaakt wanneer de taak wordt uitgevoerd. Deze wachtrij wordt gevuld met berichten over getransformeerde blobs wanneer deze gereed zijn. De naam van deze wachtrij is hetzelfde als de naam van de taakdefinitie.
+    
+10. Nadat u de gegevensopslagplaats toegevoegd, wacht u enkele minuten duren.
+    
+    1. Selecteer de opslagplaats die u hebt gemaakt als het doel in de vervolgkeuzelijst in de **doel-accountnaam**.
+
+    2. Kies het opslagtype als blobs of bestanden. Geef de naam van de opslagcontainer waarin de getransformeerde gegevens zich bevindt. Klik op **OK**.
+
+        ![Doel gegevens opslagplaats storage-account configureren](./media/storsimple-data-manager-ui/create-job-definition-16.png)
+
+11. U kunt ook de optie om een schatting van de duur van de taak voordat u de taak controleren. Klik op **OK** voor het maken van de taakdefinitie. De taakdefinitie van de is voltooid. U kunt deze taakdefinitie meerdere keren via de gebruikersinterface gebruiken met andere runtime-instellingen.
+
+    ![Volledige taakdefinitie](./media/storsimple-data-manager-ui/create-job-definition-13.png)
+
+    De zojuist gemaakte taakdefinitie wordt toegevoegd aan de lijst met taakdefinities voor deze service.
 
 ### <a name="run-the-job-definition"></a>De taakdefinitie uitvoeren
 
-Wanneer u verplaatsen van gegevens van StorSimple naar het opslagaccount dat u hebt opgegeven in de taakdefinitie wilt, moet u deze aanroepen. Er is enige flexibiliteit in als u de parameters telkens wanneer u de taak aanroept. De stappen zijn als volgt:
+Wanneer u verplaatsen van gegevens van StorSimple naar het opslagaccount dat u hebt opgegeven in de taakdefinitie wilt, moet u deze uitvoeren. Tijdens runtime, kunnen sommige parameters anders worden opgegeven. De stappen zijn als volgt:
 
-1. Selecteer uw StorSimple Data Manager-service en Ga naar **bewaking**. Klik op **nu uitvoeren**.
+1. Selecteer uw StorSimple Data Manager-service en Ga naar **Management > taakdefinities**. Selecteer en klik op de taakdefinitie die u wilt uitvoeren.
+     
+     ![Taak 1 uitvoeren starten](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-    ![De definitie van de trigger](./media/storsimple-data-manager-ui/run-now.png)
+2. Klik op **nu uitvoeren**.
+     
+     ![Taak 2 uitvoeren starten](./media/storsimple-data-manager-ui/start-job-run2.png)
 
-2. Kies de taakdefinitie die u wilt uitvoeren. Klik op **instellingen uitvoeren** te wijzigen van alle instellingen die u mogelijk wilt wijzigen voor deze taak uitvoeren.
+3. Klik op **instellingen uitvoeren** te wijzigen van alle instellingen die u mogelijk wilt wijzigen voor deze taak uitvoeren. Klik op **OK** en klik vervolgens op **uitvoeren** uw taak starten.
 
-    ![Taakinstellingen uitvoeren](./media/storsimple-data-manager-ui/run-settings.png)
+    ![Taak 3 uitvoeren starten](./media/storsimple-data-manager-ui/start-job-run3.png)
 
-3. Klik op **OK** en klik vervolgens op **uitvoeren** uw taak starten. Voor het bewaken van deze taak gaat u naar de **taken** pagina in uw StorSimple Data Manager.
+4. Voor het bewaken van deze taak gaat u naar **taken** in uw StorSimple Data Manager. Naast het controleren van de **taken** blade, u kunt ook luisteren op de opslagwachtrij waar een bericht telkens wanneer een bestand wordt verplaatst van StorSimple naar het opslagaccount is toegevoegd.
 
-    ![Takenlijst met en status](./media/storsimple-data-manager-ui/jobs-list-and-status.png)
-
-4. Naast het controleren van de **taken** blade, u kunt ook luisteren op de opslagwachtrij waar een bericht telkens wanneer een bestand wordt verplaatst van StorSimple naar het opslagaccount is toegevoegd.
+    ![Starttaak uitgevoerd 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

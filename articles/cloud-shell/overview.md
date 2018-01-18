@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure-Cloud-Shell
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
-Dit biedt u de flexibiliteit van het kiezen van de shell-ervaring die het beste past bij de manier waarop die u werkt.
+Dit biedt de flexibiliteit van het kiezen van de shell-ervaring die het beste past bij de manier waarop die u werkt.
 Linux-gebruikers kunnen voor een Bash-ervaring kiezen en voor Windows-gebruikers is PowerShell beschikbaar.
 
 Probeer van shell.azure.com met deze knop.
@@ -52,8 +52,8 @@ Overzicht van de volledige tooling voor de [Bash ervaring](features.md#tools) en
 
 ### <a name="multiple-access-points"></a>Meerdere toegangspunten
 Cloud-Shell is een flexibele hulpprogramma dat kan worden gebruikt vanuit:
-* [Portal.Azure.com](https://portal.azure.com)
-* [Shell.Azure.com](https://shell.azure.com)
+* [portal.azure.com](https://portal.azure.com)
+* [shell.azure.com](https://shell.azure.com)
 * [Azure CLI 2.0 'Try It'-documentatie](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Uitbreiding van VS Code Azure-Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)

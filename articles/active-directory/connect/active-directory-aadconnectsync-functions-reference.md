@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: functieverwijzing | Microsoft Docs'
 description: Verwijzing van expressies declaratieve inrichting in Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: functieverwijzing
 In Azure AD Connect worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -1242,7 +1242,7 @@ Waarde kan ook worden de functie fout, die een aangepaste tekenreeks geretournee
 Retourneert de taal gesproken in sommige steden, anders wordt een fout geretourneerd.
 
 - - -
-### <a name="trim"></a>Trim
+### <a name="trim"></a>Knippen
 **Beschrijving:**  
 De functie spaties verwijdert voorloopspaties en afsluitende spaties uit een tekenreeks.
 
@@ -1269,7 +1269,7 @@ De functie UCase converteert alle tekens in een tekenreeks naar hoofdletters.
 Retourneert 'TEST'.
 
 - - -
-### <a name="where"></a>waar
+### <a name="where"></a>Waar
 
 **Beschrijving:**  
 Retourneert een subset van de waarden van een met meerdere waarden kenmerk (of dezelfde uitvoer van een expressie) op basis van specifieke voorwaarde.

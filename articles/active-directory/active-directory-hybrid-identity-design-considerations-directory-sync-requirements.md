@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hybride identiteit ontwerpoverwegingen - directory-synchronisatievereisten bepalen | Microsoft Docs
+title: Ontwerp van hybride identiteit - vereisten voor directory-synchronisatie Azure | Microsoft Docs
 description: Identificeren welke vereisten nodig zijn voor het synchroniseren van alle gebruikers tussen on = eigen locatie en cloud voor de onderneming.
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Vereisten voor directory-synchronisatie bepalen
 Synchronisatie is alles over een identiteit in de cloud op basis van hun on-premises identiteits zodat gebruikers beschikken. Of ze gesynchroniseerde account wordt gebruikt voor verificatie of federatieve verificatie, of niet wordt nog steeds de gebruikers moeten een identiteit hebben in de cloud.  Deze identiteit moet worden behouden en regelmatig bijgewerkt.  De updates kunnen vele vormen aannemen, wijzigingen van de titel aan wachtwoord te wijzigen.  

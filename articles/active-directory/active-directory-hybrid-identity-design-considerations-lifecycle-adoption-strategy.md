@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hybride identiteit ontwerpoverwegingen - strategie voor hybride identity lifecycle ingebruikname bepalen | Microsoft Docs
+title: Ontwerp van hybride identiteit - strategie voor ingebruikname lifecycle Azure | Microsoft Docs
 description: "Helpt bij het definiëren van de beheertaken voor hybride identiteit volgens de beschikbare opties voor elke fase van de levenscyclus."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Hybride identity lifecycle acceptatie strategie bepalen
 In deze taak definieert u de strategie voor het beheer van de identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in [beheertaken voor hybride identiteit bepalen](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

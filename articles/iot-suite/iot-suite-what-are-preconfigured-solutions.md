@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Wat is Azure IoT Suite?
 
@@ -62,7 +62,7 @@ De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn to
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Externe bewaking](iot-suite-remote-monitoring-explore.md)  |Ja |Ja |Ja |-   |Ja |Ja |-   |
 | [Predictief onderhoud](iot-suite-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
-| [Verbonden factory](iot-suite-connected-factory-overview.md) |Ja |Ja |Ja |Ja |Ja |Ja |-   |
+| [Verbonden factory](iot-suite-connected-factory-overview.md) |Ja |- |- |Ja |Ja |Ja |-   |
 
 * *Gegevensopname*: instroom van gegevens op de gewenste schaal in de cloud.
 * *Apparaat-id*: beheer unieke apparaat-id's en regel de toegang van apparaten tot de oplossing.
@@ -83,11 +83,11 @@ Wanneer u een vooraf geconfigureerde oplossing implementeert, wordt in het inric
 | IoT Hub              | Ja                |                        | Ja               |
 | Event Hubs           |                    | Ja                    |                   |
 | Time Series Insights |                    |                        | Ja               |
-| Containerservices   | Ja                |                        | Ja               |
+| Containerservices   | Ja                |                        |                   |
 | Stream Analytics     |                    | Ja                    |                   |
 | Web Apps             | Ja                | Ja                    | Ja               |
-| Cosmos DB            | Ja                | Ja                    | Ja               |
-| Azure-tabellen         |                    | Ja                    | Ja               |
+| Cosmos DB            | Ja                | Ja                    |                    |
+| Azure Storage         |                    | Ja                    | Ja               |
 
 > [!NOTE]
 > Zie dit [artikel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) op GitHub voor meer informatie over de resources die zijn geïmplementeerd in de vooraf geconfigureerde oplossing voor externe controle.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Veelgestelde vragen voor verbonden factory IoT Suite vooraf geconfigureerde oplossing
 
@@ -104,20 +104,20 @@ Ook vindt u de verbindingsreeks met de Azure portal. Zoek in de resource IoT-Hub
 
 De simulatie zichzelf registreert de volgende apparaten:
 
-* proxy.Beijing.corp.contoso
+* proxy.beijing.corp.contoso
 * proxy.capetown.corp.contoso
-* proxy.Mumbai.corp.contoso
+* proxy.mumbai.corp.contoso
 * proxy.munich0.corp.contoso
-* proxy.Rio.corp.contoso
-* proxy.Seattle.corp.contoso
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* proxy.rio.corp.contoso
+* proxy.seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
-Met behulp van de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) of [iothub explorer](https://github.com/azure/iothub-explorer) hulpprogramma, u kunt controleren welke apparaten zijn geregistreerd bij de IoT-hub die van uw oplossing gebruikmaakt. Voor het gebruik van deze hulpprogramma's, moet u de verbindingsreeks voor de IoT-hub in uw implementatie.
+Met behulp van de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) of [de IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) hulpprogramma, u kunt controleren welke apparaten zijn geregistreerd bij de IoT-hub die van uw oplossing gebruikmaakt. Om het apparaat explorer gebruikt, moet u de verbindingsreeks voor de IoT-hub in uw implementatie. Voor het gebruik van de IoT-extensie voor Azure CLI 2.0, moet u de naam van uw IoT-Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hoe krijg ik logboekgegevens uit de simulatie-onderdelen
 
@@ -135,20 +135,26 @@ Met de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/maste
 
 Inspecteer de gegevens die worden verzonden door een van de uitgever van apparaten:
 
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
 Als er geen gegevens die worden verzonden naar IoT Hub, is er een probleem met de simulatie. Als eerste analyse stap moet u de logboekbestanden van de onderdelen van de simulatie analyseren. Zie [hoe krijg ik logboekgegevens uit de onderdelen van de simulatie?](#how-can-i-get-log-data-from-the-simulation-components) Probeer vervolgens om te stoppen en starten van de simulatie en als er nog geen gegevens verzonden zijn, werkt de simulatie volledig. Zie [hoe kan ik de simulatie in de virtuele machine bijwerken?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hoe schakel ik een interactieve hyperlinks in mijn verbonden factory-oplossing?
 
-Om een interactieve kaart in uw verbonden factory-oplossing, moet u een bestaande Bing kaarten-API voor Enterprise-abonnement hebben. Als u een Bing kaarten-API voor Enterprise-abonnement hebt wanneer u de verbonden factory-oplossing van www.azureiotsuite.com implementeert, wordt de interactieve kaart automatisch ingeschakeld voor u.
+Om een interactieve kaart in uw verbonden factory-oplossing, moet u een bestaande Bing kaarten-API voor Enterprise-abonnement hebben.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hoe maak ik een Bing kaarten-API voor Enterprise-account?
+Bij het implementeren van [www.azureiotsuite.com](http://www.azureiotsuite.com), het implementatieproces wordt gecontroleerd of uw abonnement een ingeschakelde Bing kaarten-API voor Enterprise-plan heeft en implementeert automatisch een interactieve hyperlinks in verbonden factory. Als dit niet het geval is, kunt u nog steeds inschakelen een interactieve hyperlinks in uw implementatie als volgt:
+
+Wanneer u implementeert met behulp van de `build.ps1` script in de verbonden fabriek GitHub-opslagplaats en u een Bing kaarten-API voor Enterprise-abonnement hebt, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in het venster build voor de querysleutel van uw abonnement. De interactieve kaart wordt automatisch ingeschakeld.
+
+Als u geen Bing kaarten-API voor Enterprise-abonnement hebt, implementeert u de verbonden factory-oplossing van [www.azureiotsuite.com](http://www.azureiotsuite.com) of met behulp van de `build.ps1` script. Bing kaarten-API voor Enterprise-plan vervolgens toevoegen aan uw abonnement zoals toegelicht in [hoe maak ik een Bing kaarten-API voor Enterprise-account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Opzoeken van de querysleutel van dit account, zoals wordt beschreven in [het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) en deze sleutel op te slaan. Navigeer naar de Azure-portal en toegang tot de App Service-bron in uw implementatie verbonden factory. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **appinstellingen**. Stel de **MapApiQueryKey** aan de querysleutel die u hebt verkregen. Sla de instellingen en navigeer vervolgens naar **overzicht** en start de App-Service opnieuw.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hoe maak ik een Bing kaarten-API voor Enterprise-account
 
 U krijgt een gratis *interne transacties niveau 1 Bing-kaarten voor Enterprise* plan. U kunt echter alleen toevoegen twee van deze plannen op een Azure-abonnement. Als u geen Bing kaarten-API voor Enterprise-account hebt, maakt u in de Azure-portal door te klikken op **+ maken van een resource**. Zoek vervolgens naar **Bing kaarten-API voor Enterprise** en volg de aanwijzingen om deze te maken.
 

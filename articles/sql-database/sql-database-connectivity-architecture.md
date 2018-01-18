@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
 
@@ -71,7 +71,7 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 | VS - midden | 23.99.160.139 | 13.67.215.62 |
 | Oost-Azië | 191.234.2.139 | 52.175.33.150 |
 | VS-Oost 1 | 191.238.6.43 | 40.121.158.30 |
-| VS - oost 2 | 191.239.224.107 | 40.79.84.180 |
+| VS - oost 2 | 191.239.224.107 | 40.79.84.180 * |
 | India - midden | 104.211.96.159  | |
 | India - zuid | 104.211.224.146  | |
 | India - west | 104.211.160.80 | |
@@ -92,6 +92,8 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 | VS-West 1 | 23.99.34.75 | 104.42.238.205 |
 | VS - west 2 | 13.66.226.202  | |
 ||||
+
+\***Opmerking:** *VS-Oost 2* heeft ook een tertiaire IP-adres `2.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL Database verbindingsbeleid wijzigen
 

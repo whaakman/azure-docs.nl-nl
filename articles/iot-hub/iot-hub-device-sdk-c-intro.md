@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-apparaat SDK voor C
 
@@ -68,9 +68,9 @@ Nu dat u de voorbeeldcode van de bron hebt, is het volgende wat te doen om op te
 Er zijn verschillende open-source hulpprogramma's voor het beheren van uw IoT-hub.
 
 * Een Windows-toepassing aangeroepen [apparaat explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Een node.js platformoverschrijdende CLI-hulpprogramma aangeroepen [iothub explorer](https://github.com/azure/iothub-explorer).
+* Een platformoverschrijdende CLI van Python-hulpprogramma aangeroepen [de IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Deze zelfstudie wordt gebruikgemaakt van de grafische *apparaat explorer* hulpprogramma. U kunt ook de *iothub explorer* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
+Deze zelfstudie wordt gebruikgemaakt van de grafische *apparaat explorer* hulpprogramma. U kunt ook de *de IoT-extensie voor Azure CLI 2.0* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
 
 Het programma voor apparaat explorer gebruikt de bibliotheken van de service Azure IoT voor diverse functies uitvoeren op IoT Hub, inclusief het toevoegen van apparaten. Als u het apparaat explorer-hulpprogramma gebruiken voor het toevoegen van een apparaat, krijgt u een verbindingsreeks voor uw apparaat. U moet deze verbindingsreeks om uit te voeren van de voorbeeldtoepassingen.
 
@@ -570,7 +570,7 @@ Zie voor meer informatie over het ontwikkelen voor IoT Hub, de [Azure IoT SDK's]
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

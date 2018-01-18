@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: samples
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/13/2017
+ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 4ac9696028b9f24341a630d630b583ac5041cee0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
 
@@ -37,7 +37,7 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze 
 | [VM-extensies toegestaan niet](scripts/not-allowed-vm-ext.md) | Het gebruik van de opgegeven extensies verbiedt. U opgeven een matrix met de extensietypen niet-toegestane. |
 | [Alleen een bepaalde VM platforminstallatiekopie toestaan](scripts/allow-certain-vm-image.md) | Moeten virtuele machines met een specifieke versie van UbuntuServer. |
 | [Virtuele machine maken met beheerde-schijf](scripts/use-managed-disk-vm.md) | Vereist dat virtuele machines gebruikmaken van beheerde schijven.|
-|**Bewaking**||
+|**Monitoring**||
 | [De diagnostische instelling audit](scripts/audit-diag-setting.md) | Audits als diagnostische instellingen niet ingeschakeld voor brontypen die is opgegeven. U een matrix van resourcetypen om te controleren of de diagnostische instellingen zijn ingeschakeld. |
 |**Naam en de tekst conventies**||
 | [Meerdere bestandsnaampatronen toestaan](scripts/allow-multiple-name-patterns.md) | Toestaan dat een groot aantal bestandsnaampatronen moet worden gebruikt voor resources. |
