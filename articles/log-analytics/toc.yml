@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Stroomconnector
           href: log-analytics-flow-tutorial.md
+        - name: API voor zoeken in logboeken
+          href: 'https://dev.loganalytics.io/'
     - name: Verouderde versie van zoeken in logboeken
       items:
         - name: Overzicht van zoekopdrachten in logboeken
@@ -122,6 +124,11 @@
           items:
             - name: Reguliere expressies
               href: log-analytics-log-searches-regex.md
+        - name: API voor zoeken in logboeken
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Gegevens analyseren
       items:
         - name: Dashboards
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Resource Manager-sjablonen
           href: log-analytics-template-workspace-configuration.md
-        - name: API voor zoeken in logboeken
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: Waarschuwings-API
           href: log-analytics-api-alerts.md
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Taalverwijzing
       href: 'https://docs.loganalytics.io/docs/Language-Reference'
