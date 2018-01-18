@@ -233,9 +233,9 @@
               href: azure-stack-supported-os.md
             - name: Een aangepaste VM-installatiekopie toevoegen
               href: azure-stack-add-vm-image.md
-            - name: Schaalsets voor virtuele machines toevoegen
+            - name: Bieden van een virtuele-machineschaalset
               href: azure-stack-compute-add-scalesets.md
-            - name: Virtuele Linux-machines implementeren
+            - name: Aanbieding virtuele Linux-machines
               href: azure-stack-linux.md
         - name: Gebruik en facturering
           items:
