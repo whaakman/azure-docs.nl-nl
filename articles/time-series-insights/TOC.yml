@@ -76,3 +76,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: Ondersteuningsopties
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'

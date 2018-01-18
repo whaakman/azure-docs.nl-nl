@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags: clicktale
-ms.openlocfilehash: 7a707abdb949927e5f3affe208001f245ace51f2
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3912,7 +3912,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/node-sdk-azure-install">De Azure-bibliotheken voor Node.js ophalen</a>
+                                                    <a href="/javascript/azure/node-sdk-azure-get-started">De Azure-bibliotheken voor Node.js ophalen</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/nodejs/azure/">Aan de slag</a>
