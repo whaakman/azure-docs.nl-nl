@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6c18debd022f0f233b52d81899e8edd7cf1e0456
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-In Azure-Stack kunnen operators aangepaste virtuele machine installatiekopieën beschikbaar maken voor gebruikers. Deze installatiekopieën kunnen worden verwezen vanuit de Azure Resource Manager-sjablonen of u ze kunt toevoegen aan de Azure Marketplace-gebruikersinterface als een Marketplace-item. 
+In Azure-Stack kunnen operators aangepaste virtuele machine installatiekopieën beschikbaar maken voor gebruikers. Deze installatiekopieën kunnen worden verwezen vanuit de Azure Resource Manager-sjablonen of u ze kunt toevoegen aan de Azure Marketplace-gebruikersinterface als een Marketplace-item.
 
 ## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Een VM-installatiekopie in Marketplace toevoegen met behulp van PowerShell
 
@@ -35,21 +35,27 @@ Voer de volgende vereisten uitvoeren vanuit de [development kit](azure-stack-con
 2. Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md).  
 
 3. Voorbereiden van een Windows- of Linux-besturingssysteeminstallatiekopie virtuele harde schijf in VHD-indeling (gebruik niet VHDX-indeling).
-   
+
    * Voor Windows-installatiekopieën voor instructies over het voorbereiden van de afbeelding Zie [een virtuele machine van Windows-installatiekopie uploaden naar Azure voor implementaties van Resource Manager](../virtual-machines/windows/upload-generalized-managed.md).
-   * Zie voor Linux-installatiekopieën, [implementeren Linux virtuele machines op Azure-Stack](azure-stack-linux.md). Voltooi de stappen voor het voorbereiden van de afbeelding of gebruiken van een installatiekopie van een bestaande Azure Stack Linux zoals beschreven in het artikel.  
+
+   * Zie voor Linux-installatiekopieën, [implementeren Linux virtuele machines op Azure-Stack](azure-stack-linux.md). Voltooi de stappen voor het voorbereiden van de afbeelding of gebruiken van een installatiekopie van een bestaande Azure Stack Linux zoals beschreven in het artikel.    
+
+   Azure-Stack biedt ondersteuning voor de vaste schijf VHD-indeling. De vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de verschuiving van die schijf X wordt opgeslagen op de X-verschuiving van de blob. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te controleren of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
+
+   > [!IMPORTANT]
+   >  Azure-Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Om dit probleem beperken, verwijdert u de virtuele machine zonder te verwijderen van de VM-schijf, een VHD-blob in een opslagaccount. Het converteren van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
 
 Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u de volgende stappen uitvoeren:
 
 1. Importeer de modules Connect en ComputeAdmin:
-   
+
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
    # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ``` 
+   ```
 
 2. Aanmelden bij uw Azure-Stack-omgeving. Voer een van de volgende scripts, afhankelijk van of u uw Azure-Stack-omgeving hebt geïmplementeerd met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS). (De Azure AD vervangen `tenantName`, `GraphAudience` eindpunt, en `ArmEndpoint` waarden in overeenstemming met de configuratie van uw omgeving.)
 
@@ -61,7 +67,7 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
 
       # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
       $GraphAudience = "<GraphAuidence endpoint for your environment>"
-      
+
       # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
       Add-AzureRMEnvironment `
         -Name "AzureStackAdmin" `
@@ -77,11 +83,11 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
 
       Login-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
+        -TenantId $TenantID
       ```
 
    * **Active Directory Federatieservices**. Gebruik de volgende cmdlet:
-    
+
         ```PowerShell
         # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
         $ArmEndpoint = "<Resource Manager endpoint for your environment>"
@@ -101,15 +107,15 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
 
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackAdmin 
+          -EnvironmentName AzureStackAdmin
 
         Login-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID 
+          -TenantId $TenantID
         ```
-    
+
 3. De VM-installatiekopie toevoegen door het aanroepen van de `Add-AzsVMImage` cmdlet. In de `Add-AzsVMImage` cmdlet, geef `osType` als Windows of Linux. De uitgever, aanbieding, SKU en versie voor de VM-installatiekopie opnemen. Zie voor meer informatie over de toegestane parameters [Parameters](#parameters). De parameters worden gebruikt door Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. Het volgende voorbeeld wordt het script:
-     
+
   ```powershell
   Add-AzsVMImage `
     -publisher "Canonical" `
@@ -129,7 +135,7 @@ De opdracht doet het volgende:
 
 Om te controleren of de opdracht is geslaagd, in de portal, gaat u naar de Marketplace. Controleer of de VM-installatiekopie is beschikbaar in de **virtuele Machines** categorie.
 
-![VM-installatiekopie is toegevoegd](./media/azure-stack-add-vm-image/image5.PNG) 
+![VM-installatiekopie is toegevoegd](./media/azure-stack-add-vm-image/image5.PNG)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Een VM-installatiekopie verwijderen met behulp van PowerShell
 
@@ -147,11 +153,11 @@ Remove-AzsVMImage `
 
 | Parameter | Beschrijving |
 | --- | --- |
-| **uitgever** |Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Neem geen een spatie of andere speciale tekens in dit veld. |
-| **aanbieding** |De aanbieding naam segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Windows Server**. Neem geen een spatie of andere speciale tekens in dit veld. |
-| **SKU** |De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Datacenter2016**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **publisher** |Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **offer** |De aanbieding naam segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Windows Server**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **sku** |De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Datacenter2016**. Neem geen een spatie of andere speciale tekens in dit veld. |
 | **Versie** |De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Deze versie is in de notatie  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Neem geen een spatie of andere speciale tekens in dit veld. |
-| **besturingssysteemtype** |Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**. |
+| **osType** |Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**. |
 | **osDiskLocalPath** |Het lokale pad naar de schijf met het besturingssysteem VHD die u als een VM-installatiekopie naar Azure-Stack uploaden wilt. |
 | **dataDiskLocalPaths** |Een optionele matrix van de lokale paden voor gegevensschijven dat als onderdeel van de VM-installatiekopie kunnen worden geüpload. |
 | **CreateGalleryItem** |Een Booleaanse vlag waarmee wordt bepaald of het maken van een item in de Marketplace. Standaard is ingesteld op **true**. |
@@ -170,8 +176,13 @@ Installatiekopieën moet kunnen worden verwezen door een Blob storage-URI. De in
 
 1. [Een virtuele machine van Windows-installatiekopie uploaden naar Azure voor implementaties van Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) of voor een Linux-installatiekopie, volgt u de instructies die worden beschreven [implementeren Linux virtuele machines op Azure-Stack](azure-stack-linux.md). Voordat u de installatiekopie uploadt, is het belangrijk in de volgende factoren:
 
-   * Het is efficiënter een installatiekopie uploaden naar Azure Stack Blob-opslag dan naar Azure Blob-opslag omdat kost het minder tijd om de installatiekopie naar de Stack van Azure-opslagplaats voor installatiekopieën. 
-   
+   * Azure-Stack biedt ondersteuning voor de vaste schijf VHD-indeling. De vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de verschuiving van die schijf X wordt opgeslagen op de X-verschuiving van de blob. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te controleren of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
+
+    > [!IMPORTANT]
+   >  Azure-Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Om dit probleem beperken, verwijdert u de virtuele machine zonder te verwijderen van de VM-schijf, een VHD-blob in een opslagaccount. Het converteren van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
+
+   * Het is efficiënter een installatiekopie uploaden naar Azure Stack Blob-opslag dan naar Azure Blob-opslag omdat kost het minder tijd om de installatiekopie naar de Stack van Azure-opslagplaats voor installatiekopieën.
+
    * Wanneer u uploadt de [Windows VM-installatiekopie](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), Vervang door de **aanmelden bij Azure** stap met het [configureren van de Azure-Stack-operator PowerShell-omgeving](azure-stack-powershell-configure-admin.md) stap.  
 
    * Noteer de URI waar u de installatiekopie van het uploaden van Blob-opslag. De Blob storage-URI heeft de volgende indeling:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
@@ -185,7 +196,7 @@ Installatiekopieën moet kunnen worden verwezen door een Blob storage-URI. De in
 2. Aanmelden bij Azure Stack als operator. Selecteer in het menu **meer services** > **Resourceproviders**. Selecteer **Compute** > **VM-installatiekopieën** > **toevoegen**.
 
 3. Onder **een VM-installatiekopie toe te voegen**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in de Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **besturingssysteemtype** correct waarde. Voor **OS schijf Blob-URI**, voer de Blob-URI waar de installatiekopie is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
-   
+
    ![Begin met het maken van de installatiekopie](./media/azure-stack-add-vm-image/image4.png)
 
    Wanneer de installatiekopie is gemaakt, verandert de status van de installatiekopie van virtuele machine in **geslaagd**.
