@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met BI analytics hulpprogramma van het ODBC-stuurprogramma
 
@@ -38,9 +38,11 @@ Nu kunt aan de slag met het ODBC-stuurprogramma.
 
 1. Download de stuurprogramma's voor uw omgeving:
 
-    * [Microsoft Azure DB Cosmos ODBC-64-bit.msi](https://aka.ms/documentdb-odbc-64x64) voor 64-bits Windows
-    * [Microsoft Azure DB Cosmos ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) voor 32-bits op 64-bits Windows
-    * [Microsoft Azure DB Cosmos ODBC 32 bit.msi](https://aka.ms/documentdb-odbc-32x32) voor 32-bits Windows
+    | Installatieprogramma | Ondersteunde besturingssystemen| 
+    |---|---| 
+    |[Microsoft Azure DB Cosmos ODBC-64-bit.msi](https://aka.ms/documentdb-odbc-64x64) voor 64-bits Windows| 64-bits versies van Windows 8.1 of hoger, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 en Windows Server 2008 R2.| 
+    |[Microsoft Azure DB Cosmos ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) voor 32-bits op 64-bits Windows| 64-bits versies van Windows 8.1 of hoger, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 en Windows Server 2003.| 
+    |[Microsoft Azure DB Cosmos ODBC 32 bit.msi](https://aka.ms/documentdb-odbc-32x32) voor 32-bits Windows|32-bits versies van Windows 8.1 of hoger, Windows 8, Windows 7, Windows XP en Windows Vista.|
 
     Voer het msi-bestand lokaal op te starten de **Azure Cosmos DB ODBC-stuurprogramma Wizard installatie van Microsoft**. 
 2. Voltooi de wizard installeren met behulp van de invoer voor het installeren van het ODBC-stuurprogramma.
@@ -58,16 +60,16 @@ Nu kunt aan de slag met het ODBC-stuurprogramma.
     ![Azure Cosmos DB ODBC-stuurprogramma DSN instellingen venster](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Naam van de gegevensbron**: uw eigen beschrijvende naam voor de ODBC-DSN. Deze naam uniek is voor uw Azure DB die Cosmos-account, dus op de juiste wijze name als u meerdere accounts hebt.
     - **Beschrijving**: een korte beschrijving van de gegevensbron.
-    - **Host**: URI voor uw Azure DB die Cosmos-account. U kunt dit ophalen uit de blade Azure Cosmos DB sleutels in de Azure portal, zoals wordt weergegeven in de volgende schermafbeelding. 
-    - **Toegangstoets**: de primaire of secundaire, alleen-lezen of alleen-lezen-sleutel op de blade Azure Cosmos DB sleutels in de Azure portal, zoals weergegeven in de volgende schermafbeelding. Het is raadzaam om dat de sleutel alleen-lezen als u de DSN-naam wordt gebruikt voor alleen-lezen gegevensverwerking en rapportage.
-    ![Blade van Azure Cosmos DB sleutels](./media/odbc-driver/odbc-driver-keys.png)
+    - **Host**: URI voor uw Azure DB die Cosmos-account. U kunt dit ophalen via de pagina Azure Cosmos DB sleutels in de Azure-portal, zoals wordt weergegeven in de volgende schermafbeelding. 
+    - **Toegangstoets**: de primaire of secundaire, alleen-lezen of alleen-lezen-sleutel van de sleutels van Azure Cosmos DB pagina in de Azure portal, zoals wordt weergegeven in de volgende schermafbeelding. Het is raadzaam om dat de sleutel alleen-lezen als u de DSN-naam wordt gebruikt voor alleen-lezen gegevensverwerking en rapportage.
+    ![Azure DB-sleutels Cosmos-pagina](./media/odbc-driver/odbc-driver-keys.png)
     - **Versleutelen van de toegangssleutel voor**: Selecteer de beste keuze op basis van de gebruikers van deze machine. 
 4. Klik op de **Test** knop om te controleren of u kunt verbinding maken met uw Azure DB die Cosmos-account. 
 5. Klik op **geavanceerde opties** en stel de volgende waarden:
     - **Query uitvoeren op consistentie**: Selecteer de [consistentieniveau](consistency-levels.md) voor uw doeleinden. De standaardwaarde is de sessie.
     - **Aantal nieuwe pogingen**: Voer het aantal keer opnieuw proberen aan een als de eerste aanvraag niet wordt voltooid vanwege een beperking van de service.
     - **Schemabestand**: U hebt een aantal opties hier.
-        - Het stuurprogramma scant standaard als u deze vermelding (leeg) is de eerste paginagegevens voor alle verzamelingen om te bepalen van het schema van elke verzameling. Dit staat bekend als de toewijzing van de verzameling. Zonder een schemabestand dat is gedefinieerd, wordt het stuurprogramma heeft de scan uitvoeren voor elke sessie stuurprogramma en kan leiden tot een hogere opstarttijd van een toepassing met de DSN-naam. Het is raadzaam dat u altijd een schemabestand voor een DSN koppelen.
+        - Het stuurprogramma scant standaard als u deze vermelding (leeg) is de eerste paginagegevens voor alle verzamelingen om te bepalen van het schema van elke verzameling. Dit staat bekend als de toewijzing van de verzameling. Zonder een schemabestand dat is gedefinieerd, wordt het stuurprogramma heeft de scan uitvoeren voor elke sessie stuurprogramma en kan leiden tot een hogere opstarten van een toepassing met behulp van de DSN-naam. Het is raadzaam dat u altijd een schemabestand voor een DSN koppelen.
         - Als u al een schemabestand (mogelijk één die u hebt gemaakt met de [Schema-Editor](#schema-editor)), klikt u op **Bladeren**, gaat u naar het bestand, klik op **opslaan**, en klik vervolgens op **OK**.
         - Als u een nieuw schema maken wilt, klikt u op **OK**, en klik vervolgens op **Schema-Editor** in het hoofdvenster. Gaat u verder met de [Schema-Editor](#schema-editor) informatie. Bij het maken van het nieuwe schemabestand, houd er rekening mee wilt teruggaan naar de **geavanceerde opties** venster de zojuist gemaakte schemabestand opnemen.
 
@@ -148,4 +150,4 @@ Als u de volgende fout ontvangt, controleert de **Host** en **toegangssleutel** 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure Cosmos DB, [wat is Azure Cosmos DB?](introduction.md).
+Zie voor meer informatie over Azure Cosmos DB, [Welkom bij Azure Cosmos DB](introduction.md).

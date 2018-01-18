@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
@@ -57,7 +57,12 @@ De stappen op hoog niveau worden in de volgende tabel beschreven. Meer details z
 | 2   | **Een opslagcontainer maken**   | Azure Portal       | Storage-containers worden gebruikt voor het opslaan van de taakdefinitie van de waar ze toegankelijk zijn voor uw IoT-apparaten. <br>  U kunt een bestaande opslagcontainer hergebruiken.     |
 | 3   | **Uw omgeving zijde van IoT op uw apparaten instellen**   | Appara(a)t(en)      | Instructies voor het [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **ASA implementeren op de rand van de IoT-apparaten**   | Azure Portal      |  De taakdefinitie ASA wordt geëxporteerd naar de storage-container die eerder hebt gemaakt.       |
-U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) voor het implementeren van uw eerste baan ASA op IoT rand.
+U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) voor het implementeren van uw eerste baan ASA op IoT rand. Aan de hand van de volgende video moet u inzicht in het proces is een Stream Analytics-taak uitgevoerd op een apparaat van de rand IoT:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Een Edge ASA-taak maken
 1. Maak een nieuwe 'Stream Analytics-taak' vanuit de Azure-portal. [Directe koppeling te maken van een nieuwe ASA-taak hier](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).

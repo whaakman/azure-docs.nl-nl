@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van de activiteit opgeslagen Procedure van SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,10 +74,10 @@ De volgende tabel beschrijft deze JSON-eigenschappen:
 | ------------------------- | ---------------------------------------- | -------- |
 | naam                      | Naam van de activiteit                     | Ja      |
 | description               | Beschrijving van wat de activiteit wordt gebruikt | Nee       |
-| type                      | Voor de activiteit opgeslagen Procedure wordt het activiteitstype SqlServerStoredProcedure | Ja      |
-| linkedServiceName         | Verwijzing naar de Azure SQL Database- of Azure SQL Data Warehouse- of SQL Server is geregistreerd als een gekoppelde service in de Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| storedProcedureName       | Geef de naam van de opgeslagen procedure in de Azure SQL database of Azure SQL Data Warehouse of SQL Server-database die wordt vertegenwoordigd door de gekoppelde service die gebruikmaakt van de uitvoertabel. | Ja      |
-| storedProcedureParameters | Geef waarden op voor parameters van opgeslagen procedure. Gebruik `"param1": { "value": "param1Value","type":"param1Type" }` voor parameter doorgeven waarden en het type waardoor ze systeemeigen worden ondersteund door de gegevensbron. Als u null zijn voor een parameter doorgeven moet, gebruikt u *"param1": {'' waarde '': null}* (alle kleine letter). | Nee       |
+| type                      | Voor de activiteit opgeslagen Procedure, het activiteitstype is **SqlServerStoredProcedure** | Ja      |
+| linkedServiceName         | Verwijzing naar de **Azure SQL Database** of **Azure SQL Data Warehouse** of **SQL Server** geregistreerd als een gekoppelde service in de Data Factory. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
+| storedProcedureName       | Geef de naam van de opgeslagen procedure aan te roepen. | Ja      |
+| storedProcedureParameters | Geef de waarden voor parameters van opgeslagen procedure. Gebruik `"param1": { "value": "param1Value","type":"param1Type" }` doorgeven parameterwaarden en hun type dat wordt ondersteund door de gegevensbron. Als u null zijn voor een parameter doorgeven moet, gebruikt u `"param1": { "value": null }` (alle kleine letter). | Nee       |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen waarin wordt uitgelegd hoe voor het transformeren van gegevens op andere manieren: 

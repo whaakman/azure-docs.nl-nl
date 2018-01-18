@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Het oplossen van problemen tijdens de synchronisatie |
 description: Legt uit hoe u fouten aangetroffen tijdens de synchronisatie met Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Het oplossen van problemen tijdens de synchronisatie
 Er kunnen optreden wanneer identiteitsgegevens van Windows Server Active Directory (AD DS) is gesynchroniseerd met Azure Active Directory (Azure AD). Dit artikel bevat een overzicht van de verschillende soorten synchronisatiefouten enkele van de mogelijke scenario's die ervoor zorgen dat deze fouten en mogelijke manieren de fouten te herstellen. Dit artikel bevat de algemene fouttypen en kan geen betrekking op alle mogelijke fouten.
@@ -51,7 +51,7 @@ Azure Active Directory-schema is niet toegestaan voor twee of meer objecten hebb
 * ProxyAddresses
 * UserPrincipalName
 * onPremisesSecurityIdentifier
-* object-id
+* ObjectId
 
 > [!NOTE]
 > [Azure AD-kenmerk dubbel kenmerk tolerantie](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) functie wordt ook worden geïnstalleerd als het standaardgedrag van Azure Active Directory.  Zo beperkt u het aantal synchronisatiefouten gezien door Azure AD Connect (evenals andere clients sync) door Azure AD meer flexibiliteit in de wijze die gedupliceerde ProxyAddresses UserPrincipalName kenmerken en aanwezig is in op de lokale AD-omgevingen worden verwerkt. Deze functie biedt de duplicatie fouten niet worden hersteld. De gegevens moeten dus nog steeds worden hersteld. Maar kunt inrichten van nieuwe objecten die anders is geblokkeerd vanwege dubbele waarden wordt ingericht in Azure AD. Zo ook beperkt u het aantal synchronisatiefouten geretourneerd naar de synchronisatie-client.
@@ -103,7 +103,7 @@ Houd er rekening mee dat synchronisatie foutenrapport in Azure AD Connect Health
 >
 >
 
-#### <a name="related-articles"></a>Verwante artikelen
+#### <a name="related-articles"></a>Gerelateerde artikelen
 * [Dubbel of ongeldige kenmerken te voorkomen dat directory-synchronisatie in Office 365](https://support.microsoft.com/en-us/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
@@ -148,7 +148,7 @@ Als Azure AD Connect probeert om een nieuw object toevoegen of bijwerken van een
    * **smtp:bob@contoso.com**
 4. Een nieuwe gebruiker **Bob Taylor**, wordt toegevoegd aan de on-premises Active Directory.
 5. Bob Taylor van **UserPrincipalName** is ingesteld als  **bobt@contoso.com** .
-6. **Bob Taylor** heeft de volgende waarden voor de **ProxyAddresses** kenmerk i. smtp:bobt@contoso.comII. smtp:bob.taylor@contoso.com
+6. **Bob Taylor** heeft de volgende waarden voor de **ProxyAddresses** kenmerk i. smtp:bobt@contoso.com ii. smtp:bob.taylor@contoso.com
 7. Bob Taylor van object wordt gesynchroniseerd met Azure AD is.
 8. Beheerder besloten om bij te werken van Bob Taylor **ProxyAddresses** kenmerk met de volgende waarde: ik. **smtp:bob@contoso.com**
 9. Azure AD probeert te Bob Taylor van object bijwerken in Azure AD met de bovenstaande waarde, maar die bewerking mislukken als dat ProxyAddresses waarde al aan Bob Smith toegewezen is, wat resulteert in 'AttributeValueMustBeUnique'-fout.
@@ -161,7 +161,7 @@ De meest voorkomende reden voor de fout AttributeValueMustBeUnique is twee objec
 3. Verwijder de dubbele waarde uit het object dat de waarde niet hebben. Houd er rekening mee dat moet u de wijziging in de map waar het object afkomstig is uit. In sommige gevallen moet u mogelijk een van de objecten in conflict verwijderen.
 4. Als u de wijziging hebt aangebracht in de on-premises AD, kunt u Azure AD Connect synchroniseren van de wijziging voor de fout naar ' vast ' ophalen.
 
-#### <a name="related-articles"></a>Verwante artikelen
+#### <a name="related-articles"></a>Gerelateerde artikelen
 -[Dubbel of ongeldige kenmerken te voorkomen dat directory-synchronisatie in Office 365](https://support.microsoft.com/en-us/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Mislukte gegevensvalidatie
@@ -176,7 +176,7 @@ b. Het kenmerk UserPrincipalName voldoet niet aan de vereiste indeling.
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>Het IdentityDataValidationFailed fout oplossen
 a. Zorg ervoor dat het kenmerk userPrincipalName tekens en de vereiste indeling heeft ondersteund.
 
-#### <a name="related-articles"></a>Verwante artikelen
+#### <a name="related-articles"></a>Gerelateerde artikelen
 * [Voorbereiden voor het inrichten van gebruikers door directorysynchronisatie op Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
@@ -198,7 +198,7 @@ Als een gebruiker UserPrincipalName achtervoegsel is bijgewerkt van bob @**conto
 1. Bijwerken van de gebruiker UserPrincipalName in Azure AD van bob@contoso.com naar bob@contoso.onmicrosoft.com. Met de Azure AD PowerShell-Module kunt u de volgende PowerShell-opdracht:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Toestaan dat de volgende synchronisatiecyclus om synchronisatie. Deze tijdsynchronisatie kan worden geverifieerd en de UserPrincipalName van Bob om te worden bijgewerkt bob@fabrikam.com zoals verwacht.
 
-#### <a name="related-articles"></a>Verwante artikelen
+#### <a name="related-articles"></a>Gerelateerde artikelen
 * [Wijzigingen zijn niet gesynchroniseerd door de Azure Active Directory-synchronisatie nadat u de UPN van een gebruikersaccount voor het gebruik van een ander federatieve domein wijzigen](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject

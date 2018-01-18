@@ -3,7 +3,7 @@ title: Domein-HDInsight-clusters - Azure beheren | Microsoft Docs
 description: Informatie over het beheren van domein HDInsight-clusters
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Domein-HDInsight-clusters beheren
 Informatie over de gebruikers en de rollen in HDInsight domein en het domein van de HDInsight-clusters beheren.
@@ -81,9 +81,8 @@ Gebruik de volledig gekwalificeerde domeinnaam van een headnode vindt de informa
 Een HDInsight-cluster is niet domein heeft twee gebruikersaccounts die zijn gemaakt tijdens het maken van het cluster:
 
 * **Ambari admin**: dit account wordt ook wel *Hadoop gebruiker* of *HTTP gebruiker*. Dit account kan worden gebruikt voor aanmelding bij Ambari op https://&lt;clustername >. azurehdinsight.net. Het kan ook worden gebruikt voor query's uitvoeren op de Ambari-weergaven, taken via externe hulpprogramma's (bijvoorbeeld PowerShell, Templeton, Visual Studio) uitvoeren en verifiëren met de Hive ODBC-stuurprogramma en de BI-tools (bijvoorbeeld, Excel, Power BI of Tableau).
-* **SSH-gebruiker**: dit account kan worden gebruikt met SSH en sudo-opdrachten uit te voeren. Deze heeft bevoegdheden van de hoofdmap voor de virtuele Linux-machines.
 
-Een domein HDInsight-cluster heeft drie nieuwe gebruikers naast Ambari Admin en SSH-gebruiker.
+Een domein HDInsight-cluster heeft drie nieuwe gebruikers naast Ambari Admin.
 
 * **Zwerver admin**: dit account is het lokale beheerdersaccount van Apache Zwerver. Het is niet een gebruiker met active directory-domein. Dit account kan worden gebruikt beleidsregels instellen en zorgen dat andere gebruikers, beheerders of gedelegeerde beheerders (zodat die gebruikers u beleid beheren kunnen). De gebruikersnaam is standaard *admin* en het wachtwoord is hetzelfde als de Ambari Administrator-wachtwoord. Het wachtwoord kan worden bijgewerkt via de pagina instellingen in Zwerver.
 * **Gebruiker met beheerdersrechten domein cluster**: dit account is een active directory-domeingebruiker aangewezen als de Hadoop-cluster beheerder zoals Ambari en Zwerver. Tijdens het maken van het cluster moet u de referenties van deze gebruiker opgeven. Deze gebruiker heeft de volgende bevoegdheden:
@@ -162,4 +161,3 @@ HDInsight domein hebben de volgende rollen:
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
 * Zie [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Hive-beleid configureren voor aan een domein gekoppelde HDInsight-clusters) om Hive-beleid te configureren en Hive-query's uit te voeren.
-* Zie voor het uitvoeren van Hive-query's met SSH op domein HDInsight-clusters [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: een configuratiewijziging in Azure AD C
 description: Leert u hoe u een wijziging aanbrengt in de configuratie in Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: hoe een wijziging aanbrengt in de standaardconfiguratie
 Het doel van dit onderwerp is om te zien hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure AD Connect-synchronisatie. Het bevat stappen voor enkele algemene scenario's. Met deze kennis moet u enkele eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -183,7 +183,7 @@ De regio's in Office 365 zijn:
 | APC | Azië en Stille Oceaan |
 | JPN | Japan |
 | AUS | Australië |
-| KAN | Canada |
+| CAN | Canada |
 | GBR | Groot-Brittannië |
 | LAM | Latijns-Amerika |
 
@@ -272,8 +272,8 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
     | Naam | *Geef een naam* | Bijvoorbeeld: *' In uit Active Directory-gebruiker PreferredDataLocation '* |
     | Beschrijving | *Geef een aangepaste beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
-    | Verbonden systeem objecttype | **Gebruiker** |  |
-    | Metaverse-objecttype | **Persoon** |  |
+    | Verbonden systeem objecttype | **User** |  |
+    | Metaverse-objecttype | **Person** |  |
     | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -282,7 +282,7 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    |Rechtstreeks | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
+    |Direct | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** om de binnenkomende regel te maken.
 
@@ -302,7 +302,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
     | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
     | Verbonden systeem objecttype | Gebruiker ||
-    | Metaverse-objecttype | **Persoon** ||
+    | Metaverse-objecttype | **Person** ||
     | Koppelingstype | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -310,7 +310,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
+    | sourceObjectType | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
     Bereik filter bepaalt welke deze uitgaande synchronisatieregel wordt toegepast op Azure AD-objecten. In dit voorbeeld gebruiken we het filter voor hetzelfde bereik uit 'Out naar AD-gebruikers-id' OOB-synchronisatieregel. Dit voorkomt dat de synchronisatieregel wordt toegepast op gebruikers-objecten die niet zijn gesynchroniseerd vanuit de lokale Active Directory. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
@@ -319,7 +319,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | PreferredDataLocation | PreferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | PreferredDataLocation | PreferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
 
 7. Sluit **toevoegen** de uitgaande regel maken.
 
@@ -467,8 +467,8 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
     | Naam | *Geef een naam* | Bijvoorbeeld: *' In uit Active Directory-gebruiker UserType '* |
     | Beschrijving | *Geef een beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
-    | Verbonden systeem objecttype | **Gebruiker** |  |
-    | Metaverse-objecttype | **Persoon** |  |
+    | Verbonden systeem objecttype | **User** |  |
+    | Metaverse-objecttype | **Person** |  |
     | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -484,13 +484,13 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | UserType | extensionAttribute1 | Dit selectievakje is uitgeschakeld | Update |
 
     Een ander voorbeeld: wilt u de waarde voor UserType-kenmerk worden afgeleid van andere eigenschappen. U wilt bijvoorbeeld alle gebruikers gesynchroniseerd als Gast als hun on-premises AD UserPrincipalName kenmerk eindigt op domeingedeelte '@partners.fabrikam123.org'. U kunt een expressie implementeren:
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName])'@partners.fabrikam123.org')=0) 'Lid', 'Gast'), fout ('UserPrincipalName is niet aanwezig zijn om te bepalen UserType')) | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName])'@partners.fabrikam123.org')=0) 'Lid', 'Gast'), fout ('UserPrincipalName is niet aanwezig zijn om te bepalen UserType')) | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** om de binnenkomende regel te maken.
 
@@ -510,7 +510,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
     | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
     | Verbonden systeem objecttype | Gebruiker ||
-    | Metaverse-objecttype | **Persoon** ||
+    | Metaverse-objecttype | **Person** ||
     | Koppelingstype | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. YDo niet een waarde die wordt gebruikt door andere synchronisatieregels opgenomen. |
 
@@ -518,7 +518,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
+    | sourceObjectType | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
     Bereik filter bepaalt welke deze uitgaande synchronisatieregel wordt toegepast op Azure AD-objecten. In dit voorbeeld gebruiken we het filter voor hetzelfde bereik uit 'Out naar AD-gebruikers-id' OOB-synchronisatieregel. Dit voorkomt dat de synchronisatieregel wordt toegepast op gebruikers-objecten die niet zijn gesynchroniseerd vanuit de lokale Active Directory. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
@@ -527,7 +527,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Rechtstreeks | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
+    | Direct | UserType | UserType | Dit selectievakje is uitgeschakeld | Update |
 
 7. Sluit **toevoegen** de uitgaande regel maken.
 

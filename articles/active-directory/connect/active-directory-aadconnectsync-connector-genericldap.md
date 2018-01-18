@@ -3,7 +3,7 @@ title: Algemene LDAP-Connector | Microsoft Docs
 description: In dit artikel wordt beschreven hoe algemene LDAP-Connector van Microsoft te configureren.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e2b7d23162673f0c66b1fd6c654336da42b8f6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Algemene LDAP-Connector, technische naslaginformatie
 Dit artikel worden de algemene LDAP-Connector. Het artikel is van toepassing op de volgende producten:
@@ -41,7 +41,7 @@ Vanuit een perspectief op hoog niveau, worden de volgende functies worden onders
 
 | Functie | Ondersteuning |
 | --- | --- |
-| Gekoppelde gegevensbron |De Connector wordt aan alle LDAP v3-servers (compatibel met RFC 4510) ondersteund. Het is getest met de volgende opties: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory globale catalogus (GC AD)</li><li>389 directory-Server</li><li>Apache Directory-Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open Active Directory</li><li>Open LDAP (openldap.org)</li><li>Oracle (eerder Sun) Directory Server Enterprise Edition</li><li>Server van de virtuele map RadiantOne (VDS)</li><li>Een Sun directoryserver</li>**Opmerkelijke mappen wordt niet ondersteund:** <li>Microsoft Active Directory Domain Services (AD DS) [gebruik in plaats daarvan de ingebouwde Active Directory-Connector]</li><li>Oracle Internet Directory (OID)</li> |
+| Gekoppelde gegevensbron |De Connector wordt aan alle LDAP v3-servers (compatibel met RFC 4510) ondersteund. Het is getest met de volgende opties: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (eerder Sun) Directory Server Enterprise Edition</li><li>Server van de virtuele map RadiantOne (VDS)</li><li>Een Sun directoryserver</li>**Opmerkelijke mappen wordt niet ondersteund:** <li>Microsoft Active Directory Domain Services (AD DS) [gebruik in plaats daarvan de ingebouwde Active Directory-Connector]</li><li>Oracle Internet Directory (OID)</li> |
 | Scenario's |<li>Object levenscyclusbeheer</li><li>Beheer van groepen</li><li>Wachtwoordbeheer</li> |
 | Bewerkingen |De volgende bewerkingen worden ondersteund op alle LDAP-mappen: <li>Volledige Import</li><li>Exporteren</li>De volgende bewerkingen worden alleen ondersteund op de opgegeven mappen:<li>Delta-import</li><li>Wachtwoord instellen, wachtwoord wijzigen</li> |
 | Schema |<li>Schema is gedetecteerd door de LDAP-schema (RFC3673 en RFC4512/4.2)</li><li>Ondersteunt structurele klassen, aux klassen en klasse extensibleObject-object (RFC4512/4.3)</li> |
@@ -52,13 +52,13 @@ Mappen voor de Delta-import en een wachtwoordbeheer ondersteund:
 * Microsoft Active Directory Lightweight Directory Services (AD LDS)
   * Biedt ondersteuning voor alle bewerkingen voor de delta-import
   * Ondersteunt het instellen van wachtwoord
-* Microsoft Active Directory globale catalogus (GC AD)
+* Microsoft Active Directory Global Catalog (AD GC)
   * Biedt ondersteuning voor alle bewerkingen voor de delta-import
   * Ondersteunt het instellen van wachtwoord
-* 389 directory-Server
+* 389 Directory Server
   * Biedt ondersteuning voor alle bewerkingen voor de delta-import
   * Ondersteunt het instellen en wijzigen-wachtwoord
-* Apache Directory-Server
+* Apache Directory Server
   * Biedt geen ondersteuning voor delta-import omdat deze map beschikt niet over een permanente wijzigingenlogboek
   * Ondersteunt het instellen van wachtwoord
 * IBM Tivoli DS
@@ -74,7 +74,7 @@ Mappen voor de Delta-import en een wachtwoordbeheer ondersteund:
 * Open DJ
   * Biedt ondersteuning voor alle bewerkingen voor de delta-import
   * Ondersteunt het instellen en wijzigen-wachtwoord
-* Open Active Directory
+* Open DS
   * Biedt ondersteuning voor alle bewerkingen voor de delta-import
   * Ondersteunt het instellen en wijzigen-wachtwoord
 * Open LDAP (openldap.org)
@@ -123,12 +123,12 @@ Als de map meer objecten heeft dan wat in één aanroep naar de map past, klikt 
 `1.2.840.113556.1.4.319`pagedResultsControl
 
 **Optie 2:**  
-`2.16.840.1.113730.3.4.9`VLVControl  
-`1.2.840.113556.1.4.473`SortControl
+`2.16.840.1.113730.3.4.9` VLVControl  
+`1.2.840.113556.1.4.473` SortControl
 
 Als beide opties zijn ingeschakeld in de configuratie van de connector, wordt pagedResultsControl gebruikt.
 
-`1.2.840.113556.1.4.417`ShowDeletedControl
+`1.2.840.113556.1.4.417` ShowDeletedControl
 
 ShowDeletedControl wordt alleen gebruikt met de methode USNChanged delta-import voor verwijderde objecten zien.
 
@@ -139,7 +139,7 @@ Delta-import is alleen beschikbaar wanneer u een map ondersteuning is gedetectee
 
 * LDAP-Accesslog. Zie [http://www.openldap.org/doc/admin24/overlays.html#Access logboekregistratie](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 * LDAP-Changelog. Zie [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-* Tijdstempel. De Connector gebruikt voor Novell/NetIQ eDirectory, datum/tijd van laatste ophalen gemaakt en objecten bijgewerkt. Novell/NetIQ eDirectory biedt geen een gelijkwaardige betekent dat voor het ophalen van verwijderde objecten. Deze optie kan ook worden gebruikt als geen andere delta-import-methode op de LDAP-server actief is. Deze optie kan niet naar objecten importeren die zijn verwijderd.
+* TimeStamp. De Connector gebruikt voor Novell/NetIQ eDirectory, datum/tijd van laatste ophalen gemaakt en objecten bijgewerkt. Novell/NetIQ eDirectory biedt geen een gelijkwaardige betekent dat voor het ophalen van verwijderde objecten. Deze optie kan ook worden gebruikt als geen andere delta-import-methode op de LDAP-server actief is. Deze optie kan niet naar objecten importeren die zijn verwijderd.
 * USNChanged. Zie: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>Niet ondersteund
@@ -195,12 +195,12 @@ Hier volgt een lijst met standaard wijzigingenlogboek DNs:
 
 | Directory | Delta-wijzigingenlogboek |
 | --- | --- |
-| Microsoft AD LDS en AD GC |Automatisch gedetecteerd. USNChanged. |
-| Apache Directory-Server |Niet beschikbaar. |
+| Microsoft AD LDS and AD GC |Automatisch gedetecteerd. USNChanged. |
+| Apache Directory Server |Niet beschikbaar. |
 | Directory 389 |Logboek wijzigen. De standaardwaarde moet worden gebruikt: **cn = changelog** |
 | IBM Tivoli DS |Logboek wijzigen. De standaardwaarde moet worden gebruikt: **cn = changelog** |
 | Isode Directory |Logboek wijzigen. De standaardwaarde moet worden gebruikt: **cn = changelog** |
-| Novell/NetIQ eDirectory |Niet beschikbaar. Tijdstempel. De Connector gebruikt datum/tijd om op te halen voor het laatst bijgewerkt toegevoegd en records bijgewerkt. |
+| Novell/NetIQ eDirectory |Niet beschikbaar. TimeStamp. De Connector gebruikt datum/tijd om op te halen voor het laatst bijgewerkt toegevoegd en records bijgewerkt. |
 | Open DJ Active Directory |Logboek wijzigen.  De standaardwaarde moet worden gebruikt: **cn = changelog** |
 | Open LDAP |Toegangslogboek. De standaardwaarde moet worden gebruikt: **cn = accesslog** |
 | Oracle DSEE |Logboek wijzigen. De standaardwaarde moet worden gebruikt: **cn = changelog** |
@@ -245,8 +245,8 @@ Hier volgt een lijst met LDAP-servers en het anker wordt gebruikt:
 
 | Directory | Ankerkenmerk |
 | --- | --- |
-| Microsoft AD LDS en AD GC |objectGUID |
-| 389 directory-Server |DN-naam |
+| Microsoft AD LDS and AD GC |objectGUID |
+| 389 Directory Server |DN-naam |
 | Apache Directory |DN-naam |
 | IBM Tivoli DS |DN-naam |
 | Isode Directory |DN-naam |

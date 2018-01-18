@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: Synchronization Service Manager UI | Mi
 description: Begrijpen Synchronization Service Manager voor Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0127cffde0ea21e03f612eb336b4b66476e19215
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d71679fbcb28c90660f4943d637a89ee485cb86a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Inleiding tot de Azure AD Connect Synchronization Service Manager-gebruikersinterface
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 De **Synchronization Service Manager** UI wordt gebruikt om meer geavanceerde aspecten van de synchronisatie-engine configureren en om te zien van de operationele aspecten van de service.
 
 U start de **Synchronization Service Manager** UI vanuit het startmenu. Dit sjabloon heet **synchronisatieservice** en vindt u in de **Azure AD Connect** groep.  
-![Sync-Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 
 Klik op de koppelingen aan het begin van dit onderwerp voor meer informatie over de verschillende tabbladen in de gebruikersinterface.
 

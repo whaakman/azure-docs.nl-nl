@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Pass through-verificatie - Upgrade preview verificatie Agents | Microsoft Docs'
+title: Azure AD Connect - Pass through-verificatie - Upgrade auth-agents | Microsoft Docs
 description: Dit artikel wordt beschreven voor het bijwerken van de configuratie van uw Azure Active Directory (Azure AD) Pass through-verificatie.
 services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, install Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass-through-verificatie: Upgrade preview verificatie Agents
 

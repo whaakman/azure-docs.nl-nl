@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: inzicht en synchronisatie aanpassen | M
 description: Legt uit hoe Azure AD Connect synchroniseren werkt en hoe u kunt aanpassen.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synchronisatie: inzicht en synchronisatie aanpassen
 De Azure Active Directory Connect-Synchronisatieservices (Azure AD Connect sync) is een belangrijkste onderdeel van Azure AD Connect. Dit zorgt voor alle bewerkingen die betrekking hebben op het synchroniseren van identiteitsgegevens tussen uw on-premises omgeving en Azure AD. Azure AD Connect-synchronisatie is de opvolger van DirSync, Azure AD Sync en Forefront Identity Manager met de Azure Active Directory-Connector geconfigureerd.
@@ -49,7 +49,7 @@ De synchronisatieservice bestaat uit twee onderdelen: de on-premises **Azure AD 
 | [Wachtwoordsynchronisatie implementeren](active-directory-aadconnectsync-implement-password-synchronization.md) |Hierin wordt beschreven hoe werkt Wachtwoordsynchronisatie, implementeren en hoe werkt en problemen oplossen. |
 | [Write-back van apparaat](active-directory-aadconnect-feature-device-writeback.md) |Hierin wordt beschreven hoe Write-back van apparaat werkt in Azure AD Connect. |
 | [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md) |Beschrijft hoe de Azure AD-schema met uw eigen aangepaste kenmerken uit te breiden. |
-| **Sync-Service** | |
+| **Sync Service** | |
 | [Azure AD Connect sync-service-functies](active-directory-aadconnectsyncservice-features.md) |Beschrijft de servicezijde synchronisatie en het synchronisatie-instellingen wijzigen in Azure AD. |
 | [Dubbel kenmerk tolerantie](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Hierin wordt beschreven hoe inschakelen en gebruiken **userPrincipalName** en **proxyAddresses** dubbel kenmerk waarden tolerantie. |
 | **Bewerkingen en gebruikersinterface** | |

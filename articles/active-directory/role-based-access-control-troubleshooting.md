@@ -1,9 +1,9 @@
 ---
-title: Problemen met Azure RBAC | Microsoft Docs
+title: Op rollen gebaseerde toegangsbeheer Azure RBAC oplossen | Microsoft Docs
 description: Hulp bij problemen of vragen hebt over op rollen gebaseerd toegangsbeheer resources.
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Probleemoplossing voor toegangsbeheer op basis van rollen
+# <a name="troubleshooting-azure-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer van Azure oplossen 
 
 In dit artikel document antwoorden op veelgestelde vragen over de specifieke rechten die zijn verleend aan rollen, zodat u wat u weet kunt verwachten wanneer u de rollen in de Azure-portal en kan toegangsproblemen oplossen. Deze drie rollen hebben betrekking op alle brontypen:
 
@@ -65,7 +66,7 @@ Deze items vereisen **schrijven** toegang tot het gehele **resourcegroep** die u
 * SSL-certificaten en bindingen (SSL-certificaten kunnen worden gedeeld tussen sites in dezelfde resourcegroep en de geografische locatie)  
 * Waarschuwingsregels  
 * instellingen voor automatisch schalen  
-* Application insights-onderdelen  
+* Application Insights-onderdelen  
 * Webtests  
 
 ## <a name="virtual-machine-workloads"></a>Virtual machine-werkbelasting

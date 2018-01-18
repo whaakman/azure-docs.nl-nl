@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Problemen met verbindingen | Microsoft Docs'
 description: Legt uit hoe u problemen met verbindingen met Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Oplossen van problemen met de netwerkverbinding met Azure AD Connect
 Dit artikel wordt uitgelegd hoe de verbinding tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn waarschijnlijk kunnen worden bekeken in een omgeving met een proxyserver.
@@ -29,7 +29,7 @@ Azure AD Connect maakt gebruik van moderne verificatie (met behulp van de ADAL-b
 In dit artikel, laten we zien hoe Fabrikam verbinding maakt met Azure AD via de proxy. De proxy-server met de naam fabrikamproxy en poort 8080 wordt gebruikt.
 
 Eerst moet ervoor zorgen [ **machine.config** ](active-directory-aadconnect-prerequisites.md#connectivity) correct is geconfigureerd.  
-![machineconfig uit te voeren](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
+![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [!NOTE]
 > In sommige blogs niet-Microsoft wordt dat moet worden gewijzigd miiserver.exe.config in plaats daarvan beschreven. Dit bestand is echter overschreven bij elke upgrade dus zelfs dat als dit tijdens de initiële installatie werkt, het systeem werkt niet bij een eerste upgrade. Aangeraden wordt om die reden machine.config in plaats daarvan bijwerken.
@@ -42,11 +42,11 @@ URL's is de volgende tabel absolute bare minimaal kunnen helemaal verbinden met 
 
 | URL | Poort | Beschrijving |
 | --- | --- | --- |
-| mscrl.Microsoft.com |HTTP-/ 80 |Gebruikt voor het downloaden van de CRL-lijsten. |
-| \*. verisign.com |HTTP-/ 80 |Gebruikt voor het downloaden van de CRL-lijsten. |
-| \*. entrust.com |HTTP-/ 80 |Gebruikt voor het downloaden van een lijst met CRL voor MFA. |
+| mscrl.microsoft.com |HTTP/80 |Gebruikt voor het downloaden van de CRL-lijsten. |
+| \*.verisign.com |HTTP/80 |Gebruikt voor het downloaden van de CRL-lijsten. |
+| \*.entrust.com |HTTP/80 |Gebruikt voor het downloaden van een lijst met CRL voor MFA. |
 | \*.windows.net |HTTPS/443 |Gebruikt om aan te melden bij Azure AD. |
-| Secure.aadcdn.microsoftonline p.com |HTTPS/443 |Gebruikt voor MFA. |
+| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Gebruikt voor MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Gebruikt voor het configureren van uw Azure AD-directory en gegevens voor importeren/exporteren. |
 
 ## <a name="errors-in-the-wizard"></a>Fouten in de wizard
@@ -112,37 +112,37 @@ Hier volgt een dump uit een werkelijke proxy-logboek en op de pagina van de wiza
 
 | Time | URL |
 | --- | --- |
-| 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |verbinding: / /*bba800 anker*. microsoftonline.com:443 |
-| 1/11/2016 8:32 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |verbinding: / /*bwsc02 relay*. microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Configureren**
 
 | Time | URL |
 | --- | --- |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |verbinding: / /*bba800 anker*. microsoftonline.com:443 |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |verbinding: / /*bba900 anker*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |verbinding: / /*bba800 anker*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |verbinding: / /*bwsc02 relay*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Initiële synchronisatie**
 
 | Time | URL |
 | --- | --- |
-| 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
-| 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |verbinding: / /*bba900 anker*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |verbinding: / /*bba800 anker*. microsoftonline.com:443 |
+| 1/11/2016 8:48 |connect://login.windows.net:443 |
+| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Verificatiefouten
 Deze sectie bevat informatie over fouten die kunnen worden geretourneerd van ADAL (de verificatiebibliotheek voor Azure AD Connect gebruikt) en PowerShell. De fout uitgelegd kunt u in de volgende stappen te begrijpen.
@@ -187,7 +187,7 @@ Onverwachte fout opgetreden in de installatiewizard weergegeven. Kan gebeuren al
 Uitgaven vanaf de aanmeldhulp build-nummer 1.1.105.0 (februari 2016 uitgebracht), buiten gebruik werd gesteld. Deze sectie en de configuratie mag niet langer zijn vereist, maar wordt opgeslagen als referentie.
 
 Voor de één-aanmeldhulp werken, moet winhttp worden geconfigureerd. Deze configuratie kunt u doen met [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
-![Netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>De aanmeldhulp is niet correct geconfigureerd
 Deze fout treedt op wanneer de aanmeldhulp de proxy niet bereiken kan of de proxy is niet toegestaan voor de aanvraag.

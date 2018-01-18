@@ -8,17 +8,17 @@ manager: jhubbard
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b1ad9fc7b609209ca867e64226c3a0e393081408
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: decc6ffb38a4358d3593642f9cedb59d08f6bfef
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>Azure Table storage gebruiken met Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -32,7 +32,7 @@ Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met de servic
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Een Ruby-toepassing maken
-Voor instructies hoe een Ruby-toepassing maken, Zie [Ruby op Rails webtoepassing op een virtuele machine van Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Voor instructies hoe een Ruby-toepassing maken, Zie [Ruby op Rails webtoepassing op een virtuele machine van Azure](../virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor toegang tot opslag
 Voor het gebruik van Azure Storage, die u wilt downloaden en gebruiken van het Ruby azure-pakket met een set van gemak bibliotheken die met de REST van de Storage-services communiceren.

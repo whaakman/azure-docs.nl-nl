@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4278c631ca7f2ce0417eab22ce2e5b12581dac30
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
@@ -37,7 +37,7 @@ In dit artikel leert u hoe een domein HDInsight-cluster met behulp van Azure Act
 U moet maken van een Azure AD DS voordat u een HDInsight-cluster kunt maken. Zie voor het maken van een Azure wordt toegevoegd, [inschakelen Azure Active Directory Domain Services met Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. In geval van een Azure Data Lake Storage - AAD-tenant waar >> inschakelen van AADDS moet de standaard-tenant van het abonnement waarin u de Azure Data Lake storage-account en een cluster maken.
+> Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. Als u Azure Data Lake Storage (ADLS) als de standaard-opslag voor HDInsight, Controleer of dat de standaard Azure AD-tenant voor ADLS is hetzelfde als het domein voor het HDInsight-cluster. 
 
 Nadat de domeinservice is ingericht, moet u voor het maken van een serviceaccount in de **beheerders van Azure AD-DC** groep maken van het HDInsight-cluster. Het serviceaccount moet een globale beheerder op de Azure AD.
 

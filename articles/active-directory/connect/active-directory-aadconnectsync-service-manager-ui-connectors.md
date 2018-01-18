@@ -3,7 +3,7 @@ title: Connectors in de Azure AD Synchronization Service Manager-gebruikersinter
 description: Het tabblad Connectors Synchronization Service Manager begrijpen voor Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bbbe5d0d7a7ed7065133b4bc6e5fc2dba39bf7d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Met behulp van connectors met de Azure AD Connect Sync Service Manager
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 Het tabblad Connectors wordt gebruikt voor het beheren van alle systemen die met de synchronisatie-engine is verbonden.
 
 ## <a name="connector-actions"></a>Connector-acties
-| Actie | Opmerking |
+| Bewerking | Opmerking |
 | --- | --- |
 | Maken |Gebruik geen. Voor het verbinden met extra AD-forests, gebruikt u de installatiewizard. |
 | Eigenschappen |Gebruikt voor het domein en OE filteren. |
@@ -63,9 +63,9 @@ De zoekactie voor de connector-ruimte is handig voor het vinden van objecten en 
 ![Sync-Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
 
 Begin met het selecteren een **bereik**. U kunt zoeken op basis van gegevens (RDN, DN-naam, anker substructuur), of de status van het object (voor alle opties).  
-![Sync-Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
 Als u bijvoorbeeld substructuur zoeken wilt, krijgt u alle objecten in een organisatie-eenheid.  
-![Sync-Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 Vanaf dit raster kunt u een object selecteert, selecteert u **eigenschappen**, en [hieraan](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) vanuit de bron-connectorruimte, via de metaverse en naar het doel connectorgebied overgebracht.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Het wachtwoord voor de AD DS-account wijzigen
@@ -78,7 +78,7 @@ U lost het probleem update voor de gebruikersaccount in AD DS met het volgende:
 
 
 1. Synchronization Service Manager (START → Synchronization-Service) starten.
-</br>![Sync-Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 2. Ga naar de **Connectors** tabblad.
 3. Selecteer de AD-Connector die is geconfigureerd voor gebruik van de AD DS-account.
 4. Selecteer onder acties **eigenschappen**.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 56a57960fc4804c7a1711d8c47b37ec28798357d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Selfservice voor wachtwoordherstel in Azure AD-diepgaand
 
@@ -209,7 +209,7 @@ Voorbeeld: Zijn er vier beheerders in een omgeving. Beheerder A hun wachtwoord o
 
 Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor lokale integraties. Als u deze opties zijn niet beschikbaar, is vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie [wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configure-password-writeback).
 
-![Write-back][Writeback]
+![Writeback][Writeback]
 
 Deze pagina bevat een snel de status van de lokale Write-back-client een van de volgende berichten worden weergegeven op basis van de huidige configuratie:
 

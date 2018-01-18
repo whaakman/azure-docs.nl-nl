@@ -1,24 +1,24 @@
 ---
 title: Azure Table storage bewerkingen uitvoeren met PowerShell | Microsoft Docs
 description: Azure Table storage bewerkingen uitvoeren met PowerShell
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure Table storage bewerkingen uitvoeren met Azure PowerShell 
 
@@ -58,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Lijst met locaties ophalen
 
-Als u niet welke locatie die u wilt gebruiken weet, kunt u de beschikbare locaties weergeven. Nadat de lijst wordt weergegeven, vinden die u wilt gebruiken. Deze voorbeelden gebruikt **eastus**. Deze waarde wordt opgeslagen in de variabele **locatie** voor toekomstig gebruik.
+Als u niet weet welke locatie u kunt gebruiken, kunt u een lijst met de beschikbare locaties weergeven. Selecteer de gewenste locatie in de lijst. Deze voorbeelden gebruikt **eastus**. Deze waarde wordt opgeslagen in de variabele **locatie** voor toekomstig gebruik.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -76,7 +76,7 @@ $resourceGroup = "pshtablesrg"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Storage-account maken
+## <a name="create-storage-account"></a>Een opslagaccount maken
 
 Maken van een standaard algemeen opslagaccount met lokaal redundante opslag (LRS) met behulp van [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Haal de context van het opslagaccount waarin de storage-account moet worden gebruikt. Wanneer optreedt op een storage-account, maar u verwijzen naar de context in plaats van herhaaldelijk geven de referenties.
 
@@ -151,7 +151,7 @@ In dit artikel how-to, hebt u geleerd over algemene bewerkingen van Azure Table 
 
 Zie de volgende artikelen voor meer informatie.
 
-* [PowerShell-cmdlets voor opslag](/powershell/module/azurerm.storage#storage)
+* [PowerShell Storage-cmdlets](/powershell/module/azurerm.storage#storage)
 
 * [Werken met Azure Storage-tabellen vanuit PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

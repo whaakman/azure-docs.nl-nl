@@ -3,7 +3,7 @@ title: Algemene SQL-Connector | Microsoft Docs
 description: In dit artikel wordt beschreven hoe algemene SQL-Connector van Microsoft te configureren.
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Algemene technische documentatie van SQL-Connector
 Dit artikel worden de algemene SQL-Connector. Het artikel is van toepassing op de volgende producten:
@@ -38,7 +38,7 @@ Vanuit een perspectief op hoog niveau, worden de volgende functies worden onders
 
 | Functie | Ondersteuning |
 | --- | --- |
-| Gekoppelde gegevensbron |De Connector wordt ondersteund met alle 64-bits ODBC-stuurprogramma's. Het is getest met de volgende opties: <li>Microsoft SQL Server en SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 &11;g</li><li>MySQL 5.x</li> |
+| Gekoppelde gegevensbron |De Connector wordt ondersteund met alle 64-bits ODBC-stuurprogramma's. Het is getest met de volgende opties: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 &11;g</li><li>MySQL 5.x</li> |
 | Scenario's |<li>Object levenscyclusbeheer</li><li>Wachtwoordbeheer</li> |
 | Bewerkingen |<li>Volledige Import- en Delta-Import, Export</li><li>Voor het exporteren: Toevoegen, verwijderen, bijwerken en vervangen</li><li>Wachtwoord instellen, wachtwoord wijzigen</li> |
 | Schema |<li>Dynamische detectie van objecten en kenmerken</li> |
@@ -226,7 +226,7 @@ Algemene SQL-Connector ondersteuning voor volledige en Delta-Import gebruik van 
 * Tabel
 * Weergave
 * Opgeslagen procedure
-* SQL-Query
+* SQL Query
 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
@@ -255,7 +255,7 @@ Ga als volgt te werk:
 * Algemene SQL-connector ondersteunt ook de importbewerking van gekoppelde Servers in Microsoft SQL Server. Gegevens moeten worden opgehaald uit een tabel in de gekoppelde server, moet tabel worden opgegeven in de indeling:`[ServerName].[Database].[Schema].[TableName]`
 * Algemene SQL-Connector ondersteunt alleen objecten die vergelijkbaar structuur (zowel alias naam en het gegevenstype type) tussen de detectie van gegevens en schema's voor de stappen uitvoeren. Als het geselecteerde object van het schema en de opgegeven informatie in stappen van uitvoering verschilt, zijn SQL-Connector kan geen ondersteuning voor dit soort scenario's.
 
-**SQL-Query**  
+**SQL Query**  
 ![runstep4](./media/active-directory-aadconnectsync-connector-genericsql/runstep4.png)
 
 ![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)
@@ -282,7 +282,7 @@ Ondersteuning voor algemene SQL-Connector exporteren met behulp van vier onderst
 * Tabel
 * Weergave
 * Opgeslagen procedure
-* SQL-Query
+* SQL Query
 
 **Tabel of weergave**  
 Als u de tabel of weergave-optie kiest, genereert de connector de respectieve query's voor het uitvoeren van de Export.

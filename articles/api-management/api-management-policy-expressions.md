@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expressies voor API Management-beleid
 De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
@@ -88,13 +88,13 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |Newtonsoft.Json.Linq.JToken|Alle methoden worden ondersteund|  
 |Newtonsoft.Json.Linq.JTokenType|Alle methoden worden ondersteund|  
 |Newtonsoft.Json.Linq.JValue|Alle methoden worden ondersteund|  
-|System.Collections.Generic.IReadOnlyCollection < T\>|Alle|  
-|System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Alle|  
-|System.Collections.Generic.ISet < TKey, TValue >|Alle|  
-|System.Collections.Generic.KeyValuePair < TKey, TValue >|Sleutel, waarde|  
-|System.Collections.Generic.List < TKey, TValue >|Alle|  
-|System.Collections.Generic.Queue < TKey, TValue >|Alle|  
-|System.Collections.Generic.Stack < TKey, TValue >|Alle|  
+|System.Collections.Generic.IReadOnlyCollection<T\>|Alle|  
+|System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Alle|  
+|System.Collections.Generic.ISet<TKey, TValue>|Alle|  
+|System.Collections.Generic.KeyValuePair<TKey,  TValue>|Sleutel, waarde|  
+|System.Collections.Generic.List<TKey, TValue>|Alle|  
+|System.Collections.Generic.Queue<TKey, TValue>|Alle|  
+|System.Collections.Generic.Stack<TKey, TValue>|Alle|  
 |System.Convert|Alle|  
 |System.DateTime|Alle|  
 |System.DateTimeKind|UTC|  
@@ -103,14 +103,14 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |System.Double|Alle|  
 |System.Guid|Alle|  
 |System.IEnumerable < T\>|Alle|  
-|System.IEnumerator < T\>|Alle|  
+|System.IEnumerator<T\>|Alle|  
 |System.Int16|Alle|  
 |System.Int32|Alle|  
 |System.Int64|Alle|  
-|System.Linq.Enumerable < T\>|Alle methoden worden ondersteund|  
+|System.Linq.Enumerable<T\>|Alle methoden worden ondersteund|  
 |System.Math|Alle|  
 |System.MidpointRounding|Alle|  
-|System.Nullable < T\>|Alle|  
+|System.Nullable<T\>|Alle|  
 |System.Random|Alle|  
 |System.SByte|Alle|  
 |System.Security.Cryptography. HMACSHA384|Alle|  
@@ -142,7 +142,7 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |System.Text.RegularExpressions.Match|Leeg, groepen, resultaat|  
 |System.Text.RegularExpressions.Regex|(Constructor) IsMatch, overeen, komt overeen met, vervangen|  
 |System.Text.RegularExpressions.RegexOptions|Gecompileerd IgnoreCase, IgnorePatternWhitespace, Multiline, None, RightToLeft, Singleline|  
-|System.DateTime|Alle|  
+|System.TimeSpan|Alle|  
 |System.Tuple|Alle|  
 |System.UInt16|Alle|  
 |System.UInt32|Alle|  
@@ -172,18 +172,18 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
   
 |Context variabele|Methoden, eigenschappen en parameterwaarden toegestaan|  
 |----------------------|-------------------------------------------------------|  
-|Context|API: IApi<br /><br /> Implementatie<br /><br /> LastError<br /><br /> Bewerking<br /><br /> Product<br /><br /> Aanvraag<br /><br /> Aanvraag-id: Guid<br /><br /> Antwoord<br /><br /> Abonnement<br /><br /> Tracering: bool<br /><br /> Gebruiker<br /><br /> Variabelen: IReadOnlyDictionary < tekenreeks, object ><br /><br /> VOID Trace(message: string)|  
-|context. API|ID: tekenreeks<br /><br /> IsRevisionCurrent: bool<br /><br />  Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Revisie: tekenreeks<br /><br /> ServiceUrl: IUrl<br /><br /> Versie: tekenreeks |  
-|context. Implementatie|Regio: tekenreeks<br /><br /> Servicenaam: tekenreeks<br /><br /> Certificaten: IReadOnlyDictionary < tekenreeks, X509Certificate2 >|  
-|context. LastError|Bron: tekenreeks<br /><br /> Reden: tekenreeks<br /><br /> Bericht: tekenreeks<br /><br /> Bereik: tekenreeks<br /><br /> Sectie: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> PolicyId: tekenreeks<br /><br /> Voor meer informatie over de context. LastError, Zie [foutafhandeling](api-management-error-handling-policies.md).|  
+|Context|Api: IApi<br /><br /> Implementatie<br /><br /> Verstreken: TimeSpan - tijdsinterval tussen de waarde van het tijdstempel en het huidige tijdstip<br /><br /> LastError<br /><br /> Bewerking<br /><br /> Product<br /><br /> Aanvraag<br /><br /> Aanvraag-id: Guid - unieke aanvraag-id<br /><br /> Antwoord<br /><br /> Abonnement<br /><br /> Tijdstempel: DateTime - punt in tijd waarop de aanvraag is ontvangen<br /><br /> Tracering: Boole - geeft aan of tracering in- of uitschakelen <br /><br /> Gebruiker<br /><br /> Variabelen: IReadOnlyDictionary < tekenreeks, object ><br /><br /> VOID Trace(message: string)|  
+|context.Api|ID: tekenreeks<br /><br /> IsRevisionCurrent: bool<br /><br />  Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Revisie: tekenreeks<br /><br /> ServiceUrl: IUrl<br /><br /> Versie: tekenreeks |  
+|context. Implementatie|Regio: tekenreeks<br /><br /> Servicenaam: tekenreeks<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|  
+|context.LastError|Bron: tekenreeks<br /><br /> Reden: tekenreeks<br /><br /> Bericht: tekenreeks<br /><br /> Bereik: tekenreeks<br /><br /> Sectie: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> PolicyId: tekenreeks<br /><br /> Voor meer informatie over de context. LastError, Zie [foutafhandeling](api-management-error-handling-policies.md).|  
 |context. Bewerking|ID: tekenreeks<br /><br /> Methode: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> UrlTemplate: tekenreeks|  
-|context. Product|API's: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Status: enum ProductState {NotPublished, gepubliceerde}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
-|context. Aanvraag|Hoofdtekst: IMessageBody<br /><br /> Certificaat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adres: tekenreeks<br /><br /> MatchedParameters: IReadOnlyDictionary < tekenreeks, tekenreeks ><br /><br /> Methode: tekenreeks<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
+|context.Product|API's: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Status: enum ProductState {NotPublished, gepubliceerde}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
+|context. Aanvraag|Hoofdtekst: IMessageBody<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adres: tekenreeks<br /><br /> MatchedParameters: IReadOnlyDictionary < tekenreeks, tekenreeks ><br /><br /> Methode: tekenreeks<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
 |tekenreekscontext. Request.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden aanvraag met de headerwaarden of `defaultValue` als de header is niet gevonden.|  
 |context. Antwoord|Hoofdtekst: IMessageBody<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: tekenreeks|  
 |tekenreekscontext. Response.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Door komma's gescheiden antwoord geretourneerd met de headerwaarden of `defaultValue` als de header is niet gevonden.|  
-|context. Abonnement|CreatedTime: datum/tijd<br /><br /> EndDate: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Sleutel: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> PrimaryKey: tekenreeks<br /><br /> Secundaire sleutel: tekenreeks<br /><br /> StartDate: DateTime?|  
-|context. Gebruiker|E-mailadres: tekenreeks<br /><br /> Voornaam: tekenreeks<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Identiteiten: IEnumerable < IUserIdentity\><br /><br /> Achternaam: tekenreeks<br /><br /> Opmerking: tekenreeks<br /><br /> RegistrationDate: datum/tijd|  
+|context.Subscription|CreatedTime: datum/tijd<br /><br /> EndDate: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Sleutel: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> PrimaryKey: tekenreeks<br /><br /> Secundaire sleutel: tekenreeks<br /><br /> StartDate: DateTime?|  
+|context.User|E-mailadres: tekenreeks<br /><br /> Voornaam: tekenreeks<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Identiteiten: IEnumerable < IUserIdentity\><br /><br /> Achternaam: tekenreeks<br /><br /> Opmerking: tekenreeks<br /><br /> RegistrationDate: datum/tijd|  
 |IApi|ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Protocollen: IEnumerable < tekenreeks\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|ID: tekenreeks<br /><br /> Naam: tekenreeks|  
 |IMessageBody|Als < T\>(preserveContent: bool = false): waar T: tekenreeks, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> De `context.Request.Body.As<T>` en `context.Response.Body.As<T>` methoden worden gebruikt voor het lezen van een aanvraag en -antwoord de berichttekst in een bepaald type `T`. Standaard wordt de methode maakt gebruik van de oorspronkelijke instantie berichtenstroom en maakt het niet beschikbaar is nadat deze retourneert. Om te voorkomen dat door de methode op een kopie van de hoofdstroom werkt, stel de `preserveContent` -parameter voor `true`. Ga [hier](api-management-transformation-policies.md#SetBody) voor een voorbeeld.|  

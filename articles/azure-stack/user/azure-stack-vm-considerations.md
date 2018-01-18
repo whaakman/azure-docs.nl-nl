@@ -3,7 +3,7 @@ title: Verschillen en overwegingen voor virtuele machines in Azure Stack | Micro
 description: Meer informatie over de verschillen en overwegingen bij het werken met virtuele machines in Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
 
@@ -59,7 +59,7 @@ Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn con
 
 ## <a name="virtual-machine-extensions"></a>Extensies van de virtuele machine
 
- De Azure-Stack Development Kit ondersteunt de volgende versies van de virtuele machine-extensie:
+ De Azure-Stack ondersteunt de volgende versies van de virtuele machine-extensie:
 
 ![VM-extensies](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -75,7 +75,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## <a name="api-versions"></a>API-versies
 
-Functies van de virtuele machine in Azure Stack Development Kit ondersteunen de volgende API-versies:
+Functies van de virtuele machine in Azure-Stack ondersteunen de volgende API-versies:
 
 ![Brontypen VM](media/azure-stack-vm-considerations/vm-resoource-types.png)
 

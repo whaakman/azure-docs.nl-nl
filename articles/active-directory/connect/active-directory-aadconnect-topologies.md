@@ -3,7 +3,7 @@ title: "Azure AD Connect: Ondersteunde topologieën | Microsoft Docs"
 description: "In dit onderwerp beschrijft de ondersteunde en niet-ondersteunde topologieën voor Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 In dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die Azure AD Connect-synchronisatie als de sleutel integratieoplossing gebruiken. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -112,7 +112,7 @@ Sommige Office 365-werkbelastingen hebben bepaalde beperkingen op ondersteunde t
 | Workload | Beperkingen |
 --------- | ---------
 | Exchange Online | Zie voor meer informatie over hybride topologieën ondersteund door Exchange Online, [hybride implementaties met meerdere Active Directory-forests](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype voor bedrijven | Wanneer u meerdere on-premises-forests, worden alleen de account-resource forest-topologie wordt ondersteund. Zie voor meer informatie [omgevingsvereisten voor Skype voor bedrijven Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Skype voor Bedrijven | Wanneer u meerdere on-premises-forests, worden alleen de account-resource forest-topologie wordt ondersteund. Zie voor meer informatie [omgevingsvereisten voor Skype voor bedrijven Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 
 ## <a name="staging-server"></a>Tijdelijke server

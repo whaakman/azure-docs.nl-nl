@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Weergaven in de Operations Management Suite (OMS) oplossingen (Preview)
 > [!NOTE]
@@ -75,11 +75,10 @@ Voeg de volgende weergave resource toe aan de **resources** element van het oplo
 
 De volgende variabelen toevoegen aan het element variabelen van het oplossingsbestand en vervang de waarden die voor uw oplossing.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Houd er rekening mee dat u de hele weergave resource vanuit het bestand met geëxporteerde weergave kopiëren kan, maar u moet de volgende wijzigingen te werken in uw oplossing.  
 
@@ -89,6 +88,18 @@ Houd er rekening mee dat u de hele weergave resource vanuit het bestand met geë
 * **DisplayName** eigenschap moet worden toegevoegd aan de weergave.  De **Id**, **naam**, en **DisplayName** moeten alle overeenkomen.
 * Namen van parameters moeten worden gewijzigd zodat deze overeenkomt met het vereiste aantal parameters.
 * Variabelen moeten worden gedefinieerd in de oplossing en gebruikt in de toepasselijke eigenschappen.
+
+### <a name="log-analytics-api-version"></a>Log Analytics-API-versie
+Alle logboekanalyse resources die zijn gedefinieerd in het Resource Manager-sjabloon hebben een eigenschap **apiVersion** waarmee wordt gedefinieerd met de versie van de API van de bron moet gebruiken.  Deze versie is verschillend voor weergaven met query's die gebruikmaken van de [legacy en de bijgewerkte querytaal](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ De volgende tabel geeft de Log Analytics-API-versies voor weergaven in eerdere versies en bijgewerkte werkruimten: 
+
+| Werkruimteversie | API-versie | Query’s uitvoeren |
+|:---|:---|:---|
+| V1 (verouderd)   | 2015-11-01-preview | Verouderde indeling.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =  |
+| v2 (upgrade) | 2015-11-01-preview | Verouderde indeling.  Geconverteerd naar bijgewerkte indeling op installeren.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =<br>Geconverteerd naar: gebeurtenis &#124; waar EventLevelName == "Error"  |
+| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: De gebeurtenis &#124; waar EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>De weergavedetails toevoegen
 De resource weergeven in het bestand met geëxporteerde weergave bevat twee elementen in de **eigenschappen** element met de naam **Dashboard** en **OverviewTile** die de gedetailleerde bevatten configuratie van de weergave.  Kopieer deze twee elementen en de inhoud in de **eigenschappen** element van de resource weergeven in uw oplossingsbestand.

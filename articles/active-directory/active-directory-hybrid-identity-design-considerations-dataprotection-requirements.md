@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory hybride identiteit ontwerpoverwegingen - bepalen gegevensbeveiligingsvereisten | Microsoft Docs
+title: Ontwerp van hybride identiteit - gegevensbeveiligingsvereisten Azure | Microsoft Docs
 description: Identificeer de beveiligingsvereisten van de gegevens voor uw bedrijf en welke opties zijn beschikbaar voor het beste voldoen aan deze vereisten bij het plannen van uw oplossing voor hybride identiteit.
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plan voor het verbeteren van de beveiliging van gegevens via de van de sterke-identiteitsoplossing
 De eerste stap om de gegevens te beveiligen is bepalen wie toegang heeft tot die gegevens en als onderdeel van dit proces die moet u beschikken over een identiteit oplossing die kan worden geïntegreerd met uw systeem te bieden mogelijkheden voor verificatie en autorisatie. Verificatie en autorisatie worden vaak verward met elkaar en hun rollen verkeerd begrepen. In werkelijkheid zijn ze heel anders, zoals wordt weergegeven in de afbeelding hieronder:

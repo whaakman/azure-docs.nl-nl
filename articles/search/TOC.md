@@ -54,7 +54,10 @@
 ### [Ontwikkelen in .NET](search-howto-dotnet-sdk.md)
 ### [Ontwikkelen in Node.js](search-get-started-nodejs.md)
 ### [Ontwikkelen in Java](search-get-started-java.md)
-### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
+### Upgrade uitvoeren voor de SDK
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET Management SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [Upgrade uitvoeren voor de REST-API](search-api-migration.md)
 ### [Complexe gegevenstypen modelleren](search-howto-complex-data-types.md)
 ### [Gelijktijdige updates verwerken](search-howto-concurrency.md)
@@ -94,7 +97,7 @@
 ### [Gebruik en statistieken bewaken](search-monitor-usage.md)
 ### [Analyse zoekverkeer](search-traffic-analytics.md)
 
-# Verwijzing
+# Naslaginformatie
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (beheer)](/dotnet/api/?term=microsoft.azure.management.search)

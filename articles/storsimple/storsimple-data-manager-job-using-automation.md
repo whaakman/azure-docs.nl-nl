@@ -1,10 +1,10 @@
 ---
-title: Gebruik Azure Automation om een taak te activeren | Microsoft Docs
-description: Informatie over het gebruik van Azure Automation voor activering van StorSimple Data Manager-taken (afgeschermd voorbeeld)
+title: Gebruik Azure Automation starten van een taak in StorSimple Data Manager | Microsoft Docs
+description: Informatie over het gebruik van Azure Automation voor activering van StorSimple Data Manager-taken
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,96 +12,116 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/16/2017
-ms.author: vidarmsft
-ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/16/2018
+ms.author: alkohli
+ms.openlocfilehash: 1e5fcbee664271058ac1c7fa80bb285e09b8579a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="use-azure-automation-to-trigger-a-job-private-preview"></a>Gebruik Azure Automation voor het activeren van een taak (afgeschermd voorbeeld)
+# <a name="use-azure-automation-to-trigger-a-job"></a>Gebruik Azure Automation om een taak te activeren
 
-Dit artikel wordt beschreven hoe u Azure Automation gebruikt om een StorSimple Data Manager-taak te activeren.
+Dit artikel wordt uitgelegd hoe u de functie voor transformatie van gegevens in de StorSimple Data Manager-service kunt gebruiken voor het transformeren van gegevens van de StorSimple-apparaat. U kunt een transformatie-taak op twee manieren starten: 
+
+ - De .NET SDK gebruiken
+ - Gebruik Azure Automation-runbook
+ 
+Dit artikel wordt uitgelegd hoe u een Azure Automation-runbook maken en vervolgens worden gebruikt voor het initiëren van een transformatie-taak. Voor meer informatie over het initiëren van gegevenstransformatie via .NET SDK, gaat u naar [gebruik .NET SDK trigger data transformation baan](storsimple-data-manager-dotnet-jobs.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg ervoor dat u hebt voordat u begint:
 
-*   Azure Powershell is geïnstalleerd. [Download de Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   Configuratie-instellingen voor het initialiseren van de taak gegevenstransformatie (instructies voor het verkrijgen van deze instellingen zijn opgenomen hier).
-*   De taakdefinitie van een die correct is geconfigureerd in een hybride Gegevensresource binnen een resourcegroep.
-*   Download `DataTransformationApp.zip` [zip](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) bestand van de github-opslagplaats.
-*   Download `Get-ConfigurationParams.ps1` [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1) uit de github-opslagplaats.
-*   Download `Trigger-DataTransformation-Job.ps1` [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) uit de github-opslagplaats.
+*   Azure PowerShell is geïnstalleerd op de clientcomputer. [Download de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+*   De taakdefinitie van een juist geconfigureerde in een StorSimple Data Manager-service in de resourcegroep.
+*   Download [ `DataTransformationApp.zip` ](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) bestand van de GitHub-opslagplaats. 
+*   Download [ `Trigger-DataTransformation-Job.ps1` ](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) script vanaf de GitHub-opslagplaats.
 
-## <a name="step-by-step"></a>Stapsgewijs
+## <a name="step-by-step-procedure"></a>Stapsgewijze instructies
 
-### <a name="get-azure-active-directory-permissions-for-the-automation-job-to-run-the-job-definition"></a>Azure Active Directory-machtigingen voor het uitvoeren van de taakdefinitie automation-taak ophalen
+### <a name="set-up-the-automation-account"></a>Het Automation-account instellen
 
-1. Voor het ophalen van de configuratieparameters voor Active Directory, voer de volgende stappen uit:
+1. Een automation Azure uitvoeren als-account maken in de Azure-portal. Om dit te doen, gaat u naar **Azure marketplace > Alles** en zoek vervolgens naar **Automation**. Selecteer **Automation-accounts**.
 
-    1. Open Windows PowerShell in uw lokale computer. Zorg ervoor dat [Azure PowerShell](https://azure.microsoft.com/downloads/) is geïnstalleerd.
-    1. Voer de `Get-ConfigurationParams.ps1` script (in de map die u hebt gedownload hierboven). Typ de volgende opdracht in het venster PowerShell:
+    ![Maak een uitvoeren als de automation-account](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-        ```
-        .\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
-         ```
+2. Als u wilt een nieuw automatiseringsaccount toevoegen, klikt u op **+ toevoegen**.
 
-        De ActiveDirectoryKey is een wachtwoord dat u later gebruiken. Voer een wachtwoord van uw keuze. AppName kan een willekeurige tekenreeks zijn.
+    ![Maak een uitvoeren als de automation-account](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
-2. Dit script levert de volgende waarden die moeten worden gebruikt tijdens de activering van de automation-runbook. Noteer deze waarden.
+3. In de **Automation toevoegen**:
 
-    - Client-ID
-    - Tenant-id
-    - Active Directory-sleutel (zelfde als een dat hierboven is opgegeven)
-    - Abonnements-id
+    1. Geef de **naam** van uw automation-account.
+    2. Selecteer de **abonnement** gekoppeld aan uw StorSimple Data Manager-service.
+    3. Een nieuwe resourcegroep maken of selecteren van een bestaande resourcegroep.
+    4. Selecteer een **locatie**.
+    5. Laat de standaardwaarde **uitvoeren als-account maken** optie is geselecteerd.
+    6. Als u een koppeling voor snelle toegang op het dashboard, Controleer **vastmaken aan dashboard**. Klik op **Create**.
 
-### <a name="set-up-the-automation-account"></a>Het Automation-Account instellen
+    ![Maak een uitvoeren als de automation-account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+    
+    Nadat het automation-account is gemaakt, wordt u gewaarschuwd.
+    
+    ![Melding voor de implementatie van automation-account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-1. Meld u aan bij Azure en open uw Automation-account.
-2. Klik op **activa** tegel om de lijst van assets te openen.
-3. Klik op **Modules** tegel te openen van de lijst met modules.
-4. Klik op **+ toevoegen van een module** knop en de blade van de module toevoegen wordt gestart.
+    Ga voor meer informatie naar [een Run As-account maken](../automation/automation-create-runas-account.md).
 
-    ![Instellingen voor Automation-account](./media/storsimple-data-manager-job-using-automation/add-module1m.png)
+3. In de zojuist gemaakte account, gaat u naar **gedeelde bronnen > Modules** en klik op **+ toevoegen module**.
 
-5. Nadat u hebt geselecteerd de `DataTransformationApp.zip` bestand vanaf uw lokale computer, klikt u op **OK** de module te importeren.
+    ![Module 1 importeren](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
+
+4. Blader naar de locatie van `DataTransformationApp.zip` bestand vanaf uw lokale computer en selecteer en open de module. Klik op **OK** de module te importeren.
+
+    ![2-module importeren](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
    Wanneer u een module Azure Automation importeert in uw account, pakt deze metagegevens over de module. Deze bewerking kan enkele minuten duren.
 
-   ![Instellingen voor Automation-account](./media/storsimple-data-manager-job-using-automation/add-module2m.png)
+   ![4-module importeren](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
-   
+5. U ontvangt een melding dat de module wordt geïmplementeerd en nog een melding wanneer het proces voltooid is.  De status in **Modules** wijzigingen in **beschikbaar**.
 
-6. U ontvangt een melding dat de module wordt geïmplementeerd en nog een melding wanneer het proces voltooid is.  U kunt ook de status controleren **Modules** tegel.
+    ![5-module importeren](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
 
-### <a name="to-import-the-runbook-that-triggers-the-job-definition"></a>Voor het importeren van het runbook waarmee de taakdefinitie wordt geactiveerd
+### <a name="import-publish-and-run-automation-runbook"></a>Importeren, publiceren en Automation-runbook uitvoeren
 
-1. Open uw Automation-account in Azure Portal.
-2. Klik op **Runbooks** tegel om de lijst van runbooks te openen.
-3. Klik op **+ een runbook toevoegen** en vervolgens **een bestaand runbook importeren**.
+De volgende stappen uitvoeren om te importeren, publiceren en uitvoeren van het runbook zodat de taakdefinitie.
 
-   ![Een bestaand runbook importeren](./media/storsimple-data-manager-job-using-automation/import-a-runbook.png)
+1. Open uw Automation-account in Azure Portal. Ga naar **procesautomatisering > Runbooks** en klik op **+ een runbook toevoegen**.
 
-4. Klik op **Runbook bestand** en selecteer de te importeren bestand `Trigger-DataTransformation-Job.ps1`.
-5. Klik op **maken** voor het importeren van het runbook. Het nieuwe runbook wordt weergegeven in de lijst met runbooks voor het Automation-account.
-7. Klik op **Trigger-DataTransformation-Job** runbook en klik vervolgens op **bewerken**.
-8. Klik op **publiceren** en vervolgens **Ja** wanneer u om bevestiging wordt gevraagd.
+    ![Toevoegen van runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
+2. In **runbook toevoegen**, klikt u op **een bestaand runbook importeren**.
 
-### <a name="to-run-the-runbook"></a>Het runbook uitvoeren:
-1. Open uw Automation-account in Azure Portal.
-2. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.
-3. Klik op **Trigger-DataTransformation-Job**.
-4. Klik op **Starten** om het runbook te starten.
+3. Wijs de Azure PowerShell-scriptbestand `Trigger-DataTransformation-Job.ps1` voor de **Runbook bestand**. Het runbooktype wordt automatisch geselecteerd. Geef een naam en een optionele beschrijving voor het runbook. Klik op **Create**.
 
-   ![Runbook starten](./media/storsimple-data-manager-job-using-automation/run-runbook1m.png)
+    ![Runbook 2 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 
-5. In de **runbook starten** blade alle parameters opgeven. Klik op **OK** de taak Gegevenstransformatie verzenden.
+4. Het nieuwe runbook wordt weergegeven in de lijst met runbooks voor het Automation-account. Selecteer en klikt u op dit runbook.
 
-   ![Runbook starten](./media/storsimple-data-manager-job-using-automation/run-runbook2m.png)
+    ![Runbook 3 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
 
+5. Het runbook bewerken en klik op **Test** deelvenster.
+
+    ![Runbook 4 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
+
+6. Geef de parameters zoals de naam van uw StorSimple Data Manager-service, de groep gekoppeld resourcetypen en naam van de taakdefinitie. **Start** de test. Het rapport wordt gegenereerd wanneer de uitvoering voltooid is. Voor meer informatie gaat u naar het [een runbook test](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+
+    ![Runbook 8 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
+
+7. Inspecteer de uitvoer van het runbook in het deelvenster. Als voldaan, sluit u het deelvenster. Klik op **publiceren** en wanneer u wordt gevraagd om bevestiging, bevestigen en het runbook gepubliceerd.
+
+    ![Runbook 6 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
+
+8. Ga terug naar **Runbooks** en selecteer de zojuist gemaakte runbook.
+
+    ![Runbook 7 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
+
+9. **Start** het runbook. In **runbook starten**, geef de parameters. Klik op **OK** indienen en start de taak van de transformatie van gegevens.
+
+10. Voor het bewaken van de voortgang van de taak in Azure-portal, gaat u naar **taken** in uw StorSimple Data Manager-service. Selecteer en klik op de taak om de taakgegevens weer te geven.
+
+    ![Runbook 10 toevoegen](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

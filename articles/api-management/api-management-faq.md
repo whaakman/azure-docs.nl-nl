@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management-Veelgestelde vragen
 De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure API Management.
@@ -33,7 +33,6 @@ De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azu
 * [Kan ik mijn exemplaar van API Management programmatisch beheren?](#can-i-manage-my-api-management-instance-programmatically)
 * [Hoe kan ik een gebruiker aan de groep Administrators toevoegen](#how-do-i-add-a-user-to-the-administrators-group)
 * [Waarom is het beleid dat ik niet beschikbaar in de beleidseditor wilt toevoegen?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Hoe gebruik API-versies in API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [Hoe stel ik omgevingen met meerdere in één API](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Kan ik SOAP gebruiken met API Management?](#can-i-use-soap-with-api-management)
 * [De constante API Management gateway-IP-adres is? Kan ik deze in firewallregels gebruiken?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ U hebt verschillende mogelijkheden voor het beveiligen van de verbinding tussen 
 
 * Gebruik HTTP-basisverificatie. Zie voor meer informatie [importeren en publiceren van uw eerste API](import-and-publish.md).
 * Gebruik van wederzijdse verificatie van SSL, zoals beschreven in [het beveiligen van back-end-services met behulp van client certificaatverificatie in Azure API Management](api-management-howto-mutual-certificates.md).
-* IP-whitelisting op uw back-end-service gebruiken. Als u een standaard of Premium-laag API Management-exemplaar hebt, het IP-adres van de gateway constant is gebleven. U kunt uw lijst met geaccepteerde toestaan dit IP-adres instellen. Op het Dashboard in de Azure portal kunt u het IP-adres van uw exemplaar van API Management ophalen.
+* IP-whitelisting op uw back-end-service gebruiken. In alle lagen van API Management, het IP-adres van de gateway constant is gebleven, met een paar [voorbehoud](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). U kunt uw lijst met geaccepteerde toestaan dit IP-adres instellen. Op het Dashboard in de Azure portal kunt u het IP-adres van uw exemplaar van API Management ophalen.
 * Verbinding maken met uw API Management-exemplaar met een virtueel netwerk van Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Hoe Kopieer mijn API Management-service-exemplaar naar een nieuw exemplaar?
@@ -97,13 +96,6 @@ Nu de zojuist toegevoegde Inzender kan Azure PowerShell gebruiken [cmdlets](http
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Waarom is het beleid dat ik niet beschikbaar in de beleidseditor wilt toevoegen?
 Als het beleid dat u wilt toevoegen wordt weergegeven, grijs of grijs weergegeven in de beleidseditor, zorg ervoor dat u in het juiste bereik voor het beleid. Elke instructie beleid is bedoeld voor u met specifieke bereiken en beleid-secties. De secties van beleid en de bereiken voor een beleid Zie sectie voor het gebruik van het beleid in [API Management-beleidsregels](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Hoe gebruik API-versies in API Management?
-U hebt een aantal opties voor het gebruik van API-versies in API Management:
-
-* U kunt in API Management API's ter vertegenwoordiging van verschillende versies configureren. Bijvoorbeeld, wellicht u twee verschillende API's, MyAPIv1 en MyAPIv2. Een ontwikkelaar kan de versie kiezen die de ontwikkelaar wil gebruiken.
-* U kunt ook uw API configureren met een service-URL die een versiesegment, bijvoorbeeld https://my.api niet opgenomen. Configureer vervolgens een versiesegment op van elke bewerking [herschrijven van URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) sjabloon. 
-* Als u wilt een segment 'standaard'-versie van de API-service-URL, op geselecteerde bewerkingen houden een beleid instellen dat gebruikmaakt van de [back-endservice ingesteld](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) beleid voor het wijzigen van het Aanvraagpad van de back-end-.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hoe stel ik omgevingen met meerdere in één API
 Als u wilt instellen omgevingen met meerdere, bijvoorbeeld een testomgeving en een productie-omgeving in één API, hebt u twee opties. U kunt:
 
@@ -114,7 +106,7 @@ Als u wilt instellen omgevingen met meerdere, bijvoorbeeld een testomgeving en e
 [SOAP-pass-through](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) ondersteuning is nu beschikbaar. Beheerders kunnen de WSDL van de SOAP-service importeren en Azure API Management maakt een SOAP-front-end. Portal-documentatie voor ontwikkelaars, test-console, beleid en analytics zijn allemaal beschikbaar voor de SOAP-services.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>De constante API Management gateway-IP-adres is? Kan ik deze in firewallregels gebruiken?
-Op de lagen Standard en Premium is het openbare IP-adres (VIP) van de API Management-tenant statisch gedurende de levensduur van de tenant, met enkele uitzonderingen. De IP-adreswijzigingen in deze omstandigheden:
+In alle lagen van API Management is het openbare IP-adres (VIP) van de API Management-tenant met een paar uitzonderingen statisch gedurende de levensduur van de tenant. De IP-adreswijzigingen in deze omstandigheden:
 
 * De service is verwijderd en opnieuw gemaakt.
 * Het service-abonnement [onderbroken](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) of [gewaarschuwd](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (bijvoorbeeld voor nonpayment) en vervolgens opnieuw ingesteld.

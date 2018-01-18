@@ -29,7 +29,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | Maximale grootte van apparaatdubbel <br/> (tags, gerapporteerde eigenschappen en gewenste eigenschappen) | 8 kB |
 | Maximale grootte van tekenreekswaarde van apparaatdubbel | 4 KB |
 | Maximale diepte van object in apparaatdubbel | 5 |
-| Maximale grootte van de nettolading van directe methode | 8 kB |
+| Maximale grootte van de nettolading van directe methode | 128 KB |
 | Maximale bewaartermijn van taakgeschiedenis | 30 dagen |
 | Maximum aantal gelijktijdige taken | 10 (voor S3), 5 voor (S2), 1 (voor S1) |
 | Maximaal aantal extra eindpunten | 10 (voor S1, S2, S3) |
@@ -53,7 +53,7 @@ De IoT Hub-service vertraagt aanvragen wanneer de volgende quota worden overschr
 | Cloud-naar-apparaat verzendt | 83.33/sec/Unit (5000/min/eenheid) (voor S3) 1.67/sec/unit (min-100/eenheid) (voor S1 en S2). |
 | Cloud-naar-apparaat ontvangt |833.33/sec/Unit (50000/min/eenheid) (voor S3) 16.67/sec/unit (1000/min/eenheid) (voor S1 en S2). |
 | Bestandsuploadbewerkingen |83.33 bestand uploaden sec-meldingen-eenheid (5000/min/eenheid) (voor S3), 1,67 bestand uploaden meldingen/sec/eenheid (min-100/eenheid) (voor S1 en S2). <br/> Voor een Azure Storage-account kunnen 10.000 SAS URI's tegelijk zijn uitgeschakeld.<br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
-| Directe methoden | 3000/sec/eenheid (voor S3) 60/sec/eenheid (voor S2), 20/sec/eenheid (voor S1) |
+| Directe methoden | 24MB/sec/eenheid (voor S3), 160KB/sec/eenheid van de 480KB/sec/eenheid (voor S2) (voor S1)<br/> Op basis van 8KB beperking van de grootte van de meter. |
 | Apparaatdubbel leest | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
 | Apparaatdubbel werkt bij | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
 | Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | 83.33/sec/Unit (5000/min/eenheid) (voor S3) 1.67/sec/unit (min-100/eenheid) (voor S2), 1.67/sec/unit (min-100/eenheid) (voor S1) |

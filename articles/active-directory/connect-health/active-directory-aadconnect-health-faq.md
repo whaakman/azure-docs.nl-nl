@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen (FAQ's) over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -45,6 +45,7 @@ Houd er rekening mee dat de functies van de service op basis van de rol en het b
 * De eerste Connect Health-Agent is ten minste één Azure AD Premium-licentie vereist.
 * Elke extra geregistreerde agent vereist 25 extra licenties voor Azure AD Premium.
 * Aantal agents is gelijk aan het totaal aantal agents die zijn geregistreerd via alle bewaakte rollen (AD FS, Azure AD Connect en/of AD DS).
+* AAD Connect Health-licentieverlening vereist niet dat u de licentie toewijzen aan specifieke gebruikers. U hoeft alleen te hebben van het vereiste aantal geldige licenties.
 
 Licentie-informatie is ook te vinden op de [prijzen van Azure AD-pagina](https://aka.ms/aadpricing).
 

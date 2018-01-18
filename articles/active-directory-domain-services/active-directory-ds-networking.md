@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Overwegingen voor Azure AD Domain Services netwerken
 ## <a name="how-to-select-an-azure-virtual-network"></a>Het selecteren van een virtuele Azure-netwerk
@@ -74,18 +74,18 @@ De volgende poorten zijn vereist voor de service Azure AD Domain Services en ond
 * Het is verplicht voor toegang tot deze poort in uw NSG. Uw beheerde domein is niet gesynchroniseerd met uw Azure AD-directory zonder toegang tot deze poort. Gebruikers mogelijk niet kunnen aanmelden als wijzigingen hun wachtwoorden niet gesynchroniseerd met uw beheerde domein.
 * U kunt binnenkomende toegang beperken tot deze poort voor IP-adressen die horen bij de Azure-IP-adresbereik.
 
-**Poort 5986 (PowerShell voor externe toegang)** 
+**Poort 5986 (PowerShell voor externe toegang)**
 * Deze wordt gebruikt voor het uitvoeren van beheertaken met behulp van PowerShell voor externe toegang op uw beheerde domein.
 * Het is verplicht om toegang te verlenen via deze poort in uw NSG. Uw beheerde domein kan niet zonder toegang tot deze poort worden bijgewerkt, geconfigureerde, back-up of bewaakte.
-* U kunt binnenkomende toegang beperken tot deze poort voor de volgende bron-IP-adressen: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* U kunt binnenkomende toegang beperken tot deze poort voor de volgende bron-IP-adressen: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * De domeincontrollers voor uw beheerde domein luisteren meestal niet op deze poort. De service Hiermee opent u deze poort op beheerde domeincontrollers alleen wanneer er een beheer- of -bewerking moet worden uitgevoerd voor het beheerde domein. Als de bewerking is voltooid, wordt de service afgesloten deze poort op de beheerde domeincontrollers.
 
-**Poort 3389 (Remote desktop)** 
-* Het wordt gebruikt voor extern bureaublad-verbindingen naar de domeincontrollers voor uw beheerde domein. 
-* Deze poort via uw NSG te openen is optioneel. 
+**Poort 3389 (Remote desktop)**
+* Het wordt gebruikt voor extern bureaublad-verbindingen naar de domeincontrollers voor uw beheerde domein.
+* Deze poort via uw NSG te openen is optioneel.
 * Deze poort ook blijft grotendeels is uitgeschakeld op uw beheerde domein. Dit mechanisme wordt niet gebruikt voortdurend omdat beheer en controle van taken worden uitgevoerd met behulp van PowerShell voor externe toegang. Deze poort wordt alleen gebruikt in het zeldzame geval dat Microsoft extern verbinding maken met uw beheerde domein moet voor geavanceerde probleemoplossing. De poort is gesloten, zodra de probleemoplossing bewerking voltooid is.
 
-**Poort 636 (beveiligde LDAP)**
+**Port 636 (Secure LDAP)**
 * Deze wordt gebruikt voor het inschakelen van beveiligde LDAP-toegang tot uw beheerde domein via internet.
 * Deze poort via uw NSG te openen is optioneel. Open de poort alleen als u beveiligde LDAP toegang via het internet is ingeschakeld.
 * U kunt binnenkomende toegang beperken tot deze poort voor de bron-IP-adressen van waaruit u verbinding maken via een veilige LDAP verwacht.
@@ -99,7 +99,7 @@ De volgende tabel ziet u een voorbeeld van een NSG die u voor een virtueel netwe
 
 Het NSG ziet ook hoe vergrendelen beveiligde LDAP toegang via internet. Deze regel overslaan als u beveiligde LDAP toegang niet hebt ingeschakeld voor uw beheerde domein via internet. Het NSG bevat een reeks regels waarmee binnenkomende LDAPS toegang via TCP-poort 636 alleen uit een opgegeven set van IP-adressen. De regel NSG LDAPS om toegang te verlenen via het internet vanaf de opgegeven IP-adressen heeft een hogere prioriteit dan de DenyAll NSG-regel.
 
-![Voorbeeld NSG LDAPS om toegang te beveiligen via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Voorbeeld NSG LDAPS om toegang te beveiligen via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Meer informatie** - [maken van een Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ U kunt een Resource Manager gebaseerde virtueel netwerk verbinding maken met de 
     ![Verbinding met het virtuele netwerk met behulp van peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Meer informatie - virtuele netwerk peering](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **VNet-naar-VNet-verbindingen met behulp van site-naar-site VPN-verbindingen**: een virtueel netwerk verbinden met een ander virtueel netwerk (VNet-naar-VNet) is vergelijkbaar met een virtueel netwerk verbinden met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden.
 
     ![Verbinding met het virtuele netwerk met behulp van VPN-Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

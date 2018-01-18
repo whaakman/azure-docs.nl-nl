@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2404575d7f4224315b2c3272cb21e8b5ee6515e3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Overzicht van beschikbaarheid Zones in Azure (Preview)
 
@@ -31,6 +31,7 @@ Beschikbaarheid Zones helpen u te beschermen tegen storingen datacenter-niveau. 
 ## <a name="regions-that-support-availability-zones"></a>Regio's die ondersteuning bieden voor beschikbaarheid Zones
 
 - VS - oost 2
+- Verenigde Staten (centraal)
 - West-Europa
 - Frankrijk - centraal
 
@@ -40,14 +41,14 @@ De Azure-services die ondersteuning bieden voor beschikbaarheid Zones zijn:
 
 - Virtuele Linux-machines
 - Virtuele Windows-machines
-- Zonal virtuele-Machineschaalsets
+- Schaalsets voor virtuele machines
 - Beheerde schijven
 - Load Balancer
 - Openbaar IP-adres
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Aan de slag met de preview beschikbaarheid Zones
 
-De evaluatieversie van de beschikbaarheid van Zones is beschikbaar in de VS-Oost 2, West-Europa en Frankrijk centrale regio's voor de specifieke Azure-services. 
+De evaluatieversie van de beschikbaarheid van Zones is beschikbaar in de VS-Oost 2, ons centraal, West-Europa en Frankrijk centrale regio's voor de specifieke Azure-services. 
 
 1. [Aanmelden voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). 
 2. Aanmelden bij uw Azure-abonnement.

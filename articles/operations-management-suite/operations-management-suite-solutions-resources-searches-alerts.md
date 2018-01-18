@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Log Analytics toe te voegen opgeslagen zoekopdrachten en waarschuwingen in OMS-beheeroplossing (Preview)
 
@@ -45,17 +45,14 @@ De naam van de werkruimte wordt op de naam van elke resource logboekanalyse.  Di
 ## <a name="log-analytics-api-version"></a>Log Analytics-API-versie
 Alle logboekanalyse resources die zijn gedefinieerd in het Resource Manager-sjabloon hebben een eigenschap **apiVersion** waarmee wordt gedefinieerd met de versie van de API van de bron moet gebruiken.  Deze versie is verschillend voor resources die gebruikmaken van de [legacy en de bijgewerkte querytaal](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- De volgende tabel geeft de Log Analytics-API-versies voor verouderde en bijgewerkte werkruimten en een voorbeeldquery om op te geven van de syntaxis van de verschillende voor elk. 
+ De volgende tabel geeft de Log Analytics-API-versies voor opgeslagen zoekopdrachten in eerdere versies en bijgewerkte werkruimten: 
 
-| Werkruimteversie | API-versie | Voorbeeldquery |
+| Werkruimteversie | API-versie | Query’s uitvoeren |
 |:---|:---|:---|
-| V1 (verouderd)   | 2015-11-01-preview | Type gebeurtenis EventLevelName = fout =             |
-| v2 (upgrade) | 2017-03-15-preview | Gebeurtenis &#124; waar EventLevelName == "Error"  |
+| V1 (verouderd)   | 2015-11-01-preview | Verouderde indeling.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =  |
+| v2 (upgrade) | 2015-11-01-preview | Verouderde indeling.  Geconverteerd naar bijgewerkte indeling op installeren.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =<br>Geconverteerd naar: gebeurtenis &#124; waar EventLevelName == "Error"  |
+| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: De gebeurtenis &#124; waar EventLevelName == "Error"  |
 
-Houd rekening met de volgende waarvoor werkruimten door verschillende versies worden ondersteund.
-
-- Sjablonen die gebruikmaken van de verouderde query language kunnen worden geïnstalleerd in een werkruimte verouderde of bijgewerkt.  Als in een bijgewerkte werkruimte hebt geïnstalleerd, klikt u vervolgens query's worden geconverteerd zodat de nieuwe taal wanneer ze worden uitgevoerd door de gebruiker.
-- Sjablonen die gebruikmaken van de bijgewerkte querytaal kunnen alleen worden geïnstalleerd in een bijgewerkte werkruimte.
 
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
@@ -132,7 +129,7 @@ De eigenschappen voor resources plannen worden in de volgende tabel beschreven.
 |:--|:--|:--|
 | ingeschakeld       | Ja | Hiermee geeft u op of de waarschuwing is ingeschakeld wanneer deze wordt gemaakt. |
 | interval      | Ja | Hoe vaak de query wordt uitgevoerd in minuten. |
-| QueryTimeSpan | Ja | De lengte van de tijd in minuten gedurende welke resultaten evalueren. |
+| queryTimeSpan | Ja | De lengte van de tijd in minuten gedurende welke resultaten evalueren. |
 
 De schema-bron moet afhankelijk van de opgeslagen zoekopdracht zodat deze voordat u de planning gemaakt.
 
@@ -228,7 +225,7 @@ Deze sectie is optioneel.  Deze sectie bevatten als u onderdrukken van waarschuw
 
 | Elementnaam | Vereist | Beschrijving |
 |:--|:--|:--|
-| ontvangers | Ja | Door komma's gescheiden lijst met e-mailadressen melding verzenden wanneer een waarschuwing wordt gemaakt, zoals in het volgende voorbeeld.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Geadresseerden | Ja | Door komma's gescheiden lijst met e-mailadressen melding verzenden wanneer een waarschuwing wordt gemaakt, zoals in het volgende voorbeeld.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Onderwerp | Ja | Onderwerpregel van het e-mailbericht. |
 | Bijlage | Nee | Bijlagen worden momenteel niet ondersteund.  Als dit element is opgenomen, worden deze **geen**. |
 
@@ -240,7 +237,7 @@ Deze sectie is optioneel als u een runbook te starten in reactie op de waarschuw
 |:--|:--|:--|
 | RunbookName | Ja | De naam van het runbook te starten. |
 | WebhookUri | Ja | De URI van de webhook voor het runbook. |
-| Verloopdatum | Nee | Datum en tijd waarop het herstel is verlopen. |
+| Vervaldatum | Nee | Datum en tijd waarop het herstel is verlopen. |
 
 #### <a name="webhook-actions"></a>Webhookacties
 
@@ -271,7 +268,7 @@ De eigenschappen voor Webhook actie bronnen worden in de volgende tabellen besch
 | type | Ja | Type van de actie.  Dit is **Webhook** voor webhookacties. |
 | naam | Ja | Weergavenaam voor de actie.  Dit wordt niet weergegeven in de console. |
 | wehookUri | Ja | De URI voor de webhook. |
-| CustomPayload | Nee | Aangepaste nettolading worden verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
+| customPayload | Nee | Aangepaste nettolading worden verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
 
 
 

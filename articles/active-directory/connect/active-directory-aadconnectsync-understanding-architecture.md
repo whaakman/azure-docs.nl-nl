@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: inzicht in de architectuur | Microsoft 
 description: Dit onderwerp beschrijft de architectuur van Azure AD Connect-synchronisatie en verklaart de termen die worden gebruikt.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synchronisatie: inzicht in de architectuur
 Dit onderwerp worden de basisarchitectuur voor Azure AD Connect-synchronisatie. In veel aspecten is vergelijkbaar met de voorafgaande MIIS 2003, ILM 2007 en FIM 2010. Azure AD Connect-synchronisatie is de ontwikkeling van deze technologieën. Als u bekend met een van deze eerdere technologieën bent, wordt de inhoud van dit onderwerp ook vertrouwd aan u zijn. Als u niet bekend met synchronisatie bent, wordt de in dit onderwerp voor u. Het is echter niet vereist voor de details kennen van dit onderwerp te laten slagen bij het maken van aanpassingen van Azure AD Connect-synchronisatie (synchronisatie-engine in dit onderwerp genoemd).

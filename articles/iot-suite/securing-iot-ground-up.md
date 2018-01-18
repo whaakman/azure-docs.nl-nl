@@ -4,7 +4,7 @@ description: In dit artikel beschrijft de ingebouwde beveiligingsfuncties van Mi
 services: 
 suite: iot-suite
 documentationcenter: 
-author: YuriDio
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 10252dfa-8313-4a97-9bd6-a3f1345dd3be
@@ -13,93 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: yurid
-ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 01/17/2018
+ms.author: dobett
+ms.openlocfilehash: 6df45a64c70bda632c3f8b721aa962dd8b6d3fa2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="internet-of-things-security-from-the-ground-up"></a>Beveiliging van Internet der dingen van een compleet nieuwe
-Het Internet der dingen (IoT) vormt unieke beveiliging, privacy en naleving uitdagingen voor bedrijven overal ter wereld. In tegenstelling tot traditionele cyberbeveiliging technologie waar deze problemen gebaseerd op software- en hoe deze wordt geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberbeveiliging en de fysieke werelden convergeren. Beveiligen van IoT-oplossingen vereist gezorgd beveiligde inrichting van de apparaten, beveiligde verbindingen tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Werken met dergelijke functionaliteit, zijn echter resource beperkte apparaten, geografische verdeling van implementaties en een groot aantal apparaten binnen een oplossing.
-
-Dit artikel bevat informatie over hoe Microsoft Azure IoT Suite biedt een veilige en persoonlijke Internet der dingen cloudoplossing. De Azure IoT Suite biedt een volledige end-to-end-oplossing met ingebouwd in elke fase van een compleet nieuwe beveiliging. Bij Microsoft, beveiligde software ontwikkelen maakt deel uit van de praktijken van software-engineering, verankerd ligt in onze tientallen jaren lang van het ontwikkelen van beveiligde software optreden. Security Development Lifecycle (SDL) is zodat deze de methodologie fundamentele ontwikkeling, samen met een groot aantal beveiligingsservices niveau van de infrastructuur zoals operationele beveiliging zekerheid (OSA) en Microsoft Digital Crimes Unit, Microsoft Security Response Center en Microsoft Malware Protection Center. 
-
-De Azure IoT Suite beschikt over een unieke, waardoor inrichting, opslaan en maken van verbinding met gegevens van IoT-apparaten eenvoudig en transparant en vooral, beveiligen. In dit artikel wordt de Azure IoT Suite-beveiligingsfuncties onderzoeken en implementatiestrategieën om ervoor te zorgen voor beveiliging, privacy en naleving uitdagingen worden aangepakt. 
-
-## <a name="introduction"></a>Inleiding
-Het Internet der dingen (IoT) is de golf van de toekomst, biedt bedrijven onmiddellijke en echte mogelijkheden om kosten te verlagen, de omzet en transformatie van hun bedrijf. Veel bedrijven zijn echter terughoudend IoT implementeren in hun organisatie vanwege problemen met beveiliging, privacy en naleving. Een primaire punt problematisch zijn afkomstig van de uniekheid van de IoT-infrastructuur, die worden samengevoegd de cyberbeveiliging en fysieke werelden, afzonderlijke intrinsieke risico's van deze twee werelden wordt samengesteld. Beveiliging van IoT heeft betrekking op het waarborgt de integriteit van de code die wordt uitgevoerd op apparaten die verificatie van gebruikers en apparaten, definiëren wissen eigendom van apparaten (evenals gegevens die zijn gegenereerd door de betreffende apparaten) en wordt tegen fysieke aanvallen en cyberbeveiliging. 
-
-Er is het probleem van privacy. Bedrijven wilt transparantie verzamelen van gegevens betreffende in een wat wordt verzameld en waarom, die deze, die verantwoordelijk is voor toegang, enzovoort kunnen zien. Er zijn ten slotte algemene veiligheid van de apparatuur samen met de mensen die ze en problemen van het onderhouden van industrienormen van naleving.
-
-Gezien de beveiliging, privacy, transparantie en zorgen voor naleving, blijft de juiste provider van de IoT-oplossing kiezen een challenge. Wilt samenvoegen afzonderlijke stukjes IoT-software en services van een groot aantal leveranciers introduceert hiaten in de beveiliging, privacy, transparantie en naleving mogelijk moeilijk te detecteren, laat staan los. De keuze van de juiste IoT software en service provider is gebaseerd op het vinden van providers waarvoor uitgebreide ervaring met services die overbruggen verticalen en locaties, maar kunnen ook op een veilige en transparante wijze worden geschaald. Daarnaast is het nuttig voor de geselecteerde provider tientallen jaren ervaring met het ontwikkelen van beveiligde software waarop miljarden machines wereldwijd, en de mogelijkheid heeft om op te waarderen van de threat liggend die door deze nieuwe wereld van het Internet der dingen.
-
-## <a name="secure-infrastructure-from-the-ground-up"></a>Beveiligde infrastructuur niet vanuit een compleet nieuwe
-De [Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) infrastructuur ondersteunt meer dan een miljard klanten in 127 landen. Tekenen van onze ervaring tientallen jaren lang ondernemingssoftware bouwen en uitvoeren van enkele van de grootste online services in de hele wereld, bieden we hogere niveaus van de verbeterde beveiliging, privacy, naleving en threat risicobeperking procedures dan de meeste klanten op hun eigen bereiken kunnen.
-
-Onze [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) biedt een verplichte bedrijfsbreed ontwikkelingsproces waarin beveiligingsvereisten worden gesteld in de levenscyclus van de volledige software zijn ingesloten. Om ervoor te zorgen dat de operationele activiteiten hetzelfde niveau van de beveiligingsprocedures volgen, gebruiken we strengere beveiligingsrichtlijnen lay-out in onze operationele beveiliging zekerheid OSA ()-proces. We werken ook met derden audit ondernemingen voor lopende verificatie dat we onze verplichtingen voldoen aan, en we met algemene inspanningen bij het maken van datacenters van bedrijfsvoering bezighouden, met inbegrip van de Microsoft Digital Crimes Unit, Microsoft Security Response Center en Microsoft Malware Protection Center.
-
-## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - IoT-infrastructuur beveiligd voor uw bedrijf
-Microsoft Azure biedt een volledig cloud-oplossing, een combinatie van een voortdurend groeiende verzameling geïntegreerde cloudservices: analytics, machine learning, opslag, beveiliging, netwerken en web, met een toonaangevende inzet voor de beveiliging en privacy van uw gegevens. Onze [wordt ervan uitgegaan dat inbreuk](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) strategie maakt gebruik van een speciaal 'red team' software beveiliging deskundigen die aanvallen simuleren, testen van de mogelijkheid van Azure voor het detecteren van bescherming tegen opkomende bedreigingen en herstellen van schendingen. Onze [globale respons op incidenten](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) team werkt de klok rond om de effecten van aanvallen en schadelijke activiteiten. Het team volgt tot stand gebrachte procedures voor incidentbeheer, communicatie en herstel en kunnen worden gedetecteerd en voorspelbare interfaces met interne en externe partners gebruikt.
-
-Onze systemen bieden continue inbraakdetectie en preventie, service-aanval te voorkomen, reguliere binnendringen testen en forensische hulpprogramma's te identificeren en bedreigingen te verhelpen. [Multi-factorauthenticatie](../multi-factor-authentication/multi-factor-authentication.md) biedt een extra beveiligingslaag voor eindgebruikers toegang tot het netwerk. En voor de toepassing en de provider host wij bieden toegangsbeheer, bewaking, anti-malware, beveiligingslek scannen, patches en Configuratiebeheer.
-
-Microsoft Azure IoT Suite maakt gebruik van de beveiliging en privacy die zijn ingebouwd in de Azure-platform samen met onze SDL en OSA processen voor veilige ontwikkeling en het gebruik van alle Microsoft-software. Deze procedures bieden bescherming van de infrastructuur, netwerkbeveiliging en identiteits- en functies fundamentele voor de beveiliging van een oplossing. 
-
-De [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) binnen de [IoT Suite](iot-suite-what-is-azure-iot.md) biedt een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen IoT-apparaten en Azure-services zoals [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) en [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) met behulp van beveiligingsreferenties per apparaat- en toegangsbeheer.
-
-Beste communiceren beveiliging en privacy-functies die zijn ingebouwd in de Azure IoT Suite, hebben we de suite in de drie beveiligingsgebieden van de primaire onderverdeeld. 
-
-![Azure IoT Suite](media/securing-iot-ground-up/securing-iot-ground-up-fig3.png)
-
-### <a name="secure-device-provisioning-and-authentication"></a>Beveiligen van mobiele apparaten inrichten en verificatie
-De Azure IoT Suite beveiligt apparaten zolang ze uit in het veld door te geven van een unieke id van de sleutel voor elk apparaat kan worden gebruikt door de IoT-infrastructuur om te communiceren met het apparaat, terwijl het opnieuw. Het proces is snel en eenvoudig te installeren. De gegenereerde sleutel met een gebruiker geselecteerde apparaat-ID vormt de basis van een token dat wordt gebruikt in alle communicatie tussen het apparaat en de Azure IoT Hub.
-
-Apparaat-id's kunnen worden gekoppeld aan een apparaat tijdens de productie (dat wil zeggen geknipperd in een module van de vertrouwensrelatie hardware) of een bestaande vaste identiteit als proxy (bijvoorbeeld serienummers CPU) kunnen gebruiken. Omdat het wijzigen van deze gegevens in het apparaat geen eenvoudige is, is het belangrijk om te introduceren logisch apparaat-id als de onderliggende hardwarewijzigingen van apparaat, maar het logische apparaat blijft hetzelfde. In sommige gevallen kan de koppeling van een apparaat-id gebeuren op tijd op het apparaat implementeren (dat wil zeggen een technicus geverifieerde veld fysiek configureert u een nieuw apparaat tijdens de communicatie met de oplossing voor back-end). De [id-register Azure IoT Hub](../iot-hub/iot-hub-devguide.md) biedt een veilige opslag van apparaat-id's en sleutels voor een oplossing. Persoon die of groepen van apparaat-id's kunnen worden toegevoegd aan een lijst met toegestane of een lijst met geblokkeerde volledige controle toegang tot het apparaat inschakelen.
-
-Azure IoT Hub toegangscontrolebeleid in de cloud inschakelen activering en uitschakelen van een apparaat-id, biedt een manier om het loskoppelen van een apparaat van een IoT-implementatie indien nodig. Deze koppeling en loskoppelen van apparaten is gebaseerd op elk apparaat-id.
-
-Beveiliging van aanvullende apparaatfuncties omvatten het volgende:
-
-* Apparaten accepteren geen ongevraagde netwerkverbindingen. Ze vast alle verbindingen en routes in een alleen uitgaand verkeer. Het apparaat moet een verbinding om te controleren of er nog opdrachten verwerken initiëren voor een apparaat voor het ontvangen van een opdracht van de back-end. Zodra een verbinding tussen het apparaat en IoT Hub veilig is gemaakt, vanuit de cloud-berichten op het apparaat en het apparaat naar de cloud transparant kan worden verzonden.  
-* Apparaten alleen verbinding maken met of routes naar bekende, gelijkwaardige services waarmee, zoals een Azure-IoT-Hub brengen tot stand brengen.
-* Op systeemniveau autorisatie en verificatie per apparaat-id's, waardoor referenties voor toegang en machtigingen bijna gebruiken-onmiddellijk worden ingetrokken.
-
-### <a name="secure-connectivity"></a>Beveiligde verbindingen
-Duurzaamheid van berichten is een belangrijk onderdeel van een IoT-oplossing. De noodzaak blijvend opdrachten leveren en/of ontvangen van gegevens van apparaten wordt door het feit dat de IoT-apparaten zijn verbonden via Internet of andere vergelijkbare netwerken die kunnen worden onbetrouwbaar onderstreept. Azure IoT Hub biedt duurzaamheid van de uitwisseling van berichten tussen cloud en apparaten via een systeem van bevestigingen in reactie op berichten. Aanvullende duurzaamheid voor messaging wordt bereikt door het in cache opslaan van berichten in de IoT Hub voor zeven dagen voor Telemetrie en twee dagen voor opdrachten.
-
-Efficiëntie is het belangrijk om ervoor te zorgen behoud van hulpbronnen en bewerking in een omgeving met beperkte capaciteit. HTTPS (HTTP Secure), de industriestandaard beveiligde versie van het populaire http-protocol wordt ondersteund door Azure IoT Hub, efficiënte communicatie inschakelen. Geavanceerde Message Queuing-Protocol (AMQP) en Message Queuing telemetrie Transport (MQTT), wordt ondersteund door Azure IoT Hub, zijn niet alleen voor efficiëntie in termen van gebruik van bronnen, maar ook levering van betrouwbare berichten ontworpen. 
-
-Schaalbaarheid moet kunnen veilig samenwerken met een breed scala aan apparaten. Azure IoT-hub kunt beveiligde verbinding met apparaten voor zowel IP ingeschakeld en niet IP is ingeschakeld. IP-apparaten kunnen rechtstreeks verbinding maken en communiceren met de IoT-Hub via een beveiligde verbinding. Niet-IP-apparaten zijn beperkte capaciteit en alleen via korte afstand communicatieprotocollen, zoals Zwave ZigBee en Bluetooth-verbinding. Een veldgateway wordt gebruikt voor het cumuleren van deze apparaten en protocolgateway vertaalt zodat beveiligde bidirectionele communicatie met de cloud.
-
-Extra verbinding beveiligingsfuncties omvatten het volgende:
-
-* Het communicatiepad tussen apparaten en Azure IoT Hub of tussen de gateways en Azure IoT Hub is beveiligd met behulp van industriestandaard-Transport Layer Security (TLS) met Azure IoT Hub is geverifieerd met behulp van x.509-protocol.
-* Om apparaten te beschermen tegen ongevraagde binnenkomende verbindingen, biedt Azure IoT Hub een verbinding met het apparaat niet openen. Het apparaat initieert alle verbindingen. 
-* Azure IoT Hub blijvend berichten voor apparaten worden opgeslagen en wordt gewacht op het apparaat verbinding maakt. Deze opdrachten worden opgeslagen voor twee dagen inschakelen van apparaten die verbinding maken sporadisch, omdat u de stroom of de connectiviteit, om deze opdrachten te ontvangen. Azure IoT Hub onderhoudt een wachtrij per apparaat voor elk apparaat.
-
-### <a name="secure-processing-and-storage-in-the-cloud"></a>Veilige verwerking en opslag in de cloud
-Van versleutelde berichten te verwerken van gegevens in de cloud helpt de Azure IoT Suite gegevens te beveiligen. Dit biedt flexibiliteit voor het implementeren van extra versleuteling en het beheer van sleutels van de beveiliging. Azure Active Directory (AAD) gebruikt voor verificatie en autorisatie, bieden Azure IoT Suite een model op basis van beleid voor gegevens in de cloud inschakelen van eenvoudige toegangsbeheer die kan worden gecontroleerd en gecontroleerd. Dit model kan ook handomdraai intrekken van toegang tot gegevens in de cloud en apparaten verbinding maken met de Azure IoT Suite.
-
-Nadat de gegevens zich in de cloud, kan deze worden verwerkt en opgeslagen in een door de gebruiker gedefinieerde werkstroom. Toegang tot elk deel van de gegevens wordt beheerd met Azure Active Directory, afhankelijk van de storage-service gebruikt.
-
-Alle sleutels die worden gebruikt door de IoT-infrastructuur worden opgeslagen in de cloud in de veilige opslag met de mogelijkheid om overschakelen als sleutels moeten opnieuw worden ingericht. Gegevens kunnen worden opgeslagen in [Azure Cosmos DB](../cosmos-db/introduction.md) of in [SQL-databases](../sql-database/sql-database-faq.md), definitie van het niveau van beveiliging gewenst inschakelen. Azure biedt bovendien een manier om te bewaken en controleren van alle toegang tot uw gegevens om een melding van elke inbraakdetectie of onbevoegde toegang.
-
-## <a name="conclusion"></a>Conclusie
-Het Internet der dingen begint met uw dingen: de bewerkingen die belangrijk voor bedrijven. Door de kosten te verlagen, inkomsten te verhogen en transformeren bedrijven bieden IoT fantastische waarde om een bedrijf. Succes van deze transformatie afhankelijk grotendeels van de juiste IoT-software en service provider kiezen. Dit betekent dat een provider die niet alleen catalyzes deze transformatie door vereisten en behoeften van bedrijf begrijpen, maar ook biedt services en software die zijn gebouwd met beveiliging, privacy, transparantie en naleving als belangrijke ontwerpoverwegingen zoeken. Microsoft heeft de uitgebreide ervaring bij het ontwikkelen en veilige software en services implementeren en blijft een opvulteken in deze nieuwe tijd van het Internet der dingen. 
-
-Microsoft Azure IoT Suite bouwt in veiligheidsmaatregelen standaard inschakelen van beveiligde bewaking van activa om efficiëntie, operationele prestaties innovatie inschakelen en gebruiken van geavanceerde gegevensanalyse voor het transformeren van bedrijven station te verhogen. Met de gelaagde benadering voor beveiliging, meerdere beveiligingsfuncties en ontwerppatronen helpt Azure IoT Suite implementeren van een infrastructuur die vertrouwd worden kan voor het transformeren van een bedrijf. 
-
-## <a name="additional-information"></a>Aanvullende informatie
-Elke Azure IoT Suite vooraf geconfigureerde oplossing maakt exemplaren van Azure-services, zoals de volgende:
-
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): uw gateway die de cloud 'dingen' verbindt. U kunt schalen naar miljoenen verbindingen per hub en proces enorme hoeveelheden gegevens met ondersteuning voor verificatie per apparaat beter kunt beveiligen van uw oplossing.
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): een schaalbare, volledig geïndexeerd databaseservice voor semi-gestructureerde gegevens die u beheert de metagegevens voor de apparaten die u inricht, zoals kenmerken, configuratie en beveiligingseigenschappen. Cosmos DB biedt hoge prestaties en hoge gegevensdoorvoer verwerking, schema networkdirect indexeren van gegevens en een uitgebreide SQL-QueryInterface.
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): realtime stroom wordt verwerkt in de cloud waarmee u snel ontwikkelen en implementeren van een analyses voordelige oplossing voor realtime-inzichten verkrijgen van apparaten, sensoren, infrastructuur en toepassingen te onthullen. De gegevens van deze volledig beheerde service kunnen worden geschaald naar een volume en toch veel doorvoer, lage latentie en tolerantie kan bereiken.
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): een cloudplatform voor het bouwen van krachtige web- en mobiele apps die verbinding met gegevens overal; in de cloud of on-premises maken. Aansprekende mobiele apps bouwen voor iOS, Android en Windows. Geïntegreerd met uw Software als een Service (SaaS) en zakelijke toepassingen met out-of-the-box-connectiviteit naar tientallen cloudservices en bedrijfstoepassingen. Code in uw favoriete taal en IDE, .NET, Node.js, PHP, Python of Java-web-apps en API's sneller dan ooit bouwen.
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): de Logic Apps-functie van Azure App Service helpt bij het integreren van uw IoT-oplossing aan uw bestaande line-of-business-systemen en workflow-processen automatiseren. Logic Apps kan ontwikkelaars werkstromen ontwerpen die na een trigger worden gestart en vervolgens een aantal stappen uitgevoerd: regels en acties die krachtige connectors gebruiken om te integreren met uw bedrijfsprocessen. Logic Apps biedt out-of-the-box-connectiviteit met een enorme ecosysteem van SaaS, op basis van cloud en on-premises toepassingen.
-* [**Azure-blobopslag**](https://azure.microsoft.com/services/storage/): betrouwbare en voordelige cloud-opslag voor de gegevens die uw apparaten naar de cloud verzenden.
+[!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het beveiligen van uw IoT-oplossing:

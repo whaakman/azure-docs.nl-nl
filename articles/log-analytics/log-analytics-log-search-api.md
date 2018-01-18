@@ -12,24 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics logboek search REST-API
+
+> [!IMPORTANT]
+> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en u naar verwijzen moet de [documentatie voor de nieuwe versie van de zoekopdracht logboek API](https://dev.loganalytics.io/).  Deze oudere API toch werkt met een bijgewerkte werkruimte, maar dit zal binnenkort wel depracated.  U moet eventuele bestaande oplossingen voor het gebruik van de nieuwe API wijzigen.
+
 Deze handleiding biedt een eenvoudige zelfstudie, inclusief voorbeelden van hoe u de Log Analytics Search REST-API kunt. Log Analytics maakt deel uit van de Operations Management Suite (OMS).
 
-> [!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en u naar verwijzen moet de [documentatie voor de nieuwe versie van de zoekopdracht logboek API](https://dev.loganalytics.io/).
-
-> [!NOTE]
-> Log Analytics is eerder operationeel inzicht, die daarom de naam die in de resourceprovider is aangeroepen.
->
->
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Overzicht van de zoekopdracht logboek REST-API
 Log Analytics Search REST-API RESTful is en toegankelijk zijn via de API van Azure Resource Manager. Dit artikel vindt u voorbeelden van de toegang tot de API via [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API wordt aangeroepen. Het gebruik van ARMClient is een van de vele opties voor toegang tot de Log Analytics zoeken-API. Een andere optie is het gebruik van de Azure PowerShell-module voor OperationalInsights, waaronder de cmdlets voor toegang tot zoeken. Met deze hulpprogramma's, kunt u gebruikmaken van de Azure Resource Manager-API aanroepen met OMS-werkruimten en uitvoeren van opdrachten in deze zoekopdracht. De API levert zoekresultaten in JSON-indeling, zodat u kunt de lijst met zoekresultaten programmatisch op veel verschillende manieren gebruiken.
@@ -138,12 +135,12 @@ De volgende tabel beschrijft de eigenschappen die beschikbaar zijn.
 | **Eigenschap** | **Beschrijving** |
 | --- | --- |
 | Boven |Het maximum aantal resultaten te retourneren. |
-| Markeer |Bevat vóór en na-parameters, meestal gebruikt voor de overeenkomende velden markeren |
+| markeren |Bevat vóór en na-parameters, meestal gebruikt voor de overeenkomende velden markeren |
 | vooraf |De opgegeven tekenreeks voor de overeenkomende velden prefixes. |
 | Verzenden |Voegt de opgegeven tekenreeks met de overeenkomende velden. |
 | query |De query gebruikt voor het verzamelen en retourneren van resultaten. |
 | start |Het begin van de periode die u wilt dat de resultaten uit die u wilt zoeken. |
-| Einde |Het einde van de periode die u wilt dat de resultaten uit die u wilt zoeken. |
+| einde |Het einde van de periode die u wilt dat de resultaten uit die u wilt zoeken. |
 
 **Antwoord:**
 
@@ -305,7 +302,7 @@ De volgende tabel beschrijft de eigenschappen die beschikbaar zijn.
 | **Eigenschap** | **Beschrijving** |
 | --- | --- |
 | naam |Veldnaam. |
-| Weergavenaam |De weergavenaam van het veld. |
+| displayName |De weergavenaam van het veld. |
 | type |Het Type van de veldwaarde. |
 | geschikt voor facetten |De combinatie van huidige 'indexed', ' opgeslagen ' en 'facet' Eigenschappen. |
 | Weergavenaam |Huidige 'weergeven'-eigenschap. True als het veld wordt weergegeven in de zoekopdracht. |

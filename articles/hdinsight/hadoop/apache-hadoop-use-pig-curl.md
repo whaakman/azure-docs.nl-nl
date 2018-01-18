@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: a9fb0c69020f0b24187b68aa4bfda8b36d5b928e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c2c441d92607a017b4451cd8a06fb78a5e8e7135
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Pig-taken uitvoeren met Hadoop in HDInsight met behulp van REST
 
@@ -38,7 +38,7 @@ Informatie over het Pig Latin taken worden uitgevoerd door het maken van de REST
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* [CURL](http://curl.haxx.se/)
+* [Curl](http://curl.haxx.se/)
 
 * [jq](http://stedolan.github.io/jq/)
 

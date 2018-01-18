@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>High-density hosten op Azure App Service
 Wanneer u App Service, wordt uw toepassing losgekoppeld van de capaciteit toegewezen door twee concepten:
@@ -87,7 +87,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp. SiteConfig.NumberOfWorkers is verschillende vormen $newapp. MaxNumberOfWorkers. Per app schalen maakt gebruik van $newapp. SiteConfig.NumberOfWorkers om te bepalen van de kenmerken van de schaal van de app.
+> $newapp. SiteConfig.NumberOfWorkers verschilt van $newapp. MaxNumberOfWorkers. Per app schalen maakt gebruik van $newapp. SiteConfig.NumberOfWorkers om te bepalen van de kenmerken van de schaal van de app.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Per app schalen met Azure Resource Manager
 

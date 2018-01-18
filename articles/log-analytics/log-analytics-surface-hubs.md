@@ -12,55 +12,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/16/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f56369e412bdd285d3c370f5153fee4f539dfcf
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs met logboekanalyse voor het bijhouden van hun status controleren
 
 ![Surface Hub symbool](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
-Dit artikel wordt beschreven hoe u kunt de Surface Hub-oplossing in logboekanalyse voor het bewaken van de Microsoft Surface Hub-apparaten met de Microsoft Operations Management Suite (OMS). Log Analytics kunt u de status van uw Surface Hubs goed begrijpen hoe deze worden gebruikt.
+Dit artikel wordt beschreven hoe u kunt de Surface Hub-oplossing in logboekanalyse voor het bewaken van de Microsoft Surface Hub-apparaten. Log Analytics kunt u de status van uw Surface Hubs goed begrijpen hoe deze worden gebruikt.
 
-Elke Surface Hub heeft Microsoft Monitoring Agent geïnstalleerd. De via de agent die u gegevens kunt verzenden vanuit uw Surface Hub met OMS. Logboekbestanden worden gelezen uit uw Surface Hubs en worden vervolgens naar de OMS-service worden verzonden. Factoren, zoals servers offline is, de kalender niet synchroniseert, of als het account zich niet aanmelden bij Skype in OMS worden weergegeven in het dashboard Surface Hub. Met behulp van de gegevens in het dashboard, kunt u apparaten die niet worden uitgevoerd, of die zijn andere problemen en oplossingen voor de gedetecteerde problemen mogelijk van toepassing te identificeren.
+Elke Surface Hub heeft Microsoft Monitoring Agent geïnstalleerd. De via de agent die u gegevens kunt verzenden vanuit uw Surface Hub met logboekanalyse. Logboekbestanden worden gelezen uit uw Surface Hubs en worden vervolgens met logboekanalyse worden verzonden. Problemen, zoals servers offline is, de kalender niet synchroniseert, of als het account zich niet aanmelden bij Skype worden weergegeven in het dashboard Surface Hub in logboekanalyse. Met behulp van de gegevens in het dashboard, kunt u apparaten die niet worden uitgevoerd, of die zijn andere problemen en oplossingen voor de gedetecteerde problemen mogelijk van toepassing te identificeren.
 
-## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
-Gebruik de volgende informatie om te installeren en configureren van de oplossing. Om uw Surface Hubs van de Microsoft Operations Management Suite (OMS) beheren, hebt u het volgende nodig:
+## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
+Gebruik de volgende informatie om te installeren en configureren van de oplossing. Om uw Surface Hubs in logboekanalyse te beheren, hebt u het volgende nodig:
 
-* Een geldig abonnement op [OMS](http://www.microsoft.com/oms).
-* Een [OMS abonnement](https://azure.microsoft.com/pricing/details/log-analytics/) niveau die ondersteuning bieden voor het aantal apparaten dat u wilt bewaken. Prijzen van OMS varieert afhankelijk van hoeveel apparaten zijn ingeschreven en hoeveel gegevens deze processen. Moet u dit in aanmerking te nemen bij het plannen van uw implementatie Surface Hub.
+* Een [logboekanalyse abonnement](https://azure.microsoft.com/pricing/details/log-analytics/) niveau die ondersteuning bieden voor het aantal apparaten dat u wilt bewaken. Log Analytics prijzen varieert afhankelijk van hoeveel apparaten zijn ingeschreven en hoeveel gegevens deze processen. Moet u dit in aanmerking te nemen bij het plannen van uw implementatie Surface Hub.
 
-Vervolgens wordt u een OMS-abonnement toevoegen aan uw bestaande Microsoft Azure-abonnement of maak een nieuwe werkruimte rechtstreeks via de OMS-portal. Gedetailleerde instructies voor het gebruik van beide methoden is op [aan de slag met logboekanalyse](log-analytics-get-started.md). Zodra de OMS-abonnement is ingesteld, zijn er twee manieren om uw Surface Hub-apparaten te registreren:
+Vervolgens wordt u een bestaande werkruimte voor logboekanalyse toevoegen of een nieuwe maken. Gedetailleerde instructies voor het gebruik van beide methoden is op [aan de slag met logboekanalyse](log-analytics-get-started.md). Zodra de werkruimte voor logboekanalyse is geconfigureerd, zijn er twee manieren om uw Surface Hub-apparaten te registreren:
 
 * Automatisch via Intune
 * Handmatig via **instellingen** op uw apparaat Surface Hub.
 
 ## <a name="set-up-monitoring"></a>Controle instellen
-U kunt de status en activiteit van uw Surface Hub met logboekanalyse in OMS controleren. U kunt de Surface Hub in OMS inschrijven met behulp van Intune of lokaal via **instellingen** op de Surface Hub.
+U kunt de status en activiteit van uw Surface Hub met logboekanalyse controleren. U kunt de Surface Hub inschrijven met behulp van Intune of lokaal via **instellingen** op de Surface Hub.
 
-## <a name="connect-surface-hubs-to-oms-through-intune"></a>Verbinding maken met Surface Hubs met OMS via Intune
-Moet u de werkruimte-ID en werkruimtesleutel voor de OMS-werkruimte die uw Surface Hubs zullen beheren. U kunt ophalen uit de OMS-portal.
+## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Verbinding maken met Surface Hubs met logboekanalyse via Intune
+Hebt u de werkruimte-ID en werkruimtesleutel voor de werkruimte voor logboekanalyse die uw Surface Hubs zullen beheren. U krijgt die uit de werkruimte-instellingen in de Azure portal.
 
-Intune is een Microsoft-product waarmee u de OMS-configuratie-instellingen die worden toegepast op een of meer van uw apparaten centraal te beheren. Volg deze stappen voor het configureren van uw apparaten via Intune:
+Intune is een Microsoft-product waarmee u de configuratie-instellingen voor logboekanalyse die worden toegepast op een of meer van uw apparaten centraal te beheren. Volg deze stappen voor het configureren van uw apparaten via Intune:
 
 1. Aanmelden bij Intune.
 2. Navigeer naar **instellingen** > **verbonden gegevensbronnen**.
 3. Maken of bewerken van een beleid op basis van de sjabloon die Surface Hub.
-4. Navigeer naar de sectie OMS (Azure Operational Insights) van het beleid en voeg de *werkruimte-ID* en *Werkruimtesleutel* aan het beleid.
+4. Navigeer naar de sectie OMS (Azure Operational Insights) van het beleid en voeg de logboekanalyse *werkruimte-ID* en *Werkruimtesleutel* aan het beleid.
 5. Sla het beleid.
 6. Koppelt het beleid met de juiste groep apparaten.
 
    ![Intune-beleid](./media/log-analytics-surface-hubs/intune.png)
 
-De OMS-instellingen Intune vervolgens gesynchroniseerd met de apparaten in de doelgroep ze inschrijven in de OMS-werkruimte.
+De instellingen voor logboekanalyse Intune vervolgens gesynchroniseerd met de apparaten in de doelgroep ze inschrijven in de werkruimte voor logboekanalyse.
 
-## <a name="connect-surface-hubs-to-oms-using-the-settings-app"></a>Verbinding maken met Surface Hubs met behulp van de app instellingen OMS
-Moet u de werkruimte-ID en werkruimtesleutel voor de OMS-werkruimte die uw Surface Hubs zullen beheren. U kunt ophalen uit de OMS-portal.
+## <a name="connect-surface-hubs-to-log-analytics-using-the-settings-app"></a>Verbinding maken met Surface Hubs met behulp van de app instellingen logboekanalyse
+Hebt u de werkruimte-ID en werkruimtesleutel voor de werkruimte voor logboekanalyse die uw Surface Hubs zullen beheren. U kunt ophalen uit de instellingen voor de werkruimte voor logboekanalyse in de Azure portal.
 
 Als u Intune niet gebruikt om uw omgeving te beheren, kunt u handmatig via apparaten inschrijven **instellingen** op elke Surface Hub:
 
@@ -68,22 +67,23 @@ Als u Intune niet gebruikt om uw omgeving te beheren, kunt u handmatig via appar
 2. Voer de beheerdersreferenties apparaat wanneer u wordt gevraagd.
 3. Klik op **dit apparaat**, en de onder **bewaking**, klikt u op **OMS-instellingen configureren**.
 4. Selecteer **bewaking inschakelen**.
-5. Typ in het dialoogvenster OMS-instellingen voor de **werkruimte-ID** en typt u de **Werkruimtesleutel**.  
+5. Typ in het dialoogvenster OMS-instellingen voor de logboekanalyse **werkruimte-ID** en typt u de **Werkruimtesleutel**.  
    ![Instellingen](./media/log-analytics-surface-hubs/settings.png)
 6. Klik op **OK** om de configuratie te voltooien.
 
-Een bevestiging wordt weergegeven dat u al dan niet de OMS-configuratie is toegepast op het apparaat. Als dit het geval is, wordt er een bericht weergegeven dat de agent is verbonden met de OMS-service. Het apparaat wordt vervolgens gestart voor het verzenden van gegevens naar OMS waar u kunt weergeven en erop reageren.
+Een bevestiging wordt weergegeven waarin staat of de configuratie is toegepast op het apparaat. Als dit het geval is, wordt er een bericht weergegeven dat de agent is verbonden met logboekanalyse. Het apparaat wordt vervolgens gestart voor het verzenden van gegevens met logboekanalyse waar u kunt weergeven en erop reageren.
 
 ## <a name="monitor-surface-hubs"></a>Monitor met Surface Hubs
-Bewaking van uw Surface Hubs lijkt met behulp van OMS veel bewaking van andere geregistreerde apparaten.
+Bewaking van uw Surface Hubs lijkt met behulp van logboekanalyse veel op de bewaking van andere geregistreerde apparaten.
 
-1. Aanmelden bij de OMS-portal.
-2. Ga naar het dashboard Surface Hub-oplossing pack.
+1. Meld u aan bij Azure Portal.
+2. Navigeer naar de werkruimte voor logboekanalyse en selecteer **overzicht**.
+2. Klik op de tegel Surface Hub.
 3. Status van uw apparaat wordt weergegeven.
 
    ![Surface Hub-dashboard](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-U kunt maken [waarschuwingen](log-analytics-alerts.md) op basis van bestaande of aangepaste logboek zoekopdrachten. De OMS uit uw Surface Hubs verzamelt gegevens gebruikt, kunt u zoeken naar problemen en een waarschuwing voor de voorwaarden die u voor uw apparaten definieert.
+U kunt maken [waarschuwingen](log-analytics-alerts.md) op basis van bestaande of aangepaste logboek zoekopdrachten. Log Analytics uit uw Surface Hubs verzamelt gegevens gebruikt, kunt u zoeken naar problemen en een waarschuwing voor de voorwaarden die u voor uw apparaten definieert.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik [zoekopdrachten aanmelden met logboekanalyse](log-analytics-log-searches.md) om gedetailleerde Surface Hub-gegevens te bekijken.

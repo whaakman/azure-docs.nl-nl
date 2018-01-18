@@ -3,7 +3,7 @@ title: Lotus Domino-Connector | Microsoft Docs
 description: In dit artikel wordt beschreven hoe Microsoft Lotus Domino-Connector configureren.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Technische naslaginformatie voor Lotus Domino-Connector
 In dit artikel beschrijft de Lotus Domino-Connector. Het artikel is van toepassing op de volgende producten:
@@ -71,19 +71,19 @@ Bewerkingen gaat ofwel u rechtstreeks naar de map Domino of door het proces Admi
 
 | Object | Maken | Update | Verwijderen |
 | --- | --- | --- | --- |
-| Persoon |AdminP |Rechtstreeks |AdminP |
-| Groep |AdminP |Rechtstreeks |AdminP |
-| MailInDB |Rechtstreeks |Rechtstreeks |Rechtstreeks |
-| Resource |AdminP |Rechtstreeks |AdminP |
+| Person |AdminP |Direct |AdminP |
+| Groep |AdminP |Direct |AdminP |
+| MailInDB |Direct |Direct |Direct |
+| Resource |AdminP |Direct |AdminP |
 
 **Secundaire adresboek**
 
 | Object | Maken | Update | Verwijderen |
 | --- | --- | --- | --- |
-| Persoon |N.v.t. |Rechtstreeks |Rechtstreeks |
-| Groep |Rechtstreeks |Rechtstreeks |Rechtstreeks |
-| MailInDB |Rechtstreeks |Rechtstreeks |Rechtstreeks |
-| Resource |N.v.t. |N.v.t. |N.v.t. |
+| Person |N/A |Direct |Direct |
+| Groep |Direct |Direct |Direct |
+| MailInDB |Direct |Direct |Direct |
+| Resource |N/A |N/A |N/A |
 
 Wanneer een resource is gemaakt, wordt een Notes-document gemaakt. Wanneer een resource wordt verwijderd, wordt ook het document opmerkingen verwijderd.
 
@@ -119,7 +119,7 @@ Op de pagina Verbindingsmogelijkheden moet u de Lotus Domino-server opgeven en v
 
 De eigenschap Domino-Server ondersteunt twee verschillende indelingen voor naam van de server:
 
-* Servernaam
+* ServerName
 * ServerName/DirectoryName
 
 De **ServerName/DirectoryName** indeling is de gewenste indeling voor dit kenmerk omdat u sneller een antwoord biedt, wanneer de Domino-Server contact legt met de connector.
@@ -135,7 +135,7 @@ Voor **Delta-Import** hebt u deze opties:
 In **schemaopties** hebt u de volgende opties:
 
 * **Standaard Schema**. De Connector detecteert het schema van de Domino-server. Dit is de standaardoptie.
-* **DSML Schema**. Alleen gebruikt als de server Domino wordt het schema niet beschikbaar. U kunt vervolgens een DSML-bestand maken met het schema en importeer dit in plaats daarvan. Zie voor meer informatie over DSML [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
+* **DSML-Schema**. Alleen gebruikt als de server Domino wordt het schema niet beschikbaar. U kunt vervolgens een DSML-bestand maken met het schema en importeer dit in plaats daarvan. Zie voor meer informatie over DSML [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 Als u op Volgende klikt, wordt de configuratieparameters gebruikersnaam en wachtwoord zijn geverifieerd.
 
@@ -165,7 +165,7 @@ De **volledige Import uitvoeren door** volgende opties:
 #### <a name="creation-of-virtual-contact-objects"></a>Maken van virtuele contact op met objecten
 De **maken van een \_object contactpersonen** volgende opties:
 
-* Geen
+* None
 * Niet-verwijzingsvariant waarden
 * Naslaggids voor niet waarden
 
@@ -209,24 +209,24 @@ De bewerking exportoptie ondersteunt twee modi:
 Voorbeeld: Het kenmerk assistent van een persoon-object heeft de volgende waarden:
 
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Als een nieuwe assistent met de naam **David Alexander** is toegewezen aan dit object persoon het resultaat is:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Item toevoegen** – wanneer u deze optie selecteert, de connector behoudt de bestaande waarden van het kenmerk in Domino en insert nieuwe waarden boven aan de gegevenslijst.
 
 Voorbeeld: Het kenmerk assistent van een persoon-object heeft de volgende waarden:
 
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Als een nieuwe assistent met de naam **David Alexander** is toegewezen aan dit object persoon het resultaat is:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Importeren**  
 De optie importeren bewerking ondersteunt twee modi:
@@ -240,9 +240,9 @@ De optie importeren bewerking ondersteunt twee modi:
 
 Voorbeeld: Het kenmerk assistent van een persoon-object heeft de volgende waarden:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 De meest recente update aan dit kenmerk is **David Alexander**. Omdat de optie importeren opnieuw is ingesteld op Multivalued enkele waarde, connector alleen geïmporteerd **David Alexander** naar het connectorgebied overgebracht.
 
@@ -404,7 +404,7 @@ De connector voor Lotus Domino ondersteunt hoofdzakelijk de volgende typen objec
 
 * Groep
 * Database-e-mail In
-* Persoon
+* Person
 * Neem contact op met (iemand die geen certifier)
 * Resource
 
@@ -413,10 +413,10 @@ Deze sectie vindt de kenmerken die zijn verplicht voor elk ondersteund object om
 | Objecttype | Verplichte kenmerken |
 | --- | --- |
 | Groep |<li>ListName</li> |
-| Main In Database |<li>Volledige naam</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| Persoon |<li>Achternaam</li><li>MailFile</li><li>Korte naam</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
+| Main In Database |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Person |<li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Neem contact op met (iemand die geen certifier) |<li>\_MMS_IDRegType</li> |
-| Resource |<li>Volledige naam</li><li>ResourceType</li><li>ConfDB</li><li>Resourcecapaciteit</li><li>Site</li><li>Weergavenaam</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Resource |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>Resourcecapaciteit</li><li>Site</li><li>Weergavenaam</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Veelvoorkomende problemen en vragen
 ### <a name="schema-detection-does-not-work"></a>Schema-detectie werkt niet

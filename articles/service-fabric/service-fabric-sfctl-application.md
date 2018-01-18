@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>sfctl toepassing
 Maken, verwijderen en beheren van toepassingen en die van toepassing.
@@ -32,19 +32,19 @@ Maken, verwijderen en beheren van toepassingen en die van toepassing.
 | geïmplementeerd     | Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Service Fabric-knooppunt.|
 | geïmplementeerd health | Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt.|
 | geïmplementeerd lijst| De lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt ophalen.|
-| Status       | Hiermee haalt u de status van de service fabric-toepassing.|
-| Info         | Hiermee haalt u informatie over een Service Fabric-toepassing.|
+| status       | Hiermee haalt u de status van de service fabric-toepassing.|
+| info         | Hiermee haalt u informatie over een Service Fabric-toepassing.|
 | lijst         | Hiermee wordt de lijst met toepassingen die in de Service Fabric-cluster gemaakt die overeenkomen met opgegeven als parameter filters opgehaald.|
 | laden | Haalt informatie over een Service Fabric-toepassing worden geladen. |
-| Manifest     | Het manifest met een beschrijving van een toepassingstype opgehaald.|
+| manifest     | Het manifest met een beschrijving van een toepassingstype opgehaald.|
 | Inrichten    | Bepalingen of registers typt u een Service Fabric-toepassing met het cluster.|
 | rapport-status| Verzendt een statusrapport over de Service Fabric-toepassing.|
 | type         | Hiermee haalt de lijst met soorten toepassingen in de Service Fabric-cluster die overeenkomt met de opgegeven naam.|
-| lijst van type    | Hiermee haalt de lijst met soorten toepassingen in de Service Fabric-cluster.|
+| type-list    | Hiermee haalt de lijst met soorten toepassingen in de Service Fabric-cluster.|
 | Inrichting verwijderen  | Verwijdert of heft de registratie van een Service Fabric-toepassingstype uit het cluster.|
 | upgrade      | Hiermee start u een upgrade van een toepassing in het Service Fabric-cluster.|
 | upgrade hervatten  | Hervat een upgrade van een toepassing in het Service Fabric-cluster.|
-| upgrade terugdraaien| Start het terugdraaien van de momenteel continu upgrade van een toepassing in het Service Fabric-cluster.|
+| upgrade-rollback| Start het terugdraaien van de momenteel continu upgrade van een toepassing in het Service Fabric-cluster.|
 | upgrade-status  | Hiermee wordt informatie opgehaald voor de meest recente upgrade uitgevoerd voor deze toepassing.|
 | Uploaden       | Een Service Fabric-toepassing-pakket kopiëren naar de image store.|
 
@@ -58,7 +58,7 @@ Hiermee maakt een Service Fabric-toepassing met behulp van de opgegeven beschrij
 | --app-naam [vereist]| De naam van de toepassing, met inbegrip van de "fabric:' URI-schema.|
 | --app-type [vereist]| De naam van de toepassing type is gevonden in het toepassingsmanifest.|
 | --app-versie [vereist]| De versie van het toepassingstype, zoals gedefinieerd in het toepassingsmanifest.|
-| --max in het aantal knooppunten     | Het maximum aantal knooppunten dat Service Fabric capaciteit voor deze toepassing reserveert. Dit betekent niet dat de services van deze toepassing op alle knooppunten zijn geplaatst.|
+| --max-node-count     | Het maximum aantal knooppunten dat Service Fabric capaciteit voor deze toepassing reserveert. Dit betekent niet dat de services van deze toepassing op alle knooppunten zijn geplaatst.|
 | --metrische gegevens            | Een JSON gecodeerde lijst met toepassingen capaciteit metrische beschrijvingen. Een metriek is gedefinieerd als een naam, die is gekoppeld aan een set met capaciteiten voor elk knooppunt dat de toepassing bestaat op.|
 | --min in het aantal knooppunten     | Het minimale aantal knooppunten dat Service Fabric capaciteit voor deze toepassing reserveert. Dit betekent niet dat de services van deze toepassing op alle knooppunten zijn geplaatst.|
 | --parameters         | Een lijst met JSON gecodeerde van toepassing parameter onderdrukkingen om te worden toegepast bij het maken van de toepassing.|
@@ -68,7 +68,7 @@ Hiermee maakt een Service Fabric-toepassing met behulp van de opgegeven beschrij
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen              | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug              | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h            | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o          | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query              | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -84,14 +84,14 @@ Hiermee verwijdert u een bestaande Service Fabric-toepassing. Een toepassing moe
 |Argument|Beschrijving|
 | --- | --- |
 | --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Bijvoorbeeld, als de toepassingsnaam van de is 'fabric://myapp/app1', de toepassings-id zou zijn ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
-| --geforceerd verwijderen          | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
+| --force-remove          | Verwijder een Service Fabric-toepassing of service geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt geforceerd verwijderen van een toepassing of service voor welke verwijderen krijgt een time-out vanwege problemen met de code die voorkomt dat correcte sluit van replica's.|
 | --time-out -t            | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -112,7 +112,7 @@ Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Ser
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                 | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -138,7 +138,7 @@ Retourneert de Health-status van de service fabric-toepassing. Het antwoord rapp
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                                 | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -161,7 +161,7 @@ Retourneert de gegevens over de toepassing die is gemaakt of die momenteel wordt
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                    | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                  | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.             Standaard: json.|
 | --query                      | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -186,7 +186,7 @@ Hiermee haalt u de informatie over de toepassingen die zijn gemaakt of het proce
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                    | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                  | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.             Standaard: json.|
 | --query                      | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -206,7 +206,7 @@ Retourneert de load-informatie over de toepassing die is gemaakt of die momentee
 ### <a name="global-arguments"></a>Algemene argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|--fouten opsporen                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+|--debug                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
     --help -h                  | Deze help-bericht en afsluiten weergeven.|
     --uitvoer -o                | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
     --query                    | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -229,7 +229,7 @@ Het manifest met een beschrijving van een toepassingstype opgehaald. Het antwoor
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                  Standaard: json.|
 | --query                           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -251,7 +251,7 @@ Bepalingen of registers typt u een Service Fabric-toepassing met het cluster. Di
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                              | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                              | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                            | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                          | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query                              | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -270,14 +270,14 @@ Retourneert de gegevens over de toepassingstypen die zijn ingericht of die momen
 | ----naam van het toepassingstype [vereist]| De naam van het toepassingstype.|
 | --vervolgtoken           | De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
 | --uitsluiten toepassingsparameters  | De vlag die aangeeft of de parameters voor de toepassing zal worden uitgesloten van het resultaat.|
-| --max-resultaten                  | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal resultaten geretourneerd. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de groottebeperkingen max bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de paged query zo veel resultaten mogelijk die in het retourbericht passen.|
+| --max-results                  | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal resultaten geretourneerd. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de groottebeperkingen max bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de paged query zo veel resultaten mogelijk die in het retourbericht passen.|
 | --time-out -t                   | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                        | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                        | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                      | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                    | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.               Standaard: json.|
 | --query                        | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -300,7 +300,7 @@ Verwijdert of heft de registratie van een Service Fabric-toepassingstype uit het
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                  Standaard: json.|
 | --query                           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -320,24 +320,24 @@ Valideert de parameters voor het bijwerken van opgegeven toepassing en start de 
 | --parameters [vereist]| Een lijst met JSON gecodeerde van toepassing parameter onderdrukkingen om te worden toegepast bij de upgrade van de toepassing.|
 | ---service-health-standaardbeleid| JSON gecodeerde specificatie van het statusbeleid gebruikt standaard voor het evalueren van de status van een servicetype.|
 | --actie bij fout            | De actie om uit te voeren wanneer de upgrade van een bewaakte bewaking beleid of health beleidsschendingen optreedt.|
-| --geforceerd opnieuw opstarten             | Start processen geforceerd opnieuw tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd.|
-| --health-controle-opnieuw-timeout| De hoeveelheid tijd health evaluaties opnieuw wanneer de toepassing of het cluster slecht vóór de fout actie is wordt uitgevoerd. Gemeten in milliseconden.  Standaard: PT0H10M0S.|
-| --health selectievakje-stabiele duur | De hoeveelheid tijd dat de toepassing of het cluster in orde blijven moet voordat de upgrade wordt uitgevoerd op het volgende upgradedomein.            Gemeten in milliseconden.  Standaard: PT0H2M0S.|
+| --force-restart             | Start processen geforceerd opnieuw tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd.|
+| --health-check-retry-timeout| De hoeveelheid tijd health evaluaties opnieuw wanneer de toepassing of het cluster slecht vóór de fout actie is wordt uitgevoerd. Gemeten in milliseconden.  Standaard: PT0H10M0S.|
+| --health selectievakje-stabiele duur | De hoeveelheid tijd dat de toepassing of het cluster in orde blijven moet voordat de upgrade wordt uitgevoerd op het volgende upgradedomein.            Gemeten in milliseconden.  Default: PT0H2M0S.|
 | --health-controle-wait-duur| De hoeveelheid tijd moet worden gewacht na het voltooien van een upgradedomein alvorens statusbeleid toe te passen. Gemeten in milliseconden.            Standaard: 0.|
 | --max-slecht-apps        | Het maximaal toegestane percentage van de beschadigde geïmplementeerde toepassingen. Weergegeven als een getal tussen 0 en 100 liggen.|
 | --modus                      | De modus voor de status bewaakt tijdens een rolling upgrade.            Standaard: UnmonitoredAuto.|
-| --replica-set-controle-timeout | De maximale hoeveelheid tijd voor het blokkeren van de verwerking van een upgradedomein en verlies van beschikbaarheid voorkomen wanneer er onverwachte problemen zijn. Gemeten in seconden.|
+| --replica-set-check-timeout | De maximale hoeveelheid tijd voor het blokkeren van de verwerking van een upgradedomein en verlies van beschikbaarheid voorkomen wanneer er onverwachte problemen zijn. Gemeten in seconden.|
 | --service statusbeleid     | JSON gecodeerde kaart met het service type statusbeleid per type servicenaam. De kaart is leeg worden standaard.|
 | --time-out -t                | Server time-out in seconden.  Standaard: 60.|
-| --time-out-domein-upgrade    | De hoeveelheid tijd elk upgradedomein heeft voltooid voordat FailureAction wordt uitgevoerd. Gemeten in milliseconden.  Standaard: P10675199DT02H48M05.4775807S.|
-| --upgrade-time-out           | De hoeveelheid tijd die de algehele upgrade heeft voltooid voordat FailureAction wordt uitgevoerd. Gemeten in milliseconden.  Standaard: P10675199DT02H48M05.4775807S.|
+| --upgrade-domain-timeout    | De hoeveelheid tijd elk upgradedomein heeft voltooid voordat FailureAction wordt uitgevoerd. Gemeten in milliseconden.  Default:            P10675199DT02H48M05.4775807S.|
+| --upgrade-timeout           | De hoeveelheid tijd die de algehele upgrade heeft voltooid voordat FailureAction wordt uitgevoerd. Gemeten in milliseconden.  Default:            P10675199DT02H48M05.4775807S.|
 | --waarschuwing als fout          | Evaluatie van waarschuwingen met de dezelfde ernst als fouten behandelen.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                     | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                     | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                   | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                 | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.            Standaard: json.|
 | --query                     | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -360,7 +360,7 @@ Bezig met uploaden voor elk bestand eventueel weergeven in het pakket. Uploaden 
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen       | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug       | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h     | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o   | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query       | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|

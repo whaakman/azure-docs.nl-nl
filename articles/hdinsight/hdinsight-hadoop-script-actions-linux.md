@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Scripts actie te ontwikkelen met HDInsight
 
@@ -38,7 +38,7 @@ Scriptacties kunnen worden toegepast met de volgende methoden:
 | --- |:---:|:---:|
 | Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Azure CLI |&nbsp; |✓ |
+| Azure-CLI |&nbsp; |✓ |
 | HDInsight .NET-SDK |✓ |✓ |
 | Azure Resource Manager-sjabloon |✓ |&nbsp; |
 
@@ -118,7 +118,7 @@ De aanbevolen procedure is om te downloaden en te archiveren alles in een Azure 
 > [!IMPORTANT]
 > Het opslagaccount gebruikt, moet het standaardopslagaccount voor het cluster of een openbare, alleen-lezen container op andere storage-account.
 
-Bijvoorbeeld, de voorbeelden die is geleverd door Microsoft worden opgeslagen in de [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage-account. Dit is een openbaar, alleen-lezen container onderhouden door het HDInsight-team.
+Bijvoorbeeld, de voorbeelden die is geleverd door Microsoft worden opgeslagen in de [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage-account. Deze locatie is een openbaar, alleen-lezen container onderhouden door het HDInsight-team.
 
 ### <a name="bPS4"></a>Vooraf gecompileerde resources gebruiken
 
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Controlelijst voor het implementeren van een scriptactie
 
-Hier volgen de stappen die we bij de voorbereiding voor het implementeren van deze scripts duurde:
+Hier volgen de stappen nemen bij het voorbereiden voor het implementeren van een script:
 
 * Plaats de bestanden die de aangepaste scripts op een locatie die toegankelijk is voor de clusterknooppunten tijdens de implementatie bevatten. Bijvoorbeeld, de opslag standaard voor het cluster. Bestanden kunnen ook worden opgeslagen in openbaar leesbaar hosting-services.
 * Controleer of het script impotent. In dat geval kunt het script meerdere keren op hetzelfde knooppunt worden uitgevoerd.

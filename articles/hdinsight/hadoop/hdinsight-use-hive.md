@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bcaa53ea0a97186b9617ae2ca757e3c806b325e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL in Azure HDInsight?
 
@@ -201,7 +201,7 @@ SQL Server Integration Services (SSIS) kunt u een Hive-taak uitvoert. Het Azure-
 
 * [Azure HDInsight Hive-taak][hivetask]
 
-* [Azure abonnement Verbindingsbeheer][connectionmanager]
+* [Azure Subscription Connection Manager][connectionmanager]
 
 Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
 

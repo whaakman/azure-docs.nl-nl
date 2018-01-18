@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -134,37 +134,7 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
 
    De opdrachtregelprompt wordt geopend op de huidige locatie van de projectmap **c:\temp\myIris>**.
 
-2. Zorg dat de Azure-resourceprovider **Microsoft.ContainerRegistry** is geregistreerd in uw abonnement. U moet deze resourceprovider registreren om in stap 3 een omgeving te kunnen maken. Met de volgende opdracht kunt u controleren of de provider al is geregistreerd:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   De uitvoer ziet er als volgt uit: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Als **Microsoft.ContainerRegistry** niet is geregistreerd, kunt u de provider registreren met behulp van de volgende opdracht:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Registreren kan enkele minuten duren. U kunt de bijbehorende status controleren met behulp van de vorige opdracht **az provider list** of de volgende opdracht:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   De derde regel van de uitvoer bestaat uit **'registrationState': 'Registering'**. Wacht even en herhaal de opdracht **show** totdat u de uitvoer **registrationState: Registered** ziet.
-
-   >[!NOTE] 
-   Als u een ACS-cluster implementeert, moet u registreren de **Microsoft.ContainerService** resourceprovider evenals met exact dezelfde manier.
-
-3. Maak de omgeving. U moet deze stap eenmaal per omgeving uitvoeren. Voer de stap bijvoorbeeld eenmaal uit voor de ontwikkelomgeving en eenmaal voor de productie. Gebruik de _lokale modus_ voor deze eerste omgeving. U kunt de schakeloptie `-c` of `--cluster` gebruiken in de volgende opdracht om later een omgeving in de _clustermodus_ in te stellen.
+2. Maak de omgeving. U moet deze stap eenmaal per omgeving uitvoeren. Voer de stap bijvoorbeeld eenmaal uit voor de ontwikkelomgeving en eenmaal voor de productie. Gebruik de _lokale modus_ voor deze eerste omgeving. U kunt de schakeloptie `-c` of `--cluster` gebruiken in de volgende opdracht om later een omgeving in de _clustermodus_ in te stellen.
 
    Houd er rekening mee dat u voor de volgende installatieopdracht toegangsrechten van een bijdrager voor het abonnement moet hebben. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
 
@@ -176,17 +146,17 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
    
    De naam van het cluster is een manier om de omgeving te identificeren. De locatie moet dezelfde zijn als de locatie van het account voor Modelbeheer dat u hebt gemaakt in Azure Portal.
 
-4. Maak een account voor Modelbeheer. (Dit is een eenmalige installatie.)  
+3. Maak een account voor Modelbeheer. (Dit is een eenmalige installatie.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Stel het account voor Modelbeheer in.  
+4. Stel het account voor Modelbeheer in.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Stel de omgeving in.
+5. Stel de omgeving in.
 
    Als de installatie is voltooid, gebruikt u de volgende opdracht om de omgevingsvariabelen in te stellen die zijn vereist om de omgeving operationeel te maken. Gebruik dezelfde naam voor de omgeving die u eerder hebt gebruikt in stap 4. Gebruik dezelfde naam voor de resourcegroep die als uitvoer wordt weergegeven in het opdrachtvenster wanneer het installatieproces is voltooid.
 
@@ -194,7 +164,7 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Gebruik de volgende opdracht om te controleren of de omgeving voor implementatie van de lokale webservice goed is geconfigureerd:
+6. Gebruik de volgende opdracht om te controleren of de omgeving voor implementatie van de lokale webservice goed is geconfigureerd:
 
    ```azurecli
    az ml env show

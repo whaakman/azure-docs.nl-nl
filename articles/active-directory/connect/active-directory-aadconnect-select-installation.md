@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Uw installatietype selecteren | Microsoft Docs'
 description: In dit onderwerp leert u hoe u selecteert het installatietype om te gebruiken voor Azure AD Connect
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecteer welk installatietype moet worden gebruikt voor Azure AD Connect
 Azure AD Connect heeft twee installatietypen voor nieuwe installatie: Express en aangepast. Dit onderwerp helpt u om te bepalen welke optie u moet gebruiken tijdens de installatie.
@@ -41,7 +41,7 @@ U krijgt:
 
 Opties voor waar u Express nog steeds kunt gebruiken:
 
-- Als u niet synchroniseren van alle OE's wilt, u kunt nog steeds gebruiken Express en op de laatste pagina selectie **Start het synchronisatieproces...** *. Vervolgens de installatiewizard opnieuw uitvoeren en wijzigen van de organisatie-eenheden in [configuratieopties](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) en geplande synchronisatie inschakelen.
+- Als u niet synchroniseren van alle OE's wilt, u kunt nog steeds gebruiken Express en op de laatste pagina selectie ** Start het synchronisatieproces... ***. Vervolgens de installatiewizard opnieuw uitvoeren en wijzigen van de organisatie-eenheden in [configuratieopties](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) en geplande synchronisatie inschakelen.
 - Wilt u een van de functies in Azure AD Premium, zoals wachtwoord terugschrijven inschakelen. Ga eerst via snelle ophalen van de initiële installatie is voltooid. Vervolgens de installatiewizard opnieuw uitvoeren en wijzigen de [configuratieopties](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Aangepast telefoonnummer

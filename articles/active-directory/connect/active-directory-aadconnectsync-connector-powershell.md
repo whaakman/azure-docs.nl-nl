@@ -3,7 +3,7 @@ title: PowerShell-Connector | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u van Microsoft Windows PowerShell Connector configureert.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Technische documentatie van Windows PowerShell-Connector
 In dit artikel beschrijft de Windows PowerShell-Connector. Het artikel is van toepassing op de volgende producten:
@@ -67,7 +67,7 @@ U kunt de volgende parameters voor de connectiviteit configureren:
 | Wachtwoord |<Blank> |Wachtwoord van de referentie voor het opslaan voor gebruik wanneer de connector wordt uitgevoerd. |
 | Connector-Account imiteren |False |Indien true, wordt de Windows PowerShell-scripts uitgevoerd in de context van de opgegeven referenties van de synchronisatieservice. Indien mogelijk, verdient het aanbeveling om de **$Credentials** parameter is doorgegeven aan elk script wordt gebruikt in plaats van imitatie. Zie voor meer informatie over aanvullende machtigingen die nodig zijn voor gebruik deze optie [aanvullende configuratie voor imitatie](#additional-configuration-for-impersonation). |
 | Gebruikersprofiel laden als u imitatie |False |Hiermee geeft u in Windows te laden van het gebruikersprofiel van de referenties van de connector tijdens de imitatie. Als de geïmiteerde gebruiker een zwervend profiel heeft, wordt in de connector het zwervende profiel niet laden. Zie voor meer informatie over aanvullende machtigingen die nodig zijn voor het gebruik van deze parameter [aanvullende configuratie voor imitatie](#additional-configuration-for-impersonation). |
-| Aanmeldingstype als u imitatie |Geen |Aanmeldingstype tijdens de imitatie. Zie voor meer informatie de [dwLogonType] [ dw] documentatie. |
+| Aanmeldingstype als u imitatie |None |Aanmeldingstype tijdens de imitatie. Zie voor meer informatie de [dwLogonType] [ dw] documentatie. |
 | Alleen ondertekende Scripts |False |Indien waar, wordt de Windows PowerShell connector valideert dat elk script een geldige digitale handtekening heeft. Als het ONWAAR is, zorg ervoor dat de synchronisatieservice-server Windows PowerShell-uitvoeringsbeleid RemoteSigned of onbeperkt. |
 
 **Algemene Module**  
@@ -96,7 +96,7 @@ Het validatiescript ontvangt de volgende parameters van de connector:
 
 Het validatiescript moet een enkel ParameterValidationResult-object retourneren aan de pijplijn.
 
-**Schema-detectie**  
+**Schema Discovery**  
 Het Schema detectiescript is verplicht. Dit script retourneert de objecttypen, kenmerken en kenmerk beperkingen die de synchronisatieservice wordt gebruikt voor het kenmerk stroomregels configureren. Het Schema detectiescript tijdens het maken van de connector wordt uitgevoerd en de connector schema gevuld. Dit wordt ook gebruikt door de actie voor Schema vernieuwen Synchronization Service Manager.
 
 Het detectiescript schema ontvangt de volgende parameters van de connector:
@@ -129,7 +129,7 @@ Het tabblad mogelijkheden van de ontwerpfunctie voor Management Agent definieert
 | DN-naam gebruiken als anker |Als de Distinguished Name-stijl is ingesteld op LDAP, is het ankerkenmerk voor het connectorgebied overgebracht ook de DN-naam. |
 | Gelijktijdige bewerkingen van verschillende Connectors |Wanneer dit selectievakje inschakelt, kunnen meerdere Windows PowerShell-connectors gelijktijdig uitgevoerd. |
 | Partities |Wanneer dit selectievakje inschakelt, biedt de connector ondersteuning voor meerdere partities en detectie van de partitie. |
-| hiërarchie |Wanneer dit selectievakje inschakelt, wordt door de connector een hiërarchische structuur voor LDAP-stijl die wordt ondersteund. |
+| Hiërarchie |Wanneer dit selectievakje inschakelt, wordt door de connector een hiërarchische structuur voor LDAP-stijl die wordt ondersteund. |
 | Importeren inschakelen |Wanneer dit selectievakje inschakelt, importeert de connector gegevens via scripts voor het importeren. |
 | Delta-Import inschakelen |Wanneer dit selectievakje inschakelt, kan de connector delta's aanvragen bij de scripts voor het importeren. |
 | Exporteren inschakelen |Wanneer dit selectievakje inschakelt, exporteert u de connector gegevens via de export-scripts. |
@@ -271,10 +271,10 @@ Het script wachtwoord ontvangt de volgende parameters van de connector:
 | Referentie |[PSCredential][pscred] |Bevat geen referenties opgegeven door de beheerder op het tabblad verbinding. |
 | Partitie |[Partitie][part] |Directory-partitie die de CSEntry in. |
 | CSEntry |[CSEntry][cse] |Connector ruimte vermelding voor het object dat is ontvangen een wachtwoord wijzigen of opnieuw instellen. |
-| OperationType |Reeks |Hiermee wordt aangegeven of de bewerking opnieuw instellen (**SetPassword**) of een wijziging (**ChangePassword**). |
+| OperationType |Tekenreeks |Hiermee wordt aangegeven of de bewerking opnieuw instellen (**SetPassword**) of een wijziging (**ChangePassword**). |
 | PasswordOptions |[PasswordOptions][pwdopt] |Vlaggen die een wachtwoord opgeven voor het beoogde instellen gedrag. Deze parameter is alleen beschikbaar als OperationType **SetPassword**. |
-| OudWachtwoord |Reeks |Ingevuld met de oude wachtwoord van het object voor wachtwoordwijzigingen. Deze parameter is alleen beschikbaar als OperationType **ChangePassword**. |
-| NieuwWachtwoord |Reeks |Gevuld met een nieuw wachtwoord in van het object dat het script moet worden ingesteld. |
+| OudWachtwoord |Tekenreeks |Ingevuld met de oude wachtwoord van het object voor wachtwoordwijzigingen. Deze parameter is alleen beschikbaar als OperationType **ChangePassword**. |
+| NieuwWachtwoord |Tekenreeks |Gevuld met een nieuw wachtwoord in van het object dat het script moet worden ingesteld. |
 
 Het script wachtwoord wordt niet verwacht geen resultaten geretourneerd aan de Windows PowerShell-pijplijn. Als er een fout optreedt in het script wachtwoord moet een van de volgende uitzonderingen op de synchronisatieservice informeren over het probleem door het script genereert:
 
@@ -291,8 +291,8 @@ Verleen de gebruiker die de volgende machtigingen op de server-synchronisatieser
 
 Leestoegang tot de volgende registersleutels:
 
-* HKEY_USERS\\\Software\Microsoft\PowerShell [SynchronizationServiceServiceAccountSID]
-* HKEY_USERS\\\Environment [SynchronizationServiceServiceAccountSID]
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 Om te bepalen van de beveiligings-id (SID) van het serviceaccount van de synchronisatieservice, voert u de volgende PowerShell-opdrachten:
 
@@ -303,9 +303,9 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 Leestoegang tot de volgende mappen van het bestandssysteem:
 
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\Extensions
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
 
 Vervang de naam van de Windows PowerShell-connector voor de tijdelijke aanduiding voor de {ConnectorName}.
 

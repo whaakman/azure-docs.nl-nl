@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selecteer, beheren en gebruiken van Service Fabric-clusters.
@@ -29,18 +29,18 @@ Selecteer, beheren en gebruiken van Service Fabric-clusters.
 | --- | --- |
 |    code-versies| Haalt een lijst van fabric code-versies die zijn ingericht op een Service Fabric-cluster.|
 |    configuratie-versies | Hiermee haalt een lijst van fabric config-versies die zijn ingericht op een Service Fabric-cluster.|
-|    Status       | Hiermee haalt u de status van een Service Fabric-cluster.|
-|    Manifest     | Haal het manifest Service Fabric-cluster.|
+|    status       | Hiermee haalt u de status van een Service Fabric-cluster.|
+|    manifest     | Haal het manifest Service Fabric-cluster.|
 |    bewerking annuleren| Een gebruiker veroorzaakte fout geannuleerd.|
 |    operationgit | Hiermee haalt u een lijst van fouttolerantie gebruiker veroorzaakte bewerkingen die zijn gefilterd op de opgegeven invoer.|
 |    Inrichten     | De pakketten code of configuratie van een Service Fabric-cluster inrichten.|
 |    herstellen-systeem  | Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet te herstellen van de systeemservices die momenteel zijn vastgelopen in quorumverlies.|
 |rapport-status   | Verzendt een statusrapport op het Service Fabric-cluster.|
-|    Selecteer       | Maakt verbinding met een Service Fabric-cluster-eindpunt.|
+|    selecteren       | Maakt verbinding met een Service Fabric-cluster-eindpunt.|
 | Inrichting verwijderen     | Inrichting van de pakketten code of configuratie van een Service Fabric-cluster.|
 |    upgrade         | Start de code of upgrade van een Service Fabric-cluster.|
 |    upgrade hervatten  | Controleer het upgraden van cluster gaat u verder met het volgende upgradedomein.|
-|    upgrade terugdraaien| De upgrade van een Service Fabric-cluster terugdraaien.|
+|    upgrade-rollback| De upgrade van een Service Fabric-cluster terugdraaien.|
 |    upgrade-status  | Hiermee haalt u de voortgang van de huidige upgrade van de cluster.|
 |upgrade-update  | Bijwerken van de parameters voor het bijwerken van de upgrade van een Service Fabric-cluster.|
 
@@ -65,7 +65,7 @@ Hiermee haalt u de status van een Service Fabric-cluster. EventsHealthStateFilte
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen                        | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug                        | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                      | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                    | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                    Standaard: json.|
 | --query                        | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -86,7 +86,7 @@ Haal het manifest Service Fabric-cluster. Het clustermanifest bevat eigenschappe
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h| Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -100,7 +100,7 @@ Valideren en de pakketten code of configuratie van een Service Fabric-cluster in
 
 |Argument|Beschrijving|
 | --- | --- |
-|--cluster-manifest-bestandspad| Het pad van het manifestbestand voor het cluster.|
+|--cluster-manifest-file-path| Het pad van het manifestbestand voor het cluster.|
 |    --code bestandspad            | Het cluster code pakket bestandspad.|
 |    --time-out -t                | Server time-out in seconden.  Standaard: 60.|
 
@@ -108,7 +108,7 @@ Valideren en de pakketten code of configuratie van een Service Fabric-cluster in
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h  | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o| De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -135,7 +135,7 @@ Als verbinding maken met veilige cluster, geeft u een certificaat (.crt) en sleu
 
 |Argument|Beschrijving|
 | --- | --- |
-| --fouten opsporen           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+| --debug           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
 | --query           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -156,7 +156,7 @@ Inrichting van de pakketten code of configuratie van een Service Fabric-cluster.
 ### <a name="global-arguments"></a>Algemene argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|--fouten opsporen         | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+|--debug         | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
  |   --help -h       | Deze help-bericht en afsluiten weergeven.|
  |   --uitvoer -o     | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
  |   --query         | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -170,31 +170,31 @@ Valideren van de opgegeven parameters voor de upgrade en start de upgrade of de 
 ### <a name="arguments"></a>Argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|    --app-health-kaart                      | JSON gecodeerde woordenlijst van paren toepassingsnaam en het maximale percentage slecht voordat de fout.|
- |   --app-type-health-kaart                 | JSON gecodeerde woordenlijst van paren met de naam van het toepassingstype en het maximale percentage slecht voordat de fout.|
+|    --app-health-map                      | JSON gecodeerde woordenlijst van paren toepassingsnaam en het maximale percentage slecht voordat de fout.|
+ |   --app-type-health-map                 | JSON gecodeerde woordenlijst van paren met de naam van het toepassingstype en het maximale percentage slecht voordat de fout.|
  |   --code-versie                        | De versie van de cluster.|
  |   --config-versie                      | De versie van het cluster-configuratie.|
  |   --delta-health-evaluatie             | Hiermee schakelt u delta de statusevaluatie in plaats van absolute health evaluatie na voltooiing van elk upgradedomein.|
  |   --delta slecht knooppunten               | Het maximaal toegestane percentage van de knooppunten verslechtering van de status toegestaan tijdens upgrades van de cluster.  Standaard: 10. De verschillen wordt tussen de status van de knooppunten aan het begin van de upgrade en de status van de knooppunten op het moment van de statusevaluatie gemeten. De controle wordt uitgevoerd na de upgrade voltooiing van elke upgradedomein om te controleren of dat de globale status van het cluster is binnen de limieten voor verdragen.|
  |   --actie bij fout                      | Mogelijke waarden zijn: 'Ongeldig', 'Terugdraaiactie', 'Manual'.|
- |   --geforceerd opnieuw opstarten                       | Geforceerd opnieuw opstarten.|
- |   --health-controle-probeer het opnieuw                  | Health selectievakje opnieuw time-out gemeten in milliseconden.|
+ |   --force-restart                       | Geforceerd opnieuw opstarten.|
+ |   --health-check-retry                  | Health selectievakje opnieuw time-out gemeten in milliseconden.|
  |   --health-controle-stabiel                 | Serverstatus controleren stabiele duur van de gemeten in milliseconden.|
   |  --wachtduur                   | Health controle wacht duur gemeten in milliseconden.|
-  |  --replica-set-controle-timeout           | Upgrade replicaset selectievakje time-out gemeten in seconden.|
+  |  --replica-set-check-timeout           | Upgrade replicaset selectievakje time-out gemeten in seconden.|
  |   --rolling-upgrade-modus                | Mogelijke waarden zijn: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard: UnmonitoredAuto.|
   |  --time-out -t                          | Server time-out in seconden.  Standaard: 60.|
   |  --slecht toepassingen              | Het maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. Bijvoorbeeld, zodat 10% van toepassingen beschadigd is deze waarde 10. Het percentage vertegenwoordigt het verdragen maximumpercentage van toepassingen die beschadigd worden kunnen voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht toepassingstype is, worden de status wordt geëvalueerd als de waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die in de applicationtypehealthpolicymap; deze zijn opgenomen. De berekening rondt af naar boven op een storing op een klein aantal toepassingen tolereren.|
  |   --slecht knooppunten                     | Het maximaal toegestane percentage van slecht knooppunten voordat u een foutmelding. Bijvoorbeeld, zodat 10% van de knooppunten beschadigd is deze waarde 10. Het percentage geeft de maximale verdragen percentage van de knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal beschadigde knooppunten delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar boven op een storing op een klein aantal knooppunten tolereren. In grote clusters sommige knooppunten altijd worden omlaag of uit voor reparaties, zodat dit percentage moet worden geconfigureerd voor die tolereren.|
  |   --upgrade-domain-delta-slecht-knooppunten| Het maximaal toegestane percentage van de knooppunten van het upgradedomein verslechtering van de status toegestaan tijdens upgrades van de cluster. Standaard: 15. De verschillen wordt tussen de status van de upgradedomein-knooppunten aan het begin van de upgrade en de status van de upgradedomein-knooppunten op het moment van de statusevaluatie gemeten. De controle wordt uitgevoerd na elke opwaarderen upgradedomein is voltooid voor alle upgradedomeinen om ervoor te zorgen dat de status van de upgradedomeinen is binnen de limieten voor verdragen.|
- |   --time-out-domein-upgrade              | Time-out upgradedomein gemeten in milliseconden.|
- |   --upgrade-time-out                     | Time-out van de upgrade, gemeten in milliseconden.|
+ |   --upgrade-domain-timeout              | Time-out upgradedomein gemeten in milliseconden.|
+ |   --upgrade-timeout                     | Time-out van de upgrade, gemeten in milliseconden.|
  |   --waarschuwing als fout                    | Waarschuwingen worden met de ernst van de dezelfde fouten behandeld.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|--fouten opsporen                               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+|--debug                               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 |    --help -h                             | Deze help-bericht en afsluiten weergeven.|
 |    --uitvoer -o                           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv. Standaard: json.|
 |    --query                               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|

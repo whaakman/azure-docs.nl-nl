@@ -6,14 +6,14 @@ keywords:
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 269f77e5015175e45e0078926ef06699811889a4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cad28b4e6d4e46058641da19795cd71efdbd0c92
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-c-module-with-azure-iot-edge"></a>Visual Studio Code gebruiken voor het ontwikkelen van C#-module met Azure IoT rand
 In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio Code](https://code.visualstudio.com/) als de belangrijkste ontwikkelprogramma te ontwikkelen en implementeren van uw IoT-Edge-modules. 
@@ -31,7 +31,7 @@ Hier volgt een controlelijst waarin de items dat moet u nadat u klaar bent met h
 - [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 - [C# voor Visual Studio Code (via OmniSharp)-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 - [Docker](https://docs.docker.com/engine/installation/)
-- [.NET core SDK 2.0](https://www.microsoft.com/net/core#windowscmd). 
+- [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 - [Python 2.7](https://www.python.org/downloads/)
 - [IoT-rand besturingselement script](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 - Sjabloon AzureIoTEdgeModule (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
@@ -48,21 +48,37 @@ Er zijn twee manieren om weer te geven van uw IoT hub-apparaten in uw Code VS. U
 1. Typ in de opdracht palet (F1 of Ctrl + Shift + P), en selecteer **Azure: aanmelden**. Klik vervolgens op  **kopie* & Open** in het pop-upvenster. (Ctrl + V) de code in uw browser plakken en klik op de knop Doorgaan. Meld u aan met uw Azure-account. Hier ziet u de accountgegevens van uw op de statusbalk VS-Code.
 2. Typ in de opdracht palet (F1 of Ctrl + Shift + P), en selecteer **IoT: Selecteer IoT Hub**. Het abonnement waarbij u uw IoT-hub in vorige zelfstudie gemaakt voor het eerst wordt selecteren. Kies vervolgens de IoT-hub die het apparaat aan de rand van de IoT bevat.
 
+    ![Lijst met apparaten](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### <a name="set-iot-hub-connection-string"></a>IoT hub-verbindingsreeks instellen
-1. Typ in de opdracht palet (F1 of Ctrl + Shift + P), en selecteer **IoT: verbindingsreeks van de IoT-Hub ingesteld**. Zorg ervoor dat u de verbindende tekenreeks onder beleid plakken **iothubowner** (u kunt deze vinden in een gedeeld toegangsbeleid van uw IoT-hub in Azure-portal).
+Typ in de opdracht palet (F1 of Ctrl + Shift + P), en selecteer **IoT: verbindingsreeks van de IoT-Hub ingesteld**. Zorg ervoor dat u de verbindende tekenreeks onder beleid plakken **iothubowner** (u kunt deze vinden in een gedeeld toegangsbeleid van uw IoT-hub in Azure-portal).
  
-
 Hier ziet u de lijst met apparaten in IoT Hub-apparaten Explorer in het linkerdeelvenster zijmarge.
 
 ### <a name="start-your-iot-edge-runtime-and-deploy-a-module"></a>Start uw IoT-Edge-runtime en implementeren van een module
 Installeren en starten van de rand van Azure IoT-runtime op uw apparaat. En implementeren van een gesimuleerde sensor-module die telemetriegegevens naar IoT Hub verzendt.
 1. Selecteer in de opdracht palet **rand: Setup rand** en kies uw IoT-rand apparaat-ID. Of met de rechtermuisknop op het apparaat-ID van de rand in de lijst met apparaten en selecteer **Setup rand**.
+
+    ![Setup rand runtime](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+
 2. Selecteer in de opdracht palet **rand: Start rand** starten van de Edge-runtime. U ziet de bijbehorende uitvoer in de geïntegreerde terminal.
+
+    ![Starten van de rand runtime](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+
 3. Controleer de status van de rand runtime in Docker explorer. Groen betekent dat deze wordt uitgevoerd. Uw IoT-Edge-runtime is gestart.
-4. Nu uw runtime rand wordt uitgevoerd, simuleert wat betekent dat de PC nu een randapparaat. Volgende stap is om te simuleren een sensorthing houdt berichten verzenden naar het apparaat aan de rand. Typ in het kleurenpalet van de opdracht, en selecteer **rand: configuratiebestand genereren rand**. En selecteer een map voor dit bestand maken. In het bestand gegenereerde deployment.json vervangt u de regel '<registry>/<image>:<tag>' met `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+
+    ![Rand runtime wordt uitgevoerd](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+
+4. Nu uw runtime rand wordt uitgevoerd, simuleert wat betekent dat de PC nu een randapparaat. Volgende stap is om te simuleren een sensorthing houdt berichten verzenden naar het apparaat aan de rand. Typ in het kleurenpalet van de opdracht, en selecteer **rand: configuratiebestand genereren rand**. En selecteer een map voor dit bestand maken. Vervang de inhoud in het bestand gegenereerde deployment.json `<registry>/<image>:<tag>` met `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` en sla het bestand.
+
+    ![Module temperatuursensor](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+
 5. Selecteer **rand: implementatie voor randapparaat maken** en kies de apparaat-ID van de rand om een nieuwe implementatie te maken. U kunt met de rechtermuisknop op het apparaat-ID van de rand in de lijst met apparaten en selecteer **implementatie creëert voor randapparaat**. 
-6. U ziet uw IoT-rand uitgevoerd in de Docker-explorer met de gesimuleerde sensor. Met de rechtermuisknop op de container in Docker explorer. U kunt docker-logboeken voor elke module bekijken.
+
+6. U ziet uw IoT-rand uitgevoerd in de Docker-explorer met de gesimuleerde sensor. Met de rechtermuisknop op de container in Docker explorer. U kunt docker-logboeken voor elke module bekijken. U kunt ook de modulelijst weergeven in de lijst met apparaten.
+
+    ![Modulelijst](./media/how-to-vscode-develop-csharp-module/module-list.png)
+
 7. Met de rechtermuisknop op uw apparaat-ID van rand en kunt u berichten in de VS Code D2C bewaken.
 8. Om te stoppen uw IoT-Edge-runtime en de module sensor, kunt u typt en selecteer **rand: stoppen rand** in opdracht palet.
 
@@ -97,12 +113,18 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
  
 3. Selecteer **bestand** > **Open map**.
 4. Blader naar de **FilterModule** map en klik op **map selecteren** openen van het project in VS-Code.
-5. Klik in Verkenner VS-Code op **Program.cs** om dit te openen.
+5. Klik in Verkenner VS-Code op **Program.cs** om dit te openen. Aan de bovenkant van **program.cs**, omvatten onder naamruimten.
+   ```csharp
+   using Microsoft.Azure.Devices.Shared;
+   using System.Collections.Generic;  
+   using Newtonsoft.Json;
+   ```
+
 6. Voeg de `temperatureThreshold` variabele de **programma** klasse. Deze variabele bepaalt de waarde die de gemeten temperatuur moet groter zijn dan om de gegevens worden verzonden naar IoT Hub. 
 
-    ```csharp
-    static int temperatureThreshold { get; set; } = 25;
-    ```
+   ```csharp
+   static int temperatureThreshold { get; set; } = 25;
+   ```
 
 7. Voeg de `MessageBody`, `Machine`, en `Ambient` klassen voor de **programma** klasse. Deze klassen definiëren het verwachte schema voor de hoofdtekst van binnenkomende berichten.
 
@@ -225,16 +247,22 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     }
     ```
 
-11. Het project bouwen, met de rechtermuisknop op de **FilterModule.csproj** bestand in Verkenner en klik op **bouwen IoT rand module**. Dit proces wordt gecompileerd van de module en exporteert het binaire bestand en de bijbehorende afhankelijkheden in een map die wordt gebruikt om een Docker-installatiekopie te maken.
+11. Het project bouwen, met de rechtermuisknop op de **FilterModule.csproj** bestand in Verkenner en klik op **bouwen IoT rand module**. Dit proces wordt gecompileerd van de module en exporteert het binaire bestand en de bijbehorende afhankelijkheden in een map die wordt gebruikt om een Docker-installatiekopie te maken. 
 
+    ![Module maken](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Een Docker-installatiekopie maken en deze publiceren naar het register
 
 1. Vouw in VS-Code explorer de **Docker** map. Vouw vervolgens ofwel de map voor uw platform container **linux x64** of **windows nano**.
 2. Met de rechtermuisknop op de **Dockerfile** -bestand en klik op **bouwen IoT rand module Docker installatiekopie**. 
+
+    ![Een docker-installatiekopie maken](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+
 3. In de **map selecteren** venster ofwel om te zoeken of invoeren `./bin/Debug/netcoreapp2.0/publish`. Klik op **map selecteren als EXE_DIR**.
 4. Typ in het pop-tekst boven aan het venster tegenover Code, naam van de installatiekopie. Bijvoorbeeld: `<your container registry address>/filtermodule:latest`. Als u naar het lokale register implementeert, moet dit worden `localhost:5000/filtermodule:latest`.
-5. De installatiekopie naar uw opslagplaats Docker forceren. Gebruik de **rand: Push IoT rand module Docker installatiekopie** opdracht en de afbeeldings-URL in het pop-tekst boven aan het venster VS-Code invoeren. Gebruik dezelfde afbeeldings-URL die u in bovenstaande stap gebruikt.
+5. De installatiekopie naar uw opslagplaats Docker forceren. Gebruik de **rand: Push IoT rand module Docker installatiekopie** opdracht en de afbeeldings-URL in het pop-tekst boven aan het venster VS-Code invoeren. Gebruik dezelfde afbeeldings-URL die u in bovenstaande stap gebruikt. Raadpleeg het consolelogboek voor de en controleer of dat de installatiekopie van het met succes is gepusht.
+
+    ![Docker-afbeelding push](./media/how-to-vscode-develop-csharp-module/push-image.png) ![Pushed docker-afbeelding](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### <a name="deploy-your-iot-edge-modules"></a>Implementeren van uw IoT-Edge-modules
 
@@ -264,21 +292,26 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
 
 2. Vervang de **routes** sectie met de onderstaande inhoud:
     ```json
-    {
-        "routes": {
-            "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-            "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
-    }
+    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
    > Declaratieve regels in de runtime definiëren waar deze berichten stromen. In deze zelfstudie moet u twee routes. De eerste route transporten berichten van de temperatuursensor naar de filtermodule via het eindpunt 'input1', dat het eindpunt dat u met de handler FilterMessages geconfigureerd is. De tweede route transporten berichten van de module expressiefilter IoT-hub. In deze route upstream is een speciale bestemming waarin wordt uitgelegd rand Hub berichten verzenden naar IoT Hub.
 
 3. Sla dit bestand.
 4. Selecteer in de opdracht palet **rand: implementatie voor randapparaat maken**. Selecteer vervolgens uw IoT-rand apparaat-ID voor het maken van een implementatie. Of met de rechtermuisknop op het apparaat-ID in de lijst met apparaten en selecteer **implementatie creëert voor randapparaat**.
+
+    ![Implementatie maken](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+
 5. Selecteer de `deployment.json` u bijgewerkt. In het venster output ziet u bijbehorende uitvoer voor uw implementatie.
+
+    ![Implementatie is voltooid](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+
 6. Start uw runtime rand in de opdracht palet. **Rand: Begin rand**
 7. U kunt uw IoT-rand runtime start uitgevoerd in de Docker-explorer met de gesimuleerde sensor en filtermodule zien.
+
+    ![Rand van de IoT-oplossing wordt uitgevoerd](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+
 8. Met de rechtermuisknop op uw apparaat-ID van rand en kunt u berichten in de VS Code D2C bewaken.
 
 

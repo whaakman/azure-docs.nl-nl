@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 81ad6a82e41fdd0f26859aa47f91dfa21d464a01
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure Data Factory met HDFS
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ De volgende eigenschappen worden ondersteund voor HDFS gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Hdfs**. | Ja |
 | url |URL naar de HDFS |Ja |
 | authenticationType | Toegestane waarden zijn: **anoniem**, of **Windows**. <br><br> Gebruik **Kerberos-verificatie** voor HDFS-connector raadpleegt u [in deze sectie](#use-kerberos-authentication-for-hdfs-connector) voor het instellen van uw on-premises omgeving dienovereenkomstig. |Ja |
-| Gebruikersnaam |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
+| userName |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
 | wachtwoord |Wachtwoord voor Windows-verificatie. Dit veld markeren als SecureString. |Ja (voor Windows-verificatie) |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
@@ -160,7 +160,7 @@ Om gegevens te kopiëren uit HDFS, stelt u het brontype in de kopieerbewerking n
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **HdfsSource** |Ja |
-| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
+| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Opmerking Wanneer recursieve is ingesteld op true en sink is bestandsgebaseerde opslag, lege map/subbewerkingen-folder niet worden gekopieerd/gemaakt op de sink.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
 | distcpSettings | Eigenschappengroep bij gebruik van HDFS DistCp. | Nee |
 | resourceManagerEndpoint | Het eindpunt Yarn ResourceManager | Ja, als DistCp |
 | tempScriptPath | Pad naar een map gebruikt voor het opslaan van tijdelijke DistCp opdrachtscript. Het scriptbestand wordt gegenereerd door de Data Factory en wordt verwijderd nadat de taak kopiëren voltooid. | Ja, als DistCp |

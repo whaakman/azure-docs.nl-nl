@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/26/2017
+ms.date: 12/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: f032af4714ad458fa6ad6fb0741f689d44f4098b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a9a565cf2c20490475d1b73b0f99fbe63e57dd3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Vragen en opdrachten naar de herstel-service manager verzenden.
@@ -44,7 +44,7 @@ Deze API biedt ondersteuning voor het Service Fabric-platform; Dit is niet bedoe
 ### <a name="global-arguments"></a>Algemene argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|    --fouten opsporen             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+|    --debug             | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 |    --help -h           | Deze help-bericht en afsluiten weergeven.|
 |    --uitvoer -o         | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.
 |    --query             | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
@@ -61,14 +61,14 @@ Deze API biedt ondersteuning voor het Service Fabric-platform; Dit is niet bedoe
 | --- | --- |
 |    --executor-filter| De naam van het herstel executor waarvan geclaimde taken moeten worden opgenomen in de lijst.|
 |    --status-filter   | Een Bitsgewijze OR van de volgende waarden, geven aangegeven welke taak moet worden opgenomen in de lijst met resultaten. -1 - gemaakte - 2 - geclaimde - 4 - voorbereiding - 8 - goedgekeurd - 16 - uitvoerende - 32 - terugzetten - 64 - voltooid.|
-|    --taak-id-filter | Het herstel taak-ID-voorvoegsel moet worden gevonden.|
+|    --task-id-filter | Het herstel taak-ID-voorvoegsel moet worden gevonden.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|    --fouten opsporen          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
+|    --debug          | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 |    --help -h        | Deze help-bericht en afsluiten weergeven.|
-|    --uitvoer -o      | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard| JSON.|
+|    --uitvoer -o      | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard| json.|
 |    --query          | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
 |    --uitgebreide        | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 

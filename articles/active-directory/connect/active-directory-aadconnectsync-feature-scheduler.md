@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synchronisatie: Scheduler | Microsoft Docs'
 description: Dit onderwerp beschrijft de functie ingebouwde scheduler in Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synchronisatie: Scheduler
 Dit onderwerp beschrijft de ingebouwde scheduler in Azure AD Connect-synchronisatie (ook synchronisatie-engine).
@@ -131,7 +131,7 @@ De cmdlets die zijn beschreven in deze sectie zijn alleen beschikbaar in de buil
 
 Als de ingebouwde scheduler voldoet niet aan uw vereisten, kunt u de Connectors met behulp van PowerShell plannen.
 
-### <a name="invoke-adsyncrunprofile"></a>Aanroepen ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Voor een verbindingslijn op deze manier kunt u een profiel starten:
 
 ```

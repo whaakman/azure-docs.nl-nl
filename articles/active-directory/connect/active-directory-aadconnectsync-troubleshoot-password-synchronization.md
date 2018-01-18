@@ -3,7 +3,7 @@ title: Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie oplossen | M
 description: In dit artikel bevat informatie over het oplossen van problemen met synchronisatie van wachtwoorden.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit onderwerp bevat stappen voor het oplossen van problemen met synchronisatie van wachtwoorden. Als wachtwoorden zijn niet zoals verwacht wordt gesynchroniseerd, kan het zijn voor een subset van gebruikers of voor alle gebruikers.
@@ -307,7 +307,7 @@ U kunt eenvoudig wachtwoord synchronisatieproblemen oplossen aan de hand van de 
 
     ![Informatie over een gebruiker Lineage](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
 
-    ik. Klik op **eigenschappen Metaverse-Object** om een lijst met gebruikerskenmerken weer te geven.  
+    i. Klik op **eigenschappen Metaverse-Object** om een lijst met gebruikerskenmerken weer te geven.  
 
     ![Metaverse-informatie](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
 

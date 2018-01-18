@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d641971811f20b2a6e9c14f134cf0d80f95944eb
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -82,7 +82,8 @@ Als u wilt nesten van de sjabloon in de belangrijkste sjabloon gebruiken de **sj
 ]
 ```
 
-Voor geneste sjablonen kunt u parameters en variabelen die zijn gedefinieerd binnen de geneste sjabloon niet gebruiken. U kunt de parameters en variabelen van de belangrijkste sjabloon gebruiken. In het voorgaande voorbeeld `[variables('storageName')]` haalt een waarde van de belangrijkste sjabloon, niet de geneste sjabloon. Deze beperking geldt niet voor externe sjablonen.
+> [!NOTE]
+> Voor geneste sjablonen kunt u parameters en variabelen die zijn gedefinieerd binnen de geneste sjabloon niet gebruiken. U kunt de parameters en variabelen van de belangrijkste sjabloon gebruiken. In het voorgaande voorbeeld `[variables('storageName')]` haalt een waarde van de belangrijkste sjabloon, niet de geneste sjabloon. Deze beperking geldt niet voor externe sjablonen.
 
 ### <a name="external-template-and-external-parameters"></a>Externe sjabloon en externe parameters
 
