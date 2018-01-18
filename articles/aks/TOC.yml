@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - Een cluster upgraden
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Concepten
+  items:
+    - name: Quota en regionale limieten
+      href: container-service-quotas.md
 - name: Handleidingen
   items:
     - name: De schaal van een AKS-cluster aanpassen
@@ -49,11 +53,13 @@
       href: kubernetes-service-principal.md
     - name: Gegevensvolumes configureren
       items:
+        - name: Azure Disks - permanent volume
+          href: azure-disks-dynamic-pv.md
         - name: Azure Files - permanent volume
           href: azure-files-dynamic-pv.md
         - name: Azure Files - volume
           href: azure-files.md
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Azure-CLI
       href: /cli/azure/aks

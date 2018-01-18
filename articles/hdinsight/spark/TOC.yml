@@ -95,6 +95,9 @@
         - name: Gestructureerd streamen met Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: Structured Streaming van Kafka naar CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Spark-streaming (DStream) met Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
@@ -216,7 +219,7 @@
             - name: Azure CLI gebruiken
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
-        - name: Clusters beheren met de Ambari-webinterface
+        - name: Clusters beheren met Ambari-webinterface
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
@@ -248,7 +251,7 @@
             - name: Uitvoeren met cURL
               href: ../hadoop/apache-hadoop-use-sqoop-curl.md
               maintainContext: true
-            - name: Uitvoeren met .NET SDK
+            - name: Uitvoeren met .NET-SDK
               href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
               maintainContext: true
             - name: Uitvoeren met Azure PowerShell
@@ -363,7 +366,7 @@
         - name: Cluster-prestaties bewaken
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

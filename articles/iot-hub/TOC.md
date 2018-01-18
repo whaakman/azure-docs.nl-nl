@@ -35,6 +35,7 @@
 ### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Apparaatbeheer met IoT-extensie voor Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Handleidingen

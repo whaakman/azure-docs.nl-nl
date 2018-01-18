@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Ondersteuningsmatrix voor Azure naar Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Ondersteuningsmatrix voor on-premises naar Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Ondersteuningsmatrix voor VMware naar Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Ondersteuningsmatrix voor Hyper-V naar Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Ondersteuningsmatrix voor on-premises naar Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Ondersteuningsmatrix voor on-premises naar secundaire site
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Herstel na noodgeval voor workloads
@@ -181,6 +183,8 @@
           items:
             - name: Bronomgeving voor VMware naar Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: De configuratieserver voor VMware en fysieke servers implementeren
+              href: how-to-deploy-configuration-server.md
             - name: Bronomgeving voor fysiek naar Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: De doelomgeving instellen
@@ -273,7 +277,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Logboeken verzamelen en on-premises problemen oplossen
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery
