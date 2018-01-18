@@ -44,7 +44,12 @@
 ## Problemen oplossen
 ### [Veelgestelde vragen](active-directory-ds-faqs.md)
 ### [Handleiding voor het oplossen van problemen](active-directory-ds-troubleshooting.md)
+### [Problemen met betrekking tot waarschuwingen oplossen](active-directory-ds-troubleshoot-alerts.md)
+#### [Problemen met NSG-configuratie oplossen](active-directory-ds-troubleshoot-nsg.md)
+#### [Ontbrekende service-principals herstellen](active-directory-ds-troubleshoot-service-principals.md)
+#### [Fouten met betrekking tot Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Fouten met niet-overeenkomende tenants oplossen](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

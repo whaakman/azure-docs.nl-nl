@@ -5,26 +5,26 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Een beleidstoewijzing maken om niet-compatibele resources te identificeren in uw Azure-omgeving
-Om naleving in Azure te begrijpen, moet u eerst weten hoe het er voorstaat met uw eigen huidige resources. In deze quickstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
+De eerste stap in het begrijpen van naleving in Azure is het identificeren van de status van uw resources. In deze snelstartgids gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
 
-Als u het proces helemaal hebt doorlopen, hebt u virtuele machines geïdentificeerd die geen beheerde schijven gebruiken, en daarom *niet compatibel* zijn.
+Als u dit proces helemaal hebt doorlopen, kunt u virtuele machines identificeren die geen beheerde schijven gebruiken. Deze zijn *niet-compatibel* met de beleidstoewijzing.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
 
-In deze quickstart maken we een beleidstoewijzing en wijzen we de beleidsdefinitie *Virtuele machines zonder beheerde schijven controleren* toe.
+In deze snelstartgids maakt u een beleidstoewijzing en wijst u de beleidsdefinitie *Virtuele machines zonder beheerde schijven controleren* toe.
 
 1. Selecteer **Toewijzingen** in het linkerdeelvenster van de Azure Policy-pagina.
 2. Selecteer **Beleid toewijzen** boven in het deelvenster **Toewijzingen**.
@@ -41,21 +41,23 @@ In deze quickstart maken we een beleidstoewijzing en wijzen we de beleidsdefinit
    - Tag en waarde toepassen
    - SQL Server-versie 12.0 vereisen
 
-4. Doorzoek uw beleidsdefinities en zoek de definitie *Virtuele machines die geen beheerde schijven gebruiken controleren* op. Klik op dat beleid en klik op **Toewijzen**.
+    Zie [Beleidssjablonen](json-samples.md) voor een volledige lijst met alle beschikbare ingebouwde beleidsregels.
+
+4. Doorzoek uw beleidsdefinities en zoek de definitie *Virtuele machines die geen beheerde schijven gebruiken controleren* op. Klik op dit beleid en vervolgens op **Selecteren**.
 
    ![De juiste beleidsdefinitie vinden](media/assign-policy-definition/select-available-definition.png)
 
-5. Geef een weergave**naam** op voor de beleidstoewijzing. In dit geval gebruiken we *Virtuele machines die geen beheerde schijven gebruiken controleren*. U kunt ook een optionele **Beschrijving** opgeven. De omschrijving biedt details over de manier waarop deze beleidstoewijzing alle virtuele machines identificeert die in deze omgeving zijn gemaakt en geen beheerde schijven gebruiken.
+5. Geef een weergave**naam** op voor de beleidstoewijzing. In dit geval gebruiken we *Virtuele machines die geen beheerde schijven gebruiken controleren*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over de manier waarop de beleidstoewijzing alle virtuele machines identificeert die geen beheerde schijven gebruiken.
 6. Wijzig de prijscategorie in**Standard** om ervoor te zorgen dat het beleid wordt toegepast op bestaande resources.
 
-   Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Omdat we met een beperkte preview werken, hebben we nog geen prijsmodel uitgebracht en ontvangt u geen factuur als u *Standard* selecteert. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/) voor meer informatie over prijzen.
+   Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/) voor meer informatie over prijzen.
 
 7. Selecteer het **Bereik** waarop u het beleid wilt toepassen.  Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen.
-8. Selecteer het eerder geregistreerde abonnement (of de eerder geregistreerde resourcegroep). In dit voorbeeld gebruiken we dit abonnement: **Azure Analytics Capacity Dev**. Uw opties zullen echter anders zijn.
+8. Selecteer het eerder geregistreerde abonnement (of de eerder geregistreerde resourcegroep). In dit voorbeeld wordt het abonnement **Azure Analytics Capacity Dev** gebruikt. Uw opties kunnen echter verschillen. Klik op **Selecteren**.
 
    ![De juiste beleidsdefinitie vinden](media/assign-policy-definition/assign-policy.png)
 
-9. Selecteer **Toewijzen**.
+9. Laat **Uitsluitingen** voorlopig leeg en klik vervolgens op **Toewijzen**.
 
 U bent er nu klaar voor om niet-compatibele resources te identificeren om inzicht te krijgen in de nalevingsstatus van uw omgeving.
 
@@ -65,9 +67,9 @@ Selecteer **Naleving** in het linkerdeelvenster en zoek de beleidstoewijzing op 
 
 ![Beleidsnaleving](media/assign-policy-definition/policy-compliance.png)
 
-Als er bestaande resources zijn die niet compatibel zijn met deze nieuwe toewijzing, worden deze weergegeven onder het tabblad **Niet-compatibele resources**.
+Als er bestaande resources zijn die niet compatibel zijn met deze nieuwe toewijzing, worden deze weergegeven bij **Niet-compatibele resources**.
 
-Als een voorwaarde wordt geëvalueerd ten opzichte van uw bestaande resources en deze waar blijkt te zijn voor enkele ervan, worden deze resources gemarkeerd als niet-compatibel met het beleid. Hier volgt een tabel met informatie over hoe de acties die nu beschikbaar zijn samenwerken met het resultaat van het evalueren van de voorwaarde en de nalevingsstatus van uw resources.
+Als een voorwaarde wordt geëvalueerd ten opzichte van uw bestaande resources en deze waar blijkt te zijn, worden deze resources gemarkeerd als niet-compatibel met het beleid. In de voorgaande voorbeeldafbeelding worden niet-compatibele resources weergegeven. In de volgende tabel ziet u hoe verschillende beleidsacties werken met de evaluatie van voorwaarden voor de resulterende nalevingsstatus. U kunt de evaluatielogica niet zien in Azure Portal, maar de resultaten voor de nalevingsstatus worden wel weergegeven. Het resultaat voor de nalevingsstatus is compatibel of niet-compatibel.
 
 |Resource  |Als voorwaarde in het beleid wordt geëvalueerd als  |Actie in het beleid   |Nalevingsstatus  |
 |-----------|---------|---------|---------|
@@ -80,9 +82,9 @@ Als een voorwaarde wordt geëvalueerd ten opzichte van uw bestaande resources en
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere handleidingen in deze verzameling zijn op deze quickstart gebaseerd. Als u door wilt gaan met andere zelfstudies, verwijdert u de resources die u in deze quickstart hebt gemaakt, niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in Azure Portal zijn gemaakt.
+Andere handleidingen in deze verzameling zijn op deze snelstartgids gebaseerd. Als u door wilt gaan met andere zelfstudies, verwijdert u de resources die u in deze snelstartgids hebt gemaakt, niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens het doorlopen van deze snelstartgids in Azure Portal zijn gemaakt.
 1. Selecteer **Toewijzingen** in het linkerdeelvenster.
-2. Zoek naar de toewijzing die u zojuist hebt gemaakt.
+2. Zoek de toewijzing die u hebt gemaakt en klik er met de rechtermuisknop op.
 
    ![Een toewijzing verwijderen](media/assign-policy-definition/delete-assignment.png)
 
@@ -90,7 +92,7 @@ Andere handleidingen in deze verzameling zijn op deze quickstart gebaseerd. Als 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een beleidsdefinitie toegewezen aan een bereik om er voor te zorgen dat alle resources in dat bereik compatibel zijn en de resources die dat niet zijn te identificeren.
+In deze snelstartgids hebt u een beleidsdefinitie toegewezen aan een bereik. De beleidsdefinitie controleert of alle resources in het bereik compatibel zijn en identificeert welke dit niet zijn.
 
 Voor meer informatie over het toewijzen van beleid om er voor te zorgen dat **toekomstige** resources die worden gemaakt compatibel zijn, gaat u verder met de zelfstudie voor:
 

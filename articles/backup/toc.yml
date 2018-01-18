@@ -83,7 +83,7 @@
       items:
         - name: De virtuele machine voorbereiden
           items:
-            - name: Virtuele machines geïmplementeerd met Resource Manager voorbereiden
+            - name: Virtuele machines voorbereiden die zijn geïmplementeerd met Resource Manager
               href: backup-azure-arm-vms-prepare.md
             - name: Toepassingsconsistente back-ups van virtuele Linux-machines
               href: backup-azure-linux-app-consistent.md
@@ -101,15 +101,15 @@
           items:
             - name: Back-ups van virtuele Azure-machines beheren in Azure Portal
               href: backup-azure-manage-vms.md
-            - name: Waarschuwingen voor virtuele Azure-machines controleren in Azure Portal
+            - name: Waarschuwingen voor virtuele Azure-machines controleren
               href: backup-azure-monitor-vms.md
         - name: Gegevens van virtuele machines herstellen
           items:
             - name: Bestanden herstellen vanuit back-ups van virtuele Azure-machines
               href: backup-azure-restore-files-from-vm.md
-            - name: Virtuele machines die zijn geïmplementeerd met Resource Manager herstellen in Azure Portal
+            - name: Virtuele machines herstellen in Azure Portal
               href: backup-azure-arm-restore-vms.md
-            - name: Versleutelde virtuele machines terugzetten
+            - name: Versleutelde virtuele machines herstellen
               href: backup-azure-vms-encryption.md
             - name: Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten
               href: backup-azure-restore-key-secret.md
@@ -125,7 +125,7 @@
       items:
         - name: DPM-workloads voorbereiden in Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: System Center DPM gebruiken om back-ups te maken van Exchange Server
+        - name: DPM gebruiken om back-ups te maken van een Exchange-server
           href: backup-azure-backup-exchange-server.md
         - name: Gegevens herstellen naar een andere DPM-server
           href: backup-azure-alternate-dpm-server.md
