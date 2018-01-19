@@ -16,15 +16,15 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f160a3291357387fcef75d8c2257e6e37274b0e7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze quickstart laat zien hoe u een eenvoudige Ruby on Rails-toepassing maakt en implementeert als web-app in Azure Web App on Linux.
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze snelstartgids laat zien hoe u een eenvoudige Ruby on Rails-toepassing maakt en implementeert als web-app in Azure Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -169,4 +169,5 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Veelgestelde vragen over Azure App Service on Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)
+> [!div class="nextstepaction"]
+> [Ruby on Rails met MySQL](tutorial-ruby-mysql-app.md)

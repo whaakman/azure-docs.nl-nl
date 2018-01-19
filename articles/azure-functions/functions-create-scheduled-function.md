@@ -13,18 +13,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
-Ontdek hoe u Azure Functions gebruikt om een functie te maken die wordt uitgevoerd op basis van een schema dat u definieert.
+Ontdek hoe u Azure Functions gebruikt om een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) functie te maken die wordt uitgevoerd op basis van een schema dat u definieert.
 
 ![Functie-app maken in Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -71,13 +71,13 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![De viewer voor functielogboeken in Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-U kunt het schema voor de functie wijzigen zodat deze minder vaak wordt uitgevoerd (bijvoorbeeld één keer per uur). 
+U kunt het schema van de functie nu wijzigen zodat deze één keer per uur wordt uitgevoerd in plaats van elke minuut. 
 
 ## <a name="update-the-timer-schedule"></a>Het timerschema bijwerken
 
 1. Vouw de functie uit en klik op **Integreren**. Dit is waar u de invoer- en uitvoerbindingen voor de functie definieert en het schema instelt. 
 
-2. Voer voor de nieuwe **Planning** een waarde van `0 0 */1 * * *` in en klik vervolgens op **Opslaan**.  
+2. Voer een nieuwe waarde voor **Planning** per uur in van `0 0 */1 * * *` in, en klik vervolgens op **Opslaan**.  
 
 ![Het timerschema voor het bijwerken van functies in Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

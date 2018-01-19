@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Uw eerste functie maken in Azure Portal
 
@@ -52,21 +52,25 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
    
     ![De Quick Start van Azure Functions in Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Een functie wordt gemaakt in de door u gekozen taal met de sjabloon voor een door HTTP geactiveerde functie. U kunt de nieuwe functie uitvoeren door een HTTP-aanvraag te verzenden.
+Een functie wordt gemaakt in de door u gekozen taal met de sjabloon voor een door HTTP geactiveerde functie. In dit onderwerp ziet u een C#-scriptfunctie in de portal, maar u kunt een functie maken in elke [ondersteunde taal](supported-languages.md). 
+
+U kunt de nieuwe functie nu uitvoeren door een HTTP-aanvraag te verzenden.
 
 ## <a name="test-the-function"></a>De functie testen
 
-1. Klik in de nieuwe functie op **</> Functie-URL ophalen**, selecteer **Standaard (functietoets)** en klik vervolgens op **Kopieer**. 
+1. Klik in de nieuwe functie rechtsboven op **</> Functie-URL ophalen**, selecteer **Standaard (functietoets)** en klik vervolgens op **Kopiëren**. 
 
     ![De functie-URL vanuit Azure Portal kopiëren](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Plak de URL van de functie in de adresbalk van uw browser. Voeg de queryreeks `&name=<yourname>` toe aan het einde van deze URL en druk op de toets `Enter` op het toetsenbord om de aanvraag uit te voeren. Hier ziet u een voorbeeld van het antwoord dat wordt geretourneerd door de functie in de Edge-browser:
+2. Plak de URL van de functie in de adresbalk van uw browser. Voeg waarde `&name=<yourname>` voor de querytekenreeks toe aan het einde van deze URL, en druk op de toets `Enter` op het toetsenbord om de aanvraag uit te voeren. U ziet het geretourneerde antwoord van de functie nu in de browser.  
+
+    Hieronder volgt een voorbeeld van het antwoord in de Edge-browser (in andere browsers wordt mogelijk ook XML weergegeven):
 
     ![Het antwoord van de functie in de browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     De aanvraag-URL bevat een sleutel die standaard is vereist, en waarmee u via HTTP toegang hebt tot de functie.   
 
-3. Wanneer uw functie wordt uitgevoerd, wordt traceringsinformatie naar de logboeken geschreven. Als u de trace-uitvoer van de vorige uitvoering wilt zien, gaat u terug naar de functie in de portal en klikt u op de pijl-omhoog onder aan het scherm om de **logboeken** uit te klappen. 
+3. Wanneer uw functie wordt uitgevoerd, wordt traceringsinformatie naar de logboeken geschreven. Als u de traceringsuitvoer van de vorige uitvoering wilt zien, gaat u terug naar de functie in de portal en klikt u op de pijl onder aan het scherm om de **logboeken** uit te vouwen. 
 
    ![De viewer voor functielogboeken in Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

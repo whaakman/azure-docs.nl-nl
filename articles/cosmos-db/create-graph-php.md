@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Graph API met PHP - Azure Cosmos DB | Microsoft Docs'
-description: In deze quickstart ziet u hoe u de Graph API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en PHP
+title: 'Snelstartgids: Graph API met PHP - Azure Cosmos DB | Microsoft Docs'
+description: In deze snelstartgids ziet u hoe u de Graph API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en PHP
 services: cosmos-db
 documentationcenter: 
 author: luisbosquez
@@ -13,17 +13,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van PHP en Azure Portal
 
-Deze quickstart laat zien hoe u PHP en de [Graph API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze quickstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
+Deze snelstartgids laat zien hoe u PHP en de [Graph API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze snelstartgids begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.  
 
@@ -137,7 +137,9 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-3. Wijzig de parameter `username` in het verbindingsobject in de naam van uw database en de grafiek. Als u de aanbevolen waarden van `sample-database` gebruikt en `sample-graph`, zou deze er als volgt moeten uitzien:
+3. Als uw grafiekdatabaseaccount is gemaakt op of na 20 december 2017, wijzigt u `graphs.azure.com` bij de hostnaam in `gremlin.cosmosdb.azure.com`.
+
+4. Wijzig de parameter `username` in het verbindingsobject in de naam van uw database en de grafiek. Als u de aanbevolen waarden van `sample-database` gebruikt en `sample-graph`, zou deze er als volgt moeten uitzien:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-4. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `your_primary_key` in de wachtwoordparameter door deze waarde.
+5. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `your_primary_key` in de wachtwoordparameter door deze waarde.
 
     De initialisatie van het verbindingsobject zou er nu als volgt moeten uitzien:
 
@@ -171,7 +173,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-5. Sla het bestand `connect.php` op.
+6. Sla het bestand `connect.php` op.
 
 ## <a name="run-the-console-app"></a>De console-app uitvoeren
 

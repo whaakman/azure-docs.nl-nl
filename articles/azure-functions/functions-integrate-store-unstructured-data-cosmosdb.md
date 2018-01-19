@@ -17,15 +17,18 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Ongestructureerde gegevens opslaan met behulp van Azure Functions en Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is een geweldige manier om ongestructureerde gegevens en JSON-gegevens op te slaan. Cosmos DB biedt, in combinatie met Azure Functions, een snelle en eenvoudige manier om gegevens op te slaan met veel minder code dan nodig is voor het opslaan van gegevens in een relationele database.
+
+> [!NOTE]
+> Op dit moment werken de Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen alleen met SQL API- en Graph API-accounts.
 
 In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om verbinding te maken met externe servicegegevens vanuit uw functie. In dit onderwerp wordt uitgelegd hoe u een bestaande C#-functie kunt bijwerken voor het toevoegen van een uitvoerbinding die niet-gestructureerde gegevens in een Cosmos-DB-document opslaat. 
 
@@ -65,7 +68,7 @@ Vereisten voor het voltooien van deze zelfstudie:
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Naam van de database | Unieke id voor de Azure Cosmos DB-database  |
-    | **API** | SQL (DocumentDB) | Selecteer de documentdatabase-API.  |
+    | **API** | SQL | Selecteer SQL API. Op dit moment werken de Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen alleen met SQL API- en Graph API-accounts. |
     | **Abonnement** | Azure-abonnement | Azure-abonnement  |
     | **Resourcegroep** | myResourceGroup |  Gebruik de bestaande resourcegroep die uw functie-app bevat. |
     | **Locatie**  | West-Europa | Selecteer een locatie die zich in de buurt van uw functie-app bevindt of van andere apps die gebruikmaken van de opgeslagen documenten.  |
@@ -142,4 +145,4 @@ U hebt een binding toegevoegd aan de HTTP-trigger waarmee niet-gestructureerde g
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
-Zie [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md) (Bindingen tussen Azure Functions en Cosmos DB) voor meer informatie over de binding met een Cosmos DB database.
+Zie [Azure Functions Cosmos DB bindings](functions-bindings-cosmosdb.md) (Bindingen tussen Azure Functions en Cosmos DB) voor meer informatie over de binding met een Cosmos DB database.

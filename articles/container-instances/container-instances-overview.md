@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -43,7 +43,9 @@ Voor het ophalen en persisteren van statuswaarden met exemplaren van Azure Conta
 
 ## <a name="linux-and-windows-containers"></a>Linux- en Windows-containers
 
-Met Azure Container Instances kunt u Windows- en Linux-containers met dezelfde API plannen. Geef eenvoudigweg het basistype van het besturingssysteem aan. De rest is identiek.
+Met Azure Container Instances kunt u Windows- en Linux-containers met dezelfde API plannen. Geef gewoon het type besturingssysteem op wanneer u de [containergroepen](container-instances-container-groups.md) maakt.
+
+Sommige functies zijn momenteel beperkt tot Linux-containers. Hoewel we ons best doen om alle functies beschikbaar te maken voor Windows-containers, kunnen de [quota en beschikbaarheid in regio´s voor Azure Container Instances](container-instances-quotas.md) variëren op de verschillende platforms.
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 

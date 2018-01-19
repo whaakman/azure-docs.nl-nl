@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: faec967c1f5405cd9a5b49c16fed575f6675478c
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 95c0ac43e468d3655cfddc7ae0de6cefb649131d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API
 
@@ -129,9 +129,9 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `app.js`
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Als er geen **Gremlin URI**-waarde wordt opgegeven, kunt u de waarde genereren met behulp van de waarde op de pagina **Sleutels** in de portal. Gebruik de **URI**-waarde, verwijder https:// en wijzig de documenten in grafen.
+   Als er geen **Gremlin URI**-waarde wordt opgegeven, kunt u de waarde genereren met behulp van de waarde op de pagina **Sleutels** in de portal. Gebruik de **URI**-waarde, verwijder https:// en wijzig documenten in gremlin.cosmosdb. Als uw grafiekaccount is gemaakt vóór 20 december 2017, wijzigt u documenten in grafieken. 
 
-   Het Gremlin-eindpunt moet alleen de hostnaam zijn zonder het protocol-/poortnummer, zoals `mygraphdb.graphs.azure.com` (niet `https://mygraphdb.graphs.azure.com` of `mygraphdb.graphs.azure.com:433`).
+   Het Gremlin-eindpunt moet alleen de hostnaam zijn zonder het protocol-/poortnummer, zoals `mygraphdb.gremlin.cosmosdb.azure.com` (niet `https://mygraphdb.gremlin.cosmosdb.azure.com` of `mygraphdb.gremlin.cosmosdb.azure.com:433`).
 
 3. Vul in config.js voor de waarde config.primaryKey de waarde van de **Primaire sleutel** in van de pagina **Sleutels** in Azure Portal. 
 
@@ -147,7 +147,7 @@ Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "testgraphacct.graphs.azure.com";
+config.endpoint = "testgraphacct.gremlin.cosmosdb.azure.com";
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"

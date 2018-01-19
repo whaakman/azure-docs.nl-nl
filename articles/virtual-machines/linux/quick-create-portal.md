@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Een virtuele Linux-machine maken met Azure Portal
 
-Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze quickstart gaat u een virtuele machine maken en een webserver installeren op de VM.
+Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze snelstartgids gaat u een virtuele machine maken en een webserver installeren op de VM.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -32,11 +32,13 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 U hebt een SSH-sleutelpaar nodig om deze Quick Start te volgen. Als u een bestaand SSH-sleutelpaar hebt, kunt u deze stap overslaan.
 
-In een Bash-shell voert u deze opdracht uit en volgt u de aanwijzingen op het scherm. De uitvoer van de opdracht bevat de bestandsnaam van het bestand met de openbare sleutel. Kopieer de inhoud van het bestand met de openbare sleutel naar het klembord.
+In een Bash-shell voert u deze opdracht uit en volgt u de aanwijzingen op het scherm. De uitvoer van de opdracht bevat de bestandsnaam van het bestand met de openbare sleutel. Kopieer de inhoud van het bestand met de openbare sleutel (`cat ~/.ssh/id_rsa.pub`) naar het klembord. Als u Windows-subsysteem voor Linux gebruikt, zorg er dan voor dat u geen regeleindetekens kopieert uit de uitvoer. Noteer de bestandsnaam van het bestand met de persoonlijke sleutel voor later gebruik.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+[Hier](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) vindt u meer gedetailleerde informatie over dit proces
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
@@ -102,7 +104,7 @@ Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. W
 2. Selecteer de **netwerkbeveiligingsgroep**. De NSG kan worden geïdentificeerd met behulp van de kolom **Type**. 
 3. Klik op het menu links bij instellingen op **Beveiligingsregels voor binnenkomend verkeer**.
 4. Klik op **Toevoegen**.
-5. Typ bij **Naam** **http**. Zorg ervoor dat het **poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan**. 
+5. Typ bij **Naam** **http**. Zorg ervoor dat **Bronpoortbereik** is ingesteld op `*`, **Doelpoortbereik** is ingesteld op *80* en **Actie** is ingesteld op *Toestaan*. 
 6. Klik op **OK**.
 
 

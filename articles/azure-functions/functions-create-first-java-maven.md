@@ -14,18 +14,18 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Uw eerste functie maken met Java en Maven (Preview)
 
 > [!NOTE] 
 > Java voor Azure Functions is momenteel in preview.
 
-In deze quickstart vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
+In deze snelstartgids vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
 
 ![Hello World-functie aanroepen vanaf de opdrachtregel met cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -36,12 +36,12 @@ Als u functie-apps wilt ontwikkelen met behulp van Java, moet het volgende zijn 
 
 -  [.NET Core](https://www.microsoft.com/net/core), nieuwste versie.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), versie 8.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Azure-CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), versie 3.0 of hoger.
 -  [Node.js](https://nodejs.org/download/), versie 8.6 of hoger.
 
 > [!IMPORTANT] 
-> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze quickstart te kunnen voltooien.
+> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze snelstartgids te kunnen voltooien.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
@@ -88,12 +88,29 @@ Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_. De g
 
 ```java
 public class Function {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
     @FunctionName("hello")
-    public String hello(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req,
-                        ExecutionContext context) {
-        return String.format("Hello, %s!", req);
+    public HttpResponseMessage<String> hello(
+            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("name");
+        String name = request.getBody().orElse(query);
+
+        if (name == null) {
+            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+        } else {
+            return request.createResponse(200, "Hello, " + name);
+        }
     }
 }
+
 ```
 
 ## <a name="run-the-function-locally"></a>De functie lokaal uitvoeren
@@ -105,6 +122,9 @@ cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
+
+> [!NOTE]
+> Als u deze uitzondering krijgt: `javax.xml.bind.JAXBException` met Java 9, bekijkt u de tijdelijke oplossing op [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
 U ziet deze uitvoer terwijl de functie wordt uitgevoerd:
 

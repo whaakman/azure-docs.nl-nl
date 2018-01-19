@@ -2,72 +2,64 @@
 title: Azure Site Recovery | Microsoft Docs
 description: "Dit artikel biedt een overzicht van de Azure Site Recovery-service en van de implementatiescenario’s."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: overview
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6ec4b6e468bf03b18c0f26d1c61a17309a83eb2
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-site-recovery"></a>Site Recovery
 
-Welkom bij de Azure Site Recovery-service! In dit artikel vindt u een kort overzicht van de service.
+Welkom bij de Azure Site Recovery-service! Dit artikel biedt een kort overzicht van de service.
 
-## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Bedrijfscontinuïteit en herstel na noodgevallen (BCDR) met Azure Recovery Services
-
-Als organisatie moet u nagaan hoe u uw gegevens kunt beveiligen en apps/workloads kunt uitvoeren wanneer geplande en niet-geplande uitval optreedt.
+Als organisatie moet u een BCDR-strategie (Business Continunity and Disaster Recovery) gebruiken die ervoor zorgt dat uw gegevens zijn beveiligd, en uw apps en workloads actief blijven tijdens geplande en ongeplande onderbrekingen.
 
 Azure Recovery Services dragen bij aan uw BCDR-strategie:
 
-- **Site Recovery-service**: met Site Recovery bent u verzekerd van bedrijfscontinuïteit door uw apps uit te voeren op virtuele machines en fysieke servers die beschikbaar zijn als een site uitvalt. Met Site Recovery repliceert u workloads die worden uitgevoerd op virtuele machines en fysieke servers, zodat deze beschikbaar blijven op een secundaire locatie als de primaire site niet beschikbaar is. Hiermee herstelt u werkbelastingen op de primaire site wanneer deze weer actief is.
-- **Backup-service**: daarnaast kunt u met de [Azure Backup](https://docs.microsoft.com/azure/backup/)-service uw gegevens beveiligen en herstellen door hiervan een back-up te maken naar Azure.
+- **Site Recovery-service**: Site Recovery helpt de bedrijfscontinuïteit te waarborgen door zakelijke apps en workloads actief te houden tijdens onderbrekingen. Met Site Recovery worden workloads die worden uitgevoerd op fysieke en virtuele machines (VM’s), gerepliceerd van een primaire site naar een secundaire locatie. Wanneer een onderbreking optreedt op de primaire site, voert u een failover uit naar de secundaire locatie, waar u vervolgens toegang hebt tot de apps. Als de primaire locatie weer actief is, kunt u een failback naar deze site uitvoeren.  
+- **Backup-service**: met de [Azure Backup](https://docs.microsoft.com/azure/backup/)-service zijn uw gegevens beveiligd en kunnen ze worden hersteld door back-ups te maken in Azure.
 
 Met Site Recovery kunt u replicatie beheren voor:
 
 - Azure-VM's die worden gerepliceerd tussen Azure-regio's.
-- On-premises virtuele machines en fysieke servers die worden gerepliceerd naar Azure of naar een secundaire site.
+- On-premises VM’s en fysieke servers die worden gerepliceerd naar Azure of naar een secundaire site.
 
 
 ## <a name="what-does-site-recovery-provide"></a>Wat biedt Site Recovery?
 
+
 **Functie** | **Details**
 --- | ---
-**Een eenvoudige BCDR-oplossing implementeren** | Met Site Recovery kunt u replicatie, failover en failback instellen en beheren vanaf één locatie in de Azure portal.
-**Azure-VM's repliceren** | U kunt uw BCDR-strategie zo instellen dat Azure-VM's worden gerepliceerd tussen Azure-regio's.
-**On-premises VM's offsite repliceren** | U kunt on-premises VM's en fysieke servers repliceren naar Azure of naar een secundaire on-premises locatie. Hierdoor kunt u een secundair datacenter goedkoper en eenvoudiger onderhouden.
-**Workloads repliceren** | U kunt alle workloads repliceren die worden uitgevoerd op ondersteunde Azure-VM's, on-premises Hyper-V-VM's, VMware-VM's en fysieke Windows-/Linux-servers.
-**Gegevens flexibel en veilig bewaren** | Met Site Recovery deelt u replicatie in zonder toepassingsgegevens te onderscheppen. Gerepliceerde gegevens worden opgeslagen in Azure Storage met alle bijbehorende flexibiliteit. Wanneer er een failover optreedt, worden er virtuele Azure-machines gemaakt met de gerepliceerde gegevens.
-**Voldoen aan de RTO's en RPO's** | Zorg dat de beoogde hersteltijden (RTO) en beoogde herstelpunten (RPO) binnen de organisatielimieten blijven. Site Recovery biedt continue replicatie voor Azure-VM's en VMware-VM's en een lage replicatiefrequentie van slechts 30 seconden voor Hyper-V. U kunt beoogde hersteltijden (RTO) verder beperken door de integratie met [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
-**Apps consistent houden bij failover** | U kunt herstelpunten configureren met toepassingsconsistente momentopnamen. Met toepassingsconsistente momentopnamen kunt u schijfgegevens, alle gegevens in het geheugen en alle lopende transacties vastleggen.
-**Testen zonder onderbreking** | U kunt eenvoudig testfailovers uitvoeren ter ondersteuning van noodhersteloefeningen, zonder dat dit van invloed is op de doorlopende replicatie.
-**Flexibele failovers uitvoeren** | U kunt bij verwachte uitval geplande failovers uitvoeren zonder gegevensverlies en bij onverwachte noodsituaties ongeplande failovers uitvoeren met minimaal gegevensverlies (afhankelijk van de replicatiefrequentie). U kunt weer terug naar uw primaire site wanneer deze weer beschikbaar is.
-**Herstelplannen maken** | U kunt failovers en herstel van toepassingen met meerdere lagen op meerdere virtuele machines aanpassen en indelen met herstelplannen. U groepeert machines binnen plannen en voegt scripts en handmatige acties toe. Herstelplannen kunnen worden geïntegreerd met Azure Automation-runbooks.
-**Integreren met bestaande BCDR-technologieën** | Met Site Recovery kunt u integreren met andere BCDR-technologieën. U kunt Site Recovery bijvoorbeeld gebruiken ter bescherming van de SQL Server-back-end van zakelijke workloads. Hierbij wordt ook systeemeigen ondersteuning geboden voor SQL Server AlwaysOn voor het beheren van failovers van beschikbaarheidsgroepen.
-**Integreren met de Automation-bibliotheek** | Een uitgebreide Azure Automation-bibliotheek met toepassingsspecifieke scripts die klaar zijn voor gebruik en kunnen worden gedownload en geïntegreerd met Site Recovery.
-**Netwerkinstellingen beheren** | Site Recovery kan worden geïntegreerd met Azure voor eenvoudig toepassingsnetwerkbeheer, waaronder het reserveren van IP-adressen, het configureren van load balancers en het integreren van Azure Traffic Manager voor het efficiënt schakelen tussen netwerken.
+**Eenvoudige BCDR-oplossing** | Met Site Recovery kunt u replicatie, failover en failback instellen en beheren vanaf één locatie in de Azure portal.
+**Replicatie van Azure-VM’s** | U kunt herstel na noodgevallen instellen voor Azure-VM’s van een primaire regio naar een secundaire regio.
+**Replicatie van on-premises VM’s** | U kunt on-premises VM's en fysieke servers repliceren naar Azure of naar een secundair on-premises datacenter. Hierdoor kunt u een secundair datacenter goedkoper en eenvoudiger onderhouden.
+**Replicatie van workloads** | U kunt elke workload repliceren die wordt uitgevoerd op ondersteunde Azure-VM's, on-premises Hyper-V- en VMware-VM's, en fysieke Windows-/Linux-servers.
+**Gegevenstolerantie** | Met Site Recovery deelt u replicatie in zonder toepassingsgegevens te onderscheppen. Wanneer u repliceert naar Azure, worden gegevens opgeslagen in Azure Storage met alle bijbehorende tolerantie. Wanneer failover optreedt, worden er Azure-VM’s gemaakt op basis van de gerepliceerde gegevens.
+**RTO- en RPO-doelen** | Zorg dat de beoogde hersteltijden (RTO) en beoogde herstelpunten (RPO) binnen de organisatielimieten blijven. Site Recovery biedt continue replicatie voor Azure-VM's en VMware-VM's en een lage replicatiefrequentie van slechts 30 seconden voor Hyper-V. U kunt beoogde hersteltijden verder beperken door integratie met [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
+**Apps consistent houden bij failover** | U kunt repliceren via herstelpunten met toepassingsconsistente momentopnamen. Met deze momentopnamen kunt u schijfgegevens, alle gegevens in het geheugen en alle lopende transacties vastleggen.
+**Testen zonder onderbreking** | U kunt eenvoudig noodhersteloefeningen uitvoeren zonder dat dit van invloed is op de doorlopende replicatie.
+**Flexibele failovers** | U kunt bij verwachte uitval geplande failovers uitvoeren zonder gegevensverlies en bij onverwachte noodsituaties ongeplande failovers uitvoeren met minimaal gegevensverlies (afhankelijk van de replicatiefrequentie). U kunt weer terug naar uw primaire site wanneer deze weer beschikbaar is.
+**Aangepaste herstelplannen** | Met herstelplannen kunt u de failover en het herstel van toepassingen met meerdere lagen waarop meerdere VM’s worden uitgevoerd, aanpassen en aaneenschakelen. U groepeert computers in een herstelplan en kunt optioneel ook scripts en handmatige acties toevoegen. Herstelplannen kunnen worden geïntegreerd met Azure Automation-runbooks.
+**BCDR-integratie** | Met Site Recovery kunt u integreren met andere BCDR-technologieën. U kunt Site Recovery bijvoorbeeld gebruiken om de SQL Server-back-end van zakelijke workloads te beveiligen. Hierbij wordt ook systeemeigen ondersteuning geboden voor SQL Server AlwaysOn voor het beheren van failovers van beschikbaarheidsgroepen.
+**Azure Automation-integratie** | Een uitgebreide Azure Automation-bibliotheek met toepassingsspecifieke scripts die klaar zijn voor gebruik en kunnen worden gedownload en geïntegreerd met Site Recovery.
+**Netwerkintegratie** | Site Recovery kan worden geïntegreerd met Azure voor eenvoudig toepassingsnetwerkbeheer, waaronder het reserveren van IP-adressen, het configureren van load balancers en het integreren van Azure Traffic Manager voor het efficiënt schakelen tussen netwerken.
 
 
 ## <a name="what-can-i-replicate"></a>Wat kan ik repliceren?
 
 **Ondersteund** | **Details**
 --- | ---
-**Wat kan ik repliceren?** | Virtuele Azure-machines tussen Azure-regio's.<br/><br/>  On-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux) naar Azure.<br/><br/> On-premises VMware-VM's, Hyper-V-VM's, fysieke servers naar VMM (Virtual Machine Manager).
-**Welke regio's worden ondersteund voor Site Recovery?** | [Ondersteunde regio's](https://azure.microsoft.com/regions/services/) |
-**Welke besturingssystemen zijn vereist voor gerepliceerde machines?** | [Vereisten voor Azure-VM's](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Vereisten voor VMware-VM's](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Voor Hyper-V-VM's worden alle [gastbesturingssystemen](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) ondersteund die door Azure en Hyper-V worden ondersteund.<br/><br/> [Vereisten voor fysieke servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Welke VMware-servers/-hosts moet ik gebruiken?** | VMware-VM's kunnen zich bevinden op [ondersteunde vSphere-hosts/vCenter-servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-**Welke workloads kan ik repliceren?** | U kunt iedere werkload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
+**Replicatiescenario** | Repliceer VM's van de ene Azure-regio naar de andere.<br/><br/>  Repliceer on-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux) naar Azure.<br/><br/> Repliceer on-premises VMware-VM’s, Hyper-V-VM’s die worden beheerd met System Center VMM, en fysieke servers naar een secundaire site.
+**Regio's** | Bekijk [ondersteunde regio's](https://azure.microsoft.com/regions/services/) voor Site Recovery. |
+**Gerepliceerde machines** | Lees de replicatievereisten voor [Azure-VM’s](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [on-premises VM’s](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) en [fysieke servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+**VMware-servers/-hosts** | De VMware-VM's die u wilt repliceren, kunnen zich bevinden op [ondersteunde vSphere-hosts/vCenter-servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+**Workloads** | U kunt iedere workload repliceren die wordt uitgevoerd op een computer waarvoor replicatie wordt ondersteund. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
 
 
 

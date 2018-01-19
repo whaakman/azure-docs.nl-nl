@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 82cf5ba260e2b6a8f21b85034060e88bd0d445d3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
 
@@ -37,9 +37,9 @@ Configureer uw Genomics-account met de volgende informatie, zoals weergegeven in
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------       |:-------------         |:----------            |
- |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
+ |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Abonnement         | De naam van uw abonnement|Dit is de factureringseenheid voor uw Azure-services; zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
- |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie [Resourcegroepen] (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
+ |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie [Resourcegroepen] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
  |Locatie                   | VS - west 2                    |    De service is beschikbaar in VS West 2, West-Europa en Zuidoost-Azië |
 
 
@@ -105,7 +105,7 @@ msgen list -f “<full path where you saved the config file>”
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Een Microsoft Azure-opslagaccount maken 
 De service Microsoft Genomics verwacht dat invoeren worden opgeslagen als blok-blobs in een Azure-opslagaccount. Ook schrijft de service uitvoerbestanden als blok-blobs naar een door de gebruiker opgegeven container in een Azure-opslagaccount. De invoeren en uitvoeren kunnen zich in verschillende opslagaccounts bevinden.
-Als u uw gegevens al in een Azure-opslagaccount hebt, hoeft u alleen ervoor te zorgen dat deze zich op dezelfde locatie bevinden als uw Genomics-account. Anders worden er uitvoerkosten gemaakt wanneer de Genomics-service wordt uitgevoerd. Als u nog geen Microsoft Azure Storage-account hebt, dient u er een te maken en uw gegevens te uploaden. U vindt [hier](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) meer informatie over Azure Storage-accounts, met inbegrip van wat een opslagaccount is en welke services het biedt. Ga naar [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ) om een Microsoft Azure Storage-account te maken.  
+Als u uw gegevens al in een Azure-opslagaccount hebt, hoeft u alleen ervoor te zorgen dat deze zich op dezelfde locatie bevinden als uw Genomics-account. Anders worden er uitvoerkosten gemaakt wanneer de Genomics-service wordt uitgevoerd. Als u nog geen Microsoft Azure Storage-account hebt, dient u er een te maken en uw gegevens te uploaden. U vindt [hier](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) meer informatie over Azure Storage-accounts, met inbegrip van wat een opslagaccount is en welke services het biedt. Ga naar [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ) om een Microsoft Azure Storage-account te maken.  
 
 ![Blade maken opslag](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Blade maken opslag")
 
@@ -114,7 +114,7 @@ Configureer uw Storage-account met de volgende informatie, zoals weergegeven in 
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------------------       |:-------------         |:----------            |
- |Naam         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
+ |Name         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Implementatiemodel         | Resource Manager| Resource Manager is het aanbevolen implementatiemodel. Zie [Understanding Resource Manager deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) (Resource Manager-implementatie begrijpen) voor meer informatie. |      
  |Soort account       | Blob Storage       |  Blob-opslag kan twee tot vijf keer sneller zijn dan algemeen gebruik voor downloads en uploads. |
  |Prestaties                  | Standard                   | Standard is de standaardinstelling. Zie [Kennismaking met Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) voor meer informatie over standaard en premium opslagaccounts.    |
@@ -122,7 +122,7 @@ Configureer uw Storage-account met de volgende informatie, zoals weergegeven in 
  |Veilige overdracht vereist                  | Uitgeschakeld                 | Uitgeschakeld is de standaardinstelling. Zie [Veilige overdracht vereisen](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) voor meer informatie over de beveiliging van gegevensoverdracht.    |
  |Toegangslaag                  | Warm                   | De toegangslaag Hot geeft aan dat de objecten in het opslagaccount vaker worden gebruikt.    |
  |Abonnement         | Uw Azure-abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
- |Resourcegroep       | MyResourceGroup       |  U kunt dezelfde resourcegroep als voor uw Genomics-account gebruiken. Zie [Naamgevingsregels](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
+ |Resourcegroep       | MyResourceGroup       |  U kunt dezelfde resourcegroep als voor uw Genomics-account gebruiken. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
  |Locatie                  | VS - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken. De Genomics-service is beschikbaar in VS West2, VS West 2, West-Europa en Zuidoost-Azië    |
  |Virtuele netwerken                | Uitgeschakeld                   | Uitgeschakeld is de standaardinstelling. Zie [Virtuele netwerken van Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) voor meer informatie.    |
 

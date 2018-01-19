@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fa2a5f1599fb0d95c89d848860ba9b32139a3dd2
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 2729ad97b49e7284022adae06c5b5f006647849c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-In deze quickstart ziet u hoe u met Azure Portal een Azure Cosmos DB-account, een database en een graaf (container) kunt maken, en vervolgens de [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) van [Apache TinkerPop](http://tinkerpop.apache.org) kunt gebruiken om met gegevens van de Graph API te werken. In deze zelfstudie gaat u hoekpunten en randen maken, er query’s op uitvoeren, een eigenschap van een hoekpunt bijwerken, query’s uitvoeren op hoekpunten, door de graaf gaan en een hoekpunt verwijderen.
+In deze snelstartgids ziet u hoe u met Azure Portal een Azure Cosmos DB-account, een database en een graaf (container) kunt maken, en vervolgens de [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) van [Apache TinkerPop](http://tinkerpop.apache.org) kunt gebruiken om met gegevens van de Graph API te werken. In deze zelfstudie gaat u hoekpunten en randen maken, er query’s op uitvoeren, een eigenschap van een hoekpunt bijwerken, query’s uitvoeren op hoekpunten, door de graaf gaan en een hoekpunt verwijderen.
 
 ![Azure Cosmo DB vanuit de Apache Gremlin-console](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -51,7 +51,7 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    hosts|[***.graphs.azure.com]|Zie de onderstaande schermafbeelding. Dit is de Gremlin URI-waarde op de pagina Overzicht van Azure Portal tussen vierkante haken, waarbij de afsluitende: 443/ is verwijderd.<br><br>Deze waarde kan ook worden opgehaald van het tabblad Sleutels met behulp van de URI-waarde door https:// te verwijderen, documenten in grafieken te wijzigen en de afsluitende: 443/ te verwijderen.
+    hosts|[***.gremlin.cosmosdb.azure.com] of [***.graphs.azure.com] voor accounts die zijn gemaakt vóór 20 december 2017|Zie de onderstaande schermafbeelding. Dit is de Gremlin URI-waarde op de pagina Overzicht van Azure Portal tussen vierkante haken, waarbij de afsluitende: 443/ is verwijderd.<br><br>Deze waarde kan ook worden opgehaald van het tabblad Sleutels met behulp van de URI-waarde door https:// te verwijderen, documenten in grafieken of gremlin.cosmosdb te wijzigen en de afsluitende: 443/ te verwijderen.
     poort|443|Ingesteld op 443.
     gebruikersnaam|*Uw gebruikersnaam*|De bron van het formulier `/dbs/<db>/colls/<coll>` waar `<db>` de naam van uw database is en `<coll>` de naam van uw verzameling is.
     wachtwoord|*Uw primaire sleutel*| Zie de tweede onderstaande schermafbeelding. Dit is uw primaire sleutel, die u kunt ophalen van de pagina Sleutels in Azure Portal, in het vak Primaire sleutel. Gebruik de kopieerknop aan de linkerkant van het vak om de waarde te kopiëren.
@@ -65,7 +65,7 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 Het remote-secure.yaml-bestand moet er als volgt uitzien:
 
 ```
-hosts: [your_database_server.graphs.azure.com]
+hosts: [your_database_server.gremlin.cosmosdb.azure.com]
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key
