@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2017
+ms.date: 01/17/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Maken en implementeren van een toepassing met een front-ASP.NET Core Web API-service en een stateful back-endservice
-Deze zelfstudie maakt deel uit een reeks.  U leert hoe een Azure Service Fabric-toepassing maken met een front-end van ASP.NET Core Web-API en een stateful back-end-service voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core web-front-die stemmende resultaten worden opgeslagen in een stateful back-end-service in het cluster. Als u niet wilt dat u handmatig de stemtoepassing maken, kunt u [download de broncode](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en gaat u verder met [doorlopen van de stemmende voorbeeldtoepassing](#walkthrough_anchor).
+Deze zelfstudie maakt deel uit een reeks.  U leert hoe een Azure Service Fabric-toepassing maken met een front-end van ASP.NET Core Web-API en een stateful back-end-service voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u niet wilt dat u handmatig de stemtoepassing maken, kunt u [download de broncode](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en gaat u verder met [doorlopen van de stemmende voorbeeldtoepassing](#walkthrough_anchor).
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -43,14 +43,11 @@ In deze zelfstudie reeks leert u hoe:
 ## <a name="prerequisites"></a>Vereisten
 Voordat u deze zelfstudie begint:
 - Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
+- [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.3 of hoger, waarop de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
 - [De Service Fabric SDK installeren](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET Web API-service als een betrouwbare service maken
 Maak eerst de web-front-van de stemmende toepassing met behulp van ASP.NET Core. ASP.NET Core is een lichtgewicht, platformoverschrijdende ontwikkeling webframework die u gebruiken kunt voor het maken van moderne webgebruikersinterface en web-API's. Als u een compleet begrip van hoe ASP.NET Core met Service Fabric integreert, wordt aangeraden lezen via de [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) artikel. Op dit moment kunt u deze zelfstudie voor snel aan de slag. Zie voor meer informatie over ASP.NET Core, de [ASP.NET Core documentatie](https://docs.microsoft.com/aspnet/core/).
-
-> [!NOTE]
-> Deze zelfstudie is gebaseerd op de [ASP.NET Core tools voor Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). De .NET Core hulpprogramma's voor Visual Studio 2015 worden niet langer bijgewerkt.
 
 1. Start Visual Studio als **beheerder**.
 
@@ -66,7 +63,7 @@ Maak eerst de web-front-van de stemmende toepassing met behulp van ASP.NET Core.
    
    ![ASP.NET-webservice te kiezen in het dialoogvenster voor nieuwe service](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. De volgende pagina bevat een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **Web Application (MVC)**. 
+6. De volgende pagina bevat een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **webtoepassing (Model-View-Controller)**. 
    
    ![ASP.NET-project kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -75,7 +72,9 @@ Maak eerst de web-front-van de stemmende toepassing met behulp van ASP.NET Core.
    ![Solution Explorer na het maken van een toepassing met ASP.NET core Web API-service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>AngularJS toevoegen aan de VotingWeb-service
-Voeg [AngularJS](http://angularjs.org/) met uw service met de ingebouwde [Bower ondersteuning](/aspnet/core/client-side/bower). Open *bower.json* en vermeldingen voor hoeken en hoekvormige bootstrap toevoegen en vervolgens uw wijzigingen niet opslaan.
+Voeg [AngularJS](http://angularjs.org/) naar uw service met [Bower ondersteuning](/aspnet/core/client-side/bower). Voeg een configuratiebestand Bower eerst toe aan het project.  Klik in Solution Explorer met de rechtermuisknop op **VotingWeb** en selecteer **toevoegen -> Nieuw Item**. Selecteer **Web** en vervolgens **Bower configuratiebestand**.  De *bower.json* -bestand wordt gemaakt.
+
+Open *bower.json* en vermeldingen voor hoeken en hoekvormige bootstrap toevoegen en vervolgens uw wijzigingen niet opslaan.
 
 ```json
 {
@@ -83,10 +82,10 @@ Voeg [AngularJS](http://angularjs.org/) met uw service met de ingebouwde [Bower 
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.7",
-    "jquery": "2.2.0",
-    "jquery-validation": "1.14.0",
+    "jquery": "3.2.1",
+    "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "angular": "v1.6.5",
+    "angular": "v1.6.8",
     "angular-bootstrap": "v1.1.0"
   }
 }
@@ -153,7 +152,7 @@ Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor 
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="col-xs-12 center-block">
                     <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item"/>
                     </div>
                     <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -163,7 +162,7 @@ Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor 
             </div>
         </div>
 
-        <hr />
+        <hr/>
 
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
@@ -203,26 +202,26 @@ Open de *Views/Shared/_Layout.cshtml* -bestand, de standaardindeling voor de ASP
 <!DOCTYPE html>
 <html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"]</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/site.css" rel="stylesheet"/>
 
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+<div class="container body-content">
+    @RenderBody()
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/angular/angular.js"></script>
-    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="~/js/site.js"></script>
 
-    @RenderSection("Scripts", required: false)
+@RenderSection("Scripts", required: false)
 </body>
 </html>
 ```
@@ -239,44 +238,61 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 {
     return new ServiceInstanceListener[]
     {
-        new ServiceInstanceListener(serviceContext =>
-            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
-            {
-                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+        new ServiceInstanceListener(
+            serviceContext =>
+                new KestrelCommunicationListener(
+                    serviceContext,
+                    "ServiceEndpoint",
+                    (url, listener) =>
+                    {
+                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
 
-                return new WebHostBuilder().UseWebListener()
+                        return new WebHostBuilder()
+                            .UseKestrel()
                             .ConfigureServices(
                                 services => services
-                                    .AddSingleton<StatelessServiceContext>(serviceContext)
-                                    .AddSingleton<HttpClient>())
+                                    .AddSingleton<HttpClient>(new HttpClient())
+                                    .AddSingleton<FabricClient>(new FabricClient())
+                                    .AddSingleton<StatelessServiceContext>(serviceContext))
                             .UseContentRoot(Directory.GetCurrentDirectory())
                             .UseStartup<Startup>()
-                            .UseApplicationInsights()
                             .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                             .UseUrls(url)
                             .Build();
-            }))
+                    }))
     };
 }
 ```
 
-### <a name="add-the-votescontrollercs-file"></a>Het bestand VotesController.cs toevoegen
-Een controller waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van het bestand 'VotesController.cs' en klik op **toevoegen**.  
-
-Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.  Verderop in [bijwerken van het bestand VotesController.cs](#updatevotecontroller_anchor), wordt dit bestand worden gewijzigd om te lezen en schrijven van stemmende gegevens op de back-endservice.  Op dit moment retourneert de controller statische tekenreeksgegevens naar de weergave.
+Voeg ook de `GetVotingDataServiceName` methode, die de naam van de service als gepeild retourneert:
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using System.Net.Http.Headers;
+internal static Uri GetVotingDataServiceName(ServiceContext context)
+{
+    return new Uri($"{context.CodePackageActivationContext.ApplicationName}/VotingData");
+}
+```
 
+### <a name="add-the-votescontrollercs-file"></a>Het bestand VotesController.cs toevoegen
+Een controller, waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van het bestand 'VotesController.cs' en klik op **toevoegen**.  
+
+Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.  Verderop in [bijwerken van het bestand VotesController.cs](#updatevotecontroller_anchor), dit bestand is gewijzigd om te lezen en schrijven van stemmende gegevens op de back-endservice.  Op dit moment retourneert de controller statische tekenreeksgegevens naar de weergave.
+
+```csharp
 namespace VotingWeb.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Fabric;
+    using System.Fabric.Query;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+
     [Produces("application/json")]
     [Route("api/Votes")]
     public class VotesController : Controller
@@ -303,7 +319,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### <a name="configure-the-listening-port"></a>De luisterpoort configureren
-Wanneer de front-endservice VotingWeb is gemaakt, zijn Visual Studio selecteert willekeurig een poort voor de service voor luisteren.  De service VotingWeb fungeert als front-end voor deze toepassing en externe verkeer accepteert, dus die service binden aan een vaste en poort ook weten. Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoeken de **eindpunt** resource in de **Resources** sectie en wijzig de **poort** waarde in op 80 of naar een andere poort. Als u wilt implementeren en de toepassing lokaal uitvoeren, moet de toepassing luisterpoort open en beschikbare op uw computer.
+Wanneer de front-endservice VotingWeb is gemaakt, zijn Visual Studio selecteert willekeurig een poort voor de service voor luisteren.  De service VotingWeb fungeert als front-end voor deze toepassing en externe verkeer accepteert, dus die service binden aan een vaste en poort ook weten.  De [servicemanifest](service-fabric-application-and-service-manifests.md) declareert u de service-eindpunten. Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoeken de **eindpunt** resource in de **Resources** sectie en wijzig de **poort** waarde in op 80 of naar een andere poort. Als u wilt implementeren en de toepassing lokaal uitvoeren, moet de toepassing luisterpoort open en beschikbare op uw computer.
 
 ```xml
 <Resources>
@@ -333,16 +349,14 @@ Uw web-app moet er op dit punt wordt als volgt uitzien:
 Als u wilt stop de foutopsporing voor de toepassing, gaat u terug naar Visual Studio en druk op **Shift + F5**.
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Een stateful back-endservice toevoegt aan uw toepassing
-Nu dat we een ASP.NET Web API-service die in onze toepassing wordt uitgevoerd hebben, maar eens en een stateful betrouwbare service voor het opslaan van sommige gegevens in onze toepassing toevoegen.
+Een ASP.NET Web API-service wordt uitgevoerd in de toepassing, gaat u verder gaan en een stateful betrouwbare service voor het opslaan van sommige gegevens in de toepassing toevoegen.
 
 Service Fabric kunt u voor het opslaan van uw gegevens rechtstreeks in uw service met behulp van betrouwbare verzamelingen consistent en betrouwbaar. Betrouwbare verzamelingen zijn een set van maximaal beschikbare en betrouwbare verzameling klassen die bekend zijn voor iedereen die is gebruikt C#-verzamelingen.
 
 In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare verzameling opslaat.
 
 1. Klik in Solution Explorer met de rechtermuisknop op **Services** in de toepassing project en kies **toevoegen > nieuwe Service Fabric-Service**.
-   
-    ![Een nieuwe service toe te voegen aan een bestaande toepassing](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
-
+    
 2. In de **nieuwe Service Fabric-Service** dialoogvenster kiezen **Stateful ASP.NET Core**, en de naam van de service **VotingData** en druk op **OK**.
 
     ![Dialoogvenster voor nieuwe service in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
@@ -362,17 +376,20 @@ In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare ver
 In de **VotingData** project met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**. Naam van het bestand 'VoteDataController.cs' en klik op **toevoegen**. Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.ServiceFabric.Data;
-using System.Threading;
-using Microsoft.ServiceFabric.Data.Collections;
+// ------------------------------------------------------------
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
+// ------------------------------------------------------------
 
 namespace VotingData.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.ServiceFabric.Data;
+    using Microsoft.ServiceFabric.Data.Collections;
+
     [Route("api/[controller]")]
     public class VoteDataController : Controller
     {
@@ -387,24 +404,24 @@ namespace VotingData.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var ct = new CancellationToken();
+            CancellationToken ct = new CancellationToken();
 
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                var list = await votesDictionary.CreateEnumerableAsync(tx);
+                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                var enumerator = list.GetAsyncEnumerator();
+                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
-                var result = new List<KeyValuePair<string, int>>();
+                List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
                 while (await enumerator.MoveNextAsync(ct))
                 {
                     result.Add(enumerator.Current);
                 }
 
-                return Json(result);
+                return this.Json(result);
             }
         }
 
@@ -412,7 +429,7 @@ namespace VotingData.Controllers
         [HttpPut("{name}")]
         public async Task<IActionResult> Put(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -427,7 +444,7 @@ namespace VotingData.Controllers
         [HttpDelete("{name}")]
         public async Task<IActionResult> Delete(string name)
         {
-            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+            IReliableDictionary<string, int> votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
@@ -449,11 +466,11 @@ namespace VotingData.Controllers
 
 
 ## <a name="connect-the-services"></a>Verbinding maken met de services
-In deze stap, wordt er verbinding maken met de twee services en de front-end-webservers toepassing get en set-informatie van de back-endservice stemmen.
+In deze stap, verbinding maken met de twee services en breng de front-end-webservers toepassing get en set-informatie van de back-endservice stemmen.
 
 Service Fabric biedt volledige flexibiliteit in hoe u met reliable services communiceren. Binnen één toepassing hebt u mogelijk services die toegankelijk via TCP zijn. Andere services die mogelijk toegankelijk via een HTTP REST-API en nog andere services kunnen toegang worden verkregen via websockets. Zie voor achtergrondinformatie over de beschikbare opties en de wisselwerking betrokken [services communiceert](service-fabric-connect-and-communicate-with-services.md).
 
-In deze zelfstudie gebruiken we [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+In deze zelfstudie gebruikt [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -461,116 +478,160 @@ In deze zelfstudie gebruiken we [ASP.NET Core Web API](service-fabric-reliable-s
 In de **VotingWeb** project, open de *Controllers/VotesController.cs* bestand.  Vervang de `VotesController` definitie inhoud met de volgende klasse en sla vervolgens uw wijzigingen.
 
 ```csharp
-    public class VotesController : Controller
+public class VotesController : Controller
+{
+    private readonly HttpClient httpClient;
+    private readonly FabricClient fabricClient;
+    private readonly StatelessServiceContext serviceContext;
+
+    public VotesController(HttpClient httpClient, StatelessServiceContext context, FabricClient fabricClient)
     {
-        private readonly HttpClient httpClient;
-        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
-        string partitionKind = "Int64Range";
-        string partitionKey = "0";
+        this.fabricClient = fabricClient;
+        this.httpClient = httpClient;
+        this.serviceContext = context;
+    }
 
-        public VotesController(HttpClient httpClient)
+    // GET: api/Votes
+    [HttpGet("")]
+    public async Task<IActionResult> Get()
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+
+        ServicePartitionList partitions = await this.fabricClient.QueryManager.GetPartitionListAsync(serviceName);
+
+        List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
+
+        foreach (Partition partition in partitions)
         {
-            this.httpClient = httpClient;
-        }
+            string proxyUrl =
+                $"{proxyAddress}/api/VoteData?PartitionKey={((Int64RangePartitionInformation) partition.PartitionInformation).LowKey}&PartitionKind=Int64Range";
 
-        // GET: api/Votes
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            IEnumerable<KeyValuePair<string, int>> votes;
-
-            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            using (HttpResponseMessage response = await this.httpClient.GetAsync(proxyUrl))
             {
-                return this.StatusCode((int)response.StatusCode);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    continue;
+                }
+
+                result.AddRange(JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync()));
             }
-
-            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
-
-            return Json(votes);
         }
 
-        // PUT: api/Votes/name
-        [HttpPut("{name}")]
-        public async Task<IActionResult> Put(string name)
+        return this.Json(result);
+    }
+
+    // PUT: api/Votes/name
+    [HttpPut("{name}")]
+    public async Task<IActionResult> Put(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        StringContent putContent = new StringContent($"{{ 'name' : '{name}' }}", Encoding.UTF8, "application/json");
+        putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+        using (HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent))
         {
-            string payload = $"{{ 'name' : '{name}' }}";
-            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
-            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
-
-            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
-
             return new ContentResult()
             {
-                StatusCode = (int)response.StatusCode,
+                StatusCode = (int) response.StatusCode,
                 Content = await response.Content.ReadAsStringAsync()
             };
         }
+    }
 
-        // DELETE: api/Votes/name
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> Delete(string name)
+    // DELETE: api/Votes/name
+    [HttpDelete("{name}")]
+    public async Task<IActionResult> Delete(string name)
+    {
+        Uri serviceName = VotingWeb.GetVotingDataServiceName(this.serviceContext);
+        Uri proxyAddress = this.GetProxyAddress(serviceName);
+        long partitionKey = this.GetPartitionKey(name);
+        string proxyUrl = $"{proxyAddress}/api/VoteData/{name}?PartitionKey={partitionKey}&PartitionKind=Int64Range";
+
+        using (HttpResponseMessage response = await this.httpClient.DeleteAsync(proxyUrl))
         {
-            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
-
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                return this.StatusCode((int)response.StatusCode);
+                return this.StatusCode((int) response.StatusCode);
             }
-
-            return new OkResult();
-
         }
+
+        return new OkResult();
     }
+
+
+    /// <summary>
+    /// Constructs a reverse proxy URL for a given service.
+    /// Example: http://localhost:19081/VotingApplication/VotingData/
+    /// </summary>
+    /// <param name="serviceName"></param>
+    /// <returns></returns>
+    private Uri GetProxyAddress(Uri serviceName)
+    {
+        return new Uri($"http://localhost:19081{serviceName.AbsolutePath}");
+    }
+
+    /// <summary>
+    /// Creates a partition key from the given name.
+    /// Uses the zero-based numeric position in the alphabet of the first letter of the name (0-25).
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    private long GetPartitionKey(string name)
+    {
+        return Char.ToUpper(name.First()) - 'A';
+    }
+}
 ```
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
-## <a name="walk-through-the-voting-sample-application"></a>Doorloop de stemmende voorbeeldtoepassing
+## <a name="walk-through-the-voting-sample-application"></a>Stapsgewijs door de voorbeeldstemtoepassing gaan
 De stemtoepassing bestaat uit twee services:
-- Web-front-service (VotingWeb): een ASP.NET Core web-front-service, die de webpagina fungeert en zichtbaar gemaakt web-API's om te communiceren met de back-endservice.
-- Back-end-service (VotingData)-Core van een ASP.NET-webservice, die wordt er een API voor het opslaan van de stem resultaten in een betrouwbare woordenlijst persistent op schijf.
+- Web-front-endservice (VotingWeb): een ASP.NET Core web-front-endservice die de webpagina ondersteunt en web-API's beschikbaar stelt om te communiceren met de back-endservice.
+- Back-endservice (VotingData): een ASP.NET Core-webservice, die een API beschikbaar stelt om de stemresultaten in een betrouwbare dictionary op schijf op te slaan.
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Wanneer u in de toepassing stemmen gebeurt het volgende:
-1. Een JavaScript verzendt de stemaanvraag naar de web-API in de web-front-endservice als een HTTP PUT-aanvraag.
+Wanneer u in de toepassing stemt, vinden de volgende gebeurtenissen plaats:
+1. Een JavaScript verzendt de stemaanvraag als een HTTP PUT-aanvraag naar de web-API in de web-front-endservice.
 
-2. De web-front-service wordt een proxyserver gebruikt om te zoeken en doorsturen van een HTTP PUT-aanvraag naar de back-endservice.
+2. De web-front-endservice gebruikt een proxyserver om een HTTP PUT-aanvraag te vinden en door te sturen naar de back-endservice.
 
-3. De back-endservice nodig van de binnenkomende aanvraag en slaat de bijgewerkte resultaten in een betrouwbare woordenlijst die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en opgeslagen op schijf. Gegevens van de toepassing wordt opgeslagen in het cluster, zodat er geen database nodig is.
+3. De back-endservice neemt de binnenkomende aanvraag aan en slaat het bijgewerkte resultaat op in een betrouwbare dictionary die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en opgeslagen op schijf. Gegevens van de toepassing worden opgeslagen in het cluster, zodat er geen database nodig is.
 
-## <a name="debug-in-visual-studio"></a>Fouten opsporen in Visual Studio
-Als u fouten opspoort toepassing in Visual Studio, gebruikt u een lokaal cluster van de Service Fabric-ontwikkeling. U hebt de optie voor het aanpassen van uw ervaring foutopsporing op uw scenario. In deze toepassing opgeslagen gegevens in onze back-end-service met behulp van een betrouwbare woordenlijst. Visual Studio verwijdert u de toepassing per standaard, wanneer u het foutopsporingsprogramma stopt. De toepassing is verwijderd, worden de gegevens in de back-end-service ook verwijderd. Om te blijven behouden de gegevens tussen foutopsporingssessies, kunt u de **toepassing foutopsporingsmodus** als eigenschap op de **Voting** -project in Visual Studio.
+## <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
+Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing opgeslagen gegevens in de back-end-service met behulp van een betrouwbare woordenlijst. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
 
-Als u wilt kijken wat er in de code gebeurt, kunt u de volgende stappen uitvoeren:
-1. Open de **VotesController.cs** bestands- en stel een onderbrekingspunt in de web-API's **plaatsen** methode (regel 47) - u kunt zoeken naar het bestand in Solution Explorer in Visual Studio.
+Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
+1. Open de **VotesController.cs** bestands- en stel een onderbrekingspunt in de web-API's **plaatsen** methode (line-63) - u kunt zoeken naar het bestand in Solution Explorer in Visual Studio.
 
-2. Open de **VoteDataController.cs** bestands- en stel een onderbrekingspunt in deze web-API **plaatsen** methode (line 50).
+2. Open de **VoteDataController.cs** bestands- en stel een onderbrekingspunt in deze web-API **plaatsen** methode (line 53).
 
-3. Ga terug naar de browser en klik op een optie of een nieuwe stemmende optie toevoegen. U onderbrekingspunt de eerste in de web front-end van api-controller.
+3. Ga terug naar de browser en klik op een stemoptie of voeg een nieuwe stemoptie toe. U komt uit bij het eerste onderbrekingspunt in de API-controller van de web-front-end.
     
-    1. Dit is waar de JavaScript in de browser wordt een aanvraag verzonden naar de web-API-controller in de front-end-service.
+    1. Dit is het punt waarop door JavaScript in de browser een aanvraag wordt verzonden naar de web-API-controller in de front-endservice.
     
-    ![Stem front-end-Service toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+    ![Front-endservice van Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Eerst wordt de URL van de ReverseProxy opstellen voor onze back-endservice **(1)**.
-    3. Vervolgens wordt de HTTP PUT-aanvraag naar de ReverseProxy verzenden **(2)**.
-    4. Ten slotte de we het antwoord van de back-end-service naar de client geretourneerd **(3)**.
+    2. Eerst samenstellen van de URL van de ReverseProxy voor de back-endservice **(1)**.
+    3. Verzend het HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
+    4. Ten slotte het retourtype het antwoord van de back-end-service op de client **(3)**.
 
 4. Druk op **F5** om door te gaan
-    1. U bent nu op het punt onderbreking in de back-endservice.
+    1. U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
     
-    ![Stem Back-End-Service toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+    ![Back-endservice Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. In de eerste regel in de methode **(1)** gebruiken we de `StateManager` ophalen of het toevoegen van een betrouwbare woordenlijst aangeroepen `counts`.
-    3. Alle interacties met waarden in een betrouwbare woordenlijst vereisen een transactie, deze met de instructie **(2)** die transactie maakt.
-    4. In de transactie we vervolgens de waarde van de relevante sleutel voor de optie bijwerken en voert de bewerking **(3)**. Als de gegevens van de commit-methode retourneert is bijgewerkt in de woordenlijst en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice failover naar andere knooppunten, nog steeds de gegevens beschikbaar.
+    2. In de eerste regel in de methode **(1)** gebruiken de `StateManager` ophalen of het toevoegen van een betrouwbare woordenlijst aangeroepen `counts`.
+    3. Alle interacties met waarden in een betrouwbare dictionary vereisen een transactie, met deze instructie **(2)** wordt die transactie gemaakt.
+    4. Werk de waarde van de relevante sleutel voor de optie in de transactie en voert u de bewerking **(3)**. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de dictionary en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
 5. Druk op **F5** om door te gaan
 
-Als u wilt de Foutopsporingssessie stoppen, drukt u op **Shift + F5**.
+Als u de foutopsporingssessie wilt stoppen, drukt u op **Shift+F5**.
 
 
 ## <a name="next-steps"></a>Volgende stappen

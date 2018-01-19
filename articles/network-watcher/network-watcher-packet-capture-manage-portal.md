@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakket opnamen beheren met Azure met behulp van de portal netwerk-Watcher
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
+> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Netwerk-Watcher pakketopname kunt u om sessies vastleggen om bij te houden van verkeer van en naar een virtuele machine te maken. Filters zijn beschikbaar voor de opnamesessie om te controleren of dat u alleen het verkeer die u wilt vastleggen. Pakketopname helpt op te sporen netwerk afwijkingen reactief en proactief. Andere toepassingen zijn onder andere het verzamelen van netwerkstatistieken, krijgt informatie over het netwerk beveiligingsrisico's voor foutopsporing van client-servercommunicaties en nog veel meer. Door op afstand activeren pakket opnamen, deze mogelijkheid kan vergemakkelijken de last van een pakketopname handmatig en op de gewenste machine, die kostbare tijd bespaart worden uitgevoerd.
 
@@ -83,7 +83,7 @@ De eigenschappen die kunnen worden gedefinieerd op een pakketopname zijn:
 - **Storage-Account** -bepaalt als pakketopname wordt opgeslagen in een opslagaccount.
 - **Bestand** -bepaalt als een pakketopname lokaal wordt opgeslagen op de virtuele machine.
 - **Storage-Accounts** : de storage-account op te slaan van het pakket vastleggen in geselecteerd. Standaardlocatie is https://{storage-account-id name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription} /resourcegroups/ {name}/providers/microsoft.compute/virtualmachines/{virtual machine Resourcegroepnaam} / {jj} / {MM} / {DD} / {HH} packetcapture__{MM}_{SS} _ {XXX} Cap. (Alleen beschikbaar als **opslag** is geselecteerd)
-- **Lokale bestandspad** -het lokale pad op een virtuele machine op te slaan van het vastleggen van het pakket. (Alleen beschikbaar als **bestand** is ingeschakeld). Een geldig pad moet worden opgegeven.
+- **Lokale bestandspad** -het lokale pad op een virtuele machine op te slaan van het vastleggen van het pakket. (Alleen beschikbaar als **bestand** is ingeschakeld). Een geldig pad moet worden opgegeven. Voor een virtuele Linux-machine, het pad moet beginnen met */var/vastgelegd*.
 - **Maximum aantal bytes per pakket** - het aantal bytes van elk pakket die zijn vastgelegd, alle bytes zijn vastgelegd als leeg is.
 - **Maximum aantal bytes per sessie** - totaal aantal bytes die zijn vastgelegd, zodra het pakket vastleggen gestopt door de waarde is bereikt.
 - **Tijdslimiet (seconden)** -bepaalt de tijdslimiet voor de pakketopname te stoppen. Standaard is 18000 seconden.

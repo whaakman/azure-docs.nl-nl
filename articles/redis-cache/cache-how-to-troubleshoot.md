@@ -3,8 +3,8 @@ title: Het oplossen van Azure Redis-Cache | Microsoft Docs
 description: Informatie over het oplossen van veelvoorkomende problemen met Azure Redis-Cache.
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a79a0b20cd007816391745f6f717253df17f067
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Het oplossen van Azure Redis-Cache
 Dit artikel bevat richtlijnen voor het oplossen van de volgende categorieën van Azure Redis-Cache-problemen.
@@ -187,7 +187,7 @@ Dit foutbericht bevat metrische gegevens die kunnen helpen bij het wijst u de oo
 | Wachtrij |Er zijn 73 totale voortgang-bewerkingen |
 | Qu |6 van de bewerkingen in uitvoering zijn in de wachtrij voor niet-verzonden en nog niet zijn geschreven met het uitgaande netwerk |
 | Qs |67 van he lopende bewerkingen zijn verzonden naar de server, maar een antwoord is nog niet beschikbaar. Kan het antwoord worden `Not yet sent by the server` of`sent by the server but not yet processed by the client.` |
-| QC |0 van de bewerkingen in uitvoering antwoorden hebt gezien, maar nog niet is gemarkeerd als voltooid vanwege het wachten op de voltooiing lus |
+| qc |0 van de bewerkingen in uitvoering antwoorden hebt gezien, maar nog niet is gemarkeerd als voltooid vanwege het wachten op de voltooiing lus |
 | wR |Er is een actieve writer (wat betekent dat de 6 unsent aanvragen worden niet genegeerd) bytes/activewriters |
 | in |Er zijn geen actieve lezers en nul bytes beschikbaar zijn voor worden gelezen op de NIC-bytes/activereaders |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>De .net SDK gebruiken om te zetten van gegevenstransformatie
 
@@ -79,7 +79,7 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
 
         ![Een 2-project maken](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Voeg nu alle dll's aanwezig zijn in de [dll's map](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) als **verwijzingen** in het project dat u hebt gemaakt. Voor het downloaden van de dll-bestanden het volgende doen:
+4.  Voeg nu alle dll's aanwezig zijn in de [dll's map](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) als **verwijzingen** in het project dat u hebt gemaakt. Als u wilt toevoegen in de dll-bestanden, het volgende doen:
 
     1. In Visual Studio, gaat u naar **weergave > Solution Explorer**.
     2. Klik op de pijl naar links van Data Transformation App-project. Klik op **verwijzingen** en klik vervolgens met de rechtermuisknop op **verwijzing toevoegen**.
@@ -117,19 +117,14 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   Zodra de code is geplakt, moet u de oplossing bouwen. Hier volgt een schermopname van het codefragment initialiseren van het exemplaar van data transformation taak.
-
-   ![Codefragment transformatie-taak gegevens initialiseren](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Geef de parameters waarmee de taakdefinitie moet worden uitgevoerd
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OR)
@@ -159,7 +154,6 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Voeg de volgende code om te activeren van een transformatie-taak op de taakdefinitie na de initialisatie. Plug-in de betreffende **definitie taaknaam**.
@@ -169,12 +163,17 @@ De volgende stappen voor het gebruik van .NET starten van een transformatie-taak
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Zodra de code is geplakt, moet u de oplossing bouwen. Hier volgt een schermopname van het codefragment initialiseren van het exemplaar van data transformation taak.
 
-9. Deze taak wordt de overeenkomende bestanden aanwezig zijn onder de hoofdmap op het StorSimple-volume naar de opgegeven container geüpload. Wanneer een bestand is geüpload, wordt een bericht in de wachtrij (in hetzelfde opslagaccount als de container) verwijderd met dezelfde naam als de taakdefinitie. Dit bericht kan worden gebruikt als een trigger initiëren verdere verwerking van het bestand.
+   ![Codefragment transformatie-taak gegevens initialiseren](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Zodra de taak is geactiveerd, voeg de volgende code om bij te houden van de taak voor voltooiing.
+9. Deze taak de gegevens die overeenkomt met de hoofdmap worden omgezet en bestand filtert op het StorSimple-volume en plaatst deze in de opgegeven container/bestandsshare. Wanneer een bestand wordt omgezet, wordt een bericht toegevoegd aan een opslagwachtrij (in hetzelfde opslagaccount als de container/bestandsshare) met dezelfde naam als de taakdefinitie. Dit bericht kan worden gebruikt als een trigger initiëren verdere verwerking van het bestand.
+
+10. Zodra de taak is geactiveerd, kunt u de volgende code voor het bijhouden van de taak voor voltooiing. Het is niet verplicht om toe te voegen deze code voor de taak uitvoeren.
 
     ```
     Job jobDetails = null;

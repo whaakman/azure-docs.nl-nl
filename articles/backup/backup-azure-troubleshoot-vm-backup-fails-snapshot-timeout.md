@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
 ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup-fout oplossen: problemen met de agent en/of extensie
 
@@ -164,7 +164,7 @@ Taakfout momentopname kunnen worden veroorzaakt door de volgende voorwaarden:
 
 | Oorzaak | Oplossing |
 | --- | --- |
-| De virtuele machine heeft de SQL Server back-up is geconfigureerd. | Standaard back-up van de virtuele machine wordt uitgevoerd een VSS volledige back-ups op VM's van Windows. Op virtuele machines die worden uitgevoerd op basis van SQL Server-servers en op welke SQL-Server worden de back-up geconfigureerd, is de momentopname uitvoering vertragingen optreden.<br><br>Als u een back-up mislukt vanwege een probleem met de momentopname ondervindt, stelt u de volgende registersleutel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] 'USEVSSCOPYBACKUP '=' TRUE'** |
+| De virtuele machine heeft de SQL Server back-up is geconfigureerd. | Standaard back-up van de virtuele machine wordt uitgevoerd een VSS volledige back-ups op VM's van Windows. Op virtuele machines die worden uitgevoerd op basis van SQL Server-servers en op welke SQL-Server worden de back-up geconfigureerd, is de momentopname uitvoering vertragingen optreden.<br><br>Als u een back-up mislukt vanwege een probleem met de momentopname ondervindt, stelt u de volgende registersleutel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | De status van de virtuele machine is niet juist gerapporteerd, omdat de virtuele machine wordt afgesloten in RDP. | Als u de virtuele machine in Remote Desktop Protocol (RDP) afsluit, controleert u de portal om te bepalen of de status van de VM juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op de VM-dashboard. |
 | Veel virtuele machines in dezelfde cloudservice zijn geconfigureerd voor back-up op hetzelfde moment. | Het is een best practice verspreiden uit de back-upschema's voor virtuele machines in dezelfde cloudservice. |
 | De virtuele machine wordt uitgevoerd op een hoog gebruik van CPU of geheugen. | Als de virtuele machine wordt uitgevoerd op een hoog CPU-gebruik (meer dan 90 procent) of hoog geheugengebruik, wordt de momentopname-taak is in de wachtrij en vertraagd en wordt er uiteindelijk een time-out optreedt. In deze situatie probeert een-op-verzoek back-up. |

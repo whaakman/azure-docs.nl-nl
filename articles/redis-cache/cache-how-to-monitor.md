@@ -3,8 +3,8 @@ title: Azure Redis-Cache controleren | Microsoft Docs
 description: Informatie over het bewaken van de status en prestaties van uw Azure Redis-Cache-exemplaren
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a68435866e6fb5bf0210144e53918c35b416449
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis-cache bewaken
 Maakt gebruik van Azure Redis-Cache [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) om verschillende opties voor het bewaken van uw cache-exemplaren te bieden. U kunt metrische gegevens weergeven, vastmaken grafieken van de metrische gegevens aan het Startboard, aanpassen van het bereik datum en tijd van de bewaking van grafieken, toevoegen en metrische gegevens verwijderen uit de grafieken en waarschuwingen instellen wanneer aan bepaalde voorwaarden wordt voldaan. Deze hulpprogramma's kunnen u de status van uw Azure Redis-Cache-exemplaren en uw cache in toepassingen te beheren.
@@ -29,7 +29,7 @@ Metrische gegevens voor Azure Redis-Cache-exemplaren worden verzameld met behulp
 
 Om weer te geven de metrische gegevens voor cache, [Bladeren](cache-configure.md#configure-redis-cache-settings) naar uw cache-exemplaar in de [Azure-portal](https://portal.azure.com).  Azure Redis-Cache geeft u een aantal ingebouwde grafieken van de **overzicht** blade en de **Redis metrische gegevens** blade. Elke grafiek kan worden aangepast door het toevoegen of verwijderen van metrische gegevens en het wijzigen van het interval voor rapportage.
 
-![Metrische gegevens redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![Metrische Redis-gegevens](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>Diagrammen van vooraf geconfigureerde metrische gegevens weergeven
 
@@ -53,7 +53,7 @@ De **prijscategorie** geeft de cache-prijzen servicetier en kan worden gebruikt 
 ## <a name="view-metrics-with-azure-monitor"></a>Metrische gegevens weergeven met Azure-monitor
 Redis metrische gegevens weergeven en aangepaste grafieken met behulp van Azure-Monitor maken, klikt u op **metrische gegevens** van de **Resource menu**, en de grafiek met de gewenste metrische gegevens reporting interval en grafiektype aanpassen.
 
-![Metrische gegevens redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![Metrische Redis-gegevens](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 Zie voor meer informatie over het werken met metrische gegevens met behulp van Azure Monitor [overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -97,27 +97,27 @@ Elke metriek bevat twee versies. Een metriek meet prestaties voor het volledige 
 
 | Gegevens | Beschrijving |
 | --- | --- |
-| Treffers in cache |Het aantal treffers sleutel tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `keyspace_hits` van de Redis [INFO](http://redis.io/commands/info) opdracht. |
+| Cachetreffers |Het aantal treffers sleutel tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `keyspace_hits` van de Redis [INFO](http://redis.io/commands/info) opdracht. |
 | Cachemissers |Het aantal mislukte sleutel zoekacties tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `keyspace_misses` van de opdracht Redis INFO. Cachemissers betekenen niet noodzakelijkerwijs dat er is een probleem met de cache. Wanneer u het cache-aside ' programming patroon, een toepassing ziet er bijvoorbeeld eerste in de cache voor een item. Als het item is er geen (Cachemisser), wordt het item uit de database opgehaald en toegevoegd aan de cache voor de volgende keer. Cachemissers zijn normaal gedrag voor het programmeren van cache-aside '-patroon. Als het aantal missers in cache hoger is dan verwacht, controleert u de toepassingslogica die gevuld en leest uit de cache. Als items zijn wordt verwijderd uit de cache vanwege geheugendruk en kan er een aantal missers in cache, maar een betere metriek om te controleren op geheugendruk zou zijn `Used Memory` of `Evicted Keys`. |
-| Verbonden Clients |Het aantal clientverbindingen met de cache tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `connected_clients` van de opdracht Redis INFO. Eenmaal de [verbindingslimiet](cache-configure.md#default-redis-server-configuration) is bereikt latere verbindingspogingen met de cache wordt niet uitgevoerd. Houd er rekening mee dat zelfs als er geen actieve clienttoepassing, er nog steeds mogelijk enkele exemplaren van de verbonden clients als gevolg van interne processen en verbindingen. |
+| Gekoppelde clients |Het aantal clientverbindingen met de cache tijdens het opgegeven interval voor rapportage. Dit wordt toegewezen aan `connected_clients` van de opdracht Redis INFO. Eenmaal de [verbindingslimiet](cache-configure.md#default-redis-server-configuration) is bereikt latere verbindingspogingen met de cache wordt niet uitgevoerd. Houd er rekening mee dat zelfs als er geen actieve clienttoepassing, er nog steeds mogelijk enkele exemplaren van de verbonden clients als gevolg van interne processen en verbindingen. |
 | Verwijderde sleutels |Het aantal items uit de cache verwijderd tijdens het opgegeven reporting interval vanwege de `maxmemory` limiet. Dit wordt toegewezen aan `evicted_keys` van de opdracht Redis INFO. |
 | Verlopen sleutels |Het aantal items die tijdens het opgegeven interval reporting uit de cache is verlopen. Deze waarde wordt toegewezen aan `expired_keys` van de opdracht Redis INFO. |
-| Totale aantal sleutels  | Het maximale aantal sleutels in de cache in de afgelopen periode reporting. Dit wordt toegewezen aan `keyspace` van de opdracht Redis INFO. Totale aantal sleutels retourneert vanwege een beperking van het onderliggende systeem metrische gegevens voor caches met clustering is ingeschakeld, het maximum aantal sleutels van de shard waarop het maximum aantal sleutels tijdens het rapportage-interval.  |
-| Opgehaald |Het aantal get-bewerkingen tijdens het opgegeven interval reporting uit de cache. Deze waarde is de som van de volgende waarden van de gegevens van de Redis-opdracht Alles: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, en `cmdstat_getrange`, en is gelijk aan de som van treffers in cache en missers tijdens het rapportage-interval. |
-| Redis belasting van de Server |Het percentage van de cycli waarin de Redis-server is bezig de verwerking en niet wachten op niet-actieve voor berichten. Als deze teller wordt de Redis-server een prestaties maximum heeft bereikt en kan niet worden verwerkt door de CPU 100 moet u een sneller werken. Als u hoge belasting van Redis-Server ziet ziet u uitzonderingen voor time-outs in de client. In dit geval moet u omhoog schalen of uw gegevens in meerdere caches partitioneren. |
+| Totaal aantal sleutels  | Het maximale aantal sleutels in de cache in de afgelopen periode reporting. Dit wordt toegewezen aan `keyspace` van de opdracht Redis INFO. Totale aantal sleutels retourneert vanwege een beperking van het onderliggende systeem metrische gegevens voor caches met clustering is ingeschakeld, het maximum aantal sleutels van de shard waarop het maximum aantal sleutels tijdens het rapportage-interval.  |
+| Opgehaalde items |Het aantal get-bewerkingen tijdens het opgegeven interval reporting uit de cache. Deze waarde is de som van de volgende waarden van de gegevens van de Redis-opdracht Alles: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, en `cmdstat_getrange`, en is gelijk aan de som van treffers in cache en missers tijdens het rapportage-interval. |
+| Redis-serververmogen |Het percentage van de cycli waarin de Redis-server is bezig de verwerking en niet wachten op niet-actieve voor berichten. Als deze teller wordt de Redis-server een prestaties maximum heeft bereikt en kan niet worden verwerkt door de CPU 100 moet u een sneller werken. Als u hoge belasting van Redis-Server ziet ziet u uitzonderingen voor time-outs in de client. In dit geval moet u omhoog schalen of uw gegevens in meerdere caches partitioneren. |
 | Sets |Het aantal set-bewerkingen tijdens het opgegeven interval voor rapportage aan de cache. Deze waarde is de som van de volgende waarden van de gegevens van de Redis-opdracht Alles: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` , en `cmdstat_setnx`. |
 | Totaal aantal bewerkingen |Het totale aantal opdrachten verwerkt door de cacheserver tijdens het opgegeven interval voor rapportage. Deze waarde wordt toegewezen aan `total_commands_processed` van de opdracht Redis INFO. Houd er rekening mee dat wanneer Azure Redis-Cache wordt gebruikt voor pub subitems er worden geen metrische gegevens voor `Cache Hits`, `Cache Misses`, `Gets`, of `Sets`, maar er zijn `Total Operations` metrische gegevens die overeenkomen met het gebruik van de cache voor pub subitems bewerkingen. |
 | Gebruikt geheugen |De hoeveelheid cachegeheugen gebruikt voor de sleutel/waarde-paren in de cache in MB tijdens het opgegeven interval voor rapportage. Deze waarde wordt toegewezen aan `used_memory` van de opdracht Redis INFO. Dit omvat geen metagegevens of fragmentatie. |
 | Gebruikt geheugen RSS |De hoeveelheid geheugen van de cache in MB gebruikt tijdens het opgegeven reporting interval, met inbegrip van fragmentatie en metagegevens. Deze waarde wordt toegewezen aan `used_memory_rss` van de opdracht Redis INFO. |
 | CPU |Het CPU-gebruik van de Azure Redis-Cache-server als een percentage tijdens het opgegeven interval voor rapportage. Deze waarde wordt toegewezen aan het besturingssysteem `\Processor(_Total)\% Processor Time` prestatiemeteritem. |
-| Cache lezen |De hoeveelheid gegevens gelezen uit de cache in MB per seconde (MB/s) tijdens het opgegeven interval voor rapportage. Deze waarde is afgeleid van de netwerkkaarten die ondersteuning bieden voor de virtuele machine die als host fungeert voor de cache en is geen specifieke Redis. **Deze waarde komt overeen met de netwerkbandbreedte gebruikt door deze cache. Als u wilt voor het instellen van waarschuwingen voor bandbreedtelimieten van server side netwerk, moet u deze maken gebruik van deze `Cache Read` teller. Zie [deze tabel](cache-faq.md#cache-performance) voor de waargenomen-bandbreedtelimieten voor verschillende cache lagen en grootten prijzen.** |
+| Gelezen uit cache |De hoeveelheid gegevens gelezen uit de cache in MB per seconde (MB/s) tijdens het opgegeven interval voor rapportage. Deze waarde is afgeleid van de netwerkkaarten die ondersteuning bieden voor de virtuele machine die als host fungeert voor de cache en is geen specifieke Redis. **Deze waarde komt overeen met de netwerkbandbreedte gebruikt door deze cache. Als u wilt voor het instellen van waarschuwingen voor bandbreedtelimieten van server side netwerk, moet u deze maken gebruik van deze `Cache Read` teller. Zie [deze tabel](cache-faq.md#cache-performance) voor de waargenomen-bandbreedtelimieten voor verschillende cache lagen en grootten prijzen.** |
 | Cache schrijven |De hoeveelheid gegevens geschreven naar de cache in MB per seconde (MB/s) tijdens het opgegeven interval rapportage. Deze waarde is afgeleid van de netwerkkaarten die ondersteuning bieden voor de virtuele machine die als host fungeert voor de cache en is geen specifieke Redis. Deze waarde komt overeen met de netwerkbandbreedte van gegevens die worden verzonden naar de cache van de client. |
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>Waarschuwingen
 U kunt configureren voor het ontvangen van meldingen op basis van de logboeken van metrische gegevens en de activiteit. Azure Monitor kunt u de volgende handelingen uit als er wordt een waarschuwing configureren:
 
-* E-mailmelding verzenden
+* Een e-mailmelding verzenden
 * een webhook aanroepen
 * Een Azure Logic App aanroepen
 

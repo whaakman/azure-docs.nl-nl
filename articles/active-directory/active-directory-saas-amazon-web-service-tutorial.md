@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Zelfstudie: Azure Active Directory-integratie met Amazon Web Services (AWS)
 
@@ -116,8 +116,8 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     
     | Naam kenmerk  | Waarde kenmerk | Naamruimte |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://AWS.Amazon.com/SAML/Attributes |
-    | Rol            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Rol            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >U moet de gebruiker wordt ingericht in Azure AD ophalen van alle functies van de AWS-Console configureren. Raadpleeg de onderstaande stappen inrichting.
@@ -131,6 +131,8 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
 
     c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+
+    d. In de **Namespace** textbox, typt u de naamruimtewaarde die wordt weergegeven voor die rij.
     
     d. Klik op **OK**.
 
@@ -230,19 +232,13 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Nieuw beleid maken](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Maak uw eigen beleid voor het ophalen van alle functies van de AWS-accounts. In de **Maak uw eigen beleid** sectie klikt u op **Selecteer** knop.
-    
+25. Maak uw eigen beleid voor het ophalen van alle functies van de AWS-accounts door de volgende stappen uit te voeren:
+
     ![Nieuw beleid maken](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Definieer het nieuwe beleid door de volgende stappen uit te voeren:
+    a. In de **'Beleid maken'** sectie klikt u op **'JSON'** tabblad.
 
-    ![Het nieuwe beleid definiëren](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Geef de **beleidsnaam** als **AzureAD_SSOUserRole_Policy**.
-
-    b. U kunt opgeven **beschrijving** aan het beleid zo **dit beleid kunnen ophalen van de rollen van de AWS accounts**.
-    
-    c. In het beleidsdocument, voegt u de onderstaande JSON.
+    b. In het beleidsdocument, voegt u de onderstaande JSON.
     
     ```
     
@@ -271,13 +267,21 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     }
     
     ```
+
+    c. Klik op **revisie beleid knop** voor het valideren van het beleid.
+
+    ![Het nieuwe beleid definiëren](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Definieer de **nieuw beleid** door de volgende stappen uit te voeren:
+
+    ![Het nieuwe beleid definiëren](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Geef de **beleidsnaam** als **AzureAD_SSOUserRole_Policy**.
+
+    b. U kunt opgeven **beschrijving** aan het beleid zo **dit beleid kunnen ophalen van de rollen van de AWS accounts**.
     
-    d. Zorg ervoor dat u controleert op **automatisch opmaken gebruiken voor het beleid bewerken**.
-    
-    e. Klik op **valideren beleid** knop onderaan.
-    
-    f. Wanneer het beleid is correct is gevalideerd vervolgens kunt u op **beleid maken** knop.
-    
+    c. Klik op **'Beleid maken'** knop.
+        
 27. Maak een nieuw gebruikersaccount in de AWS IAM-Service door de volgende stappen uit te voeren:
 
     a. Klik op **gebruikers** navigatie in de IAM-AWS-console.

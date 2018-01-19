@@ -1,6 +1,6 @@
 ---
-title: Tegel verwijzing voor weergave Designer in OMS Log Analytics | Microsoft Docs
-description: Ontwerper in Log Analytics kunt u aangepaste weergaven maken in de OMS-console die verschillende visualisaties van gegevens in de OMS-opslagplaats bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de tegels beschikbaar voor gebruik in aangepaste weergaven.
+title: Tegel verwijzing voor weergave Designer in Azure Log Analytics | Microsoft Docs
+description: Ontwerper in Log Analytics kunt u aangepaste weergaven maken in de Azure portal die verschillende visualisaties van gegevens in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de tegels beschikbaar voor gebruik in aangepaste weergaven.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Log Analytics-ontwerper tegel verwijzing
-De ontwerper in Log Analytics kunt u aangepaste weergaven maken in de OMS-console die verschillende visualisaties van gegevens in de OMS-opslagplaats bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de tegels beschikbaar voor gebruik in aangepaste weergaven.
+De ontwerper in Log Analytics kunt u aangepaste weergaven maken in de Azure portal die verschillende visualisaties van gegevens in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de tegels beschikbaar voor gebruik in aangepaste weergaven.
 
 Er zijn andere artikelen die beschikbaar zijn voor weergave Designer:
 
@@ -51,7 +51,7 @@ De **getal** tegel één getal met het aantal records uit een query logboek en e
 |:--- |:--- |
 | Naam |Tekst om weer te geven aan de bovenkant van de tegel. |
 | Beschrijving |De tekst die moet worden weergegeven onder de naam van de tegel. |
-| **Tegel** | |
+| **Tile** | |
 | Legenda |De tekst die moet worden weergegeven onder de waarde. |
 | Query’s uitvoeren |De query wilt uitvoeren.  Het aantal records dat wordt geretourneerd door de query wordt weergegeven. |
 | **Geavanceerde** |**> Gegevensstroom verificatie** |

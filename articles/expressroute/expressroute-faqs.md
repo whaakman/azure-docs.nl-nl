@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -72,7 +72,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 * Dynamics 365 voor Financiën en bewerkingen (voorheen bekend als Dynamics AX Online)
 * De meeste van de Azure-services, met de volgende enkele uitzonderingen:
   * CDN
-  * Visual Studio Team Services Load testen
+  * Visual Studio Team Services Load Testing
   * Multi-Factor Authentication
   * Traffic Manager
 
@@ -89,7 +89,7 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
   * Dynamics 365 voor Financiën en bewerkingen
   * De meeste van de Azure-services, met de volgende enkele uitzonderingen:
     * CDN
-    * Visual Studio Team Services Load testen
+    * Visual Studio Team Services Load Testing
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -121,11 +121,11 @@ Ja. Elk ExpressRoute-circuit heeft een redundante paar cross-verbindingen die zi
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Ik verliest als een van mijn ExpressRoute-koppelingen mislukken?
 
-U wordt niet de verbinding verbroken als een van de verbindingen tussen mislukt. Er is een redundante verbinding beschikbaar voor de ondersteuning van de belasting van uw netwerk. Bovendien kunt u meerdere circuits maken in een andere locatie als u de fout herstelmogelijkheden.
+U wordt niet de verbinding verbroken als een van de verbindingen tussen mislukt. Is een redundante verbinding beschikbaar ter ondersteuning van de belasting van uw netwerk en bieden hoge beschikbaarheid van uw ExpressRoute-circuit. Bovendien kunt u een circuit maken in een andere peering locatie herstelmogelijkheden circuit niveau bereiken.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hoe kan ik ervoor zorgen dat hoge beschikbaarheid op een virtueel netwerk is verbonden met ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hoe kan ik ervoor zorgen dat hoge beschikbaarheid op een virtueel netwerk is verbonden met ExpressRoute?
 
-U kunt de hoge beschikbaarheid bereiken door meerdere ExpressRoute-circuits in verschillende peeringlocaties verbinding te maken met het virtuele netwerk. Bijvoorbeeld, als één ExpressRoute-site uitvalt, wordt connectiviteit failover naar een andere ExpressRoute-site. Het virtuele netwerk uitgaand verkeer wordt doorgestuurd op basis van op gelijke kosten multi path Routing (ECMP) standaard. U kunt verbinding gewicht liever één verbinding met een andere. Zie [ExpressRoute-routering optimaliseren](expressroute-optimize-routing.md) voor meer informatie over het gewicht van de verbinding.
+U kunt de hoge beschikbaarheid door verbinding te maken van ExpressRoute-circuits in verschillende peeringlocaties (bijvoorbeeld Singapore, Singapore2) bereiken met het virtuele netwerk. Als één ExpressRoute-circuit uitvalt, wordt connectiviteit schakelt over naar een ander ExpressRoute-circuit. Het virtuele netwerk uitgaand verkeer wordt doorgestuurd op basis van op gelijke kosten multi path Routing (ECMP) standaard. U kunt verbinding gewicht één circuit liever naar een andere. Zie [ExpressRoute-routering optimaliseren](expressroute-optimize-routing.md) voor meer informatie over het gewicht van de verbinding.
 
 ### <a name="onep2plink"></a>Als ik wil niet CO-locatie op een cloudexchange en mijn serviceprovider point-to-point-verbinding biedt, heb ik nodig om twee fysieke verbindingen tussen mijn on-premises netwerk en Microsoft?
 
@@ -145,9 +145,12 @@ Ja. U kunt meer dan één ExpressRoute-circuit hebben in uw abonnement. De stand
 
 Ja. U kunt ExpressRoute-circuits hebben met veel serviceproviders. Elk ExpressRoute-circuit is gekoppeld aan een serviceprovider. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Kan ik meerdere ExpressRoute-circuits op dezelfde locatie hebben?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Er worden twee ExpressRoute-peeringlocaties in de dezelfde metro bijvoorbeeld Singapore en Singapore2. Welke peeringlocatie moet ik kiezen voor het maken van mijn ExpressRoute-circuit?
+Als uw serviceprovider ExpressRoute op beide sites biedt, kunt u werken met uw provider en de site voor het instellen van ExpressRoute kiezen. 
 
-Ja. U kunt meerdere ExpressRoute-circuits, met de dezelfde of verschillende providers op dezelfde locatie hebben. U kunt echter meer dan één ExpressRoute-circuit aan hetzelfde virtuele netwerk koppelen op dezelfde locatie.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan ik meerdere ExpressRoute-circuits hebben in de dezelfde metro? Kan ik deze koppelen aan hetzelfde virtuele netwerk?
+
+Ja. U kunt meerdere ExpressRoute-circuits hebben met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits op verschillende peeringlocaties zijn gemaakt, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits worden gemaakt op dezelfde locatie peering, kunt u ze niet koppelen aan hetzelfde virtuele netwerk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hoe kan ik mijn virtuele netwerken verbinden met een ExpressRoute-circuit
 

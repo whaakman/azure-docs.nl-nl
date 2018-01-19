@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor gebruikers inrichten
 
@@ -73,9 +73,9 @@ Azure AD biedt ondersteuning voor de mogelijkheid om automatisch te synchroniser
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Onder de **beheerdersreferenties** sectie, voert u het geheim Token en de Tenant-URL van uw werkplek door Facebook-beheerder.
+5. Onder de **beheerdersreferenties** sectie, voer het geheim-Token van uw werkplek door Facebook-beheerder en stel de waarde van de Tenant-URL op `https://www.facebook.com/scim/v1/` .
 
 6. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD verbinding kunt maken met uw werkplek met Facebook-app. Als de verbinding is mislukt, zorg ervoor dat uw werkplek door Facebook-account Team beheerdersmachtigingen heeft.
 
@@ -95,9 +95,8 @@ Zie voor meer informatie over het configureren van automatische inrichting [http
 
 U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met werkplek met Facebook.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Eenmalige aanmelding configureren](active-directory-saas-workplacebyfacebook-tutorial.md)
-

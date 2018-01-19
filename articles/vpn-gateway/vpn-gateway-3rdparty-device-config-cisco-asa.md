@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Voorbeeldconfiguratie: Cisco ASA apparaat (BGP IKEv2/Nee)
 Dit artikel vindt voorbeelden van configuraties voor netwerkapparaten Cisco adaptieve beveiliging toestel (ASA) naar Azure VPN-gateways. In het voorbeeld geldt voor Cisco ASA-apparaten die worden uitgevoerd zonder het Border Gateway Protocol (BGP) IKEv2. 
@@ -31,7 +31,7 @@ Dit artikel vindt voorbeelden van configuraties voor netwerkapparaten Cisco adap
 | De leverancier van apparaat          | Cisco                             |
 | Apparaatmodel           | ASA                               |
 | Doelversie         | 8.4 en hoger                     |
-| Geteste model           | 5505 ASA                          |
+| Geteste model           | ASA 5505                          |
 | Geteste versie         | 9.2                               |
 | IKE-versie            | IKEv2                             |
 | BGP                    | Nee                                |
@@ -98,10 +98,7 @@ De volgende tabel bevat de parameters die worden gebruikt in het voorbeeld en IP
 
 * Ondersteuning voor DH-groep en PFS-groep dan groep 5 vereist ASA versie 9.x.
 
-* Ondersteuning voor IPSec-codering met AES-GCM en integriteit van de IPSec-met SHA-256, SHA-384 of SHA-512, ASA-versie vereist 9.x. De vereiste van deze ondersteuning geldt voor nieuwere ASA-apparaten.
-
-    > [!NOTE]
-    > Apparaatmodellen ASA 5505, 5510 5520, 5540, 5550 en 5580 worden niet ondersteund. Raadpleeg de specificaties van uw VPN-apparaat om te controleren of de algoritmen die worden ondersteund voor uw VPN-apparaatmodellen en firmware-versies.
+* Ondersteuning voor IPSec-codering met AES-GCM en integriteit van de IPSec-met SHA-256, SHA-384 of SHA-512, ASA-versie vereist 9.x. De vereiste van deze ondersteuning geldt voor nieuwere ASA-apparaten. Op het moment van publicatie ondersteunen ASA modellen 5505, 5510 5520, 5540, 5550 en 5580 geen deze algoritmen. Raadpleeg de specificaties van uw VPN-apparaat om te controleren of de algoritmen die worden ondersteund voor uw VPN-apparaatmodellen en firmware-versies.
 
 
 ### <a name="sample-device-configuration"></a>Voorbeeldconfiguratie voor apparaat

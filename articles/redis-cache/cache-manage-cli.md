@@ -3,8 +3,8 @@ title: Beheren van Azure Redis-Cache met behulp van Azure CLI | Microsoft Docs
 description: Informatie over hoe Azure CLI installeren op elk platform, het gebruik van deze verbinding maken met uw Azure-account en het maken en beheren van een Redis-cache van de Azure CLI.
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Het maken en beheren van Azure Redis-Cache met behulp van de Azure-opdrachtregelinterface (Azure CLI)
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ De volgende eigenschappen worden gebruikt bij het maken en bijwerken van Redis-C
 | resourcegroep |-g,--resourcegroep |Naam van de resourcegroep. |
 | location |-l,--locatie |Locatie voor het maken van de cache. |
 | grootte |-z,--grootte |Grootte van de Redis-Cache. Geldige waarden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| SKU |-x--sku |Redis SKU. Moet een van: [Basic, Standard, Premium] |
+| sku |-x, --sku |Redis SKU. Moet een van: [Basic, Standard, Premium] |
 | EnableNonSslPort |-e,--enable-niet-ssl-poort |EnableNonSslPort-eigenschap van de Redis-Cache. Deze vlag toevoegen als u wilt de niet-SSL-poort voor uw cache inschakelen |
 | Configuratie van redis |-c,--redis-configuratie |Redis-configuratie. Geef een string in JSON-indeling van de van configuratiesleutels en waarden die hier. Indeling: ' {' ': "","": ""} " |
 | Configuratie van redis |-f,--redis-configuratiebestand |Redis-configuratie. Geef het pad van een bestand met configuratiesleutels en waarden die hier. Indeling voor de bestandsvermelding: {"": "","": ""} |

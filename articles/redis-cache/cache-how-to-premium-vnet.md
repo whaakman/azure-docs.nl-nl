@@ -3,8 +3,8 @@ title: Een virtueel netwerk configureren voor een Premium Azure Redis-Cache | Mi
 description: Meer informatie over het maken en beheren van Virtual Network-ondersteuning voor uw Azure Redis-Cache-exemplaren van Premium-laag
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Ondersteuning voor virtuele netwerken configureren voor een Premium Azure Redis-Cache
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van cachegrootte en -functies bieden, zoals de Premium-laag functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure Redis-Cache-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kan alleen worden benaderd vanuit virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Redis-Cache-exemplaar.
@@ -33,7 +33,7 @@ Zie voor informatie over andere functies van premium-cache, [Inleiding tot de Az
 ## <a name="why-vnet"></a>Waarom VNet?
 [Azure-netwerk (VNet)](https://azure.microsoft.com/services/virtual-network/) implementatie biedt verbeterde beveiliging en isolatie voor uw Azure Redis-Cache, evenals de subnetten, toegangscontrolebeleid, en andere functies nog toegang beperken.
 
-## <a name="virtual-network-support"></a>Virtual network-ondersteuning
+## <a name="virtual-network-support"></a>Ondersteuning voor virtuele netwerken
 Ondersteuning voor Virtual Network (VNet) is geconfigureerd op de **nieuwe Redis-Cache** blade tijdens het maken van de cache. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]

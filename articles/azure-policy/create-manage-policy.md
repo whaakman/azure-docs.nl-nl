@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van compatibiliteit maken en beheren
 
@@ -25,11 +25,11 @@ Informatie over het maken en beheren van beleid in Azure is belangrijk voor het 
 > * Een niet-compatibele of geweigerde resource oplossen
 > * Een nieuw beleid binnen een organisatie implementeren
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u toewijzen van een beleid wilt voor het identificeren van de huidige nalevingsstatus van uw bestaande resources, gaat u de Quick Start-artikelen over hoe u dit doet. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="assign-a-policy"></a>Geen beleid toewijzen
 
-De eerste stap bij het afdwingen van compatibiliteit met beleid voor Azure is een beleidsdefinitie toewijzen. Een beleidsdefinitie definieert onder welke voorwaarde een beleid wordt afgedwongen en welke actie moet worden uitgevoerd. In dit voorbeeld wordt een ingebouwde beleidsdefinitie aangeroepen toewijzen *vereisen SQL Server-versie 12.0*, af te dwingen de voorwaarde dat alle SQL Server-databases v12.0 moet te voldoen.
+De eerste stap bij het afdwingen van compatibiliteit met beleid voor Azure is een beleidsdefinitie toewijzen. Een beleidsdefinitie definieert onder welke voorwaarde een beleid wordt afgedwongen en welke actie moet worden uitgevoerd. In dit voorbeeld toewijzen een ingebouwde beleidsdefinitie aangeroepen *vereisen SQL Server-versie 12.0*, af te dwingen de voorwaarde dat alle SQL Server-databases v12.0 moet te voldoen.
 
 1. Starten van de service Azure-beleid in de Azure-portal door te zoeken en te selecteren **beleid** in het linkerdeelvenster.
 
@@ -40,28 +40,29 @@ De eerste stap bij het afdwingen van compatibiliteit met beleid voor Azure is ee
 
    ![Een beleidsdefinitie toewijzen](media/create-manage-policy/select-assign-policy.png)
 
-4. Klik op de pagina **Beleid toewijzen** op de knop ![Beleidsdefinitie](media/assign-policy-definition/definitions-button.png) naast het veld **Beleid** om de lijst met beschikbare definities te openen.
+4. Klik op de pagina **Beleid toewijzen** op de knop ![Beleidsdefinitie](media/assign-policy-definition/definitions-button.png) naast het veld **Beleid** om de lijst met beschikbare definities te openen. U kunt de beleidsdefinitie filteren **Type** naar *BuiltIn* alle weergeven en lezen van de bijbehorende beschrijvingen.
 
    ![Beschikbare beleidsdefinities openen](media/create-manage-policy/open-policy-definitions.png)
 
-5. Selecteer **is SQL Server-versie 12.0**.
+5. Selecteer **is SQL Server-versie 12.0**. Als u deze meteen niet vinden, typt u **vereisen SQL Server-versie 12.0** in het zoekvak en druk op ENTER.
 
    ![Zoek een beleid](media/create-manage-policy/select-available-definition.png)
 
-6. Geef een weergave**naam** op voor de beleidstoewijzing. In dit geval gaan we gebruiken *vereisen SQL Server versie 12.0*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over hoe de toewijzing van dit beleid zorgt ervoor alle SQL-servers gemaakt in deze omgeving dat versie 12.0 zijn.
+6. De weergegeven **naam** wordt automatisch ingevuld, maar u kunt dit wijzigen. In dit voorbeeld gebruiken *vereisen SQL Server versie 12.0*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over hoe de toewijzing van dit beleid zorgt ervoor alle SQL-servers gemaakt in deze omgeving dat versie 12.0 zijn.
+
 7. Wijzig de prijscategorie in**Standard** om ervoor te zorgen dat het beleid wordt toegepast op bestaande resources.
 
-   Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Omdat we met een beperkte preview werken, hebben we nog geen prijsmodel uitgebracht en ontvangt u geen factuur als u *Standard* selecteert. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy) voor meer informatie over prijzen.
+   Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Omdat beleid van de Azure Preview-versie is, er is nog een uitgebracht prijsmodel gebruikt, zodat u ontvangt geen een factuur voor het selecteren van *standaard*. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy) voor meer informatie over prijzen.
 
 8. Selecteer de **bereik** -abonnement (of de resourcegroep) u eerder hebt geregistreerd. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen.
 
-   In dit voorbeeld gebruiken we dit abonnement - **Azure Analytics capaciteit Dev**. Uw abonnement zijn.
+   In dit voorbeeld wordt de **Azure Analytics capaciteit Dev** abonnement. Uw abonnement zijn.
 
 10. Selecteer **Toewijzen**.
 
 ## <a name="implement-a-new-custom-policy"></a>Een nieuw aangepast beleid implementeren
 
-Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om kosten door ervoor te zorgen dat virtuele machines die zijn gemaakt, inlezen in uw omgeving kunnen niet in de reeks G opslaan. Op deze manier telkens wanneer een gebruiker in uw organisatie wil de virtuele machine maken in de reeks G de aanvraag wordt ophalen geweigerd.
+Nu dat u een ingebouwde beleidsdefinitie toegewezen hebt, kunt u meer kunt doen met Azure-beleid. Maak vervolgens een nieuw aangepast beleid voor het opslaan van de kosten door ervoor te zorgen dat virtuele machines die zijn gemaakt in uw omgeving kunnen niet in de reeks G. Op deze manier telkens wanneer een gebruiker in uw organisatie wil de virtuele machine maken in de reeks G wordt de aanvraag geweigerd.
 
 1. Selecteer **definitie** onder **ontwerpen** in het linkerdeelvenster.
 
@@ -72,7 +73,8 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
 
    - De naam van de beleidsdefinitie - *vereisen VM-SKU's kleiner is dan de G-serie*
    - De beschrijving van de beleidsdefinitie is bedoeld om u te doen: de beleidsdefinitie voor dit wordt afgedwongen dat alle virtuele machines die zijn gemaakt in dit bereik hebben SKU's kleiner is dan de reeks G om kosten te beperken.
-   - Het abonnement waarin de beleidsdefinitie wordt bevinden zich in: In dit geval onze beleidsdefinitie leven **Advisor Analytics capaciteit Dev**. De lijst met abonnementen zijn.
+   - Het abonnement waaronder de beleidsdefinitie zich bevindt. In dit geval de beleidsdefinitie bevindt zich in **Advisor Analytics capaciteit Dev**. De lijst met abonnementen zijn.
+   - Kies uit bestaande opties of maak een nieuwe categorie voor dit beleidsdefinitie.
    - Kopieer de volgende json-code en werk vervolgens voor uw behoeften met:
       - De beleidsparameters.
       - De regels/beleidsvoorwaarden, in dit geval – VM SKU-grootte die gelijk is aan G serie
@@ -102,7 +104,9 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
 }
     ```
 
-    Als voorbeelden van json-code, lezen de [sjablonen voor Azure beleid](json-samples.md) artikel.
+    De waarde van de *eigenschap veld* in het beleid moet een van de volgende opties: naam, Type, locatie, Tags of een alias. Bijvoorbeeld `"Microsoft.Compute/VirtualMachines/Size"`.
+
+    Als u meer voorbeelden van json-code, lezen de [sjablonen voor Azure beleid](json-samples.md) artikel.
 
 4. Selecteer **Opslaan**.
 
@@ -333,22 +337,22 @@ U kunt verschillende beleidsdefinities om een overkoepelende doel te bereiken gr
 2. Selecteer **initiatief definitie** aan de bovenkant van de pagina deze selectie gaat u naar de **initiatief definitie** formulier.
 3. Voer de naam en beschrijving van het initiatief.
 
-   In dit voorbeeld willen we om ervoor te zorgen dat resources zijn in overeenstemming met beleidsdefinities over het ophalen van beveiligde, de naam van het initiatief **beveiligde ophalen**, en de beschrijving is: **dit initiatief is gemaakt voor het verwerken van alle beleidsregels die zijn gekoppeld aan het beveiligen van bronnen**.
+   Zorg ervoor dat resources in overeenstemming met beleidsdefinities zijn over het ophalen van beveiligde in dit voorbeeld. Ja, de naam van het initiatief wordt **ophalen Secure**, en de beschrijving is: **dit initiatief is gemaakt voor het afhandelen van alle beleidsregels die zijn gekoppeld aan het beveiligen van bronnen**.
 
    ![Initiatiefdefinitie](media/create-manage-policy/initiative-definition.png)
 
-4. Blader door de lijst met **beschikbare definities** en selecteert u het beleid (s) die u wilt toevoegen aan dit initiatief. Voor onze **beveiligen van uw** -initiatief, voeg de volgende ingebouwde beleidsdefinities:
+4. Blader door de lijst met **beschikbare definities** en selecteert u het beleid (s) die u wilt toevoegen aan dit initiatief. Voor onze **beveiligen van uw** initiatief **toevoegen** de volgende ingebouwde beleidsdefinities:
    - SQL Server versie 12.0 vereisen
-   - Niet-beveiligde webtoepassingen in het Beveiligingscentrum bewaken.
+   - Niet-beveiligde webtoepassingen in Security Center bewaken.
    - Monitor strikte netwerk via in Security Center.
    - Controleren op mogelijke app Whitelisting in Security Center.
    - Niet-versleutelde VM-schijven in Security Center bewaken.
 
    ![Initiatief definities](media/create-manage-policy/initiative-definition-2.png)
 
-   Na het selecteren van de beleidsdefinities in de lijst ziet u dit onder **beleidsregels en parameters**, zoals hierboven.
+   Na het selecteren van de beleidsdefinities in de lijst ziet u in **beleidsregels en parameters**, zoals wordt weergegeven in de voorgaande afbeelding.
 
-5. Selecteer **Maken**.
+5. Gebruik **definitie locatie** om een abonnement voor het opslaan van de definitie te selecteren. Selecteer **Opslaan**.
 
 ### <a name="assign-an-initiative-definition"></a>De definitie van een initiatief toewijzen
 
@@ -358,27 +362,27 @@ U kunt verschillende beleidsdefinities om een overkoepelende doel te bereiken gr
 
    ![Een definitie toewijzen](media/create-manage-policy/assign-definition.png)
 
-4. Vul de **toewijzing** formulier door te voeren:
+4. Vul de **toewijzing** formulier hiertoe het volgende voorbeeldinformatie. U kunt uw eigen gegevens.
    - naam: beveiligde toewijzing ophalen
-   - Beschrijving: deze initiatief toewijzing is aangepast voor het afdwingen van deze groep van voor beleidsdefinities van de **Azure Advisor capaciteit Dev** abonnement
-   - prijscategorie: standaard
-   - bereik dat u deze toewijzing toegepast dat wilt op: **Azure Advisor capaciteit Dev**
+   - Beschrijving: Deze initiatief toewijzing is aangepast om af te dwingen van deze groep van voor beleidsdefinities van de **Azure Advisor capaciteit Dev** abonnement.
+   - Prijscategorie: standaard
+   - Waar u deze toewijzing toegepast wilt op bereik: **Azure Advisor capaciteit Dev**. U kunt uw eigen abonnement en de resource-groep.
 
 5. Selecteer **Toewijzen**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Een niet-compatibele of geweigerde resource oplossen
 
-Na het bovenstaande voorbeeld, na het toewijzen van de beleidsdefinitie vereisen SQL server-versie 12.0, zou een SQL-server die is gemaakt met een andere versie ophalen geweigerd. In deze sectie lopen we bij het oplossen van een geweigerde poging te maken van een andere versie van een SQL-server door het aanvragen van een uitsluiting.
+Na het bovenstaande voorbeeld, na het toewijzen van de beleidsdefinitie vereisen SQL server-versie 12.0, zou een SQL-server die is gemaakt met een andere versie ophalen geweigerd. In deze sectie helpt u bij het oplossen van een geweigerde poging te maken van een andere versie van een SQL-server door het aanvragen van een uitsluiting. Uitsluiting is in wezen voorkomt u dat beleid worden afgedwongen. Een uitsluiting kunt toepassen op een resourcegroep of u kunt de uitsluiting van de afzonderlijke bronnen beperken.
 
 1. Selecteer **Toewijzingen** in het linkerdeelvenster.
-2. Blader door alle beleidstoewijzingen en start de *vereisen SQL Server versie 12.0* toewijzing.
-3. Een uitzondering voor de resourcegroepen in die u probeert te maken van de SQL-server aanvragen. In dit geval we Microsoft.Sql/servers/databases zijn exclusief: *baconandbeer/Cheetos* en *baconandbeer/Chorizo*.
+2. Blader door alle beleidstoewijzingen en open de *vereisen SQL Server versie 12.0* toewijzing.
+3. **Selecteer** een uitzondering voor resources in de resourcegroepen waar u probeert te maken van de SQL-server. In dit voorbeeld uitsluiten Microsoft.Sql/servers/databases: *azuremetrictest/testdb* en *azuremetrictest/testdb2*.
 
    ![Uitsluiting van aanvraag](media/create-manage-policy/request-exclusion.png)
 
    Andere manieren een geweigerde bron kan worden omgezet, bijvoorbeeld: uit naar de contactpersoon die zijn gekoppeld aan het beleid, hebt u een sterk reden voor dat de SQL-server gemaakt en het beleid rechtstreeks te bewerken als u toegang hebt tot is bereikt.
 
-4. Selecteer **Opslaan**.
+4. Klik op **toewijzen**.
 
 In deze sectie kunt u de denial-of hebt geprobeerd te maken van een SQL-server met versie 12.0, door het aanvragen van een uitsluiting aan de resources opgelost.
 

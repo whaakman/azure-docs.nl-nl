@@ -16,10 +16,10 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Buiten gebruik stellen van de prestaties S1, S2 en S3
 
@@ -56,7 +56,7 @@ De volgende tabel vergelijkt de doorvoer en opslag beschikbare opties in verzame
 
 |   |Gepartitioneerde verzameling|Verzameling van één partitie|S1|S2|S3|
 |---|---|---|---|---|---|
-|Maximale doorvoer|Onbeperkt|10 K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
+|Maximale doorvoer|Onbeperkt|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimaal doorvoer|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Maximale opslag|Onbeperkt|10 GB|10 GB|10 GB|10 GB|
 |Prijs (maandelijks)|Doorvoer: $6 / 100 RU/s<br><br>Opslag: $ 0,25/GB|Doorvoer: $6 / 100 RU/s<br><br>Opslag: $ 0,25/GB|25 USD $|50 USD $|100 USD $|

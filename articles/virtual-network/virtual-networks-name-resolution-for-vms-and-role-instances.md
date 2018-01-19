@@ -3,8 +3,8 @@ title: Naamomzetting voor VM's en Rolinstanties
 description: 'Naam van oplossing scenario''s voor Azure IaaS, oplossingen voor hybride, tussen verschillende cloud-services, Active Directory en met uw eigen DNS-server '
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Name Resolution for VMs and Role Instances (Naamomzetting voor virtuele machines en rolinstanties)
 Afhankelijk van hoe u Azure gebruiken voor het hosten van IaaS en PaaS hybride oplossingen, moet u mogelijk maken voor de VM's en rolinstanties die u maakt om te communiceren met elkaar. Deze communicatie kan worden gedaan met behulp van IP-adressen, is het veel eenvoudiger namen die gemakkelijk kunnen worden onthouden en wijzig niet gebruiken. 
@@ -32,9 +32,10 @@ Het type van naamomzetting die u gebruikt, is afhankelijk van hoe uw VM's en rol
 
 **De volgende tabel ziet u scenario's en bijbehorende name resolution-oplossingen:**
 
-| **Scenario** | **Oplossing** | **Achtervoegsel** |
+| **Scenario** | **Oplossing** | **Suffix** |
 | --- | --- | --- |
 | Naamomzetting tussen de rolinstanties of virtuele machines zich in dezelfde cloudservice- of virtueel netwerk |[Azure verschafte naamomzetting](#azure-provided-name-resolution) |de hostnaam of FQDN-naam |
+| De naamomzetting van een Azure App Service (Web-App, functie, Bot, enzovoort) met VNET integratie rolinstanties of virtuele machines zich in hetzelfde virtuele netwerk |Door de klant beheerde DNS-servers doorsturen van query's tussen vnets voor de omzetting van Azure (DNS-proxy).  Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server) |Alleen FQDN |
 | Naamomzetting tussen de rolinstanties of virtuele machines zich in verschillende virtuele netwerken |Door de klant beheerde DNS-servers doorsturen van query's tussen vnets voor de omzetting van Azure (DNS-proxy).  Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server) |Alleen FQDN |
 | Omzetting van lokale computer en de service namen van rolexemplaren te controleren of de virtuele machines in Azure |Door de klant beheerde DNS-servers (bijvoorbeeld op de lokale domeincontroller, lokale alleen-lezen domeincontroller of een secundaire DNS gesynchroniseerd met zoneoverdrachten).  Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server) |Alleen FQDN |
 | De resolutie van Azure hostnamen van lokale computers |Doorsturen van aanvragen naar een door de klant beheerde DNS-proxyserver in het bijbehorende vnet, de proxy-server stuurt query's naar Azure voor naamomzetting. Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server) |Alleen FQDN |
@@ -42,7 +43,7 @@ Het type van naamomzetting die u gebruikt, is afhankelijk van hoe uw VM's en rol
 | Naamomzetting tussen VM's of rolexemplaren die zich in verschillende cloud-services, niet in een virtueel netwerk |Niet van toepassing. Connectiviteit tussen VM's en rolexemplaren in een andere cloud-services wordt niet ondersteund buiten een virtueel netwerk. |N.v.t. |
 
 ## <a name="azure-provided-name-resolution"></a>Azure verschafte naamomzetting
-Samen met de resolutie van openbare DNS-namen biedt Azure interne naamomzetting voor VM's en rolexemplaren die zich in het hetzelfde virtuele netwerk of de service in de cloud bevinden.  Virtuele machines/exemplaren in een cloudservice delen de dezelfde DNS-achtervoegsel (zodat de hostnaam die alleen voldoende is), maar in de klassieke virtuele netwerken verschillende cloud services hebben verschillende DNS-achtervoegsels zodat de FQDN-naam nodig is voor de naamomzetting tussen verschillende cloudservices.  Het DNS-achtervoegsel is consistent in het virtuele netwerk (zodat de FQDN-naam is niet nodig) en DNS-namen kunnen worden toegewezen aan zowel NIC's en virtuele machines in virtuele netwerken in het Resource Manager-implementatiemodel. Hoewel Azure verschafte naamomzetting geen configuratie vereist is, is niet de juiste keuze is voor alle implementatiescenario's, zoals te zien is in de bovenstaande tabel.
+Samen met de resolutie van openbare DNS-namen biedt Azure interne naamomzetting voor VM's en rolexemplaren die zich in het hetzelfde virtuele netwerk of de service in de cloud bevinden.  Virtuele machines/exemplaren in een cloudservice delen de dezelfde DNS-achtervoegsel (zodat de hostnaam die alleen voldoende is), maar in de klassieke virtuele netwerken verschillende cloud services hebben verschillende DNS-achtervoegsels zodat de FQDN-naam nodig is voor de naamomzetting tussen verschillende cloudservices.  Het DNS-achtervoegsel is consistent in het virtuele netwerk (zodat de FQDN-naam is niet nodig) en DNS-namen kunnen worden toegewezen aan zowel NIC's en virtuele machines in virtuele netwerken in het Resource Manager-implementatiemodel. Hoewel Azure verschafte naamomzetting geen configuratie vereist is, is niet de juiste keuze is voor alle implementatiescenario's, zoals in de vorige tabel.
 
 > [!NOTE]
 > In het geval van web- en werkrollen rollen, kunt u ook de interne IP-adressen van de rolexemplaren op basis van de naam en het exemplaar nummer van rol met de REST-API van Azure Service Management openen. Zie voor meer informatie [Service Management REST API-verwijzing](https://msdn.microsoft.com/library/azure/ee460799.aspx).
@@ -75,7 +76,7 @@ Niet elke DNS-query moet worden verzonden via het netwerk.  Caching aan clientzi
 
 De standaard Windows-DNS-Client heeft een ingebouwde DNS-cache.  Sommige Linux distributies omvatten geen cache standaard, wordt aangeraden dat een worden toegevoegd aan elke Linux VM (na controleren dat nog niet is een lokale cache).
 
-Er zijn een aantal verschillende DNS-cache in pakketten beschikbaar zijn, bijvoorbeeld dnsmasq, dnsmasq installeren op de meest voorkomende distributies als volgt:
+Er zijn een aantal verschillende de DNS-cache van de pakketten beschikbaar. Bijvoorbeeld: dnsmasq. Dnsmasq installeren op de meest voorkomende distributies een overzicht van de volgende stappen uit:
 
 * **Ubuntu (maakt gebruik van resolvconf)**:
   * Installeer alleen het dnsmasq-pakket ('sudo apt get-installatie dnsmasq').
@@ -102,9 +103,9 @@ Er zijn een aantal verschillende DNS-cache in pakketten beschikbaar zijn, bijvoo
 DNS is voornamelijk een UDP-protocol.  Als het UDP-protocol niet levering van berichten garanderen, wordt in het DNS-protocol zelf Pogingslogica afgehandeld.  Elke DNS-client (besturingssysteem) kan verschillende Pogingslogica, afhankelijk van de voorkeur auteurs vertonen:
 
 * Windows besturingssystemen opnieuw proberen na 1 seconde en vervolgens na een andere 2, 4 en een andere 4 seconden. 
-* De standaard Linux setup pogingen na 5 seconden.  Het is raadzaam deze opnieuw met een 1 tweede interval 5 keer wijzigen.  
+* De standaard Linux setup pogingen na vijf seconden.  Het is raadzaam deze opnieuw met een 1 tweede interval 5 keer wijzigen.  
 
-De huidige instellingen op een Linux-VM 'cat /etc/resolv.conf' en bekijk de regel 'options' bijvoorbeeld controleren:
+Gebruik de opdracht 'cat /etc/resolv.conf' en controleer de huidige instellingen op een Linux-VM vervolgens kijkt naar de regel 'options', bijvoorbeeld:
 
     options timeout:1 attempts:5
 
@@ -121,13 +122,13 @@ Het bestand resolv.conf wordt doorgaans automatisch gegenereerd en mag niet word
   * Voer 'service netwerk opnieuw is opgestart, bijwerken
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Naamomzetting met uw eigen DNS-server
-Er zijn een aantal situaties waarbij de behoeften van uw name resolution mogelijk gaat voorbij de functies van Azure, bijvoorbeeld wanneer met behulp van Active Directory-domeinen of wanneer u de DNS-omzetting tussen virtuele netwerken (vnet's) vereist.  Ten aanzien van deze scenario's, biedt Azure de mogelijkheid voor u om uw eigen DNS-servers te gebruiken.  
+Er zijn een aantal situaties waarbij de behoeften van uw name resolution mogelijk gaat voorbij de functies van Azure, bijvoorbeeld wanneer met behulp van Active Directory-domeinen of wanneer u de DNS-omzetting tussen virtuele netwerken vereist.  Ten aanzien van deze scenario's, biedt Azure de mogelijkheid voor u om uw eigen DNS-servers te gebruiken.  
 
 DNS-servers binnen een virtueel netwerk kunnen de DNS-query's doorsturen naar Azure recursieve resolvers omzetten van hostnamen binnen dit virtuele netwerk.  Bijvoorbeeld, een domeincontroller (DC) uitgevoerd in Azure reageren op DNS-query's voor de domeinen en alle andere aanvragen door te sturen naar Azure.  Hierdoor kunnen virtuele machines om te zien van uw lokale bronnen (via de domeincontroller) en de Azure verschafte hostnamen (via de doorstuurserver).  Toegang tot Azure recursieve resolvers wordt opgegeven via het virtuele IP-adres 168.63.129.16.
 
-DNS-doorsturen inter vnet DNS-omzetting kan ook en kan uw lokale machine Azure verschafte hostnamen omzetten.  Om een VM-hostnaam niet omzetten, is de DNS-server VM moet zich in hetzelfde virtuele netwerk bevinden, en worden geconfigureerd voor doorsturen hostnaam query's naar Azure.  Als het DNS-achtervoegsel in elke vnet anders is, kunt u voorwaardelijk doorsturen regels voor het verzenden van DNS-query's naar het juiste vnet voor de omzetting.  De volgende afbeelding ziet u twee vnets en een on-premises netwerk tijdens het doorzoeken van inter vnet DNS-omzetting met deze methode.  Een voorbeeld van de DNS-doorstuurserver is beschikbaar in de [galerie van Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+DNS-forwarding tussen virtuele netwerken DNS-omzetting Hiermee ook- en kan uw lokale machine Azure verschafte hostnamen omzetten.  Om een VM-hostnaam niet omzetten, is de DNS-server VM moet zich in hetzelfde virtuele netwerk bevinden, en worden geconfigureerd voor doorsturen hostnaam query's naar Azure.  Als het DNS-achtervoegsel in elke vnet anders is, kunt u voorwaardelijk doorsturen regels voor het verzenden van DNS-query's naar het juiste vnet voor de omzetting.  De volgende afbeelding ziet u twee virtuele netwerken en een on-premises netwerk doen tussen virtuele netwerken DNS-omzetting met deze methode.  Een voorbeeld van de DNS-doorstuurserver is beschikbaar in de [galerie van Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
-![Inter vnet DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
+![Tussen virtuele netwerken DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
 Wanneer u Azure verschafte naamomzetting, een interne DNS-achtervoegsel (*. internal.cloudapp.net) is opgegeven voor elke virtuele machine met behulp van DHCP.  Zo kunnen hostnaamomzetting als de hostnaam records in de zone internal.cloudapp.net worden.  Wanneer u uw eigen name resolution-oplossing, is het achtervoegsel IDN's verstrekt aan virtuele machines omdat deze andere DNS-architecturen (zoals scenario's voor het domein verstoort).  In plaats daarvan bieden we een niet-functionerende tijdelijke aanduiding (reddog.microsoft.com).  
 
@@ -170,12 +171,12 @@ Resource Manager-implementatiemodel:
 
 * [Een virtueel netwerk maken of bijwerken](https://msdn.microsoft.com/library/azure/mt163661.aspx)
 * [Maken of bijwerken van een netwerkinterfacekaart](https://msdn.microsoft.com/library/azure/mt163668.aspx)
-* [Nieuwe-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
-* [Nieuwe AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
+* [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+* [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
 
 Klassieke implementatiemodel:
 
-* [Het Schema van Azure-Service](https://msdn.microsoft.com/library/azure/ee758710)
+* [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710)
 * [Virtual Network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100)
 * [Een virtueel netwerk configureren met behulp van een netwerk-configuratiebestand](virtual-networks-using-network-configuration-file.md) 
 

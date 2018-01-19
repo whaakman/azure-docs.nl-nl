@@ -3,8 +3,8 @@ title: Het configureren van Azure Redis-Cache | Microsoft Docs
 description: Inzicht in de standaardconfiguratie voor Redis voor Azure Redis-Cache en informatie over het configureren van uw Azure Redis-Cache-exemplaren
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Het configureren van Azure Redis-Cache
 Dit onderwerp wordt beschreven hoe u om te controleren en bijwerken van de configuratie voor uw Azure Redis-Cache-exemplaren en bevat informatie over de configuratie standaard Redis-server voor Azure Redis-Cache-exemplaren.
@@ -60,7 +60,7 @@ U kunt bekijken en configureren van de volgende instellingen met behulp van de *
     * [Gegevens importeren](#importexport)
     * [Gegevens exporteren](#importexport)
     * [Opnieuw opstarten](#reboot)
-* [Bewaking](#monitoring)
+* [Monitoring](#monitoring)
     * [Metrische gegevens redis](#redis-metrics)
     * [Regels voor waarschuwingen](#alert-rules)
     * [Diagnostics](#diagnostics)
@@ -123,7 +123,7 @@ De volgende instellingen zijn geconfigureerd op de **geavanceerde instellingen**
 * [Geheugen-beleid](#memory-policies)
 * [Met Keyspace-kennisgevingen (geavanceerde instellingen)](#keyspace-notifications-advanced-settings)
 
-#### <a name="access-ports"></a>-Poorten
+#### <a name="access-ports"></a>Toegangspoorten
 Voor nieuwe caches is niet-SSL-toegang standaard uitgeschakeld. Als de niet-SSL-poort, klikt u op **Nee** voor **toestaan alleen toegang met SSL** op de **geavanceerde instellingen** blade en klik vervolgens op **opslaan**.
 
 ![Redis-Cache-poorten](./media/cache-configure/redis-cache-access-ports.png)
@@ -170,7 +170,7 @@ Zie voor meer informatie [Keyspace-kennisgevingen Redis](http://redis.io/topics/
 
 
 <a name="recommendations"></a>
-## <a name="redis-cache-advisor"></a>Redis-Cache Advisor
+## <a name="redis-cache-advisor"></a>Redis-cache Advisor
 De **Redis-Cache Advisor** blade geeft aanbevelingen voor uw cache. Tijdens normale bewerkingen worden geen aanbevelingen weergegeven. 
 
 ![Aanbevelingen](./media/cache-configure/redis-cache-no-recommendations.png)
@@ -259,7 +259,7 @@ De **Geo-replicatie** blade biedt een mechanisme voor het koppelen van twee exem
 > 
 > 
 
-### <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtueel netwerk
 De **virtueel netwerk** sectie kunt u de instellingen van het virtuele netwerk voor uw cache configureren. Voor informatie over het maken van een premium-cache met VNET ondersteunen en bijwerken van de instellingen, Zie [ondersteuning voor virtueel netwerk configureren voor een Premium Azure Redis-Cache](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -290,7 +290,7 @@ Klik op **eigenschappen** informatie bekijken over uw cache, met inbegrip van de
 ### <a name="locks"></a>Vergrendelingen
 De **vergrendelt** sectie kunt u een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of wijzigen van kritieke bronnen vergrendelen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Automatiseringsscript
+### <a name="automation-script"></a>Automation-script
 
 Klik op **automatiseringsscript** te exporteren van een sjabloon van uw geïmplementeerde resources voor toekomstige implementaties. Zie voor meer informatie over het werken met sjablonen [implementeren van resources met Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -343,10 +343,10 @@ De **bewaking** sectie kunt u voor het configureren van diagnostische gegevens e
 * [Regels voor waarschuwingen](#alert-rules)
 * [Diagnostics](#diagnostics)
 
-### <a name="redis-metrics"></a>Metrische gegevens redis
+### <a name="redis-metrics"></a>Metrische Redis-gegevens
 Klik op **Redis metrische gegevens** naar [metrische gegevens weergeven](cache-how-to-monitor.md#view-cache-metrics) voor uw cache.
 
-### <a name="alert-rules"></a>Regels voor waarschuwingen
+### <a name="alert-rules"></a>Waarschuwingsregels
 
 Klik op **waarschuwing regels** voor het configureren van waarschuwingen op basis van Redis-Cache metrische gegevens. Zie voor meer informatie [waarschuwingen](cache-how-to-monitor.md#alerts).
 
@@ -362,7 +362,7 @@ Cache metrische gegevens in de Azure-Monitor zijn standaard [30 dagen bewaard](.
 ## <a name="support--troubleshooting-settings"></a>Ondersteuning en probleemoplossing van instellingen
 De instellingen in de **ondersteuning + probleemoplossing** sectie bieden u opties voor het oplossen van problemen met uw cache.
 
-![Ondersteuning + probleemoplossing](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Ondersteuning en probleemoplossing](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resourcestatus](#resource-health)
 * [Nieuw ondersteuningsverzoek](#new-support-request)
@@ -460,10 +460,10 @@ Zie voor meer informatie over databases [wat Redis-databases zijn?](cache-faq.md
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIGURATIE
-> * FOUTEN OPSPOREN
+> * DEBUG
 > * MIGREREN
 > * OPSLAAN
-> * AFSLUITEN
+> * SHUTDOWN
 > * SLAVEOF
 > * CLUSTER - schrijven zijn uitgeschakeld, maar alleen-lezen Cluster opdrachten zijn toegestaan.
 > 

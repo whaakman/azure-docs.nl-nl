@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: db37fbbc0abdafcb56d56809eeb43096617b6da3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Het maken van virtuele machines van SQL Server met Azure PowerShell
 
@@ -27,17 +27,17 @@ Deze handleiding beschrijft de mogelijkheden voor het maken van SQL Server-VM's 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Deze snelstartgids vereist Azure PowerShell moduleversie 3,6 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Configureer uw abonnement
 
-1. Open PowerShell en toegang tot uw Azure-account maken door het uitvoeren van de **Add-AzureRmAccount** opdracht.
+1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Add-AzureRmAccount** uit te voeren.
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. Hier ziet u een aanmeldingsscherm uw referenties in te voeren. Gebruik dezelfde e-mailadres en wachtwoord dat u aan te melden bij de Azure-portal.
+1. Als het goed is, ziet u nu een aanmeldingsscherm waar u uw referenties kunt invoeren. Gebruik hetzelfde e-mailadres en wachtwoord waarmee u zich aanmeldt bij Azure Portal.
 
 ## <a name="define-image-variables"></a>Definieer de installatiekopie van variabelen
 Om te vereenvoudigen hergebruik en script aangemaakte, starten door een aantal variabelen definiëren. Wijzig de parameterwaarden zoals u dat wilt, maar pas op voor de naamgeving van beperkingen met betrekking tot de naam van lengten en speciale tekens bij het wijzigen van de opgegeven waarden.
@@ -295,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
    -Skus $Sku -Version $Version
 ```
 
-## <a name="create-the-sql-vm"></a>De virtuele machine van SQL maken
+## <a name="create-the-sql-vm"></a>De SQL-VM maken
 Nu u de configuratiestappen hebt voltooid, bent u klaar om te maken van de virtuele machine. Gebruik de [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet voor het maken van de virtuele machine met behulp van de variabelen die we hebt gedefinieerd.
 
 De volgende cmdlet als u wilt maken van uw virtuele machine worden uitgevoerd.
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 De virtuele machine wordt gemaakt.
 
 > [!NOTE]
-> U kunt de volgende fout over diagnostische gegevens over de bot negeren. Standard-opslagaccount is gemaakt voor diagnostische gegevens over opstarten omdat het opgegeven opslagaccount voor de schijf van de virtuele machine een premium-opslagaccount is.
+> U kunt de fout over diagnostische gegevens voor opstarten te negeren. Standard-opslagaccount is gemaakt voor diagnostische gegevens over opstarten omdat het opgegeven opslagaccount voor de schijf van de virtuele machine een premium-opslagaccount is.
 
-## <a name="install-the-sql-iaas-agent"></a>De SQL-Iaas-Agent installeren
-Virtuele machines van SQL Server ondersteunen geautomatiseerde beheerfuncties met de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md). Als u wilt de agent op de nieuwe virtuele machine installeert, moet u de volgende opdracht uitvoeren nadat deze is gemaakt.
+## <a name="install-the-sql-iaas-agent"></a>SQL IaaS-agent installeren
+Virtuele machines van SQL Server ondersteunen geautomatiseerde beheerfuncties met de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md). Als u de agent wilt installeren op de nieuwe VM, voert u de volgende opdracht uit nadat deze is gemaakt.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ Virtuele machines van SQL Server ondersteunen geautomatiseerde beheerfuncties me
 
 ## <a name="remove-a-test-vm"></a>Een test-virtuele machine verwijderen
 
-Als u niet in de virtuele machine die voortdurend hoeft, kunt u onnodige kosten voorkomen door het stoppen als u niet in gebruik. De volgende opdracht uit de virtuele machine stopt, maar blijft deze beschikbaar zijn voor toekomstig gebruik.
+Als het niet nodig is dat de VM continu wordt uitgevoerd, kunt u onnodige kosten voorkomen door de virtuele machine te stoppen wanneer deze niet in gebruik is. Met de volgende opdracht wordt de VM gestopt, maar blijft deze beschikbaar voor toekomstig gebruik.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-U kunt ook permanent verwijderen alle resources die zijn gekoppeld aan de virtuele machine met de **Remove-AzureRmResourceGroup** opdracht. Dit permanent worden verwijderd van de virtuele machine, gebruikt u deze opdracht dus zorgvuldig.
+U kunt ook alle resources die aan de virtuele machine zijn gekoppeld, definitief verwijderen met de opdracht **Remove-AzureRmResourceGroup**. Wees voorzichtig met het gebruik van deze opdracht, want hiermee verwijdert u ook de virtuele machine zelf definitief.
 
 ## <a name="example-script"></a>Voorbeeldscript
 Het volgende script bevat de volledige PowerShell-script voor deze zelfstudie. Er wordt vanuit gegaan dat u al ingesteld hebt voor gebruik met de Azure-abonnement de **Add-AzureRmAccount** en **Select-AzureRmSubscription** opdrachten.

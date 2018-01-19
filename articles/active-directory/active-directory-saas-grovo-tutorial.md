@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Zelfstudie: Azure Active Directory-integratie met Grovo
 
@@ -64,7 +64,7 @@ Voor het configureren van de integratie van Grovo in Azure AD, moet u Grovo uit 
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De Enterprise-toepassingen][2]
+    ![De blade Enterprise-toepassingen][2]
     
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
@@ -76,13 +76,13 @@ Voor het configureren van de integratie van Grovo in Azure AD, moet u Grovo uit 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met Grovo op basis van een testgebruiker genaamd "Britta Simon."
+In deze sectie configureert en test eenmalige aanmelding Azure AD met Grovo op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Grovo is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Grovo tot stand worden gebracht.
 
 Wijs in Grovo, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Als u wilt configureren en testen van Azure AD enkelvoudige aanmelding met Grovo, moet u de volgende elementen voltooid:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Grovo, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
@@ -112,7 +112,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  Controleer **weergeven geavanceerde instellingen voor URL**, voer de volgende stappen uit:  
+4. Controleer **weergeven geavanceerde instellingen voor URL**, voer de volgende stap:
 
     ![URL's en Grovo domein eenmalige aanmelding informatie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,7 +121,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. Als u wilt configureren van de toepassing in **SP** geïnitieerd modus, voer de volgende stappen uit:
 
     ![URL's en Grovo domein eenmalige aanmelding informatie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     In de **aanmelden URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
@@ -129,31 +129,35 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
 5. De SAML-asserties verwacht Grovo toepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
     
-    ![Single Sign-On kenmerk configureren](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
+    ![Single Sign-On attb configureren](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
-    | Voornaam              | User.givenName |
-    | Achternaam               | User.surname |
+    | Voornaam          | user.givenname |
+    | Achternaam           | User.surname |
+    | E-mailadres       | User.mail    |
+    | Werknemer-id          | user.employeeid |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
-    ![Kenmerk voor eenmalige aanmelding configureren](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Eenmalige aanmelding configureren toevoegen](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Kenmerk voor eenmalige aanmelding configureren](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Eenmalige aanmelding Addattb configureren](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
 
     c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+
+    d. Laat de **Namespace** leeg.
     
-    d. Klik op **OK**.
+    e. Klik op **OK**.
 
 
 7. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-    ![De inkt certificaat downloaden](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
 
 8. Klik op **opslaan** knop.
 
@@ -165,7 +169,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 10. In een ander browservenster, meld u aan bij Grovo als Administrator.
 
-11. Ga naar **ADMIN** > **integraties**.
+11. Ga naar **Admin** > **integraties**.
  
     ![Grovo configuratie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 
@@ -173,13 +177,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Grovo configuratie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. In **SP geïnitieerd SAML 2.0** pop-upvenster, voer de volgende stappen uit:
+13. In **SP geïnitieerd SAML 2.0** pop-upvenster de volgende stappen uitvoeren:
 
     ![Grovo configuratie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-    a. In de **entiteit-id** textbox, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure-portal.
+    a. In de **entiteit-id** textbox, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal.
 
-    b. In de **eenmalige aanmelding bij het service-eindpunt** textbox, plak de waarde van **SAML Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal.
+    b. In de **eenmalige aanmelding bij het service-eindpunt** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
 
     c. Selecteer **eenmalige aanmelding bij het service-eindpuntbinding** als `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     
@@ -265,7 +269,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Grovo in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Grovo.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -13,29 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 7636f502a7dc631b96c3f091a6622c7db301b035
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.
 
+De zelfstudie: [zelfstudie: pakketten van SQL Server Integration Services (SSIS) implementeren in Azure](tutorial-deploy-ssis-packages-azure.md) hebt u geleerd hoe u een Azure-SSIS integratie Runtime (IR) maken met behulp van Azure SQL Database als archief voor SSIS-catalogus. Dit artikel wordt op de zelfstudie wordt uitgebreid en ziet u hoe u het volgende doen: 
+
+- Azure SQL beheerd exemplaar (afgeschermd voorbeeld) gebruiken voor het hosten van een catalogus SSIS (SSISDB-database).
+- Azure-SSIS-IR lid maken van een Azure-netwerk (VNet). Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en een VNet configureren in Azure-portal, [Azure SSIS-IR Join naar VNet](join-azure-ssis-integration-runtime-virtual-network.md). 
+
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
-De zelfstudie: [zelfstudie: pakketten van SQL Server Integration Services (SSIS) implementeren in Azure](tutorial-deploy-ssis-packages-azure.md) ziet u hoe u een Azure-SSIS integratie Runtime (IR) maken met behulp van Azure SQL Database als archief voor SSIS-catalogus. Dit artikel wordt op de zelfstudie wordt uitgebreid en ziet u hoe u het volgende doen: 
 
-- Azure SQL beheerd exemplaar (afgeschermd voorbeeld) gebruiken voor het hosten van een catalogus SSIS (SSISDB-database).
-- Azure-SSIS-IR lid maken van een Azure-netwerk (VNet). 
+## <a name="overview"></a>Overzicht
+In dit artikel bevat verschillende manieren voor het leveren van een Azure-SSIS-IR:
 
-Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en een VNet configureren in Azure-portal, [Azure SSIS-IR Join naar VNet](join-azure-ssis-integration-runtime-virtual-network.md). 
+- [Azure Portal](#azure-portal)
+- [Azure PowerShell](#azure-powershell)
+- [Azure Resource Manager-sjabloon](#azure-resource-manager-template)
+
+Wanneer u een Azure-SSIS-IR maakt, is Data Factory maakt verbinding met uw Azure SQL Database voorbereiden van de catalogus SSIS-database (SSISDB). Het script configureert ook machtigingen en instellingen voor uw VNet, indien opgegeven, en verbindt de nieuwe instantie van de Azure SSIS Integration Runtime met het VNet.
+
+Wanneer u een exemplaar van SQL-Database voor het hosten van SSISDB inricht, worden ook de functie Azure Pack voor SSIS en toegang Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit naar Excel en toegang tot bestanden en met verschillende Azure gegevensbronnen, naast de gegevensbronnen die wordt ondersteund door de ingebouwde onderdelen. U kunt onderdelen van derden voor SSIS niet installeren op dit moment (met inbegrip van de onderdelen van derden van Microsoft, zoals de Oracle- en Teradata door Attunity als de componenten SAP BI).
 
 ## <a name="prerequisites"></a>Vereisten
 
 - **Azure-abonnement**. Als u geen abonnement hebt, kunt u een [gratis proefaccount](http://azure.microsoft.com/pricing/free-trial/) maken.
 - **Azure SQL Database server** of **SQL Server Managed Instance (private preview) (Extended Private Preview)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Noteer de prijscategorie van uw Azure SQL-server. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
+
+    Bevestig dat uw Azure SQL Database-server of beheerde exemplaar van SQL Server (uitgebreide afgeschermd voorbeeld) beschikt niet over een catalogus SSIS (SSIDB database). Het inrichten van Azure SSIS-IR biedt geen ondersteuning met behulp van een bestaande SSIS-catalogus.
 - **Klassiek virtueel netwerk (VNet) (optioneel)**. U hebt een virtueel netwerk (VNet) in Azure nodig als ten minste aan een van de volgende voorwaarden wordt voldaan:
     - U host de SSIS-catalogusdatabase in een SQL Server Managed Instance (private preview) die deel uitmaakt van een VNet.
     - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
@@ -45,6 +57,7 @@ Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en e
 > Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor een lijst met regio's die worden ondersteund door Azure Data Factory V2 en Azure-SSIS Integration Runtime. Vouw **Gegevens en analyses** uit om **Data Factory V2** en **SSIS Integration Runtime** te zien.
 
 ## <a name="azure-portal"></a>Azure Portal
+In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinterface gebruiken voor het maken van een Azure-SSIS-IR 
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -143,6 +156,7 @@ Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en e
 4. Zie de [inrichten van een Azure-SSIS-integratie runtime](#provision-an-azure-ssis-integration-runtime) sectie voor de resterende stappen om een Azure-SSIS-IR in te stellen
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een Azure-SSIS-IR
 
 ### <a name="create-variables"></a>Variabelen maken
 Definieer variabelen voor gebruik in het script in deze zelfstudie:
@@ -412,7 +426,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
-U kunt een Azure Resource Manager-sjabloon maken van een Azure-SSIS-integratie-runtime gebruiken. Hier volgt een voorbeeld-overzicht: 
+In deze sectie kunt u een Azure Resource Manager-sjabloon maken van een Azure-SSIS-integratie-runtime gebruiken. Hier volgt een voorbeeld-overzicht: 
 
 1. Maak een JSON-bestand met de volgende Resource Manager-sjabloon. Waarden in de punthaken (plaats houders) vervangen door uw eigen waarden. 
 

@@ -3,7 +3,7 @@ title: Werken met momentopnamen van de share (preview) | Microsoft Docs
 description: Een momentopname van de share is een alleen-lezen-versie van een Azure-bestanden-share die wordt uitgevoerd op een punt in tijd, als een manier om back-up van de share.
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Werken met momentopnamen van de share (preview)
 Een momentopname van een share (preview) is een alleen-lezen-versie van een Azure-bestanden-share die wordt uitgevoerd op een punt in tijd. Nadat een momentopname van een share is gemaakt, kan deze worden gelezen, gekopieerd, of verwijderd, maar niet gewijzigd. Een momentopname van een share biedt een manier om back-up van de share zoals deze wordt weergegeven op een moment. 
@@ -246,7 +246,46 @@ In de uitvoer ziet u dat de inhoud van het gedownloade bestand en de bijbehorend
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Bewerkingen op momentopname van de bestandsshare in Azure PowerShell
+U kunt Azure Powershell gebruiken om uit te voeren dezelfde bewerkingen zoals aanbieding share momentopnamen, bladeren door de inhoud van de momentopname delen, herstellen of share momentopnamen downloaden van bestanden vanuit een momentopname van de share.
+
+#### <a name="list-share-snapshots"></a>Lijst share momentopnamen
+
+Je kunt aanbieden share momentopnamen van het gebruik van een bepaalde bestandsshare`Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Momentopnamen van de share bladeren
+U kunt ook bekijken in een bepaalde bestandsshare om weer te geven van de inhoud met behulp van een momentopname `Get-AzureStorageFile` met de waarde van `-Share` die verwijst naar de specifieke momentopname
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Terugzetten van momentopnamen van de share
+
+U kunt een bestand herstellen door te kopiëren of downloaden van een bestand van de share die momentopname over met `Get-AzureStorageFileContent` opdracht
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Azure Files share momentopname verwijderen
+=======
 ## <a name="delete-a-share-snapshot"></a>Een momentopname delen verwijderen
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 U kunt momentopnamen van de share verwijderen met behulp van de Azure-portal, PowerShell, CLI, de REST-API of een opslag-SDK. De volgende secties wordt beschreven hoe share momentopnamen verwijderen met behulp van de Azure-portal, CLI en PowerShell.
 

@@ -3,8 +3,8 @@ title: Azure Redis-Cache met Azure PowerShell beheren | Microsoft Docs
 description: Informatie over het uitvoeren van beheertaken voor Azure Redis-Cache met Azure PowerShell.
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure Redis-Cache met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -126,7 +126,7 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor vaak gebruikte p
 | --- | --- | --- |
 | Naam |Naam van de cache | |
 | Locatie |Locatie van de cache | |
-| resourceGroupName |Naam van resourcegroep waarin u de cache maken | |
+| ResourceGroupName |Naam van resourcegroep waarin u de cache maken | |
 | Grootte |De grootte van de cache. Geldige waarden zijn: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Het aantal shards maken bij het maken van een premium-cache met clustering is ingeschakeld. Geldige waarden zijn: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Hiermee geeft u de SKU van de cache. Geldige waarden zijn: Basic, Standard, Premium |Standard |
@@ -147,11 +147,11 @@ De volgende tabel bevat de eigenschappen en beschrijvingen voor vaak gebruikte p
 | maxmemory gereserveerd |Hiermee configureert u de [geheugen gereserveerd](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor niet-cache-processen |Standard en Premium |
 | maxmemory-beleid |Hiermee configureert u de [taakverwijdering beleid](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) voor de cache |Alle Prijscategorieën |
 | melding-keyspace-gebeurtenissen |Hiermee configureert u [keyspace-kennisgevingen](cache-configure.md#keyspace-notifications-advanced-settings) |Standard en Premium |
-| hash-max-ziplist-vermeldingen |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| hash-max-ziplist-waarde |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| set-max-intset-vermeldingen |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| zset max-ziplist vermeldingen |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
-| zset-max-ziplist-waarde |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| hash-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| hash-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| set-max-intset-entries |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| zset-max-ziplist-entries |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
+| zset-max-ziplist-value |Hiermee configureert u [geheugenoptimalisatie](http://redis.io/topics/memory-optimization) voor kleine cumulatieve gegevenstypen |Standard en Premium |
 | databases |Hiermee configureert u het aantal databases. Deze eigenschap kan alleen bij het maken van de cache worden geconfigureerd. |Standard en Premium |
 
 ## <a name="to-create-a-redis-cache"></a>Een Redis-Cache maken

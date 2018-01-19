@@ -1,24 +1,24 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Halosys | Microsoft Docs'
-description: Meer informatie over het gebruik van Halosys met Azure Active Directory voor het inschakelen van eenmalige aanmelding, geautomatiseerde inrichting en meer!
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Halosys.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f0ea14d5a7b954c08fb37f22d2c2fd8fe0618cde
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Zelfstudie: Azure Active Directory-integratie met Halosys
 
@@ -26,9 +26,9 @@ In deze zelfstudie leert u hoe Halosys integreren met Azure Active Directory (Az
 
 Halosys integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Halosys heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Halosys (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot Halosys heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Halosys (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -39,25 +39,19 @@ Voor het configureren van Azure AD-integratie met Halosys, moet u de volgende it
 - Een Azure AD-abonnement
 - Een Halosys eenmalige aanmelding ingeschakeld abonnement
 
-
-> [!NOTE] 
+> [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
-
 
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
-
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving.
-
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Halosys uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
-
 
 ## <a name="adding-halosys-from-the-gallery"></a>Halosys uit de galerie toevoegen
 Voor het configureren van de integratie van Halosys in Azure AD, moet u Halosys uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
@@ -66,150 +60,150 @@ Voor het configureren van de integratie van Halosys in Azure AD, moet u Halosys 
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Active Directory][1]
+    ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![De blade Enterprise-toepassingen][2]
     
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![De knop Nieuw toepassing][3]
 
-6. Typ in het zoekvak **Halosys**.
+4. Typ in het zoekvak **Halosys**, selecteer **Halosys** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
-    
-7. Selecteer in het deelvenster met resultaten **Halosys**, en klik vervolgens op **Complete** de toepassing toevoegen.
+    ![Halosys in de lijst met resultaten](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_addfromgallery.png)
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Halosys op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Halosys is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Halosys tot stand worden gebracht.
 
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Halosys.
+Wijs in Halosys, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Halosys, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Halosys](#creating-a-halosys-test-user)**  - Halosys die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Halosys](#create-a-halosys-test-user)**  - Halosys die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de portal en eenmalige aanmelding configureren in uw toepassing Halosys.
-
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Halosys configureren.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Halosys, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **SCC LifeCycle** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Halosys** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_samlbase.png)
 
 3. Op de **Halosys domein en de URL's** sectie, voert u de volgende stappen uit:
-    1. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
 
-    2. In de **id** textbox, typ een URL met het volgende patroon volgen:
-    | |
-    |--|--|
-    | `https://bs1.hs.com/<entity>`|
-    | `https://lifecycle.hs.com/<entity>`|
-    
+    ![URL's en Halosys domein eenmalige aanmelding informatie](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_url.png)
+
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<company-name>.halosys.com`
+
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company-name>.halosys.com/<instance name>`
+
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [SCC LifeCycle Client ondersteuningsteam](mailto:lifecycle.support@scc.com) ophalen van deze waarden. 
-         
-4. Op de **SAML-certificaat voor ondertekening van** sectie **Metadata XML** onder **downloaden**, en sla het bestand met metagegevens op uw computer.
-   
-5. Neem contact op met het ondersteuningsteam Halosys om eenmalige aanmelding configureren voor uw toepassing, en geef met de volgende opties:
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Halosys ondersteuningsteam](http://halosys.com/halosys#contact) ophalen van deze waarden.
+ 
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
-  * De gedownloade **metagegevensbestand**
-  * De **SAML SSO-URL**
-    
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_certificate.png) 
 
-  >[!NOTE]
-  >Eenmalige aanmelding moet worden ingeschakeld door het ondersteuningsteam Halosys.
+5. Klik op **opslaan** knop.
 
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-halosys-tutorial/tutorial_general_400.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-In deze sectie maakt u een testgebruiker in de portal Britta Simon aangeroepen.
+6. Op de **Halosys configuratie** sectie, klikt u op **configureren Halosys** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
+    ![Halosys configuratie](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_configure.png) 
 
-![Azure AD-gebruiker maken][20]
+7. Eenmalige aanmelding configureren op **Halosys** zijde, moet u de gedownloade verzenden **Metadata XML** en **SAML Single Sign-On Service-URL** naar [Halosys ondersteunen team](http://halosys.com/halosys#contact). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+
+> [!TIP]
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
+    ![De Azure Active Directory-knop](./media/active-directory-saas-halosys-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-halosys-tutorial/create_aaduser_02.png)
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    ![De knop toevoegen](./media/active-directory-saas-halosys-tutorial/create_aaduser_03.png)
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-halosys-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
+  
+### <a name="create-a-halosys-test-user"></a>Een testgebruiker Halosys maken
 
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Halosys maken. Werken met [Halosys ondersteuningsteam](http://halosys.com/halosys#contact) de gebruikers van het platform Halosys toevoegen. Gebruikers moeten worden gemaakt en geactiveerd voordat u eenmalige aanmelding gebruiken
 
-### <a name="creating-a-halosys-test-user"></a>Een testgebruiker Halosys maken
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Halosys maken. Neem contact op met het ondersteuningsteam Halosys de gebruikers van het platform Halosys toevoegen.
+In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Halosys.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
-
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan Halosys.
-
-![Gebruiker toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
 **Britta Simon om aan te wijzen Halosys, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure portal, opent u de weergave toepassingen en vervolgens gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen.**
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
 2. Selecteer in de lijst met toepassingen **Halosys**.
 
+    ![De koppeling Halosys in de lijst met toepassingen](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_app.png)  
+
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Gebruiker toewijzen][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
 5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op de **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op de **toevoegen toewijzing** dialoogvenster.
-
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+    
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op de tegel Halosys in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Halosys. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
-
+Als u op de tegel Halosys in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Halosys.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
@@ -217,22 +211,18 @@ Als u op de tegel Halosys in het deelvenster toegang, u moet ophalen automatisch
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
+
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
- 
+[200]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_203.png
+

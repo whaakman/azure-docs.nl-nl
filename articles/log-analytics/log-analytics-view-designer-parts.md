@@ -1,6 +1,6 @@
 ---
-title: Verwijzing voor weergave Designer in OMS Log Analytics deel | Microsoft Docs
-description: Ontwerper in Log Analytics kunt u aangepaste weergaven maken in de OMS-console die verschillende visualisaties van gegevens in de OMS-opslagplaats bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de onderdelen visualisatie beschikbaar voor gebruik in aangepaste weergaven.
+title: Verwijzing voor weergave Designer in Azure-logboekanalyse deel | Microsoft Docs
+description: Ontwerper in Log Analytics kunt u aangepaste weergaven maken in de Azure portal die verschillende visualisaties van gegevens in de werkruimte voor logboekanalyse bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de onderdelen visualisatie beschikbaar voor gebruik in aangepaste weergaven.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Log Analytics-ontwerper visualisatie onderdeelverwijzing
-De ontwerper in Log Analytics kunt u aangepaste weergaven maken in de OMS-console die verschillende visualisaties van gegevens uit de opslagplaats OMS bevatten. Dit artikel bevat een verwijzing van de instellingen voor elk van de onderdelen visualisatie beschikbaar voor gebruik in aangepaste weergaven.
+De ontwerper in Log Analytics kunt u aangepaste weergaven maken in de Azure portal met andere visualisaties van gegevens van uw werkruimte voor logboekanalyse. Dit artikel bevat een verwijzing van de instellingen voor elk van de onderdelen visualisatie beschikbaar voor gebruik in aangepaste weergaven.
 
 Er zijn andere artikelen die beschikbaar zijn voor weergave Designer:
 
@@ -58,7 +58,7 @@ Geeft een lijst van logboek zoekquery's weer.  De gebruiker kan klikken op elke 
 | Vooraf geselecteerd filters |Door komma's gescheiden lijst met eigenschappen die u wilt opnemen in het linkerdeelvenster filterdeelvenster wanneer de gebruiker een query selecteert. |
 | Modus weergeven |Beginweergave weergegeven als de query hebt geselecteerd.  De gebruiker kan beschikbare weergaven na het openen van de query selecteren. |
 | **Query's** | |
-| Zoekopdracht |De query wilt uitvoeren. |
+| Zoekquery |De query wilt uitvoeren. |
 | Beschrijvende naam |Beschrijvende naam van de query weer te geven voor de gebruiker. |
 
 ## <a name="number--list-part"></a>Aantal & lijst met onderdeel
@@ -130,7 +130,7 @@ Koptekst één getal gedestilleerd uit de kolom van een waarde in een logboek-qu
 | Nieuwe groep |Selecteer een nieuwe groep maken in de weergave begint bij de huidige weergave. |
 | Pictogram |Installatiekopiebestand moet worden weergegeven naast het resultaat in de header. |
 | Pictogram gebruiken |Selecteer deze optie om de weergave pictogram. |
-| **Koptekst** | |
+| **Header** | |
 | Titel |Tekst om weer te geven aan de bovenkant van de header. |
 | Subtitel |De tekst die moet worden weergegeven onder de titel aan de bovenkant van de header. |
 | **Ring** | |
@@ -199,10 +199,10 @@ Koptekst wordt weergegeven voor statische tekst en een optionele link.  Een of m
 | Groepstitel |Tekst om weer te geven aan de bovenkant van de tegel. |
 | Nieuwe groep |Selecteer een nieuwe groep maken in de weergave begint bij de huidige weergave. |
 | Kleur |De achtergrondkleur voor de koptekst. |
-| **Koptekst** | |
+| **Header** | |
 | Installatiekopie |Installatiekopiebestand moet worden weergegeven in de header. |
 | Label |De tekst die moet worden weergegeven in de header. |
-| **Koptekst** |**> Koppeling** |
+| **Header** |**> Koppeling** |
 | Label |Tekst koppeling. |
 | URL |De URL voor de koppeling. |
 | **Informatie-Items** | |
@@ -221,7 +221,7 @@ Koptekst bevat een lijndiagram met meerdere reeksen door een query logboek gedur
 | Nieuwe groep |Selecteer een nieuwe groep maken in de weergave begint bij de huidige weergave. |
 | Pictogram |Installatiekopiebestand moet worden weergegeven naast het resultaat in de header. |
 | Pictogram gebruiken |Selecteer deze optie om de weergave pictogram. |
-| **Koptekst** | |
+| **Header** | |
 | Titel |Tekst om weer te geven aan de bovenkant van de header. |
 | Subtitel |De tekst die moet worden weergegeven onder de titel aan de bovenkant van de header. |
 | **Lijndiagram** | |
@@ -260,7 +260,7 @@ Koptekst wordt een lijndiagram met meerdere reeksen door een query logboek weerg
 | Nieuwe groep |Selecteer een nieuwe groep maken in de weergave begint bij de huidige weergave. |
 | Pictogram |Installatiekopiebestand moet worden weergegeven naast het resultaat in de header. |
 | Pictogram gebruiken |Selecteer deze optie om de weergave pictogram. |
-| **Koptekst** | |
+| **Header** | |
 | Titel |Tekst om weer te geven aan de bovenkant van de header. |
 | Subtitel |De tekst die moet worden weergegeven onder de titel aan de bovenkant van de header. |
 | **Lijndiagram** | |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files implementeren
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via het SMB-standaardprotocol. In dit artikel wordt beschreven hoe u vrijwel Azure-bestanden implementeren binnen uw organisatie.
@@ -35,7 +35,7 @@ In dit artikel wordt ervan uitgegaan dat u de volgende stappen al hebt voltooid:
 Mogelijk wilt u de bestaande bestandsshares, zoals die lokaal opgeslagen, migreren naar uw nieuwe Azure-bestandsshare. Deze sectie wordt beschreven hoe u gegevens in een Azure-bestand delen via verschillende populaire methoden van gedetailleerde verplaatsen de [handleiding](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Azure File-synchronisatie (Preview)
-Azure File-synchronisatie (Preview) kunt dat u bestandsshares van uw organisatie in Azure Files centraliseren zonder geeft de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
+Azure File-synchronisatie (Preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder geeft de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
 
 Azure File-synchronisatie kan worden gebruikt om gegevens te migreren naar een Azure-bestandsshare, zelfs als het mechanisme voor synchronisatie is niet nodig voor gebruik op lange termijn. Meer informatie over het gebruik van Azure bestand Sync mag gegevens overdragen naar Azure-bestandsshare vindt u in [Planning voor de implementatie van een Azure-bestand Sync](storage-sync-files-planning.md) en [het implementeren van Azure bestand Sync](storage-sync-files-deployment-guide.md).
 
@@ -145,9 +145,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Een eenvoudige bash-script gecombineerd met SSH kan hetzelfde resultaat in het volgende voorbeeld worden verkregen. De `$computer` variabele op dezelfde manier nog worden gevuld door de gebruiker:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
