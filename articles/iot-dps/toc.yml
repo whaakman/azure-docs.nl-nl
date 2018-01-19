@@ -4,7 +4,7 @@
   items:
     - name: Over het inrichten van een IoT-apparaat
       href: about-iot-dps.md
-- name: Quickstarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Automatische inrichting instellen
@@ -75,8 +75,10 @@
       href: how-to-revoke-device-access-portal.md
     - name: Gebruik HSM met SDK
       href: use-hsm-with-sdk.md
-    - name: Toegang tot de inrichtingsservice beheren
+    - name: Toegang tot Device Provisioning Service beheren
       href: how-to-control-access.md
+    - name: Azure CLI gebruiken voor het beheren van Device Provisioning Service
+      href: how-to-manage-dps-with-cli.md
 - name: Naslaginformatie
   items:
     - name: REST

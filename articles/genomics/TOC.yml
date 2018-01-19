@@ -4,7 +4,7 @@
   items:
     - name: Wat is Microsoft Genomics?
       href: overview-what-is-genomics.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een voorbeeldwerkstroom in Genomics uitvoeren
@@ -21,6 +21,8 @@
   items:
     - name: Veelgestelde vragen
       href: frequently-asked-questions-genomics.md
+    - name: Releasegeschiedenis van versie
+      href: version-release-history-genomics.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Prijzen
