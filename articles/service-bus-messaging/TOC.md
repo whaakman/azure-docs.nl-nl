@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Een Service Bus-toepassing met meerdere lagen bouwen](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -29,6 +28,7 @@
 ### [Op rollen gebaseerd toegangsbeheer (preview)](service-bus-role-based-access-control.md)
 ### [Premium Messaging](service-bus-premium-messaging.md)
 ### [Azure- en Service Bus-wachtrijen vergelijken](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Een Service Bus-toepassing met meerdere lagen bouwen](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Prestaties optimaliseren](service-bus-performance-improvements.md)
 ### [Herstel bij geo-gerelateerde noodgevallen en geo-replicatie](service-bus-geo-dr.md)
 ### [Asynchrone berichten en hoge beschikbaarheid](service-bus-async-messaging.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Azure PowerShell gebruiken om entiteiten in te richten](service-bus-manage-with-ps.md)
 
-# Verwijzing
+# Naslaginformatie
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

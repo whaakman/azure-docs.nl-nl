@@ -12,7 +12,7 @@
 
 # Procedures
 ## Gegevens laden en verplaatsen
-### [Azure Data Factory gebruiken](../data-factory/connector-azure-data-lake-store.md)
+### [Azure Data Factory gebruiken](../data-factory/load-azure-data-lake-store.md)
 ### [AdlCopy gebruiken](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [Toegang vanuit VM's in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Gebruiken met Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Gebruiken met Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Gebruiken met Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Gebruiken met Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Gebruiken met Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Gebruiken met Power BI](data-lake-store-power-bi.md)
 ### [Gebruiken met Data Catalog](data-lake-store-with-data-catalog.md)
