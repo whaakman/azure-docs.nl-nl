@@ -2,24 +2,24 @@
 title: Een Azure Service Fabric-containertoepassing maken in Linux | Microsoft Docs
 description: Maak uw eerste Linux-containertoepassing in Azure Service Fabric.  Bouw een Docker-installatiekopie met uw toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -66,23 +66,34 @@ Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-v
 > De web-front-endservice is geconfigureerd om te luisteren op poort 80 naar binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
 >
 
-### <a name="deploy-the-application-manifests"></a>De toepassingsmanifesten implementeren 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric-opdrachtregelinterface installeren en verbinden met uw cluster
 De [SFCTL (Service Fabric-CLI)](service-fabric-cli.md) installeren in de CLI-omgeving
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Maak verbinding met het Service Fabric-cluster in Azure met behulp van Azure CLI. Het eindpunt is het beheereindpunt van het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>De Service Fabric-toepassing implementeren 
+Service Fabric-containertoepassingen kunnen worden geïmplementeerd met behulp van het beschreven Service Fabric-toepassingspakket of Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Implementeren met behulp van het Service Fabric-toepassingspakket
 Gebruik het opgegeven installatiescript om de stemtoepassingsdefinitie te kopiëren naar het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>De toepassing implementeren met behulp van Docker Compose
+Implementeer en installeer de toepassing op het Service Fabric-cluster via Docker Compose met behulp van de volgende opdracht.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Open een browser en ga naar Service Fabric Explorer op http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Als u het toepassingsknooppunt uitvouwt, ziet u nu een vermelding voor het type stemtoepassing en het exemplaar dat u hebt gemaakt.

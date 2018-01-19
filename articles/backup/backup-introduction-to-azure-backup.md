@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 9/29/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -221,15 +221,10 @@ Enkele voorbeelden van veelgebruikte beveiligde exemplaren zijn virtuele machine
 ## <a name="what-is-a-recovery-services-vault"></a>Wat is een Recovery Services-kluis?
 Een Recovery Services-kluis is een online-opslagentiteit in Azure die wordt gebruikt om gegevens zoals back-ups, herstelpunten en back-upbeleid op te slaan. U kunt Recovery Services-kluizen gebruiken voor het opslaan van back-upgegevens voor Azure-services en on-premises servers en werkstations. Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn. U kunt binnen een abonnement zoveel Recovery Services-kluizen maken als u wilt.
 
-Back-upkluizen, die gebaseerd zijn op Azure Service Manager, waren de eerste versie van de kluis. Recovery Services-kluizen, waaraan de functies van het Azure Resource Manager-model zijn toegevoegd, zijn de tweede versie van de kluis. Zie het artikel [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Overzicht van Recovery Services-kluizen) voor een volledige beschrijving van de functieverschillen. Het is niet meer mogelijk om de portal te gebruiken om back-upkluizen te maken, maar back-upkluizen worden nog steeds ondersteund. U moet de Azure-portal gebruiken voor het beheren van uw Backup-kluizen.
+Back-upkluizen, die gebaseerd zijn op Azure Service Manager, waren de eerste versie van de kluis. Recovery Services-kluizen, waaraan de functies van het Azure Resource Manager-model zijn toegevoegd, zijn de tweede versie van de kluis. Zie het artikel [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Overzicht van Recovery Services-kluizen) voor een volledige beschrijving van de functieverschillen. Het is niet meer mogelijk om de portal te gebruiken om back-upkluizen te maken, maar back-upkluizen worden nog steeds ondersteund. U moet Azure Portal gebruiken voor het beheren van uw Backup-kluizen.
 
 > [!IMPORTANT]
-> U kunt uw back-upkluizen upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Na **30 november 2017** kunt u PowerShell niet meer gebruiken voor het maken van back-upkluizen. <br/>
-Per 30 november 2017:
-- Alle resterende back-upkluizen worden automatisch omgezet in Recovery Services-kluizen.
-- Het is niet mogelijk om via de klassieke portal toegang te krijgen tot back-upgegevens. In plaats daarvan gebruikt u Azure Portal voor toegang tot uw back-upgegevens in Recovery Services-kluizen.
-
-
+> U kunt uw back-upkluizen upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Na 30 november 2017 kunt u PowerShell niet meer gebruiken om back-upkluizen te maken. Alle resterende back-upkluizen worden hierna automatisch bijgewerkt naar Recovery Services-kluizen.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Wat is het verschil tussen Azure Backup en Azure Site Recovery?
 Azure Backup en Azure Site Recovery lijken in die zin op elkaar dat u met beide services back-ups kunt maken en gegevens kunt herstellen. Deze services worden echter voor verschillende doeleinden gebruikt bij het bieden van zakelijke continuïteit en herstel na noodgevallen voor uw bedrijf. Azure Backup is bedoeld om gegevens te beveiligen en te herstellen op een gedetailleerder niveau. Als er bijvoorbeeld een presentatie op een laptop beschadigd raakt, kunt u Azure Backup gebruiken om de presentatie te herstellen. U kunt Azure Site Recovery gebruiken als u de configuratie en de gegevens op een virtuele machine naar een ander datacenter wilt repliceren.

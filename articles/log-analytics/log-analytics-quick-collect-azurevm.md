@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Gegevens verzamelen over Azure Virtual Machines
 [Azure Log Analytics](log-analytics-overview.md) kan gegevens rechtstreeks vanuit uw Azure-VM’s en andere bronnen in uw omgeving verzamelen en onderbrengen in één opslagplaats voor gedetailleerde analyse en correlatie.  In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Azure Linux- of Windows-VM’s configureert en verzamelt.  
@@ -33,11 +33,11 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
 
-  * Geef een naam op voor de nieuwe **OMS-werkruimte**, zoals *StandaardLAWerkruimte*. 
+  * Geef een naam op voor de nieuwe **OMS-werkruimte**, bijvoorbeeld *StandaardLAWerkruimte*. 
   * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
   * Selecteer bij **Resourcegroep** een bestaande resourcegroep die een of meer virtuele Azure-machines bevat.  
   * Selecteer de **Locatie** waarop uw virtuele machines zijn geïmplementeerd.  Bekijk [in welke regio's Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.
-  * U kunt in Log Analytics kiezen uit drie verschillende **prijscategorieën**, maar voor deze Quick Start gaat u de **gratis** categorie selecteren.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie over de specifieke categorieën.
+  * U kunt in Log Analytics kiezen uit drie verschillende **prijscategorieën**, maar in deze snelstartgids gaat u de **gratis** categorie selecteren.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **OMS-werkruimte**, klikt u op **OK**.  
@@ -50,7 +50,7 @@ Voor Windows- en Linux-VM’s die al zijn geïmplementeerd in Azure, installeert
 >[!NOTE]
 >De OMS-agent voor Linux kan niet worden geconfigureerd om aan meer dan één werkruimte voor Log Analytics te rapporteren. 
 
-De banner aan de bovenkant van uw Log Analytics-resourcepagina in de portal nodigt u uit om een upgrade uit te voeren.  De upgrade is niet nodig voor het doel van deze Quick Start.<br>
+Als u een werkruimte hebt gemaakt in Azure Government-cloud, ziet u mogelijk boven aan de Log Analytics-resourcepagina in de portal een banner met de vraag om een upgrade uit te voeren.  De upgrade is niet nodig voor het doel van deze Quick Start.<br>
 
 ![Melding voor Log Analytics-upgrade in Azure Portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
@@ -87,7 +87,13 @@ Log Analytics kan gebeurtenissen uit de Windows-gebeurtenislogboeken of de Linux
 Nu u gegevensverzameling hebt ingeschakeld, geven we een voorbeeld van een eenvoudige zoekopdracht in logboeken om enkele gegevens afkomstig van de doel-VM’s weer te geven.  
 
 1. Navigeer in Azure Portal naar Log Analytics en selecteer de werkruimte die u eerder hebt gemaakt.
-2. Klik op de tegel **Zoeken in logboeken**. In het deelvenster Zoeken in logboeken typt u `Type=Perf` in het queryveld en drukt u op Enter of klikt u op de zoekknop rechts van het queryveld.<br> ![Voorbeeld van zoeken in logboeken in Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> Zo geeft de query in de volgende afbeelding 78.000 prestatierecords als resultaat.  Uw resultaat zal aanzienlijk kleiner zijn.<br> ![Resultaat van zoeken in logboeken in Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. Klik op de tegel **Zoeken in logboeken**. In het deelvenster Zoeken in logboeken typt u `Perf` in het queryveld en drukt u op Enter of klikt u op de zoekknop rechts van het queryveld.<br> ![Voorbeeld van zoeken in logboeken in Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >Als de werkruimte is gemaakt in Azure Government-cloud, gebruikt u de query `Type=Perf`.  
+   >
+
+Zo geeft de query in de volgende afbeelding 78.000 prestatierecords als resultaat.  Uw resultaat zal aanzienlijk kleiner zijn.<br> ![Zoekresultaat uit Log Analytics-logboeken](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Wanneer deze niet langer nodig is, verwijdert u de Log Analytics-werkruimte. U kunt de werkruimte verwijderen door de Log Analytics-werkruimte te selecteren die u eerder hebt gemaakt en vervolgens te klikken op **Verwijderen** op de resourcepagina.<br> ![Log Analytics-resource verwijderen](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)

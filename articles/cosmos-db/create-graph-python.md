@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Graph API met Python - Azure Cosmos DB | Microsoft Docs'
-description: In deze quickstart ziet u hoe u de Graph API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en Python.
+title: 'Snelstartgids: Graph API met Python - Azure Cosmos DB | Microsoft Docs'
+description: In deze snelstartgids ziet u hoe u de Graph API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en Python.
 services: cosmos-db
 documentationcenter: python
 author: luisbosquez
@@ -13,22 +13,22 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van Python en Azure Portal
 
-Deze quickstart laat zien hoe u Python en de [Graph API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze quickstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
+Deze snelstartgids laat zien hoe u Python en de [Graph API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze snelstartgids begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.  
 
 > [!NOTE]
-> Deze quickstart vereist dat er een grafiekdatabaseaccount is gemaakt na 27 november 2017. Bestaande accounts ondersteunen Python zodra ze zijn gemigreerd naar algemene beschikbaarheid.
+> Deze snelstartgids vereist dat er een grafiekdatabaseaccount is gemaakt na 27 november 2017. Bestaande accounts ondersteunen Python zodra ze zijn gemigreerd naar algemene beschikbaarheid.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -135,28 +135,30 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
         password="<YOUR_PASSWORD>")
     ```
 
-3. Wijzig de tweede parameter van het object `client` ter vervanging van de tekenreeksen `<YOUR_DATABASE>` en `<YOUR_COLLECTION_OR_GRAPH>`. Als u de voorgestelde waarden hebt gebruikt, moet de parameter eruitzien als de volgende code:
+3. Wijzig `graphs.azure.com` in de naam van de client in `gremlin.cosmosdb.azure.com`. (Als uw grafiekdatabaseaccount is gemaakt vóór 20 december 2017, wijzigt u niets en gaat u naar de volgende stap.)
+
+4. Wijzig de tweede parameter van het object `client` ter vervanging van de tekenreeksen `<YOUR_DATABASE>` en `<YOUR_COLLECTION_OR_GRAPH>`. Als u de voorgestelde waarden hebt gebruikt, moet de parameter eruitzien als de volgende code:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     Het gehele object `client` moet er nu uitzien als de volgende code:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `<YOUR_PASSWORD>` in de parameter `password=<YOUR_PASSWORD>` door deze waarde.
+5. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `<YOUR_PASSWORD>` in de parameter `password=<YOUR_PASSWORD>` door deze waarde.
 
     De gehele definitie van het object `client` moet er nu als de volgende code uitzien:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. Sla het bestand `connect.py` op.
+6. Sla het bestand `connect.py` op.
 
 ## <a name="run-the-console-app"></a>De console-app uitvoeren
 
@@ -212,7 +214,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
     technisch | java | 
 
     > [!NOTE]
-    > In deze quickstart gaat u een niet-gepartitioneerde verzameling maken. Als u echter een gepartitioneerde verzameling maakt door een partitiesleutel op te geven tijdens het maken van de verzameling, moet u de partitiesleutel opnemen als sleutel bij elk nieuw hoekpunt. 
+    > In deze snelstartgids gaat u een niet-gepartitioneerde verzameling maken. Als u echter een gepartitioneerde verzameling maakt door een partitiesleutel op te geven tijdens het maken van de verzameling, moet u de partitiesleutel opnemen als sleutel bij elk nieuw hoekpunt. 
 
 6. Klik op **OK**. Mogelijk moet u het scherm groter maken om **OK** weer te geven onder aan het scherm.
 
