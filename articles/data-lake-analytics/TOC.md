@@ -6,17 +6,17 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure-CLI](data-lake-analytics-get-started-cli2.md)
 
 # Procedures
 
 ## Data Lake Analytics beheren
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [Azure-CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java-SDK](data-lake-analytics-manage-use-java-sdk.md)
+### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Toegang tot diagnostische logboeken](data-lake-analytics-diagnostic-logs.md)
 ### [De quotalimieten aanpassen](data-lake-analytics-quota-limits.md)
@@ -61,3 +61,4 @@
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Video's](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
