@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Geregistreerde servers met het synchroniseren van Azure-bestand (preview) beheren
 Met Azure File Sync (preview) kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door de Windows-Servers om te zetten in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -42,6 +42,26 @@ Voor het registreren van een server met een opslag-Sync-Service, moet u eerst de
 
     > [!Note]  
     > U kunt het beste de nieuwste versie van de AzureRM PowerShell-module registreren/verwijderen van een server gebruikt. Als het pakket AzureRM eerder op deze server is geïnstalleerd (en de PowerShell-versie op deze server is 5.* of hoger), kunt u de `Update-Module` cmdlet bij te werken van dit pakket. 
+* Als u een proxy-server in uw omgeving gebruiken, kunt u de proxy-instellingen configureren op uw server voor de synchronisatie-agent te kunnen gebruiken.
+    1. Bepalen van uw proxy-IP-adres en poort-nummer
+    2. Bewerk deze twee bestanden:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. De regels in afbeelding 1 (onder deze sectie) toevoegen onder /System.ServiceModel in de bovenstaande twee bestanden wijzigen 127.0.0.1:8888 naar het juiste IP-adres (vervangen 127.0.0.1) en het juiste poortnummer (vervangen 8888):
+    4. Stel de WinHTTP-proxy-instellingen via de opdrachtregel:
+        * De proxy weergeven: netsh winhttp proxy weergeven
+        * De proxy instellen: netsh winhttp proxy 127.0.0.1:8888 instellen
+        * Opnieuw instellen van de proxy: netsh winhttp proxy opnieuw instellen
+        * Als dit installatieprogramma nadat de agent is geïnstalleerd, start opnieuw op onze sync-agent: net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Een server met Storage Sync-Service registreren
 Voordat u een server kan worden gebruikt als een *servereindpunt* in een Azure-bestand Sync *groep voor synchronisatie*, moet zijn geregistreerd bij een *Sync opslagservice*. Een server kan slechts met één opslag-Sync-Service worden geregistreerd.

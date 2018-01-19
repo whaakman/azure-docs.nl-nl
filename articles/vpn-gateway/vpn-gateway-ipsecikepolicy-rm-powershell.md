@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Beleid voor IPsec/IKE voor S2S-VPN- of VNet-naar-VNet-verbindingen configureren
 
@@ -54,7 +54,7 @@ Deze sectie geeft een overzicht van de werkstroom voor het maken en IPsec/IKE-be
 
 De instructies in dit artikel helpt u bij het instellen en configureren van IPsec/IKE-beleid, zoals wordt weergegeven in het diagram:
 
-![ike-IPSec-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Deel 2 - ondersteund cryptografische algoritmen en kracht van
 
@@ -64,7 +64,7 @@ De volgende tabel bevat de ondersteunde cryptografische algoritmen en kracht kun
 | ---  | --- 
 | IKEv2-versleuteling | AES256, AES192, AES128, DES3, DES  
 | IKEv2-integriteit  | SHA384, SHA256, SHA1, MD5  |
-| DH-groep         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, geen |
+| DH-groep         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec-versleuteling | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, geen    |
 | IPsec-integriteit  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS-groep        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, geen 
@@ -195,20 +195,13 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 Het volgende voorbeeldscript wordt een beleid voor IPsec/IKE gemaakt met de volgende algoritmen en parameters:
 
 * IKEv2: AES256, SHA384 DHGroup24
-* IPsec: AES256, SHA256, PFS None, SA levensduur 7200 seconden & 102400000KB
+* IPsec: AES256, SHA256, PFS None, SA Lifetime 14400 seconds & 102400000KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-Als u GCMAES voor IPSec-authenticatie gebruikt, moet u de dezelfde GCMAES algoritme en de lengte van de sleutel voor de IPsec-codering en integriteit, bijvoorbeeld:
-
-* IKEv2: AES256, SHA384 DHGroup24
-* IPsec: **GCMAES256, GCMAES256**, PFS None, SA levensduur 7200 seconden & 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+Als u GCMAES voor IPSec-authenticatie gebruikt, moet u de dezelfde GCMAES algoritme en de lengte van de sleutel voor de IPsec-codering en integriteit. Bijvoorbeeld, de overeenkomstige parameters worden '-IpsecEncryption GCMAES256 - IpsecIntegrity GCMAES256 ' wanneer u GCMAES256.
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. De S2S VPN-verbinding maken met het beleid voor IPsec/IKE
 
@@ -288,10 +281,10 @@ Vergelijkbaar met de S2S VPN-verbinding, een IPsec/IKE-beleid maken en toepassen
 
 Het volgende voorbeeldscript wordt een ander beleid voor IPsec/IKE gemaakt met de volgende algoritmen en parameters:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, SA levensduur 7200 seconden en 4096KB
+* IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. VNet-naar-VNet-verbindingen maken met het beleid voor IPsec/IKE
@@ -312,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 De verbinding is gemaakt in een paar minuten en hebt u de volgende netwerktopologie zoals weergegeven in het begin na het voltooien van deze stappen:
 
-![ike-IPSec-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Deel 5 - Update IPsec/IKE-beleid voor een verbinding
@@ -339,11 +332,11 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-De laatste opdracht geeft het huidige IPsec/IKE-beleid dat is geconfigureerd op de verbinding indien deze aanwezig is. De volgende voorbeelduitvoer wordt voor de verbinding:
+De laatste opdracht geeft het huidige IPsec/IKE-beleid dat is geconfigureerd op de verbinding indien deze aanwezig is. Hier volgt een voorbeeld van uitvoer voor de verbinding:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 U ziet de uitvoer van de laatste regel, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 

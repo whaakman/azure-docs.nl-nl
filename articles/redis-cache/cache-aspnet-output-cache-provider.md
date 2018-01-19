@@ -3,8 +3,8 @@ title: Provider voor de ASP.NET-uitvoercache cache
 description: Meer informatie over het in de cache van de uitvoer van de ASP.NET-pagina met behulp van Azure Redis-Cache
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
-ms.author: sdanie
-ms.openlocfilehash: 845f25637a0e48460fc76c1ee36060274b3cec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 81c95949971d54833ca7a15ec5148116c94767f7
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Provider voor de uitvoercache van ASP.NET voor Azure Redis-Cache
 De Redis-Provider voor de uitvoercache is een opslagmechanisme voor out-of-process-voor de uitvoergegevens van de cache. Deze gegevens zijn specifiek voor volledige HTTP-antwoorden (pagina uitvoercaching). De provider in het nieuwe uitvoer cache provider uitbreidbaarheid punt die is geïntroduceerd in ASP.NET 4 wordt geplaatst.

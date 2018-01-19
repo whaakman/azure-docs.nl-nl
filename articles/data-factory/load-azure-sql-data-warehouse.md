@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: cf960ac827db94b9a43361288b1d0863dac86555
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 36e24da50386d1abc441e2beb09f570a9612a346
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory
 
@@ -128,6 +128,10 @@ Dit artikel laat zien hoe u gegevens kopiëren van Data Factory-hulpprogramma vo
 15. Als u wilt weergeven die zijn gekoppeld aan de pijplijn uitvoeren activiteiten bij uitvoering **weergave activiteit wordt uitgevoerd** koppelen de **acties** kolom. Er zijn 10 kopie activiteiten in de pijplijn, elk één tabel van de gegevens gekopieerd. Overschakelen naar de pijplijn uitgevoerd weergeven, klikt u op **pijplijnen** koppeling aan de bovenkant. Klik op **vernieuwen** de lijst te vernieuwen. 
 
     ![Monitor activiteit wordt uitgevoerd](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. U kunt meer details van de uitvoering van de kopieeractiviteit van elke, controleren door te klikken op de **Details** koppeling onder **acties** in activiteit controle weergeven. Hier ziet u informatie zoals de hoeveelheid gegevens gekopieerd van bron naar sink, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties gebruikt.
+
+    ![Monitoractiviteit details uitvoering](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

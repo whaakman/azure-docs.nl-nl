@@ -3,8 +3,8 @@ title: Inrichten van een Redis-Cache met Azure Resource Manager | Microsoft Docs
 description: Gebruik Azure Resource Manager-sjabloon voor het implementeren van een Azure Redis-Cache.
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Een Redis Cache maken op basis van een sjabloon
 In dit onderwerp leert u het maken van een Azure Resource Manager-sjabloon die u een Azure Redis-Cache implementeert. De cache kan worden gebruikt met een bestaand opslagaccount om diagnostische gegevens te behouden. U leert ook hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
@@ -67,7 +67,7 @@ De naam van het bestaande opslagaccount voor diagnostische gegevens.
       "type": "string"
     }
 
-### <a name="enablenonsslport"></a>EnableNonSslPort
+### <a name="enablenonsslport"></a>enableNonSslPort
 Een Boolean die aangeeft of toegang hebben via niet-SSL-poort.
 
     "enableNonSslPort": {
@@ -128,7 +128,7 @@ Hiermee maakt u de Azure Redis-Cache.
 ### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
 

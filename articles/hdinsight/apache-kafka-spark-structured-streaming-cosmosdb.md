@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 49a57431c778ee018ecd71e3921cd21c3be94885
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2709bab433bdc108b313c58e0844236dd4af38bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Gebruik van Spark gestructureerd streamen met Kafka en Azure Cosmos-DB
 
@@ -145,11 +145,11 @@ Gebruik de volgende stappen voor het uploaden van de laptops van het project met
 
 4. Herhaal stap 1-3 laden van de __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ notebook.
 
-## <a name="load-tweets-into-kafka"></a>Tweets in Kafka laden
+## <a name="load-taxi-data-into-kafka"></a>Taxi gegevens laden in Kafka
 
 Zodra de bestanden zijn geüpload, selecteert u de __Stream-taxi-gegevens-naar-kafka.ipynb__ vermelding de notebook te openen. Volg de stappen in de notebook gegevens laadt in Kafka.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>Proces tweets met gestructureerde Spark-Streaming
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Gegevens over het installatieproces taxi met gestructureerde Spark-Streaming
 
 Selecteer in de startpagina Jupyter-Notebook de __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ vermelding. Volg de stappen in de notebook met stroomgegevens van Kafka en naar Azure Cosmos DB met gestructureerde Spark-Streaming.
 

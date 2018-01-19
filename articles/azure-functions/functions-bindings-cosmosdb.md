@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindingen voor Azure Functions
 
@@ -151,7 +151,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type** || moet worden ingesteld op `cosmosDBTrigger`. |
-|**richting** || moet worden ingesteld op `in`. Deze parameter wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
+|**direction** || moet worden ingesteld op `in`. Deze parameter wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**naam** || De naam van de variabele gebruikt in functiecode die de lijst van documenten met wijzigingen vertegenwoordigt. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | De naam van een app-instelling met de verbindingsreeks waarmee verbinding met de Azure DB die Cosmos-account wordt bewaakt. |
 |**databaseName**|**DatabaseName**  | De naam van de Azure DB die Cosmos-database met de verzameling wordt bewaakt. |
@@ -165,7 +165,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---usage"></a>Trigger - gebruik
+## <a name="trigger---usage"></a>Trigger - usage
 
 De trigger vereist een tweede collectie dat wordt gebruikt voor het opslaan van _leases_ via de partities. Zowel de verzameling wordt bewaakt als de verzameling met de leases moet beschikbaar zijn voor de trigger werkt.
 
@@ -384,7 +384,7 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -456,11 +456,11 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type**     || moet worden ingesteld op `documentdb`.        |
-|**richting**     || moet worden ingesteld op `in`.         |
+|**direction**     || moet worden ingesteld op `in`.         |
 |**naam**     || Naam van de binding-parameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** |**DatabaseName** |De database met het document.        |
 |**collectionName** |**CollectionName** | De naam van de verzameling waarin het document. |
-|**ID**    | **ID** | De ID van het document om op te halen. Deze eigenschap ondersteunt bindingen parameters. Zie voor meer informatie, [binden aan aangepaste eigenschappen voor de invoer in een expressie voor gegevensbinding](functions-triggers-bindings.md#bind-to-custom-input-properties). Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald. |
+|**id**    | **Id** | De ID van het document om op te halen. Deze eigenschap ondersteunt bindingen parameters. Zie voor meer informatie, [binden aan aangepaste eigenschappen voor de invoer in een expressie voor gegevensbinding](functions-triggers-bindings.md#bind-to-custom-input-properties). Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald. |
 |**sqlQuery**  |**SqlQuery**  | Een Azure Cosmos DB SQL-query die wordt gebruikt voor het ophalen van meerdere documenten. De eigenschap biedt ondersteuning voor bindingen van de runtime, zoals in dit voorbeeld: `SELECT * FROM c where c.departmentId = {departmentId}`. Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald.|
 |**verbinding**     |**ConnectionStringSetting**|De naam van de app-instelling met de verbindingsreeks voor Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Hiermee geeft u de waarde voor de partitiesleutel voor de zoekactie. Kan bindingparameters bevatten.|
@@ -728,7 +728,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type**     || moet worden ingesteld op `documentdb`.        |
-|**richting**     || moet worden ingesteld op `out`.         |
+|**direction**     || moet worden ingesteld op `out`.         |
 |**naam**     || Naam van de binding-parameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** | **DatabaseName**|De database met de verzameling waarin het document is gemaakt.     |
 |**collectionName** |**CollectionName**  | De naam van de verzameling waarin het document is gemaakt. |

@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: a684f8bcdefc8e3338fae59e56863dfc37c23f1f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3f73cd65b0ceb3148ce8ceb83d7b4e1be1280077
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-using-azure-data-factory"></a>Gegevens laden in Azure Data Lake Store met Azure Data Factory
 
@@ -125,7 +125,11 @@ Dit artikel laat zien hoe u gegevens kopiëren van Data Factory-hulpprogramma vo
 
     ![Monitor activiteit wordt uitgevoerd](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Controleer of dat de gegevens wordt gekopieerd naar uw Azure Data Lake Store. 
+15. U kunt meer details van de uitvoering van de kopieeractiviteit van elke, controleren door te klikken op de **Details** koppeling onder **acties** in activiteit controle weergeven. Hier ziet u informatie zoals de hoeveelheid gegevens gekopieerd van bron naar sink, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties gebruikt.
+
+    ![Monitoractiviteit details uitvoering](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+
+16. Controleer of dat de gegevens wordt gekopieerd naar uw Azure Data Lake Store. 
 
     ![Controleer of de uitvoer van de Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 

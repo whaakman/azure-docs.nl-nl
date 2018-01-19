@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Planningsoverwegingen voor het Azure-Stack geïntegreerd systemen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enkele van de belangrijke planningsoverwegingen rond de implementatie en hoe het systeem in uw datacenter past begrijpen. Dit artikel bevat een overzicht van deze overwegingen bij de infrastructuur van belangrijke beslissingen voor uw Azure-Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met uw hardwareleverancier OEM als ze Azure Stack op uw datacenter implementeren.  
@@ -31,12 +31,12 @@ Voor het implementeren van Azure-Stack er een aantal beslissingen die u moet zij
 
 Deze informatie nodig bereiken over netwerken-, beveiligings- en identiteitsgegevens met veel belangrijke beslissingen waarvoor kennis van veel verschillende gebieden en besluitvormers. U moet daarom ophalen van de mensen van meerdere teams in uw organisatie om ervoor te zorgen dat u alle vereiste informatie bij de hand hebt voordat de implementatie begint. Kunt u contact opnemen met uw hardwareleverancier bij het verzamelen van deze informatie zoals ze advies die nuttig zijn hebben wellicht voor uw beslissingen.
 
-Tijdens het onderzoeken en de vereiste gegevens verzamelen, moet u mogelijk enkele vóór implementatie configuratiewijzigingen aanbrengen in uw netwerkomgeving. Dit omvat het reserveren van IP-adresruimten voor de Azure-Stack-oplossing, uw routers, switches en firewalls om voor te bereiden voor de verbinding met de nieuwe Azure-Stack oplossing switches configureren. Zorg ervoor dat u hebt het onderwerp gebied expert die maximaal helpt u bij de planning.
+Tijdens het onderzoeken en de vereiste gegevens verzamelen, moet u mogelijk enkele vóór implementatie configuratiewijzigingen aanbrengen in uw netwerkomgeving. Het kan hierbij reserveren van IP-adresruimten voor de Azure-Stack-oplossing en uw routers, switches en firewalls om voor te bereiden voor de verbinding met de nieuwe Azure-Stack oplossing switches configureren. Zorg ervoor dat u hebt het onderwerp gebied expert uitgelijnd en betrokken tijdens de implementatieproject voor hulp bij de planning.
 
 ## <a name="management-considerations"></a>Beheeroverwegingen
 Azure-Stack is een verzegeld systeem waar de infrastructuur is vergrendeld zowel vanuit een machtigingen en netwerk-perspectief. Netwerk toegangsbeheerlijsten (ACL's) worden toegepast voor het blokkeren van inkomend verkeer van alle niet-geautoriseerde en alle onnodige communicatie tussen onderdelen van de infrastructuur. Dit maakt het moeilijk voor onbevoegde gebruikers toegang tot het systeem.
 
-Voor het dagelijkse beheer en bewerkingen is er geen onbeperkte beheerderstoegang tot de infrastructuur. Azure Stack-operators moeten het systeem via de beheerdersportal of via Azure Resource Manager (via PowerShell of de REST-API) te beheren. Er is geen toegang tot het systeem door andere beheerprogramma's zoals Hyper-V-beheer of Failover Cluster Manager. Ter bescherming van het systeem kan niet binnen de onderdelen van de infrastructuur van Azure-Stack software van derden (bijvoorbeeld agents) worden geïnstalleerd. Interoperabiliteit met externe software voor beheer en beveiliging vindt plaats via PowerShell of de REST-API.
+Voor het dagelijkse beheer en bewerkingen is er geen onbeperkte beheerderstoegang tot de infrastructuur. Azure Stack-operators moeten het systeem via de beheerdersportal of via Azure Resource Manager (via Azure CLI, PowerShell of de REST-API) te beheren. Er is geen toegang tot het systeem door andere beheerprogramma's zoals Hyper-V-beheer of Failover Cluster Manager. Ter bescherming van het systeem kan niet binnen de onderdelen van de infrastructuur van Azure-Stack software van derden (bijvoorbeeld agents) worden geïnstalleerd. Interoperabiliteit met extern beheer- en beveiligingssoftware vindt plaats via Azure CLI, PowerShell of de REST-API.
 
 Wanneer een hoger niveau van toegang nodig is voor het oplossen van problemen die door waarschuwing uitoefenen stappen niet zijn opgelost, moet u werken met ondersteuning. Dankzij de ondersteuning is er een methode voor tijdelijke volledige beheerderstoegang tot het systeem meer geavanceerde bewerkingen uit te voeren. 
 
@@ -45,7 +45,7 @@ Wanneer een hoger niveau van toegang nodig is voor het oplossen van problemen di
 ### <a name="choose-identity-provider"></a>Kies de identiteitsprovider
 U moet rekening houden met welke id-provider die u wilt gebruiken voor Azure-Stack-implementatie, Azure AD of AD FS. U kunt geen id-providers overschakelen na implementatie zonder volledige systeem opnieuw installeren.
 
-Uw keuze van de provider identiteit heeft geen invloed op de virtuele machines van tenants, de van identiteitssysteem en accounts die ze gebruiken, of ze kunnen deelnemen aan een Active Directory-domein, enzovoort. Dit is een afzonderlijke.
+Uw keuze van de provider identiteit heeft geen invloed op virtuele machines van tenants, identiteitssysteem en de accounts die ze gebruiken, of ze kunnen deelnemen aan een Active Directory-domein, enzovoort. Dit is een afzonderlijke.
 
 U kunt meer informatie over het kiezen van een id-provider in de [beslissingen voor de implementatie voor Azure-Stack geïntegreerde systemen artikel](.\azure-stack-deployment-decisions.md).
 
@@ -93,9 +93,9 @@ Voor meer informatie over welke PKI certificaten zijn vereist voor het implement
 
 
 ## <a name="time-synchronization"></a>Tijdsynchronisatie
-U kunt een specifiek tijdstip server met wordt gebruikt voor het synchroniseren van Azure-Stack moet kiezen.  Tijd symbolization is essentieel voor de Azure-Stack en de bijbehorende rollen infrastructuur, zoals het wordt gebruikt voor het genereren van Kerberos-tickets die worden gebruikt voor verificatie van interne services met elkaar.
+U kunt een specifiek tijdstip server met wordt gebruikt voor het synchroniseren van Azure-Stack moet kiezen.  Tijdsynchronisatie is essentieel voor de Azure-Stack en de bijbehorende rollen infrastructuur, zoals het wordt gebruikt voor het genereren van Kerberos-tickets die worden gebruikt voor verificatie van interne services met elkaar.
 
-Geef dat een IP-adres voor de tijd synchronisatie-server, hoewel de meeste van de onderdelen in de infrastructuur van een URL kunnen omzetten sommige biedt slechts ondersteuning voor IP-adressen. Als u klaar bent met de optie voor de verbinding is verbroken, moet u een tijd-server in uw bedrijfsnetwerk dat u ervoor dat kan worden bereikt vanaf het netwerk van de infrastructuur in Azure-Stack.
+U moet een IP-adres voor de server van de synchronisatie tijd als Hoewel de meeste van de onderdelen in de infrastructuur kan een URL oplossen kunt, sommige biedt slechts ondersteuning voor IP-adressen opgeven. Als u klaar bent met de optie voor de verbinding is verbroken, moet u een tijd-server in uw bedrijfsnetwerk dat u ervoor dat kan worden bereikt vanaf het netwerk van de infrastructuur in Azure-Stack. Hiervoor moet mogelijk extra aandacht tijdens de planning van het netwerk integratie-gedeelte van het implementatieproject uit.
 
 
 ## <a name="network-connectivity"></a>Netwerkverbinding
@@ -120,31 +120,31 @@ De netwerkinfrastructuur voor Azure-Stack bestaat uit verschillende logische net
 ![Logisch netwerk en de switch-verbindingen](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
 #### <a name="bmc-network"></a>BMC-netwerk
-Dit netwerk is op het verbinden van alle de baseboard management controllers (ook wel bekend als serviceprocessors, bijvoorbeeld iDRAC, iLO, iBMC, enz.) toegewezen aan het beheernetwerk. Indien aanwezig, wordt de host (HLH) hardware lifecycle bevindt zich op dit netwerk en OEM-specifieke software voor onderhoud van hardware-en/of bewaking kan bieden. 
+Dit netwerk is op het verbinden van alle de baseboard management controllers (ook wel bekend als serviceprocessors, bijvoorbeeld iDRAC, iLO, iBMC, enz.) toegewezen aan het beheernetwerk. Indien aanwezig, wordt de hardware-lifecycle-host (HLH) bevindt zich op dit netwerk en OEM-specifieke software voor onderhoud van hardware-en/of bewaking kan bieden. 
 
 #### <a name="private-network"></a>Privénetwerk
-Deze /24 (254 host IP van) netwerk is gebonden aan de Stack van Azure-regio (wordt niet uitgebreid dan de apparaten van de switch rand van de Stack van Azure-regio) en is onderverdeeld in twee subnetten:
+Deze /24 (254 host IP-adressen) netwerk is gebonden aan de Stack van Azure-regio (wordt niet uitgebreid dan de apparaten van de switch rand van de Stack van Azure-regio) en is onderverdeeld in twee subnetten:
 
-- **Opslagnetwerk**. Livemigratie van een /25 126 host IP van) netwerk (gebruikt ter ondersteuning van het gebruik van opslagruimten Direct en Server Message Block (SMB) opslagverkeer en de virtuele machine. 
-- **Interne virtuele IP-netwerk**. A/25 netwerk gereserveerd voor intern gebruik bestemde VIP's voor de software load balancer.
+- **Opslagnetwerk**. Een /25 (126 host IP-adressen) netwerk dat wordt gebruikt ter ondersteuning van het gebruik van opslagruimten Direct (S2D) en Server Message Block (SMB)-opslagverkeer en livemigratie van virtuele machine. 
+- **Interne virtuele IP-netwerk**. A/25 netwerk gereserveerd voor intern gebruik bestemde VIP's voor de software load balancer (SLB).
 
 #### <a name="azure-stack-infrastructure-network"></a>Netwerk van Azure Stack-infrastructuur
-Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen zodat ze kunnen communiceren en uitwisselen van gegevens onderling. Dit subnet routeerbare IP-adressen vereist, maar worden privé gehouden met de oplossing met behulp van toegangsbeheerlijsten (ACL's), dit wordt niet verwacht te routeren afgezien van de rand switches, met uitzondering van een zeer kleine bereik overeen in grootte met een/27 netwerk door enkele van deze gebruikt wanneer ze nodig toegang tot externe bronnen en/of de internet hebben-Services. 
+Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen zodat ze kunnen communiceren en uitwisselen van gegevens onderling. Dit subnet routeerbare IP-adressen vereist, maar worden privé gehouden met de oplossing met behulp van toegangsbeheerlijsten (ACL's).  Er wordt niet verwacht te routeren afgezien van de rand switches, met uitzondering van een zeer kleine bereik overeen in grootte met een/27 netwerk, waardoor wordt gebruikt door sommige van deze services wanneer ze toegang tot externe bronnen en/of internet vereist. 
 
 #### <a name="public-infrastructure-network"></a>Infrastructuur voor openbare netwerk
-Dit/27 netwerk is het zeer kleine bereik van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk voor de Emergency Recovery-Console (ERCS) worden toegewezen, de ERCS VM is internettoegang vereist tijdens de registratie in Azure en moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
+Dit/27 netwerk is het zeer kleine bereik van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk wordt toegewezen voor de Emergency Recovery-Console (ERCS). De VM ERCS hiervoor is internettoegang vereist tijdens de registratie in Azure en moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
 
 #### <a name="public-vip-network"></a>Openbare VIP-netwerk
 Het openbare VIP-netwerk is toegewezen aan de netwerkcontroller in Azure-Stack. Het is niet een logisch netwerk op de switch. De SLB maakt gebruik van de groep met adressen en wijst/32 voor bedrijfstoepassingen huurder netwerken. Deze 32 IP-adressen zijn op de switch-routeringstabel geadverteerd als een beschikbare route via BGP. Dit netwerk bevat de externe toegankelijk of openbare IP-adressen. De infrastructuur van Azure-Stack maakt gebruik van ten minste 8 adressen van deze openbare VIP-netwerk terwijl de rest wordt gebruikt door de tenant-VM's. De netwerkgrootte op dit subnet kan variëren van een minimum van /26 (64-hosts) tot maximaal /22 (1022 hosts), is het raadzaam dat u van plan bent voor een/24 netwerk.
 
 #### <a name="switch-infrastructure-network"></a>Switch-infrastructuurnetwerk
-Dit/26 netwerk is het subnet met subnetten van het point-to-point routeerbare IP-/ 30 (2 host IP van) en de loopbacks die zijn toegewezen/32 subnetten voor in-band overschakelen beheer- en BGP-router-ID. Dit bereik van IP-adressen moeten routeerbaar extern van de Azure-Stack-oplossing voor uw datacenter, ze kunnen persoonlijke of openbare IP-adressen zijn.
+Dit/26 netwerk is het subnet met subnetten van het point-to-point routeerbare IP-/ 30 (2 host IP van) en de loopbacks die zijn toegewezen/32 subnetten voor in-band overschakelen beheer- en BGP-router-ID. Dit bereik van IP-adressen moet routeerbaar extern van de Azure-Stack-oplossing voor uw datacenter en ze kunnen persoonlijke of openbare IP-adressen zijn. Bijvoorbeeld, binnen een multi-verpachte serviceprovider scenario die openbare IP-adressen mogelijk vereist, terwijl in een strak beheerd implementatie voor ondernemingen, persoonlijke IP-adressen mogelijk voorkeur.
 
 #### <a name="switch-management-network"></a>Switch-management-netwerk
 Deze slechts/29 (6 host IP-adressen) netwerk is toegewezen aan de poorten van de schakelopties verbinding te maken. Het biedt out-of-band-toegang voor implementatie, beheer en probleemoplossing. Het is berekend op basis van de hierboven genoemde infrastructuurnetwerk in de switch.
 
 ### <a name="transparent-proxy"></a>TRANSPARENTPROXY
-De Azure-Stack-oplossing biedt geen ondersteuning voor normale webproxy. Als het datacentrum al het verkeer vereist naar een proxy gebruikt, moet u een transparentproxy voor het verwerken van al het verkeer van het rek volgens het beleid, verwerkt; het scheiden van verkeer tussen de zones in uw netwerk. Een transparentproxy (ook wel bekend als een onderschept, inline of geforceerde proxy) onderschept normale communicatie op de netwerklaag zonder speciale clientconfiguratie. Clients moeten niet op de hoogte van de aanwezigheid van de proxy.
+De Azure-Stack-oplossing biedt geen ondersteuning voor normale webproxy. Als het datacentrum al het verkeer vereist naar een proxy gebruikt, moet u een transparentproxy voor het verwerken van al het verkeer van het rek volgens het beleid, verwerkt; het scheiden van verkeer tussen de zones in uw netwerk. Een transparentproxy (ook wel bekend als een onderschept, inline of geforceerde proxy) onderschept normale communicatie op de netwerklaag zonder speciale clientconfiguratie. Clients moeten niet worden op de hoogte van de aanwezigheid van de proxy.
 
 ### <a name="publish-azure-stack-services"></a>Azure-Stack services publiceren
 
@@ -203,7 +203,7 @@ Het volgende diagram toont ExpressRoute voor een scenario met meerdere tenants.
 ## <a name="external-monitoring"></a>Externe controle
 Ophalen van één enkele weergave van alle waarschuwingen van uw Azure-Stack-implementatie en apparaten en waarschuwingen integreren met bestaande werkstromen voor IT-service voor tickets, kunt u Azure-Stack integreren met externe datacenter bewakingsoplossingen.
 
-De host van de levenscyclus van hardware is opgenomen met de Azure-Stack-oplossing, is een computer buiten een Azure-Stack die wordt uitgevoerd door OEM geleverde leverancier beheerhulpprogramma's voor hardware. U kunt deze hulpprogramma's of andere oplossingen die rechtstreeks worden geïntegreerd met bestaande bewakingsoplossingen in uw datacenter.
+Opgenomen met de Azure-Stack-oplossing, is de hardware-lifecycle-host (HLH) een computer buiten een Azure-Stack die wordt uitgevoerd door OEM geleverde leverancier beheerhulpprogramma's voor hardware. U kunt deze hulpprogramma's of andere oplossingen die rechtstreeks worden geïntegreerd met bestaande bewakingsoplossingen in uw datacenter.
 
 De volgende tabel geeft een overzicht van de lijst met beschikbare opties.
 

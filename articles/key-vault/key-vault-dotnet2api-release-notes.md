@@ -2,9 +2,9 @@
 title: Belangrijke opmerkingen bij de Release van de kluis .NET 2.x API | Microsoft Docs
 description: .NET-ontwikkelaars wilt deze API code voor Azure Sleutelkluis gebruiken
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
-editor: bruceper
+editor: alleonar
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,27 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: bruceper
-ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: alleonar
+ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Sleutelkluis .NET 2.0 - Release-opmerkingen en Migratiehandleiding
-De volgende opmerkingen en richtlijnen zijn voor ontwikkelaars die werken met Azure Key Vault .NET / C#-bibliotheek. In de overgang van versie 1.0 naar versie 2.0, een aantal updates zijn aangebracht die wordt vereist migratie werk in uw code in om te kunnen profiteren van de functionele verbeteringen en toevoegingen, zoals functies **Sleutelkluis-certificaten**  ondersteunen.
+De volgende informatie kunt migreren naar versie 2.0 van de Azure Sleutelkluis-bibliotheek voor C# en .NET.  Apps die zijn geschreven voor oudere versies moeten worden bijgewerkt ter ondersteuning van de meest recente versie.  Deze wijzigingen nodig zijn voor een volledige nieuwe en verbeterde functies, zoals ondersteuning **Sleutelkluis certificaten**.
 
 ## <a name="key-vault-certificates"></a>Sleutelkluis-certificaten
 
-Sleutelkluis certificaten ondersteuning biedt voor het beheren van uw x509 certificaten en de volgende problemen:  
+Sleutelkluis certificaten beheren x509 certificaten en ondersteunt de volgende problemen:  
 
-* Kan de eigenaar van een certificaat om een certificaat via een proces voor het maken van Sleutelkluis of het importeren van een bestaand certificaat te maken. Dit omvat zowel zelfondertekend en de certificeringsinstantie die certificaten worden gegenereerd.
-* Hiermee kunt u de eigenaar van een Sleutelkluis-certificaat voor het implementeren van veilige opslag en beheer van X509 certificaten zonder interactie met privésleutelmateriaal.  
-* Kan de eigenaar van een certificaat om een beleid waarin wordt verwezen Sleutelkluis voor het beheren van de levenscyclus van een certificaat te maken.  
-* Kan certificaat eigenaren van contactgegevens voor melding over de levenscyclus van gebeurtenissen van verlopen en verlenging van het certificaat opgeven.  
-* Ondersteunt automatische vernieuwing met geselecteerde verleners - Sleutelkluis partner X509 providers van het certificaat / certificeringsinstanties.
-  
-  * Opmerking: providers/instanties niet in de samenwerking ook zijn toegestaan, maar geen ondersteuning voor de functie voor automatisch vernieuwen.
+* Certificaten via een proces voor het maken van een Sleutelkluis maken of bestaande certificaat importeren. Dit omvat zowel zelfondertekend en certificeringsinstantie (CA) certificaten gegenereerd.
+* Veilig opslaan en beheren van x509 opslag zonder tussenkomst van de privésleutelmateriaal met behulp van het certificaat.  
+* Definieer de beleidsregels die Sleutelkluis directe voor het beheren van de levensduur van het certificaat.  
+* Contactgegevens voor de levenscyclus van gebeurtenissen, zoals een vervaldatum waarschuwingen en meldingen voor verlenging bevatten.  
+* Automatisch vernieuwen van certificaten met de geselecteerde verleners (Sleutelkluis partner X509 certificaatproviders en CA's). * certificaat voor ondersteuning van alternatieve (niet-partner) biedt en certificeringsinstanties (geen ondersteuning voor automatisch verlengen).  
 
 ## <a name="net-support"></a>Ondersteuning voor .NET
 
@@ -44,7 +42,10 @@ Sleutelkluis certificaten ondersteuning biedt voor het beheren van uw x509 certi
 
 * De naamruimte voor **modellen** wordt gewijzigd van **Microsoft.Azure.KeyVault** naar **Microsoft.Azure.KeyVault.Models**.
 * De **Microsoft.Azure.KeyVault.Internal** naamruimte is verwijderd.
-* De naamruimte Azure SDK-afhankelijkheden zijn gewijzigd van **Hyak.Common** en **Hyak.Common.Internals** naar **Microsoft.Rest** en  **Microsoft.Rest.Serialization**
+* De volgende naamruimten van de Azure SDK-afhankelijkheden hebben 
+
+    - **Hyak.Common** is nu **Microsoft.Rest**.
+    - **Hyak.Common.Internals** is nu **Microsoft.Rest.Serialization**.
 
 ## <a name="type-changes"></a>Wijzigingen van het type
 
@@ -55,13 +56,13 @@ Sleutelkluis certificaten ondersteuning biedt voor het beheren van uw x509 certi
 
 ## <a name="return-types"></a>Retourtypen
 
-* **KeyList** en **SecretList** retourneert *IPage<T>*  in plaats van *ListKeysResponseMessage*
-* De gegenereerde **BackupKeyAsync** retourneert *BackupKeyResult* die bevat *waarde* (back-up van blob). Voordat de methode is ingepakt en alleen de waarde te retourneren.
+* **KeyList** en **SecretList** nu retourneert *IPage<T>*  in plaats van *ListKeysResponseMessage*
+* De gegenereerde **BackupKeyAsync** nu retourneert *BackupKeyResult*, die bevat *waarde* (back-up van blob). De methode is eerder ingepakt en alleen de waarde geretourneerd.
 
 ## <a name="exceptions"></a>Uitzonderingen
 
 * *KeyVaultClientException* wordt gewijzigd naar *KeyVaultErrorException*
-* De servicefout is gewijzigd van *uitzondering. Fout* naar *uitzondering. Body.Error.Message*.
+* De servicefout gewijzigd van *uitzondering. Fout* naar *uitzondering. Body.Error.Message*.
 * Aanvullende informatie verwijderd uit het foutbericht voor **[JsonExtensionData]**.
 
 ## <a name="constructors"></a>Constructors
@@ -70,29 +71,29 @@ Sleutelkluis certificaten ondersteuning biedt voor het beheren van uw x509 certi
 
 ## <a name="downloaded-packages"></a>Gedownloade pakketten
 
-Wanneer een client een afhankelijkheid van Sleutelkluis verwerkt zijn de volgende gedownload
+Wanneer een client een afhankelijkheid Sleutelkluis verwerkt, worden de volgende pakketten gedownload:
 
 ### <a name="previous-package-list"></a>Vorige pakketlijst
 
-* versie van het pakket id="Hyak.Common' = '1.0.2' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Azure.Common' = '2.0.4' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Azure.Common.Dependencies' = '1.0.0' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Azure.KeyVault' = '1.0.0' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Bcl' = '1.1.9' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Bcl.Async' = '1.0.168' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Bcl.Build' = '1.0.14' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Net.Http' = '2.2.22' targetFramework ="net45"
+* `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
+* `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
 ### <a name="current-package-list"></a>Huidige pakketlijst
 
-* versie van het pakket id="Microsoft.Azure.KeyVault' = '2.0.0-preview' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Rest.ClientRuntime' = '2.2.0' targetFramework ="net45"
-* versie van het pakket id="Microsoft.Rest.ClientRuntime.Azure' = '3.2.0' targetFramework ="net45"
+* `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
 ## <a name="class-changes"></a>Wijzigingen voor klasse
 
-* **UnixEpoch** klasse is verwijderd
-* **Base64UrlConverter** klasse is gewijzigd in **Base64UrlJsonConverter**
+* **UnixEpoch** klasse is verwijderd.
+* **Base64UrlConverter** klasse is gewijzigd in **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Andere wijzigingen
 
@@ -100,9 +101,9 @@ Wanneer een client een afhankelijkheid van Sleutelkluis verwerkt zijn de volgend
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Voor de bewerkingen die geretourneerd een *kluis*, het retourtype is een klasse die deel uitmaakt van een eigenschap van de kluis. Het retourtype is nu *kluis*.
+* Voor de bewerkingen die geretourneerd een *kluis*, het retourtype is een klasse die een **kluis** eigenschap. Het retourtype is nu *kluis*.
 * *PermissionsToKeys* en *PermissionsToSecrets* zijn nu *Permissions.Keys* en *Permissions.Secrets*
-* Enkele wijzigingen retourtypen aan het besturingselement-ook van toepassing.
+* Bepaalde retourtypen wijzigingen aan het besturingselement-ook van toepassing.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 

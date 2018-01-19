@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Virtuele Azure-machines repliceren naar een andere regio na de migratie naar Azure met behulp van Azure Site Recovery
 
@@ -38,7 +38,7 @@ Gemigreerd machines voor het instellen van de replicatie naar een andere Azure-r
 1. Voltooi de migratie.
 2. Installeer de Azure-agent, indien nodig.
 3. Verwijder de Mobility-service.  
-4. Start opnieuw op de virtuele machine.
+4. Start de VM opnieuw.
 
 Deze stappen worden in de volgende secties nader beschreven.
 
@@ -61,7 +61,7 @@ De volgende tabel bevat aanvullende informatie over het installeren van de VM-ag
 | **Bewerking** | **Windows** | **Linux** |
 | --- | --- | --- |
 | De VM-agent installeren |Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet administrator-bevoegdheden om de installatie te voltooien. |Installeer de meest recente [Linux-agent](../../virtual-machines/linux/agent-user-guide.md). U moet administrator-bevoegdheden om de installatie te voltooien. Het is raadzaam om de installatie van de agent van uw opslagplaats voor distributie. We *wordt niet aanbevolen* installeren van de Linux-VM-agent rechtstreeks vanuit GitHub.  |
-| De installatie van de VM-agent valideren |1. Blader naar de map C:\WindowsAzure\Packages in de Azure VM. Hier ziet u het bestand WaAppAgent.exe. <br>2. Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. De **productversie** veld moet 2.6.1198.718 of hoger. |N.v.t. |
+| De installatie van de VM-agent valideren |1. Blader naar de map C:\WindowsAzure\Packages in de Azure VM. Hier ziet u het bestand WaAppAgent.exe. <br>2. Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. De **productversie** veld moet 2.6.1198.718 of hoger. |N/A |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Stap 3: De Mobility-service van de gemigreerde virtuele machine verwijderen

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 010f4b05b35fa1f31c14f34a5fae9298fcd831e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Een op CentOS gebaseerde virtuele Azure-machine voorbereiden
 * [Een CentOS 6.x virtuele machine voorbereiden voor Azure](#centos-6x)
@@ -195,7 +195,7 @@ In dit artikel wordt ervan uitgegaan dat u al een CentOS hebt geïnstalleerd (of
 
 
 - - -
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 **Wijzigingen in CentOS 7 (en vergelijkbare afgeleiden)**
 
 Een CentOS 7 virtuele machine voorbereiden voor Azure is vergelijkbaar met CentOS 6, maar er zijn echter enkele belangrijke verschillen opgemerkt:
@@ -331,5 +331,5 @@ Een CentOS 7 virtuele machine voorbereiden voor Azure is vergelijkbaar met CentO
 14. Klik op **actie-Afsluiten > omlaag** in Hyper-V-beheer. Uw Linux VHD is nu gereed om te worden geüpload naar Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar voor gebruik van de virtuele harde schijf van CentOS Linux maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie de stappen 2 en 3 in [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+U bent nu klaar voor gebruik van de virtuele harde schijf van CentOS Linux maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](upload-vhd.md#option-1-upload-a-vhd).
 

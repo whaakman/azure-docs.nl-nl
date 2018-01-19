@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Poorten buiten 1433 voor ADO.NET 4.5
 Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbinding voor clients die gebruikmaken van ADO.NET 4.5 of hoger. 
@@ -35,7 +35,7 @@ Voor verbindingen met Azure SQL Database, moet eerst vragen we uw clientprogramm
 Poort 1433 is de enige poort die moet worden geopend op uw bureaublad computer die als host fungeert voor uw clienttoepassing SQL-Database.
 
 #### <a name="inside-client-runs-on-azure"></a>*Binnen:* Client wordt uitgevoerd op Azure
-Wanneer de client wordt uitgevoerd binnen een grens van de Azure-cloud, gebruikt het kunt zogeheten een *direct route* om te communiceren met de Database van SQL server. Nadat een verbinding tot stand is gebracht, verdere inhouden interacties tussen de client en de database geen proxy middleware.
+Wanneer de client wordt uitgevoerd binnen een grens van de Azure-cloud, gebruikt het kunt zogeheten een *direct route* om te communiceren met de Database van SQL server. Nadat een verbinding tot stand is gebracht, verdere interacties tussen de client en de database hebben betrekking op geen Azure SQL Database-Gateway.
 
 De volgorde is als volgt:
 

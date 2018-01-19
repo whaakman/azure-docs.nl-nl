@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Zelfstudie: Azure Active Directory-integratie met netwerken Palo Alto - Admin UI
 
@@ -37,7 +37,7 @@ Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD 
 Voor het configureren van Azure AD-integratie met netwerken Palo Alto - Admin UI, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Palo Alto netwerken - Admin UI eenmalige aanmelding ingeschakeld abonnement
+- Een Palo Alto netwerken Next Generation Firewall of Panorama (systeem voor de firewalls gecentraliseerd beheer)
 
 > [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
@@ -72,7 +72,7 @@ Om de integratie van netwerken Palo Alto - Admin UI met Azure AD te configureren
 
 4. Typ in het zoekvak **Palo Alto Networks - Admin UI**, selecteer **Palo Alto Networks - Admin UI** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Netwerken Palo Alto - Admin UI in de lijst met resultaten](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Netwerken Palo Alto - Admin UI in de lijst met resultaten](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Netwerken voor Palo Alto - domein voor beheer-UI en één URL's aanmelding informatie](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall URL>/php/login.php`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall URL>/SAML20/SP`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Palo Alto Networks - gebruikersinterface Beheerclient ondersteuningsteam](https://support.paloaltonetworks.com/support) ophalen van deze waarden. 
@@ -121,9 +121,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit: kenmerkwaarden zijn alleen voorbeeld Neem de juiste waarden voor de gebruikersnaam en het adminrole worden toegewezen. Er is een andere optionele kenmerk 'accessdomain' die wordt gebruikt voor de beheerderstoegang beperken tot specifieke virtuele systemen op de firewall.
         
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
-    | gebruikersnaam | User.userPrincipalName |
+    | gebruikersnaam | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
@@ -151,7 +151,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Open de Palo Alto-site als een beheerder in een ander browservenster.
+8. Open de Palo Alto netwerken Firewall Admin gebruikersinterface als een beheerder in een ander browservenster.
 
 9. Klik op **apparaat**.
 
@@ -248,7 +248,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Wanneer u klikt op de netwerken Palo Alto - Admin UI-tegel in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw netwerken Palo Alto - Admin UI-toepassing.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

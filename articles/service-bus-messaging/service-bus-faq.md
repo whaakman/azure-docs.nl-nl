@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. U kunt ook de [Azure ondersteunen Veelgestelde vragen over](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure-prijzen en -ondersteuning voor informatie.
@@ -48,7 +48,6 @@ Zie [Best practices voor verbeterde prestaties met Service Bus] [ Best practices
 ### <a name="what-should-i-know-before-creating-entities"></a>Wat moet ik weten voordat u entiteiten
 De volgende eigenschappen van een wachtrij en onderwerp zijn niet-wijzigbaar. Houd rekening met deze beperking als u uw entiteiten inricht als deze eigenschappen kunnen niet worden gewijzigd zonder dat er een nieuwe entiteit in de vervanging.
 
-* Grootte
 * Partitionering
 * Sessies
 * Detectie van duplicaten

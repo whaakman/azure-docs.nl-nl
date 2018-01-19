@@ -42,7 +42,7 @@ De database-engine van SQL Server kan Windows-verificatie niet gebruiken zonder 
 1. Terwijl u verbinding hebt met de virtuele machine, typt u **SQL Server Management Studio** op de startpagina en klikt u op het geselecteerde pictogram.
    
     Wanneer u Management Studio voor het eerst opent, moet de gebruikersomgeving van Management Studio worden gemaakt. Dit kan even duren.
-2. Het dialoogvenster **Verbinding maken met server** in Management Studio wordt geopend. Typ de naam van de virtuele machine in het vak **Servernaam** om verbinding te maken met de database-engine via Objectverkenner. U kunt in plaats van de naam van de virtuele machine ook **(lokaal)** of een punt gebruiken als de **servernaam**. Selecteer **Windows-verificatie** en laat ***uw_VM_naam*\uw_lokale_beheerder** in het vak **Gebruikersnaam**. Klik op **Verbinden**.
+2. Het dialoogvenster **Verbinding maken met server** in Management Studio wordt geopend. Typ de naam van de virtuele machine in het vak **Servernaam** om verbinding te maken met de database-engine via Objectverkenner. U kunt in plaats van de naam van de virtuele machine ook **(lokaal)** of een punt gebruiken als de **servernaam**. Selecteer **Windows-verificatie**, en laat ***your_VM_name * \your_local_administrator** in de **gebruikersnaam** vak. Klik op **Verbinden**.
    
     ![Verbinding maken met server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Klik in de SQL Server Management Studio-objectverkenner met de rechtermuisknop op de naam van het SQL Server-exemplaar (de naam van de virtuele machine) en klik vervolgens op **Eigenschappen**.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -72,3 +72,13 @@ Ja, kunt u de back-ups gemaakt voordat het migreren van de schijven van niet-beg
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Wat gebeurt er wanneer ik het back-upbeleid voor een of meer virtuele machines wijzig?
 Wanneer een nieuw beleid wordt toegepast op VM('s), wordt planning en retentie van het nieuwe beleid gevolgd. Als de bewaarperiode is uitgebreid, worden bestaande herstelpunten zodat ze volgens het beleid voor nieuwe gemarkeerd. Als bewaarperiode wordt beperkt, worden ze gemarkeerd voor verwijderen in de volgende taak opschonen en vervolgens verwijderd. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hoe kan ik een virtuele machine die is geregistreerd in Azure back-up tussen brongroepen verplaatsen?
+Volg de onderstaande stappen zijn de back-up VM verplaatsen naar de doelresourcegroep 
+1. Tijdelijk stoppen van de back-up en bewaren van back-upgegevens
+2. Verplaats de VM naar de doelresourcegroep
+3. Opnieuw beveiligen met hetzelfde/nieuwe kluis
+
+Gebruikers kunnen herstellen met de beschikbare herstelpunten gemaakt vóór de verplaatsing.
+
+

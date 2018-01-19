@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -146,38 +146,80 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 
 ## <a name="monitoring"></a>Bewaking
 
-De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken worden geretourneerd in het resultaat van uitgevoerde Kopieeractiviteit -> sectie uitvoer. Hieronder volgt een lijst met uitgeput. Informatie over het bewaken van de activiteit die wordt uitgevoerd van [Quick Start sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). U kunt vergelijken de prestaties en de configuratie van uw scenario om door te kopiëren van de activiteit [prestaties verwijzing](copy-activity-performance.md#performance-reference) van het intern testen.
+U kunt controleren met de kopieerbewerking op Azure Data Factory 'Auteur & Monitor' gebruikersinterface of via een programma uitvoeren. U kunt vervolgens vergelijken de prestaties en de configuratie van uw scenario om door te kopiëren van de activiteit [prestaties verwijzing](copy-activity-performance.md#performance-reference) van het intern testen.
+
+### <a name="monitor-visually"></a>Visueel bewaken
+
+Als u wilt bewaken visueel met de kopieerbewerking uitvoeren, Ga naar uw data factory -> **auteur & Monitor** -> **tabblad Monitor**, ziet u een lijst van de pijplijn wordt uitgevoerd met een koppeling 'Weergave activiteit wordt uitgevoerd' in de  **Acties** kolom. 
+
+![De pijplijn bewaken wordt uitgevoerd](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Klik op de lijst van activiteiten in deze pijplijn. In de **acties** kolom, hebt u koppelingen naar de kopie activiteit invoer, uitvoer, fouten (als kopieeractiviteit uitvoeren is mislukt) en meer informatie.
+
+![Monitor activiteit wordt uitgevoerd](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering van de activiteit van het exemplaar en de prestatiekenmerken te zien. Toont informatie inclusief: hoeveelheid gegevens gekopieerd van bron naar sink, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties voor uw scenario kopiëren gebruikt.
+
+**Voorbeeld: kopiëren vanaf Amazon S3 met Azure Data Lake Store**
+![details uitvoering van activiteit van de Monitor](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Voorbeeld: het kopiëren van Azure SQL Database voor het gebruik van Azure SQL Data Warehouse gefaseerde kopiëren**
+![details uitvoering van activiteit van de Monitor](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>Programmatisch bewaken
+
+De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken zijn ook geretourneerd als resultaat van uitgevoerde Kopieeractiviteit -> sectie uitvoer. Hieronder volgt een uitputtende lijst. alleen de van toepassing door op uw scenario kopie wordt weergegeven. Informatie over het bewaken van de activiteit die wordt uitgevoerd van [Quick Start sectie bewaking](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Naam van eigenschap  | Beschrijving | Eenheid |
 |:--- |:--- |:--- |
-| dataRead | Gegevensgrootte van het lezen van bron | Waarde voor Int64 in bytes |
-| dataWritten | Gegevensgrootte opvangen geschreven | Waarde voor Int64 in bytes |
+| dataRead | Gegevensgrootte van het lezen van bron | Waarde voor Int64 in **bytes** |
+| dataWritten | Gegevensgrootte opvangen geschreven | Waarde voor Int64 in **bytes** |
+| filesRead | Het aantal bestanden die bij het kopiëren van gegevens uit de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
+| filesWritten | Het aantal bestanden die bij het kopiëren van gegevens naar de opslag van bestanden worden gekopieerd. | Waarde voor Int64 (geen unit) |
 | rowsCopied | Het aantal rijen (niet van toepassing voor binaire kopie) wordt gekopieerd. | Waarde voor Int64 (geen unit) |
 | rowsSkipped | Aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op true. | Waarde voor Int64 (geen unit) |
-| Doorvoer | Verhouding waarmee gegevens worden overgedragen | Drijvendekommagetal in KB per seconde |
+| Doorvoer | Verhouding waarmee gegevens worden overgedragen | Drijvendekommagetal in **KB/s** |
 | copyDuration | De duur van de kopie | Waarde voor Int32 (in seconden) |
 | sqlDwPolyBase | Als bij het kopiëren van gegevens in SQL Data Warehouse PolyBase gebruikt. | Boole-waarde |
 | redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Boole-waarde |
 | hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Boole-waarde |
 | effectiveIntegrationRuntime | Kunt u zien welk integratie Runtime(s) wordt gebruikt om te zorgen dat de activiteit die wordt uitgevoerd in de indeling van `<IR name> (<region if it's Azure IR>)`. | Tekst (tekenreeks) |
 | usedCloudDataMovementUnits | De effectieve cloud data movement eenheden tijdens het kopiëren van. | Int32-waarde |
+| usedParallelCopies | De effectieve parallelCopies tijdens het kopiëren. | Int32-waarde|
 | redirectRowPath | Pad naar het logboek van overgeslagen incompatibel rijen in de blobopslag die u onder 'redirectIncompatibleRowSettings configureert'. Zie onderstaand voorbeeld. | Tekst (tekenreeks) |
-| billedDuration | De duur wordt gefactureerd voor het verplaatsen van gegevens. | Waarde voor Int32 (in seconden) |
+| executionDetails | Meer informatie over de kopieeractiviteit doorloopt, fasen en de bijbehorende stappen, duur, gebruikte configuraties, enzovoort. Het is niet raadzaam deze sectie parseren aangezien kunnen worden gewijzigd. | Matrix |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 

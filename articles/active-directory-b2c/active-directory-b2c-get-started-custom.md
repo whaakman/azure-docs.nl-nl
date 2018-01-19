@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Aan de slag met aangepast beleid
 
@@ -55,7 +55,7 @@ Voordat u doorgaat, zorg ervoor dat u hebt een Azure AD B2C-tenant een container
  e. Voor **datums**, gebruikt u de standaardinstellingen.<br>
  f. Voor **sleutelgebruik**, gebruik **versleuteling**.<br>
  g. Selecteer **Maken**.<br>
-5. B2C_1A_FacebookSecret maken. <br>
+5. Create B2C_1A_FacebookSecret. <br>
 Als u al een toepassingsgeheim Facebook, als de beleidssleutel van een toevoegen aan uw tenant. Anders moet u de sleutel maken met de aanduidingswaarde van een tijdelijke zodat het beleid gevalideerd.<br>
  a. Selecteer **Toevoegen**.<br>
  b. Voor **opties**, gebruik **handmatige**.<br>
@@ -157,7 +157,7 @@ De toepassings-id's toevoegen aan het extensiebestand (`TrustFrameworkExtensions
 2. Vervang beide exemplaren van `IdentityExperienceFrameworkAppId` met de toepassings-ID van de identiteit ervaring Framework-toepassing die u eerder hebt gemaakt. Hier volgt een voorbeeld:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Vervang beide exemplaren van `ProxyIdentityExperienceFrameworkAppId` met de toepassings-ID van de Proxy identiteit ervaring Framework-toepassing die u eerder hebt gemaakt.
 4. Sla het bestand uitbreidingen.

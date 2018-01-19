@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -53,7 +53,7 @@ De Service-exemplaar voor metagegevens is samengestelde. Versies zijn verplicht 
 > [!NOTE] 
 > Eerdere versies van de preview van geplande gebeurtenissen {laatste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en in de toekomst wordt afgeschaft.
 
-Als er nieuwere versies toevoegt, oudere versies is nog steeds toegankelijk voor compatibiliteit als uw scripts afhankelijk van specifieke gegevensindelingen zijn. Houd er echter rekening mee dat het vorige voorbeeld version(2017-03-01) mogelijk niet beschikbaar zodra de service in het algemeen beschikbaar is.
+Als nieuwe versies worden toegevoegd, oudere versies is nog steeds toegankelijk voor compatibiliteit als uw scripts afhankelijk van specifieke gegevensindelingen zijn. Echter, de vorige preview-versie (2017-03-01) mogelijk niet beschikbaar zodra de service in het algemeen beschikbaar is.
 
 ### <a name="using-headers"></a>Met behulp van headers
 Wanneer u de Service-exemplaar voor metagegevens query uitvoert, moet u de header geven `Metadata: true` om te controleren of de aanvraag is niet per ongeluk wordt omgeleid.
@@ -62,7 +62,7 @@ Wanneer u de Service-exemplaar voor metagegevens query uitvoert, moet u de heade
 
 Metagegevens van het exemplaar is beschikbaar voor het uitvoeren van virtuele machines die zijn gemaakt/beheerd met behulp van [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Toegang tot alle gegevenscategorieën voor een exemplaar van de virtuele machine met de volgende aanvraag:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | Standaardindeling voor gegevens | Andere indelingen
 
 Geef de vereiste indeling als een parameter van de querytekenreeks worden opgegeven in de aanvraag voor toegang tot een niet-standaard antwoordindeling moet. Bijvoorbeeld:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Beveiliging
 Het exemplaar metagegevens Service-eindpunt is alleen toegankelijk vanuit de actieve sessie van de virtuele machine op een niet-routeerbare IP-adres. Bovendien verzoeken met een `X-Forwarded-For` header is geweigerd door de service.
-Moet ook aanvragen bevatten een `Metadata: true` header om ervoor te zorgen dat de werkelijke aanvraag rechtstreeks bestemd en geen deel uit van onbedoelde omleiding is. 
+Moeten ook aanvragen bevatten een `Metadata: true` header om ervoor te zorgen dat de werkelijke aanvraag rechtstreeks bestemd en geen deel uit van onbedoelde omleiding is. 
 
 ### <a name="error"></a>Fout
 Als er een gegevenselement niet gevonden of een onjuist gevormde aanvraag, retourneert de Service-exemplaar voor metagegevens standaard HTTP-fouten. Bijvoorbeeld:
@@ -98,7 +98,7 @@ HTTP-statuscode | Reden
 404 – Niet gevonden | Het gevraagde element bestaat niet 
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel maximaal 5 query's per seconde
-Fout 500-Service     | Probeer na enige tijd
+500 Service Error     | Probeer na enige tijd
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -109,7 +109,7 @@ Fout 500-Service     | Probeer na enige tijd
 
 **Aanvraag**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Openbaar IP-adres ophalen
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Aanvraag**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Metagegevens van het exemplaar kan worden opgehaald in Windows via het hulpprogramma PowerShell `curl`: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Of via de `Invoke-RestMethod` cmdlet:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -284,10 +284,10 @@ Gegevens | Beschrijving | Versie geïntroduceerd
 location | Azure-regio de virtuele machine wordt uitgevoerd in de | 2017-04-02 
 naam | Naam van de virtuele machine | 2017-04-02
 aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
-Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
-SKU | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
+publisher | Uitgever van de VM-installatiekopie | 2017-04-02
+sku | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
 versie | Versie van de VM-afbeelding | 2017-04-02
-besturingssysteemtype | Linux- of Windows | 2017-04-02
+osType | Linux- of Windows | 2017-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 vmId | [De unieke id](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) voor de virtuele machine | 2017-04-02
@@ -295,14 +295,14 @@ vmSize | [VM-grootte](sizes.md) | 2017-04-02
 subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
 tags | [Labels](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
-placementGroupId | [Plaatsing groep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) van de schaal van uw virtuele Machine instellen | 2017-08-01
-IPv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
-IPv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
+placementGroupId | [Plaatsing groep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) van de schaal van uw virtuele machine instellen | 2017-08-01
+ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
+ipv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
 subnetadres / | Subnetadres van de virtuele machine | 2017-04-02 
 subnetvoorvoegsel / | Subnetvoorvoegsel, voorbeeld 24 | 2017-04-02 
-IPv6/IP-adres | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
+ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | Mac-adres van VM | 2017-04-02 
-scheduledevents | Op dit moment in de openbare Preview Zie [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | Op dit moment in de openbare Preview. Zie [gebeurtenissen gepland](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 
@@ -312,7 +312,7 @@ Als een serviceprovider mogelijk nodig bij te houden van het aantal virtuele mac
 
 **Aanvraag**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ U kunt deze gegevens rechtstreeks via de Service-exemplaar voor metagegevens opv
 
 **Aanvraag**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ Als een serviceprovider krijgt u mogelijk een telefoongesprek ondersteuning waar
 
 **Aanvraag**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > Het antwoord is een JSON-tekenreeks. Het volgende voorbeeld-antwoord is voor de leesbaarheid pretty afgedrukt.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -376,24 +376,24 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Taal | Voorbeeld 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.RB
-Aan de slag  | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
-Perl       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/BLOB/master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.vb
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Aan de slag  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>Veelgestelde vragen
 1. Ik krijg de fout `400 Bad Request, Required metadata header not specified`. Wat betekent dit?
    * De Service-exemplaar voor metagegevens is vereist voor de header `Metadata: true` in de aanvraag moet worden doorgegeven. Deze header wordt doorgegeven in de REST-aanroep staat toegang tot de Service-exemplaar voor metagegevens. 
 2. Waarom niet krijg ik compute-informatie voor mijn VM?
-   * De Service-exemplaar voor metagegevens ondersteunt momenteel alleen exemplaren gemaakt met Azure Resource Manager. In de toekomst kunnen we ondersteuning voor virtuele machines van Cloud Service toevoegen.
+   * De Service-exemplaar voor metagegevens ondersteunt momenteel alleen exemplaren gemaakt met Azure Resource Manager. In de toekomst ondersteuning voor virtuele machines voor Cloud-services kunnen worden toegevoegd.
 3. Ik heb mijn virtuele Machine via Azure Resource Manager een tijd terug gemaakt. Waarom kan ik geen Zie compute-metagegevens?
    * Voor alle virtuele machines na Sep 2016 is gemaakt, voegt u een [Tag](../../azure-resource-manager/resource-group-using-tags.md) om te beginnen te zien compute metagegevens. Voor oudere virtuele machines (gemaakt vóór Sep-2016), software-extensies of gegevens schijven aan de virtuele machine vernieuwen-metagegevens.
 4. Ik zie niet alle gegevens voor de nieuwe versie van 2017-08-01 gevuld

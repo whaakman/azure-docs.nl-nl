@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken
 
@@ -42,7 +42,7 @@ De volgende stappen ziet u hoe u de VHD-schijf moet worden gekopieerd, maken de 
 Zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module geïnstalleerd hebt. Voer de volgende opdracht om deze te installeren.
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 Zie voor meer informatie [Azure PowerShell Versioning](/powershell/azure/overview).
 

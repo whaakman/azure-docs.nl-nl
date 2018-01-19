@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure virtuele Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -405,7 +405,7 @@ De eenvoudigste manier om een nieuwe virtuele machine maken met een installatiek
 
 De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste bronnen, zoals netwerkinterfaces en storage-accounts. Enkele van deze parameters zijn:
 
-1. **Basisprincipes**:
+1. **Basics**:
  * **Naam**: de naam van de resource (de naam van de virtuele machine).
  * **VM-schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruiken van Premium-opslag voor uw gegevensschijven wilt, raden wij u Premium-opslag voor de OS-schijf.
  * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Geef de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) die u aan te melden bij de computer gebruikt.
@@ -427,7 +427,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
   * **Extensies**: U kunt extensies van virtuele machine installeren door ze toe te voegen aan de implementatie. U hoeft niet de extensies toevoegen in deze stap. De extensies die zijn vereist voor ondersteuning van SAP worden later geïnstalleerd. Zie hoofdstuk [configureren van de Azure verbeterde extensie Monitoring voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-  * **Bewaking**
+  * **Monitoring**
     * **Diagnostische gegevens starten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
     * **Gastbesturingssysteem diagnostics**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
@@ -455,7 +455,7 @@ U kunt een virtuele machine maken met behulp van een van de SAP-sjablonen gepubl
 
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
-1. **Basisprincipes**:
+1. **Basics**:
   * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
   * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of u kunt een bestaande resourcegroep selecteren in het abonnement.
   * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
@@ -537,7 +537,7 @@ De eenvoudigste manier om een nieuwe virtuele machine maken van een beheerd schi
 
 De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste bronnen, zoals netwerkinterfaces en storage-accounts. Enkele van deze parameters zijn:
 
-1. **Basisprincipes**:
+1. **Basics**:
  * **Naam**: de naam van de resource (de naam van de virtuele machine).
  * **VM-schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruiken van Premium-opslag voor uw gegevensschijven wilt, raden wij u Premium-opslag voor de OS-schijf.
  * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Geef de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) die u aan te melden bij de computer gebruikt.
@@ -558,7 +558,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
   * **Extensies**: U kunt extensies van virtuele machine installeren door ze toe te voegen aan de implementatie. U hoeft niet te-extensie toevoegen in deze stap. De extensies die zijn vereist voor ondersteuning van SAP worden later geïnstalleerd. Zie hoofdstuk [configureren van de Azure verbeterde extensie Monitoring voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-  * **Bewaking**
+  * **Monitoring**
     * **Diagnostische gegevens starten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
     * **Gastbesturingssysteem diagnostics**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
@@ -585,7 +585,7 @@ Voor het maken van een implementatie met behulp van een persoonlijke installatie
 
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
-1. **Basisprincipes**:
+1. **Basics**:
   * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
   * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het abonnement.
   * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
@@ -675,7 +675,7 @@ Maakt u een implementatie met behulp van een persoonlijke besturingssysteemschij
 
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
-1. **Basisprincipes**:
+1. **Basics**:
   * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
   * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het abonnement.
   * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
@@ -890,7 +890,7 @@ U kunt PowerShell of Azure CLI installeren en configureren van de Azure verbeter
 De Azure verbeterde extensie Monitoring voor SAP installeren met behulp van PowerShell:
 
 1. Zorg ervoor dat u de nieuwste versie van de Azure PowerShell-cmdlet hebt geïnstalleerd. Zie voor meer informatie [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].  
-2. Voer de volgende PowerShell-cmdlet.
+2. Voer de volgende PowerShell-cmdlet uit.
     Voor een lijst met beschikbare omgevingen, voert u `commandlet Get-AzureRmEnvironment`. Als u gebruiken van globale Azure wilt, uw omgeving is **AzureCloud**. Selecteer voor Azure China **AzureChinaCloud**.
 
     ```powershell
@@ -1055,7 +1055,7 @@ Als een van deze controles mislukken, en Zie voor gedetailleerde informatie over
 Als sommige van de bewaking gegevens niet bezorgd correct zoals aangegeven door de test wordt beschreven in [gereedheidscontrole voor Azure-uitgebreide bewaking voor SAP][deployment-guide-5.1], voert de `Test-AzureRmVMAEMExtension` cmdlet om te controleren of de bewaking van infrastructuur en de bewaking Azure-extensie voor SAP correct zijn geconfigureerd.
 
 1.  Zorg ervoor dat u de nieuwste versie van de Azure PowerShell-cmdlet hebt geïnstalleerd, zoals beschreven in [implementeren van Azure PowerShell-cmdlets][deployment-guide-4.1].
-2.  Voer de volgende PowerShell-cmdlet. Voor een lijst met beschikbare omgevingen, voert u de cmdlet `Get-AzureRmEnvironment`. Als u globale Azure, schakelt de **AzureCloud** omgeving. Selecteer voor Azure China **AzureChinaCloud**.
+2.  Voer de volgende PowerShell-cmdlet uit. Voor een lijst met beschikbare omgevingen, voert u de cmdlet `Get-AzureRmEnvironment`. Als u globale Azure, schakelt de **AzureCloud** omgeving. Selecteer voor Azure China **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env

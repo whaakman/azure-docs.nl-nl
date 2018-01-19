@@ -1,16 +1,12 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell starten
 
-De Azure Cloud Shell is een gratis shell die u rechtstreeks vanuit Azure Portal kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de knop **Cloud Shell** in het menu in de rechterbovenhoek van [Azure Portal](https://portal.azure.com).
+De Azure-Cloud-Shell is een gratis interactieve shell waarmee u kunt de stappen in dit artikel uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de **kopie** als de code kopiëren, plak deze in de Cloud-Shell en druk op enter uit te voeren. Er zijn enkele methoden voor het starten van de Shell Cloud:
 
-[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
-
-De knop start een interactieve shell die u kunt gebruiken om alle stappen in dit onderwerp uit te voeren:
-
-[![Schermopname van het Cloud Shell-venster in de portal](./media/cloud-shell-powershell/cloud-shell-powershell.png)](https://portal.azure.com)
-
-
-
-
-
+|  |   |
+|-----------------------------------------------|---|
+| Klik op **probeert het** in de rechterbovenhoek van een codeblok. | ![Cloud-Shell in dit artikel](./media/cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
+| Cloud-Shell openen in de browser. | [![https://shell.azure.com/powershell](./media/cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
+| Klik op de **Cloud Shell** knop in het menu in de rechterbovenhoek van de Azure-portal. | [![Cloud-Shell in de portal](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com) |
+|  |  |
 

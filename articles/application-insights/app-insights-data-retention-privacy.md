@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -99,10 +99,10 @@ Het door u en uw teamleden worden geëxporteerd en kan worden gekopieerd naar an
 Microsoft gebruikt de gegevens alleen om te kunnen bieden u de service.
 
 ## <a name="where-is-the-data-held"></a>Waar is de gegevens opgeslagen?
-* In de Verenigde Staten of Europa. U kunt de locatie selecteren wanneer u een nieuwe Application Insights-resource maakt. 
+* In de Verenigde Staten, Europa of Zuidoost-Azië. U kunt de locatie selecteren wanneer u een nieuwe Application Insights-resource maakt. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Betekent die worden gehost in de Verenigde Staten of Europa is mijn app?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Betekent die worden gehost in de Verenigde Staten, Europa of Zuidoost-Azië is mijn app?
 * Nee. Uw toepassing overal kan worden uitgevoerd, in uw eigen lokale hosts of in de Cloud.
 
 ## <a name="how-secure-is-my-data"></a>Hoe veilig is mijn gegevens?
@@ -161,7 +161,7 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 | [Application Insights-SDK toevoegen aan een .NET-webproject][greenbrown] |ServerContext<br/>Afgeleid<br/>-Prestatiemeteritems<br/>Aanvragen<br/>**Uitzonderingen**<br/>Sessie<br/>gebruikers |
 | [Statusmonitor installeren op IIS][redfield] |Afhankelijkheden<br/>ServerContext<br/>Afgeleid<br/>-Prestatiemeteritems |
 | [Application Insights-SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvraag<br/>Sessie<br/>gebruikers |
-| [JavaScript-SDK toevoegen aan webpagina 's][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>AJAX |
+| [JavaScript-SDK toevoegen aan webpagina 's][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen** op alle standaard- en aangepaste gebeurtenissen |
 | [Aanroep TrackMetric][api] |Numerieke waarden<br/>**Eigenschappen** |
 | [Aanroep bijhouden *][api] |De naam van gebeurtenis<br/>**Eigenschappen** |
@@ -183,7 +183,7 @@ Voor [SDK's voor andere platforms][platforms], Zie hun documenten.
 | Gebeurtenissen |Gebeurtenisnaam en waarde |
 | PageViews |URL- en de naam of scherm |
 | Client perf |Naam van de URL/pagina, laadtijd van de browser |
-| AJAX |HTTP-aanroepen vanuit een webpagina met server |
+| Ajax |HTTP-aanroepen vanuit een webpagina met server |
 | Aanvragen |De URL, duur, antwoordcode |
 | Afhankelijkheden |Type (SQL, HTTP,...), de verbindingsreeks of de URI, sync/async, duur, geslaagd, SQL-instructie (met Status Monitor) |
 | **Uitzonderingen** |Type **bericht**, stacks aanroepen, bron- en regelnummer number, thread-id |

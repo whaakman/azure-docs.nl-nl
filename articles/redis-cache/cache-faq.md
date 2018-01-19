@@ -3,8 +3,8 @@ title: Veelgestelde vragen over Azure Redis-Cache | Microsoft Docs
 description: Meer informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache.
@@ -165,10 +165,10 @@ Ja, is Azure Redis-Cache beschikbaar in de Cloud van de overheid Azure, Azure Ch
 
 | Cloud   | DNS-achtervoegsel voor Redis            |
 |---------|---------------------------------|
-| Openbaar  | *. redis.cache.windows.net       |
-| Amerikaanse overheid  | *. redis.cache.usgovcloudapi.net |
-| Duitsland | *. redis.cache.cloudapi.de       |
-| China   | *. redis.cache.chinacloudapi.cn  |
+| Openbaar  | *.redis.cache.windows.net       |
+| Amerikaanse overheid  | *.redis.cache.usgovcloudapi.net |
+| Duitsland | *.redis.cache.cloudapi.de       |
+| China   | *.redis.cache.chinacloudapi.cn  |
 
 Zie de volgende koppelingen voor meer informatie over overwegingen bij het gebruik van Azure Redis-Cache met andere clouds.
 
