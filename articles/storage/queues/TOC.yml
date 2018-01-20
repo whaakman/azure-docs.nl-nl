@@ -104,7 +104,7 @@
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/storage
     - name: .NET
       items:
