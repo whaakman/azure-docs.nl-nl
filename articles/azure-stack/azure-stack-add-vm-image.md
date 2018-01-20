@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
@@ -43,7 +43,7 @@ Voer de volgende vereisten uitvoeren vanuit de [development kit](azure-stack-con
    Azure-Stack biedt ondersteuning voor de vaste schijf VHD-indeling. De vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de verschuiving van die schijf X wordt opgeslagen op de X-verschuiving van de blob. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te controleren of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
 
    > [!IMPORTANT]
-   >  Azure-Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Om dit probleem beperken, verwijdert u de virtuele machine zonder te verwijderen van de VM-schijf, een VHD-blob in een opslagaccount. Het converteren van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
+   >  Azure-Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Om dit probleem beperken, verwijdert u de virtuele machine zonder te verwijderen van de VM-schijf, een VHD-blob in een opslagaccount. Vervolgens de VHD van een dynamische schijf converteren naar een vaste schijf en de virtuele machine opnieuw te maken.
 
 Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u de volgende stappen uitvoeren:
 

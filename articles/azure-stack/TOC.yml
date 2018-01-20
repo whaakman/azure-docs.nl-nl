@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Virtuele Windows Azure Pack-machines beheren
           href: azure-stack-manage-windows-azure-pack.md
+        - name: Starten en stoppen van de Azure-Stack
+          href: azure-stack-start-and-stop.md
         - name: Hardware vervangen
           items:
             - name: Knooppunt-acties
