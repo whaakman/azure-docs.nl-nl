@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Aan de slag met de Azure SQL Database-connector
 Met de Azure SQL Database-connector, werkstromen maken voor uw organisatie die gegevens in de tabellen te beheren. 
@@ -31,7 +31,7 @@ Met SQL Database u:
 
 In dit onderwerp leest u hoe voor het gebruik van de connector van de SQL-Database in een logische app, en vindt u ook de acties.
 
-Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-overview.md) en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-sql-database"></a>Verbinding maken met Azure SQL Database
 Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld: voor verbinding met SQL-Database, u eerst een SQL-Database maken *verbinding*. Een verbinding wilt maken, moet u de referenties die u gebruikt om toegang tot de service die u verbinding met maakt invoeren. Dus in SQL-Database, Voer uw referenties voor SQL-Database om de verbinding te maken. 
@@ -42,10 +42,10 @@ Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naa
 > 
 
 ## <a name="use-a-trigger"></a>Een trigger te gebruiken
-Deze connector heeft geen triggers bestaan niet. Met andere triggers kunt starten van de logische app, zoals een trigger terugkeerpatroon, een HTTP-Webhook-trigger, triggers beschikbaar met andere connectors en meer. [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md) bevat een voorbeeld.
+Deze connector heeft geen triggers bestaan niet. Met andere triggers kunt starten van de logische app, zoals een trigger terugkeerpatroon, een HTTP-Webhook-trigger, triggers beschikbaar met andere connectors en meer. [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) bevat een voorbeeld.
 
 ## <a name="use-an-action"></a>Gebruik een actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selecteer het plusteken. Ziet u verschillende mogelijkheden: **een actie toevoegen**, **een voorwaarde toevoegen**, of een van de **meer** opties.
    
@@ -71,5 +71,5 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
 

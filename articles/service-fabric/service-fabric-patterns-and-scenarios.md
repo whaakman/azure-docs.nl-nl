@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric-patronen en scenario 's
 Als u op zoek bent bij het bouwen van grootschalige microservices met behulp van Azure Service Fabric informatie uit de deskundigen die ontwikkeld en gebouwd dit platform als een service (PaaS). Aan de slag met de juiste architectuur en vervolgens informatie over het optimaliseren van resources voor uw toepassing. De [Service Fabric Patterns and practice](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) loop antwoorden op de vragen die vaak door de werkelijke klanten gevraagd over Service Fabric-scenario's en modules.
@@ -67,7 +67,7 @@ Schakel gebaseerde games, interactieve games en die als host fungeert voor besta
 <table><tr><th>Video</th><th>PowerPoint dek</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=6wECzeSGD_3805167344">
 <img src="./media/service-fabric-patterns-and-scenarios/gaming.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=kfqFWMSGD_6205167344">Games</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=kfqFWMSGD_6205167344">Gaming</a></td></tr>
 </table>
 
 ## <a name="continuous-delivery"></a>Onafgebroken levering

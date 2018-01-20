@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd
 Er zijn diverse redenen dat u op problemen Secure Shell (SSH), SSH verbindingsfouten stuit, of SSH wordt geweigerd wanneer u probeert verbinding maken met virtuele Linux-machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt de Azure-portal, Azure CLI of uitbreiding van de VM-toegang voor Linux kunt oplossen van problemen met de verbinding.
@@ -40,7 +40,7 @@ Probeer opnieuw verbinding te maken met de virtuele machine na elke stap.
 4. Controleer de [VM resourcestatus](../../resource-health/resource-health-overview.md). 
    * Zorg ervoor dat de virtuele machine als goed rapporteert.
    * Als er diagnostische gegevens over opstarten is ingeschakeld, controleert u of dat de virtuele machine is niet rapportage van fouten in de logboeken.
-5. Start opnieuw op de virtuele machine.
+5. Start de VM opnieuw.
 6. Implementeer de virtuele machine opnieuw.
 
 Blijven lezen voor meer gedetailleerde stappen voor probleemoplossing en uitleg.
@@ -229,12 +229,12 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 Probeer deze stappen voor het oplossen van de meest voorkomende fouten van de SSH-verbinding voor VM's die zijn gemaakt met behulp van het klassieke implementatiemodel. Probeer opnieuw verbinding te maken met de virtuele machine na elke stap.
 
 * Opnieuw instellen van externe toegang van de [Azure-portal](https://portal.azure.com). De Azure-portal, selecteer uw virtuele machine en klik op de **extern opnieuw instellen...**  knop.
-* Start opnieuw op de virtuele machine. Op de [Azure-portal](https://portal.azure.com), selecteert u de virtuele machine en klik op de **opnieuw** knop.
+* Start de VM opnieuw. Op de [Azure-portal](https://portal.azure.com), selecteert u de virtuele machine en klik op de **opnieuw** knop.
     
 * Implementeer de virtuele machine naar een nieuw Azure knooppunt opnieuw. Zie voor meer informatie over het implementeren van een virtuele machine [opnieuw implementeren van virtuele machine naar een nieuw Azure knooppunt](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Nadat deze is voltooid, kortstondige schijfgegevens niet verloren en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn wordt bijgewerkt.
-* Volg de instructies in [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) naar:
+* Volg de instructies in [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) naar:
   
   * Het wachtwoord of SSH-sleutel opnieuw instellen.
   * Maak een *sudo* gebruikersaccount.
@@ -242,8 +242,8 @@ Probeer deze stappen voor het oplossen van de meest voorkomende fouten van de SS
 * Controleer de status van de VM-resource voor problemen met het platform.<br>
      Selecteer uw virtuele machine en schuif naar beneden **instellingen** > **Controleer Health**.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * Als u nog steeds niet SSH met uw virtuele machine na de na stappen te volgen, Zie [meer gedetailleerde stappen voor probleemoplossing](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) om te controleren van extra stappen uitvoeren om het probleem kunt oplossen.
 * Zie voor meer informatie over het oplossen van toegang tot toepassingen [toegang tot een toepassing die wordt uitgevoerd op een virtuele machine van Azure oplossen](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Zie voor meer informatie over het oplossen van virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Zie voor meer informatie over het oplossen van virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

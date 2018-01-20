@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Aan de slag met de DB2-connector
 Microsoft-connector voor DB2 verbindt Logic Apps met resources die zijn opgeslagen in een IBM DB2-database. Deze connector omvat een Microsoft-client om te communiceren met externe computers voor DB2-server via een TCP/IP-netwerk. Dit omvat cloud databases, zoals IBM Bluemix dashDB of IBM DB2 voor Windows wordt uitgevoerd in Azure virtualisatie en het on-premises databases die gebruikmaken van de lokale data gateway. Zie de [ondersteund lijst](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-platformen en-versies (in dit onderwerp).
@@ -35,7 +35,7 @@ De DB2-connector ondersteunt de volgende databasebewerkingen:
 
 Dit onderwerp leest u hoe u de connector in een logische app aan databasebewerkingen proces.
 
-Zie voor meer informatie over Logic Apps, [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Zie voor meer informatie over Logic Apps, [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Beschikbare acties
 De DB2-connector ondersteunt de volgende logic app acties:
@@ -87,7 +87,7 @@ Deze connector ondersteunt verbindingen met databases die worden gehost on-premi
 | --- | --- |
 | server |Vereist. Een tekenreekswaarde die staat voor een TCP/IP-adres of de alias in IPv4 of IPv6-indeling, gevolgd (gescheiden door puntkomma) door een TCP/IP-poortnummer accepteert. |
 | database |Vereist. Accepteert een string-waarde die een DRDA relationele Database naam (RDBNAM aangeeft). DB2 voor z/OS accepteert een 16-byte-tekenreeks (de database staat bekend als een IBM DB2 voor de locatie van de z-/ OS). DB2 voor i5/OS accepteert geen 18-byte-tekenreeks (database staat bekend als een IBM DB2 voor i relationele database). DB2 voor LUW accepteert een 8-byte-tekenreeks. |
-| Verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
+| verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
 | gebruikersnaam |Vereist. Een string-waarde accepteert. DB2 voor z/OS accepteert een 8-byte-tekenreeks. DB2 voor i een 10-byte-tekenreeks accepteert. DB2 voor Linux of UNIX accepteert een 8-byte-tekenreeks. DB2 voor Windows accepteert een 30-byte-tekenreeks. |
 | wachtwoord |Vereist. Een string-waarde accepteert. |
 | Gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
@@ -281,5 +281,5 @@ Deze connector ondersteunt de volgende IBM DB2-platforms en versies, evenals IBM
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
 

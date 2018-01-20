@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in logic apps batch
 
@@ -39,7 +39,7 @@ Wilt u dit voorbeeld gebruiken, moet u deze items:
 
 * Een Azure-abonnement. Als u geen abonnement hebt, kunt u [beginnen met een gratis Azure-account](https://azure.microsoft.com/free/). U kunt eventueel ook direct kiezen voor [een Betalen per gebruik-abonnement](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Elementaire kennis over [logic apps maken](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Elementaire kennis over [logic apps maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Een e-mailaccount met een [e-provider wordt ondersteund door Azure Logic Apps](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Afzender logische apps moeten weten waar items, terwijl de ontvanger logische ap
       Als u een account voor werk of school hebt, Selecteer bijvoorbeeld de Outlook van Office 365-connector. 
       Als u een Gmail-account hebt, selecteert u de connector Gmail.
 
-   3. Deze actie voor de connector selecteert:  **{*e-mailprovider*}-sturen een e-mail **
+   3. Deze actie voor de connector selecteert: **{*e-mailprovider*}-e-mailbericht verzenden**
 
       Bijvoorbeeld:
 
       ![Selecteer de actie 'E-mailbericht verzenden' voor uw e-mailprovider](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Als u niet eerder verbinding kunt voor uw e-mailprovider maken, moet u uw e-referenties opgeven voor verificatie wanneer u wordt gevraagd. Meer informatie over [verifiëren van de referenties van uw e-mailadres](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Als u niet eerder verbinding kunt voor uw e-mailprovider maken, moet u uw e-referenties opgeven voor verificatie wanneer u wordt gevraagd. Meer informatie over [verifiëren van de referenties van uw e-mailadres](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Stel de eigenschappen voor de actie die u zojuist hebt toegevoegd.
 

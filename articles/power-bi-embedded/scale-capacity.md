@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>De capaciteit van de Power BI Embedded schalen
 
@@ -26,7 +26,8 @@ In dit artikel wordt uitgelegd hoe u een Power BI Embedded capaciteit schalen in
 
 Dit wordt ervan uitgegaan dat u een Power BI Embedded capaciteit hebt gemaakt. Als u niet hebt, raadpleegt u [Power BI Embedded maken capaciteit in de Azure-portal](create-capacity.md) aan de slag.
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+> [!NOTE]
+> Een bewerking voor vergroten/verkleinen kan ongeveer een minuut duren. Gedurende deze tijd zich de capaciteit niet beschikbaar. Ingesloten inhoud kan niet worden geladen.
 
 ## <a name="scale-a-capacity"></a>Een capaciteit schalen
 

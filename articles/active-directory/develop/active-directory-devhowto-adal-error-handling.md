@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout tijdens het verwerken van aanbevolen procedures voor clients van Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Er is een reeks fouten die zijn gegenereerd door het besturingssysteem waarvoor 
 
 Fundamenteel, er zijn twee gevallen AcquireTokenSilent fouten:
 
-| Aanvraag | Beschrijving |
+| Case | Beschrijving |
 |------|-------------|
 | **Voorbeeld 1**: fout kan worden omgezet met een interactieve aanmelden | Voor fouten worden veroorzaakt door het ontbreken van geldige tokens, is een interactieve aanvraag nodig. Zoeken in het cachegeheugen en een vernieuwingstoken dat ongeldig/verlopen moet in het bijzonder een AcquireToken-aanroep om op te lossen.<br><br>In dergelijke gevallen moet de eindgebruiker gevraagd om aan te melden. De toepassing kunt kiezen voor een interactieve aanvraag doen onmiddellijk na de interactie door de eindgebruiker (zoals een knop roept) of later. De keuze is afhankelijk van het gewenste gedrag van de toepassing.<br><br>Zie de code in de volgende sectie voor deze specifieke aanvraag en de fouten die deze diagnose.|
 | **Voorbeeld 2**: fout kan niet worden omgezet met een interactieve aanmelden | Voor het netwerk en tijdelijke/tijdelijke fouten of andere fouten, uitvoeren van een interactieve AcquireToken-aanvraag komt het probleem oplossen niet. Onnodige interactief aanmelden prompts kunnen ook frustrerend kan zijn voor eindgebruikers. ADAL probeert automatisch een enkele nieuwe poging voor de meeste fouten op AcquireTokenSilent fouten.<br><br>De clienttoepassing kan ook op een later tijdstip opnieuw proberen, maar wanneer en hoe u dit doen, is afhankelijk van het gedrag van toepassingen en gewenste eindgebruikers. Bijvoorbeeld, kunnen een AcquireTokenSilent opnieuw proberen na een paar minuten of als reactie op een bepaalde actie door eindgebruikers uitvoeren. Een directe nieuwe leidt ertoe dat de toepassing wordt beperkt, en niet uit te voeren.<br><br>Een opeenvolgende pogingen mislukken met dezelfde fout betekent niet dat de client een interactieve aanvraag met AcquireToken, moet doen als de fout kan niet worden omgezet.<br><br>Zie de code in de volgende sectie voor deze specifieke aanvraag en de fouten die deze diagnose. |
@@ -58,8 +58,8 @@ Fundamenteel, er zijn twee gevallen AcquireTokenSilent fouten:
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- acquireTokenSilentAsync(...)
-- acquireTokenSilentSync(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
 - [afgeschaft] acquireTokenSilent(...)
 - [afgeschaft] acquireTokenByRefreshToken(...) 
 
@@ -102,7 +102,7 @@ catch (AdalException e) {
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- acquireTokenSilentSync(...)
+- acquireTokenSilentSync(…)
 - acquireTokenSilentAsync(...)
 - [afgeschaft] acquireTokenSilent(...)
 
@@ -138,7 +138,7 @@ public void onError(Exception e) {
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
 Uw code zou als volgt uitgevoerd:
 
@@ -252,7 +252,7 @@ catch (AdalException e) {
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- acquireToken(..., PromptBehavior.Never)
+- acquireToken(…, PromptBehavior.Never)
 
 Uw code zou als volgt uitgevoerd:
 
@@ -344,7 +344,7 @@ Als u maakt een web-app voor .NET aanroepen ontvangt een token met behulp van ee
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 Uw code zou als volgt uitgevoerd:
 
@@ -576,6 +576,7 @@ window.Logging = {
 
 Gebruik de sectie met opmerkingen die volgt om uw feedback en help ons verfijnen en onze content vorm.
 
+[![Knop aanmelden][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Gebruik de sectie met opmerkingen die volgt om uw feedback en help ons verfijnen
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[! [Knop aanmelden] [AAD-aanmeldingspagina]] [AAD-aanmeldingspagina] [AAD-aanmeldingspagina]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

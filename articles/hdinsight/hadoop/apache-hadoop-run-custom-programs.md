@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-custom-mapreduce-programs"></a>Aangepaste MapReduce-programma's uitvoeren
 
@@ -77,7 +77,7 @@ De meest voorkomende MapReduce-programma's zijn geschreven in Java en gecompilee
 
     Met deze opdracht verzonden door de MapReduce-taak voor het YARN. Het invoerbestand is `/example/data/sample.log`, en de uitvoermap is `/example/data/logoutput`. Het bestand voor invoer en uitvoerbestanden worden opgeslagen naar de opslag van de standaard voor het cluster.
 
-## <a name="see-also"></a>Zie ook
+## <a name="next-steps"></a>Volgende stappen
 
 * [Gebruik C# met MapReduce streaming van Hadoop in HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Het ontwikkelen van Java-MapReduce-programma's voor Hadoop in HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

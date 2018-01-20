@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Aan de slag met de SFTP-connector
 De SFTP-connector gebruiken voor toegang tot een SFTP-account om te verzenden en ontvangen van bestanden. U kunt verschillende bewerkingen zoals maken, bijwerken, ophalen of verwijdert u bestanden kunt uitvoeren.  
 
-Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sftp"></a>Verbinding maken met SFTP
 Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding* naar de service. Een [verbinding](connectors-overview.md) biedt connectiviteit tussen een logische app en een andere service.  
@@ -35,7 +35,7 @@ Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Gebruik een trigger SFTP
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 In dit voorbeeld wordt de **SFTP - wanneer een bestand wordt toegevoegd of gewijzigd** trigger wordt gebruikt voor het initiëren van een logische app werkstroom wanneer een bestand wordt toegevoegd aan of gewijzigd op een SFTP-server. U ook toevoegen een voorwaarde waarmee de inhoud van de nieuwe of gewijzigde bestand controleert en maakt een beslissing uitpakken van het bestand als de inhoud ervan aangeven dat deze moet worden opgehaald voordat u de inhoud. Ten slotte een actie voor het uitpakken van de inhoud van een bestand toevoegen en plaatst de geëxtraheerde inhoud in een map op de SFTP-server. 
 
@@ -51,7 +51,7 @@ In een enterprise-voorbeeld: u kunt deze trigger voor het bewaken van een map vo
 > 
 
 ## <a name="use-an-sftp-action"></a>Gebruik een SFTP-actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 

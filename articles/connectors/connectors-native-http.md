@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Aan de slag met de HTTP-actie
 
@@ -30,7 +30,7 @@ U kunt:
 * Logic app-werkstromen waarmee (trigger) wordt geactiveerd wanneer een website die u beheert uitvalt maken.
 * Naar een willekeurig eindpunt communiceren via HTTP voor het uitbreiden van uw werkstromen bij andere services.
 
-Om te beginnen met de HTTP-actie in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Om te beginnen met de HTTP-actie in een logische app, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>De HTTP-trigger te gebruiken
 Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](connectors-overview.md).
@@ -100,7 +100,7 @@ Hier volgen de details voor de trigger die ondersteuning biedt voor deze connect
 ## <a name="http-action"></a>HTTP-actie
 Hier volgen de details voor de actie die ondersteuning biedt voor deze connector. De HTTP-connector heeft een mogelijke actie.
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
 | HTTP |Maakt een HTTP-aanroep en retourneert de antwoordinhoud. |
 
@@ -111,26 +111,26 @@ De volgende tabellen beschrijven de vereiste en optionele invoervelden voor de a
 Hier volgen de invoervelden voor de actie, waardoor een uitgaande HTTP-aanvraag.
 A * houdt in dat een vereist veld.
 
-| Weergavenaam | De naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Methode * |Methode |De HTTP-term moet worden gebruikt |
-| URI * |URI |De URI voor de HTTP-aanvraag |
-| Headers |Headers |De HTTP-headers te nemen van een JSON-object |
-| Hoofdtekst |Hoofdtekst |De hoofdtekst van de HTTP-aanvraag |
-| Authentication |Verificatie |Gegevens in de [verificatie](#authentication) sectie |
+| Methode * |methode |De HTTP-term moet worden gebruikt |
+| URI * |uri |De URI voor de HTTP-aanvraag |
+| Kopteksten |headers |De HTTP-headers te nemen van een JSON-object |
+| Hoofdtekst |hoofdtekst |De hoofdtekst van de HTTP-aanvraag |
+| Verificatie |verificatie |Gegevens in de [verificatie](#authentication) sectie |
 
 <br>
 
-#### <a name="output-details"></a>Uitvoerdetails
+#### <a name="output-details"></a>Uitvoergegevens
 Hier volgen de uitvoerdetails voor het HTTP-antwoord.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Headers |object |Antwoordheaders |
+| Kopteksten |object |Antwoordheaders |
 | Hoofdtekst |object |Response-object |
 | Statuscode |int |HTTP-statuscode |
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 De functie Logic Apps kunt u verschillende soorten verificatie op basis van HTTP-eindpunten. U kunt deze verificatie met de **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, en  **[HTTP-Webhook](connectors-native-webhook.md)**  connectors. De volgende soorten authenticatie worden geconfigureerd:
 
 * [Basisverificatie](#basic-authentication)
@@ -142,9 +142,9 @@ De functie Logic Apps kunt u verschillende soorten verificatie op basis van HTTP
 De volgende verificatieobject is nodig voor basisverificatie.
 A * houdt in dat een vereist veld.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Type * |type |Type verificatie (moet `Basic` voor basisverificatie) |
+| Type* |type |Type verificatie (moet `Basic` voor basisverificatie) |
 | Gebruikersnaam * |gebruikersnaam |Gebruikersnaam voor verificatie |
 | Wachtwoord * |wachtwoord |Wachtwoord voor verificatie |
 
@@ -166,10 +166,10 @@ Bijvoorbeeld:
 
 De volgende verificatieobject is nodig voor verificatie van clientcertificaten. A * houdt in dat een vereist veld.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Type * |type |Het type verificatie (moet `ClientCertificate` voor SSL-certificaten voor client) |
-| PFX * |PFX |De Base64-gecodeerde inhoud van het bestand (Personal Information Exchange (PFX) |
+| Type* |type |Het type verificatie (moet `ClientCertificate` voor SSL-certificaten voor client) |
+| PFX* |pfx |De Base64-gecodeerde inhoud van het bestand (Personal Information Exchange (PFX) |
 | Wachtwoord * |wachtwoord |Het wachtwoord voor toegang tot het PFX-bestand |
 
 > [!TIP]
@@ -189,13 +189,13 @@ Bijvoorbeeld:
 #### <a name="azure-ad-oauth-authentication"></a>Azure AD-OAuth-verificatie
 De volgende verificatieobject is nodig voor Azure AD OAuth-verificatie. A * houdt in dat een vereist veld.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Type * |type |Het type verificatie (moet `ActiveDirectoryOAuth` voor Azure AD OAuth) |
-| Tenant * |Tenant |De tenant-id voor de Azure AD-tenant |
+| Type* |type |Het type verificatie (moet `ActiveDirectoryOAuth` voor Azure AD OAuth) |
+| Tenant* |tenant |De tenant-id voor de Azure AD-tenant |
 | Doelgroep * |doelgroep |De bron die u aanvraagt autorisatie moet worden gebruikt. Bijvoorbeeld: `https://management.core.windows.net/` |
 | Client -ID * |clientId |De client-id voor de Azure AD-toepassing |
-| Geheim * |Geheim |Het geheim van de client die het token is aangevraagd |
+| Geheim * |geheim |Het geheim van de client die het token is aangevraagd |
 
 > [!TIP]
 > U kunt een `securestring` parameter en de `@parameters()` [Werkstroomfunctie definitie](http://aka.ms/logicappdocs) gebruiken een parameter die niet leesbaar in de definitie nadat ze zijn opgeslagen.
@@ -215,5 +215,5 @@ Bijvoorbeeld:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu uitproberen van het platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt de beschikbare connectors in Logic Apps verkennen door te kijken onze [API's lijst](apis-list.md).
+Nu uitproberen van het platform en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). U kunt de beschikbare connectors in Logic Apps verkennen door te kijken onze [API's lijst](apis-list.md).
 

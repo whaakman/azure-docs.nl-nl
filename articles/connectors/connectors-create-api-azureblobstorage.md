@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Gebruik de Azure blob storage-connector in een logische app
 De Azure Blob storage-connector gebruiken om te uploaden, bijwerken, ophalen en verwijderen van blobs in uw opslagaccount, alle binnen een logische app.  
@@ -31,9 +31,7 @@ Met Azure blob storage, u:
 
 Dit onderwerp leest u het gebruik van de blob-opslag-connector in een logische app.
 
-Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
-
-Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-overview.md) en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Verbinding maken met Azure blob-opslag
 Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld, als u wilt verbinding maken met een opslagaccount, u eerst maken een blob-opslag *verbinding*. Voer de referenties die u gebruikt om toegang tot de service die u verbinding met maakt een verbinding wilt maken. Voer dus de referenties naar uw storage-account om de verbinding te maken met Azure storage. 
@@ -42,7 +40,7 @@ Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naa
 > [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 ## <a name="use-a-trigger"></a>Een trigger te gebruiken
-Deze connector heeft geen triggers bestaan niet. Met andere triggers kunt starten van de logische app, zoals een trigger terugkeerpatroon, een HTTP-Webhook-trigger, triggers beschikbaar met andere connectors en meer. [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md) bevat een voorbeeld.
+Deze connector heeft geen triggers bestaan niet. Met andere triggers kunt starten van de logische app, zoals een trigger terugkeerpatroon, een HTTP-Webhook-trigger, triggers beschikbaar met andere connectors en meer. [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) bevat een voorbeeld.
 
 ## <a name="use-an-action"></a>Gebruik een actie
 Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app.
@@ -74,5 +72,5 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/azureblobconnector/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Aan de slag met de queryactie
 Met behulp van de queryactie, kunt u met de batches en matrices voor het uitvoeren van werkstromen te werken:
@@ -27,7 +27,7 @@ Met behulp van de queryactie, kunt u met de batches en matrices voor het uitvoer
 * Een taak maken voor alle hoge prioriteit records uit een database.
 * Sla alle PDF-bijlagen voor e-mailberichten naar een Azure-blob.
 
-Om te beginnen met de queryactie in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Om te beginnen met de queryactie in een logische app, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Gebruik de queryactie
 Een actie is een bewerking die wordt uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](connectors-overview.md).  
@@ -54,31 +54,31 @@ Hier ziet u hoe u deze in een logische app kunt toevoegen:
 ## <a name="query-action"></a>Queryactie
 Hier volgen de details voor de actie die ondersteuning biedt voor deze connector. De connector is een mogelijke actie.
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
-| Matrix van filter |Evalueert een voorwaarde voor elk item in een matrix en de resultaten geretourneerd |
+| Matrix filteren |Evalueert een voorwaarde voor elk item in een matrix en de resultaten geretourneerd |
 
 ## <a name="action-details"></a>Actiedetails
 De queryactie wordt geleverd met een mogelijke actie. De volgende tabellen beschrijven de vereiste en optionele invoervelden voor de actie en de bijbehorende uitvoerdetails die zijn gekoppeld met de actie.
 
-### <a name="filter-array"></a>Matrix van filter
+### <a name="filter-array"></a>Matrix filteren
 Hier volgen de invoervelden voor de actie, waardoor een uitgaande HTTP-aanvraag.
 A * houdt in dat een vereist veld.
 
-| Weergavenaam | De naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Van * |Van |De matrix om te filteren |
+| Van * |uit |De matrix om te filteren |
 | Voorwaarde * |waar |De voorwaarde om te evalueren voor elk item |
 
 <br>
 
-### <a name="output-details"></a>Uitvoerdetails
+### <a name="output-details"></a>Uitvoergegevens
 Hier volgen de uitvoerdetails voor het HTTP-antwoord.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Gefilterde matrix |matrix |Een matrix met een object voor elk gefilterde resultaat |
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu uitproberen van het platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt de beschikbare connectors in logische apps door te kijken verkennen onze [API's lijst](apis-list.md).
+Nu uitproberen van het platform en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). U kunt de beschikbare connectors in logische apps door te kijken verkennen onze [API's lijst](apis-list.md).
 

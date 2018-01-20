@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
-ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: fe7966d1817dc7f7896435f9202d2bcea981b5f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Virtuele Azure-machines repliceren naar een andere regio na de migratie naar Azure met behulp van Azure Site Recovery
 
@@ -51,7 +51,7 @@ Na de migratie moet u niet doorvoeren of verwijderen van een failover. Selecteer
 2. De **volledige migratie** action het migratieproces is voltooid, verwijdert u de replicatie voor de machine en Hiermee stopt u Site Recovery facturering voor de machine.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Stap 2: Installeer de Azure VM-agent op de virtuele machine
-De Azure [VM-agent](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) moet worden geïnstalleerd op de virtuele machine voor de uitbreiding van de Site Recovery werkt en bescherming van de virtuele machine.
+De Azure [VM-agent](../../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) moet worden geïnstalleerd op de virtuele machine voor de uitbreiding van de Site Recovery werkt en bescherming van de virtuele machine.
 
 >[!IMPORTANT]
 >Vanaf versie 9.7.0.0, op Windows virtuele machines, installeert het installatieprogramma van de Mobility-service ook de meest recente beschikbare Azure VM-agent. De virtuele machine voldoet aan de vereisten voor het gebruik van een VM-extensie, inclusief de Site Recovery-extensie de installatie van de agent op migratie. De Azure VM-agent moet handmatig worden geïnstalleerd alleen als de Mobility-service op de gemigreerde computer geïnstalleerde versie 9,6 of lager.

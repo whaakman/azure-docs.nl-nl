@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Met behulp van connectors in een logische app
 Connectors bieden snel toegang tot de gebeurtenissen, gegevens en acties services, protocollen en-platforms.  De volledige lijst van connectors die ondersteuning biedt voor logische Apps kunt [hier vinden](apis-list.md).  Connectors kunnen worden gebruikt als een trigger of een actie in een logische app, en mogelijk een geconfigureerde *verbinding* te gebruiken (bijvoorbeeld: een Twitter-account voor toegang tot of post een bericht namens jou te autoriseren).
@@ -37,7 +37,7 @@ Als u integreren met een service of API die niet nog een connector wilt, kunt u 
 Sommige verbindingslijnen hebben een trigger, wat betekent dat een gebeurtenis op basis van die connector wordt gestart van een logische app en wordt doorgegeven in de gegevens als onderdeel van de trigger.  Een trigger is altijd de eerste stap in een logische app.  Populaire triggers zijn bewerkingen zoals:
 
 * Terugkeerpatroon - elk uur uitgevoerd
-* Wanneer een HTTP-aanvraag is ontvangen
+* Wanneer een HTTP-aanvraag wordt ontvangen
 * Wanneer een item wordt toegevoegd aan een wachtrij
 * Wanneer u een e-mail ontvangen
 
@@ -56,7 +56,7 @@ De meeste connectors vereisen dat u configureert een *verbinding* voordat u de c
 Verbindingen worden weergegeven en beheerd in Azure door te klikken op **Bladeren** en het selecteren van **API verbindingen**.  Van de resource-API-verbindingen kunt u weergeven, bewerken, bijwerken of opnieuw autoriseren alle verbindingen die u hebt gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Meer informatie over algemene gebruikt en voorbeelden van logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Aan de slag met enterprise integration-triggers en acties](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

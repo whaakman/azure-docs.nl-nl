@@ -29,7 +29,7 @@ Voordat u een schijf van een virtuele machine kunt loskoppelen, moet u achter he
 3. Noteer het LUN, oftewel het **nummer van de logische eenheid**, voor de schijf die u wilt loskoppelen.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Verwijzingen van het besturingssysteem naar de schijf verwijderen
-Voordat u de schijf loskoppelt van de Linux-gast, moet u ervoor zorgen dat geen van de partities op de schijf in gebruik is. Zorg ervoor dat het besturingssysteem ze na de reboot niet opnieuw probeert te koppelen. Met deze stappen maakt u de configuratie ongedaan die u waarschijnlijk hebt gemaakt tijdens het [koppelen](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) van de schijf.
+Voordat u de schijf loskoppelt van de Linux-gast, moet u ervoor zorgen dat geen van de partities op de schijf in gebruik is. Zorg ervoor dat het besturingssysteem ze na de reboot niet opnieuw probeert te koppelen. Met deze stappen maakt u de configuratie ongedaan die u waarschijnlijk hebt gemaakt tijdens het [koppelen](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) van de schijf.
 
 1. Gebruik de opdracht `lsscsi` om de schijf-id te achterhalen. U kunt `lsscsi` installeren met `yum install lsscsi` (Red Hat-distributies) of `apt-get install lsscsi` (Debian-distributies). De schijf-id kunt u vinden met behulp van het LUN. Het laatste getal in elke rij van de tuple is het LUN. In het volgende voorbeeld van `lsscsi`, is LUN 0 toegewezen aan */dev/sdc*.
 

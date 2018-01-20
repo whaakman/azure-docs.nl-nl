@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 04fa529a0d84f0413c825fef04eadea2496c02cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Inleiding tot het ontwerpen van tabellen in Azure SQL Data Warehouse
 
@@ -37,34 +37,27 @@ Een [sterschema](https://en.wikipedia.org/wiki/Star_schema) gegevens zijn gerang
 ## <a name="schema-and-table-names"></a>Schema- en tabelnamen
 In SQL Data Warehouse is een datawarehouse een type van de database. Alle tabellen in het datawarehouse bevinden zich in dezelfde database.  U kan niet deelnemen aan tabellen in meerdere datawarehouses. Dit gedrag verschilt van de SQL-Server die ondersteuning biedt voor meerdere databases joins. 
 
-In een SQL Server-database, kan u feitelijke dimensie, gebruiken of integreren voor de schemanamen. Als u een SQL Server-database naar SQL Data Warehouse overbrengt, het beste werkt voor het migreren van alle tabellen feitelijke dimensie en integratie aan een schema opslaan in SQL Data Warehouse. U kan bijvoorbeeld opslaan van alle tabellen in de [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) voorbeeld datawarehouse binnen één schema WWI aangeroepen. De volgende code maakt een [gebruiker gedefinieerde schema](/sql/t-sql/statements/create-schema-transact-sql) WWI aangeroepen.
+In een SQL Server-database, kan u feitelijke dimensie, gebruiken of integreren voor de schemanamen. Als u een SQL Server-database naar SQL Data Warehouse overbrengt, het beste werkt voor het migreren van alle tabellen feitelijke dimensie en integratie aan een schema opslaan in SQL Data Warehouse. U kan bijvoorbeeld opslaan van alle tabellen in de [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) voorbeeld datawarehouse binnen één schema wwi aangeroepen. De volgende code maakt een [gebruiker gedefinieerde schema](/sql/t-sql/statements/create-schema-transact-sql) wwi aangeroepen.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-Gebruik feitelijke dimensie en int als voorvoegsels zodat de tabelnamen zodat de organisatie van de tabellen in SQL Data Warehouse. De volgende tabel bevat enkele van de schema- en tabelnamen voor WideWorldImportersDW. De namen in SQL Server en SQL Data Warehouse worden vergeleken. 
+Als de organisatie van de tabellen in SQL Data Warehouse weergeven, kunt u feitelijke dimensie en int gebruiken als voorvoegsels zodat de tabelnamen. De volgende tabel bevat enkele van de schema- en tabelnamen voor WideWorldImportersDW. De namen in SQL Server met de namen in SQL Data Warehouse worden vergeleken. 
 
-| Dimensietabellen WWI  | SQL Server | SQL Data Warehouse |
+| WideWorldImportersDW tabel  | Tabeltype | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| Plaats | Dimension.City | WWI. DimCity |
-| Klant | Dimension.Customer | WWI. DimCustomer |
-| Date | Dimension.Date | WWI. DimDate |
-
-| Feitentabellen WWI | SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| Volgorde | Fact.Order | WWI. FactOrder |
-| Verkoop  | Fact.Sale  | WWI. FactSale  |
-| Kopen | Feit | WWI. FactPurchase |
+| Plaats | Dimensie | Dimension.City | wwi.DimCity |
+| Volgorde | Fact | Fact.Order | wwi.FactOrder |
 
 
-## <a name="table-definition"></a>Definitie van de tabel 
+## <a name="table-persistence"></a>Persistentie van de tabel 
 
-De volgende concepten uitgelegd belangrijke aspecten om tabellen te definiëren. 
+Tabellen gegevensopslag permanent in Azure Storage, tijdelijk in Azure Storage, of in een datawarehouse externe gegevensarchief.
 
-### <a name="standard-table"></a>Standaard tabel
+### <a name="regular-table"></a>Gewone tabellen
 
-Een standaard tabel wordt opgeslagen in Azure Storage als onderdeel van het datawarehouse. De tabel en de gegevens behouden blijven ongeacht of een sessie geopend is.  In dit voorbeeld maakt een tabel met twee kolommen. 
+Een gewone tabellen worden de gegevens in Azure Storage als onderdeel van het datawarehouse opgeslagen. De tabel en de gegevens behouden blijven ongeacht of een sessie geopend is.  In dit voorbeeld maakt een gewone tabel met twee kolommen. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -76,36 +69,49 @@ Een tijdelijke tabel is alleen beschikbaar voor de duur van de sessie. U kunt ee
 ### <a name="external-table"></a>Externe tabel
 Een externe tabel verwijst naar gegevens die zich bevinden in Azure blob-opslag- of Azure Data Lake Store. Wanneer gebruikt in combinatie met de instructie CREATE TABLE AS SELECT, importeert selecteren in een externe tabel gegevens in SQL Data Warehouse. Externe tabellen zijn daarom nuttig voor het laden van gegevens. Zie voor een zelfstudie laden [gebruik PolyBase om gegevens te laden uit Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
-### <a name="data-types"></a>Gegevenstypen
+## <a name="data-types"></a>Gegevenstypen
 SQL Data Warehouse ondersteunt gebruikte de meest gegevenstypen. Zie voor een lijst van de ondersteunde gegevenstypen [gegevenstypen](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in de instructie CREATE TABLE. Voor het minimaliseren van de grootte van gegevenstypen kunt u queryprestaties verbeteren. Zie voor instructies over gegevenstypen [gegevenstypen](sql-data-warehouse-tables-data-types.md).
 
-### <a name="distributed-tables"></a>Gedistribueerde tabellen
-Een fundamenteel onderdeel van SQL Data Warehouse is de manier waarop deze tabellen kan opslaan op 60 gedistribueerde locaties distributies wordt aangeroepen in het gedistribueerde systeem.  SQL Data Warehouse kunt opslaan van een tabel in een van deze drie manieren:
+## <a name="distributed-tables"></a>Gedistribueerde tabellen
+Een fundamenteel onderdeel van SQL Data Warehouse is de manier waarop deze tabellen kan opslaan op 60 gedistribueerde locaties distributies wordt aangeroepen in het gedistribueerde systeem.  De tabel worden gedistribueerd met behulp van een methode round robin, hash of replicatie.
 
-- **Round robin** winkels tabelrijen willekeurig maar gelijkmatig over de distributies. De tabel round robin realiseert snelle laden prestaties, maar gegevensverplaatsing van meer dan de andere methoden voor query's die lid worden van kolommen vereist. 
-- **Hash** distributiepunten distribueert rijen op basis van de waarde in de kolom van het distributiepunt. De tabel hash gedistribueerd heeft de meeste mogelijkheden voor hoge prestaties voor query-verbindingen in grote tabellen. Er zijn verschillende factoren die invloed hebben op de keuze van de distributie-kolom. Zie voor meer informatie [tabellen gedistribueerd](sql-data-warehouse-tables-distribute.md).
-- **Gerepliceerd** tabellen een volledige kopie van de tabel beschikbaar maken op elk rekenknooppunt. Query's uitvoeren snel op gerepliceerde tabellen omdat joins in gerepliceerde tabellen geen verplaatsing van gegevens vereisen. Replicatie extra opslag vereist, en is het niet praktisch voor grote tabellen. Zie voor meer informatie [richtlijnen voor gerepliceerde tabellen ontwerpen](design-guidance-for-replicated-tables.md).
+### <a name="hash-distributed-tables"></a>Gedistribueerd hash tabellen
+De hash-distributie distribueert rijen op basis van de waarde in de kolom van het distributiepunt. De tabel hash gedistribueerd heeft de meeste mogelijkheden voor hoge prestaties voor query-verbindingen in grote tabellen. Er zijn verschillende factoren die invloed hebben op de keuze van de distributie-kolom. 
 
-De tabelcategorie wordt vaak bepaalt welke optie te kiezen voor het distribueren van de tabel.  
+Zie voor meer informatie [richtlijnen voor gedistribueerde tabellen ontwerpen](sql-data-warehouse-tables-distribute.md).
+
+### <a name="replicated-tables"></a>Gerepliceerde tabellen
+Een gerepliceerde tabel heeft een volledige kopie van de tabel die beschikbaar is op elk rekenknooppunt. Query's uitvoeren snel op gerepliceerde tabellen omdat joins in gerepliceerde tabellen geen verplaatsing van gegevens vereisen. Replicatie extra opslag vereist, en is het niet praktisch voor grote tabellen. 
+
+Zie voor meer informatie [richtlijnen voor gerepliceerde tabellen ontwerpen](design-guidance-for-replicated-tables.md).
+
+### <a name="round-robin-tables"></a>Round robin tabellen
+Een tabel round robin worden tabelrijen gelijkmatig over alle distributies verdeeld. De rijen worden willekeurig gedistribueerd. Laden van gegevens in een tabel round robin is zeer snel.  Query's vereisen echter meer gegevensverplaatsing dan de andere distributiemethoden. 
+
+Zie voor meer informatie [richtlijnen voor gedistribueerde tabellen ontwerpen](sql-data-warehouse-tables-distribute.md).
+
+
+### <a name="common-distribution-methods-for-tables"></a>Algemene methoden van verkeersdistributie voor tabellen
+De tabelcategorie wordt vaak bepaalt welke optie te kiezen voor het distribueren van de tabel. Tabellen worden meestal gedistribueerd basis van het type van de tabel. 
 
 | Tabelcategorie | Optie aanbevolen distributie |
 |:---------------|:--------------------|
-| Feit           | Hash-distributiepunt gebruiken met geclusterde columnstore-index. Prestaties verbeteren door twee hashtabellen zijn gekoppeld op dezelfde kolom van het distributiepunt. |
+| Fact           | Hash-distributiepunt gebruiken met geclusterde columnstore-index. Prestaties verbeteren door twee hashtabellen zijn gekoppeld op dezelfde kolom van het distributiepunt. |
 | Dimensie      | Gebruik voor kleinere tabellen zijn gerepliceerd. Als tabellen te groot om op te slaan op elk rekenknooppunt zijn, gebruikt u de hash is gedistribueerd. |
 | Faseren        | Round robin gebruiken voor de faseringstabel. De werklast met CTAS is snel. Nadat de gegevens in de faseringstabel is, gebruikt u INSERT... Selecteer de gegevens worden verplaatst naar een productie-tabellen. |
 
-### <a name="table-partitions"></a>Tabelpartities
+## <a name="table-partitions"></a>Tabelpartities
 Een gepartitioneerde tabel slaat en bewerkingen worden uitgevoerd op de tabelrijen volgens gegevensbereiken. Een tabel kan bijvoorbeeld worden gepartitioneerd per dag, maand of jaar. U kunt query performance partitie elimineren, waardoor een query worden gescand om gegevens binnen een partitie te verbeteren. U kunt ook de gegevens via het overschakelen van de partitie onderhouden. Omdat de gegevens in SQL Data Warehouse al is gedistribueerd, kunnen de partities te veel queryprestaties kunnen afnemen. Zie voor meer informatie [richtlijnen partitioneren](sql-data-warehouse-tables-partition.md).
 
-### <a name="columnstore-indexes"></a>Columnstore-indexen
+## <a name="columnstore-indexes"></a>Columnstore-indexen
 Standaard wordt een tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Deze vorm van gegevensopslag realiseert hoge gegevenscompressie en prestaties van query's op grote tabellen.  De geclusterde columnstore-index is meestal de beste keuze, maar in sommige gevallen een geclusterde index of een heap is de juiste opslagstructuur.
 
 Zie voor een lijst met functies columnstore [wat is er nieuw voor columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Columnstore-index om prestaties te verbeteren, Zie [rijgroep kwaliteit voor columnstore-indexen optimaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-### <a name="statistics"></a>statistieken
+## <a name="statistics"></a>statistieken
 De queryoptimizer maakt gebruik van statistieken op kolomniveau bij het maken van het plan voor een query uit te voeren. Ter verbetering van de prestaties van query's, is het belangrijk dat u statistieken maakt voor afzonderlijke kolommen, met name de kolommen in de query wordt gebruikt. Maken en bijwerken van statistieken gebeurt niet automatisch. [Maken van statistieken](/sql/t-sql/statements/create-statistics-transact-sql) na het maken van een tabel. Statistieken bijwerken nadat u een groot aantal rijen zijn toegevoegd of gewijzigd. Bijvoorbeeld: statistieken bijwerken na een belasting. Zie voor meer informatie [statistieken richtlijnen](sql-data-warehouse-tables-statistics.md).
 
-## <a name="ways-to-create-tables"></a>Manieren om tabellen te maken
+## <a name="commands-for-creating-tables"></a>Opdrachten voor het maken van tabellen
 Als een nieuwe lege tabel kunt u een tabel. U kunt ook maken en vullen van een tabel met de resultaten van een select-instructie. Hieronder vindt u de T-SQL-opdrachten voor het maken van een tabel.
 
 | T-SQL-instructie | Beschrijving |
@@ -131,7 +137,7 @@ SQL Data Warehouse biedt ondersteuning voor veel, maar niet alle tabelfuncties d
 - [Reeks](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Sparse kolommen](/sql/relational-databases/tables/use-sparse-columns)
 - [Vervangend sleutels](). Implementeren met [identiteit](sql-data-warehouse-tables-identity.md).
-- [Synoniemen](/sql/t-sql/statements/create-synonym-transact-sql)
+- [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Triggers](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unieke indexen](/sql/t-sql/statements/create-index-transact-sql)
 - [Gebruiker gedefinieerde typen](/sql/relational-databases/native-client/features/using-user-defined-types)

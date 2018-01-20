@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: dac4e926868e76d73512bc8b16856bfff2a889aa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ea2258b953925116f759655583d9601c5a55db7c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Gegevens kopiëren van HBase met behulp van Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, d
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met HBase-connector.
 
@@ -45,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **HBase** | Ja |
-| host | Het IP-adres of de hostnaam naam van de HBase-server. (dat wil zeggen 192.168.222.160)  | Ja |
+| host | Het IP-adres of de hostnaam naam van de HBase-server. (i.e. 192.168.222.160)  | Ja |
 | poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar verbindingen van clients. De standaardwaarde is 9090.  | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de HBase-server. (dat wil zeggen /gateway/sandbox/hbase/version)  | Nee |
 | authenticationType | Het verificatiemechanisme gebruiken om te verbinden met de HBase-server. <br/>Toegestane waarden zijn: **anoniem**, **Basic** | Ja |

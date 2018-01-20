@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configureren van een webhook op een Azure metrische waarschuwing
 Webhooks kunt u een Azure waarschuwingsmeldingen versturen met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar de services die de SMS-bericht verzenden, meld bugs, een team via chat/berichtenservices melden of komen een aantal andere acties. Dit artikel wordt beschreven hoe u een webhook instelt voor een Azure metrische waarschuwing en hoe de nettolading voor de HTTP POST naar een webhook eruit ziet. Voor informatie over de installatie en het schema voor een Azure Activity Log-signaal (waarschuwing van gebeurtenissen) [deze pagina vindt u in plaats daarvan](insights-auditlog-to-webhook-email.md).
@@ -40,34 +40,37 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
@@ -81,14 +84,14 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 | naam |J | |De naam van de waarschuwing. |
 | description |J | |Beschrijving van de waarschuwing. |
 | conditionType |J |'Metrische', 'Gebeurtenis' |Twee typen waarschuwingen worden ondersteund. Op basis van een metrische voorwaarde en de andere op basis van een gebeurtenis in het gebeurtenissenlogboek. Gebruik deze waarde om te controleren of de waarschuwing is gebaseerd op metriek of gebeurtenis. |
-| Voorwaarde |J | |De specifieke velden om te controleren voor op basis van de conditionType. |
+| voorwaarde |J | |De specifieke velden om te controleren voor op basis van de conditionType. |
 | metricName |voor metrische waarschuwingen | |De naam van de metrische gegevens die definieert wat de regel wordt bewaakt. |
-| metricUnit |voor metrische waarschuwingen |'Bytes', 'BytesPerSecond', 'Count', 'CountPerSecond', 'Percentage', 'Seconds' |De eenheid die is toegestaan in de metrische gegevens. [Toegestane waarden worden hier vermeld](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |voor metrische waarschuwingen |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |De eenheid die is toegestaan in de metrische gegevens. [Toegestane waarden worden hier vermeld](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |voor metrische waarschuwingen | |De werkelijke waarde van de metrische gegevens die de waarschuwing heeft veroorzaakt. |
 | Drempelwaarde |voor metrische waarschuwingen | |De drempelwaarde waarbij de waarschuwing wordt geactiveerd. |
-| Venstergrootte |voor metrische waarschuwingen | |De periode die wordt gebruikt voor het bewaken van de waarschuwing activiteit op basis van de drempelwaarde. Moet tussen 5 minuten en 1 dag. ISO 8601-duurnotatie. |
-| TimeAggregation van |voor metrische waarschuwingen |'Gemiddeld', 'Laatste', 'Maximum', 'Minimale', 'None', 'Totaal' |Hoe de gegevens die worden verzameld moeten worden gecombineerd gedurende een bepaalde periode. De standaardwaarde is de gemiddelde. [Toegestane waarden worden hier vermeld](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| Operator |voor metrische waarschuwingen | |De operator die wordt gebruikt voor de huidige metrische gegevens vergelijken met de ingestelde drempelwaarde. |
+| windowSize |voor metrische waarschuwingen | |De periode die wordt gebruikt voor het bewaken van de waarschuwing activiteit op basis van de drempelwaarde. Moet tussen 5 minuten en 1 dag. ISO 8601-duurnotatie. |
+| timeAggregation |voor metrische waarschuwingen |'Gemiddeld', 'Laatste', 'Maximum', 'Minimale', 'None', 'Totaal' |Hoe de gegevens die worden verzameld moeten worden gecombineerd gedurende een bepaalde periode. De standaardwaarde is de gemiddelde. [Toegestane waarden worden hier vermeld](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| operator |voor metrische waarschuwingen | |De operator die wordt gebruikt voor de huidige metrische gegevens vergelijken met de ingestelde drempelwaarde. |
 | subscriptionId |J | |Azure-abonnement-ID. |
 | resourceGroupName |J | |De naam van de resourcegroep voor de betrokken resource. |
 | resourceName |J | |De naam van de bron van de betrokken resource. |

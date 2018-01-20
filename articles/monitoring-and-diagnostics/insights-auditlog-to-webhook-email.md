@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Een webhook aanroepen in Azure Activity Log waarschuwingen
 Webhooks kunt u een Azure waarschuwingsmeldingen versturen met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar de services die de SMS-bericht verzenden, meld bugs, een team via chat/berichtenservices melden of komen een aantal andere acties. Dit artikel wordt beschreven hoe u een webhook moet worden aangeroepen wanneer een waarschuwing wordt geactiveerd voor een Azure Activity Log instelt. Ook ziet u hoe de nettolading voor de HTTP POST naar een webhook eruit ziet. Voor informatie over de installatie en het schema voor een Azure metrische waarschuwing [deze pagina vindt u in plaats daarvan](insights-webhooks-alerts.md). U kunt ook een waarschuwing activiteitenlogboek instellen voor het verzenden van e-mailbericht wanneer geactiveerd.
@@ -39,51 +39,66 @@ De webhook kunt verifiëren met behulp van deze methoden:
 ## <a name="payload-schema"></a>De nettolading van schema
 De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waarschuwingen op basis van het activiteitenlogboek. Dit schema is vergelijkbaar met op waarschuwingen op basis van metrische gegevens.
 
-```
+```json
 {
-        "status": "Activated",
-        "context": {
-                "resourceProviderName": "Microsoft.Web",
-                "event": {
-                        "$type": "Microsoft.WindowsAzure.Management.Monitoring.Automation.Notifications.GenericNotifications.Datacontracts.InstanceEventContext, Microsoft.WindowsAzure.Management.Mon.Automation",
-                        "authorization": {
-                                "action": "Microsoft.Web/sites/start/action",
-                                "scope": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest"
-                        },
-                        "eventDataId": "327caaca-08d7-41b1-86d8-27d0a7adb92d",
-                        "category": "Administrative",
-                        "caller": "myname@mycompany.com",
-                        "httpRequest": {
-                                "clientRequestId": "f58cead8-c9ed-43af-8710-55e64def208d",
-                                "clientIpAddress": "104.43.166.155",
-                                "method": "POST"
-                        },
-                        "status": "Succeeded",
-                        "subStatus": "OK",
-                        "level": "Informational",
-                        "correlationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "eventDescription": "",
-                        "operationName": "Microsoft.Web/sites/start/action",
-                        "operationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "properties": {
-                                "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage",
-                                "statusCode": "OK",
-                                "serviceRequestId": "f7716681-496a-4f5c-8d14-d564bcf54714"
-                        }
-                },
-                "timestamp": "Friday, March 11, 2016 9:13:23 PM",
-                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/alertonevent2",
-                "name": "alertonevent2",
-                "description": "test alert on event start",
-                "conditionType": "Event",
-                "subscriptionId": "s1",
-                "resourceId": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest",
-                "resourceGroupName": "rg1"
-        },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
+    "WebhookName": "Alert1515526229589",
+    "RequestBody": {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "authorization": {
+                        "action": "Microsoft.Compute/virtualMachines/deallocate/action",
+                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1"
+                    },
+                    "channels": "Operation",
+                    "claims": {
+                        "aud": "https://management.core.windows.net/",
+                        "iss": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "iat": "1234567890",
+                        "nbf": "1234567890",
+                        "exp": "1234567890",
+                        "aio": "Y2NgYBD8ZLlhu27JU6WZsXemMIvVAAA=",
+                        "appid": "00000000-0000-0000-0000-000000000000",
+                        "appidacr": "2",
+                        "e_exp": "262800",
+                        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                        "uti": "XnCk46TrDkOQXwo49Y8fAA",
+                        "ver": "1.0"
+                    },
+                    "caller": "00000000-0000-0000-0000-000000000000",
+                    "correlationId": "00000000-0000-0000-0000-000000000000",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-01-09T20:11:25.8410967+00:00",
+                    "eventDataId": "00000000-0000-0000-0000-000000000000",
+                    "level": "Informational",
+                    "operationName": "Microsoft.Compute/virtualMachines/deallocate/action",
+                    "operationId": "00000000-0000-0000-0000-000000000000",
+                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+                    "resourceGroupName": "ContosoVM",
+                    "resourceProviderName": "Microsoft.Compute",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "submissionTimestamp": "2018-01-09T20:11:40.2986126+00:00",
+                    "resourceType": "Microsoft.Compute/virtualMachines"
+                }
+            },
+            "properties": {}
         }
+    },
+    "RequestHeader": {
+        "Expect": "100-continue",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "IcMBroadcaster/1.0",
+        "X-CorrelationContext": "RkkKACgAAAACAAAAEADlBbM7x86VTrHdQ2JlmlxoAQAQALwazYvJ/INPskb8S5QzgDk=",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
 }
 ```
 
@@ -91,31 +106,30 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 | --- | --- |
 | status |Gebruikt voor metrische waarschuwingen. Altijd ingesteld op 'geactiveerd' voor activiteitenlogboek van waarschuwingen. |
 | Context |De context van de gebeurtenis. |
-| resourceProviderName |De resourceprovider van de betrokken resource. |
-| conditionType |Altijd 'gebeurtenis'. |
-| naam |Naam van de waarschuwingsregel. |
-| id |Bron-ID van de waarschuwing. |
+| activityLog | De logboekeigenschappen van de gebeurtenis.|
+| Autorisatie |De RBAC-eigenschappen van de gebeurtenis. Deze omvatten doorgaans de "action", 'rol' en het 'bereik'. |
+| actie | De actie opgenomen door de waarschuwing. |
+| Bereik | Bereik van de waarschuwing (eenledige resource).|
+| kanalen | Bewerking |
+| claims | Een verzameling gegevens is op is gekoppeld aan de claims. |
+| oproepende functie |GUID of de gebruikersnaam van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen zijn. |
+| correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
 | description |Beschrijving van de waarschuwing als set tijdens het maken van de waarschuwing. |
-| subscriptionId |Azure-abonnement-ID. |
-| tijdstempel |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die de aanvraag verwerkt. |
+| eventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
+| eventTimestamp |Tijdstip waarop die de gebeurtenis heeft plaatsgevonden. |
+| eventDataId |De unieke id voor de gebeurtenis. |
+| niveau |Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en "Verbose." |
+| operationName |De naam van de bewerking. |
+| operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |
 | resourceId |Bron-ID van de betrokken resource. |
 | resourceGroupName |Naam van de resourcegroep voor de betrokken resource |
-| properties |Een set `<Key, Value>` paren (dat wil zeggen `Dictionary<String, String>`) die bevat details over de gebeurtenis. |
-| Gebeurtenis |Element met metagegevens over de gebeurtenis. |
-| Autorisatie |De RBAC-eigenschappen van de gebeurtenis. Deze omvatten doorgaans de "action", 'rol' en het 'bereik'. |
-| category |De categorie van de gebeurtenis. Ondersteunde waarden zijn: administratieve, waarschuwing, beveiliging, ServiceHealth, aanbeveling. |
-| aanroeper |E-mailadres van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen zijn. |
-| correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
-| eventDescription |De beschrijving van de statische tekst van de gebeurtenis. |
-| eventDataId |De unieke id voor de gebeurtenis. |
-| EventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
-| httpRequest |Omvat gewoonlijk het 'clientRequestId', "clientIpAddress" en "method" (bijv. HTTP-methode plaatsen). |
-| niveau |Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en "Verbose." |
-| operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |
-| operationName |De naam van de bewerking. |
-| properties |Eigenschappen van de gebeurtenis. |
+| resourceProviderName |De resourceprovider van de betrokken resource. |
 | status |De tekenreeks. De status van de bewerking. Algemene waarden zijn: 'Gestart', 'Wordt uitgevoerd', 'Geslaagd', 'Is mislukt', 'Active', 'Opgelost'. |
 | subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Het kan ook andere tekenreeksen met een beschrijving van een substatus omvatten. Algemene substatus waarden zijn: OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), time-out van Gateway (HTTP-statuscode: 504) |
+| subscriptionId |Azure-abonnement-ID. |
+| submissionTimestamp |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die de aanvraag verwerkt. |
+| resourceType | Het type resource die de gebeurtenis heeft gegenereerd.|
+| properties |Een set `<Key, Value>` paren (dat wil zeggen `Dictionary<String, String>`) die bevat details over de gebeurtenis. |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over het activiteitenlogboek](monitoring-overview-activity-logs.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -158,7 +158,7 @@ Klik op de lijst van activiteiten in deze pijplijn. In de **acties** kolom, hebt
 
 ![Monitor activiteit wordt uitgevoerd](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering van de activiteit van het exemplaar en de prestatiekenmerken te zien. Toont informatie inclusief: hoeveelheid gegevens gekopieerd van bron naar sink, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties voor uw scenario kopiëren gebruikt.
+Klik op de '**Details**' koppeling onder **acties** om details van de uitvoering van de activiteit van het exemplaar en de prestatiekenmerken te zien. Hier ziet u informatie inclusief volume/rijen/bestanden van de gegevens gekopieerd van de bron opvangen, doorvoer, stappen het doorloopt met bijbehorende duur en configuraties voor uw scenario kopiëren gebruikt.
 
 **Voorbeeld: kopiëren vanaf Amazon S3 met Azure Data Lake Store**
 ![details uitvoering van activiteit van de Monitor](./media/copy-activity-overview/monitor-activity-run-details-adls.png)

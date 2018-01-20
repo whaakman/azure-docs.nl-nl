@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 257f03f8ac71e2c88856864a6b1ff055ab08c347
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Aan de slag met de Microsoft Translator-connector
 Verbinding maken met Microsoft Translator te vertalen tekst, een taal en meer te detecteren. Met Microsoft Translator, kunt u het volgende doen: 
@@ -28,7 +28,7 @@ Verbinding maken met Microsoft Translator te vertalen tekst, een taal en meer te
 * De bedrijfswerkstroom van uw op basis van de gegevens die u van krijgt Microsoft Translator bouwen. 
 * Acties gebruiken om te vertalen tekst, een taal en meer te detecteren. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. Wanneer een nieuw bestand is gemaakt in Dropbox, kunt u bijvoorbeeld de tekst in het bestand naar een andere taal met behulp van Microsoft Translator vertalen.
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-microsoft-translator"></a>Maak een verbinding met Microsoft Translator
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]

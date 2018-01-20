@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric netwerken patronen
 U kunt uw Azure Service Fabric-cluster integreren met andere Azure-netwerkfuncties. In dit artikel wordt beschreven hoe u voor het maken van clusters die gebruikmaken van de volgende functies:
@@ -36,7 +36,7 @@ Als poort 19080 is niet toegankelijk is vanaf de Service Fabric-resourceprovider
 
 ## <a name="templates"></a>Sjablonen
 
-Alle Service Fabric-sjablonen zijn in [één gedownloade bestand](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). U moet voor het implementeren van de sjablonen als kunnen-worden met behulp van de volgende PowerShell-opdrachten. Als u de bestaande Azure Virtual Network-sjabloon of de statische openbare IP-sjabloon implementeert, lees eerst de [initiële setup](#initialsetup) sectie van dit artikel.
+Alle Service Fabric-sjablonen zijn in [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). U moet voor het implementeren van de sjablonen als kunnen-worden met behulp van de volgende PowerShell-opdrachten. Als u de bestaande Azure Virtual Network-sjabloon of de statische openbare IP-sjabloon implementeert, lees eerst de [initiële setup](#initialsetup) sectie van dit artikel.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Eerste installatie
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric-sjabloon
 
-In de voorbeelden in dit artikel gebruiken we de Service Fabric-template.json. De wizard voor standaard portal kunt u de sjabloon downloaden van de portal voordat u een cluster maakt. Ook kunt u een van de sjablonen in de [sjablonengalerie](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), bijvoorbeeld de [vijf knooppunten Service Fabric-cluster](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+In de voorbeelden in dit artikel gebruiken we de Service Fabric-template.json. De wizard voor standaard portal kunt u de sjabloon downloaden van de portal voordat u een cluster maakt. Ook kunt u een van de [voorbeeldsjablonen](https://github.com/Azure-Samples/service-fabric-cluster-templates), bijvoorbeeld de [beveiligde vijf knooppunten Service Fabric-cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Bestaand virtueel netwerk of subnet

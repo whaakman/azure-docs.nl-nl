@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Implementatie van de resource voor de functie-app in Azure Functions automatiseren
 
@@ -197,7 +197,7 @@ Nadat u een optie schaling hebt geselecteerd, maakt u een functie-app. De app is
 Een functie-app heeft veel onderliggende resources die u in uw implementatie gebruiken kunt, met inbegrip van app-instellingen en opties voor beheer. U kunt desgewenst ook verwijderen de **sourcecontrols** onderliggende resource, en gebruik een andere [Implementatieoptie](functions-continuous-deployment.md) in plaats daarvan.
 
 > [!IMPORTANT]
-> Als u wilt uw toepassing implementeren met behulp van Azure Resource Manager, is het belangrijk te begrijpen hoe resources worden geïmplementeerd in Azure. In het volgende voorbeeld wordt op het hoogste niveau configuraties zijn toegepast met behulp van **siteConfig**. Het is belangrijk dat deze configuraties ingesteld op het hoogste niveau, omdat ze gegevens naar de runtime en implementatie-engine van functies worden beschouwd. Op het hoogste niveau informatie is vereist voordat de onderliggende **sourcecontrols of web** resource wordt toegepast. Hoewel het mogelijk deze instellingen te configureren in het onderliggende niveau **config/appSettings** bron, in sommige gevallen functie-app moet worden geïmplementeerd *voordat* **config/appSettings** wordt toegepast. Bijvoorbeeld, wanneer u werkt in combinatie met gebruikt [Logic Apps](../logic-apps/index.md), uw functies zijn afhankelijk van een andere resource.
+> Als u wilt uw toepassing implementeren met behulp van Azure Resource Manager, is het belangrijk te begrijpen hoe resources worden geïmplementeerd in Azure. In het volgende voorbeeld wordt op het hoogste niveau configuraties zijn toegepast met behulp van **siteConfig**. Het is belangrijk dat deze configuraties ingesteld op het hoogste niveau, omdat ze gegevens naar de runtime en implementatie-engine van functies worden beschouwd. Op het hoogste niveau informatie is vereist voordat de onderliggende **sourcecontrols of web** resource wordt toegepast. Hoewel het mogelijk deze instellingen te configureren in het onderliggende niveau **config/appSettings** bron, in sommige gevallen functie-app moet worden geïmplementeerd *voordat* **config/appSettings** wordt toegepast. Bijvoorbeeld, wanneer u werkt in combinatie met gebruikt [Logic Apps](../logic-apps/index.yml), uw functies zijn afhankelijk van een andere resource.
 
 ```json
 {
@@ -259,7 +259,7 @@ Een functie-app heeft veel onderliggende resources die u in uw implementatie geb
 U kunt een van de volgende manieren om uw sjabloon te implementeren:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Azure-CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 

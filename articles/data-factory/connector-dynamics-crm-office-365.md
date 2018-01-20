@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Gegevens kopiëren van/naar Dynamics 365 Dynamics CRM met Azure Data Factory
 
@@ -50,7 +50,7 @@ Voor de Dynamics 365 met name worden de volgende typen ondersteund:
 
 ## <a name="getting-started"></a>Aan de slag
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Dynamics.
 
@@ -111,7 +111,7 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Dynamics**. | Ja |
 | deploymentType | Het implementatietype van de Dynamics-exemplaar. Moet **'OnPremisesWithIfd'** voor Dynamics met on-premises IFD.| Ja |
-| **Hostnaam** | De hostnaam van de on-premises Dynamics-server. | Ja |
+| **hostName** | De hostnaam van de on-premises Dynamics-server. | Ja |
 | **poort** | De poort van de on-premises Dynamics-server. | Nee, standaard is dit 443 |
 | Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Ja |
 | authenticationType | Het verificatietype dat verbinding maken met Dynamics-server. Geef **'Ifd'** voor Dynamics met on-premises IFD. | Ja |
@@ -277,7 +277,7 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewer
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **DynamicsSink**  | Ja |
-| WriteBehavior | Het gedrag van het schrijven van de bewerking.<br/>De waarde is toegestaan: **"Upsert"**. | Ja |
+| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>De waarde is toegestaan: **"Upsert"**. | Ja |
 | writeBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
 | ignoreNullValues | Geeft aan of voor het negeren van null-waarden van invoergegevens (met uitzondering van sleutelvelden) tijdens de schrijfbewerking.<br/>Toegestane waarden zijn: **true**, en **false**.<br>-true: laat de gegevens in de doel-object niet worden gewijzigd bij het uitvoeren van bewerking upsert/bijwerken en voeg standaardwaarde gedefinieerd bij het uitvoeren van insert-bewerking.<br/>-false: de gegevens in het doelobject op NULL bijwerken bij het uitvoeren van bewerking upsert/bijwerken en voeg NULL-waarde bij het uitvoeren van insert-bewerking.  | Nee (de standaardwaarde is ONWAAR) |
 
@@ -331,7 +331,7 @@ Configureren van het bijbehorende Data Factory-gegevenstype in de gegevenssetstr
 | AttributeType.Customer | GUID | ✓ |  |
 | AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
 | AttributeType.Decimal | Decimale | ✓ | ✓ |
-| AttributeType.Double | dubbele | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Tekenreeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ |  |

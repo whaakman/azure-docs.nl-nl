@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27a9297c5d4cfb52f254ceb12e37423403e7f41b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Aan de slag met de Facebook-connector
 Verbinding maken met Facebook en om een tijdlijn te plaatsen, kunt u een paginafeed en meer. Met Facebook, kunt u het volgende doen:
@@ -28,7 +28,7 @@ Verbinding maken met Facebook en om een tijdlijn te plaatsen, kunt u een paginaf
 * Een trigger te gebruiken wanneer een nieuw bericht wordt ontvangen.
 * Gebruik acties die aan de tijdlijn boeken vinden een paginafeed en meer. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. Bijvoorbeeld, wanneer er een nieuw bericht op de tijdlijn, kunt u ondernemen die post en dit doorgeven aan uw Twitter-feed. 
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-facebook"></a>Maak een verbinding met Facebook
 Wanneer u deze connector aan uw logische apps toevoegen, moet u logic apps kunnen verbinding maken met uw Facebook autoriseren.

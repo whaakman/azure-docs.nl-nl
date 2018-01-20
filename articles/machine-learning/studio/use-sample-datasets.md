@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>De voorbeeldgegevenssets in Azure Machine Learning Studio gebruiken
 [top]: #machine-learning-sample-datasets
@@ -102,15 +102,6 @@ Donor gegevens omvatten de maanden sinds de laatste donatie), en frequentie of h
 <b>Verwante Research:</b> Yeh I.C., (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
 <p></p>
 Yeh, ik-Cheng, Yang, koning-Jang en Ting, Tao-Ming ' Knowledge detectie op RFM model Bernoulli-reeks met ' Expert systemen met toepassingen, 2008 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Beoordelingen van Amazon adresboek</td>
-  <td>
-Beoordelingen van books in Amazon, die afkomstig zijn uit de website amazon.com door onderzoekers universiteit van Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">gevoel</a>). Zie het artikel research ' biografieën, Bollywood, giek vakken en Blenders: domein aanpassing voor gevoel classificatie ' John Blitzer, markeren Dredze en Fernando Pereira; Koppeling van rekenkundige Linguistics (ACL) 2007.
-<p></p>
-De oorspronkelijke gegevensset heeft 975K beoordelingen met classificatie 1, 2, 3, 4 of 5. De beoordelingen zijn geschreven in het Engels en afkomstig zijn van de periode 1997 2007. Deze gegevensset is omlaag actieve op 10K beoordelingen.
   </td>
 </tr>
 
@@ -212,7 +203,7 @@ Bevat de weergegevens, zoals temperatuur en vochtigheid indexen en o-snelheid. D
 <p></p>
 <b>Verwante Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning-opslagplaats <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universiteit van Californië, School van gegevens en Computer wetenschappelijke
 <p></p>
-[Cortez en Morais, 2007] P. Cortez en A. Morais. Een Data Mining benadering voorspellen bosbranden met behulp van meteorologische gegevens. In J. Neves, Dhr F. Santos en J. Machado Eds., nieuwe Trends in kunstmatige Intelligence, de procedures van de 13 EPIA 2007 - Portugees Conferentie over kunstmatige intelligentie, December, Guimarães, Portugal p. 512-523, 2007. APPIA, ISBN 13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez en Morais, 2007] P. Cortez en A. Morais. Een Data Mining benadering voorspellen bosbranden met behulp van meteorologische gegevens. In J. Neves, Dhr F. Santos en J. Machado Eds., nieuwe Trends in kunstmatige Intelligence, de procedures van de 13 EPIA 2007 - Portugees Conferentie over kunstmatige intelligentie, December, Guimarães, Portugal p. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Beschikbaar op: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -353,7 +344,7 @@ De weergegevens worden uitgevoerd vanaf een luchthaven weer stations, die betrek
 </tr>
 
 <tr>
-  <td>Wikipedia SP 500 gegevensset</td>
+  <td>Wikipedia SP 500 Dataset</td>
   <td>
 Gegevens is afgeleid van Wikipedia (Engelstalig) (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) op basis van de artikelen van elk bedrijf S & P 500 opgeslagen als XML-gegevens.
 <p></p>
@@ -401,7 +392,7 @@ De gegevensset is gedownload en opgeslagen in Azure Blob storage (<a href="https
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Onderwerp-toewijzingen voor nieuwsartikelen in de RCV1 V2 Reuters nieuws gegevensset. Een nieuwsbericht kan worden toegewezen aan verschillende onderwerpen. De indeling van elke rij is '&lt;onderwerpnaam&gt; &lt;document-id&gt; 1". De gegevensset bevat 2.6M onderwerp toewijzingen. De gegevensset is door David beschikbaar gesteld. D. Leistra.
   </td>
@@ -410,7 +401,7 @@ Onderwerp-toewijzingen voor nieuwsartikelen in de RCV1 V2 Reuters nieuws gegeven
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Deze gegevens zijn afkomstig van de uitdaging KDD kop 2010 studenten prestaties evaluatie (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">studenten prestatieanalyse</a>). De gegevens die gebruikt is de trainingset Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., drempel, G.J. & Koedinger, K.R. (2010). Wiskundige ik 2008-2009. Uitdaging gegevensset van KDD kop 2010 educatieve Data Mining uitdaging. Zoeken op het <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> of <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Deze gegevens zijn afkomstig van de uitdaging KDD kop 2010 studenten prestaties evaluatie (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">studenten prestatieanalyse</a>). De gegevens die gebruikt is de trainingset Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., drempel, G.J. & Koedinger, K.R. (2010). Algebra I 2008-2009. Uitdaging gegevensset van KDD kop 2010 educatieve Data Mining uitdaging. Zoeken op het <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> of <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
 <p></p>
 De gegevensset is gedownload en opgeslagen in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) en logboekbestanden van een student Bijles system bevat. De opgegeven functies behoren probleem-ID en de korte beschrijving, student-ID, tijdstempel en het aantal pogingen de student vóór het oplossen van het probleem op de juiste manier. De oorspronkelijke gegevensset bevat records 8,9 M; Deze gegevensset is gezet dat op de eerste 100K rijen. De gegevensset heeft 23 door tabs gescheiden kolommen van verschillende typen: numerieke categorische, en een tijdstempel.
   </td>

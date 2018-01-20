@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Inleiding tot FreeBSD op Azure
 Dit onderwerp bevat een overzicht van een FreeBSD virtuele machine in Azure wordt uitgevoerd.
@@ -134,4 +134,3 @@ De [Azure VM-Gastagent](https://github.com/Azure/WALinuxAgent/) versie 2.2.2 hee
 
 ## <a name="next-steps"></a>Volgende stappen
 * Ga naar [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) een FreeBSD VM's te maken.
-* Als u zorgen dat uw eigen FreeBSD op Azure wilt, raadpleegt u [een FreeBSD VHD naar Azure maken en uploaden](classic/freebsd-create-upload-vhd.md).

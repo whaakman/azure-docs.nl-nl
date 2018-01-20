@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Aan de slag met de webhook-connector
 
@@ -43,7 +43,7 @@ Hier volgt een voorbeeld waarin het instellen van een HTTP-trigger in de ontwerp
 
    Deze stap volgt hetzelfde patroon als de [HTTP-actie](connectors-native-http.md) indeling.
 
-     ![HTTP-Trigger](./media/connectors-native-webhook/using-trigger.png)
+     ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
 
 3. Voeg ten minste één actie.
 4. Klik op **opslaan** voor het publiceren van de logische app. Deze stap wordt het eindpunt abonneren met de callback-URL die nodig zijn voor het activeren van deze logische app.
@@ -79,29 +79,29 @@ Hier vindt u meer informatie over de triggers en acties die webhook ondersteunt.
 
 ## <a name="webhook-triggers"></a>Webhook-triggers
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
-| HTTP-Webhook |Zich abonneren een retouraanroep URL naar een service die de URL gestart logische app naar behoefte kunt aanroepen. |
+| HTTP-webhook |Zich abonneren een retouraanroep URL naar een service die de URL gestart logische app naar behoefte kunt aanroepen. |
 
 ### <a name="trigger-details"></a>Details van de trigger
 
-#### <a name="http-webhook"></a>HTTP-Webhook
+#### <a name="http-webhook"></a>HTTP-webhook
 
 Zich abonneren een retouraanroep URL naar een service die de URL gestart logische app naar behoefte kunt aanroepen.
 Een * betekent verplicht veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Abonneren methode * |Methode |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
-| Abonneren URI * |URI |HTTP-URI moet worden gebruikt voor het abonneren op aanvraag |
-| Afmelden methode * |Methode |HTTP-methode moet worden gebruikt voor afmelding |
-| Afmelden URI * |URI |HTTP-URI moet worden gebruikt voor afmelding |
-| Hoofdtekst abonneren |Hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor het abonneren |
-| Headers abonneren |Headers |HTTP-aanvraagheaders voor abonneren |
-| Abonneren verificatie |Verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
-| Hoofdtekst afmelden |Hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
-| Headers afmelden |Headers |HTTP-aanvraagheaders voor afmelden |
-| Verificatie afmelden |Verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
+| Abonneren methode * |methode |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
+| Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor het abonneren op aanvraag |
+| Afmelden methode * |methode |HTTP-methode moet worden gebruikt voor afmelding |
+| Afmelden URI * |uri |HTTP-URI moet worden gebruikt voor afmelding |
+| Hoofdtekst abonneren |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor het abonneren |
+| Headers abonneren |headers |HTTP-aanvraagheaders voor abonneren |
+| Abonneren verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
+| Hoofdtekst afmelden |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
+| Headers afmelden |headers |HTTP-aanvraagheaders voor afmelden |
+| Verificatie afmelden |verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
 
 **Uitvoerdetails**
 
@@ -109,35 +109,35 @@ Webhook-aanvraag
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Headers |object |Webhook-aanvraagheaders |
+| Kopteksten |object |Webhook-aanvraagheaders |
 | Hoofdtekst |object |Webhook request-object |
 | Statuscode |int |Statuscode van aanvraag Webhook |
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
-| HTTP-Webhook |Zich abonneren een retouraanroep URL naar een service die de URL voor het hervatten van een werkstroomstap zo nodig kunt aanroepen. |
+| HTTP-webhook |Zich abonneren een retouraanroep URL naar een service die de URL voor het hervatten van een werkstroomstap zo nodig kunt aanroepen. |
 
 ### <a name="action-details"></a>Actiedetails
 
-#### <a name="http-webhook"></a>HTTP-Webhook
+#### <a name="http-webhook"></a>HTTP-webhook
 
 Zich abonneren een retouraanroep URL naar een service die de URL voor het hervatten van een werkstroomstap zo nodig kunt aanroepen.
 Een * betekent verplicht veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Abonneren methode * |Methode |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
-| Abonneren URI * |URI |HTTP-URI moet worden gebruikt voor het abonneren op aanvraag |
-| Afmelden methode * |Methode |HTTP-methode moet worden gebruikt voor afmelding |
-| Afmelden URI * |URI |HTTP-URI moet worden gebruikt voor afmelding |
-| Hoofdtekst abonneren |Hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor het abonneren |
-| Headers abonneren |Headers |HTTP-aanvraagheaders voor abonneren |
-| Abonneren verificatie |Verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
-| Hoofdtekst afmelden |Hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
-| Headers afmelden |Headers |HTTP-aanvraagheaders voor afmelden |
-| Verificatie afmelden |Verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
+| Abonneren methode * |methode |HTTP-methode moet worden gebruikt voor het abonneren op aanvraag |
+| Abonneren URI * |uri |HTTP-URI moet worden gebruikt voor het abonneren op aanvraag |
+| Afmelden methode * |methode |HTTP-methode moet worden gebruikt voor afmelding |
+| Afmelden URI * |uri |HTTP-URI moet worden gebruikt voor afmelding |
+| Hoofdtekst abonneren |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor het abonneren |
+| Headers abonneren |headers |HTTP-aanvraagheaders voor abonneren |
+| Abonneren verificatie |verificatie |HTTP-verificatie moet worden gebruikt voor het abonneren. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
+| Hoofdtekst afmelden |hoofdtekst |Hoofdtekst van de HTTP-aanvraag voor afmelden |
+| Headers afmelden |headers |HTTP-aanvraagheaders voor afmelden |
+| Verificatie afmelden |verificatie |HTTP-verificatie moet worden gebruikt voor afmelden. [Zie HTTP connector](connectors-native-http.md#authentication) voor meer informatie |
 
 **Uitvoerdetails**
 
@@ -145,11 +145,11 @@ Webhook-aanvraag
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Headers |object |Webhook-aanvraagheaders |
+| Kopteksten |object |Webhook-aanvraagheaders |
 | Hoofdtekst |object |Webhook request-object |
 | Statuscode |int |Statuscode van aanvraag Webhook |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Andere connectors zoeken](apis-list.md)

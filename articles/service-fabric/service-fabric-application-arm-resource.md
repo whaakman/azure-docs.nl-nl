@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Toepassingen en services als Azure Resource Manager-resources beheren
 
@@ -66,7 +66,7 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
 1. Bereid uw cluster Resource Manager-sjabloon voor implementatie. Zie [Service Fabric-cluster maken met behulp van Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) voor meer informatie hierover.
 2. Denk na over enkele van de toepassingen die u van plan bent in het cluster implementeert. Zijn er die wordt altijd uitgevoerd die andere toepassingen afhankelijkheden kunnen ondernemen? Bent u van plan over het implementeren van een cluster governance of installatieprogramma's? Dit soort toepassingen zijn beste beheerd via een Resource Manager-sjabloon, zoals hierboven wordt beschreven. 
 3. Nadat u hebt gekeken hoe welke toepassingen u wilt worden geïmplementeerd op deze manier, wordt de toepassingen hebt worden verpakt, ingepakt en plaatsen op een bestandsshare. De share moet toegankelijk zijn via een REST-eindpunt voor Azure Resource Manager gebruiken tijdens de implementatie.
-4. Beschrijving van de toepassing eigenschappen in het Resource Manager-sjabloon hieronder uw cluster-declaratie. Deze eigenschappen omvatten replica of instance count en eventuele ketens afhankelijkheid tussen resources (andere toepassingen of services). Zie voor een lijst van uitgebreide eigenschappen, de [REST API Swagger Spec](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Houd er rekening mee dat dit is geen vervanging voor de toepassing of Service-manifesten, maar in plaats daarvan wordt een overzicht gegeven van wat er op als onderdeel van het cluster Resource Manager-sjabloon. Hier volgt een voorbeeldsjabloon met een stateless service implementeren *Service1* en een stateful service *Service2* als onderdeel van *Toepassing1*:
+4. Beschrijving van de toepassing eigenschappen in het Resource Manager-sjabloon hieronder uw cluster-declaratie. Deze eigenschappen omvatten replica of instance count en eventuele ketens afhankelijkheid tussen resources (andere toepassingen of services). Zie voor een lijst van uitgebreide eigenschappen, de [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Houd er rekening mee dat dit is geen vervanging voor de toepassing of Service-manifesten, maar in plaats daarvan wordt een overzicht gegeven van wat er op als onderdeel van het cluster Resource Manager-sjabloon. Hier volgt een voorbeeldsjabloon met een stateless service implementeren *Service1* en een stateful service *Service2* als onderdeel van *Toepassing1*:
 
   ```json
   {
@@ -77,62 +77,62 @@ Het volgende fragment toont de verschillende soorten resources die kunnen worden
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },

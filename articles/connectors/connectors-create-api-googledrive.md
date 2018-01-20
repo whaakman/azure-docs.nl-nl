@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Aan de slag met de Google Drive-connector
 Verbinding maken met Google Drive voor het maken van bestanden en get-rijen. U kunt met Google Drive: 
@@ -28,7 +28,7 @@ Verbinding maken met Google Drive voor het maken van bestanden en get-rijen. U k
 * Bouw uw zakelijke flow op basis van de gegevens die u van uw zoekopdracht krijgt. 
 * Acties gebruiken om te zoeken, afbeeldingen, zoek het nieuws en meer. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. U kunt bijvoorbeeld zoeken naar een video en gebruik vervolgens Twitter boeken die video naar Twitter-feeds.
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-the-connection-to-google-drive"></a>De verbinding maken met Google Drive
 Wanneer u deze connector aan uw logische apps toevoegen, moet u logic apps kunnen verbinding maken met uw Google Drive autoriseren.

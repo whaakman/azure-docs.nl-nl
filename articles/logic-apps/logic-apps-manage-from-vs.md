@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Beheren van uw logische apps met Visual Studio Cloud Explorer
 
@@ -69,7 +69,7 @@ Vanuit de Cloud Explorer kunt u een momenteel geïmplementeerde logische app ope
 
 * Kies voor het starten van een nieuw run **uitvoeren Trigger**.
 
-![Logic Apps Designer](./media/logic-apps-manage-from-vs/designer.png)
+![Ontwerper van logische apps](./media/logic-apps-manage-from-vs/designer.png)
 
 In de ontwerpfunctie, kunt u ook **downloaden** een logische app. Deze actie automatisch parameterizes de definitie van logic Apps en de definitie van de opgeslagen als een Azure Resource Manager-implementatiesjabloon. U kunt deze sjabloon voor de implementatie toevoegen aan uw project Azure-resourcegroep.
 
@@ -77,7 +77,7 @@ In de ontwerpfunctie, kunt u ook **downloaden** een logische app. Deze actie aut
 
 Als u wilt weergeven van de uitvoeringsgeschiedenis voor uw logische app, met de rechtermuisknop op uw logische app en selecteer **Open uitvoeringsgeschiedenis**. Selecteer de kolomkop om de volgorde van de uitvoeringsgeschiedenis op basis van een van de eigenschappen die worden weergegeven, te.
 
-![geschiedenis uitvoeren](media/logic-apps-manage-from-vs/runs.png)
+![Uitvoer.gesch](media/logic-apps-manage-from-vs/runs.png)
 
 Dubbelklik op een van de exemplaren uitvoeren om weer te geven van de uitvoeringsgeschiedenis voor een exemplaar, zodat u de uitgevoerde resultaten, inclusief de invoer en uitvoer van elke stap kunt bekijken.
 
@@ -85,7 +85,7 @@ Dubbelklik op een van de exemplaren uitvoeren om weer te geven van de uitvoering
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een logische app maken](logic-apps-create-a-logic-app.md)
+* [Een logische app maken](quickstart-create-first-logic-app-workflow.md)
 * [Ontwerpen, bouwen en implementeren van logische apps in Visual Studio](logic-apps-deploy-from-vs.md)
 * [Algemene voorbeelden en scenario's weergeven](logic-apps-examples-and-scenarios.md)
 * [Video: Automatiseren van bedrijfsprocessen met Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)

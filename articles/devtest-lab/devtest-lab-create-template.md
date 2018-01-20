@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Een aangepaste installatiekopie van een VHD-bestand maken
 
@@ -57,7 +57,16 @@ De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand 
 
 1. Selecteer een **VHD** uit de vervolgkeuzelijst. Dit is de VHD die wordt gebruikt om de nieuwe aangepaste installatiekopie te maken. Selecteer indien nodig **een VHD uploaden met PowerShell**.
 
-1. U kunt ook een naam, plan aanbieding en plan publisher invoeren als de installatiekopie die wordt gebruikt voor het maken van de aangepaste installatiekopie niet is gepubliceerd door Microsoft.
+1. U kunt ook een naam, plan aanbieding en plan publisher invoeren als de installatiekopie die wordt gebruikt om de aangepaste installatiekopie te maken, geen licentie installatiekopie is (gepubliceerd door Microsoft).
+
+   - **Naam van plan:** Voer de naam van de Marketplace-installatiekopie (SKU) van deze aangepaste installatiekopie wordt gemaakt 
+   - **Aanbieding plannen:** invoeren van het product (aanbieden) van de Marketplace-installatiekopie op basis waarvan deze aangepaste installatiekopie is gemaakt 
+   - **Plannen van de uitgever:** voert de uitgever van de Marketplace-installatiekopie op basis waarvan deze aangepaste installatiekopie is gemaakt
+
+   > [!NOTE]
+   > Als de installatiekopie die u gebruikt voor het maken van een aangepaste installatiekopie wordt **niet** een installatiekopie van een gelicentieerde en vervolgens deze velden zijn leeg en kan worden ingevuld als u kiest. Als de installatiekopie van het **is** een installatiekopie van een gelicentieerde en vervolgens de velden automatisch gevuld met de plangegevens zijn. Als u probeert te wijzigen in dit geval is, wordt er een waarschuwingsbericht weergegeven.
+   >
+   >
 
 1. Selecteer **OK** om de aangepaste installatiekopie te maken.
 

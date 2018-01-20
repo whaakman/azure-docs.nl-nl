@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Aan de slag met de connector ProjectOnline
 Project Online is een flexibele online oplossing voor beheer van de portfolio project (PPM) en de dagelijkse werk van Microsoft. Bezorgd via Office 365, Project Online kunnen organisaties snel aan de slag met krachtige mogelijkheden voor projectbeheer gepland, prioriteren en projecten en project portfolio investeringen te beheren, vanaf vrijwel elke locatie op vrijwel elk apparaat.
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-projectonline"></a>Maak een verbinding met ProjectOnline
 Logische apps maakt met ProjectOnline, moet u eerst maken een **verbinding** Geef vervolgens de details voor de volgende eigenschappen: 
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| Token |Ja |Geef referenties op ProjectOnline |
+| Token |Ja |ProjectOnline-referenties opgeven |
 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 

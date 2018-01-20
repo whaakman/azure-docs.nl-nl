@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Bijhouden van de B2B-communicatie in de Microsoft Operations Management Suite (OMS)
 
@@ -32,7 +32,7 @@ Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassin
 
 ## <a name="requirements"></a>Vereisten
 
-* Een logische app die ingesteld met de logboekregistratie van diagnostische gegevens. Meer informatie over [het maken van een logische app](logic-apps-create-a-logic-app.md) en [het instellen van logboekregistratie voor die app logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Een logische app die ingesteld met de logboekregistratie van diagnostische gegevens. Meer informatie over [het maken van een logische app](quickstart-create-first-logic-app-workflow.md) en [het instellen van logboekregistratie voor die app logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Integratie-account ingesteld met de controle en logboekregistratie. Meer informatie over [het maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [het instellen van controle en logboekregistratie voor dat account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -155,9 +155,9 @@ Hier volgen beschrijvingen van de eigenschap voor elk bericht AS2.
 | Status | De status van de AS2-bericht <br>Geslaagde = ontvangen of een geldige AS2-bericht verzonden. Er is geen MDN is ingesteld. <br>Geslaagde = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en ontvangen of MDN wordt verzonden. <br>Kan geen = een ongeldig AS2-bericht ontvangen. Er is geen MDN is ingesteld. <br>In behandeling = ontvangen of een geldige AS2-bericht verzonden. MDN is ingesteld en MDN wordt verwacht. |
 | ACK | De status van het bericht MDN <br>Geaccepteerd = ontvangen of verzonden, een positieve MDN. <br>= Wachten op ontvangen of verzenden van een MDN in behandeling. <br>Afgewezen = ontvangen of een negatieve MDN verzonden. <br>Niet vereist = MDN is niet ingesteld in de overeenkomst. |
 | Richting | De richting van de AS2-bericht |
-| Correlatie-ID | De ID die alle triggers en acties in een logische app correleert |
-| Bericht-ID | De AS2-bericht-ID van de berichtkoppen AS2 |
-| tijdstempel | De tijd waarop de actie AS2 het bericht verwerkt |
+| Correlatie-id | De ID die alle triggers en acties in een logische app correleert |
+| Bericht-id | De AS2-bericht-ID van de berichtkoppen AS2 |
+| Timestamp | De tijd waarop de actie AS2 het bericht verwerkt |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -168,7 +168,7 @@ Hier vindt u de naam indelingen voor elke map voor gedownloade AS2 bericht en de
 
 | Bestand of map | Indeling van de |
 | :------------- | :---------- |
-| Berichtenmap | [afzender] \_[ontvanger]\_AS2\_[correlatie-ID]\_[bericht-ID]\_[tijdstempel] |
+| Berichtenmap | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
 | Invoer, uitvoer en instellen van de bevestiging bestanden als | **De nettolading van de invoer**: [afzender]\_[ontvanger]\_AS2\_[correlatie-ID]\_input_payload.txt </p>**De nettolading van de uitvoer**: [afzender]\_[ontvanger]\_AS2\_[correlatie-ID]\_uitvoer\_payload.txt </p></p>**Invoer**: [afzender]\_[ontvanger]\_AS2\_[correlatie-ID]\_inputs.txt </p></p>**Uitvoer**: [afzender]\_[ontvanger]\_AS2\_[correlatie-ID]\_outputs.txt |
 |          |             |
 
@@ -186,11 +186,11 @@ Hier volgen beschrijvingen van de eigenschap voor elke X12 bericht.
 | Status | De X12 bericht-status <br>Geslaagde = ontvangen of een geldige X12 verzonden bericht. Er zijn geen functionele ack is ingesteld. <br>Geslaagde = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan niet ontvangen = of een ongeldige X12 verzonden bericht. <br>In behandeling = ontvangen of een geldige X12 verzonden bericht. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
 | ACK | Functionele Ack (997)-status <br>Geaccepteerd = ontvangen of een positief functionele bevestiging verzonden <br>Afgewezen = ontvangen of een negatieve functionele bevestiging verzonden <br>In behandeling zijnde = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar kan niet verzenden naar partner. <br>Niet vereist = functionele ack is niet ingesteld. |
 | Richting | De X12 bericht richting |
-| Correlatie-ID | De ID die alle triggers en acties in een logische app correleert |
+| Correlatie-id | De ID die alle triggers en acties in een logische app correleert |
 | Bericht-type | Het berichttype voor EDI X 12 |
 | ICN | Het besturingselement Interchange nummer voor de X12 bericht |
 | TSCN | Het transactie ingesteld besturingselement nummer voor de X12 bericht |
-| tijdstempel | De tijd wanneer de X12 actie verwerkt het bericht |
+| Timestamp | De tijd wanneer de X12 actie verwerkt het bericht |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -201,7 +201,7 @@ Hier vindt u de naam indelingen voor elk X12 gedownload bericht map en bestanden
 
 | Bestand of map | Indeling van de |
 | :------------- | :---------- |
-| Berichtenmap | [afzender] \_[ontvanger]\_X12\_[controle-DIF-aantal]\_[globale-besturingselement-aantal]\_[transactie-set-besturingselement-aantal]\_[tijdstempel] |
+| Berichtenmap | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Invoer, uitvoer en instellen van de bevestiging bestanden als | **De nettolading van de invoer**: [afzender]\_[ontvanger]\_X12\_[controle-DIF-aantal]\_input_payload.txt </p>**De nettolading van de uitvoer**: [afzender]\_[ontvanger]\_X12\_[controle-DIF-aantal]\_uitvoer\_payload.txt </p></p>**Invoer**: [afzender]\_[ontvanger]\_X12\_[controle-DIF-aantal]\_inputs.txt </p></p>**Uitvoer**: [afzender]\_[ontvanger]\_X12\_[controle-DIF-aantal]\_outputs.txt |
 |          |             |
 
@@ -219,11 +219,11 @@ Hier volgen beschrijvingen van de eigenschap voor elk bericht EDIFACT.
 | Status | De status van het bericht EDIFACT <br>Geslaagde = ontvangen of een geldige EDIFACT-bericht verzonden. Er zijn geen functionele ack is ingesteld. <br>Geslaagde = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en ontvangen, of een functionele ack wordt verzonden. <br>Kan niet ontvangen = of een ongeldig EDIFACT-bericht verzonden <br>In behandeling = ontvangen of een geldige EDIFACT-bericht verzonden. Functionele ack is ingesteld en een functionele ack wordt verwacht. |
 | ACK | Functionele Ack (997)-status <br>Geaccepteerd = ontvangen of een positief functionele bevestiging verzonden <br>Afgewezen = ontvangen of een negatieve functionele bevestiging verzonden <br>In behandeling zijnde = een functionele ack verwacht maar niet ontvangen. <br>In behandeling zijnde = gegenereerd een functionele ack maar kan niet verzenden naar partner. <br>Niet vereist = functionele Ack is niet ingesteld. |
 | Richting | De richting van het bericht EDIFACT |
-| Correlatie-ID | De ID die alle triggers en acties in een logische app correleert |
+| Correlatie-id | De ID die alle triggers en acties in een logische app correleert |
 | Bericht-type | Het berichttype EDIFACT |
 | ICN | Het besturingselement Interchange nummer voor het bericht EDIFACT |
 | TSCN | Het transactie ingesteld besturingselement nummer voor het bericht EDIFACT |
-| tijdstempel | De tijd waarop de actie EDIFACT het bericht verwerkt |
+| Timestamp | De tijd waarop de actie EDIFACT het bericht verwerkt |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -234,7 +234,7 @@ Hier vindt u de naam indelingen voor elke map voor gedownloade EDIFACT bericht e
 
 | Bestand of map | Indeling van de |
 | :------------- | :---------- |
-| Berichtenmap | [afzender] \_[ontvanger]\_EDIFACT\_[controle-DIF-aantal]\_[globale-besturingselement-aantal]\_[transactie-set-besturingselement-aantal]\_[tijdstempel] |
+| Berichtenmap | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Invoer, uitvoer en instellen van de bevestiging bestanden als | **De nettolading van de invoer**: [afzender]\_[ontvanger]\_EDIFACT\_[controle-DIF-aantal]\_input_payload.txt </p>**De nettolading van de uitvoer**: [afzender]\_[ontvanger]\_EDIFACT\_[controle-DIF-aantal]\_uitvoer\_payload.txt </p></p>**Invoer**: [afzender]\_[ontvanger]\_EDIFACT\_[controle-DIF-aantal]\_inputs.txt </p></p>**Uitvoer**: [afzender]\_[ontvanger]\_EDIFACT\_[controle-DIF-aantal]\_outputs.txt |
 |          |             |
 

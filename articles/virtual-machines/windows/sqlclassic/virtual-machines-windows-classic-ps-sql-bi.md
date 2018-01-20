@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Virtual Machines van Azure
 > [!IMPORTANT] 
@@ -62,7 +62,7 @@ De virtuele Machine in Microsoft Azure-galerie bevat diverse installatiekopieën
 
 Zie de volgende onderwerpen voor meer informatie over edities en functies die worden ondersteund door SQL Server:
 
-* [SQL Server-edities](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 * [Functies die worden ondersteund door de verschillende edities van SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>BI functies worden geïnstalleerd op de installatiekopieën galerie met virtuele Machine van SQL Server
@@ -80,7 +80,7 @@ De volgende tabel geeft een overzicht van de geïnstalleerd op de algemene Micro
 | **Native modus van Reporting Services** |Ja |Geïnstalleerd, maar moet worden geconfigureerd, inclusief de URL van report manager. Zie de sectie [Reporting Services configureren](#configure-reporting-services). |
 | **Reporting Services-modus SharePoint wordt uitgevoerd** |Nee |De installatiekopie van de Microsoft Azure virtuele Machine-galerie bevat geen SharePoint- of SharePoint bestanden voor installatie. <sup>1</sup> |
 | **Analysis Services multidimensionale en Data mining (OLAP)** |Ja |Geïnstalleerd en geconfigureerd als het standaardexemplaar van de Analysis Services |
-| **Analyseservices in tabelvorm** |Nee |Ondersteund in SQL Server 2012, is 2014 en 2016 afbeeldingen, maar het niet standaard geïnstalleerd. Een ander exemplaar van Analysis Services installeren. Zie de sectie andere SQL Server-Services en functies in dit onderwerp installeren. |
+| **Analysis Services Tabular** |Nee |Ondersteund in SQL Server 2012, is 2014 en 2016 afbeeldingen, maar het niet standaard geïnstalleerd. Een ander exemplaar van Analysis Services installeren. Zie de sectie andere SQL Server-Services en functies in dit onderwerp installeren. |
 | **Analysis Services Power Pivot voor SharePoint** |Nee |De installatiekopie van de Microsoft Azure virtuele Machine-galerie bevat geen SharePoint- of SharePoint bestanden voor installatie. <sup>1</sup> |
 
 <sup>1</sup> Zie voor meer informatie over SharePoint en virtuele machines in Azure [Microsoft Azure architecturen voor SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en [SharePoint-implementatie in Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -98,7 +98,7 @@ De volgende tabel geeft een overzicht van de geïnstalleerd op de algemene Micro
   * Het cachebeleid voor het standaardstation station **C**: is niet optimaal voor het werken met gegevens.
   * De **D**: station is een tijdelijke station dat hoofdzakelijk voor het wisselbestand gebruikt wordt. De **D**: station is niet persistent en wordt niet opgeslagen in blob-opslag. Het formaat van beheertaken, zoals een wijziging in de virtuele machine opnieuw instellen van de **D**: station. Het is raadzaam te **niet** gebruiken de **D**: station voor databasebestanden, met inbegrip van tempdb.
     
-    Zie voor meer informatie over het maken en koppelen van schijven [hoe een gegevensschijf koppelen aan een virtuele Machine](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Zie voor meer informatie over het maken en koppelen van schijven [hoe een gegevensschijf koppelen aan een virtuele Machine](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Stop of verwijder services die u niet wilt gebruiken. Voor bijvoorbeeld als de virtuele machine alleen wordt gebruikt voor Reporting Services stoppen of verwijderen van Analysis Services en SQL Server Integration Services. De volgende afbeelding is een voorbeeld van de services die standaard worden gestart.
   
     ![SQL Server-services](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -152,14 +152,14 @@ Er zijn twee algemene werkstromen om verbinding te maken voor een virtuele Machi
   1. Typ de **cloudservicenaam** als de naam van de computer.
   2. Type dubbele punt (:) en het openbare-poortnummer dat is geconfigureerd voor de TCP-eindpunt voor extern bureaublad.
      
-      Myservice.cloudapp.NET:63133
+      Myservice.cloudapp.net:63133
      
       Zie voor meer informatie [wat is een cloudservice?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 
 **Start u Reporting Services Configuration Manager**
 
-In **Windows Server 2012-2016**:
+In **Windows Server 2012/2016**:
 
 1. Van de **Start** Typ **Reporting Services** voor een overzicht van Apps.
 2. Met de rechtermuisknop op **Reporting Services Configuration Manager** en klik op **als Administrator uitvoeren**.
@@ -257,7 +257,7 @@ Voer de wizard setup van SQL server voor het installeren van aanvullende SQL Ser
 2. Klik op **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** of **Microsoft SQL Server 2012** en klik vervolgens op **configuratiehulpprogramma's**.
 3. Klik op **Installatiecentrum van SQL Server**.
 
-C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe of C:\SQLServer_11.0_full\setup.exe of starten
+Or run C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
 
 > [!NOTE]
 > De eerste keer dat u de installatie van SQL Server uitvoeren meer setup-bestanden kunnen worden gedownload en vereist een herstart van de virtuele machine en het opnieuw opstarten van SQL Server setup.
@@ -320,8 +320,8 @@ Deze sectie bevat een overzicht van Microsoft Azure virtuele Machine eindpunten 
   | --- | --- | --- |
   | **80** |TCP |Rapportserver externe toegang (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
-  | **1434** |UDP |SQL Serverbrowser. Dit is vereist wanneer de virtuele machine in die zijn gekoppeld aan een domein. |
-  | **2382** |TCP |SQL Serverbrowser. |
+  | **1434** |UDP |SQL Server Browser. Dit is vereist wanneer de virtuele machine in die zijn gekoppeld aan een domein. |
+  | **2382** |TCP |SQL Server Browser. |
   | **2383** |TCP |Standaardexemplaar van SQL Server Analysis Services en geclusterde benoemde exemplaren. |
   | **De gebruiker gedefinieerde** |TCP |Maak een statische Analysis Services met de naam exemplaar poort van een poortnummer dat die u kiest en vervolgens het poortnummer in de firewall te deblokkeren. |
 
@@ -339,7 +339,7 @@ Het volgende diagram illustreert de poorten openen in de VM-firewall voor extern
 * [SQL Server op Azure Virtual Machines-overzicht](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Virtuele machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Inrichting van een virtuele Machine van SQL Server op Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Hoe een gegevensschijf koppelen aan een virtuele Machine](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Hoe een gegevensschijf koppelen aan een virtuele Machine](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Een Database migreren naar SQL Server op een virtuele machine in Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Bepalen van de servermodus met een Analysis Services-exemplaar](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Multidimensionale model (Adventure Works zelfstudie)](https://technet.microsoft.com/library/ms170208.aspx)

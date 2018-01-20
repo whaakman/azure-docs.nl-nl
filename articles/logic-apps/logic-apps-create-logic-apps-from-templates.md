@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8adda0d9cd6af98c04f2432eeabbc003ad403719
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Logic app werkstromen van vooraf gedefinieerde sjablonen maken
 
@@ -36,7 +36,7 @@ Hier volgen enkele Sjablooncategorieën:
 | Patroon-protocol-sjablonen | Voor het implementeren van protocol patronen, zoals aanvragen en antwoorden over HTTP en integraties in FTP- en SFTP. Deze sjablonen te gebruiken, zoals bepaald of op deze bouwen voor complexe protocol patronen. | 
 ||| 
 
-Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-account](https://azure.microsoft.com/free/) voordat u begint. Zie voor meer informatie over het bouwen van een logische app [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-account](https://azure.microsoft.com/free/) voordat u begint. Zie voor meer informatie over het bouwen van een logische app [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-logic-apps-from-templates"></a>Logische apps van sjablonen maken
 

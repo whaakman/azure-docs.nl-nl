@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Automation | Microsoft Docs
-description: Als voorbereiding om de service aan te bieden via Azure Marketplace, vindt u in dit artikel een overzicht van de Azure Automation-service. Hier worden de ontwerp- en implementatiegegevens doorgenomen.
+description: Dit artikel bevat een overzicht van Azure Automation-service. Deze controleert de details van het ontwerp en de implementatie in voorbereiding voor de voorbereiding op het aanbod van Azure Marketplace.
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,108 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/20/2018
 ---
-# <a name="getting-started-with-azure-automation"></a>Aan de slag met Azure Automation
+# <a name="get-started-with-azure-automation"></a>Aan de slag met Azure Automation
 
-Deze introductiehandleiding introduceert de belangrijkste concepten met betrekking tot de implementatie van Azure Automation. Als u niet bekend bent met Automation in Azure of ervaring hebt met werkstroomautomatiseringssoftware als System Center Orchestrator, leert u in deze handleiding hoe u Automation voorbereidt en ermee aan de slag gaat.  Daarna wordt u voorbereid op de ontwikkeling van runbooks ter ondersteuning van uw procesautomatiseringsbehoeften. 
+Dit artikel bevat de belangrijkste concepten die betrekking hebben op de implementatie van Azure Automation. Als u niet bekend met automatisering in Azure bent of ervaring met automation werkstroom software, zoals System Center Orchestrator hebben, kunt u informatie over het voorbereiden en vrijgeven Automation. Nadat u dit artikel hebt gelezen, kunt u zult gereed om te beginnen met het ontwikkelen van runbooks ter ondersteuning van uw automatiseringsbehoeften proces. 
 
 
 ## <a name="automation-architecture-overview"></a>Overzicht van Automation-architectuur
 
 ![Overzicht van Azure Automation](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Azure Automation is een SaaS-toepassing (Software als een service) die een schaalbare en betrouwbare multitenant-omgeving biedt om processen met runbooks te automatiseren en configuratiewijzigingen op Windows- en Linux-systemen te beheren met Desired State Configuration (DSC) in Azure, andere cloudservices of on-premises. Entiteiten in uw Automation-account, zoals runbooks, assets en Uitvoeren als-accounts, zijn geïsoleerd van andere Automation-accounts in uw abonnement en andere abonnementen.  
+Azure Automation is een software als een dienst (SaaS)-toepassing die voorziet in een schaalbare en betrouwbare multitenant-omgeving waarin u kunt runbooks automatiseren processen. U kunt Desired State Configuration (DSC) gebruiken in Azure, met andere cloudservices of in een on-premises omgeving voor het beheren van configuratie die is gewijzigd in Windows en Linux-systemen. Entiteiten in uw Automation-account, met inbegrip van runbooks, assets en Run As-accounts, zijn geïsoleerd van andere Automation-accounts in uw abonnement en van andere abonnementen.  
 
-Runbooks die u uitvoert in Azure, worden uitgevoerd op Automation-sandboxes, die op het Azure-platform als een virtuele PaaS-machine (platform als een service) worden gehost.  Automation-sandboxes bieden isolatie van tenants voor alle aspecten van de uitvoering van runbooks: modules, opslag, geheugen, netwerkcommunicatie, taakstromen enzovoort. Deze rol wordt beheerd door de service. U kunt deze niet beheren vanuit uw Azure- of Azure Automation-account.         
+Runbooks die u in Azure uitvoert worden uitgevoerd op de Automation-sandboxes geladen. Sandboxes worden gehost in Azure-platform als een service (PaaS) virtuele machines. 
 
-Als u de implementatie en het beheer van resources in uw lokale datacenter of andere cloudservices wilt automatiseren, kunt u nadat u een Automation-account hebt gemaakt, een of meer computers aanwijzen om de HRW-rol ([Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)) uit te voeren.  Op elke HRW moet de Microsoft Management Agent zijn geïnstalleerd. Deze moet een verbinding hebben met een Log Analytics-werkruimte en een Automation-account.  Log Analytics wordt gebruikt om de installatie te starten, de Microsoft Management Agent te onderhouden en de functionaliteit van de HRW te bewaken.  De levering van runbooks en de instructie om ze uit te voeren, worden verzorgd door Azure Automation.
+Automation-sandboxes bieden isolatie van tenants voor alle aspecten van de runbook-uitvoering, inclusief modules, opslag, geheugen, de netwerkcommunicatie en taak stromen. Deze rol wordt beheerd door de service. U geen toegang tot of het beheren van de functie van uw Azure of Automation-account.         
 
-U kunt meerdere HRW’s implementeren voor hoge beschikbaarheid voor uw runbooks, voor een gelijkmatige verdeling van runbooktaken en (in sommige gevallen) om ze toe te wijzen aan bepaalde workloads of omgevingen.  De Microsoft Monitoring Agent op de HRW communiceert met de Automation-service via TCP-poort 443. Er zijn daarbij geen firewallvereisten voor binnenkomend verkeer.  Wanneer er een runbook op een HRW in de omgeving wordt uitgevoerd en u het runbook ook beheertaken voor andere computers of services in de omgeving wilt laten uitvoeren, moet u het runbook mogelijk ook toegang geven tot andere poorten.  Als het IT-beveiligingsbeleid niet toestaat dat computers in het netwerk verbinding maken met internet, raadpleegt u het artikel [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md). De gateway fungeert als een proxy voor de HRW om taakstatusinformatie te verzamelen en configuratiegegevens van uw Automation-account te ontvangen.
+Voor het automatiseren van de implementatie en beheer van bronnen in uw lokale datacentrum of andere cloudservices nadat u een Automation-account hebt gemaakt, kunt u een of meer virtuele machines uitvoeren aanwijzen de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) rol. Elke Hybrid Runbook Worker vereist Microsoft Management Agent moet worden geïnstalleerd en een Automation-account. De agent moet zijn verbonden met een Azure-logboekanalyse-werkruimte. U kunt Log Analytics gebruiken voor de installatie van de bootstrap onderhouden van Microsoft Management Agent en bewaken van de functionaliteit van de hybride Runbook Worker. Azure Automation voert de levering van runbooks en de aanwijzingen om te worden uitgevoerd.
 
-Runbooks die op een HRW worden uitgevoerd, werken in de context van het lokale systeemaccount op de computer. Dit is de aanbevolen beveiligingscontext voor het uitvoeren van beheertaken op de lokale Windows-computer. Als u het runbook taken wilt laten uitvoeren voor resources buiten de lokale computer, moet u mogelijk beveiligde referentieassets in het Automation-account definiëren. U moet deze referenties vanuit het runbook kunnen gebruiken voor verificatie bij de externe resource. U kunt de assets [Referentie](automation-credentials.md), [Certificaat](automation-certificates.md) en [Verbinding](automation-connections.md) in uw runbook gebruiken met cmdlets waarmee u referenties kunt opgeven, zodat u ze kunt verifiëren.
+U kunt meerdere Hybrid Runbook Workers kunt implementeren. Met hybride Runbook Workers gebruiken voor maximale beschikbaarheid voor uw runbooks en taakverdeling runbooktaken. In sommige gevallen kunt u runbooktaken voor specifieke werkbelastingen of omgevingen reserveren. Microsoft Monitoring Agent op de hybride Runbook Worker initieert communicatie met de Automation-service via TCP-poort 443. Met hybride Runbook Workers hebt geen binnenkomende firewallvereisten.  
 
-DSC-configuraties die zijn opgeslagen in Azure Automation, kunnen rechtstreeks worden toegepast op virtuele Azure-machines. Voor andere fysieke en virtuele machines kunnen configuraties via de pull-server van Azure Automation DSC zijn vereist.  Voor het beheer van configuraties van uw on-premises fysieke of virtuele Windows- en Linux-systemen hoeft u geen infrastructuur te implementeren ter ondersteuning van de Automation DSC pull-server. U hoeft alleen uitgaande internettoegang in te stellen vanaf elk systeem dat u wilt beheren met Automation DSC en dat via TCP-poort 443 met de OMS-service communiceert.   
+U kunt een runbook dat wordt uitgevoerd op een hybride Runbook Worker beheertaken kunnen uitvoeren op basis van andere machines of services in uw omgeving. In dit scenario, kan het runbook ook toegang nodig tot andere poorten. Als de beleidsregels van uw IT-beveiliging niet toestaan van computers in uw netwerk verbinding maken met internet, bekijkt u [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). De Gateway Operations Management Suite (OMS) fungeert als proxy voor de hybride Runbook Worker. Deze verzamelt taakstatus en ontvangt informatie over de configuratie van uw Automation-account.
+
+Runbooks die worden uitgevoerd op een hybride Runbook Worker worden uitgevoerd in de context van het lokale systeemaccount op de computer. Het is raadzaam een beveiligingscontext wanneer u beheertaken op de lokale Windows-computer uitvoeren. Als u wilt dat het runbook aan taken uitvoeren op basis van bronnen die zich buiten de lokale computer, moet u mogelijk beveiligde referentieassets definiëren in het Automation-account. U kunt toegang krijgen tot beveiligde referentieassets van het runbook en deze gebruiken voor verificatie met de externe bron. U kunt [referentie](automation-credentials.md), [certificaat](automation-certificates.md), en [verbinding](automation-connections.md) activa in uw runbook. Gebruik de activa met cmdlets die u gebruiken kunt om op te geven van de referenties voor deze verificatie.
+
+U kunt toepassen DSC-configuraties die zijn opgeslagen in Azure Automation aan virtuele machines. Andere fysieke en virtuele machines kunnen configuraties van aanvragen van de Automation DSC-pull-server. U hoeft niet te implementeren van een infrastructuur voor de ondersteuning van de Automation DSC-pull-server voor het beheren van configuraties van uw on-premises fysieke of virtuele Windows- en Linux systemen. U hoeft alleen uitgaande toegang tot internet vanaf elk systeem dat u beheren wilt met behulp van Automation DSC. Communicatie vindt plaats via TCP-poort 443 met de OMS-service.   
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="automation-dsc"></a>Automation DSC
-Azure Automation DSC kan worden gebruikt voor het beheer van verschillende machines:
+Automation DSC kunt u deze computers beheren:
 
-* Virtuele machines van Azure (klassiek) met Windows of Linux
-* Virtuele machines van Azure met Windows of Linux
-* Virtuele AWS-machines (Amazon Web Services) met Windows of Linux
-* Fysieke/virtuele Windows-computers on-premises of in een andere cloud dan Azure of AWS
-* Fysieke/virtuele Linux-computers on-premises of in een andere cloud dan Azure of AWS
+* Virtuele machines in Azure (klassiek) met Windows of Linux.
+* Virtuele machines in Azure waarop Windows of Linux wordt uitgevoerd.
+* Amazon Web Services (AWS) virtuele machines waarop Windows of Linux wordt uitgevoerd.
+* Fysieke en virtuele Windows-computers die zich on-premises of in een cloud dan Azure of AWS.
+* Fysieke en virtuele Linux-computers die zich on-premises of in een cloud dan Azure of AWS.
 
-Op de PowerShell DSC-agent moet de meest recente versie van WMF 5 worden geïnstalleerd, anders kan Windows niet communiceren met Azure Automation. De meest recente versie van de [PowerShell DSC-agent voor Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) moet worden geïnstalleerd, anders kan Linux niet communiceren met Azure Automation.
+Voor Windows-machines, moet de meest recente versie van Windows Management Framework (WMF) 5 worden geïnstalleerd. Voor Linux-machines, de nieuwste versie van de [PowerShell DSC-agent voor Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) moet worden geïnstalleerd. De PowerShell DSC-agent gebruikt WMF 5 om te communiceren met Automation. 
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker  
-De computer waarop u hybride runbooktaken wilt uitvoeren, moet over het volgende beschikken:
+Wanneer u een computer worden uitgevoerd van hybride runbooktaken instelt, moet de computer aan de volgende vereisten voldoen:
 
-* Windows Server 2012 of hoger
-* Windows PowerShell 4.0 of hoger.  Voor extra betrouwbaarheid is het raadzaam om Windows PowerShell 5.0 op de computer te installeren. U kunt de nieuwe versie downloaden via het [Microsoft Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=50395)
-* .NET framework 4.6.2 of hoger
-* Minimaal twee kernen
-* Minimaal 4 GB aan RAM-geheugen
+* WindowsServer 2012 of later.
+* Windows PowerShell 4.0 of hoger. Voor een hogere mate van betrouwbaarheid, wordt aangeraden Windows PowerShell 5.0. U kunt [downloaden van de nieuwe versie](https://www.microsoft.com/download/details.aspx?id=50395) van het Microsoft Download Center.
+* .NET framework 4.6.2 of hoger.
+* Minimaal twee kernen.
+* Een minimum van 4 GB RAM-geheugen.
 
-### <a name="permissions-required-to-create-automation-account"></a>Machtigingen die zijn vereist om een Automation-account te maken
-Als u een Automation-account wilt maken of bijwerken, moet u de volgende specifieke bevoegdheden en machtigingen hebben om dit onderwerp te voltooien.   
+### <a name="permissions-required-to-create-an-automation-account"></a>Vereiste machtigingen voor het maken van een Automation-account
+Maken of bijwerken van een Automation-account en voer de taken die worden beschreven in dit artikel, moet u de volgende rechten en machtigingen hebben:   
  
-* Om een Automation-account te kunnen maken, moet uw AD-gebruikersaccount worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Eigenaar voor Microsoft.Automation-resources. Dit is beschreven in het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md).  
-* Als de instelling App-registraties is ingesteld op **Ja**, kunnen gebruikers in uw Azure AD-tenant zonder beheerdersrechten [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD. 
+* Voor het maken van een Automation-account, moet uw gebruikersaccount van Azure Active Directory (Azure AD) worden toegevoegd aan een rol met de machtigingen die equivalent zijn aan de rol van eigenaar voor **Microsoft.Automation** resources. Zie voor meer informatie [toegangsbeheer op basis van rollen in Azure Automation](automation-role-based-access-control.md).  
+* In de Azure-portal onder **Azure Active Directory** > **beheren** > **App registraties**als **App registraties**  is ingesteld op **Ja**, kunnen gebruikers niet-beheerders in uw Azure AD-tenant [Active Directory-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Als **App registraties** is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD. 
 
-Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
+Als u niet lid zijn van de Active Directory-exemplaar van het abonnement voordat u aan het abonnement globale beheerder/CO-rol worden toegevoegd, zijn u als Gast toegevoegd aan Active Directory. In dit scenario wordt dit bericht wordt weergegeven op de **Automation-Account toevoegen** pagina: "U bent niet gemachtigd om te maken." 
 
-## <a name="authentication-planning"></a>Verificatieplanning
-Met Azure Automation kunt u taken automatiseren voor bronnen in Azure, on-premises en bij andere cloudproviders.  Om een runbook in staat te stellen de vereiste acties uit te voeren, moet het machtigingen hebben om veilig toegang te krijgen tot de resources met de minimale rechten die vereist zijn binnen het abonnement.  
+Als een gebruiker is toegevoegd aan de rol globale beheerder/CO-eerst, kunt u uit de Active Directory-exemplaar van het abonnement verwijderen en vervolgens opnieuw toe te voegen aan de volledige gebruikersrol in Active Directory.
+
+Gebruikersrollen controleren:
+1. In de Azure portal, gaat u naar de **Azure Active Directory** deelvenster.
+2. Selecteer **gebruikers en groepen**.
+3. Selecteer **alle gebruikers**. 
+4. Nadat u een specifieke gebruiker selecteert, selecteert u **profiel**. De waarde van de **gebruikerstype** kenmerk onder profiel van de gebruiker mag geen **Gast**.
+
+## <a name="authentication-planning"></a>Plannen voor verificatie
+U kunt taken op basis van bronnen die zich in Azure, on-premises en in andere cloudservices automatiseren in Azure Automation. Voor een runbook de vereiste acties uit te voeren, moet machtigingen voor veilige toegang tot de resources hebben. De minimale rechten die vereist zijn binnen het abonnement moet hebben.  
 
 ### <a name="what-is-an-automation-account"></a>Wat is een Automation-account 
-Alle automatiseringstaken die u met behulp van de Azure-cmdlets in Azure Automation voor resources uitvoert, moeten worden geverifieerd bij Azure met behulp van verificatie op basis van organisatie-identiteitreferenties van Azure Active Directory.  Een Automation-account is gescheiden van het account waarmee u zich aanmeldt bij de portal om Azure-resources te configureren en te gebruiken.  De volgende Automation-resources zijn opgenomen in een account:
+Alle automatiseringstaken die u op resources uitvoert met behulp van de cmdlets in Azure Automation verifiëren naar Azure met behulp van verificatie op basis van referenties op de identiteit van de organisatie van Azure AD.  Een Automation-account is gescheiden van het account waarmee u zich aanmeldt bij de portal voor het configureren en gebruiken van Azure-resources. 
 
-* **Certificaten**: certificaten die worden gebruikt voor verificatie vanuit een runbook of DSC-configuratie of deze toevoegen.
-* **Verbindingen**: de verificatie- en configuratiegegevens die nodig zijn om vanuit een runbook of DSC-configuratie verbinding te maken met een externe service of toepassing.
-* **Referenties**: een PSCredential-object dat beveiligingsreferenties bevat, zoals de combinatie van gebruikersnaam en wachtwoord die is vereist voor verificatie vanuit een runbook of DSC-configuratie.
-* **Integratiemodules**: PowerShell-modules die zijn opgenomen in een Azure Automation-account om gebruik te maken van de cmdlets in runbooks en DSC-configuraties.
-* **Schema’s**: schema's voor het starten of stoppen van een runbook op een opgegeven moment, met terugkerende frequenties.
-* **Variabelen**: waarden die beschikbaar zijn vanuit een runbook of de DSC-configuratie.
-* **DSC-configuraties**: PowerShell-scripts die beschrijven hoe u een functie of instelling van het besturingssysteem configureert of hoe u een toepassing installeert op een Windows- of Linux-computer.  
-* **Runbooks**: een set taken die een aantal geautomatiseerde processen uitvoeren in Azure Automation op basis van Windows PowerShell.    
+De volgende resources zijn opgenomen in een Automation-account:
 
-De Automation-resources voor elk Automation-account zijn gekoppeld aan één Azure-regio, maar Automation-accounts kunnen alle resources in uw abonnement beheren. U kunt Automation-accounts in verschillende regio's maken als u te maken hebt met beleidsregels die bepalen dat gegevens en resources moeten worden geïsoleerd in een specifieke regio.
+* **Certificaten**. Een certificaat dat wordt gebruikt voor verificatie van een runbook of de DSC-configuratie bevat. U kunt ook certificaten toevoegen.
+* **Verbindingen**. Verificatie- en configuratie-informatie die nodig is om verbinding maken met een externe service of toepassing vanuit een runbook of de DSC-configuratie bevat.
+* **Referenties**. Bevat een **PSCredential** -object met beveiligingsgegevens zoals een gebruikersnaam en wachtwoord. De referenties zijn nodig voor het verifiëren van een runbook of de DSC-configuratie.
+* **Integratiemodules**. PowerShell-modules die opgenomen in een Automation-account zijn. Gebruik de PowerShell-modules voor het uitvoeren van cmdlets in runbooks en DSC-configuraties.
+* **Planningen**. Schema's starten of stoppen van een runbook op een opgegeven periode, met inbegrip van terugkerende frequenties bevat.
+* **Variabelen**. Bevatten waarden die beschikbaar zijn vanuit een runbook of de DSC-configuratie.
+* **DSC-configuraties**. PowerShell-scripts die een beschrijving van het configureren van een besturingssysteem functie of de instelling of het installeren van een toepassing op een Windows- of Linux-computer.  
+* **Runbooks**. Een set taken waarmee een geautomatiseerd proces in Automation op basis van Windows PowerShell.    
 
-Wanneer u in Azure Portal een Automation-account maakt, worden er automatisch twee accounts gemaakt:
+Automation-resources voor elk Automation-account zijn gekoppeld aan één Azure-regio. U kunt echter Automation-accounts gebruiken voor het beheren van alle resources in uw abonnement. U kunt Automation-accounts in verschillende regio's maken als u te maken hebt met beleidsregels die bepalen dat gegevens en resources moeten worden geïsoleerd in een specifieke regio.
 
-* Een Uitvoeren als-account. Door dit account worden een service-principal in Azure Active Directory (Azure AD) en een certificaat gemaakt. Ook wordt door dit account de inzender voor op rollen gebaseerd toegangsbeheer (RBAC) toegewezen, die resources van Resource Manager beheert met runbooks.
-* Een klassiek Uitvoeren als-account. Door dit account wordt een beheercertificaat geüpload, dat wordt gebruikt om klassieke resources te beheren met runbooks.
+Wanneer u een Automation-account in de Azure portal maakt, worden twee verificatie entiteiten worden automatisch gemaakt:
 
-Op rollen gebaseerd toegangsbeheer is beschikbaar in Azure Resource Manager voor het toekennen van toegestane acties aan een Azure AD-gebruikersaccount en Uitvoeren als-account, en om die service-principal te verifiëren.  Lees het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie die u helpt bij het ontwikkelen van een model voor het beheren van machtigingen in Automation.  
+* **Run As-account**. Dit account heeft de volgende taken:
+  - Hiermee maakt een service-principal in Azure AD.
+  - Een certificaat gemaakt.
+  - Wijst de Contributor Role-Based toegangsbeheer (RBAC), die Azure Resource Manager-resources met behulp van runbooks beheert.
+* **Klassieke Run As-account**. Dit account uploadt een beheercertificaat. Het certificaat wordt gebruikt voor het klassieke resources beheren met behulp van runbooks.
+
+RBAC is beschikbaar met Resource Manager toe te kennen toegestane acties naar een Azure AD-gebruikersaccount en Run As-account. U kunt ook gebruikmaken van RBAC voor verificatie van deze service-principal. Zie voor meer informatie, en hulp bij het ontwikkelen van een model voor het beheren van machtigingen in Automation, [toegangsbeheer op basis van rollen in Azure Automation-artikel](automation-role-based-access-control.md).  
 
 #### <a name="authentication-methods"></a>Verificatiemethoden
-De volgende tabel bevat een overzicht van de verschillende verificatiemethoden voor elke omgeving die wordt ondersteund door Azure Automation.
+De volgende tabel geeft een overzicht van de verificatiemethoden die u kunt gebruiken voor elke omgeving die ondersteuning biedt voor Azure Automation.
 
 | Methode | Omgeving 
 | --- | --- | 
 | Uitvoeren als-account van Azure en klassiek Uitvoeren als-account |Azure Resource Manager en klassieke Azure-implementatie |  
 | Azure AD-gebruikersaccount |Azure Resource Manager en klassieke Azure-implementatie |  
-| Windows-verificatie |Lokaal datacenter of een andere cloudprovider met de Hybrid Runbook Worker |  
-| AWS-referenties |Amazon Web Services |  
+| Windows-verificatie |Lokale datacenter of andere cloud services-provider met behulp van de functie Hybride Runbook Worker |  
+| Amazon Web Services-referenties |Amazon Web Services |  
 
-In de sectie **Procedures\Verificatie en beveiliging** vindt u ondersteunende artikelen met een overzicht en de implementatiestappen om verificatie te configureren voor deze omgevingen, met een bestaand account of een nieuw account dat u speciaal aan die omgeving hebt toegewezen.  Voor het Uitvoeren als-account van Azure en het klassieke Uitvoeren als-account raadpleegt u het onderwerp [Automation Uitvoeren als-account bijwerken met PowerShell](automation-create-runas-account.md). Hierin wordt beschreven hoe u een bestaand Automation-account met een Uitvoeren als-account bijwerkt vanuit de portal of met behulp van PowerShell als het oorspronkelijk niet is geconfigureerd met een Uitvoeren als- of klassiek Uitvoeren als-account. Als u een Uitvoeren als- en een klassiek Uitvoeren als-account wilt maken met een certificaat dat is uitgegeven door uw certificeringsinstantie (CA) voor ondernemingen, raadpleegt u dit artikel voor meer informatie over hoe u de accounts maakt met deze configuratie.     
+De volgende artikelen bevatten een overzicht en de implementatie stappen voor het configureren van verificatie voor deze omgevingen. De artikelen worden beschreven met behulp van een bestaande en het gebruik van een nieuw account die u wilt reserveren voor deze omgeving. 
+* [Een zelfstandige Azure Automation-account maken](automation-create-standalone-account.md)
+* [Runbooks verifiëren met de klassieke Azure-implementatie en het Resource Manager](automation-create-aduser-account.md)
+* [Runbooks met Amazon webservices verifiëren](automation-config-aws-account.md)
+* [Automation Run As-account bijwerken](automation-create-runas-account.md)
+
+Voor de Azure uitvoeren als en klassieke Run As-accounts, [bijwerken Automation Run As-account](automation-create-runas-account.md) wordt beschreven hoe u uw bestaande Automation-account bijwerken met het Run As-accounts vanuit de portal. Ook wordt beschreven hoe u PowerShell als het Automation-account is niet oorspronkelijk is geconfigureerd met een Run As- of klassieke Run As-account wordt gebruikt. U kunt een Run As-account en een klassieke Run As-account maken met behulp van een certificaat dat uitgegeven door uw enterprise-certificeringsinstantie (CA). Bekijk [Automation Update die Run As-account](automation-create-runas-account.md) voor informatie over het maken van de accounts met behulp van deze configuratie.     
  
-## <a name="network-planning"></a>Netwerkplanning
-De Hybrid Runbook Worker kan alleen verbinding maken met en zich registreren bij Microsoft Operations Management Suite (OMS) als het toegang heeft tot het poortnummer en de URL's die hieronder worden beschreven.  Dit is in aanvulling op de [poorten en URL's die vereist zijn voor de Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) om verbinding te maken met OMS. Als u een proxyserver gebruikt voor communicatie tussen de agent en de OMS-service, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt om toegang tot internet te beperken, moet u uw firewall zodanig configureren dat toegang wordt toegestaan.
+## <a name="network-planning"></a>Plan uw netwerk
+Voor de hybride Runbook Worker verbinding maken met en registreren bij OMS moet hebben toegang tot het poortnummer en de URL's die in deze sectie worden beschreven. Dit is in aanvulling op de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) wilt verbinden met OMS. 
 
-In de onderstaande informatie vindt u de poort en URL's die nodig zijn om de Hybrid Runbook Worker te laten communiceren met Automation.
+Als u een proxyserver voor communicatie tussen de agent en de OMS-service gebruikt, moet u ervoor dat de juiste resources toegankelijk zijn. Als u een firewall gebruikt toegang tot het internet te beperken, moet u uw firewall om toegang te verlenen.
 
-* Poort: alleen TCP 443 is vereist voor uitgaande toegang tot internet
-* Algemene URL: *.azure-automation.net
+De volgende URL's en -poort zijn vereist voor de Hybrid Runbook Worker-rol om te communiceren met Automation:
 
-Als u een Automation-account voor een specifieke regio hebt gedefinieerd en de communicatie met dat regionaal datacenter wilt beperken, vindt u in de volgende tabel de DNS-record voor elke regio.
+* Poort: Alleen TCP 443 is vereist voor uitgaande toegang tot internet.
+* Globale URL: *.azure-automation.net.
+
+Als u een Automation-account dat gedefinieerd voor een bepaald gebied hebt, kunt u de communicatie met dat regionale datacenter kunt beperken. De volgende tabel bevat de DNS-record voor elke regio.
 
 | **Regio** | **DNS-record** |
 | --- | --- |
@@ -132,59 +157,61 @@ Als u een Automation-account voor een specifieke regio hebt gedefinieerd en de c
 | Verenigd Koninkrijk Zuid | uks-jobruntimedata-prod-su1.azure-automation.net |
 | VS (overheid) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Voor een lijst met IP-adressen in plaats van namen downloadt en bekijkt u het XML-bestand met [Azure-datacenter-IP-adressen](https://www.microsoft.com/download/details.aspx?id=41653) in het Microsoft Downloadcentrum. 
+Voor een lijst met regio IP-adressen in plaats van de regionamen, downloadt u de [Azure Datacenter IP-adres](https://www.microsoft.com/download/details.aspx?id=41653) XML-bestand van het Microsoft Download Center. 
 
 > [!NOTE]
-> Dit bestand bevat de IP-adresbereiken (inclusief bereiken voor Compute, SQL en Storage) die worden gebruikt in de Microsoft Azure-datacenters. Er wordt wekelijks een bijgewerkt bestand geplaatst waarin staat welke bereiken momenteel zijn geïmplementeerd en welke wijzigingen in de toekomst aan de IP-bereiken zullen worden aangebracht. Nieuwe bereiken in het bestand worden gedurende ten minste één week nog niet in de datacenters gebruikt. Download elke week het nieuwe XML-bestand en voer de benodigde wijzigingen uit op uw site om de services die in Azure worden uitgevoerd correct te identificeren. Express Route-gebruikers zullen merken dat dit bestand wordt gebruikt om in de eerste week van elke maand de BGP-advertenties van Azure-ruimte bij te werken. 
+> Het Azure Datacenter IP-adres XML-bestand bevat de IP-adresbereiken die worden gebruikt in de Microsoft Azure-datacenters. COMPUTE, SQL en opslag bereiken zijn opgenomen in het bestand. 
+>
+>Een bijgewerkt bestand is wekelijks geplaatst. Het bestand weerspiegelt de huidige geïmplementeerde bereiken en toekomstige wijzigingen in de IP-adresbereiken. Nieuwe bereiken die worden weergegeven in het bestand worden niet gebruikt in de datacentra voor ten minste één week. 
+>
+> Er is een goed idee om te downloaden van het nieuwe XML-bestand per week. Werk vervolgens, uw site correct services identificeren die worden uitgevoerd in Azure. Azure ExpressRoute gebruikers Houd er rekening mee dat dit bestand moet worden gebruikt voor het bijwerken van de Border Gateway Protocol (BGP)-aankondiging van Azure ruimte de eerste week van elke maand. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Een Automation-account maken
 
-Er zijn verschillende manieren waarop u in Azure Portal een Automation-account kunt maken.  In de volgende tabel worden de diverse typen implementatie-ervaring en de verschillen daartussen geïntroduceerd.  
+De volgende tabel bevat de methoden voor het maken van een Automation-account in de Azure portal. De tabel wordt elk type implementatie-ervaring, en de verschillen beschreven.  
 
 |Methode | Beschrijving |
 |-------|-------------|
-| Selecteer Automation en besturing in Marketplace | Een aanbieding waarmee een Automation-account en een OMS-werkruimte worden gemaakt die zijn gekoppeld in dezelfde resourcegroep en regio.  Integratie met OMS bevat ook het voordeel van Log Analytics waarmee u de taakstatus en taakstromen van een runbook na verloop van tijd kunt controleren en analyseren. Daarnaast kunt u beschikken over geavanceerde functies om problemen te escaleren of te onderzoeken. In de aanbieding zijn ook de oplossingen Wijzigingen bijhouden en Updatebeheer geïmplementeerd. Deze zijn standaard ingeschakeld. |
-| Selecteer Automation in Marketplace | Hiermee wordt in een nieuwe of bestaande resourcegroep een Automation-account gemaakt dat niet is gekoppeld aan een OMS-werkruimte en geen beschikbare oplossingen bevat uit de aanbieding Automation en beheer. Dit is een basisconfiguratie om kennis te maken met Automation en te leren hoe u runbooks schrijft, DSC configureert en de mogelijkheden van de service gebruikt. |
-| Geselecteerde beheeroplossingen | Als u een oplossing selecteert (**[Updatebeheer](../operations-management-suite/oms-solution-update-management.md)**, **[VM's buiten de bedrijfsuren starten/stoppen](automation-solution-vm-management.md)** of **[Wijzigingen bijhouden](../log-analytics/log-analytics-change-tracking.md)**), wordt u gevraagd een bestaande Automation- en OMS-werkruimte te selecteren of krijgt u de mogelijkheid om beide te maken als dat nodig is voor de oplossing die u in uw abonnement wilt implementeren. |
+| Selecteer **Automation en Control** in de Azure Marketplace | Een Azure Marketplace-aanbieding maakt een Automation-account en de OMS-werkruimte die gekoppeld en in dezelfde resourcegroep en regio zijn. Integratie met OMS bevat ook het voordeel van logboekanalyse controleren en analyseren van runbook-taak status en taak streams gedurende een bepaalde periode. U kunt ook de geavanceerde functies in Log Analytics gebruiken om te escaleren of problemen onderzoeken. De aanbieding implementeert de **bijhouden** en **updatebeheer** oplossingen die zijn standaard ingeschakeld. |
+| Selecteer **Automation** in de Marketplace | Deze methode maakt u een Automation-account in een nieuwe of bestaande resourcegroep die niet is gekoppeld aan een OMS-werkruimte. Alle beschikbare oplossingen van zijn niet opgenomen de **Automation en Control** aanbieden. Deze methode is een eenvoudige configuratie die u in Automation introduceert. Dit kunt u informatie over het schrijven van runbooks en DSC-configuraties en informatie over het gebruik van de mogelijkheden van de service. |
+| Selecteer **Management** oplossingen | Als u selecteert een **Management** oplossing, inclusief [updatebeheer](../operations-management-suite/oms-solution-update-management.md), [starten/stoppen virtuele machines tijdens daluren](automation-solution-vm-management.md), of [bijhouden](../log-analytics/log-analytics-change-tracking.md), de oplossing voor u wordt gevraagd om een bestaand Automation-account en de OMS-werkruimte. De oplossing biedt u de optie voor het maken van een Automation-account en de OMS-werkruimte, zoals is vereist voor de oplossing worden geïmplementeerd in uw abonnement. |
 
-In dit onderwerp doorloopt u de stappen voor het maken van een Automation-account en de OMS-werkruimte door de aanbieding Automation en beheer te implementeren.  Als u een zelfstandig Automation-account wilt maken om de service te testen of te bekijken, raadpleegt u het artikel [Create standalone Automation account](automation-create-standalone-account.md) (Een zelfstandig Automation-account maken).  
+### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Een Automation-account die geïntegreerd met OMS maken
+Bij vrijgeven Automation wordt aangeraden dat u selecteert de **Automation en Control** aanbieding in de Marketplace. Met deze methode maakt u een Automation-account en er wordt van de integratie met een OMS-werkruimte. Wanneer u deze methode gebruikt, hebt u ook de optie voor het installeren van de oplossingen die beschikbaar in de aanbieding zijn.  
 
-### <a name="create-automation-account-integrated-with-oms"></a>Een Automation-account maken dat is geïntegreerd met OMS
-De aanbevolen methode om Automation te implementeren, is door de aanbieding Automation en beheer te selecteren in Marketplace.  In dat geval wordt dan zowel een Automation-account gemaakt als de integratie met een OMS-werkruimte tot stand gebracht. Daarnaast krijgt u de mogelijkheid om de beheeroplossingen te installeren die met de aanbieding beschikbaar zijn.  
+[Een zelfstandige Automation-account maken](automation-create-standalone-account.md) wordt u begeleid bij het proces van het maken van een Automation-account en de OMS-werkruimte onboarding de **Automation en Control** aanbieden. U kunt informatie over het maken van Automation-account voor het testen van een zelfstandige of een voorbeeld van de service.  
 
-1. Meld u aan bij Azure Portal met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
+Een Automation-account en de OMS-werkruimte maken met behulp van de **Automation en Control** Marketplace-aanbieding:
 
-2. Klik op **Nieuw**.<br><br> ![De optie Nieuw selecteren in Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+1. Aanmelden bij de Azure-portal met een account dat lid is van de rol van de beheerders abonnement en een CO-beheerder van het abonnement.
+2. Selecteer **nieuwe**.<br><br> ![Selecteer Nieuw in de Azure-portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+3. Zoeken naar **Automation**. Selecteer in de lijst met zoekresultaten **Automation en Control**.<br><br> ![Zoek en selecteer Automation & besturingselement in Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+4. Bekijk de beschrijving voor de aanbieding en selecteer vervolgens **maken**.  
+5. Onder **Automation en Control**, selecteer **OMS-werkruimte**. Onder **OMS werkruimten**, selecteer een OMS-werkruimte die gekoppeld aan het Azure-abonnement dat u het Automation-account in. Als u een OMS-werkruimte niet hebt, selecteert u **nieuwe werkruimte maken**. Onder **OMS-werkruimte**: 
+  1. Voor **OMS-werkruimte**, voer een naam voor de nieuwe werkruimte.
+  2. Voor **abonnement**, selecteer een abonnement aan koppelen. Als de standaardselectie niet het abonnement dat u wilt gebruiken, schakelt u het abonnement uit de vervolgkeuzelijst.
+  3. Voor **resourcegroep**, kunt u een resourcegroep maken of Selecteer een bestaande resourcegroep.  
+  4. Voor **locatie**, selecteer een regio. Zie voor meer informatie [welke regio's Azure Automation is beschikbaar in](https://azure.microsoft.com/regions/services/). Oplossingen worden aangeboden in twee lagen: laag gratis en per knooppunt (OMS). Gratis laag heeft een limiet op de hoeveelheid gegevens die dagelijks, verzameld bewaarperiode en runbook-taak runtime minuten. De per knooppunt (OMS) laag niet hebben een limiet van de hoeveelheid gegevens die worden verzameld per dag.  
+  5. Selecteer **Automation-account**.  Als u een nieuwe OMS-werkruimte maakt, moet u ook een Automation-account die is gekoppeld aan de nieuwe OMS-werkruimte maken. Uw Azure-abonnement, resourcegroep en de regio bevatten. 
+    1. Selecteer **een Automation-account maken**.
+    2. Onder **Automation-Account**, in de **naam** en voer de naam van het Automation-account.
+    Alle andere opties worden automatisch ingevuld op basis van de OMS-werkruimte geselecteerd. U kunt deze opties niet wijzigen. 
+    3. Een Uitvoeren als-account van Azure is de standaardmethode voor verificatie voor de aanbieding. Nadat u hebt geselecteerd **OK**, de configuratieopties die worden gevalideerd en het Automation-account is gemaakt. Selecteer om de voortgang, in het menu te volgen **meldingen**. 
+    4. Selecteer anders een bestaand Automation Uitvoeren als-account. Het account dat u selecteert kan niet al zijn gekoppeld aan een andere OMS-werkruimte. Als het, wordt er een melding weergegeven. Als het account is al gekoppeld aan een OMS-werkruimte, selecteer een andere Automation Run As-account of een maken.
+    5. Nadat u opgeven of de vereiste gegevens selecteren, selecteert u **maken**. De informatie is geverifieerd en de Automation-Account en Run As-accounts worden gemaakt. U keert automatisch terug naar de **OMS-werkruimte** deelvenster.  
+6. Nadat u opgeven of selecteren van de vereiste informatie op de **OMS-werkruimte** deelvenster **maken**.  De informatie wordt gecontroleerd en de werkruimte is gemaakt. Selecteer om de voortgang, in het menu te volgen **meldingen**. U keert terug naar de **oplossing toevoegen** deelvenster.  
+7. Onder **Automation en Control** instellingen u wilt bevestigen dat voor het installeren van de aanbevolen oplossingen die vooraf zijn geselecteerd. Als u een van de standaardopties wijzigen, kunt u de oplossingen later afzonderlijk installeren.  
+8. Selecteer het volgende om door te gaan met de voorbereiding Automation en een OMS-werkruimte **maken**. Alle instellingen worden gevalideerd en probeert dan Azure voor het implementeren van de aanbieding in uw abonnement. Dit proces kan enkele seconden duren. Selecteer om de voortgang bijhouden, in het menu **meldingen**. 
 
-3. Zoek naar **Automation** en klik in de zoekresultaten op **Automation en beheer***.<br><br> ![Zoek naar en selecteer Automation en beheer in Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
-
-4. Lees de beschrijving van de aanbieding en klik op **Maken**.  
-
-5. Selecteer op de blade met instellingen voor **Automation en beheer** de optie **OMS-werkruimte**.  Selecteer op de blade **OMS-werkruimte** een OMS-werkruimte die is gekoppeld aan hetzelfde Azure-abonnement als dat van het Automation-account of maak een nieuwe OMS-werkruimte.  Als u geen OMS-werkruimte hebt, selecteert u **Nieuwe werkruimte maken** en voert u op de blade **OMS-werkruimte** het volgende uit: 
-   - Geef een naam op voor de nieuwe **OMS-werkruimte**.
-   - Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
-   - Voor **Resourcegroep** kunt u een resourcegroep maken of een bestaande resourcegroep selecteren.  
-   - Selecteer een **locatie**.  Zie [in welke regio's Azure Automation beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.  De oplossingen worden in twee prijscategorieën aangeboden: Gratis en Per knooppunt (OMS).  De gratis categorie heeft een limiet op de hoeveelheid gegevens die dagelijks wordt verzameld, op de retentieperiode en op de runtimeminuten van runbooktaken.  De categorie Per knooppunt (OMS) kent geen limiet voor de hoeveelheid gegevens die dagelijks wordt verzameld.  
-   - Selecteer **Automation-account**.  Als u een nieuwe OMS-werkruimte maakt, moet u ook een Automation-account maken dat is gekoppeld aan de nieuwe OMS-werkruimte die eerder is opgegeven, inclusief uw Azure-abonnement, resourcegroep en regio.  U kunt **Een Automation-account maken** selecteren en het volgende opgeven op de blade **Automation-account**: 
-  - Voer in het veld **Naam** de naam van het Automation-account in.
-
-    Alle overige opties worden automatisch ingevuld op basis van de geselecteerde OMS-werkruimte. Deze opties kunnen niet worden gewijzigd.  Een Uitvoeren als-account van Azure is de standaardmethode voor verificatie voor de aanbieding.  Nadat u op **OK** hebt geklikt, worden de configuratieopties gevalideerd en wordt het Automation-account gemaakt.  U kunt de voortgang bijhouden onder **Meldingen** in het menu. 
-
-    Selecteer anders een bestaand Automation Uitvoeren als-account.  Het account dat u selecteert, mag nog niet aan een andere OMS-werkruimte zijn gekoppeld, anders wordt er een melding op de blade weergegeven.  Als het account al is gekoppeld, moet u een ander Automation Uitvoeren als-account selecteren of een account maken.
-
-    Klik na het opgeven van de vereiste informatie op **Maken**.  De informatie wordt gecontroleerd en het Automation-Account en Uitvoeren als-account worden gemaakt.  U keert automatisch terug naar de blade **OMS-werkruimte**.  
-
-6. Nadat u de vereiste gegevens hebt opgegeven op de blade **OMS-werkruimte**, klikt u op **Maken**.  Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu.  U keert terug naar de blade **Oplossing toevoegen**.  
-
-7. Op de blade **Automation en beheer** bevestigt u dat u de aanbevolen vooraf geselecteerde oplossingen wilt installeren. Als u een oplossing uitschakelt, kunt u deze later afzonderlijk installeren.  
-
-8. Klik op **Maken** om verder te gaan met de implementatie van Automation en een OMS-werkruimte. Alle instellingen worden gecontroleerd en daarna wordt geprobeerd de aanbieding in uw abonnement te implementeren.  Dit proces kan enkele seconden duren en u kunt de voortgang bijhouden onder **Meldingen** in het menu. 
-
-Wanneer de aanbieding is geïmplementeerd, kunt u runbooks gaan maken, de beheeroplossingen gebruiken die u hebt ingeschakeld, de rol [Hybrid Runbook Worker implementeren](automation-hybrid-runbook-worker.md) of aan de slag gaan met [Log Analytics](https://docs.microsoft.com/azure/log-analytics) en gegevens verzamelen die zijn gegenereerd door resources in uw cloud- of on-premises omgeving.   
+Nadat de aanbieding vrijgegeven is, kunt u de volgende taken uitvoeren:
+* Begin met het maken van runbooks.
+* Werken met de oplossingen die u hebt ingeschakeld.
+* Implementeer een [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) rol.
+* Beginnen met werken met [logboekanalyse](https://docs.microsoft.com/azure/log-analytics) voor het verzamelen van gegevens die worden gegenereerd door de bronnen in uw cloud of on-premises omgeving.   
 
 ## <a name="next-steps"></a>Volgende stappen
-* Raadpleeg [Runbooks verifiëren met een Azure Uitvoeren als-account](automation-verify-runas-authentication.md) als u wilt controleren of uw nieuwe Azure Automation-account kan worden geverifieerd met Azure-resources.
-* Als u runbooks wilt gaan maken, lees dan voordat u aan de slag gaat eerst welke [typen Automation-runbooks](automation-runbook-types.md) er worden ondersteund en gerelateerde overwegingen.
+* Controleer of dat uw nieuwe Automation-account kan worden geverifieerd op basis van de Azure-resources. Zie voor meer informatie [Test Azure Automation uitvoeren als-accountverificatie](automation-verify-runas-authentication.md).
+* Informatie over het aan de slag met het maken van runbooks en verwante overwegingen voordat u begint te ontwerpen. Zie voor meer informatie [Automation-runbooktypen](automation-runbook-types.md).
 
 

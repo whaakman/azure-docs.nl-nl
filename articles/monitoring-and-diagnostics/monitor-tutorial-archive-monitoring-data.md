@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archief Azure bewakingsgegevens
 
@@ -66,7 +66,7 @@ Het bewaken van gegevens uit uw abonnement is nu die binnenkomen in het opslagac
 
 Nu we niveau van de resource-gegevens (metrische gegevens voor resources en diagnostische logboeken) worden doorgestuurd naar het opslagaccount door in te stellen configureren **diagnostische broninstellingen**.
 
-1. Klik op de **Monitor** knop gevonden op de linkernavigatiebalk-lijst, klikt u vervolgens op **diagnostische instellingen**. Hier kunt u een lijst van alle resources in uw abonnement bewakingsgegevens via Azure Monitor produceren bekijken. Als u geen resources in deze lijst, kunt u [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md) voordat u dat u een resource die u kunt een diagnostische instelling configureren hebt op.
+1. Klik op de **Monitor** knop gevonden op de linkernavigatiebalk-lijst, klikt u vervolgens op **diagnostische instellingen**. Hier kunt u een lijst van alle resources in uw abonnement bewakingsgegevens via Azure Monitor produceren bekijken. Als u geen resources in deze lijst, kunt u [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) voordat u dat u een resource die u kunt een diagnostische instelling configureren hebt op.
 
 2. Klik op een resource in de lijst en klik vervolgens op **diagnostische gegevens inschakelen**.
    

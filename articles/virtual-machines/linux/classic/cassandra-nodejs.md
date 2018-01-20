@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
 
@@ -117,10 +117,10 @@ De volgende softwareversies worden gebruikt tijdens de implementatie:
 
 <table>
 <tr><th>Software</th><th>Bron</th><th>Versie</th></tr>
-<tr><td>JAVA RUNTIME ENVIRONMENT    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 TNS</td></tr>
+<tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Wanneer u JRE downloadt, moet u handmatig de Oracle-licentie accepteren. Downloaden dus om de implementatie vereenvoudigen, de vereiste software op het bureaublad. Upload het naar de Ubuntu-sjablooninstallatiekopie maken als een voordat de implementatie van het cluster.
@@ -139,7 +139,7 @@ De VM-sjabloon maken, meld u aan bij de Azure-portal en gebruik de volgende volg
 Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 
 <table>
-<tr><th>VELDNAAM              </td><td>       WAARDE VAN VELD               </td><td>         OPMERKINGEN                </td><tr>
+<tr><th>VELDNAAM              </td><td>       WAARDE VAN VELD               </td><td>         REMARKS                </td><tr>
 <tr><td>RELEASEDATUM VERSIE    </td><td> Selecteer een datum in de vervolgkeuzelijst omlaag</td><td></td><tr>
 <tr><td>NAAM VAN VIRTUELE MACHINE    </td><td> Cass-sjabloon                   </td><td> Dit is de hostnaam van de virtuele machine </td><tr>
 <tr><td>LAAG                     </td><td> STANDARD                           </td><td> Laat de standaardwaarde              </td><tr>
@@ -154,9 +154,9 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 
 <table>
-<tr><th>VELDNAAM             </th><th> WAARDE VAN VELD                       </th><th> OPMERKINGEN                                 </th></tr>
+<tr><th>VELDNAAM             </th><th> WAARDE VAN VELD                       </th><th> REMARKS                                 </th></tr>
 <tr><td> CLOUDSERVICE    </td><td> Maak een nieuwe cloudservice    </td><td>Cloudservice is een container compute-bronnen zoals virtuele machines</td></tr>
-<tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>Ubuntu template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
+<tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>ubuntu-template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
 <tr><td>OPSLAGACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
 <tr><td>BESCHIKBAARHEIDSSET </td><td>    None </td><td>    Laat dit veld leeg</td></tr>
@@ -169,7 +169,7 @@ Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm 
 #### <a name="step-1-upload-tarballs"></a>STAP 1: Het uploaden van tarballs
 Gebruik scp of pscp, kopieert u de eerder gedownloade software naar ~/downloads map met de opdrachtindeling van de volgende:
 
-##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gzlocaladmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
+##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 Herhaal de bovenstaande opdracht voor JRE ook als voor de Cassandra bits.
 
 #### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>STAP 2: Bereid de mapstructuur en uitpakken van het archief
@@ -279,7 +279,7 @@ Cassandra.yaml op elke virtuele machine in overeenstemming met configuratie is v
 
 <table>
 <tr><th>Veldnaam   </th><th> Waarde  </th><th>    Opmerkingen </th></tr>
-<tr><td>clusternaam </td><td>    'CustomerService'    </td><td> Gebruik de naam die overeenkomt met uw implementatie</td></tr>
+<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Gebruik de naam die overeenkomt met uw implementatie</td></tr>
 <tr><td>listen_address    </td><td>[laat dit veld leeg]    </td><td> Verwijderen van 'localhost' </td></tr>
 <tr><td>rpc_addres   </td><td>[laat dit veld leeg]    </td><td> Verwijderen van 'localhost' </td></tr>
 <tr><td>zaden    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Lijst met alle IP-adressen die zijn aangewezen als basis.</td></tr>
@@ -292,7 +292,7 @@ Meld u aan bij de virtuele machine met behulp van de hostnaam (hk-cas-template.c
 De volgende reeks bewerkingen voor het vastleggen van de installatiekopie uitvoeren:
 
 ##### <a name="1-deprovision"></a>1. Identiteitsgegevens
-Gebruik de opdracht ' sudo waagent-deprovision + user ' om specifieke gegevens van virtuele Machine exemplaar te verwijderen. Zie voor [virtuele Linux-Machine vastleggen](capture-image.md) gebruiken als sjabloon meer details op het vastleggen van installatiekopie.
+Gebruik de opdracht ' sudo waagent-deprovision + user ' om specifieke gegevens van virtuele Machine exemplaar te verwijderen. Zie voor [virtuele Linux-Machine vastleggen](capture-image-classic.md) gebruiken als sjabloon meer details op het vastleggen van installatiekopie.
 
 ##### <a name="2-shut-down-the-vm"></a>2: de virtuele machine afsluiten
 Zorg ervoor dat de virtuele machine is geselecteerd en klik op de koppeling voor het afsluiten van de opdrachtbalk onder.
@@ -307,7 +307,7 @@ Dit proces duurt een paar seconden en de installatiekopie moet beschikbaar zijn 
 
 <table>
 <tr><th>De naam van de VM-kenmerk</th><th>Waarde</th><th>Opmerkingen</th></tr>
-<tr><td>Naam</td><td>vnet-cass-west-ons</td><td></td></tr>
+<tr><td>Naam</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Regio</td><td>VS - west</td><td></td></tr>
 <tr><td>DNS-servers</td><td>None</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
 <tr><td>Adresruimte</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -329,16 +329,16 @@ Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen
 
 <table>
 <tr><th>Machinenaam    </th><th>Subnet    </th><th>IP-adres    </th><th>Beschikbaarheidsset</th><th>DC/Rack</th><th>Seed?</th></tr>
-<tr><td>HK-c1-west-ons    </td><td>gegevens    </td><td>10.1.2.4    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 = </td><td>Ja</td></tr>
-<tr><td>HK-c2-west-ons    </td><td>gegevens    </td><td>10.1.2.5    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
-<tr><td>HK-c3-west-ons    </td><td>gegevens    </td><td>10.1.2.6    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Ja</td></tr>
-<tr><td>HK-c4-west-ons    </td><td>gegevens    </td><td>10.1.2.7    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Nee </td></tr>
-<tr><td>HK-c5-west-ons    </td><td>gegevens    </td><td>10.1.2.8    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Ja</td></tr>
-<tr><td>HK-c6-west-ons    </td><td>gegevens    </td><td>10.1.2.9    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Nee </td></tr>
-<tr><td>HK-c7-west-ons    </td><td>gegevens    </td><td>10.1.2.10    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
-<tr><td>HK-c8-west-ons    </td><td>gegevens    </td><td>10.1.2.11    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Nee </td></tr>
-<tr><td>HK-w1-west-ons    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-uit-1    </td><td>                       </td><td>N/A</td></tr>
-<tr><td>HK-w2-west-ons    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-uit-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>hk-c1-west-us    </td><td>gegevens    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack1 = </td><td>Ja</td></tr>
+<tr><td>hk-c2-west-us    </td><td>gegevens    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
+<tr><td>hk-c3-west-us    </td><td>gegevens    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Ja</td></tr>
+<tr><td>hk-c4-west-us    </td><td>gegevens    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Nee </td></tr>
+<tr><td>hk-c5-west-us    </td><td>gegevens    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Ja</td></tr>
+<tr><td>hk-c6-west-us    </td><td>gegevens    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Nee </td></tr>
+<tr><td>hk-c7-west-us    </td><td>gegevens    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
+<tr><td>hk-c8-west-us    </td><td>gegevens    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Nee </td></tr>
+<tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 </table>
 
 Maken van de bovenstaande lijst met virtuele machines moeten het volgende proces:
@@ -425,7 +425,7 @@ Meld u aan bij een van de knooppunten (bijvoorbeeld hk-c1-west-us) en voer de vo
 Hier ziet u de weergave lijkt op de onderstaande voor een cluster met 8 knooppunten:
 
 <table>
-<tr><th>Status</th><th>Adres    </th><th>Belasting    </th><th>Tokens    </th><th>Eigenaar is van </th><th>Host-ID    </th><th>Rack</th></tr>
+<tr><th>Status</th><th>Adres    </th><th>Belasting    </th><th>Tokens    </th><th>Eigenaar is van </th><th>Host-ID    </th><th>Rek</th></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>GUID (verwijderd)</td><td>rack1</td></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>GUID (verwijderd)</td><td>rack1</td></tr>
 <tr><th>ONGEDAAN MAKEN    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (verwijderd)</td><td>rack2</td></tr>
@@ -441,7 +441,7 @@ Gebruik de volgende stappen voor het testen van het cluster:
 
 1. Met behulp van de cmdlet van Powershell-opdracht Get-AzureInternalLoadbalancer, het IP-adres van de interne load balancer (bijvoorbeeld 10.1.2.101) verkrijgen. De syntaxis van de opdracht wordt hieronder weergegeven: Get-AzureLoadbalancer – ServiceName 'hk-c-svc-west-us' [ziet u de details van de interne load balancer samen met het IP-adres]
 2. Meld u aan bij de webfarm VM (bijvoorbeeld hk-w1-west-us) met Putty of ssh
-3. Uitvoeren van $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Gebruik de volgende CQL-opdrachten om te controleren of het cluster werkt:
    
      Maak met KEYSPACE customers_ks met replicatie = {'class': 'SimpleStrategy', 'replication_factor': 3};   Gebruik customers_ks;   MAKEN van tabel Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   INVOEGEN in Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INVOEGEN in Customers(customer_id, firstname, lastname) waarden (2, 'ANS', 'De Vries');
@@ -451,7 +451,7 @@ Gebruik de volgende stappen voor het testen van het cluster:
 U ziet dat lijkt op de volgende resultaten:
 
 <table>
-  <tr><th> customer_id </th><th> Voornaam </th><th> Achternaam </th></tr>
+  <tr><th> customer_id </th><th> Voornaam </th><th> lastname </th></tr>
   <tr><td> 1 </td><td> Jan </td><td> Jansen </td></tr>
   <tr><td> 2 </td><td> ANS </td><td> Jansen </td></tr>
 </table>
@@ -466,7 +466,7 @@ Meld u aan bij de Azure-portal en een virtueel netwerk maken met de kenmerken we
 
 <table>
 <tr><th>Naam kenmerk    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
-<tr><td>Naam    </td><td>vnet-cass-Oost-ons</td><td></td></tr>
+<tr><td>Naam    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Regio    </td><td>VS - oost</td><td></td></tr>
 <tr><td>DNS-servers        </td><td></td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
 <tr><td>Een punt-naar-site-VPN configureren</td><td></td><td>        Negeer deze melding</td></tr>
@@ -492,16 +492,16 @@ Maak twee lokale netwerken per de volgende details:
 
 | Netwerknaam | VPN-Gateway-adres | Adresruimte | Opmerkingen |
 | --- | --- | --- | --- |
-| HK-lnet-map-to-East-US |23.1.1.1 |10.2.0.0/16 |Geef een tijdelijke aanduiding gatewayadres tijdens het maken van het lokale netwerk. Het echte gatewayadres wordt ingevuld zodra de gateway is gemaakt. Zorg ervoor dat de adresruimte die exact overeenkomt met de desbetreffende externe VNET; in dit geval wordt het VNET gemaakt in de regio VS-Oost. |
-| HK-lnet-map-to-West-US |23.2.2.2 |10.1.0.0/16 |Geef een tijdelijke aanduiding gatewayadres tijdens het maken van het lokale netwerk. Het echte gatewayadres wordt ingevuld zodra de gateway is gemaakt. Zorg ervoor dat de adresruimte die exact overeenkomt met de desbetreffende externe VNET; in dit geval wordt het VNET gemaakt in de regio VS-West. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Geef een tijdelijke aanduiding gatewayadres tijdens het maken van het lokale netwerk. Het echte gatewayadres wordt ingevuld zodra de gateway is gemaakt. Zorg ervoor dat de adresruimte die exact overeenkomt met de desbetreffende externe VNET; in dit geval wordt het VNET gemaakt in de regio VS-Oost. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Geef een tijdelijke aanduiding gatewayadres tijdens het maken van het lokale netwerk. Het echte gatewayadres wordt ingevuld zodra de gateway is gemaakt. Zorg ervoor dat de adresruimte die exact overeenkomt met de desbetreffende externe VNET; in dit geval wordt het VNET gemaakt in de regio VS-West. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Stap 3: "Local" netwerkverbinding naar de respectieve VNETs
 Selecteer elke vnet vanuit de Azure-portal, klik op 'Configureren', controleren 'Verbinding maken met het lokale netwerk' en selecteert u de lokale netwerken per de volgende details:
 
 | Virtueel netwerk | Lokale netwerk |
 | --- | --- |
-| HK-vnet-west-ons |HK-lnet-map-to-East-US |
-| HK-vnet-Oost-ons |HK-lnet-map-to-West-US |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Stap 4: Gateways op VNET1 en VNET2 maken
 Klik op GATEWAY maken voor het activeren van de VPN-gateway inrichtingsproces vanuit het dashboard van de virtuele netwerken. Het dashboard van elke virtuele netwerk moet na een paar minuten het werkelijke gateway-adres worden weergegeven.
@@ -511,8 +511,8 @@ De lokale netwerken ter vervanging van de IP-adres van de tijdelijke aanduiding 
 
 <table>
 <tr><th>Lokale netwerk    </th><th>Gateway voor een virtueel netwerk</th></tr>
-<tr><td>HK-lnet-map-to-East-US </td><td>De gateway van hk-vnet-west-ons</td></tr>
-<tr><td>HK-lnet-map-to-West-US </td><td>De gateway van hk-vnet-Oost-ons</td></tr>
+<tr><td>hk-lnet-map-to-east-us </td><td>De gateway van hk-vnet-west-ons</td></tr>
+<tr><td>hk-lnet-map-to-west-us </td><td>De gateway van hk-vnet-Oost-ons</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Stap 6: De gedeelde sleutel bijwerken
@@ -526,15 +526,15 @@ De installatiekopie Ubuntu maken zoals beschreven in de regio #1 implementatie d
 
 | Machinenaam | Subnet | IP-adres | Beschikbaarheidsset | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Oost-ons |gegevens |10.2.2.4 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Ja |
-| HK-c2-Oost-ons |gegevens |10.2.2.5 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Nee |
-| HK-c3-Oost-ons |gegevens |10.2.2.6 |HK-c-uit-1 |DC = EASTUS rack rack2 = |Ja |
-| HK-c5-Oost-ons |gegevens |10.2.2.8 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Ja |
-| HK-c6-Oost-ons |gegevens |10.2.2.9 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Nee |
-| HK-c7-Oost-ons |gegevens |10.2.2.10 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Ja |
-| HK-c8-Oost-ons |gegevens |10.2.2.11 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Nee |
-| HK-w1-Oost-ons |web |10.2.1.4 |HK-w-uit-1 |N/A |N/A |
-| HK-w2-Oost-ons |web |10.2.1.5 |HK-w-uit-1 |N/A |N/A |
+| hk-c1-east-us |gegevens |10.2.2.4 |hk-c-aset-1 |DC = EASTUS rack rack1 = |Ja |
+| hk-c2-east-us |gegevens |10.2.2.5 |hk-c-aset-1 |DC = EASTUS rack rack1 = |Nee |
+| hk-c3-east-us |gegevens |10.2.2.6 |hk-c-aset-1 |DC = EASTUS rack rack2 = |Ja |
+| hk-c5-east-us |gegevens |10.2.2.8 |hk-c-aset-2 |DC = EASTUS rack rack3 = |Ja |
+| hk-c6-east-us |gegevens |10.2.2.9 |hk-c-aset-2 |DC = EASTUS rack rack3 = |Nee |
+| hk-c7-east-us |gegevens |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack rack4 = |Ja |
+| hk-c8-east-us |gegevens |10.2.2.11 |hk-c-aset-2 |DC = EASTUS rack rack4 = |Nee |
+| hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
+| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
 Volg de instructies van regio #1, maar gebruik 10.2.xxx.xxx adresruimte.
 
@@ -551,33 +551,33 @@ Meld u aan bij elke virtuele machine en Cassandra op de achtergrond te starten m
 Nu is Cassandra met 16 knooppunten met 8 knooppunten in elke Azure-regio geïmplementeerd. Deze knooppunten zich in hetzelfde cluster doordat de algemene clusternaam en de configuratie van de seed-knooppunt. Gebruik het volgende proces voor het testen van het cluster:
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>Stap 1: Haal de interne load balancer-IP voor zowel de regio's met behulp van PowerShell
-* Get-AzureInternalLoadbalancer - ServiceName 'hk-c-svc-west-us'
-* Get-AzureInternalLoadbalancer - ServiceName 'hk-c-svc-Oost-us'  
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
   
     Noteer de IP-adressen (voor voorbeeld west - 10.1.2.101, Oost - 10.2.2.101) weergegeven.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>Stap 2: Het volgende in de regio west uitvoeren nadat de aanmelding bij hk-w1-west-ons
-1. Uitvoeren van $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Voer de volgende CQL-opdrachten:
    
      Maak met KEYSPACE customers_ks met replicatie = {'class': 'NetworkToplogyStrategy', 'WESTUS': 3, EASTUS: 3};   Gebruik customers_ks;   MAKEN van tabel Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   INVOEGEN in Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INVOEGEN in Customers(customer_id, firstname, lastname) waarden (2, 'ANS', 'De Vries');   Selecteer * van klanten;
 
 U ziet een scherm wordt weergegeven zoals hieronder:
 
-| customer_id | Voornaam | Achternaam |
+| customer_id | Voornaam | Lastname |
 | --- | --- | --- |
 | 1 |Jan |Jansen |
 | 2 |ANS |Jansen |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Stap 3: Voer het volgende in de regio Oost na de aanmelding bij hk-w1-Oost-ons:
-1. Uitvoeren van $CASS_HOME/bin/cqlsh 10.2.2.101 9160
+1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. Voer de volgende CQL-opdrachten:
    
      Gebruik customers_ks;   MAKEN van tabel Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   INVOEGEN in Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INVOEGEN in Customers(customer_id, firstname, lastname) waarden (2, 'ANS', 'De Vries');   Selecteer * van klanten;
 
 U ziet de dezelfde weergave zoals te zien voor de regio West:
 
-| customer_id | Voornaam | Achternaam |
+| customer_id | Voornaam | Lastname |
 | --- | --- | --- |
 | 1 |Jan |Jansen |
 | 2 |ANS |Jansen |

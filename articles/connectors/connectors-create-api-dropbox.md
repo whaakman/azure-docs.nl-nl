@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fecdc33a08c82d9ad13226e75d0d704a5557f98
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Aan de slag met de Dropbox-connector
 Verbinding maken met Dropbox voor het beheren van uw bestanden. U kunt uitvoeren van verschillende acties zoals het uploaden, bijwerken, ophalen en verwijderen van bestanden in Dropbox.
 
-Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-dropbox"></a>Verbinding maken met Dropbox
 Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld, om verbinding met Dropbox, moet u eerst een Dropbox *verbinding*. Een verbinding wilt maken, moet u de referenties die u gebruikt om toegang tot de service die u verbinding wilt maken. Dus in het voorbeeld Dropbox moet u de referenties voor uw Dropbox-account om te kunnen maken van de verbinding met Dropbox. [Meer informatie over verbindingen]()
@@ -35,7 +35,7 @@ Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Gebruik een trigger Dropbox
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 In dit voorbeeld gebruiken we de **wanneer een bestand wordt gemaakt** trigger. Wanneer deze trigger optreedt, noemen we de **ophalen met behulp van pad bestandsinhoud** Dropbox-actie. 
 
@@ -45,7 +45,7 @@ In dit voorbeeld gebruiken we de **wanneer een bestand wordt gemaakt** trigger. 
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Gebruik een Dropbox-actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Nu dat de trigger is toegevoegd, volg deze stappen uit om een actie die de inhoud van het nieuwe bestand krijgen.
 

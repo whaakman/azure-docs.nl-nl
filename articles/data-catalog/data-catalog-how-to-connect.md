@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8176a952107a630d42d557e568a230f1cdc840aa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Verbinding maken met gegevensbronnen
 ## <a name="introduction"></a>Inleiding
@@ -46,8 +46,8 @@ Wanneer u de "openen in... ' menu voor gegevensbronnen in de Azure Data Catalog-
 | Excel |.odc |Excel 2010 of hoger |
 | Excel (Top 1000) |.odc |Excel 2010 of hoger |
 | Power Query |.xlsx |Excel 2016 of Excel 2010 of Excel 2013 met de Power Query voor Excel-invoegtoepassing geïnstalleerd |
-| Power BI Desktop |pbix |Power BI Desktop juli 2016 of hoger |
-| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 Update 4 of hoger met SQL Server tooling geïnstalleerd |
+| Power BI Desktop |.pbix |Power BI Desktop juli 2016 of hoger |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 of hoger met SQL Server tooling geïnstalleerd |
 | Rapportbeheer |http:// |Zie [Browservereisten voor het SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Uw gegevens, de hulpprogramma 's

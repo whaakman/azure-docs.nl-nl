@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Aan de slag met de FTP-connector
 De FTP-connector gebruiken om te controleren, beheren en bestanden op een FTP-server maken. 
 
-Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Verbinding maken met FTP
 Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding* naar de service. Een [verbinding](connectors-overview.md) biedt connectiviteit tussen een logische app en een andere service.  
@@ -35,7 +35,7 @@ Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Een FTP-trigger te gebruiken
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > De FTP-connector vereist een FTP-server die toegankelijk is vanaf het Internet en is geconfigureerd voor het werken met de passieve modus. De FTP-connector is ook **niet compatibel met impliciete FTPS (FTP via SSL)**. De FTP-connector ondersteunt alleen expliciete FTPS (FTP via SSL).  
@@ -61,7 +61,7 @@ Op dit moment is uw logische app geconfigureerd met een trigger die een uitvoeri
 > 
 
 ## <a name="use-a-ftp-action"></a>Gebruik een FTP-actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Nu dat u een trigger hebt toegevoegd, volg deze stappen uit om een actie die u krijgt de inhoud van de nieuwe of gewijzigde bestand gevonden door de trigger.    
 
@@ -73,7 +73,7 @@ Nu dat u een trigger hebt toegevoegd, volg deze stappen uit om een actie die u k
    ![FTP-afbeelding 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    De **bestandsinhoud ophalen** beheren wordt geopend. **Opmerking**: u wordt gevraagd uw logische app toegang tot uw FTP-server-serviceaccount als u nog niet gedaan eerder autoriseren.  
    ![FTP-afbeelding 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Selecteer de **bestand** control (de witruimte zich onder **bestand***). Hier kunt u een van de verschillende eigenschappen van de nieuwe of gewijzigde bestand gevonden op de FTP-server.  
+5. Selecteer de **bestand** control (de witruimte zich onder ** bestand ***). Hier kunt u een van de verschillende eigenschappen van de nieuwe of gewijzigde bestand gevonden op de FTP-server.  
 6. Selecteer de **inhoud bestand** optie.  
    ![FTP-afbeelding 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Het besturingselement wordt bijgewerkt, ten teken dat de **FTP - bestandsinhoud ophalen** actie krijgt de *inhoud bestand* van het bestand nieuw of gewijzigd op de FTP-server.      
@@ -91,5 +91,5 @@ U kunt nu een andere actie, zoals toevoegen de [SQL Server - invoegrij](connecto
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

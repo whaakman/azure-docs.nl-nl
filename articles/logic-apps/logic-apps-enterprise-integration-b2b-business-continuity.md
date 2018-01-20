@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Logic Apps B2B regio-overschrijdende noodherstel
 
@@ -92,7 +92,7 @@ Als u herstel na noodgevallen voor inkomende berichten, selecteert u de dubbele 
 
 ![Instellingen voor controle op dubbele items selecteren](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Maak een [logische app](../logic-apps/logic-apps-create-a-logic-app.md) in een secundaire regio.    
+1. Maak een [logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in een secundaire regio.    
 
 2. Zoeken op **X12**, en selecteer **X12-als een getal van het besturingselement wordt gewijzigd**.   
 
@@ -115,7 +115,7 @@ Als u herstel na noodgevallen voor inkomende berichten, selecteert u de dubbele 
 
 6. Zoeken op **X12**, en selecteer **X12-toevoegen of bijwerken van besturingselement cijfers**.   
 
-   ![Toevoegen of bijwerken van besturingselement cijfers](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Controlenummers toevoegen of bijwerken](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Selecteer voor een actie verbinding met een secundaire regio integratie-account, **verbinding wijzigen** > **nieuwe verbinding toevoegen** voor een lijst met de integratieaccounts beschikbaar. Geef de verbindingsnaam van een, selecteer uw *secundaire regio integratie account* uit de lijst en kies **maken**. 
 
@@ -147,7 +147,7 @@ Als u herstel na noodgevallen voor inkomende berichten, selecteert u de dubbele 
 
 ![Instellingen voor controle op dubbele items selecteren](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Maak een [logische app](../logic-apps/logic-apps-create-a-logic-app.md) in een secundaire regio.    
+1. Maak een [logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in een secundaire regio.    
 
 2. Zoeken op **EDIFACT**, en selecteer **EDIFACT - als een getal van het besturingselement wordt gewijzigd**.
 
@@ -170,7 +170,7 @@ Als u herstel na noodgevallen voor inkomende berichten, selecteert u de dubbele 
 
 7. Zoeken op **EDIFACT**, en selecteer **EDIFACT - toevoegen of bijwerken van besturingselement cijfers**.   
 
-   ![Toevoegen of bijwerken van besturingselement cijfers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Controlenummers toevoegen of bijwerken](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Selecteer voor een actie verbinding met een secundaire regio integratie-account, **verbinding wijzigen** > **nieuwe verbinding toevoegen** voor een lijst met de integratieaccounts beschikbaar. Geef de verbindingsnaam van een, selecteer uw *secundaire regio integratie account* uit de lijst en kies **maken**.
 
@@ -199,7 +199,7 @@ Zakelijke continuïteit voor documenten die gebruikmaken van het AS2-protocol is
 > [!TIP]
 > U kunt ook de [AS2 snel starten sjabloon](https://github.com/Azure/azure-quickstart-templates/pull/3302) om logic apps te maken. Maken primaire en secundaire integratieaccounts zijn vereisten voor het gebruik van de sjabloon. De sjabloon kunt een logische app met een trigger en een actie maken. De logische app maakt een verbinding van een trigger aan een primaire integratie-account en een actie die een secundaire integratie-account.
 
-1. Maak een [logische app](../logic-apps/logic-apps-create-a-logic-app.md) in de secundaire regio.  
+1. Maak een [logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md) in de secundaire regio.  
 
 2. Zoeken op **AS2**, en selecteer **AS2 - waarde als een MIC is gemaakt**.   
 

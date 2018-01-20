@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps en -configuratie
 
@@ -34,7 +34,7 @@ Deze beperkingen gelden voor één HTTP-aanvraag of een aanroep van de connector
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
-| Time-out aanvraag | 120 seconden | Een [asynchrone patroon](../logic-apps/logic-apps-create-api-app.md) of [tot lus](logic-apps-loops-and-scopes.md) kunt compenseren indien nodig |
+| Time-out van de aanvraag | 120 seconden | Een [asynchrone patroon](../logic-apps/logic-apps-create-api-app.md) of [tot lus](logic-apps-loops-and-scopes.md) kunt compenseren indien nodig |
 |||| 
 
 #### <a name="message-size"></a>Berichtgrootte
@@ -123,8 +123,8 @@ Deze beperkingen gelden voor aangepaste connectors die u van web-API's maken kun
 
 | Naam | Limiet | 
 | ---- | ----- | 
-| Aantal aangepaste connectors die u kunt maken | 1000 per Azure-abonnement | 
-| Het aantal aanvragen per minuut voor elke verbinding gemaakt met een aangepaste connector | 500 aanvragen voor elke verbinding gemaakt door de connector |
+| Het aantal aangepaste connectors dat u kunt maken | 1000 per Azure-abonnement | 
+| Het aantal aanvragen per minuut voor elke verbinding die tot stand is gebracht door een aangepaste connector | 500 aanvragen voor elke verbinding die tot stand is gebracht door de connector |
 ||| 
 
 ### <a name="integration-account-limits"></a>Limieten van integratie
@@ -237,7 +237,7 @@ De oproepen die [connectors](../connectors/apis-list.md) moet afkomstig zijn van
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-* [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Algemene voorbeelden en scenario 's](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Video: Automatiseren van bedrijfsprocessen met Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Video: Uw systemen integreren met Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

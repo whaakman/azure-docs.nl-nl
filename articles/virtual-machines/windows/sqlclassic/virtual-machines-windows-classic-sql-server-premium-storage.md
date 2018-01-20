@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 ## <a name="overview"></a>Overzicht
@@ -119,7 +119,7 @@ Gebruik de volgende stappen uit voor elke schijf:
 
 1. Haal de lijst met schijven die zijn gekoppeld aan VM met de **Get-AzureVM** opdracht:
 
-    Get-AzureVM - ServiceName <servicename> -naam <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 2. Noteer de Diskname en LUN.
 
     ![DisknameAndLUN][2]
@@ -132,7 +132,7 @@ Gebruik de volgende stappen uit voor elke schijf:
     ![VirtualDiskPropertyDetails][4]
 6. Voor elke opslaggroep dump uit de gekoppelde schijven:
 
-    Get-StoragePool - FriendlyName AMS1pooldata | Get-PhysicalDisk
+    Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
     ![GetStoragePool][5]
 
@@ -270,7 +270,7 @@ Dit scenario laat zien waar u de bestaande aangepaste installatiekopieën die zi
 
 
 #### <a name="step-3-use-existing-image"></a>Stap 3: Een bestaande installatiekopie gebruiken
-U kunt een bestaande installatiekopie gebruiken. U kunt [nemen van een installatiekopie van een bestaande machine](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Let op de machine installatiekopie u niet hoeft te worden DS * machine. Zodra u de installatiekopie hebt, de volgende stappen laten zien hoe dit te kopiëren naar de Premium-opslag-account met de **Start AzureStorageBlobCopy** PowerShell-cmdlet.
+U kunt een bestaande installatiekopie gebruiken. U kunt [nemen van een installatiekopie van een bestaande machine](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Let op de machine installatiekopie u niet hoeft te worden DS * machine. Zodra u de installatiekopie hebt, de volgende stappen laten zien hoe dit te kopiëren naar de Premium-opslag-account met de **Start AzureStorageBlobCopy** PowerShell-cmdlet.
 
     #Get storage account keys:
     #Standard Storage account
@@ -549,13 +549,13 @@ Dit scenario wordt ervan uitgegaan dat u de installatie hebt gedocumenteerd en w
 De rest van dit onderwerp biedt een gedetailleerd voorbeeld van het converteren van een altijd op clusters op meerdere locaties naar Premium-opslag. Ook converteert naar een interne load balancer (ILB) de Listener van het gebruik van een externe load balancer (ELB).
 
 ### <a name="environment"></a>Omgeving
-* Windows 2k 12 / SQL 2k 12
+* Windows 2k12 / SQL 2k12
 * Bestanden op SP 1 DB
 * 2 x opslaggroepen per knooppunt
 
 ![Appendix1][11]
 
-### <a name="vm"></a>VIRTUELE MACHINE:
+### <a name="vm"></a>VM:
 In dit voorbeeld gaan we demonstreren verplaatsen van een ELB naar ILB. ELB is beschikbaar voordat ILB, zodat dit overschakelen naar dit tijdens de migratie worden weergegeven.
 
 ![Appendix2][12]
@@ -1095,8 +1095,8 @@ Als u wilt toevoegen aan IP-adres, Zie de [bijlage](#appendix-migrating-a-multis
 
     ![Appendix15][25]
 
-## <a name="additional-resources"></a>Aanvullende bronnen
-* [Azure Premium-opslag](../premium-storage.md)
+## <a name="additional-resources"></a>Aanvullende resources
+* [Azure Premium Storage](../premium-storage.md)
 * [Virtuele machines](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

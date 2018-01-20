@@ -1,112 +1,77 @@
 ---
-title: Distributie van tabellen in SQL Data Warehouse | Microsoft Docs
-description: Aan de slag met het distribueren van tabellen in Azure SQL Data Warehouse.
+title: Richtlijnen voor gedistribueerde tabellen - Azure SQL Data Warehouse ontwerpen | Microsoft Docs
+description: Aanbevelingen voor het ontwerpen van hash-gedistribueerd en round-robin tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
 editor: 
-ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="distributing-tables-in-sql-data-warehouse"></a>Distributie van tabellen in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overzicht][Overview]
-> * [Gegevenstypen][Data Types]
-> * [Distribueren][Distribute]
-> * [Index][Index]
-> * [Partitie][Partition]
-> * [Statistieken][Statistics]
-> * [Tijdelijke][Temporary]
->
->
+# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Richtlijnen voor het ontwerpen van tabellen in Azure SQL Data Warehouse gedistribueerd
 
-SQL Data Warehouse is een gedistribueerd MPP-databasesysteem (Massively Parallel Processing).  Door gegevens- en processorcapaciteit over meerdere knooppunten te verdelen, kan SQL Data Warehouse grote schaalbaarheid bieden, veel groter dan enkel ander systeem.  Bepaalt hoe u uw gegevens in uw SQL Data Warehouse distribueren, is een van de belangrijkste factoren bij het bereiken van optimale prestaties.   Verplaatsing van gegevens voor de sleutel voor optimale prestaties is het minimaliseren en de sleutel voor het beperken van gegevensverplaatsing selecteert op zijn beurt de strategie voor de juiste distributiepunten.
+Dit artikel bevat aanbevelingen voor het ontwerpen van gedistribueerde tabellen in Azure SQL Data Warehouse. Tabellen hash gedistribueerde query's sneller op grote feitentabellen en zijn gericht aan dit artikel. Round robin-tabellen zijn nuttig voor het laden van de snelheid te verbeteren. Deze ontwerpkeuzes hebben een aanzienlijke gevolgen voor de verbetering van de query en laden van de prestaties.
 
-## <a name="understanding-data-movement"></a>Understanding gegevensverplaatsing
-In een MPP-systeem, wordt de gegevens van elke tabel verdeeld over verschillende onderliggende databases.  De meest geoptimaliseerde query's op een MPP-systeem kunnen eenvoudig worden doorgegeven via moet worden uitgevoerd op de afzonderlijke gedistribueerde databases zonder interactie tussen de andere databases.  Stel dat u hebt een database met verkoopgegevens die twee tabellen, verkoop en klanten bevat.  Als u een query die u moet uw verkoop tabel toevoegen aan de tabel van uw klant hebt en u uw verkoop- en de klantentabellen up door klantnummer deelt, plaatsen van elke klant in een aparte database, kan geen query's die lid van de verkoop- en kunnen worden opgelost binnen elke database met geen kennis van de andere databases.  Daarentegen als u uw verkoopgegevens gedeeld door het nummer en uw klantgegevens door klantnummer, klikt u vervolgens een bepaalde database geen de bijbehorende gegevens voor elke klant en dus als u uw verkoopgegevens toevoegen aan uw klantgegevens wilt, moet u de gegevens voor elke klant van de andere databases ophalen.  In dit voorbeeld tweede moet verplaatsing van gegevens de om klantgegevens te verplaatsen naar de verkoopgegevens plaatsvinden, zodat de twee tabellen kunnen worden gekoppeld.  
+## <a name="prerequisites"></a>Vereisten
+In dit artikel wordt ervan uitgegaan dat u bekend bent met gegevensdistributie en data movement concepten in SQL Data Warehouse.  Zie voor meer informatie de [architectuur](massively-parallel-processing-mpp-architecture.md) artikel. 
 
-Verplaatsing van gegevens niet altijd slecht, soms is het nodig zijn voor het oplossen van een query.  Maar nadat deze extra stap kan worden vermeden, natuurlijk uw query wordt sneller worden uitgevoerd.  Verplaatsing van gegevens ontstaat meestal als tabellen zijn gekoppeld of aggregaties worden uitgevoerd.  Vaak moet u beide doen, dus terwijl u mogelijk optimaliseren voor een scenario, zoals een join, u nog steeds gegevensverplaatsing moet kunt u voor het scenario, zoals een aggregatie oplossen.  De truc uitzoeken wat minder werk is.  In de meeste gevallen is distributie van grote feitentabellen op een algemeen lid kolom de meest effectieve methode voor het beperken van de meeste gegevensverplaatsing.  Distributie van gegevens op de join-kolommen is een meer algemene methode om te beperken van gegevensverplaatsing dan het distribueren van gegevens voor kolommen die zijn betrokken bij een aggregatie.
+Als onderdeel van tabelontwerp begrijpen zo veel mogelijk over uw gegevens en hoe de gegevens wordt opgevraagd.  Neem bijvoorbeeld deze vragen:
 
-## <a name="select-distribution-method"></a>De methode distributiepunten selecteren
-Uw gegevens worden in SQL Data Warehouse achter de schermen worden opgedeeld in 60 databases.  Elke individuele database wordt aangeduid als een **distributie**.  Wanneer gegevens in elke tabel is geladen, heeft de SQL Data Warehouse te weten hoe u uw gegevens delen tussen deze 60 verdelingen.  
+- Hoe groot is de tabel?   
+- Hoe vaak wordt de tabel vernieuwd   
+- Heb ik feiten- en dimensietabellen tabellen in een datawarehouse?   
 
-De verdeling wordt gedefinieerd op het tabelniveau van de en er zijn momenteel twee mogelijkheden:
+## <a name="what-is-a-distributed-table"></a>Wat is een gedistribueerde tabel?
+Een gedistribueerde tabel wordt weergegeven als één tabel, maar de rijen daadwerkelijk over 60 distributies worden opgeslagen. De rijen worden gedistribueerd met een hash of round robin-algoritme. 
 
-1. **Round robin** die gegevens distribueren gelijkmatig maar willekeurig.
-2. **Hash-gedistribueerde** die gegevens op basis van het hash-waarden uit één kolom distribueert
+Een andere tabel opslagoptie is een kleine tabel repliceren op de rekenknooppunten. Zie voor meer informatie [richtlijnen voor gerepliceerde tabellen ontwerpen](design-guidance-for-replicated-tables.md). Om snel tussen de drie opties te selecteren, Zie gedistribueerde tabellen in de [tabellen overzicht](sql-data-warehouse-tables-overview.md). 
 
-Standaard, wanneer u een distributiemethode gegevens niet definieert de tabel worden gedistribueerd met behulp van de **round-robin** distributiemethode.  Echter, naarmate u meer geavanceerde in uw implementatie, wilt u Overweeg het gebruik van **hash gedistribueerd** tabellen minimaliseren verplaatsing van gegevens die op zijn beurt optimaliseert query-prestaties.
 
-### <a name="round-robin-tables"></a>Round Robin tabellen
-De methode Round-Robin van het distribueren van gegevens is zeer veel hoe het klinkt.  Als uw gegevens zijn geladen, wordt elke rij gewoon verzonden naar de volgende distributie.  Deze methode van het distribueren van de gegevens wordt altijd willekeurig de gegevens zeer gelijkmatig verdelen over alle van de verdelingen.  Er is geen uitgevoerd tijdens de round-robin die plaatst van uw gegevens sorteren.  Een round robin-distributie is wel een willekeurige hash om deze reden.  Met een round robin gedistribueerde tabel hoeft niet te begrijpen van de gegevens.  Round-Robin met tabellen kunnen daarom vaak goed laden doelen.
+### <a name="hash-distributed"></a>Hash gedistribueerd
+Een tabel met hash gedistribueerd tabelrijen over verdeeld de rekenknooppunten met een deterministische hash-functie voor elke rij toewijzen aan een [distributie](massively-parallel-processing-mpp-architecture.md#distributions). 
 
-Standaard als er geen distributiemethode is gekozen, zal de distributiemethode round-robin worden gebruikt.  Round robin-tabellen zijn eenvoudig te gebruiken, omdat gegevens willekeurig in het systeem dit betekent dat het systeem biedt geen garantie van welke distributiepunten wordt gedistribueerd moet elke rij is echter op.  Als gevolg hiervan moet het systeem soms aanroepen van een verplaatsing van gegevens beter te organiseren uw gegevens voordat het oplossen van een query.  Deze extra stap kan uw query's vertragen.
+![Gedistribueerde tabel](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "gedistribueerde tabel")  
 
-Overweeg het gebruik van Round Robin distributie voor uw tabel in de volgende scenario's:
+Aangezien altijd hash-waarden identiek aan de dezelfde distributie, het datawarehouse ingebouwde kennis heeft van de rij-locaties. SQL Data Warehouse maakt gebruik van deze kennis te minimaliseren verplaatsing van gegevens tijdens de query's, wat zorgt voor betere prestaties van query's. 
 
-* Wanneer aan de slag als een eenvoudige beginpunt
-* Als er geen duidelijke die sleutel is
-* Als er geen goede kandidaat kolom voor het distribueren van de tabel hash
-* Als de tabel een gemeenschappelijke join-sleutel niet met andere tabellen delen
-* Als de join minder belangrijk dan andere joins in de query is
-* Als de tabel is een tijdelijke tabel fasering
+Gedistribueerd hash tabellen werken goed bij grote feitentabellen in een sterschema. Ze kunnen zeer groot aantal rijen hebben en hoge prestaties nog steeds bereiken. Er zijn natuurlijk sommige ontwerpoverwegingen die u helpen bij het ophalen van de prestaties die het gedistribueerde systeem is ontworpen om te bieden. Het kiezen van een goede distributie-kolom is een dergelijke overweging die in dit artikel wordt beschreven. 
 
-Beide voorbeelden maakt een tabel Round Robin:
+Overweeg het gebruik van hash-gedistribueerd tabel wanneer:
 
-```SQL
--- Round Robin created by default
-CREATE TABLE [dbo].[FactInternetSales]
-(   [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-;
+- De grootte van de tabel op schijf is meer dan 2 GB.
+- De tabel heeft frequente invoegen, bijwerken en verwijderen van bewerkingen. 
 
--- Explicitly Created Round Robin Table
-CREATE TABLE [dbo].[FactInternetSales]
-(   [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-WITH
-(   CLUSTERED COLUMNSTORE INDEX
-,   DISTRIBUTION = ROUND_ROBIN
-)
-;
-```
+### <a name="round-robin-distributed"></a>Round robin gedistribueerd
+Een gedistribueerde round robin-tabel worden tabelrijen gelijkmatig over alle distributies verdeeld. De toewijzing van rijen distributies wordt een willekeurige. In tegenstelling tot gedistribueerd hash tabellen, zijn rijen met gelijke waarden niet gegarandeerd worden toegewezen aan de dezelfde distributie. 
 
-> [!NOTE]
-> Tijdens een round-robin wordt het standaardtype van de tabel wordt expliciete in uw DDL wordt beschouwd als een aanbevolen procedure zo in dat het doel van de indeling van de tabel wissen voor anderen.
->
->
+Als gevolg hiervan moet het systeem soms aanroepen van een verplaatsing van gegevens beter te organiseren uw gegevens voordat het oplossen van een query.  Deze extra stap kan uw query's vertragen. Bijvoorbeeld, meestal lid worden van een tabel round robin vereist reshuffling de rijen die een treffer prestaties.
 
-### <a name="hash-distributed-tables"></a>Hash-tabellen gedistribueerde
-Met behulp van een **Hash gedistribueerd** -algoritme gebruiken voor het distribueren van uw tabellen kan de prestaties verbeteren voor veel scenario's door verplaatsing van gegevens op het moment dat de query.  Gedistribueerd hash-tabellen zijn tabellen die zijn verdeeld tussen de gedistribueerde databases met een hash-algoritme in één kolom die u selecteert.  De distributie-kolom is wat bepaalt hoe de gegevens over uw gedistribueerde databases worden verdeeld.  De hash-functie maakt gebruik van de kolom distributie rijen toewijzen aan distributies.  De hash-algoritme en de resulterende distributie is deterministisch.  Dat is heeft dezelfde waarde met hetzelfde gegevenstype altijd aan de dezelfde distributie.    
+Overweeg het gebruik van de distributie van round robin voor uw tabel in de volgende scenario's:
 
-In dit voorbeeld maakt een tabel die wordt gedistribueerd bij-id:
+- Wanneer aan de slag als een eenvoudige beginpunt omdat het de standaardwaarde is
+- Als er geen duidelijke die sleutel is
+- Als er geen goede kandidaat kolom voor het distribueren van de tabel hash
+- Als de tabel een gemeenschappelijke join-sleutel niet met andere tabellen delen
+- Als de join minder belangrijk dan andere joins in de query is
+- Als de tabel is een tijdelijke tabel fasering
+
+De zelfstudie [laden van gegevens uit Azure Storage-blob](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) geeft een voorbeeld van het laden van gegevens naar een tijdelijke tabel round robin.
+
+
+## <a name="choosing-a-distribution-column"></a>Een kolom distributie kiezen
+Een gedistribueerde van hash-tabel bevat een distributie-kolom die het hash-sleutel is. De volgende code maakt bijvoorbeeld een tabel met hash gedistribueerd met ProductKey als de distributie-kolom.
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -124,64 +89,57 @@ WITH
 ,  DISTRIBUTION = HASH([ProductKey])
 )
 ;
-```
+``` 
 
-## <a name="select-distribution-column"></a>De kolom distributiepunten selecteren
-Als u zich **hash distribueren** een tabel, moet u een kolom voor één distributiepunt selecteren.  Wanneer u een distributie-kolom selecteert, zijn er drie belangrijke factoren.  
+Het kiezen van een distributie-kolom is een belangrijk ontwerpbeslissing aangezien de waarden in deze kolom bepalen hoe de rijen worden gedistribueerd. De beste keuze is afhankelijk van verschillende factoren en omvat het doorgaans voor-en nadelen. Echter, als u niet de aanbevolen kolom voor het eerst kiest, kunt u [maken tabel AS selecteren (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) opnieuw te maken in de tabel met een ander distributiepunt-kolom. 
 
-Selecteer één kolom die wordt:
+### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Kies een distributie-kolom die geen updates vereisen
+U kunt een distributie-kolom niet bijwerken, tenzij u de rij verwijderen en voegt u een nieuwe rij met de bijgewerkte waarden. Selecteer daarom een kolom met statische waarden. 
 
-1. Niet worden bijgewerkt
-2. Verdelen gegevens, gegevens scheeftrekken voorkomen
-3. Verplaatsing van gegevens beperken
+### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Kies een distributie-kolom met gegevens die worden evenredig verdeeld
 
-### <a name="select-distribution-column-which-will-not-be-updated"></a>Distributiepunten selecteren kolom die wordt niet bijgewerkt
-Distributiekolommen kunnen niet worden bijgewerkt, dus, selecteert u een kolom met statische waarden.  Als een kolom moet worden bijgewerkt, wordt dit doorgaans niet goed distributiepunt geschikt is.  Als er een aanvraag waarin u een distributie-kolom moet bijwerken, kunt u dit doen door eerst de rij te verwijderen en voegt vervolgens een nieuwe rij.
+Voor de beste prestaties moeten alle van de verdelingen ongeveer een hetzelfde aantal rijen hebben. Wanneer een of meer verdelingen een onevenredige aantal rijen hebben, voltooien sommige distributies hun gedeelte van een parallelle query vóór andere. Omdat de query kan niet worden voltooid totdat alle distributies verwerking hebt, is elke query alleen even snel als de traagste distributie.
 
-### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Distributiepunten selecteren kolom die gegevens wordt gelijkmatig verdelen
-Omdat een gedistribueerd systeem snel als de traagste distributiepunt uitvoert, is het belangrijk dat u het werk gelijkmatig over de distributies verdelen om te kunnen bereiken taakverdeling worden uitgevoerd in het systeem.  De manier waarop die het werk is onderverdeeld in een gedistribueerde systeem is gebaseerd op waar de gegevens voor elke distributie woont.  Hierdoor is het belangrijk dat u selecteert u de kolom van de juiste distributiepunten voor het distribueren van de gegevens zodat elke distributie gelijk zijn werk heeft en is de dezelfde tijd om het gedeelte van het werk te voltooien.  Wanneer het werk goed is onderverdeeld in het systeem, worden de gegevens wordt verdeeld over de distributies.  Wanneer gegevens niet gelijkmatig wordt verdeeld, noemen we dit **gegevens tijdverschil**.  
+- Gegevens tijdverschil betekent dat de gegevens is niet gelijkmatig verdeeld over de distributies
+- Verwerking scheeftrekken betekent dat een aantal distributies langer dan anderen duren bij het uitvoeren van parallelle query's. Dit kan gebeuren wanneer de gegevens is vervormd.
+  
+Als u wilt een balans vinden tussen de parallelle verwerking, selecteert u een distributie-kolom die:
 
-Als u wilt gegevens gelijkmatig verdelen en te voorkomen dat gegevens scheeftrekken, overweeg het volgende bij het selecteren van de kolom distributie:
+- **Veel unieke waarden bevat.** De kolom kan een aantal dubbele waarden hebben. Echter worden alle rijen met dezelfde waarde toegewezen aan de dezelfde distributie. Aangezien er 60 distributies, moet ten minste 60 unieke waarden in de kolom hebben.  Het aantal unieke waarden is meestal veel groter.
+- **Geen null-waarden, of alleen enkele Null-waarden heeft.** Voor een uiterst voorbeeld dat als alle waarden in de kolom NULL zijn, alle rijen zijn toegewezen aan de dezelfde distributie. Als gevolg hiervan verwerking van query's naar een distributie is vervormd en komt niet profiteren van parallelle verwerking. 
+- **Is niet een datumkolom**. Alle gegevens voor de datum die hetzelfde bestand op de dezelfde distributie. Als meerdere gebruikers zijn gefilterd op dezelfde dag, doen alleen 1 van de 60 distributies al het werk van verwerking. 
 
-1. Selecteer een kolom die een groot aantal afzonderlijke waarden bevat.
-2. Vermijd het distribueren van gegevens voor kolommen met een aantal afzonderlijke waarden.
-3. Vermijd het distribueren van gegevens voor kolommen met een hoge frequentie van null-waarden.
-4. Vermijd het distribueren van gegevens op datumkolommen.
+### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Kies een distributie-kolom die minimaliseert de verplaatsing van gegevens
 
-Omdat elke waarde wordt opgedeeld naar 1 van 60 distributies, zodat zelfs distributiepunt wilt u Selecteer een kolom die maximaal uniek is en meer dan 60 unieke waarden bevat.  U kunt een aanvraag waarin een kolom alleen unieke waarden 40 heeft ter illustratie.  Als deze kolom is geselecteerd als de distributiesleutel, zou de gegevens voor die tabel neerzetten op 40 distributies maximaal 20-distributies die met geen gegevens en er is geen verwerking te doen.  Als u daarentegen er de 40 distributies meer werk te doen als de gegevens is meer dan 60 distributies gelijkmatig verdeeld.  Dit scenario is een voorbeeld van gegevens scheeftrekken.
+Als u de juiste query-query's kan verplaatsen van gegevens van één rekenknooppunt naar een andere. Verplaatsing van gegevens gebeurt vaak wanneer query's samenvoegingen en aggregaties op gedistribueerde tabellen. Het kiezen van een distributie-kolom die helpt te beperken van gegevensverplaatsing is een van de belangrijkste strategieën voor het optimaliseren van de prestaties van uw SQL Data Warehouse.
 
-In de MPP-systeem wacht elke stap query tot alle distributies hun aandeel van het werk te voltooien.  Als één distributiepunt doet meer werk dan de andere, klikt u vervolgens de bron van de andere distributies zijn in wezen verspild NET wachten op het distributiepunt bezet.  Wanneer het werk niet gelijkmatig verdeeld over alle distributies, noemen we dit **verwerking scheeftrekken**.  Verwerking tijdverschil zorgt ervoor dat de query's trager dan als de werkbelasting gelijkmatig kan worden verdeeld over de distributies.  Gegevens scheeftrekken zal leiden tot scheeftrekken verwerking.
+Om te beperken van gegevensverplaatsing, selecteert u een distributie-kolom die:
 
-Vermijd distribueren op maximaal kolom, zoals de null-waarden wordt land op het distributiepunt met dezelfde. Distribueren op een datumkolom kan verwerking tijdverschil ook veroorzaken omdat alle gegevens voor een gegeven datum komt dan uit op de dezelfde distributiepunten. Als meerdere gebruikers worden uitvoeren van query's alle filteren op dezelfde datum, en vervolgens alleen 1 van de 60 distributies doet al het werk sinds een bepaalde datum alleen worden op een distributiepunt. In dit scenario wordt de query's waarschijnlijk 60 keer langzamer dan als de gegevens gelijkmatig zijn verdeeld over alle van de verdelingen uitgevoerd.
+- Wordt gebruikt in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, en `HAVING` componenten. Wanneer twee grote feitentabellen frequente joins, verbetert de prestaties van query's wanneer u beide tabellen op een van de join-kolommen distribueert.  Wanneer een tabel niet in joins gebruikt wordt, rekening houden met het distribueren van de tabel in een kolom die vaak in de `GROUP BY` component.
+- Is *niet* gebruikt in `WHERE` componenten. Dit kan de query niet uitvoeren op alle distributies beperken. 
+- Is *niet* een datumkolom. Component WHERE wordt vaak filteren op datum.  Als dit gebeurt, kan de verwerking op slechts een paar distributies uitvoeren.
 
-Als er geen goede kandidaat kolommen bestaan, klikt u vervolgens kunt u overwegen round-robin als de distributiemethode.
+### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Wat te doen wanneer geen van de kolommen een goede distributie-kolom zijn
 
-### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Distributiepunten selecteren kolom verplaatsing van gegevens te minimaliseren
-Verplaatsing van gegevens voor het minimaliseren van de kolom rechts distributiepunten te selecteren, is een van de belangrijkste strategieën voor het optimaliseren van de prestaties van uw SQL Data Warehouse.  Verplaatsing van gegevens ontstaat meestal als tabellen zijn gekoppeld of aggregaties worden uitgevoerd.  Kolommen die worden gebruikt `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` en `HAVING` componenten alle maken voor **goed** hash-kandidaten voor distributie.
+Als er geen goede kandidaat kolommen bestaan, klikt u vervolgens kunt u overwegen round robin als de distributiemethode.
 
-Anderzijds kolommen in de `WHERE` component komen **niet** maken voor goede hash-kolom kandidaten omdat zij welke distributies deelnemen aan de query beperken, waardoor verwerking scheeftrekken.  Een goed voorbeeld van een kolom die mogelijk verleidelijk te distribueren op, maar vaak kan leiden tot deze scheeftrekken verwerking is een datumkolom.
+Wanneer u een tabel met hash gedistribueerd ontwerpt, wordt de volgende stap is om gegevens te laden in de tabel.  Zie voor richtlijnen worden geladen, [laden overzicht](sql-data-warehouse-overview-load.md). 
 
-In het algemeen hebt u twee grote feitentabellen vaak die betrokken zijn in een join, krijgt u de meeste prestaties door het distribueren van beide tabellen op een van de join-kolommen.  Als u een tabel die nooit is gekoppeld aan een andere grote feitentabel hebt, zoekt u naar kolommen die zijn vaak in de `GROUP BY` component.
+## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Hoe kunt u zien als uw distributiepunt-kolom een goede keuze is
+Controleer nadat gegevens zijn geladen in een tabel met hash is gedistribueerd, hoe gelijkmatig worden de rijen zijn verdeeld over de 60 distributies. Het aantal rijen per distributiepunt kunnen maximaal 10% zonder een merkbare invloed op prestaties variëren. 
 
-Er zijn enkele belangrijke criteria waaraan moeten worden voldaan om te voorkomen dat de verplaatsing van gegevens tijdens een join:
-
-1. De tabellen die betrokken zijn in de join moet hash gedistribueerd bij **één** van de kolommen die deel uitmaken van de join.
-2. De gegevenstypen van de join-kolommen moeten tussen beide tabellen overeenkomen.
-3. Moeten lid zijn van de kolommen met een operator equals.
-4. Het jointype is niet mogelijk een `CROSS JOIN`.
-
-## <a name="troubleshooting-data-skew"></a>Analytische gegevens scheeftrekken
-Wanneer de gegevens in een tabel is gedistribueerd met behulp van de hash-distributiemethode is een kans dat een aantal distributies zal worden vervormd als u niet goed meer gegevens dan andere. Veel gegevens tijdverschil kan invloed hebben op queryprestaties omdat het uiteindelijke resultaat van een gedistribueerde query tot de langst lopende distributie wachten moet te voltooien. Afhankelijk van de mate van de gegevens tijdverschil moet u mogelijk aanpakken.
-
-### <a name="identifying-skew"></a>Tijdverschil identificeren
-Een eenvoudige manier naar een tabel die is vervormd is met `DBCC PDW_SHOWSPACEUSED`.  Dit is een zeer snelle en eenvoudige manier om te zien van het aantal rijen die zijn opgeslagen in elk van de 60 distributies van uw database.  Vergeet niet dat voor de meest evenwichtige prestaties, de rijen in een gedistribueerde moeten gelijkmatig worden verdeeld over alle verdelingen.
+### <a name="determine-if-the-table-has-data-skew"></a>Vaststellen of de tabel heeft leiden tot onjuiste gegevens
+Een snelle manier om te controleren of er gegevens tijdverschil is het gebruik van [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). De volgende SQL-code retourneert het aantal rijen die zijn opgeslagen in elk van de 60 distributies. Voor taakverdeling prestaties moeten de rijen in een gedistribueerde gelijkmatig worden verdeeld over alle verdelingen.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Als u een query uitvoeren op de dynamische beheerweergaven (DMV) van Azure SQL Data Warehouse kunt u een meer gedetailleerde analyse uitvoeren.  Als u wilt starten, maak de weergave [dbo.vTableSizes] [ dbo.vTableSizes] bekijken met behulp van de SQL van [tabel overzicht] [ Overview] artikel.  Zodra de weergave is gemaakt, kunt u deze query om te identificeren welke tabellen meer dan 10% gegevens tijdverschil hebben uitgevoerd.
+Identificeren welke tabellen meer dan 10% gegevens tijdverschil hebben:
+
+1. Maken van de weergave dbo.vTableSizes die wordt weergegeven in de [tabellen overzicht](sql-data-warehouse-tables-overview.md#table-size-queries) artikel.  
+2. Voer de volgende query:
 
 ```sql
 select *
@@ -198,15 +156,28 @@ order by two_part_name, row_count
 ;
 ```
 
-### <a name="resolving-data-skew"></a>Het omzetten van gegevens scheeftrekken
-Niet alle scheeftrekken is voldoende voor een oplossing heeft.  In sommige gevallen kan de prestaties van een tabel in sommige query's kan bieden, opwegen tegen de beschadiging van gegevens scheeftrekken.  Om te beslissen of u gegevens moet oplossen scheeftrekken in een tabel, moet u begrijpen zo veel mogelijk over de gegevensvolumes en query's in uw workload.   Een manier om te kijken naar de impact van tijdverschil is met de stappen in de [Query bewaking] [ Query Monitoring] artikel voor het bewaken van de impact van scheeftrekken op de prestaties van query's en specifiek de gevolgen voor hoe lang een query uitvoeren op de afzonderlijke distributies.
+### <a name="check-query-plans-for-data-movement"></a>Controleer de queryplannen voor gegevensverplaatsing
+Een kolom goede distributie kunt samenvoegingen en aggregaties minimale gegevensverplaatsing hebben. Dit geldt voor de manier waarop joins worden geschreven. Als u de minimale gegevensverplaatsing voor een join twee tabellen hash is gedistribueerd, moet een van de join-kolommen de distributie-kolom.  Wanneer twee tabellen hash gedistribueerd voor een kolom van de distributie van hetzelfde gegevenstype, is de join verplaatsing van gegevens niet vereist. Joins kunnen extra kolommen gebruiken zonder de verplaatsing van gegevens.
 
-Distributie van gegevens is een kwestie van het zoeken naar de juiste balans tussen gegevens tijdverschil minimaliseren en de verplaatsing van gegevens voor het minimaliseren. Deze doelstellingen kunnen tegengestelde en soms wilt u gegevens scheeftrekken houden om te reduceren verplaatsing van gegevens. Bijvoorbeeld, wanneer de distributie-kolom vaak de gedeelde kolom in samenvoegingen en aggregaties is, zal u worden minimaliseren verplaatsing van gegevens. Het voordeel dat de minimale gegevensverplaatsing kan bieden, opwegen tegen de impact van leiden tot onjuiste gegevens.
+Om te voorkomen dat verplaatsing van gegevens tijdens een join:
 
-De gebruikelijke manier om op te lossen gegevens tijdverschil is opnieuw te maken in de tabel met een ander distributiepunt-kolom. Omdat er geen manier om de kolom van het distributiepunt op een bestaande tabel, de manier wijzigen van de distributie van een tabel deze opnieuw met een [CTAS] [] te maken.  Hier vindt u twee voorbeelden van hoe u gegevens scheeftrekken oplossen:
+- De tabellen die betrokken zijn in de join moet hash gedistribueerd bij **één** van de kolommen die deel uitmaken van de join.
+- De gegevenstypen van de join-kolommen moeten tussen beide tabellen overeenkomen.
+- Moeten lid zijn van de kolommen met een operator equals.
+- Het jointype is niet mogelijk een `CROSS JOIN`.
 
-### <a name="example-1-re-create-the-table-with-a-new-distribution-column"></a>Voorbeeld 1: De tabel met een nieuwe kolom voor distributiepunten opnieuw maken
-[CTAS] [] wordt dit voorbeeld een tabel met een andere hash-distributie kolom opnieuw moet maken.
+Als u wilt zien als verplaatsing van gegevens is sprake van query's, kunt u het queryplan bekijken.  
+
+
+## <a name="resolve-a-distribution-column-problem"></a>Distributie kolom problemen op te lossen
+Het is niet nodig om op te lossen dat leiden tot onjuiste alle gevallen van gegevens. Distributie van gegevens is een kwestie van het zoeken naar de juiste balans tussen gegevens scheeftrekken en gegevensverplaatsing minimaliseren. Het is niet altijd mogelijk gegevens tijdverschil zowel gegevensverplaatsing minimaliseren. Soms kan het voordeel dat de minimale gegevensverplaatsing opwegen tegen de impact van leiden tot onjuiste gegevens.
+
+Om te beslissen of u gegevens moet oplossen scheeftrekken in een tabel, moet u begrijpen zo veel mogelijk over de gegevensvolumes en query's in uw workload. U kunt de stappen in de [Query bewaking](sql-data-warehouse-manage-monitor.md) artikel voor het bewaken van de impact van scheeftrekken op de prestaties van query's. Zoek in het bijzonder hoe lang het duurt grote query's op afzonderlijke distributies.
+
+Nadat u de distributie-kolom aan een bestaande tabel niet wijzigen, is de gebruikelijke manier voor het oplossen van tijdverschil gegevens opnieuw te maken in de tabel met een ander distributiepunt-kolom.  
+
+### <a name="re-create-the-table-with-a-new-distribution-column"></a>De tabel met een nieuwe kolom voor distributiepunten opnieuw maken
+In dit voorbeeld wordt [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) opnieuw maken van een tabel met een andere hash-distributie-kolom.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -244,65 +215,11 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-### <a name="example-2-re-create-the-table-using-round-robin-distribution"></a>Voorbeeld 2: De tabel die gebruikmaken van round robin distributie opnieuw maken
-In dit voorbeeld gebruikt [CTAS] [] opnieuw maken van een tabel met round-robin in plaats van een hash-distributiepunt. Deze wijziging wordt zelfs gegevensdistributie koste toegenomen gegevensverplaatsing produceren.
-
-```sql
-CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN]
-WITH (  CLUSTERED COLUMNSTORE INDEX
-     ,  DISTRIBUTION =  ROUND_ROBIN
-     ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
-                                                                ,   20040101, 20050101, 20060101, 20070101
-                                                                ,   20080101, 20090101, 20100101, 20110101
-                                                                ,   20120101, 20130101, 20140101, 20150101
-                                                                ,   20160101, 20170101, 20180101, 20190101
-                                                                ,   20200101, 20210101, 20220101, 20230101
-                                                                ,   20240101, 20250101, 20260101, 20270101
-                                                                ,   20280101, 20290101
-                                                                )
-                        )
-    )
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-OPTION  (LABEL  = 'CTAS : FactInternetSales_ROUND_ROBIN')
-;
-
---Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] ([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] ([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] ([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] ([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] ([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
-
---Rename the tables
-RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
-RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
-```
-
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over tabelontwerp, de [distribueren][Distribute], [Index][Index], [partitie][Partition], [gegevenstypen][Data Types], [statistieken] [ Statistics] en [tijdelijke tabellen] [ Temporary] artikelen.
 
-Zie voor een overzicht van best practices [aanbevolen procedures van SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Gebruik een van deze instructies voor het maken van een gedistribueerde tabel:
 
-<!--Image references-->
+- [TABEL (Azure SQL datawarehouse) maken](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [TABLE AS SELECT (Azure SQL datawarehouse maken](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
-[dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
-<!--MSDN references-->
-[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
-
-<!--Other Web references-->

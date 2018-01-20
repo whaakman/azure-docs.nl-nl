@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Een virtueel netwerk (klassiek) maken met meerdere subnetten
 
@@ -64,7 +64,7 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
     - Klik op de **verwijderen** pictogram op de **myVnet** blade.
     - Het verwijderen te bevestigen, klikt u op **Ja** in de **virtuele netwerk verwijderen** vak.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
 1. U kunt ofwel [installeren en configureren van de Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), of gebruik de CLI vanuit de Azure-Cloud-Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Typ voor hulp bij CLI-opdrachten, `azure <command> --help`. 
 2. In een sessie CLI aanmelden bij Azure met de volgende opdracht. Als u op **Try it** in het onderstaande vak een Cloud-Shell wordt geopend. U kunt aanmelden bij uw Azure-abonnement zonder invoeren van de volgende opdracht:
@@ -163,6 +163,6 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 
 - Zie voor meer informatie over alle virtueel netwerk en subnetinstellingen, [virtuele netwerken beheren](virtual-network-manage-network.md) en [beheren van virtueel netwerksubnetten](virtual-network-manage-subnet.md). U beschikt over verschillende opties voor het gebruik van virtuele netwerken en subnetten in een productieomgeving om te voldoen aan verschillende vereisten.
 - Van binnenkomende en uitgaande subnetverkeer filteren, maken en toepassen [netwerkbeveiligingsgroepen](virtual-networks-nsg.md) aan subnetten.
-- Maak een [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine en maak verbinding met een bestaand virtueel netwerk.
+- Maak een [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine en maak verbinding met een bestaand virtueel netwerk.
 - Voor verbinding twee virtuele netwerken in dezelfde Azure-locatie, maak een [virtueel netwerk peering](create-peering-different-deployment-models.md) tussen de virtuele netwerken. U kunt een virtueel netwerk (Resource Manager) peer met een virtueel netwerk (klassiek), maar u kunt geen maken een peering tussen twee virtuele netwerken (klassiek).
 - Het virtuele netwerk verbinding met een on-premises netwerk via een [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.

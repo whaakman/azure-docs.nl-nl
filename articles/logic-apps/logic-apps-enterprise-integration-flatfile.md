@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Overzicht van enterprise-integratie met platte bestanden
 
-U kunt voor het coderen van XML-inhoud voordat u deze naar een zakelijke partner in een scenario met business-to-business (B2B verzenden). U kunt in een logische app, de platte bestandscodering connector gebruiken om dit te doen. De logische app die u maakt kan de XML inhoud ophalen van tal van bronnen, met inbegrip van de trigger van een HTTP-aanvraag van een andere toepassing of zelfs op een van de vele [connectors](../connectors/apis-list.md). Zie voor meer informatie over logische apps, de [logic apps documentatie](logic-apps-what-are-logic-apps.md "meer informatie over logische apps").  
+U kunt voor het coderen van XML-inhoud voordat u deze naar een zakelijke partner in een scenario met business-to-business (B2B verzenden). U kunt in een logische app, de platte bestandscodering connector gebruiken om dit te doen. De logische app die u maakt kan de XML inhoud ophalen van tal van bronnen, met inbegrip van de trigger van een HTTP-aanvraag van een andere toepassing of zelfs op een van de vele [connectors](../connectors/apis-list.md). Zie voor meer informatie over logische apps, de [logic apps documentatie](logic-apps-overview.md "meer informatie over logische apps").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>De platte bestandscodering connector maken
 Volg deze stappen voor het toevoegen van een plat bestand-connector voor uw logische app codering.

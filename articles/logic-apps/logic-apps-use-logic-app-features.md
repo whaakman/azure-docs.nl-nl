@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-logic-apps-features"></a>Functies van logische Apps gebruiken
 
-In een [vorige onderwerp](../logic-apps/logic-apps-create-a-logic-app.md), u hebt uw eerste logische app hebt gemaakt. Als u uw logische app werkstroom wilt aanpassen, kunt u verschillende paden voor uw logische app om uit te voeren en het verwerken van gegevens in matrices, verzamelingen en batches. U kunt deze elementen opnemen in uw logische app werkstroom:
+In een [vorige onderwerp](../logic-apps/quickstart-create-first-logic-app-workflow.md), u hebt uw eerste logische app hebt gemaakt. Als u uw logische app werkstroom wilt aanpassen, kunt u verschillende paden voor uw logische app om uit te voeren en het verwerken van gegevens in matrices, verzamelingen en batches. U kunt deze elementen opnemen in uw logische app werkstroom:
 
 * Voorwaarden en [overschakelen instructies](../logic-apps/logic-apps-switch-case.md) kunt u uw logische app uitgevoerd verschillende acties op basis van of bepaalde voorwaarden wordt voldaan.
 

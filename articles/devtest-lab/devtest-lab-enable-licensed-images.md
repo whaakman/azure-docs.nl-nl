@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Inschakelen van de installatiekopie van een gelicentieerde in uw lab in Azure DevTest Labs
 
@@ -29,7 +29,7 @@ De eerste stap bij zodat gebruikers kunnen virtuele machines maken van een insta
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
+1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 
 1. Selecteer de gewenste testomgeving uit de lijst van labs.  
 
@@ -76,7 +76,15 @@ U kunt programmatische implementatie voor de installatiekopie van een gelicentie
    >
 
 
-1. Selecteer **Opslaan**. In de lijst met marketplace-installatiekopieën, afbeelding die nu toont **voorwaarden geaccepteerd** en is beschikbaar voor gebruikers om virtuele machines te maken.
+1. Selecteer **Opslaan**. 
+
+    In de lijst met marketplace-installatiekopieën, afbeelding die nu toont **voorwaarden geaccepteerd** en is beschikbaar voor gebruikers om virtuele machines te maken.
+
+> [!NOTE]
+> Gebruikers kunnen een aangepaste installatiekopie maken van een installatiekopie van een licentie. Zie [een aangepaste installatiekopie maken van een VHD-bestand](devtest-lab-create-template.md) voor meer informatie.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Verwante blogberichten
 
@@ -85,4 +93,6 @@ U kunt programmatische implementatie voor de installatiekopie van een gelicentie
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- [Een aangepaste installatiekopie van een virtuele machine maken](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Een aangepaste installatiekopie van een VHD-bestand maken](devtest-lab-create-template.md)
 - [Een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm.md)

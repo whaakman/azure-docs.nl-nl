@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Algemene scenario's, voorbeelden, zelfstudies en scenario's voor Azure Logic Apps
 
-[Logische Apps van Azure](../logic-apps/logic-apps-what-are-logic-apps.md) helpt u bij het indelen en het integreren van verschillende services door te geven [100 + kant-en-klare connectors](../connectors/apis-list.md), bereikbepaling van lokale SQL Server of SAP met cognitieve Microsoft-Services. De service Logic Apps is 'zonder server', zodat u niet hoeft te hoeven maken over scale of exemplaren. U hoeft te doen is definiëren van de werkstroom met een trigger en de acties die de werkstroom uitvoert. Het onderliggende platform verwerkt schaal, beschikbaarheid en prestaties. Logic Apps is vooral nuttig voor gebruiksvoorbeelden en scenario's waarin u wilt meerdere acties coördineren in meerdere systemen.
+[Logische Apps van Azure](../logic-apps/logic-apps-overview.md) helpt u bij het indelen en het integreren van verschillende services door te geven [100 + kant-en-klare connectors](../connectors/apis-list.md), bereikbepaling van lokale SQL Server of SAP met cognitieve Microsoft-Services. De service Logic Apps is 'zonder server', zodat u niet hoeft te hoeven maken over scale of exemplaren. U hoeft te doen is definiëren van de werkstroom met een trigger en de acties die de werkstroom uitvoert. Het onderliggende platform verwerkt schaal, beschikbaarheid en prestaties. Logic Apps is vooral nuttig voor gebruiksvoorbeelden en scenario's waarin u wilt meerdere acties coördineren in meerdere systemen.
 
-Kunt u meer informatie over de vele patronen en mogelijkheden die [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) ondersteunt, Hier vindt u algemene voorbeelden en scenario's.
+Kunt u meer informatie over de vele patronen en mogelijkheden die [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ondersteunt, Hier vindt u algemene voorbeelden en scenario's.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Populair beginpunt voor logic app-werkstromen
 
-Elke logische app begint met een [ *trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), en slechts één worden geactiveerd, waardoor uw logische app werkstroom wordt gestart en wordt in alle gegevens worden doorgegeven als onderdeel van deze trigger. Sommige connectors bieden triggers, die worden geleverd in de volgende typen:
+Elke logische app begint met een [ *trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts), en slechts één worden geactiveerd, waardoor uw logische app werkstroom wordt gestart en wordt in alle gegevens worden doorgegeven als onderdeel van deze trigger. Sommige connectors bieden triggers, die worden geleverd in de volgende typen:
 
 * *Polling-triggers*: controleert regelmatig een service-eindpunt voor nieuwe gegevens. Als er nieuwe gegevens bestaat, wordt de trigger wordt gemaakt en wordt een nieuw werkstroomexemplaar wordt uitgevoerd met de gegevens als invoer.
 

@@ -1,6 +1,6 @@
 ---
 title: SendGrid | Microsoft Docs
-description: Logic apps maken met Azure App service. SendGrid Connection-Provider kunt u e-mail verzenden en beheren van lijsten met geadresseerden.
+description: Logic apps maken met Azure App service. Met de SendGrid-verbindingsprovider kunt u e-mail verzenden en ontvangerslijsten beheren.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0773750f24b18aa55874a215cac7ccdfc5c1182
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Aan de slag met de SendGrid-connector
-SendGrid Connection-Provider kunt u e-mail verzenden en beheren van lijsten met geadresseerden.
+Met de SendGrid-verbindingsprovider kunt u e-mail verzenden en ontvangerslijsten beheren.
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sendgrid"></a>Maak een verbinding met de SendGrid
 Voor het maken van logische apps als voor sendgrid zijn, moet u eerst maken een **verbinding** Geef vervolgens de details voor de volgende eigenschappen: 
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| apiKey |Ja |Geef uw SendGrid-Api-sleutel |
+| ApiKey |Ja |Uw SendGrid-API-sleutel opgeven |
 
 > [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 > 

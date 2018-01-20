@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure activiteitenlogboeken in logboekanalyse verzamelen over abonnementen
 
@@ -27,7 +27,7 @@ Als de werkruimte voor logboekanalyse in de dezelfde Azure-abonnement, of in een
 
 ## <a name="overview"></a>Overzicht
 
-De strategie die in dit scenario gebruikt is om Azure Activity Log verzenden van gebeurtenissen naar een [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) waar een [logische App](../logic-apps/logic-apps-what-are-logic-apps.md) zendt deze naar de werkruimte voor logboekanalyse. 
+De strategie die in dit scenario gebruikt is om Azure Activity Log verzenden van gebeurtenissen naar een [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) waar een [logische App](../logic-apps/logic-apps-overview.md) zendt deze naar de werkruimte voor logboekanalyse. 
 
 ![afbeelding van gegevensstroom van de activiteit logboek-log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Als u de event Hub en de verbindingsreeks, volg de stappen in [controleren Event
 
 De ontwerpfunctie van Logic Apps ziet u nu beschikbare connectors en hun triggers, die u gebruikt voor het starten van uw logische app-werkstroom.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Event Hub-trigger toevoegen
 

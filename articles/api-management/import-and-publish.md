@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importeren en publiceren van uw eerste API 
 
@@ -54,9 +54,9 @@ Deze sectie wordt beschreven hoe importeren en publiceren van een OpenAPI specif
 
     |Instelling|Waarde|Beschrijving|
     |---|---|---|
-    |**OpenAPI specificatie**|http://conferenceapi.azurewebsites.NET?Format=JSON|Verwijst naar de implementatie van de API-service. API management verzendt aanvragen naar dit adres.|
+    |**OpenAPI specificatie**|http://conferenceapi.azurewebsites.net?format=json|Verwijst naar de implementatie van de API-service. API management verzendt aanvragen naar dit adres.|
     |**Weergavenaam**|*Demo conferentie API*|Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json. <br/>Deze naam wordt weergegeven in de portal voor ontwikkelaars.|
-    |**Naam**|*demo-conferentie-api*|Biedt een unieke naam voor de API. <br/>Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json.|
+    |**Naam**|*demo-conference-api*|Biedt een unieke naam voor de API. <br/>Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json.|
     |**Beschrijving**|Geef een optionele beschrijving van de API.|Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json.|
     |**Achtervoegsel URL-API**|*telefonische vergaderingen*|Het achtervoegsel wordt toegevoegd aan de basis-URL voor de API management-service. API Management API's onderscheidt door hun achtervoegsel en daarom het achtervoegsel moet uniek zijn voor elke API voor een opgegeven uitgever.|
     |**URL-schema**|*HTTPS*|Hiermee wordt bepaald welke protocollen kunnen worden gebruikt voor toegang tot de API. |
@@ -67,13 +67,10 @@ Deze sectie wordt beschreven hoe importeren en publiceren van een OpenAPI specif
 
 Bewerkingen kunnen rechtstreeks vanuit de Azure portal, die een handige manier om te bekijken en te testen van de bewerkingen van een API worden aangeroepen.  
 1. Selecteer de API die u in de vorige stap hebt gemaakt.
-2. Druk op de **Test** tabblad.
-
-    ![API testen](./media/api-management-get-started/test-api.png)
+2. Druk op de **Test** tabblad.  ![API testen](./media/api-management-get-started/test-api.png)
 3. Klik op **GetSpeakers**.
-
-    Velden voor queryparameters op de pagina weergegeven, maar in dit geval zijn er een. Velden voor de headers van de pagina worden ook weergegeven. Een van de headers is 'Ocp-Apim-Subscription-Key' voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u het exemplaar APIM hebt gemaakt, bent u beheerder al, zodat de sleutel wordt automatisch ingevuld. 
-4. Druk op **verzenden**.
+    Velden voor queryparameters op de pagina weergegeven, maar in dit geval zijn er een. Velden voor de headers van de pagina worden ook weergegeven. Een van de headers is 'Ocp-Apim-Subscription-Key' voor de abonnementssleutel van het product dat is gekoppeld aan deze API. De sleutel wordt automatisch ingevuld.
+4. Druk op **Verzenden**.
 
     Back-end reageert met **200 OK** en bepaalde gegevens.
 
@@ -93,7 +90,7 @@ Bewerkingen kunnen ook worden aangeroepen **ontwikkelaarsportal** voor het teste
     
     Velden voor queryparameters op de pagina weergegeven, maar in dit geval zijn er een. Velden voor de headers van de pagina worden ook weergegeven. Een van de headers is 'Ocp-Apim-Subscription-Key' voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u het exemplaar APIM hebt gemaakt, bent u beheerder al, zodat de sleutel wordt automatisch ingevuld.
 6. Druk op **Try it**.
-7. Druk op **verzenden**.
+7. Druk op **Verzenden**.
     
     Nadat een bewerking is aangeroepen, worden in de ontwikkelaarsportal de **antwoordstatus**, de **antwoordheaders** en eventuele **antwoordinhoud** weergegeven.
 

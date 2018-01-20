@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions-Tools voor Visual Studio  
 
-Azure Functions-hulpprogramma's voor Visual Studio 2017 is een uitbreiding voor Visual Studio waarmee u ontwikkelen, testen en implementeren van C#-functies in Azure. Als dit de eerste ervaring met Azure Functions, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
+Azure Functions-hulpprogramma's voor Visual Studio 2017 is een uitbreiding voor Visual Studio waarmee u ontwikkelen, testen en implementeren van C#-functies in Azure. Als deze ervaring uw eerste met Azure Functions is, kunt u meer informatie op [een inleiding tot Azure Functions](functions-overview.md).
 
 De hulpprogramma's van Azure Functions biedt de volgende voordelen: 
 
@@ -61,9 +61,9 @@ Als u een nieuw project met de Azure Functions-sjabloon maakt, krijgt u een leeg
     
 * **Local.Settings.JSON**: onderhoudt instellingen bij lokale uitvoering van de functies die worden gebruikt. Deze instellingen worden niet gebruikt door Azure, ze worden gebruikt door de [kernonderdelen van Azure Functions](functions-run-local.md). Dit bestand opgeven van instellingen, zoals de verbindingsreeksen om andere Azure-services te gebruiken. Een nieuwe sleutel toevoegen aan de **waarden** matrix voor elke verbinding vereist voor functies in uw project. Zie voor meer informatie [lokale instellingenbestand](functions-run-local.md#local-settings-file) in het onderwerp kernonderdelen van Azure Functions.
 
-De runtime van Functions wordt intern gebruikt een Azure Storage-account. Voor alle typen dan HTTP en webhooks activeert, moet u instellen de **Values.AzureWebJobsStorage** sleutel op een geldige verbindingsreeks voor Azure Storage-account.
+De runtime van Functions wordt intern gebruikt een Azure Storage-account. Voor alle typen dan HTTP en webhooks activeert, moet u instellen de **Values.AzureWebJobsStorage** sleutel op een geldige verbindingsreeks voor Azure Storage-account. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  De verbindingsreeks voor opslag account instellen:
 
@@ -83,7 +83,7 @@ In de vooraf gecompileerde functies worden de bindingen die wordt gebruikt door 
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Een sleutelreeks voor verbinding met de naam **QueueStorage** wordt geleverd, die is gedefinieerd in het bestand local.settings.json. 
+    In dit voorbeeld trigger wordt een verbindingsreeks met een sleutel met de naam **QueueStorage**. Deze instelling van de tekenreeks moet worden gedefinieerd in het bestand local.settings.json. 
  
 3. Onderzoek de zojuist toegevoegde klasse. U ziet een statische **uitvoeren** methode, dat is toegewezen met de **functienaam** kenmerk. Dit kenmerk geeft aan dat de methode het toegangspunt voor de functie. 
 
@@ -113,7 +113,7 @@ In de vooraf gecompileerde functies worden de bindingen die wordt gebruikt door 
 
 Met Azure Functions Core-hulpprogramma's kunt u Azure Functions-projecten uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio start, wordt u gevraagd deze hulpprogramma's te installeren.  
 
-Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual Studio om Azure Functions Core (CLI)-hulpprogramma's te downloaden en installeren.  Mogelijk moet u ook een firewall-uitzondering inschakelen, zodat de hulpprogramma's HTTP-aanvragen kunnen afhandelen.
+Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual Studio om Azure Functions Core (CLI)-hulpprogramma's te downloaden en installeren. Mogelijk moet u ook een firewall-uitzondering inschakelen, zodat de hulpprogramma's HTTP-aanvragen kunnen afhandelen.
 
 Aan het project dat wordt uitgevoerd, kunt u uw code testen, zoals u zou geïmplementeerde functie testen. Zie voor meer informatie [strategieën voor het testen van uw code in Azure Functions](functions-test-a-function.md). Wanneer in de foutopsporingsmodus wordt uitgevoerd, worden de onderbrekingspunten druk in Visual Studio zoals verwacht. 
 
@@ -125,12 +125,23 @@ Zie voor meer informatie over het gebruik van de hulpprogramma's van Azure Funct
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen worden niet automatisch toegevoegd. U kunt de vereiste instellingen toevoegen aan uw app functie in een van de volgende manieren:
->
->* [Met de Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Met behulp van de `--publish-local-settings` optie publiceren in de hulpprogramma's van Azure Functions Core](functions-run-local.md#publish).
->* [De Azure CLI gebruiken](/cli/azure/functionapp/config/appsettings#set). 
+## <a name="function-app-settings"></a>Instellingen voor functie-apps   
+
+Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen niet automatisch worden verzonden wanneer u het project publiceert. 
+
+De eenvoudigste manier om de vereiste instellingen uploaden naar uw functie-app in Azure is met de **Toepassingsinstellingen beheren...**  koppeling die wordt weergegeven nadat u uw project is gepubliceerd. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+U ziet nu de **toepassingsinstellingen** dialoogvenster voor de functie-app, kunt u toepassingsinstellingen voor nieuwe toevoegen of bestaande wijzigen.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+U kunt ook de toepassingsinstellingen in een van deze andere manieren beheren:
+
+* [Met de Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Met behulp van de `--publish-local-settings` optie publiceren in de hulpprogramma's van Azure Functions Core](functions-run-local.md#publish).
+* [De Azure CLI gebruiken](/cli/azure/functionapp/config/appsettings#set). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

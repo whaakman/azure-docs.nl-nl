@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
@@ -183,7 +183,7 @@ De beschikbare compressietypen zijn:
 
 | Indeling | Hulpprogramma | Algoritme | Bestandsextensie | SplitTable? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | VERKLEINEN | .GZ | Nee |
+| Gzip | Gzip | VERKLEINEN | .gz | Nee |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, als geïndexeerd |
 | treffende | N/A | treffende | treffende | Nee |
@@ -234,7 +234,7 @@ Speculatieve uitvoering wordt gestart van een bepaald aantal dubbele taken om te
 
 Speculatieve uitvoering mag niet worden ingeschakeld voor langlopende MapReduce-taken met een grote hoeveelheid invoer.
 
-1. Om in te schakelen speculatieve uitvoering, gaat u naar de component **Configs** tabblad en stel vervolgens de `hive.mapred.reduce.tasks.speculative.execution` parameter in op true. De standaardwaarde is ingesteld op false.
+* Om in te schakelen speculatieve uitvoering, gaat u naar de component **Configs** tabblad en stel vervolgens de `hive.mapred.reduce.tasks.speculative.execution` parameter in op true. De standaardwaarde is ingesteld op false.
 
     ![Hive mapred verminderen speculatieve uitvoering van taken](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -370,7 +370,7 @@ Het aantal verkleiningstoestellen wordt berekend op basis van de parameter `pig.
 
 HBase-configuratie is gewijzigd van de **HBase Configs** tabblad. De volgende secties worden enkele belangrijke configuratie-instellingen die invloed hebben op prestaties HBase beschreven.
 
-### <a name="set-hbaseheapsize"></a>HBASE_HEAPSIZE instellen
+### <a name="set-hbaseheapsize"></a>Set HBASE_HEAPSIZE
 
 De HBase-heap-grootte geeft de maximale heap moet worden gebruikt in megabytes door *regio* en *master* servers. De standaardwaarde is 1000 MB. Dit moet worden geconfigureerd voor de clusterwerkbelasting worden opgeslagen.
 
@@ -453,10 +453,10 @@ De grootte van de geheugenopslag is gedefinieerd door de `hbase.regionserver.glo
 
 Gebruik van de buffer geheugenopslag lokale toewijzing wordt bepaald door de eigenschap `hbase.hregion.memstore.mslab.enabled`. Wanneer dit is ingeschakeld (true) zo voorkomt u dat heapfragmentatie tijdens zware schrijfbewerking. De standaardwaarde is true.
  
-![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Zie ook
+## <a name="next-steps"></a>Volgende stappen
 
 * [HDInsight-clusters met de Ambari-webgebruikersinterface beheren](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)

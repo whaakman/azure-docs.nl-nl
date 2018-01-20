@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48d4a33f7667786f2eb8851ed69dedc206e777ae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog-concepten voor ontwikkelaars
 Microsoft **Azure Data Catalog** is een volledig beheerde cloudservice waarmee mogelijkheden voor detectie van gegevensbronnen en crowdsourcing metagegevens van de gegevensbron biedt. Ontwikkelaars kunnen de service via de REST-API's gebruiken. Informatie over de concepten die zijn geïmplementeerd in de service is belangrijk voor ontwikkelaars is geïntegreerd met **Azure Data Catalog**.
@@ -84,21 +84,21 @@ De UX kunt vervolgens het weergeven van de combinatie kiezen. Er zijn drie versc
 Zoals geïntroduceerd in de sectie hoofdconcepten van de **Azure Data Catalog** objectmodel bevat items, die activa of aantekeningen worden kunnen. Objecten hebben eigenschappen die optioneel of vereist worden kunnen. Sommige eigenschappen zijn van toepassing op alle items. Sommige eigenschappen zijn van toepassing op alle activa. Sommige eigenschappen gelden alleen voor specifieke asset typen.
 
 ### <a name="system-properties"></a>Systeemeigenschappen
-<table><tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr><tr><td>tijdstempel</td><td>Datum/tijd</td><td>De laatste keer dat het item is gewijzigd. Dit veld wordt gegenereerd door de server als een item wordt toegevoegd en telkens wanneer een item wordt bijgewerkt. De waarde van deze eigenschap wordt genegeerd op invoer van bewerkingen publiceren.</td></tr><tr><td>id</td><td>URI</td><td>Absolute url van het item (alleen-lezen). De unieke adresseerbare URI voor het item is.  De waarde van deze eigenschap wordt genegeerd op invoer van bewerkingen publiceren.</td></tr><tr><td>type</td><td>Tekenreeks</td><td>Het type van de asset (alleen-lezen).</td></tr><tr><td>ETag</td><td>Tekenreeks</td><td>Een tekenreeks die overeenkomt met de versie van het item dat kan worden gebruikt voor Optimistisch gelijktijdigheidbeheer bij het uitvoeren van bewerkingen die items in de catalogus bijwerken. ' * ' kunnen worden gebruikt om een willekeurige waarde.</td></tr></table>
+<table><tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr><tr><td>tijdstempel</td><td>Datum en tijd</td><td>De laatste keer dat het item is gewijzigd. Dit veld wordt gegenereerd door de server als een item wordt toegevoegd en telkens wanneer een item wordt bijgewerkt. De waarde van deze eigenschap wordt genegeerd op invoer van bewerkingen publiceren.</td></tr><tr><td>id</td><td>URI</td><td>Absolute url van het item (alleen-lezen). De unieke adresseerbare URI voor het item is.  De waarde van deze eigenschap wordt genegeerd op invoer van bewerkingen publiceren.</td></tr><tr><td>type</td><td>Tekenreeks</td><td>Het type van de asset (alleen-lezen).</td></tr><tr><td>ETag</td><td>Tekenreeks</td><td>Een tekenreeks die overeenkomt met de versie van het item dat kan worden gebruikt voor Optimistisch gelijktijdigheidbeheer bij het uitvoeren van bewerkingen die items in de catalogus bijwerken. ' * ' kunnen worden gebruikt om een willekeurige waarde.</td></tr></table>
 
 ### <a name="common-properties"></a>Algemene eigenschappen
 Deze eigenschappen zijn van toepassing op alle root asset typen en alle aantekeningentypen.
 
 <table>
 <tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Booleaanse waarde</td><td>Hiermee wordt aangegeven of de gegevens van artikel is afgeleid van een bronsysteem (zoals Sql Server-Database, Oracle-Database) of door een gebruiker geschreven.</td></tr>
+<tr><td>fromSourceSystem</td><td>Boole-waarde</td><td>Hiermee wordt aangegeven of de gegevens van artikel is afgeleid van een bronsysteem (zoals Sql Server-Database, Oracle-Database) of door een gebruiker geschreven.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Algemene eigenschappen voor de hoofdmap
 <p>
 Deze eigenschappen zijn van toepassing op alle root asset typen.
 
-<table><tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr><tr><td>naam</td><td>Tekenreeks</td><td>Een naam die is afgeleid van de locatie van de gegevensbroninformatie</td></tr><tr><td>DSL</td><td>DataSourceLocation</td><td>Een unieke beschrijving van de gegevensbron en is een van de id's voor de asset. (Zie de sectie met dubbele identiteit).  De structuur van de dsl hangt af van het type protocol en de bron.</td></tr><tr><td>Gegevensbron</td><td>DataSourceInfo</td><td>Meer informatie over het type van activa.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Beschrijving van de gebruiker die dit activum meest recent geregistreerd.  Bevat de unieke id voor de gebruiker (upn) en de weergavenaam (lastName en firstName).</td></tr><tr><td>containerId</td><td>Tekenreeks</td><td>Id van de asset container voor de gegevensbron. Deze eigenschap wordt niet ondersteund voor het type van de Container.</td></tr></table>
+<table><tr><td><b>De naam van eigenschap</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr><tr><td>naam</td><td>Tekenreeks</td><td>Een naam die is afgeleid van de locatie van de gegevensbroninformatie</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Een unieke beschrijving van de gegevensbron en is een van de id's voor de asset. (Zie de sectie met dubbele identiteit).  De structuur van de dsl hangt af van het type protocol en de bron.</td></tr><tr><td>Gegevensbron</td><td>DataSourceInfo</td><td>Meer informatie over het type van activa.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Beschrijving van de gebruiker die dit activum meest recent geregistreerd.  Bevat de unieke id voor de gebruiker (upn) en de weergavenaam (lastName en firstName).</td></tr><tr><td>containerId</td><td>Tekenreeks</td><td>Id van de asset container voor de gegevensbron. Deze eigenschap wordt niet ondersteund voor het type van de Container.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Algemene eigenschappen voor niet-singleton aantekening
 Deze eigenschappen van toepassing op alle niet-singleton aantekeningentypen (aantekeningen die kunnen worden meerdere per asset).
@@ -111,8 +111,8 @@ Deze eigenschappen van toepassing op alle niet-singleton aantekeningentypen (aan
 ### <a name="root-asset-types"></a>Hoofdmap asset typen
 Hoofdmap asset typen zijn deze typen die staan voor de verschillende typen van gegevensassets die kunnen worden geregistreerd in de catalogus. Er is een weergave, die beschrijft asset en aantekeningen opgenomen in de weergave voor elke hoofdtype. De naam moet worden gebruikt in het bijbehorende {view_name} url-segment bij het publiceren van een activum met REST-API.
 
-<table><tr><td><b>Activatype (weergavenaam)</b></td><td><b>Aanvullende eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Toegestane aantekeningen</b></td><td><b>Opmerkingen</b></td></tr><tr><td>Tabel ('tabellen")</td><td></td><td></td><td>Beschrijving<p>friendlyName<p>Label<p>Schema<p>ColumnDescription<p>ColumnTag<p> deskundige<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentatie<p></td><td>Een tabel vertegenwoordigt tabellaire gegevens.  Bijvoorbeeld: SQL-tabel, SQL-weergave, in tabelvorm tabel van Analysis Services, Analysis Services multidimensionale dimensie, Oracle-tabel, enzovoort.   </td></tr><tr><td>Meting ('metingen')</td><td></td><td></td><td>Beschrijving<p>friendlyName<p>Label<p>deskundige<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een Analysis Services-meting.</td></tr><tr><td></td><td>meting</td><td>Kolom</td><td></td><td>Metagegevens met een beschrijving van de meting</td></tr><tr><td></td><td>isCalculated </td><td>Booleaanse waarde</td><td></td><td>Geeft aan of de meting is berekend of niet.</td></tr><tr><td></td><td>MeasureGroup</td><td>Tekenreeks</td><td></td><td>Fysieke container voor de meting</td></tr><td>KPI 'KPI's (')</td><td></td><td></td><td>Beschrijving<p>friendlyName<p>Label<p>deskundige<p>AccessInstruction<p>Documentatie</td><td></td></tr><tr><td></td><td>MeasureGroup</td><td>Tekenreeks</td><td></td><td>Fysieke container voor de meting</td></tr><tr><td></td><td>goalExpression</td><td>Tekenreeks</td><td></td><td>Een numerieke MDX-expressie of een berekening die als resultaat de doelwaarde van de KPI geeft.</td></tr><tr><td></td><td>valueExpression</td><td>Tekenreeks</td><td></td><td>Een numerieke MDX-expressie die als resultaat de werkelijke waarde van de KPI geeft.</td></tr><tr><td></td><td>statusExpression</td><td>Tekenreeks</td><td></td><td>Een MDX-expressie die de status van de KPI op een bepaald punt in tijd vertegenwoordigt.</td></tr><tr><td></td><td>trendExpression</td><td>Tekenreeks</td><td></td><td>Een MDX-expressie die wordt geëvalueerd als de waarde van de KPI gedurende een bepaalde periode. Het trendanalyse mag elk criterium op basis van tijd, dat is handig in een specifieke zakelijke context.</td>
-<tr><td>Rapport ('rapporten')</td><td></td><td></td><td>Beschrijving<p>friendlyName<p>Label<p>deskundige<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een SQL Server Reporting Services-rapport </td></tr><tr><td></td><td>assetCreatedDate</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td>Container ('containers')</td><td></td><td></td><td>Beschrijving<p>friendlyName<p>Label<p>deskundige<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een container van andere activa zoals een SQL-database, een container Azure Blobs of een Analysis Services-model.</td></tr></table>
+<table><tr><td><b>Activatype (weergavenaam)</b></td><td><b>Aanvullende eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Toegestane aantekeningen</b></td><td><b>Opmerkingen</b></td></tr><tr><td>Tabel ('tabellen")</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentatie<p></td><td>Een tabel vertegenwoordigt tabellaire gegevens.  Bijvoorbeeld: SQL-tabel, SQL-weergave, in tabelvorm tabel van Analysis Services, Analysis Services multidimensionale dimensie, Oracle-tabel, enzovoort.   </td></tr><tr><td>Meting ('metingen')</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een Analysis Services-meting.</td></tr><tr><td></td><td>meting</td><td>Kolom</td><td></td><td>Metagegevens met een beschrijving van de meting</td></tr><tr><td></td><td>isCalculated </td><td>Boole-waarde</td><td></td><td>Geeft aan of de meting is berekend of niet.</td></tr><tr><td></td><td>MeasureGroup</td><td>Tekenreeks</td><td></td><td>Fysieke container voor de meting</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie</td><td></td></tr><tr><td></td><td>MeasureGroup</td><td>Tekenreeks</td><td></td><td>Fysieke container voor de meting</td></tr><tr><td></td><td>goalExpression</td><td>Tekenreeks</td><td></td><td>Een numerieke MDX-expressie of een berekening die als resultaat de doelwaarde van de KPI geeft.</td></tr><tr><td></td><td>valueExpression</td><td>Tekenreeks</td><td></td><td>Een numerieke MDX-expressie die als resultaat de werkelijke waarde van de KPI geeft.</td></tr><tr><td></td><td>statusExpression</td><td>Tekenreeks</td><td></td><td>Een MDX-expressie die de status van de KPI op een bepaald punt in tijd vertegenwoordigt.</td></tr><tr><td></td><td>trendExpression</td><td>Tekenreeks</td><td></td><td>Een MDX-expressie die wordt geëvalueerd als de waarde van de KPI gedurende een bepaalde periode. Het trendanalyse mag elk criterium op basis van tijd, dat is handig in een specifieke zakelijke context.</td>
+<tr><td>Rapport ('rapporten')</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een SQL Server Reporting Services-rapport </td></tr><tr><td></td><td>assetCreatedDate</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Tekenreeks</td><td></td><td></td></tr><tr><td>Container ('containers')</td><td></td><td></td><td>Beschrijving<p>FriendlyName<p>Label<p>Expert<p>AccessInstruction<p>Documentatie<p></td><td>Dit type vertegenwoordigt een container van andere activa zoals een SQL-database, een container Azure Blobs of een Analysis Services-model.</td></tr></table>
 
 ### <a name="annotation-types"></a>Annotatie-typen
 Aantekeningentypen vertegenwoordigen typen metagegevens die kunnen worden toegewezen aan andere typen in de catalogus.
@@ -121,51 +121,51 @@ Aantekeningentypen vertegenwoordigen typen metagegevens die kunnen worden toegew
 <tr><td><b>Type aantekening (Nested weergavenaam)</b></td><td><b>Aanvullende eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr>
 
 <tr><td>Beschrijving ('beschrijvingen')</td><td></td><td></td><td>Deze eigenschap bevat een beschrijving op voor een asset. Elke gebruiker van het systeem kan hun eigen beschrijving toevoegen.  Alleen die gebruiker kan het object beschrijving bewerken.  (Beheerders en Asset eigenaars kunnen de beschrijving object verwijderen, maar deze niet bewerken). Het systeem onderhoudt beschrijvingen van de gebruikers afzonderlijk.  Het is dus een matrix met beschrijvingen van elke asset (één voor elke gebruiker die is bijgedragen hun kennis over het activum, naast het mogelijk een bestand met gegevens die zijn afgeleid van de gegevensbron).</td></tr>
-<tr><td></td><td>description</td><td>Tekenreeks</td><td>Een korte beschrijving (2-3 regels) van de activa</td></tr>
+<tr><td></td><td>description</td><td>tekenreeks</td><td>Een korte beschrijving (2-3 regels) van de activa</td></tr>
 
 <tr><td>Tag ('tags')</td><td></td><td></td><td>Deze eigenschap definieert een label voor een asset. Elke gebruiker van het systeem kan meerdere labels voor een asset toevoegen.  Alleen de gebruiker die Tag-objecten gemaakt, kan ze bewerken.  Beheerders en Asset eigenaars kunnen verwijderen van de Tag-object maar deze niet bewerken. Het systeem onderhoudt labels gebruikers afzonderlijk.  Het is dus een matrix met objecten van de Tag op elke asset.</td></tr>
-<tr><td></td><td>Label</td><td>Tekenreeks</td><td>Een label met een beschrijving van de asset.</td></tr>
+<tr><td></td><td>tag</td><td>tekenreeks</td><td>Een label met een beschrijving van de asset.</td></tr>
 
 <tr><td>FriendlyName ('friendlyName')</td><td></td><td></td><td>Deze eigenschap bevat een beschrijvende naam voor een asset. FriendlyName is een singleton-annotatie - slechts één FriendlyName kan worden toegevoegd aan een asset.  Alleen de gebruiker die FriendlyName-object is gemaakt kunt bewerken. (Beheerders en Asset eigenaren kunnen de FriendlyName object verwijderen, maar deze niet bewerken). Het systeem onderhoudt beschrijvende namen van de gebruikers afzonderlijk.</td></tr>
-<tr><td></td><td>friendlyName</td><td>Tekenreeks</td><td>Een beschrijvende naam van de activa.</td></tr>
+<tr><td></td><td>friendlyName</td><td>tekenreeks</td><td>Een beschrijvende naam van de activa.</td></tr>
 
 <tr><td>Schema ('schema')</td><td></td><td></td><td>De structuur van de gegevens in het Schema wordt beschreven.  Het hier worden de kenmerknamen (kolom, kenmerk, veld, enzovoort), alsook andere metagegevens van het type.  Deze informatie wordt afgeleid uit de gegevensbron.  Het schema is een singleton-annotatie - slechts één Schema kan worden toegevoegd voor een asset.</td></tr>
 <tr><td></td><td>Kolommen</td><td>Kolom]</td><td>Een matrix met objecten van de kolom. Ze beschrijven de kolom met gegevens die zijn afgeleid van de gegevensbron.</td></tr>
 
 <tr><td>ColumnDescription ('columnDescriptions')</td><td></td><td></td><td>Deze eigenschap bevat een beschrijving op voor een kolom.  Elke gebruiker van het systeem kan hun eigen beschrijvingen voor meerdere kolommen (maximaal één per kolom) toevoegen. Alleen de gebruiker die ColumnDescription objecten heeft gemaakt, kan ze bewerken.  (Beheerders en Asset eigenaren kunnen de ColumnDescription object verwijderen, maar deze niet bewerken). Het systeem onderhoudt afzonderlijk kolombeschrijvingen van deze gebruiker.  Het is dus een matrix van ColumnDescription objecten op elke asset (één per kolom voor elke gebruiker die is bijgedragen hun kennis over de kolom naast mogelijk een bestand met gegevens die zijn afgeleid van de gegevensbron).  De ColumnDescription los afhankelijk van het Schema zodat niet gesynchroniseerd krijgt. De ColumnDescription beschrijft een kolom die niet langer in het schema bestaat.  Het is tot de writer beschrijving en het schema om synchroon te houden.  De gegevensbron mogelijk ook gegevens voor beschrijving van kolommen en zijn extra ColumnDescription-objecten die moeten worden gemaakt wanneer u het hulpprogramma uitvoert.</td></tr>
-<tr><td></td><td>Kolomnaam</td><td>Tekenreeks</td><td>De naam van de kolom die deze beschrijving naar verwijst.</td></tr>
+<tr><td></td><td>columnName</td><td>Tekenreeks</td><td>De naam van de kolom die deze beschrijving naar verwijst.</td></tr>
 <tr><td></td><td>description</td><td>Tekenreeks</td><td>een korte beschrijving (2-3 regels) van de kolom.</td></tr>
 
 <tr><td>ColumnTag ('columnTags')</td><td></td><td></td><td>Deze eigenschap bevat een code voor een kolom. Elke gebruiker van het systeem kunt meerdere labels voor een bepaalde kolom toevoegen en labels voor meerdere kolommen kunt toevoegen. Alleen de gebruiker die ColumnTag objecten heeft gemaakt, kan ze bewerken. (Beheerders en Asset eigenaren kunnen de ColumnTag object verwijderen, maar deze niet bewerken). Het systeem onderhoudt kolom labels van deze gebruikers afzonderlijk.  Het is dus een matrix van ColumnTag objecten op elke asset.  De ColumnTag los afhankelijk van het schema zodat niet gesynchroniseerd krijgt. De ColumnTag beschrijft een kolom die niet langer in het schema bestaat.  Het is tot de writer kolom label en het schema om synchroon te houden.</td></tr>
-<tr><td></td><td>Kolomnaam</td><td>Tekenreeks</td><td>De naam van de kolom die deze code naar verwijst.</td></tr>
-<tr><td></td><td>Label</td><td>Tekenreeks</td><td>Een label met een beschrijving van de kolom.</td></tr>
+<tr><td></td><td>columnName</td><td>Tekenreeks</td><td>De naam van de kolom die deze code naar verwijst.</td></tr>
+<tr><td></td><td>tag</td><td>Tekenreeks</td><td>Een label met een beschrijving van de kolom.</td></tr>
 
 <tr><td>Expert ('experts')</td><td></td><td></td><td>Deze eigenschap bevat een gebruiker die wordt beschouwd als een expert in de gegevensset. De deskundigen opinions(descriptions) belgrootte boven aan de UX wanneer beschrijvingen. Elke gebruiker kan hun eigen deskundigen opgeven. Alleen die gebruiker kunt het experts-object bewerken. (Beheerders en Asset eigenaren kunnen de Expert objecten verwijderen maar niet te bewerken).</td></tr>
-<tr><td></td><td>deskundige</td><td>SecurityPrincipal</td><td></td></tr>
+<tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Preview ('previews')</td><td></td><td></td><td>De Preview-versie bevat een momentopname van de top 20 rijen van de gegevens voor de asset. Preview alleen zinvol zijn voor bepaalde typen van assets (het zinvol voor de tabel, maar niet voor de meting).</td></tr>
-<tr><td></td><td>Voorbeeld</td><td>object]</td><td>Matrix van objecten die een kolom vertegenwoordigen.  Elk object heeft geen eigenschapstoewijzing aan een kolom met een waarde voor de kolom voor de rij.</td></tr>
+<tr><td></td><td>preview</td><td>object[]</td><td>Matrix van objecten die een kolom vertegenwoordigen.  Elk object heeft geen eigenschapstoewijzing aan een kolom met een waarde voor de kolom voor de rij.</td></tr>
 
 <tr><td>AccessInstruction ('accessInstructions')</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>mimeType</td><td>Tekenreeks</td><td>Het mime-type van de inhoud.</td></tr>
-<tr><td></td><td>Inhoud</td><td>Tekenreeks</td><td>De instructies voor het toegang krijgen tot deze gegevens activa. De inhoud is mogelijk een URL, een e-mailadres of een set instructies.</td></tr>
+<tr><td></td><td>mimeType</td><td>tekenreeks</td><td>Het mime-type van de inhoud.</td></tr>
+<tr><td></td><td>Inhoud</td><td>tekenreeks</td><td>De instructies voor het toegang krijgen tot deze gegevens activa. De inhoud is mogelijk een URL, een e-mailadres of een set instructies.</td></tr>
 
 <tr><td>TableDataProfile ('tableDataProfiles')</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Het aantal rijen in de gegevensset</td></tr>
-<tr><td></td><td>Grootte</td><td>lang</td><td>De grootte in bytes van de gegevensset.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>Tekenreeks</td><td>De laatste keer dat het schema is gewijzigd.</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>Tekenreeks</td><td>De laatste keer dat de gegevensset is gewijzigd (gegevens werd toegevoegd, gewijzigd, of verwijderen)</td></tr>
+<tr><td></td><td>grootte</td><td>lang</td><td>De grootte in bytes van de gegevensset.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>tekenreeks</td><td>De laatste keer dat het schema is gewijzigd.</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>tekenreeks</td><td>De laatste keer dat de gegevensset is gewijzigd (gegevens werd toegevoegd, gewijzigd, of verwijderen)</td></tr>
 
 <tr><td>ColumnsDataProfile ('columnsDataProfiles')</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Kolommen</td></td><td>ColumnDataProfile]</td><td>Een matrix van profielen voor kolom-gegevens.</td></tr>
+<tr><td></td><td>Kolommen</td></td><td>ColumnDataProfile[]</td><td>Een matrix van profielen voor kolom-gegevens.</td></tr>
 
 <tr><td>ColumnDataClassification ('columnDataClassifications')</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Kolomnaam</td><td>Tekenreeks</td><td>De naam van de kolom die deze categorie heeft betrekking op.</td></tr>
+<tr><td></td><td>columnName</td><td>Tekenreeks</td><td>De naam van de kolom die deze categorie heeft betrekking op.</td></tr>
 <tr><td></td><td>Classificatie</td><td>Tekenreeks</td><td>De classificatie van de gegevens in deze kolom.</td></tr>
 
 <tr><td>Documentatie ("documentatie")</td><td></td><td></td><td>Een opgegeven activum kan slechts één documentatie gekoppeld hebben.</td></tr>
-<tr><td></td><td>mimeType</td><td>Tekenreeks</td><td>Het mime-type van de inhoud.</td></tr>
-<tr><td></td><td>Inhoud</td><td>Tekenreeks</td><td>De inhoud van de documentatie.</td></tr>
+<tr><td></td><td>mimeType</td><td>tekenreeks</td><td>Het mime-type van de inhoud.</td></tr>
+<tr><td></td><td>Inhoud</td><td>tekenreeks</td><td>De inhoud van de documentatie.</td></tr>
 
 </table>
 
@@ -175,36 +175,36 @@ Algemene typen kunnen worden gebruikt als de typen voor eigenschappen, maar er z
 <table>
 <tr><td><b>Algemeen Type</b></td><td><b>Eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>SourceType</td><td>Tekenreeks</td><td>Beschrijving van het type van de gegevensbron.  Bijvoorbeeld: SQL Server, Oracle-Database, enzovoort.  </td></tr>
-<tr><td></td><td>objectType</td><td>Tekenreeks</td><td>Beschrijving van het type object in de gegevensbron. Bijvoorbeeld: tabel, weergave voor SQL Server.</td></tr>
+<tr><td></td><td>SourceType</td><td>tekenreeks</td><td>Beschrijving van het type van de gegevensbron.  Bijvoorbeeld: SQL Server, Oracle-Database, enzovoort.  </td></tr>
+<tr><td></td><td>objectType</td><td>tekenreeks</td><td>Beschrijving van het type object in de gegevensbron. Bijvoorbeeld: tabel, weergave voor SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Protocol</td><td>Tekenreeks</td><td>Vereist. Beschrijft een protocol dat wordt gebruikt om te communiceren met de gegevensbron. Bijvoorbeeld: "tds' voor SQl Server, 'oracle' voor Oracle, enzovoort. Raadpleeg [gegevensbron verwijzing opgegeven - DSL structuur](data-catalog-dsr.md) voor de lijst met ondersteunde protocollen.</td></tr>
+<tr><td></td><td>protocol</td><td>tekenreeks</td><td>Vereist. Beschrijft een protocol dat wordt gebruikt om te communiceren met de gegevensbron. Bijvoorbeeld: "tds' voor SQl Server, 'oracle' voor Oracle, enzovoort. Raadpleeg [gegevensbron verwijzing opgegeven - DSL structuur](data-catalog-dsr.md) voor de lijst met ondersteunde protocollen.</td></tr>
 <tr><td></td><td>Adres</td><td>Woordenlijst<string, object></td><td>Vereist. Adres is een set gegevens die specifiek zijn voor het protocol dat wordt gebruikt voor het identificeren van de gegevensbron waarnaar wordt verwezen. De gegevens voor het adres binnen het bereik van een bepaald protocol, wat betekent dat deze is nutteloos zonder te weten het protocol.</td></tr>
-<tr><td></td><td>Verificatie</td><td>Tekenreeks</td><td>Optioneel. Het verificatieschema dat wordt gebruikt voor communicatie met de gegevensbron. Bijvoorbeeld: windows, oauth, enzovoort.</td></tr>
+<tr><td></td><td>verificatie</td><td>tekenreeks</td><td>Optioneel. Het verificatieschema dat wordt gebruikt voor communicatie met de gegevensbron. Bijvoorbeeld: windows, oauth, enzovoort.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Woordenlijst<string, object></td><td>Optioneel. Extra informatie over hoe u verbinding maakt met een gegevensbron.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>De back-end voert een validatie van de opgegeven eigenschappen met AAD tijdens de publicatie.</td></tr>
-<tr><td></td><td>UPN</td><td>Tekenreeks</td><td>Uniek e-mailadres van de gebruiker. Moet worden opgegeven als object-id is niet opgegeven of in de context van de eigenschap 'lastRegisteredBy', anders is optioneel.</td></tr>
-<tr><td></td><td>object-id</td><td>GUID</td><td>Gebruiker of beveiligingsgroep groep AAD identiteit. Optioneel. Moet worden opgegeven als upn niet, anders is optioneel opgegeven is.</td></tr>
-<tr><td></td><td>Voornaam</td><td>Tekenreeks</td><td>De voornaam van de gebruiker (ter informatie weergegeven). Optioneel. Alleen geldig in de context van de eigenschap 'lastRegisteredBy'. Kan niet worden opgegeven bij het opgeven van beveiligings-principal voor 'functies', 'machtigingen' en 'deskundigen'.</td></tr>
-<tr><td></td><td>Achternaam</td><td>Tekenreeks</td><td>De achternaam van de gebruiker (ter informatie weergegeven). Optioneel. Alleen geldig in de context van de eigenschap 'lastRegisteredBy'. Kan niet worden opgegeven bij het opgeven van beveiligings-principal voor 'functies', 'machtigingen' en 'deskundigen'.</td></tr>
+<tr><td></td><td>UPN</td><td>tekenreeks</td><td>Uniek e-mailadres van de gebruiker. Moet worden opgegeven als object-id is niet opgegeven of in de context van de eigenschap 'lastRegisteredBy', anders is optioneel.</td></tr>
+<tr><td></td><td>objectId</td><td>GUID</td><td>Gebruiker of beveiligingsgroep groep AAD identiteit. Optioneel. Moet worden opgegeven als upn niet, anders is optioneel opgegeven is.</td></tr>
+<tr><td></td><td>firstName</td><td>tekenreeks</td><td>De voornaam van de gebruiker (ter informatie weergegeven). Optioneel. Alleen geldig in de context van de eigenschap 'lastRegisteredBy'. Kan niet worden opgegeven bij het opgeven van beveiligings-principal voor 'functies', 'machtigingen' en 'deskundigen'.</td></tr>
+<tr><td></td><td>lastName</td><td>tekenreeks</td><td>De achternaam van de gebruiker (ter informatie weergegeven). Optioneel. Alleen geldig in de context van de eigenschap 'lastRegisteredBy'. Kan niet worden opgegeven bij het opgeven van beveiligings-principal voor 'functies', 'machtigingen' en 'deskundigen'.</td></tr>
 
 <tr><td>Kolom</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>naam</td><td>Tekenreeks</td><td>Naam van de kolom of een kenmerk.</td></tr>
-<tr><td></td><td>type</td><td>Tekenreeks</td><td>het gegevenstype van de kolom of een kenmerk. De toegestane typen zijn afhankelijk van sourceType gegevens van de activa.  Alleen een subset van de typen wordt ondersteund.</td></tr>
+<tr><td></td><td>naam</td><td>tekenreeks</td><td>Naam van de kolom of een kenmerk.</td></tr>
+<tr><td></td><td>type</td><td>tekenreeks</td><td>het gegevenstype van de kolom of een kenmerk. De toegestane typen zijn afhankelijk van sourceType gegevens van de activa.  Alleen een subset van de typen wordt ondersteund.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>De maximaal toegestane lengte voor de kolom of een kenmerk. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
-<tr><td></td><td>precisie</td><td>Byte</td><td>De precisie voor de kolom of een kenmerk. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
-<tr><td></td><td>isNullable</td><td>Booleaanse waarde</td><td>Of de kolom aan de waarde null hebben of niet is toegestaan. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
-<tr><td></td><td>expressie</td><td>Tekenreeks</td><td>Als de waarde een berekende kolom is, bevat dit veld in de expressie waarmee de waarde wordt uitgedrukt. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
+<tr><td></td><td>precisie</td><td>byte</td><td>De precisie voor de kolom of een kenmerk. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
+<tr><td></td><td>isNullable</td><td>Boole-waarde</td><td>Of de kolom aan de waarde null hebben of niet is toegestaan. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
+<tr><td></td><td>expressie</td><td>tekenreeks</td><td>Als de waarde een berekende kolom is, bevat dit veld in de expressie waarmee de waarde wordt uitgedrukt. Afgeleid van de gegevensbron. Alleen van toepassing op bepaalde brontypen.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Kolomnaam </td><td>Tekenreeks</td><td>De naam van de kolom</td></tr>
-<tr><td></td><td>type </td><td>Tekenreeks</td><td>Het type van de kolom</td></tr>
-<tr><td></td><td>min. </td><td>Tekenreeks</td><td>De minimale waarde in de gegevensset</td></tr>
-<tr><td></td><td>Maximum aantal </td><td>Tekenreeks</td><td>De maximale waarde in de gegevensset</td></tr>
-<tr><td></td><td>Gem. </td><td>dubbele</td><td>De gemiddelde waarde in de gegevensset</td></tr>
-<tr><td></td><td>STDEV </td><td>dubbele</td><td>De standaardafwijking voor de gegevensset</td></tr>
+<tr><td></td><td>columnName </td><td>tekenreeks</td><td>De naam van de kolom</td></tr>
+<tr><td></td><td>type </td><td>tekenreeks</td><td>Het type van de kolom</td></tr>
+<tr><td></td><td>min. </td><td>tekenreeks</td><td>De minimale waarde in de gegevensset</td></tr>
+<tr><td></td><td>max </td><td>tekenreeks</td><td>De maximale waarde in de gegevensset</td></tr>
+<tr><td></td><td>gem. </td><td>dubbel</td><td>De gemiddelde waarde in de gegevensset</td></tr>
+<tr><td></td><td>stdev </td><td>dubbel</td><td>De standaardafwijking voor de gegevensset</td></tr>
 <tr><td></td><td>nullCount </td><td>int</td><td>Het aantal null-waarden in de gegevensset</td></tr>
 <tr><td></td><td>distinctCount  </td><td>int</td><td>Het aantal afzonderlijke waarden in de gegevensset</td></tr>
 
@@ -222,19 +222,19 @@ Kan de set met ondersteunde protocollen programmatisch worden uitgebreid (Zie Na
 <tr><td><b>Type</b></td><td><b>Eigenschappen</b></td><td><b>Gegevenstype</b></td><td><b>Opmerkingen</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>naamruimte</td><td>Tekenreeks</td><td>De naamruimte van het protocol. Namespace moet tussen 1 en 255 tekens lang zijn, een of meer niet-lege onderdelen gescheiden door een punt (.) bevatten. Elk deel moet liggen tussen 1 en 255 tekens lang, met een letter beginnen en alleen letters en cijfers bevatten.</td></tr>
-<tr><td></td><td>naam</td><td>Tekenreeks</td><td>De naam van het protocol. Naam moet liggen tussen 1 en 255 tekens lang, met een letter beginnen en mag alleen letters, cijfers en het streepje (-).</td></tr>
-<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty]</td><td>Lijst van identiteitseigenschappen, moet ten minste één echter meer dan 20 eigenschappen bevatten. Bijvoorbeeld: 'server', 'database', 'schema', 'object' identiteitseigenschappen van het protocol 'tds' zijn.</td></tr>
-<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet]</td><td>Hiermee stelt u de lijst van identiteit. Hiermee definieert u sets identiteitseigenschappen die geldige asset-id voorstelt. Moet ten minste één echter meer dan 20 sets bevatten. Bijvoorbeeld: {'server', 'database', 'schema' en 'object'} is ingesteld voor "tds" protocol, dat Hiermee definieert u de id van Sql Server-tabel actief identiteit.</td></tr>
+<tr><td></td><td>naamruimte</td><td>tekenreeks</td><td>De naamruimte van het protocol. Namespace moet tussen 1 en 255 tekens lang zijn, een of meer niet-lege onderdelen gescheiden door een punt (.) bevatten. Elk deel moet liggen tussen 1 en 255 tekens lang, met een letter beginnen en alleen letters en cijfers bevatten.</td></tr>
+<tr><td></td><td>naam</td><td>tekenreeks</td><td>De naam van het protocol. Naam moet liggen tussen 1 en 255 tekens lang, met een letter beginnen en mag alleen letters, cijfers en het streepje (-).</td></tr>
+<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lijst van identiteitseigenschappen, moet ten minste één echter meer dan 20 eigenschappen bevatten. Bijvoorbeeld: 'server', 'database', 'schema', 'object' identiteitseigenschappen van het protocol 'tds' zijn.</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Hiermee stelt u de lijst van identiteit. Hiermee definieert u sets identiteitseigenschappen die geldige asset-id voorstelt. Moet ten minste één echter meer dan 20 sets bevatten. Bijvoorbeeld: {'server', 'database', 'schema' en 'object'} is ingesteld voor "tds" protocol, dat Hiermee definieert u de id van Sql Server-tabel actief identiteit.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>naam</td><td>Tekenreeks</td><td>De naam van de eigenschap. Naam moet tussen 1 en 100 tekens lang zijn, start met een letter en mag alleen letters en cijfers bevatten.</td></tr>
-<tr><td></td><td>type</td><td>Tekenreeks</td><td>Het type van de eigenschap. Ondersteunde waarden: 'bool,' boolean ', 'byte', 'guid', 'int', 'integer', 'lang', 'string', "url"</td></tr>
+<tr><td></td><td>naam</td><td>tekenreeks</td><td>De naam van de eigenschap. Naam moet tussen 1 en 100 tekens lang zijn, start met een letter en mag alleen letters en cijfers bevatten.</td></tr>
+<tr><td></td><td>type</td><td>tekenreeks</td><td>Het type van de eigenschap. Ondersteunde waarden: 'bool,' boolean ', 'byte', 'guid', 'int', 'integer', 'lang', 'string', "url"</td></tr>
 <tr><td></td><td>ignoreCase</td><td>BOOL</td><td>Hiermee wordt aangegeven of geval moet worden genegeerd wanneer u de waarde van eigenschap. Kan alleen worden opgegeven voor eigenschappen met het type 'string'. Standaard is ingesteld op false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>BOOL]</td><td>Hiermee wordt aangegeven of de aanvraag voor elk segment van de url-pad moet worden genegeerd. Kan alleen worden opgegeven voor eigenschappen met het type "url". Standaardwaarde is [false].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>naam</td><td>Tekenreeks</td><td>De naam van de identiteit is ingesteld.</td></tr>
+<tr><td></td><td>naam</td><td>tekenreeks</td><td>De naam van de identiteit is ingesteld.</td></tr>
 <tr><td></td><td>properties</td><td>String]</td><td>De lijst met opgenomen in deze identiteit identiteitseigenschappen instellen. Het mag geen duplicaten bevatten. Elke eigenschap identiteitset waarnaar moet worden gedefinieerd in de lijst met 'identityProperties' van het protocol.</td></tr>
 
 </table>
@@ -271,7 +271,7 @@ Tijdens de **Azure Data Catalog** bekijken, alleen **lezen** rechts wordt onders
 
 Alle geverifieerde gebruikers heeft standaard **lezen** tenzij zichtbaarheid beperkt tot de set-principals in de machtigingen is voor elk item in de catalogus naar rechts.
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 **PLAATSEN** en **POST** item weergeven aanvragen kunnen worden gebruikt voor het beheren van rollen en machtigingen: naast de nettolading van het item, twee eigenschappen kunnen worden opgegeven **rollen** en **machtigingen**.
 
 > [!NOTE]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Serviceoverzicht configureren in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -28,8 +28,8 @@ Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents c
 ## <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
 | File | OS | Versie | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Verbonden bronnen
@@ -87,7 +87,7 @@ Opties van de volgende tabel gebruiken om te installeren vanaf een opdrachtregel
 | Vlag | Beschrijving |
 |:--|:--|
 | /? | Een lijst van de opdrachtregelopties ophalen. |
-| / S | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
+| /S | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
 
 Bestanden voor de Windows-Agent voor afhankelijkheden worden standaard in C:\Program Files\Microsoft afhankelijkheid Agent geplaatst.
 
@@ -118,9 +118,9 @@ Bestanden voor de Agent voor afhankelijkheden worden geplaatst in de volgende ma
 |:--|:--|
 | Core-bestanden | /Opt/Microsoft/Dependency-agent |
 | Logboekbestanden | /var/opt/Microsoft/Dependency-agent/log |
-| De config-bestanden | /etc/opt/Microsoft/Dependency-agent/config |
+| De config-bestanden | /etc/opt/microsoft/dependency-agent/config |
 | Uitvoerbare bestanden voor service | /Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-agent<br>/Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-Agent-Manager |
-| Binaire opslag-bestanden | /var/opt/Microsoft/Dependency-agent/Storage |
+| Binaire opslag-bestanden | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Voorbeelden van scripts voor installatie
 Als u wilt eenvoudig in één keer de afhankelijkheid-Agent op veel servers implementeert, is het nuttig om een script gebruiken. U kunt de volgende scriptvoorbeelden downloaden en installeren van de Agent voor afhankelijkheden op Windows of Linux.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Azure VM-extensie
-U kunt de Agent voor afhankelijkheden eenvoudig implementeren naar uw Azure VM's met een [Azure VM-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Met de Azure VM-extensie kunt u de Agent voor afhankelijkheden implementeren voor uw virtuele machines via een PowerShell-script of rechtstreeks in Azure Resource Manager-sjabloon voor de VM.  Er is een uitbreiding beschikbaar voor zowel Windows (DependencyAgentWindows)- als Linux (DependencyAgentLinux).  Als u via de Azure VM-extensie implementeert, kunnen de agents automatisch worden bijgewerkt naar de meest recente versies.
+U kunt de Agent voor afhankelijkheden eenvoudig implementeren naar uw Azure VM's met een [Azure VM-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Met de Azure VM-extensie kunt u de Agent voor afhankelijkheden implementeren voor uw virtuele machines via een PowerShell-script of rechtstreeks in Azure Resource Manager-sjabloon voor de VM.  Er is een uitbreiding beschikbaar voor zowel Windows (DependencyAgentWindows)- als Linux (DependencyAgentLinux).  Als u via de Azure VM-extensie implementeert, kunnen de agents automatisch worden bijgewerkt naar de meest recente versies.
 
 Voor het implementeren van de Azure VM-extensie via PowerShell, kunt u het volgende voorbeeld:
 ```PowerShell

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37f72d829fc50a0f967f08e068c553f5026f35eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Aan de slag met de Yammer-connector
 Verbinding maken met Yammer aan gesprekken toegang in uw bedrijfsnetwerk. Met Yammer, kunt u het volgende doen:
@@ -28,14 +28,14 @@ Verbinding maken met Yammer aan gesprekken toegang in uw bedrijfsnetwerk. Met Ya
 * Gebruik voor wordt geactiveerd wanneer er een nieuw bericht in een groep of een feed uw volgende.
 * Acties gebruiken om een bericht plaatsen, alle berichten en meer te vinden. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. Wanneer een nieuw bericht wordt weergegeven, kunt u bijvoorbeeld een e-mailbericht met Office 365 verzenden.
 
-Aan de slag door het maken van een logische app nu; Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Aan de slag door het maken van een logische app nu; Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-yammer"></a>Maak een verbinding met Yammer
 Voor het gebruik van de Yammer-connector maakt u eerst een **verbinding** Geef vervolgens de details voor deze eigenschappen: 
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| Token |Ja |Geef referenties op Yammer |
+| Token |Ja |Yammer-referenties opgeven |
 
 > [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 > 

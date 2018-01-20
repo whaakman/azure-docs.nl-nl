@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Aan de slag met de connector Trello
 Trello geeft u een perspectief over alle projecten, op het werk en thuis.  Het is een eenvoudige, gratis, flexibele en visuele manier voor het beheren van uw projecten en iets te organiseren.  Verbinding maken met Trello voor het beheren van uw boards, lijsten en kaarten.
 
-Aan de slag door het maken van een logische app; Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Aan de slag door het maken van een logische app; Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-trello"></a>Maak een verbinding met Trello
 Logische apps maakt met Trello, maakt u eerst een **verbinding**, en voer de details voor de volgende eigenschappen:
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| Token |Ja |Geef referenties op Trello |
+| Token |Ja |Trello-referenties opgeven |
 
 Nadat u de verbinding hebt gemaakt, kunt u het uitvoeren van de acties te luisteren voor de triggers.
 

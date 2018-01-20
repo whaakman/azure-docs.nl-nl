@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Overzicht van Azure zonder server met functies en Logic Apps
 
@@ -41,7 +41,7 @@ Als u meteen aan de slag wilt met Azure Functions, kunt u beginnen met [Uw eerst
 
 Logische Apps van Azure biedt een manier om te vereenvoudigen en implementeren van schaalbare integraties en werkstromen in de cloud. Het biedt een visuele ontwerper voor model en het automatiseren van uw proces als een reeks stappen een werkstroom wordt aangeroepen.  Er zijn [veel connectors](../connectors/apis-list.md) via cloud en on-premises services snel een app zonder server verbinding te maken met andere API's.  Een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties, acties, conversies en voorwaardelijke logica beginnen.  Logic Apps is een uitstekende keuze wanneer verschillende Azure-functies in een proces - organiseren, vooral wanneer het proces vereist interactie met een extern systeem of de API.
 
-Om te beginnen met Logic Apps beginnen met [maken van uw eerste logische app](logic-apps-create-a-logic-app.md).  Als u meer technische informatie over Logic Apps zoekt, raadpleegt u de [referentie voor ontwikkelaars](logic-apps-workflow-actions-triggers.md).
+Om te beginnen met Logic Apps beginnen met [maken van uw eerste logische app](quickstart-create-first-logic-app-workflow.md).  Als u meer technische informatie over Logic Apps zoekt, raadpleegt u de [referentie voor ontwikkelaars](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hoe kan ik bouwen en implementeren zonder server-toepassingen in Azure?
 

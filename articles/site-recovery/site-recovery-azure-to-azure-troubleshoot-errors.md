@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 5e4de47de554f36e7797b7994faee4e90c3a8186
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 76ec4f6d2f4471f2e8399c3e028321754ea7c160
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Oplossen van problemen met de replicatie van de virtuele machine van Azure naar Azure
 
@@ -109,13 +109,13 @@ Een nieuwe schijf die is gekoppeld aan de virtuele machine moet worden geïnitia
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-150039<br></br>**Bericht**: Azure gegevensschijf (DiskName) (DiskURI) met de logische eenheid number (LUN) (LUNValue) is niet toegewezen aan een bijbehorende schijf wordt gerapporteerd door binnen de virtuele machine die dezelfde LUN-waarde heeft. | -Een nieuwe gegevensschijf is gekoppeld aan de virtuele machine, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf in de virtuele machine is de LUN-waarde waarmee de schijf is gekoppeld aan de virtuele machine niet correct rapporteren.| Zorg dat de gegevensschijven worden geïnitialiseerd en probeer het opnieuw.</br></br>Voor Windows: [koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Voor Linux: [initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Bericht**: Azure gegevensschijf (DiskName) (DiskURI) met de logische eenheid number (LUN) (LUNValue) is niet toegewezen aan een bijbehorende schijf wordt gerapporteerd door binnen de virtuele machine die dezelfde LUN-waarde heeft. | -Een nieuwe gegevensschijf is gekoppeld aan de virtuele machine, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf in de virtuele machine is de LUN-waarde waarmee de schijf is gekoppeld aan de virtuele machine niet correct rapporteren.| Zorg dat de gegevensschijven worden geïnitialiseerd en probeer het opnieuw.</br></br>Voor Windows: [koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Voor Linux: [initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 ### <a name="fix-the-problem"></a>Los het probleem
 Zorg ervoor dat de gegevensschijven geïnitialiseerd en probeer het vervolgens opnieuw:
 
 - Voor Windows: [koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Voor Linux: [initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Voor Linux: [initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning.
 

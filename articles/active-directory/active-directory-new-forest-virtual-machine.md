@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk
 Dit artikel laat zien hoe u een nieuwe Windows Server Active Directory-omgeving op een virtuele machine (VM) maakt op een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md). De virtuele Azure-netwerk is in dit geval niet verbonden met een on-premises netwerk.
@@ -67,7 +67,7 @@ Zie voor informatie over het maken van de virtuele machines met Windows PowerShe
    |  **Configuratie van virtuele Machine** |<p>De naam van de virtuele Machine: Typ een naam met één label (zoals AzureDC1).</p><p>Nieuwe gebruikersnaam: Typ de naam van een gebruiker. Deze gebruiker is lid van de lokale groep Administrators op de virtuele machine. U moet deze naam voor het eerst aanmelden bij de virtuele machine. Het ingebouwde Administrator-account, werkt niet.</p><p>Nieuwe wachtwoord/bevestigen: Typ een wachtwoord</p> |
    |  **Configuratie van virtuele Machine** |<p>Cloudservice: Kies <b>Maak een nieuwe cloudservice</b> voor de eerste virtuele machine en selecteer die dezelfde cloudservicenaam-service bij het maken van meer virtuele machines die de rol domeincontroller fungeert als host.</p><p>Cloud-Service DNS-naam: Geef een globaal unieke naam</p><p>Regio/Affiniteitsgroep/virtuele netwerk: Geef de naam van het virtuele netwerk (zoals WestUSVNet).</p><p>Storage-Account: Kies <b>een automatisch gegenereerde opslagaccount gebruiken</b> voor de eerste virtuele machine en selecteer vervolgens die dezelfde opslagaccountnaam bij het maken van meer virtuele machines die de rol domeincontroller fungeert als host.</p><p>Beschikbaarheidsset: Kies <b>maken van een beschikbaarheidsset</b>.</p><p>Beschikbaarheidsset: Typ een naam voor de beschikbaarheidsset wanneer u de eerste virtuele machine maken en selecteer vervolgens dezelfde naam als u meer virtuele machines maakt.</p> |
    |  **Configuratie van virtuele Machine** |<p>Selecteer <b>de VM-Agent installeren</b> en eventuele andere uitbreidingen die u nodig hebt.</p> |
-2. Een schijf koppelen aan elke virtuele machine die de DC-serverfunctie wordt uitgevoerd. De extra schijf is nodig voor het opslaan van de AD-database, logboekbestanden en SYSVOL. Geef een grootte voor de schijf (zoals 10 GB) en laat de **Host Cache voorkeur** ingesteld op **geen**. Zie voor de stappen [hoe een gegevensschijf koppelen aan een virtuele Windows-Machine](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Een schijf koppelen aan elke virtuele machine die de DC-serverfunctie wordt uitgevoerd. De extra schijf is nodig voor het opslaan van de AD-database, logboekbestanden en SYSVOL. Geef een grootte voor de schijf (zoals 10 GB) en laat de **Host Cache voorkeur** ingesteld op **geen**. Zie voor de stappen [hoe een gegevensschijf koppelen aan een virtuele Windows-Machine](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Nadat u eerst zich aanmeldt bij de virtuele machine, opent u **Serverbeheer** > **File and Storage Services** een volume maken op deze schijf met NTFS.
 4. Reserveer een statisch IP-adres voor virtuele machines die de DC-functie wordt uitgevoerd. Als u wilt reserveren van een statisch IP-adres, download Microsoft Web Platform Installer en [Azure PowerShell installeren](/powershell/azure/overview) en voer de cmdlet Set-AzureStaticVNetIP. Bijvoorbeeld:
 

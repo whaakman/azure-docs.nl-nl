@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Key Vault instellen met end-to-end sleutelrotatie en -controle
 ## <a name="introduction"></a>Inleiding
@@ -416,7 +416,7 @@ De functie is nu klaar. Zorg ervoor dat u gaat u terug naar de **ontwikkelen** t
 ### <a name="azure-logic-app"></a>Azure logic app
 Vervolgens moet u een Azure logic app die neemt over de gebeurtenissen met de functie pusht naar de Service Bus-wachtrij, parseert de inhoud en verzendt een e-mail op basis van een voorwaarde wordt aangepast maken.
 
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md) door te gaan naar **Nieuw > logische App**.
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) door te gaan naar **Nieuw > logische App**.
 
 Zodra de logische app is gemaakt, gaat u naar het en kies **bewerken**. Kies in de editor logic app **Service Bus-wachtrij** en voer uw Service Bus-referenties om te verbinden met de wachtrij.
 

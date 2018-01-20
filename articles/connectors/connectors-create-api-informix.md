@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Aan de slag met de Informix-connector
 Microsoft-connector voor Informix verbindt Logic Apps met resources die zijn opgeslagen in een IBM Informix-database. De connector Informix bevat een Microsoft-client om te communiceren met externe computers voor Informix-server via een TCP/IP-netwerk. Dit omvat cloud databases, zoals IBM Informix voor Windows wordt uitgevoerd in Azure virtualisatie en het on-premises databases die gebruikmaken van de lokale data gateway. Zie de [ondersteund lijst](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix-platformen en-versies (in dit onderwerp).
@@ -35,7 +35,7 @@ De connector ondersteunt de volgende databasebewerkingen:
 
 Dit onderwerp leest u hoe u de connector in een logische app aan databasebewerkingen proces.
 
-Zie voor meer informatie over Logic Apps, [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Zie voor meer informatie over Logic Apps, [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Beschikbare acties
 Deze connector ondersteunt de volgende logic app acties:
@@ -87,7 +87,7 @@ Deze connector ondersteunt verbindingen met database on-premises en in de cloud 
 | --- | --- |
 | server |Vereist. Accepteert een string-waarde die aangeeft een TCP/IP-adres of de alias in IPv4 of IPv6-indeling, gevolgd (puntkomma's gescheiden) door een TCP/IP-poortnummer. |
 | database |Vereist. Accepteert een string-waarde die aangeeft een DRDA relationele Database naam (RDBNAM). Informix accepteert een 128-byte-tekenreeks (de database staat bekend als de naam van een IBM Informix-database (dbname)). |
-| Verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
+| verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
 | gebruikersnaam |Vereist. Een string-waarde accepteert. |
 | wachtwoord |Vereist. Een string-waarde accepteert. |
 | Gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
@@ -276,5 +276,5 @@ Deze connector ondersteunt de volgende versies van de IBM Informix wanneer gecon
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
 

@@ -9,28 +9,30 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429f5c9f939a802184a6513a63fb9115abf4b235
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d7e96623ef4ad9abd55deca8b410e9ce0d73b6c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimale downtime migratie naar Azure-Database voor MySQL
-U kunt uw bestaande MySQL-database met Azure-Database voor MySQL migreren door middel van Attunity repliceren voor Microsoft Migrations, een aanbieding CO gesponsorde, gezamenlijke van Attunity en van Microsoft die is opgegeven samen met de Service Azure Database migratie zonder extra kosten voor Microsoft-klanten. Attunity repliceren voor Microsoft Migrations kunnen ook minimale downtime bij databasemigratie en de brondatabase blijft operationeel zijn tijdens de migratie.
+U kunt uw bestaande MySQL-database migreren naar Azure-Database voor MySQL Attunity repliceren met voor Microsoft Migrations. Attunity repliceren is een gezamenlijke aanbieding van Attunity en Microsoft. Samen met de Azure-databaseservice migratie is het opgenomen zonder extra kosten voor klanten van Microsoft. 
 
-Attunity repliceren is een hulpprogramma voor de data replication waarmee het synchroniseren van gegevens tussen verschillende bronnen en doelen, doorgeven van het script voor het schema maken en gegevens die zijn gekoppeld aan elke databasetabel. Alle andere artefacten (zoals SP, triggers, functies, enzovoort) wordt niet doorgegeven door Attunity repliceren of convert, bijvoorbeeld PL/SQL code gehost in een dergelijke artefacten, met T-SQL.
+Attunity repliceren helpt uitvaltijd tijdens migraties van de database en het zorgt ervoor dat de brondatabase operationeel tijdens het proces.
+
+Attunity repliceren is een hulpprogramma voor de data replication waarmee het synchroniseren van gegevens tussen verschillende bronnen en -doelen. Dit geeft het script voor het schema maken en gegevens die zijn gekoppeld aan elke databasetabel. Attunity repliceren wordt niet doorgegeven eventuele andere artefacten (zoals SP, triggers, functies, enzovoort) of converteren, bijvoorbeeld, de PL-SQL-code die wordt gehost in een dergelijke artefacten met T-SQL.
 
 > [!NOTE]
-> Terwijl Attunity repliceren een uitgebreide reeks migratiescenario's ondersteunt, worden Attunity repliceren voor Microsoft Migrations is gericht op ondersteuning voor een specifieke subset van de bron/doel-paren.
+> Hoewel Attunity repliceren een uitgebreide reeks migratiescenario's ondersteunt, ligt de nadruk op ondersteuning voor een specifieke subset van de bron/doel-paren.
 
 Een overzicht van het proces voor het uitvoeren van een migratie met minimale downtime omvat:
 
-1. **Migreren van het schema van de bron MySQL** voor een Azure-Database voor de MySQL-database met behulp van de [MySQL Workbench](https://www.mysql.com/products/workbench/).
+* **Migreren van het schema van de bron MySQL** beheerd met een Azure-Database voor MySQL database-service met behulp van [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
-2. **Instellen van de initiële belasting en synchroniseren van doorlopende gegevens uit de brondatabase voor de doeldatabase** door Attunity repliceren voor Microsoft Migrations. Hierdoor minimaliseert de tijd die de brondatabase moet worden ingesteld als alleen-lezen tijdens het voorbereiden van het overschakelen van uw toepassingen aan de doel-MySQL-database in Azure.
+* **Instellen van de initiële belasting en synchroniseren van doorlopende gegevens uit de brondatabase voor de doeldatabase** door Attunity repliceren voor Microsoft Migrations. Hierdoor minimaliseert de tijd die de brondatabase moet worden ingesteld als alleen-lezen tijdens het voorbereiden van het overschakelen van uw toepassingen aan de doel-MySQL-database in Azure.
 
-Voor meer informatie over de repliceren Attunity voor Microsoft Migrations aanbieding weergeven van de volgende bronnen:
- - De repliceren Attunity voor Microsoft Migrations [webpagina](https://aka.ms/attunity-replicate).
- - [Download](http://discover.attunity.com/download-replicate-microsoft-lp6657.html) Attunity repliceren voor Microsoft-migraties.
- - De repliceren Attunity [Community](https://microsoft.attunity.com/), met een introductiehandleiding, zelfstudies en ondersteuning.
- - Raadpleeg voor stapsgewijze instructies over het gebruik van Attunity MySQL migreren naar Azure-Database voor MySQL de [Database Migratiehandleiding](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+Zie voor meer informatie over de repliceren Attunity voor Microsoft Migrations biedt de volgende bronnen:
+ - Ga naar de [Attunity repliceren voor Microsoft Migrations](https://aka.ms/attunity-replicate) webpagina.
+ - Download [Attunity repliceren voor Microsoft-migraties](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
+ - Ga naar de [Attunity repliceren Community](https://microsoft.attunity.com/) voor een introductiehandleiding, zelfstudies en ondersteuning.
+ - Zie voor stapsgewijze instructies over het gebruik van Attunity repliceren naar uw MySQL-database migreren naar Azure-Database voor MySQL de [Database Migratiehandleiding](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

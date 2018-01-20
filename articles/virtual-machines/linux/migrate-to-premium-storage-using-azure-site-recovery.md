@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium-opslag met behulp van Azure Site Recovery
 
@@ -199,7 +199,7 @@ Site Recovery maakt een VM-exemplaar waarvan het type hetzelfde als of vergelijk
 ## <a name="post-migration-steps"></a>Stappen na de migratie
 
 1. **Configureren van de gerepliceerde virtuele machines voor de beschikbaarheidsset, indien van toepassing**. Site Recovery biedt geen ondersteuning voor migratie VM's samen met de beschikbaarheidsset. Afhankelijk van de implementatie van de gerepliceerde virtuele machine, gaat u een van de volgende:
-   * Voor een virtuele machine wordt gemaakt via het klassieke implementatiemodel: de virtuele machine toevoegen aan de beschikbaarheidsset voor de Azure-portal. Ga voor gedetailleerde stappen naar [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../linux/classic/configure-availability.md#addmachine).
+   * Voor een virtuele machine wordt gemaakt via het klassieke implementatiemodel: de virtuele machine toevoegen aan de beschikbaarheidsset voor de Azure-portal. Ga voor gedetailleerde stappen naar [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../linux/classic/configure-availability-classic.md).
    * Voor een virtuele machine wordt gemaakt via het implementatiemodel van Resource Manager: opslaan van uw configuratie van de virtuele machine en vervolgens verwijderen en opnieuw maken van de virtuele machines in de beschikbaarheidsset. Om dit te doen, gebruikt u het script op [ingesteld Azure Resource Manager VM Beschikbaarheidsset](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). De beperkingen controleren voordat u dit script uitvoert, en de uitvaltijd plannen.
 
 2. **Verwijderen van oude VM's en schijven**. Zorg ervoor dat de Premium-schijven consistent met de schijven van de bron zijn en dat de nieuwe virtuele machines uit te dezelfde functie uit als de bron-VM's voeren. Verwijder de virtuele machine en de schijven verwijderen uit uw gegevensbron storage-accounts in de Azure portal. Als er is een probleem dat de schijf is niet verwijderd, ook al verwijderd van de virtuele machine, raadpleegt u [fouten bij het verwijderen van VHD's oplossen](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
@@ -217,14 +217,14 @@ Zie voor specifieke scenario's voor het migreren van virtuele machines, de volge
 
 * [Azure virtuele Machines tussen Opslagaccounts migreren](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Maken en een Windows Server-VHD uploaden naar Azure](../windows/classic/createupload-vhd.md)
-* [Maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migreren van virtuele Machines van Amazon AWS naar Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Virtual Machines:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Virtuele Machines in Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium-opslag: Krachtige opslag voor workloads van de virtuele machine van Azure](premium-storage.md)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Premium Storage: opslag met hoge prestaties voor de workloads van virtuele Azure-machines](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

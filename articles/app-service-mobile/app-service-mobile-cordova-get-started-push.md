@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Pushmeldingen toevoegen aan uw Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Voer de volgende opdracht:
 
 2. Klik op de pijl naast de installatiebron.
 3. In **SENDER_ID**, hebt u al een numerieke project-ID voor het project Google Developer-Console, u kunt u deze hier toevoegen. Anders, voer een aanduidingswaarde van de tijdelijke, zoals 777777.  Als u voor Android ontwikkelt, kunt u deze waarde in config.xml later bijwerken.
+     Let op: vanaf versie 2.0.0 die de SENDER_ID is verwijderd uit tijd en google services.json installeren moet worden geïnstalleerd in de hoofdmap van uw project.  Meer details [hier.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. Klik op **Add**.
 
 De push-invoegtoepassing is nu geïnstalleerd.
@@ -332,9 +333,9 @@ Controleer of dat er een melding wordt ontvangen wanneer het item is toegevoegd.
 
 Informatie over het gebruik van de SDK's.
 
-* [Apache Cordova-SDK][15]
-* [ASP.NET-Server SDK][1]
-* [Server-SDK voor node.js][16]
+* [Apache Cordova SDK][15]
+* [ASP.NET Server SDK][1]
+* [Node.js Server SDK][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

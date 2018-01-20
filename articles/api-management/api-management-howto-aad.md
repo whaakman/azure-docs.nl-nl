@@ -11,168 +11,131 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 01ea39983c4c1ad41692fce31ef6fd9c81461c8e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
-> [!WARNING]
-> Azure Active Directory-integratie is beschikbaar in de [Developer, Standard en Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) alleen lagen.
-
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts in Azure API Management met behulp van Azure Active Directory autoriseren
-## <a name="overview"></a>Overzicht
+
 Deze handleiding wordt beschreven hoe u toegang inschakelen voor de portal voor ontwikkelaars voor gebruikers van Azure Active Directory. Deze handleiding ook wordt beschreven hoe u groepen met Azure Active Directory-gebruikers beheren door externe groepen de gebruikers van een Azure Active Directory bevatten toe te voegen.
 
-> U moet een Azure Active Directory in te maken van een toepassing hebben voor het voltooien van de stappen in deze handleiding.
-> 
+> [!WARNING]
+> Azure Active Directory-integratie is beschikbaar in de [Developer, Standard en Premium](https://azure.microsoft.com/pricing/details/api-management/) alleen lagen.
+
+## <a name="prerequisites"></a>Vereisten
+
+- Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
+- Importeren en publiceren van een exemplaar van API Management. Zie voor meer informatie [importeren en publiceren](import-and-publish.md).
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Hoe ontwikkelaarsaccounts met Azure Active Directory autoriseren
-Om te beginnen, klikt u op **publicatieportal** in de Azure portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
 
-![Publicatieportal][api-management-management-console]
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
+2. Selecteer ![pijl](./media/api-management-howto-aad/arrow.png).
+3. Typ '-api in het zoekvak.
+4. Klik op **API Management-services**.
+5. Selecteer uw APIM service-exemplaar.
+6. Onder **beveiliging**, selecteer **identiteiten**.
 
-> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
-> 
-> 
+    ![Externe identiteit](./media/api-management-howto-aad/api-management-with-aad001.png)
+7. Klik op **+ toevoegen** vanaf de bovenkant.
 
-Klik op **beveiliging** van de **API Management** menu aan de linkerkant en klik op **externe identiteiten**.
+    De **toevoegen identiteitsprovider** venster wordt weergegeven aan de rechterkant.
+8. Onder **providertype**, selecteer **Azure Active Directory**.
 
-![Externe identiteit][api-management-security-external-identities]
+    Besturingselementen die het mogelijk dat u andere benodigde gegevens weergegeven in het venster. De besturingselementen omvatten: **Client-ID**, **clientgeheim** (krijgt u informatie later in de zelfstudie).
+9. Noteer de **Omleidings-URL**.  
+10. Open in uw browser een ander tabblad. 
+11. Open [Azure Portal](https://portal.azure.com).
+12. Selecteer ![pijl](./media/api-management-howto-aad/arrow.png).
+13. Het type 'actief' de **Azure Active Directory** wordt weergegeven.
+14. Selecteer **Azure Active Directory**.
+15. Onder **beheren**, selecteer **App-registratie**.
 
-Klik op **Azure Active Directory**. Noteer de **Omleidings-URL** en schakel naar uw Azure Active Directory in de klassieke Azure-Portal.
+    ![App-registratie](./media/api-management-howto-aad/api-management-with-aad002.png)
+16. Klik op **Nieuwe toepassing registreren**.
 
-![Externe identiteit][api-management-security-aad-new]
+    De **maken** venster wordt weergegeven aan de rechterkant. Dat is waar u de AAD-app relavent informatie invoeren.
+17. Eneter een naam voor de toepassing.
+18. Selecteer voor het toepassingstype **Web-app/API**.
+19. Voer de aanmeldings-URL van uw ontwikkelaarsportal voor eenmalige aanmelding URL. In dit voorbeeld wordt de URL van de aanmelding is: https://apimwithaad.portal.azure-api.net/signin.
+20. Klik op **maken** om de toepassing te maken.
+21. Als u uw app zoekt, selecteert u **App registraties** en zoeken op naam.
 
-Klik op de **toevoegen** klikken om een nieuwe Azure Active Directory-toepassing maken en kies **mijn organisatie ontwikkelt toepassing toevoegen**.
+    ![App-registratie](./media/api-management-howto-aad/find-your-app.png)
+22. Nadat de toepassing is geregistreerd, gaat u naar **antwoord-URL** en zorg ervoor dat de 'Omleidings-URL' is ingesteld op de waarde die u hebt verkregen in stap 9. 
+23. Als u wilt uw toepassing configureren (bijvoorbeeld wijzigen **App-ID-URL**) Selecteer **eigenschappen**.
 
-![Nieuwe Azure Active Directory-toepassing toevoegen][api-management-new-aad-application-menu]
+    ![App-registratie](./media/api-management-howto-aad/api-management-with-aad004.png)
 
-Voer een naam voor de toepassing, selecteer **Web-toepassing en/of Web-API**, en klik op de knop Volgende.
+    Als meerdere Azure Active Directory's worden gebruikt voor deze toepassing gaat, klikt u op **Ja** voor **toepassing is multitenant**. De standaardwaarde is **Nee**.
+24. Toepassing worden machtigingen ingesteld door het selecteren van **vereist machtigingen**.
+25. Selecteer de uw toepassing en Vink **mapgegevens lezen** en **aanmelden en gebruikersprofiel lezen**.
 
-![Nieuwe Azure Active Directory-toepassing][api-management-new-aad-application-1]
+    ![App-registratie](./media/api-management-howto-aad/api-management-with-aad005.png)
 
-Voor **aanmeldings-URL**, voer de aanmeldings-URL van uw ontwikkelaarsportal. In dit voorbeeld wordt de **aanmeldings-URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
+    Zie voor meer informatie over de toepassing en gedelegeerde machtigingen, [toegang tot de Graph API][Accessing the Graph API].
+26. Kopieer in het linkerdeelvenster de **toepassings-ID** waarde.
 
-Voor de **App-ID-URL**, voer het standaarddomein of een aangepast domein voor de Azure Active Directory en een unieke tekenreeks toegevoegd aan. In dit voorbeeld wordt het standaarddomein van **https://contoso5api.onmicrosoft.com** wordt gebruikt met het achtervoegsel van **/api** opgegeven.
+    ![App-registratie](./media/api-management-howto-aad/application-id.png)
+27. Ga terug naar uw API Management-toepassing. De **toevoegen identiteitsprovider** venster moet worden weergegeven. <br/>Plak de **toepassings-ID** waarde in de **Client-Id** vak.
+28. Ga terug naar de Azure Active Directory-configuratie en klikt u op **sleutels**.
+29. Maak een nieuwe sleutel door speicifying een naam en duur. 
+30. Klik op **Opslaan**. De sleutel wordt gegenereerd.
 
-![Eigenschappen van nieuwe Azure Active Directory-toepassing][api-management-new-aad-application-2]
+    De sleutel naar het Klembord kopiëren.
 
-Klik op de knop met het vinkje om op te slaan en de toepassing maken overschakelen naar de **configureren** tabblad configureren van de nieuwe toepassing.
+    ![App-registratie](./media/api-management-howto-aad/api-management-with-aad006.png)
 
-![Nieuwe Azure Active Directory-toepassing gemaakt][api-management-new-aad-app-created]
+    > [!NOTE]
+    > Noteer deze sleutel. Wanneer u het venster Azure Active Directory-configuratie hebt gesloten, wordt de sleutel kan niet opnieuw weergegeven.
+    > 
+    > 
+31. Ga terug naar uw API Management-toepassing. <br/>In de **toevoegen identiteitsprovider** venster plakt u de sleutel in de **clientgeheim** in het tekstvak.
+32. De **toevoegen identiteitsprovider** venster bevat de **Tenants toegestaan** tekstvak in u opgeven welke mappen toegang hebben tot de API's van het exemplaar van API Management-service. <br/>Geef de domeinen van de Azure Active Directory-exemplaren waartoe u toegang wilt verlenen. U kunt meerdere domeinen scheiden met nieuwe regels, spaties of komma's.
 
-Als meerdere Azure Active Directory's worden gebruikt voor deze toepassing gaat, klikt u op **Ja** voor **toepassing is multitenant**. De standaardwaarde is **Nee**.
+    Meerdere domeinen kunnen worden opgegeven in de **Tenants toegestaan** sectie. Voordat een gebruiker zich vanaf een ander domein dan het oorspronkelijke domein waar de toepassing is geregistreerd aanmelden kan, moet een globale beheerder van het andere domein machtiging voor de toepassing directorygegevens toegang verlenen. Als u wilt machtigen, de globale beheerder moet gaat u naar `https://<URL of your developer portal>/aadadminconsent` (bijvoorbeeld https://contoso.portal.azure-api.net/aadadminconsent), typt u de domeinnaam van de Active Directory-tenant die ze willen krijgen en klik op verzenden. In het volgende voorbeeld wordt een globale beheerder van `miaoaad.onmicrosoft.com` wilt machtigen voor deze specifieke developer-portal. 
 
-![Toepassing is multitenant][api-management-aad-app-multi-tenant]
+33. Nadat de gewenste configuratie wordt opgegeven, klikt u op **toevoegen**.
 
-Kopieer de **Omleidings-URL** van de **Azure Active Directory** sectie van de **externe identiteiten** tabblad in de publicatieportal en plak deze in de **antwoord-URL** in het tekstvak. 
+    ![App-registratie](./media/api-management-howto-aad/api-management-with-aad007.png)
 
-![Antwoord-URL][api-management-aad-reply-url]
+Wanneer de wijzigingen zijn opgeslagen, de gebruikers in de opgegeven Azure Active Directory kunnen aanmelden bij de portal voor ontwikkelaars door de stappen in [aanmelden bij de portal voor ontwikkelaars met een Azure Active Directory-account](#log_in_to_dev_portal).
 
-Ga naar de onderkant van het tabblad configureren, selecteer de **Toepassingsmachtigingen** vervolgkeuzelijst en Controleer **mapgegevens lezen**.
-
-![Toepassingsmachtigingen][api-management-aad-app-permissions]
-
-Selecteer de **machtigingen delegeren** vervolgkeuzelijst en Controleer **aanmelding inschakelen en gebruikersprofiel lezen**.
-
-![Gedelegeerde machtigingen][api-management-aad-delegated-permissions]
-
-> Zie voor meer informatie over de toepassing en gedelegeerde machtigingen, [toegang tot de Graph API][Accessing the Graph API].
-> 
-> 
-
-Kopieer de **Client-Id** naar het Klembord.
-
-![Client-id][api-management-aad-app-client-id]
-
-Ga terug naar de publicatieportal en plak in het **Client-Id** gekopieerd van de configuratie van de Azure Active Directory-toepassing.
-
-![Client-id][api-management-client-id]
-
-Ga terug naar de Azure Active Directory-configuratie en klikt u op de **Selecteer duur** omlaag in de **sleutels** sectie en geeft u een interval. In dit voorbeeld **1 jaar** wordt gebruikt.
-
-![Sleutel][api-management-aad-key-before-save]
-
-Klik op **opslaan** de configuratie op te slaan en de sleutel wordt weergegeven. De sleutel naar het Klembord kopiëren.
-
-> Noteer deze sleutel. Wanneer u het venster Azure Active Directory-configuratie hebt gesloten, wordt de sleutel kan niet opnieuw weergegeven.
-> 
-> 
-
-![Sleutel][api-management-aad-key-after-save]
-
-Ga terug naar de publicatieportal en plak de sleutel in de **Clientgeheim** in het tekstvak.
-
-![Clientgeheim][api-management-client-secret]
-
-**Tenants toegestaan** geeft aan welke mappen zijn voor toegang tot de API's van het exemplaar van API Management-service. Geef de domeinen van de Azure Active Directory-exemplaren waartoe u toegang wilt verlenen. U kunt meerdere domeinen scheiden met nieuwe regels, spaties of komma's.
-
-![Toegestane tenants][api-management-client-allowed-tenants]
-
-
-Nadat de gewenste configuratie wordt opgegeven, klikt u op **opslaan**.
-
-![Opslaan][api-management-client-allowed-tenants-save]
-
-Wanneer de wijzigingen zijn opgeslagen, de gebruikers in de opgegeven Azure Active Directory kunnen aanmelden bij de portal voor ontwikkelaars door de stappen in [aanmelden bij de portal voor ontwikkelaars met een Azure Active Directory-account][Log in to the Developer portal using an Azure Active Directory account].
-
-Meerdere domeinen kunnen worden opgegeven in de **Tenants toegestaan** sectie. Voordat een gebruiker zich vanaf een ander domein dan het oorspronkelijke domein waar de toepassing is geregistreerd aanmelden kan, moet een globale beheerder van het andere domein machtiging voor de toepassing directorygegevens toegang verlenen. Als u wilt machtigen, de globale beheerder moet gaat u naar `https://<URL of your developer portal>/aadadminconsent` (bijvoorbeeld https://contoso.portal.azure-api.net/aadadminconsent), typt u de domeinnaam van de Active Directory-tenant die ze willen krijgen en klik op verzenden. In het volgende voorbeeld wordt een globale beheerder van `miaoaad.onmicrosoft.com` wilt machtigen voor deze specifieke developer-portal. 
-
-![Machtigingen][api-management-aad-consent]
+![Machtigingen](./media/api-management-howto-aad/api-management-aad-consent.png)
 
 In het volgende scherm wordt de globale beheerder wordt gevraagd om te bevestigen dat de toestemming geven. 
 
-![Machtigingen][api-management-permissions-form]
+![Machtigingen](./media/api-management-howto-aad/api-management-permissions-form.png)
 
-> Als een niet-globale beheerder probeert aan te melden voordat een globale beheerder machtigingen worden verleend, wordt de aanmeldingspoging mislukt en wordt een fout wordt weergegeven.
-> 
-> 
+Als een niet-globale beheerder probeert aan te melden voordat een globale beheerder machtigingen worden verleend, wordt de aanmeldingspoging mislukt en wordt een fout wordt weergegeven.
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Het toevoegen van een externe Azure Active Directory-groep
+
 Nadat de toegang voor gebruikers in een Azure Active Directory is ingeschakeld, kunt u Azure Active Directory-groepen toevoegen in API Management koppeling van de ontwikkelaars in de groep met de gewenste producten eenvoudiger te beheren.
 
-> Voor het configureren van een externe Azure Active Directory-groep moet de Azure Active Directory eerst worden geconfigureerd op het tabblad identiteiten via de volgende procedure in de vorige sectie. 
-> 
-> 
+Voor het configureren van een externe Azure Active Directory-groep moet de Azure Active Directory eerst worden geconfigureerd op het tabblad identiteiten via de volgende procedure in de vorige sectie. 
 
-Externe Azure Active Directory-groepen worden toegevoegd vanuit de **zichtbaarheid** tabblad van het product waarvoor u toegang wilt verlenen aan de groep. Klik op **producten**, en klik vervolgens op de naam van de gewenste product.
+Externe Azure Active Directory-groepen worden toegevoegd vanuit de **groepen** tabblad van uw exemplaar van API Management.
 
-![Product configureren][api-management-configure-product]
+![Groepen](./media/api-management-howto-aad/api-management-with-aad008.png)
 
-Overschakelen naar de **zichtbaarheid** tabblad en klik op **groepen toevoegen van Azure Active Directory**.
+1. Selecteer de tab **Groepen**.
+2. Klik op de **toevoegen AAD-groep** knop.
+3. Selecteer de groep die u wilt toevoegen.
+4. Druk op **Selecteer** knop.
 
-![Groepen toevoegen][api-management-add-groups]
-
-Selecteer de **Azure Active Directory-Tenant** in de vervolgkeuzelijst lijst en typ vervolgens de naam van de gewenste groep in de **groepen** moet worden toegevoegd in het tekstvak.
-
-![Groep selecteren][api-management-select-group]
-
-De naam van deze groep kan worden gevonden in de **groepen** lijst voor uw Azure Active Directory, zoals wordt weergegeven in het volgende voorbeeld.
-
-![Lijst van Azure Active Directory-groepen][api-management-aad-groups-list]
-
-Klik op **toevoegen** valideren van de groepsnaam en voeg de groep. In dit voorbeeld wordt de **Contoso 5 ontwikkelaars** externe groep wordt toegevoegd. 
-
-![Groep toegevoegd][api-management-aad-group-added]
-
-Klik op **opslaan** om op te slaan van de selectie van de nieuwe groep.
-
-Zodra een Azure Active Directory-groep van een product is geconfigureerd, is het beschikbaar moet worden gecontroleerd op de **zichtbaarheid** tabblad voor de andere producten in de service-exemplaar van API Management.
-
-Om te bekijken en configureren van de eigenschappen voor externe groepen nadat ze zijn toegevoegd, klikt u op de naam van de groep uit de **groepen** tabblad.
-
-![Groepen beheren][api-management-groups]
+Zodra een Azure Active Directory-groep is gemaakt, kunt u bekijken en configureren van de eigenschappen voor externe groepen zodra ze zijn toegevoegd, klikt u op de naam van de groep uit de **groepen** tabblad.
 
 Hier kunt u de **naam** en de **beschrijving** van de groep.
-
-![Groep bewerken][api-management-edit-group]
-
+ 
 Gebruikers van de geconfigureerde Azure Active Directory kunnen aanmelden bij de portal voor ontwikkelaars en de weergave en zich abonneren op alle groepen waarvan ze inzicht hebben door de instructies in de volgende sectie.
 
-## <a name="how-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a>Hoe u zich aanmelden bij de portal voor ontwikkelaars met een Azure Active Directory-account
+## <a name="a-idlogintodevportalhow-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a><a id="log_in_to_dev_portal"/>Hoe u zich aanmelden bij de portal voor ontwikkelaars met een Azure Active Directory-account
+
 Als u wilt zich aanmelden bij de portal voor ontwikkelaars met een Azure Active Directory-account geconfigureerd in de vorige secties, open een nieuw browser venster met de **aanmeldings-URL** in de configuratie van Active Directory-toepassing en klik op **Azure Active Directory**.
 
 ![Portal voor ontwikkelaars][api-management-dev-portal-signin]
@@ -189,37 +152,10 @@ De gebruiker is nu aangemeld bij de portal voor ontwikkelaars voor uw API Manage
 
 ![Registratie is voltooid][api-management-registration-complete]
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
-[api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
-[api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
-[api-management-new-aad-application-1]: ./media/api-management-howto-aad/api-management-new-aad-application-1.png
-[api-management-new-aad-application-2]: ./media/api-management-howto-aad/api-management-new-aad-application-2.png
-[api-management-new-aad-app-created]: ./media/api-management-howto-aad/api-management-new-aad-app-created.png
-[api-management-aad-app-permissions]: ./media/api-management-howto-aad/api-management-aad-app-permissions.png
-[api-management-aad-app-client-id]: ./media/api-management-howto-aad/api-management-aad-app-client-id.png
-[api-management-client-id]: ./media/api-management-howto-aad/api-management-client-id.png
-[api-management-aad-key-before-save]: ./media/api-management-howto-aad/api-management-aad-key-before-save.png
-[api-management-aad-key-after-save]: ./media/api-management-howto-aad/api-management-aad-key-after-save.png
-[api-management-client-secret]: ./media/api-management-howto-aad/api-management-client-secret.png
-[api-management-client-allowed-tenants]: ./media/api-management-howto-aad/api-management-client-allowed-tenants.png
-[api-management-client-allowed-tenants-save]: ./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png
-[api-management-aad-delegated-permissions]: ./media/api-management-howto-aad/api-management-aad-delegated-permissions.png
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-[api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
-[api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
-[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
-[api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
-[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
-[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
-[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
-[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
-[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
-[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
-[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md

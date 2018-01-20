@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 581fbaa477bd603fea5fdc0ef77c6ef7498b7897
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Klassieke implementatieproblemen met het maken van een nieuwe virtuele Linux-machine in Azure oplossen
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -50,7 +50,7 @@ Klik in de Azure-portal op **Bladeren** > **virtuele machines** > *uw Windows-ma
 
 **Oplossing:**
 
-Als u wilt zowel deze fouten oplossen, de oorspronkelijke schijf geüpload, beschikbare on-premises, met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerd/specifieke). Als u wilt uploaden als gegeneraliseerd, vergeet niet om uit te voeren - inrichting eerst ervan ongedaan maakt. Zie [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](create-upload-vhd.md) voor meer informatie.
+Als u wilt zowel deze fouten oplossen, de oorspronkelijke schijf geüpload, beschikbare on-premises, met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerd/specifieke). Als u wilt uploaden als gegeneraliseerd, vergeet niet om uit te voeren - inrichting eerst ervan ongedaan maakt. Zie [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](create-upload-vhd-classic.md) voor meer informatie.
 
 **Vastleggen fouten:**
 
@@ -60,7 +60,7 @@ Als u wilt zowel deze fouten oplossen, de oorspronkelijke schijf geüpload, besc
 
 **Oplossing:**
 
-Beide deze fouten oplossen, de huidige installatiekopie verwijderen vanuit de portal en [opnieuw vanaf het huidige VHD's vastleggen](capture-image.md) met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerd/specifieke).
+Beide deze fouten oplossen, de huidige installatiekopie verwijderen vanuit de portal en [opnieuw vanaf het huidige VHD's vastleggen](capture-image-classic.md) met dezelfde instelling als die voor het besturingssysteem (gegeneraliseerd/specifieke).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Probleem: Aangepaste / galerie / marketplace-installatiekopie; Toewijzingsfout
 Deze fout zich voordoet in situaties wanneer de nieuwe VM-aanvraag wordt verzonden naar een cluster heeft geen beschikbare vrije ruimte voor de aanvraag of de aangevraagde VM-grootte kan niet worden ondersteund. Het is niet mogelijk om te combineren andere reeks van virtuele machines in dezelfde cloudservice. Dus als u maken van een nieuwe virtuele machine van een ander formaat wilt dan wat uw cloudservice kan ondersteunen, mislukt de compute-aanvraag.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c037f0bdb4e80d92f9ef51601ea331b3aba870c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Aan de slag met de Office365 Video-connector
 Verbinding maken met Office 365 Video om informatie ophalen over een Office 365 video, een lijst met video's en meer te vinden. U kunt met Office 365 Video:
@@ -27,7 +27,7 @@ Verbinding maken met Office 365 Video om informatie ophalen over een Office 365 
 * Bouw uw zakelijke flow op basis van de gegevens die u van Office 365 Video krijgt. 
 * Gebruik de acties die de status van de video portal controleren, kunt u een lijst met alle video in een kanaal en meer. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. U kunt bijvoorbeeld de Bing zoeken-connector gebruiken om te zoeken naar Office 365-video's en gebruik vervolgens de video Office 365-connector om informatie over deze video. Als de video aan uw vereisten voldoet, kunt u deze video boeken op Facebook. 
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office365-video-connector"></a>Maak een verbinding met Office365 Video-connector
 Wanneer u deze connector aan uw logische apps toevoegen, moet u aanmelden bij uw Video van Office 365-account en toestaan dat logic apps verbinding maken met uw account.

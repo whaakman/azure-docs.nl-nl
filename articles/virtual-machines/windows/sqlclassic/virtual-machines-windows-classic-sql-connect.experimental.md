@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8602decfa35a21e88885fda1a4c70264bb38444b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Verbinding maken met een virtuele SQL Server-machine op Azure (klassieke implementatie)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ De manier waarop die een client verbinding maakt met SQL Server op een virtuele 
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Verbinding maken met SQL Server in dezelfde cloudservice
-Meerdere virtuele machines kunnen worden gemaakt in dezelfde cloudservice. Zie voor informatie over dit scenario met virtuele machines, [verbinding maken tussen virtuele machines met een virtueel netwerk of cloud service](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). In dit scenario wordt een client op een virtuele machine probeert te maken met SQL Server op een andere virtuele machine in dezelfde cloudservice wordt uitgevoerd.
+Meerdere virtuele machines kunnen worden gemaakt in dezelfde cloudservice. Zie voor informatie over dit scenario met virtuele machines, [verbinding maken tussen virtuele machines met een virtueel netwerk of cloud service](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). In dit scenario wordt een client op een virtuele machine probeert te maken met SQL Server op een andere virtuele machine in dezelfde cloudservice wordt uitgevoerd.
 
 In dit scenario kunt u verbinding maken met behulp van de virtuele machine **naam** (ook weergegeven als **computernaam** of **hostnaam** in de portal). Dit is de naam die u hebt opgegeven voor de virtuele machine tijdens het maken van. Bijvoorbeeld, als u met de naam van de VM SQL **mysqlvm**, een VM-client in dezelfde cloudservice kan de volgende verbindingsreeks gebruiken om verbinding te:
 

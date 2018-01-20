@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Uw gegevens beschermen door het maken van momentopnamen van uw gegevens op de gedefinieerde intervallen. Deze momentopnamen worden aangeduid als herstelpunten en ze zijn opgeslagen in de Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -70,7 +70,7 @@ Herstellen van een virtuele machine of alle schijven van virtuele machine back-u
 
     De **herstellen** blade wordt geopend.
 
-    ![blade herstellen](./media/backup-azure-arm-restore-vms/restore-blade.png)
+    ![Blade herstellen](./media/backup-azure-arm-restore-vms/restore-blade.png)
 7. Op de **herstellen** blade Selecteer **herstelpunt**. De **herstelpunt selecteren** blade wordt geopend.
 
     ![Herstelpunt selecteren](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
@@ -196,7 +196,7 @@ De sjabloon die is gegenereerd als onderdeel van de optie voor terugzetten schij
    ![Sjabloonimplementatie verzenden](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Stappen na herstellen
-* Als u een init-Linux clouddistributiepunt, zoals Ubuntu, uit veiligheidsoverwegingen, het wachtwoord is geblokkeerd boeken terugzetten. De VMAccess-extensie op de herstelde virtuele machine te gebruiken [wachtwoordherstel](../virtual-machines/linux/classic/reset-access.md). U wordt aangeraden met behulp van SSH-sleutels op deze verdelingen om te voorkomen dat het herstellen van de post wachtwoord opnieuw instellen.
+* Als u een init-Linux clouddistributiepunt, zoals Ubuntu, uit veiligheidsoverwegingen, het wachtwoord is geblokkeerd boeken terugzetten. De VMAccess-extensie op de herstelde virtuele machine te gebruiken [wachtwoordherstel](../virtual-machines/linux/classic/reset-access-classic.md). U wordt aangeraden met behulp van SSH-sleutels op deze verdelingen om te voorkomen dat het herstellen van de post wachtwoord opnieuw instellen.
 * Uitbreidingen die aanwezig zijn tijdens de back-upconfiguratie zijn geïnstalleerd, maar niet ingeschakeld. Als er een probleem, installeer de uitbreidingen. 
 * Als de back-up VM statische IP-post terugzetten heeft, heeft de herstelde virtuele machine een dynamische IP-adres om conflicten te voorkomen bij het maken van een herstelde virtuele machine. Meer informatie over hoe u kunt [een statische IP-adres toevoegen aan een herstelde virtuele machine](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Een teruggezette VM beschikt niet over een beschikbaarheid waarde ingesteld. Het is raadzaam de optie voor terugzetten schijven te gebruiken [toevoegen van een beschikbaarheidsset](../virtual-machines/windows/tutorial-availability-sets.md) wanneer u een virtuele machine maakt vanuit PowerShell of sjablonen met behulp van schijven teruggezet. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -58,7 +58,7 @@ Nadat u een aanbieding hebt toegevoegd, moet u voor het definiëren en uw SKU's 
 3. Als u op Windows gebaseerde SKU's gebruikt, volgt u de voorgestelde koppelingen voor het verkrijgen van de goedgekeurde versies van Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Maken van een Azure-compatibele VHD (op basis van Linux)
-Deze sectie richt zich op de aanbevolen procedures voor het maken van een Linux-gebaseerde VM-installatiekopie voor Azure Marketplace. Raadpleeg de volgende documentatie voor een stapsgewijze: [maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Deze sectie richt zich op de aanbevolen procedures voor het maken van een Linux-gebaseerde VM-installatiekopie voor Azure Marketplace. Raadpleeg de volgende documentatie voor een stapsgewijze: [maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Maken van een Azure-compatibele VHD (gebaseerd op Windows)
 Deze sectie richt zich op de stappen voor het maken van een SKU op basis van Windows Server voor Azure Marketplace.
@@ -70,7 +70,7 @@ Een virtuele machine maken van een van de volgende afbeeldingen om te beginnen t
 
 * WindowsServer ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
 * SQL Server 2014 ([Enterprise][link-sql-2014-ent], [standaard][link-sql-2014-std], [Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [standaard][link-sql-2012-std], [Web][link-sql-2012-web])
+* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
 
 Deze koppelingen zijn ook te vinden in de Portal voor Publiceren onder aan de SKU-pagina.
 
@@ -195,14 +195,14 @@ Lees de koppelingen hieronder voor hulp bij het vastleggen van de virtuele machi
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure-CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="generalize-image"></a>Generaliseer installatiekopie
 Lees de koppelingen hieronder voor hulp bij het vastleggen van de virtuele machine met behulp van PowerShell-API/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure-CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="42-deploy-a-vm-from-a-user-vm-image"></a>4.2 geen VM implementeren vanaf een installatiekopie van een virtuele machine
 Voor het implementeren van een virtuele machine van een installatiekopie van een virtuele machine, kunt u de huidige [Azure-portal](https://manage.windowsazure.com) of PowerShell.
@@ -300,8 +300,8 @@ SAS-URL kan worden gegenereerd op meerdere manieren voor het delen van uw VHD vo
 Hieronder volgen de 3 aanbevolen hulpprogramma's:
 
 1.  Azure Opslagverkenner
-2.  Microsoft Opslagverkenner
-3.  Azure CLI
+2.  Microsoft Storage Explorer
+3.  Azure-CLI
 
 **Azure Opslagverkenner (aanbevolen voor Windows-gebruikers)**
 
@@ -512,12 +512,12 @@ Nadat u uw aanbieding en SKU hebt gemaakt, moet u de details van de afbeelding d
 
 |Probleem|Foutbericht|Oplossen|Koppeling van documentatie|
 |---|---|---|---|
-|Fout bij het kopiëren van afbeeldingen - '? ' is niet gevonden in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|Update de SAS-Url met behulp van aanbevolen hulpprogramma 's|[https://Azure.Microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - parameters voor 'st' en 'se' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url met de begin- en einddatums erop bijwerken|[https://Azure.Microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - 'sp = rl' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van de blob met behulp van SAS-Uri|Bijwerken van de SAS-Url met machtigingen zijn ingesteld als 'Lezen' en 'lijst|[https://Azure.Microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - SAS-url spaties hebben in de naam van de vhd|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url zonder spaties bijwerken|[https://Azure.Microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen – SAS-Url-autorisatie-fout|Fout: Afbeeldingen kopiëren. Er kan geen blob vanwege Autorisatiefout downloaden|Opnieuw genereren van SAS-Url|[https://Azure.Microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen – SAS-Url 'st' en 'se'-parameters hebben geen specificatie van datum / tijd|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van blob vanwege onjuiste SAS-Url |SAS-Url Start- en einddatum parameters ('st', 'se') hoeven te hebben van datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk dit scenario met Azure CLI 2.0 (az opdracht) optreden. Zorg ervoor dat de datum / tijd-specificatie en opnieuw genereren van SAS-Url.|[https://Azure.Microsoft.com/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - '? ' is niet gevonden in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|Update de SAS-Url met behulp van aanbevolen hulpprogramma 's|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - parameters voor 'st' en 'se' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url met de begin- en einddatums erop bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - 'sp = rl' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van de blob met behulp van SAS-Uri|Bijwerken van de SAS-Url met machtigingen zijn ingesteld als 'Lezen' en 'lijst|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - SAS-url spaties hebben in de naam van de vhd|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url zonder spaties bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen – SAS-Url-autorisatie-fout|Fout: Afbeeldingen kopiëren. Er kan geen blob vanwege Autorisatiefout downloaden|Opnieuw genereren van SAS-Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen – SAS-Url 'st' en 'se'-parameters hebben geen specificatie van datum / tijd|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van blob vanwege onjuiste SAS-Url |SAS-Url Start- en einddatum parameters ('st', 'se') hoeven te hebben van datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk dit scenario met Azure CLI 2.0 (az opdracht) optreden. Zorg ervoor dat de datum / tijd-specificatie en opnieuw genereren van SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Volgende stap
 Nadat u klaar bent met de SKU-details, kunt u verder gaan naar de [Azure Marketplace marketing inhoud handleiding][link-pushstaging]. In deze stap van het publicatieproces, bieden u de marketing inhoud, prijzen en andere informatie die nodig zijn vóór **stap 3: uw virtuele machine testen bieden in fasering**, waarin u verschillende scenario's voor use case testen voordat u de aanbieding voor Azure Marketplace voor openbare zichtbaarheid en inkoop implementeert.  

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Aangepaste API's die u vanuit logic app werkstromen aanroepen kunt maken
 
@@ -31,7 +31,7 @@ Hoewel Azure Logic Apps biedt [100 + ingebouwde verbindingslijnen](../connectors
 
 In principe connectors web-API's die gebruikmaken van de REST voor pluggable interfaces zijn [Swagger-metagegevensindeling](http://swagger.io/specification/) voor documentatie en JSON als hun exchange gegevensindeling. Omdat connectors REST-API's die via HTTP-eindpunten communiceren zijn, kunt u een andere taal, zoals .NET, Java of Node.js, voor het bouwen van connectors. U kunt ook uw API's hosten op [Azure App Service](../app-service/app-service-web-overview.md), een platform-as-a-service (PaaS) die een van de beste, eenvoudigste en meest schaalbare manier voor het hosten van de API biedt. 
 
-Aangepaste API's om te werken met logic apps, uw API kan bieden [ *acties* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) die specifieke taken uitvoeren in logic app werkstromen. Uw API kan ook fungeren als een [ *trigger* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) die een werkstroom van logic app wordt gestart wanneer een opgegeven voorwaarde voldoet aan de nieuwe gegevens of een gebeurtenis. Dit onderwerp beschrijft algemene patronen die u uitvoeren kunt voor het bouwen van acties en triggers in uw API, op basis van het gedrag op dat u wilt dat uw API om te bieden.
+Aangepaste API's om te werken met logic apps, uw API kan bieden [ *acties* ](./logic-apps-overview.md#logic-app-concepts) die specifieke taken uitvoeren in logic app werkstromen. Uw API kan ook fungeren als een [ *trigger* ](./logic-apps-overview.md#logic-app-concepts) die een werkstroom van logic app wordt gestart wanneer een opgegeven voorwaarde voldoet aan de nieuwe gegevens of een gebeurtenis. Dit onderwerp beschrijft algemene patronen die u uitvoeren kunt voor het bouwen van acties en triggers in uw API, op basis van het gedrag op dat u wilt dat uw API om te bieden.
 
 U kunt uw API's hosten op [Azure App Service](../app-service/app-service-web-overview.md), een platform-as-a-service (PaaS) en biedt in hoge mate schaalbaar, eenvoudige API die als host fungeert van de aanbieding.
 
@@ -73,7 +73,7 @@ Veel bibliotheken, zoals [Swashbuckle](https://github.com/domaindrivendev/Swashb
 
 ## <a name="action-patterns"></a>Actie patronen
 
-Voor logic apps taken uit te voeren, uw aangepaste API moet bieden [ *acties*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Elke bewerking in uw API wordt toegewezen aan een actie. Een basic actie is een domeincontroller die accepteert HTTP-aanvragen en retourneert HTTP-antwoorden. Een logische app verzendt dus bijvoorbeeld een HTTP-aanvraag naar uw web-app of API-app. Uw app retourneert vervolgens een HTTP-antwoord, samen met de inhoud die kan worden verwerkt door de logische app.
+Voor logic apps taken uit te voeren, uw aangepaste API moet bieden [ *acties*](./logic-apps-overview.md#logic-app-concepts). Elke bewerking in uw API wordt toegewezen aan een actie. Een basic actie is een domeincontroller die accepteert HTTP-aanvragen en retourneert HTTP-antwoorden. Een logische app verzendt dus bijvoorbeeld een HTTP-aanvraag naar uw web-app of API-app. Uw app retourneert vervolgens een HTTP-antwoord, samen met de inhoud die kan worden verwerkt door de logische app.
 
 U kunt een HTTP-aanvraagmethode schrijven in uw API en beschrijven die methode in een Swagger-bestand voor een standaard-actie. Vervolgens kunt u uw API rechtstreeks met aanroepen een [HTTP-actie](../connectors/connectors-native-http.md) of een [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) in te grijpen. Standaard antwoorden moeten worden geretourneerd binnen de [aanvraag time-outlimiet](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Instellen voor dit patroon worden twee eindpunten op uw domeincontroller: `subsc
 
 ## <a name="trigger-patterns"></a>Trigger patronen
 
-Uw aangepaste API kan fungeren als een [ *trigger* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) die een logische app wordt gestart wanneer een opgegeven voorwaarde voldoet aan de nieuwe gegevens of een gebeurtenis. Deze trigger kunt regelmatig te controleren of wachten en luisteren voor nieuwe gegevens of gebeurtenissen op uw service-eindpunt. Als u nieuwe gegevens of een gebeurtenis voldoet aan de opgegeven voorwaarde, wordt de trigger wordt geactiveerd en begint met de logische app, die aan deze trigger luistert. U kunt logische apps op deze manier starten door uw API kan volgen de [ *polling trigger* ](#polling-triggers) of de [ *webhook trigger* ](#webhook-triggers) patroon. Deze patronen zijn vergelijkbaar aan hun collega's voor [acties polling](#async-pattern) en [webhookacties](#webhook-actions). Ook meer informatie over [gebruiksmeting voor triggers](logic-apps-pricing.md).
+Uw aangepaste API kan fungeren als een [ *trigger* ](./logic-apps-overview.md#logic-app-concepts) die een logische app wordt gestart wanneer een opgegeven voorwaarde voldoet aan de nieuwe gegevens of een gebeurtenis. Deze trigger kunt regelmatig te controleren of wachten en luisteren voor nieuwe gegevens of gebeurtenissen op uw service-eindpunt. Als u nieuwe gegevens of een gebeurtenis voldoet aan de opgegeven voorwaarde, wordt de trigger wordt geactiveerd en begint met de logische app, die aan deze trigger luistert. U kunt logische apps op deze manier starten door uw API kan volgen de [ *polling trigger* ](#polling-triggers) of de [ *webhook trigger* ](#webhook-triggers) patroon. Deze patronen zijn vergelijkbaar aan hun collega's voor [acties polling](#async-pattern) en [webhookacties](#webhook-actions). Ook meer informatie over [gebruiksmeting voor triggers](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -186,7 +186,7 @@ U kunt bijvoorbeeld geregeld wordt gecontroleerd of uw service voor nieuwe besta
 | --------------------- | -------------| 
 | Één bestand | Retourneren van een HTTP `200 OK` status en de nettolading van de inhoud bijwerken `triggerState` naar de `DateTime` voor de geretourneerde bestands- en set `retry-after` interval op 15 seconden. | 
 | Meerdere bestanden | Retourneren van één bestand op een moment en een HTTP- `200 OK` status, update `triggerState`, en stel de `retry-after` interval 0 seconden. </br>Volgende stappen uit om de engine weten dat er meer gegevens beschikbaar is en dat de engine voor de gegevens direct moet aanvragen van de URL in de `location` header. | 
-| Er worden geen bestanden | Retourneren van een HTTP `202 ACCEPTED` status, worden niet gewijzigd `triggerState`, en stel de `retry-after` interval op 15 seconden. | 
+| Geen bestanden | Retourneren van een HTTP `202 ACCEPTED` status, worden niet gewijzigd `triggerState`, en stel de `retry-after` interval op 15 seconden. | 
 ||| 
 
 > [!TIP]
@@ -223,7 +223,7 @@ Na het instellen van verificatie, implementatie ingesteld voor uw API's. Meer in
 
 ## <a name="publish-custom-apis-to-azure"></a>Aangepaste API's publiceren naar Azure
 
-Als u uw aangepaste API's beschikbaar voor andere gebruikers Logic Apps in Azure, moet u beveiliging toevoegen en ze te registreren als Logic App-connectors. Zie voor meer informatie [aangepaste connectors overzicht](../logic-apps/custom-connector-overview.md). 
+Als u uw aangepaste API's beschikbaar voor andere gebruikers Logic Apps in Azure, moet u beveiliging toevoegen en ze te registreren als Logic App-connectors. Zie voor meer informatie het [Overzicht van aangepaste connectors](../logic-apps/custom-connector-overview.md). 
 
 Als u uw aangepaste API's beschikbaar voor alle gebruikers in Logic Apps, Microsoft Flow en Microsoft PowerApps, moet u beveiliging toevoegen, registreren van uw API's als Logic App-connectors en wijst de connectors voor de [Microsoft Azure-gecertificeerd programma](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
@@ -233,7 +233,7 @@ Als u uw aangepaste API's beschikbaar voor alle gebruikers in Logic Apps, Micros
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 
-* Om te verbeteren van Logic Apps, stem op of dien ideeën op de [Logic Apps gebruiker feedback site](http://aka.ms/logicapps-wish). 
+* Ter verbetering van Logic Apps kunt u stemmen op ideeën of ideeën indienen op de [site voor gebruikersfeedback van Logic Apps](http://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

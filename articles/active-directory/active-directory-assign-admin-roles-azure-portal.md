@@ -1,6 +1,6 @@
 ---
 title: Beheerdersrollen toewijzen in Azure Active Directory | Microsoft Docs
-description: Een beheerdersrol kunt maken of bewerken van gebruikers, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden, Gebruikerslicenties beheren of domeinen beheren. Een gebruiker aan wie een beheerdersrol is toegewezen, heeft dezelfde machtigingen in voor alle cloudservices waarop uw organisatie is geabonneerd.
+description: Een beheerdersrol kunt gebruikers toevoegen, beheerdersrollen toewijzen, wachtwoorden opnieuw instellen, Gebruikerslicenties beheren of domeinen beheren. Een gebruiker aan wie een beheerdersrol is toegewezen, heeft dezelfde machtigingen in voor alle cloudservices waarop uw organisatie is geabonneerd.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -65,7 +65,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **Laag 2-ondersteuning partner**: niet gebruiken. Deze rol is gedeprecieerd en wordt verwijderd uit in de toekomst Azure AD. Deze rol is bedoeld voor gebruik door een klein aantal Microsoft-partners zijn doorverkoop en is niet bedoeld voor algemeen gebruik.
 
-* **Wachtwoordbeheerder / Helpdesk beheerder**: gebruikers met deze rol kunnen wachtwoorden opnieuw instellen, serviceaanvragen beheren en controleren van de servicestatus. Wachtwoordbeheerders kunnen wachtwoorden alleen voor gebruikers en andere wachtwoordbeheerders opnieuw instellen.
+* **Wachtwoordbeheerder / Helpdesk beheerder**: gebruikers met deze rol kunnen wijzigen van wachtwoorden, serviceaanvragen beheren en controleren van de servicestatus. Helpdesk-beheerders kunnen wachtwoorden alleen voor gebruikers en andere beheerders Helpdesk wijzigen. 
 
   > [!NOTE]
   > Deze rol wordt in Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell aangeduid als 'Helpdesk-beheerder'. 'Wachtwoordbeheerder' is in de [Azure-portal](https://portal.azure.com/).
@@ -91,11 +91,11 @@ De volgende beheerdersrollen zijn beschikbaar:
   >
   >
 
-* **De accountbeheerder gebruiker**: gebruikers met deze rol kunnen maken en beheren van alle aspecten van gebruikers en groepen. Bovendien deze rol omvat de mogelijkheid voor het beheren van ondersteuningstickets en monitors health-service. Er zijn enkele beperkingen van toepassing. Bijvoorbeeld: deze rol is niet toegestaan voor het verwijderen van een globale beheerder en terwijl u toelaat wijzigen van wachtwoorden voor niet-beheerders, kunnen geen wijzigen van wachtwoorden voor globale beheerders of andere bevoorrechte beheerders.
+* **De accountbeheerder gebruiker**: gebruikers met deze rol kunnen maken en beheren van alle aspecten van gebruikers en groepen. Bovendien deze rol omvat de mogelijkheid voor het beheren van ondersteuningstickets en monitors health-service. Er zijn enkele beperkingen van toepassing. Deze rol kunnen bijvoorbeeld niet verwijderen van een globale beheerder. Accountbeheerders gebruiker kunnen wijzigen van wachtwoorden voor gebruikers, beheerders voor Helpdesk en andere gebruikersaccount beheerders alleen.
 
 ## <a name="administrator-permissions"></a>Administrator-machtigingen
 
-### <a name="billing-administrator"></a>Financieel medewerker
+### <a name="billing-administrator"></a>Factureringsbeheerder
 
 | Kan doen | Is niet mogelijk |
 | --- | --- |
@@ -110,27 +110,27 @@ De volgende beheerdersrollen zijn beschikbaar:
 ### <a name="global-administrator"></a>Globale beheerder
 | Kan doen | Is niet mogelijk |
 | --- | --- |
-|<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruikerswachtwoorden opnieuw instellen</p><p>Andere beheerder de wachtwoorden opnieuw instellen</p> <p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |N.v.t. |
+|<p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruikerswachtwoorden opnieuw instellen</p><p>Andere beheerder de wachtwoorden opnieuw instellen</p> <p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |N/A |
 
-### <a name="password-administrator"></a>Wachtwoordbeheerder
+### <a name="password-administrator--helpdesk-administrator"></a>Wachtwoordbeheerder / Helpdesk beheerder
 | Kan doen | Is niet mogelijk |
 | --- | --- |
-| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Gebruikerswachtwoorden opnieuw instellen</p> <p>Andere beheerder de wachtwoorden opnieuw instellen</p>|<p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Rapporten weergeven</p>|
+| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers en andere Helpdesk-beheerders alleen wijzigen</p>|<p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Rapporten weergeven</p>|
 
 ### <a name="service-administrator"></a>Servicebeheerder
 | Kan doen | Is niet mogelijk |
 | --- | --- |
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p> |
 
-### <a name="user-administrator"></a>De Gebruikersbeheerder van de
+### <a name="user-account-administrator"></a>De beheerder van gebruiker
 | Kan doen | Is niet mogelijk |
 | --- | --- |
-| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Gebruikerswachtwoorden, met beperkingen.</p><p>Andere beheerder de wachtwoorden opnieuw instellen</p><p>Opnieuw instellen van wachtwoorden van andere gebruikers</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties met beperkingen te beheren. Hij of zij kan geen algemeen beheerder verwijderen of andere beheerders maken.</p> |<p>Factuur- en bewerkingen voor Office-producten</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |
+| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers, beheerders voor Helpdesk en andere alleen beheerders van gebruikersaccount wijzigen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties met beperkingen te beheren. Hij of zij kan geen algemeen beheerder verwijderen of andere beheerders maken.</p> |<p>Factuur- en bewerkingen voor Office-producten</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |
 
-### <a name="security-reader"></a>Beveiliging lezer
+### <a name="security-reader"></a>Beveiligingslezer
 | in | Kan doen |
 | --- | --- |
-| Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Tegen ongewenste e-mail<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde threat protection<li>Antiphishing-<li>Mailflow regels |
+| Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde threat protection<li>Anti-phishing<li>Mailflow regels |
 | Privileged Identity Management |<p>Alleen-lezen toegang tot alle informatie zichtbaar is in Azure AD PIM: beleidsregels en rapporten voor Azure AD-roltoewijzingen beveiliging controleert en in de toekomst leestoegang heeft tot gegevens en rapporten voor scenario's naast de roltoewijzing Azure AD.<p>**Kan geen** aanmelden voor Azure AD PIM of wijzigingen aanbrengt. In de PIM-portal of via PowerShell kan iemand met deze rol aanvullende functies (bijvoorbeeld globale beheerder of beheerder met bevoorrechte rol) activeren als de gebruiker geschikt is voor deze. |
 | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-beveiliging en naleving Center</p> |<ul><li>Lees- en waarschuwingen beheren<li>Lezen van beveiligingsbeleid<li>Lezen dreigingen en Cloud App Discovery quarantaine in zoeken en onderzoeken<li>Alle rapporten lezen |
 
@@ -165,12 +165,12 @@ Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Az
 
 De volgende rollen moeten niet worden gebruikt. Ze zijn gedeprecieerd en wordt verwijderd uit in de toekomst Azure AD.
 
-* De beheerder van de ad-hoc-licentie
-* De maker van de geverifieerde gebruiker e-mail
+* Ad-hoclicentiebeheerder
+* Maker van via e-mail geverifieerde gebruikers
 * Apparaat Join
-* Apparaatbeheer
+* Apparaatbeheerders
 * Gebruikers van apparaten
-* Werkplekkoppeling apparaat
+* Werkplekapparaat toevoegen
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Verbinding maken met een IBM MQ server vanuit logic apps met behulp van de connector MQ 
 
@@ -71,7 +71,7 @@ De connector MQ omvat de volgende acties. Er zijn geen triggers.
     1. Selecteer **verbinden via lokale gegevensgateway**, en voert u de eigenschappen van uw server MQ.  
     Voor **Server**, voer de naam van de server MQ of geef het IP-adres gevolgd door een dubbelepunt en het poortnummer. 
     2. De **gateway** dropdown geeft een lijst van de bestaande gatewayverbindingen die zijn geconfigureerd. Selecteer uw gateway.
-    3. Selecteer **maken** na voltooiing. Uw verbinding ziet er ongeveer als volgt uit:   
+    3. Selecteer **Maken** nadat dit is voltooid. Uw verbinding ziet er ongeveer als volgt uit:   
     ![Verbindingseigenschappen](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. U kunt in de actie-eigenschappen:  
@@ -123,4 +123,4 @@ Als er geen berichten in de wachtrij zijn bij het uitvoeren van een bladeren of 
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/mq/).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).

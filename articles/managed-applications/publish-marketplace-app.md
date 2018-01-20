@@ -3,18 +3,18 @@ title: Azure beheerde toepassingen in de Marketplace | Microsoft Docs
 description: Beschrijving van Azure beheerde toepassingen die beschikbaar via de Marketplace zijn.
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Beheerde Azure-toepassingen in de Marketplace
 
@@ -26,7 +26,7 @@ Dit artikel wordt uitgelegd hoe u een toepassing publiceren in de marketplace en
 
 Als u dit artikel, moet u al het ZIP-bestand voor de definitie van de beheerde toepassing hebben. Zie voor meer informatie [-catalogus-servicetoepassing maken](publish-service-catalog-app.md).
 
-Bovendien zijn er verschillende zakelijke vereisten. Ze zijn:
+Bovendien zijn er verschillende zakelijke vereisten. Dit zijn:
 
 * Uw bedrijf of de vestiging moet zich bevinden in een land waar verkoop worden ondersteund door de marketplace.
 * Het product moet op een manier die compatibel is met factureringsmodellen ondersteund door de marketplace beschikken.
@@ -36,26 +36,18 @@ Bovendien zijn er verschillende zakelijke vereisten. Ze zijn:
 * Ga akkoord met de voorwaarden van de Azure Marketplace deelname beleidsregels en uitgever overeenkomst.
 * Ga akkoord met de gebruiksvoorwaarden van, de privacyverklaring van Microsoft en de gecertificeerd programma Agreement voor Microsoft Azure.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Uw account voor publishing portal instellen
+## <a name="become-a-publisher"></a>Door een
 
-De publishing portal wordt gebruikt om te publiceren en beheren van uw aanbiedingen. Als u wilt publiceren een marketplace-toepassing, moet u een goedgekeurde Microsoft Developer hebben voor Azure Marketplace. Als u nog niet geregistreerd voor een goedgekeurde account, Zie [een Microsoft Developer-account maken](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Als een publisher in Azure Marketplace, moet u het volgende doen:
 
-Als u een goedgekeurde hebt **Microsoft Developer Center** account, maar niet eerder hebt gebruikt de [Azure Publishing Portal](https://cloudpartner.azure.com/), moet u voor de publishing portal registreren.
-
-1. Open een nieuwe Chrome Incognito of Internet Explorer InPrivate-browsing sessie om ervoor te zorgen dat u bent niet aangemeld bij een persoonlijk account.
-2. Ga naar [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. Als u een nieuwe gebruiker- en aanmelding bij het publiceren portal voor de eerste keer, u moet Meld u aan met dezelfde ID e-mail als uw developer center-account. Nu zijn developer center-account en publishing portal account gekoppeld.
-
-U kunt later toevoegen met de andere leden van het bedrijf als een [co-beheerder](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) in de portal voor publiceren. Als u worden toegevoegd als een co-beheerder in de publishing portal, kunt u zich aanmelden met uw co-beheerder.
-
-> [!TIP]
-> De deelname-beleidsregels worden beschreven op de [Azure-website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Maken van een Microsoft-ID - uw Microsoft-account maken met een e-mailadres behoort aan het domein van uw bedrijf, maar niet aan een enkele persoon. Dit e-mailadres wordt gebruikt voor de Microsoft Developer Center en de Cloud Partner-Portal. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Indienen [Azure Marketplace benoeming formulier](https://aka.ms/ampnomination) - voor **oplossing die u wilt publiceren?**, selecteer **beheerde toepassing**. Zodra het formulier wordt verzonden, wordt de Marketplace-voorbereidingsteam controleert de toepassing en valideert de aanvraag. Het goedkeuringsproces kan één tot drie dagen duren. Wanneer uw benoeming is goedgekeurd, ontvangt u een promotiecode om te zien van de registratie-kosten voor het developer center. Als u dit doet **niet** vult u het formulier benoeming van Marketplace u wordt gevraagd om te betalen registratie $99.
+1. Registreren in [Developer Center](https://developer.microsoft.com) -Microsoft wordt gecontroleerd of uw organisatie een geldige rechtspersoon met een geldig BTW-nummer voor het land waar het is geregistreerd. Het goedkeuringsproces kan 5 tot 10 dagen duren. Om te voorkomen de kosten van de registratie, gebruikt u de promotiecode die u in de e-mail van het proces benoeming ontvangen. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Meld u aan bij [Cloud Partner-Portal](https://cloudpartner.azure.com) - In het profiel publisher uw Developer Center-account koppelen aan het profiel van de uitgever Marketplace. Zie voor meer informatie [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Een nieuwe aanbieding voor Azure-toepassing maken
 
-Wanneer u voldoet aan de vereisten, bent u klaar om te maken van uw aanbieding beheerde toepassing.
+Nadat uw partner-portal-account is gemaakt, bent u gereed voor het maken van uw aanbieding beheerde toepassing.
 
 ### <a name="set-up-an-offer"></a>Instellen van een aanbieding
 
@@ -65,11 +57,7 @@ De aanbieding voor een beheerde toepassing komt overeen met een product aanbiede
 
 1. Selecteer in het navigatievenster aan de linkerkant **+ een nieuwe aanbieding** > **Azure-toepassingen**.
 
-   ![Nieuwe aanbieding](./media/publish-marketplace-app/newOffer.png)
-
 1. In de **Editor** weergave ziet u de vereiste formulieren. Elk formulier wordt verderop in dit artikel beschreven.
-
-   ![Aanbiedingsinstellingen](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Formulier voor instellingen van aanbieding
 
@@ -95,13 +83,9 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in de marketplace. D
 
 1. Selecteer **SKU's** > **nieuwe SKU**.
 
-   ![Selecteer nieuwe SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Voer een **SKU-ID**. Een SKU-ID is een unieke id voor de SKU binnen een aanbieding. Deze ID wordt weergegeven in de product-URL's, Resource Manager-sjablonen en facturering rapporteert. Deze kan alleen bestaan uit alfanumerieke tekens in kleine letters of streepjes (-). De ID mag niet eindigen op een streepje en beperkt tot een maximum van 50 tekens. Nadat een aanbieding live gaat, wordt dit veld is vergrendeld. U kunt meerdere SKU's binnen een aanbieding hebben. U moet een SKU voor elke installatiekopie die u wilt publiceren.
 
 1. Vul de **SKU Details** sectie op de volgende notatie:
-
-   ![Geef nieuwe SKU](./media/publish-marketplace-app/sku-settings.png)
 
    Vul de volgende velden:
 
@@ -110,14 +94,9 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in de marketplace. D
    * **Beschrijving**: Voer een gedetailleerde beschrijving van de SKU.
    * **SKU-Type**: de toegestane waarden zijn *beheerde toepassingen* en *Oplossingssjablonen*. Selecteer voor deze aanvraag *beheerde toepassing*.
    * **Land/regio beschikbaarheid**: Selecteer de landen waar de beheerde toepassing beschikbaar is.
-
-      ![Selecteer landen](./media/publish-marketplace-app/select-country.png)
-
    * **Prijzen**: Geef een prijs voor beheer van de toepassing. Selecteer de beschikbare landen voordat u de prijs.
 
 1. Een nieuw pakket toevoegt. Vul de **pakketgegevens** sectie op de volgende notatie:
-
-   ![Pakket](./media/publish-marketplace-app/new-package.png)
 
    Vul de volgende velden:
 

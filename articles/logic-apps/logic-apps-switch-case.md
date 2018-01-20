@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Verschillende acties worden uitgevoerd in logic apps met een switch-instructie
 
@@ -34,7 +34,7 @@ U kunt een switch-instructie voor het implementeren van deze scenario's. Uw logi
 ## <a name="prerequisites"></a>Vereisten
 
 - Een actief Azure-abonnement. Als u een actief Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/), of probeer [Logic Apps voor gratis](https://tryappservice.azure.com/).
-- [Elementaire kennis over logic apps](logic-apps-what-are-logic-apps.md)
+- [Elementaire kennis over logic apps](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Een switchinstructie toevoegen aan uw werkstroom
 

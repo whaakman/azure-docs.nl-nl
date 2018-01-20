@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Een realtime klant insights dashboard maken met Azure Logic Apps en Azure Functions
 
@@ -37,7 +37,7 @@ De volledige oplossing kan worden [bouwen in Visual Studio](logic-apps-deploy-fr
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>De logische app activeren op gegevens van de klant opbouwen
 
-Na [maken van een logische app](logic-apps-create-a-logic-app.md) in Visual Studio of de Azure-portal:
+Na [maken van een logische app](quickstart-create-first-logic-app-workflow.md) in Visual Studio of de Azure-portal:
 
 1. Toevoegen van een trigger voor **op nieuwe Tweets** van Twitter
 2. Configureer de trigger om te luisteren naar tweets op een sleutelwoord of hashtag.

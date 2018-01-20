@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Aan de slag met de aanvraag en antwoord-onderdelen
 Met de aanvraag- en -onderdelen in een logische app kunt u in realtime reageren op gebeurtenissen.
@@ -30,7 +30,7 @@ U kunt bijvoorbeeld:
 * Een logische app vanaf een externe webhook-gebeurtenis geactiveerd.
 * Een logische app met de actie aanvraag en -antwoord uit in een andere logische app aanroepen.
 
-Om te beginnen met de aanvraag en antwoord-acties in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Om te beginnen met de aanvraag en antwoord-acties in een logische app, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Gebruik de trigger HTTP-aanvraag
 Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](connectors-overview.md).
@@ -74,7 +74,7 @@ Hier volgen de details voor de trigger die ondersteuning biedt voor deze connect
 ## <a name="response-action"></a>Antwoord actie
 Hier volgen de details voor de actie die ondersteuning biedt voor deze connector. Er is een enkele antwoordthread-actie kan alleen worden gebruikt wanneer u gaat vergezeld van een aanvraag-trigger.
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
 | Antwoord |Retourneert een antwoord aan de gecorreleerde HTTP-aanvraag |
 
@@ -84,9 +84,9 @@ De volgende tabellen beschrijven de invoervelden voor de trigger en action en de
 #### <a name="request-trigger"></a>Aanvraag trigger
 Hier volgt een invoerveld voor de trigger van een binnenkomende HTTP-aanvraag.
 
-| Weergavenaam | De naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| JSON-Schema |Schema |De JSON-schema van het hoofdgedeelte van de HTTP-aanvraag |
+| JSON-Schema |schema |De JSON-schema van het hoofdgedeelte van de HTTP-aanvraag |
 
 <br>
 
@@ -94,20 +94,20 @@ Hier volgt een invoerveld voor de trigger van een binnenkomende HTTP-aanvraag.
 
 Hier volgen de uitvoerdetails voor de aanvraag.
 
-| De naam van eigenschap | Gegevenstype | Beschrijving |
+| Naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Headers |object |Aanvraagheaders |
+| Kopteksten |object |Aanvraagheaders |
 | Hoofdtekst |object |Request-object |
 
 #### <a name="response-action"></a>Antwoord actie
 Hier volgen de invoervelden voor de HTTP-antwoord-actie. A * houdt in dat een vereist veld.
 
-| Weergavenaam | De naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
 | Status Code * |statusCode |De HTTP-statuscode |
-| Headers |Headers |Een JSON-object van een antwoordheaders om op te nemen |
-| Hoofdtekst |Hoofdtekst |Hoofdtekst van de reactie |
+| Kopteksten |headers |Een JSON-object van een antwoordheaders om op te nemen |
+| Hoofdtekst |hoofdtekst |Hoofdtekst van de reactie |
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu uitproberen van het platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt de beschikbare connectors in logische apps door te kijken verkennen onze [API's lijst](apis-list.md).
+Nu uitproberen van het platform en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). U kunt de beschikbare connectors in logische apps door te kijken verkennen onze [API's lijst](apis-list.md).
 

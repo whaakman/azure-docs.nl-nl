@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Aan de slag met de HTTP- + Swagger actie
 
 U kunt geen klas connector maken voor een willekeurig eindpunt REST via een [Swagger-document](https://swagger.io) bij het gebruik van de HTTP- + Swagger actie in de werkstroom van uw logische app. U kunt logische apps voor het aanroepen van een REST-eindpunt met een uitstekende Logic App-ontwerper ervaring ook uitbreiden.
 
-Zie voor meer informatie over het maken van logische apps met connectors, [maken van een nieuwe logische app](../logic-apps/logic-apps-create-a-logic-app.md).
+Zie voor meer informatie over het maken van logische apps met connectors, [maken van een nieuwe logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Gebruik HTTP + Swagger als een trigger of een actie
 
@@ -79,29 +79,29 @@ Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gede
 
 | Trigger | Beschrijving |
 | --- | --- |
-| HTTP- + Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
+| HTTP en Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
 
 ## <a name="http--swagger-actions"></a>HTTP- + Swagger-acties
 Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. [Meer informatie over acties.](connectors-overview.md) De HTTP- + Swagger connector heeft een mogelijke actie.
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
-| HTTP- + Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
+| HTTP en Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
 
 ### <a name="action-details"></a>Actiedetails
 De HTTP- + Swagger connector wordt geleverd met een mogelijke actie. Hieronder vindt u informatie over elk van de acties, hun vereiste en optionele invoervelden en de bijbehorende uitvoerdetails die gekoppeld aan hun gebruik zijn.
 
-#### <a name="http--swagger"></a>HTTP- + Swagger
+#### <a name="http--swagger"></a>HTTP en Swagger
 Controleer een uitgaande HTTP-aanvraag met hulp van Swagger-metagegevens.
 Een sterretje (*) betekent een verplicht veld.
 
-| Weergavenaam | De naam van eigenschap | Beschrijving |
+| Weergavenaam | Naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Methode * |Methode |HTTP-term moet worden gebruikt. |
-| URI * |URI |De URI voor de HTTP-aanvraag. |
-| Headers |Headers |Een JSON-object van het HTTP-headers te nemen. |
-| Hoofdtekst |Hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
-| Authentication |Verificatie |De verificatie moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP connector](connectors-native-http.md#authentication). |
+| Methode * |methode |HTTP-term moet worden gebruikt. |
+| URI * |uri |De URI voor de HTTP-aanvraag. |
+| Kopteksten |headers |Een JSON-object van het HTTP-headers te nemen. |
+| Hoofdtekst |hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
+| Verificatie |verificatie |De verificatie moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP connector](connectors-native-http.md#authentication). |
 
 **Uitvoerdetails**
 
@@ -109,7 +109,7 @@ HTTP-antwoord
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Headers |object |Antwoordheaders |
+| Kopteksten |object |Antwoordheaders |
 | Hoofdtekst |object |Response-object |
 | Statuscode |int |HTTP-statuscode |
 
@@ -120,14 +120,14 @@ Bij het aanroepen op diverse acties, krijgt u mogelijk bepaalde antwoorden. Hier
 | --- | --- |
 | 200 |OK |
 | 202 |Geaccepteerd |
-| 400 |Onjuiste aanvraag |
+| 400 |Ongeldig verzoek |
 | 401 |Niet geautoriseerd |
-| 403 |Is niet toegestaan |
+| 403 |Verboden |
 | 404 |Niet gevonden |
-| 500 |Interne serverfout. Er is een onbekende fout opgetreden. |
+| 500 |Er is een interne serverfout opgetreden. Er is een onbekende fout opgetreden. |
 
 - - -
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Andere connectors zoeken](apis-list.md)

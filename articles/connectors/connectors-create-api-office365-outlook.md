@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Aan de slag met de Outlook van Office 365-connector
 De Outlook van Office 365-connector wordt interactie met Outlook in Office 365. Met deze connector kunt maken, bewerken, en contactpersonen en agenda-items, bijwerken en ook krijgen, verzenden en e-mailbericht beantwoordt.
@@ -37,7 +37,7 @@ In dit onderwerp leest u het gebruik van de Outlook van Office 365-connector in 
 > 
 > 
 
-Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+Zie voor meer informatie over Logic Apps, [wat zijn logic apps](../logic-apps/logic-apps-overview.md) en [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Verbinding maken met Office 365
 Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naar de service. Een verbinding biedt connectiviteit tussen een logische app en een andere service. Bijvoorbeeld, als u wilt verbinding maken met Office 365 Outlook, moet u eerst een Office 365 *verbinding*. Voer de referenties die u gebruikt om toegang tot de service die u verbinding maken wilt met een verbinding wilt maken. Met Outlook van Office 365, voert u de referenties op voor uw Office 365-account om de verbinding te maken.
@@ -48,7 +48,7 @@ Om uw logische app toegang alle services tot, maakt u eerst een *verbinding* naa
 > 
 
 ## <a name="use-a-trigger"></a>Een trigger te gebruiken
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. Triggers pollen' ' de service op het interval en de gewenste frequentie. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. Triggers pollen' ' de service op het interval en de gewenste frequentie. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Typ in de logische app, 'office 365' om een lijst van de triggers:  
    
@@ -69,7 +69,7 @@ Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is g
 4. **Sla** uw wijzigingen (linkerbovenhoek van de werkbalk). Uw logische app wordt opgeslagen en automatisch kan worden ingeschakeld.
 
 ## <a name="use-an-action"></a>Gebruik een actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selecteer het plusteken. Ziet u verschillende mogelijkheden: **een actie toevoegen**, **een voorwaarde toevoegen**, of een van de **meer** opties.
    
@@ -95,5 +95,5 @@ Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in 
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
 

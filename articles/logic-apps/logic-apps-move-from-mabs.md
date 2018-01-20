@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Verplaatsen van BizTalk Services naar Logic Apps
 
@@ -109,11 +109,11 @@ BizTalk Services bevat EDI- en B2B verwerking met ondersteuning voor AS2 (toepas
 In Logic Apps deze functionaliteit is opgenomen in de [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Dit proces bestaat uit de Account van de integratie en B2B acties voor EDI- en B2B-verwerking. De [integratie Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) wordt gebruikt om te maken en beheren van [handelspartners](../logic-apps/logic-apps-enterprise-integration-partners.md) en [overeenkomsten](../logic-apps/logic-apps-enterprise-integration-agreements.md). Wanneer u een Account integratie maakt, kunt u een of meer logische apps aan het account koppelen. Eenmaal gekoppeld, kunt u de B2B-acties voor toegang tot trading Partnerinformatie in uw logische app. De volgende acties zijn beschikbaar:
 
 * AS2 coderen
-* AS2 decoderen
-* X12 coderen
-* X12 decoderen
+* AS2 Decode
+* X12 Encode
+* X12 Decode
 * EDIFACT coderen
-* EDIFACT decoderen
+* EDIFACT Decode
 
 In tegenstelling tot BizTalk Services, worden deze acties losgekoppeld van de transportprotocollen. Dus wanneer u uw logische apps maakt, hebt u meer flexibiliteit op welke connectors die u kunt gegevens verzenden en ontvangen. Bijvoorbeeld, bestanden mogelijk ontvangen X12 als bijlagen van e-mailbericht en klikt u vervolgens proces deze bestanden in een logische app. 
 
@@ -126,6 +126,6 @@ Logic Apps biedt uitgebreidere bijhouden en de bewakingsmogelijkheden in de [Azu
 Om te zorgen voor hoge beschikbaarheid (HA) in BizTalk Services, kunt u meer dan één exemplaar in een bepaald gebied de verwerkingsbelasting delen. Met logic apps in de regio HA is ingebouwd en wordt geleverd zonder extra kosten. Een back-up en herstel proces is vereist voor out van de regio noodherstel voor de verwerking van de B2B van BizTalk Services. In Logic Apps, een actief/passief-regio-overschrijdende [DR mogelijkheid](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) wordt geleverd; waarmee de synchronisatie van gegevens voor B2B-integratie accounts in verschillende regio's voor bedrijfscontinuïteit.
 
 ## <a name="next"></a>Volgende
-* [Wat zijn logische apps?](logic-apps-what-are-logic-apps.md)
-* [Uw eerste logische app maken](logic-apps-create-a-logic-app.md), of snel aan de slag met behulp van een [vooraf gemaakte sjabloon](logic-apps-create-logic-apps-from-templates.md)  
+* [Wat zijn logische apps?](logic-apps-overview.md)
+* [Uw eerste logische app maken](quickstart-create-first-logic-app-workflow.md), of snel aan de slag met behulp van een [vooraf gemaakte sjabloon](logic-apps-create-logic-apps-from-templates.md)  
 * [Bekijk alle beschikbare connectors](../connectors/apis-list.md) die u kunt gebruiken in een logische app

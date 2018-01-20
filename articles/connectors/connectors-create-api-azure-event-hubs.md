@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Bewaken, ontvangen en verzenden van gebeurtenissen met de Event Hubs-connector
 
@@ -30,7 +30,7 @@ Als u wilt een controleprogramma voor gebeurtenissen zo instellen dat uw logisch
 
 * Er moeten een [Event Hubs-naamruimte en Event Hub](../event-hubs/event-hubs-create.md) in Azure. Meer informatie over [het maken van een Event Hubs-naamruimte en Event Hub](../event-hubs/event-hubs-create.md). 
 
-* Gebruik [elke connector](https://docs.microsoft.com/azure/connectors/apis-list) in uw logische app, hebt u eerst een logische app maken. Meer informatie over [het maken van een logische app](../logic-apps/logic-apps-create-a-logic-app.md).
+* Gebruik [elke connector](https://docs.microsoft.com/azure/connectors/apis-list) in uw logische app, hebt u eerst een logische app maken. Meer informatie over [het maken van een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Controleer machtigingen voor Event Hubs-naamruimte en de verbindingsreeks vinden
@@ -64,7 +64,7 @@ Controleer uw machtigingen en de verbindingsreeks ophalen, als volgt te werk.
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Werkstroom starten wanneer uw Event Hub nieuwe gebeurtenissen ontvangt
 
-Een [ *trigger* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) is een gebeurtenis die een werkstroom in uw logische app start. U start een werkstroom wanneer nieuwe gebeurtenissen worden verzonden naar uw Event Hub, volg deze stappen voor het toevoegen van de trigger die deze gebeurtenis wordt gedetecteerd.
+Een [ *trigger* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) is een gebeurtenis die een werkstroom in uw logische app start. U start een werkstroom wanneer nieuwe gebeurtenissen worden verzonden naar uw Event Hub, volg deze stappen voor het toevoegen van de trigger die deze gebeurtenis wordt gedetecteerd.
 
 1.  In de [Azure-portal](https://portal.azure.com "Azure-portal"), gaat u naar uw bestaande logische app of een lege logische app maken.
 
@@ -94,7 +94,7 @@ Een [ *trigger* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-conc
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Gebeurtenissen verzenden naar uw Event Hub van uw logische app
 
-Een [*actie*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) is een taak die wordt uitgevoerd tijdens de werkstroom voor de logische app. Nadat u een trigger hebt toegevoegd aan uw logische app, kunt u een actie toevoegen om bewerkingen uit te voeren op gegevens die met deze trigger worden gegenereerd. Volg deze stappen om een gebeurtenis verzenden naar uw Event Hub van uw logische app.
+Een [*actie*](../logic-apps/logic-apps-overview.md#logic-app-concepts) is een taak die wordt uitgevoerd tijdens de werkstroom voor de logische app. Nadat u een trigger hebt toegevoegd aan uw logische app, kunt u een actie toevoegen om bewerkingen uit te voeren op gegevens die met deze trigger worden gegenereerd. Volg deze stappen om een gebeurtenis verzenden naar uw Event Hub van uw logische app.
 
 1.  In Logic App Designer onder uw logische app worden geactiveerd, kies **nieuwe stap** > **een actie toevoegen**.
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Ondersteunde gegevensbronnen in Azure Data Catalog
 
@@ -82,7 +82,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       </td>
     </tr>
     <tr>
-      <td>HDFS-directory</td>
+      <td>HDFS-map</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -178,7 +178,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server analyseservices KPI</td>
+      <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -274,7 +274,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>FTP-map</td>
+      <td>FTP directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -394,7 +394,7 @@ U kunt metagegevens publiceren met behulp van een openbare API of een klik-eenma
       <td></td>
     </tr>
     <tr>
-      <td>Cassandra tabel</td>
+      <td>Cassandra-tabel</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

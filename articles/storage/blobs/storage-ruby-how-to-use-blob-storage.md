@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/18/2018
 ms.author: tamram
-ms.openlocfilehash: 2c1534dcbb0e26ecdff7c057efb5094c60b5c5b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a21d87cee714dbc3aab6d4106544e45d91a3193
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="how-to-use-blob-storage-from-ruby"></a>Blob Storage gebruiken met Ruby
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -35,28 +35,31 @@ Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp va
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Een Ruby-toepassing maken
-Maak een Ruby toepassing. Zie voor instructies [Ruby op Rails webtoepassing op een virtuele machine in Azure](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+Maak een Ruby toepassing. Zie voor instructies [Ruby op Rails webtoepassing op een virtuele machine in Azure](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)
+
 
 ## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor toegang tot opslag
 Voor het gebruik van Azure Storage, die u wilt downloaden en gebruiken van het Ruby azure pakket bevat een set met gemak bibliotheken die met de storage REST-services communiceren.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems gebruiken om het pakket te verkrijgen
 1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix).
-2. Typ 'azure gem installeren' in het opdrachtvenster voor het installeren van de gem en afhankelijkheden.
+2. Typ 'gem installeren azure-opslag-blob' in het opdrachtvenster voor het installeren van de gem en afhankelijkheden.
 
 ### <a name="import-the-package"></a>Het pakket importeren
 Met behulp van uw favoriete teksteditor, voeg de volgende boven aan het Ruby bestand waarop u wilt opslag gebruiken:
 
 ```ruby
-require "azure"
+require "azure/storage/blob"
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Een Azure Storage-verbinding instellen
-De azure-module leest de omgevingsvariabelen **AZURE\_opslag\_ACCOUNT** en **AZURE\_opslag\_ACCESS_KEY** voor meer informatie verbinding maken met uw Azure storage-account vereist. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens voordat u **Azure::Blob::BlobService** met de volgende code:
+De azure-module leest de omgevingsvariabelen **AZURE\_opslag\_ACCOUNT** en **AZURE\_opslag\_ACCESS_KEY** voor meer informatie verbinding maken met uw Azure storage-account vereist. Als deze omgevingsvariabelen zijn niet ingesteld, moet u het account informatie over het gebruik **Azure::Blob::BlobService:: maken** met de volgende code:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+blob_client = Azure::Storage::Blob::BlobService.create(
+    storage_account_name: account_name,
+    storage_access_key: account_key
+    )
 ```
 
 Als u deze waarden van een klassiek of Resource Manager-opslagaccount in de Azure-portal:
@@ -70,12 +73,12 @@ Als u deze waarden van een klassiek of Resource Manager-opslagaccount in de Azur
 ## <a name="create-a-container"></a>Een container maken
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-De **Azure::Blob::BlobService** object kunt u samenwerken met containers en blobs. Gebruik voor het maken van een container de **maken\_container()** methode.
+De **Azure::Storage::Blob::BlobService** object kunt u samenwerken met containers en blobs. Gebruik voor het maken van een container de **maken\_container()** methode.
 
 Het volgende codevoorbeeld maakt een container of de fout wordt afgedrukt indien deze aanwezig is.
 
 ```ruby
-azure_blob_service = Azure::Blob::BlobService.new
+azure_blob_service = Azure::Storage::Blob::BlobService.create_from_env
 begin
     container = azure_blob_service.create_container("test-container")
 rescue
@@ -119,17 +122,19 @@ puts blob.name
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 U kunt de containers gebruiken **list_containers()** methode.
-U kunt de blobs in een container gebruiken **lijst\_blobs()** methode.
+U kunt de blobs in een container gebruiken **lijst\_blobs()** methode. Om alle blobs in een container wilt weergeven, moet u een vervolgtoken geretourneerd door de service te volgen en blijven list_blobs uitvoeren met dit token. Zie de [lijst Blobs REST-API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) voor meer informatie.
 
-Hiermee wordt de uitvoer de URL's van de blobs in de containers voor het account.
+De volgende code wordt de uitvoer alle blobs in een container.
 
 ```ruby
-containers = azure_blob_service.list_containers()
-containers.each do |container|
-    blobs = azure_blob_service.list_blobs(container.name)
+nextMarker = nil
+loop do
+    blobs = azure_blob_service.list_blobs(container_name, { marker: nextMarker })
     blobs.each do |blob|
-    puts blob.name
+        puts "\tBlob name #{blob.name}"
     end
+    nextMarker = blobs.continuation_token
+    break unless nextMarker && !nextMarker.empty?
 end
 ```
 
@@ -154,6 +159,6 @@ azure_blob_service.delete_blob(container.name, "image-blob")
 Voor meer informatie over complexere opslagtaken, volgt u deze koppelingen:
 
 * [Blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Azure SDK voor Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) opslagplaats op GitHub
+* [Azure-opslag-SDK voor Ruby](https://github.com/azure/azure-storage-ruby) opslagplaats op GitHub
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

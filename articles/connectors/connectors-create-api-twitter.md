@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Aan de slag met de Twitter-connector
 Met de Twitter-connector kunt u het volgende doen:
@@ -28,7 +28,7 @@ Met de Twitter-connector kunt u het volgende doen:
 * Pc-gebruikers en toegang tijdlijnen, vrienden
 * Voer één van de andere bewerkingen en triggers die hieronder wordt beschreven  
 
-Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/logic-apps-create-a-logic-app.md).  
+Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Verbinding maken met Twitter
 Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding* naar de service. Een [verbinding](connectors-overview.md) biedt connectiviteit tussen een logische app en een andere service.  
@@ -39,7 +39,7 @@ Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Gebruik een trigger Twitter
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 In dit voorbeeld leest u het gebruik van de **wanneer een nieuwe tweet wordt gepost** trigger zoeken naar #Seattle en, als #Seattle wordt gevonden, het bijwerken van een bestand in Dropbox met de tekst van de tweet. In een enterprise-voorbeeld, kan u de naam van uw bedrijf zoeken en een SQL-database bijwerken met de tekst van de tweet.
 
@@ -80,7 +80,7 @@ Omdat we alleen geïnteresseerd in tweets van gebruikers met meer dan 50 van geb
    ![Twitter voorwaarde afbeelding 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Gebruik een Twitter-actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Nu dat u een trigger hebt toegevoegd, volg deze stappen uit om een actie die een nieuwe tweet met de inhoud van de tweets gevonden door de trigger wordt geplaatst. Voor de doeleinden van deze procedure wordt alleen tweets van gebruikers met meer dan 50 pc-gebruikers worden geplaatst.  
 
@@ -104,5 +104,5 @@ In de volgende stap voegt u een Twitter-actie die een tweet gebruikmakend van de
 Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

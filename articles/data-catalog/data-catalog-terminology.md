@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8cb24357bb24c48dceda714a040427fcc0c0ba4d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologie voor Azure Data Catalog
 ## <a name="catalog"></a>Catalogus
@@ -52,7 +52,7 @@ Een gegevensasset beschrijvende metagegevens kan informatie over het aanvragen v
 Een voorbeeld van in Azure Data Catalog is een momentopname van maximaal 20 records die kunnen worden opgehaald uit de gegevensbron tijdens de registratie en opgeslagen in de catalogus met de metagegevens van de asset gegevens. De preview kunt gebruikers die een gegevensasset detecteren beter begrip van de functie en het doel. Met andere woorden, ziet voorbeeldgegevens mag meer waard dan zien alleen de kolomnamen en gegevenstypen.
 Voorbeelden worden alleen ondersteund voor tabellen en weergaven en moeten worden expliciet is geselecteerd door de gebruiker tijdens de registratie.
 
-## <a name="data-profile"></a>Data-profiel
+## <a name="data-profile"></a>Gegevensprofiel
 Een profiel van de gegevens in Azure Data Catalog is een momentopname van de tabel op gebruikersniveau en op kolomniveau metagegevens over een geregistreerde gegevensasset die kan worden opgehaald uit de gegevensbron tijdens de registratie en opgeslagen in de catalogus met de metagegevens van de asset gegevens. Het profiel van de gegevens kunt gebruikers die een gegevensasset detecteren beter begrip van de functie en het doel. Net als voorbeelden, profielen van de gegevens moeten worden expliciet is geselecteerd door de gebruiker tijdens de registratie.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ In Azure Data Catalog, kan elke gebruiker beschrijvende metagegevens leveren voo
 
 Elk van deze perspectieven zijn inherent waardevol en met Azure Data Catalog, krijgt elke gebruiker de informatie die relevant zijn, terwijl alle gebruikers kunnen deze informatie gebruiken om de gegevens en het doel te begrijpen.
 
-## <a name="expert"></a>deskundige
+## <a name="expert"></a>Expert
 Een expert is een gebruiker die is geïdentificeerd als een gefundeerde 'deskundige' perspectief voor een gegevensasset hebben. Elke gebruiker kan zichzelf of een andere gebruiker toevoegen als een expert voor een asset. Wordt vermeld als een expert extra bevoegdheden in Azure Data Catalog; niet overbrengen Hiermee kunt u gebruikers om gemakkelijk te vinden die perspectieven die waarschijnlijk nuttig zijn bij het controleren van de beschrijvende metagegevens van een actief zijn.
 
 ## <a name="owner"></a>Eigenaar

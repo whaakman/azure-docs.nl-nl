@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eeef5b522996146eed6be393692b3c0a4a8747f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet bereiken van de SSH-service op de virtuele machine. Als u hebt gevolgd door de meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder op te lossen. In dit artikel begeleidt u bij de gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en het probleem te verhelpen.
@@ -70,8 +70,8 @@ Tijdelijk uitschakelen van de software als een van deze voorwaarden van toepassi
 
 Als u verificatie via certificaat gebruikt, controleert u of deze machtigingen te hebben tot de SSH-map in de basismap:
 
-* Type chmod 700 ~/.ssh
-* Type chmod 644 ~/.ssh/\*.pub
+* Chmod 700 ~/.ssh
+* Chmod 644 ~/.ssh/\*.pub
 * Type chmod 600 ~/.ssh/id_rsa (of andere bestanden die opgeslagen in deze persoonlijke sleutels zijn)
 * Type chmod 644 ~/.ssh/known_hosts (bevat hosts die u via SSH verbinding hebt gemaakt)
 
@@ -120,7 +120,7 @@ De laatste bron van mogelijke problemen met is de virtuele machine van Azure zel
 
 ![Diagram die worden gemarkeerd op basis van Linux virtuele machine van Azure](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Als u dit nog niet hebt gedaan, volgt u de instructies [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Als u dit nog niet hebt gedaan, volgt u de instructies [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Probeer opnieuw verbinding te maken van uw computer. Als het nog steeds mislukt, Hier volgen enkele mogelijke problemen:
 

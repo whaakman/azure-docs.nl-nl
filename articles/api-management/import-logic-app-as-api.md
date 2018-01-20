@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0bab180fe726eeece9d03883889253825b5e9560
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Een logische App als een API importeren
 
@@ -33,7 +33,7 @@ In dit artikel leert u hoe:
 ## <a name="prerequisites"></a>Vereisten
 
 + Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md)
-+ Zorg ervoor dat er een logische App in uw abonnement. Voor meer informatie [uw eerste logische App maken](../logic-apps/logic-apps-create-a-logic-app.md)
++ Zorg ervoor dat er een logische App in uw abonnement. Voor meer informatie [uw eerste logische App maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -65,7 +65,7 @@ Bewerkingen kunnen rechtstreeks vanuit de Azure portal, die een handige manier o
 3. Selecteer een bewerking.
 
     De pagina wordt weergegeven voor queryparameters en velden voor de headers. Een van de headers is 'Ocp-Apim-Subscription-Key' voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u het exemplaar APIM hebt gemaakt, bent u beheerder al, zodat de sleutel wordt automatisch ingevuld. 
-1. Druk op **verzenden**.
+1. Druk op **Verzenden**.
 
     Back-end reageert met **200 OK** en bepaalde gegevens.
 
@@ -80,7 +80,7 @@ Bewerkingen kunnen ook worden aangeroepen **ontwikkelaarsportal** voor het teste
 3. Selecteer de **API** die u hebt gemaakt.
 4. Klik op de bewerking die u wilt testen.
 5. Druk op **Try it**.
-6. Druk op **verzenden**.
+6. Druk op **Verzenden**.
     
     Nadat een bewerking is aangeroepen, worden in de ontwikkelaarsportal de **antwoordstatus**, de **antwoordheaders** en eventuele **antwoordinhoud** weergegeven.
 
