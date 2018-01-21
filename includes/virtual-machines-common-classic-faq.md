@@ -33,8 +33,7 @@ Een Azure-opslagaccount biedt opslag voor de schijf met het besturingssysteem en
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Welke typen virtuele harde schijf kan ik gebruiken?
 Azure ondersteunt alleen vaste, virtuele harde schijven met de indeling VHD. Als u een VHDX hebt die u wilt gebruiken in Azure, moet u deze eerst converteren met behulp van Hyper-V Manager of de cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Daarna gebruikt u de cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (in de modus Service Management) om de VHD te uploaden naar een opslagaccount in Azure, zodat u de schijf kunt gebruiken met virtuele machines.
 
-* Zie [Een virtuele harde schijf met het Linux-besturingssysteem maken en uploaden](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) voor instructies voor Linux.
-* Zie [Een Windows Server VHD maken en uploaden voor Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor instructies voor Windows.
+* Zie [Een virtuele harde schijf met het Linux-besturingssysteem maken en uploaden](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) voor instructies voor Linux.
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Zijn deze virtuele machines hetzelfde als virtuele machines van Hyper-V?
 Op veel punten zijn ze vergelijkbaar met Hyper-V-VM's van de 'eerste generatie', maar ze zijn niet precies hetzelfde. Beide typen bieden gevirtualiseerde hardware, en de virtuele harde schijven met VHD-indeling zijn compatibel. Dit betekent dat u ze kunt verplaatsen tussen Hyper-V en Azure. Er zijn echter drie belangrijke verschillen die gebruikers van Hyper-V soms verrassen:

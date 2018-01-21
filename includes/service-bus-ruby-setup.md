@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>Een Ruby-toepassing maken
-Zie voor instructies [een Ruby-toepassing maken op Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Zie voor instructies [een Ruby-toepassing maken op Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor gebruik Service Bus
 Voor het gebruik van Service Bus, downloaden en gebruiken van het pakket Azure Ruby, waaronder een set van gemak bibliotheken die met de storage REST-services communiceren.

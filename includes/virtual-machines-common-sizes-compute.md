@@ -14,7 +14,7 @@ De Fs-serie biedt alle voordelen van de F-serie, plus Premium-opslag.
 
 ## <a name="fsv2-series-sup1sup"></a>Fsv2-serie <sup>1</sup>
 
-ACU: 195-210
+ACU: 195 - 210
 
 | Grootte             | de vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
@@ -24,11 +24,13 @@ ACU: 195-210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Hoog                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Zeer hoge                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Zeer hoge                                 |
-| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Zeer hoge                                 |
+| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Zeer hoge                                 |
 
 <sup>1</sup>Fsv2-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
-## <a name="fs-series-sup1sup"></a>FS-serie <sup>1</sup>
+<sup>2</sup> meer dan 64 vCPU vereisen een van deze ondersteunde gastbesturingssystemen: Windows Server 2016, Ubuntu 16.04 TNS, SLES 12 SP2, en Red Hat Enterprise Linux, CentOS 7.3 of Oracle Linux 7.3 met LIS 4.2.1
+
+## <a name="fs-series-sup1sup"></a>Fs-series <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -57,7 +59,7 @@ ACU: 210 - 250
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standard_F4  | 4         | 8           | 64             | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standard_F8  | 8         | 16          | 128            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000           |
+| Standard_F16 | 16        | 32          | 256            | 48.000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
 
 
 <br>
