@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Toegang tot Azure Key Vault achter een firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>V: Mijn key vault-clienttoepassing moet zich achter een firewall bevinden. Welke poorten, hosts of IP-adressen moet ik openen om toegang tot een key vault mogelijk te maken?
@@ -33,13 +33,13 @@ Er zijn enkele verschillen, afhankelijk van uw configuratie en omgeving.
 ## <a name="ports"></a>Poorten
 Al het verkeer naar de key vault voor de drie functies (verificatie, beheer en toegang tot gegevenslaag) gaat via HTTPS: poort 443. Voor CRL gaat het verkeer soms echter via HTTP (poort 80). Clients die ondersteuning bieden voor OCSP, mogen CRL niet bereiken, maar kunnen soms [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) bereiken.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Key vault-clienttoepassingen moet toegang hebben tot Azure Active Directory-eindpunten voor verificatie. Welk eindpunt wordt gebruikt, hangt af van de configuratie van de Azure AD-tenant en het type principal (gebruikers-principal of service-principal) en het type account, bijvoorbeeld een Microsoft-account of een werk- of schoolaccount.  
 
 | Type principal | Eindpunt:poort |
 | --- | --- |
-| Gebruiker gebruikt Microsoft-account<br> (bijvoorbeeld, user@hotmail.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login-us.microsoftonline.com:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443<br><br> en <br>login.live.com:443 |
-| Gebruiker of service-principal gebruikt een werk- of schoolaccount met Microsoft Azure Active Directory (bijvoorbeeld user@contoso.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login-us.microsoftonline.com:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443 |
+| Gebruiker gebruikt Microsoft-account<br> (bijvoorbeeld, user@hotmail.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login.microsoftonline.us:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443<br><br> en <br>login.live.com:443 |
+| Gebruiker of service-principal gebruikt een werk- of schoolaccount met Microsoft Azure Active Directory (bijvoorbeeld user@contoso.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login.microsoftonline.us:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443 |
 | Gebruiker of service-principal gebruikt een werk- of schoolaccount, plus Active Directory Federation Services (AD FS) of andere federatief eindpunt (bijvoorbeeld user@contoso.com) |Alle eindpunten voor een werk- of schoolaccount, plus AD FS- of andere federatieve eindpunten |
 
 Er zijn andere, mogelijk complexe scenario's. Raadpleeg [Azure Active Directory-verificatiestroom](/documentation/articles/active-directory-authentication-scenarios/), [Toepassingen integreren met Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) en [Active Directory-verificatieprotocollen](https://msdn.microsoft.com/library/azure/dn151124.aspx) voor meer informatie.  

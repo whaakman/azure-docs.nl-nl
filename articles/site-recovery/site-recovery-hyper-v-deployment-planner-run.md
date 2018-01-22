@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 34f0b641abcf4231655d74da46f1bdcadc5642f6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>De Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure uitvoeren
 
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|Geef het type virtualisatie op (VMware of Hyper-V).|
 |-Directory|(Optioneel) Het UNC-pad (Universal Naming Convention) of het pad naar de lokale directory voor het opslaan van gegevens die tijdens de profilering worden gegenereerd. Als er geen directory wordt opgegeven, wordt de directory met de naam 'ProfiledData' onder het huidige pad gebruikt als de standaarddirectory.|
 |-Password|(Optioneel) Het wachtwoord om verbinding te maken met de Hyper-V-host. Als u dit nu niet opgeeft, wordt u er later om gevraagd wanneer de opdracht wordt uitgevoerd.|
-|-StorageAccountName|(Optioneel) De naam van het opslagaccount dat wordt gebruikt om de bereikbare doorvoer te vinden voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de doorvoer te berekenen.|
+|-StorageAccountName|(Optioneel) De naam van het opslagaccount dat wordt gebruikt om de bereikbare doorvoer te vinden voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de doorvoer te berekenen. Het opslagaccount moet Algemeen gebruik v1 of storageV2 (Algemeen gebruik v2) zijn|
 |-StorageAccountKey|(Optioneel) De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > Opslagaccounts > <Storage account name> > Instellingen > Toegangssleutels > Key1 (of primaire toegangssleutel voor klassieke opslagaccount).|
 |-Environment|(Optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw Azure-doelregio de clouds voor Azure van de Amerikaanse overheid of Azure voor China is.|
 
@@ -274,7 +274,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughtput |
 |-Virtualization|Geef het type virtualisatie op (VMware of Hyper-V).|
 |-Directory|(Optioneel) De UNC-directory (universal naming convention) of de lokale directory waar de geprofileerde gegevens (bestanden die tijdens de profilering zijn gegenereerd) worden opgeslagen. Deze gegevens zijn vereist voor het genereren van het rapport. Als er geen naam wordt opgegeven, wordt de directory met de naam 'ProfiledData' onder het huidige pad gebruikt als de standaarddirectory.|
-| -StorageAccountName | De naam van het opslagaccount dat wordt gebruikt om de bandbreedte te bepalen die wordt gebruikt voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de gebruikte bandbreedte te bepalen. |
+| -StorageAccountName | De naam van het opslagaccount dat wordt gebruikt om de bandbreedte te bepalen die wordt gebruikt voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de gebruikte bandbreedte te bepalen. Het opslagaccount moet Algemeen gebruik v1 of storageV2 (Algemeen gebruik v2) zijn |
 | -StorageAccountKey | De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > Opslagaccounts > <*naam van opslagaccount*> > Instellingen > Toegangssleutels > Key1.|
 | -VMListFile | Het bestand met de lijst met virtuele machines die moeten worden geprofileerd voor het berekenen van de gebruikte bandbreedte. Het bestandspad kan absoluut of relatief zijn. Voor Hyper-V is dit het uitvoerbestand voor de bewerking GetVMList. Als u de voorbereiding handmatig uitvoert, moet het bestand een servernaam of IP-adres bevatten, gevolgd door de naam van de VM, gescheiden door een \ per regel. De naam van de virtuele machine die in het bestand is opgegeven, moet gelijk zijn aan de naam van de virtuele machine op de Hyper-V host.<ul>Het bestand VMList.txt bevat bijvoorbeeld de volgende virtuele machines:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw Azure-doelregio de clouds voor Azure van de Amerikaanse overheid of Azure voor China is.|

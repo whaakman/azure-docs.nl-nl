@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure 
 Zie [Compare with version 1](compare-versions.md) (Vergelijken met versie 1) voor een lijst met verschillen tussen versie 1 en versie 2 van de Data Factory-service. 
 
 ## <a name="next-steps"></a>Volgende stappen
-In de volgende snelstartgidsen vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) en Azure Portal. 
+Aan de slag met het maken van een Data Factory-pijplijn met een van de volgende hulpprogramma's/SDK's: 
+
+- [Data Factory-gebruikersinterface in Azure Portal](quickstart-create-data-factory-portal.md)
+- [Hulpprogramma voor het kopiëren van gegevens in Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager-sjabloon](quickstart-create-data-factory-resource-manager-template.md)
+ 

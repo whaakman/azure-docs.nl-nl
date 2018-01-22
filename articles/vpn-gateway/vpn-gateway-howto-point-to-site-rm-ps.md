@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: PowerShell
 
@@ -165,7 +165,7 @@ Configureer en maak de virtuele netwerkgateway voor uw VNet.
 
 * -GatewayType moet **Vpn** zijn en -VpnType moet **RouteBased** zijn.
 * -VpnClientProtocol wordt gebruikt om de soorten tunnels op te geven die u wilt inschakelen. De twee tunnelopties zijn **SSTP** en **IKEv2**. U kunt een van beide of beide inschakelen. Als u ze beide wilt inschakelen, geeft u beide namen op, gescheiden door een komma. De Strongswan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP.
-* Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md) die u selecteert. In dit voorbeeld wordt IKEv2 gebruikt, dat momenteel beschikbaar is als preview.
+* Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md) die u selecteert. In dit voorbeeld wordt IKEv2 gebruikt.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

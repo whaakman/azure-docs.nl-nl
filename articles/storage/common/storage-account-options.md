@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
@@ -31,7 +31,7 @@ Azure Storage biedt drie verschillende accountopties, met verschillende prijzen 
 * **General Purpose v1 (GPv1)**-accounts maken gebruik van alle Azure Storage-services, maar hebben mogelijk niet de nieuwste functies of de laagste GB prijzen. Statische en archiefopslag worden bijvoorbeeld niet ondersteund in GPv1.  Prijzen zijn lager voor transacties, zodat workloads met een hoog verloop of hoge leessnelheden van dit accounttype kunnen profiteren.
 
 ### <a name="changing-account-kind"></a>Soort account wijzigen
-Gebruikers kunnen een GPv1- of een Blob Storage-account upgraden naar een GPv2-account op elk gewenst moment via de portal, CLI of PowerShell. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan.
+Gebruikers kunnen op elk gewenst moment een GPv1-account upgraden naar een GPv2-account via de portal, CLI of PowerShell. Deze wijziging kan niet ongedaan worden gemaakt en er zijn geen andere wijzigingen toegestaan. De mogelijkheid om Blob Storage-accounts naar GPv2 te upgraden, is binnenkort beschikbaar.
 
 ## <a name="general-purpose-v2"></a>General Purpose v2
 **General Purpose v2 (GPv2)** zijn opslagaccounts die alle functies voor alle opslagservices ondersteunen, waaronder blobs, bestanden, wachtrijen en tabellen. Voor blok-blobs kunt u kiezen tussen dynamische- en statische-opslaglagen op accountniveau, of dynamische-, statische- en archiefopslaglagen op blob-niveau, op basis van toegangspatronen. Sla gegevens die vaak, onregelmatig en zelden worden geopend op in respectievelijk de dynamische-, statische- en archiefopslaglaag om de kosten te optimaliseren. Belangrijk is dat elk GPv1-account kan worden bijgewerkt naar een GPv2-account in de portal, CLI of PowerShell. GPv2-accounts bieden ondersteuning voor alle API's en functies die worden ondersteund in de Blob Storage- en GPv1-accounts, delen alle geweldige kenmerken van duurzaamheid, beschikbaarheid, schaalbaarheid en prestatiefuncties in deze accounttypen.
@@ -130,7 +130,7 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 11. Klik op **Maken** om het opslagaccount te maken.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Een GPv1- of Blob Storage-account converteren naar een GPv2-opslagaccount met behulp van Azure Portal
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Een GPv1 account converteren naar een GPv2-opslagaccount met behulp van Azure Portal
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -247,7 +247,7 @@ De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan o
 
 ## <a name="migrating-existing-data"></a>Bestaande gegevens migreren
 
-Een GPv1 of Blob Storage-account kan gemakkelijk worden bijgewerkt naar GPv2 zonder uitvaltijd of API-wijzigingen en zonder de noodzaak voor het verplaatsen van gegevens. Dit is een van de belangrijkste voordelen van GPv2 vs. Blob Storage-accounts.
+Upgraden van een GPv1-account naar GPv2 kan gemakkelijk zonder uitvaltijd of API-wijzigingen en zonder de noodzaak om gegevens te verplaatsen. Dit is een van de belangrijkste voordelen van GPv2 vs. Blob Storage-accounts.
 
 Echter, als u naar een Blob Storage-account wilt migreren, kunt u de onderstaande instructies volgen.
 
@@ -280,15 +280,19 @@ Zie [Aan de slag met Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blob
 
 **Zijn de bestaande opslagaccounts nog steeds beschikbaar?**
 
-Ja, de bestaande opslagaccounts zijn nog steeds beschikbaar. De prijs en de functionaliteit hiervan zijn niet gewijzigd.  U kunt voor deze opslagaccounts echter geen opslaglagen kiezen. Dit zal in de toekomst niet veranderen.
+Ja, de bestaande opslagaccounts (GPv1) zijn nog steeds beschikbaar. De prijs en de functionaliteit hiervan zijn niet gewijzigd.  U kunt voor GPv1 accounts echter geen opslaglagen kiezen. Dit zal in de toekomst niet veranderen.
 
 **Waarom en wanneer is het een goed idee om GPv2-opslagaccounts te gebruiken?**
 
 GPv2-opslagaccounts zijn speciaal bestemd voor het leveren van de laagste GB-opslagkosten en concurrerende transactie- en gegevenstoegangskosten. Het is een goed idee om GPv2-opslagaccounts te gebruiken voor het opslaan van blobs, omdat er in de toekomst nieuwe mogelijkheden zoals meldingen bij wijzigingen worden geïntroduceerd in dit accounttype. Op basis van uw bedrijfsvereisten bepaalt u echter helemaal zelf wanneer u uw gegevens bijwerkt.  U kunt bijvoorbeeld uw transactiepatronen vóór de upgrade optimaliseren.
 
+Downgrade van GPv2 wordt niet ondersteund, dus houd rekening met alle implicaties voor de prijzen vóór de upgrade van uw accounts naar GPv2.
+
 **Kan ik mijn bestaande opslagaccount bijwerken naar een GPv2-opslagaccount?**
 
-Ja. GPv1- of Blob Storage-accounts kunnen gemakkelijk worden bijgewerkt naar GPv2 in de portal.
+Ja. Upgraden van een GPv1-account naar GPv2 kan gemakkelijk in de portal, of met PowerShell of CLI. Upgraden van Blob Storage-accounts naar GPv2 kan met PowerShell of CLI. De mogelijkheid om Blob Storage-accounts in de portal naar GPv2 te upgraden, is binnenkort beschikbaar.
+
+Downgrade van GPv2 wordt niet ondersteund, dus houd rekening met alle implicaties voor de prijzen vóór de upgrade van uw accounts naar GPv2.
 
 **Kan ik objecten opslaan in beide opslaglagen van hetzelfde account?**
 
@@ -315,6 +319,8 @@ Nee. Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagi
 **Moet ik mijn bestaande toepassingen wijzigen om GPv2-opslagaccounts te kunnen gebruiken?**
 
 GPv2-opslagaccounts zijn 100 procent API-consistent met GPv1- en Blob Storage-accounts. Zolang uw toepassing gebruikmaakt van blok-blobs of toevoeg-blobs en u versie 2014-02-14 of hoger van de [REST-API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) gebruikt, zal uw toepassing geen problemen ondervinden. Als u een oudere versie van het protocol gebruikt, moet u uw toepassing bijwerken voor gebruik van de nieuwe versie, zodat deze naadloos werkt met beide typen opslagaccounts. Over het algemeen is het bijna altijd het beste om de meest recente versie te gebruiken, ongeacht het type opslagaccount dat u gebruikt.
+
+Prijzen voor GPv2 zijn in het algemeen hoger dan GPv1 voor transacties en bandbreedte. Daarom kan het nodig zijn om uw transactiepatronen vóór de upgrade te optimaliseren, zodat de totale rekening niet hoger wordt.
 
 **Wordt de gebruikerservaring gewijzigd?**
 

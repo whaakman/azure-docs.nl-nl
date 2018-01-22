@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT-opties vergelijken
 
@@ -27,13 +27,13 @@ Het artikel [Azure en het Internet of Things](iot-suite-what-is-azure-iot.md) be
 
 Azure IoT biedt verschillende opties voor het implementeren van deze architectuur, elk geschikt voor verschillende klantvereisten:
 
-* [Azure IoT Suite](index.md) is een verzameling van [vooraf geconfigureerde oplossingen](iot-suite-what-are-preconfigured-solutions.md) op bedrijfsniveau, gebouwd op het platform-as-a-service van Azure, waarmee u aangepaste IoT-oplossingen sneller kunt ontwikkelen.
+* [Azure IoT Suite](index.md) is een verzameling met [vooraf geconfigureerde oplossingen](iot-suite-what-are-preconfigured-solutions.md) op bedrijfsniveau, gebouwd op Azure PaaS (Platform as a Service), waarmee u aangepaste IoT-oplossingen sneller kunt ontwikkelen.
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is een SaaS-oplossing die gebruikmaakt van een op modellen gebaseerde benadering waarmee u IoT-oplossingen op bedrijfsniveau kunt bouwen zonder kennis van het ontwikkelen van cloudoplossingen.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is een SaaS-oplossing (Software as a Service) die gebruikmaakt van een op modellen gebaseerde benadering waarmee u IoT-oplossingen op bedrijfsniveau kunt bouwen zonder kennis van het ontwikkelen van cloudoplossingen.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub is het kern-platform-as-a-service van Azure waarvan zowel Microsoft IoT Central als Azure IoT Suite gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
+Azure IoT Hub is de kern-PaaS van Azure waarvan zowel Microsoft IoT Central als Azure IoT Suite gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
 
 * Connectiviteit en beheer van grote volumes aan apparaten.
 * Telemetrieopname van groot volume.
