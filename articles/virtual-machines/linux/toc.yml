@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Migreren naar Premium Storage met Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Niet-gekoppelde schijven zoeken
+          href: find-unattached-disks.md
         - name: Bestandsopslag gebruiken
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Schijven implementeren met sjabloon

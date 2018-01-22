@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Migreren naar Premium Storage met Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Niet-gekoppelde schijven zoeken
+          href: find-unattached-disks.md
         - name: Bestandsopslag gebruiken
           href: mount-azure-file-storage.md
         - name: Schijven implementeren met sjabloon
@@ -418,7 +420,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Geneste virtualisatie gebruiken
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Azure-CLI
       href: /cli/azure/vm

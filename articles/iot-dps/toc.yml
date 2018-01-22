@@ -52,9 +52,15 @@
     - name: 2 - Apparaat instellen
       href: tutorial-set-up-device.md
     - name: 3 - Een apparaat inrichten naar een IoT-hub
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Apparaten inrichten naar meerdere hubs
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Groepsregistraties inrichten
+      href: tutorial-group-enrollments.md
 - name: Concepten
   items:
     - name: Apparaatconcepten
@@ -73,9 +79,11 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Apparaattoegang intrekken
       href: how-to-revoke-device-access-portal.md
+    - name: Inrichting van apparaten verwijderen
+      href: how-to-unprovision-devices.md
     - name: Gebruik HSM met SDK
       href: use-hsm-with-sdk.md
-    - name: Toegang tot Device Provisioning Service beheren
+    - name: Toegang tot de inrichtingsservice beheren
       href: how-to-control-access.md
     - name: Azure CLI gebruiken voor het beheren van Device Provisioning Service
       href: how-to-manage-dps-with-cli.md

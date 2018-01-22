@@ -44,6 +44,8 @@
         - name: Hulpprogramma's voor VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Taken verzenden vanuit R-hulpprogramma's voor Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Clusters uitbreiden
       items:
         - name: Clusters aanpassen met Bootstrap
@@ -269,7 +271,7 @@
         - name: Cluster-prestaties bewaken
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

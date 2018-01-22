@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: De Phoenix-queryserver REST SDK gebruiken
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Big data analyseren
+      items:
+        - name: Spark gebruiken om HBase-gegevens te lezen en te schrijven
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Clusters uitbreiden
       items:
         - name: Clusters aanpassen met Bootstrap
@@ -233,7 +238,7 @@
         - name: Cluster-prestaties bewaken
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Codevoorbeelden
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

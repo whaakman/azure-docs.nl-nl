@@ -4,7 +4,7 @@
   items:
     - name: Wat is Automation?
       href: automation-intro.md
-- name: Quickstarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een Automation-account maken
@@ -95,7 +95,7 @@
           href: automation-hrw-run-runbooks.md
         - name: Hybrid Runbook Worker voor Azure Automation verwijderen
           href: automation-remove-hrw.md
-    - name: Configuratiebeheer (DSC) implementeren
+    - name: Configuration Management (DSC) implementeren
       items:
         - name: Overzicht van Desired State Configuration (DSC)
           href: automation-dsc-overview.md
@@ -131,10 +131,10 @@
       items:
         - name: Runbook-galerie
           href: automation-runbook-gallery.md
+        - name: Een runbook starten vanuit een Azure-waarschuwing
+          href: automation-create-alert-triggered-runbook.md
         - name: Een Amazon Web Service-VM maken
           href: automation-scenario-aws-deployment.md
-        - name: Een Azure VM-waarschuwing herstellen
-          href: automation-azure-vm-alert-integration.md
         - name: Een virtuele machine starten/stoppen met JSON-tags
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Een resourcegroep verwijderen
@@ -163,7 +163,7 @@
           href: automation-vm-inventory.md
         - name: Virtuele machines starten/stoppen buiten kantooruren
           href: automation-solution-vm-management.md
-    - name: Bewaken
+    - name: Controleren
       items:
         - name: Azure Automation-taakgegevens doorsturen naar Log Analytics
           href: automation-manage-send-joblogs-log-analytics.md
