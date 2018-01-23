@@ -91,80 +91,6 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Problemen oplossen
           href: logic-apps-diagnosing-failures.md
-    - name: Beheren
-      items:
-        - name: 'Logische apps beheren: Visual Studio'
-          href: logic-apps-manage-from-vs.md
-        - name: Integratieaccounts beheren
-          href: logic-apps-enterprise-integration-accounts.md
-    - name: 'Connectors: gedetailleerde onderwerpen'
-      items:
-        - name: AS2
-          href: logic-apps-enterprise-integration-as2.md
-        - name: Azure Blob Storage
-          href: ../connectors/connectors-create-api-azureblobstorage.md
-        - name: Azure Functions
-          href: logic-apps-azure-functions.md
-        - name: Azure Logic Apps
-          href: logic-apps-http-endpoint.md
-        - name: Azure SQL Database
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: Aangepaste API's/web-apps
-          href: logic-apps-create-api-app.md
-        - name: DB2
-          href: ../connectors/connectors-create-api-db2.md
-        - name: Dynamics 365 CRM Online
-          href: ../connectors/connectors-create-api-crmonline.md
-        - name: EDIFACT
-          href: logic-apps-enterprise-integration-edifact.md
-        - name: Event Hubs
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Bestandssysteem
-          href: logic-apps-using-file-connector.md
-        - name: Plat bestand
-          href: logic-apps-enterprise-integration-flatfile.md
-        - name: FTP
-          href: ../connectors/connectors-create-api-ftp.md
-        - name: HTTP
-          href: ../connectors/connectors-native-http.md
-        - name: HTTP + Swagger
-          href: ../connectors/connectors-native-http-swagger.md
-        - name: HTTP-webhook
-          href: ../connectors/connectors-native-webhook.md
-        - name: Informix
-          href: ../connectors/connectors-create-api-informix.md
-        - name: Integratieaccount
-          href: logic-apps-enterprise-integration-metadata.md
-        - name: MQ
-          href: ../connectors/connectors-create-api-mq.md
-        - name: Office 365 Outlook
-          href: ../connectors/connectors-create-api-office365-outlook.md
-        - name: Oracle Database
-          href: ../connectors/connectors-create-api-oracledatabase.md
-        - name: Vraag/antwoord
-          href: ../connectors/connectors-native-reqres.md
-        - name: SalesForce
-          href: ../connectors/connectors-create-api-salesforce.md
-        - name: SAP
-          href: logic-apps-using-sap-connector.md
-        - name: Planning
-          href: ../connectors/connectors-native-recurrence.md
-        - name: Service Bus
-          href: ../connectors/connectors-create-api-servicebus.md
-        - name: SharePoint Online
-          href: ../connectors/connectors-create-api-sharepointonline.md
-        - name: SharePoint Server
-          href: ../connectors/connectors-create-api-sharepointserver.md
-        - name: SQL Server
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: XML transformeren
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Twitter
-          href: ../connectors/connectors-create-api-twitter.md
-        - name: X12
-          href: logic-apps-enterprise-integration-x12.md
-        - name: XML-validatie
-          href: logic-apps-enterprise-integration-xml-validation.md
     - name: Ontwikkelen voor B2B-scenario's
       items:
         - name: Een integratieaccount maken
@@ -226,6 +152,80 @@
           href: logic-apps-gateway-install.md
         - name: Verbinding maken met on-premises gegevens
           href: logic-apps-gateway-connection.md
+    - name: 'Connectors: gedetailleerde onderwerpen'
+      items:
+        - name: AS2
+          href: logic-apps-enterprise-integration-as2.md
+        - name: Azure Blob Storage
+          href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Azure Functions
+          href: logic-apps-azure-functions.md
+        - name: Azure Logic Apps
+          href: logic-apps-http-endpoint.md
+        - name: Azure SQL Database
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Aangepaste API's en web-apps
+          href: logic-apps-create-api-app.md
+        - name: DB2
+          href: ../connectors/connectors-create-api-db2.md
+        - name: Dynamics 365 CRM Online
+          href: ../connectors/connectors-create-api-crmonline.md
+        - name: EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
+        - name: Event Hubs
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
+        - name: Bestandssysteem
+          href: logic-apps-using-file-connector.md
+        - name: Plat bestand
+          href: logic-apps-enterprise-integration-flatfile.md
+        - name: FTP
+          href: ../connectors/connectors-create-api-ftp.md
+        - name: HTTP
+          href: ../connectors/connectors-native-http.md
+        - name: HTTP + Swagger
+          href: ../connectors/connectors-native-http-swagger.md
+        - name: HTTP-webhook
+          href: ../connectors/connectors-native-webhook.md
+        - name: Informix
+          href: ../connectors/connectors-create-api-informix.md
+        - name: Integratieaccount
+          href: logic-apps-enterprise-integration-metadata.md
+        - name: MQ
+          href: ../connectors/connectors-create-api-mq.md
+        - name: Office 365 Outlook
+          href: ../connectors/connectors-create-api-office365-outlook.md
+        - name: Oracle Database
+          href: ../connectors/connectors-create-api-oracledatabase.md
+        - name: Vraag/antwoord
+          href: ../connectors/connectors-native-reqres.md
+        - name: SalesForce
+          href: ../connectors/connectors-create-api-salesforce.md
+        - name: SAP
+          href: logic-apps-using-sap-connector.md
+        - name: Planning
+          href: ../connectors/connectors-native-recurrence.md
+        - name: Azure Service Bus
+          href: ../connectors/connectors-create-api-servicebus.md
+        - name: SharePoint Online
+          href: ../connectors/connectors-create-api-sharepointonline.md
+        - name: SharePoint Server
+          href: ../connectors/connectors-create-api-sharepointserver.md
+        - name: SQL Server
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: XML transformeren
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Twitter
+          href: ../connectors/connectors-create-api-twitter.md
+        - name: X12
+          href: logic-apps-enterprise-integration-x12.md
+        - name: XML-validatie
+          href: logic-apps-enterprise-integration-xml-validation.md
+    - name: Beheren
+      items:
+        - name: 'Logische apps beheren: Visual Studio'
+          href: logic-apps-manage-from-vs.md
+        - name: Integratieaccounts beheren
+          href: logic-apps-enterprise-integration-accounts.md
     - name: Implementeren
       items:
         - name: Sjablonen voor automatische implementatie maken

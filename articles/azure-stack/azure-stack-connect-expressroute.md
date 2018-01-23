@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Verbinding maken met Azure-Stack in Azure maken met ExpressRoute
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Er zijn twee manieren verbinding maken met virtuele netwerken in Azure-Stack van virtuele netwerken in Azure:
-   * **Site-naar-Site**
+   * **Site-to-Site**
 
      Een VPN-verbinding via IPsec (IKE v1 en IKE v2). Voor dit type verbinding is een VPN-apparaat of RRAS vereist. Zie voor meer informatie [Azure-Stack naar Azure via VPN verbinding](azure-stack-connect-vpn.md).
    * **ExpressRoute**
@@ -90,7 +90,7 @@ Gebruik de volgende procedures voor het maken van de vereiste netwerkbronnen in 
    |---------|---------|
    |Naam     |Tenant1VNet1         |
    |Adresruimte     |10.1.0.0/16|
-   |Subnetnaam     |Tenant1 Abb1|
+   |Subnetnaam     |Tenant1-Sub1|
    |Subnetadresbereik     |10.1.1.0/24|
 
 6. In het veld **Abonnement** wordt nu het abonnement weergegeven dat u eerder hebt ingevuld.
@@ -205,19 +205,22 @@ De router is een virtuele machine van Windows Server (**AzS BGPNAT01**) de rol v
    In de diagrammen voorbeeld de *externe BGPNAT adres* 10.10.0.62 is en de *interne IP-adres* 192.168.102.1 is.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ De router is een virtuele machine van Windows Server (**AzS BGPNAT01**) de rol v
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ De router is een virtuele machine van Windows Server (**AzS BGPNAT01**) de rol v
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```

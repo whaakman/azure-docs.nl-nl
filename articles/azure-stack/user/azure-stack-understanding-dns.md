@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introducing IDN's voor Azure-Stack
 
@@ -30,7 +30,7 @@ U kunt er ook intern virtueel netwerknamen te registreren. Op deze manier kunt u
 Er is iets wat er in Azure is, maar is beschikbaar in Windows Server 2016 en Azure-Stack te.
 
 ## <a name="what-does-idns-do"></a>Wat doet de IDN's?
-Met IDN's in Azure-Stack krijgt u de volgende mogelijkheden zonder aangepaste DNS-serveringangen opgeven.
+Met IDN's in Azure-Stack beschikt u over de volgende mogelijkheden zonder aangepaste DNS-serveringangen opgeven:
 
 * DNS-services voor naamomzetting tenantwerkbelastingen gedeeld.
 * Gezaghebbende DNS-service voor naamomzetting en DNS-registratie in het virtuele netwerk van de tenant.
@@ -47,7 +47,7 @@ In Azure hebt u de optie voor het opgeven van een label van DNS-naam die gekoppe
 
 In de afbeelding hierboven, maakt Azure een "A" record in DNS voor het label van DNS-naam opgegeven onder de zone **westus.cloudapp.azure.com**. Het voorvoegsel en het achtervoegsel samen vormen een Fully Qualified Domain Name (FQDN) die kan worden omgezet vanaf elke locatie op het openbare Internet.
 
-Azure-Stack ondersteunt alleen IDN's voor registratie van de interne naam, zodat het volgende niet doen.
+Azure-Stack ondersteunt alleen IDN's voor registratie van de interne naam, zodat het volgende niet doen:
 
 * Maak een DNS-record onder een bestaande gehoste DNS-zone (bijvoorbeeld local.azurestack.external).
 * Maak een DNS-zone (zoals Contoso.com).
