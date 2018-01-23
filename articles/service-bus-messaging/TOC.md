@@ -28,13 +28,13 @@
 ### [Op rollen gebaseerd toegangsbeheer (preview)](service-bus-role-based-access-control.md)
 ### [Premium Messaging](service-bus-premium-messaging.md)
 ### [Azure- en Service Bus-wachtrijen vergelijken](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Een Service Bus-toepassing met meerdere lagen bouwen](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Prestaties optimaliseren](service-bus-performance-improvements.md)
 ### [Herstel bij geo-gerelateerde noodgevallen en geo-replicatie](service-bus-geo-dr.md)
 ### [Asynchrone berichten en hoge beschikbaarheid](service-bus-async-messaging.md)
 ### [Uitval en noodgevallen afhandelen](service-bus-outages-disasters.md)
 
 ## Ontwikkelen
+### [Een Service Bus-toepassing met meerdere lagen bouwen](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Afhandeling van berichten
 #### [Wachtrijen, onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md)
 #### [Berichten, nettoladingen en serialisatie](service-bus-messages-payloads.md)

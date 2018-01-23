@@ -341,7 +341,7 @@
         - name: Sleutels en consistentie beheren
           href: manage-account.md
         - name: Azure Opslagverkenner
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Beveiliging
           items:
             - name: Versleuteling 'at rest'
