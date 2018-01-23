@@ -3,7 +3,7 @@ title: Beheerde Service-identiteit (MSI) voor Azure Active Directory
 description: Een overzicht van beheerde Service-identiteit voor Azure-resources.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service-identiteit (MSI) voor Azure-resources
 
@@ -63,6 +63,7 @@ Probeer een Service-identiteit beheerd-zelfstudie voor meer informatie over de e
 |                    | [Toegang tot een niet-Azure AD-resource met een Linux VM beheerde Service-identiteit en Azure Sleutelkluis](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
 | Azure-functie     | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Gebruiker beheerd met Azure Servicebus-Service-identiteit](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Welke Azure-services ondersteuning bieden voor Service-identiteiten beheerd?
 
@@ -74,7 +75,7 @@ De volgende Azure-services ondersteuning bieden voor Service-identiteiten beheer
 
 | Service | Status | Date | Configureren | Een token ophalen |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | September 2017 | [Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure-CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Ga](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
+| Azure Virtual Machines | Preview | September 2017 | [Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure-CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Functions | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | November 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
@@ -85,12 +86,12 @@ De volgende services ondersteuning bieden voor Azure AD-verificatie en getest me
 
 | Service | Resource-id | Status | Date | Toegang toewijzen |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Beschikbaar | September 2017 | [Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure-CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://Vault.Azure.NET/ | Beschikbaar | September 2017 | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Beschikbaar | September 2017 | |
-| Azure SQL | https://database.Windows.NET/ | Beschikbaar | Oktober 2017 | |
-| Azure Event Hubs | https://eventhubs.Azure.NET/ | Beschikbaar | December 2017 | |
-| Azure Service Bus | https://servicebus.Azure.NET/ | Beschikbaar | December 2017 | |
+| Azure Resource Manager | https://management.azure.com/ | Beschikbaar | September 2017 | [Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure-CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Beschikbaar | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Beschikbaar | September 2017 | |
+| Azure SQL | https://database.windows.net/ | Beschikbaar | Oktober 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net/ | Beschikbaar | December 2017 | |
+| Azure Service Bus | https://servicebus.azure.net/ | Beschikbaar | December 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Wat kost Service-identiteit beheerd?
 

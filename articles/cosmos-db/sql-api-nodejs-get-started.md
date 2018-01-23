@@ -15,11 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3b3dc3675c495d9558ccb135f3177491d2aaf527
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js-zelfstudie: de SQL-API gebruiken in Azure Cosmos DB een Node.js-consoletoepassing maken
 > [!div class="op_single_selector"]
@@ -262,7 +262,7 @@ Kopieer de code en plak deze onder de plaats waar u de functie **getDatabase** i
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-database gemaakt.
+Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.
 
 ## <a id="CreateColl"></a>Stap 6: een verzameling maken
 > [!WARNING]
@@ -316,7 +316,7 @@ Kopieer en plak de code onder de aanroep van **getDatabase** om de functie **get
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure DB die Cosmos-verzameling gemaakt.
+Gefeliciteerd! U hebt een Azure DB die Cosmos-verzameling gemaakt.
 
 ## <a id="CreateDoc"></a>Stap 7: een document maken
 U kunt een [document](sql-api-resources.md#documents) maken met de functie [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een document invoegen in Azure Cosmos DB.
@@ -336,7 +336,7 @@ Kopieer de functie **getFamilyDocument** en plak deze onder de functie **getColl
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {
@@ -368,7 +368,7 @@ Kopieer en plak de code onder de aanroep van **getCollection** om de functie **g
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure DB die Cosmos-document gemaakt.
+Gefeliciteerd! U hebt een Azure DB die Cosmos-document gemaakt.
 
 ![Node.js-zelfstudie: diagram waarin u de hiërarchische relatie ziet tussen het account, de database, de verzameling en de documenten - Knooppuntdatabase](./media/sql-api-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
@@ -427,7 +427,7 @@ Kopieer en plak de code onder de aanroep van **getFamilyDocument** om de functie
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een query uitgevoerd op Azure Cosmos DB-documenten.
+Gefeliciteerd! U hebt een query uitgevoerd op Azure Cosmos DB-documenten.
 
 ## <a id="ReplaceDocument"></a>Stap 9: een document vervangen
 Azure Cosmos DB biedt ondersteuning voor het vervangen van JSON-documenten.
@@ -474,7 +474,7 @@ Kopieer en plak de code onder de aanroep van **queryCollection** om de functie *
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document vervangen.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document vervangen.
 
 ## <a id="DeleteDocument"></a>Stap 10: een document verwijderen
 Azure Cosmos DB biedt ondersteuning voor het verwijderen van JSON-documenten.
@@ -518,7 +518,7 @@ Kopieer en plak de code onder de aanroep van de tweede **queryCollection** om de
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document verwijderd.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document verwijderd.
 
 ## <a id="DeleteDatabase"></a>Stap 11: de knooppuntdatabase verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
@@ -604,7 +604,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de ond
     Completed successfully
     Press any key to exit
 
-Gefeliciteerd. U hebt de Node.js-zelfstudie voltooid en beschikt nu over uw eerste Azure Cosmos DB-consoletoepassing.
+Gefeliciteerd! U hebt de Node.js-zelfstudie voltooid en beschikt nu over uw eerste Azure Cosmos DB-consoletoepassing.
 
 ## <a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken
 Als u geen tijd hebt gehad om de stappen in deze zelfstudie uit te voeren of als u alleen de code wilt downloaden, kunt u deze ophalen van [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).

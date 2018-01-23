@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met informatie die worden vermeld in de onderstaande tabel kunt oplossen.
@@ -28,7 +28,7 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fout: De opgegeven schijf-configuratie wordt niet ondersteund.
 
 > [!NOTE]
-> We hebben een beperkte preview om back-ups voor virtuele machines met > 1 TB aan onbeheerde schijven te ondersteunen. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -75,7 +75,7 @@ Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn
 | Annulering wordt niet ondersteund voor dit taaktype: wacht totdat de taak is voltooid. |None |
 | De taak is niet in een status Annuleerbare - wacht totdat de taak is voltooid. <br>OF<br> De geselecteerde taak is niet in een status Annuleerbare - wacht tot de taak te voltooien. |De taak is naar alle waarschijnlijkheid bijna voltooid. Wacht totdat de taak is voltooid.|
 | De taak annuleren niet omdat deze niet uitgevoerd is-deze annulering wordt alleen ondersteund voor taken die uitgevoerd worden. Annuleer van poging op een onderhanden taak. |Dit gebeurt als gevolg van een tijdelijke status. Wacht een paar minuten en probeer de annuleringsbewerking. |
-| Annuleer de taak - is mislukt. Wacht totdat de taak is voltooid. |None |
+| Annuleer de taak - is mislukt. Wacht totdat de taak is voltooid. |Geen |
 
 ## <a name="restore"></a>Herstellen
 | Foutdetails | Tijdelijke oplossing |
@@ -83,13 +83,13 @@ Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn
 | Terugzetten is mislukt vanwege een interne Cloud fout |<ol><li>Cloudservice die u probeert te herstellen is geconfigureerd met DNS-instellingen. U kunt controleren <br>$deployment = get-AzureDeployment - ServiceName "ServiceName"-sleuf 'Productie' Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Als er is een adres dat is geconfigureerd, betekent dit dat de DNS-instellingen zijn geconfigureerd.<br> <li>Cloudservice waarnaar u wilt herstellen, is geconfigureerd met ReservedIP en bestaande virtuele machines in de cloudservice wordt gestopt.<br>U kunt controleren dat een cloudservice is gereserveerde IP-adres via de volgende powershell-cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>U probeert een virtuele machine te herstellen met de volgende speciale netwerkconfiguraties in dezelfde cloudservice. <br>-Virtuele machines onder load balancer-configuratie (intern en extern)<br>-Virtuele machines met meerdere gereserveerde IP 's<br>-Virtuele machines met meerdere NIC 's<br>Selecteer een nieuwe cloudservice in de gebruikersinterface of Raadpleeg [terugzetten overwegingen](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) voor virtuele machines met speciale netwerkconfiguraties.</ol> |
 | De geselecteerde DNS-naam is al in gebruik: Geef een andere DNS-naam en probeer het opnieuw. |De DNS-naam verwijst naar de naam van de cloudservice (meestal eindigend. cloudapp.net). Dit moet uniek zijn. Als deze fout optreedt, moet u een andere VM-naam kiezen tijdens het terugzetten. <br><br> Deze fout wordt alleen weergegeven op gebruikers van de Azure-portal. De herstelbewerking via PowerShell slaagt omdat deze alleen worden hersteld van de schijven en de virtuele machine niet maken. De fout wordt worden geconfronteerd wanneer de virtuele machine expliciet door u is gemaakt nadat de herstelbewerking van de schijf. |
 | De configuratie van de opgegeven virtuele netwerk is niet correct: Geef een ander virtueel netwerk-configuratie en probeer het opnieuw. |None |
-| De opgegeven cloudservice maakt gebruik van een gereserveerd IP-adres die komt niet overeen met de configuratie van de virtuele machine wordt hersteld - Geef een andere cloudservice, die niet van gereserveerde IP-adres gebruikmaakt, of kies een ander herstelpunt van herstellen. |None |
-| Cloudservice is bereikt voor het aantal invoer eindpunten: Voer de bewerking opnieuw uit door op te geven van een andere cloudservice of met behulp van een bestaand eindpunt. |Geen |
+| De opgegeven cloudservice maakt gebruik van een gereserveerd IP-adres die komt niet overeen met de configuratie van de virtuele machine wordt hersteld - Geef een andere cloudservice, die niet van gereserveerde IP-adres gebruikmaakt, of kies een ander herstelpunt van herstellen. |Geen |
+| Cloudservice is bereikt voor het aantal invoer eindpunten: Voer de bewerking opnieuw uit door op te geven van een andere cloudservice of met behulp van een bestaand eindpunt. |None |
 | Back-kluis en doel storage-account zijn in twee verschillende regio's: Zorg ervoor dat het storage-account opgegeven in restore-bewerking in dezelfde Azure-regio als de back-upkluis. |None |
 | Storage-Account opgegeven voor de herstelbewerking niet is ondersteund - alleen Basic/Standard storage-accounts met lokaal redundante of geografisch redundante replicatie-instellingen worden ondersteund. Selecteer een ondersteunde storage-account |None |
 | Type Opslagaccount dat is opgegeven voor de herstelbewerking is niet online - Zorg ervoor dat het storage-account opgegeven in restore-bewerking online is |Dit kan gebeuren vanwege een tijdelijke fout in Azure Storage of als gevolg van een storing. Kies een ander opslagaccount. |
 | Resourcegroep quotum is bereikt - Verwijder een aantal resourcegroepen van Azure portal of neem contact op met ondersteuning van Azure naar de limieten verhogen. |None |
-| Geselecteerde subnet bestaat niet: Selecteer een subnet dat bestaat |Geen |
+| Geselecteerde subnet bestaat niet: Selecteer een subnet dat bestaat |None |
 | De Backup-service heeft geen toegang tot resources in uw abonnement. |Om op te lossen, eerste herstellen schijven met stappen die worden vermeld in de sectie **terugzetten een back-up schijven** in [kiezen VM restore-configuratie](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Daarna Gebruik PowerShell-stappen die worden vermeld [een virtuele machine maken van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) volledige virtuele machine maken van herstelde schijven. |
 
 ## <a name="backup-or-restore-taking-time"></a>Backup of Restore duurt

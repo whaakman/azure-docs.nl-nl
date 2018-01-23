@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup-fout oplossen: problemen met de agent en/of extensie
 
@@ -78,7 +78,7 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>De opgegeven schijf-configuratie wordt niet ondersteund.
 
 > [!NOTE]
-> We hebben een beperkte preview om back-ups voor virtuele machines met > 1 TB aan onbeheerde schijven te ondersteunen. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Voor een juiste werking van de Backup-extensie is verbinding naar Azure openbare
 
 ####  <a name="solution"></a>Oplossing
 U lost het probleem probeert u een van de methoden die hier worden vermeld.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Toegang tot de Azure datacenter IP-adresbereiken toestaan
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Toegang tot Azure-opslag overeenkomt met de regio toestaan
 
-1. Verkrijgen van de [lijst met Azure datacenter IP-adressen](https://www.microsoft.com/download/details.aspx?id=41653) zodat toegang heeft.
-2. De IP-adressen deblokkeren door het uitvoeren van de **nieuw NetRoute** cmdlet in de Azure VM in een PowerShell-venster met verhoogde bevoegdheid. De cmdlet uitvoeren als beheerder.
-3. Voor toegang tot de IP-adressen, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
+U kunt de verbindingen naar de opslag van de specifieke regio toestaan met behulp van [service labels](../virtual-network/security-overview.md#service-tags). Zorg ervoor dat de regel die toegang tot het opslagaccount verleent hogere prioriteit dan de regel die blokkeert de toegang tot internet heeft. 
+
+![NSG met labels van de opslag voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Storage-service-tags zijn alleen beschikbaar in specifieke gebieden en zijn Preview-versie. Zie voor een lijst met regio's, [Service-tags voor opslag](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Maken van een pad voor de HTTP-verkeer
 
@@ -166,8 +169,6 @@ Taakfout momentopname kunnen worden veroorzaakt door de volgende voorwaarden:
 | --- | --- |
 | De virtuele machine heeft de SQL Server back-up is geconfigureerd. | Standaard back-up van de virtuele machine wordt uitgevoerd een VSS volledige back-ups op VM's van Windows. Op virtuele machines die worden uitgevoerd op basis van SQL Server-servers en op welke SQL-Server worden de back-up geconfigureerd, is de momentopname uitvoering vertragingen optreden.<br><br>Als u een back-up mislukt vanwege een probleem met de momentopname ondervindt, stelt u de volgende registersleutel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | De status van de virtuele machine is niet juist gerapporteerd, omdat de virtuele machine wordt afgesloten in RDP. | Als u de virtuele machine in Remote Desktop Protocol (RDP) afsluit, controleert u de portal om te bepalen of de status van de VM juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op de VM-dashboard. |
-| Veel virtuele machines in dezelfde cloudservice zijn geconfigureerd voor back-up op hetzelfde moment. | Het is een best practice verspreiden uit de back-upschema's voor virtuele machines in dezelfde cloudservice. |
-| De virtuele machine wordt uitgevoerd op een hoog gebruik van CPU of geheugen. | Als de virtuele machine wordt uitgevoerd op een hoog CPU-gebruik (meer dan 90 procent) of hoog geheugengebruik, wordt de momentopname-taak is in de wachtrij en vertraagd en wordt er uiteindelijk een time-out optreedt. In deze situatie probeert een-op-verzoek back-up. |
 | De virtuele machine kan de host/fabric-adres niet ophalen van DHCP. | DHCP moet binnen het gastbesturingssysteem voor de back-up van IaaS VM werken zijn ingeschakeld.  Als de virtuele machine niet het adres van de host/fabric uit DHCP-antwoord 245, kan het downloaden of uitvoeren van de uitbreidingen. Als u een statisch privé IP-adres nodig hebt, moet u deze via het platform configureren. De DHCP-optie in de virtuele machine moet naar links worden ingeschakeld. Zie voor meer informatie [instellen van een statische interne persoonlijke IP-adres](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>De Backup-extensie niet bijwerken of laden
@@ -192,24 +193,6 @@ Wilt u de uitbreiding verwijderen, het volgende doen:
 6. Klik op **verwijderen**.
 
 Deze procedure zorgt ervoor dat de extensie opnieuw worden geïnstalleerd tijdens de volgende back-up.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure Classic VM's mogelijk extra stap om inschrijving te voltooien
-De agent in Azure classic VM's moet worden geregistreerd voor het verbinding maken met de Backup-service en start de back-up
-
-#### <a name="solution"></a>Oplossing
-
-Na de installatie van de VM-gastagent start Azure PowerShell <br>
-1. Aanmelding in voor het gebruik van Azure-Account <br>
-       `Login-AzureAsAccount`<br>
-2. Controleren als van de virtuele machine ProvisionGuestAgent eigenschap is ingesteld op True, wordt door de volgende opdrachten <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Als de eigenschap is ingesteld op FALSE, volgt u onderstaande opdrachten worden ingesteld op TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Voer de volgende opdracht om de virtuele machine bijwerken <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Probeer de back-up te starten. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Backup-service heeft geen machtiging om te verwijderen van de oude herstelpunten vanwege resourcegroep vergrendelen
 Dit probleem is specifiek voor beheerde virtuele machines waarbij de gebruiker Hiermee vergrendelt u de resourcegroep en Backup-service kan niet worden verwijderd van de oudere herstelpunten. Als gevolg van dit nieuwe back-ups mislukken als er een limiet van maximaal 18 herstelpunten die zijn opgelegd vanuit de back-end geldt.

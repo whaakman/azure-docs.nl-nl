@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 5b48bf913145e212e65a3b0a4372185d4f711f58
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Een Debian VHD voor Azure voorbereiden
 ## <a name="prerequisites"></a>Vereisten
@@ -93,5 +93,5 @@ Er zijn extra beschikbaar voor het genereren van Debian VHD's voor Azure, zoals 
 4. Klik op **actie** -afsluiten > omlaag in de Hyper-V-beheer. Uw Linux VHD is nu gereed om te worden geüpload naar Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar voor gebruik van de Debian virtuele harde schijf maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie de stappen 2 en 3 in [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+U bent nu klaar voor gebruik van de Debian virtuele harde schijf maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie [een Linux-VM te maken van een aangepaste schijf](upload-vhd.md#option-1-upload-a-vhd).
 

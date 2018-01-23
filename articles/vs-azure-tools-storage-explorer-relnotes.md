@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Opslagverkenner (Preview)
 
-Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.3 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
+Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.4 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
 
 [Microsoft Azure Opslagverkenner (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
 
-## <a name="version-093"></a>Versie 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Versie 0.9.4 / 0.9.3
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Azure Storage Explorer 0.9.3 (Preview) downloaden
-- [Azure Opslagverkenner (Preview) 0.9.3 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner (Preview) 0.9.3 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner (Preview) 0.9.3 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage Explorer 0.9.4 (Preview) downloaden
+- [Azure Opslagverkenner (Preview) 0.9.4 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Opslagverkenner (Preview) 0.9.4 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Opslagverkenner (Preview) 0.9.4 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nieuw
 * Uw bestaande Storage Explorer-venster wordt niet opnieuw worden gebruikt wanneer:
@@ -44,6 +44,7 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.3 (Prev
     * Voor Mac is er een optie 'Nieuw venster' onder App-Menu.
 
 ### <a name="fixes"></a>Oplossingen
+* Een beveiligingsprobleem opgelost. Upgrade naar 0.9.4 op vroegste gemak.
 * Oude activiteiten zijn niet op de juiste wijze worden opgeruimd. Dit van invloed op de prestaties van langdurige taken. Ze worden nu wordt opgeschoond correct.
 * Acties met betrekking tot groot aantal bestanden en mappen, zou soms Opslagverkenner blokkeren. Aanvragen voor Azure voor bestandsshares zijn nu trottled system resource gebruik beperken.
 
@@ -94,7 +95,7 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.3 (Prev
 
 ### <a name="new"></a>Nieuw
 * Preview-ondersteuning voor Azure Cosmos DB:
-    * [Online documentatie](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Online documentatie](./cosmos-db/storage-explorer.md)
     * Databases en verzamelingen maken
     * Gegevens bewerken
     * Een query, maken of verwijderen van documenten
@@ -174,7 +175,7 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.3 (Prev
 10/20/2017
 ### <a name="new"></a>Nieuw
 * Preview-ondersteuning voor Azure Cosmos DB:
-    * [Online documentatie](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Online documentatie](./cosmos-db/storage-explorer.md)
     * Databases en verzamelingen maken
     * Gegevens bewerken
     * Een query, maken of verwijderen van documenten

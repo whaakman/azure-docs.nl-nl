@@ -3,20 +3,20 @@ title: Azure DNS integreren met uw Azure-resources | Microsoft Docs
 description: Informatie over het gebruik van Azure DNS langs voor DNS voor uw Azure-resources.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 1/19/2018
+ms.author: kumud
+ms.openlocfilehash: cbc769cd7356b3057fd2aae295071b04d2e40d91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Gebruik Azure DNS de instellingen van het aangepaste domein voor een Azure-service opgeven
 
@@ -26,7 +26,7 @@ Azure DNS biedt DNS voor een aangepast domein voor een van uw Azure-resources da
 
 Om Azure DNS gebruiken voor uw aangepaste domein, moet u eerst uw domein aan Azure DNS overdragen. Ga naar [een domein aan Azure DNS overdragen](./dns-delegate-domain-azure-dns.md) voor instructies over het configureren van de naamservers voor overdracht. Als uw domein is toegewezen aan uw Azure DNS-zone, zich u voor het configureren van de DNS-records die nodig zijn.
 
-U kunt een vanity of een aangepast domein voor [Azure functie Apps](#azure-function-app), [Azure IoT](#azure-iot), [openbare IP-adressen](#public-ip-address), [App Service (Web-Apps)](#app-service-web-apps), [Blob storage](#blob-storage), en [Azure CDN](#azure-cdn).
+U kunt een vanity of een aangepast domein voor [Azure functie Apps](#azure-function-app), [openbare IP-adressen](#public-ip-address), [App Service (Web-Apps)](#app-service-web-apps), [Blob storage](#blob-storage), en [Azure CDN](#azure-cdn).
 
 ## <a name="azure-function-app"></a>Azure-functie-App
 
@@ -48,34 +48,13 @@ Navigeer naar de DNS-Zone en klik op **+ Recordset**. Vul de volgende informatie
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting         |
-|Alias     | adatumfunction.azurewebsites.NET        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de adatumfunction.azurewebsites.net DNS-naam opgegeven standaard naar de functie-app.        |
+|Alias     | adatumfunction.azurewebsites.net        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de adatumfunction.azurewebsites.net DNS-naam opgegeven standaard naar de functie-app.        |
 
 Ga terug naar uw app in de functie, klikt u op **platformfuncties**, en klikt u onder **NETWORKING** klikt u op **aangepaste domeinen**, klikt u vervolgens onder **hostnamen**klikt u op **+ toevoegen hostnaam**.
 
 Op de **hostnaam toevoegen** blade de CNAME-record in de **hostnaam** tekstveld en klikt u op **valideren**. Als de record kan worden gevonden, is de **hostnaam toevoegen** knop wordt weergegeven. Klik op **hostnaam toevoegen** de alias toevoegen.
 
 ![functie apps toevoegen host naam blade](./media/dns-custom-domain/functionaddhostname.png)
-
-## <a name="azure-iot"></a>Azure IoT
-
-Azure IoT heeft geen aanpassingen die nodig zijn op de service zelf. Voor het gebruik van een aangepast domein met een IoT-Hub alleen een CNAME-record waarnaar wordt verwezen naar de bronnen nodig.
-
-Navigeer naar **Internet der dingen** > **IoT Hub** en selecteer uw IoT-hub. Op de **overzicht** blade Let op de FQDN van de IoT-hub.
-
-![Blade IoT Hub](./media/dns-custom-domain/iot.png)
-
-Vervolgens gaat u naar de DNS-Zone en klik op **+ Recordset**. Vul de volgende informatie op de **recordset toevoegen** blade en klik op **OK** om deze te maken.
-
-
-|Eigenschap  |Waarde  |Beschrijving  |
-|---------|---------|---------|
-|Naam     | myiothub        | Deze waarde samen met het domeinnaamlabel is de FQDN voor de IoT-hub.        |
-|Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.
-|TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
-|TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting         |
-|Alias     | adatumIOT.azure devices.net        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de naam van de adatumIOT.azure devices.net geleverd door de IoT-hub.
-
-Zodra de record is gemaakt, test u naamomzetting met het gebruik van CNAME-record`nslookup`
 
 ## <a name="public-ip-address"></a>Openbaar IP-adres
 
@@ -121,7 +100,7 @@ Navigeer naar de DNS-Zone en klik op **+ Recordset**. Vul de volgende informatie
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias. Als de bron een IP-adres gebruikt, wordt een A-record gebruikt.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting         |
-|Alias     | webserver.azurewebsites.NET        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de webserver.azurewebsites.net DNS-naam opgegeven standaard naar de web-app.        |
+|Alias     | webserver.azurewebsites.net        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de webserver.azurewebsites.net DNS-naam opgegeven standaard naar de web-app.        |
 
 
 ![Een CNAME-record maken](./media/dns-custom-domain/createcnamerecord.png)
@@ -155,7 +134,7 @@ Navigeer naar de DNS-Zone en klik op **+ Recordset**. Vul de volgende informatie
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting         |
-|Alias     | asverify.adatumfunctiona9ed.BLOB.Core.Windows.NET        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de asverify.adatumfunctiona9ed.blob.core.windows.net DNS-naam opgegeven standaard naar de storage-account.        |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de asverify.adatumfunctiona9ed.blob.core.windows.net DNS-naam opgegeven standaard naar de storage-account.        |
 
 Ga terug naar uw storage-account door te klikken op **opslag** > **Opslagaccounts**, selecteer uw storage-account en klik op **aangepaste domeinen**. Typ de alias die u hebt gemaakt zonder het voorvoegsel asverify in het tekstvak, selectievakje ** indirecte CNAME-validatie gebruiken en op **opslaan**. Nadat deze stap voltooid is, terug naar de DNS-zone en maakt u een CNAME-record zonder het voorvoegsel asverify.  Daarna u veilig verwijderen van de CNAME-record met het voorvoegsel cdnverify zijn.
 
@@ -173,7 +152,7 @@ Navigeer naar **Networking** > **CDN-profielen**, selecteer uw CDN-profiel en kl
 
 Selecteer het eindpunt dat u werkt met en klikt u op **+ aangepaste domeinen**. Opmerking de **hostnaam van het eindpunt** als deze waarde de record die de CNAME-record verwijst is naar.
 
-![Aangepaste CDN-domein](./media/dns-custom-domain/endpointcustomdomain.png)
+![Aangepast CDN-domein](./media/dns-custom-domain/endpointcustomdomain.png)
 
 Navigeer naar de DNS-Zone en klik op **+ Recordset**. Vul de volgende informatie op de **recordset toevoegen** blade en klik op **OK** om deze te maken.
 
@@ -183,7 +162,7 @@ Navigeer naar de DNS-Zone en klik op **+ Recordset**. Vul de volgende informatie
 |Type     | CNAME        | Gebruik een CNAME-record maakt gebruik van een alias.        |
 |TTL     | 1        | 1 wordt gebruikt voor 1 uur        |
 |TTL-eenheid     | Uren        | Uren worden gebruikt als de tijdmeting         |
-|Alias     | cdnverify.adatumcdnendpoint.azureedge.NET        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de cdnverify.adatumcdnendpoint.azureedge.net DNS-naam opgegeven standaard naar de storage-account.        |
+|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | De DNS-naam die u maakt de alias voor, in dit voorbeeld is de cdnverify.adatumcdnendpoint.azureedge.net DNS-naam opgegeven standaard naar de storage-account.        |
 
 Ga terug naar uw CDN-eindpunt door te klikken op **Networking** > **CDN-profielen**, en selecteer uw CDN-profiel. Klik op **+ aangepaste domeinen** uw CNAME-record alias zonder het voorvoegsel cdnverify invoeren en op **toevoegen**.
 

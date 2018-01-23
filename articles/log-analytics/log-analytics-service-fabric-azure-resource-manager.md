@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Evalueer Service Fabric-toepassingen en micro-services met de Azure-portal
 
@@ -37,7 +37,7 @@ De Service Fabric-oplossing gebruikt Azure Diagnostics-gegevens van uw virtuele 
 Als u wilt beginnen met de oplossing, moet u verbinding maken met uw Service Fabric-cluster een werkruimte voor logboekanalyse. Hier volgen drie scenario's te overwegen:
 
 1. Als u uw Service Fabric-cluster niet hebt geïmplementeerd, gebruikt u de stappen in ***implementeren een Service Fabric-Cluster met een werkruimte voor logboekanalyse verbonden*** implementeren van een nieuw cluster en dit wordt geconfigureerd om te rapporteren met logboekanalyse.
-2. Als u verzamelen van prestatiemeteritems van uw hosts wilt te gebruiken van andere OMS-oplossingen zoals beveiliging op uw Service Fabric-Cluster, volgt u de stappen in ***implementeren een Service Fabric-Cluster met een werkruimte voor logboekanalyse met VM-extensie is geïnstalleerd verbonden.***
+2. Als u verzamelen van prestatiemeteritems van uw hosts wilt te gebruiken van andere beheeroplossingen zoals beveiliging op uw Service Fabric-Cluster, volgt u de stappen in ***implementeren een Service Fabric-Cluster met een werkruimte voor logboekanalyse met VM-extensie verbonden geïnstalleerd.***
 3. Als u al uw Service Fabric-cluster en u wilt verbinden met Log Analytics hebt geïmplementeerd, volg de stappen in ***toevoegen van een bestaand opslagaccount met logboekanalyse.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Een Service Fabric-Cluster verbonden met een werkruimte voor logboekanalyse implementeren.
@@ -152,7 +152,7 @@ Zodra de implementaties zijn voltooid en de Service Fabric-oplossing in uw werkr
 
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld voor Service Fabric.
 
-| Platform | Directe Agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Frequentie van de verzameling |
+| platform | Directe Agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Frequentie van de verzameling |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minuten |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -106,7 +106,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Automatisering
 * Azure Cosmos DB
 * Batch
-* Bing-kaarten
+* Bing Maps
 * CDN
 * Cloud Services - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 * Cognitive Services
@@ -118,9 +118,9 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * DNS
 * Event Hubs
 * HDInsight-clusters - Zie [HDInsight-beperkingen](#hdinsight-limitations)
-* IoT-Hubs
+* IoT Hubs
 * Key Vault
-* Taakverdelers
+* Load Balancers
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -150,8 +150,8 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 
 De services die op dit moment niet inschakelen voor het verplaatsen van een resource zijn:
 
-* AD-domeinservices
-* Hybride AD Health-Service
+* AD Domain Services
+* AD Hybrid Health Service
 * Application Gateway
 * BizTalk Services
 * Container Service
@@ -162,7 +162,7 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Recovery Services-kluis - ook komen niet verplaatsen van de Compute, Network en Storage-resources die zijn gekoppeld aan de Recovery Services-kluis, Zie [Recovery Services-beperkingen](#recovery-services-limitations).
 * Beveiliging
-* StorSimple-Apparaatbeheer
+* StorSimple-apparaatbeheerfunctie
 * Virtuele netwerken (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
@@ -314,6 +314,12 @@ De bewerking kan enkele minuten uitgevoerd.
 Verplaatsen is niet ingeschakeld voor de opslag, netwerk, of Compute-resources die worden gebruikt voor het instellen van herstel na noodgevallen met Azure Site Recovery.
 
 Stel dat u de replicatie van uw lokale machines naar een opslagaccount (Storage1) hebt ingesteld en wilt dat de beveiligde machine actief na een failover naar Azure als een virtuele machine (VM1) gekoppeld aan een virtueel netwerk (Network1). U kunt deze Azure-resources - Storage1, VM1 en Network1 - niet verplaatsen, tussen resourcegroepen binnen hetzelfde abonnement of tussen abonnementen.
+
+Verplaatsen van een virtuele machine geregistreerd bij **Azure backup** tussen resourcegroepen:
+ 1. Tijdelijk stoppen van de back-up en bewaren van back-upgegevens
+ 2. Verplaats de VM naar de doelresourcegroep
+ 3. Opnieuw beveiligen met de dezelfde/nieuwe kluis die gebruikers met de beschikbare herstelpunten gemaakt vóór de verplaatsing herstellen kunnen.
+Als de gebruiker de virtuele machine van een back-up voor abonnementen verplaatst, blijven stap 1 en 2 hetzelfde. Gebruiker moet de virtuele machine met een nieuwe kluis aanwezig / worden gemaakt in het doelabonnement beveiligen in stap 3. Recovery Services-kluis ondersteuning beschikt niet over meerdere abonnement back-ups.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-beperkingen
 

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Quick Start voor PowerShell in de Azure-Cloud-Shell (Preview)
 
@@ -263,6 +263,63 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 
 ```
+
+## <a name="ssh"></a>SSH
+
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is beschikbaar in PowerShell CloudShell.
+Het openbaar / persoonlijk sleutelpaar genereren in CloudShell voor verificatie op servers of virtuele machines met SSH, en de openbare sleutel te publiceren `authorized_keys` op de externe computer, zoals `/home/user/.ssh/authorized_keys`.
+
+> [!NOTE]
+> U kunt SSH privé-openbare sleutels maken `ssh-keygen` en deze publiceren naar `$env:USERPROFILE\.ssh` in CloudShell.
+
+### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Met behulp van een aangepast profiel voor het persistent maken van GIT en SSH-instellingen
+
+Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map `CloudDrive` of maak een symlink wanneer CloudShell wordt gestart.
+Plaats de volgende code in uw profile.ps1 voor het maken van een symlink naar CloudDrive snipped.
+
+``` Powershell
+# Check if the ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh){
+    mkdir $home\CloudDrive\.ssh
+}
+
+# .ssh path relative to this script
+$script:sshFolderPath = Join-Path $PSScriptRoot .ssh
+
+# Create a symlink to .ssh in user's $home
+if(Test-Path $script:sshFolderPath){
+   if(-not (Test-Path (Join-Path $HOME .ssh ))){
+        New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
+   }
+}
+
+```
+
+### <a name="using-ssh"></a>Gebruik van SSH
+
+Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) voor het maken van een nieuwe VM-configuratie met AzureRM-Cmdlets.
+Vóór aanroep naar de `New-AzureRMVM` toevoegen voor het uitgangspunt voor de implementatie, openbare SSH-sleutel aan het VM-configuratie.
+De zojuist gemaakte virtuele machine bevat de openbare sleutel in de `~\.ssh\authorized_keys` locatie, waardoor u referentie gratis ssh-sessie op de virtuele machine.
+
+``` Powershell
+
+# Create VM config object - $vmConfig using instructions on linked page above
+
+# Generate SSH Keys in CloudShell
+ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
+
+# Ensure VM config is updated with SSH Keys
+$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+
+# ssh to the VM
+ssh azureuser@MyVM.Domain.Com
+
+```
+
 
 ## <a name="list-available-commands"></a>Lijst met beschikbare opdrachten
 

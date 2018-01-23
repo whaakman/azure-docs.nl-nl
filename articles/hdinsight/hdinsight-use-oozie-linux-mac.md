@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitgevoerd op Azure HDInsight op basis van Linux
 
@@ -499,7 +499,7 @@ De volgende stappen uit de Oozie-opdracht gebruiken voor het verzenden en Oozie-
 
 Zie voor meer informatie over de opdracht Oozie [Oozie-opdrachtregelprogramma](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
-## <a name="oozie-rest-api"></a>Oozie REST-API
+## <a name="oozie-rest-api"></a>Oozie REST API
 
 U kunt uw eigen hulpprogramma's die met Oozie werken opbouwen met de Oozie REST-API. Hier volgt een HDInsight-specifieke informatie over het gebruik van de Oozie REST-API:
 
@@ -517,7 +517,7 @@ Zie voor meer informatie over het gebruik van de REST-API voor Oozie [Oozie-webs
 
 De Oozie-webgebruikersinterface biedt een webweergave in de status van Oozie taken op het cluster. Met de webgebruikersinterface kunt u de volgende informatie bekijken:
 
-   * De status van taak
+   * Taakstatus
    * Taakdefinitie
    * Configuratie
    * Een grafiek van de acties in de taak
@@ -541,7 +541,7 @@ Voor toegang tot de webgebruikersinterface Oozie, moet u de volgende stappen uit
 
 5. Als u meer informatie over een taak, selecteert u de taak.
 
-    ![Taakinformatie](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![Taakgegevens](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
 6. Van de **taakinformatie** tabblad ziet u de informatie over basic taak en de afzonderlijke acties in de taak. Kunt u de tabbladen boven om weer te geven de **taakdefinitie**, **taakconfiguratie**, toegang tot de **taaklogboek**, of een gerichte acyclische grafiek (DAG) van de taak onder weergeven**Taak DAG**.
 

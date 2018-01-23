@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
 
@@ -217,7 +217,7 @@ Wanneer de uitgaande verbindingen worden gebruikt met een zone-redundante front-
 
 Het nieuwe algoritme in de Load Balancer standaard preallocates snat omzetten poorten op de Netwerkinterfacekaart van elke virtuele machine. Wanneer een NIC wordt toegevoegd aan de groep, worden de poorten snat omzetten vooraf op basis van de grootte van de groep toegewezen. De volgende tabel ziet u de poort preallocations voor zes lagen van de back-end-pool grootten:
 
-| Poolgrootte (VM-exemplaren) | Vooraf toegewezen snat omzetten poort |
+| Poolgrootte (VM-exemplaren) | Vooraf toegewezen aantal snat omzetten poorten |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |

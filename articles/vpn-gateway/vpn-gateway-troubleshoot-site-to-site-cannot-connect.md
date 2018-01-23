@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Voor probleemoplossing: Een Azure site-naar-site VPN-verbinding kan geen verbinding maken en werkt niet
 
@@ -26,7 +26,7 @@ Nadat u een site-naar-site VPN-verbinding tussen een on-premises netwerk en een 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
+## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
 
 U lost het probleem door eerst [opnieuw instellen van de Azure VPN-gateway](vpn-gateway-resetgw-classic.md) en de tunnel van de on-premises VPN-apparaat opnieuw instellen. Als het probleem zich blijft voordoen, volg deze stappen om de oorzaak van het probleem te identificeren.
 
@@ -92,7 +92,7 @@ Controleren op en verwijderen van de gebruiker gedefinieerde Routering of Netwer
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Stap 7. Controleer of de statuscontrole van de Azure-gateway
 
-1. Ga naar de [health test](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Ga naar de health-test.
 
 2. Klik in de certificaatwaarschuwing.
 3. Als u een antwoord ontvangt, wordt de VPN-gateway als in orde beschouwd. Als u niet een antwoord ontvangt, de gateway mogelijk niet in orde of het probleem wordt veroorzaakt door een NSG op het gatewaysubnet. De volgende tekst is een voorbeeldantwoord:

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -68,6 +68,13 @@ Gebruik de optie voor het herstellen van afzonderlijke schijven voor het volgend
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Kan ik back-ups van niet-beheerde schijf-VM gebruiken nadat ik mijn schijven te naar beheerde schijven upgraden herstellen?
 Ja, kunt u de back-ups gemaakt voordat het migreren van de schijven van niet-begeleid naar beheerde. Standaard wordt de hersteltaak voor de virtuele machine een virtuele machine maken met niet-beheerde schijven. U kunt terugzetten schijven functionaliteit gebruiken bij het herstel van schijven en ze gebruiken voor het maken van een virtuele machine op de beheerde schijven. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Wat is de procedure voor het herstellen van een virtuele machine naar een herstelpunt gemaakt voordat de conversie van niet-begeleid naar beheerde schijven is uitgevoerd voor een virtuele machine?
+In dit scenario wordt maakt standaard hersteltaak VM een virtuele machine met niet-beheerde schijven. Een virtuele machine maken met beheerde schijven:
+1. [Herstellen naar niet-beheerde schijven](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [De herstelde schijven converteren naar beheerde schijven](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Een virtuele machine maken met beheerde-schijven](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Raadpleeg voor Powershell-cmdlets [hier](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Wat gebeurt er wanneer ik het back-upbeleid voor een of meer virtuele machines wijzig?

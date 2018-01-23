@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 264f68b879653f4168637e19cc886524c4af8557
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0eea38cdb9827ab6e322025ff344ebbab0e83da3
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Het automatisch schalen voor een Cloudservice in de portal configureren
 
 Voorwaarden kunnen worden ingesteld voor een cloud service-werkrol die een schaal in- of opnieuw activeren. De voorwaarden voor de rol kunnen worden gebaseerd op de CPU, schijf of netwerkbelasting van de rol. U kunt ook een voorwaarde op basis van een berichtenwachtrij of de metric van sommige andere Azure-resource die is gekoppeld aan uw abonnement instellen.
 
 > [!NOTE]
-> Dit artikel is gericht op Cloud Service-web- en werkrollen rollen. Wanneer u een virtuele machine (klassiek) rechtstreeks maakt, wordt deze gehost in een cloudservice. U kunt een standaard virtuele machine schalen door te koppelen met een [beschikbaarheidsset](../virtual-machines/windows/classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) en handmatig inschakelen of uitschakelen.
+> Dit artikel is gericht op Cloud Service-web- en werkrollen rollen. Wanneer u een virtuele machine (klassiek) rechtstreeks maakt, wordt deze gehost in een cloudservice. U kunt een standaard virtuele machine schalen door te koppelen met een [beschikbaarheidsset](../virtual-machines/windows/classic/configure-availability-classic.md) en handmatig inschakelen of uitschakelen.
 
 ## <a name="considerations"></a>Overwegingen
 U kunt de volgende informatie voordat u configureert voor uw toepassing schalen:

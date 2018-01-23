@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -58,7 +58,7 @@ Nadat u een aanbieding hebt toegevoegd, moet u voor het definiëren en uw SKU's 
 3. Als u op Windows gebaseerde SKU's gebruikt, volgt u de voorgestelde koppelingen voor het verkrijgen van de goedgekeurde versies van Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Maken van een Azure-compatibele VHD (op basis van Linux)
-Deze sectie richt zich op de aanbevolen procedures voor het maken van een Linux-gebaseerde VM-installatiekopie voor Azure Marketplace. Raadpleeg de volgende documentatie voor een stapsgewijze: [maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Deze sectie richt zich op de aanbevolen procedures voor het maken van een Linux-gebaseerde VM-installatiekopie voor Azure Marketplace. Raadpleeg de volgende documentatie voor een stapsgewijze: [maken van een aangepaste Linux VM-installatiekopie](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Maken van een Azure-compatibele VHD (gebaseerd op Windows)
 Deze sectie richt zich op de stappen voor het maken van een SKU op basis van Windows Server voor Azure Marketplace.

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sectie opdrachtregelparameters van Azure Resource Manager-sjablonen
 U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in het gedeelte parameters van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft niet te bieden parameters in de sjabloon, maar zonder parameters uw sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen zou implementeren.
@@ -86,10 +86,10 @@ Het vorige voorbeeld hebt u geleerd slechts een deel van de eigenschappen die ku
 |:--- |:--- |:--- |
 | parameterName |Ja |De naam van de parameter. Moet een geldige JavaScript-id. |
 | type |Ja |Type van de waarde van parameter. De toegestane typen en waarden zijn **tekenreeks**, **secureString**, **int**, **bool**, **object**, **secureObject**, en **matrix**. |
-| Standaardwaarde |Nee |De standaardwaarde voor de parameter als u geen waarde is opgegeven voor de parameter. |
+| defaultValue |Nee |De standaardwaarde voor de parameter als u geen waarde is opgegeven voor de parameter. |
 | allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
 | MinValue |Nee |De minimumwaarde voor de parameters van het type int, deze waarde is liggen. |
-| MaxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde is liggen. |
+| maxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde is liggen. |
 | minLength |Nee |De minimale lengte voor string, secureString en array typeparameters deze waarde is liggen. |
 | maxLength |Nee |De maximale lengte voor string, secureString en array typeparameters deze waarde is liggen. |
 | description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. |
@@ -131,6 +131,7 @@ De parameter definiëren in uw sjabloon en geef een JSON-object in plaats van ee
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Vervolgens verwijzen naar de subeigenschappen van de parameter met de puntoperat
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
    }
    ```
 
-* Gebruik indien mogelijk niet een parameter locatie op te geven. Gebruik in plaats daarvan de **locatie** eigenschap van de resourcegroep. Met behulp van de **resourceGroup () .location** -expressie voor al uw resources resources in de sjabloon zijn geïmplementeerd op dezelfde locatie als de resourcegroep:
+* Gebruik een parameter locatie op te geven en die zo veel mogelijk parameterwaarde met bronnen die zich waarschijnlijk op dezelfde locatie delen. Hierdoor minimaliseert het aantal keren dat gebruikers worden gevraagd om locatie-informatie te geven. Als u een resourcetype wordt ondersteund in een beperkt aantal locaties, is het raadzaam een geldige locatie rechtstreeks opgeven in de sjabloon of het toevoegen van een andere locatieparameter. Wanneer een organisatie de toegestane regio's voor de gebruikers beperkt de **resourceGroup () .location** expressie mogelijk te voorkomen dat een gebruiker kunnen worden geïmplementeerd, de sjabloon. Een gebruiker maakt bijvoorbeeld een resourcegroep in een regio. Een tweede gebruiker aan deze resourcegroep moet implementeren, maar heeft geen toegang tot het gebied. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Als u een resourcetype wordt ondersteund in een beperkt aantal locaties, is het raadzaam om op te geven van een geldige locatie rechtstreeks in de sjabloon. Als u moet een **locatie** parameter, die zo veel mogelijk parameterwaarde met bronnen die zich waarschijnlijk op dezelfde locatie delen. Hierdoor minimaliseert het aantal keren dat gebruikers worden gevraagd om locatie-informatie te geven.
+    
 * Vermijd het gebruik van een parameter of variabele voor de API-versie voor een resourcetype. Resource-eigenschappen en waarden kunnen variëren door versienummer. IntelliSense in een code-editor kan niet het juiste schema bepalen wanneer de API-versie is ingesteld op een parameter of variabele. In plaats daarvan harde code de API-versie in de sjabloon.
 * Geef een parameternaam in de sjabloon die overeenkomt met een parameter in de implementatieopdracht. Resource Manager deze naming conflict opgelost doordat de postfix **FromTemplate** voor de sjabloonparameter. Bijvoorbeeld, als u een parameter genaamd opnemen **ResourceGroupName** in uw sjabloon een conflict met de **ResourceGroupName** parameter in de [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Tijdens de implementatie, moet u een waarde opgeven voor **ResourceGroupNameFromTemplate**.
 

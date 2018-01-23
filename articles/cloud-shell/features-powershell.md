@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/16/2018
 ms.author: damaerte
-ms.openlocfilehash: 45a5c474191192975bfd8d6fc1bf3c0e497d369c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 1113589507934d814bc8924267c07c99f8864657
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Functies en hulpprogramma's voor PowerShell in Azure Cloud-Shell (Preview)
 
@@ -91,12 +91,12 @@ Deze opdrachten zijn gebouwd op PowerShell voor externe toegang en PowerShell ve
 
 |**Categorie**    |**Naam**                                 |
 |----------------|-----------------------------------------|
-|Azure-hulpprogramma 's     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Azure CLI (2.0.23)](https://docs.microsoft.com/cli/azure/overview)|
+|Azure-hulpprogramma 's     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Azure CLI (2.0.25)](https://docs.microsoft.com/cli/azure/overview)|
 |Teksteditors    |VIM<br> nano                             |
 |Pakketbeheer |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Resourcebeheer  |GIT                                      |
 |Databases       |[SQL Server-module](https://www.powershellgallery.com/packages/SqlServer)<br> [Sqlcmd-hulpprogramma](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
-|Hulpprogramma's testen      |Lastige                                   |
+|Hulpprogramma's testen      |Pester                                   |
 
 ## <a name="language-support"></a>Taalondersteuning
 

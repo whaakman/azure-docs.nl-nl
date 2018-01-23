@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cccab530e86373fee8a78b42c8cba532b05c1bab
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
 ## <a name="overview"></a>Overzicht
@@ -243,7 +243,7 @@ Terwijl u in het zoekvak typt, worden in het linkerdeelvenster alleen de opslaga
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Blob Storage-resources beheren met Opslagverkenner (Preview)](vs-azure-tools-storage-explorer-blobs.md)
-* [Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

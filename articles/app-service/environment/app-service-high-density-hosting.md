@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>High-density hosten op Azure App Service
 Wanneer u App Service, wordt uw toepassing losgekoppeld van de capaciteit toegewezen door twee concepten:
@@ -38,12 +38,12 @@ Echter, wanneer meerdere apps een App Service-abonnement deelt, een exemplaar va
 Per app schaalt schalen een app onafhankelijk van de App Service-abonnement die als host fungeert. Op deze manier een App Service-abonnement kan worden geschaald tot 10 exemplaren, maar een app kan worden ingesteld op slechts vijf gebruiken.
 
    >[!NOTE]
-   >Per app schalen is alleen beschikbaar voor **Premium** SKU App Service-plannen
+   >Per app-schalen, is alleen beschikbaar voor **standaard**, **Premium**, **Premium V2** en **geïsoleerd** SKU App Service-plannen
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Per app schalen met behulp van PowerShell
 
-Kunt u een plan dat is geconfigureerd als een *Per app schalen* plan door door te geven in de ```-perSiteScaling $true``` kenmerk de ```New-AzureRmAppServicePlan``` commandlet
+Maak een plan dat is geconfigureerd als een *Per app schalen* plan door door te geven in de ```-perSiteScaling $true``` kenmerk de ```New-AzureRmAppServicePlan``` commandlet
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Op het niveau van de app moeten we het aantal exemplaren die de app in app service-abonnement kunt configureren.
+Configureer op het niveau van de app het aantal exemplaren die de app in de app service-abonnement gebruiken kunt.
 
 In het onderstaande voorbeeld is de app beperkt tot twee instanties, ongeacht hoe vaak het onderliggende app service-abonnement uitgeschaald aan.
 

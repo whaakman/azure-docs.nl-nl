@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Gegevens met behulp van logboek zoekopdrachten in logboekanalyse zoeken
 
@@ -30,7 +30,7 @@ De kern van logboekanalyse is de functie voor het zoeken van logboek zodat u kun
 
 U kunt een query maken op de pagina zoeken en vervolgens wanneer u zoekt, u kunt de resultaten filteren met behulp van besturingselementen facet. U kunt ook een geavanceerde query's op transformatie en filter het rapport maken op uw resultaten.
 
-Algemene logboek zoekquery's weergegeven op de meeste oplossing's. U kunt in de OMS-console klikt u op de tegels of aan andere artikelen voor meer informatie over het item met behulp van logboek search omlaag.
+Algemene logboek zoekquery's weergegeven op de meeste oplossing's. U kunt tegels klikt u op of met andere items voor meer informatie over het item met behulp van logboek search omlaag in de OMS-portal.
 
 In deze zelfstudie behandelen we voorbeelden aan de basisprincipes uitgelegd wanneer u logboek zoeken gebruikt.
 
@@ -39,7 +39,7 @@ We beginnen met eenvoudige, praktische voorbeelden en vervolgens op deze maken z
 Nadat u nagegaan wat de zoektechnieken hebt, kunt u controleren de [logboekanalyse Meld zoeken verwijzing](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Basic-filters gebruiken
-Het eerste wat u moet weten is dat het eerste deel van een zoekopdracht query voordat een ' | ' verticale pipe-teken is altijd een *filter*. U kunt dit beschouwen als een WHERE-component in TSQL--bepaalt *wat* subset van gegevens voor het ophalen van buiten de OMS-gegevensopslag. Zoeken in het gegevensarchief is grotendeels over het opgeven van de kenmerken van de gegevens die u ophalen, wilt dus is het natuurlijke dat een query met de component WHERE beginnen wilt.
+Het eerste wat u moet weten is dat het eerste deel van een zoekopdracht query voordat een ' | ' verticale pipe-teken is altijd een *filter*. U kunt dit beschouwen als een WHERE-component in TSQL--bepaalt *wat* subset van gegevens voor het ophalen van buiten de oeren werkruimte. Zoeken in het gegevensarchief is grotendeels over het opgeven van de kenmerken van de gegevens die u ophalen, wilt dus is het natuurlijke dat een query met de component WHERE beginnen wilt.
 
 De meest eenvoudige filters kunt u zijn *trefwoorden*, zoals 'fout' of 'out' of een computernaam op. Deze typen van eenvoudige query's worden meestal diverse vormen van gegevens binnen de dezelfde resultatenset retourneren. Dit komt doordat Log Analytics uit verschillende *typen* van gegevens in het systeem.
 
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Gebruik de functie Avg. met de opdracht meting
 De statistische functie gebruikt met meting van Avg() kunt u voor het berekenen van de gemiddelde waarde van een veld en de Groepsresultaten door de dezelfde of een ander veld. Dit is handig in tal van gevallen, zoals de prestatiegegevens.
 
-We beginnen met de prestatiegegevens. Houd er rekening mee dat OMS momenteel prestatiemeteritems voor Windows- en Linux-machines verzamelt.
+We beginnen met de prestatiegegevens. Houd er rekening mee dat Log Analytics momenteel prestatiemeteritems voor Windows- en Linux-machines verzamelt.
 
 Om te zoeken naar *alle* prestatiegegevens, de meest eenvoudige query is:
 

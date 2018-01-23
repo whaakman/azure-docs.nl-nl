@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 5687e53d0d0e0429ec9eb84afd8465556cb4f818
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Ambari REST-API
 
@@ -66,7 +66,7 @@ De basis-URI voor de Ambari REST-API op HDInsight is https://CLUSTERNAME.azurehd
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Verbinding maken met Ambari op HDInsight HTTPS is vereist. De naam van de Administrator-account gebruiken (de standaardwaarde is **admin**) en het wachtwoord die u hebt opgegeven tijdens het maken van het cluster.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: aa570379890023c83383d291aa5d57fb79b2d5aa
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f40f0551ed65a42bcacf2307cbec462fd5c3ac25
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Als een van de volgende voorwaarden voldaan wordt, moet u de runtime van Azure SSIS-integratie (IR) toevoegen aan een Azure-netwerk (VNet): 
@@ -25,20 +25,20 @@ Als een van de volgende voorwaarden voldaan wordt, moet u de runtime van Azure S
 - U host de SSIS-catalogusdatabase in een SQL Server Managed Instance (private preview) die deel uitmaakt van een VNet.
 - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
 
- In Azure Data Factory versie 2 (preview) kunt u uw Azure-SSIS Integration Runtime toevoegen aan een klassiek VNet. Azure Resource Manager VNet is momenteel niet ondersteund. Echter, kunt u werken het rond zoals weergegeven in de volgende sectie. 
+ Azure Data Factory versie 2 (Preview) kunt u uw Azure-SSIS-integratie runtime toevoegen aan een klassiek of een Azure Resource Manager VNet. 
 
  > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Toegang tot on-premises gegevensopslag
-Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud tot, moet u geen Azure-SSIS-IR toevoegen aan een VNet. Als SSIS-pakketten toegang on-premises gegevensopslagexemplaren tot, moet u Azure SSIS-IR toevoegen aan een VNet dat is verbonden met de on-premises netwerk. Als de SSIS-catalogus wordt gehost in Azure SQL Database die zich niet in het VNet, moet u de juiste poorten open. Als de SSIS-catalogus wordt gehost in Azure SQL beheerd-exemplaar dat in een klassiek VNet, kunt u Azure SSIS-IR kan toevoegen aan hetzelfde klassieke VNet (of) een andere klassieke VNet met een klasse voor klassieke VNet-verbinding met de Azure SQL beheerd-exemplaar met. De volgende secties vindt u meer informatie.
+Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud tot, moet u geen Azure-SSIS-IR toevoegen aan een VNet. Als SSIS-pakketten toegang on-premises gegevensopslagexemplaren tot, moet u Azure SSIS-IR toevoegen aan een VNet dat is verbonden met de on-premises netwerk. Als de SSIS-catalogus wordt gehost in Azure SQL Database die zich niet in het VNet, moet u de juiste poorten open. Als de SSIS-catalogus wordt gehost in Azure SQL beheerd-exemplaar dat zich in een Azure Resource Manager VNet of een klassiek VNet, kunt u Azure SSIS-IR kan toevoegen aan hetzelfde VNet (of) een andere VNet met een VNet-naar-VNet-verbinding met de Azure SQL beheerd-exemplaar met. De volgende secties vindt u meer informatie.
 
 Hier volgen enkele belangrijke punten met: 
 
-- Als er geen bestaande VNet verbonden met uw on-premises netwerk is, maakt u eerst een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een site-naar-site [VPN-gatewayverbinding](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) verbinding van dit VNet naar uw on-premises netwerk.
-- Als er een bestaande klassieke VNet dat is verbonden met uw on-premises netwerk in dezelfde locatie als uw Azure-SSIS-integratie runtime, kunt u uw Azure-SSIS-integratie runtime aan koppelen.
-- Als er een bestaande klassieke VNet met uw on-premises netwerk in een andere locatie van de Runtime van uw Azure-SSIS-integratie verbonden is, kunt u eerst maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie Runtime om toe te voegen. Configureer vervolgens een [klassiek naar klassieke VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) verbinding.
-- Als er een bestaande Azure Resource Manager VNet verbonden met uw on-premises netwerk is, maakt u eerst een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
+- Als er geen bestaande VNet verbonden met uw on-premises netwerk is, maakt u eerst een [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) of een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een site-naar-site [VPN-gatewayverbinding](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) verbinding van dit VNet naar uw on-premises netwerk.
+- Als er een bestaande Azure Resource Manager VNet of een klassiek die vnet met uw on-premises netwerk in dezelfde locatie als uw Azure-SSIS-integratie runtime verbonden, kunt u uw Azure-SSIS-integratie runtime aan koppelen.
+- Als er een bestaande klassieke VNet met uw on-premises netwerk in een andere locatie van de Runtime van uw Azure-SSIS-integratie verbonden is, kunt u eerst maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie Runtime om toe te voegen. Configureer vervolgens een [klassiek naar klassieke VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) verbinding. Kunt u een [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
+- Als er een bestaande Azure Resource Manager VNet verbonden met uw on-premises netwerk in een andere locatie van uw Azure-SSIS-integratie Runtime, kunt u eerst maken een [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) voor uw Azure-SSIS integratie runtime om toe te voegen. Configureer vervolgens een Azure Resource Manager naar Azure Resource Manager VNet-verbinding. U kunt ook maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
 
 ## <a name="domain-name-services-server"></a>Domain Name Services-server 
 Als u uw eigen server Services DNS (Domain Name) te gebruiken in een VNet die worden toegevoegd door de runtime van uw Azure-SSIS-integratie wilt, voert u de richtlijnen voor [ervoor zorgen dat de knooppunten van de runtime van uw Azure-SSIS-integratie in VNet een Azure-eindpunten kunnen omzetten](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
@@ -68,16 +68,17 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
     Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 
-### <a name="use-portal-to-configure-vnet"></a>Portal gebruiken voor het VNet configureren
+### <a name="use-portal-to-configure-a-classic-vnet"></a>Portal gebruiken voor het configureren van een klassiek VNet
 Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als u geen hebt toegang tot het configureren van die VNet of de automatische configuratie is mislukt, de eigenaar van dit VNet / u kunt proberen handmatig configureren in de volgende stappen:
 
-### <a name="find-the-resource-id-for-your-azure-vnet"></a>De resource-ID vinden voor uw Azure VNet.
- 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken (klassiek)**.
 3. Filteren op en selecteer uw **virtueel netwerk** in de lijst. 
@@ -110,6 +111,24 @@ Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als
 
     Als er geen `Microsoft.Batch` is in de lijst om te registreren, [leeg Azure Batch-account maken](../batch/batch-account-create-portal.md) in uw abonnement. U kunt deze later verwijderen. 
 
+### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Portal gebruiken voor het configureren van een Azure Resource Manager VNet
+Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als u geen hebt toegang tot het configureren van die VNet of de automatische configuratie is mislukt, de eigenaar van dit VNet / u kunt proberen handmatig configureren in de volgende stappen:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken**.
+3. Filteren op en selecteer uw **virtueel netwerk** in de lijst. 
+4. Selecteer in de pagina virtuele netwerk **eigenschappen**. 
+5. Klik op de knop kopiëren voor de **RESOURCE-ID** de resource-ID voor het virtuele netwerk naar het Klembord kopiëren. Sla de ID van het Klembord in OneNote of een bestand.
+6. Klik op **subnetten** in het menu links en zorg ervoor dat het aantal **beschikbare adressen** groter is dan de knooppunten in uw Azure-SSIS-integratie-runtime.
+5. Controleer of dat die Azure Batch-provider is geregistreerd in het Azure-abonnement met het VNet of de Azure Batch-provider geregistreerd. Als u al een Azure Batch-account in uw abonnement hebt, wordt uw abonnement geregistreerd voor Azure Batch.
+    1. Klik in de Azure-portal op **abonnementen** in het menu links. 
+    2. Selecteer uw **abonnement**. 
+    3. Klik op **resourceproviders** aan de linkerkant en Bevestig dat `Microsoft.Batch` is een geregistreerde provider. 
+    
+        ![bevestiging batch geregistreerd](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
+
+    Als er geen `Microsoft.Batch` is in de lijst om te registreren, [leeg Azure Batch-account maken](../batch/batch-account-create-portal.md) in uw abonnement. U kunt deze later verwijderen.
+
 ## <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Een Azure-SSIS-IR maken en toevoegen aan een VNet
 U kunt een Azure-SSIS-IR maken en toevoegen aan het VNet op hetzelfde moment. Zie voor de volledige script en instructies voor het maken van een Azure-SSIS-IR en toevoegen aan een VNet op hetzelfde moment [maken Azure SSIS-IR](create-azure-ssis-integration-runtime.md).
 
@@ -126,10 +145,8 @@ Het script in de [maken Azure SSIS-integratie runtime](create-azure-ssis-integra
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
-# It should be in the format: 
-# $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
-$VnetId = "<Name of your Azure classic virtual netowrk>"
+# OPTIONAL: specify your VNet ID and the subnet name. 
+$VnetId = "<Name of your Azure virtual netowrk>"
 $SubnetName = "<Name of the subnet in VNet>"
 ```
 
@@ -154,8 +171,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
         Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 

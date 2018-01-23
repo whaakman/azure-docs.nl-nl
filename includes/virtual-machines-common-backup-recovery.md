@@ -3,7 +3,7 @@
 
 Voor back-ups van virtuele Azure-machines productieworkloads wordt uitgevoerd, gebruikt u Azure Backup. Azure Backup biedt ondersteuning voor toepassingsconsistente back-ups voor zowel Windows als een virtuele Linux-machines. Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele virtuele machine of alleen specifieke bestanden kunt herstellen. 
 
-Zie voor een eenvoudige, praktische Inleiding tot Azure Backup voor Azure Virtual machines, de 'Back-up Windows virtuele machines zelfstudie' voor [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) of [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Zie voor een eenvoudige, praktische Inleiding tot Azure Backup voor Azure Virtual machines, de zelfstudie 'Back-up van virtuele machines in Azure' voor [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) of [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Zie voor meer informatie over hoe Azure Backup werkt [plannen van uw back-infrastructuur van de virtuele machine in Azure](../articles/backup/backup-azure-vms-introduction.md)
 

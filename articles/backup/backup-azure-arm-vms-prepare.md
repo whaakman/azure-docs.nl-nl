@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -54,7 +54,7 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Back-ups van virtuele machines met gegevens groter zijn dan 1023 GB schijfgrootten wordt niet ondersteund.
 
   > [!NOTE]
-  > We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met niet-beheerde schijven van 1 TB (of hoger). Raadpleeg voor meer informatie, [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met schijven > 1TB. Raadpleeg voor meer informatie, [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Back-ups van virtuele machines met een gereserveerd IP-adres en er is geen gedefinieerde eindpunt wordt niet ondersteund.
@@ -181,7 +181,7 @@ Nadat u de back-up is ingeschakeld, wordt uw back-upbeleid volgens schema uitgev
 Als u problemen met de registratie van de virtuele machine hebt, raadpleegt u de volgende informatie over het installeren van de VM-agent en op de netwerkverbinding. Moet u waarschijnlijk niet de volgende informatie als u virtuele machines die zijn gemaakt in Azure beveiligt. Maar als u uw virtuele machines naar Azure hebt gemigreerd, moet u dat u de VM-agent correct geïnstalleerd en dat de virtuele machine met het virtuele netwerk communiceren kan.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent installeren op de virtuele machine
-Voor de back-up-extensie te kunnen gebruiken, de Azure [VM-agent](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) moet worden geïnstalleerd op virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine. 
+Voor de back-up-extensie te kunnen gebruiken, de Azure [VM-agent](../virtual-machines/windows/agent-user-guide.md) moet worden geïnstalleerd op virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine. 
 
 De volgende informatie is bedoeld voor situaties waarin u *niet* gemaakt met behulp van een virtuele machine uit Azure Marketplace. U kunt bijvoorbeeld een virtuele machine gemigreerd van een on-premises datacenter. In dat geval moet de VM-agent worden geïnstalleerd ter bescherming van de virtuele machine.
 
@@ -219,7 +219,7 @@ U kunt de verbindingen naar de opslag van de specifieke regio toestaan met behul
 ![NSG met labels van de opslag voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Opslag-tags zijn alleen beschikbaar in specifieke gebieden en zijn Preview-versie. Zie voor een lijst met regio's, [Service-tags voor opslag](../virtual-network/security-overview.md#service-tags).
+> Storage-service-tags zijn alleen beschikbaar in specifieke gebieden en zijn Preview-versie. Zie voor een lijst met regio's, [Service-tags voor opslag](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Een HTTP-proxy gebruiken voor VM-ups
 Wanneer u een back-up van een VM, verzendt de Backup-extensie op de virtuele machine opdrachten voor het beheer van de momentopname naar Azure Storage via een HTTPS-API. De Backup-extensie-verkeer via de HTTP-proxy routeren omdat dit het enige onderdeel dat is geconfigureerd voor toegang tot het openbare internet.

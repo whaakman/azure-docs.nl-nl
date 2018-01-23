@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT Hub bewerkingen controleren
 
 IoT Hub operations bewaking kunt u de status van bewerkingen voor uw IoT-hub in realtime controleren. IoT Hub houdt gebeurtenissen over verschillende categorieën van bewerkingen. U kunt kiezen voor het verzenden van gebeurtenissen uit een of meer categorieën voor een eindpunt van uw iothub voor verwerking. U kunt de gegevens op fouten controleren of complexe verwerking op basis van gegevenspatronen instellen.
 
 >[!NOTE]
->IoT Hub operations bewaking is afgeschaft en wordt verwijderd uit IoT Hub in de toekomst. Zie voor het bewaken van de bewerkingen en de status van de IoT Hub, [bewaken van de status van Azure IoT Hub en snel problemen onderzoeken][lnk-monitor]. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure resourcestatus][lnk-blog-announcement].
+>IoT Hub operations bewaking is afgeschaft en wordt verwijderd uit IoT Hub voor 10 oktober 2018. Zie voor het bewaken van de bewerkingen en de status van de IoT Hub, [bewaken van de status van Azure IoT Hub en snel problemen onderzoeken][lnk-monitor]. Zie voor meer informatie over de tijdlijn afschaffing [bewaken van uw Azure-IoT-oplossingen met Azure Monitor en Azure resourcestatus][lnk-blog-announcement].
 
 IoT Hub bewaakt zes soorten gebeurtenissen:
 
@@ -191,7 +191,7 @@ De routering categorie bericht houdt fouten die optreden tijdens bericht route e
 }
 ```
 
-## <a name="view-events"></a>Evenementen bekijken
+## <a name="view-events"></a>Gebeurtenissen weergeven
 
 U kunt de *iothub explorer* hulpprogramma voor het snel testen van uw IoT-hub genereren van gebeurtenissen voor bewaking. Zie de instructies in het installeren van het hulpprogramma de [iothub explorer] [ lnk-iothub-explorer] GitHub-opslagplaats.
 
@@ -291,7 +291,7 @@ class Program
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Controleer uw sjablonen voor Azure-Stack met sjabloon Validator
 
@@ -66,7 +66,7 @@ Sjabloon Validatiewaarschuwingen of fouten worden geregistreerd in de PowerShell
 | IncludeComputeCapabilities | Bevat de evaluatie van IaaS-bronnen zoals VM-grootten en VM-extensies | Nee |
 | IncludeStorageCapabilities | Evaluatie van opslagbronnen zoals SKU typen bevat | Nee |
 | Rapport | Hiermee geeft u de naam van de gegenereerde HTML-rapport | Nee |
-| Uitgebreide | Registreert fouten en waarschuwingen in de console | Nee|
+| Uitgebreid | Registreert fouten en waarschuwingen in de console | Nee|
 
 
 ### <a name="examples"></a>Voorbeelden
@@ -93,7 +93,7 @@ De gedownloade bestanden bevatten standaard *AzureStackCloudCapabilities_with_Ad
 3.  Gebruik de cmdlet Get-CloudCapabilities op te halen-versies en maak een JSON-bestand van cloud mogelijkheden:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 

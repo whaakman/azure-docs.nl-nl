@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/20/2017
-ms.openlocfilehash: aea561b526d6f3f818fd75771dd8c65c9f25051a
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.date: 1/20/2018
+ms.openlocfilehash: 3cc879fb568965af98997889437c6348e0d341e1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure voor firewallregels voor server MySQL-Database
 Firewalls verhinderen alle toegang met de databaseserver tot u opgeven welke computers over machtigingen beschikken. De firewall verleent toegang tot de server op basis van het oorspronkelijke IP-adres van elke aanvraag.
@@ -35,6 +35,15 @@ Firewallregels op serverniveau gelden voor alle databases op de Azure-Database v
 Als het IP-adres van de aanvraag binnen een van de bereiken die is opgegeven in de firewallregels op serverniveau, wordt de verbinding verleend.
 
 Als het IP-adres van de aanvraag buiten de bereiken die in de database- of server niveau firewallregels zijn opgegeven is, mislukt de verbindingsaanvraag.
+
+## <a name="connecting-from-azure"></a>Verbinding maken vanuit Azure
+Azure-verbindingen moeten worden ingeschakeld zodat toepassingen van Azure te verbinden met uw Azure-Database voor de MySQL-server. Bijvoorbeeld als host voor een Web-Apps van Azure-toepassing of een toepassing die wordt uitgevoerd in een Azure VM of verbinding te maken uit een Azure Data Factory data management gateway. De resources hoeft niet in hetzelfde virtuele netwerk (VNET) of resourcegroep voor de firewallregel inschakelen van deze verbindingen zijn. Wanneer een toepassing vanuit Azure probeert verbinding te maken met uw databaseserver, verifieert de firewall of Azure-verbindingen zijn toegestaan. Er zijn een aantal methoden aan de hand van deze typen verbindingen. Een firewallinstelling waarvan het begin- en eindadres gelijk zijn aan 0.0.0.0 geeft aan dat deze verbindingen zijn toegestaan. U kunt ook instellen de **toegang tot Azure-services toestaan** optie naar **ON** in de portal van de **verbindingsbeveiliging** deelvenster en drukt **Opslaan**. Als de verbindingspoging is niet toegestaan, wordt in de aanvraag de Azure-Database voor de MySQL-server niet bereiken.
+
+> [!IMPORTANT]
+> Met deze optie configureert u de firewall zo dat alle verbindingen vanuit Azure zijn toegestaan, inclusief verbindingen vanuit de abonnementen van andere klanten. Wanneer u deze optie selecteert, zorg dan dat uw aanmeldings- en gebruikersmachtigingen de toegang beperken tot alleen geautoriseerde gebruikers.
+> 
+
+![Toegang tot Azure-services in de portal configureren](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Firewallregels programmatisch beheren
 Naast de Azure portal worden firewallregels programmatisch beheerd met behulp van de Azure CLI. Zie ook [maken en beheren van Azure-Database voor firewallregels MySQL met Azure CLI](./howto-manage-firewall-using-cli.md)

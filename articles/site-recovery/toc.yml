@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Een kluis verwijderen
           href: delete-vault.md
-    - name: Problemen oplossen
+    - name: Bewaken en problemen oplossen
       items:
         - name: Problemen met Azure naar Azure-replicatie
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemen met failover naar Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Logboeken verzamelen en on-premises problemen oplossen
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Azure Site Recovery bewaken
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell

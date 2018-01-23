@@ -311,6 +311,7 @@
 ### Prestatiebewaking
 #### [Prestatiebewaking met WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java-API](/java/api/overview/azure/servicefabric)
+### [Java-REST-client-API](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [XML-schema van servicemodel](service-fabric-service-model-schema.md)

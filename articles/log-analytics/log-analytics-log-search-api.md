@@ -1,6 +1,6 @@
 ---
-title: Meld u logboekanalyse search REST-API | Microsoft Docs
-description: Deze handleiding biedt een eenvoudige zelfstudie beschrijven hoe kunt u de zoekopdracht logboekanalyse REST-API in de Operations Management Suite (OMS) en biedt voorbeelden van hoe u de opdrachten gebruiken.
+title: Meld u Azure Log Analytics search REST-API | Microsoft Docs
+description: Deze handleiding biedt een eenvoudige zelfstudie beschrijven hoe u kunt de Azure-logboekanalyse search REST-API met voorbeelden van hoe u de opdrachten gebruiken.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics logboek search REST-API
 
 > [!IMPORTANT]
 > Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en u naar verwijzen moet de [documentatie voor de nieuwe versie van de zoekopdracht logboek API](https://dev.loganalytics.io/).  Deze oudere API toch werkt met een bijgewerkte werkruimte, maar dit zal binnenkort wel depracated.  U moet eventuele bestaande oplossingen voor het gebruik van de nieuwe API wijzigen.
 
-Deze handleiding biedt een eenvoudige zelfstudie, inclusief voorbeelden van hoe u de Log Analytics Search REST-API kunt. Log Analytics maakt deel uit van de Operations Management Suite (OMS).
+Deze handleiding biedt een eenvoudige zelfstudie, inclusief voorbeelden van hoe u de Log Analytics Search REST-API kunt. 
 
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Overzicht van de zoekopdracht logboek REST-API
-Log Analytics Search REST-API RESTful is en toegankelijk zijn via de API van Azure Resource Manager. Dit artikel vindt u voorbeelden van de toegang tot de API via [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API wordt aangeroepen. Het gebruik van ARMClient is een van de vele opties voor toegang tot de Log Analytics zoeken-API. Een andere optie is het gebruik van de Azure PowerShell-module voor OperationalInsights, waaronder de cmdlets voor toegang tot zoeken. Met deze hulpprogramma's, kunt u gebruikmaken van de Azure Resource Manager-API aanroepen met OMS-werkruimten en uitvoeren van opdrachten in deze zoekopdracht. De API levert zoekresultaten in JSON-indeling, zodat u kunt de lijst met zoekresultaten programmatisch op veel verschillende manieren gebruiken.
+Log Analytics Search REST-API RESTful is en toegankelijk zijn via de API van Azure Resource Manager. Dit artikel vindt u voorbeelden van de toegang tot de API via [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API wordt aangeroepen. Het gebruik van ARMClient is een van de vele opties voor toegang tot de Log Analytics zoeken-API. Een andere optie is het gebruik van de Azure PowerShell-module voor OperationalInsights, waaronder de cmdlets voor toegang tot zoeken. Met deze hulpprogramma's, kunt u gebruikmaken van de Azure Resource Manager-API aanroepen met Log Analytics-werkruimten en uitvoeren van opdrachten in deze zoekopdracht. De API levert zoekresultaten in JSON-indeling, zodat u kunt de lijst met zoekresultaten programmatisch op veel verschillende manieren gebruiken.
 
 De Azure Resource Manager kan worden gebruikt een [-bibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) en de [REST-API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Bekijk voor meer informatie, de gekoppelde webpagina's.
 

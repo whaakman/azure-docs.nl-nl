@@ -1,6 +1,6 @@
 ---
-title: Host zichzelf integratie runtime maken in Azure Data Factory | Microsoft Docs
-description: Meer informatie over hoe u de SQL Server opgeslagen Procedure activiteit kunt gebruiken om aan te roepen, een opgeslagen procedure in een Azure SQL Database of een Azure SQL Data Warehouse van een Data Factory-pijplijn.
+title: Azure-SSIS-integratie runtime maken in Azure Data Factory | Microsoft Docs
+description: Informatie over het maken van een Azure-SSIS-integratie runtime, zodat u SSIS-pakket in de Azure-cloud uitvoeren kunt.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f7697e79f8e7f5fc4722ac34e4199e0de278ad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 35883890b330588415290295815ad55cf5021afb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.
@@ -48,7 +48,7 @@ Wanneer u een exemplaar van SQL-Database voor het hosten van SSISDB inricht, wor
 - **Azure SQL Database server** of **SQL Server Managed Instance (private preview) (Extended Private Preview)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Noteer de prijscategorie van uw Azure SQL-server. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
 
     Bevestig dat uw Azure SQL Database-server of beheerde exemplaar van SQL Server (uitgebreide afgeschermd voorbeeld) beschikt niet over een catalogus SSIS (SSIDB database). Het inrichten van Azure SSIS-IR biedt geen ondersteuning met behulp van een bestaande SSIS-catalogus.
-- **Klassiek virtueel netwerk (VNet) (optioneel)**. U hebt een virtueel netwerk (VNet) in Azure nodig als ten minste aan een van de volgende voorwaarden wordt voldaan:
+- **Klassieke of Azure Resource Manager virtuele Network(VNet) (optioneel)**. U hebt een virtueel netwerk (VNet) in Azure nodig als ten minste aan een van de volgende voorwaarden wordt voldaan:
     - U host de SSIS-catalogusdatabase in een SQL Server Managed Instance (private preview) die deel uitmaakt van een VNet.
     - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
 - **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren). U gebruikt PowerShell om een script uit te voeren voor het inrichten van een Azure SSIS Integration Runtime die SSIS-pakketten uitvoert in de cloud. 
@@ -65,11 +65,11 @@ In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinte
 2. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
-3. In de **nieuwe gegevensfactory** pagina **MyAzureSsisDataFactory** voor de **naam**. 
+3. Voer op de pagina **Nieuwe gegevensfactory** **MyAzureSsisDataFactory** in als de **naam**. 
       
-     ![Nieuwe data factory-pagina](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u de volgende fout ontvangen, wijzig de naam van de gegevensfactory (bijvoorbeeld yournameMyAzureSsisDataFactory) en probeert u het opnieuw. Zie [Data Factory - naamgevingsregels](naming-rules.md) artikel voor naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamMyAzureSsisDataFactory) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -80,80 +80,80 @@ In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinte
          
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V2 (Preview)** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Alleen de locaties die worden ondersteund voor het maken van data Factory worden weergegeven in de lijst.
+5. Selecteer de **locatie** voor de gegevensfactory. In de lijst zie u alleen locaties die worden ondersteund voor het maken van gegevensfactory’s.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-9. Nadat het maken voltooid is, ziet u de **Data Factory** pagina zoals in de afbeelding.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
    ![Startpagina van de gegevensfactory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-10. Klik op **auteur & Monitor** starten van de Data Factory gebruikersinterface (UI) op een afzonderlijke tabblad. 
+10. Klik op **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad. 
 
-### <a name="provision-an-azure-ssis-integration-runtime"></a>Een Azure-SSIS-integratie runtime inrichten
+### <a name="provision-an-azure-ssis-integration-runtime"></a>Een Azure SSIS-integratieruntime inrichten
 
-1. Klik in de pagina aan de slag, **configureren SSIS-integratie Runtime** tegel. 
+1. Klik op de pagina Aan de slag op de tegel **SSIS-integratieruntime configureren**. 
 
-   ![SSIS-integratie Runtime tegel configureren](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
-2. In de **algemene instellingen** pagina van **integratie Runtime-instellingen**, moet u de volgende stappen uitvoeren: 
+   ![De tegel SSIS-integratieruntime configureren](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+2. Voer op de pagina **Algemene instellingen** van **Installatie van integratieruntime** de volgende stappen uit: 
 
    ![Algemene instellingen](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-    1. Geef een **naam** voor de integratie-runtime.
-    2. Selecteer de **locatie** voor de integratie-runtime. Alleen ondersteunde locaties worden weergegeven.
-    3. Selecteer de **grootte van het knooppunt** die is geconfigureerd met de SSIS-runtime.
-    4. Geef de **aantal knooppunten** in het cluster.
+    1. Geef een **naam** op voor de zelf-hostende integratieruntime.
+    2. Geef de **locatie** op voor de zelf-hostende integratieruntime. Alleen ondersteunde locaties worden weergegeven.
+    3. Selecteer de **grootte van het knooppunt** dat moet worden geconfigureerd met de SSIS-runtime.
+    4. Geef het **aantal knooppunten** in het cluster op.
     5. Klik op **Volgende**. 
-1. In de **SQL-instellingen**, moet u de volgende stappen uitvoeren: 
+1. Voer in de **SQL-instellingen** de volgende stappen uit: 
 
     ![SQL-instellingen](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
-    1. Geef de Azure **abonnement** die de Azure SQL-server is. 
-    2. Selecteer uw Azure SQL-server voor de **catalogus Database servereindpunt**.
-    3. Voer de **beheerder** gebruikersnaam.
-    4. Voer de **wachtwoord** voor de beheerder.  
+    1. Geef het **Azure-abonnement** op dat de Azure SQL-server bevat. 
+    2. Selecteer uw Azure SQL-server als het **eindpunt voor de Catalog-databaseserver**.
+    3. Voer de gebruikersnaam van de **beheerder** in.
+    4. Voer het **wachtwoord** voor de beheerder in.  
     5. Selecteer de **servicelaag** voor de SSISDB-database. De standaardwaarde is Basic.
     6. Klik op **Volgende**. 
-1.  In de **geavanceerde instellingen** pagina, selecteert u een waarde op voor de **maximale parallelle uitvoeringen Per knooppunt**.   
+1.  Selecteer op de pagina **Geavanceerde instellingen** een waarde voor het **maximale aantal parallelle uitvoeringen per knooppunt**.   
 
     ![Geavanceerde instellingen](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
-5. Deze stap is **optionele**. Als u een klassiek virtueel netwerk (VNet) die u wilt dat de runtime integratie hebt wilt koppelen, selecteert u de **selecteert u een VNet voor uw Azure-SSIS-integratie-runtime voor het koppelen van Azure-services voor het configureren van VNet machtigingsinstellingen toestaan** optie en voer de volgende stappen uit: 
+5. Deze stap is **optioneel**. Als u een klassiek VNet hebt (virtueel netwerk) waaraan u de integratieruntime wilt koppelen, selecteert u de optie voor het **selecteren van een VNet om uw Azure SSIS-integratieruntime aan te koppelen en om toe te staan dat via Azure-services VNet-machtigingen/-instellingen worden geconfigureerd**. Voer hierna de volgende stappen uit: 
 
     ![Geavanceerde instellingen met VNet](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
 
-    1. Geef de **abonnement** is met het klassieke VNet. 
-    2. Selecteer de **VNet**. <br/>
-    4. Selecteer de **Subnet**.<br/> 
-1. Klik op **voltooien** starten van het maken van Azure SSIS-integratie runtime. 
+    1. Geef het **abonnement** op dat het klassieke VNet bevat. 
+    2. Selecteer het **VNet**. <br/>
+    4. Selecteer het **Subnet**.<br/> 
+1. Klik op **Voltooien** om te beginnen met het maken van de Azure SSIS-integratieruntime. 
 
     > [!IMPORTANT]
-    > - Dit proces duurt ongeveer 20 minuten om te voltooien
-    > - De Data Factory-service maakt verbinding met uw Azure SQL Database voorbereiden van de catalogus SSIS-database (SSISDB). Het script configureert ook machtigingen en instellingen voor uw VNet, indien opgegeven, en verbindt de nieuwe instantie van de Azure SSIS Integration Runtime met het VNet.
-7. In de **verbindingen** venster overschakelen naar **integratie Runtimes** indien nodig. Klik op **vernieuwen** de status te vernieuwen. 
+    > - Het duurt ongeveer 20 minuten om dit proces te voltooien
+    > - De Data Factory-service maakt verbinding met uw Azure SQL-database om de SSISDB (SSIS Catalog Database) voor te bereiden. Het script configureert ook machtigingen en instellingen voor uw VNet, indien opgegeven, en verbindt de nieuwe instantie van de Azure SSIS Integration Runtime met het VNet.
+7. Ga in het venster **Verbindingen** naar **Integratieruntimes**, indien nodig. Klik op **Vernieuwen** om de status te vernieuwen. 
 
     ![Status van het maken](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
-8. Gebruik de koppelingen onder **acties** kolom die u wilt bewaken, stoppen/starten, bewerken of verwijderen van de integratie-runtime. Gebruik de laatste koppeling om weer te geven van JSON-code voor de integratie-runtime. De knoppen bewerken en verwijderen zijn alleen beschikbaar wanneer de IR is gestopt. 
+8. Gebruik de koppelingen onder de kolom **Acties** om de integratieruntime te controleren, te stoppen/starten, te bewerken of te verwijderen. Gebruik de laatste koppeling om JSON-code weer te geven voor de integratieruntime. De knoppen Bewerken en Verwijderen zijn alleen beschikbaar wanneer de IR is gestopt. 
 
     ![Azure SSIS-IR - acties](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
-9. Klik op **Monitor** koppeling onder **acties**.  
+9. Klik op de koppeling **Controleren** onder **Acties**.  
 
     ![Azure SSIS-IR - details](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
-10. Als er een **fout** gekoppeld met de Azure SSIS-IR, ziet u het aantal fouten op deze pagina en de koppeling om weer te geven om details over de fout. Als de SSIS-catalogus al op de databaseserver bestaat, ziet u bijvoorbeeld een fout die aangeeft het bestaan van de SSISDB-database dat.  
-11. Klik op **integratie Runtimes** boven om te navigeren wilt maken van de vorige pagina overzicht van alle integratie runtimes die zijn gekoppeld aan de gegevensfactory.  
+10. Als er een **fout** optreedt die is gerelateerd aan de Azure SSIS-IR, ziet u het aantal fouten op deze pagina en een koppeling naar de details over deze fout. Als de SSIS Catalog al bestaat op de databaseserver, ziet u bijvoorbeeld een foutmelding waarin het bestaan van de SSISDB-database wordt aangegeven.  
+11. Klik bovenaan op **Integratieruntimes** om terug te gaan naar de vorige pagina met alle integratieruntimes die zijn gekoppeld aan de gegevensfactory.  
 
-### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Azure SSIS-integratie runtimes in de portal
+### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Azure SSIS-integratieruntimes in de portal
 
-1. In de Azure Data Factory-gebruikersinterface overschakelen naar de **bewerken** tabblad **verbindingen**, en ga vervolgens naar **integratie Runtimes** tabblad om bestaande integratie runtimes in uw Data factory. 
-    ![Bestaande belastingdienst weergeven](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
-1. Klik op **nieuw** voor het maken van een nieuwe Azure SSIS-IR 
+1. Ga in de Azure Data Factory-UI naar het tabblad **Bewerken**, klik op **Verbindingen** en ga vervolgens naar het tabblad **Integratieruntimes** om bestaande integratieruntimes in uw gegevensfactory weer te geven. 
+    ![Bestaande IR’s weergeven](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+1. Klik op **Nieuw** om een nieuwe Azure SSIS-IR te maken. 
 
-    ![Integratie runtime via het menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
-2. Klik op om een Azure-SSIS-integratie runtime **nieuw** zoals weergegeven in de afbeelding. 
-3. Selecteer in het venster integratie Runtime-instellingen **Lift en shift bestaande SSIS-pakketten worden uitgevoerd in Azure**, en klik vervolgens op **volgende**.
+    ![Integratieruntime via menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+2. Als u een Azure SSIS-integratieruntime wilt maken, klikt u op **Nieuw** zoals wordt weergegeven in de afbeelding. 
+3. Selecteer in het venster Installatie van integratieruntime de optie voor het **verplaatsen van bestaande SSIS-pakketten voor uitvoering in Azure** en klik vervolgens op **Volgende**.
 
-    ![Geef het type van integratie runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
-4. Zie de [inrichten van een Azure-SSIS-integratie runtime](#provision-an-azure-ssis-integration-runtime) sectie voor de resterende stappen om een Azure-SSIS-IR in te stellen
+    ![Geef het type integratieruntime op](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+4. Zie de sectie [Een Azure SSIS-integratieruntime inrichten](#provision-an-azure-ssis-integration-runtime) voor de resterende stappen voor het instellen van een Azure SSIS-IR.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een Azure-SSIS-IR
@@ -174,7 +174,7 @@ $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" 
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
@@ -191,10 +191,7 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0
 
 # Remove these the following two OPTIONAL variables if you are using Azure SQL Database. 
 # These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
-# It should be in the format: $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
-
-# OPTIONAL: In public preview, only classic virtual network (VNet) is supported.
+# OPTIONAL: specify your VNet ID and the subnet name. 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
@@ -242,8 +239,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
     Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 ```
 
@@ -341,7 +341,7 @@ $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_A4_v2" 
+$AzureSSISNodeSize = "Standard_D3_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
@@ -358,7 +358,7 @@ $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0
 
 ## Remove these two OPTIONAL variables if you are using Azure SQL Database. 
 ## These two parameters apply if you are using VNet and Azure SQL Managed Instance (private preview). 
-# In public preview, only classic virtual network (VNet) is supported.
+# Specify information about your classic or Azure Resource Manager virtual network (VNet).
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
 
@@ -391,8 +391,11 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
     {
         Start-Sleep -s 10
     }
-    # Assign VM contributor role to Microsoft.Batch
-    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
 }
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `

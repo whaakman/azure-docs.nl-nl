@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 1eeef5b522996146eed6be393692b3c0a4a8747f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet bereiken van de SSH-service op de virtuele machine. Als u hebt gevolgd door de meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder op te lossen. In dit artikel begeleidt u bij de gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en het probleem te verhelpen.
@@ -120,7 +120,7 @@ De laatste bron van mogelijke problemen met is de virtuele machine van Azure zel
 
 ![Diagram die worden gemarkeerd op basis van Linux virtuele machine van Azure](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Als u dit nog niet hebt gedaan, volgt u de instructies [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Als u dit nog niet hebt gedaan, volgt u de instructies [opnieuw instellen van een wachtwoord op basis van Linux virtuele machines](reset-password.md).
 
 Probeer opnieuw verbinding te maken van uw computer. Als het nog steeds mislukt, Hier volgen enkele mogelijke problemen:
 

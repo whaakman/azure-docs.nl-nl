@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Logboek zoekopdrachten maken in Azure-logboekanalyse via de portal logboek zoeken
 
@@ -37,11 +37,11 @@ Deze zelfstudie wordt ervan uitgegaan dat u al een werkruimte voor logboekanalys
 - Verbinding maken met ten minste één [Windows-agent](log-analytics-windows-agent.md) of één [Linux-agent](log-analytics-linux-agents.md) naar de werkruimte.  
 
 ## <a name="open-the-log-search-portal"></a>De portal logboek zoeken openen
-Start via de portal logboek zoeken.  U kunt openen in de Azure-portal of de OMS-portal.
+Start via de portal logboek zoeken. 
 
-1. Open de Azure-portal.
+1. Open Azure Portal.
 2. Navigeer met logboekanalyse en selecteer uw werkruimte.
-3. Selecteer **logboek zoeken** blijven in de Azure portal of start de OMS-portal door te selecteren **OMS-Portal** en vervolgens te klikken op de knop logboek zoeken.
+3. Selecteer **Meld zoeken**.
 
 ![Meld u knop Zoeken](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

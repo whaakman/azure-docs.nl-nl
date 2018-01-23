@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5912a395798f2a37ed939b771698282ae594ce8e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium-opslag met behulp van Azure Site Recovery
 
@@ -216,8 +216,7 @@ Site Recovery maakt een VM-exemplaar waarvan het type hetzelfde als of vergelijk
 Zie voor specifieke scenario's voor het migreren van virtuele machines, de volgende bronnen:
 
 * [Azure virtuele Machines tussen Opslagaccounts migreren](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Maken en een Windows Server-VHD uploaden naar Azure](../windows/classic/createupload-vhd.md)
-* [Maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Uploaden van een virtuele harde schijf voor Linux](upload-vhd.md)
 * [Migreren van virtuele Machines van Amazon AWS naar Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Virtual Machines:

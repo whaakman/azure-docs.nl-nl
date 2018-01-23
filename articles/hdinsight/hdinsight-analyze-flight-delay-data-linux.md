@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight op basis van Linux
 
@@ -46,8 +46,8 @@ Informatie over hoe vlucht vertraging om gegevens te analyseren met behulp van H
    | Naam | Waarde |
    | --- | --- |
    | Filteren van jaar |2013 |
-   | Periode filteren |Januari |
-   | Velden |Jaar FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, oorsprong, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Periode filteren |januari |
+   | Velden |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Schakel alle andere velden. 
 
 3. Selecteer **downloaden**.
@@ -200,9 +200,7 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 > Er zijn veel manieren om te verbinden met SQL Database en een tabel maken. De volgende stappen uitvoeren om [FreeTDS](http://www.freetds.org/) van het HDInsight-cluster.
 
 
-1. Verbinding maken met het Linux gebaseerde HDInsight-cluster via SSH en voer de volgende stappen uit in de SSH-sessie.
-
-2. Gebruik de volgende opdracht voor het installeren van FreeTDS:
+1. Als u wilt installeren FreeTDS, gebruik de volgende opdracht vanaf een SSH-verbinding met het cluster:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 3. Nadat de installatie is voltooid, moet u de volgende opdracht gebruiken om te verbinden met de SQL-Database-server. Vervang **serverName** met de naam van de SQL-Database-server. Vervang **adminLogin** en **adminPassword** met de aanmelding voor SQL-Database. Vervang **databaseName** met de naam van de database.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Voer desgevraagd het wachtwoord voor de aanmelding van SQL Database-beheerder.
 
     U ontvangt uitvoer die vergelijkbaar is met de volgende tekst:
 

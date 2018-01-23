@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Voer een Apache Hive, Pig of Hadoop met behulp van Azure DB die Cosmos en HDInsight
 Deze zelfstudie leert u hoe u uitvoert [Apache Hive][apache-hive], [Apache Pig][apache-pig], en [Apache Hadoop] [ apache-hadoop] MapReduce-taken in Azure HDInsight met Hadoop-connector Cosmos-database. Hadoop-connector cosmos-database kunt Cosmos DB om te fungeren als een bron- en sink voor Hive, Pig en MapReduce-taken. Deze zelfstudie gaat Cosmos DB gebruiken als de gegevensbron en de bestemming voor Hadoop-taken.
+
+> [!IMPORTANT] 
+> De Spark op Azure DB die Cosmos-connector is de aanbevolen optie voor het Azure HDInsight verbinden met Azure Cosmos DB. Zie voor meer informatie [versnellen realtime big data-analyses met de Spark op Azure Cosmos DB connector](spark-connector.md).
 
 Na het voltooien van deze zelfstudie, hebt u mogelijk de volgende vragen beantwoorden:
 
@@ -49,7 +52,7 @@ Geen tijd om de zelfstudie te voltooien en wilt ophalen van de PowerShell-script
     <tr><th>Versie van Hadoop-Connector</th>
         <td>1.2.0</td></tr>
     <tr><th>Script-Uri</th>
-        <td>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</td></tr>
+        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>Datum gewijzigd</th>
         <td>04/26/2016</td></tr>
     <tr><th>Ondersteunde HDInsight-versies</th>
@@ -86,7 +89,7 @@ Deze zelfstudie wordt scriptactie vanuit de Azure Portal voor het aanpassen van 
         <tr><td>Clusternaam</td><td>De naam van het cluster.<br/>
 DNS-naam moet beginnen en eindigen met een teken alfanumerieke en streepjes kan bevatten.<br/>
 Het veld moet een tekenreeks tussen 3 en 63 tekens lang zijn.</td></tr>
-        <tr><td>Abonnementsnaam</td>
+        <tr><td>Naam abonnement</td>
             <td>Als u meer dan één Azure-abonnement hebt, selecteert u het abonnement dat als voor uw HDInsight-cluster host fungeert. </td></tr>
     </table>
 5.Klik op **clustertype Selecteer** en de volgende eigenschappen instellen op de opgegeven waarden.
@@ -122,7 +125,7 @@ Het veld moet een tekenreeks tussen 3 en 63 tekens lang zijn.</td></tr>
              <td>Geef een naam voor de scriptactie.</td></tr>
          <tr><td>Script-URI</td>
              <td>Geef de URI moet het script dat wordt opgeroepen voor het aanpassen van het cluster.</br></br>
-Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</strong>.</td></tr>
+Voer in: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Kop</td>
              <td>Klik op het selectievakje in om te worden uitgevoerd op het hoofdknooppunt van het PowerShell-script.</br></br>
              <strong>Schakel dit selectievakje in</strong>.</td></tr>
@@ -390,8 +393,8 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
       ![MapReduce-queryresultaten][image-mapreduce-query-results]
 
-## <a name="NextSteps"></a>Volgende stappen
-Gefeliciteerd. U hebt zojuist uw eerste Hive, Pig en MapReduce-taken met behulp van Azure DB die Cosmos en HDInsight uitgevoerd.
+## <a name="NextSteps"></a>De volgende stappen
+Gefeliciteerd! U hebt zojuist uw eerste Hive, Pig en MapReduce-taken met behulp van Azure DB die Cosmos en HDInsight uitgevoerd.
 
 We hebben onze Hadoop-Connector die afkomstig zijn geopend. Als u geïnteresseerd bent, u kunt bijdragen op [GitHub][github].
 

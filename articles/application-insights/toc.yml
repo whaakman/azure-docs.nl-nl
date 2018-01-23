@@ -170,6 +170,8 @@
               href: app-insights-live-stream.md
             - name: Toepassingskaart
               href: app-insights-app-map.md
+            - name: Diagnostische gegevens voor transacties
+              href: app-insights-transaction-diagnostics.md
             - name: HockeyApp-gegevens
               href: app-insights-hockeyapp-bridge-app.md
         - name: Visual Studio

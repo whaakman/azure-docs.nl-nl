@@ -1,6 +1,6 @@
 ---
-title: Waarschuwing beheeroplossing in Operations Management Suite (OMS) | Microsoft Docs
-description: De waarschuwing beheeroplossing in Log Analytics kunt u het analyseren van alle waarschuwingen in uw omgeving.  Naast de consolidatie van waarschuwingen gegenereerd in OMS, importeert deze waarschuwingen van verbonden beheergroepen van System Center Operations Manager in logboekanalyse.
+title: Waarschuwing beheeroplossing in Azure Log Analytics | Microsoft Docs
+description: De waarschuwing beheeroplossing in Log Analytics kunt u het analyseren van alle waarschuwingen in uw omgeving.  Naast het consolideren waarschuwingen gegenereerd binnen Log Analytics, importeert deze waarschuwingen van verbonden beheergroepen van System Center Operations Manager in logboekanalyse.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Oplossing voor waarschuwingen in Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwing beheeroplossing in Azure Log Analytics
 
 ![Pictogram voor het beheer van waarschuwing](media/log-analytics-solution-alert-management/icon.png)
 
@@ -34,10 +34,10 @@ De oplossing werkt met alle records in de opslagplaats logboekanalyse met een ty
 - Voor System Center Operations Manager-waarschuwingen [uw Operations Manager-beheergroep verbinden met uw werkruimte voor logboekanalyse](log-analytics-om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in logboekanalyse.  
 
 ## <a name="configuration"></a>Configuratie
-De oplossing voor beheer van waarschuwingen toevoegen aan uw OMS-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
+De oplossing voor beheer van waarschuwingen toevoegen aan uw werkruimte voor logboekanalyse met behulp van de procedure beschreven in [oplossingen toevoegen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
 
 ## <a name="management-packs"></a>Management packs
-Als uw System Center Operations Manager-beheergroep is verbonden met de OMS-werkruimte, klikt u vervolgens de volgende management packs geïnstalleerd in System Center Operations Manager bij het toevoegen van deze oplossing.  Er is geen configuratie of onderhoud van de management packs vereist.  
+Als uw System Center Operations Manager-beheergroep met de werkruimte voor logboekanalyse is verbonden, wordt de volgende management packs geïnstalleerd in System Center Operations Manager als u deze oplossing toevoegt.  Er is geen configuratie of onderhoud van de management packs vereist.  
 
 * Microsoft System Center Advisor waarschuwing Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,7 +59,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 - Waarschuwing gegevens worden verzonden vanuit de Operations Manager-beheergroep met logboekanalyse elke drie minuten.  
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u het beheersysteem voor waarschuwing aan de OMS-werkruimte toevoegt, de **waarschuwingenbeheer** tegel is toegevoegd aan uw dashboard OMS.  Deze tegel wordt weergegeven voor een aantal en de grafische weergave van het aantal actieve waarschuwingen die zijn gegenereerd binnen de afgelopen 24 uur.  U kunt dit tijdsbereik niet wijzigen.
+Wanneer u het beheersysteem voor waarschuwing aan uw werkruimte voor logboekanalyse toevoegt de **waarschuwingenbeheer** tegel is toegevoegd aan uw dashboard.  Deze tegel wordt weergegeven voor een aantal en de grafische weergave van het aantal actieve waarschuwingen die zijn gegenereerd binnen de afgelopen 24 uur.  U kunt dit tijdsbereik niet wijzigen.
 
 ![Waarschuwing Management tegel](media/log-analytics-solution-alert-management/tile.png)
 
@@ -110,13 +110,13 @@ De volgende tabel bevat een voorbeeld-logboek zoekt waarschuwing records die doo
 
 | Query’s uitvoeren | Beschrijving |
 |:--- |:--- |
-| Type waarschuwing SourceSystem = OpsManager AlertSeverity = fout TimeRaised = > nu 24 uur |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
+| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
 | Type waarschuwing AlertSeverity = waarschuwing TimeRaised = > nu 24 uur |Waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
 | Type waarschuwing SourceSystem = OpsManager AlertState =! gesloten TimeRaised = > nu - 24-UURS &#124; meting count() als tellen per SourceDisplayName |Bronnen met actieve waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur |
 | Type waarschuwing SourceSystem = OpsManager AlertSeverity = fout TimeRaised = > nu 24 uur AlertState! = gesloten |Kritieke waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur die nog steeds actief zijn |
 | Type waarschuwing SourceSystem = OpsManager TimeRaised = > nu 24 uur AlertState = gesloten |Deze gebeurtenis treedt op tijdens de afgelopen 24 uur die nu zijn gesloten waarschuwingen |
-| Type waarschuwing SourceSystem = OpsManager TimeRaised = > nu 1 dag &#124; meting count() als tellen per AlertSeverity |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gegroepeerd op hun ernst |
-| Type waarschuwing SourceSystem = OpsManager TimeRaised = > nu 1 dag &#124; RepeatCount desc sorteren |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gesorteerd op basis van hun waarde aantal herhalingen |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gegroepeerd op hun ernst |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Waarschuwingen die worden weergegeven gedurende de afgelopen dag gesorteerd op basis van hun waarde aantal herhalingen |
 
 
 >[!NOTE]

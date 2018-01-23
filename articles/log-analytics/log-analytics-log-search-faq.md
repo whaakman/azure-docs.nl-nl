@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Meld u nieuwe logboekanalyse Veelgestelde vragen over het zoeken en bekende problemen
 
@@ -88,9 +88,9 @@ Uw browser vereist toegang tot de volgende adressen Log Analytics-query's uitvoe
 
 | URI | IP | Poorten |
 |:---|:---|:---|
-| Portal.loganalytics.IO | Dynamisch | 80,443 |
-| API.loganalytics.IO    | Dynamisch | 80,443 |
-| Docs.loganalytics.IO   | Dynamisch | 80,443 |
+| portal.loganalytics.io | Dynamisch | 80,443 |
+| api.loganalytics.io    | Dynamisch | 80,443 |
+| docs.loganalytics.io   | Dynamisch | 80,443 |
 
 
 
@@ -160,11 +160,10 @@ De verouderde logboek zoekopdracht wordt in de komende maanden afgeschaft. Werkr
 Vóór de algemene beschikbaarheid kan u uw werkruimte herstellen na een upgrade.  Nu dat de nieuwe taal algemene beschikbaarheid bereikt heeft, is deze mogelijkheid verwijderd omdat we beginnen met het buiten gebruik stellen van de verouderde platform.
 
 
-
 ## <a name="views"></a>Weergaven
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Vraag: Hoe maak ik een nieuwe weergave met Designer bekijken?
-U kunt voorafgaande aan de upgrade een nieuwe weergave maken met ontwerper van een tegel op het hoofddashboard.  Wanneer uw werkruimte is geüpgraded, is deze tegel wordt verwijderd.  U kunt een nieuwe weergave maken met de Designer bekijken in de OMS-portal door te klikken op de groene + knop in het menu links.
+U kunt voorafgaande aan de upgrade een nieuwe weergave maken met ontwerper van een tegel op het hoofddashboard in de OMS-portal.  Wanneer uw werkruimte is geüpgraded, is deze tegel wordt verwijderd.  U kunt een nieuwe weergave maken met de Designer bekijken in de OMS-portal door te klikken op de groene + knop in het menu links.  U doorgaan met het maken van een nieuwe weergave met de Azure-portal door te klikken op de tegel Designer bekijken.
 
 
 ## <a name="next-steps"></a>Volgende stappen

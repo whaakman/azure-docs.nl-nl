@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: d0fd1063194ecbccb0af1abc0c441aa65b18883b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Het gebruik van Service Management met Python
 Deze handleiding wordt beschreven hoe u programmatisch algemene service-beheertaken uitvoeren met Python. De **ServiceManagementService** -klasse in de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service management-gerelateerde functionaliteit die beschikbaar is in de [Azure Portal] [ management-portal] (zoals **maken, bijwerken en verwijderen van cloud-services, implementaties, data management-services en virtuele machines**). Deze functie kan nuttig zijn bij het bouwen van toepassingen die programmatische toegang tot het servicebeheer van de moeten worden gemaakt.
@@ -394,9 +394,9 @@ Ten slotte de virtuele machine met de vastgelegde installatiekopie maakt, gebrui
         role_size='Small',
         vm_image_name = image_name)
 
-Zie voor meer informatie over het vastleggen van een virtuele Linux-Machine, [het vastleggen van een virtuele Linux-Machine.](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Zie voor meer informatie over het vastleggen van een virtuele Linux-Machine in het klassieke implementatiemodel, [virtuele Linux-Machine vastleggen.](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Zie voor meer informatie over het vastleggen van een virtuele Windows-computer, [het vastleggen van een virtuele Windows-computer.](../virtual-machines/windows/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Zie voor meer informatie over het vastleggen van een virtuele Windows-computer in het klassieke implementatiemodel, [virtuele Windows-Machine vastleggen.](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Volgende stappen
 Nu dat u de basisprincipes van beheer-service hebt geleerd, kunt u toegang tot de [voltooid API-naslagdocumentatie voor de Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) en complexe taken gemakkelijk voor het beheren van uw toepassing python uitvoeren.
