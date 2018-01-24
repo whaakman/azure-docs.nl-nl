@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: 37acd22cd6a85b1a9062b0c0aee6e48957f1ea11
-  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.openlocfilehash: 251ce769ce9d43d7706cd7ba5d0c0f47cde36d3f
+  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 12/07/2017
+  ms.lasthandoff: 01/24/2018
 abstract:
   description: Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen. Als u een volledige oplossing voor het inrichten van containers nodig hebt, raadpleegt u de <a href="/azure/container-service/kubernetes/">documentatie voor Kubernetes op Azure Container Service</a>. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u containers maakt en beheert.
 sections:
@@ -30,12 +30,16 @@ sections:
     items:
     - image:
         src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
+      text: Azure-CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
+      text: Azure-portal
       href: /azure/container-instances/container-instances-quickstart-portal
+    - image:
+        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-instances/container-instances-quickstart-powershell
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
