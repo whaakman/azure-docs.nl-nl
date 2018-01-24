@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: afhankelijkheid bijhouden
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Dit is doorgaans een service die is aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) maatregelen hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
@@ -43,9 +43,9 @@ Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Ap
 
 | Platform | Installeren |
 | --- | --- |
-| IIS-Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md) of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
+| IIS Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md) of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
 | Azure Web App |In het Configuratiescherm voor web-app [de Application Insights-blade geopend in het Configuratiescherm van de web-app](app-insights-azure-web-apps.md) en kies installeren als u wordt gevraagd. |
-| Azure-Cloudservice |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Cloud Service |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Waar vind ik afhankelijkheidsgegevens
 * [De toepassingstoewijzing](#application-map) visualiseren van afhankelijkheden tussen uw app en de aangrenzende onderdelen.
@@ -178,7 +178,7 @@ Kunt u code schrijven waarmee afhankelijkheidsinformatie, worden verzonden met b
 
 Als u uw code met een assembly die u zelf niet schrijven maken, kan u bijvoorbeeld alle aanroepen, om erachter te komen welke bijdrage hiervan in uw reactietijden tijd. Als u deze gegevens weergegeven in de afhankelijkheidsgrafiek in Application Insights, verzenden met behulp van `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();

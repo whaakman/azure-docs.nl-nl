@@ -3,9 +3,9 @@ title: Azure Disk Encryption for Windows and Linux IaaS VM's | Microsoft Docs
 description: Dit artikel bevat een overzicht van Microsoft Azure Disk Encryption for Windows en Linux IaaS VM's.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: TomSh
+author: DevTiw
+manager: avibm
+editor: barclayn
 ms.assetid: d3fac8bb-4829-405e-8701-fa7229fb1725
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
-ms.author: kakhan
-ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -145,13 +145,13 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
 
 | Linux-distributie | Versie | Type van het volume voor de versleuteling wordt ondersteund|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAGELIJKS-TNS | Besturingssysteem en schijf |
+| Ubuntu | 16.04-DAILY-LTS | Besturingssysteem en schijf |
 | Ubuntu | 14.04.5-DAILY-LTS | Besturingssysteem en schijf |
 | Ubuntu | 12.10 | Gegevensschijf |
 | Ubuntu | 12.04 | Gegevensschijf |
 | RHEL | 7.4 | Besturingssysteem en schijf |
 | RHEL | 7.3 | Besturingssysteem en schijf |
-| RHEL | 7.3 LVM | Besturingssysteem en schijf |
+| RHEL | LVM 7.3 | Besturingssysteem en schijf |
 | RHEL | 7.2 | Besturingssysteem en schijf |
 | RHEL | 6.8 | Besturingssysteem en schijf |
 | RHEL | 6.7 | Gegevensschijf |
@@ -487,7 +487,7 @@ De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor de v
 | --- | --- |
 | newStorageAccountName | De naam van het opslagaccount voor het opslaan van de versleutelde OS-VHD. Dit opslagaccount moet al zijn gemaakt in dezelfde resourcegroep en dezelfde locatie als de virtuele machine. |
 | osVhdUri | De URI van de VHD OS vanuit het opslagaccount. |
-| besturingssysteemtype | Type besturingssysteem product (Windows of Linux). |
+| osType | Type besturingssysteem product (Windows of Linux). |
 | virtualNetworkName | Naam van het VNet dat de VM-NIC tot behoren moet. De naam moet al zijn gemaakt in dezelfde resourcegroep en dezelfde locatie als de virtuele machine. |
 | subnetName | Naam van het subnet in het VNet dat de VM-NIC tot behoren moet. |
 | vmSize | De grootte van de virtuele machine. Op dit moment worden alleen standaard A, D en G reeksen ondersteund. |
@@ -599,7 +599,7 @@ De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor best
 | volumeType | Het type van het volume dat de coderingsbewerking wordt uitgevoerd op. Geldige ondersteunde waarden zijn _OS_ of _alle_ (Zie ondersteunde Linux-distributies en versies voor het besturingssysteem en gegevensschijven in prerequisiteis sectie eerder). |
 | sequenceVersion | De versie van de volgorde van de BitLocker-bewerking. Dit versienummer verhoogd telkens wanneer een schijfversleuteling bewerking wordt uitgevoerd op dezelfde virtuele machine. |
 | vmName | Naam van de virtuele machine die de versleutelingsbewerking op worden uitgevoerd. |
-| Wachtwoordzin | Typ een sterke wachtwoordzin als de gegevensversleutelingssleutel. |
+| passPhrase | Typ een sterke wachtwoordzin als de gegevensversleutelingssleutel. |
 
 > [!NOTE]
 > _KeyEncryptionKeyURL_ is een optionele parameter. U kunt brengt uw eigen KEK voor verdere beveiliging de gegevensversleutelingssleutel (geheime wachtwoordzin) in de sleutelkluis.
@@ -810,7 +810,7 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
 Versleuteling van een OS-station op een actieve Linux VM wordt ondersteund door de volgende distributies:
 
 * RHEL 7.2
-* 7.2 centOS
+* CentOS 7.2
 * Ubuntu 16.04
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Vereisten voor de OS-schijfversleuteling
@@ -889,7 +889,7 @@ U kunt voortgang OS versleuteling op drie manieren:
 
 * Aanmelden bij de virtuele machine via SSH en ophalen van het logboek voor uitbreiding van:
 
-    /var/log/Azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
+    /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
  Het is raadzaam dat u niet met de virtuele machine aanmelden zich terwijl OS-versleuteling uitgevoerd wordt. Kopieer de logboeken alleen wanneer de twee methoden zijn mislukt.
 

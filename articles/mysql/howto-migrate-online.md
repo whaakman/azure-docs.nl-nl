@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 3d7e96623ef4ad9abd55deca8b410e9ce0d73b6c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimale downtime migratie naar Azure-Database voor MySQL
 U kunt uw bestaande MySQL-database migreren naar Azure-Database voor MySQL Attunity repliceren met voor Microsoft Migrations. Attunity repliceren is een gezamenlijke aanbieding van Attunity en Microsoft. Samen met de Azure-databaseservice migratie is het opgenomen zonder extra kosten voor klanten van Microsoft. 
@@ -34,5 +34,5 @@ Een overzicht van het proces voor het uitvoeren van een migratie met minimale do
 Zie voor meer informatie over de repliceren Attunity voor Microsoft Migrations biedt de volgende bronnen:
  - Ga naar de [Attunity repliceren voor Microsoft Migrations](https://aka.ms/attunity-replicate) webpagina.
  - Download [Attunity repliceren voor Microsoft-migraties](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Ga naar de [Attunity repliceren Community](https://microsoft.attunity.com/) voor een introductiehandleiding, zelfstudies en ondersteuning.
+ - Ga naar de [Attunity repliceren Community](https://aka.ms/attunity-community) voor een introductiehandleiding, zelfstudies en ondersteuning.
  - Zie voor stapsgewijze instructies over het gebruik van Attunity repliceren naar uw MySQL-database migreren naar Azure-Database voor MySQL de [Database Migratiehandleiding](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

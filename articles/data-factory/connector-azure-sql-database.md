@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -109,7 +109,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van/naar Azu
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure SQL Database-bron- en sink.
 
@@ -226,10 +226,10 @@ Om gegevens te kopiëren naar Azure SQL Database, kunt u het sink-type instellen
 | type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **SqlSink** | Ja |
 | writeBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (de standaardwaarde is 10000) |
 | writeBatchTimeout |Wachttijd voor de batch-insert-bewerking te voltooien voordat er een optreedt time-out.<br/>Toegestane waarden zijn: timespan. Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
-| sqlWriterStoredProcedureName |Naam van de opgeslagen procedure die upserts (updates/INSERT) gegevens in de doeltabel. |Nee |
+| preCopyScript |Geef een SQL-query voor de Kopieeractiviteit worden uitgevoerd voordat het schrijven van gegevens in Azure SQL Database. Er wordt slechts één keer worden aangeroepen per exemplaar uitvoeren. U kunt deze eigenschap gebruiken om de vooraf geladen gegevens op te schonen. |Nee |
+| sqlWriterStoredProcedureName |Naam van de opgeslagen procedure die definieert hoe brongegevens in doeltabel, bijvoorbeeld toepast op komen upserts of transformeren met behulp van uw eigen zakelijke logica. <br/><br/>Houd er rekening mee deze opgeslagen procedure wordt **aangeroepen per batch**. Als u uitvoeren die slechts eenmaal uitgevoerd en heeft niets wilt te doen met de brongegevens bijvoorbeeld verwijderen/afkappen, gebruikt u `preCopyScript` eigenschap. |Nee |
 | storedProcedureParameters |Parameters voor de opgeslagen procedure.<br/>Toegestane waarden zijn: naam/waarde-paren. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de parameters van opgeslagen procedure. |Nee |
 | sqlWriterTableType |Geef een naam van het type tabel moet worden gebruikt in de opgeslagen procedure. Kopieeractiviteit maakt u de gegevens worden verplaatst beschikbaar zijn in een tijdelijke tabel met dit tabeltype. Code van de opgeslagen procedure kan de gegevens wordt gekopieerd met de bestaande gegevens vervolgens samenvoegen. |Nee |
-| preCopyScript |Geef een SQL-query voor de Kopieeractiviteit worden uitgevoerd voordat het schrijven van gegevens in Azure SQL Database in elke uitvoering. U kunt deze eigenschap gebruiken om de vooraf geladen gegevens op te schonen. |Nee |
 
 > [!TIP]
 > Bij het kopiëren van gegevens naar Azure SQL Database met de kopieerbewerking worden gegevens toegevoegd aan de tabel sink standaard. Voor een UPSERT en aanvullende bedrijfslogica, gebruikt u de opgeslagen procedure in SqlSink. Meer informatie over meer details van [opgeslagen procedure wordt aangeroepen voor SQL Sink](#invoking-stored-procedure-for-sql-sink).
@@ -452,17 +452,17 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database, worden de volgende t
 | Azure SQL Database-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint |Int64 |
-| Binaire |Byte] |
+| Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
 | datum |Datum en tijd |
 | Datum en tijd |Datum en tijd |
 | datetime2 |Datum en tijd |
-| DateTimeOffset |DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte] |
-| Float |dubbele |
-| Afbeelding |Byte] |
+| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
+| Float |Double |
+| Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
 | nchar |Tekenreeks, Char] |
@@ -470,19 +470,19 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database, worden de volgende t
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
 | Tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
-| tijdstempel |Byte] |
+| tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
+| varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

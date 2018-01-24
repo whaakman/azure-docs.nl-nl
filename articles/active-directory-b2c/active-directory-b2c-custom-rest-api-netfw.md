@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>REST-API claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis integreren als gebruikersinvoer
 Met het Framework van de gebruikerservaring identiteit voltooiingscallback die Azure Active Directory B2C (Azure AD B2C), die u kunt integreren met een RESTful-API in het traject van een gebruiker. In dit scenario leert u hoe Azure AD B2C communiceert met .NET Framework RESTful-services (web-API).
@@ -88,7 +88,7 @@ Maak een model met invoerclaims als volgt:
 
 3. Naam van de klasse `InputClaimsModel`, en voeg de volgende eigenschappen voor de `InputClaimsModel` klasse:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Maak een model met invoerclaims als volgt:
 
 4. Maak een nieuw model `OutputClaimsModel`, en voeg de volgende eigenschappen voor de `OutputClaimsModel` klasse:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Maak een model met invoerclaims als volgt:
 
 5. Maken van een meer model `B2CResponseContent`, waarin u invoer validatiefout berichten genereert. Voeg de volgende eigenschappen voor de `B2CResponseContent` klasse, bieden de ontbrekende verwijzingen en sla het bestand:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
 
 4. Als de *IdentityController.cs* bestand nog niet open is, dubbelklik erop en vervolgens de code in het bestand vervangen door de volgende code:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;

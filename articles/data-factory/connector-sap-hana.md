@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Gegevens kopiëren van SAP HANA met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ De volgende eigenschappen worden ondersteund voor SAP HANA gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **SapHana** | Ja |
 | server | Naam van de server waarop het exemplaar SAP HANA zich bevindt. Als de server een aangepaste poort gebruikt is, geeft u `server:port`. | Ja |
 | authenticationType | Het soort verificatie die wordt gebruikt voor verbinding met de SAP HANA-database.<br/>Toegestane waarden zijn: **Basic**, en **Windows** | Ja |
-| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
 | wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString. | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
@@ -114,7 +114,7 @@ Om gegevens te kopiëren uit een SAP HANA, stel de eigenschap type van de gegeve
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door SAP HANA-bron.
 
@@ -167,11 +167,11 @@ Bij het kopiëren van gegevens uit een SAP HANA, worden de volgende toewijzingen
 |:--- |:--- |
 | ALPHANUM | Tekenreeks |
 | BIGINT | Int64 |
-| BLOB | Byte] |
+| BLOB | Byte[] |
 | BOOLEAANSE WAARDE | Byte |
-| CLOB | Byte] |
+| CLOB | Byte[] |
 | DATE | Datum en tijd |
-| DECIMALE | Decimale |
+| DECIMAL | Decimale |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | Tekenreeks |

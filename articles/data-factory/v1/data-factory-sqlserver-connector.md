@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37eb7b728bebcec5c389a8bdf68be6baf97f3c38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Verplaatsen van gegevens naar en van SQL Server on-premises of op IaaS (Azure VM) met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie
 | --- | --- | --- |
 | tableName |De naam van de tabel of weergave in de SQL Server-Database-instantie waarnaar de gekoppelde service verwijst. |Ja |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Als u gegevens uit een SQL Server-database verplaatst, u het brontype instellen in de kopieerbewerking naar **SqlSource**. Als u gegevens naar een SQL Server-database verplaatst, u stelt het sink-type in de kopieerbewerking naar **SqlSink**. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SqlSource en SqlSink.
 
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle typen activiteiten.
@@ -171,7 +171,7 @@ Als u sqlReaderQuery of sqlReaderStoredProcedureName niet opgeeft, worden de kol
 | writeBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
 | sqlWriterCleanupScript |Query voor de Kopieeractiviteit uitvoeren zodat de gegevens van een bepaald segment wordt opgeschoond opgeven. Zie voor meer informatie [herhaalbare kopiëren](#repeatable-copy) sectie. |Een query-instructie. |Nee |
 | sliceIdentifierColumnName |Geef de naam van de kolom voor de Kopieeractiviteit te vullen met de segment-ID automatisch gegenereerd en die wordt gebruikt voor het opschonen van de gegevens van een bepaald segment wanneer opnieuw uitgevoerd. Zie voor meer informatie [herhaalbare kopiëren](#repeatable-copy) sectie. |De naam van de kolom van een kolom met gegevenstype binary(32). |Nee |
-| sqlWriterStoredProcedureName |Naam van de opgeslagen procedure die upserts (updates/INSERT) gegevens in de doeltabel. |Naam van de opgeslagen procedure. |Nee |
+| sqlWriterStoredProcedureName |Naam van de opgeslagen procedure die definieert hoe brongegevens in doeltabel, bijvoorbeeld toepast op komen upserts of transformeren met behulp van uw eigen zakelijke logica. <br/><br/>Houd er rekening mee deze opgeslagen procedure wordt **aangeroepen per batch**. Als u uitvoeren die slechts eenmaal uitgevoerd en heeft niets wilt te doen met de brongegevens bijvoorbeeld verwijderen/afkappen, gebruikt u `sqlWriterCleanupScript` eigenschap. |Naam van de opgeslagen procedure. |Nee |
 | storedProcedureParameters |Parameters voor de opgeslagen procedure. |Naam/waarde-paren. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de parameters van opgeslagen procedure. |Nee |
 | sqlWriterTableType |Type tabelnaam moet worden gebruikt in de opgeslagen procedure opgeven. Kopieeractiviteit maakt u de gegevens worden verplaatst beschikbaar zijn in een tijdelijke tabel met dit tabeltype. Code van de opgeslagen procedure kan de gegevens wordt gekopieerd met de bestaande gegevens vervolgens samenvoegen. |Een typenaam van de tabel. |Nee |
 
@@ -655,37 +655,37 @@ De toewijzing is hetzelfde als de SQL Server gegevenstypetoewijzing voor ADO.NET
 | SQL Server Database Engine-type | .NET framework-type |
 | --- | --- |
 | bigint |Int64 |
-| Binaire |Byte] |
-| bits |Booleaanse waarde |
+| Binaire |Byte[] |
+| bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| Datum |Datum/tijd |
-| Datum/tijd |Datum/tijd |
-| datetime2 |Datum/tijd |
-| DateTimeOffset |DateTimeOffset |
+| datum |Datum en tijd |
+| Datum en tijd |Datum en tijd |
+| datetime2 |Datum en tijd |
+| Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte] |
-| Float |dubbele |
-| Afbeelding |Byte] |
+| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
+| Float |Double |
+| Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
-| echte |Één |
-| ROWVERSION |Byte] |
-| smalldatetime |Datum/tijd |
+| echte |Single |
+| ROWVERSION |Byte[] |
+| smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
 | Tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
-| tijdstempel |Byte] |
+| tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
+| varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Toewijzingsbron opvangen kolommen
 Zie het toewijzen van kolommen uit de bron-gegevensset naar kolommen uit de dataset sink [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

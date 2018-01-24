@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Gegevenssets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,7 +47,7 @@ Het volgende diagram toont de relaties tussen pipeline, de activiteit, de gegeve
 
 ![Relatie tussen een pijplijn, activiteit, gegevensset, gekoppelde services](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
-## <a name="dataset-json"></a>JSON van de gegevensset
+## <a name="dataset-json"></a>Dataset JSON
 Een gegevensset in Gegevensfactory is gedefinieerd in JSON-indeling als volgt:
 
 ```json
@@ -86,7 +86,7 @@ De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 | type |Het type van de gegevensset. Geef een van de typen die door Data Factory worden ondersteund (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie [gegevensettype](#Type). |Ja |N.v.t. |
 | structuur |Schema voor de gegevensset.<br/><br/>Zie voor meer informatie [gegevenssetstructuur](#Structure). |Nee |N.v.t. |
 | typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en hun eigenschappen [gegevensettype](#Type). |Ja |N.v.t. |
-| external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit niet door de huidige pipeline gemaakt wordt, moet u deze vlag ingesteld op true. Deze vlag ingesteld op true voor de invoer gegevensset van de eerste activiteit in de pijplijn.  |Nee |ONWAAR |
+| external | Booleaanse vlag om op te geven of een gegevensset expliciet wordt geproduceerd door een data factory-pijplijn of niet. Als de invoergegevensset voor een activiteit niet door de huidige pipeline gemaakt wordt, moet u deze vlag ingesteld op true. Deze vlag ingesteld op true voor de invoer gegevensset van de eerste activiteit in de pijplijn.  |Nee |onwaar |
 | availability | Definieert het venster verwerking (bijvoorbeeld elk uur of dagelijks) of het segmenteringshulplijnen model voor de gegevensset voor productie. Elke eenheid gegevens verbruikt en die wordt geproduceerd door het uitvoeren van een activiteit wordt een gegevenssegment genoemd. Als de beschikbaarheid van een uitvoergegevensset is ingesteld op dagelijks (frequentie - dag, interval - 1), wordt dagelijks een segment geproduceerd. <br/><br/>Zie voor meer informatie [gegevensset beschikbaarheid](#Availability). <br/><br/>Zie voor informatie over de gegevensset segmentering model, de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel. |Ja |N.v.t. |
 | policy |Definieert de criteria of de conditie van de segmenten van de gegevensset moeten voldoen. <br/><br/>Zie voor meer informatie de [gegevensset beleid](#Policy) sectie. |Nee |N.v.t. |
 
@@ -283,7 +283,7 @@ De volgende gegevensset wordt maandelijks, en op de 3rd van elke maand om 8:00 u
 De **beleid** sectie in de definitie van de gegevensset definieert u de criteria of de conditie van de segmenten van de gegevensset moeten voldoen.
 
 ### <a name="validation-policies"></a>Van validatiebeleid
-| De naam van beleid | Beschrijving | Toegepast op | Vereist | Standaard |
+| Beleidsnaam | Beschrijving | Toegepast op | Vereist | Standaard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valideert dat de gegevens in **Azure Blob storage** voldoet aan de minimale grootte (in MB). |Azure Blob Storage |Nee |N.v.t. |
 | minimumRows |Valideert dat de gegevens in een **Azure SQL-database** of een **Azure-tabel** het minimum aantal rijen bevat. |<ul><li>Azure SQL-database</li><li>Azure-tabel</li></ul> |Nee |N.v.t. |
@@ -335,7 +335,7 @@ U kunt de gegevenssets maken met behulp van een van deze hulpprogramma's of de S
 - Visual Studio
 - PowerShell
 - Azure Resource Manager-sjabloon
-- REST API
+- REST-API
 - .NET API
 
 Zie de volgende zelfstudies voor stapsgewijze instructies voor het maken van de pijplijnen en gegevenssets met behulp van een van deze hulpprogramma's of de SDK's:

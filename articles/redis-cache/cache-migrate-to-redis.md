@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migreren van Managed cacheservice naar Azure Redis-Cache
 Migreren van uw toepassingen die gebruikmaken van Azure Managed Cache Service met Azure Redis-Cache kan worden bewerkstelligd met minimale wijzigingen in uw toepassing, afhankelijk van de functies Managed Cache Service is gebruikt door de toepassing in het cachegeheugen. Hoewel de API's niet precies hetzelfde zijn ze zijn vergelijkbaar en veel van de bestaande code die Managed Cache Service voor toegang tot een cache met minimale wijzigingen opnieuw kan worden gebruikt. In dit onderwerp wordt beschreven hoe u de vereiste configuratie en de wijzigingen in de toepassing voor het migreren van uw toepassingen Managed Cache Service en het gebruik van Azure Redis-Cache en ziet u hoe sommige van de functies van Azure Redis-Cache kan worden gebruikt om de functionaliteit van een Managed Cache Service-cache te implementeren.
@@ -125,7 +125,7 @@ In Managed Cache Service verbindingen met de cache zijn verwerkt door de `DataCa
 
 Voeg het volgende toe met de instructie naar de bovenkant van alle bestanden die u wilt toegang krijgen tot de cache.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ Als deze naamruimte kan niet worden omgezet, moet u het NuGet-pakket StackExchan
 
 Voor verbinding met een Azure Redis-Cache-exemplaar, roept u de statische `ConnectionMultiplexer.Connect` methode en geeft u het eindpunt en -sleutel. U kunt een exemplaar van `ConnectionMultiplexer` in uw toepassing delen door een statische eigenschap in te stellen die een verbonden exemplaar retourneert, zoals in het volgende voorbeeld. Dit is een thread-veilige manier om slechts één verbonden exemplaar van `ConnectionMultiplexer` te initialiseren. In dit voorbeeld `abortConnect` is ingesteld op false, dit betekent dat de aanroep slaagt, zelfs als een verbinding met de cache is niet gemaakt. Een belangrijke functie van `ConnectionMultiplexer` is dat deze de verbinding met de cache automatisch herstelt als het netwerkprobleem of de andere oorzaken zijn opgelost.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -157,7 +157,7 @@ De cache-eindpunt, sleutels en poorten kunnen worden verkregen van de **Redis-Ca
 
 Wanneer de verbinding is gemaakt, een verwijzing retourneren naar de database van Redis-cache door het aanroepen van de `ConnectionMultiplexer.GetDatabase` methode. Het object dat door de `GetDatabase`-methode wordt geretourneerd, is een lichtgewicht doorvoerobject en hoeft niet te worden opgeslagen.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ Bij het aanroepen van `StringGet`, als het object bestaat, wordt deze geretourne
 
 Als u de vervaldatum van een item in de cache wilt opgeven, gebruikt u de parameter `TimeSpan` van `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

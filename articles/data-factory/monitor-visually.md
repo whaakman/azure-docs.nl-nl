@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure data factory's visueel te bewaken
 Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.
@@ -51,7 +51,7 @@ Weergave van de lijst met elke pijplijn uitgevoerd voor de data factory-pijplijn
 | Fout | Pipeline-fout (indien/van toepassing) uitvoeren |
 | Run-id | Id van de pijplijn uitvoeren |
 
-![De pijplijn bewaken wordt uitgevoerd](media/monitor-visually/pipeline-runs.png)
+![Pijplijnuitvoeringen controleren](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Bewaking van de activiteit wordt uitgevoerd
 Lijst weergeven met de activiteit wordt uitgevoerd die overeenkomen met elke pijplijn uitvoeren. Klik op **'Activiteit wordt uitgevoerd'** pictogram onder de **'Acties'** kolom om weer te geven van de activiteit wordt uitgevoerd voor elke pijplijn uitvoeren. Opgenomen kolommen:
@@ -59,7 +59,7 @@ Lijst weergeven met de activiteit wordt uitgevoerd die overeenkomen met elke pij
 | **Kolomnaam** | **Beschrijving** |
 | --- | --- |
 | Naam activiteit | De naam van de activiteit in de pijplijn. |
-| Activiteitstype | Type van de activiteit dat wil zeggen kopiëren, HDInsightSpark, HDInsightHive enzovoort. |
+| Type activiteit | Type van de activiteit dat wil zeggen kopiëren, HDInsightSpark, HDInsightHive enzovoort. |
 | Begin uitvoeren | Activiteit die wordt uitgevoerd, start datum / tijd (MM/DD/JJJJ uu: mm: SS AM/PM) |
 | Duur | Uitvoeren van de duur (: mm: SS) |
 | Status | Is mislukt, is voltooid, wordt uitgevoerd |
@@ -67,7 +67,7 @@ Lijst weergeven met de activiteit wordt uitgevoerd die overeenkomen met elke pij
 | Uitvoer | JSON-matrix met een beschrijving van de uitvoer voor activiteiten |
 | Fout | Activiteit die wordt uitgevoerd fout (indien/van toepassing) |
 
-![Monitor activiteit wordt uitgevoerd](media/monitor-visually/activity-runs.png)
+![Uitvoering van activiteiten controleren](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
 > U moet op **'Vernieuwen'** pictogram bovenaan de lijst van de pijplijn en activiteiten wordt uitgevoerd te vernieuwen. Automatisch vernieuwen is momenteel niet ondersteund.

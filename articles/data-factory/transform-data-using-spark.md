@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f1548c6ad397a7154482fa73e992aef9201c5752
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van de activiteit Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie:
 | description           | Tekst die beschrijft wat de activiteit doet.  | Nee       |
 | type                  | Het activiteitstype is HDInsightSpark voor Spark-activiteit. | Ja      |
 | linkedServiceName     | Naam van de Spark gekoppelde HDInsight-Service op het Spark-programma wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel. | Ja      |
-| sparkJobLinkedService | Azure Storage gekoppelde service die de Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan de HDInsight-cluster gebruikt. | Nee       |
+| SparkJobLinkedService | Azure Storage gekoppelde service die de Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan de HDInsight-cluster gebruikt. | Nee       |
 | rootPath              | De Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. Raadpleeg de mapstructuur sectie (volgende sectie) voor meer informatie over de structuur van deze map. | Ja      |
 | entryFilePath         | Relatief pad naar de hoofdmap van het Spark/codepakket. | Ja      |
 | className             | Belangrijkste Java/Spark-klasse van de toepassing      | Nee       |

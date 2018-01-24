@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van een SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) ge
 | server | Naam van de server waarop het exemplaar SAP BW zich bevindt. | Ja |
 | systemNumber | Systeemnummer van het SAP BW-systeem.<br/>Toegestane waarde: decimaal getal zijn twee cijfers weergegeven als een tekenreeks. | Ja |
 | clientId | Client-ID van de client in het systeem SAP-W.<br/>Toegestane waarde: decimaal nummer met drie cijfers weergegeven als een tekenreeks. | Ja |
-| Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
+| userName | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
 | wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString. | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
@@ -116,7 +116,7 @@ Om gegevens te kopiëren uit SAP BW, stel de eigenschap type van de gegevensset 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door SAP BW-bron.
 
@@ -170,25 +170,25 @@ Bij het kopiëren van gegevens uit SAP BW, worden de volgende toewijzingen van g
 | ACCP | Int |
 | CHAR | Tekenreeks |
 | CLNT | Tekenreeks |
-| VAL | Decimale |
+| CURR | Decimale |
 | CUKY | Tekenreeks |
-| DECEMBER | Decimale |
-| FLTP | dubbele |
+| DEC | Decimale |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
 | LANG | Tekenreeks |
 | LCHR | Tekenreeks |
-| LRAW | Byte] |
+| LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimale |
-| ONBEWERKTE | Byte] |
-| RAWSTRING | Byte] |
+| RAW | Byte[] |
+| RAWSTRING | Byte[] |
 | TEKENREEKS | Tekenreeks |
 | EENHEID | Tekenreeks |
 | DATS | Tekenreeks |
 | NUMC | Tekenreeks |
-| TIM 'S | Tekenreeks |
+| TIMS | Tekenreeks |
 
 
 ## <a name="next-steps"></a>Volgende stappen

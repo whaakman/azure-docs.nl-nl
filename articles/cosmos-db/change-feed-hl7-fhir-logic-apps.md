@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e5fa40dc128412e3b5b39c9fbdb751c797ca0cc7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Melding patiënten van HL7 FHIR gezondheidszorg recordwijzigingen met Logic Apps en Azure Cosmos-DB
 
@@ -91,7 +91,7 @@ We gebruiken de [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments bewerking
 
 **Invoer**
-- Database-id
+- DatabaseId
 - CollectionId
 - De naam van de HL7 FHIR brontype
 - Booleaanse waarde: Starten vanaf het begin
@@ -105,7 +105,7 @@ We gebruiken de [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
 
 **Bron voor de API-app**
 
-```C#
+```csharp
 
     using System.Collections.Generic;
     using System.Linq;

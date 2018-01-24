@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f242a8a15334818d83651cf0af55e8ec39bce212
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -25,11 +25,11 @@ De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door 
 
 | Compute-omgeving                      | activities                               |
 | ---------------------------------------- | ---------------------------------------- |
-| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-Streaming](transform-data-using-hadoop-streaming.md) |
+| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service) | [Aangepaste](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: batchuitvoering en resources bijwerken](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](transform-data-using-stored-procedure.md) |
 
 >  
 
@@ -111,7 +111,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | clusterNamePrefix           | Het voorvoegsel van de naam in de HDI-cluster, een tijdstempel wordt automatisch toegevoegd aan het einde van de naam van het cluster| Nee       |
 | sparkVersion                 | De versie van spark als het clustertype is 'Spark' | Nee       |
 | additionalLinkedServiceNames | Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. | Nee       |
-| besturingssysteemtype                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows (voor HDInsight 3.3). De standaardwaarde is Linux. | Nee       |
+| osType                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows (voor HDInsight 3.3). De standaardwaarde is Linux. | Nee       |
 | hcatalogLinkedServiceName    | De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. | Nee       |
 | connectVia                   | De Runtime-integratie moeten worden gebruikt voor het verzenden van de activiteiten bij deze gekoppelde HDInsight-service. Voor een gekoppelde HDInsight-service op aanvraag ondersteunt het alleen Azure-integratie Runtime. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee       |
 | clusterUserName                   | De gebruikersnaam voor toegang tot het cluster. | Nee       |
@@ -338,10 +338,10 @@ Zie de volgende onderwerpen als u niet bekend met Azure Batch-service bent:
 | Eigenschap          | Beschrijving                              | Vereist |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | De eigenschap type moet worden ingesteld op **AzureBatch**. | Ja      |
-| Accountnaam       | Naam van de Azure Batch-account.         | Ja      |
+| accountName       | Naam van de Azure Batch-account.         | Ja      |
 | accessKey         | De toegangssleutel voor de Azure Batch-account.  | Ja      |
 | batchUri          | URL naar uw Azure Batch-account in de indeling van https://*batchaccountname.region*. batch.azure.com. | Ja      |
-| Groepsnaam          | Naam van de groep van virtuele machines.    | Ja      |
+| poolName          | Naam van de groep van virtuele machines.    | Ja      |
 | linkedServiceName | Naam van de Azure Storage gekoppelde service die is gekoppeld aan deze gekoppelde Azure-Batch-service. Deze gekoppelde service wordt gebruikt voor tijdelijke bestanden die zijn vereist voor het uitvoeren van de activiteit. | Ja      |
 | connectVia        | De Runtime-integratie moeten worden gebruikt voor het verzenden van de activiteiten van deze gekoppelde service. U kunt Azure integratie Runtime of Self-hosted integratie-Runtime gebruiken. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee       |
 
@@ -379,7 +379,7 @@ U maakt een Azure Machine Learning gekoppelde service voor het registreren van e
 | updateResourceEndpoint | De bron-URL bijwerken voor een Azure ML Web Service-eindpunt dat is gebruikt voor het bijwerken van de voorspellende webservice met getrainde model-bestand | Nee                                       |
 | servicePrincipalId     | Geef de toepassing client-ID.     | Vereist als updateResourceEndpoint wordt opgegeven |
 | servicePrincipalKey    | De sleutel van de toepassing opgeven.           | Vereist als updateResourceEndpoint wordt opgegeven |
-| Tenant                 | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Vereist als updateResourceEndpoint wordt opgegeven |
+| tenant                 | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Vereist als updateResourceEndpoint wordt opgegeven |
 | connectVia             | De Runtime-integratie moeten worden gebruikt voor het verzenden van de activiteiten van deze gekoppelde service. U kunt Azure integratie Runtime of Self-hosted integratie-Runtime gebruiken. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics gekoppelde service
@@ -417,13 +417,13 @@ U maakt een **Azure Data Lake Analytics** gekoppelde service om te koppelen van 
 | Eigenschap             | Beschrijving                              | Vereist                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. | Ja                                      |
-| Accountnaam          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
+| accountName          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics-URI.           | Nee                                       |
 | subscriptionId       | Azure-abonnement-id                    | Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
 | resourceGroupName    | Naam van een Azure-resourcegroep                | Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
 | servicePrincipalId   | Geef de toepassing client-ID.     | Ja                                      |
 | servicePrincipalKey  | De sleutel van de toepassing opgeven.           | Ja                                      |
-| Tenant               | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja                                      |
+| tenant               | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja                                      |
 | connectVia           | De Runtime-integratie moeten worden gebruikt voor het verzenden van de activiteiten van deze gekoppelde service. U kunt Azure integratie Runtime of Self-hosted integratie-Runtime gebruiken. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee                                       |
 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Verwijst naar Let op:
     <table>
     <tr>
         <td>CPU</td>
-        <td>32 cores 2,20 GHz Intel Xeon E5-2660 v2</td>
+        <td>32 cores 2.20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
         <td>Geheugen</td>
@@ -191,8 +191,8 @@ Configureer de **enableStaging** instellen in de kopieerbewerking om op te geven
 | Eigenschap | Beschrijving | Standaardwaarde | Vereist |
 | --- | --- | --- | --- |
 | **enableStaging** |Geef op of u wilt kopiëren van gegevens via een tussentijdse staging-store. |False |Nee |
-| **linkedServiceName** |Geef de naam van een [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N.v.t. |Ja, wanneer **enableStaging** is ingesteld op TRUE |
-| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N.v.t. |Nee |
+| **linkedServiceName** |Geef de naam van een [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N/A |Ja, wanneer **enableStaging** is ingesteld op TRUE |
+| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N/A |Nee |
 | **enableCompression** |Hiermee geeft u op of de gegevens moeten worden gecomprimeerd voordat deze is gekopieerd naar de bestemming. Deze instelling beperkt de hoeveelheid gegevens die worden overgedragen. |False |Nee |
 
 Hier volgt een voorbeeld-definitie van de Kopieeractiviteit met de eigenschappen die worden beschreven in de voorgaande tabel:
@@ -384,7 +384,7 @@ De prestatieknelpunt mogelijk worden veroorzaakt door een of meer van de volgend
 
 In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Overschakelen naar een compressiecodec gzip, kan dit knelpunt vereenvoudigen.
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 
 Hier zijn prestaties controleren en afstemmen verwijzingen voor enkele van de ondersteunde gegevensarchieven:
 

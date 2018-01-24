@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Het configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepast beleid
 Met behulp van Azure Active Directory B2C (Azure AD B2C) aangepast beleid, kunt u een parameter in een queryreeks verzenden. Door de parameter wordt doorgegeven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. U kunt bijvoorbeeld de achtergrondafbeelding op de Azure AD B2C registreren of aanmelden pagina op basis van een parameter die u van uw web- of mobiele toepassing doorgeeft wijzigen. 
@@ -41,16 +41,16 @@ De `ContentDefinitions` sectie bevat een reeks `ContentDefinition` XML-elementen
 
 | De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Beschrijving | 
 |-----------------------|--------|-------------|
-| *API.Error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer een uitzondering of een fout is opgetreden. |
-| *API.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Id-provider selectiepagina**. Deze pagina geeft een lijst van de id-providers die gebruikers tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
-| *API.idpselections.Signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selectie van de id-provider voor registratie**. Deze pagina geeft een lijst van de id-providers die gebruikers tijdens de registratie kiezen kunnen. De opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
-| *API.localaccountpasswordreset* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier die gebruikers moeten worden voltooid voor het initiëren van een wachtwoord opnieuw instellen.  |
-| *API.localaccountsignin* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier voor het aanmelden met een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
-| *API.localaccountsignup* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokaal account registratiepagina**. Deze pagina bevat een formulier voor het aanmelden voor een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan verschillende invoer besturingselementen bevatten, zoals: invoer voor een text vak, een wachtwoordinvoervak, een keuzerondje, één vervolgkeuzelijsten en meerdere Schakel selectievakjes. |
-| *API.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (met behulp van tekst of stem) controleren tijdens het registreren of aanmelden. |
-| *API.selfasserted* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **De aanmeldpagina sociale account**. Deze pagina bevat een formulier dat gebruikers wanneer ze zich registreren met behulp van een bestaand account van een identiteitsprovider van sociale moeten voltooien. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
-| *API.selfasserted.profileupdate* | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update profielpagina**. Deze pagina bevat een formulier waarop gebruikers kunnen hun profiel bijwerken. Deze pagina is vergelijkbaar met de sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
-| *API.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified registreren of aanmelden pagina**. Deze pagina wordt de gebruiker zich kunnen registreren en aanmelden proces. Gebruikers kunnen enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken.  |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer een uitzondering of een fout is opgetreden. |
+| *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Id-provider selectiepagina**. Deze pagina geeft een lijst van de id-providers die gebruikers tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selectie van de id-provider voor registratie**. Deze pagina geeft een lijst van de id-providers die gebruikers tijdens de registratie kiezen kunnen. De opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier die gebruikers moeten worden voltooid voor het initiëren van een wachtwoord opnieuw instellen.  |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier voor het aanmelden met een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokaal account registratiepagina**. Deze pagina bevat een formulier voor het aanmelden voor een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan verschillende invoer besturingselementen bevatten, zoals: invoer voor een text vak, een wachtwoordinvoervak, een keuzerondje, één vervolgkeuzelijsten en meerdere Schakel selectievakjes. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (met behulp van tekst of stem) controleren tijdens het registreren of aanmelden. |
+| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **De aanmeldpagina sociale account**. Deze pagina bevat een formulier dat gebruikers wanneer ze zich registreren met behulp van een bestaand account van een identiteitsprovider van sociale moeten voltooien. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
+| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update profielpagina**. Deze pagina bevat een formulier waarop gebruikers kunnen hun profiel bijwerken. Deze pagina is vergelijkbaar met de sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified registreren of aanmelden pagina**. Deze pagina wordt de gebruiker zich kunnen registreren en aanmelden proces. Gebruikers kunnen enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken.  |
 
 ## <a name="serving-dynamic-content"></a>Dynamische inhoud
 In de [configureren aanpassen in een aangepast beleid](active-directory-b2c-ui-customization-custom.md) artikel leert u HTML5 bestanden uploaden naar Azure Blob-opslag. Deze bestanden HTML5 statisch zijn en dat de dezelfde HTML inhoud voor elke aanvraag. 
@@ -105,7 +105,7 @@ De aangepaste HTML5-sjabloon is gebaseerd op de Azure AD B2C ingebouwde HTML5-sj
 
 7. Voor dit scenario moet verwijderen we de verwijzing naar de pagina-indeling. Voeg het volgende codefragment aan _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Wijzigen van de HomeController `unified` methode voor het accepteren van de para
 
 1. Open de *Controllers\HomeController.cs* bestand en wijzig vervolgens de `unified` methode door het volgende codefragment toe te voegen:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

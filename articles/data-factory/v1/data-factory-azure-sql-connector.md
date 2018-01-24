@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7e57003582dc6190b79e1b4eea38ec4adc1c521c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Database met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,7 +83,7 @@ De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie
 | --- | --- | --- |
 | tableName |De naam van de tabel of weergave in de Azure SQL Database-instantie waarnaar de gekoppelde service verwijst. |Ja |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 > [!NOTE]
@@ -152,7 +152,7 @@ GO
 | writeBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt. |Geheel getal (aantal rijen) |Nee (standaard: 10000) |
 | sqlWriterCleanupScript |Geef een query voor de Kopieeractiviteit uitvoeren zodat de gegevens van een bepaald segment wordt opgeschoond. Zie voor meer informatie [herhaalbare kopiëren](#repeatable-copy). |Een query-instructie. |Nee |
 | sliceIdentifierColumnName |Geef de naam van een kolom voor de Kopieeractiviteit te vullen met de segment-ID automatisch gegenereerd en die wordt gebruikt voor het opschonen van de gegevens van een bepaald segment wanneer opnieuw uitgevoerd. Zie voor meer informatie [herhaalbare kopiëren](#repeatable-copy). |De naam van de kolom van een kolom met gegevenstype binary(32). |Nee |
-| sqlWriterStoredProcedureName |Naam van de opgeslagen procedure die upserts (updates/INSERT) gegevens in de doeltabel. |Naam van de opgeslagen procedure. |Nee |
+| sqlWriterStoredProcedureName |Naam van de opgeslagen procedure die definieert hoe brongegevens in doeltabel, bijvoorbeeld toepast op komen upserts of transformeren met behulp van uw eigen zakelijke logica. <br/><br/>Houd er rekening mee deze opgeslagen procedure wordt **aangeroepen per batch**. Als u uitvoeren die slechts eenmaal uitgevoerd en heeft niets wilt te doen met de brongegevens bijvoorbeeld verwijderen/afkappen, gebruikt u `sqlWriterCleanupScript` eigenschap. |Naam van de opgeslagen procedure. |Nee |
 | storedProcedureParameters |Parameters voor de opgeslagen procedure. |Naam/waarde-paren. Namen en hoofdlettergebruik van parameters moeten overeenkomen met de naam en het hoofdlettergebruik van de parameters van opgeslagen procedure. |Nee |
 | sqlWriterTableType |Geef een naam van het type tabel moet worden gebruikt in de opgeslagen procedure. Kopieeractiviteit maakt u de gegevens worden verplaatst beschikbaar zijn in een tijdelijke tabel met dit tabeltype. Code van de opgeslagen procedure kan de gegevens wordt gekopieerd met de bestaande gegevens vervolgens samenvoegen. |Een typenaam van de tabel. |Nee |
 
@@ -639,37 +639,37 @@ Bij het verplaatsen van gegevens naar en van Azure SQL Database, worden de volge
 | SQL Server Database Engine-type | .NET framework-type |
 | --- | --- |
 | bigint |Int64 |
-| Binaire |Byte] |
-| bits |Booleaanse waarde |
+| Binaire |Byte[] |
+| bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| Datum |Datum/tijd |
-| Datum/tijd |Datum/tijd |
-| datetime2 |Datum/tijd |
-| DateTimeOffset |DateTimeOffset |
+| datum |Datum en tijd |
+| Datum en tijd |Datum en tijd |
+| datetime2 |Datum en tijd |
+| Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte] |
-| Float |dubbele |
-| Afbeelding |Byte] |
+| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
+| Float |Double |
+| Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
 | nchar |Tekenreeks, Char] |
 | ntext |Tekenreeks, Char] |
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
-| echte |Één |
-| ROWVERSION |Byte] |
-| smalldatetime |Datum/tijd |
+| echte |Single |
+| ROWVERSION |Byte[] |
+| smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
 | Tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
-| tijdstempel |Byte] |
+| tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
+| varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor meer informatie over het toewijzen van kolommen in gegevensset naar kolommen in gegevensset sink bron, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

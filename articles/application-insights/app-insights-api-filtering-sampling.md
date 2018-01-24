@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filteren en voorverwerking telemetrie in Application Insights-SDK
 
@@ -122,7 +122,7 @@ U kunt tekenreekswaarden doorgeven van het .config-bestand door openbare benoemd
 
 **U kunt ook** kunt u het filter in code initialiseren. Voeg een geschikte initialisatie-klasse - bijvoorbeeld AppStart in Global.asax.cs - de processor in de keten:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ Filter bots en web-tests. Hoewel Metrics Explorer u de optie geeft voor het filt
 #### <a name="failed-authentication"></a>Mislukte verificatiepogingen
 Filteren van aanvragen met een '401'-respons.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ Als u een initialisatiefunctie telemetrie opgeeft, wordt aangeroepen wanneer een
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -275,7 +275,7 @@ In ApplicationInsights.config:
 
 *U kunt ook* u kunt de initialisatiefunctie in code, bijvoorbeeld in Global.aspx.cs instantiëren:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -356,7 +356,7 @@ Wat is het verschil tussen de telemetrie processors en telemetrie initalisatiefu
 
 ## <a name="sdk-code"></a>SDK-Code
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
-* [ASP.NET-SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Volgende stappen

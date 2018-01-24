@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -82,7 +82,7 @@ De volgende omgevingen worden ondersteund:
 
 3. Wijzigen van uw toepassing `Startup` klasse toevoegen en configureren van de momentopname-Collector telemetrie processor.
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -140,7 +140,7 @@ De volgende omgevingen worden ondersteund:
 2. Voeg de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
 3. Momentopnamen worden verzameld alleen op uitzonderingen die worden gerapporteerd aan de Application Insights. U wilt wijzigen van uw code om te rapporteren. De verwerking van de code van uitzonderingen, is afhankelijk van de structuur van uw toepassing, maar een voorbeeld lager is dan:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -291,7 +291,7 @@ Volg deze stappen voor uw Cloudservice rol configureren met een specifieke lokal
 ```
 
 2. Wijzigen van uw rol `OnStart` methode voor het toevoegen van een omgevingsvariabele die naar verwijst de `SnapshotStore` lokale resource.
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

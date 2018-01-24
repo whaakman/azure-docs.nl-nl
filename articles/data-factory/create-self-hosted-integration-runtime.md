@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Het maken en configureren van Self-hosted integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie Runtime overzicht](concepts-integration-runtime.md).
@@ -139,9 +139,9 @@ Op **bedrijfsfirewall** niveau, moet u de volgende domeinen en uitgaande poorten
 
 Domeinnamen | Poorten | Beschrijving
 ------------ | ----- | ------------
-*. servicebus.windows.net | 443, 80 | Gebruikt voor communicatie met Data Movement Service back-end
-*. core.windows.net | 443 | Gebruikt voor de tijdelijke kopie met behulp van Azure-Blob (indien geconfigureerd)
-*. frontend.clouddatahub.net | 443 | Gebruikt voor communicatie met Data Movement Service back-end
+*.servicebus.windows.net | 443, 80 | Gebruikt voor communicatie met Data Movement Service back-end
+*.core.windows.net | 443 | Gebruikt voor de tijdelijke kopie met behulp van Azure-Blob (indien geconfigureerd)
+*.frontend.clouddatahub.net | 443 | Gebruikt voor communicatie met Data Movement Service back-end
 
 Op **Windows firewall** niveau (machine niveau), zijn normaal gesproken deze uitgaande poorten ingeschakeld. Als dat niet zo is, kunt u de domeinen en dienovereenkomstig op zelf de hosting-poorten configureren integratie runtime-machine.
 

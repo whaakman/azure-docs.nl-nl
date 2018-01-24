@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Voor probleemoplossing: Een Azure site-naar-site VPN-verbinding kan geen verbinding maken en werkt niet
 
@@ -87,7 +87,7 @@ Controleren op en verwijderen van de gebruiker gedefinieerde Routering of Netwer
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Stap 6. Controleer of de subnetten exact overeenkomen (Azure op beleid gebaseerde gateways)
 
--   Controleer of de subnetten die overeenkomen met exact tussen de virtuele Azure-netwerk en lokale definities voor de virtuele Azure-netwerk.
+-   Controleer of dat het virtuele netwerk adres space(s) precies tussen de virtuele Azure-netwerk en de definities van de lokale overeenkomen.
 -   Controleer of de subnetten tussen exact overeenkomen met de **Local Network Gateway** en on-premises definities voor de on-premises netwerk.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Stap 7. Controleer of de statuscontrole van de Azure-gateway

@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Het zoeken van een adres met behulp van de zoekservice Azure locatie op basis van Services (preview)
 De Search-service is een RESTful reeks API's die zijn ontworpen voor ontwikkelaars om te zoeken naar adressen, locaties, punten van belang, lijsten van bedrijven en andere geografische informatie. Een breedtegraad/lengtegraad wijst de Search-Service naar een specifiek adres, cross straat, geografische functie of interessante (POI). Breedtegraad en lengtegraad waarden geretourneerd door de zoekservice API's kunnen worden gebruikt als parameters in andere Azure locatie op basis van Services zoals de verkeer stromen API's en Route.
 
 ## <a name="prerequisites"></a>Vereisten
-Installeer de [Postman app](https://www.getpostman.com/apps).
+* Installeer de [Postman app](https://www.getpostman.com/apps).
 
-Een sleutel van de account en abonnement voor Azure locatie op basis van Services. Zie voor meer informatie over het maken van een account en bij het ophalen van een abonnementssleutel [uw locatie op basis van Azure-Services-account en de sleutels beheren](how-to-manage-account-keys.md). 
+* Een locatie op basis van Azure-Services-account en een sleutel hebben. Zie voor meer informatie over het maken van een account en bij het ophalen van een sleutel [uw locatie op basis van Azure-Services-account en de sleutels beheren](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Met behulp van Fuzzy zoeken
 
@@ -41,7 +41,7 @@ De meeste zoekopdrachten standaard ingesteld op ' maxFuzzyLevel = 1' om toegang 
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
     | HTTP-methode | GET |
-    | Aanvraag-URL | https://atlas.Microsoft.com/Search/fuzzy/JSON? |
+    | Aanvraag-URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorisatie | Er is geen verificatie |
 
     De **json** kenmerk in het URL-pad bepaalt de indeling van het antwoord. U gebruikt json in dit artikel voor gebruiksgemak en leesbaarheid. U vindt de notaties beschikbaar antwoord in de **zoeken bij benadering ophalen** definitie van de [locatie op basis van Services functionele API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
@@ -53,7 +53,7 @@ De meeste zoekopdrachten standaard ingesteld op ' maxFuzzyLevel = 1' om toegang 
     | Sleutel | Waarde |
     |------------------|-------------------------|
     | API-versie | 1.0 |
-    | abonnement-sleutel | *abonnementssleutel* |
+    | abonnement-sleutel | \<de sleutel van uw Azure-locatie op basis van Services\> |
     | query | pizza |
 
 4. Klik op **verzenden** en bekijk de antwoordtekst. 
@@ -93,7 +93,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
     | HTTP-methode | GET |
-    | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/JSON? |
+    | Aanvraag-URL | https://atlas.microsoft.com/search/address/json? |
     | Autorisatie | Er is geen verificatie |
 
 2. Klik op **Params**, en voer de volgende sleutel en waarde om te gebruiken als de query of pad parameters in de aanvraag-URL:
@@ -103,8 +103,8 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     | Sleutel | Waarde |
     |------------------|-------------------------|
     | API-versie | 1.0 |
-    | abonnement-sleutel | *abonnementssleutel* |
-    | query | 400 brede St, Seattle, WA 98109 |
+    | abonnement-sleutel | \<de sleutel van uw Azure-locatie op basis van Services\> |
+    | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Klik op **verzenden** en bekijk de antwoordtekst. 
     
@@ -133,7 +133,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
     | HTTP-methode | GET |
-    | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/reverse/JSON? |
+    | Aanvraag-URL | https://atlas.microsoft.com/search/address/reverse/json? |
     | Autorisatie | Er is geen verificatie |
     
 2. Klik op **Params**, en voer de volgende sleutel en waarde om te gebruiken als de query of pad parameters in de aanvraag-URL:
@@ -143,7 +143,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     | Sleutel | Waarde |
     |------------------|-------------------------|
     | API-versie | 1.0 |
-    | abonnement-sleutel | *abonnementssleutel* |
+    | abonnement-sleutel | \<de sleutel van uw Azure-locatie op basis van Services\> |
     | query | 47.59093,-122.33263 |
     
 3. Klik op **verzenden** en bekijk de antwoordtekst. 
@@ -201,7 +201,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
     | HTTP-methode | GET |
-    | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/reverse/crossstreet/JSON? |
+    | Aanvraag-URL | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Autorisatie | Er is geen verificatie |
     
 3. Klik op **Params**, en voer de volgende sleutel en waarde om te gebruiken als de query of pad parameters in de aanvraag-URL:
@@ -209,7 +209,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     | Sleutel | Waarde |
     |------------------|-------------------------|
     | API-versie | 1.0 |
-    | abonnement-sleutel | *abonnementssleutel* |
+    | abonnement-sleutel | \<de sleutel van uw Azure-locatie op basis van Services\> |
     | query | 47.59093,-122.33263 |
     
 4. Klik op **verzenden** en bekijk de antwoordtekst. 

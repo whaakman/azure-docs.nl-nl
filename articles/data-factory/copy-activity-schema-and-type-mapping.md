@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schematoewijzing in de kopieerbewerking
 Dit artikel wordt beschreven hoe Azure Data Factory kopieeractiviteit schematoewijzing en gegevenstypetoewijzing van brongegevens opvangen gegevens gaat uitvoeren wanneer de gegevens opnieuw te kopiëren.
@@ -150,17 +150,17 @@ U vindt de toewijzing tussen native type van tussentijdse type in de sectie 'Dat
 
 Data Factory ondersteunt de volgende tussentijdse gegevenstypen: U kunt onderstaande waarden opgeven bij het opgeven type-informatie in [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) configuratie:
 
-* Byte]
-* Booleaanse waarde
-* Datum/tijd
-* DateTimeOffset
+* Byte[]
+* Boole-waarde
+* Datum en tijd
+* Datetimeoffset
 * Decimale
-* dubbele
+* Double
 * GUID
 * Int16
 * Int32
 * Int64
-* Één
+* Single
 * Tekenreeks
 * Periode
 

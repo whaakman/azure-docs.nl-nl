@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>De Azure AD-functionaliteit voor selfservice voor wachtwoordherstel aanpassen
 
@@ -74,31 +74,7 @@ De afbeeldingen die u kiest, worden weergegeven in de volgende omstandigheden:
     * Door de *w /* -parameter voor het wachtwoord opnieuw instellen van pagina, zoals 'https://login.microsoftonline.com/?whr=contoso.com'
     * Door de *gebruikersnaam* -parameter voor het wachtwoord opnieuw instellen pagina, zoals ' https://login.microsoftonline.com/?username=admin@contoso.com'
 
-### <a name="graphics-details"></a>Grafische details
-
-Gebruik de volgende instellingen te wijzigen van de visuele kenmerken van de aanmeldingspagina. Ga naar **Azure Active Directory** > **bedrijf huisstijl** > **bewerken huisstijl**:
-
-* De installatiekopie van de aanmeldingspagina moet een PNG- of JPG-bestand, 1420 x 1200 pixels, en niet groter zijn dan 500 KB. Voor de beste resultaten adviseren we dat u deze ongeveer 200 KB.
-* De achtergrondkleur van de aanmeldingspagina wordt gebruikt voor verbindingen met hoge latentie en moet in RGB-hexadecimale notatie.
-* De banner afbeelding moet een PNG- of JPG-bestand, 60 x 280 pixels en niet groter zijn dan 10 KB.
-* De vierkante logo (normaal en donker thema) moet een PNG- of JPG-bestand, 240 x 240 (formaat) pixels, en niet groter zijn dan 10 KB.
-
-### <a name="sign-in-text-options"></a>Opties voor tekst van aanmeldingspagina
-
-Gebruik de volgende instellingen tekst toevoegen aan de aanmeldingspagina die relevant is voor uw organisatie. Ga naar **Azure Active Directory** > **bedrijf huisstijl** > **bewerken huisstijl**:
-
-* **Gebruiker naam hint**: vervangt de voorbeeldtekst van  *someone@example.com*  met iets meer geschikt is voor uw gebruikers. Het is raadzaam dat u de standaard-hint laten wanneer u ondersteuning voor interne en externe gebruikers.
-* **Tekst van aanmeldingspagina**: mag maximaal 256 tekens lang zijn. Deze tekst wordt weergegeven waar die uw gebruikers zich online en in de Azure AD Workplace Join-ervaring op Windows 10 aanmelden. Gebruik deze tekst voor de voorwaarden van het gebruik, instructies en tips voor uw gebruikers. 
-
-   >[!IMPORTANT]
-   >Iedereen ziet uw aanmeldingspagina, zodat gevoelige informatie hier niet leveren.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>De instelling "Me aangemeld houden uitgeschakeld"
-
-Met de **aangemeld uitgeschakeld blijven** optie, gebruikers kunnen aangemeld blijven, wanneer ze sluiten en opnieuw hun browservenster openen. Deze optie heeft geen gevolgen voor de levensduur van de sessie. Ga naar **Azure Active Directory** > **bedrijf huisstijl** > **bewerken huisstijl**.
-
-Sommige functies van Office 2010 en SharePoint Online hebben een afhankelijkheid op mogelijkheden Schakel dit selectievakje in. Als u deze optie verbergt, krijgen gebruikers aanvullende en onverwachte aanmelden wordt u gevraagd.
+Meer informatie vinden over het configureren van de huisstijl op het artikel [toevoegen aan uw aanmeldingspagina in Azure AD huisstijl van uw bedrijf](customize-branding.md).
 
 ### <a name="directory-name"></a>Adreslijstnaam
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Gegevens verplaatsen van een FTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,8 +74,8 @@ De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor een FTP-g
 | encryptedCredential |Geef de versleutelde referenties voor toegang tot de FTP-server. |Nee |&nbsp; |
 | gatewayName |Geef de naam van de gateway in Data Management Gateway verbinding maken met een on-premises FTP-server. |Nee |&nbsp; |
 | poort |Geef de poort waarop de FTP-server luistert. |Nee |21 |
-| enableSsl |Geef op of FTP gebruiken via een SSL/TLS-kanaal. |Nee |De waarde True |
-| enableServerCertificateValidation |Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal. |Nee |De waarde True |
+| enableSsl |Geef op of FTP gebruiken via een SSL/TLS-kanaal. |Nee |waar |
+| enableServerCertificateValidation |Geef op of validatie van het servercertificaat SSL inschakelen wanneer u FTP via SSL/TLS-kanaal. |Nee |waar |
 
 ### <a name="use-anonymous-authentication"></a>Gebruik anonieme verificatie
 
@@ -195,7 +195,7 @@ In dit voorbeeld {segment} is vervangen door de waarde van de Data Factory syste
 ```
 In dit voorbeeld wordt het jaar, maand, dag en tijd van de SliceStart worden uitgepakt in verschillende variabelen die worden gebruikt door de **folderPath** en **fileName** eigenschappen.
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten [pijplijnen maken](data-factory-create-pipelines.md). Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit aan de andere kant variëren met elk activiteitstype. Voor de kopieeractiviteit wordt de type-eigenschappen variëren afhankelijk van de typen van bronnen en Put.

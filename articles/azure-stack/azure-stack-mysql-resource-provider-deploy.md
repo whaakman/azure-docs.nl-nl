@@ -3,7 +3,7 @@ title: MySQL-databases als PaaS op Azure-Stack gebruiken | Microsoft Docs
 description: Meer informatie over hoe u implementeert de Bronprovider van MySQL en MySQL-databases opgeven als een service op Azure-Stack
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -90,7 +90,7 @@ Het systeem-account moet hebben de volgende bevoegdheden:
 
 6. [Installeer Azure PowerShell versie 1.2.11](azure-stack-powershell-install.md).
 
-7. Voer het script DeploySqlProvider.ps1.
+7. Voer het `DeployMySqlProvider.ps1`-script uit.
 
 Het script voert de volgende stappen uit:
 
@@ -155,12 +155,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of parametervalidatie mislukt, wordt u gevraagd om de vereiste waarden.
 
 | Parameternaam | Beschrijving | Opmerking of een standaardwaarde |
 | --- | --- | --- |
-| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot het eindpunt Privleged. | _Vereist_ |
+| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ |
 | **AzCredential** | Geef de referenties voor de servicebeheerder voor Azure-Stack-account. De dezelfde referenties gebruiken als u gebruikt voor het implementeren van Azure-Stack). | _Vereist_ |
 | **VMLocalCredential** | Definieer de referenties voor het lokale administrator-account van de resourceprovider MySQL VM. | _Vereist_ |
 | **PrivilegedEndpoint** | Geef het IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ |
@@ -169,7 +169,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
 | **MaxRetryCount** | Opgeven hoe vaak u wilt dat elke bewerking opnieuw als er een fout.| 2 |
 | **RetryDuration** | Definieer de time-out tussen nieuwe pogingen, in seconden. | 120 |
 | **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie opmerkingen hieronder) | Nee |
-| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fout | Nee |
+| **DebugMode** | Voorkomt dat automatisch opschonen bij fout | Nee |
 | **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -323,13 +323,13 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ |
 | **AzCredential** | Geef de referenties voor de servicebeheerder voor Azure-Stack-account. De dezelfde referenties gebruiken als u gebruikt voor het implementeren van Azure-Stack). | _Vereist_ |
 | **VMLocalCredential** | Definieer de referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
-| **PrivilegedEndpoint** | Geef het IP-adres of de DNS-naam van het eindpunt Privleged. |  _Vereist_ |
+| **PrivilegedEndpoint** | Geef het IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ |
 | **DependencyFilesLocalPath** | Het PFX-certificaatbestand moet in deze map ook worden geplaatst. | _optionele_ (_verplichte_ voor meerdere knooppunten) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat | _Vereist_ |
 | **MaxRetryCount** | Opgeven hoe vaak u wilt dat elke bewerking opnieuw als er een fout.| 2 |
 | **RetryDuration** | Definieer de time-out tussen nieuwe pogingen, in seconden. | 120 |
 | **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie opmerkingen hieronder) | Nee |
-| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fout | Nee |
+| **DebugMode** | Voorkomt dat automatisch opschonen bij fout | Nee |
 | **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Verwijder de MySQL-Resource Provider-Adapter

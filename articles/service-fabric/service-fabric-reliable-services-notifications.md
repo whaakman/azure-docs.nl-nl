@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Betrouwbare Services meldingen
 Kennisgevingen kunnen clients de wijzigingen die worden uitgevoerd op een object dat ze geïnteresseerd bent in bijhouden. Twee soorten objecten ondersteunen meldingen: *betrouwbare statusbeheer* en *betrouwbare woordenlijst*.
@@ -51,7 +51,7 @@ De verzameling betrouwbare status Manager is opnieuw opgebouwd in drie gevallen:
 
 Als u wilt registreren voor meldingen en/of de status manager-meldingen, moet u registreren bij de **TransactionChanged** of **StateManagerChanged** gebeurtenissen op betrouwbare status Manager. Een algemene plaats om te registreren bij deze gebeurtenis-handlers is de constructor van uw stateful service. Wanneer u zich bij de constructor registreren, u een melding die wordt veroorzaakt door een wijziging tijdens de levensduur van niet naar hun **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ De **TransactionChanged** maakt gebruik van gebeurtenis-handler **NotifyTransact
 
 Hieronder volgt een voorbeeld **TransactionChanged** gebeurtenis-handler.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Gebruikmaken van de eigenschap actie **NotifyStateManagerChangedEventArgs** voor
 
 Hieronder volgt een voorbeeld **StateManagerChanged** meldings-handler.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Betrouwbare woordenlijst biedt meldingen voor de volgende gebeurtenissen:
 Als u meldingen betrouwbare woordenlijst, moet u registreren bij de **DictionaryChanged** gebeurtenis-handler op **IReliableDictionary**. Een algemene plaats om te registreren bij deze gebeurtenis-handlers bevindt zich in de **ReliableStateManager.StateManagerChanged** melding toevoegen.
 Wanneer u registreert **IReliableDictionary** wordt toegevoegd aan **IReliableStateManager** zorgt ervoor dat u meldingen niet naar hun.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 De voorgaande codesets de **IReliableNotificationAsyncCallback** interface, samen met **DictionaryChanged**. Omdat **NotifyDictionaryRebuildEventArgs** bevat een **IAsyncEnumerable** interface--die moet worden geïnventariseerd asynchroon--meldingen opnieuw worden gestart via **RebuildNotificationAsyncCallback** in plaats van **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ De **DictionaryChanged** maakt gebruik van gebeurtenis-handler **NotifyDictionar
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)

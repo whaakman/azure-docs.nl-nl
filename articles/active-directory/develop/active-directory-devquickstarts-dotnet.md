@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET bureaublad (WPF) is aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -74,7 +74,7 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, aanr
 
 * In de `DirectorySearcher` project, open `MainWindow.xaml.cs` en zoek de `MainWindow()` methode.  De eerste stap is het initialiseren van uw app `AuthenticationContext` -ADAL de primaire klasse.  Dit is waar het doorgeven van ADAL de coördinaten nodig om te communiceren met Azure AD en hoe deze tokens in de cache.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * Nu zoeken de `Search(...)` methode, die wordt aangeroepen wanneer de gebruiker op de knop "Zoeken" in de gebruikersinterface van de app.  Deze methode maakt een GET-aanvraag voor Azure AD Graph API aan query voor gebruikers wiens UPN met de opgegeven zoekterm begint.  Maar om de Graph API een query uitvoert, moet u een access_token in de `Authorization` header van de aanvraag - dit is waar de ADAL wordt geleverd.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * U ziet dat de `AuthenticationResult` object bevat een `UserInfo` -object dat kan worden gebruikt voor het verzamelen van informatie die uw app mogelijk nodig hebt.  In de DirectorySearcher `UserInfo` wordt gebruikt voor het aanpassen van de gebruikersinterface van de app met de id van de gebruiker.
 * Wanneer de gebruiker op de knop 'Afmelden', willen we ervoor te zorgen dat de volgende aanroep `AcquireTokenAsync(...)` vraagt de gebruiker aan te melden.  Met ADAL, is dit is net zo eenvoudig als het token cache wissen:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Echter, als de gebruiker heeft niet op de knop 'Afmelden', wilt u de sessie van de gebruiker voor de volgende keer dat ze de DirectorySearcher worden uitgevoerd.  Wanneer de app opent, kunt u controleren van de ADAL-tokencache voor een bestaande token en de gebruikersinterface worden dienovereenkomstig bijgewerkt.  In de `CheckForCachedToken()` methode, moet u een andere aanroep van `AcquireTokenAsync(...)`, ditmaal doorgeven in de `PromptBehavior.Never` parameter.  `PromptBehavior.Never`vertelt ADAL dat de gebruiker niet moet worden gevraagd voor aanmelding en ADAL moet in plaats daarvan Veroorzaak een exception wanneer het niet lukt om te retourneren van een token.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

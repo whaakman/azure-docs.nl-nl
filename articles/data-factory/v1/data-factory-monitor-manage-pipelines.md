@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>Het segment wordt verwerkt.</td>
 </tr>
 <tr>
-<td rowspan="4">Mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
+<td rowspan="4">Mislukt</td><td>TimedOut</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
 </tr>
 <tr>
 <td>Geannuleerd</td><td>Het segment is geannuleerd door in te grijpen.</td>
@@ -134,10 +134,10 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>Gereed</td><td>-</td><td>Het segment is gereed voor gebruik.</td>
 </tr>
 <tr>
-<td>Overgeslagen</td><td>None</td><td>Het segment wordt niet verwerkt.</td>
+<td>Overgeslagen</td><td>Geen</td><td>Het segment wordt niet verwerkt.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
+<td>Geen</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
 </tr>
 </table>
 
@@ -366,10 +366,10 @@ In dit voorbeeld is ingesteld van de waarschuwing voor alle data Factory in uw a
 
 De volgende tabel bevat de lijst met beschikbare bewerkingen en statussen (en substatus).
 
-| Naam van bewerking | Status | Substatus |
+| Bewerkingsnaam | Status | Substatus |
 | --- | --- | --- |
 | RunStarted |Gestart |Starting |
-| RunFinished |Kan niet / is voltooid |FailedResourceAllocation<br/><br/>Geslaagd<br/><br/>FailedExecution<br/><br/>Time-out<br/><br/>< geannuleerd<br/><br/>FailedValidation<br/><br/>Afgebroken |
+| RunFinished |Kan niet / is voltooid |FailedResourceAllocation<br/><br/>Geslaagd<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< geannuleerd<br/><br/>FailedValidation<br/><br/>Afgebroken |
 | OnDemandClusterCreateStarted |Gestart | |
 | OnDemandClusterCreateSuccessful |Geslaagd | |
 | OnDemandClusterDeleted |Geslaagd | |

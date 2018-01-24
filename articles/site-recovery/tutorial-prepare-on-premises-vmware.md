@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33ec5775a371a04074f07d589d35d1c05bd64d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>On-premises VMware-servers voorbereiden op herstel na noodgevallen naar Azure
 
@@ -88,7 +88,7 @@ Zorg ervoor dat de virtuele machine aan de Azure-vereisten in de volgende tabel 
 **Gedeelde VHD** | Niet ondersteund
 **FC-schijf** | Niet ondersteund
 **Harde schijf-indeling** | VHD- of VHDX.<br/><br/> Hoewel VHDX wordt momenteel niet ondersteund in Azure, Site Recovery automatisch geconverteerd VHDX naar VHD wanneer u een failover naar Azure. Wanneer u terug naar de lokale virtuele machines schakelt blijven gebruiken van de VHDX-indeling.
-**BitLocker** | Niet ondersteund. Uitschakelen voordat u replicatie voor een virtuele machine inschakelen.
+**Bitlocker** | Wordt niet ondersteund. Uitschakelen voordat u replicatie voor een virtuele machine inschakelen.
 **VM-naam** | Tussen 1 en 63 tekens.<br/><br/> Alleen letters, cijfers en afbreekstreepjes. De VM-naam moet beginnen en eindigen met een letter of cijfer.
 **VM-type** | Generatie 1 - Linux of Windows<br/><br/>Generatie 2 - alleen Windows
 
@@ -110,7 +110,7 @@ Voor verbinding met virtuele Linux-machines met behulp van SSH na een failover, 
 1. Controleer op de lokale machine vóór de failover, dat de Secure Shell-service is ingesteld op automatisch starten op opstarten van het systeem. Controleer dat de firewallregels voor een SSH-verbinding toestaan.
 
 2. Op de Azure virtuele machine na een failover, kunt u binnenkomende verbindingen voor de SSH-poort voor de netwerkbeveiligingsgroepen op failover VM en voor het Azure-subnet waarmee deze verbonden.
-   [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) voor de virtuele machine. U kunt controleren **opstarten diagnostics** om een schermopname van de virtuele machine weer te geven.
+   [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md) voor de virtuele machine. U kunt controleren **opstarten diagnostics** om een schermopname van de virtuele machine weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

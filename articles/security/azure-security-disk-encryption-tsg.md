@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption probleemoplossingsgids
 
@@ -30,7 +30,7 @@ Schijfversleuteling van Linux-besturingssysteem (OS) moet de OS-station voordat 
 
 Deze fout wordt waarschijnlijk gebeuren wanneer de OS-schijf-versleuteling wordt toegepast op een doelomgeving VM die is gewijzigd of gewijzigd van de ondersteunde voorraad afbeelding. Voorbeelden van afwijkingen van de ondersteunde installatiekopie die leiden tot met de extensie mogelijkheid problemen kan ontkoppelen van het station OS omvatten het volgende:
 - Aangepaste installatiekopieën is niet langer overeenkomen met een ondersteund bestandssysteem of partitieschema.
-- Grote toepassingen zoals SAP, MongoDB of Apache Cassandra zijn geïnstalleerd en wordt uitgevoerd in het besturingssysteem vóór versleuteling. De extensie kan niet juist afgesloten van deze toepassingen. Als de toepassingen geopende bestandsingangen op het station van het besturingssysteem behouden, is het station kan niet worden ontkoppeld ontstaan.
+- Grote toepassingen zoals SAP, MongoDB, Apache Cassandra en Docker worden niet ondersteund wanneer ze geïnstalleerd en wordt uitgevoerd in het besturingssysteem vóór versleuteling zijn.  Azure Disk Encryption is niet veilig afsluiten deze processen zoals ter voorbereiding van het station OS voor schijfversleuteling vereist.  Als er nog steeds actieve processen geopende bestandsingangen op het station OS houden, is de OS-station kan niet worden ontkoppeld, wat resulteert in een fout voor het versleutelen van de OS-schijf. 
 - Aangepaste scripts die worden uitgevoerd in de buurt sluiten tijd voor de versleuteling is ingeschakeld of als andere wijzigingen worden aangebracht op de virtuele machine tijdens het versleutelingsproces. Dit conflict kan gebeuren als een Azure Resource Manager-sjabloon definieert meerdere extensies tegelijkertijd uitvoeren, of wanneer een extensie voor aangepaste scripts of een andere actie uitvoert gelijktijdig naar schijf codering. Serialiseren en te isoleren van dergelijke stappen mogelijk los het probleem.
 - Security Enhanced Linux (SELinux) is niet uitgeschakeld voordat het inschakelen van versleuteling, zodat de stap ontkoppelen is mislukt. SELinux kan worden ingeschakeld nadat de codering is voltooid.
 - De OS-schijf gebruikt het schema van een logische Volume Manager (LVM). Hoewel beperkte ondersteuning voor LVM gegevens schijf beschikbaar is, is een besturingssysteemschijf LVM niet.
@@ -116,6 +116,10 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## <a name="troubleshooting-encryption-status"></a>Coderingsstatus probleemoplossing
+
+Als de coderingsstatus van de verwachte komt niet overeen met wat er in de portal wordt gerapporteerd, raadpleegt u het volgende support-artikel: [coderingsstatus ten onrechte wordt weergegeven op de Azure-beheerportal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit document hebt u geleerd meer informatie over enkele bekende problemen in Azure Disk Encryption en deze problemen oplossen. Zie voor meer informatie over deze service en de mogelijkheden ervan, de volgende artikelen:

@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="use-the-hbase-net-sdk"></a>Gebruik de HBase .NET SDK
+# <a name="use-the-hbase-net-sdk"></a>De HBase .NET SDK gebruiken
 
 [HBase](apache-hbase-overview.md) biedt twee primaire keuzes werken met uw gegevens: [Hive-query's en aanroepen naar de HBase-RESTful-API](apache-hbase-tutorial-get-started-linux.md). U kunt werken rechtstreeks met de REST-API met behulp van de `curl` opdracht of een vergelijkbaar hulpprogramma.
 
@@ -38,7 +38,7 @@ De HBase .NET SDK is beschikbaar als een NuGet-pakket kan worden geïnstalleerd 
 
 Voor het gebruik van de SDK exemplaar maken van een nieuwe `HBaseClient` object, dat wordt doorgegeven `ClusterCredentials` bestaat uit de `Uri` voor uw cluster, en de Hadoop-gebruikersnaam en wachtwoord.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ De gegevens fysiek worden opgeslagen *HFiles*. Een enkele HFile bevat gegevens v
 
 Geef voor het maken van een nieuwe tabel, een `TableSchema` en kolommen. De volgende code wordt gecontroleerd of de tabel 'RestSDKTable' bestaat al - zo niet, de tabel is gemaakt.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ Deze nieuwe tabel heeft twee kolomfamilies, t1 en t2. Omdat kolomfamilies afzond
 
 Een tabel verwijderen:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 Als gegevens wilt invoegen, kunt u een unieke rij-sleutel als de rij-id opgeven. Alle gegevens worden opgeslagen in een `byte[]` matrix. De volgende code definieert en voegt de `title`, `director`, en `release_date` kolommen in de familie t1-kolom als deze kolommen zijn het meest frequent gebruikte. De `description` en `tagline` kolommen worden toegevoegd aan de kolom t2 familie. U kunt uw gegevens partitioneren in kolomfamilies indien nodig.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ HBase implementeert BigTable, zodat de gegevensindeling op het volgende lijkt:
 
 Om te lezen van gegevens uit een HBase-tabel doorgeven naam- en rijkoppen sleutel van de tabel aan de `GetCellsAsync` methode om te retourneren de `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 In dit geval wordt retourneert de code alleen de eerste overeenkomende rij, aangezien er moet slechts één rij voor een unieke sleutel. De geretourneerde waarde is gewijzigd in `string` opmaken van de `byte[]` matrix. U kunt ook de waarde converteren naar andere typen, zoals een geheel getal voor de film Releasedatum:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 Maakt gebruik van HBase `scan` voor het ophalen van een of meer rijen. Dit voorbeeld meerdere rijen in batches van 10-aanvragen en haalt gegevens waarvan u de belangrijkste waarden tussen 25 en 35 zijn. Bij het ophalen van alle rijen, verwijder de scanner om resources op te schonen.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

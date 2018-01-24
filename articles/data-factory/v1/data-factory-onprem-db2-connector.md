@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory-Kopieeractiviteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,7 +83,7 @@ De volgende tabel bevat de JSON-eigenschappen die specifiek voor een service DB2
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
 | **type** |Deze eigenschap moet worden ingesteld op **OnPremisesDb2**. |Ja |
-| **Server** |De naam van de DB2-server. |Ja |
+| **server** |De naam van de DB2-server. |Ja |
 | **database** |De naam van de DB2-database. |Ja |
 | **schema** |De naam van het schema in de DB2-database. Deze eigenschap is hoofdlettergevoelig. |Nee |
 | **authenticationType** |Het type verificatie dat wordt gebruikt voor het verbinding maken met de DB2-database. De mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
@@ -312,42 +312,42 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
-| Real |Één |
-| dubbele |dubbele |
-| Float |dubbele |
+| Real |Single |
+| Double |Double |
+| Float |Double |
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
-| numerieke |Decimale |
-| Date |Datum/tijd |
+| Numeriek |Decimale |
+| Date |Datum en tijd |
 | Time |TimeSpan |
-| tijdstempel |Datum/tijd |
-| XML |Byte] |
+| Timestamp |Datum en tijd |
+| Xml |Byte[] |
 | CHAR |Tekenreeks |
 | VarChar |Tekenreeks |
 | LongVarChar |Tekenreeks |
 | DB2DynArray |Tekenreeks |
-| Binaire |Byte] |
-| VarBinary |Byte] |
-| LongVarBinary |Byte] |
+| Binair bestand |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
 | Afbeelding |Tekenreeks |
 | VarGraphic |Tekenreeks |
 | LongVarGraphic |Tekenreeks |
 | CLOB |Tekenreeks |
-| Blob |Byte] |
+| Blob |Byte[] |
 | DbClob |Tekenreeks |
 | SmallInt |Int16 |
 | Geheel getal |Int32 |
 | BigInt |Int64 |
-| Real |Één |
-| dubbele |dubbele |
-| Float |dubbele |
+| Real |Single |
+| Double |Double |
+| Float |Double |
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
-| numerieke |Decimale |
-| Date |Datum/tijd |
+| Numeriek |Decimale |
+| Date |Datum en tijd |
 | Time |TimeSpan |
-| tijdstempel |Datum/tijd |
-| XML |Byte] |
+| Timestamp |Datum en tijd |
+| Xml |Byte[] |
 | CHAR |Tekenreeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen

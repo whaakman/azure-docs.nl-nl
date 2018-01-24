@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Een MVC-web-API beveiligen
 U kunt met Azure Active Directory het v2.0-eindpunt, beveiligen een Web-API met [OAuth 2.0](active-directory-v2-protocols.md) tokens, waardoor gebruikers met beide persoonlijke Microsoft-account openen en werk- of schoolaccount gebruikersaccounts aan veilige toegang tot uw Web-API.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Een OWIN-Opstartklasse toevoegen aan het project met de naam TodoListService `Startup.cs`.  Rechtermuisknop te klikken op het project op--> **toevoegen** --> **Nieuw Item** --> Zoek naar 'OWIN'.  De OWIN-middleware roept de `Configuration(…)`-methode aan als uw app wordt gestart.
 * Wijzig de klassendeclaratie naar `public partial class Startup` -we hebben u al deel uit van deze klasse geïmplementeerd in een ander bestand.  In de `Configuration(…)` methode, een aanroep van ConfgureAuth(...) verificatie voor uw web-app instellen.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Open het bestand `App_Start\Startup.Auth.cs` en implementeren van de `ConfigureAuth(…)` methode, waarmee de Web-API wordt ingesteld om te accepteren van tokens van het v2.0-eindpunt.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Nu kunt u `[Authorize]` kenmerken ter bescherming van uw domeincontrollers en de acties met OAuth 2.0-bearer-verificatie.  Opmaken de `Controllers\TodoListController.cs` klasse met een tag autoriseren.  Hierdoor wordt de gebruiker zich aanmelden voor de toegang tot deze pagina geforceerd.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * Wanneer een geautoriseerde beller is roept een van de `TodoListController` API's, de actie moet mogelijk toegang tot informatie over de aanroeper.  OWIN biedt toegang tot de claims binnen het bearer-token via de `ClaimsPrincipal` object.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the

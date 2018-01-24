@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -81,10 +81,10 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
 4. Klik op een cluster in de lijst om te zien van de overzichtspagina:
 
     ![Azure portal HDInsight-cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **overzicht menu:**
-    * **Dashboard**: Hiermee opent u het cluster-dashboard Ambari Web voor clusters op basis van Linux is.
+    * **Dashboard**: Hiermee opent u de Ambari-webgebruikersinterface voor het cluster.
     * **Secure Shell**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding.
     * **Cluster schalen**: Hiermee kunt u het aantal worker-knooppunten voor dit cluster wijzigen.
-    * **Verplaats**: het cluster verplaatsen naar uitgeslagen resourcegroep of abonnement.
+    * **Verplaats**: het cluster wordt verplaatst naar een andere resourcegroep of een ander abonnement.
     * **Verwijderen**: Hiermee verwijdert u het cluster.
 
     **Menu aan de linkerkant:**
@@ -98,7 +98,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
     * **Hulpprogramma's voor HDInsight**: Help-informatie voor HDInsight gerelateerde hulpprogramma's.
     * **Abonnement Core gebruik**: de gebruikte en beschikbare kernen voor uw abonnement worden weergegeven.
     * **Cluster schalen**: verhogen en verklein het aantal worker-clusterknooppunten. Zie[schalen clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + Cluster aanmelding**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding. Zie voor meer informatie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md), en cluster aanmelding referentie opnieuw instellen.
+    * **SSH + Cluster aanmelding**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
     * **HDInsight-Partner**: de huidige HDInsight-Partner toevoegen of verwijderen.
     * **Met externe Metastores**: de metastores Hive en Oozie weergeven. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster. Zie [gebruik Hive/Oozie-metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Acties script**: Voer Bash-scripts op het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md).
@@ -226,6 +226,21 @@ U kunt een HDInsight-cluster verplaatsen naar een andere Azure-resourcegroep of 
 
 Zie [Upgrade HDInsight-cluster naar een nieuwere versie](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Open de Ambari-webgebruikersinterface
+
+Ambari bevat een intuïtieve, eenvoudig te gebruiken Hadoop management webgebruikersinterface ondersteund door de RESTful-API's. Ambari kan systeembeheerders in staat te beheren en controleren van Hadoop-clusters.
+
+1. Open een HDInsight-cluster van de Azure-portal.  Zie [lijst en geeft weer clusters](#list-and-show-clusters).
+2. Klik op **Dashboard Cluster**.
+
+    ![Menu van HDInsight Hadoop-cluster](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. De cluster-gebruikersnaam en wachtwoord invoeren.  De standaardgebruikersnaam cluster _admin_. Het Ambari web UI ziet eruit als:
+
+    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Zie voor meer informatie [HDInsight-clusters beheren met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Wachtwoorden wijzigen
 Een HDInsight-cluster kan twee gebruikersaccounts hebben. De HDInsight-cluster gebruikersaccount (ook Gebruikersaccount HTTP) en de SSH-gebruikersaccount worden gemaakt tijdens het maken. U kunt de Ambari-webgebruikersinterface cluster user account gebruikersnaam en wachtwoord en scriptacties wijzigen van de SSH-gebruikersaccount wijzigen
 
@@ -267,7 +282,7 @@ Ambari wordt vervolgens het wachtwoord op alle knooppunten in het cluster.
    | Veld | Waarde |
    | --- | --- |
    | Naam |Ssh wachtwoord wijzigen |
-   | Bash script URI |De URI naar het bestand changepassword.sh |
+   | Bash-script-URI |De URI naar het bestand changepassword.sh |
    | Knooppunten (Head, Worker, Nimbus, leidinggevende, Zookeeper, enz.) |✓ voor alle knooppunttypen vermeld |
    | Parameters |Voer de SSH-gebruikersnaam en klik vervolgens op het nieuwe wachtwoord. Er moet één spatie tussen de gebruikersnaam en het wachtwoord. |
    | Deze scriptactie... |Laat dit veld uitgeschakeld. |

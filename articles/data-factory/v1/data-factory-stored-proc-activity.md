@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f490aeef07b142b6a28319581b01c6cfc00054ba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server opgeslagen Procedure-activiteit
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/03/2017
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van Azure Data Factory (GA) is algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [transformatie van gegevens met behulp van de activiteit opgeslagen procedure in Gegevensfactory versie 2](../transform-data-using-stored-procedure.md).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [transformatie van gegevens met behulp van de activiteit opgeslagen procedure in Gegevensfactory versie 2](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Overzicht
 U activiteiten voor gegevenstransformatie gebruiken in een Data Factory [pijplijn](data-factory-create-pipelines.md) transformeren en verwerken van onbewerkte gegevens in de voorspellingen en inzichten. De activiteit opgeslagen Procedure is een van de activiteiten voor gegevenstransformatie die ondersteuning biedt voor Data Factory. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten in de Data Factory toont.
@@ -89,7 +89,7 @@ De volgende procedure maakt gebruik van de activiteit opgeslagen Procedure in ee
    > [!IMPORTANT]
    > **Naam** en **hoofdlettergebruik** van de parameter (DateTime in dit voorbeeld) moet overeenkomen met die van de parameter die is opgegeven in de pipeline/JSON van de activiteit. Zorg ervoor dat in de definitie van de opgeslagen procedure  **@**  wordt gebruikt als een voorvoegsel voor de parameter.
 
-### <a name="create-a-data-factory"></a>Een data factory maken
+### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **nieuw** Klik op het menu links op **Intelligence en analyse**, en klik op **Data Factory**.
 

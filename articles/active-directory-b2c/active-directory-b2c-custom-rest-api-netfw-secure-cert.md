@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Beveiligen van uw RESTful-service met behulp van clientcertificaten
 In een verwant artikel u [maken een RESTful-service](active-directory-b2c-custom-rest-api-netfw.md) die communiceert met Azure Active Directory B2C (Azure AD B2C).
@@ -181,7 +181,7 @@ Vervang het certificaat **onderwerpnaam**, **certificaatverlener**, en **certifi
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 de IsValidClientCertificate-functie toevoegen
 Open de *Controllers\IdentityController.cs* bestand en voeg vervolgens toe aan de `Identity` controller klasse met de volgende functie: 
 
-```C#
+```csharp
 private bool IsValidClientCertificate()
 {
     string ClientCertificateSubject = ConfigurationManager.AppSettings["ClientCertificate:Subject"];
@@ -283,7 +283,7 @@ In de bovenstaande voorbeeldcode accepteren we het certificaat als alleen geldig
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 Roep de functie IsValidClientCertificate
 Open de *Controllers\IdentityController.cs* bestand en vervolgens aan het begin van de `SignUp()` werkt, Voeg het volgende codefragment toe: 
 
-```C#
+```csharp
 if (IsValidClientCertificate() == false)
 {
     return Content(HttpStatusCode.Conflict, new B2CResponseContent("Your client certificate is not valid", HttpStatusCode.Conflict));

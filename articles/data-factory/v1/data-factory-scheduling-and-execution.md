@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d1cd846418b0e65b978971526af7b918bd03a7a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 22005f6b0f655a68dbf8fab600872d8d20102dfe
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory plannen en uitvoeren
 > [!NOTE]
@@ -233,7 +233,7 @@ Een dataset kan een validatiebeleid gedefinieerd waarmee wordt aangegeven hoe de
 
 De **beleid** sectie in de definitie van gegevensset definieert u de criteria of de conditie van de segmenten van de gegevensset moeten voldoen. De volgende tabel beschrijft de eigenschappen kunt u in de **beleid** sectie:
 
-| De naam van beleid | Beschrijving | Toegepast op | Vereist | Standaard |
+| Beleidsnaam | Beschrijving | Toegepast op | Vereist | Standaard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valideert dat de gegevens in een **Azure blob** voldoet aan de minimale grootte (in MB). |Azure Blob |Nee |N.v.t. |
 | minimumRows | Valideert dat de gegevens in een **Azure SQL-database** of een **Azure-tabel** het minimum aantal rijen bevat. |<ul><li>Azure SQL Database</li><li>Azure-tabel</li></ul> |Nee |N.v.t. |
@@ -266,7 +266,7 @@ De **beleid** sectie in de definitie van gegevensset definieert u de criteria of
 
 Zie voor meer informatie over deze eigenschappen en voorbeelden [gegevenssets maken](data-factory-create-datasets.md) artikel. 
 
-## <a name="activity-policies"></a>Beleidsregels voor activiteiten
+## <a name="activity-policies"></a>Activiteitenbeleid
 Beleid geldt voor de run-time-gedrag van een activiteit specifiek wanneer het segment van een tabel wordt verwerkt. De volgende tabel bevat de details.
 
 | Eigenschap | Toegestane waarden | Standaardwaarde | Beschrijving |
@@ -276,7 +276,7 @@ Beleid geldt voor de run-time-gedrag van een activiteit specifiek wanneer het se
 | retry |Geheel getal<br/><br/>De maximale waarde is 10 |0 |Aantal nieuwe pogingen voordat de verwerking van de gegevens voor het segment is gemarkeerd als mislukt. Uitvoering van de activiteit voor een gegevenssegment wordt herhaald tot maximaal het aantal pogingen opgegeven. De nieuwe poging wordt gedaan zo snel mogelijk na de fout. |
 | timeout |TimeSpan |00:00:00 |Time-out voor de activiteit. Voorbeeld: 00:10:00 (impliceert time-out 10 minuten)<br/><br/>Als een waarde niet opgegeven is of 0 is, is de time-out van oneindig.<br/><br/>Als de verwerkingstijd van de gegevens op een segment de time-outwaarde overschrijdt, deze wordt geannuleerd en wordt geprobeerd om opnieuw te proberen de verwerking. Het aantal nieuwe pogingen, is afhankelijk van de eigenschap probeer het opnieuw. Wanneer een time-out optreedt, wordt de status ingesteld op een time-out opgetreden bij. |
 | Vertraging |TimeSpan |00:00:00 |Geef de vertraging optreden voordat de verwerking van het segment wordt gestart.<br/><br/>De uitvoering van de activiteit voor een gegevenssegment wordt gestart nadat de vertraging voorbij de verwachte tijd voor uitvoering is.<br/><br/>Voorbeeld: 00:10:00 (betekent vertraging van 10 minuten) |
-| longRetry |Geheel getal<br/><br/>De maximale waarde: 10 |1 |Het aantal pogingen lang voordat de uitvoering van het segment is mislukt.<br/><br/>longRetry pogingen door longRetryInterval gelijkmatig verdeeld. Als u een tijd tussen pogingen opgeven moet, gebruikt u dus longRetry. Als zowel de nieuwe pogingen en de longRetry worden opgegeven, elke poging longRetry bevat nieuwe pogingen en het maximale aantal pogingen is opnieuw * longRetry.<br/><br/>Bijvoorbeeld, als we hebben de volgende instellingen in het activiteitenbeleid voor:<br/>Probeer: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00 uur<br/><br/>Wordt ervan uitgegaan dat er is slechts één segment uit te voeren (status Waiting) en de activiteit is uitgevoerd elke keer mislukt. Er zou worden in eerste instantie 3 opeenvolgende uitvoering pogingen. De status van het segment is na elke poging probeer het opnieuw. Nadat de eerste 3 pogingen hebben bekeken, zou de status van het segment LongRetry zijn.<br/><br/>Na een uur (dat wil zeggen, de longRetryInteval waarde), zou er een andere set 3 opeenvolgende uitvoering pogingen. Hierna is de status van het segment zou niet en geen pogingen meer zou worden uitgevoerd. Daarom is algemene 6 geprobeerd.<br/><br/>Als een uitvoering is voltooid, het segment de status gereed zijn en er worden geen pogingen meer geprobeerd.<br/><br/>longRetry kan worden gebruikt in situaties waarbij afhankelijke gegevens aankomen op niet-deterministische tijdstippen of de hele omgeving flaky onder welke gegevensverwerking plaatsvindt. In dergelijke gevallen tijd nieuwe pogingen achter elkaar niet kunt doen, en dit na een interval van resultaten in de gewenste uitvoer.<br/><br/>Waarschuwing: geen hoge waarden voor de longRetry of longRetryInterval instelt. Hogere waarden dat normaal gesproken andere al problemen. |
+| longRetry |Geheel getal<br/><br/>De maximale waarde: 10 |1 |Het aantal pogingen lang voordat de uitvoering van het segment is mislukt.<br/><br/>longRetry pogingen door longRetryInterval gelijkmatig verdeeld. Als u een tijd tussen pogingen opgeven moet, gebruikt u dus longRetry. Als zowel de nieuwe pogingen en de longRetry worden opgegeven, elke poging longRetry bevat nieuwe pogingen en het maximale aantal pogingen is opnieuw * longRetry.<br/><br/>Bijvoorbeeld, als we hebben de volgende instellingen in het activiteitenbeleid voor:<br/>Probeer: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Wordt ervan uitgegaan dat er is slechts één segment uit te voeren (status Waiting) en de activiteit is uitgevoerd elke keer mislukt. Er zou worden in eerste instantie 3 opeenvolgende uitvoering pogingen. De status van het segment is na elke poging probeer het opnieuw. Nadat de eerste 3 pogingen hebben bekeken, zou de status van het segment LongRetry zijn.<br/><br/>Na een uur (dat wil zeggen, de longRetryInteval waarde), zou er een andere set 3 opeenvolgende uitvoering pogingen. Hierna is de status van het segment zou niet en geen pogingen meer zou worden uitgevoerd. Daarom is algemene 6 geprobeerd.<br/><br/>Als een uitvoering is voltooid, het segment de status gereed zijn en er worden geen pogingen meer geprobeerd.<br/><br/>longRetry kan worden gebruikt in situaties waarbij afhankelijke gegevens aankomen op niet-deterministische tijdstippen of de hele omgeving flaky onder welke gegevensverwerking plaatsvindt. In dergelijke gevallen tijd nieuwe pogingen achter elkaar niet kunt doen, en dit na een interval van resultaten in de gewenste uitvoer.<br/><br/>Waarschuwing: geen hoge waarden voor de longRetry of longRetryInterval instelt. Hogere waarden dat normaal gesproken andere al problemen. |
 | longRetryInterval |TimeSpan |00:00:00 |De vertraging tussen pogingen lang |
 
 Zie voor meer informatie [pijplijnen](data-factory-create-pipelines.md) artikel. 

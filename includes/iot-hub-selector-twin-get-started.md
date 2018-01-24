@@ -1,8 +1,9 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt.
 
@@ -14,7 +15,7 @@ Apparaat horende te gebruiken:
 * De metagegevens van apparaten, de configuratie of de status opvragen.
 
 > [!NOTE]
-> Apparaat horende zijn ontworpen voor synchronisatie en voor het uitvoeren van query's apparaatconfiguraties en voorwaarden. Meer informatie over op het gebruik van apparaat horende vindt u in [apparaat horende begrijpen][lnk-twins].
+> Apparaat horende zijn ontworpen voor synchronisatie en voor het uitvoeren van query's apparaatconfiguraties en voorwaarden. Meer informatie over het gebruik van apparaat horende vindt u in [apparaat horende begrijpen][lnk-twins].
 
 Apparaat horende worden opgeslagen in een IoT-hub en bevatten:
 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI hulpmiddelen voor gegevensvisualisatie gebruiken met Azure HDInsight
 
@@ -29,7 +29,7 @@ Informatie over het gebruik [Microsoft Power BI](http://powerbi.microsoft.com) e
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Volledige [interactieve query's uitvoeren op Spark-clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Voltooien van het artikel [interactieve query's uitvoeren op Spark-clusters in HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) en [Power BI-proefabonnement](https://app.powerbi.com/signupredirect?pbi_source=web) (optioneel).
 * **Tableau**: [Tableau bureaublad](http://www.tableau.com/products/desktop) en [Spark ODBC-stuurprogramma](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -63,7 +63,7 @@ De Jupyter-notebook die u hebt gemaakt in de [vorige zelfstudie](apache-spark-lo
 
     ![Rijen uit de tabel hvac in Spark weergeven](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Van de **bestand** menu aan de laptop, klikt u op **sluiten en stoppen**. Sluit de notebook om resources vrij te geven. 
+3. Klik in het menu **Bestand** in de notebook op **Sluiten en stoppen**. Sluit de notebook om resources vrij te geven. 
 
 
 
@@ -109,7 +109,7 @@ De eerste stap bij het werken met Spark zijn verbinding maken met het cluster in
 
     ![Cluster-gebruikersnaam en wachtwoord Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark cluster-gebruikersnaam en wachtwoord")
 
-    Power BI Desktop heeft de benodigde gegevens voor het verbinding maken met de gegevens voor Spark-cluster en de belasting van de `hvac` tabel. De tabel en de kolommen worden weergegeven in de **velden** deelvenster.  Zie de volgende schermafbeelding.
+    Power BI Desktop heeft de benodigde gegevens voor het verbinding maken met de gegevens voor Spark-cluster en de belasting van de `hvac` tabel. De tabel en de kolommen worden weergegeven in de **velden** deelvenster.  Zie de volgende schermafbeelding:
 
 6. Het verschil tussen de doel-temperatuur- en werkelijke temperatuur voor elk gebouw visualiseren: 
 
@@ -212,7 +212,7 @@ Het visuele element is vastgemaakt aan het dashboard - kunt u andere visuele ele
 6. Klik op de **Sheet1** tabblad linksonder. Controleer een visualisatie waarin de gemiddelde doel en de werkelijke temperaturen voor alle gebouwen voor elke datum. Sleep **datum** en **bouwen ID** naar **kolommen** en **werkelijke Temp**/**Temp doel** naar **rijen**. Onder **aanhalingstekens**, selecteer **gebied** voor het gebruik van een map gebied voor gegevensvisualisatie Spark.
 
      ![Toevoegen van velden voor Spark gegevensvisualisatie](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "velden voor Spark gegevensvisualisatie toevoegen")
-7. Standaard de temperatuur velden worden weergegeven als de statistische functie. Als u weergeven van de gemiddelde temperatuur in plaats daarvan wilt, kunt u doen in de vervolgkeuzelijst, zoals wordt weergegeven in de volgende schermafbeelding.
+7. Standaard de temperatuur velden worden weergegeven als de statistische functie. Als u weergeven van de gemiddelde temperatuur in plaats daarvan wilt, u kunt dit doen in de vervolgkeuzelijst, zoals wordt weergegeven in de volgende schermafbeelding:
 
     ![Gemiddelde temperatuur voor Spark gegevensvisualisatie nemen](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "gemiddelde temperatuur voor Spark gegevensvisualisatie duren")
 

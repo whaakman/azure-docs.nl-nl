@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Starten en stoppen van de Azure-Stack
 
@@ -41,6 +41,15 @@ Azure-Stack afsluiten met de volgende stappen:
 > [!Note]  
 > U kunt de energiestatus van een fysiek knooppunt controleren door de instructies van de Original Equipment Manufacturer (OEM) die uw Azure-Stack hardware opgegeven. 
 
+## <a name="start-azure-stack"></a>Start Azure Stack 
+
+Azure-Stack beginnen met de volgende stappen uit. Volg deze stappen, ongeacht hoe Azure-Stack is gestopt.
+
+1. Schakel op alle fysieke knooppunten in uw Azure-Stack-omgeving. Controleer of u de instructies voor de fysieke knooppunten inschakelen door de instructies van de Original Equipment Manufacturer (OEM) die de hardware voor uw Azure-Stack opgegeven.
+
+2. Wacht totdat de Stack van Azure-infrastructuurservices wordt gestart. Azure Stack-infrastructuurservices kunnen vereisen twee uur aan het beginproces is voltooid. U kunt controleren of de status van de start van Azure-Stack met de [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Status ophalen voor het starten van de voor Azure-Stack
 
 Haal het opstarten van de voor de Azure-Stack Opstartroutine met de volgende stappen:
@@ -52,14 +61,6 @@ Haal het opstarten van de voor de Azure-Stack Opstartroutine met de volgende sta
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
-
-## <a name="start-azure-stack"></a>Start Azure Stack 
-
-Azure-Stack beginnen met de volgende stappen uit. Volg deze stappen, ongeacht hoe Azure-Stack is gestopt.
-
-1. Schakel op alle fysieke knooppunten in uw Azure-Stack-omgeving. Controleer of u de instructies voor de fysieke knooppunten inschakelen door de instructies van de Original Equipment Manufacturer (OEM) die de hardware voor uw Azure-Stack opgegeven.
-
-2. Wacht totdat de Stack van Azure-infrastructuurservices wordt gestart. Azure Stack-infrastructuurservices kunnen vereisen twee uur aan het beginproces is voltooid. U kunt controleren of de status van de start van Azure-Stack met de [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Problemen met opstarten en afsluiten van de Azure-Stack
 

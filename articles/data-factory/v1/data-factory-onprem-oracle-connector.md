@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Gegevens kopiëren van lokale Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -141,7 +141,7 @@ De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie
 | --- | --- | --- |
 | tableName |De naam van de tabel in de Oracle-Database waarnaar de gekoppelde service verwijst. |Nee (als **oracleReaderQuery** van **OracleSource** is opgegeven) |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 > [!NOTE]
@@ -572,29 +572,29 @@ Bij het verplaatsen van gegevens uit Oracle, worden de volgende toewijzingen geb
 
 | Oracle-gegevenstype | .NET framework-gegevenstype |
 | --- | --- |
-| BBESTAND |Byte] |
-| BLOB |Byte]<br/>(alleen ondersteund voor Oracle 10g en hoger als met Microsoft-stuurprogramma) |
-| CHAR |Reeks |
-| CLOB |Reeks |
-| DATUM |Datum en tijd |
+| BBESTAND |Byte[] |
+| BLOB |Byte[]<br/>(alleen ondersteund voor Oracle 10g en hoger als met Microsoft-stuurprogramma) |
+| CHAR |Tekenreeks |
+| CLOB |Tekenreeks |
+| DATE |Datum en tijd |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
 | INTERVAL JAAR, MAAND |Int32 |
 | TWEEDE INTERVAL DAG |TimeSpan |
-| LANG |Reeks |
-| LANGE ONBEWERKTE |Byte] |
-| NCHAR |Reeks |
-| NCLOB |Reeks |
+| LANG |Tekenreeks |
+| LANGE ONBEWERKTE |Byte[] |
+| NCHAR |Tekenreeks |
+| NCLOB |Tekenreeks |
 | AANTAL |Decimaal, tekenreeks (als precision > 28) |
-| NVARCHAR2 |Reeks |
-| ONBEWERKTE |Byte] |
-| ROWID |Reeks |
+| NVARCHAR2 |Tekenreeks |
+| RAW |Byte[] |
+| ROWID |Tekenreeks |
 | TIJDSTEMPEL |Datum en tijd |
 | TIJDSTEMPEL MET DE LOKALE TIJDZONE |Datum en tijd |
 | TIJDSTEMPEL MET TIJDZONE |Datum en tijd |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
-| VARCHAR2 |Reeks |
-| XML |Reeks |
+| VARCHAR2 |Tekenreeks |
+| XML |Tekenreeks |
 
 > [!NOTE]
 > Gegevenstype **INTERVAL aan maand** en **INTERVAL dag naar tweede** worden niet ondersteund bij gebruik van Microsoft-stuurprogramma.

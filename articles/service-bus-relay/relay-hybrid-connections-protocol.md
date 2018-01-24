@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocol voor Azure Relay hybride verbindingen
 Azure Relay is een van de belangrijkste mogelijkheden stijlen van het Azure Service Bus-platform. De nieuwe *hybride verbindingen* mogelijkheid relay is een op basis van HTTP- en WebSockets evolutie van beveiligde, open-protocol. Het eerste evenredig met de naam die hij vervangt *BizTalk Services* functie die is gebaseerd op een eigen protocol foundation. De integratie van hybride verbindingen in Azure App Services, blijven functioneren als-is.
@@ -98,12 +98,12 @@ Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wo
 | --- | --- | --- |
 | 404 |Niet gevonden |Het pad voor hybride verbinding is ongeldig of de basis-URL heeft onjuiste indeling. |
 | 401 |Niet geautoriseerd |Het beveiligingstoken is ontbreken of onjuist gevormd of ongeldig. |
-| 403 |Is niet toegestaan |Het beveiligingstoken is niet geldig voor dit pad voor deze actie. |
+| 403 |Verboden |Het beveiligingstoken is niet geldig voor dit pad voor deze actie. |
 | 500 |Interne fout |Er is een fout in de service. |
 
 Als de WebSocket-verbinding opzettelijk door de service afgesloten wordt nadat deze is in eerste instantie hebt ingesteld, de reden voor dit wel doet wordt gecommuniceerd met behulp van een juiste WebSocket-protocol foutcode samen met een beschijvend foutbericht die ook een tracerings-ID. De service wordt niet afgesloten het besturingskanaal zonder dat er een fout opgetreden. Geldige afsluiting is de client worden beheerd.
 
-| WS-Status | Beschrijving |
+| WS Status | Beschrijving |
 | --- | --- |
 | 1001 |Het pad voor hybride verbinding is verwijderd of uitgeschakeld. |
 | 1008 |Het beveiligingstoken is verlopen, dus het verificatiebeleid wordt geschonden. |
@@ -161,12 +161,12 @@ Als er een fout is, kan de service als volgt beantwoorden:
 
 | Code | Fout | Beschrijving |
 | --- | --- | --- |
-| 403 |Is niet toegestaan |De URL is niet geldig. |
+| 403 |Verboden |De URL is niet geldig. |
 | 500 |Interne fout |Er is een fout in de service |
 
 De verbinding tot stand is gebracht, de server afgesloten nadat de WebSocket wanneer de afzender WebSocket wordt afgesloten omlaag of met de volgende statussen:
 
-| WS-Status | Beschrijving |
+| WS Status | Beschrijving |
 | --- | --- |
 | 1001 |De afzender-client de verbinding wordt afgesloten. |
 | 1001 |Het pad voor hybride verbinding is verwijderd of uitgeschakeld. |
@@ -191,7 +191,7 @@ Wanneer correct is voltooid, wordt deze handshake opzettelijk mislukt met een HT
 
 | Code | Fout | Beschrijving |
 | --- | --- | --- |
-| 403 |Is niet toegestaan |De URL is niet geldig. |
+| 403 |Verboden |De URL is niet geldig. |
 | 500 |Interne fout |Er is een fout in de service. |
 
 ### <a name="listener-token-renewal"></a>Vernieuwing van het token listener
@@ -211,7 +211,7 @@ Wanneer de listener-token bijna verlopen is, kan deze door een frame tekstberich
 
 Als de validatie van het token is mislukt, de toegang is geweigerd en de cloudservice wordt gesloten voor het besturingskanaal WebSocket met een fout. Anders is geen antwoord ontvangen.
 
-| WS-Status | Beschrijving |
+| WS Status | Beschrijving |
 | --- | --- |
 | 1008 |Het beveiligingstoken is verlopen, dus het verificatiebeleid wordt geschonden. |
 
@@ -250,12 +250,12 @@ Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wo
 | --- | --- | --- |
 | 404 |Niet gevonden |Het pad voor hybride verbinding is ongeldig of de basis-URL heeft onjuiste indeling. |
 | 401 |Niet geautoriseerd |Het beveiligingstoken is ontbreken of onjuist gevormd of ongeldig. |
-| 403 |Is niet toegestaan |Het beveiligingstoken is niet geldig voor dit pad en voor deze actie. |
+| 403 |Verboden |Het beveiligingstoken is niet geldig voor dit pad en voor deze actie. |
 | 500 |Interne fout |Er is een fout in de service. |
 
 Als de WebSocket-verbinding opzettelijk door de service afgesloten wordt als deze in eerste instantie is ingesteld om de reden voor dit wel doet wordt gecommuniceerd met behulp van een juiste WebSocket-protocol foutcode samen met een beschijvend foutbericht die ook een tracerings-ID.
 
-| WS-Status | Beschrijving |
+| WS Status | Beschrijving |
 | --- | --- |
 | 1000 |De listener is afgesloten van de socket. |
 | 1001 |Het pad voor hybride verbinding is verwijderd of uitgeschakeld. |

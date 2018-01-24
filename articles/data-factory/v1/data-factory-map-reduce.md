@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Aanroepen van MapReduce-programma's uit Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -119,7 +119,7 @@ U kunt een voorbeeld voor het gebruik van de HDInsight-MapReduce-activiteit uit 
 ## <a name="running-the-word-count-program"></a>Het aantal woorden programma uitvoeren
 De pijplijn in dit voorbeeld voert het programma Word-Count kaart/verkleinen op Azure HDInsight-cluster.   
 
-### <a name="linked-services"></a>Gekoppelde Services
+### <a name="linked-services"></a>Gekoppelde services
 U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die wordt gebruikt door de Azure HDInsight-cluster aan het Azure data factory. Als kopiëren en plakken van de volgende code vergeet niet om te vervangen **accountnaam** en **accountsleutel** met de naam en sleutel van uw Azure-opslag. 
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service

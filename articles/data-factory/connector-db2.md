@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Gegevens kopiëren van DB2 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +67,7 @@ De volgende eigenschappen worden ondersteund voor DB2 gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Db2** | Ja |
 | server |De naam van de DB2-server. |Ja |
 | database |Naam van de DB2-database. |Ja |
-| Schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
+| schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
 | authenticationType |Het soort verificatie die verbinding maken met de DB2-database wordt gebruikt.<br/>De waarde is toegestaan: **Basic**. |Ja |
 | gebruikersnaam |Geef de naam van de gebruiker verbinding maken met de DB2-database. |Ja |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als SecureString. |Ja |
@@ -126,7 +126,7 @@ Om gegevens te kopiëren van DB2, stel de eigenschap type van de gegevensset **R
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door DB2-bron.
 
@@ -178,8 +178,8 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | Type DB2-Database | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binair bestand |Byte] |
-| Blob |Byte] |
+| Binair bestand |Byte[] |
+| Blob |Byte[] |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
 | Date |Datum en tijd |
@@ -187,11 +187,11 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | DbClob |Tekenreeks |
 | Decimale |Decimale |
 | DecimalFloat |Decimale |
-| dubbele |dubbele |
-| Float |dubbele |
+| Double |Double |
+| Float |Double |
 | Afbeelding |Tekenreeks |
 | Geheel getal |Int32 |
-| LongVarBinary |Byte] |
+| LongVarBinary |Byte[] |
 | LongVarChar |Tekenreeks |
 | LongVarGraphic |Tekenreeks |
 | Numeriek |Decimale |
@@ -199,10 +199,10 @@ Bij het kopiëren van gegevens uit een DB2, worden de volgende toewijzingen van 
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Timestamp |Datum en tijd |
-| VarBinary |Byte] |
+| VarBinary |Byte[] |
 | VarChar |Tekenreeks |
 | VarGraphic |Tekenreeks |
-| XML |Byte] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Volgende stappen

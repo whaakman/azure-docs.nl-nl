@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Gegevens verplaatsen van Amazon eenvoudige Storage-Service met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Een gekoppelde service gegevensopslag is gekoppeld aan een gegevensfactory. Make
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| accessKeyID |ID van de geheime toegangssleutel. |Tekenreeks |Ja |
+| accessKeyID |ID van de geheime toegangssleutel. |tekenreeks |Ja |
 | secretAccessKey |De geheime toegangssleutel zelf. |Versleutelde geheime tekenreeks |Ja |
 
 >[!NOTE]
@@ -98,7 +98,7 @@ Secties zoals structuur, beschikbaarheid en beleid zijn identiek voor alle typen
 | bucketName |De naam van de S3-bucket. |Tekenreeks |Ja |
 | sleutel |De sleutel van het object S3. |Tekenreeks |Nee |
 | voorvoegsel |Voorvoegsel voor de sleutel S3-object. Objecten waarvan sleutels met dit voorvoegsel beginnen worden geselecteerd. Geldt alleen als sleutel is leeg. |Tekenreeks |Nee |
-| Versie |De versie van het object S3, als S3 versiebeheer is ingeschakeld. |Tekenreeks |Nee |
+| versie |De versie van het object S3, als S3 versiebeheer is ingeschakeld. |Tekenreeks |Nee |
 | Indeling | De volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren indeling](data-factory-supported-file-and-compression-formats.md#parquet-format) secties. <br><br> Als u wilt kopiëren van bestanden als-is tussen bestandsgebaseerde winkels (binaire kopiëren), de indeling-sectie in beide definities invoer en uitvoer gegevensset overslaan. |Nee | |
 | Compressie | Geef het type en de compressie van de gegevens. De ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. De ondersteunde niveaus: **optimale** en **snelst**. Zie voor meer informatie [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee | |
 
@@ -171,7 +171,7 @@ U kunt deze eigenschappen tijdens runtime dynamisch berekenen met behulp van sys
 
 U kunt hetzelfde doen voor de **voorvoegsel** eigenschap van een gegevensset Amazon S3. Zie voor een lijst van ondersteunde functies en variabelen [Data Factory-functies en systeemvariabelen](data-factory-functions-variables.md).
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten [pijplijnen maken](data-factory-create-pipelines.md). Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle typen activiteiten. Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren eigenschappen, afhankelijk van de typen van bronnen en Put. Wanneer een bron in de kopieerbewerking is van het type **FileSystemSource** (waaronder Amazon S3), de volgende eigenschap is beschikbaar in **typeProperties** sectie:
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |

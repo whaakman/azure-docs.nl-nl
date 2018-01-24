@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressies en functies in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -148,7 +148,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 ## <a name="functions"></a>Functies  
  U kunt functies binnen expressies aanroepen. De volgende secties bevatten informatie over de functies die kunnen worden gebruikt in een expressie.  
 
-## <a name="string-functions"></a>Tekenreeks-functies  
+## <a name="string-functions"></a>Tekenreeksfuncties  
  De volgende functies zijn alleen van toepassing op tekenreeksen. U kunt ook een aantal van de verzameling functies op tekenreeksen.  
   
 |Functienaam|Beschrijving|  
@@ -175,7 +175,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |lengte|Retourneert het aantal elementen in een matrix of een tekenreeks. Bijvoorbeeld de volgende expressie retourneert `3`:`length('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling de lengte van ophalen.|  
 |Leeg|Retourneert waar als het object, matrix of tekenreeks leeg is. Bijvoorbeeld de volgende expressie retourneert `true`:<br /><br /> `empty('')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling om te controleren als deze leeg is.|  
 |snijpunt|Retourneert een matrix of object met de standaardelementen tussen de matrices of objecten die zijn doorgegeven. Bijvoorbeeld: deze functie retourneert `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie daarvan) zijn. Als er twee objecten met dezelfde naam, is het laatste object met deze naam wordt weergegeven in het definitieve-object.<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Naam**: verzameling*n*<br /><br /> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object moet zich in alle verzamelingen die zijn doorgegeven aan in het resultaat verschijnen.|  
-|Union|Retourneert een matrix of object met alle van de elementen die worden in de matrix of object doorgegeven. Bijvoorbeeld, retourneert deze functie`[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie daarvan) zijn. Als er twee objecten met dezelfde naam in de uiteindelijke uitvoer, is het laatste object met deze naam wordt weergegeven in het definitieve-object.<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Naam**: verzameling*n*<br /><br /> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object dat wordt weergegeven in een van de verzamelingen wordt weergegeven in het resultaat.|  
+|Union|Retourneert een matrix of object met alle van de elementen die worden in de matrix of object doorgegeven. Bijvoorbeeld, retourneert deze functie`[1, 2, 3, 10, 101]:`<br /><br /> :`union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie daarvan) zijn. Als er twee objecten met dezelfde naam in de uiteindelijke uitvoer, is het laatste object met deze naam wordt weergegeven in het definitieve-object.<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Naam**: verzameling*n*<br /><br /> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object dat wordt weergegeven in een van de verzamelingen wordt weergegeven in het resultaat.|  
 |eerste|Retourneert het eerste element in de matrix of tekenreeks doorgegeven. Bijvoorbeeld: deze functie retourneert `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te laten worden van het eerste-object.|  
 |laatste|Retourneert het laatste element in de matrix of tekenreeks doorgegeven. Bijvoorbeeld: deze functie retourneert `3`:<br /><br /> `last('0123')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te laten worden van het laatste-object.|  
 |duren|Retourneert de eerste **aantal** elementen van de matrix of tekenreeks ingevoerd, bijvoorbeeld deze functie retourneert `[1, 2]`:`take([1, 2, 3, 4], 2)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling te nemen van de eerste **aantal** objecten uit.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: aantal<br /><br /> **Beschrijving**: vereist. Het aantal objecten uit de **verzameling**. Moet een positief geheel getal zijn.|  
@@ -196,16 +196,16 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |niet|Retourneert waar als de parameter `false`. Beide argumenten moeten Booleaanse waarden. De volgende retourneert `true`:`not(contains('200 Success','Fail'))`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Booleaanse<br /><br /> **Beschrijving**: retourneert true als de parameter `false`. Beide argumenten moeten Booleaanse waarden. De volgende retourneert `true`:`not(contains('200 Success','Fail'))`|  
 |Als|Retourneert een opgegeven waarde op basis van als de expressie resulteert in een `true` of `false`.  Bijvoorbeeld de volgende retourneert `"yes"`:`if(equals(1, 1), 'yes', 'no')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: expressie<br /><br /> **Beschrijving**: vereist. Een Booleaanse waarde die bepaalt welke waarde wordt geretourneerd door de expressie.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: True<br /><br /> **Beschrijving**: vereist. De waarde te retourneren als de expressie is `true`.<br /><br /> **Parameternummer**: 3<br /><br /> **Naam**: False<br /><br /> **Beschrijving**: vereist. De waarde te retourneren als de expressie is `false`.|  
   
-## <a name="conversion-functions"></a>Van conversiefuncties  
+## <a name="conversion-functions"></a>Conversiefuncties  
  Deze functies worden gebruikt om te converteren tussen elk van de systeemeigen typen in de taal:  
   
 -   tekenreeks  
   
 -   geheel getal  
   
--   Float  
+-   drijvend  
   
--   Booleaanse waarde  
+-   booleaans  
   
 -   Matrices  
   
@@ -216,7 +216,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |int|De parameter niet converteren naar een geheel getal. De volgende expressie retourneert bijvoorbeeld 100 als een getal in plaats van een tekenreeks:`int('100')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een geheel getal.|  
 |tekenreeks|De parameter niet converteren naar een tekenreeks. Bijvoorbeeld de volgende expressie retourneert `'10'`: `string(10)` u kunt ook een object converteren naar een tekenreeks, bijvoorbeeld als de **foo** parameter is een object met één eigenschap `bar : baz`, en vervolgens de volgende zou retourneren `{"bar" : "baz"}``string(pipeline().parameters.foo)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een tekenreeks.|  
 |JSON|De parameter niet converteren naar een JSON-type-waarde. Het is het tegenovergestelde van string(). Bijvoorbeeld de volgende expressie retourneert `[1,2,3]` als een matrix in plaats van een tekenreeks:<br /><br /> `parse('[1,2,3]')`<br /><br /> U kunt ook een tekenreeks converteren naar een object. Bijvoorbeeld: `json('{"bar" : "baz"}')` geretourneerd:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die wordt geconverteerd naar een systeemeigen type-waarde.<br /><br /> De json-functie ondersteunt ook XML-invoer. Bijvoorbeeld, de parameterwaarde van:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> wordt geconverteerd naar de volgende json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Float|Het parameterargument niet converteren naar een getal met drijvende komma. Bijvoorbeeld de volgende expressie retourneert `10.333`:`float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een getal met drijvende komma.|  
+|drijvend|Het parameterargument niet converteren naar een getal met drijvende komma. Bijvoorbeeld de volgende expressie retourneert `10.333`:`float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een getal met drijvende komma.|  
 |BOOL|De parameter niet converteren naar een Booleaanse waarde. Bijvoorbeeld de volgende expressie retourneert `false`:`bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een Booleaanse waarde.|  
 |Coalesce|Retourneert het eerste niet-null-object in de doorgegeven argumenten. Opmerking: een lege tekenreeks is niet null. Bijvoorbeeld, als parameters 1 en 2 niet zijn gedefinieerd, dit retourneert `fallback`:`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Naam**: Object*n*<br /><br /> **Beschrijving**: vereist. De objecten om te controleren of `null`.|  
 |Base64|Retourneert de base64-weergave van de invoertekenreeks. Bijvoorbeeld de volgende expressie retourneert `c29tZSBzdHJpbmc=`:`base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: String 1<br /><br /> **Beschrijving**: vereist. De tekenreeks voor het coderen naar base64-weergave.|  
@@ -238,7 +238,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |matrix|De parameter niet converteren naar een matrix.  Bijvoorbeeld de volgende expressie retourneert `["abc"]`:`array('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een matrix.|
 |createArray|Maakt een matrix van de parameters.  Bijvoorbeeld de volgende expressie retourneert `["a", "c"]`:`createArray('a', 'c')`<br /><br /> **Parameternummer**: 1... n<br /><br /> **Naam**: alle n<br /><br /> **Beschrijving**: vereist. De waarden te combineren in een matrix.|
 
-## <a name="math-functions"></a>Rekenkundige functies  
+## <a name="math-functions"></a>Wiskundige functies  
  Deze functies kunnen worden gebruikt voor beide typen van de getallen: **gehele getallen** en **zwevend**.  
   
 |Functienaam|Beschrijving|  

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ophalen van metagegevens van activiteit in Azure Data Factory
 De Get Metadata Activity kan worden gebruikt voor het ophalen van metagegevens van gegevens in Azure Data Factory. Deze activiteit wordt alleen ondersteund voor data Factory van versie 2. Het kan worden gebruikt in de volgende scenario's:
@@ -96,8 +96,8 @@ GetMetadata activiteit kunt momenteel de volgende soorten informatie over metage
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-Veldenlijst | Bevat de typen metagegevens die zijn vereist.  | <ul><li>Grootte</li><li>structuur</li><li>LastModified</li></ul> |    Nee<br/>Als dit leeg is, retourneert activiteit alle 3 ondersteunde metagegevens. 
-Gegevensset | De verwijzingsgegevensset waarvan activiteit metagegevens worden opgehaald door de activiteit GetMetadata is. <br/><br/>Type momenteel ondersteunde dataset is Azure-Blob. Er zijn twee sub-eigenschappen: <ul><li><b>naamverwijzing</b>: verwijzing naar een bestaande Azure Blob-gegevensset</li><li><b>type</b>: omdat de gegevensset wordt verwezen, is van het type 'DatasetReference'</li></ul> |    <ul><li>Tekenreeks</li><li>DatasetReference</li></ul> | Ja
+Veldenlijst | Bevat de typen metagegevens die zijn vereist.  | <ul><li>grootte</li><li>structuur</li><li>lastModified</li></ul> |    Nee<br/>Als dit leeg is, retourneert activiteit alle 3 ondersteunde metagegevens. 
+dataset | De verwijzingsgegevensset waarvan activiteit metagegevens worden opgehaald door de activiteit GetMetadata is. <br/><br/>Type momenteel ondersteunde dataset is Azure-Blob. Er zijn twee sub-eigenschappen: <ul><li><b>naamverwijzing</b>: verwijzing naar een bestaande Azure Blob-gegevensset</li><li><b>type</b>: omdat de gegevensset wordt verwezen, is van het type 'DatasetReference'</li></ul> |    <ul><li>Tekenreeks</li><li>DatasetReference</li></ul> | Ja
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 

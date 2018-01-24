@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Verplaatsen van gegevens van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesMySql** |Ja |
 | server |Naam van de MySQL-server. |Ja |
 | database |Naam van de MySQL-database. |Ja |
-| Schema |De naam van het schema in de database. |Nee |
+| schema |De naam van het schema in de database. |Nee |
 | authenticationType |Het soort verificatie die verbinding maken met de MySQL-database wordt gebruikt. Mogelijke waarden zijn: `Basic`. |Ja |
 | gebruikersnaam |Geef de naam van de gebruiker verbinding maken met de MySQL-database. |Ja |
 | wachtwoord |Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. |Ja |
@@ -87,7 +87,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 | --- | --- | --- |
 | tableName |De naam van de tabel in de MySQL-Database-instantie waarnaar de gekoppelde service verwijst. |Nee (als **query** van **RelationalSource** is opgegeven) |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen, zijn de beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 Dat eigenschappen beschikbaar zijn in de **typeProperties** sectie van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -305,42 +305,42 @@ Wanneer u gegevens naar MySQL verplaatst, worden de volgende toewijzingen van My
 | niet-ondertekende bigint |Decimale |
 | bigint |Int64 |
 | bits |Decimale |
-| BLOB |Byte] |
-| BOOL |Booleaanse waarde |
+| blob |Byte[] |
+| BOOL |Boole-waarde |
 | CHAR |Tekenreeks |
-| Datum |Datum/tijd |
-| Datum/tijd |Datum/tijd |
+| datum |Datum en tijd |
+| datum/tijd |Datum en tijd |
 | Decimale |Decimale |
-| dubbele precisie |dubbele |
-| dubbele |dubbele |
+| dubbele precisie |Double |
+| dubbel |Double |
 | Enum |Tekenreeks |
-| Float |Één |
+| drijvend |Single |
 | niet-ondertekende int |Int64 |
 | int |Int32 |
 | niet-ondertekend geheel getal |Int64 |
 | geheel getal |Int32 |
-| lange varbinary |Byte] |
+| lange varbinary |Byte[] |
 | lange varchar |Tekenreeks |
-| longblob |Byte] |
-| LONGTEXT |Tekenreeks |
-| mediumblob |Byte] |
+| longblob |Byte[] |
+| longtext |Tekenreeks |
+| mediumblob |Byte[] |
 | niet-ondertekende mediumint |Int64 |
 | mediumint |Int32 |
 | mediumtext |Tekenreeks |
 | numerieke |Decimale |
-| echte |dubbele |
+| echte |Double |
 | instellen |Tekenreeks |
 | niet-ondertekende smallint |Int32 |
 | smallint |Int16 |
 | Tekst |Tekenreeks |
 | tijd |TimeSpan |
-| tijdstempel |Datum/tijd |
-| tinyblob |Byte] |
+| tijdstempel |Datum en tijd |
+| tinyblob |Byte[] |
 | niet-ondertekende tinyint |Int16 |
 | tinyint |Int16 |
 | tinytext |Tekenreeks |
 | varchar |Tekenreeks |
-| jaar |int |
+| jaar |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor meer informatie over het toewijzen van kolommen in gegevensset naar kolommen in gegevensset sink bron, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

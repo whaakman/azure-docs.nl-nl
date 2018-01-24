@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Gebruik van meerdere invoerbestanden en eigenschappen van onderdeel met Premium-codering
 ## <a name="overview"></a>Overzicht
@@ -47,7 +47,7 @@ De configuratietekenreeks instellen in de codering taak maakt gebruik van een XM
 
 Hier volgt de C#-code die de XML-configuratie uit een bestand lezen, bijwerken met de juiste video bestandsnaam en wordt doorgegeven aan de taak in een taak:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -415,7 +415,7 @@ Plak de volgende XML-gegevens. U moet de naam van het bestand opgeven voor de Me
 
 Als u de .NET SDK gebruiken om te maken en de taak wordt uitgevoerd, is deze XML-gegevens worden doorgegeven als de configuratietekenreeks voor.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 

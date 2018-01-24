@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 7303c17cfa35043229bb1bdd61ef33647ef60ffa
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 In dit artikel laat zien hoe een Azure Automation-account maken in de Azure-portal. U kunt de portal Automation-account gebruiken om te evalueren en meer informatie over automatisering zonder aanvullende oplossingen of -integratie met Azure Log Analytics in Operations Management Suite (OMS). U kunt deze oplossingen toevoegen of integreren met Log Analytics voor geavanceerde controle van runbooktaken op elk gewenst moment in de toekomst. 
@@ -55,9 +55,9 @@ Gebruikersrollen controleren:
 Voor het maken van een Azure Automation-account in de Azure portal, moet u de volgende stappen uitvoeren:    
 
 1. Aanmelden bij de Azure-portal met een account dat lid is van de rol van de beheerders abonnement en een CO-beheerder van het abonnement.
-2. Selecteer **nieuwe**.<br><br> ![Selecteer Nieuw in Azure-portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Zoeken naar **Automation**. Selecteer in de lijst met zoekresultaten **Automation en Control**.<br><br> ![Zoek en selecteer Automation & besturingselement in Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-4. Onder **Automation-Accounts**, selecteer **toevoegen**.
+2. Selecteer **+ maken van een Resource**.
+3. Zoeken naar **Automation**. Selecteer in de lijst met zoekresultaten **Automation**.<br><br> ![Zoek en selecteer Automation & besturingselement in Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. Selecteer op het volgende scherm **maken**.
   ![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   
   > [!NOTE]

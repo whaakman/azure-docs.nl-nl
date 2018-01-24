@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Verplaatsen van gegevens uit SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-server | Naam van de server waarop het exemplaar SAP BW zich bevindt. | Tekenreeks | Ja
+server | Naam van de server waarop het exemplaar SAP BW zich bevindt. | tekenreeks | Ja
 systemNumber | Systeemnummer van het SAP BW-systeem. | Twee cijfers decimaal getal weergegeven als een tekenreeks. | Ja
 clientId | Client-ID van de client in het systeem SAP-W. | Drie cijfers decimaal getal weergegeven als een tekenreeks. | Ja
-gebruikersnaam | Naam van de gebruiker die toegang tot de SAP-server heeft | Tekenreeks | Ja
-wachtwoord | Wachtwoord voor de gebruiker. | Tekenreeks | Ja
-gatewayName | Naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale SAP BW-exemplaar. | Tekenreeks | Ja
-encryptedCredential | De versleutelde referentie-tekenreeks. | Tekenreeks | Nee
+gebruikersnaam | Naam van de gebruiker die toegang tot de SAP-server heeft | tekenreeks | Ja
+wachtwoord | Wachtwoord voor de gebruiker. | tekenreeks | Ja
+gatewayName | Naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale SAP BW-exemplaar. | tekenreeks | Ja
+encryptedCredential | De versleutelde referentie-tekenreeks. | tekenreeks | Nee
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets van de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties zoals structuur, beschikbaarheid en beleid van een gegevensset JSON zijn identiek voor alle gegevensset typen (Azure SQL, Azure blob-, Azure-tabel, enz.).
@@ -78,7 +78,7 @@ Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. Er zijn geen type-specifieke eigenschappen voor de gegevensset SAP BW van het type ondersteund **RelationalTable**. 
 
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen, zijn de beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 Dat eigenschappen beschikbaar zijn in de **typeProperties** sectie van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -87,7 +87,7 @@ Wanneer u de gegevensbron in de kopieerbewerking is van het type **RelationalSou
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| query | Hiermee geeft u de MDX-query om te lezen van gegevens uit de SAP BW-exemplaar. | MDX-query. | Ja |
+| query | Hiermee geeft u de MDX-query om te lezen van gegevens uit de SAP BW-exemplaar. | MDX query. | Ja |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON-voorbeeld: gegevens kopiëren van een SAP Business Warehouse naar Azure Blob
@@ -291,28 +291,28 @@ Bij het verplaatsen van gegevens uit SAP BW, worden de volgende toewijzingen uit
 
 Gegevenstype in de woordenlijst ABAP | .NET-gegevenstype
 -------------------------------- | --------------
-ACCP |  int
+ACCP |  Int
 CHAR | Tekenreeks
 CLNT | Tekenreeks
-VAL | Decimale
+CURR | Decimale
 CUKY | Tekenreeks
-DECEMBER | Decimale
-FLTP | dubbele
+DEC | Decimale
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | int
+INT4 | Int
 LANG | Tekenreeks
 LCHR | Tekenreeks
-LRAW | Byte]
+LRAW | Byte[]
 PREC | Int16
 QUAN | Decimale
-ONBEWERKTE | Byte]
-RAWSTRING | Byte]
+RAW | Byte[]
+RAWSTRING | Byte[]
 TEKENREEKS | Tekenreeks
 EENHEID | Tekenreeks
 DATS | Tekenreeks
 NUMC | Tekenreeks
-TIM 'S | Tekenreeks
+TIMS | Tekenreeks
 
 > [!NOTE]
 > Zie het toewijzen van kolommen uit de bron-gegevensset naar kolommen uit de dataset sink [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

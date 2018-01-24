@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Uw RESTful-services beveiligen met behulp van HTTP-basisverificatie
 In een [bijbehorende Azure AD B2C-artikel](active-directory-b2c-custom-rest-api-netfw.md), hebt u een RESTful-service (web-API) die kan worden geïntegreerd met Azure Active Directory B2C (Azure AD B2C) gebruiker trajecten zonder verificatie. 
@@ -76,7 +76,7 @@ Voeg de `ClientAuthMiddleware.cs` klasse onder de *App_Start* map. Dit doet u al
 
 3. Open de *App_Start\ClientAuthMiddleware.cs* bestand en vervang het bestand inhoud met de volgende code:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ Voeg een OWIN-Opstartklasse met de naam `Startup.cs` aan de API. Dit doet u als 
 
 2. Open de *Startup.cs* bestand en vervang het bestand inhoud met de volgende code:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

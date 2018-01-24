@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!NOTE]
@@ -60,7 +60,7 @@ Bevat onderstaande tabel als referentie, het nummer van de doorvoer kopiëren in
     <table>
     <tr>
         <td>CPU</td>
-        <td>32 cores 2,20 GHz Intel Xeon E5-2660 v2</td>
+        <td>32 cores 2.20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
         <td>Geheugen</td>
@@ -205,8 +205,8 @@ Configureer de **enableStaging** instellen in de kopieerbewerking om op te geven
 | Eigenschap | Beschrijving | Standaardwaarde | Vereist |
 | --- | --- | --- | --- |
 | **enableStaging** |Geef op of u wilt kopiëren van gegevens via een tussentijdse staging-store. |False |Nee |
-| **linkedServiceName** |Geef de naam van een [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) of [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N.v.t. |Ja, wanneer **enableStaging** is ingesteld op TRUE |
-| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N.v.t. |Nee |
+| **linkedServiceName** |Geef de naam van een [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) of [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N/A |Ja, wanneer **enableStaging** is ingesteld op TRUE |
+| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N/A |Nee |
 | **enableCompression** |Hiermee geeft u op of de gegevens moeten worden gecomprimeerd voordat deze is gekopieerd naar de bestemming. Deze instelling beperkt de hoeveelheid gegevens die worden overgedragen. |False |Nee |
 
 Hier volgt een voorbeeld-definitie van de Kopieeractiviteit met de eigenschappen die worden beschreven in de voorgaande tabel:
@@ -410,7 +410,7 @@ In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Ove
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 Hier zijn prestaties controleren en afstemmen verwijzingen voor enkele van de ondersteunde gegevensarchieven:
 
 * Azure-opslag (inclusief Blob storage en Table storage): [schaalbaarheidsdoelen van Azure Storage](../../storage/common/storage-scalability-targets.md) en [controlelijst voor prestaties en schaalbaarheid van Azure Storage](../../storage/common/storage-performance-checklist.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Aanmelden toevoegen aan een Windows-bureaublad-app
 Met het v2.0-eindpunt kunt u snel verificatie op uw bureaublad apps met ondersteuning voor beide persoonlijke Microsoft-accounts en werk-of schoolaccount toevoegen.  Bovendien kunnen uw app zodat deze veilig te communiceren met een back-end web-api, evenals [Microsoft Graph](https://graph.microsoft.io) en enkele van de [Office 365 Unified API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ Het basisprincipe achter MSAL is dat wanneer uw app een toegangstoken moet, u ge
 
 * In de `TodoListClient` project, open `MainWindow.xaml.cs` en zoek de `OnInitialized(...)` methode.  De eerste stap is het initialiseren van uw app `PublicClientApplication` -MSAL van primaire klasse die systeemeigen toepassingen vertegenwoordigt.  Dit is waar u MSAL de coördinaten die voor de communicatie met Azure AD en hoe deze tokens in de cache moet doorgeven.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Wanneer de app wordt gestart, die we willen te zien als de gebruiker al in de app is ondertekend.  Echter niet willen we nu nog een gebruikersinterface aanmelden invoke - maken we de gebruiker klikt u op 'Aanmelden' om dit te doen.  Ook in de `OnInitialized(...)` methode:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Als de gebruiker niet is aangemeld en ze op de knop 'Aanmelden', die we willen aanroepen van een UI-aanmelding en hebben de gebruikers hun referenties invoeren.  De knop aanmelden handler implementeren:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Als de gebruiker heeft zich aanmeldt, MSAL ontvangt en een token voor u in de cache en kunt u doorgaan om aan te roepen de `GetTodoList()` methode met vertrouwen.  Alle die altijd ingeschakeld als u de taken van een gebruiker is het implementeren van de `GetTodoList()` methode.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,
@@ -240,7 +240,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ```
 
 ## <a name="run"></a>Voer
-Gefeliciteerd. U hebt nu een werkende .NET WPF-app met de mogelijkheid om te verifiëren van gebruikers & veilig aanroepen van Web-API's met behulp van OAuth 2.0.  Voer beide projecten uit en meld u aan met een persoonlijk Microsoft-account of een account voor werk of school.  Taken toevoegen aan de takenlijst van de gebruiker.  Meld u af en meld u opnieuw aan als een andere gebruiker om hun takenlijst weer te geven.  Sluit de app en voer deze opnieuw uit.  U ziet hoe de gebruikerssessie blijft intact - gebeurt dit omdat de app in de cache opgeslagen tokens in een lokaal bestand.
+Gefeliciteerd! U hebt nu een werkende .NET WPF-app met de mogelijkheid om te verifiëren van gebruikers & veilig aanroepen van Web-API's met behulp van OAuth 2.0.  Voer beide projecten uit en meld u aan met een persoonlijk Microsoft-account of een account voor werk of school.  Taken toevoegen aan de takenlijst van de gebruiker.  Meld u af en meld u opnieuw aan als een andere gebruiker om hun takenlijst weer te geven.  Sluit de app en voer deze opnieuw uit.  U ziet hoe de gebruikerssessie blijft intact - gebeurt dit omdat de app in de cache opgeslagen tokens in een lokaal bestand.
 
 MSAL gemakkelijk veelvoorkomende identiteit functies opnemen in uw app met behulp van zowel privé- als -accounts.  Dit zorgt voor al het werk dirty voor u - Cachebeheer, OAuth-protocolondersteuning, dat de gebruiker een aanmelding-gebruikersinterface vernieuwen van tokens verlopen en meer.  Alles wat u moet weten één API-aanroep is `app.AcquireTokenAsync(...)`.
 

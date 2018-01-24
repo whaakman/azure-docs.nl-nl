@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Als de activiteit in Azure Data Factory-voorwaarde
-De activiteit als voorwaarde bieden dezelfde functionaliteit die een als instructie bevat in programmeertalen. Een set van activiteiten wanneer de voorwaarde is geëvalueerd `true` en een andere set activiteiten wanneer de voorwaarde wordt geëvalueerd als `false`. 
+De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in een programmeertaal. Er wordt een reeks activiteiten mee geëvalueerd als de voorwaarde resulteert in `true` en een andere reeks activiteiten als de voorwaarde resulteert in `false`. 
 
 
 > [!NOTE]

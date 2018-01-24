@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: seohack1
-ms.openlocfilehash: 9c0fb2c1d90f4c4ef50e658e9baca91795581eae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows desktop app bouwen
 U kunt met behulp van Azure Active Directory (Azure AD) B2C beheerfuncties krachtige Self-service identiteitsbeheer toevoegen aan uw bureaublad-app in slechts enkele korte stappen. In dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst' u app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor aanmelden en aanmelden met een gebruikersnaam of e-mailbericht. Het biedt ook ondersteuning voor zich kunnen registreren en aanmelden via sociale accounts zoals Facebook en Google.
@@ -72,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Uw B2C-gegevens invoeren
 Open het bestand `Globals.cs` en elk van de eigenschapswaarden vervangt door uw eigen. Deze klasse wordt gebruikt in de gehele `TaskClient` verwijzing gebruikte waarden.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -93,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>De PublicClientApplication maken
 De primaire klasse van MSAL is `PublicClientApplication`. Deze klasse vertegenwoordigt de toepassing in het Azure AD B2C-systeem. Wanneer de initalizes app maakt voor een exemplaar van `PublicClientApplication` in `MainWindow.xaml.cs`. Dit kan worden gebruikt in het venster.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -111,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Een registratie stroom initiëren
 Wanneer een gebruiker ervoor om te tekenen van kiest, die u wilt starten een aanmelding stroom die gebruikmaakt van het registratiebeleid die u hebt gemaakt. Met behulp van MSAL die u zojuist hebt aanroepen `pca.AcquireTokenAsync(...)`. De parameters die u doorgeeft aan `AcquireTokenAsync(...)` bepalen welk token wordt weergegeven, het beleid op waarmee de verificatieaanvraag, enzovoort.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -162,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Starten van een stroom aanmelden
 U kunt een stroom aanmelden op dezelfde manier als dat u een aanmelding stroom initiëren initiëren. Wanneer een gebruiker zich aanmeldt, moet u dezelfde aanroep MSAL, ditmaal met behulp van uw beleid voor aanmelden:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -177,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Starten van een stroom profiel bewerken
 U kunt een beleid voor het profiel bewerken opnieuw uitvoeren op dezelfde manier:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -193,7 +193,7 @@ In al deze gevallen retourneert MSAL ofwel een token in `AuthenticationResult` o
 ### <a name="check-for-tokens-on-app-start"></a>Controleer voor tokens op app starten
 U kunt ook MSAL gebruiken om-in status van de gebruiker bij te houden.  In deze app willen we de gebruiker blijft aangemeld nadat ze de app sluiten en opnieuw openen.  Terug in de `OnInitialized` overschrijven, gebruikt u de MSAL `AcquireTokenSilent` methode om te controleren of tokens in de cache opgeslagen:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -232,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>De takenlijst-API aanroepen
 U hebt nu MSAL gebruikt om beleidsregels uitvoeren en tokens verkrijgen.  Wanneer u een deze tokens aan te roepen de takenlijst-API gebruiken wilt, kunt u opnieuw gebruiken van MSAL `AcquireTokenSilent` methode om te controleren of tokens in de cache opgeslagen:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -277,7 +277,7 @@ private async void GetTodoList()
 
 Bij het aanroepen van `AcquireTokenSilentAsync(...)` is gelukt en een token gevonden in de cache, kunt u het token voor toevoegen de `Authorization` koptekst van de HTTP-aanvraag. De web-API van de taak wordt deze header gebruiken om te verifiëren van de aanvraag voor het lezen van de takenlijst van de gebruiker:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -290,7 +290,7 @@ Bij het aanroepen van `AcquireTokenSilentAsync(...)` is gelukt en een token gevo
 ## <a name="sign-the-user-out"></a>De gebruiker afmelden
 Ten slotte kunt u MSAL naar einde van een gebruikerssessie met de app wanneer de gebruiker selecteert **Afmelden**.  Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle van de tokens van de tokencache:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

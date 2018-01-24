@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 765ca21c7c38fa116e0ca95b3c8dc6a6152834ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Gegevens verplaatsen en naar Azure Table met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Voor gegevens zonder schema winkels zoals Azure Table afleidt de Data Factory-se
 
 Daarom voor gegevensbronnen zonder schema, de aanbevolen procedure is om op te geven van de structuur van gegevens met de **structuur** eigenschap.
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer gegevenssets en beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 Eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit wordt aan de andere kant variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -476,10 +476,10 @@ Wanneer u gegevens verplaatst naar & van Azure-tabel, de volgende [toewijzingen 
 
 | OData-gegevenstype | .NET-type | Details |
 | --- | --- | --- |
-| Edm.Binary |Byte] |Een matrix met bytes maximaal 64 KB. |
+| Edm.Binary |byte[] |Een matrix met bytes maximaal 64 KB. |
 | Edm.Boolean |BOOL |Een Booleaanse waarde. |
-| Edm.DateTime |Datum/tijd |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt op 31 December 9999. |
-| Edm.Double |dubbele |Een 64-bits drijvende-kommawaarde. |
+| Edm.DateTime |Datum en tijd |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt op 31 December 9999. |
+| Edm.Double |dubbel |Een 64-bits drijvende-kommawaarde. |
 | Edm.Guid |GUID |Een globally unique identifier van 128-bits. |
 | Edm.Int32 |Int32 |Een 32-bits geheel getal. |
 | Edm.Int64 |Int64 |Een 64-bits geheel getal. |

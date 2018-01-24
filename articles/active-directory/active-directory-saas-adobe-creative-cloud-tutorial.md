@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Creative Cloud
 
@@ -131,10 +131,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
 
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ---------------| ----------------|
-    | Voornaam |User.givenName |
-    | Achternaam |User.surname |
+    | FirstName |user.givenname |
+    | LastName |User.surname |
     | E-mail |User.mail |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
@@ -157,11 +157,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Adobe Creative Cloud-configuratie](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. In een ander browservenster aanmelding bij uw cloudtenant van Adobe Creative als beheerder.
+10. In een ander browservenster aanmelding bij [Adobe-beheerconsole](https://adminconsole.adobe.com) als beheerder.
 
-11. Ga naar **identiteit** in het navigatiedeelvenster links en klikt u op uw domein. Voer de volgende stappen uit op **eenmalige aanmelding op configuratie vereist** sectie.
+11. Ga naar **instellingen** op de bovenste navigatiebalk balk en kies vervolgens **identiteit**. De lijst met domeinen wordt geopend. Klik op **configureren** koppeling op basis van uw domein. Voer de volgende stappen uit op **eenmalige aanmelding op configuratie vereist** sectie. Zie voor meer informatie [instellen van een domein](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Instellingen](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "instellingen")
+    ![Instellingen](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "instellingen")
     
     a. Klik op **Bladeren** voor het uploaden van het gedownloade certificaat uit Azure AD **IDP certificaat**.
     
@@ -176,8 +176,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     f. Klik op **opslaan** knop.
 
 12. Het dashboard biedt nu de XML **'Metagegevens downloaden'** bestand. Het bevat van Adobe EntityDescriptor URL's en AssertionConsumerService. Open het bestand en configureer deze in de Azure AD-toepassing.
-
-    ![App-zijde eenmalige aanmelding configureren](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![App-zijde eenmalige aanmelding configureren](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ Om in te schakelen gebruikers van Azure AD aan te melden bij Adobe Creative Clou
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:
 
-1. Meld u aan bij uw bedrijf Adobe Creative Cloud site als beheerder.
+1. Aanmelden bij [Adobe-beheerconsole](https://adminconsole.adobe.com) site als beheerder.
 
-2. De gebruiker binnen de console van Adobe als federatieve ID toevoegen en toewijzen aan een groep voor het recht
-
-    ![De koppeling Adobe Creative Cloud in de lijst met toepassingen](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. De gebruiker binnen de console van Adobe als federatieve ID toevoegen en toewijzen aan een profiel voor een Product. Zie voor gedetailleerde informatie over het toevoegen van gebruikers [gebruikers toevoegen in Adobe-beheerconsole](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Op dit moment Typ uw e-mailadres/upn in het formulier in Adobe aanmelding, druk op tab en u moet gefedereerd terug naar Azure AD:
     * Webtoegang: www.adobe.com > aanmelden
@@ -274,10 +270,12 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Adobe Creative Cloud in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Adobe Creative Cloud.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Stel een domein (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Azure configureren voor gebruik met Adobe eenmalige aanmelding (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

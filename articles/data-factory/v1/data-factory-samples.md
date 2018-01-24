@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - voorbeelden
 > [!NOTE]
@@ -31,7 +31,7 @@ De [GitHub Azure-DataFactory opslagplaats](https://github.com/azure/azure-datafa
 
 | Voorbeeld | Beschrijving |
 |:--- |:--- |
-| [Overzicht van de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Dit voorbeeld biedt een end-to-end-overzicht voor het verwerken van logboekbestanden met Azure Data Factory om gegevens te sluiten van de logboekbestanden in te insights. <br/><br/>In dit scenario de Data Factory-pijplijn verzamelt voorbeeld Logboeken, processen en verrijkt de gegevens uit logboeken met referentiegegevens, en transformeert de gegevens voor het evalueren van de effectiviteit van een marketingcampagne dat onlangs is gestart. |
+| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Dit voorbeeld biedt een end-to-end-overzicht voor het verwerken van logboekbestanden met Azure Data Factory om gegevens te sluiten van de logboekbestanden in te insights. <br/><br/>In dit scenario de Data Factory-pijplijn verzamelt voorbeeld Logboeken, processen en verrijkt de gegevens uit logboeken met referentiegegevens, en transformeert de gegevens voor het evalueren van de effectiviteit van een marketingcampagne dat onlangs is gestart. |
 | [JSON-voorbeelden](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Dit voorbeeld ziet u voorbeelden van JSON voor veelvoorkomende scenario's. |
 | [Gegevens van de HTTP-Downloadprogramma voor het voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |In dit voorbeeld showcases downloaden van gegevens van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste .NET-activiteit. |
 | [Cross-AppDomain punt Net activiteit voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Dit voorbeeld kunt u schrijft een aangepaste .NET-activiteit die is niet beperkt tot assembly-versies die worden gebruikt door het starten van de ADF (bijvoorbeeld WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, enz.). |

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Gegevens kopiëren van Teradata met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -115,7 +115,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit een Tera
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Teradata-bron.
 
@@ -167,14 +167,14 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | Gegevenstype voor Teradata | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |Byte] |
-| Byte |Byte] |
+| Blob |Byte[] |
+| Byte |Byte[] |
 | ByteInt |Int16 |
 | CHAR |Tekenreeks |
 | CLOB |Tekenreeks |
 | Date |Datum en tijd |
 | Decimale |Decimale |
-| dubbele |dubbele |
+| Double |Double |
 | Afbeelding |Tekenreeks |
 | Geheel getal |Int32 |
 | Interval dag |TimeSpan |
@@ -190,21 +190,21 @@ Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen
 | Interval tweede |TimeSpan |
 | Interval jaar |Tekenreeks |
 | Interval jaar, maand |Tekenreeks |
-| Aantal |dubbele |
-| Period(date) |Tekenreeks |
+| Aantal |Double |
+| Period(Date) |Tekenreeks |
 | Period(Time) |Tekenreeks |
 | Periode (tijd met tijdzone) |Tekenreeks |
-| Period(timestamp) |Tekenreeks |
+| Period(Timestamp) |Tekenreeks |
 | Periode (tijdstempel met tijdzone) |Tekenreeks |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Tijd met de tijdzone |Tekenreeks |
 | Timestamp |Datum en tijd |
 | Tijdstempel met tijdzone |DateTimeOffset |
-| VarByte |Byte] |
+| VarByte |Byte[] |
 | VarChar |Tekenreeks |
 | VarGraphic |Tekenreeks |
-| XML |Tekenreeks |
+| Xml |Tekenreeks |
 
 
 ## <a name="next-steps"></a>Volgende stappen

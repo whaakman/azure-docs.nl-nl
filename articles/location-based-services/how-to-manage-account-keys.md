@@ -9,15 +9,15 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Uw locatie op basis van Azure-Services-account en de sleutels beheren
 
-U kunt uw locatie op basis van Azure-Services-account en de sleutels via de Azure portal beheren. Als u een account en de abonnementssleutel van een hebt, kunt u de API's implementeren in uw website of mobiele toepassing.
+U kunt uw locatie op basis van Azure-Services-account en de sleutels via de Azure portal beheren. Als u een account en een sleutel hebt, kunt u de API's implementeren in uw website of mobiele toepassing.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

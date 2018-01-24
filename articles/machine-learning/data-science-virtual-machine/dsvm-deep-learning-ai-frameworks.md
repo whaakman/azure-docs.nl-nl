@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [gegevens wetenschappelijke virtuele Machine](http://aka.ms/dsvm) (DSVM) en de [grondige Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal grondige learning frameworks om u te helpen bij het ontwikkelen van toepassingen met predictive analytics kunstmatige intelligentie (AI) en cognitieve mogelijkheden, zoals de installatiekopie en language understanding. 
@@ -55,8 +55,8 @@ Hier volgen de details op alle frameworks die beschikbaar is op de DSVM learning
 | Wat is het?   | Grondige learning framework      |
 | Ondersteunde DSVM edities      | Windows, Linux     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Keras is geïnstalleerd in Python 2.7 (_hoofdmap_), evenals Python 3.5 (_py35_) omgeving.   |
-| Koppelingen naar voorbeelden      | https://github.com/fchollet/keras/Tree/master/Examples      |
-| Bijbehorende hulpprogramma's op de DSVM      | Microsoft cognitieve Toolkit, TensorLlow, Theano      |
+| Koppelingen naar voorbeelden      | https://github.com/fchollet/keras/tree/master/examples      |
+| Bijbehorende hulpprogramma's op de DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | Hoe gebruik / uitvoeren?    | De voorbeelden van de locatie van Github downloaden, kopiëren naar een map onder ~/notebooks en openen in Jupyter   |
 
 
@@ -117,7 +117,7 @@ Op een terminal activeren de gewenste versie van Python (_hoofdmap_ of _py35_), 
 | Ondersteunde DSVM edities      | Linux     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Grondige Water is geïnstalleerd in `/dsvm/tools/deep_water`.   |
 | Koppelingen naar voorbeelden      | Voorbeelden zijn beschikbaar via de grondige Water-server.      |
-| Bijbehorende hulpprogramma's op de DSVM      | H2o, mineraalwater      |
+| Bijbehorende hulpprogramma's op de DSVM      | H2O, mineraalwater      |
 
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?  
 
@@ -157,7 +157,7 @@ De service duurt ongeveer een minuut om te starten. Start een webbrowser en navi
 
 
 
-## <a name="nvdia-smi"></a>NVDIA smi
+## <a name="nvdia-smi"></a>nvdia-smi
 
 |    |           |
 | ------------- | ------------- |

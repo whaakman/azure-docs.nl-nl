@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
 De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  Dit artikel bevat een overzicht en aanvullende informatie voor de stappen in de video. Deze 24 minuut video ziet u hoe aan:
@@ -42,7 +42,7 @@ In dit voorbeeld van een map met de naam **APIMDemo** wordt gemaakt met een stan
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Een Web-API-service worden beveiligd door Azure Active Directory maken
-In deze stap wordt een Web-API-back-end gemaakt met behulp van Visual Studio 2013. In deze stap van de video begint bij 1:30. Voor het maken van back-end-Web API-project in Visual Studio klikt u op **bestand**->**nieuw**->**Project**, en kies **ASP.NET-webtoepassing Toepassing** van de **Web** lijst met sjablonen. In deze video van het project de naam **APIMAADDemo**. Klik op **OK** om het project te maken. 
+In deze stap wordt een Web-API-back-end gemaakt met behulp van Visual Studio 2013. In deze stap van de video begint bij 1:30. Voor het maken van back-end-Web API-project in Visual Studio klikt u op **bestand**->**nieuw**->**Project**, en kies **ASP.NET-webtoepassing Toepassing** van de **Web** lijst met sjablonen. In deze video van het project de naam **APIMAADDemo**. Klik op **OK** om het project aan te maken. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -81,13 +81,13 @@ De Web-API in dit voorbeeld implementeert een basisrekenmachine-service met behu
 
 Voeg de volgende `using` instructie boven aan de `CalcInput.cs` bestand.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 De gegenereerde klasse vervangen door de volgende code.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Met de rechtermuisknop op **domeincontrollers** in **Solution Explorer** en kies
 
 Voeg de volgende `using` instructie boven aan de `CalcController.cs` bestand.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 De gegenereerde controllerklasse vervangen door de volgende code. Deze code implementeert de `Add`, `Subtract`, `Multiply`, en `Divide` bewerkingen van de basisrekenmachine-API.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {

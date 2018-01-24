@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Gegevens kopiëren van en naar gegevensarchieven ODBC met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Odbc** | Ja |
 | connectionString | De verbindingstekenreeks met uitzondering van het gedeelte referentie. U kunt de verbindingsreeks opgeven met patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) die u hebt ingesteld op de machine Runtime-integratie met `"DSN=<name of the DSN on IR machine>;"` (u moet nog steeds opgeven het gedeelte referenties in de gekoppelde service dienovereenkomstig).| Ja |
 | authenticationType | Het soort verificatie gebruikt voor verbinding met het beheerprogramma voor ODBC-gegevensarchief.<br/>Toegestane waarden zijn: **Basic** en **anoniem**. | Ja |
-| Gebruikersnaam | Geef de gebruikersnaam als u basisverificatie gebruikt. | Nee |
+| userName | Geef de gebruikersnaam als u basisverificatie gebruikt. | Nee |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString. | Nee |
 | referentie | Het gedeelte van de referentie toegang van de verbindingsreeks die is opgegeven in de indeling van de eigenschapswaarde specifieke stuurprogramma's. Voorbeeld: `"RefreshToken=<secret refresh token>;"`. Dit veld markeren als een SecureString. | Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
@@ -144,7 +144,7 @@ Om gegevens te kopiëren van/met ODBC compatibele gegevensopslag, stel de eigens
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door het ODBC-gegevensbron.
 

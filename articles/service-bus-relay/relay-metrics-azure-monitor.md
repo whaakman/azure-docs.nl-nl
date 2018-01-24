@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay metrische gegevens in de Azure-Monitor (preview)
 
@@ -55,26 +55,26 @@ Alle waarden van de metrische gegevens worden verzonden naar Azure Monitor elke 
 
 ## <a name="connection-metrics"></a>Metrische gegevens voor verbinding
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-| ListenerConnections-geslaagd (preview) | Het aantal geslaagde listener verbindingen met Azure Relay gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|ListenerConnections-ClientError (preview)|Het aantal fouten van de client op de listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|ListenerConnections-ServerError (preview)|Het nummer van de server-fouten van de listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|SenderConnections-geslaagd (preview)|Het aantal geslaagde afzender verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|SenderConnections-ClientError (preview)|Het aantal fouten van de client op de afzender-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|SenderConnections-ServerError (preview)|Het aantal serverfouten op de afzender-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|ListenerConnections-TotalRequests (preview)|Het totale aantal listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|SenderConnections-TotalRequests (preview)|De verbindingsaanvragen door de afzenders gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|ActiveConnections (preview)|Het aantal actieve verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|ActiveListeners (preview)|Het aantal actieve listeners gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|ListenerDisconnects (preview)|Het aantal niet-verbonden listeners gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|SenderDisconnects (preview)|Het aantal niet-verbonden afzenders gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+| ListenerConnections-geslaagd (preview) | Het aantal geslaagde listener verbindingen met Azure Relay gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|ListenerConnections-ClientError (preview)|Het aantal fouten van de client op de listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|ListenerConnections-ServerError (preview)|Het nummer van de server-fouten van de listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|SenderConnections-geslaagd (preview)|Het aantal geslaagde afzender verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|SenderConnections-ClientError (preview)|Het aantal fouten van de client op de afzender-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|SenderConnections-ServerError (preview)|Het aantal serverfouten op de afzender-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|ListenerConnections-TotalRequests (preview)|Het totale aantal listener-verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|SenderConnections-TotalRequests (preview)|De verbindingsaanvragen door de afzenders gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|ActiveConnections (preview)|Het aantal actieve verbindingen gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|ActiveListeners (preview)|Het aantal actieve listeners gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|ListenerDisconnects (preview)|Het aantal niet-verbonden listeners gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|SenderDisconnects (preview)|Het aantal niet-verbonden afzenders gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Meetgegevens voor softwaregebruik geheugen
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|BytesTransferred (preview)|Het aantal bytes overgedragen gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+|BytesTransferred (preview)|Het aantal bytes overgedragen gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens dimensies
 
@@ -82,7 +82,7 @@ Azure Relay ondersteunt de volgende dimensies voor metrische gegevens in Azure-M
 
 |De dimensienaam van de|Beschrijving|
 | ------------------- | ----------------- |
-|entityName| Azure Relay ondersteunt berichtentiteiten onder de naamruimte.|
+|EntityName| Azure Relay ondersteunt berichtentiteiten onder de naamruimte.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

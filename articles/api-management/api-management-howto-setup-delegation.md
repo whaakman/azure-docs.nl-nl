@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
 Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
@@ -70,7 +70,7 @@ Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
    * [eenmalige aanmelding (SSO)-token van een aanvraag] via de API Management REST API
    * een queryparameter returnUrl toevoegen aan de SSO-URL die u hebt ontvangen van de API-aanroep hierboven:
      
-     > bijvoorbeeld https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * de gebruiker omgeleid naar de URL van de bovenstaande geproduceerd
@@ -131,7 +131,7 @@ Deze codevoorbeelden laten zien hoe nemen de *delegering validatiesleutel*, die 
 
 **C#-code voor het genereren van de hash van returnUrl**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";

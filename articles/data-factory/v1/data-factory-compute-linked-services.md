@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 071d593108dd96605897cffe179d6451f8789ce6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 > [!NOTE]
@@ -30,11 +30,11 @@ De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door 
 
 | Compute-omgeving                      | activities                               |
 | ---------------------------------------- | ---------------------------------------- |
-| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop-Streaming](data-factory-hadoop-streaming-activity.md) |
+| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Ondersteunde versies van HDInsight in Azure Data Factory
 Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die op elk gewenst moment kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. Microsoft houdt bijwerken van de lijst met ondersteunde versies van HDInsight nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen te geven. Zie voor gedetailleerde informatie [ondersteunde versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -125,7 +125,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | versie                      | Raadpleeg de versie van het HDInsight-cluster [ondersteunde versies van HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) toegestaan voor versies van HDInsight. Als niet wordt opgegeven, wordt de [meest recente versie van de HDI standaard](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Nee       |
 | linkedServiceName            | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p> | Ja      |
 | additionalLinkedServiceNames | Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. | Nee       |
-| besturingssysteemtype                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows. Als u niet opgeeft, wordt Linux standaard gebruikt.  <br/>We recommand sterk met Linux gebaseerde HDInsight-clusters als de intrekkingsdatum voor HDInsight in Windows is 31 juli 2018. | Nee       |
+| osType                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows. Als u niet opgeeft, wordt Linux standaard gebruikt.  <br/>We recommand sterk met Linux gebaseerde HDInsight-clusters als de intrekkingsdatum voor HDInsight in Windows is 31 juli 2018. | Nee       |
 | hcatalogLinkedServiceName    | De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. | Nee       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-voorbeeld
@@ -228,7 +228,7 @@ Dit type configuratie wordt ondersteund voor de volgende compute-omgevingen:
 * Azure Data Lake Analytics
 * Azure SQL DB, Azure SQL DW, SQL Server
 
-## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight gekoppelde Service
+## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight Linked Service
 U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsight-cluster met Data Factory maken.
 
 ### <a name="example"></a>Voorbeeld
@@ -300,9 +300,9 @@ Er is een andere optie voor het eindpunt batchUri zoals weergegeven in het volge
 | Eigenschap          | Beschrijving                              | Vereist |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | De eigenschap type moet worden ingesteld op **AzureBatch**. | Ja      |
-| Accountnaam       | Naam van de Azure Batch-account.         | Ja      |
+| accountName       | Naam van de Azure Batch-account.         | Ja      |
 | accessKey         | De toegangssleutel voor de Azure Batch-account.  | Ja      |
-| Groepsnaam          | Naam van de groep van virtuele machines.    | Ja      |
+| poolName          | Naam van de groep van virtuele machines.    | Ja      |
 | linkedServiceName | Naam van de Azure Storage gekoppelde service die is gekoppeld aan deze gekoppelde Azure-Batch-service. Deze gekoppelde service wordt gebruikt voor tijdelijke bestanden die zijn vereist voor het uitvoeren van de activiteit en opslaan van logboekbestanden voor het uitvoeren van de activiteit. | Ja      |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning gekoppelde Service
@@ -338,7 +338,7 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de J
 | Eigenschap                 | Beschrijving                              | Vereist                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. | Ja                                      |
-| **Accountnaam**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
+| **accountName**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nee                                       |
 | **abonnements-id**       | Azure-abonnement-id                    | Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
 | **resourceGroupName**    | Naam van een Azure-resourcegroep                | Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
@@ -439,7 +439,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Zie [AzureDataLakeStoreLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), en [AuthorizationSessionGetResponse klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) onderwerpen voor meer informatie over de Data Factory-klassen die in de code wordt gebruikt. Voeg een verwijzing naar: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll voor de klasse WindowsFormsWebAuthenticationDialog. 
 
-## <a name="azure-sql-linked-service"></a>Azure SQL gekoppelde Service
+## <a name="azure-sql-linked-service"></a>Azure SQL Linked Service
 Een Azure SQL gekoppelde service maakt en gebruikt u deze met de [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) aan te roepen, een opgeslagen procedure uit een Data Factory-pijplijn. Zie [Azure SQL-Connector](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over deze gekoppelde service.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL gekoppelde Service van datawarehouse

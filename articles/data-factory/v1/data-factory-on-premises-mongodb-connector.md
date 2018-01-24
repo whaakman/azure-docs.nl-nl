@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Verplaatsen van gegevens van MongoDB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,7 +74,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | gebruikersnaam |Het gebruikersaccount voor toegang tot MongoDB. |Ja (als u basisverificatie wordt gebruikt). |
 | wachtwoord |Wachtwoord voor de gebruiker. |Ja (als u basisverificatie wordt gebruikt). |
 | authSource |De naam van de MongoDB-database die u wilt gebruiken om te controleren van uw referenties voor verificatie. |Optioneel (als basisverificatie wordt gebruikt). Standaard: maakt gebruik van het beheerdersaccount en de database die is opgegeven met behulp van de eigenschap databaseName. |
-| DatabaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
+| databaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
 | gatewayName |De naam van de gateway die toegang heeft tot het gegevensarchief. |Ja |
 | encryptedCredential |Referentie versleuteld door de gateway. |Optioneel |
 
@@ -87,7 +87,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 | --- | --- | --- |
 | CollectionName |De naam van de verzameling in de MongoDB-database. |Ja |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit aan de andere kant variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -296,13 +296,13 @@ Bij het verplaatsen van gegevens naar MongoDB worden de volgende toewijzingen va
 
 | MongoDB-type | .NET framework-type |
 | --- | --- |
-| Binaire |Byte] |
-| Booleaanse waarde |Booleaanse waarde |
-| Date |Datum/tijd |
-| NumberDouble |dubbele |
+| Binair bestand |Byte[] |
+| Boole-waarde |Boole-waarde |
+| Date |Datum en tijd |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| Object-id |Tekenreeks |
+| ObjectID |Tekenreeks |
 | Tekenreeks |Tekenreeks |
 | UUID |GUID |
 | Object |Renormalized plat in kolommen met '_' als geneste scheidingsteken |
@@ -325,17 +325,17 @@ U kunt de [Wizard kopiëren](data-factory-data-movement-activities.md#create-a-p
 ### <a name="example"></a>Voorbeeld
 'ExampleTable' hieronder is bijvoorbeeld een MongoDB-tabel met één kolom met een matrix van objecten in elke cel – facturen en één kolom met een matrix van scalaire typen – classificaties.
 
-| _id | Naam van de klant | Facturen | Serviceniveau | De classificaties |
+| _id | Naam van de klant | Facturen | Servicelaag | De classificaties |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: '123' item: 'toaster', de prijs: '456' korting: "0,2"}, {invoice_id: '124' item: 'ingesteld', prijs: '1235' korting: "0,2"}] |Zilver |[5,6] |
-| 2222 |XYZ |[{invoice_id: item '135': 'koelkast', prijs: '12543' korting: "0,0"}] |Goud |[1,2] |
+| 2222 |XYZ |[{invoice_id: item '135': 'koelkast', prijs: '12543' korting: "0,0"}] |Goudkleurig |[1,2] |
 
 Het stuurprogramma genereert meerdere virtuele tabellen te deze één tabel vertegenwoordigen. De eerste virtuele tabel is de basistabel met de naam 'ExampleTable', hieronder weergegeven. De basistabel bevat alle gegevens van de oorspronkelijke tabel, maar de gegevens van de matrices is weggelaten en in de virtuele tabellen is uitgevouwen.
 
-| _id | Naam van de klant | Serviceniveau |
+| _id | Naam van de klant | Servicelaag |
 | --- | --- | --- |
 | 1111 |ABC |Zilver |
-| 2222 |XYZ |Goud |
+| 2222 |XYZ |Goudkleurig |
 
 De volgende tabellen tonen de virtuele tabellen waarbij de oorspronkelijke matrices in het voorbeeld. Deze tabellen bevatten het volgende:
 
@@ -348,7 +348,7 @@ Tabel 'ExampleTable_Invoices':
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Korting |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |ingesteld |1235 |0.2 |
+| 1111 |1 |124 |oven |1235 |0.2 |
 | 2222 |0 |135 |koelkast |12543 |0.0 |
 
 Tabel 'ExampleTable_Ratings':

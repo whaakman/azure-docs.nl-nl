@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Hulp bij het converteren van Web- en werkrollen naar Service Fabric stateless services
 Dit artikel wordt beschreven hoe u uw Cloud Services-Web- en werkrollen migreren naar Service Fabric stateless services. Dit is het eenvoudigste migratiepad van Cloud-Services naar Service Fabric voor toepassingen waarvan de algehele architectuur gaat ongeveer hetzelfde blijft.
@@ -40,23 +40,23 @@ Net als bij de Werkrol, een Webrol ook vertegenwoordigt een staatloze werkbelast
 
 | **Toepassing** | **Ondersteund** | **Migratiepad** |
 | --- | --- | --- |
-| ASP.NET-webformulieren |Nee |Converteren naar ASP.NET Core 1 MVC |
+| ASP.NET Web Forms |Nee |Converteren naar ASP.NET Core 1 MVC |
 | ASP.NET MVC |Met migratie |Upgrade naar ASP.NET Core 1 MVC |
 | ASP.NET Web API |Met migratie |Automatische gehoste-server of ASP.NET Core 1 gebruiken |
-| ASP.NET Core 1 |Ja |N.v.t. |
+| ASP.NET Core 1 |Ja |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Vermelding punt API en de levenscyclus
 Werkrol en Service Fabric-service-API's bieden vergelijkbare toegangspunten: 
 
 | **Toegangspunt** | **Werkrol** | **Service Fabric-service** |
 | --- | --- | --- |
-| Verwerking |`Run()` |`RunAsync()` |
-| VM starten |`OnStart()` |N.v.t. |
-| VM stoppen |`OnStop()` |N.v.t. |
-| Open listener voor aanvragen van clients |N.v.t. |<ul><li> `CreateServiceInstanceListener()`voor stateless</li><li>`CreateServiceReplicaListener()`voor stateful</li></ul> |
+| Verwerken |`Run()` |`RunAsync()` |
+| VM starten |`OnStart()` |N/A |
+| VM stoppen |`OnStop()` |N/A |
+| Open listener voor aanvragen van clients |N/A |<ul><li> `CreateServiceInstanceListener()`voor stateless</li><li>`CreateServiceReplicaListener()`voor stateful</li></ul> |
 
 ### <a name="worker-role"></a>Werkrol
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Staatloze service Fabric-Service
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -122,8 +122,8 @@ De Cloud Services-omgeving API bevat informatie en functionaliteit voor de huidi
 | Configuratie-instellingen en Wijzigingsmelding |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokale opslag |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informatie over endpoint |`RoleInstance` <ul><li>Huidige instantie:`RoleEnvironment.CurrentRoleInstance`</li><li>Andere functies en -exemplaar:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`voor het huidige knooppuntadres</li><li>`FabricClient`en `ServicePartitionResolver` voor detectie van de service-eindpunt</li> |
-| Omgeving emulatie |`RoleEnvironment.IsEmulated` |N.v.t. |
-| Gelijktijdige wijzigingsgebeurtenis |`RoleEnvironment` |N.v.t. |
+| Omgeving emulatie |`RoleEnvironment.IsEmulated` |N/A |
+| Gelijktijdige wijzigingsgebeurtenis |`RoleEnvironment` |N/A |
 
 ## <a name="configuration-settings"></a>Configuratie-instellingen
 Configuratie-instellingen in de Cloud-Services zijn ingesteld voor een VM-rol en gelden voor alle exemplaren van die VM-rol. Deze instellingen zijn ingesteld in ServiceConfiguration.*.cscfg bestanden sleutel-waardeparen en toegankelijk zijn via RoleEnvironment. In Service Fabric toepassen instellingen afzonderlijk voor elke service en elke toepassing, in plaats van aan een VM, omdat een virtuele machine kan meerdere services en toepassingen hosten. Een service bestaat uit drie pakketten:
@@ -138,7 +138,7 @@ Elk van deze pakketten zijn onafhankelijk samengestelde en bijgewerkte. Net als 
 #### <a name="cloud-services"></a>Cloud Services
 Configuratie-instellingen van ServiceConfiguration.*.cscfg toegankelijk zijn via `RoleEnvironment`. Deze instellingen zijn algemeen beschikbaar voor alle rolinstanties in dezelfde Cloud Service-implementatie.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Elke service heeft een eigen afzonderlijke configuratie-pakket. Er is geen ingeb
 
 Configuratie-instellingen zijn toegangspogingen binnen elk exemplaar van de service via de service `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Cloud Services
 De `RoleEnvironment.Changed` gebeurtenis alle rolinstanties waarschuwen wanneer een wijziging in de omgeving, zoals een wijziging in de configuratie optreedt wordt gebruikt. Dit wordt configuratie-updates gebruiken zonder rolinstanties recycling of opnieuw starten van een werkproces gebruikt.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Elk van de drie pakkettypen in een service - Code, configuratie en gegevens - ge
 
 Deze gebeurtenissen zijn beschikbaar voor wijzigingen in servicepakketten gebruiken zonder het service-exemplaar opnieuw te starten.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;

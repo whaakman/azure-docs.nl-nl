@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 3a79a0b20cd007816391745f6f717253df17f067
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a88adc300e52c74f2a1fcd2e546ab879000d877e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Het oplossen van Azure Redis-Cache
 Dit artikel bevat richtlijnen voor het oplossen van de volgende categorieën van Azure Redis-Cache-problemen.
@@ -194,7 +194,7 @@ Dit foutbericht bevat metrische gegevens die kunnen helpen bij het wijst u de oo
 ### <a name="steps-to-investigate"></a>Stappen voor het onderzoeken van
 1. Als best practice Controleer of u het volgende patroon gebruikt voor het verbinding maken wanneer u de client StackExchange.Redis.
 
-    ```c#
+    ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");

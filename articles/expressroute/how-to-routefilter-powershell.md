@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Routefilters voor Microsoft-peering configureren: PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 12/21/2017
 
 Routefilters zijn een manier om te gebruiken een subset van de ondersteunde services via Microsoft-peering. De stappen in dit artikel te configureren en beheren van routefilters voor ExpressRoute-circuits.
 
-Dynamics 365-services en Office 365-services zoals Exchange Online, SharePoint Online en Skype voor bedrijven en Azure-services zoals opslag en SQL-database zijn toegankelijk via Microsoft-peering. Wanneer Microsoft-peering in een ExpressRoute-circuit is geconfigureerd, worden alle voorvoegsels die betrekking hebben op deze services worden geadverteerd via de BGP-sessies worden tot stand gebracht. Een BGP-communitywaarde is gekoppeld aan elke voorvoegsel van de service die wordt aangeboden via het voorvoegsel. Zie voor een lijst van de BGP-Communitywaarden en deze worden toegewezen aan services [BGP-community's](expressroute-routing.md#bgp).
+Dynamics 365-services en Office 365-services zoals Exchange Online, SharePoint Online en Skype voor bedrijven en Azure openbare-services, zoals opslag en SQL-database zijn toegankelijk via Microsoft-peering. Van openbare Azure-services kunnen worden geselecteerd op basis van per regio en per openbare service kan niet worden gedefinieerd. 
+
+Wanneer Microsoft-peering is geconfigureerd op een ExpressRoute-circuit en een routefilter is gekoppeld, worden alle voorvoegsels die zijn geselecteerd voor deze services worden geadverteerd via de BGP-sessies worden tot stand gebracht. Een BGP-communitywaarde is gekoppeld aan elke voorvoegsel van de service die wordt aangeboden via het voorvoegsel. Zie voor een lijst van de BGP-Communitywaarden en deze worden toegewezen aan services [BGP-community's](expressroute-routing.md#bgp).
 
 Als u de verbinding met alle services vereist, wordt een groot aantal voorvoegsels worden geadverteerd via BGP. Dit verhoogt de aanzienlijk de grootte van de routetabellen onderhouden door routers in uw netwerk. Als u van plan bent te gebruiken alleen een subset van services die worden aangeboden via Microsoft-peering, kunt u de grootte van uw routetabellen op twee manieren verkleinen. U kunt:
 
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Voer de volgende opdracht de routefilter koppelen aan het ExpressRoute-circuit, ervan uitgaande dat u hebt alleen Microsoft-peering:
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

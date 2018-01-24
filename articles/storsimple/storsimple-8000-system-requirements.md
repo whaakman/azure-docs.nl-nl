@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 series software, hoge beschikbaarheid en netwerkvereisten
 
@@ -38,7 +38,7 @@ De volgende softwarevereisten zijn voor de opslag-clients die toegang hebben tot
 
 | Ondersteunde besturingssystemen | Vereiste versie | Aanvullende vereisten/opmerkingen |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2 2016 |ISCSI-StorSimple-volumes worden ondersteund voor gebruik op alleen de volgende Windows schijftypen:<ul><li>Eenvoudig volume op een standaardschijf</li><li>Eenvoudige en mirrored volume op een dynamische schijf</li></ul>Alleen de software iSCSI-initiators aanwezig in het besturingssysteem ingebouwd worden ondersteund. Hardware iSCSI-initiators worden niet ondersteund.<br></br>Windows Server 2012 en 2016 thin provisioning en ODX functies worden ondersteund als u een iSCSI-StorSimple-volume.<br><br>StorSimple kunt maken voor thin provisioning en volledig ingerichte volumes. Er kan geen gedeeltelijk ingerichte volumes maken.<br><br>Een thin provisioning volume formatteren kan lang duren. Het is raadzaam om het verwijderen van het volume en maak vervolgens een nieuwe in plaats van het formatteren. Echter, als u liever een volume formatteren:<ul><li>Voer de volgende opdracht voordat de herformatteren om ruimte vrijmaken vertragingen te voorkomen: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Nadat de opmaak voltooid is, moet u de volgende opdracht gebruiken voor het vrijmaken van ruimte opnieuw in te schakelen:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>De Windows Server 2012-hotfix toepassen, zoals beschreven in [KB 2878635](https://support.microsoft.com/kb/2870270) op uw Windows Server-computer.</li></ul></li></ul></ul> Als u voor SharePoint StorSimple Snapshot Manager of een StorSimple-Adapter configureert, gaat u naar [softwarevereisten voor de optionele componenten](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |ISCSI-StorSimple-volumes worden ondersteund voor gebruik op alleen de volgende Windows schijftypen:<ul><li>Eenvoudig volume op een standaardschijf</li><li>Eenvoudige en mirrored volume op een dynamische schijf</li></ul>Alleen de software iSCSI-initiators aanwezig in het besturingssysteem ingebouwd worden ondersteund. Hardware iSCSI-initiators worden niet ondersteund.<br></br>Windows Server 2012 en 2016 thin provisioning en ODX functies worden ondersteund als u een iSCSI-StorSimple-volume.<br><br>StorSimple kunt maken voor thin provisioning en volledig ingerichte volumes. Er kan geen gedeeltelijk ingerichte volumes maken.<br><br>Een thin provisioning volume formatteren kan lang duren. Het is raadzaam om het verwijderen van het volume en maak vervolgens een nieuwe in plaats van het formatteren. Echter, als u liever een volume formatteren:<ul><li>Voer de volgende opdracht voordat de herformatteren om ruimte vrijmaken vertragingen te voorkomen: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Nadat de opmaak voltooid is, moet u de volgende opdracht gebruiken voor het vrijmaken van ruimte opnieuw in te schakelen:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>De Windows Server 2012-hotfix toepassen, zoals beschreven in [KB 2878635](https://support.microsoft.com/kb/2870270) op uw Windows Server-computer.</li></ul></li></ul></ul> Als u voor SharePoint StorSimple Snapshot Manager of een StorSimple-Adapter configureert, gaat u naar [softwarevereisten voor de optionele componenten](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 en 6.0 |Ondersteund met VMware vSphere als iSCSI-client. VAAI-block-functie wordt ondersteund met VMware vSphere op StorSimple-apparaten. |
 | Linux RHEL/CentOS |5, 6 en 7 |Ondersteuning voor Linux iSCSI-clients met open-iSCSI-initiator versie 5, 6 en 7. |
 | Linux |SUSE Linux 11 | |
@@ -100,19 +100,19 @@ Het is raadzaam dat u de firewallregels voor uitgaand verkeer, op basis van vast
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Intrekken van certificaten |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-accounts en controle |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update-servers<br> |Controller vaste IP-adressen alleen |
-| `http://*.deploy.akamaitechnologies.com` |CDN van Akamai |Controller vaste IP-adressen alleen |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller vaste IP-adressen alleen |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Ondersteuningspakket |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 
 #### <a name="url-patterns-for-azure-government-portal"></a>URL-patronen voor Azure Government portal
 
 | URL-patroon | Onderdeel/functionaliteit | Apparaat-IP-adressen |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |StorSimple-apparaatbeheerservice<br>Access Control Service<br>Azure Service Bus<br>Authentication-Service |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple-apparaatbeheerservice<br>Access Control Service<br>Azure Service Bus<br>Authentication-Service |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.backup.windowsazure.us` |Apparaatregistratie |Alleen DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Intrekken van certificaten |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-accounts en controle |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update-servers<br> |Controller vaste IP-adressen alleen |
-| `http://*.deploy.akamaitechnologies.com` |CDN van Akamai |Controller vaste IP-adressen alleen |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller vaste IP-adressen alleen |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Ondersteuningspakket |Netwerkinterfaces die zijn ingeschakeld voor de cloud |
 
 ### <a name="routing-metric"></a>Routering

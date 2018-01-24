@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: da945257a7a2548fe68498e5c908bd5487dad782
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Unified cross-onderdeel transactie diagnostische gegevens
 
-*Deze ervaring is momenteel in preview en vervangt de bestaande serverzijde diagnostics blades.*
+*Deze ervaring is momenteel in preview en vervangt de bestaande diagnostische gegevens blades voor serverzijde aanvragen, afhankelijkheden en uitzonderingen.*
 
 De preview introduceert een nieuwe eenduidige diagnostics-ervaring die automatisch serverzijde telemetrie van voor alle onderdelen van uw Application Insights bewaakt in één weergave correleert. Het maakt niet uit als er meerdere bronnen met afzonderlijke instrumentatiesleutels; Application Insights detecteert de onderliggende relatie en kunt u eenvoudig onderzoeken het toepassingsonderdeel, afhankelijkheid of uitzondering die een transactie vertraging of een fout veroorzaakt.
 
@@ -49,7 +49,7 @@ In deze weergave bevat drie belangrijke onderdelen: een grafiek transactie cross
 
 ![Belangrijke delen](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="cross-component-transaction-chart"></a>Cross-onderdeel transactie-grafiek
+### <a name="1-cross-component-transaction-chart"></a>[1] Cross-onderdeel transactie-grafiek
 
 Dit diagram biedt een tijdlijn met horizontale balken voor de duur van aanvragen en afhankelijkheden voor onderdelen. Eventuele uitzonderingen die worden verzameld, worden ook gemarkeerd op de tijdlijn.
 
@@ -57,18 +57,18 @@ Dit diagram biedt een tijdlijn met horizontale balken voor de duur van aanvragen
 * Alle aanroepen naar externe afhankelijkheden zijn eenvoudige niet samenvouwbare rijen, met de pictogrammen van het afhankelijkheidstype.
 * Aanroepen naar de andere onderdelen zijn samenvouwbare rijen. Elke rij overeenkomt met een specifieke bewerking aangeroepen op het onderdeel.
 * Standaard wordt de aanvraag, afhankelijkheid of uitzondering die u aanvankelijk hebt geselecteerd op de grafiek weergegeven.
-* Selecteer een rij voor de informatie over het recht. Te klikken op het pictogram profiler op een rij aanvraag of een pictogram van de momentopname foutopsporing in een uitzonderingsrij Hiermee opent u het deelvenster Details.
+* Selecteer een rij voor de informatie over het recht. Klik op 'Open profiler traceringen' of 'Open foutopsporing momentopname' voor code niveau diagnostische gegevens in de bijbehorende details deelvensters.
 
 > [!NOTE]
-Aanroepen naar de andere onderdelen hebben twee rijen: één rij vertegenwoordigt de uitgaande aanroep (afhankelijkheden) van het onderdeel van de aanroeper, en de andere rij komt overeen met de binnenkomende aanvraag op het onderdeel genoemd. De laatste heet localhost om te onderscheiden. Gebruik de rechterbovenhoek feedback kanaal te laten weten hoe u denkt dat over de bijgewerkte presentatie.
+Aanroepen naar de andere onderdelen hebben twee rijen: één rij vertegenwoordigt de uitgaande aanroep (afhankelijkheden) van het onderdeel van de aanroeper, en de andere rij komt overeen met de binnenkomende aanvraag op het onderdeel genoemd. Het toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken kunt onderscheiden.
 
-### <a name="time-sequenced-telemetry-of-the-selected-component-operation"></a>Tijd geordend telemetrie van de bewerking van het geselecteerde onderdeel
+### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] telemetrie van de bewerking van het geselecteerde onderdeel in de tijd geordend
 
 Elke rij in de grafiek cross-onderdeel transactie geselecteerd is gerelateerd aan een bewerking aangeroepen op een bepaald onderdeel. Deze bewerking geselecteerd onderdeel wordt doorgevoerd in de titel van het onderste gedeelte. Open in deze sectie om te zien van een tijdreeks platte van alle telemetrie die gerelateerd zijn aan die bepaalde bewerking. In deze lijst om te zien van corresponderende gegevens aan de rechterkant kunt u elk telemetrie-item selecteren.
 
 ![Volgorde van de tijd van alle telemetrie](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="details-pane"></a>Deelvenster met details
+### <a name="3-details-pane"></a>[3] deelvenster met details
 
 Dit deelvenster geeft de details van de geselecteerde items uit de twee secties aan de linkerkant. 'Alles weergeven', worden alle van de standaard kenmerken die worden verzameld. Eventuele aangepaste kenmerken worden afzonderlijk onder de standaardset weergegeven.
 
@@ -88,7 +88,7 @@ Mogelijke redenen:
 
 * Zijn de andere onderdelen uitgerust met Application Insights?
 * Gebruikt deze de meest recente stabiele Application Insights-SDK?
-* Als deze onderdelen afzonderlijke Application Insights-resources zijn, hebt u de vereiste toegang tot?
+* Als deze onderdelen afzonderlijke Application Insights-resources zijn, hebt u vereiste toegang tot hun telemetrie?
 
 Als u toegang hebt en de onderdelen zijn uitgerust met de nieuwste Application Insights-SDK's, laat ons weten via het kanaal bovenste rechts feedback.
 
@@ -100,7 +100,7 @@ Ja. De nieuwe ervaring verenigt alle gerelateerde serverzijde telemetrie in éé
 
 *Ik zie dubbele rijen voor de afhankelijkheden. Wordt dit verwacht?*
 
-Op dit moment zijn we de uitgaande afhankelijkheidsaanroep gescheiden van de binnenkomende aanvraag weergegeven. Het aanroepen van de twee zoek normaal gesproken identiek zijn met alleen de van de duurwaarde wordt retournetwerklatentie verschillende als gevolg van het netwerk. Om te helpen het onderscheid tussen deze twee, bellen we het onderdeel ontvangst van de aanvraag 'localhost' met het pictogram van een server. Deze rij volgen de rij afhankelijkheid onmiddellijk. Deze presentatie van de gegevens verwarrend is? Geef ons uw feedback op prijs!
+Op dit moment zijn we de uitgaande afhankelijkheidsaanroep gescheiden van de binnenkomende aanvraag weergegeven. Het aanroepen van de twee zoek normaal gesproken identiek zijn met alleen de van de duurwaarde wordt retournetwerklatentie verschillende als gevolg van het netwerk. Het toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken kunt onderscheiden. Deze presentatie van de gegevens verwarrend is? Geef ons uw feedback op prijs!
 
 *Hoe zit klok Hiermee laat u overhellen over verschillende onderdeelexemplaren?*
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -93,7 +93,7 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, aanr
 
 * De eerste stap is het initialiseren van uw app `AuthenticationContext` -ADAL de primaire klasse.  Dit is waar het doorgeven van ADAL de coördinaten nodig om te communiceren met Azure AD en hoe deze tokens in de cache.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * Nu zoeken de `Search(...)` methode, die wordt aangeroepen wanneer de gebruiker cliks de "zoeken" in de gebruikersinterface van de app.  Deze methode maakt een GET-aanvraag voor Azure AD Graph API aan query voor gebruikers wiens UPN met de opgegeven zoekterm begint.  Maar om de Graph API een query uitvoert, moet u een access_token in de `Authorization` header van de aanvraag - dit is waar de ADAL wordt geleverd.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * Als interactieve verificatie nodig is, ADAL van Windows Phone Web Authentication Broker (Windows-Adresboek) wordt gebruikt en [voortzetting model](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) om de Azure AD-aanmelding op de pagina weer te geven.  Wanneer de gebruiker zich aanmeldt, uw app moet ADAL geeft de resultaten van de Windows-Adresboek interactie.  Dit is net zo eenvoudig als het implementeren van de `ContinueWebAuthentication` interface:
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * Nu is het tijd om het gebruik van de `AuthenticationResult` die ADAL geretourneerd aan uw app.  In de `QueryGraph(...)` retouraanroep, de access_token die u hebt verkregen koppelen aan de GET-aanvraag in de autorisatie-header:
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -158,13 +158,13 @@ private async void QueryGraph(AuthenticationResult result)
 ```
 * U kunt ook de `AuthenticationResult` object om informatie over de gebruiker in uw app weer te geven. In de `QueryGraph(...)` methode resultaat gebruiken om de gebruikers-ID op de pagina weer te geven:
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * Ten slotte kunt u ADAL voor het ondertekenen van de gebruiker buiten de toepassing ook.  Wanneer de gebruiker op de knop 'Afmelden', willen we ervoor te zorgen dat de volgende aanroep `AcquireTokenSilentAsync(...)` zal mislukken.  Met ADAL, is dit is net zo eenvoudig als het token cache wissen:
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

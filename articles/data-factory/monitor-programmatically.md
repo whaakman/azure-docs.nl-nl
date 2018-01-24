@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Een Azure data factory programmatisch bewaken
 Dit artikel wordt beschreven hoe u een pijplijn in een gegevensfactory bewaken met behulp van verschillende-SDK's (SDK). 
@@ -79,7 +79,7 @@ print_activity_run_details(activity_runs_paged[0])
 
 Zie voor volledige documentatie over Python SDK [Data Factory Python SDK verwijzing](/python/api/overview/azure/datafactory?view=azure-python).
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Zie voor een volledige procedure voor het maken en bewaken van een pijplijn met REST-API [Maak een gegevensfactory en de pijplijn met REST-API](quickstart-create-data-factory-rest-api.md).
  
 1. Voer het volgende script uit om continu de status van de pijplijnuitvoering te controleren totdat het kopiëren van de gegevens is voltooid.

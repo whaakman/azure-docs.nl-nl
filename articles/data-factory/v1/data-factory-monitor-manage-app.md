@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de app voor bewaking en beheer
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Activiteit windows kunnen worden gebruikt in een van de volgende statussen:
 <td>Het activiteitvenster wordt verwerkt.</td>
 </tr>
 <tr>
-<td rowspan="4">Mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
+<td rowspan="4">Mislukt</td><td>TimedOut</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
 </tr>
 <tr>
 <td>Geannuleerd</td><td>Het activiteitvenster is geannuleerd door in te grijpen.</td>
@@ -212,7 +212,7 @@ Activiteit windows kunnen worden gebruikt in een van de volgende statussen:
 <td>Overgeslagen</td><td>-</td><td>Het activiteitvenster is niet verwerkt.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Het venster van een activiteit aan een andere status gebruikt, maar is opnieuw ingesteld.</td>
+<td>Geen</td><td>-</td><td>Het venster van een activiteit aan een andere status gebruikt, maar is opnieuw ingesteld.</td>
 </tr>
 </table>
 

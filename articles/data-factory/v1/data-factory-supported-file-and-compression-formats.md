@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Bestands- en compressie indelingen die worden ondersteund door Azure Data Factory
 *In dit onderwerp is van toepassing op de volgende connectors: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [bestandssysteem](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), en [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van Azure Data Factory (GA) is algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [bestandsindelingen en compressiecodecs ondersteund in de Data Factory versie 2](../supported-file-formats-and-compression-codecs.md).
+> Dit artikel is van toepassing op versie 1 van Azure Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [bestandsindelingen en compressiecodecs ondersteund in de Data Factory versie 2](../supported-file-formats-and-compression-codecs.md).
 
 Azure Data Factory ondersteunt de volgende bestandstypen: indeling:
 
@@ -32,7 +32,7 @@ Azure Data Factory ondersteunt de volgende bestandstypen: indeling:
 * [JSON-indeling](#json-format)
 * [Avro-indeling](#avro-format)
 * [ORC-indeling](#orc-format)
-* [Parketvloeren-indeling](#parquet-format)
+* [Parquet-indeling](#parquet-format)
 
 ## <a name="text-format"></a>Tekstopmaak
 Als u wilt lezen uit een tekstbestand of schrijven naar een tekstbestand, stelt u de `type` eigenschap in de `format` sectie van de gegevensset **TextFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Raadpleeg het gedeelte [TextFormat-voorbeeld](#textformat-example) voor configuratie-instructies.
@@ -228,7 +228,7 @@ en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling door ge
 De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
 
 - Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie [bronkolommen gegevensset toewijzen aan bestemming gegevensset kolommen](data-factory-map-columns.md) sectie voor meer informatie.
-- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. Voor het kopiëren van gegevens vanuit een matrix kunt u **array[x].property** gebruiken om de waarde van de opgegeven eigenschap op te halen uit het xth-object. U kunt ook **array[*].property** gebruiken om de waarde van een object met deze eigenschap te vinden.
+- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. Om gegevens te kopiëren van een matrix, kunt u **matrix [x] .property** waarde van de opgegeven eigenschap ophalen uit de x-object, of u kunt gebruiken **matrix [*] .property** naar de waarde uit objecten die deze bevat de eigenschap.
 
 ```json
 "properties": {
@@ -436,7 +436,7 @@ Houd rekening met de volgende punten:
 * Complexe gegevenstypen worden niet ondersteund (STRUCT, MAP, LIST, UNION)
 * Een ORC-bestand heeft drie [opties voor compressie](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
 
-## <a name="parquet-format"></a>Parketvloeren-indeling
+## <a name="parquet-format"></a>Parquet-indeling
 Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
 ```json

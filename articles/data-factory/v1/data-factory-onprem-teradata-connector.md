@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Verplaatsen van gegevens uit een Teradata met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +77,7 @@ Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar 
 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. Er zijn momenteel geen type-eigenschappen voor de gegevensset Teradata ondersteund.
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -291,20 +291,20 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 | Afbeelding |Tekenreeks |
 | VarChar |Tekenreeks |
 | VarGraphic |Tekenreeks |
-| Blob |Byte] |
-| Byte |Byte] |
-| VarByte |Byte] |
+| Blob |Byte[] |
+| Byte |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimale |Decimale |
-| dubbele |dubbele |
+| Double |Double |
 | Geheel getal |Int32 |
-| Aantal |dubbele |
+| Aantal |Double |
 | SmallInt |Int16 |
-| Date |Datum/tijd |
+| Date |Datum en tijd |
 | Time |TimeSpan |
 | Tijd met de tijdzone |Tekenreeks |
-| tijdstempel |Datum/tijd |
+| Timestamp |Datum en tijd |
 | Tijdstempel met tijdzone |DateTimeOffset |
 | Interval dag |TimeSpan |
 | Interval dag uur |TimeSpan |
@@ -319,12 +319,12 @@ Wanneer u gegevens naar Teradata verplaatst, worden de volgende toewijzingen van
 | Interval jaar |Tekenreeks |
 | Interval jaar, maand |Tekenreeks |
 | Interval maand |Tekenreeks |
-| Period(date) |Tekenreeks |
+| Period(Date) |Tekenreeks |
 | Period(Time) |Tekenreeks |
 | Periode (tijd met tijdzone) |Tekenreeks |
-| Period(timestamp) |Tekenreeks |
+| Period(Timestamp) |Tekenreeks |
 | Periode (tijdstempel met tijdzone) |Tekenreeks |
-| XML |Tekenreeks |
+| Xml |Tekenreeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor meer informatie over het toewijzen van kolommen in gegevensset naar kolommen in gegevensset sink bron, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

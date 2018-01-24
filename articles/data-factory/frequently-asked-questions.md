@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel is van toepassing op versie 2 van de Azure Data Factory-service. Dit vindt u antwoorden op veelgestelde vragen over Data Factory.  
@@ -93,7 +93,7 @@ Integratie-runtime is de beheerinfrastructuur die wordt gebruikt door Azure Data
 
 U kunt een of meer exemplaren van integratie runtime als vereist voor het verplaatsen en gegevens transformeren implementeren. Integratie runtime kunt uitvoeren op een openbare Azure-netwerk of op een particulier netwerk (on-premises, Azure Virtual Network of Amazon Web Services virtuele-privécloud [VPC]). 
 
-Zie voor meer informatie [integratie runtime in Azure Data Factory](concepts-integration-runtime.md).
+Zie voor meer informatie [Integration Runtime in Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Wat is de limiet voor het aantal integratie runtimes?
 Er is geen vaste limiet voor het aantal exemplaren van integratie runtime die een gegevensfactory kan bevatten. Er is echter een limiet voor het aantal kernen voor VM die de integratie-runtime voor de uitvoering van SSIS-pakket per abonnement kunt gebruiken. Zie voor meer informatie [Data Factory beperkt](../azure-subscription-service-limits.md#data-factory-limits).
@@ -176,7 +176,7 @@ Ja. U kunt de activiteiten in versie 2 koppelen zonder gegevenssets. Keten van a
 Ja, worden alle activiteiten van versie 1 worden ondersteund in versie 2.
 
 ### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Hoe kan ik een pijplijn versie 2 plannen? 
-De trigger scheduler kunt u een pijplijn versie 2 plannen. De trigger een kalender wanden klok planning gebruikt en u kunt het plannen van pijplijnen periodiek of met behulp van periodieke patronen op basis van een kalender (bijvoorbeeld wekelijks op maandag op 18: 00 uur en donderdag om 9 uur). Zie voor meer informatie [Pipeline-uitvoering en triggers](concepts-pipeline-execution-triggers.md).
+De trigger scheduler kunt u een pijplijn versie 2 plannen. De trigger een kalender wanden klok planning gebruikt en u kunt het plannen van pijplijnen periodiek of met behulp van periodieke patronen op basis van een kalender (bijvoorbeeld wekelijks op maandag op 18: 00 uur en donderdag om 9 uur). Zie [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md) voor meer informatie.
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Kan ik parameters doorgeven aan een pijplijn in versie 2 wordt uitgevoerd
 Ja, parameters zijn een concept klas, op het hoogste niveau in versie 2. U kunt de parameters op het niveau van de pijplijn definiëren en argumenten doorgeven als u de pijplijn uitvoeren op aanvraag of met behulp van een trigger uitvoeren.  

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Verplaatsen van gegevens uit een PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens vanuit een 
     - Azure PowerShell
     - Azure Resource Manager-sjabloon
     - .NET API
-    - REST API
+    - REST-API
 
      Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit. 
 
@@ -78,7 +78,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | type |De eigenschap type moet worden ingesteld op: **OnPremisesPostgreSql** |Ja |
 | server |De naam van de PostgreSQL-server. |Ja |
 | database |De naam van de PostgreSQL-database. |Ja |
-| Schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
+| schema |De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
 | authenticationType |Het soort verificatie die wordt gebruikt voor verbinding met de PostgreSQL-database. Mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Nee |
@@ -93,7 +93,7 @@ De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie
 | --- | --- | --- |
 | tableName |De naam van de tabel in de PostgreSQL-Database-instantie waarnaar de gekoppelde service verwijst. De tabelnaam is hoofdlettergevoelig. |Nee (als **query** van **RelationalSource** is opgegeven) |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -307,12 +307,12 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 
 | Type PostgreSQL-Database | PostgresSQL aliassen | .NET framework-type |
 | --- | --- | --- |
-| abstime | |Datum/tijd | &nbsp;
+| abstime | |Datum en tijd | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bits [(n)] | |Byte [], String | &nbsp;
 | bit uiteenlopende [(n)] |varbit |Byte [], String |
-| Booleaanse waarde |BOOL |Booleaanse waarde |
+| booleaans |BOOL |Boole-waarde |
 | Vak | |Byte [], String |&nbsp;
 | bytea | |Byte [], String |&nbsp;
 | teken [(n)] |char [(n)] |Tekenreeks |
@@ -320,9 +320,9 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | CID | |Tekenreeks |&nbsp;
 | CIDR | |Tekenreeks |&nbsp;
 | cirkel | |Byte [], String |&nbsp;
-| Datum | |Datum/tijd |&nbsp;
+| datum | |Datum en tijd |&nbsp;
 | DateRange | |Tekenreeks |&nbsp;
-| dubbele precisie |FLOAT8 |dubbele |
+| dubbele precisie |FLOAT8 |Double |
 | INet | |Byte [], String |&nbsp;
 | intarry | |Tekenreeks |&nbsp;
 | int4range | |Tekenreeks |&nbsp;
@@ -330,7 +330,7 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | geheel getal |int, int4 |Int32 |
 | interval [velden] [(p)] | |Periode |&nbsp;
 | JSON | |Tekenreeks |&nbsp;
-| jsonb | |Byte] |&nbsp;
+| jsonb | |Byte[] |&nbsp;
 | regel | |Byte [], String |&nbsp;
 | lseg | |Byte [], String |&nbsp;
 | macaddr | |Byte [], String |&nbsp;
@@ -338,14 +338,14 @@ Wanneer u gegevens naar PostgreSQL verplaatst, worden de volgende toewijzingen v
 | numerieke [(p, s)] |Decimal [(p, s)] |Decimale |
 | numrange | |Tekenreeks |&nbsp;
 | OID | |Int32 |&nbsp;
-| Pad | |Byte [], String |&nbsp;
+| pad | |Byte [], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | beheerpunt | |Byte [], String |&nbsp;
 | veelhoek | |Byte [], String |&nbsp;
-| echte |FLOAT4 |Één |
+| echte |FLOAT4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| Seriële |serial4 |Int32 |
+| serieel |serial4 |Int32 |
 | Tekst | |Tekenreeks |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen

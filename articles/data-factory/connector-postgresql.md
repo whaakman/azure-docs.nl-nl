@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Gegevens kopiëren van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ De volgende eigenschappen worden ondersteund voor PostgreSQL gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **PostgreSql** | Ja |
 | server | De naam van de PostgreSQL-server. |Ja |
 | database | De naam van de PostgreSQL-database. |Ja |
-| Schema | De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
+| schema | De naam van het schema in de database. Naam van het schema is hoofdlettergevoelig. |Nee |
 | gebruikersnaam | Geef de gebruikersnaam voor verbinding met de PostgreSQL-database. |Ja |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString. |Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
@@ -115,7 +115,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit een Post
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door PostgreSQL-bron.
 
@@ -173,7 +173,7 @@ Bij het kopiëren van gegevens uit een PostgreSQL, worden de volgende toewijzing
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
 | `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte [] tekenreeks ' |
+| `bit varying [ (n) ]` | `varbit |Byte[], String` |
 | `boolean` | `bool` | `Boolean` |
 | `box` | | `Byte[], String` | &nbsp;
 | `bytea` | | `Byte[], String` |&nbsp;
@@ -189,7 +189,7 @@ Bij het kopiëren van gegevens uit een PostgreSQL, worden de volgende toewijzing
 | `intarry` | |`String` |&nbsp;
 | `int4range` | |`String` |&nbsp;
 | `int8range` | |`String` |&nbsp;
-| `integer` | ' int, int4 |Int32' |
+| `integer` | `int, int4 |Int32` |
 | `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
 | `json` | | `String` |&nbsp;
 | `jsonb` | | `Byte[]` |&nbsp;

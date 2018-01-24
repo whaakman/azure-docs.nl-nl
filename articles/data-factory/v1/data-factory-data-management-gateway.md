@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -139,10 +139,10 @@ Op het niveau van de firewall van het bedrijf, moet u de volgende domeinen en ui
 
 | Domeinnamen | Poorten | Beschrijving |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Gebruikt voor communicatie met Data Movement Service back-end |
-| *. core.windows.net |443 |Gebruikt voor de tijdelijke kopie met behulp van Azure-Blob (indien geconfigureerd)|
-| *. frontend.clouddatahub.net |443 |Gebruikt voor communicatie met Data Movement Service back-end |
-| *. servicebus.windows.net |9350-9354, 5671 |Optionele service bus relay via TCP wordt gebruikt door de Wizard kopiëren |
+| *.servicebus.windows.net |443, 80 |Gebruikt voor communicatie met Data Movement Service back-end |
+| *.core.windows.net |443 |Gebruikt voor de tijdelijke kopie met behulp van Azure-Blob (indien geconfigureerd)|
+| *.frontend.clouddatahub.net |443 |Gebruikt voor communicatie met Data Movement Service back-end |
+| *.servicebus.windows.net |9350-9354, 5671 |Optionele service bus relay via TCP wordt gebruikt door de Wizard kopiëren |
 
 
 Deze uitgaande poorten zijn normaal gesproken op niveau van Windows firewall is ingeschakeld. Als u niet het geval is, kunt u de domeinen en poorten dienovereenkomstig op gateway-apparaat.
@@ -315,7 +315,7 @@ De startpagina kunt u de volgende acties uitvoeren:
 * **Updates plannen** op een bepaald tijdstip van de dagen.
 * De datum waarop de gateway is **laatst bijgewerkt**.
 
-### <a name="settings-page"></a>Pagina met instellingen
+### <a name="settings-page"></a>De pagina Instellingen
 De pagina instellingen kunt u de volgende acties uitvoeren:
 
 * Weergeven, wijzigen en exporteren **certificaat** gebruikt door de gateway. Dit certificaat wordt gebruikt voor het versleutelen van gegevensbronreferenties.

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Totdat activiteit in Azure Data Factory
-De activiteit Until bieden dezelfde functionaliteit die een do-totdat lusstructuur biedt in programmeertalen. Deze een set van activiteiten in een lus uitgevoerd totdat de voorwaarde die is gekoppeld aan de activiteit in waar resulteert. U kunt opgeven dat een time-outwaarde voor de totdat activiteit in de Data Factory. 
+De activiteit Until bieden dezelfde functionaliteit die een do-totdat lusstructuur biedt in programmeertalen. Er wordt een reeks activiteiten uitgevoerd totdat de voorwaarde die aan de activiteit is gekoppeld, resulteert in waar. U kunt in Data Factory een time-outwaarde voor de Until-activiteit opgeven. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Data Factory V1 documentatie](v1/data-factory-introduction.md).
@@ -292,7 +292,7 @@ while ($True) {
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 
 
-- [Als voorwaarde activiteit](control-flow-if-condition-activity.md)
+- [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [Voor elke activiteit](control-flow-for-each-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)

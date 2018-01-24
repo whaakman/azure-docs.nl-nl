@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -188,7 +188,7 @@ Betrouwbare verzamelingen kunnen elk type .NET, met inbegrip van uw aangepaste t
 Statusbeheer voor het betrouwbare beheert betrouwbare verzamelingen voor u. U kunt gewoon vragen statusbeheer voor het betrouwbare voor een betrouwbare verzameling met de naam op elk gewenst moment en op een willekeurige plaats in uw service. Statusbeheer voor het betrouwbare zorgt ervoor dat u een verwijzing terug. Wordt niet aanbevolen verwijzingen naar betrouwbare verzameling exemplaren te slaan in klasselid variabelen of eigenschappen. Speciale aandacht moet worden uitgevoerd om ervoor te zorgen dat de verwijzing naar een exemplaar te allen tijde in de levenscyclus van de service is ingesteld. Statusbeheer voor het betrouwbare dit werk voor u verwerkt en geoptimaliseerd voor herhaaldelijk bezoeken.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transactionele en asynchrone bewerkingen
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");

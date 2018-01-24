@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Gegevens eenvoudig met Azure Data Factory-Wizard voor kopiëren kopiëren of verplaatsen
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [kopie activiteit zelfstudie in de documentatie van versie 2](../quickstart-create-data-factory-dot-net.md). 
+> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u de [zelfstudie kopieeractiviteit in de documentatie voor versie 2](../quickstart-create-data-factory-dot-net.md). 
 
 
 De Wizard kopiëren van Azure Data Factory is om te vereenvoudigen het opnemen van gegevens, die meestal een eerste stap in een end-to-end gegevens integratiescenario is. Bij gebruik van de Wizard kopiëren van Azure Data Factory, hoeft u niet elk JSON-definities voor de gekoppelde services, gegevenssets en pijplijnen begrijpen. Echter, nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn om gegevens te kopiëren van de geselecteerde gegevensbron naar de geselecteerde bestemming. Daarnaast de Wizard kopiëren helpt u om de gegevens wordt ingenomen op het moment van ontwerpen, waarin wordt opgeslagen veel van de tijd, te valideren met name wanneer u zijn ophalen van gegevens voor de eerste keer uit de gegevensbron. Voor het starten van de Wizard kopiëren, klikt u op de **gegevens kopiëren** tegel op de startpagina van uw gegevensfactory.
@@ -33,7 +33,7 @@ De Wizard kopiëren van Azure Data Factory is om te vereenvoudigen het opnemen v
 ## <a name="an-intuitive-wizard-for-copying-data"></a>Een intuïtieve wizard voor het kopiëren van gegevens
 Deze wizard kunt u eenvoudig om gegevens te verplaatsen van een groot aantal gegevensbronnen naar bestemmingen in minuten. Na het doorlopen van de wizard wordt een pijplijn met een kopieeractiviteit automatisch gemaakt voor u samen met afhankelijke Data Factory-entiteiten (gekoppelde services en gegevenssets). Er zijn geen extra stappen nodig voor het maken van de pijplijn.   
 
-![Selecteer gegevensbron](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Gegevensbron selecteren](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Zie [Wizard kopiëren zelfstudie](data-factory-copy-data-wizard-tutorial.md) artikel voor stapsgewijze instructies voor het maken van een voorbeeldpijplijn kopiëren van gegevens van een Azure-blob naar een Azure SQL Database-tabel. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Actieve runbooks in een hybride Runbook Worker 
 Er is geen verschil in de structuur van runbooks die worden uitgevoerd in Azure Automation en toepassingen die worden uitgevoerd op een hybride Runbook Worker. Runbooks die u met elke gebruikt waarschijnlijk aanzienlijk verschillen echter omdat runbooks die gericht is op een hybride Runbook Worker doorgaans bronnen op de lokale computer zelf of op basis van bronnen in de lokale omgeving waarop deze wordt geïmplementeerd, terwijl runbooks in beheren Azure Automation beheren meestal bronnen in de Azure-cloud.
@@ -59,7 +59,7 @@ In plaats van runbooks bieden hun eigen verificatie van lokale bronnen, kunt u e
 
 De gebruikersnaam op voor de referentie moet worden gebruikt in een van de volgende indelingen:
 
-* domein\gebruikersnaam
+* domain\username
 * username@domain
 * gebruikersnaam (voor accounts die lokaal op de lokale computer)
 
@@ -144,7 +144,7 @@ De volgende PowerShell-runbook *Export RunAsCertificateToHybridWorker*, exportee
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Sla de *Export RunAsCertificateToHybridWorker* runbook op uw computer met een `.ps1` extensie.  Importeren in uw Automation-account en het bewerken van het runbook, als u de waarde van de variabele `$Password` met uw eigen wachtwoord.  Publiceren en voer vervolgens het runbook die gericht is op de Hybrid Worker-groep die worden uitgevoerd en verifiëren van runbooks met het Run As-account.  De taakstroom rapporteert de poging om het certificaat importeren in het archief van de lokale computer en volgt met meerdere regels, afhankelijk van hoeveel Automation-accounts zijn gedefinieerd in uw abonnement en als verificatie geslaagd is.  
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Beheer en onderhoud van de agent Log Analytics voor Windows en Linux
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux-agent
-De volgende stappen uitvoeren als uw Linux-computers moeten communiceren via een proxy of Gateway met logboekanalyse OMS.  De waarde voor de proxyconfiguratie heeft de volgende syntaxis `[protocol://][user:password@]proxyhost[:port]`.
+De volgende stappen uitvoeren als uw Linux-computers moeten communiceren via een proxy of Gateway met logboekanalyse OMS.  De waarde voor de proxyconfiguratie heeft de volgende syntaxis `[protocol://][user:password@]proxyhost[:port]`.  De *proxyhost* eigenschap accepteert een FQDN-naam of IP-adres van de proxyserver.
 
 1. Bewerk het bestand `/etc/opt/microsoft/omsagent/proxy.conf` door de volgende opdrachten uit te voeren en de waarden aan te passen aan uw specifieke instellingen.
 

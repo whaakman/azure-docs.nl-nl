@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Push-gegevens naar een Azure Search-index met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ De volgende tabel bevat beschrijvingen van JSON-elementen die specifiek voor de 
 | Eigenschap | Beschrijving | Vereist |
 | -------- | ----------- | -------- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSearch**. | Ja |
-| URL | De URL voor de Azure Search-service. | Ja |
+| url | De URL voor de Azure Search-service. | Ja |
 | sleutel | Administrator-code voor de Azure Search-service. | Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -70,10 +70,10 @@ Zie voor een volledige lijst met eigenschappen die beschikbaar zijn voor het def
 | Eigenschap | Beschrijving | Vereist |
 | -------- | ----------- | -------- |
 | type | De eigenschap type moet worden ingesteld op **AzureSearchIndex**.| Ja |
-| NaamCommunity | De naam van de Azure Search-index. Data Factory maakt niet de index. De index moet bestaan in Azure Search. | Ja |
+| indexName | De naam van de Azure Search-index. Data Factory maakt niet de index. De index moet bestaan in Azure Search. | Ja |
 
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst met eigenschappen die beschikbaar zijn voor het definiëren van activiteiten en secties, de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoertabellen en verschillende beleidsregels zijn beschikbaar voor alle typen activiteiten. Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties variëren met elk activiteitstype. Voor de Kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
 
 Voor de Kopieeractiviteit, wanneer de sink van het type is **AzureSearchIndexSink**, de volgende eigenschappen beschikbaar zijn in de sectie typeProperties:
@@ -81,7 +81,7 @@ Voor de Kopieeractiviteit, wanneer de sink van het type is **AzureSearchIndexSin
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Geeft aan of samenvoegen of wanneer een document al in de index bestaat te vervangen. Zie de [WriteBehavior eigenschap](#writebehavior-property).| samenvoegen (standaard)<br/>Uploaden| Nee |
-| writeBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
+| WriteBatchSize | Gegevens geüpload naar de Azure Search-index wanneer de buffergrootte writeBatchSize bereikt. Zie de [WriteBatchSize eigenschap](#writebatchsize-property) voor meer informatie. | 1-1000. Standaardwaarde is 1000. | Nee |
 
 ### <a name="writebehavior-property"></a>De eigenschap WriteBehavior
 AzureSearchSink upserts bij het schrijven van gegevens. Bij het schrijven van een document, als de documentsleutel al in de Azure Search-index bestaat, updates Azure Search met andere woorden, het bestaande document in plaats van er een conflict uitzondering is opgetreden.
@@ -104,8 +104,8 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 | Tekenreeks | J |
 | Int32 | J |
 | Int64 | J |
-| dubbele | J |
-| Booleaanse waarde | J |
+| Double | J |
+| Boole-waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |
 | GeographyPoint | N |

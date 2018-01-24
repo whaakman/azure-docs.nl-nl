@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren met Azure Stream Analytics-taken 
  
@@ -62,7 +62,7 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
 
 2. Blader naar de **run.csx** functie. Bijwerken met de volgende code. (Zorg ervoor dat u '\<de redis-cache-verbindingsreeks hier\>"met de verbindingsreeks die u hebt opgehaald in de vorige sectie primaire van Azure Redis-Cache.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +113,7 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
 
    Wanneer de uitzondering 'HTTP-aanvragen entiteit te groot' Stream Analytics van de functie ontvangt, vermindert het de grootte van de batches naar functies verzendt. In de functie, de volgende code gebruiken om te controleren dat Stream Analytics te grote batches niet verzenden. Zorg ervoor dat de maximale batch-aantal en grootte waarden zijn gebruikt in de functie consistent met de waarden die zijn opgegeven in de Stream Analytics-portal zijn.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
@@ -154,7 +154,7 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
 
    |**De naam van eigenschap**|**Beschrijving**|
    |---|---|
-   |Uitvoeraliassen| Een gebruiksvriendelijke naam die u in query om te verwijzen naar de uitvoer van de taak gebruikt. |
+   |Uitvoeralias| Een gebruiksvriendelijke naam die u in query om te verwijzen naar de uitvoer van de taak gebruikt. |
    |Optie importeren| U kunt de functie van het huidige abonnement gebruiken of de instellingen handmatig opgeven als de functie in een ander abonnement bevindt zich. |
    |Functie-app| Naam van uw app functies. |
    |Functie| De naam van de functie in uw app functies (naam van de functie run.csx).|
@@ -179,7 +179,7 @@ Ga als volgt de [realtime-fraudedetectie](stream-analytics-real-time-fraud-detec
 
 5. De toepassing telcodatagen.exe starten met de volgende opdracht op de opdrachtregel (Gebruik de notatie `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000.2 2**
+   **telcodatagen.exe 1000 .2 2**
     
 6.  De Stream Analytics-taak starten.
 

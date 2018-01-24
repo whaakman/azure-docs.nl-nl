@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Aanmelden toevoegen aan een .NET MVC-web-app
 Met het v2.0-eindpunt kunt u snel verificatie van uw web-apps met ondersteuning voor beide persoonlijke Microsoft-accounts en werk- of schoolaccount accounts toevoegen.  In ASP.NET-web-apps, kunt u dit doen met behulp van Microsoft OWIN middleware is opgenomen in .NET Framework 4.5.
@@ -64,7 +64,7 @@ Geconfigureerd hier de OWIN-middleware voor gebruik van het OpenID Connect-verif
 3. Toevoegen van een 'OWIN-Opstartklasse' aan het project aangeroepen `Startup.cs` rechts Klik op het project--> **toevoegen** --> **Nieuw Item** --> Zoek naar 'OWIN'.  De OWIN-middleware roept de `Configuration(...)`-methode aan als uw app wordt gestart.
 4. Wijzig de klassendeclaratie naar `public partial class Startup` -we hebben u al deel uit van deze klasse geïmplementeerd in een ander bestand.  In de `Configuration(...)` methode, een aanroep van ConfigureAuth(...) verificatie voor uw web-app instellen  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ Geconfigureerd hier de OWIN-middleware voor gebruik van het OpenID Connect-verif
 
 5. Open het bestand `App_Start\Startup.Auth.cs` en implementeren van de `ConfigureAuth(...)` methode.  De parameters die u opgeeft in `OpenIdConnectAuthenticationOptions` fungeert als coördinaten voor uw app om te communiceren met Azure AD.  U moet ook Cookie-verificatie instellen - het OpenID Connect middleware maakt gebruik van cookies onder de behandelt.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ Uw app is nu geconfigureerd om te communiceren met het v2.0-eindpunt met het Ope
 
 - U kunt labels in uw domeincontrollers vereist die gebruiker zich aanmeldt voor de toegang tot een bepaalde pagina autoriseren.  Open `Controllers\HomeController.cs`, en voeg de `[Authorize]` label aan het Info-controller.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ Uw app is nu geconfigureerd om te communiceren met het v2.0-eindpunt met het Ope
 
 - U kunt ook OWIN rechtstreeks uitgeven verificatieaanvragen van binnen uw code.  Open `Controllers\AccountController.cs`.  In de acties SignIn() en SignOut() uitgeven OpenID Connect uitdaging afmelden aanvragen, respectievelijk.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ Bij het verifiëren van gebruikers met OpenID Connect retourneert het v2.0-eindp
 
 - Open het `Controllers\HomeController.cs`-bestand.  U hebt toegang tot claims van de gebruiker in uw domeincontrollers via de `ClaimsPrincipal.Current` SPN-object.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {

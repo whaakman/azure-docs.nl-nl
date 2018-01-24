@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Een service webfront-end voor uw toepassing met behulp van ASP.NET Core bouwen
 Azure Service Fabric-services bieden standaard geen een openbare interface op het web. Om de functionaliteit van uw toepassing HTTP-clients weergeven, moet u een webproject maken om te fungeren als een toegangspunt en vervolgens communiceren van daaruit naar uw afzonderlijke services.
@@ -29,7 +29,7 @@ In deze zelfstudie gaan we waar we werd afgebroken de [maken van uw eerste toepa
 
 Moet u Visual Studio 2017 volgen samen met deze zelfstudie. Elke editie wordt gedaan. 
 
- - [Visual Studio 2017 installeren](https://www.visualstudio.com/)
+ - [Install Visual Studio 2017](https://www.visualstudio.com/)
 
 Om ASP.NET Core Service Fabric-toepassingen te ontwikkelen, hebt u de volgende werkbelastingen geïnstalleerd:
  - **Ontwikkelen van Azure** (onder *Web- en Cloud*)
@@ -91,7 +91,7 @@ Begint met het maken van de interface om te fungeren als de overeenkomst tussen 
 
 4. Maak in de class-bibliotheek een interface met een enkele methode `GetCountAsync`, en uitbreiden van de interface van `Microsoft.ServiceFabric.Services.Remoting.IService`. De externe communicatie-interface moet worden afgeleid van deze interface om aan te geven dat het een Service voor externe toegang-interface is.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Nu we de interface hebt gedefinieerd, moet we het in de stateful service impleme
     ![Een verwijzing naar de klasse library-project toevoegen in de stateful service][vs-add-class-library-reference]
 2. Zoek de klasse die eigenschappen van overneemt `StatefulService`, zoals `MyStatefulService`, en deze uitbreiden voor het implementeren van de `ICounter` interface.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Nu we de interface hebt gedefinieerd, moet we het in de stateful service impleme
     ```
 3. Nu geïmplementeerd de één methode die is gedefinieerd in de `ICounter` interface, `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ In dit geval wordt de bestaande vervangen `CreateServiceReplicaListeners` method
 
 De `CreateServiceRemotingListener` extensiemethode op de `IService` interface kunt u gemakkelijk maken een `ServiceRemotingListener` met alle standaardinstellingen. Deze extensiemethode gebruikt, zorg ervoor dat u hebt de `Microsoft.ServiceFabric.Services.Remoting.Runtime` naamruimte geïmporteerd. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Onze stateful service is nu gereed voor het ontvangen verkeer van andere service
 
 4. In de **domeincontrollers** map, open de `ValuesController` klasse. Houd er rekening mee dat de `Get` methode wordt momenteel alleen een vastgelegde tekenreeksmatrix van 'waarde1' en 'waarde2'--die overeenkomt met wat we eerder in de browser gezien. Vervang deze implementatie met de volgende code:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

@@ -4,7 +4,7 @@ description: Azure Search-beveiliging is gebaseerd op naleving, versleuteling, v
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Beveiliging van gegevens en beheerde toegang tot Azure-zoekopdrachten
+# <a name="security-and-controlled-access-in-azure-search"></a>Beveiliging en beperkte toegang in Azure Search
 
 Azure Search is [SOC 2 compatibele](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), met een uitgebreide beveiliging architectuur spanning fysieke beveiliging, gecodeerde gegevensoverdrachten, gecodeerde opslag en platform wide software beveiligingen. Azure Search accepteert alleen operationeel, geverifieerde aanvragen. U kunt eventueel per gebruiker toegangsbeheer op inhoud toevoegen. In dit artikel raakt op beveiliging op elke laag, maar richt zich voornamelijk op hoe gegevens en bewerkingen in Azure Search worden beveiligd.
 
 ![Diagram van beveiligingslagen blokkeren](media/search-security-overview/azsearch-security-diagram.png)
-
-Hoewel Azure Search neemt over de beveiliging en de beveiliging van de Azure-platform, is het primaire mechanisme dat door de service zelf verificatie op basis van sleutels, waar het type sleutel bepaalt het niveau van toegang. Een sleutel is geen Administrator-code of een querysleutel voor alleen-lezen toegang.
-
-Toegang tot uw service is gebaseerd op een reeks machtigingen die wordt overgedragen door de sleutel (volledig of alleen-lezen), plus een context die definieert een bereik van bewerkingen. Elke aanvraag bestaat uit een verplichte sleutel, een bewerking, en een object. Wanneer aan elkaar zijn gekoppeld, zijn de twee machtigingsniveaus plus de context voldoende voor de beveiliging van de volledige spectrum van servicebewerkingen. 
 
 ## <a name="physical-security"></a>Fysieke beveiliging
 
@@ -38,11 +34,17 @@ Microsoft-datacenters toonaangevende fysieke beveiliging bieden en compatibel zi
 
 ## <a name="encrypted-transmission-and-storage"></a>Versleutelde overdracht en opslag
 
-Azure Search luistert naar HTTPS-poort 443. Via het platform worden verbindingen met de Azure-services versleuteld. 
+Versleuteling breidt gedurende de volledige indexering pijplijn: uit via de verzending en naar beneden op geïndexeerde gegevens die zijn opgeslagen in Azure Search-verbindingen.
 
-Op de back endopslag gebruikt voor indexen en andere constructies, Azure Search maakt gebruik van de mogelijkheden van de versleuteling van deze platforms. Volledige [AICPA SOC 2 naleving](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) is beschikbaar voor alle services (nieuwe en bestaande), zoeken in alle datacenters met Azure Search. Als u wilt het volledige rapport bekijken, gaat u naar [Azure- en Azure Government SOC 2 II rapport van het Type](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+| Beveiligingsniveau | Beschrijving |
+|----------------|-------------|
+| Codering in transit | Azure Search luistert naar HTTPS-poort 443. Via het platform worden verbindingen met de Azure-services versleuteld. |
+| Versleuteling 'at rest' | Versleuteling is volledig internalized tijdens het indexeren, zonder merkbare impact op de indexering van tijd voor voltooiing of de indexgrootte van de. Dit gebeurt automatisch op alle indexeren, inclusief op incrementele updates voor een index is niet volledig versleuteld (gemaakt voordat januari 2018).<br><br>Intern versleuteling is gebaseerd op [Azure Storage-Service: versleuteling](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), met behulp van 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
+| [SOC 2 naleving](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Alle zoekservices zijn volledig compatibel zijn, AICPA SOC 2 in alle datacenters met Azure Search. Als u wilt het volledige rapport bekijken, gaat u naar [Azure- en Azure Government SOC 2 II rapport van het Type](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
-Versleuteling is transparant en met versleutelingssleutels intern beheerd en universeel toegepast. U kan niet uitschakelen voor specifieke search-services of indexen, noch sleutels rechtstreeks te beheren of geef uw eigen. 
+Versleuteling is interne naar Azure Search met certificaten en versleutelingssleutels intern beheerd door Microsoft en universeel toegepast. U kan geen versleuteling inschakelen of uitschakelen, beheren of vervangen door uw eigen sleutels of versleutelingsinstellingen voor in de portal of programmatisch weergeven. 
+
+Codering in rust in 24 januari 2018 is aangekondigd en geldt voor alle Servicelagen, inclusief gedeelde (gratis) services, in alle regio's. Voor volledige versleuteling worden indexen gemaakt vóór deze datum verwijderd en opnieuw opgebouwd om versleuteling om te worden uitgevoerd. Anders worden alleen nieuwe gegevens toegevoegd na 24 januari versleuteld.
 
 ## <a name="azure-wide-logical-security"></a>Logische Azure beveiligingstoegang
 
@@ -53,15 +55,15 @@ Verschillende beveiligingsmechanismen zijn beschikbaar via de Azure-Stack en dus
 
 Alle Azure-services ondersteunen op rollen gebaseerde toegangsbeheer (RBAC) voor het instellen van toegangsniveaus consistent op alle services. Bijvoorbeeld is weergeven van gevoelige gegevens, zoals de beheersleutel beperkt tot de functies van eigenaar en Inzender, terwijl de servicestatus van de weergeven beschikbaar voor leden van een rol is. RBAC biedt rollen eigenaar, bijdrager en Reader. Standaard zijn alle servicebeheerders leden van de rol van eigenaar.
 
-## <a name="service-authentication"></a>Verificatie van service
+## <a name="service-access-and-authentication"></a>Toegang tot service en -verificatie
 
-Azure Search biedt een eigen methodologie voor verificatie. Verificatie vindt plaats op elke aanvraag en is gebaseerd op een toegangssleutel die het bereik van bewerkingen bepaalt. Een geldig toegangssleutel wordt beschouwd als bewijs van de aanvraag afkomstig is van een vertrouwde entiteit. 
+Terwijl Azure Search neemt over van de beveiliging van de beveiliging van de Azure-platform, bevat het ook de eigen verificatie op basis van sleutels. Het type van de sleutel (admin of query) bepaalt het niveau van toegang. Verzenden van een geldige sleutel wordt beschouwd als bewijs van de aanvraag afkomstig is van een vertrouwde entiteit. 
 
-Verificatie per service bestaat op twee niveaus: volledige rechten, alleen-query. Het type van de sleutel bepaalt welk niveau van toegang van kracht is.
+Verificatie is vereist voor elke aanvraag, waarbij elke aanvraag uit een verplichte sleutel, een bewerking, en een object bestaat. Wanneer aan elkaar zijn gekoppeld, zijn de twee machtigingsniveaus (volledig of alleen-lezen) plus de context voldoende voor de beveiliging van de volledige spectrum van servicebewerkingen. 
 
 |Sleutel|Beschrijving|Limieten|  
 |---------|-----------------|------------|  
-|Beheer|Geeft het volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service maken en verwijderen **indexen**, **indexeerfuncties**, en **gegevensbronnen**.<br /><br /> Twee admin **api-sleutels**waarnaar wordt verwezen als *primaire* en *secundaire* sleutels in de portal worden gegenereerd als de service wordt gemaakt en afzonderlijk kan worden hersteld op aanvraag . Met twee sleutels, kunt u één sleutel overschakelen tijdens het gebruik van de tweede sleutel voor permanente toegang tot de service.<br /><br /> Administratorsleutels alleen in de HTTP-aanvraagheaders opgegeven. Een beheerder kan niet worden geplaatst **api-sleutel** in een URL.|Maximaal 2 per service|  
+|Beheer|De volledige rechten verleent voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen.<br /><br /> Twee admin **api-sleutels**waarnaar wordt verwezen als *primaire* en *secundaire* sleutels in de portal worden gegenereerd als de service wordt gemaakt en afzonderlijk kan worden hersteld op aanvraag . Met twee sleutels, kunt u één sleutel overschakelen tijdens het gebruik van de tweede sleutel voor permanente toegang tot de service.<br /><br /> Administratorsleutels alleen in de HTTP-aanvraagheaders opgegeven. U kunt een admin api-sleutel in een URL plaatsen.|Maximaal 2 per service|  
 |Query’s uitvoeren|Alleen-lezen toegang verleent tot indexen en documenten en worden doorgaans verleend aan clienttoepassingen die zoekaanvragen.<br /><br /> Querysleutels worden op verzoek gemaakt. U kunt ze handmatig maken in de portal of programmatisch via de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Querysleutels kunnen worden opgegeven in de header van een HTTP-aanvraag voor het zoeken, suggestie of zoekbewerking. U kunt ook een querysleutel doorgeven als een parameter van een URL. Afhankelijk van hoe uw clienttoepassing formuleert voor de aanvraag, is het mogelijk dat het eenvoudiger om door te geven van de sleutel als een queryparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per service|  
 
  Visueel, bestaat er geen onderscheid tussen een beheersleutel en querysleutel. Beide sleutels zijn tekenreeksen die bestaat uit 32 willekeurig gegenereerd alfanumerieke tekens. Als u het bijhouden van welk type sleutel dat is opgegeven in uw toepassing verliest, kunt u [controleren de sleutelwaarden in de portal](https://portal.azure.com) of gebruik de [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/) om de waarde en sleuteltype te retourneren.  

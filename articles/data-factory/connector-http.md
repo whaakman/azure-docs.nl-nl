@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Gegevens kopiëren van de HTTP-eindpunt met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Stel de eigenschap 'authenticationType' op **Basic**, **Digest**, of **Windows**
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| Gebruikersnaam | De naam van de gebruiker toegang tot het HTTP-eindpunt. | Ja |
+| userName | De naam van de gebruiker toegang tot het HTTP-eindpunt. | Ja |
 | wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als SecureString. | Ja |
 
 **Voorbeeld**
@@ -208,7 +208,7 @@ Om gegevens te kopiëren van HTTP, stel de eigenschap type van de gegevensset **
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door HTTP-bron.
 

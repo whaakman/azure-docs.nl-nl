@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Dit voorbeeld toont hoe u de referenceObjects en extendedProperties Data Factory
 
 Wanneer de activiteit wordt uitgevoerd, worden referenceObjects en extendedProperties opgeslagen in de volgende bestanden die zijn geïmplementeerd naar dezelfde map uitvoering van de SampleApp.exe: 
 
-- Activity.JSON
+- activity.json
 
   ExtendedProperties en eigenschappen van de aangepaste activiteit worden opgeslagen. 
 
@@ -196,13 +196,13 @@ Wanneer de activiteit wordt uitgevoerd, worden referenceObjects en extendedPrope
 
   Slaat een matrix met gekoppelde Services gedefinieerd in de eigenschap referenceObjects. 
 
-- DataSets.JSON
+- datasets.json
 
   Slaat een matrix van gegevenssets die worden gedefinieerd in de eigenschap referenceObjects. 
 
 Volgende voorbeeldcode laten zien hoe de SampleApp.exe kunnen toegang krijgen tot de vereiste gegevens uit JSON-bestanden: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -311,7 +311,7 @@ Als u wilt gebruiken voor de inhoud van stdout.txt in downstream-activiteiten, k
   De volgende tabel beschrijft de verschillen tussen Data Factory V2 aangepaste activiteit en de Data Factory V1 (aangepast) DotNet activiteit: 
 
 
-|Verschillen      |Aangepaste activiteit ADFv2      |ADFv1 (aangepast) DotNet activiteit      |
+|Verschillen      |Aangepaste activiteit ADFv2      |ADFv1 (Custom) DotNet Activity      |
 | ---- | ---- | ---- |
 |Hoe aangepaste regels is gedefinieerd      |Door te voeren uitvoerbare bestanden (bestaande of implementeren van uw eigen uitvoerbare bestand)      |Door het implementeren van een .net-DLL-bestand      |
 |Omgeving voor uitvoering van de aangepaste logica      |Windows- of Linux      |Windows (.Net Framework 4.5.2)      |

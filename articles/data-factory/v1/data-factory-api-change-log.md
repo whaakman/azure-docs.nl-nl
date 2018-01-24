@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 92623b504341572e1b6fae18ba612bcab20162f1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 55a08d22c622c89b918d1bfadd0ce34b77c3d408
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - logbestand voor .NET API
 > [!NOTE]
@@ -80,7 +80,7 @@ Functie toevoegingen:
   * Maakt het gebruik van PolyBase om gegevens te kopiëren in SQL Data Warehouse.
 
 ## <a name="version-461"></a>Versie 4.6.1
-### <a name="bug-fixes"></a>Oplossingen voor problemen
+### <a name="bug-fixes"></a>Oplossen van fouten
 * HTTP-aanvraag voor het aanbieden van activiteit windows corrigeert.
   * Naam van de resourcegroep en de naam van de factory verwijdert uit de nettolading van de aanvraag.
 
@@ -156,7 +156,7 @@ De volgende klassen hebben gekregen. De namen van de nieuwe zijn de namen van de
 | Oude naam | Nieuwe naam |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| Tabel |[Gegevensset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
+| Tabel |[Dataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
 | TableProperties |[DatasetProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
 | TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
 | TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |

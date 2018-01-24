@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Wacht activiteit in Azure Data Factory
-Wanneer u een wachtactiviteit in een pijplijn gebruikt, wacht de pijplijn voor de opgegeven periode voordat u doorgaat met de volgende activiteiten worden uitgevoerd. 
+Als u een Wait Activity in een pijplijn gebruikt, wacht de pijplijn tot de opgegeven periode voorbij is voordat de volgende activiteiten worden uitgevoerd. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Data Factory V1 documentatie](v1/data-factory-introduction.md).
@@ -105,10 +105,10 @@ In dit voorbeeld wordt de pijplijn heeft twee activiteiten: **totdat** en **wach
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 
 
-- [Als voorwaarde activiteit](control-flow-if-condition-activity.md)
+- [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [Voor elke activiteit](control-flow-for-each-activity.md)
 - [Get Metadata Activity](control-flow-get-metadata-activity.md)
 - [Lookup Activity](control-flow-lookup-activity.md)
 - [Webactiviteit](control-flow-web-activity.md)
-- [Totdat activiteit](control-flow-until-activity.md)
+- [Until Activity](control-flow-until-activity.md)

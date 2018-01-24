@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e6a22e9989bfe7064ead1c5598e9c68d4a929b07
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Routeren van berichten met IoT Hub (knooppunt)
 
@@ -89,7 +89,7 @@ In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de sl
     };
     ```
    
-    Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` en `"level": "storage"` op berichten die door het apparaat verzonden, die een bericht waarvoor onmiddellijke actie door de back-end van de toepassing of een die moet worden permanent opgeslagen simuleert. De toepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
+    Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` en `"level": "storage"` op berichten die door het apparaat verzonden, die een bericht waarvoor onmiddellijke actie door de back-end van de toepassing of een die moet worden permanent opgeslagen simuleert. De toepassing ondersteunt routeren van berichten op basis van de berichttekst.
    
    > [!NOTE]
    > U kunt de berichteigenschappen om berichten te routeren voor verschillende scenario's, inclusief de verwerking van koude pad, naast het hot pad voorbeeld dat hier wordt weergegeven.

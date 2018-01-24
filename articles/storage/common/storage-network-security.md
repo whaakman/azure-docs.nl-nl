@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configureren van Firewalls voor Azure-opslag en virtuele netwerken (preview)
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.
@@ -300,7 +300,6 @@ Wanneer de uitzondering 'Microsoft-Services vertrouwde' is ingeschakeld, krijgen
 |Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie.  [Meer informatie](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage gebeurtenis publicaties mogelijk maken.  [Meer informatie](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archiveren van gegevens met Event Hubs vastleggen.  [Meer informatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Inrichting en de installatie van het cluster.  [Meer informatie](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure-netwerken|Microsoft.Networking|Opslaan en analyseren van logboeken over webverkeer netwerk.  [Meer informatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

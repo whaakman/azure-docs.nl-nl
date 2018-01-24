@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Event Hubs en Runscope bewaken
 De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen verzonden naar uw HTTP-API. Er is echter het bestaan van de aanvragen en antwoorden tijdelijke. De aanvraag wordt gedaan en wordt via de API Management-service naar uw back-end API gebruikt. De aanvraag wordt verwerkt door uw API en een antwoord doorloopt aan de verbruiker API. API Management-service houdt een aantal belangrijke statistieken over de API voor weergave in het dashboard van de uitgever-portal, maar ook buiten dat de gegevens verwijderd zijn.
@@ -166,7 +166,7 @@ In dit voorbeeld gebruiken we de `EventProcessorHost` voor eenvoud, maar het kan
 ### <a name="ieventprocessor"></a>IEventProcessor
 Het centrale concept bij gebruik van `EventProcessorHost` is het maken van een implementatie van de `IEventProcessor` interface, waardoor de methode bevat `ProcessEventAsync`. De essentie van deze methode wordt hier weergegeven:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ Een lijst met EventData objecten worden doorgegeven aan de methode en we doorlop
 ### <a name="httpmessage"></a>HttpMessage
 De `HttpMessage` -exemplaar bevat drie soorten gegevens:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ Voor dit voorbeeld ik besloten deze zou van belang zijn voor de HTTP-aanvraag vi
 
 De `IHttpMessageProcessor` implementatie uitziet,
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Verplaatsen van gegevens uit SAP HANA, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-server | Naam van de server waarop het exemplaar SAP HANA zich bevindt. Als de server een aangepaste poort gebruikt is, geeft u `server:port`. | Tekenreeks | Ja
+server | Naam van de server waarop het exemplaar SAP HANA zich bevindt. Als de server een aangepaste poort gebruikt is, geeft u `server:port`. | tekenreeks | Ja
 authenticationType | Het type verificatie. | De tekenreeks. 'Basic' of 'Windows' | Ja 
-gebruikersnaam | Naam van de gebruiker die toegang tot de SAP-server heeft | Tekenreeks | Ja
-wachtwoord | Wachtwoord voor de gebruiker. | Tekenreeks | Ja
-gatewayName | Naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale SAP HANA-exemplaar. | Tekenreeks | Ja
-encryptedCredential | De versleutelde referentie-tekenreeks. | Tekenreeks | Nee
+gebruikersnaam | Naam van de gebruiker die toegang tot de SAP-server heeft | tekenreeks | Ja
+wachtwoord | Wachtwoord voor de gebruiker. | tekenreeks | Ja
+gatewayName | Naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale SAP HANA-exemplaar. | tekenreeks | Ja
+encryptedCredential | De versleutelde referentie-tekenreeks. | tekenreeks | Nee
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets van de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties zoals structuur, beschikbaarheid en beleid van een gegevensset JSON zijn identiek voor alle gegevensset typen (Azure SQL, Azure blob-, Azure-tabel, enz.).
@@ -73,7 +73,7 @@ Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar 
 De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. Er zijn geen type-specifieke eigenschappen voor de gegevensset SAP HANA van het type ondersteund **RelationalTable**. 
 
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen zoals naam, beschrijving, invoer en uitvoer tabellen, zijn de beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 Dat eigenschappen beschikbaar zijn in de **typeProperties** sectie van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -82,7 +82,7 @@ Wanneer u de gegevensbron in de kopieerbewerking is van het type **RelationalSou
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| query | Hiermee geeft u de SQL-query voor het lezen van gegevens uit de SAP HANA-exemplaar. | SQL-query. | Ja |
+| query | Hiermee geeft u de SQL-query voor het lezen van gegevens uit de SAP HANA-exemplaar. | SQL query. | Ja |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>JSON-voorbeeld: gegevens kopiëren van SAP HANA naar Azure Blob
 Het volgende voorbeeld bevat definities van de voorbeeld-JSON die u een pijplijn maken kunt met behulp van [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md) of [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Dit voorbeeld laat zien hoe gegevens kopiëren van een lokale SAP HANA naar een Azure Blob Storage. Echter, de gegevens kunnen worden gekopieerd **rechtstreeks** vermeld met een van de PUT [hier](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit in Azure Data Factory.  
@@ -288,19 +288,19 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-ECHTE | Één
-DOUBLE | Één
-DECIMALE | Decimale
+ECHTE | Single
+DOUBLE | Single
+DECIMAL | Decimale
 BOOLEAANSE WAARDE | Byte
 VARCHAR | Tekenreeks
 NVARCHAR | Tekenreeks
-CLOB | Byte]
+CLOB | Byte[]
 ALPHANUM | Tekenreeks
-BLOB | Byte]
-DATUM | Datum/tijd
+BLOB | Byte[]
+DATE | Datum en tijd
 TIJD | TimeSpan
-TIJDSTEMPEL | Datum/tijd
-SECONDDATE | Datum/tijd
+TIJDSTEMPEL | Datum en tijd
+SECONDDATE | Datum en tijd
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 Er zijn enkele bekende beperkingen bij het kopiëren van gegevens uit een SAP HANA:

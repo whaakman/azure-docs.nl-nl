@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformeer gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de J
 | Eigenschap                 | Beschrijving                              | Vereist                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. | Ja                                      |
-| **Accountnaam**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
+| **accountName**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nee                                       |
 | **abonnements-id**       | Azure-abonnement-ID                    | Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
 | **resourceGroupName**    | Naam van een Azure-resourcegroep                | Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
@@ -126,7 +126,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | scriptPath          | Pad naar de map waarin de U-SQL-script. Naam van het bestand is hoofdlettergevoelig. | Ja      |
 | scriptLinkedService | Gekoppelde service die is gekoppeld aan de opslag die het script aan de gegevensfactory bevat | Ja      |
 | degreeOfParallelism | Het maximum aantal knooppunten dat tegelijk worden gebruikt voor het uitvoeren van de taak. | Nee       |
-| Prioriteit            | Hiermee wordt bepaald welke taken uit in de wachtrij moeten eerst worden geselecteerd. Hoe lager het getal, hoe hoger de prioriteit. | Nee       |
+| prioriteit            | Hiermee wordt bepaald welke taken uit in de wachtrij moeten eerst worden geselecteerd. Hoe lager het getal, hoe hoger de prioriteit. | Nee       |
 | parameters          | Parameters voor de U-SQL-script          | Nee       |
 | runtimeVersion      | Runtime-versie van de U-SQL-engine gebruiken | Nee       |
 | compilationMode     | <p>Compilatiemodus van U-SQL. U moet een van deze waarden: **semantische:** alleen uitvoeren semantische controles en de benodigde bevestigingen, **volledige:** uitvoeren van de volledige compilatie, met inbegrip van syntaxiscontrole, optimalisatie, genereren van code, enz., **SingleBox:** de volledige compilatie, met TargetType instelling SingleBox uitvoeren. Als u een waarde voor deze eigenschap niet opgeeft, wordt door de server de optimale compilatiemodus bepaalt. | Nee |

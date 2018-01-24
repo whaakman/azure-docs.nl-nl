@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Verplaatsen van gegevens vanaf Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ De volgende tabel bevat beschrijvingen van de JSON-elementen die specifiek voor 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
 | **type** |Deze eigenschap moet worden ingesteld op **AmazonRedshift**. |Ja |
-| **Server** |Het IP-adres of de hostnaam naam van de Amazon Redshift-server. |Ja |
+| **server** |Het IP-adres of de hostnaam naam van de Amazon Redshift-server. |Ja |
 | **poort** |Het nummer van de TCP-poort die de Amazon Redshift-server gebruikt om te luisteren naar verbindingen van clients. |Nee (de standaardwaarde is 5439) |
 | **database** |De naam van de Amazon Redshift-database. |Ja |
 | **gebruikersnaam** |De naam van de gebruiker die toegang tot de database heeft. |Ja |
@@ -334,15 +334,15 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SMALLINT |Int16 |
 | GEHEEL GETAL |Int32 |
 | BIGINT |Int64 |
-| DECIMALE |Decimale |
-| ECHTE |Één |
-| DUBBELE PRECISIE |dubbele |
+| DECIMAL |Decimale |
+| ECHTE |Single |
+| DUBBELE PRECISIE |Double |
 | BOOLEAANSE WAARDE |Tekenreeks |
 | CHAR |Tekenreeks |
 | VARCHAR |Tekenreeks |
-| DATUM |Datum/tijd |
-| TIJDSTEMPEL |Datum/tijd |
-| TEKST |Tekenreeks |
+| DATE |Datum en tijd |
+| TIJDSTEMPEL |Datum en tijd |
+| TEXT |Tekenreeks |
 
 ## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
 Zie voor informatie over het toewijzen van kolommen in de bron-gegevensset aan kolommen in de gegevensset sink, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).

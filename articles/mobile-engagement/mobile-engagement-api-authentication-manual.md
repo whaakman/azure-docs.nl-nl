@@ -1,5 +1,5 @@
 ---
-title: Verificatie met de Mobile Engagement REST-API's - handmatige installatie
+title: 'Verificatie met de Mobile Engagement REST-API''s: handmatige installatie'
 description: Hierin wordt beschreven hoe u verificatie voor Mobile Engagement REST-API's handmatig instellen
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,89 +14,92 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3b678acbae225c28223a2ee76e5be2462a529362
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Verificatie met de Mobile Engagement REST-API's - handmatige installatie
-Deze documentatie is een bijlage-documentatie voor [verifiëren met Mobile Engagement REST-API's](mobile-engagement-api-authentication.md). Zorg ervoor dat u het eerst gebruikt om toegang te krijgen van de context lezen.
-Hierin wordt een andere methode voor het eenmalig instellen voor het instellen van uw verificatie voor de Mobile Engagement REST-API's met de Azure portal.
+# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Verificatie met de Mobile Engagement REST-API's: handmatige installatie
+Deze documentatie is een bijlage bij [verifiëren met Mobile Engagement REST-API's](mobile-engagement-api-authentication.md). Zorg ervoor dat u dat artikel eerst voor inzicht in de context lezen. Hierin wordt ook een andere methode voor de eenmalige verificatie-instellingen voor de REST API's van Mobile Engagement doen met behulp van de Azure-portal.
 
 > [!NOTE]
-> De volgende instructies zijn gebaseerd op deze [Active Directory-handleiding](../azure-resource-manager/resource-group-create-service-principal-portal.md) en aangepast voor wat vereist voor verificatie voor Mobile Engagement-API's is. Dus hiernaar wordt verwezen als u wilt weten over de stappen hieronder in detail.
+> De volgende instructies zijn gebaseerd op [deze Active Directory-handleiding](../azure-resource-manager/resource-group-create-service-principal-portal.md). Ze zijn afgestemd op de verificatievereisten voor Mobile Engagement-API's. Raadpleeg deze als u wilt de volgende stappen in detail begrijpen.
 
-1. Aanmelden bij uw Azure-Account via de [Azure-portal](https://portal.azure.com/).
+1. Aanmelden bij uw Azure-account via de [Azure-portal](https://portal.azure.com/).
 2. Selecteer **Active Directory** in het linkerdeelvenster.
 
-     ![Selecteer Active Directory][1]
+   ![Selecteer Active Directory][1]
 
-3. Als u wilt de toepassingen in uw directory bekijken, klikt u op **App registraties**.
+3. Als u wilt weergeven van de toepassingen in uw directory, selecteer **App registraties**.
 
-     ![toepassingen weergeven][3]
+   ![toepassingen weergeven][3]
 
-4. Klik op **registratie van de nieuwe toepassing**.
+4. Selecteer **registratie van de nieuwe toepassing**.
 
-     ![Toepassing toevoegen][4]
+   ![Toepassing toevoegen][4]
 
-5. Vul in de naam van de toepassing en het type van toepassing als laat **Web-app/API** en klik op de knop Volgende. U kunt opgeven dat alle dummy-URL's voor **AANMELDINGS-URL**: ze worden niet gebruikt voor dit scenario en de URL's zelf worden niet gevalideerd.
-6. Nadat u bent, hebt u een Azure AD-app met de naam die u hebt opgegeven. Het is uw **AD\_APP\_naam**, noteer ervan.
+5. Naam van de toepassing ingevuld. Houd het type van toepassing als **Web-app/API**, en selecteer vervolgens de **volgende** knop. U kunt opgeven dat alle dummy-URL's voor **AANMELDINGS-URL**. Ze worden niet gebruikt voor dit scenario en de URL's zelf worden niet gevalideerd.
 
-     ![app-naam][8]
+   Als u klaar bent, hebt u een app met Azure Active Directory (Azure AD) met de naam die u hebt opgegeven. Het is uw **AD\_APP\_naam**, dus zorg Noteer deze.
 
-7. Klik op de naam van de app.
-8. Zoeken naar **toepassings-ID**, noteer ervan, kan de CLIENT-ID die moet worden gebruikt als worden **CLIENT\_ID** voor uw API-aanroepen.
+   ![App-naam][8]
 
-     ![App configureren][10]
+7. Selecteer de naam van de app.
+
+8. Zoeken naar **toepassings-ID** en noteer deze. Dit is de client-ID die wordt gebruikt als **CLIENT\_ID** voor uw API-aanroepen.
+
+   ![De toepassings-ID vinden][10]
 
 9. Zoek de **sleutels** sectie aan de rechterkant.
 
-     ![App configureren][11]
+   ![Sectie van sleutels][11]
 
-10. Maak een nieuwe sleutel en onmiddellijk kopiëren en opslaan voor gebruik. Dit wordt nooit opnieuw worden weergegeven.
+10. Maak een nieuwe sleutel en vervolgens onmiddellijk kopiëren. Dit wordt niet opnieuw weergegeven.
 
-     ![App configureren][12]
+    ![Deelvenster met details van de sleutels][12]
 
     > [!IMPORTANT]
-    > Deze sleutel verloopt aan het einde van de duur die u hebt opgegeven, dus zorg ervoor dat het te vernieuwen wanneer u anders de verificatie van uw API wordt niet meer werken. U kunt ook verwijderen en opnieuw maken van deze sleutel als u denkt dat deze is geschonden.
+    > Deze sleutel verloopt aan het einde van de duur die u hebt opgegeven. Zorg ervoor dat het te vernieuwen wanneer dat nodig is, anders uw API-verificatie werkt niet meer. Als u denkt dat deze sleutel is ingebroken, kunt u deze kunt verwijderen en opnieuw maken.
     >
-    >
-11. Klik op **eindpunten** knop aan de bovenkant van de pagina en kopieer de **OAUTH 2.0-TOKENEINDPUNT**.
+    
+11. Selecteer de **eindpunten** knop aan de bovenkant van de pagina. Kopieer de **OAUTH 2.0-TOKENEINDPUNT**.
 
-    ![][14]
+    ![Kopieer het eindpunt][14]
 
-16. Dit eindpunt worden weergegeven in de volgende notatie waarbij de GUID in de URL uw **TENANT_ID** dus maak een notitie van deze:`https://login.microsoftonline.com/<GUID>/oauth2/token`
-17. We gaat nu door met het configureren van de machtigingen op deze app. Voor deze heeft u opent u de [Azure-portal](https://portal.azure.com). 
-18. Klik op **resourcegroepen** en zoek de **Mobile Engagement** resourcegroep.
+16. Dit eindpunt is in de volgende vorm, waarbij de GUID in de URL is uw **TENANT_ID**:`https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-    ![][15]
+17. Vervolgens configureert u de machtigingen op deze app. Om het te starten, gaat u naar de [Azure-portal](https://portal.azure.com).
 
-19. Klik op de **Mobile Engagement** resource groeperen en navigeer naar de **instellingen** hier sectie.
+18. Selecteer **resourcegroepen**, en gaat u naar de **MobileEngagement** resourcegroep.
 
-    ![][16]
+    ![MobileEngagement vinden][15]
 
-20. Klik op **gebruikers** sectie in de instellingen en klik vervolgens op **toevoegen** een gebruiker toe te voegen.
+19. Selecteer de **MobileEngagement** resource groep en selecteert u vervolgens **alle instellingen**.
 
-    ![][17]
+    ![Blader naar de instellingen voor MobileEngagement][16]
+
+20. Selecteer **gebruikers** in de **instellingen** sectie. Selecteer vervolgens een gebruiker toevoegen, **toevoegen**.
+
+    ![Een gebruiker toevoegen][17]
 
 21. Klik op **Selecteer een rol**.
 
-    ![][18]
+    ![Selecteer een rol][18]
 
-22. Klik op **eigenaar**.
+22. Selecteer **eigenaar**.
 
-    ![][19]
+    ![Eigenaar als de rol selecteren][19]
 
-23. Zoeken naar de naam van uw toepassing **AD\_APP\_naam** in het zoekvak. U ziet dit hier standaard. Als u deze hebt gevonden, selecteert u deze en klik op **Selecteer** aan de onderkant van de sectie.
+23. Zoeken naar de naam van uw toepassing **AD\_APP\_naam**, in het zoekvak. Deze naam is hier niet standaard. Nadat u deze hebt gevonden, selecteert u deze. Klik vervolgens op **Selecteer** aan de onderkant van de sectie.
 
-    ![][20]
+    ![Selecteer de naam][20]
 
-24. Op de **toegang toevoegen** sectie, deze wordt weergegeven als **1 gebruiker, 0 groepen**. Klik op **OK** in deze sectie om de wijziging te bevestigen.
+24. In de **toegang toevoegen** sectie, wordt deze weergegeven als **1 gebruiker, 0 groepen**. Selecteer om te bevestigen de wijziging, **OK**.
 
-    ![][21]
+    ![Toegevoegde gebruiker bevestigen][21]
 
-U hebt nu de vereiste configuratie van Azure AD en u bent klaar om aan te roepen de API's.
+U hebt nu de vereiste configuratie van Azure AD en zijn ingesteld op het aanroepen van de API's.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png

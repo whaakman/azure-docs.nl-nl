@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429828515411986dc7b3586360cb9923a5bb20de
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Minimale downtime migratie naar Azure-Database voor PostgreSQL
 U kunt uw bestaande PostgreSQL-database migreren naar Azure-Database voor PostgreSQL door Attunity repliceren voor Microsoft Migrations. Attunity repliceren is een gezamenlijke aanbieding van Attunity en Microsoft. Samen met de Azure-databaseservice migratie is het opgenomen zonder extra kosten voor klanten van Microsoft. 
@@ -34,5 +34,5 @@ Een overzicht van het proces voor het uitvoeren van een migratie met minimale do
 Zie voor meer informatie over de repliceren Attunity voor Microsoft Migrations biedt de volgende bronnen:
  - Ga naar de [Attunity repliceren voor Microsoft Migrations](https://aka.ms/attunity-replicate) webpagina.
  - Download [Attunity repliceren voor Microsoft-migraties](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Ga naar de [Attunity repliceren Community](https://microsoft.attunity.com/) voor een introductiehandleiding, zelfstudies en ondersteuning.
+ - Ga naar de [Attunity repliceren Community](https://aka.ms/attunity-community/) voor een introductiehandleiding, zelfstudies en ondersteuning.
  - Zie voor stapsgewijze instructies over het gebruik van Attunity repliceren PostgreSQL migreren naar Azure-Database voor PostgreSQL de [Database Migratiehandleiding](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).

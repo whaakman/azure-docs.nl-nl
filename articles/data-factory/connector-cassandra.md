@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -118,7 +118,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van Cassandr
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Cassandra bron.
@@ -173,14 +173,14 @@ Bij het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen va
 |:--- |:--- |
 | ASCII |Tekenreeks |
 | BIGINT |Int64 |
-| BLOB |Byte] |
+| BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Boole-waarde |
-| DECIMALE |Decimale |
-| DOUBLE |dubbele |
+| DECIMAL |Decimale |
+| DOUBLE |Double |
 | FLOAT |Single |
 | INET |Tekenreeks |
 | INT |Int32 |
-| TEKST |Tekenreeks |
+| TEXT |Tekenreeks |
 | TIJDSTEMPEL |Datum en tijd |
 | TIMEUUID |GUID |
 | UUID |GUID |
@@ -238,15 +238,15 @@ De volgende tabellen tonen de virtuele tabellen die de gegevens uit de lijst, to
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Tabel 'ExampleTable_vt_Map':**
+**Table "ExampleTable_vt_Map":**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
-**Tabel 'ExampleTable_vt_StringSet':**
+**Table "ExampleTable_vt_StringSet":**
 
 | pk_int | StringSet_value |
 | --- | --- |

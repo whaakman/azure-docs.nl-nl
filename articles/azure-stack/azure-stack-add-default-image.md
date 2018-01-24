@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>De Windows Server 2016 VM-installatiekopie toevoegen aan de Stack Azure Marketplace
 
@@ -135,19 +135,23 @@ Voer de volgende vereisten uitvoeren vanuit de [development kit](azure-stack-con
 
 Om ervoor te zorgen dat de Windows Server 2016 VM-installatiekopie de meest recente cumulatieve update heeft, omvatten de `IncludeLatestCU` parameter tijdens het uitvoeren van de `New-AzsServer2016VMImage` cmdlet. Voor informatie over de toegestane parameters voor de `New-AzsServer2016VMImage` cmdlet, Zie [Parameters](#parameters). Het duurt ongeveer een uur voor het publiceren van de installatiekopie naar de Stack Azure Marketplace. 
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parameters voor de nieuwe AzsServer2016VMImage
 
-|Nieuwe AzsServer2016VMImage parameters|Vereist|Beschrijving|
-|-----|-----|------|
-|ISOPath|Ja|Het volledig gekwalificeerde pad naar de gedownloade ISO van Windows Server 2016.|
-|Net35|Nee|De runtime .NET 3.5 installeert op de installatiekopie van het Windows Server 2016. Deze waarde is standaard ingesteld op **true**.|
-|Versie|Nee|Hiermee geeft u **Core**, **volledige**, of **beide** installatiekopieën van Windows Server 2016. Deze waarde is standaard ingesteld op **volledige**.|
-|VHDSizeInMB|Nee|Hiermee stelt u de grootte (in MB) van de installatiekopie van het VHD moet worden toegevoegd aan uw Azure-Stack-omgeving. Deze waarde is standaard ingesteld op 40.960 MB.|
-|CreateGalleryItem|Nee|Hiermee geeft u op of een Marketplace-item moet worden gemaakt voor de installatiekopie van Windows Server 2016. Deze waarde is standaard ingesteld op **true**.|
-|location |Nee |Hiermee geeft u de locatie waarop de installatiekopie van het Windows Server 2016 moet worden gepubliceerd.|
-|IncludeLatestCU|Nee|De meest recente cumulatieve update voor Windows Server 2016 geldt voor de nieuwe VHD (Controleer of het script om ervoor te zorgen dat deze naar de meest recente update of gebruik een van de volgende twee opties verwijst). |
-|CUUri |Nee |Stelt de Windows Server 2016 cumulatieve update uitvoeren vanaf een specifieke URI. |
-|CUPath |Nee |De Windows Server 2016 sets cumulatieve update uitvoeren vanaf een lokaal pad. Deze optie is handig als u het Azure-Stack-exemplaar in een omgeving zonder verbinding hebt geïmplementeerd.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Maakt en uploadt u een nieuwe Server 2016 Core en, of een volledige installatiekopie en maakt er een marketplace-item voor.
+
+| Parameters | Vereist | Voorbeeld | Beschrijving |
+|-----|-----|------|---- |
+|ISOPath|Ja| N:\ISO\en_windows_16_x64_dvd | Het volledig gekwalificeerde pad naar de gedownloade ISO van Windows Server 2016.|
+|Net35|Nee| True | De runtime .NET 3.5 installeert op de installatiekopie van het Windows Server 2016. Deze waarde is standaard ingesteld op **true**.|
+|Versie|Nee| Volledig |  Hiermee geeft u **Core**, **volledige**, of **beide** installatiekopieën van Windows Server 2016. Deze waarde is standaard ingesteld op **volledige**.|
+|VHDSizeInMB|Nee| 40,960 | Hiermee stelt u de grootte (in MB) van de installatiekopie van het VHD moet worden toegevoegd aan uw Azure-Stack-omgeving. Deze waarde is standaard ingesteld op 40.960 MB.|
+|CreateGalleryItem|Nee| True | Hiermee geeft u op of een Marketplace-item moet worden gemaakt voor de installatiekopie van Windows Server 2016. Deze waarde is standaard ingesteld op **true**.|
+|location |Nee | D:\ | Hiermee geeft u de locatie waarop de installatiekopie van het Windows Server 2016 moet worden gepubliceerd.|
+|IncludeLatestCU|Nee| False | De meest recente cumulatieve update voor Windows Server 2016 geldt voor de nieuwe VHD. Controleer het script om ervoor te zorgen dat deze naar de meest recente update of gebruik een van de volgende twee opties verwijst. |
+|CUUri |Nee | https://yourupdateserver/winservupdate2016 | Stelt de Windows Server 2016 cumulatieve update uitvoeren vanaf een specifieke URI. |
+|CUPath |Nee | C:\winservupdate2016 | De Windows Server 2016 sets cumulatieve update uitvoeren vanaf een lokaal pad. Deze optie is handig als u het Azure-Stack-exemplaar in een omgeving zonder verbinding hebt geïmplementeerd.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

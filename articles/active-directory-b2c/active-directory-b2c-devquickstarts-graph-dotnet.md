@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Gebruik de Azure AD Graph API
 
@@ -137,7 +137,7 @@ Elk verzoek aan de Graph API vereist een toegangstoken voor verificatie. `B2CGra
 
 Wanneer `B2CGraphClient` wordt uitgevoerd, maakt het een exemplaar van de `B2CGraphClient` klasse. De constructor voor deze klasse stelt u een steigers ADAL-verificatie:
 
-```C#
+```csharp
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
 {
     // The client_id, client_secret, and tenant are provided in Program.cs, which pulls the values from App.config
@@ -156,7 +156,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 
 We gebruiken de `B2C Get-User` opdracht als voorbeeld. Wanneer `B2C Get-User` wordt aangeroepen zonder eventuele extra ingangen, het aanroepen van de CLI de `B2CGraphClient.GetAllUsers(...)` methode. Deze methode aanroept `B2CGraphClient.SendGraphGetRequest(...)`, die een HTTP GET-aanvraag naar de Graph API worden verzonden. Voordat u `B2CGraphClient.SendGraphGetRequest(...)` verzendt de GET-aanvragen, het eerst ophalen van een token met behulp van ADAL:
 
-```C#
+```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     // First, use ADAL to acquire a token by using the app's identity (the credential)
@@ -190,7 +190,7 @@ Er zijn twee belangrijke opmerkingen:
 
 Beide van deze gegevens worden verwerkt in de `B2CGraphClient.SendGraphGetRequest(...)` methode:
 
-```C#
+```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     ...

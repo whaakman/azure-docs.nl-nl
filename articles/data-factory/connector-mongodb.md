@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ De volgende eigenschappen worden ondersteund voor MongoDB gekoppelde service:
 | type |De eigenschap type moet worden ingesteld op: **MongoDb** |Ja |
 | server |IP-adres of de hostnaam de naam van de MongoDB-server. |Ja |
 | poort |TCP-poort die de MongoDB-server gebruikt om te luisteren naar verbindingen van clients. |Nee (de standaardwaarde is 27017) |
-| DatabaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
+| databaseName |De naam van de MongoDB-database die u wilt openen. |Ja |
 | authenticationType | Het soort verificatie die wordt gebruikt voor verbinding met de MongoDB-database.<br/>Toegestane waarden zijn: **Basic**, en **anoniem**. |Ja |
 | gebruikersnaam |Het gebruikersaccount voor toegang tot MongoDB. |Ja (als u basisverificatie wordt gebruikt). |
 | wachtwoord |Wachtwoord voor de gebruiker. Dit veld markeren als SecureString. |Ja (als u basisverificatie wordt gebruikt). |
@@ -119,7 +119,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van MongoDB,
 
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door MongoDB-bron.
 
@@ -177,10 +177,10 @@ Bij het kopiëren van gegevens van MongoDB, worden de volgende toewijzingen van 
 
 | MongoDB-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Binair bestand |Byte] |
+| Binair bestand |Byte[] |
 | Boole-waarde |Boole-waarde |
 | Date |Datum en tijd |
-| NumberDouble |dubbele |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Tekenreeks |
@@ -229,7 +229,7 @@ De volgende tabellen tonen de virtuele tabellen waarbij de oorspronkelijke matri
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Korting |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |ingesteld |1235 |0.2 |
+| 1111 |1 |124 |oven |1235 |0.2 |
 | 2222 |0 |135 |koelkast |12543 |0.0 |
 
 **Tabel 'ExampleTable_Ratings':**

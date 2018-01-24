@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - eindpunten van IoT-Hub
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 U vindt de naam van de IoT-hub die als host fungeert voor uw eindpunten in de portal op de **overzicht** blade. Standaard is de DNS-naam van een IoT-hub ziet eruit als: `{your iot hub name}.azure-devices.net`.
 
-Azure DNS kunt u een aangepaste DNS-naam voor uw iothub maken. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](../dns/dns-custom-domain.md#azure-iot).
+Azure DNS kunt u een aangepaste DNS-naam voor uw iothub maken. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lijst met ingebouwde IoT Hub-eindpunten
 

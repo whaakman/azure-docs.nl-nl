@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3686cfffd2c29461213b2866665e59336f037fa0
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Handleiding voor het programmeren van U-SQL
 
@@ -903,7 +903,7 @@ Gebruiker gedefinieerde aggregaties zijn niet out-of-the-box met U-SQL is geen a
 
 De definitie van de gebruiker gedefinieerde cumulatieve basisklasse is als volgt:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -1058,9 +1058,9 @@ Hier volgt een lijst met UDO in U-SQL:
 
 UDO wordt normaal gesproken expliciet aangeroepen in de U-SQL-script als onderdeel van de volgende U-SQL-instructies:
 
-* UITPAKKEN
+* EXTRACT
 * UITVOER
-* PROCES
+* PROCESS
 * COMBINEREN
 * VERMINDEREN
 
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Om te voorkomen maakt u een instantie van het object in base script, maken we een wrapper functie, zoals wordt weergegeven in het vorige voorbeeld:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Of met het aanroepen van een wrapper-fabrieksmethode:
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1871,7 +1871,7 @@ Voorbeeld: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 De belangrijkste programmeerbare objecten zijn:
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

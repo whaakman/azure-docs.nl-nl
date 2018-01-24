@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 Media Services kunt vanaf 2,17 versie, u filters definiëren voor de activa. Deze filters zijn server side regels die zorgen uw klanten dat ervoor te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats daarvan kan verwerken met de vertoningen die zijn gekoppeld aan de asset). Via dit filteren van uw assets wordt gearchiveerd **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.
 
-In dit onderwerp wordt besproken algemene scenario's waarin zeer nuttig zijn om uw klanten en koppelingen naar onderwerpen die laten zien hoe u filters maken via een programma met filters zijn (op dit moment kunt u filters maken met de REST-API's alleen).
+In dit onderwerp wordt besproken algemene scenario's waarin zeer nuttig zijn om uw klanten en koppelingen naar onderwerpen die laten zien hoe u filters maken via een programma met filters zou zijn.
 
 ## <a name="overview"></a>Overzicht
 Wanneer u uw inhoud levert aan klanten (streaming live gebeurtenissen of video-on-demand) is het doel een video van hoge kwaliteit te leveren aan verschillende apparaten met verschillende netwerkomstandigheden. Als u dit doel het volgende te doen:

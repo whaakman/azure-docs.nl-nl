@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics probleemoplossing
 Dit artikel wordt beschreven informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](azure-diagnostics.md).
@@ -36,25 +36,25 @@ Hieronder vindt u de paden naar een aantal belangrijke logboeken en artefacten. 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 | Artefacten | Pad |
 | --- | --- |
-| **Azure Diagnostics-configuratiebestand** | %SYSTEMDRIVE%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versie > \Config.txt |
-| **Logboekbestanden** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versie > \ |
-| **Lokale archief voor diagnostische gegevens** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Monitoring agent-configuratiebestand** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Azure Diagnostics-extensie-pakket** | %SYSTEMDRIVE%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versie > |
-| **Pad naar het logboek verzameling hulpprogramma** | %SYSTEMDRIVE%\Packages\GuestAgent\ |
-| **Logboekbestand MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **Azure Diagnostics-configuratiebestand** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Logboekbestanden** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Lokale archief voor diagnostische gegevens** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Monitoring agent-configuratiebestand** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Azure Diagnostics-extensie-pakket** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
+| **Pad naar het logboek verzameling hulpprogramma** | %SystemDrive%\Packages\GuestAgent\ |
+| **Logboekbestand MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Virtuele machines
 | Artefacten | Pad |
 | --- | --- |
-| **Azure Diagnostics-configuratiebestand** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versie > \RuntimeSettings |
-| **Logboekbestanden** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versie > \Logs\ |
-| **Lokale archief voor diagnostische gegevens** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Monitoring agent-configuratiebestand** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Statusbestand** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versie > \Status |
-| **Azure Diagnostics-extensie-pakket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Azure Diagnostics-configuratiebestand** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Logboekbestanden** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Lokale archief voor diagnostische gegevens** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Monitoring agent-configuratiebestand** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Statusbestand** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Azure Diagnostics-extensie-pakket** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Pad naar het logboek verzameling hulpprogramma** | C:\WindowsAzure\Packages |
-| **Logboekbestand MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **Logboekbestand MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Metrische gegevens worden niet weergegeven in de Azure portal
 Azure Diagnostics biedt metrische gegevens die kunnen worden weergegeven in de Azure portal. Als u problemen met de gegevens in de portal ziet, controleert u de WADMetrics\* tabel in de diagnostische gegevens van Azure storage-account om te zien als de bijbehorende metrische gegevens er zijn. 
@@ -66,22 +66,22 @@ Als de resource-ID onjuist is, controleert u **Diagnostics** **configuratie** > 
 Als er geen gegevens voor de specifieke metrische gegevens zijn, controleert u **configuratie van diagnostische** > **PerformanceCounter** om te zien als de metriek (prestatiemeteritem) opgenomen is. We standaard ingeschakeld in de volgende prestatiemeteritems:
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
-- \ASP.NET toepassingen (__totale__) \Requests/Sec
-- \ASP.NET toepassingen (__totale__) \Errors aantal bytes per seconde
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
 - \ASP.NET\Requests in de wachtrij
 - \ASP.NET\Requests geweigerd
 - \Processor(W3wp)\% processortijd
-- \Process (w3wp) \Private Bytes
-- \Process(WaIISHost)\% processortijd
-- \Process (WaIISHost) \Private Bytes
+- \Process(w3wp)\Private Bytes
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
 - \Process(WaWorkerHost)\% processortijd
-- \Process (WaWorkerHost) \Private Bytes
+- \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page fouten per seconde
 - \.NET CLR-geheugen (_globale_)\% tijd in %
-- \LogicalDisk (C:) \Disk geschreven Bytes per seconde
-- \LogicalDisk (C:) \Disk gelezen Bytes per seconde
-- \LogicalDisk (D:) \Disk geschreven Bytes per seconde
-- \LogicalDisk (D:) \Disk gelezen Bytes per seconde
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
 
 Als de configuratie correct is ingesteld, maar nog steeds de metrische gegevens niet weergegeven, gebruikt u de volgende richtlijnen om op te lossen.
 
@@ -154,7 +154,7 @@ Als u nadenkt weet over het contact opnemen met ondersteuning, is het eerste wat
 ## <a name="diagnostics-data-tables-not-found"></a>Diagnostische gegevenstabellen is niet gevonden
 De tabellen in Azure storage waarin ETW-gebeurtenissen worden benoemd met behulp van de volgende code:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -205,9 +205,9 @@ Hier volgt een voorbeeld:
 ```
 Deze code genereert vier tabellen:
 
-| Gebeurtenis | De tabelnaam van de |
+| Gebeurtenis | Tabelnaam |
 | --- | --- |
-| provider = 'prov1' &lt;gebeurtenis-id = "1" /&gt; |WADEvent + MD5("prov1") + '1' |
+| provider = 'prov1' &lt;gebeurtenis-id = "1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | provider = 'prov1' &lt;gebeurtenis-id = "2" eventDestination = "dest1" /&gt; |WADdest1 |
 | provider = 'prov1' &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | provider = 'prov2' &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |

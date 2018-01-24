@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3f0b296b0bfb762607fdb4b42151b77a9e388a18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory-Wizard kopiëren
 > [!NOTE]
@@ -32,7 +32,7 @@ De Wizard kopiëren van Azure Data Factory vereenvoudigt het proces van het opne
 ## <a name="designed-for-big-data"></a>Ontworpen voor big data
 Deze wizard kunt u eenvoudig om gegevens te verplaatsen van een groot aantal gegevensbronnen naar bestemmingen in minuten. Nadat u de wizard doorloopt, wordt een pijplijn met een kopieeractiviteit automatisch voor u gemaakt, samen met afhankelijke Data Factory-entiteiten (gekoppelde services en gegevenssets). Er zijn geen extra stappen nodig voor het maken van de pijplijn.   
 
-![Selecteer gegevensbron](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Gegevensbron selecteren](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Voor stapsgewijze instructies voor het maken van een voorbeeldpijplijn om gegevens te kopiëren van een Azure-blob naar een Azure SQL Database-tabel, raadpleegt u de [Wizard kopiëren zelfstudie](data-factory-copy-data-wizard-tutorial.md).

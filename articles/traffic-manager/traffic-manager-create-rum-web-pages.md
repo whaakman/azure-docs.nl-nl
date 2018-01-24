@@ -4,7 +4,7 @@ description: Instellen van uw webpagina's voor het verzenden van echte metingen 
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Het verzenden van echte metingen van de gebruiker naar Azure Traffic Manager via de webpagina 's
 
@@ -61,7 +61,7 @@ Nadat u de RUMSECTOR code hebt ontvangen, wordt de volgende stap is het deze gek
 1.  De HTML-pagina in een teksteditor openen
 2.  Plak de JavaScript-code die u in de vorige stap had gekopieerd naar de sectie BODY van de HTML-code (de gekopieerde code is op de regel 8 en 9, zie afbeelding 3).
  
-    ![Javascript-code insluiten in webpagina's voor echte metingen van de gebruiker](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Javascript-code insluiten in webpagina's voor echte metingen van de gebruiker](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Afbeelding 3: Eenvoudige HTML met ingesloten JavaScript met echte metingen**
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows universele-Platform (UWP/XAML) aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -89,7 +89,7 @@ Het basisprincipe achter ADAL is dat wanneer de app een toegangstoken moet, aanr
 
 1. Initialiseren van de app `AuthenticationContext`, dit is de primaire klasse van ADAL. Deze actie geeft ADAL de coördinaten nodig om te communiceren met Azure AD en hoe deze tokens in de cache.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ Het basisprincipe achter ADAL is dat wanneer de app een toegangstoken moet, aanr
 
 2. Zoek de `Search(...)` methode die wordt opgeroepen wanneer gebruikers op de **Search** knop op de gebruikersinterface van de app. Deze methode maakt een get-aanvraag voor Azure AD Graph API aan query voor gebruikers wiens UPN met de opgegeven zoekterm begint. Om te vragen de Graph API, een toegangstoken in de aanvraag opnemen **autorisatie** header. Dit is waar de ADAL wordt geleverd.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ Het basisprincipe achter ADAL is dat wanneer de app een toegangstoken moet, aanr
     Wanneer de app een token aanvragen door het aanroepen van `AcquireTokenAsync(...)`, ADAL probeert te retourneren van een token zonder dat de gebruiker om referenties gevraagd. Als ADAL wordt vastgesteld dat de gebruiker zich aanmelden moet bij een token verkrijgen, het geeft een dialoogvenster aanmelden, verzamelt de referenties van de gebruiker en geeft aan dat een token na een verificatie geslaagde. Als ADAL kunnen niet worden geretourneerd van een token voor een of andere reden is de *AuthenticationResult* status is een fout opgetreden.
 3. Nu is het tijd om het gebruik van het toegangstoken dat u zojuist hebt opgehaald. Ook in de `Search(...)` methode, het token koppelen aan de Graph API get-aanvraag in de **autorisatie** header:
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. U kunt de `AuthenticationResult` object om informatie over de gebruiker in de app, zoals ID van de gebruiker weer te geven:
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. U kunt ook ADAL voor het ondertekenen van gebruikers buiten de app. Wanneer de gebruiker klikt op de **Afmelden** knop, zorg ervoor dat de volgende aanroep `AcquireTokenAsync(...)` ziet u een weergave aanmelden. Deze actie is met ADAL, net zo eenvoudig als het token cache wissen:
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

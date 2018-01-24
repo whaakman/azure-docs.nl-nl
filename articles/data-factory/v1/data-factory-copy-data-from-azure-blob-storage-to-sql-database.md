@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage met SQL Database met behulp van de Data Factory
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 * **Azure-abonnement**.  Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie de [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/) artikel voor meer informatie.
 * **Azure Storage-Account**. Gebruik van de blob storage als een **bron** gegevens opslaan in deze zelfstudie. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account) voor de stappen voor het maken van een account.
 * **Azure SQL-database**. Gebruik van een Azure SQL database als een **bestemming** gegevens opslaan in deze zelfstudie. Als u een Azure SQL-database die u in de zelfstudie, Zie gebruiken kunt geen [maken en configureren van een Azure SQL Database](../../sql-database/sql-database-get-started.md) een maken.
-* **SQL Server 2012-2014 of Visual Studio 2013**. U gebruikt de SQL Server Management Studio of Visual Studio een voorbeelddatabase te maken en de result-gegevens weergeven in de database.  
+* **SQL Server 2012/2014 or Visual Studio 2013**. U gebruikt de SQL Server Management Studio of Visual Studio een voorbeelddatabase te maken en de result-gegevens weergeven in de database.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Blob storage-accountnaam en sleutel verzamelen
 U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in deze zelfstudie. Noteer **accountnaam** en **accountsleutel** voor uw Azure storage-account.

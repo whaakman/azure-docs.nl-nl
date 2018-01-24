@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
 De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt u de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het aanpassen van het configuratiebestand, kunt u inschakelen of uitschakelen van telemetrie-modules en initializers en parameters voor enkele ervan instellen.
@@ -237,7 +237,7 @@ Als u instellen van de sleutel dynamisch - bijvoorbeeld wilt als u resultaten wi
 
 Om in te stellen de sleutel voor alle exemplaren van TelemetryClient, stel inclusief standaard telemetrie modules, de sleutel in TelemetryConfiguration.Active. Dit doen in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-beheerservice:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -250,7 +250,7 @@ Om in te stellen de sleutel voor alle exemplaren van TelemetryClient, stel inclu
 
 Als u alleen verzenden van een specifieke reeks gebeurtenissen naar een andere resource wilt, kunt u de sleutel instellen voor een specifieke TelemetryClient:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

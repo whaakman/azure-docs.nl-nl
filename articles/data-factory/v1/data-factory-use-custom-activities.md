@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ De volgende procedure bevat stapsgewijze instructies voor het maken van een aang
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Overzicht: een aangepaste activiteit maken
 ### <a name="prerequisites"></a>Vereisten
-* Visual Studio 2012-2013-2015
+* Visual Studio 2012/2013/2015
 * Download en installeer [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Vereisten voor Azure Batch
@@ -95,9 +95,9 @@ public IDictionary<string, string> Execute(
 De methode bevat vier parameters:
 
 - **linkedServices**. Deze eigenschap is een inventariseerbare lijst van gegevensarchief gekoppelde services waarnaar wordt verwezen door de gegevenssets invoer/uitvoer voor de activiteit.   
-- **gegevenssets**. Deze eigenschap is een inventariseerbare lijst van gegevenssets van de invoer/uitvoer voor de activiteit. Deze parameter kunt u de locaties en schema's die zijn gedefinieerd door de invoer- en uitvoergegevenssets ophalen.
+- **datasets**. Deze eigenschap is een inventariseerbare lijst van gegevenssets van de invoer/uitvoer voor de activiteit. Deze parameter kunt u de locaties en schema's die zijn gedefinieerd door de invoer- en uitvoergegevenssets ophalen.
 - **activiteit**. Deze eigenschap vertegenwoordigt de huidige activiteit. Het kan worden gebruikt voor toegang tot de uitgebreide eigenschappen die zijn gekoppeld aan de aangepaste activiteit. Zie [toegang uitgebreide eigenschappen](#access-extended-properties) voor meer informatie.
-- **Berichtenlogboek**. Dit object kunt u foutopsporing opmerkingen die surface schrijven in het gebruikerslogboek voor de pijplijn.
+- **logger**. Dit object kunt u foutopsporing opmerkingen die surface schrijven in het gebruikerslogboek voor de pijplijn.
 
 De methode retourneert een woordenlijst die kan worden gebruikt om een keten van aangepaste activiteiten in de toekomst. Deze functie is nog niet geïmplementeerd, kunt u dus een woordenboek leeg retourneren van de methode.  
 
@@ -1033,7 +1033,7 @@ De [Azure Data Factory - lokale omgeving](https://github.com/gbrueckl/Azure.Data
 ## <a name="sample-custom-activities-on-github"></a>Aangepaste activiteiten voorbeeld op GitHub
 | Voorbeeld | Welke aangepaste activiteit doet |
 | --- | --- |
-| [Het Downloadprogramma voor het HTTP-gegevens](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloadt gegevens van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste C#-activiteit in de Data Factory. |
+| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloadt gegevens van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste C#-activiteit in de Data Factory. |
 | [Twitter-gevoel Analysis-voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Hiermee wordt een Azure ML-model en komen gevoel analyse, score berekenen, voorspelling enzovoort. |
 | [R-Script uitvoeren](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |R-script worden opgeroepen door RScript.exe uitgevoerd op uw HDInsight-cluster al met R is geïnstalleerd op. |
 | [Cross-activiteit van AppDomain .NET](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Maakt gebruik van verschillende assembly-versies van de waarden die worden gebruikt door de Data Factory-starten |

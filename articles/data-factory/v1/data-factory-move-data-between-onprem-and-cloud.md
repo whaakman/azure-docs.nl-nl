@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen lokale bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -121,7 +121,7 @@ In deze stap maakt u de Azure portal gebruiken voor het maken van een Azure Data
     ![Gateway-installatie is geslaagd](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
 6. Start **Data Management Gateway Configuration Manager** toepassing op uw computer. In de **Search** venster, type **Data Management Gateway** voor toegang tot dit hulpprogramma. U kunt ook het uitvoerbare bestand vinden **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-    ![Gateway-Configuratiebeheer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+    ![Gateway Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Controleer of u `adftutorialgateway is connected to the cloud service` bericht. De statusbalk in het onderste worden **verbonden met de cloudservice** samen met een **groen vinkje**.
 
     Op de **Start** tabblad kunt u ook de volgende bewerkingen uitvoeren:

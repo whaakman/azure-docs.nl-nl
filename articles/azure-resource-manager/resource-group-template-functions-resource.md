@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resource-functies voor Azure Resource Manager-sjablonen
 
@@ -47,8 +47,8 @@ Retourneert de waarden voor elk resourcetype die ondersteuning biedt voor de bew
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| resourceName of resourceIdentifier |Ja |Tekenreeks |De unieke id voor de resource. |
-| apiVersion |Ja |Tekenreeks |API-versie van de status van de runtime. Normaal gesproken in de notatie **jjjj-mm-dd**. |
+| resourceName of resourceIdentifier |Ja |tekenreeks |De unieke id voor de resource. |
+| apiVersion |Ja |tekenreeks |API-versie van de status van de runtime. Normaal gesproken in de notatie **jjjj-mm-dd**. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -153,8 +153,8 @@ Retourneert informatie over een resourceprovider en de volgende resourcetypen on
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Ja |Tekenreeks |Namespace van de provider |
-| resourceType |Nee |Tekenreeks |Het type bron binnen de opgegeven naamruimte. |
+| providerNamespace |Ja |tekenreeks |Namespace van de provider |
+| resourceType |Nee |tekenreeks |Het type bron binnen de opgegeven naamruimte. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -241,9 +241,9 @@ Retourneert een object dat de runtimestatus van de bron.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| resourceName of resourceIdentifier |Ja |Tekenreeks |Naam of de unieke id van een resource. |
-| apiVersion |Nee |Tekenreeks |API-versie van de opgegeven resource. Deze parameter bevatten wanneer de bron niet binnen dezelfde sjabloon ingericht is. Normaal gesproken in de notatie **jjjj-mm-dd**. |
-| 'Volledige' |Nee |Tekenreeks |De waarde die aangeeft of de volledige resource-object als resultaat gegeven. Als u geen opgeeft `'Full'`, alleen de Eigenschappenobject van de bron wordt geretourneerd. Het volledige object bevat de waarden zoals de resource-ID en de locatie. |
+| resourceName of resourceIdentifier |Ja |tekenreeks |Naam of de unieke id van een resource. |
+| apiVersion |Nee |tekenreeks |API-versie van de opgegeven resource. Deze parameter bevatten wanneer de bron niet binnen dezelfde sjabloon ingericht is. Normaal gesproken in de notatie **jjjj-mm-dd**. |
+| 'Volledige' |Nee |tekenreeks |De waarde die aangeeft of de volledige resource-object als resultaat gegeven. Als u geen opgeeft `'Full'`, alleen de Eigenschappenobject van de bron wordt geretourneerd. Het volledige object bevat de waarden zoals de resource-ID en de locatie. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -251,7 +251,7 @@ Elk resourcetype verschillende eigenschappen voor de verwijzing naar functie ger
 
 ### <a name="remarks"></a>Opmerkingen
 
-De functie verwijzing is afgeleid van de waarde van een runtimestatus en daarom niet worden gebruikt in het gedeelte variabelen. Het kan worden gebruikt in het gedeelte van de uitvoer van een sjabloon. 
+De functie verwijzing is afgeleid van de waarde van een runtimestatus en daarom niet worden gebruikt in het gedeelte variabelen. Het kan worden gebruikt in het gedeelte van de uitvoer van een sjabloon of [gekoppelde sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Het kan niet worden gebruikt in de sectie uitvoer van een [geneste sjabloon](resource-group-linked-templates.md#link-or-nest-a-template). Als u wilt de waarden voor een geïmplementeerde resource in een geneste sjabloon, de sjabloon voor geneste niet converteren naar een gekoppelde sjabloon. 
 
 Met behulp van de functie verwijzing impliciet kunt declareren u één resource afhankelijk is van een andere bron, als de bron waarnaar wordt verwezen is ingericht binnen dezelfde sjabloon. U hoeft niet de eigenschap dependsOn ook gebruiken. De functie wordt niet geëvalueerd als de bron waarnaar wordt verwezen implementatie is voltooid.
 
@@ -534,10 +534,10 @@ Retourneert de unieke id van een resource. U kunt deze functie gebruiken wanneer
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nee |tekenreeks (In GUID-indeling) |Standaard wordt het huidige abonnement. Deze waarde opgeven als u nodig hebt voor het ophalen van een resource in een ander abonnement. |
-| resourceGroupName |Nee |Tekenreeks |Standaardwaarde is de huidige resourcegroep. Deze waarde opgeven als u nodig hebt voor het ophalen van een resource in een andere resourcegroep. |
-| resourceType |Ja |Tekenreeks |Type resource, met inbegrip van de naamruimte van de resource-provider. |
-| resourceName1 |Ja |Tekenreeks |Naam van de resource. |
-| resourceName2 |Nee |Tekenreeks |Volgende naam resourcesegment als bron is genest. |
+| resourceGroupName |Nee |tekenreeks |Standaardwaarde is de huidige resourcegroep. Deze waarde opgeven als u nodig hebt voor het ophalen van een resource in een andere resourcegroep. |
+| resourceType |Ja |tekenreeks |Type resource, met inbegrip van de naamruimte van de resource-provider. |
+| resourceName1 |Ja |tekenreeks |Naam van de resource. |
+| resourceName2 |Nee |tekenreeks |Volgende naam resourcesegment als bron is genest. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -654,10 +654,10 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| sameRGOutput | Tekenreeks | /Subscriptions/{Current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Tekenreeks | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | Tekenreeks | /Subscriptions/{Current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Tekenreeks | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Tekenreeks | /Subscriptions/{Current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/servername/databases/databaseName |
+| nestedResourceOutput | Tekenreeks | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 

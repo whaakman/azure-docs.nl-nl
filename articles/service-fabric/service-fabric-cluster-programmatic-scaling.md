@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Een Service Fabric-cluster via een programma schalen 
 
@@ -57,7 +57,7 @@ Een service-principal kan worden gemaakt met de volgende stappen:
 
 De bibliotheek beheersen compute kunt aanmelden met deze referenties als volgt (Houd er rekening mee dat core beheersen Azure typen, zoals `IAzure` zijn in de [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pakket):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ Nadat u bent aangemeld, scale set-exemplaren kan worden opgevraagd `AzureClient.
 ## <a name="scaling-out"></a>Uitschalen
 Met behulp van de beheersen Azure compute SDK, exemplaren kunnen worden toegevoegd aan de virtuele-machineschaalset ingesteld met een paar aanroepen-
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Schalen is vergelijkbaar met het uitbreiden. De werkelijke virtuele-machineschaa
 
 Het knooppunt voorbereiden voor het afsluiten omvat het zoeken naar het knooppunt worden verwijderd (het meest recent toegevoegde knooppunt) en het deactiveren. Voor niet-seed-knooppunten nieuwere knooppunten kunnen worden gevonden door te vergelijken `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ Seed-knooppunten zijn verschillend en niet per se volgt u de overeenkomst groter
 
 Als het knooppunt worden verwijderd, wordt gevonden, deze kunnen worden gedeactiveerd en verwijderd met behulp van dezelfde `FabricClient` exemplaar en de `IAzure` exemplaar van eerder.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Als met het uitbreiden van de PowerShell-cmdlets voor het wijzigen van de virtuele-machineschaalset kan set capaciteit ook hier worden gebruikt als een scripting benadering de voorkeur verdient. Zodra de instantie van de virtuele machine is verwijderd, kan de status van Service Fabric-knooppunt kan worden verwijderd.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 

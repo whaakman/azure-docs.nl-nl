@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Gegevens kopiëren van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ De volgende eigenschappen worden ondersteund voor MySQL gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **MySql** | Ja |
 | server | Naam van de MySQL-server. | Ja |
 | database | Naam van de MySQL-database. | Ja |
-| Schema | De naam van het schema in de database. | Nee |
+| schema | De naam van het schema in de database. | Nee |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de MySQL-database. | Ja |
 | wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven. Dit veld markeren als SecureString. | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
@@ -117,7 +117,7 @@ Om gegevens te kopiëren van MySQL, stel de eigenschap type van de gegevensset *
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door MySQL-bron.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5c859d13ea8a10e1fa38340df52f189ec6cd4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Verplaatsen van gegevens uit een on-premises Cassandra-database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 | met keyspace |Naam van de keyspace of het schema in Cassandra-database. |Ja (als **query** voor **CassandraSource** is niet gedefinieerd). |
 | tableName |Naam van de tabel in Cassandra-database. |Ja (als **query** voor **CassandraSource** is niet gedefinieerd). |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 Terwijl de eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -262,15 +262,15 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 | --- | --- |
 | ASCII |Tekenreeks |
 | BIGINT |Int64 |
-| BLOB |Byte] |
-| BOOLEAANSE WAARDE |Booleaanse waarde |
-| DECIMALE |Decimale |
-| DOUBLE |dubbele |
-| FLOAT |Één |
+| BLOB |Byte[] |
+| BOOLEAANSE WAARDE |Boole-waarde |
+| DECIMAL |Decimale |
+| DOUBLE |Double |
+| FLOAT |Single |
 | INET |Tekenreeks |
 | INT |Int32 |
-| TEKST |Tekenreeks |
-| TIJDSTEMPEL |Datum/tijd |
+| TEXT |Tekenreeks |
+| TIJDSTEMPEL |Datum en tijd |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Tekenreeks |
@@ -329,8 +329,8 @@ De volgende tabellen tonen de virtuele tabellen die de gegevens uit de lijst, to
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Tabel 'ExampleTable_vt_StringSet':
 | pk_int | StringSet_value |

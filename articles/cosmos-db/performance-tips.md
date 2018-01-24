@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 84a1913bd218d512f7f2818291f59d98628a7272
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -60,7 +60,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
      De Connectiviteitsmodus wordt geconfigureerd tijdens het samenstellen van de DocumentClient-exemplaar met de parameter ConnectionPolicy. Als de modus Direct wordt gebruikt, kan het Protocol ook worden ingesteld binnen de ConnectionPolicy-parameter.
 
-    ```C#
+    ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
     var authKey = new "your authKey from the Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
@@ -158,7 +158,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Indexeringsbeleid cosmos van de database kunt u opgeven welke paden document wilt opnemen of uitsluiten door gebruik te indexeren paden (IndexingPolicy.IncludedPaths en IndexingPolicy.ExcludedPaths) te indexeren. Het gebruik van de indexering van paden kunt bieden verbeterde schrijfprestaties en lagere opslagkosten voor index voor scenario's waarin de querypatronen tevoren bekend als indexering kosten rechtstreeks worden gecorreleerd met het aantal unieke paden die zijn geïndexeerd.  De volgende code ziet u bijvoorbeeld een hele sectie van de documenten (ook uitsluiten een substructuur) vanuit indexering met de ' * ' jokerteken.
 
-    ```C#
+    ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
@@ -180,7 +180,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Voor het meten van de overhead van bewerkingen (maken, bijwerken of verwijderen) Inspecteer de [x-ms-aanvraag-kosten](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header (of de equivalente RequestCharge-eigenschap in ResourceResponse<T> of FeedResponse<T> in de. NET SDK) voor het meten van het aantal aanvraageenheden verbruikt door deze bewerkingen.
 
-    ```C#
+    ```csharp
     // Measure the performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);

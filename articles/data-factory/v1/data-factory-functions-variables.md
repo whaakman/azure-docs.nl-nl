@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -30,10 +30,10 @@ Dit artikel bevat informatie over functies en variabelen die worden ondersteund 
 ## <a name="data-factory-system-variables"></a>Data Factory-systeemvariabelen
 | Naam variabele | Beschrijving | Bereik van het object | JSON-bereik en gebruiksvoorbeelden |
 | --- | --- | --- | --- |
-| WindowStart |Begin van het tijdsinterval voor de huidige activiteit venster uitvoeren |Activiteit |<ol><li>Geef op query's voor selectie. Zie connector artikelen waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
-| WindowEnd |Einde van het tijdsinterval voor de huidige activiteit venster uitvoeren |Activiteit |hetzelfde als WindowStart. |
-| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |Activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
-| SliceEnd |Einde van de tijdsinterval voor het huidige segment. |Activiteit<br/>Gegevensset |hetzelfde als SliceStart. |
+| WindowStart |Begin van het tijdsinterval voor de huidige activiteit venster uitvoeren |activiteit |<ol><li>Geef op query's voor selectie. Zie connector artikelen waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
+| WindowEnd |Einde van het tijdsinterval voor de huidige activiteit venster uitvoeren |activiteit |hetzelfde als WindowStart. |
+| SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |activiteit<br/>dataset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
+| SliceEnd |Einde van de tijdsinterval voor het huidige segment. |activiteit<br/>dataset |hetzelfde als SliceStart. |
 
 > [!NOTE]
 > Op dit moment vereist gegevensfactory dat de planning die is opgegeven in de activiteit exact overeenkomt met het schema dat is opgegeven in de beschikbaarheid van de uitvoergegevensset. Daarom WindowStart, WindowEnd, en SliceStart en SliceEnd altijd toegewezen aan dezelfde periode en een segment één uitvoer.
@@ -59,7 +59,7 @@ U kunt functies gebruiken in gegevensfactory samen met de variabelen voor de vol
 
 1. Query's voor selectie opgeven (Zie connector artikelen waarnaar wordt verwezen door de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.
    
-   De syntaxis voor het aanroepen van een data factory-functie is: ** $$ <function> ** voor selectie van query's en andere eigenschappen in de activiteit en gegevenssets.  
+   De syntaxis voor het aanroepen van een data factory-functie is:  **$$ <function>**  voor selectie van query's en andere eigenschappen in de activiteit en gegevenssets.  
 2. Invoer afhankelijkheden opgeven data factory-functies in activiteit invoer verzameling.
    
     $$ is niet nodig voor het opgeven van invoer afhankelijkheid expressies.     
@@ -95,12 +95,12 @@ De volgende tabellen worden de functies in Azure Data Factory:
 | Date |EndOfDay(X) |X: datum/tijd |Hiermee haalt u de datum-tijd die het einde van de dag (daggedeelte) van X.<br/><br/>Voorbeeld: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: datum/tijd |Het einde van de maand dat wordt vertegenwoordigd door maandgedeelte van de parameter X opgehaald. <br/><br/>Voorbeeld: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum / tijd die het einde van de maand September vertegenwoordigt) |
 | Date |StartOfDay(X) |X: datum/tijd |Hiermee haalt u het begin van de dag dat wordt vertegenwoordigd door het daggedeelte van de parameter X.<br/><br/>Voorbeeld: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Datum/tijd |FROM(X) |X: de tekenreeks |Parseren van tekenreeks X naar een datum-tijd. |
-| Datum/tijd |Ticks(X) |X: datum/tijd |Hiermee haalt u de maatstreepjes eigenschap van de parameter X. Eén tik is gelijk aan 100 nanoseconden. De waarde van deze eigenschap geeft het aantal maatstreepjes dat is verstreken sinds 12:00:00 middernacht, 1 januari 0001. |
+| Datum en tijd |FROM(X) |X: de tekenreeks |Parseren van tekenreeks X naar een datum-tijd. |
+| Datum en tijd |Ticks(X) |X: datum/tijd |Hiermee haalt u de maatstreepjes eigenschap van de parameter X. Eén tik is gelijk aan 100 nanoseconden. De waarde van deze eigenschap geeft het aantal maatstreepjes dat is verstreken sinds 12:00:00 middernacht, 1 januari 0001. |
 | Tekst |Format(X) |X: tekenreeksvariabele |Hiermee maakt u de tekst (Gebruik `\\'` combinatie escape `'` teken).|
 
 > [!IMPORTANT]
-> Wanneer u een functie binnen een andere functie, hoeft u niet te gebruiken ** $$ ** voorvoegsel voor de interne functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: jjjj-MM-dd: mm: SS}\\'', Time.AddHours (SliceStart -6)). U ziet dat in dit voorbeeld ** $$ ** voorvoegsel wordt niet gebruikt voor de **Time.AddHours** functie. 
+> Wanneer u een functie binnen een andere functie, hoeft u niet te gebruiken  **$$**  voorvoegsel voor de interne functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: jjjj-MM-dd: mm: SS}\\'', Time.AddHours (SliceStart -6)). U ziet dat in dit voorbeeld  **$$**  voorvoegsel wordt niet gebruikt voor de **Time.AddHours** functie. 
 
 #### <a name="example"></a>Voorbeeld
 In het volgende voorbeeld invoer- en parameters voor de Hive-activiteit worden bepaald met behulp van de `Text.Format` functie en SliceStart systeemvariabele. 

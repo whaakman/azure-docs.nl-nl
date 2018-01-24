@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformeer gegevens met Hadoop-streamingactiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,7 +84,7 @@ Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Fa
 | fileLinkedService | Verwijzing naar een Azure Storage Linked Service gebruikt voor het opslaan van de programma's toewijzen, Combiner en Reducer moet worden uitgevoerd. Als u deze gekoppelde Service niet opgeeft, wordt de Azure Storage Linked Service gedefinieerd in de gekoppelde HDInsight-Service wordt gebruikt. | Nee       |
 | filePath          | Geef een matrix van pad tot Mapper Combiner, en Reducer programma's die zijn opgeslagen in Azure Storage waarnaar wordt verwezen door fileLinkedService. Het pad is hoofdlettergevoelig. | Ja      |
 | Invoer             | Hiermee geeft u het WASB pad naar het bestand voor invoer voor de toewijzing. | Ja      |
-| Uitvoer            | Hiermee geeft u het pad WASB naar het uitvoerbestand voor de Reducer. | Ja      |
+| output            | Hiermee geeft u het pad WASB naar het uitvoerbestand voor de Reducer. | Ja      |
 | getDebugInfo      | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door de scriptLinkedService. Toegestane waarden: None, altijd of fout. Standaardwaarde: geen. | Nee       |
 | Argumenten         | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten zijn doorgegeven als opdrachtregelargumenten voor elke taak. | Nee       |
 | Hiermee worden gedefinieerd           | Geef parameters op als sleutel-waardeparen voor verwijzende binnen het Hive-script. | Nee       | 

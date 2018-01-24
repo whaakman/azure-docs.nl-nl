@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b03be0df05f85ec9ecd1fca4042e87c838022c7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Gegevens verplaatsen van een HTTP-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ De volgende tabel bevat de beschrijving voor JSON-elementen die specifiek zijn v
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
 | type | De eigenschap type moet worden ingesteld op: `Http`. | Ja |
-| URL | Basis-URL voor de webserver | Ja |
+| url | Basis-URL voor de webserver | Ja |
 | authenticationType | Hiermee geeft u het verificatietype. Toegestane waarden zijn: **anoniem**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Raadpleeg de secties onder deze tabel over meer eigenschappen en voorbeelden voor deze verificatietypen JSON respectievelijk. | Ja |
 | enableServerCertificateValidation | Geef op of validatie van het servercertificaat SSL inschakelen als bron is een HTTPS-webserver | Nee, de standaardwaarde is true |
 | gatewayName | Naam van de Data Management Gateway verbinding maken met een lokale HTTP-bron. | Ja als u gegevens kopiëren van een lokale HTTP-bron. |
@@ -203,7 +203,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 Eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit aan de andere kant variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.

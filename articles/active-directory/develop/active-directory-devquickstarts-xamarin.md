@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD-Xamarin aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -98,7 +98,7 @@ Bijna alle van de app verificatielogica ligt in `DirectorySearcher.SearchByAlias
 
 1. Open DirectorySearcher.cs en voeg vervolgens een nieuwe parameter voor de `SearchByAlias(...)` methode. `IPlatformParameters`de contextuele parameter die kapselt de platform-specifieke objecten die ADAL nodig zijn voor de verificatie is.
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -107,7 +107,7 @@ Bijna alle van de app verificatielogica ligt in `DirectorySearcher.SearchByAlias
 Deze actie geeft ADAL de coördinaten die kan communiceren met Azure AD.
 3. Roep `AcquireTokenAsync(...)`, die accepteert de `IPlatformParameters` object en roept de authenticatiestroom dat nodig is om een token terug naar de app.
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -126,7 +126,7 @@ Deze actie geeft ADAL de coördinaten die kan communiceren met Azure AD.
     `AcquireTokenAsync(...)`eerst probeert te retourneren van een token voor de aangevraagde bron (in dit geval de Graph-API) zonder gebruikers hun referenties invoeren (via caching of oude tokens vernieuwen). Zo nodig toont het gebruikers de aanmeldingspagina van Azure AD voordat de aangevraagde token ophalen.
 4. Het toegangstoken koppelen aan de Graph API-aanvraag in de **autorisatie** header:
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -137,12 +137,12 @@ Dit is alles wat voor de `DirectorySearcher` PCL en de app de identiteitsgerelat
 ### <a name="android"></a>Android
 1. In MainActivity.cs, Voeg een aanroep naar `SearchByAlias(...)` op de knop klikt u op de handler:
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. Overschrijf de `OnActivityResult` lifecycle-methode voor het doorsturen van de verificatie die wordt omgeleid naar de juiste methode. ADAL biedt een Help-methode voor dit in Android:
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -155,7 +155,7 @@ Dit is alles wat voor de `DirectorySearcher` PCL en de app de identiteitsgerelat
 ### <a name="windows-desktop"></a>Windows-bureaublad
 Controleer in MainWindow.xaml.cs, een aanroep van `SearchByAlias(...)` door een `WindowInteropHelper` op het bureaublad `PlatformParameters` object:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -164,7 +164,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 In DirSearchClient_iOSViewController.cs, het bestand iOS `PlatformParameters` object krijgt een verwijzing naar de weergavebesturing:
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -173,7 +173,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows Universal
 In Windows universele MainPage.xaml.cs openen en vervolgens implementeert u de `Search` methode. Deze methode maakt gebruik van een Help-methode in een gedeeld project UI indien nodig bijwerken.
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

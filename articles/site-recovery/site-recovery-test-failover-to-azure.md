@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Testen van Failover naar Azure in Site Recovery
 
@@ -50,7 +50,7 @@ Deze procedure wordt beschreven hoe u een testfailover voor een herstelplan uitv
     - Als hetzelfde IP-adres niet beschikbaar in het subnet is, ontvangt de virtuele machine een ander beschikbaar IP-adres in het subnet. [Meer informatie](#creating-a-network-for-test-failover).
 4. Als u bent failover wordt uitgevoerd naar Azure en gegevensversleuteling is ingeschakeld, in **versleutelingssleutel**, selecteert u het certificaat dat was uitgegeven wanneer u tijdens de installatie van de Provider is ingeschakeld. U kunt deze stap overslaan versleuteling is niet ingeschakeld.
 5. Voortgang van de failover volgen op de **taken** tabblad. U moet mogelijk zijn om te zien van de test replica-machine in de Azure portal.
-6. Voor het initiëren van een RDP-verbinding met de Azure VM, moet u [toevoegen van een openbaar IP-adres](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) op de netwerkinterface failover VM. 
+6. Voor het initiëren van een RDP-verbinding met de Azure VM, moet u [toevoegen van een openbaar IP-adres](site-recovery-monitoring-and-troubleshooting.md) op de netwerkinterface failover VM. 
 7. Als alles werkt zoals verwacht, klikt u op **opschonen testfailover**. Hiermee verwijdert u de virtuele machines die zijn gemaakt tijdens de testfailover.
 8. In **notities**, vastleggen en opslaan van eventuele opmerkingen die zijn gekoppeld aan de testfailover. 
 
@@ -74,10 +74,10 @@ In de volgende scenario's vereist failover een extra tussenstap die meestal onge
 * Hyper-V VM beveiligd als fysieke servers
 * VMware VM waarop opstartstuurprogramma's zijn niet in de volgende stuurprogramma's:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * Intelide
-    * ATAPI
+    * atapi
 * VMware VM die geen DHCP ingeschakeld, rrespective van of ze zijn geïnstalleerd via DHCP of statische IP-adressen.
 
 In alle andere gevallen is er geen tussenliggende stap is niet vereist en failover aanzienlijk minder tijd nodig.
@@ -113,9 +113,9 @@ Als u verbinding maken met virtuele Azure-machines met RDP na een failover wilt,
 **Failover** | **Locatie** | **Acties**
 --- | --- | ---
 **Azure VM waarop Windows wordt uitgevoerd** | Lokale machine vóór de failover | Voor toegang tot de Azure VM via internet, schakelt u RDP en zorg ervoor dat TCP en UDP-regels worden toegevoegd voor **openbare**, en dat is toegestaan voor alle profielen in RDP **Windows Firewall**  >  **Apps toegestaan**.<br/><br/> Voor toegang tot de Azure VM via een site-naar-site-verbinding, schakelt u RDP in op de machine en zorg ervoor dat RDP is toegestaan in de **Windows Firewall** -> **toegestane apps en functies**, voor **Domein- en persoonlijke** netwerken.<br/><br/>  Zorg ervoor dat het besturingssysteem SAN-beleid is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135).<br/><br/> Zorg ervoor dat er zijn geen Windows-updates in behandeling op de virtuele machine wanneer u een failover activeren. Windows update mogelijk gestart wanneer u een failover, en u niet aanmelden bij de virtuele machine totdat de update is voltooid. 
-**Azure VM waarop Windows wordt uitgevoerd** | Azure virtuele machine na een failover |  [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) voor de virtuele machine.<br/><br/> De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de RDP-poort.<br/><br/> Controleer **opstarten diagnostics** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding maken, controleert u dat de virtuele machine wordt uitgevoerd en deze [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure VM waarop Windows wordt uitgevoerd** | Azure virtuele machine na een failover |  [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md) voor de virtuele machine.<br/><br/> De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de RDP-poort.<br/><br/> Controleer **opstarten diagnostics** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding maken, controleert u dat de virtuele machine wordt uitgevoerd en deze [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Azure VM waarop Linux wordt uitgevoerd** | Lokale machine vóór de failover | Zorg ervoor dat de Secure Shell-service op de virtuele machine is ingesteld op automatisch starten op opstarten van het systeem.<br/><br/> Controleer of er in de firewallregels is ingesteld dat SSH-verbindingen zijn toegestaan.
-**Azure VM waarop Linux wordt uitgevoerd** | Azure virtuele machine na een failover | De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de SSH-poort.<br/><br/> [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) voor de virtuele machine.<br/><br/> Controleer **opstarten diagnostics** voor een schermopname van de virtuele machine.<br/><br/>
+**Azure VM waarop Linux wordt uitgevoerd** | Azure virtuele machine na een failover | De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de SSH-poort.<br/><br/> [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md) voor de virtuele machine.<br/><br/> Controleer **opstarten diagnostics** voor een schermopname van de virtuele machine.<br/><br/>
 
 
 

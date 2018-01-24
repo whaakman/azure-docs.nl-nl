@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automatische back-up voor SQL Server op Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -48,9 +48,7 @@ Houd rekening met de volgende vereisten voor het gebruik van automatische back-u
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> SQL Server 2016 is nog niet ondersteund voor automatische back-up.
-> 
-> 
+> Automatische back-up voor SQL Server 2016 wordt ondersteund met Resource Manager virtuele machines. Zie voor meer informatie [automatische back-up v2 voor SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Databaseconfiguratie**:
 

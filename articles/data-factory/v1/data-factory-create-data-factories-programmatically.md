@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Maken, bewaken en beheren van Azure data Factory met Azure Data Factory .NET SDK
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [kopie activiteit zelfstudie in de documentatie van versie 2](../quickstart-create-data-factory-dot-net.md). 
+> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u de [zelfstudie kopieeractiviteit in de documentatie voor versie 2](../quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="overview"></a>Overzicht
 U kunt maken, bewaken en beheren van Azure data factory's programmatisch met behulp van Data Factory .NET SDK. Dit artikel bevat een overzicht die u volgen kunt om een .NET-console voorbeeldtoepassing die u maakt en bewaakt een gegevensfactory maken. 
@@ -115,7 +115,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
    4. Selecteer **Console Application** uit de lijst met projecttypen aan de rechterkant.
    5. Voer **DataFactoryAPITestApp** in als de naam.
    6. Selecteer **C:\ADFGetStarted** als de locatie.
-   7. Klik op **OK** om het project te maken.
+   7. Klik op **OK** om het project aan te maken.
 2. Klik op **Tools**, wijs **NuGet Package Manager** aan en klik op **Package Manager Console**.
 3. Voer de volgende stappen uit in de **Package Manager Console**:
    1. Voer de volgende opdracht uit om het Data Factory-pakket te installeren: `Install-Package Microsoft.Azure.Management.DataFactories`

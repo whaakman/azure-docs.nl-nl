@@ -3,9 +3,9 @@ title: Azure Disk Encryption Veelgestelde vragen | Microsoft Docs
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Microsoft Azure Disk Encryption for Windows en Linux IaaS VM's.
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption Veelgestelde vragen
 
@@ -47,7 +47,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure Disk E
 
 | Linux-distributie | Versie | Type van het volume voor de versleuteling wordt ondersteund|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAGELIJKS-TNS | Besturingssysteem en schijf |
+| Ubuntu | 16.04-DAILY-LTS | Besturingssysteem en schijf |
 | Ubuntu | 14.04.5-DAILY-LTS | Besturingssysteem en schijf |
 | RHEL | 7.3 | Besturingssysteem en schijf |
 | RHEL | 7.2 | Besturingssysteem en schijf |

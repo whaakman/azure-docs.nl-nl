@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Gegevens kopiëren van de OData-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
 | type | De eigenschap type moet worden ingesteld op: **OData** |Ja |
 | url | De URL van de hoofdmap van de OData-service. |Ja |
 | authenticationType | Het soort verificatie gebruikt voor verbinding met de OData-bron.<br/>Toegestane waarden zijn: **anoniem**, **Basic**, en **Windows**. Houd er rekening mee dat OAuth wordt niet ondersteund. | Ja |
-| Gebruikersnaam | Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. | Nee |
+| userName | Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. | Nee |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als SecureString. | Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
@@ -155,7 +155,7 @@ Om gegevens te kopiëren uit OData, stel de eigenschap type van de gegevensset *
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door OData-bron.
 
@@ -206,12 +206,12 @@ Bij het kopiëren van gegevens uit OData, worden de volgende toewijzingen van OD
 
 | OData-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | BOOL |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Booleaans |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Datum en tijd |
 | Edm.Decimal | Decimale |
-| Edm.Double | dubbele |
+| Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

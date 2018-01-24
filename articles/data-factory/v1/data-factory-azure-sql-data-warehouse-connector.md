@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -87,7 +87,7 @@ De sectie typeProperties verschilt voor elk type gegevensset en bevat informatie
 | --- | --- | --- |
 | tableName |Naam van de tabel of weergave in de Azure SQL Data Warehouse-database waarnaar de gekoppelde service verwijst. |Ja |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 > [!NOTE]
@@ -280,7 +280,7 @@ De volgende tabel bevat voorbeelden op het opgeven van de **tableName** eigensch
 | dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MijnTabel] |
 | dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MijnTabel] |
 | dbo |My.Table |[My.Table] of [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden opgeven voor de eigenschap tableName JSON.  
 
@@ -330,7 +330,7 @@ Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het 
 | NChar | NChar |
 | VarChar | VarChar (maximaal 8000) |
 | NVarChar | NVarChar (maximaal 4000) |
-| XML | Varchar (maximaal 8000) |
+| Xml | Varchar (maximaal 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,17 +347,17 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | SQL Server Database Engine-type | .NET framework-type |
 | --- | --- |
 | bigint |Int64 |
-| Binaire |Byte] |
+| Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
 | datum |Datum en tijd |
 | Datum en tijd |Datum en tijd |
 | datetime2 |Datum en tijd |
-| DateTimeOffset |DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte] |
-| Float |dubbele |
-| Afbeelding |Byte] |
+| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
+| Float |Double |
+| Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
 | nchar |Tekenreeks, Char] |
@@ -365,19 +365,19 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
 | Tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
-| tijdstempel |Byte] |
+| tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
+| varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
-| xml |XML |
+| xml |Xml |
 
 U kunt ook kolommen uit de bron-gegevensset naar kolommen uit sink gegevensset in de definitie van de activiteit kopiëren toewijzen. Zie voor meer informatie [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
 

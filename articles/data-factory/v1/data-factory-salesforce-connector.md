@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Gegevens verplaatsen van Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 ![Naam van de Data Factory - verbinding Salesforce - API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst met eigenschappen die beschikbaar zijn voor het definiëren van activiteiten en secties, de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen, zoals naam, beschrijving, invoer en uitvoer tabellen en verschillende beleidsregels zijn beschikbaar voor alle typen activiteiten.
 
 De eigenschappen die beschikbaar in de sectie typeProperties van de activiteit zijn, worden aan de andere kant variëren met elk activiteitstype. Voor de Kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -285,19 +285,19 @@ Zie [RelationalSource type-eigenschappen](#copy-activity-properties) voor de lij
 
 
 ### <a name="type-mapping-for-salesforce"></a>Toewijzing van het type voor Salesforce
-| SalesForce-type | . Type op basis van NET |
+| Salesforce-type | . Type op basis van NET |
 | --- | --- |
 | Automatische getal |Tekenreeks |
-| Selectievakje |Booleaanse waarde |
-| Valuta |dubbele |
-| Date |Datum/tijd |
-| Datum/tijd |Datum/tijd |
+| Selectievakje |Boole-waarde |
+| Valuta |Double |
+| Date |Datum en tijd |
+| Datum/tijd |Datum en tijd |
 | E-mail |Tekenreeks |
 | Id |Tekenreeks |
 | Opzoekrelatie |Tekenreeks |
 | Meervoudige selectie selectielijst |Tekenreeks |
-| Aantal |dubbele |
-| Procent |dubbele |
+| Aantal |Double |
+| Procent |Double |
 | Telefoon |Tekenreeks |
 | Selectielijst |Tekenreeks |
 | Tekst |Tekenreeks |

@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2017
-ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 01/24/2018
+ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>SQL Server on-premises, migreren naar Azure SQL-database met Azure PowerShell
 In dit artikel leert u de migratie de **Adventureworks2012** database teruggezet naar een lokaal exemplaar van SQL Server 2016 of hoger naar een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases van een lokale SQL Server-instantie migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` -module in Microsoft Azure PowerShell.
@@ -63,22 +63,25 @@ U kunt nieuwe exemplaar van Azure Database migratieservice maken met behulp van 
 - *SKU*. Deze parameter komt overeen met de naam van de DMS-Sku. Ondersteunde Sku-namen zijn *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
 - *Virtuele Subnet-id*. U kunt de cmdlet gebruiken [nieuw AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) om een subnet te maken. 
 
-Het volgende voorbeeld wordt een service met de naam *MyDMS* in de resourcegroep *MyDMSResourceGroup*, die zich bevindt in *VS-Oost* regio met behulp van een virtueel subnet genoemd *MySubnet*.
+Het volgende voorbeeld wordt een service met de naam *MyDMS* in de resourcegroep *MyDMSResourceGroup*, die zich bevindt in *VS-Oost* regio een virtueel netwerk met de naam *MyVNET* en subnet met de naam *MySubnet*.
 
 ```powershell
+ $vNet = Get-AzureRmVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+
+$vSubNet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
+
 $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
   -Sku Basic_2vCores `  
-  -VirtualSubnetId
-$vnet.Id`
+  -VirtualSubnetId $vSubNet.Id`
 ```
 
 ## <a name="create-a-migration-project"></a>Een migratieproject maken
 Na het maken van een Azure-Database migratieservice-exemplaar, moet u een migratieproject maken. Een Azure-serviceproject Database migratie vereist verbindingsgegevens voor zowel de bron en doel-exemplaren, evenals een lijst met databases die u wilt migreren als onderdeel van het project.
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Een object van het Database-verbindingsgegevens voor de bron en doel-verbindingen maken
-U kunt een verbindingsgegevens van de Database-object maken met behulp van de `New-AzureRmDmsConnInfo` cmdlet.  Deze cmdlet verwacht dat de volgende parameters:
+U kunt een verbindingsgegevens van de Database-object maken met behulp van de `New-AzureRmDmsConnInfo` cmdlet. Deze cmdlet verwacht dat de volgende parameters:
 - *ServerType*. Het type van de verbinding met database aangevraagd, bijvoorbeeld SQL, Oracle of MySQL. Gebruik SQL voor SQL Server en SQL Azure.
 - *Gegevensbron*. De naam of IP-adres van een SQL-exemplaar of Azure SQL-server.
 - *AuthType*. Het verificatietype dat voor de verbinding die SqlAuthentication of WindowsAuthentication kan zijn.
@@ -166,9 +169,9 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### <a name="create-and-start-a-migration-task"></a>Maak en start een migratietaak
 
 Gebruik de `New-AzureRmDataMigrationTask` cmdlet voor het maken en starten van een migratietaak. Deze cmdlet verwacht dat de volgende parameters:
-- *TaskType*.  Type migratietaak te maken voor SQL Server naar SQL Azure Migratietype *MigrateSqlServerSqlDb* wordt verwacht. 
+- *TaskType*. Type migratietaak te maken voor SQL Server naar SQL Azure Migratietype *MigrateSqlServerSqlDb* wordt verwacht. 
 - *De Resourcegroepnaam*. Naam van de Azure-resourcegroep waarin u de taak te maken.
-- *ServiceName*.  Azure Migratieservice voor Database-exemplaar waarin de taak te maken.
+- *ServiceName*. Azure Migratieservice voor Database-exemplaar waarin de taak te maken.
 - *ProjectName*. Naam van Azure databasemigratie project waarin de taak te maken. 
 - *Taaknaam*. Naam van de taak moet worden gemaakt. 
 - *Gegevensbronverbinding*. AzureRmDmsConnInfo-object dat de verbinding met gegevensbron vertegenwoordigt.

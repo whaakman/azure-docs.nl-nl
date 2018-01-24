@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Betrouwbare verzameling object serialisatie in Azure Service Fabric
 Betrouwbare verzamelingen repliceren en behouden hun objecten om te controleren of dat ze via machine fouten en stroomstoringen duurzaam zijn.
@@ -35,18 +35,18 @@ Ingebouwde objectserializers zijn efficiënter omdat ze weten dat hun typen kunn
 Betrouwbaar status Manager beschikt over ingebouwde serialisatiefunctie voor het volgende typen: 
 - GUID
 - BOOL
-- Byte
-- SByte
-- Byte]
+- byte
+- sbyte
+- byte[]
 - CHAR
-- Tekenreeks
+- tekenreeks
 - Decimale
-- dubbele
-- Float
+- dubbel
+- drijvend
 - int
 - uint
 - lang
-- ULONG
+- ulong
 - korte
 - USHORT
 
@@ -56,7 +56,7 @@ Aangepaste objectserializers wordt vaak gebruikt om prestaties te verhogen of vo
 
 [IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) wordt gebruikt voor het registreren van een aangepaste serialisatiefunctie voor het opgegeven type T. Deze registratie vindt plaats in de constructie van de StatefulServiceBase om ervoor te zorgen dat voordat het herstel wordt gestart, alle betrouwbare verzamelingen toegang hebben tot de serializer van de relevante hun persistente gegevens lezen.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ Geen aangepaste serialisatiefunctie moet voor het implementeren van de [IStateSe
 
 Hieronder volgt een voorbeeld van een aangepast type aangeroepen OrderKey met vier eigenschappen
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 Hieronder volgt een voorbeeld van de implementatie van IStateSerializer<OrderKey>.
 Merk op dat in lezen en schrijven overloads die baseValue, hun respectieve overload-aanroep voor doorsturen compatibiliteit.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)

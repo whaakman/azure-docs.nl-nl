@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor gegevensverplaatsing
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +137,7 @@ De volgende afbeeldingen ziet het gebruik van zelf gehoste integratie-runtime vo
 
 ![Gebruik Express Route met gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
 
-**IPSec-VPN:**
+**IPSec VPN:**
 
 ![IPSec VPN met gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Hoe u een beheerde gegevensschijf koppelen aan een virtuele machine van Windows in de Azure portal
 
-In dit artikel leest u hoe een nieuwe beheerde gegevensschijf koppelen aan Windows virtuele machines via de Azure-portal. Voordat u dit doet, controleert u de volgende tips:
+In dit artikel leest u hoe een nieuwe beheerde gegevensschijf koppelen aan virtuele Windows-machines in de Azure portal. Voordat u dit doet, controleert u de volgende tips:
 
 * De omvang van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie [grootten voor virtuele machines](sizes.md).
 * Voor een nieuwe schijf hoeft u niet eerst maken omdat Azure gemaakt wanneer u dit aansluit.

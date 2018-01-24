@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Resources beheren voor Apache Spark-cluster in Azure HDInsight 
 
@@ -31,35 +31,46 @@ Meer informatie over het openen van de interfaces, zoals Ambari UI, gebruikersin
 * Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="open-the-ambari-web-ui"></a>Open de Ambari-webgebruikersinterface
-1. Klik vanaf het Startboard in [Azure Portal](https://portal.azure.com/) op de tegel voor uw Spark-cluster (als u deze aan het Startboard hebt vastgemaakt). U kunt ook naar uw cluster navigeren onder **Bladeren** > **HDInsight-clusters**.
-2. Klik op voor uw Spark-cluster **Dashboard**. Wanneer u wordt gevraagd, voert u de beheerdersreferenties voor het Spark-cluster.
 
-    ![Ambari starten](./media/apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Start Resource Manager")
-3. Hierdoor moet de Ambari-Webgebruikersinterface gestart, zoals weergegeven in de schermafbeelding.
-
-    ![Ambari-webgebruikersinterface](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari-webgebruikersinterface")   
+Apache Ambari wordt gebruikt voor het cluster controleren en configuratiewijzigingen aanbrengen. Zie voor meer informatie [beheren Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
 
 ## <a name="open-the-spark-history-server"></a>De geschiedenis van Spark Server openen
-1. Klik vanaf het Startboard in [Azure Portal](https://portal.azure.com/) op de tegel voor uw Spark-cluster (als u deze aan het Startboard hebt vastgemaakt).
-2. De cluster-blade onder **snelkoppelingen**, klikt u op **Cluster-Dashboard**. In de **Cluster-Dashboard** blade, klikt u op **Spark geschiedenis Server**.
+
+Spark geschiedenis-Server is de webgebruikersinterface voor voltooide en worden uitgevoerd Spark scala-toepassingen. Er is een uitbreiding van de Webgebruikersinterface van Sparkl.
+
+**De Webgebruikersinterface Spark geschiedenis Server openen**
+
+1. Van de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie [lijst en geeft weer clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+2. Van **snelkoppelingen**, klikt u op **Cluster-Dashboard**, en klik vervolgens op **Spark geschiedenis van Server**
 
     ![Spark geschiedenis Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark geschiedenis van Server")
 
-    Wanneer u wordt gevraagd, voert u de beheerdersreferenties voor het Spark-cluster.
+    Wanneer u wordt gevraagd, voert u de beheerdersreferenties voor het Spark-cluster. U kunt de geschiedenis van Spark Server ook openen door te bladeren naar de volgende URL:
+
+    ```
+    https://<ClusterName>.azurehdinsight.net/sparkhistory
+    ```
+
+    Vervang <ClusterName> met de naam van uw Spark-cluster.
+
+De website Spark geschiedenis Server UI ziet eruit als:
+
+![HDInsight Spark geschiedenis van Server](./media/apache-spark-resource-manager/hdinsight-spark-history-server.png)
 
 ## <a name="open-the-yarn-ui"></a>De gebruikersinterface van Yarn openen
 U kunt de gebruikersinterface van YARN gebruiken voor het bewaken van toepassingen die momenteel worden uitgevoerd op het Spark-cluster.
 
-1. Klik in de cluster-blade op **Cluster-Dashboard**, en klik vervolgens op **YARN**.
+1. Van de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie [lijst en geeft weer clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+2. Van **snelkoppelingen**, klikt u op **Cluster-Dashboard**, en klik vervolgens op **YARN**.
 
     ![Gebruikersinterface van YARN starten](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
    > [!TIP]
-   > U kunt ook kunt u ook de gebruikersinterface van YARN van de Ambari UI starten. Start de UI Ambari van de cluster-blade, klikt u op **Cluster-Dashboard**, en klik vervolgens op **HDInsight-Cluster-Dashboard**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**.
+   > U kunt ook kunt u ook de gebruikersinterface van YARN van de Ambari UI starten. Start de Ambari UI, klikt u op **Cluster-Dashboard**, en klik vervolgens op **HDInsight-Cluster-Dashboard**. Klik op de UI Ambari **YARN**, klikt u op **snelkoppelingen**, klikt u op de actieve Resource Manager en klik vervolgens op **Resource Manager UI**.
    >
    >
 
-## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>De optimale clusterconfiguratie Spark-toepassingen uitvoeren
+## <a name="optimize-clusters-for-spark-applications"></a>Optimaliseren van clusters voor Spark scala-toepassingen
 De drie belangrijkste parameters die kunnen worden gebruikt voor de configuratie van Spark, afhankelijk van de toepassingsvereisten zijn `spark.executor.instances`, `spark.executor.cores`, en `spark.executor.memory`. Een Executor is een proces gestart voor een Spark-toepassing. Deze wordt uitgevoerd op het werkrolknooppunt en is verantwoordelijk voor het uitvoeren van de taken voor de toepassing. Het standaardaantal Executor en de grootte van de executor voor elk cluster wordt berekend op basis van het aantal worker-knooppunten en de grootte van het worker-knooppunt. Deze informatie wordt opgeslagen in `spark-defaults.conf` over de hoofdknooppunten van het cluster.
 
 De drie configuratieparameters kunnen worden geconfigureerd op het clusterniveau van het (voor alle toepassingen die worden uitgevoerd op het cluster) of voor elke afzonderlijke toepassing ook worden opgegeven.
@@ -68,7 +79,7 @@ De drie configuratieparameters kunnen worden geconfigureerd op het clusterniveau
 1. Via de Ambari UI Klik hier **Spark**, klikt u op **Contigs**, en vouw vervolgens **aangepaste spark-standaardwaarden**.
 
     ![Parameters instellen met Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
-2. De standaardwaarden zijn goede 4 Spark-toepassingen gelijktijdig worden uitgevoerd op het cluster hebben. U kunt deze waarden wijzigen via de gebruikersinterface, zoals hieronder wordt weergegeven.
+2. De standaardwaarden zijn goed als er vier Spark scala-toepassingen die gelijktijdig worden uitgevoerd op het cluster. U kunt deze waarden wijzigen via de gebruikersinterface, zoals wordt weergegeven in de volgende schermafbeelding:
 
     ![Parameters instellen met Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
 3. Klik op **opslaan** opslaan van wijzigingen in de configuratie. U wordt gevraagd aan de bovenkant van de pagina alle betrokken services opnieuw starten. Klik op **opnieuw**.
@@ -76,9 +87,9 @@ De drie configuratieparameters kunnen worden geconfigureerd op het clusterniveau
     ![Services opnieuw starten](./media/apache-spark-resource-manager/restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Wijzig de parameters voor een toepassing die wordt uitgevoerd in de Jupyter-notebook
-Voor toepassingen die worden uitgevoerd in de Jupyter-notebook, kunt u de `%%configure` magic de configuratiewijzigingen aanbrengen. In het ideale geval moet u deze wijzigingen aanbrengen aan het begin van de toepassing, voordat u uw eerste codecel uitvoert. Dit zorgt ervoor dat de configuratie is toegepast op de sessie Livy, wanneer deze wordt gemaakt. Als u wijzigen van de configuratie op een later stadium in de toepassing wilt, moet u de `-f` parameter. Echter, door dit doet, alle uitgevoerd in de toepassing niet verloren.
+Voor toepassingen die worden uitgevoerd in de Jupyter-notebook, kunt u de `%%configure` magic de configuratiewijzigingen aanbrengen. In het ideale geval moet u deze wijzigingen aanbrengen aan het begin van de toepassing, voordat u uw eerste codecel uitvoert. Dit zorgt ervoor dat de configuratie is toegepast op de sessie Livy, wanneer deze wordt gemaakt. Als u wijzigen van de configuratie op een later stadium in de toepassing wilt, moet u de `-f` parameter. Door dit te doen is alle uitgevoerd in de toepassing echter verloren.
 
-Het onderstaande codefragment laat zien hoe de configuratie voor een toepassing die wordt uitgevoerd in Jupyter wijzigt.
+Het volgende fragment toont hoe de configuratie voor een toepassing die wordt uitgevoerd in Jupyter wijzigt.
 
     %%configure
     {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
@@ -91,14 +102,14 @@ Na de opdracht is een voorbeeld van het wijzigen van de configuratieparameters v
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Wijzig de parameters voor een toepassing die wordt verzonden met cURL
-Na de opdracht is een voorbeeld van hoe de configuratieparameters voor een batch-toepassing die wordt verzonden met behulp van cURL wijzigen.
+De volgende opdracht is een voorbeeld van hoe de configuratieparameters voor een batch-toepassing die wordt verzonden met cURL wijzigen.
 
     curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
-### <a name="how-do-i-change-these-parameters-on-a-spark-thrift-server"></a>Hoe kan ik deze parameters op een Spark Thrift-Server wijzigen?
+### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Deze parameters op een Spark Thrift-Server wijzigen
 Spark Thrift-Server JDBC/ODBC toegang biedt tot een Spark-cluster en wordt gebruikt voor service Spark SQL-query's. Hulpprogramma's zoals Power BI, Tableau enzovoort. ODBC-protocol gebruiken om te communiceren met Spark Thrift-Server Spark SQL-query's uitvoeren als een Spark-toepassing. Wanneer een Spark-cluster is gemaakt, worden er twee exemplaren van de Spark Thrift-Server gestart, één op elke hoofdknooppunt. Elke Spark Thrift-Server wordt weergegeven als een Spark-toepassing in de gebruikersinterface van YARN.
 
-Spark dynamische executor toewijzing maakt gebruik van Spark Thrift-Server en wordt daarmee de `spark.executor.instances` wordt niet gebruikt. In plaats daarvan Spark Thrift-Server gebruikt `spark.dynamicAllocation.minExecutors` en `spark.dynamicAllocation.maxExecutors` om op te geven van het aantal executor. De configuratieparameters `spark.executor.cores` en `spark.executor.memory` wordt gebruikt om de grootte van de executor te wijzigen. U kunt deze parameters kunt wijzigen, zoals wordt weergegeven in de volgende stappen uit.
+Spark dynamische executor toewijzing maakt gebruik van Spark Thrift-Server en wordt daarmee de `spark.executor.instances` wordt niet gebruikt. In plaats daarvan Spark Thrift-Server gebruikt `spark.dynamicAllocation.minExecutors` en `spark.dynamicAllocation.maxExecutors` om op te geven van het aantal executor. De configuratieparameters `spark.executor.cores` en `spark.executor.memory` wordt gebruikt om de grootte van de executor te wijzigen. U kunt deze parameters kunt wijzigen, zoals wordt weergegeven in de volgende stappen uit:
 
 * Vouw de **geavanceerde spark-thrift-sparkconf** categorie om bij te werken van de parameters `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`, en `spark.executor.memory`.
 
@@ -107,15 +118,15 @@ Spark dynamische executor toewijzing maakt gebruik van Spark Thrift-Server en wo
 
     ![Spark thrift-server configureren](./media/apache-spark-resource-manager/spark-thrift-server-2.png)
 
-### <a name="how-do-i-change-the-driver-memory-of-the-spark-thrift-server"></a>Hoe wijzig ik de stuurprogramma-geheugen van de Spark Thrift-Server?
-Geheugen Spark Thrift-Server is geconfigureerd 25% van het hoofdknooppunt RAM-geheugen, de totale grootte van het RAM-geheugen van het hoofdknooppunt is groter dan 14GB opgegeven. Zoals hieronder wordt weergegeven, kunt u de Ambari UI wijzigen van de configuratie van het stuurprogramma-geheugen.
+### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Wijzig het geheugen van het stuurprogramma van de Spark Thrift-Server
+Geheugen Spark Thrift-Server is geconfigureerd 25% van het hoofdknooppunt RAM-geheugen, de totale grootte van het RAM-geheugen van het hoofdknooppunt is groter dan 14 GB opgegeven. U kunt de Ambari UI wijzigen van de configuratie van het stuurprogramma-geheugen zoals weergegeven in de volgende schermafbeelding:
 
 * Via de Ambari UI Klik hier **Spark**, klikt u op **Configs**, vouw **geavanceerde spark env**, en geef vervolgens de waarde voor **spark_thrift_cmd_opts**.
 
     ![RAM-geheugen voor Spark thrift-server configureren](./media/apache-spark-resource-manager/spark-thrift-server-ram.png)
 
-## <a name="i-do-not-use-bi-with-spark-cluster-how-do-i-take-the-resources-back"></a>Ik gebruik geen BI met Spark-cluster. Hoe ik de resources weer uitvoeren?
-Aangezien we de dynamische toewijzing Spark gebruiken, zijn de enige resources die worden verbruikt door thrift-server de resources voor de toepassing twee modellen. Als u wilt vrijmaken van deze resources moet u de Thrift-Server-services uitgevoerd op het cluster stoppen.
+## <a name="reclaim-spark-cluster-resources"></a>Spark-clusterbronnen vrijmaken
+Vanwege de dynamische toewijzing van Spark zijn de enige resources die worden verbruikt door thrift-server de resources voor de toepassing twee modellen. Als u wilt vrijmaken van deze bronnen, moet u de Thrift-Server-services uitgevoerd op het cluster stoppen.
 
 1. Klik in de UI Ambari in het linkerdeelvenster op **Spark**.
 2. Klik in de volgende pagina op **Spark Thrift Servers**.
@@ -129,17 +140,17 @@ Aangezien we de dynamische toewijzing Spark gebruiken, zijn de enige resources d
     ![Thrift-server opnieuw opstarten](./media/apache-spark-resource-manager/restart-thrift-server-3.png)
 5. Herhaal deze stappen uit op de andere headnode ook.
 
-## <a name="my-jupyter-notebooks-are-not-running-as-expected-how-can-i-restart-the-service"></a>Mijn Jupyter-notebooks niet worden uitgevoerd zoals verwacht. Hoe kan ik de service opnieuw starten?
-Start de Ambari-Webgebruikersinterface zoals hierboven. Klik in het navigatiedeelvenster links op **Jupyter**, klikt u op **serviceacties**, en klik vervolgens op **start opnieuw alle**. Hiermee start u de Jupyter-service op de headnodes.
+## <a name="restart-the-jupyter-service"></a>De Jupyter-service opnieuw starten
+Start de Ambari-Webgebruikersinterface, zoals wordt weergegeven in het begin van het artikel. Klik in het navigatiedeelvenster links op **Jupyter**, klikt u op **serviceacties**, en klik vervolgens op **start opnieuw alle**. Hiermee start u de Jupyter-service op de headnodes.
 
-    ![Restart Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
+![Opnieuw opstarten van Jupyter](./media/apache-spark-resource-manager/restart-jupyter.png "Jupyter starten")
 
-## <a name="how-do-i-know-if-i-am-running-out-of-resources"></a>Hoe weet ik of mijn onvoldoende resources werkt systeem?
-Start de gebruikersinterface van Yarn zoals hierboven. In de tabel van de Cluster metrische gegevens boven op het scherm, controleert u de waarden van **geheugen gebruikt** en **Totaal geheugen** kolommen. Als de waarden 2 bijna, er mogelijk niet voldoende resources om de volgende toepassing te starten. Hetzelfde geldt voor de **VCores gebruikt** en **VCores totaal** kolommen. Ook in de hoofdweergave als er een toepassing gebleven **GEACCEPTEERDE** status en niet in een overgang **met** noch **mislukt** staat, dit kan ook wel een indicatie dat het is niet ophalen van onvoldoende bronnen om te starten.
+## <a name="monitor-resources"></a>Resources controleren
+Start de gebruikersinterface van Yarn zoals weergegeven in het begin van het artikel. In de tabel van de Cluster metrische gegevens boven op het scherm, controleert u de waarden van **geheugen gebruikt** en **Totaal geheugen** kolommen. Als de twee waarden sluiten, er mogelijk niet voldoende resources om de volgende toepassing te starten. Hetzelfde geldt voor de **VCores gebruikt** en **VCores totaal** kolommen. Ook in de hoofdweergave als er een toepassing gebleven **GEACCEPTEERDE** status en niet in een overgang **met** noch **mislukt** staat, dit kan ook wel een indicatie dat het is niet ophalen van onvoldoende bronnen om te starten.
 
-    ![Resource Limit](./media/apache-spark-resource-manager/resource-limit.png "Resource Limit")
+![Resource limiet](./media/apache-spark-resource-manager/resource-limit.png "Resource limiet")
 
-## <a name="how-do-i-kill-a-running-application-to-free-up-resource"></a>Hoe ik een actieve toepassing vrijmaken resource kill?
+## <a name="kill-running-applications"></a>Voor het afsluiten van actieve toepassingen
 1. Klik in de gebruikersinterface van Yarn, in het linkerpaneel **met**. In de lijst van actieve toepassingen, bepalen de toepassing worden verwijderd en klik op de **ID**.
 
     ![Kill App1](./media/apache-spark-resource-manager/kill-app1.png "App1 afsluiten")

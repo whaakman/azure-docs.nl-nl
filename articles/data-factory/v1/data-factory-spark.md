@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cf51d9442ff31433cedbcf19052e31247421f4d1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -117,7 +117,7 @@ In deze stap maakt u een gekoppelde HDInsight-service als u wilt uw HDInsight Sp
 
 1. Selecteer in de Data Factory-Editor, **meer** > **nieuwe berekening** > **HDInsight-cluster**.
 
-    ![Een gekoppelde HDInsight-service maken](media/data-factory-spark/new-hdinsight-linked-service.png)
+    ![Gekoppelde HDInsight-service maken](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. In de JSON-editor de volgende stappen uitvoeren:
 

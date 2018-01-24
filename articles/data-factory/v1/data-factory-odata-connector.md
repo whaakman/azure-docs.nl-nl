@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Verplaatsen van gegevens uit een OData-bron met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ De volgende tabel bevat een beschrijving voor JSON-elementen die specifiek zijn 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
 | type |De eigenschap type moet worden ingesteld op: **OData** |Ja |
-| URL |URL van de OData-service. |Ja |
+| url |URL van de OData-service. |Ja |
 | authenticationType |Het soort verificatie gebruikt voor verbinding met de OData-bron. <br/><br/> Mogelijke waarden zijn voor OData-cloud, anoniem, basis en OAuth (Opmerking momenteel alleen ondersteuning voor Azure Data Factory Azure Active Directory op basis van OAuth). <br/><br/> Mogelijke waarden zijn voor lokale OData, anoniem, basis en Windows. |Ja |
 | gebruikersnaam |Geef de gebruikersnaam als u basisverificatie gebruikt. |Ja (alleen als u basisverificatie gebruikt) |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. |Ja (alleen als u basisverificatie gebruikt) |
@@ -149,9 +149,9 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| Pad |Pad naar de OData-bron |Nee |
+| pad |Pad naar de OData-bron |Nee |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten van de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
 Eigenschappen die beschikbaar zijn in de sectie typeProperties van de activiteit wordt aan de andere kant variëren met elk activiteitstype. Voor de kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
@@ -160,7 +160,7 @@ Wanneer de bron is van het type **RelationalSource** (inclusief OData) de volgen
 
 | Eigenschap | Beschrijving | Voorbeeld | Vereist |
 | --- | --- | --- | --- |
-| query |Gebruik de aangepaste query om gegevens te lezen. |'? $select = naam, beschrijving & $top = 5 ' |Nee |
+| query |Gebruik de aangepaste query om gegevens te lezen. |"?$select=Name, Description&$top=5" |Nee |
 
 ## <a name="type-mapping-for-odata"></a>Toewijzing van het type voor OData
 Zoals vermeld in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel kopieerbewerking wordt automatische typeconversies van brontypen opvangen typen met de volgende benadering voor in twee stappen uitgevoerd.
@@ -172,13 +172,13 @@ Bij het verplaatsen van gegevens uit OData, worden de volgende toewijzingen van 
 
 | OData-gegevenstype | .NET-type |
 | --- | --- |
-| Edm.Binary |Byte] |
-| Edm.Boolean |BOOL |
-| Edm.Byte |Byte] |
-| Edm.DateTime |Datum/tijd |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Booleaans |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |Datum en tijd |
 | Edm.Decimal |Decimale |
-| Edm.Double |dubbele |
-| Edm.Single |Één |
+| Edm.Double |Double |
+| Edm.Single |Single |
 | Edm.Guid |GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |

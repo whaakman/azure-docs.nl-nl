@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Routeren van berichten met IoT Hub (.NET)
 
@@ -101,7 +101,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` en `"level": "storage"` op berichten die door het apparaat verzonden, die een bericht waarvoor onmiddellijke actie door de back-end van de toepassing of een die moet worden permanent opgeslagen simuleert. De toepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
+Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` en `"level": "storage"` op berichten die door het apparaat verzonden, die een bericht waarvoor onmiddellijke actie door de back-end van de toepassing of een die moet worden permanent opgeslagen simuleert. De toepassing ondersteunt routeren van berichten op basis van de berichttekst.
 
 > [!NOTE]
 > U kunt de berichteigenschappen om berichten te routeren voor verschillende scenario's, inclusief de verwerking van koude pad, naast het hot pad voorbeeld dat hier wordt weergegeven.

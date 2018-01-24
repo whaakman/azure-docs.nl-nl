@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: eb07deab834f63b48b7441f32521c48b27e549ca
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 0f42d971fcf21d0f719468a8c10ff637f2e523f9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Versleutelen van referenties voor on-premises gegevensopslagexemplaren in Azure Data Factory
 U kunt versleutelen en opslaan van referenties voor uw on-premises gegevensopslagexemplaren (gekoppelde services met gevoelige informatie) op een computer met de host zichzelf integratie runtime. 
@@ -51,7 +51,7 @@ Vervang `<servername>`, `<databasename>`, `<username>`, en `<password>` met waar
 }
 ```
 
-## <a name="encrypt-credentials"></a>De referenties niet versleutelen
+## <a name="encrypt-credentials"></a>Referenties versleutelen
 Voor het versleutelen van gevoelige gegevens uit de JSON-nettolading op een lokale host zichzelf integratie runtime uitvoeren **nieuw AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, en geef op de JSON-nettolading. Deze cmdlet zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI en op de host zichzelf integratie runtime-knooppunt lokaal opgeslagen. De nettolading van de uitvoer kan worden omgeleid naar een andere JSON-bestand (in dit geval 'encryptedLinkedService.json'), waarin versleutelde referenties.
 
 ```powershell

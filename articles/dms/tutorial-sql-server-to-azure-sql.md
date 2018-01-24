@@ -1,6 +1,6 @@
 ---
 title: Gebruik van de migratie van Azure databaseservice SQL-Server migreren naar Azure SQL Database | Microsoft Docs
-description: Informatie over het migreren van SQL Server on-premises naar Azure SQL met behulp van Azure-databaseservice voor migratie.
+description: Informatie over het migreren van SQL Server on-premises naar Azure SQL met behulp van de Service Azure Database migratie.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.date: 01/24/2018
+ms.openlocfilehash: 06d7023f225698400509449e59bdcb827becc644
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>SQL-Server migreren naar Azure SQL Database
 De Service Azure Database migratie kunt u de databases van een lokale SQL Server-instantie migreren naar Azure SQL Database. In deze zelfstudie maakt u de migratie de **Adventureworks2012** database teruggezet naar een lokaal exemplaar van SQL Server 2016 (of hoger) naar een Azure SQL Database met behulp van de Service Azure Database migratie.
@@ -34,13 +34,15 @@ Voor deze zelfstudie hebt voltooid, moet u:
 
 - Download en installeer [SQL Server 2016 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle versies).
 - Inschakelen van het TCP/IP-protocol is standaard uitgeschakeld tijdens de installatie van SQL Server Express door de instructies in het artikel [in- of uitschakelen van een Server netwerkprotocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Geen exemplaar maken van Azure SQL Database-instantie die u doen door de details in het artikel [maken van een Azure SQL database in de Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - Download en installeer de [gegevens migratie-assistent](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 of hoger.
 - Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Zorg ervoor dat uw Azure Virtual Network (VNET) Netwerkbeveiligingsgroep regels komen de volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over het Azure VNET NSG wordt verkeer gefilterd [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Open Windows firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
+- Maken van een serverniveau [firewallregel](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) voor de Azure SQL Database-server zodat de migratie van Azure databaseservice toegang hebben tot de doeldatabases. Geef het subnetbereik van de VNET die wordt gebruikt voor de Azure-Service voor het migreren van Database.
 - Zorg ervoor dat de referenties waarmee verbinding met SQL Server-bronexemplaar [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) machtigingen.
 - Zorg ervoor dat de referenties waarmee verbinding met Azure SQL Database doelexemplaar machtiging beheer DATABASE op de doel-Azure SQL-databases.
-- Open Windows firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
 
 ## <a name="assess-your-on-premises-database"></a>Evalueren van uw lokale-database.
 Voordat u gegevens vanuit een lokale SQL Server-exemplaar met Azure SQL Database migreren kunt, moet u de SQL Server-database voor tegen blokkerende problemen die mogelijk niet op de migratie. In het migratie-assistent gegevens v3.3 of hoger, volg de stappen in het artikel [uitvoeren van een SQL Server-migratie beoordeling](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) voltooid de on-premises database assessment. Hier volgt een samenvatting van de vereiste stappen:

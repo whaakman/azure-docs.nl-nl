@@ -14,8 +14,8 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2018
@@ -63,7 +63,7 @@ Probeer een Service-identiteit beheerd-zelfstudie voor meer informatie over de e
 |                    | [Toegang tot een niet-Azure AD-resource met een Linux VM beheerde Service-identiteit en Azure Sleutelkluis](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
 | Azure-functie     | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
-| Azure Service Bus  | [Gebruiker beheerd met Azure Servicebus-Service-identiteit](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Service Bus  | [Beheerde Service-identiteit gebruiken met Azure Servicebus](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Welke Azure-services ondersteuning bieden voor Service-identiteiten beheerd?
 

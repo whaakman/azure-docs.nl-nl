@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activiteit van de pijplijn niet uitvoeren in Azure Data Factory
 De pijplijn niet uitvoeren-activiteit kunt een Data Factory-pijplijn om aan te roepen, een andere pijplijn.
@@ -66,9 +66,9 @@ Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | De naam van de activiteit van de pijplijn uitvoeren. | Tekenreeks | Ja
 type | Moet worden ingesteld op: **ExecutePipeline**. | Tekenreeks | Ja
-Pijplijn | Pipeline-verwijzing naar de afhankelijke pijplijn die deze pipeline wordt aangeroepen. Een pijplijn reference-object heeft twee eigenschappen: **naamverwijzing** en **type**. De eigenschap naamverwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
+pijplijn | Pipeline-verwijzing naar de afhankelijke pijplijn die deze pipeline wordt aangeroepen. Een pijplijn reference-object heeft twee eigenschappen: **naamverwijzing** en **type**. De eigenschap naamverwijzing geeft de naam van de referentie-pijplijn. De eigenschap type moet worden ingesteld op PipelineReference. | PipelineReference | Ja
 parameters | Parameters moeten worden doorgegeven aan de pijplijn aangeroepen | Een JSON-object dat is toegewezen parameternamen aan argumentwaarden | Nee
-waitOnCompletion | Bepaalt of de uitvoering van de activiteit wordt gewacht op de uitvoering van de afhankelijke pipeline te voltooien. | Standaard is ingesteld op false. | Booleaanse waarde | Nee
+waitOnCompletion | Bepaalt of de uitvoering van de activiteit wordt gewacht op de uitvoering van de afhankelijke pipeline te voltooien. | Standaard is ingesteld op false. | Boole-waarde | Nee
 
 ## <a name="sample"></a>Voorbeeld
 Dit scenario heeft twee pijplijnen:

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API aan de slag
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Voor het valideren van binnenkomende aanvragen en tokens, moet u voor het instel
 
 3. Wijzig de klassendeclaratie naar `public partial class Startup`. We hebben al deel uit van deze klasse geïmplementeerd voor u in een ander bestand. In de `Configuration(…)` een aanroep van methode `ConfgureAuth(…)` verificatie voor uw web-app instellen.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Voor het valideren van binnenkomende aanvragen en tokens, moet u voor het instel
 
 4. Open het bestand `App_Start\Startup.Auth.cs` en implementeren van de `ConfigureAuth(…)` methode. De parameters die u opgeeft in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` fungeert als coördinaten voor uw app om te communiceren met Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Voor het valideren van binnenkomende aanvragen en tokens, moet u voor het instel
 
 5. Nu kunt u `[Authorize]` kenmerken om uw domeincontrollers en de acties met JSON Web Token (JWT) bearer-verificatie te beveiligen. Opmaken de `Controllers\TodoListController.cs` klasse met een tag autoriseren. Hierdoor wordt de gebruiker zich aanmelden voor de toegang tot deze pagina geforceerd.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Voor het valideren van binnenkomende aanvragen en tokens, moet u voor het instel
 
 6. Een algemene vereiste voor web-API's is het valideren van de in het token aanwezige 'scopes'. Dit zorgt ervoor dat de gebruiker heeft ingestemd met de vereiste machtigingen voor toegang tot de te doen lijst Service.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

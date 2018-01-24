@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Een web-API aanroept vanuit een .NET-web-app
 U kunt snel verificatie toevoegen aan uw web-apps en web-API's met ondersteuning voor beide persoonlijke Microsoft-accounts en werk-of schoolaccounts met het v2.0-eindpunt.  Wij je hier een MVC-web-app die gebruikers in het gebruik van het OpenID Connect, met hulp van Microsoft OWIN middleware ondertekent bouwen.  De web-app wordt OAuth 2.0-toegangstokens ophalen voor een web api is beveiligd met OAuth 2.0 waarmee maken, lezen en verwijderen op een bepaalde gebruiker 'takenlijst'.
@@ -68,7 +68,7 @@ Nu configureren de OWIN-middleware gebruiken de [OpenID Connect-verificatieproto
 * Open het bestand `App_Start\Startup.Auth.cs` en voeg `using` -instructies voor de bibliotheken van hierboven.
 * Implementeren in hetzelfde bestand de `ConfigureAuth(...)` methode.  De parameters die u opgeeft in `OpenIDConnectAuthenticationOptions` fungeert als coördinaten voor uw app om te communiceren met Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ In de `AuthorizationCodeReceived` melding, die we willen gebruiken [OAuth 2.0 in
 * En voeg een andere `using` instructie voor de `App_Start\Startup.Auth.cs` -bestand voor MSAL.
 * Voeg nu een nieuwe methode de `OnAuthorizationCodeReceived` gebeurtenis-handler.  Deze handler MSAL gebruikt om te verkrijgen van een toegangstoken voor de API van de lijst met taken en het token opgeslagen in de MSAL tokencache voor later:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Nu is het tijd om daadwerkelijk gebruiken de access_token die u hebt verkregen i
     `using Microsoft.Identity.Client;`
 * In de `Index` van de actie, gebruik MSAL `AcquireTokenSilentAsync` methode voor het ophalen van een access_token die kunnen worden gebruikt om gegevens te lezen van de takenlijst-service:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * Het resulterende token in het voorbeeld vervolgens worden toegevoegd aan de HTTP GET-aanvraag als de `Authorization` koptekst, die de takenlijst-service gebruikt voor het verifiëren van de aanvraag.
 * Als de takenlijst-service retourneert een `401 Unauthorized` antwoord wordt de access_tokens in MSAL niet meer geldig voor een bepaalde reden.  In dit geval moet u eventuele access_tokens niet verwijderen uit de cache MSAL en weergeven van de gebruiker een bericht dat ze aanmelden moeten mogelijk, die wordt opnieuw gestart de stroom token verkrijgen.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Op dezelfde manier als MSAL kan een access_token retourneren voor een of andere reden is, moet u opdracht geven de gebruiker zich opnieuw aanmeldt.  Dit is net zo eenvoudig als het afvangen van een `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

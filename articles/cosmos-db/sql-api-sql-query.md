@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos-DB
 
@@ -356,7 +356,7 @@ De volgende tabel geeft het resultaat van de gelijkheid vergelijkingen in de SQL
             <strong>Null</strong>
          </td>
          <td valign="top">
-            <strong>Booleaanse waarde</strong>
+            <strong>Boolean</strong>
          </td>
          <td valign="top">
             <strong>Aantal</strong>
@@ -368,7 +368,7 @@ De volgende tabel geeft het resultaat van de gelijkheid vergelijkingen in de SQL
             <strong>Object</strong>
          </td>
          <td valign="top">
-            <strong>Matrix</strong>
+            <strong>Array</strong>
          </td>
       </tr>
       <tr>
@@ -412,7 +412,7 @@ Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Booleaanse waarde<strong>
+            <strong>Boolean<strong>
          </td>
          <td valign="top">
 Niet gedefinieerd </td>
@@ -492,7 +492,7 @@ Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Matrix<strong>
+            <strong>Array<strong>
          </td>
          <td valign="top">
 Niet gedefinieerd </td>
@@ -1410,23 +1410,23 @@ De rekenkundige functies elke uitvoeren van een berekening op basis van de invoe
 | [MAXIMUM (num_expr)](#bk_ceiling) | Retourneert de kleinste waarde van geheel getal groter dan of gelijk zijn aan de opgegeven numerieke expressie. |
 | [FLOOR (num_expr)](#bk_floor) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
 | [EXP (num_expr)](#bk_exp) | Retourneert de exponent van de opgegeven numerieke expressie. |
-| [LOGBOEK (num_expr [, base])](#bk_log) | Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie, of de logaritme met behulp van het opgegeven grondtal |
+| [LOG (num_expr [,base])](#bk_log) | Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie, of de logaritme met behulp van het opgegeven grondtal |
 | [LOG10 (num_expr)](#bk_log10) | Retourneert de logaritmische waarde grondtal 10 van de opgegeven numerieke expressie. |
 | [ROUND (num_expr)](#bk_round) | Retourneert een numerieke waarde, op het dichtstbijzijnde gehele getal afgerond. |
-| [GEHEEL (num_expr)](#bk_trunc) | Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal. |
+| [TRUNC (num_expr)](#bk_trunc) | Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal. |
 | [SQRT (num_expr)](#bk_sqrt) | Retourneert de vierkantswortel van de opgegeven numerieke expressie. |
-| [Vierkante (num_expr)](#bk_square) | Retourneert het kwadraat van de opgegeven numerieke expressie. |
+| [SQUARE (num_expr)](#bk_square) | Retourneert het kwadraat van de opgegeven numerieke expressie. |
 | [VOEDING (num_expr, num_expr)](#bk_power) | Retourneert de kracht van de opgegeven numerieke expressie voor de opgegeven waarde. |
-| [ONDERTEKENEN (num_expr)](#bk_sign) | Retourneert de waarde teken (-1, 0, 1) van de opgegeven numerieke expressie. |
-| [BOOGCOS (num_expr)](#bk_acos) | Retourneert de hoek in radialen, waarvan de cosinus de opgegeven numerieke expressie is. ook wel de boogcosinus genoemd. |
+| [SIGN (num_expr)](#bk_sign) | Retourneert de waarde teken (-1, 0, 1) van de opgegeven numerieke expressie. |
+| [ACOS (num_expr)](#bk_acos) | Retourneert de hoek in radialen, waarvan de cosinus de opgegeven numerieke expressie is. ook wel de boogcosinus genoemd. |
 | [ASIN (num_expr)](#bk_asin) | Retourneert de hoek in radialen, waarvan de sinus de opgegeven numerieke expressie is. Dit wordt ook boogsinus genoemd. |
-| [BOOGTAN (num_expr)](#bk_atan) | Retourneert de hoek in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook arctangens genoemd. |
+| [ATAN (num_expr)](#bk_atan) | Retourneert de hoek in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook arctangens genoemd. |
 | [ATN2 (num_expr)](#bk_atn2) | Als resultaat geeft de hoek in radialen tussen de positieve x-as en de ray vanuit de oorsprong naar het punt (y, x), waarbij x en y zijn de waarden van de twee opgegeven float-expressies. |
-| [CO (num_expr)](#bk_cos) | Retourneert de trigonometrische cosinus van de opgegeven hoek in radialen in de opgegeven expressie. |
+| [COS (num_expr)](#bk_cos) | Retourneert de trigonometrische cosinus van de opgegeven hoek in radialen in de opgegeven expressie. |
 | [COT (num_expr)](#bk_cot) | Retourneert de trigonometrische cotangens van de opgegeven hoek in radialen in het opgegeven numerieke expressie. |
-| [GRADEN (num_expr)](#bk_degrees) | Retourneert de overeenkomstige hoek in graden voor een hoek aangeduid in radialen. |
-| [PI)](#bk_pi) | Retourneert de constante waarde van PI. |
-| [RADIALEN (num_expr)](#bk_radians) | Retourneert radialen wanneer een numerieke expressie, in graden wordt ingevoerd. |
+| [DEGREES (num_expr)](#bk_degrees) | Retourneert de overeenkomstige hoek in graden voor een hoek aangeduid in radialen. |
+| [PI ()](#bk_pi) | Retourneert de constante waarde van PI. |
+| [RADIANS (num_expr)](#bk_radians) | Retourneert radialen wanneer een numerieke expressie, in graden wordt ingevoerd. |
 | [SIN (num_expr)](#bk_sin) | Retourneert de trigonometrische sinus van de opgegeven hoek in radialen in de opgegeven expressie. |
 | [TAN (num_expr)](#bk_tan) | Retourneert de tangens van de invoer expressie in de opgegeven expressie. |
 
@@ -1503,7 +1503,7 @@ De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde va
 | [LENGTE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retourneert het aantal tekens van de opgegeven tekenreeksexpressie |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden. |
 | [De SUBTEKENREEKS (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Retourneert deel van een tekenreeksexpressie. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retourneert een Boolean die aangeeft of de eerste tekenreeksexpressie eindigt op de tweede |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks begint met de tweede |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Retourneert een Boolean die aangeeft of de eerste tekenreeksexpressie eindigt op de tweede |
 | [BEVAT (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks de tweede bevat. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste expressie in de opgegeven tekenreeks is of -1 als de tekenreeks is niet gevonden. |
@@ -1511,9 +1511,9 @@ De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde va
 | [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Retourneert de juiste deel van een tekenreeks zijn met het opgegeven aantal tekens. |
 | [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Retourneert een tekenreeksexpressie na het verwijderen van toonaangevende lege waarden. |
 | [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Retourneert een tekenreeksexpressie na het afkappen van alle volgspaties. |
-| [KLEINE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retourneert een tekenreeksexpressie na hoofdletter gegevens converteren naar kleine letters. |
+| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retourneert een tekenreeksexpressie na hoofdletter gegevens converteren naar kleine letters. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retourneert een tekenreeksexpressie na kleine letter gegevens converteren naar hoofdletters. |
-| [Vervang (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Vervangt alle instanties van een opgegeven string-waarde met de waarde van een andere tekenreeks. |
+| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Vervangt alle instanties van een opgegeven string-waarde met de waarde van een andere tekenreeks. |
 | [REPLICEREN (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Herhaalt een string-waarde van een opgegeven aantal keren. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retourneert de omgekeerde volgorde van een string-waarde. |
 
@@ -1990,7 +1990,7 @@ Cosmos DB Ontsluit resources via een REST-API die kan worden aangeroepen via elk
 
 De volgende voorbeelden laten zien hoe u een query maken en te verzenden op basis van een Cosmos-DB-databaseaccount.
 
-### <a id="RestAPI"></a>REST-API
+### <a id="RestAPI"></a>REST API
 Cosmos DB biedt een open RESTful-programmeermodel via HTTP. Database-accounts kunnen worden ingericht met behulp van een Azure-abonnement. Het model van de resource Cosmos DB bestaat uit een set resources onder de databaseaccount van een, die elk opgevraagd met een logische en stabiele-URI is. Een set resources wordt aangeduid als een feed in dit document. Een databaseaccount bestaat uit een reeks databases, die elk meerdere verzamelingen met elk van welke beurt documenten, UDF's en andere brontypen bevatten.
 
 Het model basic interactie met deze resources is via de HTTP-woorden GET, PUT, POST en DELETE met hun standaard interpretatie. De POST-bewerking wordt gebruikt voor het maken van een nieuwe resource, voor het uitvoeren van een opgeslagen procedure of voor het uitgeven van een Cosmos-DB-query. Query's zijn altijd alleen-lezen bewerkingen met geen bijwerkingen.
@@ -2255,16 +2255,16 @@ Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScrip
 1. [Inleiding tot Azure Cosmos DB][introduction]
 2. [Azure SQL voor Cosmos-DB-specificatie](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net)
-4. [Azure Cosmos DB Consistentieniveaus][consistency-levels]
+4. [Azure Cosmos DB Consistency Levels][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. JavaScript-specificatie [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9. Van evaluatietechnieken voor grote databases query [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Queryverwerking in parallelle relationele databasesystemen, IEEE Computer samenleving Press, 1994
 11. Lu, Ooi, Tan queryverwerking in parallelle relationele databasesystemen, IEEE Computer samenleving Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: een niet zodat vreemde taal voor gegevensverwerking, SIGMOD 2008.
-13. G. Graefe. Het framework trapsgewijs voor queryoptimalisatie. IEEE-gegevens eng Bull., 18, lid 3: 1995.
+13. G. Graefe. Het framework trapsgewijs voor queryoptimalisatie. IEEE-gegevens eng Bull., 18(3): 1995.
 
 [1]: ./media/sql-api-sql-query/sql-query1.png
 [introduction]: introduction.md
