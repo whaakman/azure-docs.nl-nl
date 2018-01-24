@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1284,7 +1284,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtuele Windows-machines</h3>
-                                                    <p>Richt virtuele machines in voor SQL Server, SharePoint en meer</p>
+                                                    <p>Virtuele machines inrichten voor SQL Server, SharePoint en meer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Schaalsets voor virtuele machines</h3>
-                                                    <p>Beheer en schaal naar tientallen, honderden of duizenden virtuele Linux- en Windows-machines</p>
+                                                    <p>Omhoog schalen naar duizenden virtuele Linux- en Windows-machines en deze beheren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Web-apps op Linux implementeren met behulp van containers</p>
+                                                    <p>Snel krachtige cloud-apps voor web en mobiel maken</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Beperkte toepassing uitvoeren op grote schaal met behulp van Kubernetes</p>
+                                                    <p>Implementatie, beheer en uitvoering van Kubernetes vereenvoudigen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p>
+                                                    <p>Veilige, schaalbare web-front-ends met hoge beschikbaarheid bouwen in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN (Content Delivery Network)</h3>
-                                                    <p>Inhoud aan eindgebruikers leveren via een robuust netwerk met globale datacenters</p>
+                                                    <p>Beveiligde, betrouwbare contentlevering met een breed, wereldwijd bereik garanderen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Omstandigheden van hele netwerk bewaken en onderzoeken</p>
+                                                    <p>Oplossing voor het bewaken en diagnosticeren van netwerkprestaties</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Zeer schaalbare oplossing voor objectopslag van ongestructureerde gegevens</p>
+                                                    <p>Op REST gebaseerde objectopslag voor ongestructureerde gegevens</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disk Storage</h3>
-                                                    <p>Schijfopslag voor virtuele machines</p>
+                                                    <p>Opties voor permanente, beveiligde schijven die ondersteuning bieden voor virtuele machines</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>Duurzame wachtrijen voor cloudservices met grote volumes</p>
+                                                    <p>Apps effectief schalen op basis van het verkeer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Eenvoudig, gedistribueerd, platformoverschrijdend bestandssysteem</p>
+                                                    <p>Bestandsshares die gebruikmaken van het standaardprotocol SMB 3.0</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybride cloudopslag voor ondernemingen voor verbeterde gegevensbeveiliging</p>
+                                                    <p>Kosten verlagen met een oplossing voor hybride cloudopslag voor ondernemingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Herstel na noodgeval indelen voor virtuele Azure-machines, en on-premises VM's en fysieke servers</p>
+                                                    <p>Gecoördineerde beveiliging en herstel van persoonlijke clouds</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN (Content Delivery Network)</h3>
-                                                    <p>Inhoud aan eindgebruikers leveren via een robuust netwerk met globale datacenters </p>
+                                                    <p>Beveiligde, betrouwbare contentlevering met een breed, wereldwijd bereik garanderen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Een schaalbare engine voor pushmeldingen voor snelle verzending van miljoenen berichten</p>
+                                                    <p>Pushmeldingen verzenden naar elk platform, vanuit elke back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Beperkte toepassing uitvoeren op grote schaal met behulp van Kubernetes</p>
+                                                    <p>Implementatie, beheer en uitvoering van Kubernetes vereenvoudigen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Beheerde relationele database als een service</p>
+                                                    <p>Beheerde relationele SQL-database geleverd als service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2222,7 +2221,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastische datawarehousing als een service met geavanceerde functies voor ondernemingen</p>
+                                                    <p>Elastisch datawarehouse geleverd als service met geavanceerde functies voor ondernemingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Wereldwijd gedistribueerde, multi-modeldatabase voor elke schaalgrootte</p>
+                                                    <p>NoSQL-sleutel/waarde-opslag op basis van semi-gestructureerde gegevenssets</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>Gegevenstoegang met hoge doorvoer en lage latentie om snelle, schaalbare toepassingen te bouwen</p>
+                                                    <p>Krachtige toepassingen die voorzien in gegevenstoegang met een hoge doorvoer en een lage latentie</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Hoogwaardige gegevensmodellen in de cloud</p>
+                                                    <p>Geavanceerde analyse-engine geleverd als service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2455,7 +2454,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastische datawarehousing als een service met geavanceerde functies voor ondernemingen</p>
+                                                    <p>Elastisch datawarehouse geleverd als service met geavanceerde functies voor ondernemingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Krachtig cloudprogramma voor predictive analytics dat voorspellend onderhoud mogelijk maakt</p>
+                                                    <p>Eenvoudig predictive analytics-oplossingen ontwikkelen, implementeren en beheren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Zelfservice voor gegevensbrondetectie inschakelen voor het hele bedrijf</p>
+                                                    <p>Meer waarde halen uit uw bedrijfsspecifieke gegevensassets</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning-services</h3>
-                                                    <p>Krachtig cloudprogramma voor predictive analytics dat voorspellend onderhoud mogelijk maakt</p>
+                                                    <p>AI algemeen beschikbaar maken in de vorm van een end-to-end, schaalbaar en vertrouwd platform met experimenteermogelijkheden en modelbeheer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Breid de intelligentie van de cloud uit naar Edge-apparaten</p>
+                                                    <p>Cloudgebaseerde intelligence beschikbaar maken voor edge-apparaten</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Kaarten, routebeschrijvingen, zoekfunctionaliteit en andere betrouwbare georuimtelijke services</p>
+                                                    <p>Eenvoudige en veilige locatie-API's toepassen die voorzien in georuimtelijke context voor gegevens</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning-services</h3>
-                                                    <p>Krachtig cloudprogramma voor predictive analytics dat voorspellend onderhoud mogelijk maakt</p>
+                                                    <p>AI algemeen beschikbaar maken in de vorm van een end-to-end, schaalbaar en vertrouwd platform met experimenteermogelijkheden en modelbeheer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Een schaalbare engine voor pushmeldingen voor snelle verzending van miljoenen berichten</p>
+                                                    <p>Pushmeldingen verzenden naar elk platform, vanuit elke back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybride cloudopslag voor ondernemingen voor verbeterde gegevensbeveiliging</p>
+                                                    <p>Kosten verlagen met een oplossing voor hybride cloudopslag voor ondernemingen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Zelfservice voor gegevensbrondetectie inschakelen voor het hele bedrijf</p>
+                                                    <p>Meer waarde halen uit uw bedrijfsspecifieke gegevensassets</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Verbeterde zichtbaarheid bij het voorkomen, detecteren en oplossen van bedreigingen</p>
+                                                    <p>Beveiligingsbeheer uniformeren en geavanceerde bedreigingsbeveiliging inschakelen voor alle hybride cloudworkloads</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Meer informatie over het beheren van cryptografische sleutels en geheimen</p>
+                                                    <p>Sleutels en andere geheimen beveiligen en beheren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Meervoudige verificatie</h3>
-                                                    <p>Toegang tot uw gegevens en apps beschermen met een extra verificatieniveau</p>
+                                                    <p>Beveiliging toevoegen voor uw gegevens en apps, zonder extra rompslomp voor gebruikers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Beleid van Azure</h3>
-                                                    <p>Beleidsdefinities maken, toewijzen en beheren </p>
+                                                    <p>Op grote schaal corporate governance en standaarden implementeren voor Azure-resources</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Kostenbeheer van Azure</h3>
-                                                    <p>Cloudgebruik en -uitgaven bijhouden</p>
+                                                    <p>Uw uitgaven aan de cloud optimaliseren en daarbij het potentieel van de cloud maximaliseren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Leer hoe u computergegevens kunt transformeren tot operationele intelligentie</p>
+                                                    <p>Machinegegevens op on-premises locaties en in de cloud verzamelen, zoeken en visualiseren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>De rentabiliteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources verbeteren</p>
+                                                    <p>Een geheel op uw behoeften afgestemde aanbevelingsengine van Azure, die u voorziet van relevante best practices</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Biedt gepersonaliseerde begeleiding en ondersteuning als problemen in Azure-services gevolgen voor u hebben.</p>
+                                                    <p>Persoonlijke begeleiding en ondersteuning ontvangen als problemen in Azure-services gevolgen voor u hebben</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Beheerde toepassingen</h3>
-                                                    <p>Geïmplementeerde oplossingen voor uw klanten beheren</p>
+                                                    <p>Beheer van cloudproducten vereenvoudigen</p>
                                                 </div>
                                             </div>
                                         </div>

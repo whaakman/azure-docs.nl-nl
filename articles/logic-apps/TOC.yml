@@ -222,7 +222,7 @@
           href: logic-apps-enterprise-integration-xml-validation.md
     - name: Beheren
       items:
-        - name: 'Logische apps beheren: Visual Studio'
+        - name: Logische apps beheren - Visual Studio
           href: logic-apps-manage-from-vs.md
         - name: Integratieaccounts beheren
           href: logic-apps-enterprise-integration-accounts.md

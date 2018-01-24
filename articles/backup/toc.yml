@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Back-ups maken van versleutelde virtuele machines
               href: backup-azure-vms-encryption.md
+            - name: VM-back-up inschakelen tijdens het maken van een virtuele machine
+              href: backup-during-vm-creation.md
         - name: Virtuele machines beheren en controleren
           items:
             - name: Back-ups van virtuele Azure-machines beheren in Azure Portal

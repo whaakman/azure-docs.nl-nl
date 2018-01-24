@@ -15,14 +15,31 @@ metadata:
   ms.author: spelluru
 abstract:
   description: 'Meer informatie over hoe u Data Factory, een integratieservice voor cloudgegevens, gebruikt om de services voor gegevensopslag, -verplaatsing en -verwerking te combineren in geautomatiseerde gegevenspijplijnen. Zelfstudies en andere documentatie laten zien hoe u gegevenspijplijnen instelt en beheert, en gegevens voor analyse verplaatst en transformeert. <p>Momenteel is de V2-versie van Data Factory in de preview-fase. De V1-versie is algemeen beschikbaar. Raadpleeg <a href=/azure/data-factory/v1/data-factory-introduction>Documentatie voor V1</a> als u de V1-versie van de Data Factory-service gebruikt.</p>'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: 'Op visuele wijze pijplijnen bouwen voor Azure Data Factory V2 (19:31)'
+    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2'
+    width: 250
 sections:
-  - title: QuickStarts van vijf minuten
+  - title: Snelstartgidsen van vijf minuten
     items:
       - type: paragraph
         text: 'Meer informatie over het maken van een data factory met:'
       - type: list
         style: icon48
         items:
+          - image:
+              src: /azure/data-factory/media/index/portal.svg
+            text: Gebruikersinterface van Data Factory
+            href: /azure/data-factory/quickstart-create-data-factory-portal
+          - image:
+              src: /azure/data-factory/media/index/copy-data-tool.png
+            text: Hulpprogramma voor het kopiëren van gegevens
+            href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
           - image:
               src: /azure/data-factory/media/index/logo_powershell.svg
             text: Azure PowerShell
@@ -40,10 +57,6 @@ sections:
             text: REST
             href: /azure/data-factory/quickstart-create-data-factory-rest-api
           - image:
-              src: /azure/data-factory/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/data-factory/quickstart-create-data-factory-portal
-          - image:
               src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
             text: Resource Manager-sjabloon
             href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
@@ -54,14 +67,14 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">SSIS-pakketten implementeren in Azure</a>
-          - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Gegevens in de cloud kopiëren</a>
-          - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">On-premises gegevens in de cloud kopiëren</a>
-          - html: <a href="../data-factory/tutorial-bulk-copy">Gegevens bulksgewijs kopiëren</a>
-          - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Gegevens stapsgewijs kopiëren</a>
-          - html: <a href="../data-factory/tutorial-transform-data-spark-powershell">Gegevens in de cloud transformeren met behulp van Spark</a>
-          - html: <a href="../data-factory/tutorial-transform-data-hive-virtual-network">Gegevens in het virtuele netwerk transformeren</a>
-          - html: <a href="../data-factory/tutorial-control-flow">Controlestroom</a>
+          - html: SSIS-pakketten implementeren in Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+          - html: Gegevens in de cloud kopiëren - <a href="/azure/data-factory/tutorial-copy-data-tool">Hulpprogramma voor het kopiëren van gegevens</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">Azure PowerShell</a>
+          - html: On-premises gegevens naar de cloud kopiëren - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">Hulpprogramma voor het kopiëren van gegevens | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
+          - html: Gegevens bulksgewijs kopiëren - <a href="/azure/data-factory/tutorial-bulk-copy-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
+          - html: Gegevens stapsgewijs kopiëren - <a href="/azure/data-factory/tutorial-incremental-copy-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
+          - html: Gegevens in de cloud transformeren met behulp van Spark - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
+          - html: Gegevens in een virtueel netwerk transformeren - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
+          - html: Controlestroom - <a href="/azure/data-factory/tutorial-control-flow-portal">Gebruikersinterface van Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">Azure PowerShell</a>
   - title: Voorbeelden
     items:
       - type: paragraph
@@ -82,4 +95,4 @@ sections:
           - title: Talen
             html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
           - title: REST
-            html: <p><a href="/rest/api/datafactory">REST-API</a></p>
+            html: <p><a href="/rest/api/datafactory">REST API</a></p>

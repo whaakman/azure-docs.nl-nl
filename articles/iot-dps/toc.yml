@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Azure CLI gebruiken voor het beheren van Device Provisioning Service
       href: how-to-manage-dps-with-cli.md
+    - name: SDK-hulpprogramma's gebruiken om te ontwikkelen
+      href: how-to-use-sdk-tools.md
 - name: Naslaginformatie
   items:
     - name: REST
