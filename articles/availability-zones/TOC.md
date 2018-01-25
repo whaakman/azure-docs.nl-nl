@@ -33,6 +33,9 @@
 #### [Een openbaar IP-adres maken in een beschikbaarheidszone met PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Een openbaar IP-adres maken in een beschikbaarheidszone met CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Storage
+#### [Zone-redundante opslag](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Herstel na noodgevallen
 ## [Azure Site Recovery gebruiken](https://docs.microsoft.com/azure/site-recovery/)
 

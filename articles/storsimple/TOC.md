@@ -2,7 +2,6 @@
 
 ## Overzicht
 ### [Wat is de oplossing?](storsimple-ova-overview.md)
-### [Beschikbaarheid in regio’s](storsimple-regions.md)
 
 ## Aan de slag
 ### Plannen
@@ -13,6 +12,7 @@
 ### Implementeren
 #### [Implementatie voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Manager-service implementeren](storsimple-virtual-array-manage-service.md)
+##### [Nieuwe verificatie](storsimple-virtual-array-aad-registration-key.md)
 #### [Inrichten in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Inrichten in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Instellen als bestandsserver](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Implementeren
 #### [StorSimple-apparaatbeheerfunctie](storsimple-8000-manage-service.md)
+#### [Nieuwe verificatie voor service](storsimple-8000-aad-registration-key.md)
 #### [Fysiek apparaat in Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Fysiek apparaat in Government-portal](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Cloudapparaat in Azure](storsimple-8000-cloud-appliance-u2.md)

@@ -4,7 +4,7 @@
   items:
     - name: Over Jenkins in Azure
       href: overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een Jenkins-server maken
@@ -40,6 +40,9 @@
       maintainContext: true
     - name: Jenkins gebruiken met VSTS
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Service Fabric-apps implementeren
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Voorbeelden
   items:
     - name: Voorbeeldtaken en -scripts
@@ -50,6 +53,8 @@
       items:
         - name: Azure App Service-invoegtoepassing
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Azure AD-invoegtoepassing
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Azure Container Agents-invoegtoepassing
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Azure Container Service-invoegtoepassing
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Azure Function-invoegtoepassing
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Azure Service Fabric-invoegtoepassing
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Azure Storage-invoegtoepassing
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Azure VM Agents-invoegtoepassing
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Invoegtoepassing voor Azure VM-schaalset
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins Home
