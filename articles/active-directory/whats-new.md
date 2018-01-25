@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c7aab313e6c848c97447cde22752cfed945442df
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -40,6 +40,126 @@ Azure AD ontvangt verbeteringen voortdurend. Om te blijven up-to-date met de mee
 -   Plannen voor wijzigingen
 
 Deze pagina maandelijks wordt bijgewerkt, dus regelmatig bezoeken.
+
+
+## <a name="january-2018"></a>2018 januari
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve Apps beschikbaar in Azure AD-App-galerie 
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** 3e integratie van derden
+ 
+
+In januari 2018, zijn de volgende nieuwe apps met ondersteuning voor identiteitsfederatie toegevoegd in de App-galerie:
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust Privacy beheersoftware](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk federatieve Directory](https://go.microsoft.com/fwlink/?linkid=864699) en [kwaliteit NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+Zie voor een volledig overzicht van alle beschikbare zelfstudies [integratie van de SaaS-toepassingen met Azure Active Directory](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+
+### <a name="sign-in-with-additional-risk-detected"></a>Aanmelding met de extra risico gedetecteerd
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Identity Protection  
+**Product mogelijkheid:** identiteit beveiliging en gegevensbescherming
+ 
+
+Het voor een risicogebeurtenis gedetecteerde dat u inzicht is gekoppeld aan uw abonnement Azure AD. Met de Azure AD Premium P2-editie, moet u de meest gedetailleerde informatie over alle onderliggende detecties ophalen.
+
+Met de editie Azure AD Premium-P1 weergegeven detecties die niet wordt gedekt door uw licentie als de risicogebeurtenis aanmelden met extra risico gedetecteerd.
+
+Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-reporting-risk-events.md) voor meer informatie.
+ 
+
+---
+
+### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Office 365-toepassingen van de eindgebruiker toegang panelen verbergen
+
+**Type:** nieuwe functie  
+**Servicecategorie:** mijn Apps  
+**Product mogelijkheid:** eenmalige aanmelding
+ 
+
+U kunt nu beter beheren hoe Office 365-toepassingen weergegeven op uw gebruikers toegang panelen via een nieuwe gebruikersinstelling. Deze optie is handig voor het beperken van de hoeveelheid apps in een gebruiker toegang panelen als u liever alleen Office-apps worden weergegeven in de Office-portal. De instelling bevindt zich in de **gebruikersinstellingen** en label **kunnen gebruikers alleen Office 365-apps in de Office 365-beheerportal zien**.
+ 
+
+Zie voor meer informatie [verbergen van een toepassing van de gebruikerservaring in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+
+---
+ 
+
+
+### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Naadloze Meld u aan bij de apps die zijn ingeschakeld voor eenmalige aanmelding wachtwoord rechtstreeks vanuit de app-URL 
+
+**Type:** nieuwe functie  
+**Servicecategorie:** mijn Apps  
+**Product mogelijkheid:** eenmalige aanmelding
+ 
+
+De Browseruitbreiding van mijn Apps is nu beschikbaar via een handig hulpmiddel waarmee u eenmalige aanmelding in de mijn Apps van mogelijkheden als een snelkoppeling in uw browser. Nadat de installatie van de gebruiker ziet een pictogram waffle in hun browser waarmee ze snel toegang tot apps. Gebruikers kunnen nu profiteren van:
+
+- De mogelijkheid rechtstreeks aanmelden bij wachtwoord SSO gebaseerde apps uit de app-aanmeldingspagina
+- Start een app met de functie Snel zoeken
+- Snelkoppelingen naar de laatst gebruikte apps van de extensie
+- De extensie is beschikbaar voor Edge, Chrome en Firefox.
+ 
+Zie voor meer informatie [mijn Apps beveiligen aanmelden extensie](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD-beheer ervaring in de klassieke Azure-portal is buiten gebruik gesteld
+
+**Type:** afgeschaft   
+**Servicecategorie:** Azure AD  
+**Product mogelijkheid:** Directory
+ 
+
+Vanaf 8 januari 2018, het beheer van Azure AD ervaring in de klassieke Azure portal is buiten gebruik gesteld. Dit heeft plaatsgevonden in combinatie met de buiten gebruik stellen van de klassieke Azure portal zelf. Voortaan, moet u de [Azure AD-beheercentrum](https://aad.portal.azure.com) voor alle uw portal-beheer op basis van Azure AD.
+ 
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD-beheer ervaring in de klassieke Azure-portal is buiten gebruik gesteld
+
+**Type:** afgeschaft  
+**Servicecategorie:** Azure AD  
+**Product mogelijkheid:** Directory
+ 
+
+Vanaf 8 januari 2018, de PhoneFactor-webportal is buiten gebruik gesteld. Deze portal is gebruikt voor het beheer van MFA-server, maar deze functies zijn verplaatst naar de Azure portal op portal.azure.com. 
+
+De configuratie van MFA bevindt zich op: **Azure Active Directory \> MFA-Server**
+ 
+---
+ 
+### <a name="deprecate-azure-ad-reports"></a>Afschaffen Azure AD-rapporten
+
+
+**Type:** afgeschaft  
+**Servicecategorie:** rapportage  
+**Product mogelijkheid:** Identity Lifecycle Management  
+
+
+Met de algemene beschikbaarheid van de nieuwe Azure Active Directory Administration console en de nieuwe API's nu beschikbaar voor zowel beveiliging als activiteit rapporten, het rapport API's onder '/ reports'-eindpunt is buiten gebruik gesteld vanaf het einde van 31 December 2017.
+
+
+**Wat is er beschikbaar?**
+
+Als onderdeel van de overgang naar de nieuwe beheerconsole, hebben we 2 nieuwe API's beschikbaar zijn voor het ophalen van Azure AD-activiteitenlogboeken aangebracht. De nieuwe set API's bieden uitgebreidere filteren en sorteren op de functionaliteit naast het bieden van uitgebreidere audit en aanmelden activiteiten. De gegevens die eerder beschikbaar via de beveiligingsrapporten zijn nu toegankelijk via de risicogebeurtenissen Identity Protection API in Microsoft Graph.
+
+Zie voor meer informatie:
+
+- [Aan de slag met de Azure Active Directory rapportage-API](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## <a name="december-2017"></a>December 2017
@@ -130,25 +250,11 @@ Zie voor meer informatie [wat is Azure AD Privileged Identity Management?](activ
 **Servicecategorie:** zakelijke apps  
 **Product mogelijkheid:** integratie van derden
  
-In December 2017, zijn de volgende nieuwe apps met ondersteuning voor identiteitsfederatie toegevoegd in de app-galerie.
+In December 2017, zijn de volgende nieuwe apps met ondersteuning voor identiteitsfederatie toegevoegd in de app-galerie:
 
-|Naam|Van Integratietype|Beschrijving|
-|:-- |----------------|:----------|
-|Digitale EFI-winkel|SAML 2.0|[Web 2 afdrukken](https://go.microsoft.com/fwlink/?linkid=861685) toepassing.|
-|Vodeclic|SAML 2.0|Azure AD gebruiken voor het beheren van toegang voor gebruikers en eenmalige aanmelding met inschakelen [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Een bestaand Vodeclic-account vereist.|
-|Accredible|SAML 2.0|Gebruik [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) wilt maken, beheren en leveren van certificaten, badges en blockchain referenties.|
-|FactSet|SAML 2.0|Eenmalige aanmelding voor de [FactSet FDSWeb toepassing](https://go.microsoft.com/fwlink/?linkid=863525).|
-|MobileIron Azure AD-integratie|SAML 2.0|Moderne ondernemingen kunt [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) beveiligen en beheren van informatie, zoals het naar mobiele en de cloud wordt verplaatst terwijl ze privacy en vertrouwensrelatie behouden.|
-|AFBEELDING WERKT|SAML 2.0|Azure AD gebruikt gebruikerstoegang beheren, gebruikersaccounts inrichten en eenmalige aanmelding met inschakelen [INSTALLATIEKOPIE werkt](https://go.microsoft.com/fwlink/?linkid=863517). Een bestaande INSTALLATIEKOPIE WORKS-abonnement is vereist.|
-|SAML SSO voor Bitbucket door resolutie GmbH|SAML 2.0|[Eenmalige aanmelding Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) gemachtigden verificatie met Azure AD. Gebruikers die al aangemeld bij Azure AD kunnen rechtstreeks toegang hebben tot Bitbucket. Gebruikers kunnen worden gemaakt en bijgewerkt op snel met gegevens uit SAML-kenmerken.|
-|SAML SSO voor Bamboe door resolutie GmbH|SAML 2.0|[Eenmalige aanmelding Bamboe](https://go.microsoft.com/fwlink/?linkid=863520) gemachtigden verificatie met Azure AD. Gebruikers die al aangemeld bij Azure AD kunnen Bamboe rechtstreeks toegang tot.|
-|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) is een moderne, volledig functionele sociale intranet-software die ondersteuning biedt voor werknemers en bedrijven.|
-|MOBI|SAML 2.0|Gebruik [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) om te centraliseren, begrijpen en beheren van uw hele apparaat-ecosysteem.|
-|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is een moderne platform voor prestatiebeheer, realtime feedback en doelstellingen. |
-|CybSafe|OpenID Connect & OAuth|Dit platform cyberbeveiliging-awareness GCHQ gecertificeerd maakt gebruik van geavanceerde analyses van technologie en gegevens te verminderen de menselijke aspect van cyberbeveiliging beveiligings- en data protection risico.|
-|WebHR|OpenID Connect & OAuth|Deze software sociale human resources wordt vertrouwd door meer dan 20.000 bedrijven in 197 landen.|
- |Zenegy Azure AD-integratie|OpenID Connect & OAuth|Met deze app kunt u Azure AD-referenties van uw bedrijf aan te melden bij Zenegy.|
-|Adobe Experience Manager|SAML 2.0|U kunt deze uitgebreide inhoudsbeheer platform-oplossing voor het bouwen van websites, mobiele apps en formulieren voor het beheren van uw marketing inhoud en activa.|
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe ervaring Manager [EFI digitale winkel](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [INSTALLATIEKOPIE WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD-integratie](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO voor Bamboe door resolutie GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO voor Bitbucket door resolutie GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD-integratie.
+
+Zie voor een volledig overzicht van alle beschikbare zelfstudies [integratie van de SaaS-toepassingen met Azure Active Directory](https://aka.ms/appstutorial).
 
  
 ---

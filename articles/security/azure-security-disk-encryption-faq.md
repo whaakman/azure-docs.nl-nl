@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/24/2018
@@ -129,7 +129,7 @@ Als deze werkstroom niet mogelijk is, vertrouwen op [Opslagversleuteling Service
 
 **V:** waar kan ik heen te vragen of feedback geven?
 
-**A:** kunt u vragen hebt of feedback geven over de [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**A:** kunt u vragen hebt of feedback geven over de [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u geleerd meer informatie over de meest voorkomende vragen met betrekking tot Azure Disk Encryption. Zie voor meer informatie over deze service en de mogelijkheden ervan, de volgende artikelen:

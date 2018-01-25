@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
@@ -38,10 +38,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 2. Onder **Azure Databricks (preview)** klikt u op **Maken**.
 
-    > [!NOTE]
-    > Azure Databricks is momenteel alleen beschikbaar als beperkte preview-versie. Als u wilt dat uw Azure-abonnement in aanmerking wordt genomen voor opname in de whitelist, moet u het [aanmeldingsformulier](https://databricks.azurewebsites.net/) invullen.
-
-2. Geef onder **Azure Databricks-service** de volgende waarden op:
+3. Geef onder **Azure Databricks-service** de volgende waarden op:
 
     ![Een Azure Databricks-werkruimte maken](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
 
@@ -50,7 +47,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     * Geef bij **Resourcegroep** op of u een nieuwe resourcegroep wilt maken of een bestaande wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
     * Selecteer bij **Locatie** **VS - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.
 
-3. Klik op **Create**.
+4. Klik op **Create**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Een Spark-cluster maken in Databricks
 

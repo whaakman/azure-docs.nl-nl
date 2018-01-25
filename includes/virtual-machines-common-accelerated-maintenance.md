@@ -45,7 +45,7 @@ De Azure-platform-services, waaronder web & mobile, gegevensservices, IoT, zonde
 
 ## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel uitgebracht aanvullende richtlijnen op januari 22, 2018 betrekking hebben op de beveiligingsproblemen.  In deze richtlijnen, wordt geen extra onderhoudsactiviteiten door Azure?  
 
-Azure oplossingen eerder aangekondigd op 3 Jan 2018 worden hierdoor niet beïnvloed door de [richtlijnen bijgewerkt](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) van Intel. Er zijn geen extra onderhoud activiteit van de klant VM's als gevolg van deze nieuwe gegevens door Intel.
+Azure oplossingen eerder aangekondigd op 3 Jan 2018 worden hierdoor niet beïnvloed door de [richtlijnen bijgewerkt](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) van Intel. Er zijn geen extra onderhoud activiteit van de klant VM's als gevolg van deze nieuwe gegevens.
  
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
@@ -159,9 +159,9 @@ END
    ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
 2. Voer op de pagina **Nieuwe gegevensfactory** **ADFTutorialBulkCopyDF** in als de **naam**. 
       
-     ![Pagina Nieuwe gegevensfactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u een rood uitroepteken ziet met het volgende foutbericht, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFIncCopyTutorialDF) en probeert u het opnieuw. Zie het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u een rood uitroepteken ziet met het volgende foutbericht, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFIncCopyTutorialDF) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name "ADFIncCopyTutorialDF" is not available`
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -178,10 +178,10 @@ END
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
-9. Wanneer de gegevensfactory is gemaakt, ziet u de pagina **Gegevensfactory** zoals wordt weergegeven in de afbeelding.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
    ![Startpagina van de gegevensfactory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Klik op de tegel **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad.
+10. Klik op de tegel **Author & Monitor** om de gebruikersinterface (UI) van Azure Data Factory te openen in een afzonderlijk tabblad.
 
 ## <a name="create-a-pipeline"></a>Een pijplijn maken
 In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopieeractiviteit en één opgeslagen procedureactiviteit als keten in één pijplijn. 
@@ -283,7 +283,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 26. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
 
     1. Voer **AzureStorageLinkedService** in als **Naam**. 
-    2. Selecteer uw Azure Storage-account als **naam van het opslagaccount**.
+    2. Selecteer uw Azure Storage-account bij **Storage account name**.
     3. Klik op **Opslaan**. 
 
         ![Gekoppelde Azure Storage-service - instellingen](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
@@ -311,7 +311,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 
         | Name | Type | Waarde | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datum/tijd | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | datum/tijd | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Tekenreeks | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -334,7 +334,7 @@ Klik in de werkbalk op **Activeren** en klik op **Nu activeren**.
     ![Pijplijnuitvoeringen](./media/tutorial-incremental-copy-portal/pipeline-runs.png)
 2. Klik op de eerste koppeling (**Uitvoeringen van activiteit weergeven**) in de kolom **Acties** om de uitvoeringen van activiteit weer te geven die zijn gekoppeld aan deze pijplijnuitvoering. Als u wilt terugkeren naar de vorige weergave, klikt u bovenaan op **Pijplijnen**. Klik op de knop **Vernieuwen** om de lijst te vernieuwen.
 
-    ![Uitvoeringen van activiteit](./media/tutorial-incremental-copy-portal/activity-runs.png)
+    ![Uitvoering van activiteiten](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## <a name="review-the-results"></a>De resultaten bekijken
 1. Maak verbinding met uw Azure Storage-account met behulp van hulpprogramma's zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Controleer of er een uitvoerbestand is gemaakt in de map **incrementalcopy** in de container **adftutorial**.
@@ -403,7 +403,7 @@ PersonID | Name | LastModifytime
     ![Pijplijnuitvoeringen](./media/tutorial-incremental-copy-portal/pipeline-runs-2.png)
 2. Klik op de eerste koppeling (**Uitvoeringen van activiteit weergeven**) in de kolom **Acties** om de uitvoeringen van activiteit weer te geven die zijn gekoppeld aan deze pijplijnuitvoering. Als u wilt terugkeren naar de vorige weergave, klikt u bovenaan op **Pijplijnen**. Klik op de knop **Vernieuwen** om de lijst te vernieuwen.
 
-    ![Uitvoeringen van activiteit](./media/tutorial-incremental-copy-portal/activity-runs-2.png)
+    ![Uitvoering van activiteiten](./media/tutorial-incremental-copy-portal/activity-runs-2.png)
 
 ## <a name="verify-the-second-output"></a>De tweede uitvoer controleren
 
@@ -446,7 +446,7 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 In deze zelfstudie heeft de pijplijn gegevens uit één tabel in een SQL-database naar een Blob-opslag gekopieerd. Ga door naar de volgende zelfstudie voor meer informatie over het kopiëren van gegevens uit meerdere tabellen in een on-premises SQL Server-database naar een SQL-database. 
 
 > [!div class="nextstepaction"]
->[Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL Database kopiëren](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL Database kopiëren](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

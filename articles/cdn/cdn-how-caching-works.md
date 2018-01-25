@@ -1,5 +1,5 @@
 ---
-title: Hoe opslaan in cache werkt in de Azure Content Delivery Network | Microsoft Docs
+title: Werking van cacheopslag | Microsoft Docs
 description: Opslaan in cache is het proces voor het opslaan van gegevens lokaal zodat toekomstige aanvragen voor dat de gegevens sneller kunnen worden geopend.
 services: cdn
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 638b105b4848d41b2755a4b153c13a77fb9ca08b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-caching-works"></a>Hoe opslaan in cache werkt
 
-Dit artikel bevat een overzicht van de algemene concepten voor opslaan in cache en hoe de Azure Content Delivery Network (CDN) maakt gebruik van opslaan in cache om prestaties te verbeteren. Als u meer informatie over het aanpassen van het gedrag van uw CDN-eindpunt, Zie [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md) en [besturingselement Azure CDN cachegedrag met queryreeksen](cdn-query-string.md).
+In dit artikel biedt een overzicht van de algemene concepten voor opslaan in cache en hoe [Azure Content Delivery Network (CDN)](cdn-overview.md) opslaan in cache gebruikt om prestaties te verbeteren. Als u meer informatie over het aanpassen van het gedrag van uw CDN-eindpunt, Zie [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md) en [besturingselement Azure CDN cachegedrag met queryreeksen](cdn-query-string.md).
 
 ## <a name="introduction-to-caching"></a>Inleiding tot het opslaan in cache
 
@@ -57,35 +57,39 @@ Opslaan in cache is integraal is voor de manier waarop die een CDN werkt om leve
 
 - Door het offloaden van een CDN werk kan opslaan in cache verminderen netwerkverkeer en de belasting van de bronserver. In dat geval beperkt kosten besparen en resources vereisten voor de toepassing, zelfs als er grote aantallen gebruikers.
 
-Vergelijkbaar met een webbrowser, kunt u bepalen hoe de CDN opslaan in cache wordt uitgevoerd door de instructie cache koppen verzenden. Instructie cache-headers zijn HTTP-headers worden doorgaans door de oorspronkelijke server toegevoegd. Hoewel de meeste van deze koppen oorspronkelijk zijn ontworpen om op te lossen opslaan in cache in clientbrowsers, worden ze nu ook door alle tussenliggende caches, zoals CDN gebruikt. Twee headers kunnen worden gebruikt voor het definiëren van cache nieuwheid: `Cache-Control` en `Expires`. `Cache-Control`meer actueel en heeft voorrang op `Expires`als beide aanwezig zijn. Er zijn ook twee soorten headers voor de validatie (validatiefuncties genoemd): `ETag` en `Last-Modified`. `ETag`meer actueel en heeft voorrang op `Last-Modified`als beide zijn gedefinieerd.  
+Vergelijkbaar met hoe opslaan in cache is geïmplementeerd in een webbrowser kunt u bepalen hoe opslaan in cache wordt uitgevoerd in een CDN door de instructie cache koppen verzenden. Instructie cache-headers zijn HTTP-headers worden doorgaans door de oorspronkelijke server toegevoegd. Hoewel de meeste van deze koppen oorspronkelijk zijn ontworpen om op te lossen opslaan in cache in clientbrowsers, worden ze nu ook door alle tussenliggende caches, zoals CDN gebruikt. 
+
+Twee headers kunnen worden gebruikt voor het definiëren van cache nieuwheid: `Cache-Control` en `Expires`. `Cache-Control`meer actueel en heeft voorrang op `Expires`als beide aanwezig zijn. Er zijn ook twee soorten headers voor de validatie (validatiefuncties genoemd): `ETag` en `Last-Modified`. `ETag`meer actueel en heeft voorrang op `Last-Modified`als beide zijn gedefinieerd.  
 
 ## <a name="cache-directive-headers"></a>Headers van de instructie cache
 
+> [!IMPORTANT]
+> Standaard een Azure CDN-eindpunt dat is geoptimaliseerd voor DSA instructie cache headers worden genegeerd en wordt overgeslagen opslaan in cache. U kunt aanpassen hoe een Azure CDN-eindpunt deze koppen omgaat met behulp van CDN regels opslaan in cache in te schakelen in. Zie voor meer informatie [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md).
+
 Azure CDN ondersteunt de volgende HTTP-instructie cache headers, waarin de Cacheduur van de en het delen van de cache: 
 
-`Cache-Control`  
+`Cache-Control`
 - Geïntroduceerd in HTTP 1.1 zodat web uitgevers meer controle over hun inhoud en voor het oplossen van de beperkingen van de `Expires` header.
-- Onderdrukt de `Expires` header als zowel het en `Cache-Control` zijn gedefinieerd.
-- Wanneer gebruikt in een aanvraag-header: standaard door Azure CDN genegeerd.
-- Wanneer gebruikt in een antwoordheader: Azure CDN zich houdt aan de volgende `Cache-Control` richtlijnen bij het gebruik van algemene webtoepassingen levering, grote bestanden gedownload en algemene/video-op-demand streaming van media optimalisaties:  
-   - `max-age`: De inhoud voor het aantal seconden dat is opgegeven een cache kan worden opgeslagen. Bijvoorbeeld `Cache-Control: max-age=5`. Deze instructie geeft de maximale hoeveelheid tijd die de inhoud wordt beschouwd als nieuwe.
-   - `private`: De inhoud is voor één gebruiker. opslaan van inhoud niet dat de gedeelde caches, zoals CDN.
-   - `no-cache`: De inhoud in cache, maar de inhoud moet valideren elke keer dat u deze voordat levert uit de cache. Equivalent zijn aan `Cache-Control: max-age=0`.
-   - `no-store`: Nooit cache de inhoud. Inhoud verwijderen als deze eerder is opgeslagen.
+- Onderdrukt de `Expires` koptekst als zowel het en `Cache-Control` zijn gedefinieerd.
+- Wanneer gebruikt in een aanvraagheader `Cache-Control` wordt standaard door Azure CDN genegeerd.
+- Wanneer gebruikt in een antwoordheader, Azure CDN ondersteunt de volgende `Cache-Control` richtlijnen volgens product: 
+   - **Azure CDN van Verizon**: ondersteunt alle `Cache-Control` richtlijnen. 
+   - **Azure CDN van Akamai**: ondersteunt alleen de volgende `Cache-Control` richtlijnen; alle andere worden genegeerd: 
+      - `max-age`: De inhoud voor het aantal seconden dat is opgegeven een cache kan worden opgeslagen. Bijvoorbeeld `Cache-Control: max-age=5`. Deze instructie geeft de maximale hoeveelheid tijd die de inhoud wordt beschouwd als nieuwe.
+      - `no-cache`: De inhoud in cache, maar de inhoud te valideren elke keer dat u deze voordat levert uit de cache. Equivalent zijn aan `Cache-Control: max-age=0`.
+      - `no-store`: Nooit cache de inhoud. Inhoud verwijderen als deze eerder is opgeslagen.
 
-`Expires` 
+`Expires`
 - Verouderde header die is geïntroduceerd in HTTP 1.0; ondersteund voor achterwaartse compatibiliteit.
 - Maakt gebruik van een verlooptijd voor op basis van datum met een tweede precisie. 
 - Net als bij `Cache-Control: max-age`.
 - Gebruikt wanneer `Cache-Control` bestaat niet.
 
-`Pragma` 
-   - Standaard wordt niet herkend door het Azure CDN.
+`Pragma`
+   - Niet herkend door het Azure CDN standaard.
    - Verouderde header die is geïntroduceerd in HTTP 1.0; ondersteund voor achterwaartse compatibiliteit.
    - Als de aanvraag-header van een client met de volgende instructie gebruikt: `no-cache`. Deze richtlijn Hiermee geeft u de server voor het leveren van een nieuwe versie van de resource.
    - `Pragma: no-cache`is gelijk aan `Cache-Control: no-cache`.
-
-Standaard negeren DSA optimalisaties deze headers. U kunt aanpassen hoe Azure CDN deze koppen omgaat met behulp van de cache in regels CDN. Zie voor meer informatie [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md).
 
 ## <a name="validators"></a>Validatiefuncties
 
@@ -111,16 +115,16 @@ Kunnen niet alle resources in cache worden opgeslagen. De volgende tabel ziet we
 |------------------ |------------------------|----------------------------------|
 | HTTP-statuscodes | 200                    | 200, 203, 300, 301, 302 en 401 |
 | HTTP-methode       | GET                    | GET                              |
-| Bestandsgrootte         | 300 GB                 | <ul><li>Algemene webtoepassingen leveringsoptimalisatie: 1,8 GB</li> <li>Optimalisaties van mediastreaming: 1,8 GB</li> <li>Optimalisatie van grote bestanden: 150 GB</li> |
+| Bestandsgrootte         | 300 GB                 | -Web algemeen leveringsoptimalisatie: 1,8 GB<br />-Mediastreaming optimalisaties: 1,8 GB<br />-Groot bestand optimalisatie: 150 GB |
 
-## <a name="default-caching-behavior"></a>Standaard cachegedrag
+## <a name="default-caching-behavior"></a>Standaardgedrag voor opslaan in cache
 
 De volgende tabel beschrijft de standaard cachegedrag voor de Azure CDN-producten en hun optimalisatie.
 
-|                    | Verizon - levering van algemene webtoepassingen | Verizon – dynamische site-versnelling | Akamai - levering van algemene webtoepassingen | Akamai - dynamische site-versnelling | Akamai - grote bestanden downloaden | Akamai - algemeen of video-on-demand mediastreaming |
+|                    | Verizon - levering van algemene webtoepassingen | Verizon – DSA | Akamai - levering van algemene webtoepassingen | Akamai - DSA | Akamai - grote bestanden downloaden | Akamai - algemeen of VOD streamen van media |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Voldoen aan de oorsprong**   | Ja    | Nee   | Ja | Nee | Ja | Ja |
-| **Cacheduur CDN** | 7 dagen | Geen | 7 dagen | Geen | 1 dag | 1 jaar |
+| **Cacheduur CDN** | 7 dagen | Geen | 7 dagen | None | 1 dag | 1 jaar |
 
 **Oorsprong inwilligen**: geeft aan of te voldoen aan de [instructie cache headers ondersteund](#http-cache-directive-headers) als ze in het HTTP-antwoord op de bronserver voorkomen.
 

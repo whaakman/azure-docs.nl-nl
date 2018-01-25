@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -39,9 +39,9 @@ Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand 
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
 |Standaard|10.0.0.0/8                                              |Geen           |
-|Standaard|172.16.0.0/12                                           |Geen           |
-|Standaard|192.168.0.0/16                                          |Geen           |
-|Standaard|100.64.0.0/10                                           |Geen           |
+|Standaard|172.16.0.0/12                                           |None           |
+|Standaard|192.168.0.0/16                                          |None           |
+|Standaard|100.64.0.0/10                                           |None           |
 
 De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routeert dat bestemd is voor het vermelde adresvoorvoegsel. Hieronder worden de 'volgende hoptypen' toegelicht:
 
@@ -89,7 +89,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
     > [!NOTE]
     > Het is belangrijk dat u een virtueel apparaat in een ander subnet implementeert dan het subnet waarin de resources zijn geïmplementeerd die gegevens via het virtuele apparaat routeren. Als u het virtuele apparaat in hetzelfde subnet implementeert en vervolgens een routetabel toepast op het subnet dat verkeer via het virtuele apparaat leidt, kan dit routeringslussen veroorzaken, waardoor verkeer het subnet nooit verlaat.
 
-    - Het privé IP-adres van een [interne load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure. Een load balancer wordt vaak gebruikt als onderdeel van een [strategie voor hoge beschikbaarheid van virtuele netwerkapparaten](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - Het privé IP-adres van een [interne load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure. Een load balancer wordt vaak gebruikt als onderdeel van een [strategie voor hoge beschikbaarheid van virtuele netwerkapparaten](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     U kunt een route met 0.0.0.0/0 als het adresvoorvoegsel definiëren en het 'volgende hoptype' Virtueel apparaat. Het apparaat kan dan het gegevensverkeer inspecteren en bepalen of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken met het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen.
 
@@ -110,7 +110,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 |Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Internet                        |Internet                                        |Internet (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
-|Geen                            |Geen                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|None                            |None                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Peering op virtueel netwerk         |VNet-peering                                    |Niet van toepassing|
 |Service-eindpunt voor virtueel netwerk|VirtualNetworkServiceEndpoint                   |Niet van toepassing|
 
@@ -207,8 +207,8 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |3   |Gebruiker   |Actief |10.0.0.0/24         |Virtueel netwerk        |                   |Within-Subnet1|
 |4   |Standaard|Ongeldig|10.1.0.0/16         |VNet-peering           |                   |              |
 |5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
-|6   |Gebruiker   |Actief |10.1.0.0/16         |Geen                   |                   |ToVNet2-1-Drop|
-|7   |Gebruiker   |Actief |10.2.0.0/16         |Geen                   |                   |ToVNet2-2-Drop|
+|6   |Gebruiker   |Actief |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
+|7   |Gebruiker   |Actief |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
 |8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
 |10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
@@ -243,8 +243,8 @@ De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
 |Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
 |Standaard |Actief |100.64.0.0/10       |Geen                      |                   |
-|Standaard |Actief |172.16.0.0/12       |Geen                      |                   |
-|Standaard |Actief |192.168.0.0/16      |Geen                      |                   |
+|Standaard |Actief |172.16.0.0/12       |None                      |                   |
+|Standaard |Actief |192.168.0.0/16      |None                      |                   |
 
 De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optionele routes Virtual network peering en VPN Gateway. Azure heeft de optionele routes toegevoegd aan alle subnetten in het virtuele netwerk op het moment dat de gateway en peering werden toegevoegd aan het virtuele netwerk. Azure heeft de routes voor de adresvoorvoegsels 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 en 100.64.0.0/10 verwijderd uit de routetabel van *Subnet1* op het moment dat de door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 werd toegevoegd aan *Subnet1*.  
 

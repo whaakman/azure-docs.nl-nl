@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Versies 1 en 2 van Azure Data Factory vergelijken
 In dit artikel wordt versie 2 (V2) van Azure Data Factory vergeleken met versie 1 (V1). Zie voor meer informatie over V1 [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md). Zie voor meer informatie over V2 [Inleiding tot Data Factory (V2 - preview)](introduction.md).
@@ -128,7 +128,16 @@ Zie [Verschil tussen aangepaste activiteit in V1 en V2](transform-data-using-dot
 De SDK's die zijn bijgewerkt voor V2 zijn niet achterwaarts compatibel met V1-clients. 
 
 ## <a name="authoring-experience"></a>Ontwerpen
-Met Data Factory V1 kunt u pijplijnen ontwerpen met behulp van Data Factory Editor in Azure Portal. Data Factory V2 ondersteunt alleen programmatische methoden (zoals .NET SDK, REST-API, PowerShell en Python) om data factory's te maken. Er bestaat nog geen gebruikersinterface.  Data Factory V1 ondersteunt ook ontwerp van SDK, REST en PowerShell.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure Portal | [Ja](quickstart-create-data-factory-portal.md) | [Ja](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Ja](quickstart-create-data-factory-powershell.md) | [Ja](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Ja](quickstart-create-data-factory-dot-net.md) | [Ja](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST-API | [Ja](quickstart-create-data-factory-rest-api.md) | [Ja](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python-SDK | [Ja](quickstart-create-data-factory-python.md) | Nee |
+| Resource Manager-sjabloon | [Ja](quickstart-create-data-factory-resource-manager-template.md) | [Ja](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Bewaken
 In V2 kunt u ook data factory's bewaken met behulp van [Azure Monitor](monitor-using-azure-monitor.md). De nieuwe PowerShell-cmdlets bieden ondersteuning voor het bewaken van [integratie-runtimes](monitor-integration-runtime.md). Zowel V1 als V2 ondersteunen visueel bewaken via bewakingstoepassingen die vanuit Azure Portal kunnen worden gestart.

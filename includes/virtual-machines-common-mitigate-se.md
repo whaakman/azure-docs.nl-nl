@@ -8,7 +8,10 @@ De recente openbaarmaking van een [nieuwe klasse van CPU-beveiligingsproblemen](
 De infrastructuur die wordt uitgevoerd van Azure en werkbelastingen van de klant van elkaar isoleert is beveiligd.  Dit betekent dat andere klanten uitgevoerd op Azure uw toepassing met behulp van deze beveiligingslekken kunnen geen aanvallen.
 
 > [!NOTE] 
-> Azure oplossingen eerder aangekondigd op 3 Jan 2018 worden hierdoor niet beïnvloed door de recente [richtlijnen bijgewerkt](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) van Intel. Er zijn geen extra onderhoud activiteit van de klant VM's als gevolg van deze nieuwe gegevens door Intel.
+> Azure oplossingen eerder aangekondigd op 3 Jan 2018 worden hierdoor niet beïnvloed door de recente [richtlijnen bijgewerkt](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) van Intel. Er zijn geen extra onderhoud activiteit van de klant VM's als gevolg van deze nieuwe gegevens.
+>
+> Er wordt nog deze best practices bijwerken wanneer we microcode-updates van hardwareleveranciers ontvangen. Controleer of terug naar het bijgewerkte richtlijnen.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Uw besturingssystemen up-to-date te houden
 
@@ -46,9 +49,6 @@ Als u met behulp van Windows en niet-vertrouwde code te hosten, moet u ook een W
 ### <a name="linux"></a>Linux
 Als u met behulp van Linux en niet-vertrouwde code te hosten, moet u ook Linux bijwerken naar een recentere versie waarop kernel tabel pagina isolatie (KPTI) die worden gescheiden van de pagina tabellen die worden gebruikt door de kernel van de referenties die horen bij de gebruikersruimte die is geïmplementeerd. Deze oplossingen vereisen een update voor de Linux-besturingssysteem en kunnen worden verkregen van uw provider distributie indien beschikbaar. Uw OS-provider kunt u zien of beveiliging zijn ingeschakeld of standaard uitgeschakeld.
 
-
-
-Er wordt nog deze best practices bijwerken wanneer we microcode-updates van hardwareleveranciers ontvangen. Controleer of terug naar het bijgewerkte richtlijnen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

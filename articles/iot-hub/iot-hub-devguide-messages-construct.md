@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c57ceb83951341d4a7bf368e209ba0f88825672c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Maken en IoT Hub berichten lezen
 
@@ -28,7 +28,7 @@ IoT Hub definieert ter ondersteuning naadloze interoperabiliteit van alle protoc
 * Een set *toepassingseigenschappen*. Een woordenlijst van eigenschappen van een verbindingsreeks die de toepassing kunt definiëren en toegang zonder deserialiseren van de berichttekst. IoT Hub wordt nooit wijzigt deze eigenschappen.
 * Een ondoorzichtige binaire instantie.
 
-Namen en waarden mag alleen ASCII-alfanumerieke tekens, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` wanneer u:  
+Namen en waarden mag alleen ASCII-alfanumerieke tekens, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` wanneer u:  
 
 * Apparaat-naar-cloud-berichten verzenden met het HTTPS-protocol.
 * Cloud-naar-apparaat-berichten verzenden.
@@ -45,7 +45,7 @@ De volgende tabel bevat de reeks Systeemeigenschappen in IoT Hub berichten.
 | ExpiryTimeUtc |Datum en tijd van de verloopdatum voor het bericht. |
 | EnqueuedTime |Datum en tijd waarop de [Cloud-naar-apparaat] [ lnk-c2d] bericht is ontvangen door de IoT Hub. |
 | CorrelationId |Een tekenreekseigenschap in een antwoordbericht die normaal gesproken de MessageId van de aanvraag, in aanvragen / antwoorden patronen bestaat. |
-| Gebruikers-id |Een ID die wordt gebruikt voor het opgeven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, is ingesteld op `{iot hub name}`. |
+| UserId |Een ID die wordt gebruikt voor het opgeven van de oorsprong van berichten. Wanneer berichten worden gegenereerd door de IoT Hub, is ingesteld op `{iot hub name}`. |
 | ACK |Een bericht generator van feedback. Deze eigenschap wordt gebruikt in de cloud-naar-apparaat-berichten aan te vragen van IoT Hub Feedbackberichten als gevolg van het verbruik van het bericht te genereren door het apparaat. Mogelijke waarden: **geen** (standaard): geen Feedbackbericht wordt gegenereerd, **positieve**: ontvangen een feedbackbericht als het bericht is voltooid, **negatieve**: ontvangen een feedbackbericht als het bericht is verlopen (of levering van het maximum aantal is bereikt) zonder wordt voltooid door het apparaat of **volledige**: positieve en negatieve. Zie voor meer informatie [bericht feedback][lnk-feedback]. |
 | ConnectionDeviceId |Een ID die is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Bevat de **deviceId** van het apparaat dat het bericht heeft verzonden. |
 | ConnectionDeviceGenerationId |Een ID die is ingesteld door de IoT Hub apparaat-naar-cloud-berichten. Bevat de **generationId** (conform [identiteit apparaateigenschappen][lnk-device-properties]) van het apparaat dat het bericht heeft verzonden. |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u wilt gebruiken Azure Blobs, Azure-bestanden of Azure-schijven
 
@@ -41,7 +41,7 @@ De volgende tabel vergelijkt de Azure-bestanden met Azure Blobs.
 ||||  
 |-|-|-|  
 |**Kenmerk**|**Azure Blobs**|**Azure Files**|  
-|Opties voor duurzaamheid|LRS, ZRS, GRS (en RA-GRS voor hogere beschikbaarheid)|LRS, GRS|  
+|Opties voor duurzaamheid|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Toegankelijkheid|REST-API’s|REST-API’s<br /><br /> SMB 2.1 als SMB 3.0 (standaard bestandssysteem API's)|  
 |Connectiviteit|REST-API's--wereldwijd|REST-API's - wereldwijd<br /><br /> SMB 2.1--binnen de regio<br /><br /> SMB 3.0 -- Worldwide|  
 |Eindpunten|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  

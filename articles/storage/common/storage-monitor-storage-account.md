@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in de Azure portal controleren
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Azure Files momenteel ondersteunt Opslaganalyse metrische gegevens, maar logboekregistratie nog niet ondersteunt.
 >
-> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) momenteel beschikt niet over de metrische gegevens of mogelijkheden voor logboekregistratie.
+> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) ondersteuning voor metrische gegevens en logboekregistratie. De vorige ZRS-accounts die zijn gewijzigd ZRS klassieke, kunt u geen ondersteuning voor metrische gegevens logboekregistratie. Zie voor meer informatie over ZRS [Zone-redundante opslag](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Zie voor een gedetailleerde uitleg over het gebruik van Storage Analytics en andere hulpprogramma's om te bepalen, onderzoeken en oplossen van problemen met Azure Storage met [Monitor, vaststellen en oplossen van Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >

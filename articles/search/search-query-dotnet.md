@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3c22b83346269cf3c0327fe3fb98510a6266733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 Zoeken met de .NET SDK is net zo eenvoudig als het aanroepen van de `Documents.Search`-methode op uw `SearchIndexClient`. Deze methode heeft een aantal parameters, waaronder de zoektekst, en een `SearchParameters`-object dat kan worden gebruikt om de query te verfijnen.
 
 #### <a name="types-of-queries"></a>Typen query 's
-De twee belangrijkste [querytypen](search-query-overview.md#types-of-queries) die u zult gebruiken zijn `search` en `filter`. Een `search`-query zoekt naar een of meer voorwaarden in alle *doorzoekbare* velden in de index. Een `filter`-query evalueert een Booleaanse expressie op alle *filterbare* velden in een index.
+De twee belangrijkste [querytypen](search-query-overview.md#types-of-queries) die u zult gebruiken zijn `search` en `filter`. Een `search`-query zoekt naar een of meer voorwaarden in alle *doorzoekbare* velden in de index. Een `filter`-query evalueert een Booleaanse expressie op alle *filterbare* velden in een index. U kunt zoekopdrachten en filters samen of afzonderlijk gebruiken.
 
 Zoekopdrachten en filters worden allebei uitgevoerd met behulp van de `Documents.Search`-methode. Een zoekopdracht kan worden doorgegeven aan de `searchText`-parameter, terwijl een filterexpressie kan worden doorgegeven in de eigenschap `Filter` van de `SearchParameters`-klasse. Als u wilt filteren zonder te zoeken, geeft u `"*"` door voor de `searchText`-parameter. Om te zoeken zonder te filteren, stelt u de eigenschap `Filter` niet in of geeft u niet door aan een `SearchParameters`-instantie.
 

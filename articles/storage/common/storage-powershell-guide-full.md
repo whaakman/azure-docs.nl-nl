@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -28,7 +28,7 @@ Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cm
 > [!div class="checklist"]
 > * Lijst met storage-accounts
 > * Een verwijzing naar een bestaand opslagaccount ophalen
-> * Maak een opslagaccount 
+> * Een opslagaccount maken 
 > * Eigenschappen van het opslagaccount instellen
 > * Ophalen en de toegangssleutels opnieuw genereren
 > * Toegang tot uw storage-account beveiligen 
@@ -78,7 +78,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 U hebt nu $storageAccount die naar een bestaand opslagaccount wijst.
 
-### <a name="create-a-storage-account"></a>Maak een opslagaccount 
+### <a name="create-a-storage-account"></a>Een opslagaccount maken 
 
 Het volgende script toont het maken van een opslagaccounts voor algemeen gebruik voor het met [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Nadat u het account maakt, halen de context die kan worden gebruikt in de volgende opdrachten in plaats van geven de verificatie met elke aanroep.
 
@@ -133,7 +133,7 @@ Gebruik de instellingen voor een opslagaccount te wijzigen [Set AzureRmStorageAc
 
 * De **labels** toegewezen aan het opslagaccount. Labels worden vaak gebruikt om resources te categoriseren voor facturatie.
 
-* De **SKU** wordt de replicatie-instelling voor het opslagaccount, zoals LRS voor lokaal redundante opslag. U kunt bijvoorbeeld wijzigen van standaard\_LRS naar Standard\_GRS of standaard\_RAGRS. Houd er rekening mee dat u geen ZRS Standard of Premium-LRS in andere SKU's wijzigen, of andere SKU's naar deze wijzigen. 
+* De **SKU** wordt de replicatie-instelling voor het opslagaccount, zoals LRS voor lokaal redundante opslag. U kunt bijvoorbeeld wijzigen van standaard\_LRS naar Standard\_GRS of standaard\_RAGRS. Opmerking u standaard niet wijzigen\_ZRS- of Premium\_LRS naar andere SKU's, of wijzig andere SKU's in deze.
 
 * De **toegangslaag** voor Blob storage-accounts. De waarde voor de toegangslaag is ingesteld op **hot** of **cool**, en kunt u uw kosten te minimaliseren door het selecteren van de toegangslaag die in overeenstemming brengt met hoe u het opslagaccount gebruiken. Zie voor meer informatie [Hot, koel, en archiveren van opslaglagen](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,9 +185,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Standaard zijn alle opslagaccounts toegankelijk zijn voor elk netwerk dat toegang tot internet heeft. U kunt echter regels zodat alleen toepassingen van specifieke virtuele netwerken voor toegang tot een opslagaccount netwerk configureren. Zie voor meer informatie [Azure Storage-Firewalls configureren en virtuele netwerken](storage-network-security.md). 
 
 Het artikel laat zien hoe deze instellingen met de volgende PowerShell-cmdlets beheren:
-* [Voeg AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Update AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Verwijder AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
 ## <a name="use-storage-analytics"></a>Storage analytics gebruiken  
 
@@ -223,7 +223,7 @@ Premium-functies biedt Azure Cosmos DB tabel API voor tabelopslag zoals klare gl
 * Zie voor meer informatie [Azure Cosmos DB tabel API](../../cosmos-db/table-introduction.md). 
 * Zie voor meer informatie over het gebruik van PowerShell voor Azure Cosmos DB tabel API-bewerkingen uitvoeren, [uitvoeren Azure Cosmos DB tabel-API-bewerkingen met PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Azure onafhankelijk geïmplementeerd clouds
+## <a name="independent-cloud-deployments-of-azure"></a>Onafhankelijke cloudimplementaties van Azure
 
 Openbare Azure-Cloud de meeste mensen gebruiken voor hun globale Azure-implementatie. Er zijn ook een aantal onafhankelijke implementaties van Microsoft Azure omwille van de onafhankelijkheid enzovoort. Deze onafhankelijke implementaties worden aangeduid als 'environments'. Dit zijn de beschikbare omgevingen:
 
@@ -247,7 +247,7 @@ Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cm
 > [!div class="checklist"]
 > * Lijst met storage-accounts
 > * Een verwijzing naar een bestaand opslagaccount ophalen
-> * Maak een opslagaccount 
+> * Een opslagaccount maken 
 > * Eigenschappen van het opslagaccount instellen
 > * Ophalen en de toegangssleutels opnieuw genereren
 > * Toegang tot uw storage-account beveiligen 

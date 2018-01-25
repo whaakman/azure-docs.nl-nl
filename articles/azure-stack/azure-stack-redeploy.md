@@ -3,8 +3,8 @@ title: Azure Stack implementeren | Microsoft Docs
 description: Implementeer Azure Stack opnieuw.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 795af5ea-892d-40b1-a080-42e4472e4bba
 ms.service: azure-stack
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
-ms.author: erikje
-ms.openlocfilehash: 891cde9b16bbbb51729129b6ad7a0f3794307baa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/24/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 0dec5ea70376ff1c8cf488689f1a66190256f6ff
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="redeploy-azure-stack"></a>Azure Stack implementeren
+Als u een foutbericht ontvangt bij het implementeren van Azure-Stack, u kunt met de volgende PowerShell-opdracht setup opnieuw uitvoeren: `.\InstallAzureStackpoc.ps1 -rerun`. Met deze opdracht wordt de Azure-Stack setup op het moment dat dit eerder is mislukt zonder om op te starten vanaf het begin opnieuw. Als u dezelfde instellingen fout opnieuw ontvangt, is het mogelijk dat het nodig zijn voor het uitvoeren van een volledige opnieuw distribueren naar het adres van het probleem. 
+
 Als u wilt implementeren in Azure-Stack, moet u starten via helemaal zoals hieronder wordt beschreven.
 
 ## <a name="steps-to-redeploy-azure-stack"></a>Stappen voor het implementeren van Azure-Stack

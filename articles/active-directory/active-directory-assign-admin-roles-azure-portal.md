@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/23/2018
 ms.author: curtand
-ms.reviewer: Vince.Smith
+ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
 Met Azure Active Directory (Azure AD), kunt u afzonderlijke beheerders verschillende functies vervullen aanwijzen. Beheerders kunnen hebben toegang tot verschillende functies in de Azure portal en, afhankelijk van hun rol, maken of bewerken welke gebruikers, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden, Gebruikerslicenties beheren en domeinen, onder andere beheren. Een gebruiker aan wie een beheerdersrol is toegewezen wordt dezelfde machtigingen hebben voor alle van de cloud-services waarop uw organisatie is geabonneerd op, ongeacht of u de rol in de Office 365-beheerportal of in de Azure portal of met behulp van de Azure AD-module voor toewijzen Windows PowerShell.
 
+## <a name="details-about-the-global-administrator-role"></a>Meer informatie over de rol globale beheerder
+De globale beheerder heeft toegang tot alle beheerfuncties. Standaard is de rol globale beheerder voor de map worden toegewezen door de persoon die zich voor een Azure-abonnement aanmeldt. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen.
+
+## <a name="assign-or-remove-administrator-roles"></a>Toewijzen of verwijderen van beheerdersrollen
+Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Azure Active Directory, [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="available-roles"></a>Beschikbare rollen
 De volgende beheerdersrollen zijn beschikbaar:
 
 * **Financieel medewerker**: doet aankopen, beheert abonnementen, beheert ondersteuningstickets en bewaakt de servicestatus.
@@ -57,6 +64,8 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **Gast uitnodiging antwoorden**: gebruikers met deze rol kunnen Azure Active Directory B2B Gast gebruiker uitnodigingen beheren wanneer de instelling 'Leden kunnen uitnodigen' gebruiker is ingesteld op Nee. Meer informatie over B2B-samenwerking op [over de Azure AD B2B-samenwerking preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Dit omvat geen andere machtigingen.
 
+* **Information Protection-beheerder**: gebruikers aan deze rol kunnen toegang krijgen tot Azure Information Protection in de Azure portal. Ze kunnen labels voor het Azure Information Protection-beleid configureren, beheren van sjablonen voor beveiliging en bescherming activeren.
+
 * **Intune-servicebeheerder**: gebruikers met deze rol globale machtigingen in Microsoft Intune Online zijn wanneer de service aanwezig is. Daarnaast bevat deze rol de mogelijkheid voor het beheren van gebruikers en apparaten om te koppelen van beleid, evenals groepen maken en beheren.
 
 * **Postvak beheerder**: deze rol wordt alleen gebruikt als onderdeel van Exchange Online e-mailondersteuning voor RIM Blackberry-apparaten. Gebruik deze functie niet als uw organisatie geen Exchange Online e-mail op RIM Blackberry-apparaten gebruikt.
@@ -75,6 +84,8 @@ De volgende beheerdersrollen zijn beschikbaar:
 * **Power BI-servicebeheerder**: gebruikers met deze functie hebben algemene machtigingen binnen Microsoft Power BI, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de servicestatus. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Bevoegde rol beheerder**: gebruikers met deze rol roltoewijzingen in Azure Active Directory, evenals in Azure AD Privileged Identity Management kunnen beheren. Bovendien kan deze rol beheer van alle aspecten van Privileged Identity Management.
+
+* **Lezer rapporten**: gebruikers met deze rol gebruiksrapportage gegevens en het dashboard met rapporten in Office 365-beheercentrum en de acceptatie-context pack in Power BI kunnen weergeven. Bovendien de rol toegang biedt tot aanmelding rapporten en de activiteit in Azure AD en gegevens die door Microsoft Graph geretourneerd rapportage-API. Een gebruiker die is toegewezen aan de rol Lezer rapporten hebben toegang tot alleen relevante informatie over het gebruik en acceptatie metrische gegevens. Ze hebben geen beheerdersmachtigingen voor het configureren van instellingen of toegang tot die het product specifieke beheercentrums zoals Exchange. 
 
 * **Beveiligingsbeheerder**: gebruikers met deze functie hebben alle alleen-lezen machtigingen van de beveiligingsrol van de lezer, plus de mogelijkheid voor het beheren van configuratie voor beveiliging gerelateerde services: Azure Active Directory: Identity Protection, Azure Information Protection, Privileged Identity Management en Office 365-beveiliging en naleving Center. Meer informatie over machtigingen voor Office 365 is beschikbaar op [machtigingen in de Office 365-beveiliging & Compliancecentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -117,15 +128,16 @@ De volgende beheerdersrollen zijn beschikbaar:
 | --- | --- |
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers en andere Helpdesk-beheerders alleen wijzigen</p>|<p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Rapporten weergeven</p>|
 
-### <a name="service-administrator"></a>Servicebeheerder
-| Kan doen | Is niet mogelijk |
-| --- | --- |
-| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p> |
-
-### <a name="user-account-administrator"></a>De beheerder van gebruiker
-| Kan doen | Is niet mogelijk |
-| --- | --- |
-| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers, beheerders voor Helpdesk en andere alleen beheerders van gebruikersaccount wijzigen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties met beperkingen te beheren. Hij of zij kan geen algemeen beheerder verwijderen of andere beheerders maken.</p> |<p>Factuur- en bewerkingen voor Office-producten</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |
+### <a name="information-protection-administrator"></a>Information Protection-beheerder 
+in | Kan doen
+-------- | ---------
+Azure Information Protection | * Het configureren van beleid voor globale, bereik en labels<br>* Beheren, configureren en beveiliging sjablonen bijwerken<br>* Beveiliging activering voor gebruik inschakelen 
+Privileged Identity Management | * De machtiging lezen<br>* Azure AD-rollidmaatschappen en instellingen beheren niet.
+ 
+### <a name="reports-reader"></a>Rapporten lezer 
+Kan doen | Is niet mogelijk
+------ | ----------
+Weergave Azure AD-aanmeldingspagina rapporten en controlelogboeken<br>Gegevens van bedrijfs- en gebruikersgegevens weergeven<br>Dashboard voor toegang tot Office 365-gebruiksgegevens | Gebruiker weergaven maken en beheren<br>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren<br>Beheerdersrollen aan anderen delegeren<br>Beheren van bedrijfsgegevens
 
 ### <a name="security-reader"></a>Beveiligingslezer
 | in | Kan doen |
@@ -141,8 +153,15 @@ De volgende beheerdersrollen zijn beschikbaar:
 | Privileged Identity Management |<ul><li>Alle machtigingen van de rol Lezer van de beveiliging.<li>**Kan geen** rollidmaatschappen voor Azure AD of instellingen beheren. |
 | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-beveiliging en naleving Center |<ul><li>Alle machtigingen van de rol Lezer van de beveiliging.<li>Kan alle instellingen configureren in de functie Advanced Threat Protection (malware & virus beveiliging, schadelijke URL config, URL tracering, enzovoort). |
 
-## <a name="details-about-the-global-administrator-role"></a>Meer informatie over de rol globale beheerder
-De globale beheerder heeft toegang tot alle beheerfuncties. Standaard is de rol globale beheerder voor de map worden toegewezen door de persoon die zich voor een Azure-abonnement aanmeldt. Alleen globale beheerders kunnen andere beheerdersrollen toewijzen.
+### <a name="service-administrator"></a>Servicebeheerder
+| Kan doen | Is niet mogelijk |
+| --- | --- |
+| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p> |<p>Gebruikerswachtwoorden opnieuw instellen</p><p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Auditlogboeken weergeven</p> |
+
+### <a name="user-account-administrator"></a>De beheerder van gebruiker
+| Kan doen | Is niet mogelijk |
+| --- | --- |
+| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers, beheerders voor Helpdesk en andere alleen beheerders van gebruikersaccount wijzigen</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties met beperkingen te beheren. Hij of zij kan geen algemeen beheerder verwijderen of andere beheerders maken.</p> |<p>Factuur- en bewerkingen voor Office-producten</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor authentication-server</p><p>Auditlogboeken weergeven</p> |
 
 ### <a name="to-add-a-colleague-as-a-global-administrator"></a>Een collega als globale beheerder toevoegen
 
@@ -157,9 +176,6 @@ De globale beheerder heeft toegang tot alle beheerfuncties. Standaard is de rol 
 4. Selecteer op de blade gebruiker **functie Directory**.
  
 5. Selecteer op de blade van de rol directory de **hoofdbeheerder** rol, en op te slaan.
-
-## <a name="assign-or-remove-administrator-roles"></a>Toewijzen of verwijderen van beheerdersrollen
-Zie voor meer informatie over beheerdersrollen toewijzen aan een gebruiker in Azure Active Directory, [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory-preview](active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="deprecated-roles"></a>Afgeschafte functies
 

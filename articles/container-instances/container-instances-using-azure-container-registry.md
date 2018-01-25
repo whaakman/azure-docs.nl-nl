@@ -1,21 +1,21 @@
 ---
 title: Implementeren naar Azure Containerexemplaren uit het register van de Azure-Container
-description: Exemplaren van de Azure-Container uit het register van de Azure-Container implementeren
+description: "Informatie over het implementeren van containers in Azure Container-exemplaren die gebruikmaken van installatiekopieën van de container in een Azure Container-register."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Implementeren naar Azure Containerexemplaren uit het register van de Azure-Container
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementeren naar Azure Containerexemplaren uit het register van de Azure-Container
 
 Het register van de Container Azure is een register op basis van Azure, persoonlijke voor installatiekopieën van de Docker-container. In dit artikel bevat informatie over het implementeren van container afbeeldingen die zijn opgeslagen in het register van de Azure-Container om exemplaren van Azure-Container.
 
@@ -51,17 +51,23 @@ Als u installatiekopieën van de container in het register van de Container Azur
 
 1. Ga in de Azure-portal naar het register van de container.
 
-2. Selecteer **opslagplaatsen**, selecteert u vervolgens de opslagplaats die u wilt implementeren, met de rechtermuisknop op het label voor de container-installatiekopie die u wilt implementeren, en selecteer **instantie**.
+1. Selecteer **opslagplaatsen**, selecteert u vervolgens de opslagplaats die u wilt implementeren, met de rechtermuisknop op het label voor de container-installatiekopie die u wilt implementeren, en selecteer **instantie**.
 
     !['Exemplaar uitvoeren' in het register van Azure-Container in Azure portal][acr-runinstance-contextmenu]
 
-3. Voer een naam voor de container en een naam voor de resourcegroep. U kunt ook de standaardwaarden wijzigen als u wenst.
+1. Voer een naam voor de container en een naam voor de resourcegroep. U kunt ook de standaardwaarden wijzigen als u wenst.
 
     ![Menu voor exemplaren van Azure-Container maken][acr-create-deeplink]
 
-4. Zodra de implementatie is voltooid, kunt u navigeren naar de containergroep in het deelvenster meldingen om het IP-adres en andere eigenschappen te vinden.
+1. Zodra de implementatie is voltooid, kunt u navigeren naar de containergroep in het deelvenster meldingen om het IP-adres en andere eigenschappen te vinden.
 
     ![Details weergeven voor Azure-Container exemplarengroep container][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Verificatie van service-principal
+
+Als de gebruiker met beheerdersrechten voor de Azure-container-register is uitgeschakeld, kunt u een Azure Active Directory [service-principal](../container-registry/container-registry-auth-service-principal.md) om te verifiëren met het register bij het maken van een exemplaar van de container. Met behulp van een service-principal voor de verificatie wordt ook aanbevolen in headless scenario's, zoals een script of een toepassing die wordt gemaakt van containerexemplaren in onbeheerd.
+
+Zie voor meer informatie [verifiëren met Azure Container register van exemplaren van Azure-Container](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

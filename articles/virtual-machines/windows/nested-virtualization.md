@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 8372817b00d8a5f9e4203b072dbc143185639120
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 180b87e18d98bb1e7ddefdcce09fc45d2fc26d0f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste netwerkvirtualisatie in een Azure VM
 
@@ -49,7 +49,7 @@ Maak via een extern bureaublad verbinding met de virtuele machine.
 U kunt deze instellingen handmatig of we een PowerShell-script voor het automatiseren van de configuratie hebt opgegeven.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Optie 1: Een PowerShell-script gebruiken voor het virtualisatie geneste configureren
-Er is een PowerShell-script om in te schakelen geneste virtualisatie op een host met Windows Server 2016 beschikbaar op [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Het script vereisten controleert en configureert vervolgens geneste virtualisatie op de virtuele machine in Azure. Opnieuw opstarten van de Azure VM is nodig om de configuratie te voltooien. Dit script werkt in andere omgevingen, maar kan niet worden gegarandeerd. Ga naar de Azure blogbericht met een live videodemonstratie op geneste virtualisatie uitgevoerd op Azure. https://aka.MS/AzureNVblog.
+Er is een PowerShell-script om in te schakelen geneste virtualisatie op een host met Windows Server 2016 beschikbaar op [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Het script vereisten controleert en configureert vervolgens geneste virtualisatie op de virtuele machine in Azure. Opnieuw opstarten van de Azure VM is nodig om de configuratie te voltooien. Dit script werkt in andere omgevingen, maar kan niet worden gegarandeerd. Ga naar de Azure blogbericht met een live videodemonstratie op geneste virtualisatie uitgevoerd op Azure. https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Optie 2: Geneste virtualisatie handmatig configureren
 
@@ -77,7 +77,7 @@ Een nieuwe virtuele netwerkadapter voor de virtuele gastmachine maken en configu
 2. Maken van een interne switch.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. Bekijk de eigenschappen van de switch en noteer de ifIndex voor de nieuwe adapter.
@@ -136,7 +136,7 @@ Volg onderstaande stappen voor het configureren van DHCP op de host virtuele mac
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>DHCP-Server installeren op de Azure VM
 
-1. Open Serverbeheer. Klik op het Dashboard **functies en onderdelen toevoegen**. De Wizard functies en functies toevoegen wordt weergegeven.
+1. Open Server Manager. Klik op het Dashboard **functies en onderdelen toevoegen**. De Wizard functies en functies toevoegen wordt weergegeven.
   
 2. In de wizard op **volgende** totdat de pagina serverfuncties.
   

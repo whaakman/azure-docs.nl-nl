@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-End-problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Is een belangrijke kwalificatie voor bouwen en de client-toepassingen met Microsoft Azure Storage ondersteunende opsporen en oplossen. Als gevolg van de gedistribueerde aard van een Azure-toepassing, opsporen en oplossen van fouten en prestatieproblemen mogelijk complexer dan in traditionele omgevingen.
@@ -37,9 +37,7 @@ Voor het oplossen van clienttoepassingen op Microsoft Azure Storage, kunt u een 
   * **Opslag logboekregistratie** elke aanvraag naar de Azure Storage-services in een logboek serverzijde wordt geregistreerd. Het logboek houdt gedetailleerde gegevens voor elke aanvraag, waaronder de bewerking die wordt uitgevoerd, de status van de bewerking, en de latentie-informatie. Zie [Storage Analytics logboekindeling](/rest/api/storageservices/Storage-Analytics-Log-Format) voor meer informatie over de aanvraag- en gegevens die worden geschreven naar de logboeken door Storage Analytics.
 
 > [!NOTE]
-> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) beschikt niet over de metrische gegevens of de logboekregistratie kunnen op dit moment is ingeschakeld. 
-> 
-> 
+> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) ondersteuning voor metrische gegevens en logboekregistratie. ZRS klassieke accounts bieden geen ondersteuning voor metrische gegevens of de registratie. Zie voor meer informatie over ZRS [Zone-redundante opslag](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure-portal**. U kunt metrische gegevens en logboekregistratie configureren voor uw opslagaccount in de [Azure-portal](https://portal.azure.com). U kunt ook grafieken en diagrammen die laten zien hoe uw toepassing wordt uitgevoerd na verloop van tijd weergeven en configureren van waarschuwingen om u te waarschuwen als uw toepassing wordt uitgevoerd anders dan verwacht voor een opgegeven waarde.
   
@@ -350,15 +348,15 @@ Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te ana
 | Voor het onderzoeken van... | Gebruik de filterexpressie... | Expressie is van toepassing op logboek (Client-, Server-, netwerk, alle) |
 | --- | --- | --- |
 | Onverwachte vertragingen bij de levering van berichten in een wachtrij |AzureStorageClientDotNetV4.Description bevat 'Opnieuw proberen is bewerking mislukt.' |Client |
-| HTTP-toename van PercentThrottlingError |HTTP. Response.StatusCode == 500 &#124; &#124; HTTP. Response.StatusCode == 503 |Netwerk |
-| Toename van het PercentTimeoutError |HTTP. Response.StatusCode == 500 |Netwerk |
+| HTTP-toename van PercentThrottlingError |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Netwerk |
+| Toename van het PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Netwerk |
 | Toename van het PercentTimeoutError (alle) |* StatusCode 500 == |Alle |
-| Toename van het PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |Client |
-| HTTP-fout 403 (verboden) berichten |HTTP. Response.StatusCode == 403 |Netwerk |
-| HTTP 404 (niet gevonden) berichten |HTTP. Response.StatusCode == 404 |Netwerk |
+| Toename van het PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
+| HTTP-fout 403 (verboden) berichten |HTTP.Response.StatusCode   == 403 |Netwerk |
+| HTTP 404 (niet gevonden) berichten |HTTP.Response.StatusCode   == 404 |Netwerk |
 | 404 (alle) |* StatusCode 404 == |Alle |
 | Shared Access Signature (SAS) autorisatie probleem |AzureStorageLog.RequestStatus == "SASAuthorizationError" |Netwerk |
-| HTTP 409 (Conflict) berichten |HTTP. Response.StatusCode == 409 |Netwerk |
+| HTTP 409 (Conflict) berichten |HTTP.Response.StatusCode   == 409 |Netwerk |
 | 409 (alle) |* StatusCode == 409 |Alle |
 | Lage PercentSuccess of analytics logboekvermeldingen hebben bewerkingen met de status van ClientOtherErrors |AzureStorageLog.RequestStatus == "ClientOtherError" |Server |
 | Nagle waarschuwing |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) en (AzureStorageLog.RequestPacketSize < 1460) en (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server |

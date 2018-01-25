@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7667f94ac4e7edd4e94d6605adefea469102a0c4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -54,18 +54,13 @@ App Service biedt ondersteuning voor toepassingen die zijn gemaakt in diverse pr
 
 1. Als uw opslagplaats al de inhoud niet opnemen, een statisch HTML-bestand toevoegen als volgt; of sla deze stap over:
    * Start een teksteditor en maak een nieuw bestand met de naam **index.html** in de hoofdmap van de Git-opslagplaats
-   * De volgende tekst toevoegen als de inhoud voor de index.html bestand en sla het: *Hello Git!*
+   * De volgende tekst toevoegen als de inhoud van de index.html bestand en sla het: *Hello Git!*
 1. Vanaf de opdrachtregel, controleert u of u onder de hoofdmap van de Git-opslagplaats. Gebruik vervolgens de volgende opdracht om bestanden naar uw opslagplaats toevoegen:
 
-    ```bash
-    git add -A
-    ```
-    
+        git add -A 
 1. Voer vervolgens de wijzigingen aan de opslagplaats met behulp van de volgende opdracht:
 
-    ```bash
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>Stap 3: De App Service-app-opslagplaats inschakelen
 
@@ -92,7 +87,7 @@ Gebruik de volgende stappen voor het publiceren van uw app in App Service met lo
 1. Via de opdrachtregel, controleert u of u in de hoofdmap van uw lokale Git-opslagplaats.
 1. Gebruik `git remote` om toe te voegen van de externe verwijzing die worden vermeld in **Git-URL** uit stap 1. De opdracht ziet er ongeveer als volgt uit:
 
-    ```
+    ```bash
     git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
     ```
 

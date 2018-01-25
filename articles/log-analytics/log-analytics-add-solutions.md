@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Oplossingen voor het beheer van Azure-logboekanalyse toevoegen aan uw werkruimte
 
@@ -80,17 +80,17 @@ Alle oplossingen in de volgende tabel zijn beschikbaar vanuit de Azure portal en
 | [Status van agent](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | Gegevens niet onderworpen aan het kapje gratis laag<br> Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [Waarschuwingsbeheer](log-analytics-solution-alert-management.md)                            | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [Application Insights-Connector (Preview)](log-analytics-app-insights-connector.md)                                               | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
-| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automation en Control</li></ul>                                  | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
+| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automation en besturing</li></ul>                                  | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
 | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)    | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
-| [Netwerkbeveiligingsgroep Azure Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
+| [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
 | [Azure SQL Analytics (Preview)](log-analytics-azure-sql.md)                                                       | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br>Per&nbsp;knooppunt&nbsp;(OMS)                                                                          | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist|
 | [Azure Web Apps-analyse](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
 |[Een back-up maken](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Inzicht en analyses</li></ul>                                   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                       | Vereist een klassieke Backup-kluis.<br> Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [Capaciteit en prestaties (Preview)](log-analytics-capacity.md)                                                   | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
-| [Tracering wijzigen](log-analytics-change-tracking.md)                                       | <ul><li>Automation en Control</li></ul>                                  | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
+| [Tracering wijzigen](log-analytics-change-tracking.md)                                       | <ul><li>Automation en besturing</li></ul>                                  | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
 | [Containers](log-analytics-containers.md)                                                 | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
-| [IT Service Management-Connector (Preview)](log-analytics-itsmc-overview.md)                                              | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)     | |
-| HDInsight HBase bewaking <br>(Preview)                                                  | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
+| [IT Service Management Connector](log-analytics-itsmc-overview.md)                                                | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)     | |
+| HDInsight HBase Monitoring <br>(Preview)                                                  | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
 | [Key Vault-analyse](log-analytics-azure-key-vault.md)                   | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [Malware-evaluatie](log-analytics-malware.md)                                            | <ul><li>Beveiliging en naleving</li></ul>                                 | Gratis<br> Zelfstandig<br>Per&nbsp;knooppunt&nbsp;(OMS)                                                                           | Als u de beveiliging en naleving oplossingen na 19 juni 2017 toevoegt [facturering per knooppunt is](https://azure.microsoft.com/pricing/details/security-compliance/), ongeacht de prijscategorie werkruimte. De eerste 60 dagen zijn gratis.  |
@@ -104,7 +104,7 @@ Alle oplossingen in de volgende tabel zijn beschikbaar vanuit de Azure portal en
 | VM's starten/stoppen buiten kantooruren<br>(Preview)                                              | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
 | [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [System Center Operations Manager Assessment (Preview)](log-analytics-scom-assessment.md)  | <ul><li>Inzicht en analyses</li><li>Log Analytics</li></ul>        | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
-| [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automation en Control</li></ul>                                  | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
+| [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automation en besturing</li></ul>                                  | Gratis<br> Per&nbsp;knooppunt&nbsp;(OMS)                                                                         | Uw werkruimte voor logboekanalyse moet worden gekoppeld aan een Automation-account vereist |
 | [Updatevereisten (Preview)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | Geen kosten voor gegevens of knooppunten<br>De gegevens niet onderworpen aan het kapje gratis laag.<br> Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [Gereedheid voor upgrade](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | Geen kosten voor gegevens of knooppunten<br>De gegevens niet onderworpen aan het kapje gratis laag.<br> Niet beschikbaar vanuit Azure portal/marketplace toevoegen. |
 | [VMware Monitoring (Preview)](log-analytics-vmware.md)                                | <ul><li>Inzicht&nbsp;en&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratis<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(zelfstandig)<br> Per&nbsp;knooppunt&nbsp;(OMS)   | |
@@ -137,12 +137,12 @@ De agent Log Analytics Windows en System Center Operations Manager-agent zijn in
 
 ### <a name="insight--analytics--log-analytics"></a>Inzicht & Analytics / Log Analytics
 
-| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure-opslag | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Analyse van activiteitenlogboek | Azure |   |   |   |   |   | op de melding |
 | AD-evaluatie |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dagen |
 | AD-replicatiestatus |Windows |&#8226; |&#8226; |  |  |&#8226; |Er zijn vijf dagen |
-| Status van agent | Windows- en Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minuut |
+| Status van agent | Windows en Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minuut |
 | Beheer van waarschuwingen (Nagios) |Linux |&#8226; |  |  |  |  |bij ontvangst |
 | Beheer van waarschuwingen (Zabbix) |Linux |&#8226; |  |  |  |  |1 minuut |
 | Beheer van waarschuwingen (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 minuten |
@@ -151,12 +151,12 @@ De agent Log Analytics Windows en System Center Operations Manager-agent zijn in
 | Netwerkbeveiligingsgroep Azure Analytics | Azure |   |   |   |   |   | op de melding |
 | Azure SQL Analytics (Preview) |Windows |  |  |  |  |  | 10 minuten |
 | Capaciteitsbeheer |Windows |&#8226; |&#8226; |  |  |&#8226; |bij ontvangst |
-| Containers | Windows- en Linux | &#8226; | &#8226; |   |   |   | 3 minuten |
+| Containers | Windows en Linux | &#8226; | &#8226; |   |   |   | 3 minuten |
 | Sleutelkluis Analytics |Windows |  |  |  |  |  |op de melding |
 | Netwerkprestatiemeter | Windows | &#8226; | &#8226; |   |   |   | TCP-handshakes om de vijf seconden gegevens verzonden om de 3 minuten |
 | Office 365 Analytics (Preview) |Windows |  |  |  |  |  |op de melding |
 | Service Fabric Analytics |Windows |  |  |&#8226; |  |  |5 minuten |
-| Serviceoverzicht | Windows- en Linux | &#8226; | &#8226; |   |   |   | 15 seconden |
+| Serviceoverzicht | Windows en Linux | &#8226; | &#8226; |   |   |   | 15 seconden |
 | SQL-evaluatie |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dagen |
 | SurfaceHub |Windows |&#8226; |  |  |  |  |bij ontvangst |
 | System Center Operations Manager Assessment (Preview) | Windows | &#8226; | &#8226; |   |   | &#8226; | zeven dagen |
@@ -167,7 +167,7 @@ De agent Log Analytics Windows en System Center Operations Manager-agent zijn in
 
 ### <a name="automation--control"></a>Automation en besturing
 
-| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure-opslag | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | &#8226; | &#8226; |   |   |   | N.v.t. |
 | Tracering wijzigen |Windows |&#8226; |&#8226; |  |  |&#8226; |elk uur |
@@ -176,10 +176,10 @@ De agent Log Analytics Windows en System Center Operations Manager-agent zijn in
 
 ### <a name="security--compliance"></a>Beveiliging en naleving
 
-| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure-opslag | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Evaluatie van Antimalware |Windows |&#8226; |&#8226; |  |  |&#8226; |elk uur |
-| Beveiliging en Audit<sup>1</sup> | Windows- en Linux | gedeeltelijke | gedeeltelijke | gedeeltelijke |   | gedeeltelijke | verschillende |
+| Beveiliging en Audit<sup>1</sup> | Windows en Linux | gedeeltelijke | gedeeltelijke | gedeeltelijke |   | gedeeltelijke | verschillende |
 
 <sup>1</sup> oplossing voor de beveiliging en controle kunt verzamelen van Logboeken van Windows-, Operations Manager- en Linux-agents. Zie [gegevensbronnen](#data-sources) voor gegevens verzamelen informatie over:
 
@@ -192,16 +192,16 @@ De agent Log Analytics Windows en System Center Operations Manager-agent zijn in
 
 ### <a name="protection--recovery"></a>Beveiliging en herstel
 
-| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure-opslag | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| Oplossing voor het beheer | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Back-up | Azure |   |   |   |   |   | N.v.t. |
+| Back-up maken | Azure |   |   |   |   |   | N.v.t. |
 | Azure Site Recovery | Azure |   |   |   |   |   | N.v.t. |
 
 
 ### <a name="data-sources"></a>Gegevensbronnen
 
 
-| Gegevensbron | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure-opslag | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| Gegevensbron | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Azure activiteitenlogboeken |Windows |  |  |  |  |  |op de melding |
 | Azure diagnostische logboeken |Windows |  |  |  |  |  |op de melding |

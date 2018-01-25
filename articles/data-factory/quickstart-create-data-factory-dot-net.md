@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versie 2 - Preview](quickstart-create-data-factory-dot-net.md)
 
-In deze QuickStart wordt beschreven hoe u .NET SDK kunt gebruiken om een Azure data factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het **transformeren** van gegevens met Azure Data Factory. 
+In deze snelstartgids wordt beschreven hoe u .NET SDK kunt gebruiken om een Azure data factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het **transformeren** van gegevens met Azure Data Factory. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Aan de slag met versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -117,7 +117,7 @@ Maak met behulp van Visual Studio 2013/2015/2017 een C# .NET-consoletoepassing.
 2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
 3. Selecteer **Visual C#** -> **Console App (.NET Framework)** in de lijst met projecttypen aan de rechterkant. .NET versie 4.5.2 of hoger is vereist.
 4. Voer **ADFv2QuickStart** in als de naam.
-5. Klik op **OK** om het project te maken.
+5. Klik op **OK** om het project aan te maken.
 
 ## <a name="install-nuget-packages"></a>NuGet-pakketten installeren
 
@@ -205,7 +205,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 Voeg de volgende code toe aan de methode **Main** om een **gekoppelde Azure Storage-service** te maken.
 
-U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze QuickStart hoeft u maar één gekoppelde Azure Storage-service te maken, die wordt gebruikt als de bron voor het kopiëren en als de sinkopslag, met de naam 'AzureStorageLinkedService'.
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze snelstartgids hoeft u maar één gekoppelde Azure Storage-service te maken, die wordt gebruikt als de bron voor het kopiëren en als de sinkopslag, met de naam 'AzureStorageLinkedService'.
 
 ```csharp
 // Create an Azure Storage linked service

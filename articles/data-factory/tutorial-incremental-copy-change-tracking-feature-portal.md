@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 22a3972d7b2e9cf732f5dc75dd2b53b83570ee66
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -154,11 +154,11 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
-2. Voer op de blade **New data factory** **ADFTutorialDataFactory** in bij **Name**. 
+2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
-     ![Pagina New data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Raadpleeg het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -169,16 +169,16 @@ Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure Pow
          
         Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V2 (Preview)** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Alleen ondersteunde locaties worden in de vervolgkeuzelijst weergegeven. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.      
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
-9. Wanneer het maken is voltooid, ziet u de pagina **Data Factory** zoals in de afbeelding wordt weergegeven.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
    ![Startpagina van de gegevensfactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. Klik op **Author & Monitor** om de gebruikersinterface (UI) van Data Factory op een afzonderlijk tabblad te openen.
+10. Klik op de tegel **Author & Monitor** om de gebruikersinterface (UI) van Azure Data Factory te openen in een afzonderlijk tabblad.
 11. Ga op de pagina **get started** naar het tabblad **Edit** in het linkervenster, zoals wordt weergegeven in de volgende afbeelding: 
 
     ![Knop Pijplijn maken](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
@@ -197,7 +197,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
    ![Azure Blob-opslag selecteren](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
 3. Voer in het venster **New Linked Service** de volgende stappen uit: 
 
-    1. Voer **AzureStorageLinkedService** in bij **Name**. 
+    1. Voer **AzureStorageLinkedService** in als **Naam**. 
     2. Selecteer uw Azure Storage-account bij **Storage account name**. 
     3. Klik op **Opslaan**. 
     
@@ -211,12 +211,12 @@ In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
 2. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
 3. Voer in het venster **New Linked Service** de volgende stappen uit: 
 
-    1. Voer **AzureSqlDatabaseLinkedService** in bij **Name**. 
-    2. Selecteer uw Azure SQL-server in het veld **Server name**.
-    4. Selecteer uw Azure SQL Database bij **Database name**. 
-    5. Voer de naam van de gebruiker in bij **User name**. 
-    6. Voer het wachtwoord voor de gebruiker in bij **Password**. 
-    7. Als u de verbinding wilt testen, klikt u op **Test connection**.
+    1. Voer **AzureSqlDatabaseLinkedService** in bij **Naam**. 
+    2. Selecteer uw Azure SQL-server bij **Servernaam**.
+    4. Selecteer uw Azure SQL-database bij **Databasenaam**. 
+    5. Voer de gebruikersnaam in bij **Gebruikersnaam**. 
+    6. Voer het wachtwoord voor de gebruiker in bij **Wachtwoord**. 
+    7. Als u de verbinding wilt testen, klikt u op **Verbinding testen**.
     8. Klik op **Save** om de gekoppelde service op te slaan. 
     
        ![Instellingen voor gekoppelde Azure SQL Database-service](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
@@ -298,12 +298,12 @@ In deze stap maakt u een pijplijn met een kopieeractiviteit waarmee de volledige
 7. Als u entiteiten (gekoppelde services, gegevenssets en pijplijnen) wilt publiceren, klikt u op **Publish**. Wacht totdat de publicatie is uitgevoerd. 
 
     ![De knop Publiceren](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
-8. Wacht totdat het bericht **Successfully published** wordt weergegeven. 
+8. Wacht tot u het bericht **Gepubliceerd** ziet. 
 
     ![Het publiceren is voltooid](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
 9. U kunt ook meldingen bekijken door te klikken op de knop **Show Notifications** aan de linkerkant. Sluit het meldingenvenster door op **X** te klikken.
 
-    ![Meldingen weergeven](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
+    ![Meldingen tonen](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
 
 
 ### <a name="run-the-full-copy-pipeline"></a>Voer de volledige kopie-pijplijn uit
@@ -411,7 +411,7 @@ In deze stap maakt u een pijplijn met de volgende activiteiten en laat deze peri
     1. Voer **Update_ChangeTracking_Version** in bij **Stored procedure name**.  
     2. Gebruik in de sectie **Stored procedure parameters** de knop **+ New** om de volgende twee parameters toe te voegen:
 
-        | Name | Type | Value | 
+        | Name | Type | Waarde | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Tekenreeks | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
@@ -467,7 +467,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
 
 > [!div class="nextstepaction"]
->[Gegevens transformeren met behulp van een Spark-cluster in de cloud](tutorial-transform-data-spark-powershell.md)
+>[Gegevens transformeren met behulp van een Spark-cluster in de cloud](tutorial-transform-data-spark-portal.md)
 
 
 

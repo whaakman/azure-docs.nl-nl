@@ -3,7 +3,7 @@ title: Migratie van Java SDK naar Maven - Oude Azure Service Fabric Java-toepass
 description: U moet de oudere Java-toepassingen die de Service Fabric Java SDK gebruikten, bijwerken om Service Fabric Java-afhankelijkheden op te halen van Maven. Als u de stappen in dit artikel hebt uitgevoerd, moeten de oudere Java-toepassingen zonder problemen kunnen worden gebouwd.
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
-ms.author: saysa
-ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rapatchi
+ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Bestaande Java Service Fabric-toepassingen bijwerken voor het ophalen van Java-bibliotheken van Maven
 We hebben onlangs de binaire bestanden van Java Service Fabric verplaatst van de Service Fabric Java SDK naar Maven-hosting. U kunt nu **mavencentral** gebruiken om de meest recente Service Fabric Java-afhankelijkheden op te halen. Deze Quick Start helpt u om uw bestaande Java-toepassingen bij te werken, zodat deze compatibel zijn met de op Maven gebaseerde build. Deze toepassingen werden eerder gemaakt voor gebruik met Service Fabric Java SDK, met behulp van een Yeoman-sjabloon of Eclipse.

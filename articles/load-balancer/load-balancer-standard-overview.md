@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
 
@@ -72,8 +72,8 @@ Load Balancer Standard biedt nieuwe mogelijkheden voor meerdere dimensies diagno
 | --- | --- |
 | VIP-beschikbaarheid | Load Balancer standaard oefent continu het gegevenspad van binnen een regio aan de Load Balancer-front-helemaal tot aan de stack SDN die ondersteuning biedt voor uw virtuele machine. Als in orde exemplaren blijft, volgt de meting hetzelfde pad als uw toepassing taakverdeling verkeer. Het gegevenspad die wordt gebruikt door uw klanten ook wordt gevalideerd. De meting is onzichtbaar voor uw toepassing en niet van invloed op een andere bewerkingen.|
 | Beschikbaarheid van de DIP | Load Balancer standaard maakt gebruik van een gedistribueerde health-service die u de status van het toepassingseindpunt van uw volgens de configuratie-instellingen bewaakt te zoeken. Met deze metriek zorgt voor een statistische functie of groep per eindpunt gefilterd-weergave van elk eindpunt afzonderlijke exemplaar in de Load Balancer.  U kunt zien hoe de Load Balancer de status van uw toepassing, zoals aangegeven door uw configuratie van health test bekijkt.
-| SYN-pakketten | Load Balancer standaard niet beëindigen TCP-verbindingen of interactie met TCP of UDP pakketstromen. Stromen en hun handshakes zijn altijd tussen de bron en de VM-instantie. Als u wilt uw TCP-protocol scenario's op te lossen, kunt u het gebruik van SYN pakketten om te begrijpen hoeveel TCP-verbinding is geprobeerd. De metriek rapporteert het aantal TCP SYN-pakketten die zijn ontvangen. De metriek kan ook clients die verbinding maken met uw service weerspiegelen.|
-| Verbindingen met snat omzetten | Load Balancer standaard rapporteert het aantal uitgaande verbindingen die naar het openbare IP-adres front-zijn masqueraded. Snat omzetten poorten zijn een onuitputtelijk resource. Met deze metriek kunt geven een indicatie van hoe zwaar uw toepassing is vertrouwen op snat omzetten voor uitgaande verbindingen van de oorsprong.|
+| SYN-pakketten | Load Balancer standaard niet beëindigen TCP-verbindingen of interactie met TCP of UDP pakketstromen. Stromen en hun handshakes zijn altijd tussen de bron en de VM-instantie. Als u wilt uw TCP-protocol scenario's op te lossen, kunt u het gebruik van SYN pakketten items om te begrijpen hoeveel TCP-verbinding is geprobeerd. De metriek rapporteert het aantal TCP SYN-pakketten die zijn ontvangen.|
+| Verbindingen met snat omzetten | Load Balancer standaard rapporteert het aantal uitgaande stromen die op de front-openbare IP-adres zijn masqueraded. Snat omzetten poorten zijn een onuitputtelijk resource. Met deze metriek kunt geven een indicatie van hoe zwaar uw toepassing is vertrouwen op snat omzetten voor uitgaande oorsprong stromen.  Tellers voor geslaagde en mislukte uitgaande snat omzetten stromen worden gerapporteerd, en kunnen worden gebruikt om problemen op te begrijpen van de status van uw uitgaande stromen.|
 | Byte-prestatiemeteritems | Load Balancer standaard rapporten de gegevens per front-end verwerkt.|
 | Pakket-prestatiemeteritems | Load Balancer standaard rapporteert de pakketten dat per front-end verwerkt.|
 

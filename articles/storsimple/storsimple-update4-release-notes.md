@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Opmerkingen bij de release van de StorSimple 8000 Series Update 4
 > [!NOTE]
-> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+> De klassieke portal voor StorSimple is afgeschaft. De StorSimple-apparaatbeheerfuncties worden automatisch volgens schema verplaatst naar de nieuwe Azure Portal. U ontvangt hierover een e-mailbericht en een portalmelding. Dit document wordt binnenkort ook ingetrokken. Zie [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (Veelgestelde vragen: verplaatsing naar Azure Portal) voor vragen met betrekking tot de verplaatsing.
 
 
 ## <a name="overview"></a>Overzicht
@@ -59,7 +59,7 @@ De volgende belangrijke verbeteringen en correcties zijn aangebracht in Update 4
 
 * **Wijzigingen doorvoeren** -In deze release fouten die betrekking hebben op het bijwerken van de fouten zijn gecorrigeerd.
 
-* **Waarschuwing voor schijffouten** -een nieuwe waarschuwing die door de gebruiker van een aanstaande schijffouten waarschuwt in deze release is toegevoegd. Als u deze waarschuwing tegenkomt, neem dan contact op met Microsoft Support om te verzenden van een vervangende schijf. Ga voor meer informatie naar [hardware waarschuwingen op het StorSimple-apparaat](storsimple-manage-alerts.md#hardware-alerts).
+* **Waarschuwing voor schijffouten** -een nieuwe waarschuwing die door de gebruiker van een aanstaande schijffouten waarschuwt in deze release is toegevoegd. Als u deze waarschuwing tegenkomt, neem dan contact op met Microsoft Support om te verzenden van een vervangende schijf. Ga voor meer informatie naar [hardware waarschuwingen op het StorSimple-apparaat](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Controller vervanging wijzigingen** -een cmdlet waarmee de gebruiker de status van het proces van de vervangende domeincontroller opvragen in deze release is toegevoegd. Ga voor meer informatie naar de [cmdlet query controller vervanging status](https://technet.microsoft.com/library/dn688168.aspx).
 

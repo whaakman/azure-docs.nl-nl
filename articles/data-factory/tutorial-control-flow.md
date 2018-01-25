@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
@@ -30,7 +30,7 @@ Een overzicht van het scenario: ![overzicht](media/tutorial-control-flow/overvie
 In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
-> * Een data factory maken
+> * Een data factory maken.
 > * Een gekoppelde Azure Storage-service maken
 > * Een Azure Blob-gegevensset maken
 > * Een pijplijn met een kopieeractiviteit en een webactiviteit maken
@@ -69,7 +69,7 @@ Maak met behulp van Visual Studio 2015/2017 een C# .NET-consoletoepassing.
 2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**. .NET versie 4.5.2 of hoger is vereist.
 3. Selecteer **Visual C#** -> **Console App (.NET Framework)** in de lijst met projecttypen aan de rechterkant.
 4. Voer **ADFv2BranchTutorial** in als naam.
-5. Klik op **OK** om het project te maken.
+5. Klik op **OK** om het project aan te maken.
 
 ## <a name="install-nuget-packages"></a>NuGet-pakketten installeren
 
@@ -292,7 +292,7 @@ Maak in uw C#-project een klasse met de naam **EmailRequest**. Hiermee definieer
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Eindpunten voor de e-mailwerkstroom maken
-Voor het activeren van het verzenden van een e-mail gebruikt u [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) om de werkstroom te definiëren. Zie voor meer informatie over het maken van een Logic App-werkstroom [How to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) (Het maken van een logische app). 
+Voor het activeren van het verzenden van een e-mail gebruikt u [Logic Apps](../logic-apps/logic-apps-overview.md) om de werkstroom te definiëren. Zie voor meer informatie over het maken van een Logic App-werkstroom [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) (Het maken van een logische app). 
 
 ### <a name="success-email-workflow"></a>Werkstroom voor e-mail met succesbericht 
 Maak een Logic App-werkstroom met de naam `CopySuccessEmail`. Definieer de werkstroomtrigger als `When an HTTP request is received`, en voeg de actie `Office 365 Outlook – Send an email` toe.
@@ -739,7 +739,7 @@ Press any key to exit...
 In deze zelfstudie hebt u de volgende stappen uitgevoerd: 
 
 > [!div class="checklist"]
-> * Een data factory maken
+> * Een data factory maken.
 > * Een gekoppelde Azure Storage-service maken
 > * Een Azure Blob-gegevensset maken
 > * Een pijplijn met een kopieeractiviteit en een webactiviteit maken

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Het oplossen van veelvoorkomende problemen in Azure Automation 
 Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in Azure Automation en mogelijke oplossingen om op te lossen ze voorgesteld.
@@ -152,7 +152,7 @@ Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in A
   * Gebruiken om de configuratie van een knooppunt aan een knooppunt met behulp van PowerShell-cmdlet toewijst, **Set AzureRmAutomationDscNode** cmdlet
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scenario: Er is geen knooppuntconfiguraties (MOF-bestanden) zijn gemaakt tijdens het compileren van een configuratie
-**Fout:** DSC-Compilatietaak wordt onderbroken met de fout: 'compilatie is voltooid, maar er is geen configuratie knooppunt .mofs zijn gegenereerd'.
+**Fout:** DSC-Compilatietaak wordt onderbroken met de fout: 'compilatie is voltooid, maar er is geen configuration.mofs knooppunt zijn gegenereerd'.
 
 **Reden voor de volgende fout:** wanneer de volgende expressie de **knooppunt** sleutelwoord in de DSC-configuratie wordt geëvalueerd naar `$null`, en vervolgens geen knooppuntconfiguraties worden geproduceerd.
 
@@ -190,6 +190,16 @@ Deze foutcode betekent dat de opgeslagen zoekopdracht computer groepsquery gebru
 **Tips voor probleemoplossing:**
 
 U kunt de query voor deze oplossing en de oplossing wordt de query reonboard verwijderen. De query kan worden gevonden in uw werkruimte onder **opgeslagen zoekopdrachten**. De naam van de query is **MicrosoftDefaultComputerGroup**, en de categorie van de query is de naam van de oplossing die is gekoppeld aan deze query. Als meerdere oplossingen zijn ingeschakeld, de **MicrosoftDefaultComputerGroup** ziet u meerdere keren onder **opgeslagen zoekacties**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Reden voor de volgende fout:**
+
+Deze foutcode betekent dat de implementatie is mislukt vanwege een beleid schendt.
+
+**Tips voor probleemoplossing:**
+
+Controleer de meldingen in de rechterbovenhoek van de Azure portal of navigeer naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure beleid bezoek: [overzicht van Azure-beleid](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 

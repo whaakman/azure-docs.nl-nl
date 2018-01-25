@@ -3,8 +3,8 @@ title: Een web-app maken met Redis Cache | Microsoft Docs
 description: Informatie over het maken van een web-app met Redis-cache
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Een web-app maken met Redis-Cache
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
     Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![De projectsjabloon selecteren][cache-select-template]
-4. Klik op **OK** om het project te maken.
+4. Klik op **OK** om het project aan te maken.
 
 ## <a name="create-the-aspnet-mvc-application"></a>De ASP.NET MVC-toepassing maken
 In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieken leest en weergeeft vanuit een database.
@@ -102,7 +102,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
     ![De modelklasse toevoegen][cache-model-add-class-dialog]
 3. Vervang de `using`-instructies boven aan het bestand `Team.cs` door de volgende `using`-instructies.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 
 1. Vervang de definitie van klasse `Team` door het volgende codefragment. Dit fragment bevat een bijgewerkte definitie voor klasse `Team` en een aantal andere helperklassen van Entity Framework. Zie [Code First naar een nieuwe database](https://msdn.microsoft.com/data/jj193542) voor meer informatie over de Code First-aanpak voor Entity Framework die in deze zelfstudie wordt gebruikt.
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
     ![Global.asax.cs][cache-global-asax]
 6. Voeg boven aan het bestand, onder de andere `using`-instructies, de volgende twee `using`-instructies toe.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 
 1. Voeg de volgende regel code toe aan het einde van de `Application_Start`-methode.
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Vervang `controller = "Home"` in de volgende code in de `RegisterRoutes`-methode door `controller = "Teams"`, zoals weergegeven in het volgende voorbeeld.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
     ![TeamsController][cache-teamscontroller]
 4. Voeg de volgende twee `using`-instructies toe aan **TeamsController.cs**.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Voeg de volgende twee eigenschappen toe aan de klasse `TeamsController`.
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 
 1. Voeg bovenaan, bij de andere `using`-instructies, de volgende `using`-instructies toe aan het `TeamsController.cs`-bestand.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Vervang de huidige implementatie van de `public ActionResult Index()`-methode door de volgende implementatie.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
    
     De `PlayGames`-methode werkt de teamstatistieken bij door een seizoen aan wedstrijden te simuleren, slaat de resultaten vervolgens op in de database en wist de nu verouderde gegevens uit de cache.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 
     De `RebuildDB`-methode initialiseert de database opnieuw met de standaardset teams, genereert statistieken voor ze en wist de nu verouderde gegevens uit de cache.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 
     De `ClearCachedTeams`-methode verwijdert opgeslagen teamstatistieken uit de cache.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
    
     De `GetFromDB`-methode leest de teamstatistieken uit de database.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 
     De `GetFromList`-methode leest de teamstatistieken uit de cache als een geserialiseerde `List<Team>`. Als er een cache ontbreekt, worden de teamstatistieken gelezen uit de database en vervolgens voor later gebruik opgeslagen in de cache. In dit voorbeeld wordt gebruikgemaakt van JSON.NET-serialisatie om de .NET-objecten naar en uit de cache te serialiseren. Zie [Werken met .NET-objecten in Azure Redis-cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) voor meer informatie.
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 
     De `GetFromSortedSet`-methode leest de teamstatistieken uit een in de cache opgeslagen gesorteerde set. Als er een cache ontbreekt, worden de teamstatistieken uit de database gelezen en als een gesorteerde set opgeslagen in de cache.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 
     De `GetFromSortedSetTop5`-methode leest de beste vijf teams uit de in de cache opgeslagen gesorteerde set. Deze methode begint met het controleren van de cache op de aanwezigheid van de `teamsSortedSet`-sleutel. Als deze sleutel niet aanwezig is, wordt de `GetFromSortedSet`-methode aangeroepen om de teamstatistieken te lezen en op te slaan in de cache. Vervolgens wordt de in de cache opgeslagen gesorteerde set bevraagd om de beste vijf teams op te halen. Deze worden daarna geretourneerd.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
 
 1. Blader naar de `Create(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
 
 1. Blader naar de `Edit(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
 
 1. Blader naar de `DeleteConfirmed(int id)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
@@ -760,7 +760,7 @@ In deze stap van de zelfstudie publiceert u de toepassing in Azure en voert u de
 
 De volgende tabel beschrijft elke actiekoppeling in de voorbeeldtoepassing.
 
-| Actie | Beschrijving |
+| Bewerking | Beschrijving |
 | --- | --- |
 | Create New |Een nieuw team maken |
 | Play Season |Speel een seizoen wedstrijden, werk de teamstatistieken bij en wis eventuele verouderde teamgegevens uit de cache. |

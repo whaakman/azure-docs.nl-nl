@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verificatie met een persoonlijke Docker-container register
 
@@ -61,9 +61,11 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Nadat u bent aangemeld, Docker in de cache opgeslagen de referenties, dus u hoeft niet te herinneren van de app-ID.
 
-Afhankelijk van de versie van Docker die u hebt geïnstalleerd, ziet u een beveiligingswaarschuwing aanbevelen van het gebruik van de `--password-stdin` parameter. Hoewel het gebruik ervan buiten het bereik van dit artikel is, wordt aangeraden na deze aanbevolen procedure. Zie voor meer informatie de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) -opdrachten.
+Afhankelijk van de versie van Docker die u hebt geïnstalleerd, ziet u een beveiligingswaarschuwing aanbevelen van het gebruik van de `--password-stdin` parameter. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie voor meer informatie de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) -opdrachten.
 
-## <a name="admin-account"></a>Beheerdersaccount
+Zie voor meer informatie over het gebruik van een service-principal voor verificatie van headless ACR [Azure Container register verificatie met service-principals](container-registry-auth-service-principal.md).
+
+## <a name="admin-account"></a>Beheeraccount
 
 Elke container register bevat een admin-gebruikersaccount is standaard uitgeschakeld. U kunt de gebruiker met beheerdersrechten en beheren van de referenties in de [Azure-portal](container-registry-get-started-portal.md#create-a-container-registry), of met behulp van de Azure CLI.
 

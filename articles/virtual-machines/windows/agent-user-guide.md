@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: danis
-ms.openlocfilehash: f3e4ab075f7cd75bac2d66f0391227c0de6e11a0
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3be001c2ad63c5872af4740f136438034e1e406b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Overzicht van Azure VM-Agent
 
-De Microsoft Azure Virtual Machine-Agent (AM Agent) is een beveiligde, lichtgewicht proces die VM interactie met de Azure-Infrastructuurcontroller beheert. De VM-Agent heeft een primaire rol als inschakelen en het uitvoeren van de virtuele machine van Azure-extensies. VM-extensies inschakelen na de implementatieconfiguratie van virtuele machines, zoals het installeren en configureren van software. Uitbreidingen van de virtuele machine ook inschakelen herstelfuncties zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine. Zonder de Azure VM-Agent kunnen niet uitbreidingen van de virtuele machine worden uitgevoerd.
+De Agent in Microsoft Azure virtuele Machine (VM-Agent) is een beveiligde, lichtgewicht proces die VM interactie met de Azure-Infrastructuurcontroller beheert. De VM-Agent heeft een primaire rol als inschakelen en het uitvoeren van de virtuele machine van Azure-extensies. VM-extensies inschakelen na de implementatieconfiguratie van virtuele machines, zoals het installeren en configureren van software. Uitbreidingen van de virtuele machine ook inschakelen herstelfuncties zoals het opnieuw instellen van het beheerderswachtwoord van een virtuele machine. Zonder de Azure VM-Agent kunnen niet uitbreidingen van de virtuele machine worden uitgevoerd.
 
 In dit document worden de installatie, detectie en verwijdering van de Azure VM-Agent.
 

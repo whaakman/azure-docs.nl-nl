@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Zelfstudie: gegevens van een on-premises SQL-serverdatabase naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u de gebruikersinterface (UI) van Azure Data Factory om een pijplijn voor een gegevensfactory te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar Azure Blob-opslag. U gaat een zelf-hostende Integration Runtime maken en gebruiken. Deze verplaatst gegevens van on-premises gegevensarchieven en gegevensarchieven in de cloud en omgekeerd. 
@@ -77,7 +77,7 @@ In deze zelfstudie gebruikt u een on-premises SQL Server-database als een *brong
 6. In de structuurweergave klikt u met de rechtermuisknop op de database die u hebt gemaakt en selecteert u **Nieuwe query**.
 
 ### <a name="azure-storage-account"></a>Azure-opslagaccount
-In deze zelfstudie gaat u een algemeen Azure Storage-account (en dan met name Azure Blob Storage) gebruiken als een doel/sink-gegevensopslag. Zie het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen Azure Storage-account voor algemeen gebruik hebt. De pijplijn in de data factory die u in deze zelfstudie gaat maken, kopieert gegevens van de on-premises SQL Server-database (bron) naar deze Azure Blob-opslag (sink). 
+In deze zelfstudie gaat u een algemeen Azure Storage-account (en dan met name Azure Blob Storage) gebruiken als een doel/sink-gegevensopslag. Zie het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen Azure Storage-account hebt voor algemene doeleinden. De pijplijn in de data factory die u in deze zelfstudie gaat maken, kopieert gegevens van de on-premises SQL Server-database (bron) naar deze Azure Blob-opslag (sink). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
 In deze QuickStart gaat u de naam en sleutel van uw Azure Storage-account gebruiken. Als u de naam en sleutel van uw opslagaccount wilt ophalen, doet u het volgende: 
@@ -121,18 +121,18 @@ In deze sectie maakt u in uw Azure Blob Storage een blobcontainer met de naam **
 
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
-In deze stap maakt u een gegevensfactory en start u de Azure Data Factory-UI om een pijplijn te maken in de gegevensfactory. 
+In deze stap maakt u een data factory en start u de Azure Data Factory-gebruikersinterface om een pijplijn te maken in de data factory. 
 
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
-2. Voer op de pagina **Nieuwe gegevensfactory** **ADFTutorialDataFactory** in als de **naam**. 
+2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
-     ![Pagina Nieuwe gegevensfactory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
-     ![Pagina Nieuwe gegevensfactory](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
 4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
@@ -147,7 +147,7 @@ In deze stap maakt u een gegevensfactory en start u de Azure Data Factory-UI om 
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
-9. Wanneer de gegevensfactory is gemaakt, ziet u de pagina **Gegevensfactory** zoals wordt weergegeven in de afbeelding.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
    ![Startpagina van de gegevensfactory](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
 10. Klik op de tegel **Maken en controleren** om de Azure Data Factory-UI te openen op een afzonderlijk tabblad. 
@@ -191,7 +191,7 @@ In deze stap maakt u een gegevensfactory en start u de Azure Data Factory-UI om 
 11. Klik in het venster **Snelle installatie van integratieruntime (zelf-hostend)** op **Sluiten**. 
 
    ![Installatie van integratieruntime - geslaagd](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. Klik in de webbrowser in het venster **Installatie van integratieruntime** op **Voltooien**. Als het goed is, wordt nu het venster **Nieuwe gekoppelde service** weer geopend.
+12. Klik in de webbrowser in het venster **Installatie van integratieruntime** op **Voltooien**. 
 
    ![Installatie van integratieruntime - voltooien](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
@@ -268,7 +268,7 @@ Klik in de werkbalk voor de pijplijn op **Activeren** en klik vervolgens op **Nu
     ![Pijplijnuitvoeringen](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 2. Klik op de koppeling **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de uitvoeringen van activiteit weer te geven die zijn gekoppeld aan de pijplijnuitvoering. U ziet maar één uitvoering van activiteit omdat de pijplijn maar één activiteit bevat. Klik op de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave voor pijplijnuitvoeringen, klikt u bovenaan op **Pijplijnen**.
 
-    ![Uitvoeringen van activiteit](./media/tutorial-hybrid-copy-portal/activity-runs.png)
+    ![Uitvoering van activiteiten](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>De uitvoer controleren
 De uitvoermap *fromonprem* wordt automatisch door de pijplijn gemaakt in de `adftutorial` blobcontainer. Controleer of u het bestand *dbo.emp.txt* in de uitvoermap ziet. 

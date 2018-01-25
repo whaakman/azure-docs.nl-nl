@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 857bbd42fda4abddd9a7551f4de016cecae03868
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -43,22 +43,28 @@ De volgende tabel geeft een overzicht van de Replicatieondersteuning voor machin
 --- | ---
 Machineconfiguratie | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#failed-over-azure-vm-requirements).
 Machine besturingssysteem (Windows) | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladbelevenis)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1
-Besturingssysteem van de machine (Linux) | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0-7.3 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0-7.3 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade van de computers van SLES 11 SP3 repliceren naar SLES 11 SP4 wordt niet ondersteund. Als een gerepliceerde machine is bijgewerkt van SLES 11SP3 naar SLES 11 SP4 is geïnstalleerd, moet u replicatie uitschakelen en beveiligt de machine opnieuw na de upgrade.)
-Linux-kernel-versie | Kernel versie 3.10.0-514 wordt ondersteund vanaf versie 9,8 van de Azure Site Recovery Mobility-service op Red Hat Enterprise Linux Server 7 + en CentOS 7 + servers.<br/><br/> Klanten in de kernel 3.10.0-514 met een versie van de Mobility-service die lager is dan versie 9,8 zijn vereist voor het uitschakelen van replicatie, de versie van de Mobility-service bijwerken naar versie 9,8 en schakel vervolgens opnieuw te worden gerepliceerd.
+Besturingssysteem van de machine (Linux) | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade van de computers van SLES 11 SP3 repliceren naar SLES 11 SP4 wordt niet ondersteund. Als een gerepliceerde machine is bijgewerkt van SLES 11SP3 naar SLES 11 SP4 is geïnstalleerd, moet u replicatie uitschakelen en beveiligt de machine opnieuw na de upgrade.)
 
+>[!NOTE]
+>
+> - Op Linux-distributies, worden alleen de vooraf gedefinieerde kernels die deel van de secundaire versie release/bijwerken van de verdeling uitmaken ondersteund.
+>
+> - Upgrades tussen primaire versies van een Linux-distributie op een Azure Site Recovery beveiligde virtuele VMware-machine of fysieke server wordt niet ondersteund. Tijdens het upgraden van het besturingssysteem op de primaire versies (bijvoorbeeld CentOS 6.* naar CentOS 7.*), schakelt u replicatie voor de machine uit, werk het besturingssysteem op de machine en vervolgens replicatie opnieuw inschakelen.
+>
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel-versies
 
 
 **Ondersteunde versie** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic naar 3.13.0-117-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic naar 3.13.0-128-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic naar 3.13.0-132-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic naar 3.13.0-137-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic naar 4.4.0-81-generic,<br/>4.8.0-34-Generic naar 4.8.0-56-generic,<br/>4.10.0-14-Generic naar 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic naar 4.4.0-91-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic naar 4.4.0-96-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic naar 4.4.0-104-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic |
 
 ## <a name="linux-file-systemsguest-storage-configurations"></a>Linux-bestand Gast-systemen opslagconfiguraties
 
@@ -70,7 +76,7 @@ Multipath-software | Apparaat toewijzen
 Opslagapparaten Paravirtualized | Apparaten die zijn geëxporteerd door paravirtualized stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
-Mappen | Deze mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) moet worden op dezelfde schijf als besturingssysteem op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc
+Mappen | Deze mappen (indien ingesteld als afzonderlijke partities /-bestandssystemen) moet worden op dezelfde schijf als besturingssysteem op de bronserver: / (root), / Boot, /usr, /usr/local, /var, etc </br></br>  Als / volume (root) is een volume LVM en vervolgens/Boot moet zich bevinden op een afzonderlijke partitie op dezelfde schijf en niet een LVM-volume.<br/><br/>
 XFSv5 | XFSv5 functies op XFS bestandssystemen zoals metagegevens controlesom worden van versie 9.10 van de Mobility-service en hoger ondersteund. Gebruik het hulpprogramma xfs_info om te controleren van de superblock XFS voor de partitie. Als ftype is ingesteld op 1, klikt u vervolgens zijn XFSv5 functies in gebruik.
 
 
@@ -115,7 +121,7 @@ Host NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers
 Host-SAN (ISCSI) | Ja
 Host Multipath (MPIO) | Ja - getest met de: Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
 VMDK gast of de server | Ja 
-Gastbesturingssysteem of de server EFI/UEFI| Nee
+Gastbesturingssysteem of de server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor WindowsServer 2012 en nieuwere versies.) </br></br> ** Opmerking aan het einde van de tabel zien.
 De gedeelde clusterschijf gast of de server | Nee 
 Versleutelde schijf gast of de server | Nee 
 NFS gast of de server | Nee 
@@ -124,7 +130,14 @@ RDM gast of de server | Ja<br/><br/> Niet van toepassing op fysieke servers
 Gastbesturingssysteem of de server schijf > 1 TB | Ja<br/><br/>4095 GB 
 Gastbesturingssysteem of de server met een fysieke sectorgrootte van 4K logische en 4 k-schijf | Ja
 De schijf gast of de server met 4K logische en fysieke sectorgrootte van 512 bytes | Ja 
-Volume van de gast of de server met striped schijf > 1 TB<br/><br/> LVM logische volumebeheer Gast/server - opslagruimten | Er is geen schijf van gastbesturingssysteem of de server hot toevoegen of verwijderen | Er is geen Gast/server - schijf uitsluiten | Ja gast of de server met meerdere paden (MPIO) | N.V.T. 
+Volume van de gast of de server met striped schijf > 1 TB<br/><br/> LVM logische volumebeheer Gast/server - opslagruimten | Er is geen schijf van gastbesturingssysteem of de server hot toevoegen of verwijderen | Er is geen Gast/server - schijf uitsluiten | Ja gast of de server met meerdere paden (MPIO) | N.V.T.
+
+> [!NOTE]
+> ** UEFI, opstarten virtuele VMware-machines of fysieke servers met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Volgende beperkingen worden toegepast.
+> - Alleen de migratie naar Azure wordt ondersteund. Failback naar on-premises VMware-site niet ondersteund.
+> - De server moet niet meer dan 4 partities hebben op de schijf met het besturingssysteem.
+> - Versie van Azure Site Recovery Mobility-service 9.13 of hoger vereist.
+
 
 ## <a name="azure-storage"></a>Azure Storage
 

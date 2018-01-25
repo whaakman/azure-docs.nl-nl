@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7486e7c6816538fc120fd0b0a8bea0b006fb21f0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Gegevens met Azure Data Factory kopiëren van Azure Blob Storage naar SQL Database
 In deze zelfstudie maakt u een data factory met behulp van de Azure Data Factory-gebruikersinterface. Met de pijplijn in deze data factory worden gegevens gekopieerd van Azure Blob Storage naar Azure SQL Database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
@@ -286,7 +286,7 @@ U kunt het uitvoeren van een pijplijn testen voordat u artefacten (gekoppelde se
 3. Klik hiervoor in het linkerdeelvenster op **Publiceren**. In deze stap publiceert u entiteiten (gekoppelde services, gegevenssets en pijplijn) die u eerder hebt gemaakt met Azure Data Factory.
 
     ![De knop Publiceren](./media/tutorial-copy-data-portal/publish-button.png)
-4. Wacht tot u het bericht **Publiceren gelukt** ziet. Om meldingsberichten te zien, klikt u op het tabblad **Meldingen weergeven** op de linkerzijbalk. Sluit het meldingenvenster door op **X** te klikken.
+4. Wacht tot u het bericht **Gepubliceerd** ziet. Om meldingsberichten te zien, klikt u op het tabblad **Meldingen weergeven** op de linkerzijbalk. Sluit het meldingenvenster door op **X** te klikken.
 
     ![Meldingen tonen](./media/tutorial-copy-data-portal/show-notifications.png)
 
@@ -415,4 +415,4 @@ Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie n
 Ga verder met de volgende zelfstudie als u wilt weten hoe u on-premises gegevens kopieert naar de cloud: 
 
 > [!div class="nextstepaction"]
->[On-premises gegevens kopiëren naar de cloud](tutorial-hybrid-copy-data-tool.md)
+>[On-premises gegevens kopiëren naar de cloud](tutorial-hybrid-copy-portal.md)

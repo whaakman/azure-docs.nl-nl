@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 2a6b52f56647a8bc018c4cf56e996877c1c0d2e6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4caff18728f2f0f1246f4a05ac121cecdaaeaf04
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met de Data Factory-REST API
 > [!div class="op_single_selector"]
@@ -472,7 +472,7 @@ Voer de Invoke-Command en de volgende uit totdat u het segment in de status **Ge
 >
 >
 
-U kunt ook Azure Portal gebruiken voor het bewaken van segmenten en om eventuele problemen op te lossen. Zie voor meer informatie [Pijplijnen bewaken met de Azure Portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
+U kunt ook Azure Portal gebruiken voor het bewaken van segmenten en om eventuele problemen op te lossen. Zie voor meer informatie [Pijplijnen bewaken met de Azure Portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline).
 
 ## <a name="summary"></a>Samenvatting
 In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken van gegevens. Dit hebt u gedaan door Hive-script uit te voeren op een HDInsight Hadoop-cluster. U hebt in de Azure Portal de Data Factory-editor gebruikt om de volgende stappen uit te voeren:

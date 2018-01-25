@@ -11,29 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5317e2426111a813960db462ac6d6ab3980d0e00
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 545228196a0d510571b2982a836b23acc976ffbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit een Azure SQL-database laden in Azure Blob Storage
 In deze zelfstudie maakt u een Azure-gegevensfactory met een pijplijn waarmee deltagegevens uit een tabel in een Azure SQL-database worden geladen naar Azure Blob Storage. 
 
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u [Documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u de [documentatie voor versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 
 In deze zelfstudie voert u de volgende stappen uit:
 
 > [!div class="checklist"]
 > * Bereid de gegevensopslag voor om de grenswaarde in op te slaan.
-> * Maak een gegevensfactory.
+> * Een data factory maken.
 > * Maak gekoppelde services. 
-> * Maak bron-, sink- en grenswaardegegevenssets.
+> * Bron-, sink- en grenswaardegegevenssets maken.
 > * Maak een pijplijn.
 > * Voer de pijplijn uit.
 > * De pijplijnuitvoering controleert. 
@@ -731,9 +731,9 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 
 > [!div class="checklist"]
 > * Bereid de gegevensopslag voor om de grenswaarde in op te slaan. 
-> * Maak een gegevensfactory.
+> * Een data factory maken.
 > * Maak gekoppelde services. 
-> * Maak bron-, sink- en grenswaardegegevenssets.
+> * Bron-, sink- en grenswaardegegevenssets maken.
 > * Maak een pijplijn.
 > * Voer de pijplijn uit.
 > * De pijplijnuitvoering controleert. 

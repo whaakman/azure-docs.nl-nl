@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Gegevens transformeren in de cloud met behulp van Spark-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure Portal om een Data Factory-pijplijn te maken waarmee gegevens worden getransformeerd met behulp van Spark-activiteit en een gekoppelde HDInsight-service op aanvraag. In deze zelfstudie voert u de volgende stappen uit:
@@ -81,11 +81,11 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
-2. Voer op de blade **New data factory** **ADFTutorialDataFactory** in bij **Name**. 
+2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
-     ![Pagina New data factory](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Raadpleeg het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
      ![Naam niet beschikbaar - fout](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -102,7 +102,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
-9. Wanneer het maken is voltooid, ziet u de pagina **Data Factory** zoals in de afbeelding wordt weergegeven.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
     ![Startpagina van de gegevensfactory](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 10. Klik op **Author & Monitor** om de gebruikersinterface (UI) van Data Factory op een afzonderlijk tabblad te openen.
@@ -180,6 +180,8 @@ In deze sectie maakt u twee gekoppelde services:
     
     ![Knop Valideren](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Klik op **Publish**. De Data Factory UI-gebruikersinterface publiceert entiteiten (gekoppelde services en pijplijn) naar de Azure Data Factory-service. 
+    
+    ![De knop Publiceren](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Een pijplijnuitvoering activeren
 Klik op **Trigger** op de werkbalk en klik op **Trigger Now**. 
@@ -188,7 +190,7 @@ Klik op **Trigger** op de werkbalk en klik op **Trigger Now**.
 
 ## <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 
-1. Ga naar het tabblad **Monitor**. Controleer of u een pijplijnuitvoering ziet. Het duurt ongeveer 20 minuten om een Spark-cluster te maken. 
+1. Ga naar het tabblad **Controleren**. Controleer of u een pijplijnuitvoering ziet. Het duurt ongeveer 20 minuten om een Spark-cluster te maken. 
 
     ![Pijplijnuitvoeringen controleren](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
 2. Klik regelmatig op **Refresh** om de status van de pijplijnuitvoering te controleren. 

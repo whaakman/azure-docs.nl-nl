@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Over punt-naar-Site VPN-
 
@@ -36,7 +36,7 @@ Punt-naar-site VPN kunt gebruiken, een van de volgende protocollen:
 Als u een gemengde client-omgeving die bestaan uit Windows en Mac-apparaten hebt, SSTP en IKEv2 configureren.
 
 >[!NOTE]
->IKEv2 voor P2S is beschikbaar voor het Resource Manager-implementatiemodel. Het is niet beschikbaar voor het klassieke implementatiemodel.
+>IKEv2 voor P2S is beschikbaar voor het Resource Manager-implementatiemodel alleen. Het is niet beschikbaar voor het klassieke implementatiemodel.
 >
 
 ## <a name="authentication"></a>Hoe kan ik P2S-VPN-clients geverifieerd?
@@ -67,6 +67,10 @@ Gebruikers gebruiken de systeemeigen VPN-clients op Windows en Mac-apparaten voo
 * Voor Mac-apparaten bestaat uit het bestand mobileconfig die gebruikers op hun apparaten installeren.
 
 Het zip-bestand bevat ook de waarden van een aantal belangrijke instellingen op de Azure-zijde die u gebruiken kunt om uw eigen profiel voor deze apparaten te maken. De waarden onder andere het VPN-gateway-adres, geconfigureerde tunneltypen, routes en het basiscertificaat voor de validatie van de gateway.
+
+>[!NOTE]
+>Voor Windows-clients, moet u beheerdersrechten hebben op het clientapparaat om te kunnen starten van de VPN-verbinding van het clientapparaat naar Azure.
+>
 
 ### <a name="gwsku"></a>Welke Gateway-SKU's ondersteuning P2S VPN?
 

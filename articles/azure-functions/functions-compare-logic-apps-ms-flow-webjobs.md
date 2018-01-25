@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7ffe44828735a5687008ebc5a7d8d9f017f49daa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Kiezen tussen Stroom, Logische apps, Functies en WebJobs
 In dit artikel worden de volgende services in de Microsoft-cloud met elkaar vergeleken. Dit zijn allemaal services die integratieproblemen kunnen oplossen en bedrijfsprocessen kunnen automatiseren:
@@ -115,7 +115,7 @@ U kunt een logische app aanroepen in een stroom. U kunt ook een functie aanroepe
 Ontdek de mogelijkheden van deze services door uw eerste stroom, logische app, functie-app of webtaak te maken. Klik op een van de volgende koppelingen:
 
 * [Aan de slag met Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Uw eerste Azure-functie maken](functions-create-first-azure-function.md)
 * [WebJobs implementeren met Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 

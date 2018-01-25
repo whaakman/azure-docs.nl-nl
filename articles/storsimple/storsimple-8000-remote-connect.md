@@ -4,7 +4,7 @@ description: Legt uit hoe u uw apparaat voor extern beheer configureren en verbi
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Extern verbinding maken met uw StorSimple 8000 series apparaat
 
@@ -84,7 +84,10 @@ De volgende stappen uitvoeren op de seriële console van het apparaat extern beh
 Voer de volgende stappen uit op de client extern beheer inschakelen.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>De client voorbereiden voor externe verbinding
-1. Start een Windows PowerShell-sessie als administrator.
+1. Start een Windows PowerShell-sessie als administrator. Als u een Windows 10-client standaard, wordt de Windows Remote Management-service is ingesteld op handmatig. Mogelijk moet u de service starten door in te voeren:
+
+    `Start-Service WinRM`
+    
 2. Typ de volgende opdracht het IP-adres van het StorSimple-apparaat toevoegen aan lijst met vertrouwde hosts van de client:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Gebruik Windows PowerShell- en SSL voor een sessie SSAdmin op uw apparaat vanaf 
 De volgende procedure uitvoeren op de computer van waaruit u wilt maken van de externe verbinding met Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Een sessie SSAdmin invoeren op het apparaat met behulp van Windows PowerShell- en SSL
-1. Start een Windows PowerShell-sessie als administrator.
+1. Start een Windows PowerShell-sessie als administrator. Als u een Windows 10-client standaard, wordt de Windows Remote Management-service is ingesteld op handmatig. Mogelijk moet u de service starten door in te voeren:
+
+    `Start-Service WinRM`
+
 2. Het IP-adres van het apparaat toevoegen aan de vertrouwde hosts van de client door te typen:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`

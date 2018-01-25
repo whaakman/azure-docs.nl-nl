@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Onverwachte kosten met Azure-facturering en kostenbeheer voorkomen
 
@@ -157,6 +157,7 @@ Enterprise kosten weergaven zijn momenteel in de openbare Preview. De items te w
 - Abonnement kosten zijn gebaseerd op informatie over het gebruik en geen rekening gehouden met vooruitbetaalde bedragen, gebruikskosten opgenomen hoeveelheden, aanpassingen en belastingen. De werkelijke kosten worden berekend op het niveau van de inschrijving. 
 - Weergegeven in de Azure-portal bedragen mogelijk vertraagd in vergelijking met waarden in de Enterprise portal.  
 - Als u kosten niet ziet, is het mogelijk om een van de volgende redenen:
+    - U hebt onvoldoende machtigingen RBAC op het abonnementsniveau. Als u wilt zien enterprise kosten weergaven, moet u een lezer facturering, lezer, bijdrager of eigenaar op het abonnementsniveau.
     - U bent de eigenaar van een Account en de 'AO kosten weergeven' instellen door de beheerder van de inschrijving is uitgeschakeld.  Neem contact op met de beheerder van de inschrijving om toegang tot de kosten. 
     - U afdeling beheerder bent en uw registratie-beheerder heeft de 'DA kosten weergeven' instelling uitgeschakeld.  Neem contact op met uw beheerder inschrijving om toegang te krijgen. 
     - U hebt Azure aangeschaft via een partner kanaal en de partner heeft geen informatie over de prijzen uitgegeven.  

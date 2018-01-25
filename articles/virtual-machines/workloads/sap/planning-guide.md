@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -793,7 +793,7 @@ Zie ook deze blog en bijgevoegde document voor SAP sizing op Azure: <http://blog
 * Aantal VHD's in VM DBMS om voldoende IOP 's
 
 ## <a name="managing-azure-assets"></a>Azure activa te beheren
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portal
 De Azure portal is een van drie interfaces voor het beheren van Azure VM-implementaties. De algemene beheertaken, zoals het implementeren van virtuele machines van installatiekopieën, kunnen worden gedaan via de Azure portal. Het maken van Opslagaccounts, virtuele netwerken en andere Azure-onderdelen zijn bovendien ook taken die de Azure-portal uitstekend kan verwerken. Functionaliteit zoals VHD's van on-premises uploaden naar Azure of kopiëren van een VHD in Azure zijn echter taken, die de hulpprogramma's van derden of via PowerShell of CLI beheer vereist.
 
 ![Microsoft Azure portal - overzicht van virtuele machines][planning-guide-figure-800]
@@ -1965,9 +1965,7 @@ De volgende afbeelding geïllustreerd de dezelfde mate beheerd schijven.
 ![SAP NetWeaver HA toepassingsarchitectuur met SQL Server in Azure IaaS][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA op Linux
-De architectuur voor SAP HA op Linux in Azure is in wezen hetzelfde als voor Windows zoals hierboven wordt beschreven. Vanaf januari 2016 er is geen SAP (A) SCS HA oplossing nog ondersteund op Linux op Azure
-
-Als gevolg hiervan vanaf januari 2016 een SAP-Linux-Azure-systeem niet biedt de dezelfde beschikbaarheid als een SAP Windows Azure-systeem verbroken vanwege ontbrekende HA voor de SCS (A)-exemplaar en de single instance SAP-as-omgeving-database.
+De architectuur voor SAP HA op Linux in Azure is in wezen hetzelfde als voor Windows zoals hierboven wordt beschreven. Raadpleeg de SAP-notitie [1928533] voor een lijst met ondersteunde hoge beschikbaarheidsoplossingen.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Met behulp van Autostart voor SAP-exemplaren
 SAP aangeboden de functionaliteit voor het starten van SAP-exemplaren onmiddellijk na het begin van het besturingssysteem vanuit de virtuele machine. De exacte stappen zijn beschreven in Knowledge Base-artikel SAP [1909114]. SAP is echter niet aanbeveelt voor het gebruik van de instelling niet meer omdat er geen controle in de volgorde van exemplaar opnieuw wordt opgestart, ervan uitgaande dat meer dan één virtuele machine is van invloed op een of meerdere exemplaren per virtuele machine is uitgevoerd. Ervan uitgaande dat een Azure standaardscenario van één SAP application server-exemplaar in een virtuele machine en het geval van één VM uiteindelijk ophalen opnieuw wordt gestart, het automatisch starten is niet echt kritiek en kan worden ingeschakeld door deze parameter toe te voegen:

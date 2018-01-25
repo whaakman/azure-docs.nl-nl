@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
@@ -155,7 +155,7 @@ De gegevensversleutelingssleutel van service is gegenereerd op alleen de eerste 
 > [!IMPORTANT]
 > Het is belangrijk om te maken van een kopie van de gegevensversleutelingssleutel van service en opslaan in een veilige locatie. Een kopie van de gegevensversleutelingssleutel van service moet zodanig dat het toegankelijk is voor een specifieke persoon en eenvoudig kan worden doorgegeven aan de apparaatbeheerder worden opgeslagen.
 > 
-> Als de gegevensversleutelingssleutel van de service verbroken wordt, kunt een ondersteuningsmedewerker van Microsoft u voor het ophalen van het opgegeven dat er ten minste één apparaat in een online status. U wordt aangeraden dat u de gegevensversleutelingssleutel van service wijzigt nadat deze is opgehaald. Voor instructies, gaat u naar [wijzigen van de gegevensversleutelingssleutel van service](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Als de gegevensversleutelingssleutel van de service verbroken wordt, kunt een ondersteuningsmedewerker van Microsoft u voor het ophalen van het opgegeven dat er ten minste één apparaat in een online status. U wordt aangeraden dat u de gegevensversleutelingssleutel van service wijzigt nadat deze is opgehaald.
 
 Als u wilt wijzigen van de gegevensversleutelingssleutel van service en de bijbehorende gegevens versleutelingscertificaat, volg de stappen in [wijzigen van de gegevensversleutelingssleutel van service voor uw StorSimple-apparaat Manager service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Wijzigen van de versleutelingssleutels vereist dat alle apparaten worden bijgewerkt met de nieuwe sleutel. Daarom raden we aan dat u de sleutel wijzigen wanneer alle apparaten online zijn. Als er apparaten zijn offline is, kunnen de sleutels op een andere tijd worden gewijzigd. De apparaten met verouderde sleutels worden nog steeds back-ups uitvoeren, maar ze niet mogelijk om gegevens te herstellen totdat de sleutel wordt bijgewerkt.
 

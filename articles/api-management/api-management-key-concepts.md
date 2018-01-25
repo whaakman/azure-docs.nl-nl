@@ -14,15 +14,15 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 08490af077ad92dfa8e4ec248a1416980ac400f3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="what-is-api-management"></a>Wat is API Management?
 
-API Management (APIM) helpt organisaties bij het publiceren van API's naar externe, partner- en interne ontwikkelaars om het potentieel van hun gegevens en services te ontsluiten. Veel bedrijven willen hun activiteiten uitbreiden als een digitaal platform, waarbij nieuwe kanalen worden gemaakt, nieuwe klanten worden gevonden en grotere betrokkenheid met bestaande klanten wordt bereikt. API Management biedt de kerncompetenties voor een geslaagd API-programma via ontwikkelaarsbetrokkenheid, zakelijke inzichten, analytische gegevens, beveiliging en bescherming. U kunt Azure API Management gebruiken om elke back-end te nemen en een volwaardig API-programma te starten dat hierop is gebaseerd.
+API Management (APIM) helpt organisaties bij het publiceren van API's naar externe, partner- en interne ontwikkelaars om het potentieel van hun gegevens en services te ontsluiten. Veel bedrijven willen hun activiteiten uitbreiden als een digitaal platform, waarbij nieuwe kanalen worden gemaakt, nieuwe klanten worden gevonden en grotere betrokkenheid met bestaande klanten wordt bereikt. API Management beschikt over de competenties die belangrijk zijn voor een geslaagd API-programma via ontwikkelaarsbetrokkenheid, zakelijke inzichten, analytische gegevens, beveiliging en bescherming. U kunt Azure API Management gebruiken om elke back-end te nemen en een volwaardig API-programma te starten dat hierop is gebaseerd.
 
 Bekijk de volgende video voor een overzicht van Azure API Management en leer hoe u API Management gebruikt om vele functies aan uw API toe te voegen, inclusief toegangsbeheer, frequentiebeperking, bewaking, logboekregistratie en het in de cache opslaan van antwoorden, met minimale inspanning.
 
@@ -92,7 +92,7 @@ Groepen worden gebruikt voor het beheren van de zichtbaarheid van producten voor
 * **Ontwikkelaars** - Geverifieerde gebruikers van de ontwikkelaarsportal vallen in deze groep. Ontwikkelaars zijn de klanten die toepassingen bouwen met uw API's. Ontwikkelaars krijgen toegang tot de ontwikkelaarsportal en bouwen toepassingen waarmee de bewerkingen van een API worden aangeroepen.
 * **Gasten** - Niet-geverifieerde gebruikers van de ontwikkelaarsportal, zoals potentiële klanten die de ontwikkelaarsportal van een API Management-exemplaar bezoeken, vallen in deze groep. Ze kunnen bepaalde alleen-lezentoegang krijgen, zoals de mogelijkheid om API's te bekijken maar niet om ze aan te roepen.
 
-Naast deze systeemgroepen kunnen beheerders aangepaste groepen maken of [gebruikmaken van externe groepen in gekoppelde Azure Active Directory-tenants](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Aangepaste en externe groepen kunnen naast systeemgroepen worden gebruikt om ontwikkelaars zichtbaarheid van en toegang tot API-producten te geven. U kunt bijvoorbeeld één aangepaste groep maken voor ontwikkelaars die zijn gekoppeld aan een specifieke partnerorganisatie en hen toegang geven tot de API's vanuit een product dat alleen relevante API's bevat. Een gebruiker kan lid zijn van meerdere groepen.
+Naast deze systeemgroepen kunnen beheerders aangepaste groepen maken of [gebruikmaken van externe groepen in gekoppelde Azure Active Directory-tenants](api-management-howto-aad.md). Aangepaste en externe groepen kunnen naast systeemgroepen worden gebruikt om ontwikkelaars zichtbaarheid van en toegang tot API-producten te geven. U kunt bijvoorbeeld één aangepaste groep maken voor ontwikkelaars die zijn gekoppeld aan een specifieke partnerorganisatie en hen toegang geven tot de API's vanuit een product dat alleen relevante API's bevat. Een gebruiker kan lid zijn van meerdere groepen.
 
 Zie voor meer informatie [Groepen maken en gebruiken][How to create and use groups].
 

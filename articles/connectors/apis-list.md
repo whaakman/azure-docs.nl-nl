@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Lijst van connectors
 Zie [Connectordetails](/connectors/) om de triggers en acties die zijn gedefinieerd door de Swagger-beschrijving van elke connector plus eventuele connectorlimieten te vinden.
@@ -143,7 +143,7 @@ Ter verbetering van Azure Logic Apps en connectors kunt u stemmen op ideeën of 
 Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo ja, help ons dan door onze bestaande onderwerpen uit te breiden of uw eigen te schrijven. Onze documentatie is open source en wordt gehost op GitHub. Ga aan de slag in onze [GitHub-opslagplaats](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Aangepaste API's maken voor logische apps](../logic-apps/logic-apps-create-api-app.md)
 * [Uw logische apps bewaken](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
@@ -167,7 +167,7 @@ Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo j
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Verbinding maken met een Oracle-database om rijen toe te voegen, in te voegen, te verwijderen en meer"
 [mqdoc]: ./connectors-create-api-mq.md "Verbinding maken met MQ on-premises of Azure en berichten verzenden en ontvangen"
 [recurrencedoc]:  ./connectors-native-recurrence.md "Terugkerende acties voor logische apps activeren"
-[salesforcedoc]: ./connectors-create-api-salesforce.md "Verbinding maken met uw Salesforce-account. Accounts, potentiële klanten en verkoopkansen beheren, en meer"
+[salesforcedoc]: ./connectors-create-api-salesforce.md "Verbinding maken met uw Salesforce-account. Accounts, leads en verkoopkansen beheren, en meer"
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Verbinding maken met een on-premises SAP-systeem"
 [service-busdoc]: ./connectors-create-api-servicebus.md "Berichten vanuit de Service Bus-wachtrijen en -onderwerpen verzenden en berichten vanuit de Service Bus-wachtrijen en abonnementen ontvangen"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Verbinding maken met SharePoint Online. Documenten beheren, items vermelden, en meer"

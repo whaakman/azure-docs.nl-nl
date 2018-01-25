@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Beheren
       items:
-        - name: Upgraden naar een Recovery Services-kluis
-          href: upgrade-site-recovery-vaults.md
         - name: Processervers in Azure beheren
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: De configuratieserver beheren

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Gegevens in een virtueel Azure-netwerk transformeren met behulp van Hive-activiteit in Azure Data Factory
 In deze zelfstudie gebruikt u Azure Portal om een Data Factory-pijplijn te maken waarmee gegevens worden getransformeerd met behulp van Hive-activiteit in een HDInsight-cluster in een virtueel Azure-netwerk (VNet). In deze zelfstudie voert u de volgende stappen uit:
@@ -76,9 +76,9 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
    ![Nieuw -> DataFactory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-data-factory-menu.png)
 3. Voer op de pagina **New data factory** **ADFTutorialHiveFactory** in bij **Name**. 
       
-     ![Pagina New data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamMyAzureSsisDataFactory) en probeert u het opnieuw. Raadpleeg het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamMyAzureSsisDataFactory) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -89,16 +89,16 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
          
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V2 (Preview)** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Alleen locaties die worden ondersteund voor het maken van gegevensfactory’s worden in de lijst weergegeven.
+5. Selecteer de **locatie** voor de gegevensfactory. In de lijst zie u alleen locaties die worden ondersteund voor het maken van gegevensfactory’s.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
-9. Wanneer het maken is voltooid, ziet u de pagina **Data Factory** zoals in de afbeelding wordt weergegeven.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
    ![Startpagina van de gegevensfactory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
-10. Klik op **Author & Monitor** om de gebruikersinterface (UI) van Data Factory op een afzonderlijk tabblad te openen.
+10. Klik op **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad.
 11. Ga op de pagina **aan de slag** naar het tabblad **Bewerken** in het linkervenster, zoals wordt weergegeven in de volgende afbeelding: 
 
    ![Tabblad Bewerken](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
@@ -124,9 +124,9 @@ Als de Hadoop-cluster zich in een virtueel netwerk bevindt, moet u een zelf-host
 
 ### <a name="install-ir-on-a-virtual-machine"></a>IR installeren op een virtuele machine
 
-1. Download de [zelf-hostende Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) op de virtuele Azure-machine. Gebruik de in de vorige stap verkregen **verificatiesleutel** om de zelf-hostende Integration Runtime handmatig te registreren. 
+1. Download de [zelf-hostende integratieruntime](https://www.microsoft.com/download/details.aspx?id=39717) op de virtuele Azure-machine. Gebruik de in de vorige stap verkregen **verificatiesleutel** om de zelf-hostende Integration Runtime handmatig te registreren. 
 
-    ![Integration Runtime registreren](media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png)
+    ![Integratieruntime registreren](media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png)
 
 2. U ziet het volgende bericht wanneer de zelf-hostende Integration Runtime is geregistreerd. 
    
@@ -243,7 +243,7 @@ Houd rekening met de volgende punten:
 
 ## <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 
-1. Ga naar het tabblad **Monitor** aan de linkerkant. U ziet een pijplijn die worden uitgevoerd in de lijst **Pipeline Runs**. 
+1. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet een pijplijn die worden uitgevoerd in de lijst **Pipeline Runs**. 
 
     ![Pijplijnuitvoeringen controleren](./media/tutorial-transform-data-using-hive-in-vnet-portal/monitor-pipeline-runs.png)
 2. Als u de lijst wilt vernieuwen, klikt u op **Refresh**.
@@ -272,7 +272,7 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
 
 > [!div class="nextstepaction"]
->[Een vertakking en keten maken van een Data Factory-controlestroom](tutorial-control-flow.md)
+>[Een vertakking en keten maken van een Data Factory-controlestroom](tutorial-control-flow-portal.md)
 
 
 

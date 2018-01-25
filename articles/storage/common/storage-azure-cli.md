@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 34780001afb309a2986cc21dae948d9d94f1a63f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>De Azure CLI 2.0 gebruiken met Azure Storage
 
@@ -196,9 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+```
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>Azure storage-standaardaccount omgevingsvariabelen worden ingesteld
-U kunt meerdere opslagaccounts in uw Azure-abonnement hebben. Selecteer een van de twee moet worden gebruikt voor alle daaropvolgende opslag opdrachten, kunt u deze omgevingsvariabelen instellen:
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>

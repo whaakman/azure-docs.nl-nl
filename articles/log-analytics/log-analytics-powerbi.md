@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure-logboekanalyse gegevens importeren in Power BI
 
@@ -86,12 +86,12 @@ Wanneer u Power BI met configureert een [verouderde werkruimte voor logboekanaly
 ![Log Analytics naar Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Power BI-schema 's
-Een *Power BI planning* bevat een logboek zoekopdracht die een set gegevens worden geëxporteerd vanuit de OMS-opslagplaats naar de bijbehorende gegevensset in Power BI en een planning die hoe vaak deze zoekopdracht wordt uitgevoerd definieert voor de gegevensset actueel te houden.
+Een *Power BI planning* bevat een logboek zoeken waarmee een reeks gegevens van logboekanalyse geëxporteerd naar de bijbehorende gegevensset in Power BI en een planning die hoe vaak deze zoekopdracht wordt uitgevoerd definieert voor de gegevensset actueel te houden.
 
 De velden in de gegevensset komt overeen met de eigenschappen van de records geretourneerd door het logboek zoeken.  Als de zoekopdracht records van verschillende typen retourneert vervolgens bevat de gegevensset alle eigenschappen van elk van de opgenomen recordtypen.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>OMS-werkruimte verbinding met Power BI
-Voordat u van logboekanalyse naar Power BI exporteren kunt, moet u de OMS-werkruimte verbinden met uw Power BI-account met de volgende procedure.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Werkruimte voor logboekanalyse verbinding met Power BI
+Voordat u van logboekanalyse naar Power BI exporteren kunt, moet u uw werkruimte verbinden met uw Power BI-account met de volgende procedure.  
 
 1. Klik in de OMS-console op de **instellingen** tegel.
 2. Selecteer **Accounts**.
@@ -138,7 +138,7 @@ We klikt u op de **Power BI** knop opent u het dialoogvenster Power BI en geef d
 
 ![Zoeken met Power BI](media/log-analytics-powerbi/walkthrough-schedule.png)
 
-#### <a name="verify-power-bi-search"></a>Controleer of zoeken met Power BI
+#### <a name="verify-power-bi-search"></a>Verify Power BI Search
 Om te controleren of we de planning correct hebt gemaakt, wordt de lijst weergeven met Power BI zoekopdrachten op het **instellingen** -tegel in het dashboard OMS.  Er wacht een paar minuten en vernieuw deze weergave totdat deze rapporteert dat de synchronisatie is uitgevoerd.  U gaat doorgaans de gegevensset automatisch vernieuwen plannen.
 
 ![Zoeken met Power BI](media/log-analytics-powerbi/walkthrough-schedules.png)

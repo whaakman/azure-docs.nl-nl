@@ -51,16 +51,16 @@ We gaan deze nader bekijken.
 
 Hier volgen de schijfgrootte beschikbaar voor premium-beheerde schijven:
 
-| **Premium beheerd <br>schijftype** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P 40** | **P50** | 
+| **Premium beheerd <br>schijftype** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Schijfgrootte        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Schijfgrootte        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Hier volgen de schijfgrootte beschikbaar voor een standard-beheerde schijven:
 
-| **Standaard beheerde <br>schijftype** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **AANBEVELING S50** |
+| **Standaard beheerde <br>schijftype** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Schijfgrootte        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Schijfgrootte        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Het aantal transacties**: U wordt gefactureerd voor het aantal transacties die u op een standard-beheerde schijven uitvoert. Er is geen kosten voor transacties voor een premium-beheerde schijven.
@@ -72,7 +72,7 @@ Zie voor gedetailleerde informatie over prijzen voor schijven beheerd [beheerd s
 
 ## <a name="managed-disk-snapshots"></a>Beheerde schijf momentopnamen
 
-Een momentopname van een beheerd is een alleen-lezen kopie van een beheerde schijf die wordt opgeslagen als een standard-beheerde schijven standaard. Met momentopnamen, kunt u back-up uw beheerde schijven op elk punt in tijd. Deze momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt voor het maken van nieuwe schijven die worden beheerd. Ze worden gefactureerd op basis van de gebruikte grootte. Als u een momentopname van een beheerde schijf met ingerichte capaciteit van 64 GB en grootte van 10 GB gegevens die u gebruikt maakt, wordt bijvoorbeeld momentopname gefactureerd alleen voor de gebruikte gegevensgrootte van 10 GB.  
+Een momentopname van een beheerd is een alleen-lezen kopie van een beheerde schijf die wordt opgeslagen als een standard-beheerde schijven standaard. Met momentopnamen, kunt u back-up uw beheerde schijven op elk punt in tijd. Deze momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt voor het maken van nieuwe schijven die worden beheerd. Ze worden gefactureerd op basis van de gebruikte grootte. Bijvoorbeeld, als u een momentopname van een beheerde schijf met ingerichte capaciteit van 64 GiB en gegevens die u gebruikt de grootte van 10 GiB maakt, wordt momentopname gefactureerd alleen voor de gebruikte gegevensgrootte van 10 GiB.  
 
 [Incrementele momentopnamen](../articles/virtual-machines/windows/incremental-snapshots.md) worden momenteel niet ondersteund voor schijven die worden beheerd, maar in de toekomst worden ondersteund.
 
@@ -82,7 +82,7 @@ Controleer deze bronnen voor meer informatie over het maken van momentopnamen me
 * [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
-## <a name="images"></a>Afbeeldingen
+## <a name="images"></a>Installatiekopieën
 
 Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aangepaste installatiekopie. U kunt een installatiekopie van het maken van uw aangepaste VHD in een opslagaccount of rechtstreeks van een gegeneraliseerde (sys DomainPrep) VM. Dit wordt vastgelegd in één installatiekopie alle schijven die zijn gekoppeld aan een virtuele machine, met inbegrip van zowel het besturingssysteem en gegevensschijven die worden beheerd. Hierdoor maken honderden virtuele machines met uw aangepaste installatiekopie zonder de noodzaak om te kopiëren of beheren van alle opslagaccounts.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 0409d4576b0671f60c5e3bd7e82a2a1102d3d28c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met samenloop SAML SSO door Microsoft
 
@@ -31,6 +31,10 @@ Samenloop SAML SSO door Microsoft integreren met Azure AD biedt de volgende voor
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+
+## <a name="description"></a>Beschrijving:
+
+Uw Microsoft Azure Active Directory-account gebruiken met Atlassian samenloop server eenmalige aanmelding inschakelen. Op deze manier alle gebruikers in uw organisatie kunnen de Azure AD-referenties gebruiken om aan te melden bij de toepassing samenloop. Deze invoegtoepassing maakt gebruik van SAML 2.0 voor Federatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -94,8 +98,6 @@ Voor het configureren van de integratie van samenloop SAML SSO door Microsoft in
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met samenloop SAML SSO door Microsoft op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in samenloop SAML SSO door Microsoft is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in samenloop SAML SSO door Microsoft tot stand worden gebracht.
-
-Wijs in samenloop SAML SSO door Microsoft, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met samenloop SAML SSO door Microsoft, moet u de volgende bouwstenen voltooien:
 
@@ -163,7 +165,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Download de invoegtoepassing van [Microsoft Download Center](). De opgegeven met behulp van Microsoft-invoegtoepassing handmatig uploaden **uploaden invoegtoepassing** menu
+8. Download de invoegtoepassing van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). De opgegeven met behulp van Microsoft-invoegtoepassing handmatig uploaden **uploaden invoegtoepassing** menu
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

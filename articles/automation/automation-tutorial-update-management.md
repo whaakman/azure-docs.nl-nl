@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Windows-updates beheren met Azure Automation
 
@@ -62,9 +62,8 @@ Een [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fau
 De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren.
 Als u aanvullende bewerkingen wilt uitvoeren op virtuele machines die updates vereisen, biedt Azure Automation de mogelijkheid runbooks uit te voeren met VM's, zoals updates downloaden en toepassen.
 
-Tijdens het validatieproces wordt ook gecontroleerd of de VM is ingericht met Microsoft Monitoring Agent (MMA) en Hybrid Worker.
-Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update.
 Tijdens het validatieproces wordt ook gecontroleerd of de VM is ingericht met Microsoft Monitoring Agent (MMA) en Automation Hybrid Runbook Worker.
+Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update.
 
 Als niet aan deze vereisten wordt voldaan, verschijnt er een banner waarin u de optie krijgt de oplossing in te schakelen.
 

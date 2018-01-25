@@ -1,6 +1,6 @@
 ---
-title: Aangepaste velden in Log Analytics | Microsoft Docs
-description: De functie voor de aangepaste velden van Log Analytics kunt u uw eigen doorzoekbare velden maken van OMS-gegevens die aan de eigenschappen van een verzamelde record toevoegen.  In dit artikel beschrijft het proces voor het maken van een aangepast veld en een gedetailleerde uitleg biedt een voorbeeld van de gebeurtenis.
+title: Aangepaste velden in de Azure Log Analytics | Microsoft Docs
+description: De functie voor de aangepaste velden van Log Analytics kunt u uw eigen doorzoekbare velden maken van logboekanalyse records die aan de eigenschappen van een record die worden verzameld toevoegen.  In dit artikel beschrijft het proces voor het maken van een aangepast veld en een gedetailleerde uitleg biedt een voorbeeld van de gebeurtenis.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Aangepaste velden in Log Analytics
-De **aangepaste velden** functie van Log Analytics kunt u bestaande records in de OMS-opslagplaats uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld van gegevens van andere eigenschappen in dezelfde record hebt uitgepakt.
+De **aangepaste velden** functie van Log Analytics kunt u bestaande records in logboekanalyse uitbreiden door uw eigen doorzoekbare velden toe te voegen.  Aangepaste velden worden automatisch ingevuld van gegevens van andere eigenschappen in dezelfde record hebt uitgepakt.
 
 ![Overzicht van aangepaste velden](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Bij het maken van een aangepast veld, logboekanalyse moet begrijpen welke gegeve
 De volgende secties vindt de procedure voor het maken van een aangepast veld.  Aan de onderkant van dit artikel is een overzicht van de extractie van een steekproef.
 
 > [!NOTE]
-> Het aangepaste veld wordt gevuld wanneer records die overeenkomt met de opgegeven criteria worden toegevoegd aan de OMS-gegevensarchief, zodat er alleen op records verzameld nadat het aangepaste veld is gemaakt.  Het aangepaste veld wordt niet worden toegevoegd aan de records die al in het gegevensarchief wanneer deze wordt gemaakt.
-> 
+> Het aangepaste veld wordt gevuld wanneer records die overeenkomt met de opgegeven criteria worden toegevoegd aan Log Analytics, zodat er alleen op records verzameld nadat het aangepaste veld is gemaakt.  Het aangepaste veld wordt niet worden toegevoegd aan de records die al in het gegevensarchief wanneer deze wordt gemaakt.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Stap 1: records waarvoor het aangepaste veld identificeren
@@ -72,7 +71,7 @@ Zodra u het eerste extract hebt uitgevoerd, weergegeven logboekanalyse de result
 7. Het aangepaste veld zoals andere record, eigenschap gebruiken.  U kunt deze gebruiken om gegevens te cumulatieve en groep en zelfs gebruiken voor het produceren van nieuwe inzichten.
 
 ## <a name="viewing-custom-fields"></a>Aangepaste velden weergeven
-U kunt een lijst van alle aangepaste velden weergeven in uw beheergroep vanuit de **instellingen** tegel van het dashboard OMS.  Selecteer **gegevens** en vervolgens **aangepaste velden** voor een lijst met alle aangepaste velden in uw werkruimte.  
+U kunt een lijst van alle aangepaste velden weergeven in uw beheergroep vanuit de **geavanceerde instellingen** menu van de werkruimte voor logboekanalyse in de Azure portal.  Selecteer **gegevens** en vervolgens **aangepaste velden** voor een lijst met alle aangepaste velden in uw werkruimte.  
 
 ![Aangepaste velden](media/log-analytics-custom-fields/list.png)
 

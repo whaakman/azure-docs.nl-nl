@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: b680d4b828910207367035a8b03bd75f84c79271
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sprint-3---january-2018"></a>Sprint 3 - januari 2018 
 
@@ -34,6 +34,7 @@ Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azu
 - Mogelijkheid om te installeren/verwijderen van de app vanuit programma's toevoegen/verwijderen
 - Updates voor de verificatie-stack zorgt ervoor dat de selectie en -account voor aanmelding bij het opstarten
 - Verbeterde ervaring voor eenmalige aanmelding op (SSO) in Windows
+- Gebruikers die deel uitmaken van meerdere tenants met andere referenties zich nu aanmelden bij de Workbench
 
 #### <a name="ui"></a>UI
 - Algemene verbeteringen en oplossingen voor problemen
@@ -46,6 +47,7 @@ Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azu
 - Verbeterde algoritme voor het patroon frequentie inspector
 - Voorbeeldgegevens en feedback verzenden tijdens het uitvoeren van de voorbeeld-transformaties ![afbeelding van de koppeling van de feedback verzenden op afgeleid kolom transformatie](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
 - Spark Runtime-verbeteringen
+- Scala is Pyspark vervangen
 - Vaste onvermogen om de gegevens niet van toepassing sluiten voor de Time Series-Inspector 
 - De tijd van de loopt vast voor de uitvoering van de gegevens Prep voor HDI opgelost
 

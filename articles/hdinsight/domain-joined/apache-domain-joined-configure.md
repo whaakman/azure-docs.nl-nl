@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>HDInsight domein sandbox-omgeving configureren
 
@@ -29,7 +29,6 @@ Zonder HDInsight-cluster lid van een domein, kan alleen elk cluster hebben een H
 
 -   Een zelfstandige Active Directory uitgevoerd op Azure IaaS.
 -   Azure Active Directory.
--   Active Directory wordt uitgevoerd op de klant on-premises omgeving.
 
 Een zelfstandige Active Directory wordt uitgevoerd op Azure IaaS in dit artikel beschreven. Het is de eenvoudigste architectuur die van de klant volgen kunt om ondersteuning voor meerdere gebruikers op HDInsight. In dit artikel komen twee benaderingen voor deze configuratie:
 
@@ -71,9 +70,10 @@ In deze sectie kunt u een Azure-resource management-sjabloon openen vanuit de Az
     - **Admin Username**: Voer de gebruikersnaam van de domein-beheerder.
     - **Beheerderswachtwoord**: Voer het beheerderswachtwoord van het domein.
     - **Domeinnaam**: de standaardnaam is *contoso.com*.  Als u de domeinnaam wijzigt, moet u ook bijwerken de **Secure LDAP certificaat** veld en de **organisatie-eenheid DN** veld.
+    - **DNS-voorvoegsel**: Voer het DNS-voorvoegsel voor het openbare IP-adres gebruikt door de Load Balancer.
     - **Clusternaam**: Voer de naam van het HDInsight-cluster.
     - **Type cluster**: deze waarde niet wijzigen. Als u wilt dat de clustertype wilt wijzigen, moet u de specifieke sjabloon gebruiken in de vorige stap.
-
+    - **Beveiligde Ldap certificaatwachtwoord**: Gebruik de standaardwaarde, tenzij u het certificaatveld beveiligde LDAP wijzigt.
     Sommige van de waarden zijn vastgelegd in de sjabloon, bijvoorbeeld het aantal exemplaren van worker-knooppunt is twee.  De vastgelegde waarden, klikt u op **template bewerken**.
 
     ![Template van HDInsight-cluster domein bewerken](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

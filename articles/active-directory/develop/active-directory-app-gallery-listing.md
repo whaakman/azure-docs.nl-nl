@@ -4,7 +4,7 @@ description: Hoe u een toepassing die ondersteuning biedt voor eenmalige aanmeld
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mtillman
+manager: mbaldwin
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,86 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb09aa8f8e22ad6fbda6a490d251c500bedf3ee
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Lijst van uw toepassing in de Azure Active Directory-toepassingsgalerie
-Voor een lijst met een toepassing die ondersteuning biedt voor eenmalige aanmelding bij Azure Active Directory in de [galerie van Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), moet eerst de toepassing voor het implementeren van een van de volgende integratie-modi:
 
-* **OpenID Connect** -directe integratie met Azure AD met OpenID Connect voor verificatie en de Azure AD API toestemming voor configuratie. Als u een integratie net begint en SAML biedt geen ondersteuning voor uw toepassing, is dit de aanbevolen modus.
-* **SAML** – de toepassing al heeft de mogelijkheid voor het configureren van derden identiteitsproviders met het SAML-protocol.
 
-Aanbieding-vereisten voor elke fase zijn hieronder.
+##  <a name="what-is-azure-ad-app-gallery"></a>Wat is de galerie van Azure AD-app?
 
-## <a name="openid-connect-integration"></a>OpenID Connect-integratie
-Uw toepassing integreren met Azure AD, na de [developer instructies](active-directory-authentication-scenarios.md). Vervolgens voltooien van de onderstaande vragen en verzenden naar waadpartners@microsoft.com.
+Azure AD is een cloud-gebaseerde Identity-service. [App-galerie van Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) is een algemene store waar alle connectors van de toepassing voor eenmalige aanmelding en gebruikersaanvragen worden gepubliceerd. Onze wederzijdse klanten die van Azure AD als id-provider gebruikmaken zoekt naar verschillende SaaS-toepassing connectors, die hier worden gepubliceerd. IT-beheerder voegt de connector uit de app-galerie en configureert en gebruikt voor eenmalige aanmelding en de inrichting. Azure AD ondersteunt alle belangrijke federation-protocollen, zoals SAML 2.0, OpenID Connect, OAuth en WS-Fed voor eenmalige aanmelding. 
 
-* Geef referenties voor een testtenant of een account met de toepassing die door het team van Azure AD kan worden gebruikt voor het testen van de integratie.  
-* Bieden instructies over hoe het team van Azure AD kunt aanmelden en een instantie van Azure AD verbinden met uw toepassing met de [Azure AD toestemming framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
-* Geef eventuele verdere instructies nodig voor het Azure AD-team voor het testen van eenmalige aanmelding met uw toepassing. 
-* De onderstaande gegevens bieden:
+## <a name="what-are-the-benefits-of-listing-the-application-in-the-gallery"></a>Wat zijn de voordelen van het opsommen van de toepassing in de galerie?
 
-> Bedrijfsnaam:
-> 
-> De Website van het bedrijf:
-> 
-> De naam van de toepassing:
-> 
-> Beschrijving van de toepassing (maximaal 200 tekens):
-> 
-> De Website van de toepassing is (informatief):
-> 
-> Website van de toepassing technische ondersteuning of contactgegevens:
-> 
-> Toepassings-ID van de toepassing, zoals wordt weergegeven in de App-details https://portal.azure.com:
-> 
-> Wanneer klanten gaat u naar zich aanmelden voor de URL van de toepassing aanmelden en/of kopen de toepassing:
-> 
-> Kies maximaal drie categorieën voor uw toepassing worden vermeld in (voor beschikbare categorieën Zie Azure Active Directory Marketplace):
-> 
-> Kleine pictogrammen van toepassing (PNG-bestand, 45px door 45px, effen achtergrondkleur) koppelen:
-> 
-> Koppelen met grote pictogrammen van toepassing (PNG-bestand, 215px door 215px, effen achtergrondkleur):
-> 
-> Logo van de toepassing (PNG-bestand, 150px door 122px, transparante achtergrondkleur) koppelen:
-> 
-> 
+*  Geef best mogelijke eenmalige aanmelding gebruikerservaring aan klanten.
 
-## <a name="saml-integration"></a>SAML-integratie
-Alle Apps die ondersteuning biedt voor SAML 2.0 kan rechtstreeks worden geïntegreerd met een Azure AD-tenant met behulp van [deze instructies voor het toevoegen van een aangepaste toepassing](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Nadat u hebt getest dat de integratie van uw toepassingen met Azure AD werkt, de volgende informatie om te verzenden < mailto:waadpartners@microsoft.com >.
+*  Eenvoudige en minimale configuratie van de toepassing.
 
-* Geef referenties voor een testtenant of een account met de toepassing die door het team van Azure AD kan worden gebruikt voor het testen van de integratie.  
-* De SAML aanmeldings-URL, de URL-verlener (entiteit-ID) en de antwoord-URL (assertion consumer-service)-waarden voor uw toepassing bieden, zoals beschreven [hier](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Als u doorgaans deze waarden als onderdeel van een metagegevensbestand SAML opgeeft, klikt u vervolgens kunt u sturen die ook.
-* Geef een korte beschrijving van hoe u Azure AD configureren als een id-provider in uw toepassing met behulp van SAML 2.0. Als uw toepassing ondersteuning biedt voor het configureren van de Azure AD als een id-provider door middel van een administratieve selfserviceportal, vervolgens controleert u de hierboven opgegeven referenties zijn de mogelijkheid om in te stellen dit.
-* De onderstaande gegevens bieden:
+*  Klanten kunnen de toepassing zoeken en deze te vinden in de galerie. 
 
-> Bedrijfsnaam:
-> 
-> De Website van het bedrijf:
-> 
-> De naam van de toepassing:
-> 
-> Beschrijving van de toepassing (maximaal 200 tekens):
-> 
-> De Website van de toepassing is (informatief):
-> 
-> Website van de toepassing technische ondersteuning of contactgegevens:
-> 
-> Wanneer klanten gaat u naar zich aanmelden voor de URL van de toepassing aanmelden en/of kopen de toepassing:
-> 
-> Kies maximaal drie categorieën voor uw toepassing worden weergegeven onder (voor Zie beschikbare categorieën het [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
-> 
-> Kleine pictogrammen van toepassing (PNG-bestand, 45px door 45px, effen achtergrondkleur) koppelen:
-> 
-> Koppelen met grote pictogrammen van toepassing (PNG-bestand, 215px door 215px, effen achtergrondkleur):
-> 
-> Logo van de toepassing (PNG-bestand, 150px door 122px, transparante achtergrondkleur) koppelen:
-> 
-> 
+*  Elke klant kan deze integratie ongeacht de gratis Azure AD-SKU, Basic of Premium kunt gebruiken.
+
+*  Stap door de zelfstudie voor stap de configuratie voor de wederzijdse klanten.
+
+*  De de gebruikersinrichting inschakelen voor dezelfde app als u van SCIM gebruikmaakt.
+
+
+##  <a name="what-are-the-pre-requisites"></a>Wat zijn de vereisten?
+
+Als u een toepassing in de galerie van Azure AD, moet de toepassing eerst te implementeren op een van de federation-protocollen ondersteund door Azure AD. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie hiervandaan. Als u gebruikt: 
+
+*   **OpenID Connect** : de multitenant-toepassing in Azure AD maken en implementeren van [Azure AD toestemming framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek naar algemene eindpunt verzenden zodat elke klant toestemming voor de toepassing kunt bieden. U kunt de klanttoegang op basis van de tenant-ID en van de gebruiker UPN in het token ontvangen en beheren. Voor het integreren van uw toepassing met Azure AD, kunt u de [developer instructies](active-directory-authentication-scenarios.md).
+
+*   **SAML 2.0 of de WS-Fed** – de toepassing moet zijn een functie in de WS-SAML-Fed SSO-integratie in de modus SP of IDP doen. Alle Apps die ondersteuning biedt voor SAML 2.0, kunnen rechtstreeks worden geïntegreerd met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
+
+*   **Wachtwoord SSO** : Maak een webtoepassing met een HTML-aanmeldingspagina configureren [op basis van wachtwoorden eenmalige aanmelding](../active-directory-appssoaccess-whatis.md). Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers één account moeten, zoals delen op uw organisatie sociale media app accounts. 
+
+## <a name="process-for-submitting-the-request-in-the-portal"></a>Proces voor het indienen van de aanvraag in de portal
+
+Nadat u hebt getest dat de integratie van uw toepassingen met Azure AD werkt, moet u uw aanvraag indienen voor toegang op onze [toepassing netwerk Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Als u een Office 365-account hebt, kunt u die kunt gebruiken om te melden bij deze portal anders, gebruikt u uw Microsoft-ID (Live ID, Outlook, Hotmail enz.) om aan te melden. U kunt zien volgende pagina om de toegang te vragen. Geef een zakelijke rechtvaardiging in het tekstvak en klik op **toegang aanvragen**. Ons team wordt de gedetailleerde gegevens bekijken en geeft u de toegang dienovereenkomstig. Daarna kunt u zich aanmeldt bij de portal en dient u de gedetailleerde aanvraag voor de toepassing.
+
+Als u een probleem met betrekking tot de toegang wordt geconfronteerd, neem dan contact op met [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+![Aanvraag voor toegang op de SharePoint-portal](./media/active-directory-app-gallery-listing/accessrequest.png)
+
+## <a name="timelines"></a>Tijdlijnen
+    
+*   Proces van aanbieding SAML 2.0 of de WS-Fed-toepassing in de galerie - **7-10 dagen**
+
+   ![Tijdlijn van het saml-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/timeline.png)
+
+*   Proces van het opsommen van OpenID Connect toepassing in de galerie - **2-5 werkdagen**
+
+   ![Tijdlijn van het saml-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/timeline2.png)
+
+## <a name="escalations"></a>Escalaties
+
+Voor elke escalaties neerzetten een e-mail naar [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) en we u zo snel beperking Zo snel mogelijk.
 

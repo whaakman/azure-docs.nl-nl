@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d7506afbc51338973322e4fcb27cbb4352fd513
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Zelfstudie: gegevens van een on-premises SQL-serverdatabase naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u Azure PowerShell om een Data Factory-pijplijn te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar een Azure Blob-opslag. U gaat een zelf-hostende Integration Runtime maken en gebruiken. Deze verplaatst gegevens van on-premises gegevensarchieven en gegevensarchieven in de cloud en omgekeerd. 
@@ -35,7 +35,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 > * Gekoppelde services maken voor SQL Server en Azure Storage. 
 > * Gegevenssets maken voor SQL Server en Azure Blob.
 > * Een pijplijn maakt met een kopieeractiviteit om de gegevens te verplaatsen.
-> * Start een pijplijnuitvoering.
+> * Een pijplijnuitvoering starten.
 > * De pijplijnuitvoering controleert.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -614,7 +614,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     }
     ```
 
-    Hier volgt een voorbeeld van de voorbeelduitvoer:
+    Hier volgt een voorbeeld van de voorbeelduitvoering:
 
     ```jdon
     ResourceGroupName : <resourceGroupName>
@@ -639,7 +639,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     ($result | Where-Object {$_.ActivityName -eq "CopySqlServerToAzureBlobActivity"}).Output.ToString()
     ```
 
-    Hier volgt een voorbeeld van de voorbeelduitvoer:
+    Hier volgt een voorbeeld van de voorbeelduitvoering:
 
     ```json
     {
@@ -675,7 +675,7 @@ Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie n
 > * Gekoppelde services maken voor SQL Server en Azure Storage. 
 > * Gegevenssets maken voor SQL Server en Azure Blob.
 > * Een pijplijn maakt met een kopieeractiviteit om de gegevens te verplaatsen.
-> * Start een pijplijnuitvoering.
+> * Een pijplijnuitvoering starten.
 > * De pijplijnuitvoering controleert.
 
 Zie [Ondersteunde gegevensopslagexemplaren](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensopslagexemplaren die worden ondersteund door Data Factory.

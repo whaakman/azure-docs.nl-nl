@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -186,11 +186,20 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQLDW van Storage-
 Controlelogboeken auditingfunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Verbinding tussen Azure SQLDB en het opslagaccount worden verbroken als dit opslagaccount gebruikmaakt van de functie VENTILATOR Service-eindpunten.
 
 
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNET-firewallregel toevoegen aan een server zonder in te schakelen op VNET Service-eindpunten
+
+Lang geleden voordat dit onderdeel is verbeterd, u vereiste zou u VNet service-eindpunten op voordat u een live VNet regel in de Firewall kan implementeren. De eindpunten gerelateerd een bepaald VNet subnet met een Azure SQL-Database. Maar nu vanaf januari 2018, u kunt omzeilen deze vereiste door in te stellen de **IgnoreMissingServiceEndpoint** vlag.
+
+Alleen instelling een firewallregel niet helpt de server beveiligen. U moet de service-eindpunten VNet ook inschakelen voor de beveiligingsupdate van kracht te laten. Wanneer u de service-eindpunten inschakelt, wordt in uw VNet-subnet uitvaltijd ervaringen totdat de overgang van uitgeschakeld naar is voltooid op. Dit geldt met name in de context van grote VNets. U kunt de **IgnoreMissingServiceEndpoint** vlag wilt verlagen of elimineren van de uitvaltijd tijdens de overgang.
+
+U kunt instellen de **IgnoreMissingServiceEndpoint** vlag met behulp van PowerShell. Zie voor meer informatie [PowerShell voor het maken van een virtueel netwerk service-eindpunt en een regel voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+
+
 ## <a name="errors-40914-and-40615"></a>Fouten 40914 en 40615
 
 Er is een verbindingsfout 40914 gekoppeld aan *virtueel netwerk regels*, zoals opgegeven in het deelvenster Firewall in de Azure-portal. Fout 40615 lijkt, maar deze zich tot verhoudt *IP-adresregels* op de Firewall.
 
-#### <a name="error-40914"></a>Fout 40914
+#### <a name="error-40914"></a>Error 40914
 
 *Berichttekst:* server kan niet worden geopend '*[servernaam]*is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.
 

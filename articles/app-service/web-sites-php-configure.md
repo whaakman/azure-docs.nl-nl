@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0467707a46709674d3f5de3346ad242af5c9dcb8
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>PHP configureren in Azure App Service WebApps
 ## <a name="introduction"></a>Inleiding
@@ -27,11 +27,11 @@ Deze handleiding wordt beschreven hoe u voor het configureren van de ingebouwde 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Procedure: ingebouwde PHP-versie wijzigen
-Standaard is PHP 5.5 geïnstalleerd en onmiddellijk beschikbaar voor gebruik bij het maken van een App Service-web-app. De beste manier om de beschikbare versie revisie, de standaardconfiguratie en de ingeschakelde extensies is voor het implementeren van een script dat roept de [phpinfo()] functie.
+PHP 5.6 is standaard geïnstalleerd en wordt onmiddellijk beschikbaar voor gebruik bij het maken van een App Service-web-app. De beste manier om de beschikbare versie revisie, de standaardconfiguratie en de ingeschakelde extensies is voor het implementeren van een script dat roept de [phpinfo()] functie.
 
 De versies van PHP 5.6 en PHP 7.0 zijn ook beschikbaar, maar niet standaard ingeschakeld. Voer een van deze methoden voor het bijwerken van de PHP-versie:
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portal
 1. Blader naar uw web-app in de [Azure Portal](https://portal.azure.com) en klik op de **instellingen** knop.
    
     ![Instellingen voor Web-App][settings-button]
@@ -182,7 +182,7 @@ Standaard geen App Service reactie met composer.json, als u in uw PHP-project he
 Zie voor meer informatie de [PHP-ontwikkelaarscentrum](/develop/php/).
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 

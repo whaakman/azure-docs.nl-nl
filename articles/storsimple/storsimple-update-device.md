@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Uw StorSimple 8000-serie-apparaat bijwerken
 > [!NOTE]
-> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+> De klassieke portal voor StorSimple is afgeschaft. De StorSimple-apparaatbeheerfuncties worden automatisch volgens schema verplaatst naar de nieuwe Azure Portal. U ontvangt hierover een e-mailbericht en een portalmelding. Dit document wordt binnenkort ook ingetrokken. Zie [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (Veelgestelde vragen: verplaatsing naar Azure Portal) voor vragen met betrekking tot de verplaatsing.
 
 ## <a name="overview"></a>Overzicht
 De StorSimple-updates-functies kunt u eenvoudig uw StorSimple-apparaat om up-to-date te houden. Afhankelijk van het updatetype kunt u updates toepassen op het apparaat via de klassieke Azure portal of via de Windows PowerShell-interface. Deze zelfstudie wordt de update-typen en het installeren van elk van deze beschreven.
@@ -116,7 +116,7 @@ De volgende procedures wordt uitgelegd hoe u Windows PowerShell voor StorSimple 
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Wat gebeurt er met updates als u de fabrieksinstellingen van het apparaat uitvoeren?
-Als een apparaat is standaardinstellingen herstellen, zijn alle updates gaan verloren. Nadat het apparaat de fabrieksinstellingen is geregistreerd en geconfigureerd, moet u handmatig installeren van updates via de klassieke Azure-portal en/of de Windows PowerShell voor StorSimple. Zie voor meer informatie over de fabrieksinstellingen [opnieuw instellen van het apparaat fabrieksinstellingen](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Als een apparaat is standaardinstellingen herstellen, zijn alle updates gaan verloren. Nadat het apparaat de fabrieksinstellingen is geregistreerd en geconfigureerd, moet u handmatig installeren van updates via de klassieke Azure-portal en/of de Windows PowerShell voor StorSimple. Zie voor meer informatie over de fabrieksinstellingen [opnieuw instellen van het apparaat fabrieksinstellingen](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [Windows PowerShell voor StorSimple gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-windows-powershell-administration.md).

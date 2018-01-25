@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)
 In dit artikel laat zien hoe de HTTP-gegevens Collector API gebruiken om gegevens te verzenden met logboekanalyse van een REST-API-client.  Dit wordt beschreven hoe gegevens die door het script of een toepassing verzameld opmaken, opnemen in een aanvraag en die aanvraag geautoriseerd door logboekanalyse hebben.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -42,9 +42,9 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 ### <a name="request-uri"></a>Aanvraag-URI
 | Kenmerk | Eigenschap |
 |:--- |:--- |
-| Methode |VERZENDEN |
+| Methode |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Type inhoud |application/json |
+| Inhoudstype |application/json |
 
 ### <a name="request-uri-parameters"></a>De parameters van de aanvraag-URI
 | Parameter | Beschrijving |
@@ -57,9 +57,9 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 | Koptekst | Beschrijving |
 |:--- |:--- |
 | Autorisatie |De autorisatie-handtekening. U kunt later in dit artikel lezen over het maken van een HMAC SHA256-header. |
-| Logboek-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens. |
-| x-ms-datum |De datum waarop de aanvraag is verwerkt in RFC 1123-indeling. |
-| Time-gegenereerd-veld |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
+| Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens. |
+| x-ms-date |De datum waarop de aanvraag is verwerkt in RFC 1123-indeling. |
+| time-generated-field |De naam van een veld in de gegevens die de tijdstempel van het gegevensitem bevat. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt ingenomen. De inhoud van het berichtenveld moeten volgen de ISO 8601-notatie jjjj-MM-ssZ. |
 
 ## <a name="authorization"></a>Autorisatie
 Elk verzoek aan de API van Log Analytics HTTP Data Collector moet een autorisatie-header bevatten. Voor een aanvraag voor verificatie, moet u de aanvraag met de primaire of de secundaire sleutel voor de werkruimte die de aanvraag wordt ingediend ondertekenen. Vervolgens moet die handtekening doorgegeven als onderdeel van de aanvraag.   
@@ -134,10 +134,10 @@ Voor het gegevenstype van de eigenschap voegt Log Analytics het achtervoegsel vo
 
 | Het gegevenstype eigenschap | Achtervoegsel |
 |:--- |:--- |
-| Tekenreeks |_K |
-| Booleaanse waarde |_b |
-| dubbele |_D |
-| Datum/tijd |_Nauw |
+| Tekenreeks |_s |
+| Boole-waarde |_b |
+| Double |_d |
+| Datum/tijd |_t |
 | GUID |_g |
 
 Het gegevenstype dat Log Analytics voor elke eigenschap gebruikt, is afhankelijk van of het recordtype dat voor de nieuwe record al bestaat.
@@ -176,20 +176,20 @@ Deze tabel bevat de volledige reeks statuscodes die de service mogelijk geretour
 | Code | Status | Foutcode | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
-| 400 |Onjuiste aanvraag |InactiveCustomer |De werkruimte is gesloten. |
-| 400 |Onjuiste aanvraag |InvalidApiVersion |De API-versie die u hebt opgegeven, is niet herkend door de service. |
-| 400 |Onjuiste aanvraag |InvalidCustomerId |De opgegeven werkruimte-ID is ongeldig. |
-| 400 |Onjuiste aanvraag |InvalidDataFormat |Ongeldige JSON is ingediend. De antwoordtekst mogelijk meer informatie over het oplossen van de fout. |
-| 400 |Onjuiste aanvraag |InvalidLogType |Het logboektype opgegeven opgenomen speciale tekens of cijfers. |
-| 400 |Onjuiste aanvraag |MissingApiVersion |De API-versie is niet opgegeven. |
-| 400 |Onjuiste aanvraag |MissingContentType |Het type inhoud is niet opgegeven. |
-| 400 |Onjuiste aanvraag |MissingLogType |Het type van de logboekbestanden vereiste waarde is niet opgegeven. |
-| 400 |Onjuiste aanvraag |UnsupportedContentType |Het type inhoud is niet ingesteld op **application/json**. |
-| 403 |Is niet toegestaan |InvalidAuthorization |De service kan niet verifiëren van de aanvraag. Controleer of de sleutel voor de werkruimte-ID en de verbinding zijn geldig. |
+| 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |
+| 400 |Ongeldig verzoek |InvalidApiVersion |De API-versie die u hebt opgegeven, is niet herkend door de service. |
+| 400 |Ongeldig verzoek |InvalidCustomerId |De opgegeven werkruimte-ID is ongeldig. |
+| 400 |Ongeldig verzoek |InvalidDataFormat |Ongeldige JSON is ingediend. De antwoordtekst mogelijk meer informatie over het oplossen van de fout. |
+| 400 |Ongeldig verzoek |InvalidLogType |Het logboektype opgegeven opgenomen speciale tekens of cijfers. |
+| 400 |Ongeldig verzoek |MissingApiVersion |De API-versie is niet opgegeven. |
+| 400 |Ongeldig verzoek |MissingContentType |Het type inhoud is niet opgegeven. |
+| 400 |Ongeldig verzoek |MissingLogType |Het type van de logboekbestanden vereiste waarde is niet opgegeven. |
+| 400 |Ongeldig verzoek |UnsupportedContentType |Het type inhoud is niet ingesteld op **application/json**. |
+| 403 |Verboden |InvalidAuthorization |De service kan niet verifiëren van de aanvraag. Controleer of de sleutel voor de werkruimte-ID en de verbinding zijn geldig. |
 | 404 |Niet gevonden | | Op de opgegeven URL is onjuist of de aanvraag is te groot. |
 | 429 |Te veel aanvragen | | De service ondervindt een grote hoeveelheid gegevens uit uw account. Probeer de aanvraag later opnieuw. |
 | 500 |Interne serverfout |UnspecifiedError |De service heeft een interne fout aangetroffen. Probeer de aanvraag. |
-| 503 |Service is niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
+| 503 |De service is niet beschikbaar |ServiceUnavailable |De service is momenteel niet beschikbaar is om aanvragen te ontvangen. Probeer uw aanvraag. |
 
 ## <a name="query-data"></a>Querygegevens
 Query uitvoeren op gegevens verzonden door de Log Analytics HTTP Collector API van Data, zoekt u records met **Type** die gelijk is aan de **LogType** waarde die u hebt opgegeven, worden toegevoegd aan de **_CL**. Als u gebruikt bijvoorbeeld **MyCustomLog**, zou u alle records met geretourneerd **Type = MyCustomLog_CL**.
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>C#-voorbeeld

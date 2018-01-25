@@ -39,7 +39,7 @@ Ja. Voor het Resource Manager-implementatiemodel moet u een RouteBased VPN-type 
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Kan ik een punt-naar-site-client configureren om verbinding te maken met meerdere virtuele netwerken tegelijk?
 
-Nr. Een point-to-site-client kan alleen verbinding maken met resources in het VNet waarin de virtuele netwerkgateway zich bevindt.
+Nee. Een point-to-site-client kan alleen verbinding maken met resources in het VNet waarin de virtuele netwerkgateway zich bevindt.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Hoeveel doorvoer kan ik verwachten via site-naar-site- of punt-naar-site-verbindingen?
 
@@ -47,13 +47,27 @@ Het is moeilijk om de exacte doorvoer van de VPN-tunnels te onderhouden. IPSec e
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kan ik voor point-to-site elke VPN-softwareclient gebruiken die SSTP en/of IKEv2 ondersteunt?
 
-Nr. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
+Nee. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Biedt Azure ondersteuning voor IKEv2-VPN met Windows?
 
-Gebruikers kunnen verbinding maken met Azure met behulp van de ingebouwde Windows VPN-client, die ondersteuning biedt voor IKEv2. Maar IKEv2-verbindingen vanaf een Windows-apparaat werken niet in het volgende scenario:
+IKEv2 wordt ondersteund op Windows 10 en Server 2016. U moet het gebruik van IKEv2 is echter updates installeren en een registersleutelwaarde lokaal instellen. OS-versies voorafgaand aan Windows 10 worden niet ondersteund en SSTP kunnen alleen worden gebruikt.
 
-  Als het apparaat van de gebruiker een groot aantal vertrouwde basiscertificaten bevat, is de nettolading van het bericht tijdens IKE-uitwisseling groot en kan IP-laagfragmentatie optreden. De fragmenten worden aan de Azure-kant afgewezen, met negatieve gevolgen voor de verbinding. Het exacte aantal certificaten waarbij dit probleem optreedt, is moeilijk te schatten. Als gevolg hiervan zijn IKEv2-verbindingen vanaf Windows-apparaten niet gegarandeerd. Wanneer u zowel SSTP als IKEv2 configureert in een gemengde omgeving (bestaande uit Windows- en Mac-apparaten), probeert het Windows VPN-profiel altijd eerst de IKEv2-tunnel. Als dit mislukt als gevolg van het probleem dat hier wordt beschreven, wordt gebruikgemaakt van SSTP.
+Windows 10 of Server 2016 voor IKEv2 voorbereiden:
+
+1. De update installeren.
+
+  | Besturingssysteemversie | Datum | Aantal/koppeling |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 versie 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Versie van Windows 10 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. De registersleutelwaarde ingesteld. Maak of 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload' REG_DWORD-sleutel in het register in op 1 ingesteld.
+
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>Wat gebeurt er wanneer ik SSTP en IKEv2 voor P2S-VPN-verbindingen configureren?
+
+Wanneer u zowel SSTP en IKEv2 configureert in een gemengde omgeving (bestaande uit Windows en Mac-apparaten), wordt de Windows VPN-client IKEv2-tunnel altijd eerst geprobeerd, maar wordt terugvallen op SSTP als de IKEv2-verbinding niet geslaagd is. MacOSX maken alleen verbinding via IKEv2.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Welke platformen, naast Windows en Mac, worden door Azure ondersteund voor P25-VPN?
 

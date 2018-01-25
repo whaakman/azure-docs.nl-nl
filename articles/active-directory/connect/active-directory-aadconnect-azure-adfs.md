@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
@@ -285,7 +285,10 @@ Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltref
 
 ![EXT-toegangsregels (inkomend)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[opmerking]: <> (![EXT-toegangsregels (inkomend)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [opmerking]: <> (![EXT-toegangsregels (uitgaand)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > Als verificatie met certificaat van clientgebruiker (clientTLS-verificatie met X509-gebruikerscertificaten) is vereist, vereist AD FS vervolgens dat TCP-poort 49443 voor inkomende toegang wordt ingeschakeld.
@@ -341,7 +344,7 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 | AdminUserName |De naam van de lokale beheerder van de virtuele machines |
 | AdminPassword |Het wachtwoord van de lokale beheerdersaccount van de virtuele machines |
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Beschikbaarheidssets](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
 * [Interne load balancer](https://aka.ms/Azure/ILB/Internal)

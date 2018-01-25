@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren met Azure Stream Analytics-taken 
- 
-> [!IMPORTANT]
-> Deze functionaliteit is in preview.
 
 U kunt Azure Functions uitvoeren met Azure Stream Analytics door functies te configureren als een van de PUT uitvoer naar de Stream Analytics-taak. Functies is een gebeurtenisafhankelijke, compute-on-demand-ervaring waarmee u de code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren. Deze mogelijkheid van functies om te reageren op triggers wordt het een natuurlijke uitvoer voor Stream Analytics-taken.
 
