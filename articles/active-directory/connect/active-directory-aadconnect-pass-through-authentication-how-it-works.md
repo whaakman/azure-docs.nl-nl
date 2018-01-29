@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/24/2018
 ms.author: billmath
-ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory Pass-through-verificatie: Technische diepgaand
 In dit artikel is een overzicht van hoe u Azure Active directory (Azure AD) Pass through-verificatie werkt. Zie voor technische diep en informatie over beveiliging, de [beveiliging diepgaand](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artikel.
@@ -31,7 +31,7 @@ Wanneer een gebruiker probeert aan te melden bij een toepassing die wordt beveil
 2. Als de gebruiker nog niet is aangemeld, de gebruiker wordt omgeleid naar de Azure AD **gebruikersaanmelding** pagina.
 3. De gebruiker voert hun gebruikersnaam en wachtwoord in de Azure AD-aanmeldingspagina, en vervolgens de **aanmelden** knop.
 4. Azure AD, op de ontvangst van de aanvraag aan te melden, wordt de gebruikersnaam en het wachtwoord (versleuteld met behulp van een openbare sleutel) in een wachtrij geplaatst.
-5. Een lokale verificatie-Agent wordt de gebruikersnaam en het versleutelde wachtwoord opgehaald uit de wachtrij. Houd er rekening mee dat de Agent niet vaak poll-frequentie voor aanvragen van de wachtrij, maar aanvragen via de verbinding van een vooraf vastgestelde persistant opgehaald.
+5. Een lokale verificatie-Agent wordt de gebruikersnaam en het versleutelde wachtwoord opgehaald uit de wachtrij. Houd er rekening mee dat de Agent niet vaak poll-frequentie voor aanvragen van de wachtrij, maar aanvragen gedurende een vooraf vastgestelde permanente verbinding haalt.
 6. De agent ontsleutelt het wachtwoord met behulp van de persoonlijke sleutel.
 7. De agent valideert de gebruikersnaam en wachtwoord op basis van Active Directory met behulp van standaard Windows-API's, die een vergelijkbaar mechanisme voor welke Active Directory Federation Services (AD FS) gebruikt. De gebruikersnaam mag ofwel de lokale standaardgebruikersnaam, meestal `userPrincipalName`, of een ander kenmerk in Azure AD Connect geconfigureerd (ook wel `Alternate ID`).
 8. De lokale Active Directory-domeincontroller (DC) evalueert van de aanvraag en retourneert de juiste reactie (geslaagd, mislukt, wachtwoord verlopen of gebruiker vergrendeld) met de agent.

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Jive | Microsoft Docs'
+title: 'Zelfstudie: Jive configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Jive.
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 930b64d8c119f468a18ab5736983365aaf5f03c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 67bbf48c0ce67b0fef5cc2b1c61e3612e0201534
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-jive-for-user-provisioning"></a>Zelfstudie: Jive configureren voor gebruikers inrichten
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Zelfstudie: Jive configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is zodat u de stappen die u wilt uitvoeren in Jive en Azure AD aan automatisch leveren en intrekken gebruikersaccounts vanuit Azure AD te Jive.
 
@@ -65,7 +65,7 @@ Als onderdeel van deze procedure moet zijn u vereist voor het beveiligingstoken 
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
 5. Onder de **beheerdersreferenties** sectie, bieden de volgende configuratie-instellingen:
    
@@ -97,7 +97,7 @@ De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan
 
 U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd voor Jive.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

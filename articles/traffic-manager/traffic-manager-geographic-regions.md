@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Land/regio hiërarchie door Azure Traffic Manager gebruikt voor geografische verkeersrouteringsmethode
 
@@ -58,21 +58,13 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - ES(Spain)
 
-        - Fi(Finland)
+        - FI(Finland)
 
         - VOOR (Faeroër)
 
         - FR(France)
 
         - GB (Verenigd Koninkrijk)
-
-            - GB-eng(England)
-
-            - GB NIR(Northern Ireland)
-
-            - GB-sct(Scotland)
-
-            - GB-WLS(Wales)
 
         - GG(Guernsey)
 
@@ -92,7 +84,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - IT(Italy)
 
-        - Je(Jersey)
+        - JE(Jersey)
 
         - Li(Liechtenstein)
 
@@ -134,7 +126,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - SK(Slovakia)
 
-        - SM (San Marino)
+        - SM(San Marino)
 
         - UA(Ukraine)
 
@@ -168,9 +160,9 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - QA(Qatar)
 
-        - Sy(Syria)
+        - SY(Syria)
 
-        - SA (Saudi-Arabië)
+        - SA(Saudi Arabia)
 
         - TR(Turkey)
 
@@ -212,7 +204,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - CA-NT(Northwest Territories)
 
-            - CA-nu(Nunavut)
+            - CA-NU(Nunavut)
 
             - CA-on(Ontario)
 
@@ -224,11 +216,11 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - CA-YT(Yukon Territory)
 
-        - CR (Costa Rica)
+        - CR(Costa Rica)
 
-        - Cu(Cuba)
+        - CU(Cuba)
 
-        - Cw(CuraÃ§ao)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -252,9 +244,9 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - Tenantsleutel (Caymaneilanden)
 
-        - Kredietbrief (Saint Lucia)
+        - LC(Saint Lucia)
 
-        - MF (Saint to)
+        - MF(Saint Martin)
 
         - MQ(Martinique)
 
@@ -262,9 +254,9 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - MX(Mexico)
 
-        - Ni(Nicaragua)
+        - NI(Nicaragua)
 
-        - Pa(Panama)
+        - PA(Panama)
 
         - CB (Saint Pierre en Miquelon)
 
@@ -282,9 +274,9 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - US(United States)
 
-            - US-Ak(Alaska)
+            - US-AK(Alaska)
 
-            - US-al(Alabama)
+            - US-AL(Alabama)
 
             - US-ar(Arkansas)
 
@@ -304,23 +296,23 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-Ga(Georgia)
 
-            - US-Hi(Hawaii)
+            - US-HI(Hawaii)
 
             - US-IA(Iowa)
 
-            - US-id(Idaho)
+            - US-ID(Idaho)
 
             - US-IL(Illinois)
 
-            - US-in(Indiana)
+            - US-IN(Indiana)
 
             - US-KS(Kansas)
 
             - US-KY(Kentucky)
 
-            - US-la(Louisiana)
+            - US-LA(Louisiana)
 
-            - US-ma(Massachusetts)
+            - US-MA(Massachusetts)
 
             - US-MD(Maryland)
 
@@ -330,19 +322,19 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-Mn(Minnesota)
 
-            - US-mo(Missouri)
+            - US-MO(Missouri)
 
             - US-MS(Mississippi)
 
             - US-MT(Montana)
 
-            - VS-NC(North Carolina)
+            - US-NC(North Carolina)
 
             - VS-ND(North Dakota)
 
-            - US-ne(Nebraska)
+            - US-NE(Nebraska)
 
-            - VS-NH(New Hampshire)
+            - US-NH(New Hampshire)
 
             - VS-NJ(New Jersey)
 
@@ -360,13 +352,13 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-Pa(Pennsylvania)
 
-            - VS-RI(Rhode Island)
+            - US-RI(Rhode Island)
 
             - VS-SC(South Carolina)
 
             - VS-SD(South Dakota)
 
-            - US-tn(Tennessee)
+            - US-TN(Tennessee)
 
             - US-TX(Texas)
 
@@ -378,7 +370,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - US-WA(Washington)
 
-            - US-Wi(Wisconsin)
+            - US-WI(Wisconsin)
 
             - VS-WV(West Virginia)
 
@@ -394,7 +386,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - XS(Saba)
 
-    - GEO-as(Asia)
+    - GEO-AS(Asia)
 
         - AF(Afghanistan)
 
@@ -412,7 +404,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - CN(China)
 
-        - CX (Kerstmis eiland)
+        - CX(Christmas Island)
 
         - GE(Georgia)
 
@@ -438,13 +430,13 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - La(Laos)
 
-        - LK (Sri Lanka)
+        - LK(Sri Lanka)
 
         - MM(Myanmar)
 
         - Mn(Mongolia)
 
-        - MA (MACAU)
+        - MO(Macao SAR)
 
         - MV(Maldives)
 
@@ -472,21 +464,21 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - VN(Vietnam)
 
-    - GEO-af(Africa)
+    - GEO-AF(Africa)
 
         - AO(Angola)
 
-        - BF (Burkina Faso)
+        - BF(Burkina Faso)
 
         - BI(Burundi)
 
         - BJ(Benin)
 
-        - BV (Bouveteiland)
+        - BV(Bouvet Island)
 
         - BW(Botswana)
 
-        - CD (Congo-Kinshasa)
+        - CD(Congo (DRC))
 
         - CF (Republiek Centraal Afrika)
 
@@ -500,7 +492,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - DJ(Djibouti)
 
-        - Dz(Algeria)
+        - DZ(Algeria)
 
         - EG(Egypt)
 
@@ -508,7 +500,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - ET(Ethiopia)
 
-        - Ga(Gabon)
+        - GA(Gabon)
 
         - GH(Ghana)
 
@@ -516,7 +508,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - GN(Guinea)
 
-        - GQ (Equatoriaal-Guinea)
+        - GQ(Equatorial Guinea)
 
         - GW(Guinea_Bissau)
 
@@ -560,7 +552,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - SH (Sint-Helena, Ascension en Tristan da Cunha)
 
-        - SL (Sierraleoonse)
+        - SL(Sierra Leone)
 
         - SN(Senegal)
 
@@ -590,9 +582,9 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - ZM(Zambia)
 
-        - Zw(Zimbabwe)
+        - ZW(Zimbabwe)
 
-    - GEO-an(Antarctica)
+    - GEO-AN(Antarctica)
 
         - AQ(Antarctica)
 
@@ -638,13 +630,13 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
             - Australië-NSW(New South Wales)
 
-            - Australië-NT(Northern Territory)
+            - AU-NT(Northern Territory)
 
             - AU-QLD(Queensland)
 
             - Australië-SA(South Australia)
 
-            - AU-tas(Tasmania)
+            - AU-TAS(Tasmania)
 
             - AU-VIC(Victoria)
 
@@ -656,11 +648,11 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - FM(Micronesia)
 
-        - Gu(Guam)
+        - GU(Guam)
 
         - HM (Heard- en McDonald-eilanden)
 
-        - Ki(Kiribati)
+        - KI(Kiribati)
 
         - DV (marshallen eilanden)
 
@@ -668,7 +660,7 @@ In dit artikel worden de landen en regio's die worden gebruikt door de **geograf
 
         - NC (Nieuw-Caledonië)
 
-        - NF (Norfolkeiland)
+        - NF(Norfolk Island)
 
         - NR(Nauru)
 

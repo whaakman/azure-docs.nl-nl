@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -40,7 +40,7 @@ De volgende Linux-distributies ondersteunen MSI:
 
 - Virtuele CoreOS stabiel
 - CentOS 7.1
-- 7.2 RedHat
+- RedHat 7.2
 - Ubuntu 15.04
 
 Andere Linux-distributies worden momenteel niet ondersteund en extensie mislukken op niet-ondersteunde distributies.
@@ -57,6 +57,20 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Waar: 
 - Naam en type voor Windows is: ManagedIdentityExtensionForWindows
 - Extensienaam en het type voor Linux: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Zijn er RBAC-rollen voor toegewezen gebruikersidentiteiten?
+Ja:
+1. MSI-Inzender: 
+- Kan: CRUD toegewezen gebruikersidentiteiten. 
+- Kan geen: Een gebruiker die de identiteit toegewezen aan een resource niet toewijzen. (dat wil zeggen de identiteit van de toewijzen aan een virtuele machine)
+2. MSI-Operator: 
+- CAN: De identiteit van een gebruiker toegewezen toewijzen aan een resource. (dat wil zeggen de identiteit van de toewijzen aan een virtuele machine)
+- Kan geen: CRUD toegewezen gebruikersidentiteiten.
+
+Opmerking: De rol Inzender ingebouwde, kan alle de bovenstaande acties uitvoeren: 
+- CRUD toegewezen gebruikersidentiteiten
+- Een gebruiker identiteit toegewezen aan een resource toewijzen. (dat wil zeggen de identiteit van de toewijzen aan een virtuele machine)
+
 
 ## <a name="known-issues"></a>Bekende problemen
 

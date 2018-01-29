@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Concepten
   items:
+    - name: Datacenter-integratie
+      items:
+        - name: Aandachtspunten voor algemene Azure Stack-integratie
+          href: azure-stack-datacenter-integration.md
+        - name: Azure Stack verbinding implementatiemodellen
+          href: azure-stack-connection-models.md
+        - name: Overwegingen voor de gekoppelde implementatie
+          href: azure-stack-connected-deployment.md
+        - name: Overwegingen voor de niet-verbonden implementatie
+          href: azure-stack-disconnected-deployment.md
+        - name: Datacenter-netwerkintegratie
+          items:
+            - name: Netwerkintegratie
+              href: azure-stack-network.md
+            - name: Border-connectiviteit
+              href: azure-stack-border-connectivity.md
+            - name: DNS-integratie
+              href: azure-stack-integrate-dns.md
+            - name: Firewall-integratie
+              href: azure-stack-firewall.md
+              items:
+                - name: Eindpunten publiceren
+                  href: azure-stack-integrate-endpoints.md
+        - name: Azure Stack PKI implementatievereisten
+          href: azure-stack-pki-certs.md
+          items:
+            - name: PKI-certificaten voor de implementatie van Azure-Stack ophalen
+              href: azure-stack-get-pki-certs.md
+        - name: Identiteitintegratie
+          href: azure-stack-integrate-identity.md
+        - name: Azure Stack registreren
+          href: azure-stack-registration.md
+        - name: Externe controle
+          href: azure-stack-integrate-monitor.md
+        - name: Beveiligingsintegratie
+          href: azure-stack-integrate-security.md
     - name: Servicebeleid
       href: azure-stack-servicing-policy.md
     - name: Belangrijke functies en concepten
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Een test-VM maken
           href: azure-stack-provision-vm.md
-    - name: Azure-Stack geïntegreerd systemen implementeren
-      items:
-        - name: Overwegingen bij de planning van de implementatie
-          href: azure-stack-deployment-planning.md
-        - name: Beslissingen voor de distributie planning
-          href: azure-stack-deployment-decisions.md
-        - name: Implementeren met Azure bent verbonden
-          href: azure-stack-connected-deployment.md
-        - name: Implementatie van Azure is verbroken
-          href: azure-stack-disconnected-deployment.md
-        - name: Azure Stack PKI implementatievereisten
-          href: azure-stack-pki-certs.md
-          items:
-            - name: PKI-certificaten voor de implementatie van Azure-Stack ophalen
-              href: azure-stack-get-pki-certs.md
-        - name: Azure Stack registreren
-          href: azure-stack-registration.md
-    - name: Datacenter-integratie
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Identiteit
-          href: azure-stack-integrate-identity.md
-        - name: Eindpunten publiceren
-          href: azure-stack-integrate-endpoints.md
-        - name: Externe controle
-          href: azure-stack-integrate-monitor.md
-        - name: Beveiliging
-          href: azure-stack-integrate-security.md
     - name: Beheren
       items:
         - name: Regiobeheer

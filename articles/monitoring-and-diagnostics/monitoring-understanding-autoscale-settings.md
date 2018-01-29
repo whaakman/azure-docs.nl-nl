@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Instellingen voor automatisch schalen begrijpen
 Instellingen voor automatisch schalen kunnen u om te controleren of dat u hebt de juiste hoeveelheid resources voor het afhandelen van de fluctuerende belasting van uw toepassing wordt uitgevoerd. U kunt de instellingen voor automatisch schalen die worden geactiveerd configureren op basis van de metrische gegevens die aan load of dat de prestaties of trigger op een geplande datum en tijd. In dit artikel wordt een gedetailleerd overzicht van de anatomie van een instelling voor automatisch schalen. Het artikel begint met het schema en de eigenschappen van een instelling begrijpen en vervolgens doorloopt de verschillende profieltypen die kunnen worden geconfigureerd en tot slot wordt beschreven hoe welk profiel moet worden uitgevoerd op elk moment worden geëvalueerd door automatisch schalen.
@@ -100,21 +100,21 @@ Ter illustratie van het schema van de instelling voor automatisch schalen, is de
 | Instelling | Id | Van de instelling voor automatisch schalen bron-ID. Instellingen voor automatisch schalen zijn een Azure Resource Manager-resource. |
 | Instelling | naam | De naam van de instelling voor automatisch schalen. |
 | Instelling | location | De locatie van de instelling voor automatisch schalen. Deze locatie kan afwijken van de locatie van de bron wordt geschaald. |
-| properties | targetresourceuri op | De resource-ID van de bron wordt geschaald. U kunt slechts één instelling voor automatisch schalen per resource hebben. |
+| properties | targetResourceUri | De resource-ID van de bron wordt geschaald. U kunt slechts één instelling voor automatisch schalen per resource hebben. |
 | properties | Profielen | Een instelling voor automatisch schalen bestaat uit een of meer profielen. Telkens wanneer de engine voor het automatisch schalen die wordt uitgevoerd, wordt uitgevoerd een profiel. |
 | profiel | naam | De naam van het profiel, kunt u de naam waarmee u het profiel te identificeren. |
 | profiel | Capacity.maximum | De maximale capaciteit toegestaan. Hiermee zorgt u ervoor dat automatisch schalen, bij het uitvoeren van dit profiel niet kan worden uitgebreid uw resource boven dit nummer. |
 | profiel | Capacity.minimum | De minimale capaciteit toegestaan. Hiermee zorgt u ervoor dat automatisch schalen, bij het uitvoeren van dit profiel niet kan worden uitgebreid uw resource onder dit nummer. |
-| profiel | Capacity.Default | Als er een probleem bij het lezen van de metriek resource (in dit geval de cpu van 'vmss1') en de huidige capaciteit lager dan de standaardcapaciteit vervolgens is om te controleren of de beschikbaarheid van de resource, automatisch schalen kan worden geschaald-out op de standaardwaarde. Als de huidige capaciteit al hoger dan de standaardcapaciteit is, automatisch schalen wordt niet schaal aan. |
+| profiel | Capacity.default | Als er een probleem bij het lezen van de metriek resource (in dit geval de cpu van 'vmss1') en de huidige capaciteit lager dan de standaardcapaciteit vervolgens is om te controleren of de beschikbaarheid van de resource, automatisch schalen kan worden geschaald-out op de standaardwaarde. Als de huidige capaciteit al hoger dan de standaardcapaciteit is, automatisch schalen wordt niet schaal aan. |
 | profiel | regels | Automatisch schalen schaalt automatisch tussen de maximale en minimale capaciteit van de regels in het profiel. U kunt meerdere regels in een profiel hebben. Het basisscenario is om twee regels: een om te bepalen wanneer scale-out en de andere om te bepalen wanneer scale in. |
-| Regel | metricTrigger | De metrische voorwaarde van de regel wordt gedefinieerd. |
+| regel | metricTrigger | De metrische voorwaarde van de regel wordt gedefinieerd. |
 | metricTrigger | metricName | De naam van de metrische gegevens. |
 | metricTrigger |  metricResourceUri | De resource-ID van de resource die de metrische gegevens verzendt. In de meeste gevallen is dit hetzelfde is als de bron wordt geschaald. In sommige gevallen kan kan het verschillen, bijvoorbeeld een virtuele-machineschaalset op basis van het aantal berichten in een opslagwachtrij kan worden geschaald. |
 | metricTrigger | TimeGrain | De duur van de metrische steekproeven. Bijvoorbeeld: TimeGrain = 'PT1M' betekent dat de metrische gegevens moet worden geaggregeerd elke 1 minuut met behulp van de aggregatiemethode die is opgegeven in "statistiek." |
 | metricTrigger | statistiek | De aggregatiemethode binnen de periode timeGrain. Bijvoorbeeld, statistiek = 'Gemiddeld' en timeGrain = 'PT1M' betekent dat de metrische gegevens moet elke 1 minuut kunnen samenvoegen met het gemiddelde te nemen. Deze eigenschap bepaalt hoe de metriek is actieve. |
 | metricTrigger | Waarde voor TimeWindow | De hoeveelheid tijd zoekt metrische gegevens. Bijvoorbeeld: de waarde voor timeWindow = 'PT10M' betekent dat elke keer automatisch schalen die wordt uitgevoerd, wordt opgevraagd metrische gegevens voor de afgelopen 10 minuten. Het tijdvenster kunt metrische gegevens over uw genormaliseerd en reageren op tijdelijke pieken voorkomt. |
-| metricTrigger | TimeAggregation van | De aggregatiemethode die wordt gebruikt voor het cumuleren van de steekproef metrische gegevens. Bijvoorbeeld, TimeAggregation van = 'Gemiddeld' moet aggregeren de steekproef metrische gegevens door het gemiddelde te nemen. In het voorbeeld hierboven tien voorbeelden 1 minuut duren en gemiddelde ze. |
-| Regel | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
+| metricTrigger | timeAggregation | De aggregatiemethode die wordt gebruikt voor het cumuleren van de steekproef metrische gegevens. Bijvoorbeeld, TimeAggregation van = 'Gemiddeld' moet aggregeren de steekproef metrische gegevens door het gemiddelde te nemen. In het voorbeeld hierboven tien voorbeelden 1 minuut duren en gemiddelde ze. |
+| regel | scaleAction | De actie die moet worden uitgevoerd wanneer de metricTrigger van de regel wordt geactiveerd. |
 | scaleAction | richting | 'Worden verhoogd' scale-out, 'Minder' schaal in|
 | scaleAction | waarde | Hoeveel vergroten of verkleinen van de capaciteit van de resource |
 | scaleAction | cooldown | De hoeveelheid tijd moet worden gewacht na een schaalaanpassing voordat schalen opnieuw. Bijvoorbeeld, als cooldown = 'PT10M' dan nadat een schaalaanpassing optreedt, automatisch schalen niet proberen te schalen opnieuw voor een andere 10 minuten. De cooldown is dat de metrische gegevens stabiel na het toevoegen of verwijderen van exemplaren. |
@@ -125,7 +125,7 @@ Er zijn drie soorten profielen voor automatisch schalen:
 
 1. **Reguliere profiel:** meest voorkomende profiel. Als u niet hoeft te schalen van uw resource anders op basis van de dag van de week, of op een bepaalde dag, alleen moet u een reguliere-profiel in de instelling voor automatisch schalen instellen. Dit profiel kan vervolgens worden geconfigureerd met metrische regels die bepalen wanneer scale-out en wanneer scale in. U hebt slechts één reguliere profiel gedefinieerd.
 
-    Een voorbeeldprofiel voor het gebruikt eerder in dit artikel is een voorbeeld van een reguliere-profiel. Komen die niet aan het is ook mogelijk in te stellen van een profiel schalen naar een aantal statische exemplaar voor uw resource.
+    Een voorbeeldprofiel voor het gebruikt eerder in dit artikel is een voorbeeld van een reguliere-profiel. Let op dat het is ook mogelijk om in te stellen van een profiel voor het schalen van een aantal statische exemplaar voor uw resource.
 
 2. **Vaste datum profiel:** met de reguliere profiel is gedefinieerd, Stel dat u hebt een belangrijke gebeurtenis die afkomstig zijn van op 26 December 2017 (PST) en u wilt dat de minimum/maximum voor capaciteit van de resource op die dag afwijken, maar nog steeds op dezelfde metrische gegevens schalen . In dit geval moet u een profiel voor een vaste datum toevoegen aan lijst van de instelling profielen. Het profiel is geconfigureerd om te worden uitgevoerd op de dag van de gebeurtenis. Voor de dag, wordt de reguliere profiel uitgevoerd.
 

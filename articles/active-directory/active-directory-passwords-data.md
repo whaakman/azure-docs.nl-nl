@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wachtwoord opnieuw instellen zonder dat eindgebruikers registratie implementeren
 
@@ -31,6 +31,8 @@ Verificatiegegevens moet aanwezig zijn voor het implementeren van Azure Active D
 Werkt alleen goed als telefoonnummers moet de indeling *+ CountryCode PhoneNumber*, bijvoorbeeld: + 1 4255551234.
 
 > [!NOTE]
+> Er moet een spatie staan tussen de landcode en het telefoonnummer.
+>
 > Wachtwoordherstel biedt geen ondersteuning voor toestelnummers. Zelfs in de indeling van de 4255551234 + 1 X-12345 extensies verwijderd voordat de oproep wordt gedaan.
 
 ## <a name="fields-populated"></a>Velden ingevuld
@@ -40,7 +42,7 @@ Als u de standaardinstellingen in Azure AD Connect gebruikt, worden de volgende 
 | On-premises Active Directory | Azure AD | Azure AD authentication contactgegevens |
 | --- | --- | --- |
 | telephoneNumber | Telefoon (werk) | Alternatief telefoonnummer |
-| mobiele | Mobiele telefoon | Telefoon |
+| mobiele | Mobiel telefoonnummer | Telefoon |
 
 
 ## <a name="security-questions-and-answers"></a>Beveiligingsvragen en antwoorden

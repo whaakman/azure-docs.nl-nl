@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f84b870de4b79399d5edc90284c9c56222156b5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-deferral"></a>Uitgesteld bericht
 
@@ -35,9 +35,9 @@ De API is [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.bro
 
 Uitgestelde berichten blijven in de hoofdwachtrij samen met andere actieve berichten (in tegenstelling tot onbestelbare berichten die bevinden zich in een submap wachtrij), maar ze kunnen niet meer worden ontvangen met de reguliere ontvangen/ReceiveAsync-functies. Uitgestelde berichten kunnen worden gedetecteerd [bericht Bladeren](message-browsing.md) als een toepassing verliest voor het bijhouden van beide.
 
-Voor het ophalen van een uitgestelde bericht, de 'eigenaar' is verantwoordelijk voor het Onthoud de [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) omdat deze het past omleiding. Een ontvanger die kent de **SequenceNumber** van een uitgestelde bericht kan later ontvangen het bericht expliciet met Receive(sequenceNumber).
+Voor het ophalen van een uitgestelde bericht, de eigenaar is verantwoordelijk voor het herinneren van de [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) omdat deze het past omleiding. Een ontvanger die het volgnummer van een uitgestelde bericht kent kan later ontvangen het bericht expliciet met `Receive(sequenceNumber)`.
 
-Als u een bericht kan niet worden verwerkt omdat een bepaalde bron voor het verwerken van dat bericht tijdelijk niet beschikbaar is, maar berichtverwerking moet niet summarily worden onderbroken, een elegante manier te plaatsen dat bericht aan de kant voor een paar minuten is te onthouden van de **SequenceNumber** in een [geplande bericht](message-sequencing.md) worden geplaatst in een paar minuten en opnieuw ophalen van het uitgesteld bericht wanneer de geplande bericht binnenkomt. Als een berichtenhandler afhankelijk van een database voor alle bewerkingen is, en dat de database tijdelijk niet beschikbaar is, het mag geen uitgestelde gebruiken, maar in plaats van te onderbreken ontvangen van berichten helemaal totdat de database weer beschikbaar is.
+Als u een bericht kan niet worden verwerkt omdat een bepaalde bron voor het verwerken van dat bericht tijdelijk niet beschikbaar is, maar berichtverwerking moet niet summarily worden onderbroken, een manier om dat bericht aan de kant plaatsen voor een paar minuten te onthouden is de  **SequenceNumber** in een [geplande bericht](message-sequencing.md) worden geplaatst in een paar minuten en opnieuw ophalen van het uitgesteld bericht wanneer de geplande bericht binnenkomt. Als een berichtenhandler afhankelijk van een database voor alle bewerkingen is, en dat de database tijdelijk niet beschikbaar is, het mag geen uitgestelde gebruiken, maar in plaats van te onderbreken ontvangen van berichten helemaal totdat de database weer beschikbaar is.
 
 Berichten uitstellende heeft geen gevolgen voor de verloopdatum voor het bericht, wat betekent dat uitgestelde berichten nog steeds op de eerste geplande tijd verlopen en in de wachtrij met onbestelbare berichten worden verplaatst als zodanig worden geconfigureerd.
 

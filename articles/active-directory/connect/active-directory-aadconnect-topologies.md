@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 In dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die Azure AD Connect-synchronisatie als de sleutel integratieoplossing gebruiken. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -110,10 +110,11 @@ In dit scenario wordt forestvertrouwensrelaties een (of meer) resource alle acco
 Sommige Office 365-werkbelastingen hebben bepaalde beperkingen op ondersteunde topologieën:
 
 | Workload | Beperkingen |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Zie voor meer informatie over hybride topologieën ondersteund door Exchange Online, [hybride implementaties met meerdere Active Directory-forests](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype voor Bedrijven | Wanneer u meerdere on-premises-forests, worden alleen de account-resource forest-topologie wordt ondersteund. Zie voor meer informatie [omgevingsvereisten voor Skype voor bedrijven Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Als u een grotere organisatie zijn, dan kunt u overwegen gebruik van de [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) functie. Hiermee kunt u definiëren in welke regio datacenter resocues van de gebruiker zich bevinden.
 
 ## <a name="staging-server"></a>Tijdelijke server
 ![Tijdelijke server in een topologie](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

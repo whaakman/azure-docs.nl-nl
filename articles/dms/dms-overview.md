@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/13/2017
-ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2aae105b7454209131db79c60d74740ce97c21ce
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Wat is Azure Database migratie Service Preview?
 De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. De service is momenteel in de openbare Preview met ontwikkelingsinspanningen is gericht op:
@@ -34,6 +34,11 @@ De openbare Preview-versie van de Azure-Service voor het migreren van Database i
 - Brazilië - zuid
 - West-Europa
 - Noord-Europa
+- Zuidoost-Azië
+- West-India
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Geen exemplaar maken van de Service Azure Database migratie met behulp van de Azure-portal](quickstart-create-data-migration-service-portal.md).
+- [SQL-Server migreren naar Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
+- [Overzicht van vereisten voor het gebruik van de migratie van Azure databaseservice](pre-reqs.md).
+- [Veelgestelde vragen over het gebruik van de migratie van Azure databaseservice](faq.md).

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kolommen combineren door voorbeeld transformatie
 Deze transformatie kan de gebruiker een nieuwe kolom toevoegen door een combinatie van waarden uit meerdere kolommen. Gebruiker kan een waarde opgeven of vindt u voorbeelden van de combinatie van waarden voor het uitvoeren van deze transformatie. Wanneer de gebruiker ziet u voorbeelden van combinatie, de transformatie wordt verwerkt door dezelfde **door voorbeeld** engine die wordt gebruikt in de **kolom afgeleid door voorbeeld** transformeren.
@@ -38,6 +38,10 @@ Selecteren **voorbeelden** onder **kolommen combineren door** kan gebruiker word
 
 Gebruikers kan schakelen tussen de **standaardmodus** en de **geavanceerde modus** door te klikken op de koppelingen in de Editor transformeren.
 
+### <a name="transform-editor-send-feedback"></a>Editor transformeren: Feedback verzenden
+
+Te klikken op de **feedback verzenden** koppelen wordt geopend de **Feedback** dialoogvenster met het Opmerkingen vooraf ingevuld met de gebruiker voorbeelden is opgegeven. Gebruiker moet de inhoud van het opmerkingenvak bekijken en vindt u meer informatie zodat we kunnen het probleem te begrijpen. Als de gebruiker niet wil gegevens delen met Microsoft, gebruiker de vooraf ingevulde bijvoorbeeld gegevens verwijdert voordat u op de **Feedback verzenden** knop. 
+
 ### <a name="editing-existing-transformation"></a>Bestaande transformatie bewerken
 
 Gebruikers kunnen bewerken in een bestaande **kolom combineren door voorbeeld** transformeren door te selecteren **bewerken** optie van de transformatie-stap. Te klikken op **bewerken** opent de Editor transformeren in **standaardmodus**. Gebruiker kan invoeren de **geavanceerde modus** door te klikken op de koppeling in de header. De voorbeelden die zijn opgegeven tijdens het maken van de transformatie wordt namelijk hier weergegeven.
@@ -46,7 +50,7 @@ Gebruikers kunnen bewerken in een bestaande **kolom combineren door voorbeeld** 
 
 Een komma gevolgd door een spatie als scheidingsteken in dit voorbeeld wordt gebruikt om te combineren de *straat*, *stad*, *status*, en *ZIP* kolommen.
 
-|Straat|Plaats|Status|POSTCODE|Kolom|
+|Straatnaam|Plaats|Status|ZIP|Kolom|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th manier|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th manier|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|
@@ -62,14 +66,14 @@ Een komma gevolgd door een spatie als scheidingsteken in dit voorbeeld wordt geb
 
 De waarde in **vet** is opgegeven als voorbeeld.
 
-|Date|Maand|Jaar|Uur|Minuut|Tweede|Gecombineerde kolom|
+|Datum|Maand|Jaar|Uur|Minuut|Tweede|Gecombineerde kolom|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|okt|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
 |16|okt|2016|16|22|33|16-Oct-2016 15:01:33 PDT|
 |17|okt|2016|12|43|12|17-Oct-2016 15:01:12 PDT|
-|12|nov|2016|14|22|44|November-12-2016 15:01:44 PDT|
-|23|nov|2016|01|52|45|23-november-2016 15:01:45 PDT|
+|12|nov|2016|14|22|44|12-Nov-2016 15:01:44 PDT|
+|23|nov|2016|01|52|45|23-Nov-2016 15:01:45 PDT|
 |16|jan|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
-|23|mrt|2017|01|55|25|23-mrt-2016 15:01:25 PDT|
-|16|apr|2017|11|34|36|16-april-2016 15:01:36 PDT|
+|23|mrt|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
+|16|apr|2017|11|34|36|16-Apr-2016 15:01:36 PDT|
 

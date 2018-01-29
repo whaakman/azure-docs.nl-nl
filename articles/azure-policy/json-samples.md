@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
 
@@ -55,7 +55,7 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze 
 | [SKU's van Load Balancer toegestaan](scripts/allowed-lb-skus.md) | Moet netwerktaakverdelers gebruiken een goedgekeurde SKU. U opgeven een matrix van toegestane SKU's. |
 | [Geen netwerk met ER netwerk-peering](scripts/no-peering-er-net.md) | Voorkomt dat een netwerk-peering van wordt gekoppeld aan een netwerk in een opgegeven resourcegroep. Gebruiken om te voorkomen dat de verbinding met de centraal beheerde netwerkinfrastructuur. U opgeven de naam van de resourcegroep om te voorkomen dat de koppeling. |
 | [Er is geen gebruiker gedefinieerde Route-tabel](scripts/no-user-def-route-table.md)  |Verhindert dat virtuele netwerken worden geïmplementeerd met een door de gebruiker gedefinieerde routetabel. |
-| [Virtual Network Gateway-SKU's toegestaan](scripts/no-user-def-route-table.md) | Moet virtuele netwerkgateways gebruiken een goedgekeurde SKU en Gatewaytype-type. Geef een matrix van goedgekeurde SKU's en een matrix van goedgekeurde gatewaytypen. |
+| [Virtual Network Gateway-SKU's toegestaan](scripts/allowed-vn-gate-sku.md) | Moet virtuele netwerkgateways gebruiken een goedgekeurde SKU en Gatewaytype-type. Geef een matrix van goedgekeurde SKU's en een matrix van goedgekeurde gatewaytypen. |
 | [Gebruik goedgekeurde subnet voor VM-netwerkinterfaces](scripts/use-approved-subnet-vm-nics.md) | Moet netwerkinterfaces gebruiken een goedgekeurde subnet. U opgeven de ID van de goedgekeurde subnet. |
 | [Goedgekeurde vNet gebruiken voor VM-netwerkinterfaces](scripts/use-approved-vnet-vm-nics.md) | Vereist dat netwerkinterfaces een goedgekeurde virtueel netwerk gebruiken. U opgeven de ID van de goedgekeurde virtueel netwerk. |
 |**Tags**||

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure activiteitenlogboeken in Log Analytics
 
@@ -90,10 +90,10 @@ Logboekgegevens van de activiteit wordt alleen weergegeven *nadat* u uw activite
 
 | Blade | Beschrijving |
 | --- | --- |
-| Logboekvermeldingen Azure activiteit | Toont een staafdiagram van de top Azure activiteit logboekvermelding record totalen voor het datumbereik dat u hebt geselecteerd en bevat een overzicht van de top 10 activiteit aanroepfuncties. Klik op het staafdiagram om uit te voeren een zoekopdracht logboek voor <code>Type=AzureActivity</code>. Klik op een item aanroeper om te retourneren van alle logboekvermeldingen voor activiteit voor het artikel log zoekopdracht uitvoert. |
-| Activiteitenlogboeken met Status | Toont een ringdiagram voor Azure log de activiteitsstatus voor het datumbereik dat u hebt geselecteerd. Ook wordt een lijst van een lijst met de top tien status records. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Klik op een statusitem om te retourneren van alle activiteit logboekvermeldingen voor deze record status logboek zoekopdracht uitvoert. |
-| Activiteitenlogboeken door Resource | Geeft het totale aantal resources met activiteitenlogboeken en geeft een lijst van de top tien resources met record telt voor elke resource. Klik op het totale aantal gebied om uit te voeren een zoekopdracht logboek voor <code>Type=AzureActivity &#124; measure count() by Resource</code>, waarin alle Azure-resources beschikbaar zijn voor de oplossing. Klik op een bron uit voor het retourneren van alle activiteitenrecords voor die bron logboek zoekopdracht uitvoert. |
-| Activiteitenlogboeken door Resourceprovider | Geeft het totale aantal resourceproviders die activiteit produceren registreert en geeft een lijst van de tien. Klik op het totale aantal gebied om uit te voeren een zoekopdracht logboek voor <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, waarin alle Azure-resourceproviders. Klik op een resourceprovider als u wilt uitvoeren van een logboek zoekopdracht retourneren van alle activiteitenrecords voor de provider. |
+| Logboekvermeldingen Azure activiteit | Toont een staafdiagram van de top Azure activiteit logboekvermelding record totalen voor het datumbereik dat u hebt geselecteerd en bevat een overzicht van de top 10 activiteit aanroepfuncties. Klik op het staafdiagram om uit te voeren een zoekopdracht logboek voor <code>AzureActivity</code>. Klik op een item aanroeper om te retourneren van alle logboekvermeldingen voor activiteit voor het artikel log zoekopdracht uitvoert. |
+| Activiteitenlogboeken met Status | Toont een ringdiagram voor Azure log de activiteitsstatus voor het datumbereik dat u hebt geselecteerd. Ook wordt een lijst van een lijst met de top tien status records. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klik op een statusitem om te retourneren van alle activiteit logboekvermeldingen voor deze record status logboek zoekopdracht uitvoert. |
+| Activiteitenlogboeken door Resource | Geeft het totale aantal resources met activiteitenlogboeken en geeft een lijst van de top tien resources met record telt voor elke resource. Klik op het totale aantal gebied om uit te voeren een zoekopdracht logboek voor <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, waarin alle Azure-resources beschikbaar zijn voor de oplossing. Klik op een bron uit voor het retourneren van alle activiteitenrecords voor die bron logboek zoekopdracht uitvoert. |
+| Activiteitenlogboeken door Resourceprovider | Geeft het totale aantal resourceproviders die activiteit produceren registreert en geeft een lijst van de tien. Klik op het totale aantal gebied om uit te voeren een zoekopdracht logboek voor <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, waarin alle Azure-resourceproviders. Klik op een resourceprovider als u wilt uitvoeren van een logboek zoekopdracht retourneren van alle activiteitenrecords voor de provider. |
 
 ![Azure activiteitenlogboeken-dashboard](./media/log-analytics-activity/activity-log-dash.png)
 

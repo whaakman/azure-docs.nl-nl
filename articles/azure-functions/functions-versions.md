@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f816f661767d2e372b02b207d6fa7efd494e6ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Het doel van Azure Functions-runtime-versies
 
@@ -105,7 +105,7 @@ Als u een versie dan de huidige primaire versie of versie 2.0 wilt, moet u inste
 
 ## <a name="target-a-version-using-azure-cli"></a>Doel een versie met Azure CLI
 
- U kunt ook instellen de `FUNCTIONS_EXTENSION_VERSION` met Azure CLI. De toepassingsinstelling in de functie-app met behulp van de Azure CLI bijwerken de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
+ U kunt ook instellen de `FUNCTIONS_EXTENSION_VERSION` met Azure CLI. De toepassingsinstelling in de functie-app met behulp van de Azure CLI bijwerken de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) opdracht.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Werkplek door Facebook configureren voor gebruikers inrichten | Microsoft Docs'
+title: 'Zelfstudie: Werkplek door Facebook configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het automatisch inrichten en de gebruikersaccounts van Azure AD aan werkplek door Facebook ongedaan in te richten.
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 77f5f33044b1915fbda7b86c6b07882c0e1e7554
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor gebruikers inrichten
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor het automatisch gebruikers inrichten
 
 Deze zelfstudie ziet u de stappen nodig zijn voor automatisch leveren en intrekken gebruikersaccounts van Azure Active Directory (Azure AD) aan een werkplek met Facebook.
 
@@ -86,7 +86,7 @@ Zie voor meer informatie over het configureren van automatische inrichting [de F
 
 U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met werkplek met Facebook.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

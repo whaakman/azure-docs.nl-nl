@@ -1,5 +1,6 @@
 # Overzicht
 ## [Informatie over Database Migration Service](dms-overview.md)
+## [Overzicht van vereisten](pre-reqs.md)
 
 # Snelstartgidsen
 ## [Service maken - Portal](quickstart-create-data-migration-service-portal.md)
@@ -16,3 +17,4 @@
 ## [Handleiding voor databasemigratie](https://aka.ms/datamigration)
 ## [Gegevensmigratieassistent](https://aka.ms/dma)
 ## [Prijzen](https://aka.ms/dms-pricing)
+## [Veelgestelde vragen](faq.md)

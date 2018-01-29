@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Bericht overdrachten, vergrendelingen en vereffening
 
-De meest centrale mogelijkheid van een bericht broker zoals Service Bus is berichten in een wachtrij of onderwerp accepteren en houdt deze beschikbaar voor later gebruik. *Verzenden* is de term die meestal voor de overdracht van een bericht in de broker bericht gebruikt wordt. *Ontvangen* is de term meestal gebruikt voor de overdracht van een bericht naar een client ophalen.
+De centrale mogelijkheid van een bericht broker zoals Service Bus is berichten in een wachtrij of onderwerp accepteren en houdt deze beschikbaar voor later gebruik. *Verzenden* is de term die meestal voor de overdracht van een bericht in de broker bericht gebruikt wordt. *Ontvangen* is de term meestal gebruikt voor de overdracht van een bericht naar een client ophalen.
 
 Wanneer een client een bericht verzendt, wil software meestal weten of het bericht is goed overgebracht naar en geaccepteerd door de broker of of de fout is opgetreden. Deze bevestiging positief of negatief betaalt van de client en de broker kennis over de status van de overdracht van het bericht en dus wordt aangeduid als *vereffening*.
 

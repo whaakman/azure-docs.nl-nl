@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
 > [!NOTE]
@@ -370,14 +370,14 @@ De PublicConfig en PrivateConfig worden gescheiden omdat in de meeste gevallen v
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
- *Structuur: Root - DiagnosticsConfiguration*
+ *Tree: Root - DiagnosticsConfiguration*
 
 In versie 1.3 toegevoegd.  
 
 Het element op het hoogste niveau van het configuratiebestand van de diagnostische gegevens.  
 
 **Kenmerk** xmlns - de XML-naamruimte voor de diagnostics-configuratiebestand is:  
-http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
 |Onderliggende elementen|Beschrijving|  
@@ -387,7 +387,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**IsEnabled**|Booleaanse waarde. Zie de beschrijving ergens anders op deze pagina.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig*
 
  Beschrijft de configuratie van de openbare diagnostische gegevens.  
 
@@ -399,19 +399,19 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**LocalResourceDirectory**|De map op de virtuele machine waar de gebeurtenisgegevens worden opgeslagen in de Monitoring Agent. Als dat niet wordt is ingesteld, de standaardmap gebruikt:<br /><br /> Voor een functie Worker/webservice:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> - **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> - **expandEnvironment** -Hiermee wordt bepaald of omgevingsvariabelen in de padnaam worden uitgevouwen.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG-*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
  
  Identificeert en configureert u de telemetriegegevens te verzamelen.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element 
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  Vereist 
 
 |Kenmerken|Beschrijving|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | De maximale hoeveelheid ruimte op lokale schijf die kan worden gebruikt door de verschillende typen diagnostische gegevens verzameld door Azure Diagnostics. De standaardinstelling is 5120 MB.<br />
+| **overallQuotaInMB** | De maximale hoeveelheid ruimte op lokale schijf die kan worden gebruikt door de verschillende typen diagnostische gegevens verzameld door Azure Diagnostics. De standaardinstelling is 4096 MB.<br />
 |**useProxyServer** | Azure Diagnostics voor het gebruik van de proxy-instellingen zoals in de instellingen van Internet Explorer configureren.|  
 
 <br /> <br />
@@ -420,7 +420,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumps**|Zie de beschrijving ergens anders op deze pagina.|  
 |**DiagnosticInfrastructureLogs**|Inschakelen van verzamelen van logboeken die worden gegenereerd door Azure Diagnostics. De infrastructuur voor diagnostische logboeken zijn nuttig voor het oplossen van het systeem diagnostische gegevens zelf. Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -configureert u de minimale ernst van de logboeken die worden verzameld.<br /><br /> - **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [XML "Duur van het gegevenstype."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**Mappen**|Zie de beschrijving ergens anders op deze pagina.|  
+|**Directories**|Zie de beschrijving ergens anders op deze pagina.|  
 |**EtwProviders**|Zie de beschrijving ergens anders op deze pagina.|  
 |**Metrische gegevens**|Zie de beschrijving ergens anders op deze pagina.|  
 |**PerformanceCounters**|Zie de beschrijving ergens anders op deze pagina.|  
@@ -445,7 +445,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**CrashDumpConfiguration**|Vereist. Hiermee definieert u configuratiewaarden voor elk proces.<br /><br /> Het volgende kenmerk is ook vereist:<br /><br /> **Procesnaam** -de naam van het proces wilt u diagnostische Azure-gegevens voor het verzamelen van een crashdump voor.|  
 
 ## <a name="directories-element"></a>Mappen Element 
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
 
  Kan de verzameling van de inhoud van een map, logboeken van IIS is mislukt toegang aanvragen en/of IIS-logboeken.  
 
@@ -474,7 +474,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mappen - gegevensbronnen - DirectoryConfiguration-*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
 
  Mogelijk bevat de **Absolute** of **LocalResource** element, maar niet beide.  
 
@@ -486,7 +486,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etwproviders-element"></a>EtwProviders Element  
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders-*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
 
  Hiermee configureert u de verzameling van ETW-gebeurtenissen van EventSource en/of ETW Manifest op basis van providers.  
 
@@ -498,7 +498,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- *Structuur: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwEventSourceProviderConfiguration*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
  Hiermee configureert u de verzameling van gebeurtenissen die worden gegenereerd op basis van [EventSource klasse](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
@@ -510,7 +510,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |Onderliggende elementen|Beschrijving|  
 |--------------------|-----------------|  
@@ -520,7 +520,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="metrics-element"></a>Element van de metrische gegevens  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - metrische gegevens*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
  Hiermee kunt u voor het genereren van een tabel van prestaties teller die is geoptimaliseerd voor snelle query's. Elk prestatiemeteritem dat is gedefinieerd in de **PerformanceCounters** element is opgeslagen in de tabel metrische gegevens naast het prestatiemeteritem-tabel.  
 
@@ -549,7 +549,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog-*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
  
  Kan de verzameling van het Windows-gebeurtenislogboeken.  
 
@@ -557,13 +557,13 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Onderliggend Element|Beschrijving|  
 |-------------------|-----------------|  
-|**Gegevensbron**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '|  
+|**DataSource**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '|  
 
 
 
 
 ## <a name="logs-element"></a>Logboeken Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logboeken*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
  Aanwezig zijn op versie 1.0 en 1.1. 1.2 ontbreken. Terug in 1.3 toegevoegd.  
 
@@ -586,7 +586,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Statistieken**|Geeft het systeem voor het verzamelen van statistieken voor Docker-containers|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  Een lijst met locaties voor het verzenden van diagnostische gegevens naar en de configuratie die is gekoppeld aan deze locaties.  
 
@@ -595,7 +595,7 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Sink**|Zie de beschrijving ergens anders op deze pagina.|  
 
 ## <a name="sink-element"></a>Sink-Element
- *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink-*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  In versie 1.5 toegevoegd.  
 
@@ -603,15 +603,15 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
-|**naam**|Tekenreeks|Een tekenreeks die de sinkname te identificeren.|  
+|**naam**|tekenreeks|Een tekenreeks die de sinkname te identificeren.|  
 
 |Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
-|**Application Insights**|Tekenreeks|Alleen gebruikt wanneer het verzenden van gegevens naar Application Insights. De Instrumentatiesleutel voor een actieve Application Insights-account dat u toegang tot hebt bevatten.|  
-|**Kanalen**|Tekenreeks|Één voor elke extra filteren die u stream|  
+|**Application Insights**|tekenreeks|Alleen gebruikt wanneer het verzenden van gegevens naar Application Insights. De Instrumentatiesleutel voor een actieve Application Insights-account dat u toegang tot hebt bevatten.|  
+|**Channels**|tekenreeks|Één voor elke extra filteren die u stream|  
 
 ## <a name="channels-element"></a>Kanalen Element  
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
 
  In versie 1.5 toegevoegd.  
 
@@ -619,10 +619,10 @@ http://schemas.Microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
-|**Kanaal**|Tekenreeks|Zie de beschrijving ergens anders op deze pagina.|  
+|**Channel**|tekenreeks|Zie de beschrijving ergens anders op deze pagina.|  
 
 ## <a name="channel-element"></a>Kanaal-Element
- *Structuur: Basis - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanalen - kanaal*
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
 
  In versie 1.5 toegevoegd.  
 

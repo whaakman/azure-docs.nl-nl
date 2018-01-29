@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Bericht bladeren
 
-Bericht bladeren door ('weergeven') kan clients die zich in een wachtrij of een abonnement, meestal voor diagnose en foutopsporing alle berichten inventariseren.
+Bericht bladeren door ('weergeven') kunt een Service Bus-clienttoepassing inventariseren van alle berichten die zich in een wachtrij of een abonnement, meestal voor diagnose en foutopsporing.
 
-De bewerkingen peek retourneert alle berichten die bestaan in het berichtenlogboek wachtrij of abonnement, niet alleen beschikbaar voor onmiddellijke aankoop met *Receive()* of de *OnMessage()* lus. De *status* eigenschap van elk bericht geeft aan of het bericht is geactiveerd (beschikbaar om te worden ontvangen), uitgestelde (Zie uitgestelde [koppeling nog te bepalen]) of geplande (Zie geplande berichten [koppeling nog te bepalen]).
+De bewerkingen peek retourneert alle berichten die bestaan in het berichtenlogboek wachtrij of abonnement, niet alleen beschikbaar voor onmiddellijke aankoop met `Receive()` of de `OnMessage()` lus. De `State` eigenschap van elk bericht geeft aan of het bericht is geactiveerd (beschikbaar om te worden ontvangen), [uitgestelde](message-deferral.md), of [geplande](message-sequencing.md).
 
-Verbruikte en verlopen berichten worden opgeschoond door een asynchrone 'garbagecollection' uitvoeren en niet per se precies wanneer berichten verlopen en daarom Peek inderdaad berichten die al zijn verlopen en zal worden verwijderd of wanneer een receive onbestelbare lettered retourneren bewerking wordt vervolgens aangeroepen op de wachtrij of abonnement.
+Verbruikte en verlopen berichten worden opgeschoond door een asynchrone 'garbagecollection' uitvoeren en niet per se precies wanneer berichten verlopen, en dus `Peek` kan inderdaad berichten die al zijn verlopen en wordt verwijderd of wanneer onbestelbare lettered retourneren een ontvangstbewerking wordt vervolgens aangeroepen op de wachtrij of abonnement.
 
 Dit is vooral belangrijk rekening moet houden bij het herstellen van uitgestelde berichten uit de wachtrij. Een bericht waarvoor de [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) instant is doorgegeven is niet meer in aanmerking komen voor reguliere ophalen op een andere manier, zelfs wanneer deze wordt geretourneerd door Peek. Deze berichten retourneren is opzettelijk, aangezien Peek is een hulpprogramma voor diagnostische gegevens als gevolg van de huidige status van het logboek.
 

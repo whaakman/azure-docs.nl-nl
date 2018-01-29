@@ -12,86 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
 *Deze functie van Application Insights is beschikbaar voor de Azure App Service en is Preview-versie voor Azure-rekenresources.*
 
-Na hoeveel tijd is besteed aan elke methode in uw live-webtoepassing met behulp van weten [Application Insights Profiler](app-insights-overview.md). De Application Insights profilering hulpprogramma toont gedetailleerde profielen van live-aanvragen die door uw app zijn behandeld en markeert de *hot pad* die gebruikmaakt van de meeste tijd. De profiler wordt automatisch geselecteerd voorbeelden die u verschillende responstijden hebt en gebruikt vervolgens diverse technieken overhead te minimaliseren.
+Na hoeveel tijd is besteed aan elke methode in uw live-webtoepassing wanneer u weten [Application Insights](app-insights-overview.md). De Application Insights profilering hulpprogramma toont gedetailleerde profielen van live-aanvragen die door uw app zijn behandeld en markeert de *hot pad* die gebruikmaakt van de meeste tijd. Aanvragen met verschillende responstijden zijn profiel op basis van steekproeven. Overhead bij de toepassing wordt geminimaliseerd met behulp van verschillende technieken.
 
-De profiler werkt momenteel voor ASP.NET-web-apps uitgevoerd op Azure App Service in ten minste de laag Basic-service.
+De profiler werkt momenteel voor ASP.NET- en ASP.NET core web-apps in Azure App Service waarop ten minste de **Basic** servicelaag.
 
-## <a id="installation"></a>De profiler inschakelen
+## <a id="installation"></a>De profiler voor Web-App van App Services inschakelen
+Als u al de toepassing is gepubliceerd naar een App-Services, maar in de broncode voor Application Insights gebruik, gaat u naar het deelvenster van de App-Services op Azure-portal niet hebt gedaan, gaat u naar **controle | Application Insights**, volg de instructies in het deelvenster maken van nieuwe of bestaande Application Insights-resource voor het bewaken van uw Web-App selecteren. Let op: Profiler alleen met werkt **Basic** App Services-abonnement of hoger.
 
-[Installeer Application Insights-](app-insights-asp-net.md) in uw code. Als deze al geïnstalleerd, zorg er dan voor dat u de meest recente versie hebt. Om te controleren of de nieuwste versie, klikt u in Solution Explorer met de rechtermuisknop op uw project en selecteer vervolgens **beheren NuGet-pakketten** > **Updates** > **alle bijwerken pakketten**. Vervolgens implementeert u uw app opnieuw.
+![App inzicht in de portal App Services inschakelen][appinsights-in-appservices]
 
-*Met behulp van ASP.NET Core? Ophalen van [meer informatie](#aspnetcore).*
+Als u toegang tot de broncode van uw project hebt [Installeer Application Insights-](app-insights-asp-net.md). Als deze al geïnstalleerd, zorg er dan voor dat u de meest recente versie hebt. Om te controleren of de nieuwste versie, klikt u in Solution Explorer met de rechtermuisknop op uw project en selecteer vervolgens **beheren NuGet-pakketten** > **Updates** > **alle bijwerken pakketten**. Vervolgens implementeert u uw app.
+
+Een toepassing ASP.NET Core moet de 2.1.0-beta6 Microsoft.ApplicationInsights.AspNetCore NuGet-pakket installeren of hoger om te werken met de profiler. Vanaf 27 juni 2017 eerdere versies worden niet ondersteund.
 
 In [de Azure-portal](https://portal.azure.com), opent u de Application Insights-resource voor uw web-app. Selecteer **prestaties** > **Application Insights Profiler inschakelen**.
 
 ![Selecteer de banner van de profiler inschakelen][enable-profiler-banner]
 
-U kunt ook selecteren **configureren** status bekijken en inschakelen of uitschakelen van de profiler.
+U kunt ook selecteren **Profiler** configuratie om de status bekijken en in- of uitschakelen van de profiler.
 
-![Selecteer onder prestaties configureren][performance-blade]
+![Selecteer onder prestaties Profiler configuratie][performance-blade]
 
-Web-apps die zijn geconfigureerd met Application Insights worden vermeld in **configureren**. Volg de instructies voor het installeren van de agent profiler indien nodig. Als er geen web-apps zijn geconfigureerd met Application Insights, selecteert u **gekoppelde Apps toevoegen**.
+Web-apps die zijn geconfigureerd met Application Insights worden vermeld in de **Profiler** deelvenster configuratie. Als u bovenstaande stappen hebt gevolgd, moet al profiler agent worden geïnstalleerd. Selecteer **Profiler inschakelen** in de **Profiler** deelvenster configuratie.
 
-De profiler op al uw gekoppelde WebApps beheren de **configureren** deelvenster **Profiler inschakelen** of **Profiler uitschakelen**.
+Volg de instructies voor het installeren van de agent profiler indien nodig. Als er geen web-apps zijn geconfigureerd met Application Insights, selecteert u **gekoppelde Apps toevoegen**.
 
 ![Opties configureren][linked app services]
 
 In tegenstelling tot web-apps die worden gehost door App Service-abonnementen, toepassingen die worden gehost in Azure-rekenresources (bijvoorbeeld Azure Virtual Machines, virtuele-machineschaalsets, Azure Service Fabric of Azure Cloud Services) niet rechtstreeks worden beheerd door Azure. Er is in dit geval geen web-app wilt koppelen. In plaats van koppelt aan een app, selecteer de **Profiler inschakelen** knop.
 
-## <a name="disable-the-profiler"></a>De profiler uitschakelen
-Om te stoppen of opnieuw starten van de profiler voor een afzonderlijke App Service-exemplaar onder **webtaken**, gaat u naar de App Service-resource. Als u wilt verwijderen van de profiler, gaat u naar **extensies**.
-
-![Profiler voor een webtaken uitschakelen][disable-profiler-webjob]
-
-We raden u aan de profiler die is ingeschakeld op alle web-apps voor het detecteren van alle prestatieproblemen zo snel mogelijk.
-
-Als u Web Deploy te implementeren wijzigingen aan uw webtoepassing hebt gebruikt, zorg ervoor dat u de map App_Data uitsluiten worden verwijderd tijdens de implementatie. De profiler-extensie-bestanden verwijderd anders de volgende keer dat u de webtoepassing naar Azure implementeert.
-
-### <a name="using-profiler-with-azure-vms-and-azure-compute-resources-preview"></a>Profiler gebruiken met Azure VM's en Azure-rekenresources (preview)
-
-Wanneer u [Application Insights inschakelen voor Azure App Service tijdens runtime](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler is automatisch beschikbaar. Als u al Application Insights voor de resource hebt ingeschakeld, moet u mogelijk om bij te werken naar de nieuwste versie met behulp van de wizard configureren.
+### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>De profiler voor Azure-rekenresources (preview) inschakelen
 
 Informatie ophalen over een [preview-versie van de profiler voor Azure-rekenresources](https://go.microsoft.com/fwlink/?linkid=848155).
 
-
-## <a name="limitations"></a>Beperkingen
-
-De standaard gegevensretentie is vijf dagen. De maximale gegevens ingenomen per dag is 10 GB.
-
-Er zijn geen kosten voor het gebruik van de profiler-service. Voor het gebruik van de service profiler uw web-app moet worden gehost in ten minste de Basic-App Service-laag.
-
-## <a name="overhead-and-sampling-algorithm"></a>Overhead en steekproeven algoritme
-
-De profiler wordt willekeurig twee minuten elk uur uitgevoerd op elke virtuele machine die als host fungeert voor de toepassing die ingeschakeld is voor het vastleggen van traces profiler. Wanneer de profiler wordt uitgevoerd, wordt toegevoegd tussen 5 en 15% CPU-overhead op de server.
-De meer servers die zijn beschikbaar voor het hosten van de toepassing de minder invloed de profiler is op de algehele prestaties. Dit is omdat het algoritme steekproeven resulteert in de profiler die is uitgevoerd op slechts 5 procent van de servers op elk gewenst moment. Meer servers zijn beschikbaar voor webaanvragen naar offset van de overhead van de server veroorzaakt door het uitvoeren van de profiler fungeren.
-
-
 ## <a name="view-profiler-data"></a>Gegevens van de profiler weergeven
 
-Ga naar de **prestaties** deelvenster en schuif omlaag naar de lijst met bewerkingen.
+**Zorg ervoor dat uw toepassing traffics ontvangt.** Als u een experiment doet, kunt u aanvragen genereren naar uw Web-App met de [Application Insights-prestatietests](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Als u zojuist de Profiler ingeschakeld, moet u een korte belastingstest ongeveer 15 minuten kunt uitvoeren en krijgt u profiler traceringen. Als u de Profiler die is ingeschakeld voor een tijdje al hebt, houd er rekening mee dat de Profiler willekeurig actief is gedurende twee keer die elk uur van de twee minuten en elke keer dat deze wordt uitgevoerd. Als u wilt uitvoeren van de load-test voor één uur om ervoor te zorgen dat u voorbeeld profiler traceringen voorgesteld.
 
-![Application Insights-prestaties deelvenster voorbeelden kolom][performance-blade-examples]
-
-De operations-tabel heeft deze kolommen:
-
-* **AANTAL**: het aantal van deze aanvragen in het tijdsbereik van het **aantal** deelvenster.
-* **Mediaan**: de typische wanneer uw app vindt om te reageren op een aanvraag. De helft van alle antwoorden zijn sneller dan deze waarde.
-* **95e percentiel**: 95% van de antwoorden sneller dan deze waarde zijn. Als deze waarde aanzienlijk verschilt van de mediaan is, is er mogelijk een onregelmatig probleem met uw app. (Of het kan worden verklaard door een ontwerpfunctie, zoals caching.)
-* **PROFILER TRACERINGEN**: een pictogram geeft aan dat de profiler stack-traces voor deze bewerking is vastgelegd.
-
-Selecteer **weergave** om de tracering explorer te openen. De explorer enkele voorbeelden ziet u dat de profiler is vastgelegd, geclassificeerd door reactietijd.
-
-Als u de **Preview prestaties** deelvenster, gaat u naar de **acties ondernemen** sectie van de pagina om profiler traceringen weer te geven. Selecteer de **Profiler traceringen** knop.
+Wanneer uw toepassing verkeer ontvangen, gaat u naar de **prestaties** blade, gaat u naar de **acties ondernemen** sectie van de pagina om profiler traceringen weer te geven. Selecteer de **Profiler traceringen** knop.
 
 ![Application Insights-prestaties deelvenster preview profiler traceringen][performance-blade-v2-examples]
 
@@ -113,7 +81,7 @@ De service Microsoft profiler wordt een combinatie van steekproeven methoden en 
 De aanroepstack die wordt weergegeven in de tijdlijnweergave is het resultaat van de steekproef en instrumentation. Omdat elk voorbeeld de volledige aanroepstack van de thread bevat, bevat deze een code van Microsoft .NET Framework en van andere frameworks waarnaar u verwijst.
 
 ### <a id="jitnewobj"></a>Object-toewijzing (clr! JIT\_nieuw of clr! JIT\_Newarr1)
-**CLR! JIT\_nieuw** en **clr! JIT\_Newarr1** hulpfuncties in .NET Framework die geheugen van een beheerde opslagruimte toewijzen zijn. **CLR! JIT\_nieuw** wordt aangeroepen wanneer een object wordt toegewezen. **CLR! JIT\_Newarr1** wordt aangeroepen wanneer een objectmatrix is toegewezen. Deze twee functies doorgaans zijn zeer snel en relatief kleine hoeveelheden tijd duren. Als u ziet **clr! JIT\_nieuw** of **clr! JIT\_Newarr1** een aanzienlijke hoeveelheid tijd kosten in de tijdlijn, is het een indicatie dat de code kan worden veel objecten toewijzen en gebruiken van grote hoeveelheden geheugen.
+**CLR! JIT\_nieuw** en **clr! JIT\_Newarr1** hulpfuncties in .NET Framework die geheugen van een beheerde opslagruimte toewijzen zijn. **CLR! JIT\_nieuw** wordt aangeroepen wanneer een object wordt toegewezen. **CLR! JIT\_Newarr1** wordt aangeroepen wanneer een objectmatrix is toegewezen. Deze twee functies doorgaans zijn snel en relatief kleine hoeveelheden tijd duren. Als u ziet **clr! JIT\_nieuw** of **clr! JIT\_Newarr1** een aanzienlijke hoeveelheid tijd kosten in de tijdlijn, is het een indicatie dat de code kan worden veel objecten toewijzen en gebruiken van grote hoeveelheden geheugen.
 
 ### <a id="theprestub"></a>Bij het laden van code (clr! ThePreStub)
 **CLR! ThePreStub** is een Help-functie in .NET Framework dat de code uit te voeren voor de eerste keer wordt voorbereid. Dit doorgaans omvat, maar is niet beperkt tot compilatie just in time (Just in time). Voor elke methode C# **clr! ThePreStub** mag maximaal één keer tijdens de levensduur van een proces worden aangeroepen.
@@ -151,6 +119,26 @@ De toepassing met het uitvoeren van bewerkingen in het netwerk.
 
 ### <a id="when"></a>Wanneer kolom
 De **wanneer** kolom is een visualisatie van hoe de inclusief voorbeelden die worden verzameld voor een knooppunt gedurende een bepaalde periode variëren. Het totale bereik van de aanvraag is onderverdeeld in 32 tijd buckets. Inclusief voorbeelden voor dat knooppunt wordt in deze buckets 32 geteld. Elke bucket wordt weergegeven als een balk. De hoogte van de balk vertegenwoordigt een uitgebreid waarde. Voor knooppunten gemarkeerd **CPU_TIME** of **BLOCKED_TIME**, of wanneer er een duidelijke relatie van de consumptie van een resource (CPU, schijf, een thread), de balk staat voor een van deze resources verbruikt voor de periode van het tijdstip dat bucket. Voor deze metrische gegevens is het mogelijk dat een waarde van meer dan 100% door meerdere resources verbruikt. Als u twee CPU's gemiddeld tijdens een interval gebruikt, krijgt u bijvoorbeeld 200%.
+
+## <a name="limitations"></a>Beperkingen
+
+De standaard gegevensretentie is vijf dagen. De maximale gegevens ingenomen per dag is 10 GB.
+
+Er zijn geen kosten voor het gebruik van de profiler-service. Voor het gebruik van de service profiler uw web-app moet worden gehost in ten minste de Basic-App Service-laag.
+
+## <a name="overhead-and-sampling-algorithm"></a>Overhead en steekproeven algoritme
+
+De profiler wordt willekeurig twee minuten elk uur uitgevoerd op elke virtuele machine die als host fungeert voor de toepassing die ingeschakeld is voor het vastleggen van traces profiler. Wanneer de profiler wordt uitgevoerd, wordt toegevoegd tussen 5 en 15% CPU-overhead op de server.
+De meer servers die zijn beschikbaar voor het hosten van de toepassing de minder invloed de profiler is op de algehele prestaties. Dit is omdat het algoritme steekproeven resulteert in de profiler die is uitgevoerd op slechts 5 procent van de servers op elk gewenst moment. Meer servers zijn beschikbaar voor webaanvragen naar offset van de overhead van de server veroorzaakt door het uitvoeren van de profiler fungeren.
+
+## <a name="disable-the-profiler"></a>De profiler uitschakelen
+Om te stoppen of opnieuw starten van de profiler voor een afzonderlijke App Service-exemplaar onder **webtaken**, gaat u naar de App Service-resource. Als u wilt verwijderen van de profiler, gaat u naar **extensies**.
+
+![Profiler voor een webtaken uitschakelen][disable-profiler-webjob]
+
+We raden u aan de profiler die is ingeschakeld op alle web-apps voor het detecteren van alle prestatieproblemen zo snel mogelijk.
+
+Als u Web Deploy te implementeren wijzigingen aan uw webtoepassing hebt gebruikt, zorg ervoor dat u de map App_Data uitsluiten worden verwijderd tijdens de implementatie. De profiler-extensie-bestanden verwijderd anders de volgende keer dat u de webtoepassing naar Azure implementeert.
 
 
 ## <a id="troubleshooting"></a>Problemen oplossen
@@ -229,12 +217,12 @@ Wanneer u de profiler configureert, wordt bijgewerkt naar de web-app-instellinge
 9. Start opnieuw op de web-app.
 
 ## <a id="profileondemand"></a>Profiler handmatig opnieuw starten
-Wanneer we de profiler ontwikkeld hebben we een opdrachtregelinterface toegevoegd zodat we de profiler op app-services kunnen testen. Met deze gebruikers met dezelfde interface kunt ook aanpassen hoe de profiler wordt gestart. Op hoog niveau de profiler van App Service Kudu System gebruikt voor het beheren van profilering op de achtergrond. We maken een continue web-taak die als host fungeert voor de profiler tijdens de installatie van de Application Insights-extensie. We gebruiken deze dezelfde technologie voor het maken van een nieuwe web-taak die u aanpassen kunt aan uw behoeften voldoet.
+Wanneer we de profiler ontwikkeld hebben we een opdrachtregelinterface toegevoegd zodat we de profiler op app-services kunnen testen. Met deze gebruikers met dezelfde interface kunt ook aanpassen hoe de profiler wordt gestart. Op hoog niveau gebruikt de profiler van App Service Kudu systeem voor het beheren van profilering op de achtergrond. Wanneer u de Application Insights-extensie installeert, maken we een continue web-taak die als host fungeert voor de profiler. We gebruiken deze dezelfde technologie voor het maken van een nieuwe web-taak die u aanpassen kunt aan uw behoeften voldoet.
 
 Deze sectie wordt uitgelegd hoe:
 
-1.  Maak een web-taak die u de profiler twee minuten opnieuw met de druk op de knop starten kunt.
-2.  Maak een web-taak die u kunt plannen dat de profiler om uit te voeren.
+1.  Een web-taak die u de profiler twee minuten opnieuw met de druk op de knop starten kunt maken.
+2.  Maak een web-taak, die u kunt plannen dat de profiler om uit te voeren.
 3.  Argumenten voor de profiler instellen.
 
 
@@ -243,9 +231,9 @@ Eerste we raken met de web-taak dashboard. Onder instellingen op het tabblad Web
 
 ![blade webjobs](./media/app-insights-profiler/webjobs-blade.png)
 
-Zoals u dit dashboard ziet ziet u alle webservice-taken die momenteel zijn geïnstalleerd op uw site. U ziet de ApplicationInsightsProfiler2 web-taak waarvoor de profiler-taak uitgevoerd. Dit is waar we uiteindelijk wordt gemaakt van onze nieuwe webtaken voor handmatige en geplande profilering.
+Zoals u dit dashboard ziet ziet u alle webservice-taken die momenteel zijn geïnstalleerd op uw site. U ziet de ApplicationInsightsProfiler2 web-taak, die de actieve taak voor de profiler is. Dit is waar we onze nieuwe webtaken maken voor handmatige en geplande profilering terechtkomen.
 
-Eerst gaan we de binaire bestanden we moeten aan.
+Eerst gaan we aan de binaire bestanden die we nodig hebben.
 
 1.  Ga naar de kudu-site. In de ontwikkeling tabblad Hulpmiddelen Klik op het tabblad 'Geavanceerde hulpmiddelen' met het logo van Kudu. Klik op "Ga". Hiermee gaat u naar een nieuwe site en u kunt zich aanmelden automatisch.
 2.  Vervolgens moet de profiler binaire bestanden gedownload. Navigeer naar de Verkenner via de Console voor foutopsporing -> CMD zich boven aan de pagina.
@@ -263,7 +251,7 @@ a.  De `start` opdracht vertelt de profiler om te starten.
 b.  `--engine-mode immediate`Hiermee geeft u de profiler dat we willen profileren onmiddellijk starten.
 c.  `--single`betekent om uit te voeren en vervolgens automatisch d stoppen.  `--immediate-profiling-duration 120`betekent dat de profiler 120 seconden of 2 minuten uitgevoerd.
 5.  Sla dit bestand.
-6.  Archiveren van deze map, kunt u de map met de rechtermuisknop op en kies verzenden naar het gecomprimeerde ZIP-->. Hiermee maakt u een ZIP-bestand met de naam van de map.
+6.  Deze map te archiveren, kunt u met de rechtermuisknop op de map en kies verzenden naar gecomprimeerde map ->. Hiermee maakt u een ZIP-bestand met de naam van de map.
 
 ![profiler opdracht voor starten](./media/app-insights-profiler/start-profiler-command.png)
 
@@ -275,7 +263,7 @@ Vervolgens wordt een nieuwe web-taak toevoegen in onze site. In dit voorbeeld zi
 1.  Ga naar het dashboard van web-taken.
 2.  Klik op de werkbalk van de Add-opdracht.
 3.  Geef een naam op voor uw web-job overeenkomen met de naam van Mijn archief voor de duidelijkheid en open het tot verschillende versies van de run.cmd gekozen.
-4.  In het bestand uploaden deel uit van het formulier klik op het pictogram bestand openen en zoek het ZIP-bestand dat u hierboven hebt gemaakt.
+4.  In het bestand uploaden delen van het formulier klik op het pictogram van het geopende bestand en zoek het ZIP-bestand dat u hierboven hebt gemaakt.
 5.  Kies voor het type Triggered.
 6.  Kies de handleiding voor de Triggers.
 7.  Klik op OK om op te slaan.
@@ -297,21 +285,15 @@ Nu we hebben een nieuwe web-taak die we handmatig kunnen activeren kunt we probe
 Hoewel deze methode betrekkelijk eenvoudig is zijn er enkele overwegingen.
 
 1.  Omdat dit niet wordt beheerd door de service wordt we hebben geen manier om de agent binaire bestanden voor uw web-job bij te werken. We momenteel geen een stabiele downloadpagina voor onze binaire bestanden zodat de enige manier om de meest recente door uw toestelnummer bijwerken en uit de map continue grabbing zoals al eerder is gedaan.
-2.  Als dit wordt gebruikt door de opdrachtregelargumenten die oorspronkelijk zijn ontworpen met ontwikkelaars gebruik in plaats van gebruik van de eindgebruiker, deze argumenten wijziging in de toekomst, dus u hoeft alleen mogelijk weten dat bij een upgrade. Het mag niet veel van een probleem zijn, omdat u een web-taak, uitvoeren en test die hierbij worden kunt toevoegen. Uiteindelijk gebruikersinterface om dit te doen zonder het handmatige proces maakt, maar is iets in overweging moet nemen.
+2.  Als dit wordt gebruikt door opdrachtregelargumenten op die oorspronkelijk zijn ontworpen met ontwikkelaars gebruik in plaats van gebruik van de eindgebruiker, deze argumenten wijziging in de toekomst, dus u hoeft alleen mogelijk weten dat bij een upgrade. Het mag niet veel van een probleem zijn, omdat u een web-taak, uitvoeren en test die hierbij worden kunt toevoegen. Uiteindelijk gebruikersinterface om dit te doen zonder het handmatige proces maakt, maar is iets in overweging moet nemen.
 3.  De functie Web-taken voor App Services is uniek tijdens het uitvoeren van de taak webpagina het zorgt ervoor dat uw proces heeft de dezelfde omgevingsvariabelen en appinstellingen die uw website uiteindelijk hebben. Dit betekent dat u niet wilt dat de instrumentatiesleutel via de opdrachtregel doorgegeven aan de profiler, deze moet alleen kunnen worden opgepikt de instrumentatiesleutel uit de omgeving. Als u wilt de profiler uitvoeren op de box dev of op een computer buiten App Services moet u echter een instrumentatiesleutel opgeeft. U kunt dit doen door door te geven in een argument `--ikey <instrumentation-key>`. Houd er rekening mee dat deze waarde moet overeenkomen met de instrumentatiesleutel die wordt gebruikt door uw toepassing. In de uitvoer van de logboekbestanden van de profiler profilering dit laat u weten welke de profiler die is gestart met ikey en als er activiteit uit die instrumentatiesleutel terwijl we.
-4.  De webtaken handmatig triggered kunnen daadwerkelijk worden geactiveerd via Web haakje. U kunt deze url ophalen van rechtermuisknop te klikken op de web-taak vanuit het dashboard en de eigenschappen weer te geven of eigenschappen te kiezen in de werkbalk na het selecteren van de taak webpagina van de tabel. Er zijn veel van de artikelen die u kunt vinden over deze online zodat instellingen niet veel informatie over het gaat, maar dit de mogelijkheid van de activering van de profiler van uw pijplijn CI/CD (zoals VSTS) of iets zoals Microsoft Flow (https://flow.microsoft.com/en-us/) wordt geopend. De mogelijkheden zijn afhankelijk van hoe fraai dat u maken van uw run.cmd die door de manier waarop een run.ps1 wilt, uitgebreid.  
-
-
-
-
-## <a id="aspnetcore"></a>Ondersteuning voor ASP.NET Core
-
-Een toepassing ASP.NET Core moet de 2.1.0-beta6 Microsoft.ApplicationInsights.AspNetCore NuGet-pakket installeren of hoger om te werken met de profiler. Vanaf 27 juni 2017 eerdere versies worden niet ondersteund.
+4.  De webtaken handmatig triggered kunnen daadwerkelijk worden geactiveerd via Web haakje. U kunt deze url met de rechtermuisknop op de web-taak in het dashboard en de eigenschappen weer te geven of eigenschappen te kiezen in de werkbalk na het selecteren van de taak webpagina van de tabel. Er zijn veel van de artikelen die u kunt vinden over deze online zodat instellingen niet veel informatie over het gaat, maar dit de mogelijkheid van de activering van de profiler van uw pijplijn CI/CD (zoals VSTS) of iets zoals Microsoft Flow (https://flow.microsoft.com/en-us/) wordt geopend. De mogelijkheden zijn afhankelijk van hoe fraai dat u maken van uw run.cmd die door de manier waarop een run.ps1 wilt, uitgebreid.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Met Application Insights werken in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png

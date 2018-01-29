@@ -1,92 +1,180 @@
 ---
-title: Maak een regel op basis van het pad voor een toepassingsgateway - Azure-portal | Microsoft Docs
-description: Informatie over het maken van een regel op basis van het pad voor een toepassingsgateway met behulp van de Azure-portal.
+title: Een toepassingsgateway maken met URL-pad gebaseerde routeringsregels - Azure-portal | Microsoft Docs
+description: Informatie over het maken van de URL op basis van een pad routeringsregels voor een toepassingsgateway en virtuele-machineschaalset ingesteld met de Azure-portal.
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Een regel op basis van het pad voor een toepassingsgateway maken met behulp van de Azure-portal
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met routering regels op basis van een pad met de Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+U kunt de Azure portal gebruiken voor het configureren van [routeringsregels voor URL-pad gebaseerde](application-gateway-url-route-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back-endpools gebruik van virtuele machines. Vervolgens maakt u routeringsregels die zorg ervoor dat het webverkeer binnenkomt op de juiste servers van de groepen.
 
-Met URL-pad gebaseerde routering koppelt u de routes op basis van het URL-pad van de HTTP-aanvragen. Er wordt gecontroleerd of er een route naar een back-endserverpool geconfigureerd voor de URL in de toepassingsgateway is en vervolgens het netwerkverkeer worden verzonden naar de gedefinieerde groep. Vaak gebruikt voor het URL-pad gebaseerde routering is van aanvragen verdelen over voor andere typen inhoud aan andere back-endserver groepen.
+In dit artikel leert u hoe:
 
-Toepassingsgateways zijn twee typen: basic en regels voor URL-pad is gebaseerd. Het basic regeltype biedt round robin-service voor de back-end-adresgroepen. Het patroon van het pad van de aanvraag-URL-pad gebaseerde regels naast round-robin distributie ook gebruiken bij het kiezen van de juiste back-end-pool.
+> [!div class="checklist"]
+> * Een toepassingsgateway maken
+> * Maken van virtuele machines voor back-endservers
+> * Back-endpools maken met de back-endservers
+> * Maak een back-end-listener
+> * Maken van een pad op basis van een regel voor doorsturen
 
-## <a name="scenario"></a>Scenario
+![Voorbeeld van de URL-routering](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Het volgende scenario maakt een regel op basis van het pad in een bestaande application gateway.
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [een toepassingsgateway maken met de portal](application-gateway-create-gateway-portal.md).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-![URL-route][scenario]
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-## <a name="createrule"></a>De regel op basis van een pad maken
+Aanmelden bij de Azure portal op [http://portal.azure.com](http://portal.azure.com)
 
-Een regel op basis van het pad moet een eigen listener. Voordat u de regel maakt, moet u controleren of er een listener beschikbaar om te gebruiken.
+## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-### <a name="step-1"></a>Stap 1
+Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maakt. Twee subnetten worden gemaakt in dit voorbeeld: één voor de toepassingsgateway, en de andere voor de back-endservers. U kunt een virtueel netwerk maken op hetzelfde moment dat u de toepassingsgateway maakt.
 
-Ga naar de [Azure-portal](http://portal.azure.com) en selecteer een bestaande toepassing. Klik op **regels**.
+1. Klik op **nieuw** gevonden in de linkerbovenhoek van de Azure portal.
+2. Selecteer **Networking** en selecteer vervolgens **Application Gateway** in de lijst met aanbevolen.
+3. Voer deze waarden voor de toepassingsgateway:
 
-![Overzicht van Application Gateway][1]
+    - *myAppGateway* - voor de naam van de toepassingsgateway.
+    - *myResourceGroupAG* - voor de nieuwe resourcegroep.
 
-### <a name="step-2"></a>Stap 2
+    ![Nieuwe toepassingsgateway maken](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Klik op de **op basis van het pad** knop een nieuwe regel op basis van het pad toevoegen.
+4. Accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **OK**.
+5. Klik op **Kies een virtueel netwerk**, klikt u op **nieuw**, en voer deze waarden voor het virtuele netwerk:
 
-### <a name="step-3"></a>Stap 3
+    - *myVNet* - voor de naam van het virtuele netwerk.
+    - *10.0.0.0/16* - voor de adresruimte van het virtuele netwerk.
+    - *myAGSubnet* - voor de subnetnaam.
+    - *10.0.0.0/24* - voor de adresruimte van het subnet.
 
-De **toevoegen op basis van een pad regel** blade bevat twee secties. De eerste sectie is waar u de listener, de naam van de regel en de standaardinstellingen van het pad gedefinieerd. De standaardinstellingen van het pad zijn voor routes die niet onder de aangepaste route op basis van het pad vallen. Het tweede gedeelte van de **toevoegen op basis van een pad regel** blade is waar u de regels op basis van een pad zelf definiëren.
+    ![Virtueel netwerk maken](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Basisinstellingen**
+6. Klik op **OK** voor het maken van het virtuele netwerk en subnet.
+7. Klik op **Kies een openbaar IP-adres**, klikt u op **nieuw**, en voer vervolgens de naam van het openbare IP-adres. In dit voorbeeld wordt het openbare IP-adres met de naam *myAGPublicIPAddress*. Accepteer de standaardwaarden voor de overige instellingen en klik vervolgens op **OK**.
+8. Accepteer de standaardwaarden voor de configuratie van de Listener, laat u de Web application firewall is uitgeschakeld en klik vervolgens op **OK**.
+9. Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **OK** om de netwerkbronnen en de toepassingsgateway te maken. Duurt enkele minuten voor de toepassingsgateway worden gemaakt, wacht totdat de implementatie wordt voltooid voordat u doorgaat met de volgende sectie.
 
-* **Naam**: een beschrijvende naam voor de regel die toegankelijk is in de portal.
-* **Listener**: de listener die wordt gebruikt voor de regel.
-* **Standaard back-endpool**: moet worden gebruikt voor de standaardregel voor de back-end.
-* **Standaardinstellingen voor HTTP-**: de HTTP-instellingen voor de standaardregel moet worden gebruikt.
+### <a name="add-a-subnet"></a>Een subnet toevoegen
 
-**Instellingen voor een regel op basis van het pad**
+1. Klik op **alle resources** in het menu links en klik vervolgens op **myVNet** uit de lijst met resources.
+2. Klik op **subnetten**, en klik vervolgens op **Subnet**.
 
-* **Naam**: een beschrijvende naam voor de regel op basis van het pad.
-* **Paden**: het pad naar de regel eruitziet voor doorsturen van verkeer.
-* **Back-endpool**: de back-end voor de regel moet worden gebruikt.
-* **HTTP-instelling**: de HTTP-instellingen voor de regel moet worden gebruikt.
+    ![Subnet maken](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> De **paden** instelling is de lijst met patronen pad moet worden gezocht. Elk patroon moet beginnen met een slash en een sterretje is alleen toegestaan aan het einde. Voorbeelden van geldige: / xyz, / XYZ*, en /xyz/*.  
+3. Voer *myBackendSubnet* voor de naam van het subnet en klik vervolgens op **OK**.
 
-![Een regel op basis van een pad blade met informatie is ingevuld toevoegen][2]
+## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-Een regel op basis van het pad toevoegen aan een bestaande application gateway is een eenvoudig proces via de Azure portal. Nadat u een regel op basis van een pad hebt gemaakt, kunt u deze zodanig dat extra regels kunt bewerken. 
+In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook IIS installeren op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
-![Extra regels op basis van het pad toevoegen][3]
+1. Klik op **Nieuw**.
+2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst met aanbevolen.
+3. Voer deze waarden voor de virtuele machine:
 
-Deze stap configureert u een route op basis van het pad. Het is belangrijk te weten dat aanvragen niet opnieuw worden geschreven. Wanneer aanvragen worden geleverd in, de toepassingsgateway inspecteert de aanvraag en, op basis van het URL-patroon, stuurt de aanvraag naar de juiste back-end-pool.
+    - *myVM1* - voor de naam van de virtuele machine.
+    - *azureuser* - voor de gebruikersnaam van de beheerder.
+    - *Azure123456!* voor het wachtwoord.
+    - Selecteer **gebruik bestaande**, en selecteer vervolgens *myResourceGroupAG*.
+
+4. Klik op **OK**.
+5. Selecteer **DS1_V2** voor de grootte van de virtuele machine en klik op **Selecteer**.
+6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en het subnet is **myBackendSubnet**. 
+7. Klik op **uitgeschakelde** diagnostische gegevens over opstarten uitschakelen.
+8. Klik op **OK**, Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **maken**.
+
+### <a name="install-iis"></a>IIS installeren
+
+1. Open de interactieve shell en zorg ervoor dat deze is ingesteld op **PowerShell**.
+
+    ![Aangepaste extensie installeren](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Voer de volgende opdracht voor het installeren van IIS op de virtuele machine: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Maak twee meer virtuele machines en IIS installeren met behulp van de stappen die u zojuist hebt voltooid. Typ de namen van *myVM2* en *myVM3* voor de namen en de waarden van VMName in Set AzureRmVMExtension.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Back-endpools maken met de virtuele machines
+
+1. Klik op **alle resources** en klik vervolgens op **myAppGateway**.
+2. Klik op **back-endpools**. Een standaardgroep is automatisch gemaakt met de toepassingsgateway. Klik op **appGateayBackendPool**.
+3. Klik op **toevoegen doel** om toe te voegen *myVM1* naar appGatewayBackendPool.
+
+    ![Back-endservers toevoegen](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Klik op **Opslaan**.
+5. Klik op **back-endpools** en klik vervolgens op **toevoegen**.
+6. Voer een naam in van *imagesBackendPool* en voeg *myVM2* met **toevoegen doel**.
+7. Klik op **OK**.
+8. Klik op **toevoegen** om opnieuw toe te voegen met een naam van een andere back-endpool *videoBackendPool* en voeg *myVM3* aan.
+
+## <a name="create-a-backend-listener"></a>Maak een back-end-listener
+
+1. Klik op **Listeners** en klik op **Basic**.
+2. Voer *myBackendListener* voor de naam *myFrontendPort* voor de naam van de frontend-poort, en vervolgens *8080* als de poort voor de listener.
+3. Klik op **OK**.
+
+## <a name="create-a-path-based-routing-rule"></a>Maken van een pad op basis van een regel voor doorsturen
+
+1. Klik op **regels** en klik vervolgens op **op basis van het pad**.
+2. Voer *regel 2* voor de naam.
+3. Voer *installatiekopieën* voor de naam van het eerste pad. Voer */images/** voor het pad. Selecteer **imagesBackendPool** voor de back-endpool.
+4. Voer *Video* voor de naam van het tweede pad. Voer */video/** voor het pad. Selecteer **videoBackendPool** voor de back-endpool.
+
+    ![Maak een regel op basis van het pad](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Klik op **OK**.
+
+## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
+
+1. Klik op **alle resources**, en klik vervolgens op **myAGPublicIPAddress**.
+
+    ![Record application gateway openbaar IP-adres](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser. Zoals http://http: / / 40.121.222.19.
+
+    ![Basis-URL te testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Wijzig de URL naar http://&lt;IP-adres&gt;: 8080/video/test.htm, vervangen door &lt;IP-adres&gt; met uw IP-adres en u ziet ongeveer het volgende voorbeeld:
+
+    ![Test-URL voor afbeeldingen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Wijzig de URL naar http://&lt;IP-adres&gt;: 8080/video/test.htm, vervangen door &lt;IP-adres&gt; met uw IP-adres en u ziet ongeveer het volgende voorbeeld:
+
+    ![Video-URL te testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het configureren van SSL-offloading met Azure Application Gateway, [een toepassingsgateway voor SSL-offload configureren met behulp van de Azure-portal](application-gateway-ssl-portal.md).
+In dit artikel hebt u geleerd hoe u
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+> [!div class="checklist"]
+> * Een toepassingsgateway maken
+> * Maken van virtuele machines voor back-endservers
+> * Back-endpools maken met de back-endservers
+> * Maak een back-end-listener
+> * Maken van een pad op basis van een regel voor doorsturen
+
+Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.

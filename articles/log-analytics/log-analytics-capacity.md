@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Plannen van capaciteit voor Hyper-V-virtuele machine met de capaciteit en prestaties-oplossing (Preview)
 
@@ -47,7 +47,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 |---|---|---|
 | [Windows-agents](log-analytics-windows-agent.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
 | [Linux-agents](log-analytics-linux-agents.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
-| [SCOM-beheergroep](log-analytics-om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een directe verbinding van de SCOM-agents met OMS is niet vereist. Gegevens worden doorgestuurd van de beheergroep naar de OMS-opslag.|
+| [SCOM-beheergroep](log-analytics-om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een rechtstreekse verbinding tussen de SCOM-agents met logboekanalyse is niet vereist.|
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Azure-opslag bevat geen gegevens voor capaciteit en prestaties.|
 
 ## <a name="prerequisites"></a>Vereisten
@@ -59,11 +59,11 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 Voer de volgende stap om de oplossing capaciteit en prestaties toevoegen aan uw werkruimte.
 
-- De oplossing capaciteit en prestaties toevoegen aan uw OMS-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
+- De oplossing capaciteit en prestaties toevoegen aan uw werkruimte voor logboekanalyse met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Management packs
 
-Als uw SCOM-beheergroep met de OMS-werkruimte is verbonden, worden wordt de volgende management packs geïnstalleerd in SCOM wanneer u deze oplossing toevoegt. Er is geen configuratie of onderhoud van deze management packs vereist.
+Als uw SCOM-beheergroep met de werkruimte voor logboekanalyse is verbonden, worden wordt de volgende management packs geïnstalleerd in SCOM wanneer u deze oplossing toevoegt. Er is geen configuratie of onderhoud van deze management packs vereist.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 

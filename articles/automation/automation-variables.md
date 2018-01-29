@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabele assets in Azure Automation
 
@@ -51,20 +51,20 @@ Hier volgen een lijst met variabelen die beschikbaar zijn in Automation:
 * Boole-waarde
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Scripts voor het maken en beheren van variabelen
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
+De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation referentieassets met Windows PowerShell.  Ze worden verzonden als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van Automation-variabelen met Windows PowerShell. Ze worden verzonden als onderdeel van de [Azure PowerShell-module](../powershell-install-configure.md) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuratie.
-
-|Cmdlets|Beschrijving|
+| Cmdlets | Beschrijving |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Haalt de waarde van een bestaande variabele.|
-|[Nieuwe AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Maakt een nieuwe variabele en stelt u de waarde ervan.|
-|[Verwijder AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Hiermee verwijdert u een bestaande variabele.|
+|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Maakt een nieuwe variabele en stelt u de waarde ervan.|
+|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Hiermee verwijdert u een bestaande variabele.|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|De waarde voor een bestaande variabele ingesteld.|
 
-De workflow-activiteiten in de volgende tabel worden gebruikt voor toegang tot Automation-variabelen in een runbook. Ze zijn alleen beschikbaar voor gebruik in een runbook of de DSC-configuratie en niet worden geleverd als onderdeel van de Azure PowerShell-module.
+## <a name="activities"></a>Activiteiten
+De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referenties in een runbook en DSC-configuraties.
 
-|Workflow-activiteiten|Beschrijving|
+| Activiteiten | Beschrijving |
 |:---|:---|
 |Get-AutomationVariable|Haalt de waarde van een bestaande variabele.|
 |Set-AutomationVariable|De waarde voor een bestaande variabele ingesteld.|
@@ -205,4 +205,3 @@ De volgende afbeelding toont een voorbeeld van activiteiten voor het bijwerken v
 
 * Zie voor meer informatie over het aansluiten van activiteiten bij elkaar in grafisch ontwerpen, [koppelingen in het grafisch ontwerpen](automation-graphical-authoring-intro.md#links-and-workflow)
 * Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks 
-

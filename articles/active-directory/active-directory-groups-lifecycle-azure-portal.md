@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Verlooptijd voor Office 365-groepen (preview) configureren
 
@@ -34,11 +34,21 @@ Verlopen van functies voor deze instelling kunt u nu de levenscyclus van Office 
 
 Zie voor meer informatie over het downloaden en installeren van de Azure AD PowerShell-cmdlets [Azure Active Directory PowerShell voor Graph - openbare Preview-versie 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Rollen en machtigingen
+Dit zijn de functies die u kunnen configureren en gebruiken van de vervaldatum voor Office 365-groepen in Azure AD.
+
+Rol | Machtigingen
+-------- | --------
+Globale beheerder<br>Beheerder van gebruikersaccounts | Kunt maken, lezen, bijwerken of verwijderen van de beleidsinstellingen voor verlopen van Office 365-groepen
+Gebruiker | Een Office 365-groep waarvan ze eigenaar kunnen vernieuwen<br>Een Office 365-groep waarvan ze eigenaar kunt herstellen
+
+Zie voor meer informatie over machtigingen voor het herstellen van een verwijderde groepen [herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Verlopen van de set-groep
 
 1. Open de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder in uw Azure AD-tenant.
 
-2. Open Azure AD, selecteer **gebruikers en groepen**.
+2. Selecteer **gebruikers en groepen**.
 
 3. Selecteer **groepsinstellingen** en selecteer vervolgens **verlopen** om de verloopdatum-instellingen te openen.
   
@@ -48,7 +58,7 @@ Zie voor meer informatie over het downloaden en installeren van de Azure AD Powe
 
   * De levensduur van de groep in dagen ingesteld. U kunt een van de vooraf gedefinieerde waarden, of een aangepaste waarde (moet 31 dagen of meer) selecteren. 
   * Geef een e-mailadres waar de vernieuwing en verlopen-meldingen moeten worden verzonden wanneer een groep geen eigenaar heeft. 
-  * Selecteer welke groepen door Office 365 verloopt. U kunt de vervaldatum voor inschakelen **alle** Office 365-groepen, kunt u een van de Office 365-groepen selecteren of u selecteert **geen** verlopen voor alle groepen uitschakelen.
+  * Selecteer welke groepen door Office 365 verloopt. Kunt u de vervaldatum voor **alle** Office 365-groepen die u kunt kiezen om in te schakelen alleen **geselecteerde** Office 365-groepen, of u selecteert **geen** verlopen voor alle groepen uitschakelen .
   * Uw instellingen opslaan als u bent met het selecteren van klaar **opslaan**.
 
 

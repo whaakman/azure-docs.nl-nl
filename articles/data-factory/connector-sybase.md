@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Gegevens kopiëren van Sybase met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,6 @@ De volgende eigenschappen worden ondersteund voor Sybase gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Sybase** | Ja |
 | server | De naam van de Sybase-server. |Ja |
 | database | Naam van de Sybase-database. |Ja |
-| schema | De naam van het schema in de database. |Nee |
 | authenticationType | Het soort verificatie die verbinding maken met de Sybase-database wordt gebruikt.<br/>Toegestane waarden zijn: **Basic**, en **Windows**. |Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de Sybase-database. |Ja |
 | wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString. |Ja |

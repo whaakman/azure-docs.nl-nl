@@ -5,8 +5,7 @@ keywords: versleuteling van gegevens, de versleutelingssleutel, cloud-versleutel
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Beveiligen van gevoelige gegevens in SQL-Database en de versleutelingssleutels in Azure Sleutelkluis
 
@@ -48,30 +47,18 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * [Azure PowerShell](/powershell/azure/overview), versie 1.0 of hoger. Type **(Get-Module azure - ListAvailable). Versie** wilt zien welke versie van PowerShell uitgevoerd.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>De clienttoepassing toegang tot de SQL-Database-service inschakelen
-U moet uw clienttoepassing toegang krijgt tot de SQL Database-service door het instellen van de vereiste verificatie en het ophalen van een inschakelen de *ClientId* en *geheim* dat moet u verificatie van uw toepassing in de volgende code.
+U moet de clienttoepassing toegang heeft tot de service SQL Database met een Azure Active Directory (AAD)-toepassing instellen en kopiëren inschakelen de *toepassings-ID* en *sleutel* die u moet verificatie van uw toepassing.
 
-1. Open de [klassieke Azure-portal](http://manage.windowsazure.com).
-2. Selecteer **Active Directory** en klik op het Active Directory-exemplaar dat uw toepassing wordt gebruikt.
-3. Klik op **toepassingen**, en klik vervolgens op **toevoegen**.
-4. Typ een naam voor uw toepassing (bijvoorbeeld: *myClientApp*), selecteer **WEBTOEPASSING**, en klik op de pijl om door te gaan.
-5. Voor de **AANMELDINGS-URL** en **APP ID URI** kunt u een geldige URL invoeren (bijvoorbeeld *http://myClientApp*) en door te gaan.
-6. Klik op **configureren**.
-7. Kopieer uw **CLIENT-ID**. (U moet deze waarde in uw code later.)
-8. In de **sleutels** sectie **1 jaar** van de **Selecteer duur** vervolgkeuzelijst. (Kopieert u de sleutel nadat u hebt opgeslagen in stap 13.)
-9. Schuif naar beneden en klik op **toepassing toevoegen**.
-10. Laat **weergeven** ingesteld op **Microsoft-Apps** en selecteer **Microsoft Azure Service Management API**. Klik op het vinkje om door te gaan.
-11. Selecteer **Azure Service Management openen...**  van de **gedelegeerde machtigingen** vervolgkeuzelijst.
-12. Klik op **OPSLAAN**.
-13. Nadat de opslagbewerking is voltooid, kopieert u de waarde van de sleutel in de **sleutels** sectie. (U moet deze waarde in uw code later.)
+Ophalen van de *toepassings-ID* en *sleutel*, volg de stappen in [maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Een sleutelkluis voor het opslaan van uw sleutels maken
-Nu dat uw client-app is geconfigureerd en u uw client-ID hebt, is het tijd om een sleutelkluis maken en configureren van het toegangsbeleid, zodat u en uw toepassing toegang krijgen de kluis geheimen (de sleutels altijd versleuteld tot). De *maken*, *ophalen*, *lijst*, *aanmelding*, *controleren*, *wrapKey*, en *unwrapKey* machtigingen zijn vereist voor het maken van een nieuwe hoofdsleutel voor kolom- en voor het instellen van versleuteling met SQL Server Management Studio.
+Nu dat uw client-app is geconfigureerd en u de ID van uw toepassing hebt, is het tijd om een sleutelkluis maken en configureren van het toegangsbeleid, zodat u en uw toepassing toegang krijgen de kluis geheimen (de sleutels altijd versleuteld tot). De *maken*, *ophalen*, *lijst*, *aanmelding*, *controleren*, *wrapKey*, en *unwrapKey* machtigingen zijn vereist voor het maken van een nieuwe hoofdsleutel voor kolom- en voor het instellen van versleuteling met SQL Server Management Studio.
 
 U kunt snel een sleutelkluis maken het volgende script uit te voeren. Zie voor een gedetailleerde uitleg van deze cmdlets en meer informatie over het maken en configureren van een sleutelkluis [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ U kunt snel een sleutelkluis maken het volgende script uit te voeren. Zie voor e
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -233,7 +220,7 @@ De volgende code laat zien hoe de Azure Sleutelkluis-provider geregistreerd met 
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Voer de app om te zien altijd versleuteld in te grijpen.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Voer de app om te zien altijd versleuteld in te grijpen.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);

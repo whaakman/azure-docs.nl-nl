@@ -1,10 +1,10 @@
 ---
-title: Controleer de verbinding met Azure-netwerk-Watcher - Azure CLI 2.0 | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u van connectiviteit controleren met behulp van Azure CLI 2.0 netwerk-Watcher
+title: Verbindingen met de Azure-netwerk-Watcher - Azure CLI 2.0 oplossen | Microsoft Docs
+description: Informatie over het gebruik van de verbinding mogelijkheid van netwerk-Watcher van Azure met behulp van de Azure CLI 2.0 oplossen.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Controleer de verbinding met Azure met Azure CLI 2.0 netwerk-Watcher
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Verbindingen met de netwerk-Watcher van Azure met behulp van de Azure CLI 2.0 oplossen
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van verbinding om te controleren als direct TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
+Informatie over het gebruik van verbinding oplossen om te controleren of een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
 
-* Een exemplaar van netwerk-Watcher in de regio die u wilt controleren, connectiviteit.
-
-* Virtuele machines connectiviteit met controleren.
+* Een exemplaar van netwerk-Watcher in de regio die u wilt een verbinding oplossen.
+* Virtuele machines verbindingen met oplossen.
 
 > [!IMPORTANT]
-> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Verbinding problemen met de extensie van een virtuele machine vereist `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
 
@@ -122,7 +121,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>Problemen met routing valideren
 
-Het voorbeeld wordt de verbinding tussen een virtuele machine en een extern eindpunt.
+In dit voorbeeld controleert de connectiviteit tussen een virtuele machine en een extern eindpunt.
 
 ### <a name="example"></a>Voorbeeld
 

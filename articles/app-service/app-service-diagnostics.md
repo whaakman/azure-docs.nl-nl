@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Overzicht van de diagnostische gegevens van Azure App Service 
 
 Wanneer u een webtoepassing uitvoert, die u wilt worden voorbereid voor eventuele problemen die zich voordoen kunnen, 500 fouten aan uw gebruikers om u aan te geven die uw site is niet beschikbaar. App Service diagnostische gegevens is een intelligente en interactieve ervaring om u te helpen bij het oplossen van uw web-app zonder configuratie vereist. Wanneer u in problemen met uw web-app uitvoert, wijst u informatie over wat er verkeerde om u te helpen de juiste informatie gemakkelijker en sneller oplossen en los het probleem diagnostische gegevens van App Service. 
  
 Hoewel deze ervaring handig is als je problemen met uw web-app in de afgelopen 24 uur hebt, wordt de diagnostische grafieken beschikbaar voor u te allen tijde analyseren zijn. Extra hulpprogramma's voor probleemoplossing en koppelingen naar nuttige documentatie en forums bevinden zich in de rechterkolom.
+
+## <a name="open-app-service-diagnostics"></a>Open diagnostische gegevens van App Service
+
+Als u diagnostische gegevens van App Service, gaat u naar uw App Service-web-app in de [Azure-portal](https://portal.azure.com). 
+
+Klik in het linkernavigatievenster op **diagnosticeren en oplossen van problemen**.
 
 ![Startpagina](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Hiermee wordt aangegeven of u meer wilt weten nadat een [health checkup](#health
 
 ![Diagnostisch rapport](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Open diagnostische gegevens van App Service
-
-Als u diagnostische gegevens van App Service, gaat u naar uw App Service-web-app in de [Azure-portal](https://portal.azure.com). 
-
-Klik in het linkernavigatievenster op **diagnosticeren en oplossen van problemen**.

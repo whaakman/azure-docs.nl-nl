@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2017
+ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 880f5e5967298401fc2522124af3746d9906ffa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f9efdbaf0ae79781d6f9c7dfa4c8317185be79e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Het lokale Windows-wachtwoord opnieuw instellen voor de virtuele machine in Azure
-U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure worden verkregen met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) opgegeven in de Azure guest-agent is geïnstalleerd. Deze methode is de eenvoudigste manier om in te stellen van een wachtwoord voor een virtuele machine in Azure. Als u problemen ondervindt met de Azure guest-agent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron OS-schijf koppelen aan een andere virtuele machine. 
+# <a name="reset-local-windows-password-for-azure-vm-offline"></a>Opnieuw offline lokale Windows-wachtwoord instellen voor de virtuele machine in Azure
+U kunt opnieuw instellen van het lokale Windows-wachtwoord van een virtuele machine in Azure worden verkregen met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) opgegeven in de Azure guest-agent is geïnstalleerd. Deze methode is de eenvoudigste manier om in te stellen van een wachtwoord voor een virtuele machine in Azure. Als u problemen ondervindt met de Azure guest-agent niet reageert of niet worden geïnstalleerd na het uploaden van een aangepaste installatiekopie, u handmatig kunt moet u een Windows-wachtwoord opnieuw instellen. Dit artikel wordt uitgelegd hoe u een lokaal account-wachtwoord opnieuw instellen door de virtuele bron OS-schijf koppelen aan een andere virtuele machine. De stappen in dit artikel zijn niet van toepassing op Windows-domeincontrollers. 
 
 > [!WARNING]
 > Gebruik deze methode alleen als een laatste toevlucht. Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eerste.
@@ -39,6 +39,12 @@ De belangrijkste stappen voor het uitvoeren van een lokale wachtwoord opnieuw in
 * Wanneer de nieuwe virtuele machine wordt opgestart, werk de configuratiebestanden die u maakt het wachtwoord van de gebruiker vereist.
 
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
+
+> [!NOTE]
+> De stappen zijn niet van toepassing op Windows-domeincontrollers. Deze functie werkt alleen op zelfstandige server of een server die lid is van een domein.
+> 
+> 
+
 Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voordat u de volgende stappen uit. Zorg ervoor dat er een back-up van uw virtuele machine voordat u begint. 
 
 1. Verwijder de betrokken virtuele machine in Azure-portal. Verwijderen van de virtuele machine verwijdert u alleen de metagegevens van de referentie van de virtuele machine in Azure. De virtuele schijven worden bewaard wanneer de virtuele machine wordt verwijderd:
@@ -104,10 +110,9 @@ Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azu
     net user <username> <newpassword> /add
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
-
     ```
 
-    ![FixAzureVM.cmd maken](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     U moet voldoen aan de complexiteitsvereisten van het ingestelde wachtwoord voor uw virtuele machine bij het definiëren van het nieuwe wachtwoord.
 7. Ontkoppel de schijf van de VM voor het oplossen van problemen in Azure-portal:
@@ -136,11 +141,11 @@ Probeert altijd opnieuw instellen van een wachtwoord met de [Azure-portal of Azu
 10. Nadat de nieuwe virtuele machine wordt uitgevoerd, verbinding maken met de virtuele machine via Extern bureaublad met het nieuwe wachtwoord dat u hebt opgegeven in de `FixAzureVM.cmd` script.
 11. Verwijderen van de externe sessie naar de nieuwe virtuele machine de volgende bestanden om de omgeving op te schonen:
     
-    * Van %windir%\System32
-      * FixAzureVM.cmd verwijderen
-    * Van %windir%\System32\GroupPolicy\Machine\
+    * From %windir%\System32
+      * remove FixAzureVM.cmd
+    * From %windir%\System32\GroupPolicy\Machine\
       * scripts.ini verwijderen
-    * Van %windir%\System32\GroupPolicy
+    * From %windir%\System32\GroupPolicy
       * gpt.ini verwijderen (indien gpt.ini bestond en u een naam gewijzigd in gpt.ini.bak, wijzig de naam van het .bak-bestand terug naar gpt.ini)
 
 ## <a name="next-steps"></a>Volgende stappen

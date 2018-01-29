@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor Azure diagnostische logboeken
 
@@ -34,16 +34,16 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 | Toepassingsgateways |[Logboekregistratie van diagnostische gegevens voor de toepassingsgateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics voor Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Diagnostische logboekregistratie van Azure Batch](../batch/batch-diagnostics.md) |
-| Klant-inzichten | Het schema is niet beschikbaar. |
+| Customer Insights | Het schema is niet beschikbaar. |
 | CDN (Content Delivery Network) | Het schema is niet beschikbaar. |
-| CosmosDB | [Logboekregistratie van Azure Cosmos DB](../cosmos-db/logging.md) |
+| CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Diagnostische logboeken openen voor Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Toegang tot diagnoselogboeken voor Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Diagnostische logboeken van Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT Hub | [Bewerkingen van de IoT-Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Logboekregistratie van Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Logboekanalyse voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Logic Apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Logische apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Netwerkbeveiligingsgroepen |[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-beveiliging | Het schema is niet beschikbaar. |
 | Recovery Services | [Het gegevensmodel voor Azure Backup](../backup/backup-azure-reports-data-model.md)|
@@ -55,24 +55,23 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 | Virtuele netwerken | Het schema is niet beschikbaar. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logboek categorieën per resourcetype ondersteund
-|Resourcetype|Category|Weergavenaam van de categorie|
+|Brontype|Categorie|Weergavenaam van de categorie|
 |---|---|---|
-|Microsoft.aadiam/tenants|Aanmelden|Aanmelden|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logboeken die betrekking hebben op ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Taaklogboeken|
-|Microsoft.Automation/automationAccounts|JobStreams|Taak stromen|
+|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status van de DSC-knooppunt|
-|Microsoft.Batch/batchAccounts|ServiceLog|Service-Logboeken|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee haalt u de metrische gegevens van het eindpunt, zoals bandbreedte, uitgaande, enzovoort.|
+|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee worden de metrische gegevens van het eindpunt opgehaald, zoals bandbreedte, uitgaand verkeer enzovoort.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
-|Microsoft.DataFactory/factories|Activiteiten|Pipeline-activiteitenlogboek wordt uitgevoerd|
+|Microsoft.DataFactory/factories|ActivityRuns|Pipeline-activiteitenlogboek wordt uitgevoerd|
 |Microsoft.DataFactory/factories|PipelineRuns|Pijplijn uitgevoerd logboek|
 |Microsoft.DataFactory/factories|TriggerRuns|Trigger voert logboek|
-|Microsoft.DataLakeAnalytics/accounts|Controleren|Controlelogboeken|
+|Microsoft.DataLakeAnalytics/accounts|Controle|Auditlogboeken|
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken aanvragen|
-|Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
+|Microsoft.DataLakeStore/accounts|Controle|Auditlogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken aanvragen|
 |Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|De Apparaattelemetrie|
@@ -92,9 +91,9 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archief Logboeken|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logboeken voor automatisch schalen|
-|Microsoft.KeyVault/vaults|AuditEvent|Controlelogboeken|
+|Microsoft.KeyVault/vaults|AuditEvent|Auditlogboeken|
 |Microsoft.Logic/workflows|WorkflowRuntime|Diagnostische gebeurtenissen van de workflowruntime|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Houd gebeurtenissen bij integratie-Account|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Gebeurtenissen van integratieaccounts bijhouden|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Gebeurtenis van Netwerkbeveiligingsgroep|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelteller van Netwerkbeveiligingsgroep|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Netwerkbeveiligingsgroep regel stroom gebeurtenis|
@@ -116,6 +115,8 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery gerepliceerde Items|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery replicatie statistieken|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery-herstelpunten|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery replicatiegegevens uploaden snelheid|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery beveiligde schijf Gegevensverloop|
 |Microsoft.Search/searchServices|OperationLogs|Bewerkingslogboeken|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime-statistieken|
@@ -125,6 +126,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Sql/servers/databases|Time-outs|Time-outs|
 |Microsoft.Sql/servers/databases|Blokken|Blokken|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL-inzichten|
+|Microsoft.Sql/servers/databases|Controle|Auditlogboeken|
 |Microsoft.StreamAnalytics/streamingjobs|Uitvoering|Uitvoering|
 |Microsoft.StreamAnalytics/streamingjobs|Ontwerpen|Ontwerpen|
 

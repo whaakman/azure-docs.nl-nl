@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Kolom afgeleid door voorbeeld transformatie
 
@@ -68,6 +68,10 @@ U kunt in de geavanceerde modus rijen toevoegen als een van de Voorbeeldrij door
 
 Gebruikers kan schakelen tussen de **standaardmodus** en de **geavanceerde modus** door te klikken op de koppelingen in de Editor transformeren.
 
+### <a name="transform-editor-send-feedback"></a>Editor transformeren: Feedback verzenden
+
+Te klikken op de **feedback verzenden** koppelen wordt geopend de **Feedback** dialoogvenster met het Opmerkingen vooraf ingevuld met de gebruiker voorbeelden is opgegeven. Gebruiker moet de inhoud van het opmerkingenvak bekijken en vindt u meer informatie zodat we kunnen het probleem te begrijpen. Als de gebruiker niet wil gegevens delen met Microsoft, gebruiker de vooraf ingevulde bijvoorbeeld gegevens verwijdert voordat u op de **Feedback verzenden** knop. 
+
 ### <a name="editing-existing-transformation"></a>Bestaande transformatie bewerken
 
 Gebruikers kunnen bewerken in een bestaande **kolom afgeleid door voorbeeld** transformeren door te selecteren **bewerken** optie van de transformatie-stap. Te klikken op **bewerken** opent de Editor transformeren in **geavanceerde modus**, en de voorbeelden die zijn opgegeven tijdens het maken van de transformatie worden weergegeven.
@@ -85,16 +89,16 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 2
 
 |Invoer|Uitvoer|
 |:-----|:-----|
-|C:\Python35\Tools\pynche\TypeinViewer.PY|**TypeinViewer.py**|
+|C:\Python35\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
 |C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
 |C:\Python35\Tools\pynche\websafe.txt|websafe.txt|
-|C:\Python35\Tools\pynche\X\rgb.txt|RGB.txt|
+|C:\Python35\Tools\pynche\X\rgb.txt|rgb.txt|
 |C:\Python35\Tools\pynche\X\xlicense.txt|xlicense.txt|
-|C:\Python35\Tools\Scripts\2to3.PY|2to3.PY|
-|C:\Python35\Tools\Scripts\analyze_dxp.PY|**analyze_dxp.PY**|
-|C:\Python35\Tools\Scripts\byext.PY|byext.PY|
-|C:\Python35\Tools\Scripts\byteyears.PY|byteyears.PY|
-|C:\Python35\Tools\Scripts\checkappend.PY|checkappend.PY|
+|C:\Python35\Tools\Scripts\2to3.py|2to3.PY|
+|C:\Python35\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
+|C:\Python35\Tools\Scripts\byext.py|byext.PY|
+|C:\Python35\Tools\Scripts\byteyears.py|byteyears.PY|
+|C:\Python35\Tools\Scripts\checkappend.py|checkappend.py|
 
 ### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Case manipulatie tijdens de extractie van tekenreeks
 
@@ -102,7 +106,7 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 3
 
 |Invoer|Uitvoer|
 |:-----|:-----|
-|KERSTDAGEN CT & ONBESTELBARE einde;  NIEUWE HANNOVER; Station 332; 2015-12-10 @ 17:10:52;|**Nieuwe Hannover**|
+|KERSTDAGEN CT & ONBESTELBARE einde;  NIEUWE HANNOVER; Station 332; 2015-12-10 @ 17:10:52;|**New Hanover**|
 |BRIAR pad & WHITEMARSH RG;  HATFIELD TOWNSHIP; Station 345; 2015-12-10 @ 17:29:21;|Hatfield Township|
 |HAWS AVE; NORRISTOWN; 2015-12-10 @ 14:39:21-station: STA27;|**Norristown**|
 |AIRY ST & ST KOOLRAAP;  NORRISTOWN; Station 308 bis; 2015-12-10 @ 16:47:36;|**Norristown**|
@@ -122,8 +126,8 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 |Invoer|Uitvoer|
 |:-----|:-----|
 |MONTGOMERY AVE & WOODSIDE RD;  LAGERE MERION; Station 313; 2015-12-11 @ 04:11:35;|**12 november 2015 4 uur**|
-|DREYCOTT RG & W LANCASTER AVE;  LAGERE MERION; Station 313; 2015-12-11 @ 01:29:52;|12 november 2015 1 uur|
-|EXTERN BUREAUBLAD-FABRIEK VOOR E-LEVERING & CONSHOHOCKEN STATUS RD; LAGERE MERION; 2015-12-11 @ 07:29:58;|12 november 2015 7 uur|
+|DREYCOTT RG & W LANCASTER AVE;  LAGERE MERION; Station 313; 2015-12-11 @ 01:29:52;|12 Nov 2015 1AM|
+|EXTERN BUREAUBLAD-FABRIEK VOOR E-LEVERING & CONSHOHOCKEN STATUS RD; LAGERE MERION; 2015-12-11 @ 07:29:58;|12 Nov 2015 7AM|
 |PENN VALLEY RD & MANOR RD;  LAGERE MERION; Station 313; 2015-12-10 @ 20:53:30;|12 Oct 2015 8 uur|
 |BELMONT AVE & OVERHILL RD; LAGERE MERION; 2015-12-10 @ 23:02:27;|12 Oct 2015 23: 00 uur|
 |W MONTGOMERY AVE & PENNSWOOD RD; LAGERE MERION; 2015-12-10 @ 19:25:22;|12 Oct 2015 19 uur|
@@ -140,20 +144,20 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 |Voornaam|Initialen|Achternaam|Uitvoer|
 |:-----|:-----|:-----|:-----|
 |Laquanda||Lohmann|Laquanda·· Lohmann|
-|Claudio|A|Kauwen|**Claudio· A· Kauwen**|
-|Sarah ANS|S|Smith|Sarah Jane· S· Smith|
+|Claudio|A|Kauwen|**Claudio·A·Chew**|
+|Sarah-Jane|S|Smith|Sarah-Jane·S·Smith|
 |Brandi||Blumenthal|Brandi·· Blumenthal|
-|Jesusita|R|Reis|Jesusita· R· Reis|
+|Jesusita|V|Reis|Jesusita·R·Journey|
 |Hermina||Hults|Hermina·· Hults|
-|Anne Marie|W|Jones|Anne Marie· W· Jones|
-|Rico||Ropp|Rico·· Ropp|
-|Lauren mei||Fullmer|Lauren May·· Fullmer|
-|Tony|D|Maine|Marc· T· Maine|
-|Angie||Adelman|Angie·· Adelman|
-|Jeroen Paul||Smith|John Paul·· Smith|
-|Nummer|W|Staller|Song· W· Staller|
-|Jill||Jefferies|Jill·· Jefferies|
-|Respijtperiode voor Ruby|M|Simmons|Ruby Grace· M· Simmons|
+|Anne-Marie|W|Jones|Anne-Marie·W·Jones|
+|Rico||Ropp|Rico··Ropp|
+|Lauren-May||Fullmer|Lauren-May··Fullmer|
+|Tony|D|Maine|Marc·T·Maine|
+|Angie||Adelman|Angie··Adelman|
+|John-Paul||Smith|John-Paul··Smith|
+|Nummer|W|Staller|Song·W·Staller|
+|Jill||Jefferies|Jill··Jefferies|
+|Ruby-Grace|M|Simmons|Ruby-Grace·M·Simmons|
 
 ### <a name="s5-generating-initials"></a>S5. Initialen genereren
 
@@ -165,7 +169,7 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 2
 |Claudio kauwen|C.C.|
 |Sarah ANS Smith|S.S.|
 |Brandi Blumenthal|B.B.|
-|Jesusita reis|J.J.|
+|Jesusita Journey|J.J.|
 |Hermina Hults|H.H.|
 |Anne Marie Jones|A.J.|
 |Rico Ropp|R.R.|
@@ -266,7 +270,7 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 
 Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 
-|Code|Uitvoer|
+|Coderen|Uitvoer|
 |-----:|-----:|
 |5828|**05828**|
 |44130|44130|
@@ -286,28 +290,28 @@ Aantal voorbeelden die vereist voor deze aanvraag zijn: 1
 
 Deze onderdelen van een datum zijn geëxtraheerd met behulp van verschillende door voorbeeld transformaties op dezelfde gegevensset. Vet tekenreeksen vertegenwoordigen in de voorbeelden die zijn opgegeven in hun respectieve transformatie.
 
-|Datum en tijd|werkdag|Date|Maand|Jaar|Uur|Minuut|Tweede|
+|Datum en tijd|werkdag|Datum|Maand|Jaar|Uur|Minuut|Tweede|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|31-Jan-2031 05:54:18|**Vr**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
+|31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|wo|17|jan|1990|13|32|01|
 |14-Feb-2034 05:36:07|di|14|feb|2034|5|36|07|
-|14-mrt-2002 13:16:16|do|14|mrt|2002|13|16|16|
+|14-Mar-2002 13:16:16|do|14|mrt|2002|13|16|16|
 |21-Jan-1985 05:44:43|ma|21|jan|1985|5|44|**43**|
-|16-augustus-1985 01:11:56|vr|16|aug|1985|1|11|56|
-|20-december-2033 18:36:29|di|20|dec|2033|18|36|29|
+|16-Aug-1985 01:11:56|vr|16|aug|1985|1|11|56|
+|20-Dec-2033 18:36:29|di|20|dec|2033|18|36|29|
 |16-Jul-1984 10:21:59|ma|16|jul|1984|10|21|59|
-|13-januari-2038 10:59:36|wo|13|jan|2038|10|59|36|
-|14-augustus-1982 15:13:54|za|14|aug|1982|15|13|54|
-|22-november-2030 08:18:08|vr|22|nov|2030|8|18|08|
+|13-Jan-2038 10:59:36|wo|13|jan|2038|10|59|36|
+|14-Aug-1982 15:13:54|za|14|aug|1982|15|13|54|
+|22-Nov-2030 08:18:08|vr|22|nov|2030|8|18|08|
 |21-Oct-1997 08:42:58|di|21|okt|1997|8|42|58|
-|28-november-2006 14:19:15|di|28|nov|2006|14|19|15|
-|29-april-2031 04:59:45|di|29|apr|2031|4|59|45|
+|28-Nov-2006 14:19:15|di|28|nov|2006|14|19|15|
+|29-Apr-2031 04:59:45|di|29|apr|2031|4|59|45|
 |29-Jan-2032 02:38:36|do|29|jan|2032|2|38|36|
-|11-mei-2028 15:31:52|do|11|mei|2028|15|31|52|
+|11-May-2028 15:31:52|do|11|mei|2028|15|31|52|
 |15-Jul-1977 12:45:39|vr|15|jul|1977|12|45|39|
 |27-Jan-2029 05:55:41|za|27|jan|2029|5|55|41|
-|Mrt-03-2024 10:17:49|zo|3|mrt|2024|10|17|49|
-|14 april 2010 00:23:13|wo|14|apr|2010|0|23|13|
+|03-Mar-2024 10:17:49|zo|3|mrt|2024|10|17|49|
+|14-Apr-2010 00:23:13|wo|14|apr|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Datumnotatie
 
@@ -315,26 +319,26 @@ Deze datum formattings zijn gedaan met behulp van verschillende door voorbeeld t
 
 |Datum en tijd|Opmaak 1|Opmaak 2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
-|31-Jan-2031 05:54:18|**1/31/2031**|**Vrijdag 31 januari 2031**|**01312031 5:54**|**1-31/2031 5:54 UUR**|**W1 2031**|
-|17-Jan-1990 13:32:01|1/17/1990|Woensdag 17 januari 1990|01171990 13:32|17-1-1990 13:32 UUR|W1 1990|
-|14-Feb-2034 05:36:07|2/14/2034|Tuesday 14 februari 2034|02142034 5:36|2-14/2034 5:36 UUR|W1 2034
-|14-mrt-2002 13:16:16|3/14/2002|Donderdag 14 maart 2002|03142002 13:16|3-14/2002 13:16 UUR|W1 2002
-|21-Jan-1985 05:44:43|1/21/1985|Maandag 21 januari 1985|01211985 5:44|1-21/1985 5:44 UUR|W1 1985
-|16-augustus-1985 01:11:56|8/16/1985|Vrijdag 16 augustus 1985|08161985 1:11|8-16/1985 1:11 UUR|Q3 1985
-|20-december-2033 18:36:29|12/20/2033|Tuesday 20 December 2033|12202033 18:36|20-12-2033 6:36 UUR|2033 KW 4
+|31-Jan-2031 05:54:18|**1/31/2031**|**Vrijdag 31 januari 2031**|**01312031 5:54**|**1-31/2031 5:54 UUR**|**Q1 2031**|
+|17-Jan-1990 13:32:01|1/17/1990|Woensdag 17 januari 1990|01171990 13:32|17-1-1990 13:32 UUR|Q1 1990|
+|14-Feb-2034 05:36:07|2/14/2034|Tuesday 14 februari 2034|02142034 5:36|2-14/2034 5:36 UUR|Q1 2034
+|14-Mar-2002 13:16:16|3/14/2002|Donderdag 14 maart 2002|03142002 13:16|3-14/2002 13:16 UUR|Q1 2002
+|21-Jan-1985 05:44:43|1/21/1985|Maandag 21 januari 1985|01211985 5:44|1-21/1985 5:44 UUR|Q1 1985
+|16-Aug-1985 01:11:56|8/16/1985|Vrijdag 16 augustus 1985|08161985 1:11|8-16/1985 1:11 UUR|Q3 1985
+|20-Dec-2033 18:36:29|12/20/2033|Tuesday 20 December 2033|12202033 18:36|20-12-2033 6:36 UUR|Q4 2033
 |16-Jul-1984 10:21:59|7/16/1984|Maandag tot 16 juli 1984|07161984 10:21|16/7/1984 10:21:00|Q3 1984
-|13-januari-2038 10:59:36|1/13/2038|Woensdag 13 januari 2038|01132038 10:59|1-13/2038 10:59 UUR|W1 2038
-|14-augustus-1982 15:13:54|8/14/1982|Zaterdag 14 augustus 1982|08141982 15:13|8-14/1982 15:13:00|Q3 1982
-|22-november-2030 08:18:08|11/22/2030|Vrijdag 22 November 2030|11222030 8:18|11-22/2030 08:18:00|2030 KW 4
-|21-Oct-1997 08:42:58|10/21/1997|Tuesday 21 oktober 1997|10211997 8:42|21/10/1997 8:42 UUR|KW 4 1997
-|28-november-2006 14:19:15|11/28/2006|Tuesday 28 November 2006|11282006 14:19|11-28-2006 14:19 UUR|2006 KW 4
-|29-april-2031 04:59:45|4/29/2031|Tuesday 29 April 2031|04292031 4:59|4-29/2031 4:59 UUR|K2 2031
-|29-Jan-2032 02:38:36|1/29/2032|Donderdag 29 januari 2032|01292032 2:38|1/29/2032 2:38 UUR|W1 2032
-|11-mei-2028 15:31:52|5/11/2028|Donderdag 11 mei 2028|05112028 15:31|11/5/2028 3:31 PM|2028 K2
+|13-Jan-2038 10:59:36|1/13/2038|Woensdag 13 januari 2038|01132038 10:59|1-13/2038 10:59 UUR|Q1 2038
+|14-Aug-1982 15:13:54|8/14/1982|Zaterdag 14 augustus 1982|08141982 15:13|8-14/1982 15:13:00|Q3 1982
+|22-Nov-2030 08:18:08|11/22/2030|Vrijdag 22 November 2030|11222030 8:18|11-22/2030 08:18:00|Q4 2030
+|21-Oct-1997 08:42:58|10/21/1997|Tuesday 21 oktober 1997|10211997 8:42|21/10/1997 8:42 UUR|Q4 1997
+|28-Nov-2006 14:19:15|11/28/2006|Tuesday 28 November 2006|11282006 14:19|11-28-2006 14:19 UUR|Q4 2006
+|29-Apr-2031 04:59:45|4/29/2031|Tuesday 29 April 2031|04292031 4:59|4-29/2031 4:59 UUR|Q2 2031
+|29-Jan-2032 02:38:36|1/29/2032|Donderdag 29 januari 2032|01292032 2:38|1/29/2032 2:38 UUR|Q1 2032
+|11-May-2028 15:31:52|5/11/2028|Donderdag 11 mei 2028|05112028 15:31|11/5/2028 3:31 PM|Q2 2028
 |15-Jul-1977 12:45:39|7/15/1977|Vrijdag 15 juli 1977|07151977 12:45|7-15/1977 12:45 UUR|Q3 1977
-|27-Jan-2029 05:55:41|1/27/2029|Zaterdag 27 januari 2029|01272029 5:55|1/27/2029 5:55 UUR|W1 2029
-|Mrt-03-2024 10:17:49|3/3/2024|Zondag 3 maart 2024|03032024 10:17|3-3/2024 10:17:00|2024 W1
-|14 april 2010 00:23:13|4/14/2010|Woensdag 14 April 2010|04142010 0:23|4-14-2010 12:23 AM|K2 2010
+|27-Jan-2029 05:55:41|1/27/2029|Zaterdag 27 januari 2029|01272029 5:55|1/27/2029 5:55 UUR|Q1 2029
+|03-Mar-2024 10:17:49|3/3/2024|Zondag 3 maart 2024|03032024 10:17|3-3/2024 10:17:00|Q1 2024
+|14-Apr-2010 00:23:13|4/14/2010|Woensdag 14 April 2010|04142010 0:23|4-14-2010 12:23 AM|Q2 2010
 
 
 ### <a name="d3-mapping-time-to-time-periods"></a>D3. Toewijzing van tijd tot tijd punten
@@ -343,30 +347,30 @@ Deze datum/tijd in periode toewijzingen zijn gedaan met behulp van verschillende
 
 |Datum en tijd|Period(seconds)|Period(MINUTES)|Periode (twee uur)|Periode (30 minuten)|
 |-----:|-----:|-----:|-----:|-----:|
-|31-Jan-2031 05:54:18|**0-20**|**45-60**|**05: 00 - 07: 00**|**5:30-6:00**|
-|17-Jan-1990 13:32:01|**0-20**|30-45|1-3 UUR|13:30-14:00|
-|14-Feb-2034 05:36:07|0-20|30-45|05: 00 - 07: 00|5:30-6:00|
-|14-mrt-2002 13:16:16|0-20|15-30|1-3 UUR|13:00-13:30|
-|21-Jan-1985 05:44:43|40-60|30-45|05: 00 - 07: 00|5:30-6:00|
-|16-augustus-1985 01:11:56|40-60|0-15|01: 00 - 3 UUR|1:00-1:30|
-|20-december-2033 18:36:29|20-40|30-45|5-7 UUR|18:30-19:00|
-|16-Jul-1984 10:21:59|40-60|15-30|09: 00 - 11 UUR|10:00-10:30|
-|13-januari-2038 10:59:36|20-40|45-60|09: 00 - 11 UUR|10:30-11:00|
-|14-augustus-1982 15:13:54|40-60|0-15|15: 00 - 17: 00 UUR|15:00-15:30|
-|22-november-2030 08:18:08|0-20|15-30|07: 00 - 9: 00 UUR|8:00-8:30|
-|21-Oct-1997 08:42:58|40-60|30-45|07: 00 - 9: 00 UUR|8:30-9:00|
-|28-november-2006 14:19:15|0-20|15-30|1-3 UUR|14:00-14:30|
-|29-april-2031 04:59:45|40-60|45-60|UUR VAN 3-5 UUR|4:30-5:00|
-|29-Jan-2032 02:38:36|20-40|30-45|01: 00 - 3 UUR|2:30-3:00|
-|11-mei-2028 15:31:52|40-60|30-45|15: 00 - 17: 00 UUR|15:30-16:00|
-|15-Jul-1977 12:45:39|20-40|45-60|11 AM - 1 UUR|12:30-13:00|
-|27-Jan-2029 05:55:41|40-60|45-60|05: 00 - 07: 00|5:30-6:00|
-|Mrt-03-2024 10:17:49|40-60|15-30|09: 00 - 11 UUR|10:00-10:30|
-|14 april 2010 00:23:13|0-20|15-30|23: 00 UUR - 1 UUR|0:00-0:30|
+|31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
+|17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
+|14-Feb-2034 05:36:07|0-20|30-45|5AM-7AM|5:30-6:00|
+|14-Mar-2002 13:16:16|0-20|15-30|1PM-3PM|13:00-13:30|
+|21-Jan-1985 05:44:43|40-60|30-45|5AM-7AM|5:30-6:00|
+|16-Aug-1985 01:11:56|40-60|0-15|1AM-3AM|1:00-1:30|
+|20-Dec-2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
+|16-Jul-1984 10:21:59|40-60|15-30|9AM-11AM|10:00-10:30|
+|13-Jan-2038 10:59:36|20-40|45-60|9AM-11AM|10:30-11:00|
+|14-Aug-1982 15:13:54|40-60|0-15|3PM-5PM|15:00-15:30|
+|22-Nov-2030 08:18:08|0-20|15-30|7AM-9AM|8:00-8:30|
+|21-Oct-1997 08:42:58|40-60|30-45|7AM-9AM|8:30-9:00|
+|28-Nov-2006 14:19:15|0-20|15-30|1PM-3PM|14:00-14:30|
+|29-Apr-2031 04:59:45|40-60|45-60|3AM-5AM|4:30-5:00|
+|29-Jan-2032 02:38:36|20-40|30-45|1AM-3AM|2:30-3:00|
+|11-May-2028 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
+|15-Jul-1977 12:45:39|20-40|45-60|11AM-1PM|12:30-13:00|
+|27-Jan-2029 05:55:41|40-60|45-60|5AM-7AM|5:30-6:00|
+|03-Mar-2024 10:17:49|40-60|15-30|9AM-11AM|10:00-10:30|
+|14-Apr-2010 00:23:13|0-20|15-30|11PM-1AM|0:00-0:30|
 
 ## <a name="examples-of-composite-transformations-by-example"></a>Voorbeelden van samengestelde transformaties door voorbeeld
 
-|tripduration|StartTime|Start station-id|station breedtegraad starten|station lengtegraad starten|UserType|Kolom|
+|tripduration|starttime|Start station-id|station breedtegraad starten|station lengtegraad starten|UserType|Kolom|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |61|2016-01-08 16:09:32|107|42.3625|-71.08822|Abonnee|**Een abonnee gekozen een fiets vanaf station 107 lat/long (42.363,-71.088) op 08 Jan 2016 om ongeveer 4 uur. De duur reis zijn 61 minuten**|
 |61|2016-01-17 09:28:10|74|42.373268|-71.118579|Klant|Een klant gekozen een fiets vanaf station 74 lat/long (42.373,-71.119) op 17 Jan 2016 op ongeveer 9: 00 uur. De duur reis zijn 61 minuten|

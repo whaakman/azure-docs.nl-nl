@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Hotfixes downloaden
 
@@ -27,7 +27,7 @@ Voer de volgende stappen uit om de software-update te downloaden uit de Microsof
 
 Voer de volgende stappen uit om hotfixes in de normale modus te installeren en te controleren. Als u deze al hebt geïnstalleerd met de klassieke Azure-portal, gaat u verder met [Hotfixes in de onderhoudsmodus installeren en controleren](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. U installeert de hotfixes door de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat te openen. Volg de gedetailleerde instructies in [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Druk op de opdrachtregel op **Enter**.
+1. U installeert de hotfixes door de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat te openen. Volg de gedetailleerde instructies in [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Druk op de opdrachtregel op **Enter**.
 2. Selecteer **Optie 1** als u zich met volledige toegang wilt aanmelden bij het apparaat. U wordt geadviseerd om de hotfix eerst op de passieve controller te installeren.
 3. Installeer de hotfix door achter de opdrachtprompt het volgende te typen:
    

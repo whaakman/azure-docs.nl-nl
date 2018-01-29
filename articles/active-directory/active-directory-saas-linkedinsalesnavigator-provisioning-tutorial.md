@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 8fafda2687e81a226bdc91a642cebc9ec97d8cbe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn verkoop Navigator voor het automatisch gebruikers inrichten configureren
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn verkoop Navigator configureren voor het automatisch gebruikers inrichten
 
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in LinkedIn verkoop Navigator en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar LinkedIn verkoop Navigator ongedaan. 

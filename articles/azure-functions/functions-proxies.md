@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -62,6 +62,11 @@ Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. Voor info
 
 De configuratie voor een proxy hoeft niet statisch. U kunt het gebruik van variabelen in de aanvraag van de oorspronkelijke client, de back-end antwoord of toepassingsinstellingen voorwaarde.
 
+### <a name="reference-localhost"></a>Verwijzing naar lokale functies
+U kunt `localhost` verwijst rechtstreeks naar van een functie binnen dezelfde functie app zonder een proxy RTT aanvraag.
+
+`"backendurl": "localhost/api/httptriggerC#1"`verwijst naar een lokale geactiveerd HTTP-functie op de route`/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Aanvraagparameters verwijzing
 
 U kunt de aanvraagparameters gebruiken als invoer voor de eigenschap van de back-end-URL of als onderdeel van het wijzigen van aanvragen en antwoorden. Sommige parameters kunnen afhankelijk zijn van de Routesjabloon die opgegeven in de base proxyconfiguratie en anderen kunnen afkomstig zijn uit de eigenschappen van de binnenkomende aanvraag.
@@ -94,6 +99,18 @@ Bijvoorbeeld, een back-end-URL van *https://%ORDER_PROCESSING_HOST%/api/orders* 
 
 > [!TIP] 
 > Toepassingsinstellingen voor back-end-hosts gebruiken wanneer u meerdere implementaties of testomgeving. Op die manier kunt u ervoor zorgen dat u altijd met de juiste back-end voor deze omgeving praten zijn.
+
+## <a name="debugProxies"></a>Proxy's oplossen
+
+Door de vlag toe te voegen `"debug":true` naar een proxy in uw `proxy.json` hanteert u logboekregistratie voor foutopsporing. Logboeken worden opgeslagen in `D:\home\LogFiles\Application\Proxies\DetailedTrace` en toegankelijk is via de geavanceerde tools (kudu). Geen HTTP-antwoorden bevat ook een `Proxy-Trace-Location` koptekst met een URL voor toegang tot het logboekbestand.
+
+U kunt fouten opsporen in een proxy vanaf de client door toe te voegen een `Proxy-Trace-Enabled` header ingesteld op `true`. Dit wordt ook een tracering Meld u aan het bestandssysteem en de trace-URL als een kop in het antwoord retourneren.
+
+### <a name="block-proxy-traces"></a>Blok proxy traceringen
+
+Uit veiligheidsoverwegingen kunt u niet wilt laten iedereen die uw service voor het genereren van een tracering aanroepen. Ze kan niet worden de trace-inhoud zonder uw referenties voor aanmelden, maar voor het genereren van de tracering systeembronnen en beschrijft dat u van de functie proxy's gebruikmaakt.
+
+Traceringen helemaal uitschakelen door toe te voegen `"debug":false` naar een bepaalde proxy in uw `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
@@ -130,6 +147,24 @@ Elke proxy heeft een beschrijvende naam, zoals *proxy1* in het voorgaande voorbe
 
 > [!NOTE] 
 > De *route* eigenschap in de Azure Functions-proxy's worden niet door de *routePrefix* eigenschap van de configuratie van de host functie-App. Als u wilt opnemen een voorvoegsel zoals `/api`, moeten worden opgenomen in de *route* eigenschap.
+
+### <a name="disableProxies"></a>Afzonderlijke proxy's uitschakelen
+
+U kunt afzonderlijke proxy's uitschakelen door toe te voegen `"disabled": true` naar de proxy in het `proxies.json` bestand. Dit zorgt ervoor dat alle aanvragen die voldoen aan de matchCondidtion 404 retourneren.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Een object requestOverrides definiëren
 

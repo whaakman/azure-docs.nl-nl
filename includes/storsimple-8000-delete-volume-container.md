@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Als de volumecontainer is volumes gekoppeld, deze volumes offline halen eerst. Volg de stappen in [offline zetten van een volume](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Nadat de volumes offline zijn, kunt u ze verwijderen. Wanneer de volumecontainer geen gekoppelde volumes heeft, verwijdert u de volumecontainer. De volgende procedure voor het verwijderen van een volumecontainer uitvoeren.
+Als de volumecontainer is volumes gekoppeld, deze volumes offline halen eerst. Volg de stappen in [offline zetten van een volume](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Nadat de volumes offline zijn, kunt u ze verwijderen. Wanneer de volumecontainer geen gekoppelde volumes heeft, verwijdert u de volumecontainer. De volgende procedure voor het verwijderen van een volumecontainer uitvoeren.
 
 #### <a name="to-delete-a-volume-container"></a>Een volumecontainer verwijderen
 1. Ga naar de StorSimple-apparaatbeheerservice en klik op **Apparaten**. Selecteer en klik op het apparaat gaat u naar **instellingen > beheren > volumecontainers**.

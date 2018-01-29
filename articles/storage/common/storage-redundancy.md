@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -72,7 +72,7 @@ ZRS klassieke accounts kunnen niet worden geconverteerd naar of van LRS, GRS of 
 Zodra ZRS algemeen beschikbaar in een regio, worden niet langer een klassieke ZRS-account maken vanuit de portal in deze regio, maar u kunt een andere wijze kunt maken.  
 Een geautomatiseerde migratieproces van klassieke ZRS naar ZRS wordt in de toekomst worden opgegeven.
 
-ZRS accounts ondersteuning voor het handmatig migreren van een account ZRS in deze regio naar of van een LRS of GRS RAGRS-account. U kunt deze handmatige migratie met behulp van AzCopy, Azure Storage Explorer, Azure PowerShell, Azure CLI of een van de clientbibliotheken van Azure Storage uitvoeren.
+U kunt ZRS accountgegevens handmatig migreren naar of van een account LRS, ZRS klassieke, GRS of RAGRS. U kunt deze handmatige migratie met behulp van AzCopy, Azure Storage Explorer, Azure PowerShell, Azure CLI of een van de clientbibliotheken van Azure Storage uitvoeren.
 
 > [!NOTE]
 > Klassieke ZRS-accounts zijn gepland voor afschaffing en vereiste migratie op 31 maart 2021. Microsoft verzendt meer informatie naar ZRS klassieke klanten vóór de afschaffing.

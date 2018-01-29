@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met GoToMeeting | Microsoft Docs'
+title: 'Zelfstudie: GoToMeeting configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en GoToMeeting.
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Zelfstudie: GoToMeeting configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Zelfstudie: GoToMeeting configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in GoToMeeting en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar GoToMeeting ongedaan.
 
@@ -62,7 +62,7 @@ Deze sectie helpt u bij het verbinding maken met uw Azure AD GoToMeeting van geb
 
 4. Stel de **inrichting** modus **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 5. In de sectie beheerdersreferenties, moet u de volgende stappen uitvoeren:
    
@@ -86,7 +86,7 @@ Deze sectie helpt u bij het verbinding maken met uw Azure AD GoToMeeting van geb
 
 De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan GoToMeeting in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app GoToMeeting beschrijven.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

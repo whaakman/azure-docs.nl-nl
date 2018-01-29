@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing voor Active Directory-Serverstatus controleren in Log Analytics
 
@@ -64,10 +64,10 @@ Active Directory-Serverstatus controleren verzamelt gegevens uit de volgende bro
 
 - Register 
 - LDAP 
-- .NET framework
+- .NET Framework
 - Gebeurtenislogboek 
 - Active Directory Service interfaces (ADSI)
-- Windows Powershell
+- Windows PowerShell
 - Bestandsgegevens 
 - Windows Management Instrumentation (WMI)
 - DCDIAG hulpprogramma API
@@ -108,10 +108,8 @@ Nadat deze is geïnstalleerd, kunt u de samenvatting van aanbevelingen weergeven
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
-2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **OMS-Portal** tegel.  
-4. Op de **overzicht** pagina, klikt u op de **AD Health Check** tegel. 
+3. Klik op de **overzicht** tegel voor uw werkruimte voor logboekanalyse in de Azure portal.
+4. Op de **overzicht** pagina, klikt u op de **Active Directory-Serverstatus controleren** tegel. 
 5. Op de **Health Check** pagina, Controleer de overzichtsgegevens in een van de focus gebied blades en klik op een om aanbevelingen voor het desbetreffende focusgebied weer te geven.
 6. Op een van de focus gebiedspagina's, kunt u de prioriteit aanbevelingen voor uw omgeving weergeven. Klik op een aanbeveling onder **objecten van invloed op een** voor meer informatie over waarom de aanbeveling is gemaakt.<br><br> ![afbeelding van aanbevelingen Serverstatus controleren](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, hoger beoordelingen records die acties aanbevolen zijn uitgevoerd en de naleving-score wordt verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.
@@ -165,7 +163,7 @@ Na de volgende health controle wordt uitgevoerd, standaard elke zeven dagen gepl
 
 *Is er een manier om te configureren hoe vaak de statuscontrole wordt uitgevoerd?*
 
-* Momenteel niet.
+* Op dit moment niet.
 
 *Als een andere server voor wordt gedetecteerd nadat ik heb een oplossing van de controle van status toegevoegd zal worden gecontroleerd*
 
@@ -185,7 +183,7 @@ Na de volgende health controle wordt uitgevoerd, standaard elke zeven dagen gepl
 
 *Is er een manier om te configureren wanneer gegevens worden verzameld?*
 
-* Momenteel niet.
+* Op dit moment niet.
 
 *Waarom worden alleen de top 10 aanbevelingen weergegeven?*
 

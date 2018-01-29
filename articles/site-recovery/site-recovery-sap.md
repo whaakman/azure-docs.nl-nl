@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Een meerlaagse SAP NetWeaver toepassingsimplementatie met Azure Site Recovery beveiligen
 
@@ -81,7 +81,7 @@ Als u een statisch IP-adres gebruikt, kunt u het IP-adres dat u wilt dat de virt
 Een herstelplan kunt de failover van de verschillende lagen in een toepassing met meerdere lagen, daarom toepassing consistentie van de sequentiëring. Volg de stappen beschreven [hier](site-recovery-create-recovery-plans.md) tijdens het maken van een herstelplan voor een webtoepassing met meerdere lagen.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Scripts toe te voegen aan het herstelplan
-U moet wellicht enkele bewerkingen op het failovercluster van de virtuele Azure-machines na failover en testen voor uw toepassingen goed te laten functioneren. U kunt de failoverbewerking post zoals het bijwerken van DNS-vermelding en bindingen en verbindingen, wijzigen door de bijbehorende scripts toevoegen in het herstelplan, zoals beschreven in automatiseren [in dit artikel](site-recovery-create-recovery-plans.md#add-scripts).
+U moet wellicht enkele bewerkingen op het failovercluster van de virtuele Azure-machines na failover en testen voor uw toepassingen goed te laten functioneren. U kunt de failoverbewerking post zoals het bijwerken van DNS-vermelding en bindingen en verbindingen, wijzigen door de bijbehorende scripts toevoegen in het herstelplan, zoals beschreven in automatiseren [in dit artikel](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>DNS-updates
 Als de DNS-server is geconfigureerd voor dynamische DNS-updates, wordt de virtuele machines normaal gesproken moet u de DNS-server bijwerken met het nieuwe IP-zodra ze starten. Als u toevoegen van een expliciete stap wilt voor het bijwerken van DNS met het nieuwe IP-adressen van de virtuele machines en vervolgens voegt u dit [script voor het bijwerken van IP-adres in DNS](https://aka.ms/asr-dns-update) als een post-actie op herstel planningsgroepen.  

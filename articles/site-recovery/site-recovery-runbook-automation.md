@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen herstel van virtuele machines die zijn beveiligd met Site Recovery indelen. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. De herstelplannen ook zorgt u ervoor dat het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines in Azure een failover, uitgebreid integratie met Azure Automation uw plannen voor herstel. U kunt het uitvoeren van runbooks die krachtige automatiseringstaken bieden.
 
-Als u niet bekend met Azure Automation bent, kunt u [aanmelden](https://azure.microsoft.com/services/automation/) en [voorbeeldscripts downloaden](https://azure.microsoft.com/documentation/scripts/). Voor meer informatie en voor informatie over het organiseren van herstel naar Azure met behulp van [herstelplannen](https://azure.microsoft.com/blog/?p=166264), Zie [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Als u niet bekend met Azure Automation bent, kunt u [aanmelden](https://azure.microsoft.com/services/automation/) en [voorbeeldscripts downloaden](https://azure.microsoft.com/documentation/scripts/). Voor meer informatie en voor informatie over het organiseren van herstel naar Azure met behulp van [herstelplannen](./site-recovery-create-recovery-plans.md), Zie [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 In dit artikel wordt beschreven hoe u Azure Automation-runbooks kunt integreren in uw plannen voor herstel. We gebruiken voorbeelden voor het automatiseren van algemene taken die eerder handmatige interventie vereist. We ook wordt beschreven hoe een herstelbewerking met meerdere stappen converteren naar een herstelactie met één klik.
 
@@ -97,9 +97,9 @@ In dit artikel wordt beschreven hoe u Azure Automation-runbooks kunt integreren 
     | VmMap |Een matrix van alle virtuele machines in de groep. |
     | VMMap sleutel |Een unieke sleutel (GUID) voor elke virtuele machine. Dit is hetzelfde als Azure Virtual Machine Manager (VMM)-ID van de virtuele machine, indien van toepassing. |
     | SubscriptionId |De Azure-abonnement-ID waarmee de virtuele machine is gemaakt. |
-    | Rolnaam |De naam van de virtuele machine van Azure die wordt hersteld. |
+    | RoleName |De naam van de virtuele machine van Azure die wordt hersteld. |
     | CloudServiceName |De Azure-cloud servicenaam waaronder de virtuele machine is gemaakt. |
-    | resourceGroupName|De Azure-resource groepsnaam waaronder de virtuele machine is gemaakt. |
+    | ResourceGroupName|De Azure-resource groepsnaam waaronder de virtuele machine is gemaakt. |
     | RecoveryPointId|Het tijdstempel voor wanneer de virtuele machine is hersteld. |
 
 * Zorg ervoor dat het Automation-account de volgende modules heeft:
@@ -256,8 +256,10 @@ Zie de volgende video voor een ander voorbeeld. Laat het herstellen van een toep
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
-## <a name="additional-resources"></a>Aanvullende bronnen
-* [Azure Automation-service uitvoeren als-account](../automation/automation-sec-configure-azure-runas-account.md)
+## <a name="additional-resources"></a>Aanvullende resources
+* [Azure Automation-service uitvoeren als-account](../automation/automation-create-runas-account.md)
 * [Overzicht van Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation-overzicht")
 * [Azure Automation-voorbeeldscripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation-voorbeeldscripts")
+
+## <a name="next-steps"></a>Volgende stappen
+[Meer informatie](site-recovery-failover.md) over het uitvoeren van failovers.

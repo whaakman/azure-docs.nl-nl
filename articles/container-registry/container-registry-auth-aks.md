@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/12/2018
 ms.author: nepeters
-ms.openlocfilehash: d6f6688011ddebe2b486bb6ae00f1f3e095a931d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 86a160d8f2dbfb0e385d9dbed7cf6d789f5a8df6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>Verificatie met Azure Container register van Azure Containerservice
 
@@ -74,7 +74,7 @@ De referenties voor de service-principal kunnen nu worden opgeslagen in een Kube
 De volgende opdracht maakt de Kubernetes geheim. De naam van de server met de server van de aanmelding ACR, de gebruikersnaam vervangen door de service-principal-id en het wachtwoord met het service-principal wachtwoord.
 
 ```bash
-kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> 
+kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
 Het geheim Kubernetes kan worden gebruikt in een schil implementatie met de `ImagePullSecrets` parameter. 

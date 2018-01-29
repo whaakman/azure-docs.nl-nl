@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Google Apps configureren voor het automatisch gebruikers inrichten in Azure | Microsoft Docs'
+title: 'Zelfstudie: Google Apps configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het automatisch inrichten en gebruikersaccounts vanuit Azure AD naar Google Apps ongedaan in te richten.
 services: active-directory
 documentationCenter: na
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a77b5b1fff670ed7698d0ef48fa63f8a8f9be819
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Zelfstudie: Google Apps configureren voor het automatisch gebruikers inrichten
 
@@ -161,7 +161,7 @@ Dit proces wordt gestart voor de initiële synchronisatie van gebruikers of groe
 
 U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van rapporten van activiteiten. Deze rapporten worden alle acties die de worden uitgevoerd door de inrichting service op uw app in Google Apps beschreven.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

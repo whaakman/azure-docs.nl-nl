@@ -1,6 +1,6 @@
 ---
 title: Alleen in tijd virtuele machine toegang heeft tot in Azure Security Center | Microsoft Docs
-description: Dit document vindt u via hoe alleen in de tijd VM openen in Azure Security Center helpt u toegang tot uw virtuele machines in Azure.
+description: Dit document wordt gedemonstreerd hoe alleen in de tijd toegang van de virtuele machine in Azure Security Center helpt u bij toegang tot uw virtuele machines in Azure beheren.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Beheer van de virtuele machine toegang met alleen in de tijd (Preview)
 
@@ -50,11 +50,13 @@ Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Cente
 
 ## <a name="using-just-in-time-access"></a>Met behulp van alleen bij het time-toegang
 
-De **Just in time VM toegang** tegel onder **Security Center** toont het aantal virtuele machines die zijn geconfigureerd voor alleen bij het toegang in uitvoeringstijd en het aantal goedgekeurd toegangsaanvragen in de afgelopen week.
+1. Open het dashboard van **Security Center**.
+
+2. Selecteer in het linkerdeelvenster **Just in time VM toegang**.
 
 ![Alleen in de tijd VM toegang tegel][2]
 
-Selecteer de **Just in time VM toegang** tegel en **Just in time VM toegang** wordt geopend.
+De **Just in time VM toegang** venster wordt geopend.
 
 ![Alleen in de tijd VM toegang tegel][10]
 

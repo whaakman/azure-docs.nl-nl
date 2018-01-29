@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met DocuSign | Microsoft Docs'
+title: 'Zelfstudie: DocuSign configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en DocuSign.
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1de1b8e68648e4bac05eca4b306e741bcdb6868b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Zelfstudie: DocuSign configureren voor gebruikers inrichten
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Zelfstudie: DocuSign configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in DocuSign en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar DocuSign ongedaan.
 
@@ -67,7 +67,7 @@ Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van A
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
 
 5. Onder de **beheerdersreferenties** sectie, bieden de volgende configuratie-instellingen:
    
@@ -93,7 +93,7 @@ De initiële synchronisatie van alle gebruikers die zijn toegewezen aan DocuSign
 
 U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd voor DocuSign.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

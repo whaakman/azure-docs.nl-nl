@@ -4,7 +4,7 @@ description: Informatie over het gebruik van Apache Maven een Apache HBase op ba
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Java-toepassingen voor Apache HBase bouwen
 
@@ -154,7 +154,7 @@ De stappen in dit document gebruik [Maven](http://maven.apache.org/) maken en bo
 
     Maven-schaduw-invoegtoepassing produceert ook een jar uber die de afhankelijkheden die zijn vereist voor de toepassing bevat.
 
-4. Sla de `pom.xml` bestand.
+4. Sla het bestand `pom.xml` op.
 
 5. Maak een map met de naam `conf` in de `hbaseapp` directory. Deze map wordt gebruikt om configuratie-informatie voor het verbinden met HBase.
 
@@ -244,7 +244,7 @@ De stappen in dit document gebruik [Maven](http://maven.apache.org/) maken en bo
 
     Deze code wordt de **CreateTable** klasse, die u een tabel met de naam maakt **mensen** en deze vullen met een aantal vooraf gedefinieerde gebruikers.
 
-3. Sla de `CreateTable.java` bestand.
+3. Sla het bestand `CreateTable.java` op.
 
 4. In de `hbaseapp/src/main/java/com/microsoft/examples` directory, maakt u een bestand met de naam `SearchByEmail.java`. Gebruik de volgende tekst als de inhoud van dit bestand:
 
@@ -323,7 +323,7 @@ De stappen in dit document gebruik [Maven](http://maven.apache.org/) maken en bo
 
     De **SearchByEmail** klasse kan worden gebruikt voor de query voor rijen door e-mailadres. Omdat een filter reguliere expressie worden gebruikt, kunt u een tekenreeks of een reguliere expressie opgeven bij het gebruik van de klasse.
 
-5. Sla de `SearchByEmail.java` bestand.
+5. Sla het bestand `SearchByEmail.java` op.
 
 6. In de `hbaseapp/src/main/hava/com/microsoft/examples` directory, maakt u een bestand met de naam `DeleteTable.java`. Gebruik de volgende tekst als de inhoud van dit bestand:
 
@@ -351,7 +351,7 @@ De stappen in dit document gebruik [Maven](http://maven.apache.org/) maken en bo
 
     Deze klasse de HBase-tabellen in dit voorbeeld is gemaakt door uitschakelen en neer te zetten in de tabel die is gemaakt door schoont de `CreateTable` klasse.
 
-7. Sla de `DeleteTable.java` bestand.
+7. Sla het bestand `DeleteTable.java` op.
 
 ## <a name="build-and-package-the-application"></a>Bouwen en de toepassing van het pakket
 
@@ -626,7 +626,7 @@ De volgende stappen gebruikt Azure PowerShell de JAR uploaden naar de standaard-
    * **Voeg HDInsightFile** : wordt gebruikt om bestanden te uploaden naar het cluster
    * **Start HBaseExample** : wordt gebruikt om uit te voeren van de klassen die eerder hebt gemaakt
 
-2. Sla de `hbase-runner.psm1` bestand.
+2. Sla het bestand `hbase-runner.psm1` op.
 
 3. Open een nieuw Azure PowerShell-venster, wijzig de mappen op de `hbaseapp` directory en voer de volgende opdracht:
 
@@ -642,7 +642,7 @@ De volgende stappen gebruikt Azure PowerShell de JAR uploaden naar de standaard-
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Vervang `hdinsightclustername` door de naam van uw cluster. De opdracht uploadt de `hbaseapp-1.0-SNAPSHOT.jar` naar de `example/jars` locatie in de primaire opslag voor uw cluster.
+    Vervang `hdinsightclustername` door de naam van uw cluster. Wanneer u wordt gevraagd, typt u de cluster-aanmeldingsnaam (admin) en het wachtwoord. De opdracht uploadt de `hbaseapp-1.0-SNAPSHOT.jar` naar de `example/jars` locatie in de primaire opslag voor uw cluster.
 
 5. Maken van een tabel met de `hbaseapp`, gebruik de volgende opdracht:
 
@@ -650,7 +650,7 @@ De volgende stappen gebruikt Azure PowerShell de JAR uploaden naar de standaard-
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Vervang `hdinsightclustername` door de naam van uw cluster.
+    Vervang `hdinsightclustername` door de naam van uw cluster. Wanneer u wordt gevraagd, typt u de cluster-aanmeldingsnaam (admin) en het wachtwoord.
 
     Met deze opdracht maakt een tabel met de naam **mensen** in HBase op uw HDInsight-cluster. Met deze opdracht wordt geen uitvoer niet weergegeven in het consolevenster.
 
@@ -660,7 +660,7 @@ De volgende stappen gebruikt Azure PowerShell de JAR uploaden naar de standaard-
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Vervang `hdinsightclustername` door de naam van uw cluster.
+    Vervang `hdinsightclustername` door de naam van uw cluster. Wanneer u wordt gevraagd, typt u de cluster-aanmeldingsnaam (admin) en het wachtwoord.
 
     Deze opdracht wordt de `SearchByEmail` klasse om te zoeken naar alle rijen waarin de `contactinformation` kolomfamilie en de `email` kolom bevat de tekenreeks `contoso.com`. U ontvangt de volgende resultaten:
 

@@ -2,17 +2,18 @@
 title: Azure datacenter integratie Stack - eindpunten publiceren
 description: Informatie over het publiceren van Azure-Stack-eindpunten in uw datacenter
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/26/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure datacenter integratie Stack - eindpunten publiceren
 
@@ -64,49 +65,6 @@ Azure-Stack ondersteunt alleen transparentproxy servers. In een implementatie wa
 |Registratie|https://management.azure.com|HTTPS|443|
 |Gebruik|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Publicatie van de firewall
-
-De poorten die worden vermeld in de vorige sectie zijn van toepassing op binnenkomende communicatie bij het publiceren van Azure Stack Services via een firewall.
-
-Het is raadzaam dat u een firewall-apparaat gebruiken voor het beveiligde Azure-Stack. Het is echter niet strikt vereist. Hoewel firewalls bij items zoals gedistribueerde denial-of-service (DDOS) aanvallen en inhoudscontrole helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services zoals blobs, tabellen en wachtrijen geworden.
-
-Op basis van het model identiteit (Azure AD of AD FS), mogelijk of kan niet worden vereist voor het publiceren van het AD FS-eindpunt. Als een niet-verbonden implementatiemodus wordt gebruikt, moet u de AD FS-eindpunt publiceren. (Zie het onderwerp Datacenter integratie identiteit voor meer informatie.)
-
-De Azure Resource Manager (beheerder), beheerdersportal en Sleutelkluis (beheerder) eindpunten vereisen per se geen externe publiceren. Dit is afhankelijk van het scenario. Bijvoorbeeld, als een serviceprovider mogelijk wilt u de kwetsbaarheid te beperken en alleen Azure-Stack van beheren in uw netwerk en niet vanaf het Internet.
-
-Het externe netwerk kan het bestaande bedrijfsnetwerk zijn voor uw organisatie. In een dergelijk scenario moet u deze eindpunten voor het gebruik van Azure-Stack van het bedrijfsnetwerk publiceren.
-
-## <a name="edge-firewall-scenario"></a>Edge-firewall-scenario
-
-Azure-Stack wordt geïmplementeerd achter de edge-router (geleverd door de Internetprovider) rechtstreeks in een edge-implementatie met of zonder een firewall plaatsen.
-
-![Architectuurdiagram van de implementatie van een Azure-Stack-rand](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor het openbare VIP-adresgroep tijdens de implementatie in een implementatie van de rand. Dit scenario kan een gebruiker om de ervaring voor de volledige zelf gecontroleerde cloud zoals in een openbare cloud zoals Azure.
-
-### <a name="using-nat"></a>Met behulp van NAT
-
-Hoewel niet aanbevolen vanwege de overhead, kunt u Network Address Translation (NAT) gebruiken voor publiceren-eindpunten. Hiervoor moet een NAT-regel per gebruiker VIP met alle poorten die een gebruiker kan gebruiken voor het eindpunt publiceren die volledig door gebruikers worden beheerd.
-
-Andere overweging is Azure biedt geen ondersteuning voor instellen van een VPN-tunnel naar een eindpunt met behulp van NAT in een scenario met hybride cloud met Azure.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Intranet-Enterprise/perimeternetwerk bevinden firewall scenario
-
-In de implementatie van een intranet-enterprise/perimeter Azure Stack geïmplementeerd buiten een tweede firewall, die meestal deel uitmaakt van een perimeternetwerk (ook wel een DMZ genoemd).
-
-![Azure Stack firewall scenario](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Als openbaar routeerbare IP-adressen zijn opgegeven voor het openbare VIP-adresgroep van Azure-Stack, wordt deze adressen logisch deel uitmaken van het perimeternetwerk en regels voor publicatie op de primaire firewall vereisen.
-
-### <a name="using-nat"></a>Met behulp van NAT
-
-Als niet-openbaar routeerbare IP-adressen worden gebruikt voor het openbare VIP-adresgroep van Azure-Stack, wordt op de secundaire firewall NAT gebruikt voor het publiceren van Azure-Stack-eindpunten. In dit scenario moet u de regels voor publicatie op de primaire firewall buiten de rand, en op de secundaire firewall configureren. Houd rekening met de volgende punten als u wilt NAT gebruiken:
-
-- NAT voegt overhead bij het beheren van firewallregels omdat gebruikers hun eigen eindpunten en hun eigen regels voor publicatie in de software gedefinieerde netwerken (SDN)-stack beheren. Gebruikers moeten contact opnemen met de Azure-Stack-operator hun VIP's gepubliceerd ophalen en bijwerken van de lijst met poorten.
-- Tijdens het gebruik van NAT beperkt de gebruikerservaring, geeft deze volledig beheer aan de operator over publicatieaanvragen afhandelt.
-- Voor hybride cloud scenario's met Azure, kunt u Azure biedt geen ondersteuning voor de instelling van een VPN-tunnel naar een eindpunt met NAT bevinden.
-
 
 ## <a name="next-steps"></a>Volgende stappen
-
 [Stack datacenter integratie van Azure - beveiliging](azure-stack-integrate-security.md)

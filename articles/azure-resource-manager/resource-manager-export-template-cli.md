@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure Resource Manager-sjablonen met Azure CLI exporteren
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Sjabloon opslaan in de implementatiegeschiedenis
 
-U kunt een sjabloon ophalen uit de implementatiegeschiedenis van een met behulp van de [az implementatie exporteren](/cli/azure/group/deployment#export) opdracht. Het volgende voorbeeld wordt de sjabloon die u eerder implementeert:
+U kunt een sjabloon ophalen uit de implementatiegeschiedenis van een met behulp van de [az implementatie exporteren](/cli/azure/group/deployment#az_group_deployment_export) opdracht. Het volgende voorbeeld wordt de sjabloon die u eerder implementeert:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ Retourneert de sjabloon. De JSON kopiëren en opslaan als een bestand. U ziet da
 
 ## <a name="export-resource-group-as-template"></a>Resourcegroep exporteren als sjabloon
 
-In plaats van een sjabloon worden opgehaald uit de implementatiegeschiedenis van de, kunt u ophalen van een sjabloon die de huidige status van een resourcegroep met behulp van vertegenwoordigt de [exporteren az](/cli/azure/group#export) opdracht. U kunt deze opdracht gebruiken wanneer u veel wijzigingen hebt aangebracht in de resourcegroep en er geen bestaande sjabloon alle wijzigingen vertegenwoordigt.
+In plaats van een sjabloon worden opgehaald uit de implementatiegeschiedenis van de, kunt u ophalen van een sjabloon die de huidige status van een resourcegroep met behulp van vertegenwoordigt de [exporteren az](/cli/azure/group#az_group_export) opdracht. U kunt deze opdracht gebruiken wanneer u veel wijzigingen hebt aangebracht in de resourcegroep en er geen bestaande sjabloon alle wijzigingen vertegenwoordigt.
 
 ```azurecli
 az group export --name ExampleGroup

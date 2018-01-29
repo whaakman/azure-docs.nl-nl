@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Inschakelen van Application Insights Profiler voor virtuele machines in Azure, Service Fabric en Cloud Services
 
-In dit artikel laat zien hoe Azure Application Insights Profiler inschakelen op een ASP.NET-toepassing die wordt gehost door een Azure compute-resource. 
+In dit artikel laat zien hoe Azure Application Insights Profiler inschakelen op een ASP.NET-toepassing die wordt gehost door een Azure compute-resource.
 
 De voorbeelden in dit artikel zijn ondersteuning voor Azure Virtual Machines, virtuele-machineschaalsets, Azure Service Fabric en Azure Cloud Services. De voorbeelden zijn afhankelijk van de sjablonen die ondersteuning bieden voor de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) implementatiemodel.  
 
 
 ## <a name="overview"></a>Overzicht
 
-De volgende afbeelding toont hoe de profiler Application Insights werkt met Azure-resources. De afbeelding wordt een virtuele machine van Azure als voorbeeld.
+De volgende afbeelding toont hoe de profiler Application Insights werkt met Azure Compute-bronnen. Azure Compute-bronnen virtuele Machines, virtuele-Machineschaalsets, Cloud Services bevatten en Service Fabric-clusters. De afbeelding wordt een virtuele machine van Azure als voorbeeld.  
 
   ![Overzicht](./media/enable-profiler-compute/overview.png)
 
 U kunt de profiler, moet u de configuratie op drie locaties:
 
-* De Application Insights exemplaar deelvenster in de Azure portal.
+* De Application Insights exemplaar blade in de Azure portal.
 * De broncode toepassing (bijvoorbeeld, een ASP.NET-webtoepassing).
-* De omgeving implementatie definitie broncode (bijvoorbeeld een VM-implementatie sjabloon .json-bestand).
+* De omgeving implementatie definitie broncode (bijvoorbeeld een Azure Resource Manager-sjabloon in .json-bestand).
 
 
 ## <a name="set-up-the-application-insights-instance"></a>De Application Insights-instantie instellen
 
-In de Azure portal maken of Ga naar de Application Insights-instantie die u wilt gebruiken. Noteer de instrumentatiesleutel exemplaar. U gebruikt de instrumentatiesleutel in andere configuratiestappen zijn.
+[Maak een nieuwe Application Insights-resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) of een bestaande set selecteren.
+Navigeer naar uw Application Insights-resource en de Instrumentatiesleutel kopiëren.
 
   ![Locatie van de belangrijkste instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
 
-Dit exemplaar moet hetzelfde zijn als uw toepassing. Deze geconfigureerd voor het verzenden van telemetriegegevens naar bij elke aanvraag.
-Profiler resultaten ook zijn beschikbaar in dit exemplaar.  
-
-In de Azure portal, de stappen die worden beschreven in [inschakelen van de profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) voor het voltooien van de Application Insights-exemplaar in te stellen voor de profiler. U hoeft niet te koppelen van web-apps voor het voorbeeld in dit artikel. NET ervoor te zorgen dat de profiler is ingeschakeld in de portal.
+Voltooi de stappen die worden beschreven in [inschakelen van de profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler) voor het voltooien van de Application Insights-exemplaar in te stellen voor de profiler. U hoeft niet te koppelen van web-apps, zoals aan App Services resource specifieke stappen zijn. NET ervoor te zorgen dat de profiler is ingeschakeld in de *configureren* Profiler blade.
 
 
 ## <a name="set-up-the-application-source-code"></a>De broncode van de toepassing instellen
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>ASP.NET-webtoepassingen, Cloud Services-Web-rollen of -Service Fabric ASP.NET Web Frontend
 Instellen van uw toepassing telemetriegegevens te verzenden naar een Application Insights-exemplaar op elk `Request` bewerking:  
 
-1. Voeg de [Application Insights-SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) aan uw toepassingsproject. Zorg ervoor dat de NuGet-pakket-versies als volgt zijn:  
+Voeg de [Application Insights-SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) aan uw toepassingsproject. Zorg ervoor dat de NuGet-pakket-versies als volgt zijn:  
   - Voor ASP.NET-toepassingen: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 of hoger.
   - Voor ASP.NET Core toepassingen: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 of hoger.
   - Voor andere toepassingen .NET en .NET Core (bijvoorbeeld een stateless Service Fabric-service of een werkrol Cloud Services): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) of [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 of hoger.  
 
-2. Als uw toepassing *niet* een ASP.NET- of ASP.NET Core-toepassing (bijvoorbeeld als een Cloud Services-werkrol of stateless Service Fabric-API's), de volgende extra instrumentation-instellingen zijn vereist:  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>Cloud Services-werkrollen of Service Fabric staatloze back-end
+Als uw toepassing *niet* een ASP.NET- of ASP.NET Core-toepassing (bijvoorbeeld als een Cloud Services-werkrol of stateless Service Fabric-API's), de volgende extra instrumentation-instellingen zijn vereist, naast welke stap boven:  
 
   1. Voeg de volgende code vroeg in de levensduur van de toepassing:  
 
@@ -204,7 +204,7 @@ Volledige voorbeelden:
   ```
 
 2. Als de gewenste toepassing wordt uitgevoerd via [IIS](https://www.microsoft.com/web/platform/server.aspx), schakel de `IIS Http Tracing` Windows-functie:  
-  
+
   1. Externe toegang tot de omgeving tot stand brengen en gebruik vervolgens de [Windows-onderdelen toevoegen]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) venster uit of Voer de volgende opdracht uit in PowerShell (als administrator):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,7 +217,7 @@ Volledige voorbeelden:
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>De profiler op lokale servers inschakelen
 
-Inschakelen van de profiler op een on-premises server wordt ook wel actief Application Insights Profiler in de zelfstandige modus (dit niet gekoppeld aan Azure Diagnostics extensie wijzigingen). 
+Inschakelen van de profiler op een on-premises server wordt ook wel actief Application Insights Profiler in de zelfstandige modus (dit niet gekoppeld aan Azure Diagnostics extensie wijzigingen).
 
 We hebben geen plan officiële ondersteuning voor de profiler voor on-premises servers. Als u geïnteresseerd bent in experimenteren met dit scenario, kunt u [downloaden ondersteuningscode](https://github.com/ramach-msft/AIProfiler-Standalone). We zijn *niet* die verantwoordelijk is voor het onderhouden van die code of voor het reageren op problemen en functieaanvragen in verband met de code.
 

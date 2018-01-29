@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -63,7 +63,7 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Back-upgegevens bevat geen gekoppeld netwerkstations gekoppeld aan een virtuele machine.
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
-* Back-up en herstel van opslag ACLed virtuele machines wordt niet ondersteund vanaf nu. Back-up van virtuele machines wordt niet ondersteund als u de opslag op de VNET-functie waarmee de storage-accounts worden geopend alleen vanaf een bepaalde VNETs/subnetten en/of het IP-adressen hebt ingeschakeld.
+* Back-up en herstel van virtuele Machines met niet-beheerde schijven in de storage-accounts met netwerk regels toegepast wordt momenteel niet ondersteund. Tijdens het configureren van back-up, zorg ervoor dat de 'Firewalls en virtuele netwerken' instellingen voor het opslagaccount toegang toestaan via "Alle netwerken."
 * U kunt back-ups van virtuele machines in alle openbare gebieden van Azure. (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's.) Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
 * Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Zie voor meer informatie, [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die zijn gemaakt via de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

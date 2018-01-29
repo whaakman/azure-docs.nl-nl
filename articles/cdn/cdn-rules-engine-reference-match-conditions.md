@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Voldoen aan bepaalde voorwaarden voor de regels-engine van Azure CDN
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare overeenkomst voorwaarden voor het Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -87,16 +87,16 @@ De voorwaarden van de overeenkomst URL identificeren aanvragen op basis van de U
 
 Naam | Doel
 -----|--------
-URL-pad naar map | Identificeert aanvragen door hun relatief pad.
-URL-pad-uitbreiding | Identificeert aanvragen door de bestandsnaamextensie.
-URL-pad bestandsnaam | Identificeert aanvragen door hun naam.
-URL-pad Literal | Vergelijkt de relatieve pad van een aanvraag met de opgegeven waarde.
-URL-pad Regex | Vergelijkt relatieve pad van een aanvraag naar de opgegeven reguliere expressie.
-URL-pad jokerteken | Vergelijkt relatieve pad van een aanvraag naar het opgegeven patroon.
-URL-Query Literal | Vergelijkt de queryreeks van een aanvraag met de opgegeven waarde.
-URL-queryparameter | Geeft aan dat aanvragen met de opgegeven tekenreeks queryparameter ingesteld op een waarde die overeenkomt met een opgegeven patroon.
-URL-Query Regex | Geeft aan dat aanvragen met de opgegeven tekenreeks queryparameter ingesteld op een waarde die overeenkomt met een opgegeven reguliere expressie.
-URL-Query jokertekens | De opgegeven waarde op basis van de queryreeks van de aanvraag wordt vergeleken.
+[URL-pad naar map](#url-path-directory) | Identificeert aanvragen door hun relatief pad.
+[URL-pad-uitbreiding](#url-path-extension) | Identificeert aanvragen door de bestandsnaamextensie.
+[URL-pad bestandsnaam](#url-path-filename) | Identificeert aanvragen door hun naam.
+[URL-pad Literal](#url-path-literal) | Vergelijkt de relatieve pad van een aanvraag met de opgegeven waarde.
+[URL-pad Regex](#url-path-regex) | Vergelijkt relatieve pad van een aanvraag naar de opgegeven reguliere expressie.
+[URL-pad jokerteken](#url-path-wildcard) | Vergelijkt relatieve pad van een aanvraag naar het opgegeven patroon.
+[URL-Query Literal](#url-query-literal) | Vergelijkt de queryreeks van een aanvraag met de opgegeven waarde.
+[URL-queryparameter](#url-query-parameter) | Geeft aan dat aanvragen met de opgegeven tekenreeks queryparameter ingesteld op een waarde die overeenkomt met een opgegeven patroon.
+[URL-Query Regex](#url-query-regex) | Geeft aan dat aanvragen met de opgegeven tekenreeks queryparameter ingesteld op een waarde die overeenkomt met een opgegeven reguliere expressie.
+[URL-Query jokertekens](#url-query-wildcard) | De opgegeven waarde op basis van de queryreeks van de aanvraag wordt vergeleken.
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Verwijzing voor de overeenkomst motor regels
@@ -112,12 +112,16 @@ De voorwaarde van de overeenkomst altijd geldt een aantal functies voor alle aan
 
 ---
 ### <a name="as-number"></a>AS-nummer 
-Het AS-nummer-netwerk wordt gedefinieerd door de autonoom systeemnummer (ASN). Een optie is om aan te geven of deze voorwaarde wordt voldaan aan wanneer een client netwerk 'Komt overeen met' of 'Komt niet overeen met' aan het opgegeven ASN opgegeven.
+Het AS-nummer-netwerk wordt gedefinieerd door de autonoom systeemnummer (ASN). 
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het AS-nummer overeenkomen met de voorwaarde is voldaan:
+- **Komt overeen met**: is vereist dat het ASN van het clientnetwerk overeenkomt met een van de opgegeven ASN's. 
+- **Komt niet overeen met**: is vereist dat het ASN van het clientnetwerk komt niet overeen met een van de opgegeven ASN's.
 
 Belangrijke informatie:
 - Geef meerdere ASN's door die begrenst elkaar met een spatie. 64514 64515 komt bijvoorbeeld overeen met aanvragen die van de 64514 of 64515 binnenkomen.
 - Bepaalde aanvragen mogelijk geen geldige ASN niet geretourneerd. Een vraagteken (?) komt overeen met aanvragen waarvoor een geldige ASN kan niet worden bepaald.
-- U moet de gehele ASN worden gebruikt voor het gewenste netwerk opgeven. Ondersteuning voor gedeeltelijke waarden wordt niet overeen.
+- Geef de hele ASN worden gebruikt voor het gewenste netwerk. Ondersteuning voor gedeeltelijke waarden wordt niet overeen.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -132,9 +136,9 @@ Belangrijke informatie:
 ---
 ### <a name="cdn-origin"></a>CDN-oorsprong
 De CDN oorsprong overeen-voorwaarde wordt voldaan wanneer beide volgende voorwaarden wordt voldaan:
-- Inhoud uit de Content Delivery Network-opslag is aangevraagd.
-- De aanvraag-URI gebruikt het punt toegang tot inhoud (bijvoorbeeld /000001) die gedefinieerd in deze overeenkomst voorwaarde.
-  - Inhoud levering netwerk URL: De aanvraag-URI moet het toegangspunt voor het geselecteerde inhoud bevatten.
+- Inhoud uit CDN opslag is aangevraagd.
+- De aanvraag-URI wordt gebruikt voor het type inhoud toegangspunt (bijvoorbeeld /000001) dat gedefinieerd in deze overeenkomst voorwaarde:
+  - CDN-URL: De aanvraag-URI moet het toegangspunt voor het geselecteerde inhoud bevatten.
   - Rand CNAME-URL: De configuratie van de bijbehorende rand CNAME moet verwijzen naar de geselecteerde inhoud access point.
   
 Belangrijke informatie:
@@ -147,16 +151,18 @@ Belangrijke informatie:
 
 ---
 ### <a name="client-ip-address"></a>IP-adres van client
-Een optie is om aan te geven of de IP-adres Client voorwaarde worden voldaan wanneer een client-IP-adres 'Komt overeen met' of 'Komt niet overeen met' de opgegeven IP-adressen opgegeven.
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het IP-adres van de Client overeenkomen met de voorwaarde is voldaan:
+- **Komt overeen met**: is vereist dat de client-IP-adres overeenkomt met een van de opgegeven IP-adressen. 
+- **Komt niet overeen met**: is vereist dat de client-IP-adres komt niet overeen met een van de opgegeven IP-adressen. 
 
 Belangrijke informatie:
-- Zorg ervoor dat CIDR-notatie wordt gebruikt.
-- Geef meerdere IP-adressen en/of IP-adresblokken door die begrenst elkaar met een spatie.
-  - **IPv4-voorbeeld**: 1.2.3.4 10.20.30.40 komt overeen met alle aanvragen die van de 1.2.3.4 of 10.20.30.40 binnenkomen.
-  - **IPv6-voorbeeld**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 komt overeen met alle aanvragen die van de 1:2:3:4:5:6:7:8 of 10:20:30:40:50:60:70:80 binnenkomen.
-- De syntaxis voor een IP-Adresblok is het basisadres van de IP-gevolgd door een slash en de grootte van het voorvoegsel.
-  - **IPv4-voorbeeld**: 5.5.5.64/26 komt overeen met alle aanvragen die van de 5.5.5.64 via 5.5.5.127 binnenkomen.
-  - **IPv6-voorbeeld**: 1:2:3: / 48 komt overeen met alle aanvragen die van de 1:2:3:0:0:0:0:0 via 1:2:3:ffff:ffff:ffff:ffff:ffff binnenkomen.
+- Gebruik de CIDR-notatie.
+- Geef meerdere IP-adressen en/of IP-adresblokken door die begrenst elkaar met een spatie. Bijvoorbeeld:
+  - **IPv4-voorbeeld**: 1.2.3.4 10.20.30.40 komt overeen met alle aanvragen die van adres 1.2.3.4 of 10.20.30.40 binnenkomen.
+  - **IPv6-voorbeeld**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 komt overeen met alle aanvragen die van het adres 1:2:3:4:5:6:7:8 of 10:20:30:40:50:60:70:80 binnenkomen.
+- De syntaxis voor een IP-Adresblok is het basisadres van de IP-gevolgd door een slash en de grootte van het voorvoegsel. Bijvoorbeeld:
+  - **IPv4-voorbeeld**: 5.5.5.64/26 komt overeen met alle aanvragen die van de adressen 5.5.5.64 via 5.5.5.127 binnenkomen.
+  - **IPv6-voorbeeld**: 1:2:3: / 48 komt overeen met alle aanvragen die van de adressen 1:2:3:0:0:0:0:0 via 1:2:3:ffff:ffff:ffff:ffff:ffff binnenkomen.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -170,22 +176,22 @@ Belangrijke informatie:
 
 ---
 ### <a name="cookie-parameter"></a>Cookie-Parameter
-De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Cookie-Parameter overeenkomen met de voorwaarde wordt voldaan.
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Cookie-Parameter overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: vereist een aanvraag voor de opgegeven cookie met een waarde die overeenkomt met ten minste een van de waarden die zijn gedefinieerd in deze overeenkomst voorwaarde bevatten.
-- **Komt niet overeen met**: is vereist dat de aanvraag voldoen aan een van de volgende criteria:
+- **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
   - Het bevat niet de opgegeven cookie.
   - De opgegeven cookie bevat, maar de waarde komt niet overeen met een van de waarden die zijn gedefinieerd in deze overeenkomst voorwaarde.
   
 Belangrijke informatie:
 - Cookienaam: 
-  - Speciale tekens, inclusief een sterretje worden niet ondersteund wanneer u een Cookienaam opgeven. Dit betekent dat alleen exacte cookie naam komt overeen met in aanmerking voor de vergelijking komen.
+  - Omdat de jokerteken-waarden, waaronder sterretjes (*) worden niet ondersteund wanneer u een Cookienaam opgeven, komen alleen exacte cookie naam komt overeen met in aanmerking voor vergelijking.
   - Alleen de naam van een enkele cookie kan per exemplaar van deze overeenkomst voorwaarde worden opgegeven.
   - Cookie naam vergelijkingen zijn niet hoofdlettergevoelig.
 - Cookiewaarde: 
   - Meerdere cookiewaarden opgeven door die begrenst elkaar met een spatie.
-  - De waarde van een cookie kunt profiteren van speciale tekens. 
+  - De waarde van een cookie kan profiteren van [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values). 
   - Als een jokerteken niet opgegeven is, wordt alleen een exacte overeenkomst deze overeenkomst voorwaarde voldoen. Bijvoorbeeld ' waarde ' komt overeen met '' waarde '', maar niet 'Value1' of 'Waarde2'.
-  - De **negeren geval** optie wordt bepaald of hoofdletters worden uitgevoerd voor de waarde van de aanvraag-cookie.
+  - Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt gemaakt met de waarde van de aanvraag-cookie.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -199,22 +205,22 @@ Belangrijke informatie:
 
 ---
 ### <a name="cookie-parameter-regex"></a>Cookie Parameter Regex
-De voorwaarde van de overeenkomst Cookie Parameter Regex definieert een Cookienaam en waarde. Reguliere expressies kunt u de gewenste cookiewaarde definiëren. 
+De voorwaarde van de overeenkomst Cookie Parameter Regex definieert een Cookienaam en waarde. U kunt [reguliere expressies](cdn-rules-engine-reference.md#regular-expressions) voor het definiëren van de gewenste cookiewaarde. 
 
-De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden onder waarvoor deze overeenkomen met de voorwaarde voldaan.
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Cookie Parameter Regex overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: vereist een aanvraag voor de opgegeven cookie met een waarde die overeenkomt met de opgegeven reguliere expressie bevatten.
-- **Komt niet overeen met**: is vereist dat de aanvraag voldoen aan een van de volgende criteria:
+- **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
   - Het bevat niet de opgegeven cookie.
   - De opgegeven cookie bevat, maar de waarde komt niet overeen met de opgegeven reguliere expressie.
   
 Belangrijke informatie:
 - Cookienaam: 
-  - Reguliere expressies en speciale tekens, inclusief een sterretje worden niet ondersteund wanneer u een Cookienaam opgeven. Dit betekent dat alleen exacte cookie naam komt overeen met in aanmerking voor de vergelijking komen.
+  - Omdat reguliere expressies en jokerteken waarden, met inbegrip van sterretjes (*) worden niet ondersteund wanneer u een Cookienaam opgeven, komen alleen exacte cookie naam komt overeen met in aanmerking voor vergelijking.
   - Alleen de naam van een enkele cookie kan per exemplaar van deze overeenkomst voorwaarde worden opgegeven.
   - Cookie naam vergelijkingen zijn niet hoofdlettergevoelig.
 - Cookiewaarde: 
   - De waarde van een cookie kunt profiteren van reguliere expressies.
-  - De **negeren geval** optie wordt bepaald of hoofdletters worden uitgevoerd voor de waarde van de aanvraag-cookie.
+  - Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt gemaakt met de waarde van de aanvraag-cookie.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -228,7 +234,11 @@ Belangrijke informatie:
 
 --- 
 ### <a name="country"></a>Land
-U kunt een land via de landcode opgeven. Krijgt u een optie om aan te geven of deze voorwaarde wordt voldaan wanneer het land van waaruit een aanvraag afkomstig 'Komt overeen met' of 'Komt niet overeen met' de opgegeven waarden is.
+U kunt een land via de landcode opgeven. 
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het land overeenkomen met de voorwaarde is voldaan:
+- **Komt overeen met**: de aanvraag bevat de waarden voor het opgegeven land vereist. 
+- **Komt niet overeen met**: de aanvraag bevat geen waarden voor het opgegeven land vereist.
 
 Belangrijke informatie:
 - Geef meerdere landcodes door die begrenst elkaar met een spatie.
@@ -243,6 +253,18 @@ Belangrijke informatie:
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
 
+#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Landen filteren implementeren met behulp van de regelengine voor
+Deze voorwaarde overeen Hiermee kunt u een groot aantal aanpassingen op basis van de locatie van waaruit een aanvraag afkomstig is. Het gedrag van de functie landen filteren kan bijvoorbeeld worden gerepliceerd door de volgende configuratie:
+
+- URL-pad jokerteken: Stel de [URL pad jokerteken overeenkomen met de voorwaarde](#url-path-wildcard) naar de map die worden beveiligd. 
+    Een sterretje aan het einde van het relatieve pad om ervoor te zorgen dat toegang tot alle onderliggende zal worden beperkt door deze regel toevoegen.
+
+- Land overeen: de voorwaarde van de overeenkomst land ingesteld op de gewenste set landen.
+   - Het land overeen toestaan: Stel voorwaarde moet **komt niet overeen met** zodat alleen de opgegeven landen toegang hebben tot inhoud die is opgeslagen in de locatie die is gedefinieerd door de voorwaarde van de overeenkomst jokerteken voor URL-pad.
+   - Blokkeren: Stel het land overeen voorwaarde **komt overeen met** blokkeren van de opgegeven landen toegang krijgen tot inhoud opgeslagen in de locatie die is gedefinieerd door de voorwaarde van de overeenkomst jokerteken voor URL-pad.
+
+- Functie voor weigeren toegang (403): Inschakelen van de [toegang weigeren (403) functie](cdn-rules-engine-reference-features.md#deny-access-403) voor replicatie van het gedeelte toestaan of blokkeren van de functie landen filteren.
+
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
@@ -251,7 +273,7 @@ Belangrijke informatie:
 ### <a name="customer-origin"></a>Oorsprong van de klant
 
 Belangrijke informatie: 
-- Ongeacht of de inhoud wordt aangevraagd via een netwerk-URL van de inhoud-levering of een CNAME-URL die naar de oorsprong van de geselecteerde klant verwijst-rand wordt aan de voorwaarde van de overeenkomst oorsprong van de klant worden voldaan.
+- De klant oorsprong overeen voorwaarde wordt voldaan ongeacht of de inhoud wordt aangevraagd door middel van een CDN-URL of een edge CNAME-URL die naar de oorsprong van de geselecteerde klant verwijst.
 - De configuratie van een klant-oorsprong waarnaar wordt verwezen door een regel kan niet worden verwijderd uit de pagina van de oorsprong van de klant. Voordat u probeert te verwijderen van de configuratie van een klant oorsprong, controleert u dat de volgende configuraties niet verwijzen naar deze:
   - Een klant oorsprong overeen voorwaarde
   - Een edge CNAME-configuratie
@@ -264,7 +286,35 @@ Belangrijke informatie:
 ---
 ### <a name="device"></a>Apparaat
 
-De voorwaarde van de overeenkomst apparaat identificeert aanvragen van een mobiel apparaat op basis van de eigenschappen ervan. Detectie van mobiele apparaten wordt bereikt door [WURFL](http://wurfl.sourceforge.net/). De volgende tabel bevat WURFL mogelijkheden en hun variabelen voor de engine voor het Content Delivery Network regels.
+De voorwaarde van de overeenkomst apparaat identificeert aanvragen van een mobiel apparaat op basis van de eigenschappen ervan. Detectie van mobiele apparaten wordt bereikt door [WURFL](http://wurfl.sourceforge.net/). 
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het apparaat overeenkomen met de voorwaarde is voldaan:
+- **Komt overeen met**: de aanvrager apparaat moet overeenkomen met de opgegeven waarde. 
+- **Komt niet overeen met**: apparaat van de aanvrager komt niet overeen met de opgegeven waarde is vereist.
+
+Belangrijke informatie:
+
+- Gebruik de **negeren geval** optie om op te geven of de opgegeven waarde hoofdlettergevoelig is.
+- Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
+  - Voltooien van de opvulling van de Cache
+  - Standaard interne-maximumleeftijd
+  - Interne maximumleeftijd forceren
+  - Negeren oorsprong No-Cache
+  - Interne Max-verouderd
+
+#### <a name="string-type"></a>Type String
+Een mogelijkheid WURFL accepteert meestal een combinatie van getallen, letters en symbolen. Vanwege de flexibele aard van deze mogelijkheid, moet u kiezen hoe de waarde die is gekoppeld aan deze voorwaarde overeenkomst wordt geïnterpreteerd. De volgende tabel beschrijft de set beschikbare opties:
+
+Type     | Beschrijving
+---------|------------
+Letterlijke  | Selecteer deze optie om te voorkomen dat de meeste tekens op een speciale betekenis met behulp van hun [letterlijke waarde](cdn-rules-engine-reference.md#literal-values).
+Jokertekens | Selecteer deze optie om te profiteren van alle [jokertekens] ([jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
+Reguliere expressie    | Selecteer deze optie gebruiken [reguliere expressies](cdn-rules-engine-reference.md#regular-expressions). Reguliere expressies zijn handig voor het definiëren van een patroon van tekens.
+
+#### <a name="wurfl-capabilities"></a>WURFL mogelijkheden
+Een mogelijkheid WURFL verwijst naar een categorie die mobiele apparaten worden beschreven. De geselecteerde mogelijkheid bepaalt het type van de beschrijving van mobiele apparaten die wordt gebruikt om aanvragen te identificeren.
+
+De volgende tabel bevat WURFL mogelijkheden en hun variabelen voor de regelengine voor.
 <br>
 > [!NOTE] 
 > De volgende variabelen worden ondersteund in de **Client aanvraag-Header wijzigen** en **Client antwoordheader wijzigen** functies.
@@ -281,7 +331,7 @@ Android is | % {wurfl_vcap_is_android} | Een Booleaanse waarde die aangeeft of h
 IOS is | % {wurfl_vcap_is_ios} | Een Booleaanse waarde die aangeeft of het apparaat iOS gebruikt. | onwaar
 Smart TV is | % {wurfl_cap_is_smarttv} | Een Booleaanse waarde die aangeeft of het apparaat een intelligente TV is. | onwaar
 Smartphone is | % {wurfl_vcap_is_smartphone} | Een Booleaanse waarde die aangeeft of het apparaat een smartphone is. | waar
-Is Tablet | % {wurfl_cap_is_tablet} | Een Booleaanse waarde die aangeeft of het apparaat een tablet is. Dit is een beschrijving onafhankelijk van het besturingssysteem. | waar
+Is Tablet | % {wurfl_cap_is_tablet} | Een Booleaanse waarde die aangeeft of het apparaat een tablet is. Deze beschrijving is onafhankelijk van het besturingssysteem. | waar
 Draadloze apparaat | % {wurfl_cap_is_wireless_device} | Een Booleaanse waarde die aangeeft of het apparaat wordt beschouwd als een draadloos apparaat. | waar
 De naam van marketing | % {wurfl_cap_marketing_name} | Een tekenreeks die marketing naam van het apparaat aangeeft. | BlackBerry 8100 Pearl
 Mobiele Browser | % {wurfl_cap_mobile_browser} | Een tekenreeks die aangeeft van de browser die wordt gebruikt voor het aanvragen van inhoud van het apparaat. | Chrome
@@ -299,7 +349,7 @@ Breedte van de oplossing | % {wurfl_cap_resolution_width} | Een geheel getal dat
 ---
 ### <a name="edge-cname"></a>Rand Cname
 Belangrijke informatie: 
-- De lijst met beschikbare rand CNAME-records is beperkt tot apparaten die zijn geconfigureerd op de pagina rand CNAME-records die overeenkomt met het platform waarop HTTP regels-Engine wordt geconfigureerd.
+- De lijst met beschikbare rand CNAME-records is beperkt tot deze rand CNAMEs die zijn geconfigureerd op de pagina rand CNAME-records voor het platform waarop de regelengine wordt geconfigureerd.
 - Voordat u probeert te verwijderen van een CNAME-rand configuratie, ervoor zorgen dat een overeenkomst rand Cname voorwaarde verwijst niet naar het. Rand CNAME-configuraties die zijn gedefinieerd in een regel kunnen niet worden verwijderd uit de pagina rand CNAME-records. 
 - Gebruik een instructie en als niet aan bepaalde voorwaarden overeen combineren. Een voorwaarde rand Cname overeen met de voorwaarde van een klant oorsprong overeen combineren zou bijvoorbeeld een patroon overeen die nooit overeen maken. Om deze reden kunnen niet via een instructie en als worden gecombineerd met twee voorwaarden van de rand Cname overeen.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
@@ -315,13 +365,17 @@ Belangrijke informatie:
 
 ---
 ### <a name="referring-domain"></a>Verwijzende domein
-De hostnaam die is gekoppeld aan de verwijzende site waarmee inhoud is aangevraagd, wordt bepaald of het domein verwijst-voorwaarde is voldaan. Een optie wordt om aan te geven of deze voorwaarde wordt voldaan aan wanneer de verwijzende host-naam 'Komt overeen met' of 'Komt niet overeen met' de opgegeven waarden verstrekt.
+De hostnaam die is gekoppeld aan de verwijzende site waarmee inhoud is aangevraagd, wordt bepaald of het domein verwijst-voorwaarde is voldaan. 
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het domein verwijst overeenkomen met de voorwaarde is voldaan:
+- **Komt overeen met**: vereist de verwijzende hostnaam overeenkomen met de opgegeven waarden. 
+- **Komt niet overeen met**: de verwijzende hostnaam komt niet overeen met de opgegeven waarde is vereist.
 
 Belangrijke informatie:
 - Geef meerdere hostnamen door die begrenst elkaar met een spatie.
-- Deze voorwaarde overeen ondersteunt speciale tekens.
+- Deze voorwaarde overeen ondersteunt [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
 - Als de opgegeven waarde geen een sterretje bevat, moet een exacte overeenkomst voor de verwijzende hostnaam. Bijvoorbeeld 'mijndomein.com' geven niet overeenkomen met 'www.mydomain.com'.
-- De **negeren geval** optie wordt bepaald of hoofdletters worden uitgevoerd.
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt gemaakt.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -335,14 +389,14 @@ Belangrijke informatie:
 
 ---  
 ### <a name="request-header-literal"></a>Aanvraag-Header Literal
-De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden onder waarvoor deze overeenkomen met de voorwaarde voldaan.
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de aanvraag-Header letterlijke overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: de aanvraag bevat de opgegeven header is vereist. De waarde moet overeenkomen met die gedefinieerd in deze overeenkomst voorwaarde.
-- **Komt niet overeen met**: is vereist dat de aanvraag voldoen aan een van de volgende criteria:
+- **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
   - Het bevat niet de opgegeven header.
   - Het opgegeven header bevat, maar de waarde komt niet overeen met die gedefinieerd in deze overeenkomst voorwaarde.
   
 Belangrijke informatie:
-- Header-naam vergelijkingen zijn niet hoofdlettergevoelig. De **negeren geval** optie bepaalt de hoofdlettergevoeligheid vergelijkingen van header-waarde.
+- Header-naam vergelijkingen zijn niet hoofdlettergevoelig. Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid vergelijkingen van header-waarde.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -356,20 +410,20 @@ Belangrijke informatie:
 
 ---  
 ### <a name="request-header-regex"></a>Aanvraag-Header Regex
-De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Regex-Header aanvraag overeenkomen met de voorwaarde wordt voldaan.
-- **Komt overeen met**: de aanvraag bevat de opgegeven header is vereist. De waarde moet overeenkomen met het patroon dat gedefinieerd in de opgegeven reguliere expressie.
-- **Komt niet overeen met**: is vereist dat de aanvraag voldoen aan een van de volgende criteria:
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de Regex-Header aanvraag overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat de opgegeven header is vereist. De waarde moet overeenkomen met het patroon dat gedefinieerd in de opgegeven [reguliere expressie](cdn-rules-engine-reference.md#regular-expressions).
+- **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
   - Het bevat niet de opgegeven header.
   - Het opgegeven header bevat, maar de waarde komt niet overeen met de opgegeven reguliere expressie.
 
 Belangrijke informatie:
 - Headernaam: 
   - Header-naam vergelijkingen zijn niet hoofdlettergevoelig.
-  - Spaties in de header-naam moeten worden vervangen door "% 20". 
+  - Spaties in de header-naam vervangen door "% 20". 
 - Headerwaarde: 
   - De waarde van een koptekst kunt profiteren van reguliere expressies.
-  - De **negeren geval** optie bepaalt de hoofdlettergevoeligheid vergelijkingen van header-waarde.
-  - Alleen exacte header-waarde komt overeen met ten minste een van de opgegeven patronen voldoen aan deze voorwaarde.
+  - Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid vergelijkingen van header-waarde.
+  - De overeenkomst-voorwaarde wordt voldaan, alleen wanneer de waarde van een header exact overeenkomt met ten minste één van de opgegeven patronen.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
   - Standaard interne-maximumleeftijd
@@ -383,9 +437,9 @@ Belangrijke informatie:
 
 ---
 ### <a name="request-header-wildcard"></a>Aanvraag-Header jokertekens
-De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het jokerteken Header aanvraag overeenkomen met de voorwaarde wordt voldaan.
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het jokerteken Header aanvraag overeenkomen met de voorwaarde is voldaan.
 - **Komt overeen met**: de aanvraag bevat de opgegeven header is vereist. De waarde moet overeenkomen met ten minste een van de waarden die zijn gedefinieerd in deze overeenkomst voorwaarde.
-- **Komt niet overeen met**: is vereist dat de aanvraag voldoen aan een van de volgende criteria:
+- **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
   - Het bevat niet de opgegeven header.
   - Het opgegeven header bevat, maar de waarde komt niet overeen met een van de opgegeven waarden.
   
@@ -394,9 +448,9 @@ Belangrijke informatie:
   - Header-naam vergelijkingen zijn niet hoofdlettergevoelig.
   - Spaties in de header-naam moeten worden vervangen door "% 20". U kunt deze waarde ook gebruiken om op te geven spaties in een headerwaarde.
 - Headerwaarde: 
-  - De waarde van een koptekst kunt profiteren van speciale tekens.
-  - De **negeren geval** optie bepaalt de hoofdlettergevoeligheid vergelijkingen van header-waarde.
-  - Alleen exacte header-waarde komt overeen met ten minste een van de opgegeven patronen voldoen aan deze voorwaarde.
+  - Een headerwaarde kan profiteren van [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
+  - Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid vergelijkingen van header-waarde.
+  - Deze overeenkomst voorwaarde wordt voldaan aan wanneer een headerwaarde exact overeenkomt met ten minste een van de opgegeven patronen.
   - Meerdere waarden opgeven door die begrenst elkaar met een spatie.
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
   - Voltooien van de opvulling van de Cache
@@ -411,7 +465,7 @@ Belangrijke informatie:
 
 ---
 ### <a name="request-method"></a>Verzoekmethode
-Alleen elementen die worden aangevraagd met de methode van de geselecteerde aanvraag voldoen aan de voorwaarde aanvraagmethode. De beschikbare aanvraagmethoden zijn:
+De voorwaarde van de overeenkomst aanvraagmethode wordt voldaan, alleen wanneer de activa zijn aangevraagd met de geselecteerde aanvraag-methode. De beschikbare aanvraagmethoden zijn:
 - GET
 - HEAD 
 - POST 
@@ -436,7 +490,9 @@ Belangrijke informatie:
 
 ---
 ### <a name="request-scheme"></a>Aanvraag-schema
-Alleen elementen die zijn aangevraagd door het geselecteerde protocol voldoen aan de voorwaarde schema aanvragen. De beschikbare protocollen zijn HTTP en HTTPS.
+De aanvraag schema overeen-voorwaarde wordt voldaan alleen wanneer de activa zijn aangevraagd door het geselecteerde protocol. De beschikbare protocollen zijn: 
+- HTTP
+- HTTPS
 
 Belangrijke informatie:
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
@@ -445,6 +501,468 @@ Belangrijke informatie:
   - Interne maximumleeftijd forceren
   - Negeren oorsprong No-Cache
   - Interne Max-verouderd
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-path-directory"></a>URL-pad naar map
+Identificeert een aanvraag door de relatief pad, met uitsluiting van de bestandsnaam van de aangevraagde asset.
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-pad naar map overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een relatief URL-pad, met uitzondering van de bestandsnaam, die overeenkomt met de opgegeven URL-patroon is vereist.
+- **Komt niet overeen met**: de aanvraag bevat een relatief URL-pad, met uitzondering van bestand waarvan de naam, komt niet overeen met de opgegeven URL-patroon is vereist.
+
+Belangrijke informatie:
+- Gebruik de **ten opzichte van** optie om op te geven of de vergelijking URL vóór of na de punt van de toegang tot inhoud begint. Het punt toegang tot inhoud is het gedeelte van het pad tussen de hostnaam van het CDN van Verizon en het relatieve pad naar de aangevraagde asset (bijvoorbeeld /800001/CustomerOrigin). Verwijst naar een locatie op servertype (bijvoorbeeld CDN of klant oorsprong) en de nummer van uw klant.
+
+   De volgende waarden zijn beschikbaar voor de **ten opzichte van** optie:
+   - **Hoofdmap**: geeft aan dat het punt van de vergelijking URL direct na de hostnaam van het CDN begint. 
+
+     Bijvoorbeeld: http:\//wpc.0001.&lt; domein&gt;/**myorigin-800001/mijnmap**/index.htm
+
+   - **Oorsprong**: geeft aan dat het punt van de vergelijking URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of 800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de oorsprong-map op de hostnaam van het CDN van Verizon standaard gemaakt, Azure CDN gebruikers moeten gebruiken de **oorsprong** waarde. 
+
+     Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**mijnmap**/index.htm 
+
+     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/**mijnmap**/index.htm
+
+- Een edge CNAME-URL is naar de URL van een CDN voorafgaand aan de vergelijking URL herschreven.
+
+    Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
+    - CDN-URL: http:\//wpc.0001.&lt; Domein&gt;/800001/CustomerOrigin/path/asset.htm
+    
+    - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
+
+    Extra informatie:
+    - Aangepast domein: https:\//my.domain.com/path/asset.htm
+    
+    - URL-pad (ten opzichte van hoofdmap): / 800001/CustomerOrigin/pad /
+    
+    - URL-pad (ten opzichte van de oorsprong): /path/
+
+- Het gedeelte van de URL die wordt gebruikt voor het einde van de vergelijking URL net vóór de bestandsnaam van de aangevraagde asset. Een afsluitende slash is het laatste teken in dit type pad.
+    
+- Geen spaties in het patroon URL-pad vervangen door "% 20".
+    
+- Elke URL-paden kan een of meer sterretjes (*), waarbij elke sterretje overeenkomt met een reeks van een of meer tekens bevatten.
+    
+- Geef meerdere paden van de URL in het patroon door die begrenst elkaar met een spatie.
+
+    Bijvoorbeeld: * /sales/ * /marketing/
+
+- Het opgegeven pad van een URL kunt profiteren van [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
+
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-path-extension"></a>URL-pad-uitbreiding
+Identificeert aanvragen door de bestandsextensie van de aangevraagde asset.
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-pad extensie overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de URL van de aanvraag bevat een bestandsextensie die exact overeenkomt met het opgegeven patroon is vereist.
+
+   Bijvoorbeeld, als u 'htm' opgeeft, wordt 'htm' activa voldaan, maar niet 'html' activa.  
+
+- **Komt niet overeen met**: de URL-aanvraag bevat een bestandsextensie die komt niet overeen met het opgegeven patroon is vereist.
+
+Belangrijke informatie:
+- Geef de bestandsextensies zoekt in de **waarde** vak. Neem geen geen voorlooppunt; bijvoorbeeld, htm gebruiken in plaats van .htm.
+
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
+
+- Geef meerdere bestandsextensies door die begrenst elke uitbreiding met een spatie. 
+
+    Bijvoorbeeld: htm html
+
+- Bijvoorbeeld 'htm' geven komt overeen met 'htm' activa, maar niet 'html' activa.
+
+
+#### <a name="sample-scenario"></a>Voorbeeldscenario
+
+De voorbeeldconfiguratie van de volgende wordt ervan uitgegaan dat deze overeenkomst aan voorwaarde wordt voldaan wanneer een aanvraag komt overeen met een van de opgegeven extensies.
+
+Waarde van de specificatie: asp aspx-php html
+
+Deze overeenkomst-voorwaarde is voldaan wanneer URL's die op de volgende extensies eindigen:
+- ASP
+- aspx
+- .php
+- HTML
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-path-filename"></a>URL-pad bestandsnaam
+Identificeert aanvragen door de naam van de aangevraagde asset. Voor het doel van deze overeenkomst voorwaarde bestaat een bestandsnaam op van de naam van de aangevraagde asset, een periode en de bestandsextensie (bijvoorbeeld index.html).
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-pad bestandsnaam overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een bestandsnaam in de URL-pad dat overeenkomt met het opgegeven patroon is vereist.
+- **Komt niet overeen met**: de aanvraag bevat een bestandsnaam in de URL-pad komt niet overeen met het opgegeven patroon is vereist.
+
+Belangrijke informatie:
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
+
+- Als u meerdere bestandsextensies, scheidt u elke uitbreiding met een spatie.
+
+    Bijvoorbeeld: index.htm index.html
+
+- Spaties in de waarde voor een bestandsnaam vervangen door "% 20".
+    
+- Waarde voor een bestandsnaam kunt profiteren van [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values). Bijvoorbeeld, kan elke gewenste bestandsnaampatroon bestaan uit een of meer sterretjes (*), waarbij elke sterretje overeenkomt met een reeks van een of meer tekens.
+    
+- Als jokertekens niet opgegeven zijn, wordt alleen een exacte overeenkomst deze overeenkomst voorwaarde voldoen.
+
+    Bijvoorbeeld 'presentation.ppt' geven overeenkomt met een asset met de naam 'presentation.ppt', maar niet één met de naam 'presentatie.pptx."
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-path-literal"></a>URL-pad Literal
+Vergelijkt een aanvraag URL-pad, inclusief de bestandsnaam met de opgegeven waarde.
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-pad letterlijke overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een URL-pad dat overeenkomt met het opgegeven patroon is vereist.
+- **Komt niet overeen met**: de aanvraag bevat een URL-pad komt niet overeen met het opgegeven patroon is vereist.
+
+Belangrijke informatie:
+- Gebruik de **ten opzichte van** optie om op te geven of het punt van de vergelijking URL vóór of na de punt van de toegang tot inhoud begint. 
+
+    De volgende waarden zijn beschikbaar voor de **ten opzichte van** optie:
+     - **Hoofdmap**: geeft aan dat het punt van de vergelijking URL direct na de hostnaam van het CDN begint.
+
+       Bijvoorbeeld: http:\//wpc.0001.&lt; Domein&gt;/**800001/myorigin/myfolder/index.htm**
+
+     - **Oorsprong**: geeft aan dat het punt van de vergelijking URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of 800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de oorsprong-map op de hostnaam van het CDN van Verizon standaard gemaakt, Azure CDN gebruikers moeten gebruiken de **oorsprong** waarde. 
+
+       Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
+
+     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/**myfolder/index.htm**
+
+- Een CNAME-URL-rand wordt herschreven naar een CDN-URL voor een vergelijking van de URL.
+
+   Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
+    - CDN-URL: http:\//wpc.0001.&lt; Domein&gt;/800001/CustomerOrigin/path/asset.htm
+    - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
+
+   Extra informatie:
+    
+    - URL-pad (ten opzichte van hoofdmap): /800001/CustomerOrigin/path/asset.htm
+   
+    - URL-pad (ten opzichte van de oorsprong): /path/asset.htm
+
+- Queryreeksen in de URL worden genegeerd.
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
+- De opgegeven waarde voor deze voorwaarde overeenkomst zal worden vergeleken met het relatieve pad van de exacte verzoek van de client.
+
+- Zodat deze overeenkomen met alle aanvragen voor een bepaalde map, gebruiken de [URL-pad naar map](#url-path-directory) of de [URL pad jokerteken](#url-path-wildcard) overeenkomen met de voorwaarde.
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-path-regex"></a>URL-pad Regex
+Een aanvraag-URL-pad naar het opgegeven vergelijkt [reguliere expressie](cdn-rules-engine-reference.md#regular-expressions).
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-pad Regex overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een URL-pad dat overeenkomt met de opgegeven reguliere expressie is vereist.
+- **Komt niet overeen met**: de aanvraag bevat een URL-pad komt niet overeen met de opgegeven reguliere expressie is vereist.
+
+Belangrijke informatie:
+- Een CNAME-URL-rand wordt herschreven naar de URL van een CDN voordat URL vergelijking. 
+ 
+   Bijvoorbeeld: beide URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad.
+
+     - CDN-URL: http:\//wpc.0001.&lt; Domein&gt;/800001/CustomerOrigin/path/asset.htm
+
+     - Rand CNAME-URL: http:\//my.domain.com/path/asset.htm
+
+   Extra informatie:
+    
+     - URL-pad: /800001/CustomerOrigin/path/asset.htm
+
+- Queryreeksen in de URL worden genegeerd.
+    
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
+    
+- Spaties in de URL-pad moeten worden vervangen door "% 20".
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-path-wildcard"></a>URL-pad jokerteken
+Vergelijkt relatief URL-pad van een aanvraag met het patroon opgegeven jokerteken.
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het URL-pad jokerteken overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een URL-pad dat overeenkomt met het jokerteken opgegeven patroon is vereist.
+- **Komt niet overeen met**: de aanvraag bevat een URL-pad komt niet overeen met het jokerteken opgegeven patroon is vereist.
+
+Belangrijke informatie:
+- **Ten opzichte van** optie: deze optie wordt bepaald of het punt van de vergelijking URL vóór of na de punt van de toegang tot inhoud begint.
+
+   Deze optie kan de volgende waarden hebben:
+     - **Hoofdmap**: geeft aan dat het punt van de vergelijking URL direct na de hostnaam van het CDN begint.
+
+       Bijvoorbeeld: http:\//wpc.0001.&lt; Domein&gt;/**800001/myorigin/myfolder/index.htm**
+
+     - **Oorsprong**: geeft aan dat het punt van de vergelijking URL na de punt van de toegang tot inhoud (bijvoorbeeld /000001 of 800001/myorigin begint). Omdat de \*. azureedge.net CNAME is ten opzichte van de oorsprong-map op de hostnaam van het CDN van Verizon standaard gemaakt, Azure CDN gebruikers moeten gebruiken de **oorsprong** waarde. 
+
+       Bijvoorbeeld: https:\//&lt;eindpunt&gt;.azureedge.net/**myfolder/index.htm**
+
+     Deze URL verwijst naar de hostnaam van de volgende Verizon CDN: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/**myfolder/index.htm**
+
+- Een CNAME-URL-rand wordt herschreven naar de URL van een CDN voordat URL vergelijking.
+
+   Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
+     - CDN-URL: http://wpc.0001. &lt;Domein&gt;/800001/CustomerOrigin/path/asset.htm
+     - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
+
+   Extra informatie:
+    
+     - URL-pad (ten opzichte van hoofdmap): /800001/CustomerOrigin/path/asset.htm
+    
+     - URL-pad (ten opzichte van de oorsprong): /path/asset.htm
+    
+- Meerdere URL-paden opgeven door die begrenst elkaar met een spatie.
+
+   Bijvoorbeeld: /marketing/asset.* /sales/*.htm
+
+- Queryreeksen in de URL worden genegeerd.
+    
+- Gebruik de **negeren geval** optie om te bepalen of een hoofdlettergevoelige vergelijking wordt uitgevoerd.
+    
+- Spaties in de URL-pad vervangen door "% 20".
+    
+- De opgegeven waarde voor een URL-pad van profiteren kan [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values). Elke URL-paden kan een of meer sterretjes (*), waarbij elke sterretje kan overeenkomen met een reeks van een of meer tekens bevatten.
+
+#### <a name="sample-scenarios"></a>Voorbeeldscenario 's
+
+De voorbeeld-configuraties in de volgende tabel wordt ervan uitgegaan dat deze overeenkomst aan voorwaarde wordt voldaan wanneer een aanvraag komt overeen met de opgegeven URL-patroon:
+
+Waarde                   | Relatieve    | Resultaat 
+------------------------|----------------|-------
+*/Test.HTML */test.php  | Basis- of oorsprong | Dit patroon is overeenkomt met de aanvragen voor bedrijfsmiddelen die met de naam 'test.html' of 'test.php' in een andere map.
+80ABCD/oorsprong/tekst / *   | Hoofdmap           | Dit patroon komt overeen wanneer de aangevraagde asset voldoet aan de volgende criteria: <br />-Deze moet zich bevinden op een klant-oorsprong aangeroepen 'origin'. <br />-Het relatieve pad moet beginnen met een map met de naam 'text'. Dat wil zeggen, dat de aangevraagde asset ofwel kan zich in de map 'text' of een van de recursieve submappen ervan.
+*/CSS/* *padinfo /js/*          | Basis- of oorsprong | Dit patroon komt overeen met alle CDN of edge CNAME-URL's die een map CSS- of js bevatten.
+*.jpg *.gif *.png       | Basis- of oorsprong | Dit patroon komt overeen met alle CDN of edge CNAME-URL's die eindigen met .jpg, .gif of PNG. Een andere manier om op te geven van dit patroon is met de [URL-pad extensie overeenkomen met de voorwaarde](#url-path-extension).
+installatiekopieën / * / media / *      | Oorsprong         | Dit patroon is overeenkomt met de CDN of edge CNAME-URL's waarvan het relatieve pad met een map 'afbeeldingen' of 'media begint'. <br />-CDN URL: http:\//wpc.0001.&lt; Domein&gt;/800001/myorigin/images/sales/event1.png<br />-Edge CNAME URL voorbeeld: http:\//cdn.mydomain.com/images/sales/event1.png
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-query-literal"></a>URL-Query Literal
+Vergelijkt de queryreeks van een aanvraag met de opgegeven waarde.
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-Query letterlijke overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een URL-query-tekenreeks die overeenkomt met de opgegeven queryreeks vereist.
+- **Komt niet overeen met**: de aanvraag bevat een URL-queryreeks die komt niet overeen met de opgegeven queryreeks vereist.
+
+Belangrijke informatie:
+
+- Alleen exacte query tekenreeks komt overeen met voldoen aan de voorwaarde van deze overeenkomst.
+    
+- Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid van tekenreeksvergelijkingen query.
+    
+- Een begin-vraagteken (?) niet opnemen in de tekst van de query-tekenreeks.
+    
+- Bepaalde tekens vereisen URL-codering. Gebruik het percentagesymbool naar URL coderen van de volgende tekens bevatten:
+
+   Teken | URL-codering
+   ----------|---------
+   Spatiebalk     | % 20
+   &         | % 25
+
+- Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
+   - Voltooien van de opvulling van de Cache
+   - Standaard interne-maximumleeftijd
+   - Interne maximumleeftijd forceren
+   - Negeren oorsprong No-Cache
+   - Interne Max-verouderd
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-query-parameter"></a>URL-queryparameter
+Geeft aan dat aanvragen met de opgegeven tekenreeks van de queryparameter. Deze parameter is ingesteld op een waarde die overeenkomt met een opgegeven patroon. Tekenreeks queryparameters (bijvoorbeeld parameter = waarde) in het aanvraag-URL bepalen of deze voorwaarde is voldaan. Deze overeenkomst voorwaarde identificeert een queryreeksparameter opgeven met de naam en een of meer waarden voor de waarde van parameter accepteert. 
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-queryparameter overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: vereist een aanvraag voor de opgegeven parameter met een waarde die overeenkomt met ten minste een van de waarden die zijn gedefinieerd in deze overeenkomst voorwaarde bevatten.
+- **Komt niet overeen met**: is vereist dat de aanvraag voldoet aan een van de volgende criteria:
+  - Het bevat niet de opgegeven parameter.
+  - Deze bevat de opgegeven parameter, maar de waarde komt niet overeen met een van de waarden die zijn gedefinieerd in deze overeenkomst voorwaarde.
+
+Deze voorwaarde overeen biedt een eenvoudige manier om op te geven parametercombinaties naam/waarde. Voor meer flexibiliteit als u een queryreeksparameter overeenkomende, kunt u overwegen de [URL Query jokertekens](#url-query-wildcard) overeenkomen met de voorwaarde.
+
+Belangrijke informatie:
+- Per exemplaar van deze overeenkomst voorwaarde kan alleen een enkele URL-query parameternaam worden opgegeven.
+    
+- Omdat jokertekens waarden worden niet ondersteund wanneer een parameternaam is opgegeven, zijn alleen exacte parameter naam komt overeen met in aanmerking komen voor vergelijking.
+- Parameterwaarde(n) kunt opnemen [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values).
+   - Elke parameter waarde patroon kan bestaan uit een of meer sterretjes (*), waarbij elke sterretje kan overeenkomen met een reeks van een of meer tekens.
+   - Bepaalde tekens vereisen URL-codering. Gebruik het percentagesymbool naar URL coderen van de volgende tekens bevatten:
+
+       Teken | URL-codering
+       ----------|---------
+       Spatiebalk     | % 20
+       &         | % 25
+
+- Geef meer parameterwaarden voor query-tekenreeks door die begrenst elkaar met een spatie. Deze overeenkomst voorwaarde wordt voldaan aan wanneer een aanvraag een van de opgegeven naam/waarde-combinaties bevat.
+
+   - Voorbeeld 1:
+
+     - Configuratie:
+
+       ValueA ValueB
+
+     - Deze configuratie komt overeen met de volgende parameters voor query-tekenreeks:
+
+       Parameter1 ValueA =
+    
+       Parameter1 ValueB =
+
+   - Voorbeeld 2:
+
+     - Configuratie: 
+
+        Waarde % 20 bis waarde % 20 ter
+
+     - Deze configuratie komt overeen met de volgende parameters voor query-tekenreeks:
+
+       Parameter1 = waarde % 20 bis
+
+       Parameter1 = waarde % 20 ter
+
+- Deze overeenkomst-voorwaarde is voldaan, alleen wanneer er een exacte overeenkomst voor ten minste één van de opgegeven query-tekenreeks naam/waarde-combinaties.
+
+   Bijvoorbeeld, als u de configuratie in het vorige voorbeeld, de parameter naam/waarde combinatie ' Parameter1 ValueAdd = ' kan niet worden gezien als een overeenkomst. Echter, als u een van de volgende waarden opgeven, deze overeenkomt met die naam/waarde-combinatie:
+
+   - ValueA ValueB ValueAdd
+   - ValueA * ValueB
+
+- Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid van tekenreeksvergelijkingen query.
+    
+- Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
+   - Voltooien van de opvulling van de Cache
+   - Standaard interne-maximumleeftijd
+   - Interne maximumleeftijd forceren
+   - Negeren oorsprong No-Cache
+   - Interne Max-verouderd
+
+#### <a name="sample-scenarios"></a>Voorbeeldscenario's
+Het volgende voorbeeld laat zien hoe deze optie werkt in bepaalde situaties:
+
+Naam      | Waarde |  Resultaat
+----------|-------|--------
+Gebruiker      | Jan   | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
+Gebruiker      | *     | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL een parameter van de gebruiker bevat.
+E-Jan | *     | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL bevat een e-parameter die begint met "Jan".
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-query-regex"></a>URL-Query Regex
+Geeft aan dat aanvragen met de opgegeven tekenreeks van de queryparameter. Deze parameter is ingesteld op een waarde die overeenkomt met een opgegeven [reguliere expressie](cdn-rules-engine-reference.md#regular-expressions).
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder de URL-Query Regex overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: de aanvraag bevat een URL-query-tekenreeks die overeenkomt met de opgegeven reguliere expressie is vereist.
+- **Komt niet overeen met**: de aanvraag bevat een URL-queryreeks die komt niet overeen met de opgegeven reguliere expressie is vereist.
+
+Belangrijke informatie:
+- Alleen is exact overeenkomen met de opgegeven reguliere expressie voldoen aan de voorwaarde van deze overeenkomst.
+    
+- Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid van tekenreeksvergelijkingen query.
+    
+- Voor de toepassing van deze optie wordt begint een query-tekenreeks met het eerste teken na het scheidingsteken vraagteken (?) voor de queryreeks.
+    
+- Bepaalde tekens vereisen URL-codering. Gebruik het percentagesymbool naar URL coderen van de volgende tekens bevatten:
+
+   Teken | URL-codering | Waarde
+   ----------|--------------|------
+   Spatiebalk     | % 20          | \%20
+   &         | % 25          | \%25
+
+   Houd er rekening mee dat percentage symbolen moeten worden voorafgegaan.
+
+- Speciale reguliere expressie dubbele escape-tekens (bijvoorbeeld \^$. +) om op te nemen van een backslash in de reguliere expressie.
+
+   Bijvoorbeeld:
+
+   Waarde | Geïnterpreteerd als 
+   ------|---------------
+   \\+    | +
+   \\\+   | \\+
+
+- Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
+   - Voltooien van de opvulling van de Cache
+   - Standaard interne-maximumleeftijd
+   - Interne maximumleeftijd forceren
+   - Negeren oorsprong No-Cache
+   - Interne Max-verouderd
+
+
+[Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### <a name="url-query-wildcard"></a>URL-Query jokertekens
+De opgegeven waarden worden ingesteld op basis van de queryreeks van de aanvraag wordt vergeleken.
+
+De **komt overeen met**/**komt niet overeen met** optie bepaalt u de voorwaarden waaronder het jokerteken van de Query-URL overeenkomen met de voorwaarde is voldaan.
+- **Komt overeen met**: vereist dat de aanvraag voor een URL-query-tekenreeks die overeenkomt met de waarde van de opgegeven jokertekens bevatten.
+- **Komt niet overeen met**: de aanvraag bevat een URL-queryreeks die komt niet overeen met het opgegeven jokerteken is vereist.
+
+Belangrijke informatie:
+- Voor de toepassing van deze optie wordt begint een query-tekenreeks met het eerste teken na het scheidingsteken vraagteken (?) voor de queryreeks.
+- Parameterwaarden kunnen opnemen [jokertekens waarden](cdn-rules-engine-reference.md#wildcard-values):
+   - Elke parameter waarde patroon kan bestaan uit een of meer sterretjes (*), waarbij elke sterretje kan overeenkomen met een reeks van een of meer tekens.
+   - Bepaalde tekens vereisen URL-codering. Gebruik het percentagesymbool naar URL coderen van de volgende tekens bevatten:
+
+     Teken | URL-codering
+     ----------|---------
+     Spatiebalk     | % 20
+     &         | % 25
+
+- Meerdere waarden opgeven door die begrenst elkaar met een spatie.
+
+   Bijvoorbeeld: *Parameter1 = ValueA* *ValueB* *Parameter1 = ValueC & Parameter2 ValueD =*
+
+- Alleen deze overeenkomst voorwaarde voldoen aan de exacte overeenkomsten met ten minste één van de opgegeven tekenreeks querypatronen.
+    
+- Gebruik de **negeren geval** optie om te bepalen van de hoofdlettergevoeligheid van tekenreeksvergelijkingen query.
+    
+- Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
+   - Voltooien van de opvulling van de Cache
+   - Standaard interne-maximumleeftijd
+   - Interne maximumleeftijd forceren
+   - Negeren oorsprong No-Cache
+   - Interne Max-verouderd
+
+#### <a name="sample-scenarios"></a>Voorbeeldscenario's
+Het volgende voorbeeld laat zien hoe deze optie werkt in bepaalde situaties:
+
+ Naam                 | Beschrijving
+ ---------------------|------------
+gebruiker Jan =              | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
+\*gebruiker =\* \*optout =\* | Dit patroon komt overeen wanneer de CDN-URL-query de gebruiker of een optout-parameter bevat.
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 

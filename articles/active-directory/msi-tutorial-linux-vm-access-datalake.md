@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van een Linux VM beheerde Service identiteit (MSI) voor toegang tot Azure Data Lake Store
-description: Een zelfstudie waarin wordt getoond hoe u een Linux VM beheerde Service identiteit (MSI) wordt gebruikt voor toegang tot Azure Data Lake Store.
+title: Service-identiteit beheerd voor een Linux-VM te gebruiken voor toegang tot Azure Data Lake Store
+description: Een zelfstudie waarin u het gebruik van beheerde Service identiteit (MSI) voor een Linux-VM voor toegang tot Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
 author: skwan
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 98ff833fe541e1207a87421d54a8ce2dfc17cda1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6bc3f893697ba39c3608f0bc866be89da25596ef
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
+# <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Service-identiteit beheerd voor een Linux-VM te gebruiken voor toegang tot Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor virtuele Linux-machine (VM) voor toegang tot een Azure Data Lake Store. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. Procedures voor:
+Deze zelfstudie laat zien hoe u Service-identiteit beheerd voor virtuele Linux-machine (VM) voor toegang tot Azure Data Lake Store. Identiteiten die u via de MSI wordt automatisch beheerd door Azure. U kunt MSI gebruiken om de services die ondersteuning bieden voor verificatie van Azure Active Directory (Azure AD), zonder referenties invoegen in uw code te verifiëren. 
+
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * MSI op een virtuele Linux-machine inschakelen 
-> * Uw VM-toegang verlenen aan een Azure Data Lake Store
-> * Ophalen van een toegangstoken met behulp van de identiteit van de VM en deze gebruiken voor toegang tot een Azure Data Lake Store
+> * Schakel MSI op een virtuele Linux-machine. 
+> * Uw VM-toegang verlenen tot Azure Data Lake Store.
+> * Een toegangstoken ophalen met behulp van de identiteit van de VM en deze gebruiken voor toegang tot Azure Data Lake Store.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,77 +40,75 @@ Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor virtu
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine in een nieuwe resourcegroep maken
 
 Voor deze zelfstudie maken we een nieuwe Linux VM. U kunt ook MSI op een bestaande virtuele machine inschakelen.
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Selecteer de **nieuw** knop in de linkerbovenhoek van de Azure portal.
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Geef de informatie van de virtuele machine op. Voor **verificatietype**, selecteer **openbare SSH-sleutel** of **wachtwoord**. De gemaakte referenties kunnen u zich aanmelden bij de virtuele machine.
 
-   ![De installatiekopie van de alternatieve tekst](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Deelvenster 'Basisbeginselen' voor het maken van een virtuele machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Selecteer een nieuwe **resourcegroep** u wilt dat de virtuele machine om te worden gemaakt in of kies **nieuw**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte van de virtuele machine. Selecteer om te zien meer grootten, **weergeven van alle** of wijzigen van de ondersteunde schijf type filter. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
+4. In de **abonnement** , selecteert u een abonnement voor de virtuele machine.
+5. Om te selecteren van een nieuwe resourcegroep die u wilt dat de virtuele machine moet worden gemaakt **resourcegroep** > **nieuw**. Wanneer u klaar bent, selecteert u **OK**.
+6. Selecteer de grootte van de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Houd de standaardinstellingen en selecteer in het deelvenster instellingen **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
 
-De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Achter de MSI inschakelen biedt twee dingen: het installeren van de MSI-VM-extensie op uw virtuele machine en zorgt ervoor dat MSI in Azure Resource Manager.  
+MSI voor een virtuele machine kunt u toegangstokens ophalen uit Azure AD zonder referenties te plaatsen in uw code. De MSI-VM-extensie inschakelen MSI worden geïnstalleerd op de virtuele machine en maakt MSI in Azure Resource Manager.  
 
-1. Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.
-2. Klik op de linkernavigatiebalk **configuratie**.
-3. U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee.
-4. Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.
+1. Voor **virtuele Machine**, selecteer de virtuele machine die u inschakelen van MSI wilt op.
+2. Selecteer in het linkerdeelvenster **configuratie**.
+3. U ziet **beheerde service-identiteit**. Als u wilt registreren en MSI inschakelt, selecteer **Ja**. Als u uitschakelen wilt, selecteert u **Nee**.
+   !['Registreren bij Azure Active Directory' selectie](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+4. Selecteer **Opslaan**.
+5. Als u wilt controleren welke uitbreidingen zijn op deze Linux VM, selecteer **extensies**. Als MSI is ingeschakeld, **ManagedIdentityExtensionforLinux** wordt weergegeven in de lijst.
 
-   ![De installatiekopie van de alternatieve tekst](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Als u wilt controleren welke uitbreidingen zijn op deze **Linux VM**, klikt u op **extensies**. Als MSI is ingeschakeld, de **ManagedIdentityExtensionforLinux** verschijnt in de lijst.
-
-   ![De installatiekopie van de alternatieve tekst](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+   ![Lijst met extensies](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw VM-toegang verlenen tot Azure Data Lake Store
 
-U kunt nu uw VM-toegang tot bestanden en mappen in een Azure Data Lake Store verlenen.  U kunt voor deze stap maakt gebruik van een bestaande Data Lake Store of een nieuwe maken.  Voor het maken van een nieuwe Data Lake Store met de Azure portal, voert u [Azure Data Lake Store Quick Start](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Er zijn ook snelstartgidsen die gebruikmaken van de Azure CLI en Azure PowerShell in de [documentatie Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+U kunt nu uw VM-toegang tot bestanden en mappen in Azure Data Lake Store verlenen. Voor deze stap kunt u een bestaand exemplaar van Data Lake Store gebruiken of een nieuwe maken. Ga als volgt om een Data Lake Store-exemplaar met behulp van de Azure-portal, de [Azure Data Lake Store Quick Start](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Er zijn ook snelstartgidsen die gebruikmaken van Azure CLI en Azure PowerShell in de [documentatie Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-Maak een nieuwe map in uw Data Lake Store en uw VM MSI machtiging verlenen om te lezen, schrijven en uitvoeren van bestanden in de map:
+Maak een nieuwe map in Data Lake Store en MSI machtiging verlenen om te lezen, schrijven en uitvoeren van bestanden in de map:
 
-1. Klik in de Azure-portal op **Data Lake Store** in de linkernavigatiebalk.
-2. Klik op de Data Lake Store die u wilt gebruiken voor deze zelfstudie.
-3. Klik op **Data Explorer** in de opdrachtbalk.
-4. De hoofdmap van de Data Lake Store is geselecteerd.  Klik op **toegang** in de opdrachtbalk.
-5. Klik op **Add**.  In de **Selecteer** en voer de naam van uw virtuele machine, bijvoorbeeld **DevTestVM**.  Selecteer uw virtuele machine in de zoekresultaten en klik vervolgens op **Selecteer**.
-6. Klik op **machtigingen selecteren**.  Selecteer **lezen** en **Execute**, toevoegen aan **deze map**, en toevoegen als **alleen een toegangsmachtiging**.  Klik op **OK**.  De machtiging moet worden toegevoegd.
-7. Sluit de **toegang** blade.
-8. Maak een nieuwe map voor deze zelfstudie.  Klik op **nieuwe map** in de opdrachtbalk en verleen de nieuwe map een naam, bijvoorbeeld **TestFolder**.  Klik op **OK**.
-9. Klik op de map die u hebt gemaakt en klik vervolgens op **toegang** in de opdrachtbalk.
-10. Vergelijkbaar is met stap 5, klikt u op **toevoegen**, in de **Selecteer** veld Geef de naam van uw virtuele machine, selecteert u deze en klikt u op **Selecteer**.
-11. Vergelijkbaar is met stap 6, klikt u op **Selecteer machtigingen**, selecteer **lezen**, **schrijven**, en **Execute**, toevoegen aan **deze map**, en toevoegen als **een machtigingsvermelding toegang en een standaard machtigingsvermelding**.  Klik op **OK**.  De machtiging moet worden toegevoegd.
+1. Selecteer in de Azure-portal **Data Lake Store** in het linkerdeelvenster.
+2. Selecteer het Data Lake Store-exemplaar dat u wilt gebruiken.
+3. Selecteer **Data Explorer** op de opdrachtbalk.
+4. De hoofdmap van het exemplaar van Data Lake Store is geselecteerd. Selecteer **toegang** op de opdrachtbalk.
+5. Selecteer **Toevoegen**.  In de **Selecteer** bijvoorbeeld de naam van uw VM-- Geef **DevTestVM**. Selecteer uw virtuele machine in de zoekresultaten en klik vervolgens op **Selecteer**.
+6. Klik op **machtigingen selecteren**.  Selecteer **lezen** en **Execute**, toevoegen aan **deze map**, en toevoegen als **alleen een toegangsmachtiging**. Selecteer **Ok**.  De machtiging moet worden toegevoegd.
+7. Sluit de **toegang** deelvenster.
+8. Maak een nieuwe map voor deze zelfstudie. Selecteer **nieuwe map** op de opdrachtbalk en de nieuwe map--bijvoorbeeld een naam geven **TestFolder**.  Selecteer **Ok**.
+9. Selecteer de map die u gemaakt en selecteer vervolgens **toegang** op de opdrachtbalk.
+10. Vergelijkbaar is met stap 5, selecteer **toevoegen**. In de **Selecteer** en voer de naam van uw virtuele machine. Selecteer uw virtuele machine in de zoekresultaten en klik vervolgens op **Selecteer**.
+11. Net als bij stap 6 selecteert **Selecteer machtigingen**. Selecteer **lezen**, **schrijven**, en **Execute**, toevoegen aan **deze map**, en toevoegen als **een machtigingsvermelding toegang en een standaardbericht vermelding van machtiging**. Selecteer **Ok**.  De machtiging moet worden toegevoegd.
 
-Uw VM MSI kunnen alle bewerkingen op bestanden nu uitvoeren in de map die u hebt gemaakt.  Lees voor meer informatie over het beheren van toegang tot Data Lake Store in dit artikel op [toegangsbeheer in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+MSI kunt nu alle bewerkingen uitvoeren op bestanden in de map die u hebt gemaakt. Zie voor meer informatie over het beheren van toegang tot Data Lake Store [toegangsbeheer in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Ophalen van een toegangstoken met behulp van de VM MSI en deze gebruiken om aan te roepen van het bestandssysteem van Azure Data Lake Store
+## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Ophalen van een toegangstoken en roept het bestandssysteem van Data Lake Store
 
-Azure Data Lake Store systeemeigen ondersteunt Azure AD-verificatie, zodat deze kan rechtstreeks toegangstokens accepteren verkregen met behulp van MSI.  Om het Data Lake Store-bestandssysteem te verifiëren die u verzendt een toegangstoken dat is uitgegeven door Azure AD aan uw Data Lake Store filesystem-eindpunt in een autorisatie-header in de indeling ' Bearer \<ACCESS_TOKEN_VALUE\>'.  Lees voor meer informatie over Data Lake Store-ondersteuning voor verificatie met Azure AD [verificatie met Data Lake Store met Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store systeemeigen ondersteunt Azure AD-verificatie, zodat deze kan rechtstreeks toegangstokens accepteren is verkregen via MSI. Om te verifiëren naar het Data Lake Store-bestandssysteem, verzendt u een toegangstoken dat is uitgegeven door Azure AD aan uw Data Lake Store file system-eindpunt. Het toegangstoken is in een autorisatie-header in de indeling ' Bearer \<ACCESS_TOKEN_VALUE\>'.  Zie voor meer informatie over Data Lake Store-ondersteuning voor Azure AD-verificatie, [verificatie met Data Lake Store met Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
-In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem REST-API met CURL aanbrengen REST-aanvragen.
+In deze zelfstudie maakt verifiëren u de REST-API voor het bestandssysteem van Data Lake Store met cURL REST-aanvragen.
 
 > [!NOTE]
-> De client-SDK's van de bestandssysteem in Data Lake Store-Service-identiteit beheerd niet ondersteunen.  Deze zelfstudie wordt bijgewerkt wanneer ondersteuning wordt toegevoegd aan de SDK.
+> De client-SDK's voor het bestandssysteem van Data Lake Store-Service-identiteit beheerd niet ondersteunen.
 
-Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaakt, kunt u de SSH-client in de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about). Als u informatie over het configureren van de client van uw SSH-sleutels nodig hebt, raadpleegt u [het gebruik van SSH-sleutels met Windows in Azure](../virtual-machines/linux/ssh-from-windows.md), of [maken en de openbare en persoonlijke sleutelpaar voor een SSH gebruiken voor virtuele Linux-machines in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaakt, kunt u de SSH-client in de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about). Als u informatie over het configureren van de client van uw SSH-sleutels nodig hebt, raadpleegt u [het gebruik van SSH-sleutels met Windows in Azure](../virtual-machines/linux/ssh-from-windows.md) of [maken en de openbare en persoonlijke sleutelpaar voor een SSH gebruiken voor virtuele Linux-machines in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Navigeer in de portal voor uw Linux-VM en in de **overzicht**, klikt u op **Connect**.  
-2. **Verbinding maken met** naar de virtuele machine met de SSH-client van uw keuze. 
-3. Het terminalvenster met CURL, zorg er in een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor het Data Lake Store-bestandssysteem.  De resource-id voor de Data Lake Store is 'https://datalake.azure.net/'.  Het is belangrijk dat u de afsluitende slash bevatten in de resource-id.
+1. Blader in de portal voor uw Linux-VM. In **overzicht**, selecteer **Connect**.  
+2. Verbinding maken met de virtuele machine met behulp van de SSH-client van uw keuze. 
+3. Het terminalvenster via cURL, zorg er in een aanvraag naar het lokale eindpunt MSI ophalen van een toegangstoken voor de Data Lake Store-bestandssysteem. De resource-id van Data Lake Store is 'https://datalake.azure.net/'.  Het is belangrijk dat u de afsluitende slash bevatten in de resource-id.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
    ```
     
-   Een geslaagde reactie retourneert het toegangstoken dat u gebruiken om te verifiëren naar Data Lake Store:
+   Een geslaagde reactie retourneert het toegangstoken die u gebruikt om te verifiëren naar Data Lake Store:
 
    ```bash
    {"access_token":"eyJ0eXAiOiJ...",
@@ -120,31 +120,31 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
     "token_type":"Bearer"}
    ```
 
-4. Een aanvraag met CURL, worden aanbrengen in uw Data Lake Store bestandssysteem REST-eindpunt voor het weergeven van de mappen in de hoofdmap.  Dit is een eenvoudige manier om dat alles juist is geconfigureerd.  Kopieer de waarde van het toegangstoken van de vorige stap.  Het is belangrijk dat de tekenreeks 'Bearer' in de autorisatie-header is een hoofdletter "B".  U vindt de naam van uw Data Lake Store in de **overzicht** sectie van de blade Data Lake Store in de Azure portal.
+4. Met behulp van cURL een indienen naar uw Data Lake Store-bestandssysteem REST-eindpunt voor het weergeven van de mappen in de hoofdmap. Dit is een eenvoudige manier om te controleren of alles correct is geconfigureerd. Kopieer de waarde van het toegangstoken van de vorige stap. Het is belangrijk dat de tekenreeks 'Bearer' in de autorisatie-header een hoofdletter "B is" U vindt de naam van uw Data Lake Store-exemplaar in de **overzicht** sectie van de **Data Lake Store** deelvenster in de Azure-portal.
 
    ```bash
    curl https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS_TOKEN>"
    ```
     
-   Een geslaagde reactie ziet eruit als:
+   Een geslaagde reactie ziet er als volgt:
 
    ```bash
    {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY","blockSize":0,"accessTime":1507934941392,"modificationTime":1508105430590,"replication":0,"permission":"770","owner":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071","group":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071"}]}}
    ```
 
-5. Nu kunt u proberen een bestand te uploaden naar uw Data Lake Store.  Maak eerst een bestand te uploaden.
+5. Nu kunt u proberen het uploaden van een bestand met de Data Lake Store-sessie. Maak eerst een bestand te uploaden.
 
    ```bash
    echo "Test file." > Test1.txt
    ```
 
-6. Een aanvraag met CURL, worden aanbrengen in uw Data Lake Store REST-eindpunt voor filesystem het bestand te uploaden naar de map die u eerder hebt gemaakt.  Het uploaden omvat een omleiding en CURL volgt de omleiding automatisch. 
+6. Maak een aanvraag naar uw Data Lake Store-bestandssysteem REST-eindpunt het bestand te uploaden naar de map die u eerder hebt gemaakt met behulp van cURL. Het uploaden omvat een omleiding en cURL volgt de omleiding automatisch. 
 
    ```bash
    curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS_TOKEN>" 'https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER_NAME>/Test1.txt?op=CREATE' 
    ```
 
-    Een geslaagde reactie ziet eruit als:
+    Een geslaagde reactie ziet er als volgt:
 
    ```bash
    HTTP/1.1 100 Continue
@@ -179,16 +179,16 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
    Content-Length: 0
    ```
 
-Met andere bestandssysteem Data Lake Store downloaden API's die u kunt toevoegen aan bestanden, bestanden en meer.
+Met andere API's voor het bestandssysteem van Data Lake Store, kunt u toevoegen aan bestanden, downloadbestanden en meer.
 
-Gefeliciteerd.  U hebt geverifieerd voor het Data Lake Store-bestandssysteem met behulp van een VM MSI.
+Gefeliciteerd! U hebt geverifieerd naar het bestandssysteem van Data Lake Store met behulp van MSI voor een Linux-VM.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
 - Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](../active-directory/msi-overview.md).
-- Bewerkingen Data Lake Store maakt gebruik van Azure Resource Manager voor beheer.  Lees voor meer informatie over het gebruik van een VM MSI om te verifiëren naar Resource Manager [een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Meer informatie over [verificatie met Data Lake Store met Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Meer informatie over [Bestandssysteembewerkingen op Azure Data Lake Store met REST-API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) of de [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
+- Data Lake Store gebruikt voor beheerbewerkingen, Azure Resource Manager.  Zie voor meer informatie over het gebruik van MSI om te verifiëren naar Resource Manager [een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
+- Meer informatie over [verificatie met Data Lake Store met behulp van Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+- Meer informatie over [file systeembewerkingen op Azure Data Lake Store met behulp van de REST-API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) of de [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Meer informatie over [toegangsbeheer in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.

@@ -1,6 +1,6 @@
 ---
 title: Replicatiestatus van Active Directory met Azure Log Analytics | Microsoft Docs
-description: De replicatiestatus van Active Directory-oplossingspakket regelmatig controleert uw Active Directory-omgeving voor eventuele storingen en rapporteert de resultaten op uw dashboard OMS.
+description: De replicatiestatus van Active Directory-oplossingspakket controleert regelmatig uw Active Directory-omgeving voor eventuele storingen.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/24/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7ca3b87ea14589aa2c45c8fe49b01d3b10a75aa1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Replicatiestatus van Active Directory met Log Analytics
 
@@ -27,30 +27,30 @@ ms.lasthandoff: 12/13/2017
 
 Active Directory is een belangrijk onderdeel van een onderneming IT-omgeving. Hoge beschikbaarheid en hoge prestaties te garanderen, heeft elke domeincontroller een eigen kopie van de Active Directory-database. Domeincontrollers is gerepliceerd met elkaar om wijzigingen in het hele bedrijf doorvoeren. Fouten in dit replicatieproces kunnen een aantal problemen veroorzaken in het hele bedrijf.
 
-De replicatiestatus van de AD-oplossingspakket regelmatig controleert uw Active Directory-omgeving voor eventuele storingen en rapporteert de resultaten op uw dashboard OMS.
+De replicatiestatus van de AD-oplossingspakket controleert regelmatig uw Active Directory-omgeving voor eventuele storingen.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om te installeren en configureren van de oplossing.
 
-* U moet de agents installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of moet u agents installeren op servers die lid zijn en de agents voor het verzenden van gegevens van de AD-replicatie met OMS configureren. Om te begrijpen hoe u Windows-computers te verbinden met OMS, Zie [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Als uw domeincontroller al deel uit van een bestaande System Center Operations Manager-omgeving die u wilt verbinden met OMS maakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
-* De replicatiestatus van Active Directory-oplossing toevoegen aan uw OMS-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
+* U moet de agents installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of moet u agents installeren op servers die lid zijn en de agents voor het verzenden van gegevens van de AD-replicatie met logboekanalyse configureren. Zie voor informatie over Windows-computers te verbinden met Log Analytics, [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Als uw domeincontroller al deel uit van een bestaande System Center Operations Manager-omgeving die u wilt verbinden met Log Analytics maakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
+* De replicatiestatus van Active Directory-oplossing toevoegen aan uw werkruimte voor logboekanalyse met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD replicatiestatus Gegevensdetails verzameling
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld voor de Status van de AD-replicatie.
 
-| Platform | Directe Agent | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
+| platform | Directe Agent | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |elke vijf dagen |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Schakel eventueel een niet-domeincontroller AD gegevens verzenden naar OMS
-Als u niet wilt dat een van uw domeincontrollers rechtstreeks verbinden met OMS, kunt u alle andere OMS verbonden computers in uw domein voor het verzamelen van gegevens voor de replicatiestatus van de AD-oplossingspakket en het verzenden van de gegevens.
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Schakel eventueel een niet-domeincontroller AD gegevens verzenden naar Log Analytics
+Als u niet wilt dat een van uw domeincontrollers rechtstreeks verbinden met Log Analytics, kunt u een andere computer in uw domein is verbonden met logboekanalyse voor het verzamelen van gegevens voor de replicatiestatus van de AD-oplossingspakket en het verzenden van de gegevens.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Een niet-domeincontroller AD gegevens verzenden naar OMS inschakelen
+### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Om in te schakelen van een niet-domeincontroller AD gegevens verzenden naar Log Analytics
 1. Controleer of de computer lid is van het domein dat u wilt bewaken met behulp van de replicatiestatus van de AD-oplossing.
-2. [De Windows-computer verbinden met OMS](log-analytics-windows-agent.md) of [verbinding maken met behulp van uw bestaande omgeving Operations Manager met OMS](log-analytics-om-agents.md), als deze niet al is aangesloten.
+2. [De Windows-computer verbinden met Log Analytics](log-analytics-windows-agent.md) of [verbinding maken met behulp van uw bestaande Operations Manager-omgeving met logboekanalyse](log-analytics-om-agents.md), als deze niet al is aangesloten.
 3. Stel de volgende registersleutel op die computer:
 
-   * Sleutel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management groepen\<ManagementGroupName > \Solutions\ADReplication**
+   * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * Waarde: **IsTarget**
    * Waardegegevens: **true**
 
@@ -60,7 +60,7 @@ Als u niet wilt dat een van uw domeincontrollers rechtstreeks verbinden met OMS,
    >
 
 ## <a name="understanding-replication-errors"></a>Wat zijn replicatiefouten opgetreden?
-Zodra u AD status replicatiegegevens verzonden naar OMS hebt, ziet u in de OMS-dashboard waarmee wordt aangegeven hoeveel replicatiefouten die u momenteel hebt een tegel vergelijkbaar met de volgende afbeelding.  
+Zodra u AD status replicatiegegevens verzonden naar het Log Analytics hebt, ziet u een tegel vergelijkbaar met de volgende afbeelding in die aangeeft hoeveel replicatiefouten die u momenteel hebt logboekanalyse.  
 ![Tegel Status van de AD-replicatie](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
 **Kritieke replicatiefouten** fouten die aan of hoger dan 75% van zijn de [tombstone-levensduur](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) voor uw Active Directory-forest.
@@ -82,7 +82,7 @@ De ring boven krijgt u een idee van welke fouten meer voorkomen en minder vaak i
 
 Hier ziet u wanneer meerdere domeincontrollers dezelfde Replicatiefout optreden. In dit geval wordt u mogelijk kan detecteren of een oplossing op een domeincontroller te identificeren en herhaal vervolgens deze op andere domeincontrollers die zijn getroffen door dezelfde fout.
 
-### <a name="tombstone-lifetime"></a>Tombstone-levensduur
+### <a name="tombstone-lifetime"></a>Tombstone Lifetime
 De tombstone-levensduur bepaalt hoe lang een verwijderd object, aangeduid als een tombstone, wordt bewaard in de Active Directory-database. Wanneer een verwijderd object de tombstone-levensduur verstrijkt, een proces van de verzameling afval deze automatisch verwijderd uit de Active Directory-database.
 
 De standaard tombstone-levensduur is 180 dagen voor de meest recente versies van Windows, maar was 60 dagen op oudere versies, en deze expliciet kan worden gewijzigd door een Active Directory-beheerder.
@@ -124,11 +124,11 @@ A: de gegevens worden elke vijf dagen bijgewerkt.
 **V: is er een manier om te configureren hoe vaak deze gegevens worden bijgewerkt?**
 A: niet op dit moment.
 
-**V: moet ik mijn domeincontrollers toevoegen aan mijn werkruimte OMS om te zien van de replicatiestatus?**
-A: Nee, slechts één domeincontroller moet worden toegevoegd. Als u meerdere domeincontrollers in uw OMS-werkruimte hebt, worden gegevens uit deze verzonden met OMS.
+**V: moet ik mijn domeincontrollers toevoegen aan mijn werkruimte voor logboekanalyse om te zien van de replicatiestatus?**
+A: Nee, slechts één domeincontroller moet worden toegevoegd. Als u meerdere domeincontrollers in uw werkruimte voor logboekanalyse hebt, worden gegevens uit deze verzonden met logboekanalyse.
 
-**V: ik wil niet alle domeincontrollers toevoegen aan mijn OMS-werkruimte. Kan ik de replicatiestatus van de AD-oplossing nog steeds gebruiken?**
-A: Ja. U kunt instellen dat de waarde van een registersleutel in te schakelen. Zie [om in te schakelen van een niet-domeincontroller AD gegevens verzenden naar OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**V: ik wil niet alle domeincontrollers toevoegen aan mijn werkruimte voor logboekanalyse. Kan ik de replicatiestatus van de AD-oplossing nog steeds gebruiken?**
+A: Ja. U kunt instellen dat de waarde van een registersleutel in te schakelen. Zie [om in te schakelen van een niet-domeincontroller AD gegevens verzenden naar logboekanalyse](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **V: Wat is de naam van het proces dat het verzamelen van gegevens biedt?**
 A: AdvisorAssessment.exe
@@ -146,11 +146,11 @@ A: niet op dit moment.
 A: normale gebruikersmachtigingen voor Active Directory zijn voldoende.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Gegevens verzamelen problemen oplossen
-De replicatiestatus van de AD-oplossingspakket vereist om het verzamelen van gegevens ten minste één domeincontroller zijn verbonden met de OMS-werkruimte. Totdat u verbinding maakt met een domeincontroller, verschijnt een bericht dat **nog steeds worden gegevens verzameld**.
+De replicatiestatus van de AD-oplossingspakket vereist om het verzamelen van gegevens ten minste één domeincontroller zijn verbonden met uw werkruimte voor logboekanalyse. Totdat u verbinding maakt met een domeincontroller, verschijnt een bericht dat **nog steeds worden gegevens verzameld**.
 
 Als u verbinding maken met een van uw domeincontrollers hulp nodig hebt vindt u documentatie op [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie op bekijken [verbinding maken met System Center Operations Manager met logboekanalyse](log-analytics-om-agents.md).
 
-Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks OMS of aan SCOM, Zie [om in te schakelen van een niet-domeincontroller AD gegevens verzenden naar OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks logboekanalyse of met System Center Operations Manager, raadpleegt u [om in te schakelen van een niet-domeincontroller AD gegevens verzenden naar logboekanalyse](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Gebruik [zoekopdrachten aanmelden met logboekanalyse](log-analytics-log-searches.md) om gedetailleerde gegevens van Active Directory-replicatie status te bekijken.

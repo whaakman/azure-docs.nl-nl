@@ -4,7 +4,7 @@ description: Informatie over het gebruik van handtekeningen voor gedeelde toegan
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Gebruik Azure Storage handtekeningen voor gedeelde toegang om toegang te beperken tot gegevens in HDInsight
 
@@ -204,7 +204,7 @@ Als u een bestaand cluster op basis van Linux hebt, kunt u de SAS naar toevoegen
 
 4. Vouw de **aangepaste core-site** sectie en blader naar het einde en selecteer de **eigenschap toevoegen...**  koppeling. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
-   * **Sleutel**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
+   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Waarde**: de SAS geretourneerd door de C# of Python-toepassing die u eerder hebt uitgevoerd.
 
      Vervang **CONTAINERNAME** met de containernaam van de die u gebruikt met de C# of SAS-toepassing. Vervang **STORAGEACCOUNTNAME** met de opslagaccountnaam die u hebt gebruikt.
@@ -216,7 +216,7 @@ Als u een bestaand cluster op basis van Linux hebt, kunt u de SAS naar toevoegen
    > [!IMPORTANT]
    > U moet verschillende services opnieuw starten voordat de wijziging van kracht.
 
-6. Selecteer in de Ambari-webgebruikersinterface, **HDFS** uit de lijst aan de linkerkant en selecteer vervolgens **start opnieuw alle** van de **serviceacties** vervolgkeuzelijst aan de rechterkant. Wanneer u wordt gevraagd, selecteert u **onderhoudsmodus inschakelen** en vervolgens selecteert __Conform alle opnieuw starten '.
+6. Selecteer in de Ambari-webgebruikersinterface, **HDFS** uit de lijst aan de linkerkant en selecteer vervolgens **start opnieuw alle van invloed op een** van de **serviceacties** vervolgkeuzelijst aan de rechterkant. Wanneer u wordt gevraagd, selecteert u __start opnieuw alle voldoen__.
 
     Herhaal dit proces voor MapReduce2 en YARN.
 

@@ -1,10 +1,10 @@
 ---
-title: Controleer de verbinding met Azure-netwerk-Watcher - PowerShell | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u voor het testen van verbinding met de netwerk-Watcher met behulp van PowerShell
+title: Verbindingen met de Azure-netwerk-Watcher - PowerShell oplossen | Microsoft Docs
+description: Informatie over het gebruik van de verbinding problemen met de mogelijkheid van netwerk-Watcher van Azure met behulp van PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Controleer de verbinding met Azure met behulp van PowerShell netwerk-Watcher
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Verbindingen met de netwerk-Watcher van Azure met behulp van PowerShell oplossen
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van verbinding om te controleren als direct TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
+Informatie over het gebruik van verbinding oplossen om te controleren of een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
-
-* Een exemplaar van netwerk-Watcher in de regio die u wilt controleren, connectiviteit.
-
-* Virtuele machines connectiviteit met controleren.
+* Een exemplaar van netwerk-Watcher in de regio die u wilt een verbinding oplossen.
+* Virtuele machines verbindingen met oplossen.
 
 > [!IMPORTANT]
-> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Verbinding problemen met de extensie van een virtuele machine vereist `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
 
-In dit voorbeeld controleert de verbinding met een doel-virtuele machine via poort 80. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+In dit voorbeeld controleert een verbinding met een doel-virtuele machine via poort 80. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Problemen met routing valideren
 
-Het voorbeeld wordt de verbinding tussen een virtuele machine en een extern eindpunt. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+In dit voorbeeld controleert de connectiviteit tussen een virtuele machine en een extern eindpunt. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -254,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Controleer de verbinding met een opslag-eindpunt
 
-Het volgende voorbeeld wordt de verbinding van een virtuele machine met een opslagaccount blog getest. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+Het volgende voorbeeld wordt de verbinding tussen een virtuele machine en een blog van storage-account. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 De volgende json is de voorbeeld-reactie van de vorige cmdlet wordt uitgevoerd. Als het doel bereikbaar is is, de `ConnectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt de details met betrekking tot het aantal hops is vereist voor het bereiken van de storage-blob en latentie.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -307,22 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)
+Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md).
 
 Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die zijn gedefinieerd.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

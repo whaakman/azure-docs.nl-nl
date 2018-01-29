@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 7754aac27381e25fca126f7cdd2e07bfa1dcf380
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec96243a880272a67ed960d50baba43dba8ec207
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap die voorkomen dat uw account door waardoor het moeilijker voor andere mensen om in te verbreken. Als u dit artikel leest ontvangen u waarschijnlijk een e-mailbericht van uw werk of school-beheerder over meervoudige verificatie. Of misschien probeert aan te melden en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **je niet aanmelden totdat u het proces voor automatische inschrijving hebt voltooid**.
@@ -43,7 +43,7 @@ De eerste vraag in het registratieproces is hoe u contact met u wilt. Bekijk de 
 
 | Contactmethode | Beschrijving |
 | --- | --- |
-| [Mobiele app](#use-a-mobile-app-as-the-contact-method) |- **Meldingen voor verificatie ontvangen.** Deze optie wordt een melding naar de verificator-app op uw smartphone of tablet. Bekijk de melding en als deze geldig is, selecteert u **verifiëren** in de app. Uw werk of school verlangen dat u een PINCODE invoeren voordat u gaat verifiëren.<br>- **Verificatiecode gebruiken.** In deze modus genereert de verificator-app een bevestigingscode die updates van elke 30 seconden. Voer de meest recente verificatiecode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobiele app](#use-a-mobile-app-as-the-contact-method) |- **Meldingen voor verificatie ontvangen.** Deze optie wordt een melding naar de verificator-app op uw smartphone of tablet. Bekijk de melding en als deze geldig is, selecteert u **verifiëren** in de app. Uw werk of school verlangen dat u een PINCODE invoeren voordat u gaat verifiëren.<br>- **Verificatiecode gebruiken.** In deze modus genereert de verificator-app een bevestigingscode die updates van elke 30 seconden. Voer de meest recente verificatiecode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Mobiele telefoon telefoongesprek of tekstbericht](#use-your-mobile-phone-as-the-contact-method) |- **Telefoonoproep** plaatst een geautomatiseerd telefoongesprek, het telefoonnummer dat u opgeeft. Beantwoord de oproep en druk op # in de toetsenblok van de telefoon om te verifiëren.<br>- **SMS-bericht** eindigt een SMS-bericht met een verificatiecode. Na de prompt in de tekst, beantwoord het SMS-bericht of Voer de verificatiecode die is opgegeven in de interface voor aanmelden. |
 | [Office-telefoongesprek](#use-your-office-phone-as-the-contact-method) |Een geautomatiseerd telefoongesprek, het telefoonnummer dat u opgeeft, wordt geplaatst. Beantwoord het gesprek en drukt # in op de toetsenblok van de telefoon om te verifiëren. |
 
@@ -67,7 +67,7 @@ Met deze methode is vereist dat u een verificator-app op uw telefoon of tablet i
    ![Vak voor het invoeren van een PINCODE](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Nadat de pincode is voltooid, selecteert u **sluiten**. Op dit moment is uw verificatie voltooid.
-9. Het is raadzaam dat u uw mobiele telefoonnummer invoeren als u geen toegang meer tot uw mobiele app. Geef uw land op in de vervolgkeuzelijst en voer uw mobiele telefoonnummer in het vak naast de landnaam. Selecteer **volgende**.
+9. Het is raadzaam dat u uw mobiele telefoonnummer invoeren als u geen toegang meer tot uw mobiele app. Geef uw land op in de vervolgkeuzelijst en voer uw mobiele telefoonnummer in het vak naast de landnaam. Selecteer **Volgende**.
 10. Op dit moment wordt u gevraagd voor het instellen van app-wachtwoorden voor niet-browsertoepassingen zoals Outlook 2010 of ouder, of de systeemeigen e-mail-app op apparaten van Apple. Deze actie is omdat sommige apps bieden geen ondersteuning voor verificatie in twee stappen. Als u deze apps niet gebruikt, klikt u op **gedaan** en de rest van deze stappen overslaan.
 11. Als u deze apps gebruikt, wordt het app-wachtwoord worden gekopieerd opgegeven en plak deze in uw toepassing in plaats van uw normale wachtwoord. U kunt hetzelfde appwachtwoord voor meerdere apps gebruiken. Voor meer informatie [help met app-wachtwoorden].
 12. Klik op **Gereed**.

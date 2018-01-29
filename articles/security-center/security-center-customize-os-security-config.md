@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>OS-beveiligingsconfiguraties in Azure Security Center (Preview) aanpassen
 
@@ -26,7 +26,7 @@ In dit scenario laat zien hoe OS beoordelingen van configuratie van de veilighei
 
 ## <a name="what-are-os-security-configurations"></a>Wat zijn de OS-beveiligingsconfiguraties?
 
-Azure Security Center monitors beveiligingsconfiguraties door middel van een set van meer dan 150 aanbevolen regels voor het beperken van het besturingssysteem, met inbegrip van regels betrekking heeft op firewalls, controle, wachtwoordbeleid en meer. Als een machine een kwetsbare configuratie wordt gevonden, wordt een beveiligingsaanbeveling gegenereerd in Security Center.
+Azure Security Center beveiligingsconfiguraties bewaakt door middel van een set van [meer dan 150 aanbevolen regels](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) voor de beperking van het besturingssysteem, waaronder regels in verband met firewalls, controle, wachtwoordbeleid en meer. Als een machine een kwetsbare configuratie wordt gevonden, wordt een beveiligingsaanbeveling gegenereerd in Security Center.
 
 Aanpassen van de regels kunnen organisaties bepalen welke opties zijn geschikter zijn voor hun omgeving. U kunt aangepaste assessment beleid instellen en deze vervolgens toe te passen op alle betreffende computers in het abonnement.
 
@@ -60,8 +60,8 @@ Voor het aanpassen van de standaard OS beveiligingsconfiguratie in Security Cent
 3.  Selecteer het abonnement dat u wilt uitvoeren voor aanpassing.
 
 4. Onder **beleid onderdelen**, selecteer **beveiligingsconfiguraties bewerken**.  
-    De **beveiligingsconfiguraties bewerken** venster wordt geopend. 
-    
+    De **beveiligingsconfiguraties bewerken** venster wordt geopend.
+
     ![Het venster 'Bewerken beveiligingsconfiguraties'](media/security-center-customize-os-security-config/blade.png)
 
 5. Volg de stappen voor het downloaden, bewerken en het gewijzigde bestand uploadt in het rechterdeelvenster.
@@ -70,7 +70,7 @@ Voor het aanpassen van de standaard OS beveiligingsconfiguratie in Security Cent
    > Het configuratiebestand dat u hebt gedownload is standaard *json* indeling. Voor instructies over het wijzigen van dit bestand, gaat u naar [het configuratiebestand aanpassen](#customize-the-configuration-file).
    >
 
-   Nadat u het bestand hebt opgeslagen, wordt de configuratie wordt toegepast op alle virtuele machines en computers die zijn verbonden met alle werkruimten onder het abonnement. Het proces wordt doorgaans duurt een paar minuten maar kan, afhankelijk van de grootte van de infrastructuur langer duren. 
+   Nadat u het bestand hebt opgeslagen, wordt de configuratie wordt toegepast op alle virtuele machines en computers die zijn verbonden met alle werkruimten onder het abonnement. Het proces wordt doorgaans duurt een paar minuten maar kan, afhankelijk van de grootte van de infrastructuur langer duren.
 
 6. Selecteer om de wijziging doorvoert, **opslaan**. Anders wordt wordt het beleid niet opgeslagen.
 

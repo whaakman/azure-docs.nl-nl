@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met vak | Microsoft Docs'
+title: 'Zelfstudie: Vak configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en vak.
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 0f13fa47ef8eacd822f5744b9dde2bb1f0f2909f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>Zelfstudie: Vak configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Zelfstudie: Vak configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is het ziet u de stappen die u wilt uitvoeren in het vak en Azure AD aan automatisch leveren en intrekken gebruikersaccounts vanuit Azure AD aan vak.
 
@@ -82,7 +82,7 @@ Het doel van deze sectie is het inschakelen van de inrichting van Active Directo
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-box-userprovisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-box-userprovisioning-tutorial/provisioning.png)
 
 5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren** een dialoogvenster voor aanmelding openen in een nieuw browservenster.
 
@@ -117,7 +117,7 @@ In uw tenant vak gesynchroniseerde gebruikers worden vermeld in **beheerde gebru
 ![Integratiestatus](./media/active-directory-saas-box-userprovisioning-tutorial/IC769556.png "integratie-status")
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

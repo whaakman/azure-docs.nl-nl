@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: De Azure AD B2C-gebruikersinterface (UI) aanpassen
 
@@ -38,7 +38,7 @@ In dit artikel bevat informatie over de volgende onderwerpen:
 
 ## <a name="the-page-ui-customization-feature"></a>De pagina UI-functie aanpassing
 
-U kunt het uiterlijk van de klant registreren, aanmelden, wachtwoord opnieuw instellen en profiel bewerken's (door het configureren van [beleid](active-directory-b2c-reference-policies.md)). Uw klanten krijgen een naadloze ervaring bij het navigeren tussen de toepassing en pagina's die worden bediend door Azure AD B2C.
+U kunt het uiterlijk van de klant registreren, aanmelden (Zie hierboven Opmerking voor uitzonderingen die zijn gerelateerd aan de huisstijl), wachtwoord opnieuw instellen en bewerken van profiel pagina's (door het configureren van [beleid](active-directory-b2c-reference-policies.md)). Uw klanten krijgen een naadloze ervaring bij het navigeren tussen de toepassing en pagina's die worden bediend door Azure AD B2C.
 
 In tegenstelling tot andere services waarbij de opties van de gebruikersinterface, Azure AD B2C gebruikmaakt van een eenvoudige en moderne benadering van UI-aanpassing.
 

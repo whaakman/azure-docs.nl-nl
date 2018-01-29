@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 9b07417fbb094cdc285e00be3c48f9af0a38601d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 70564905d6c71589c898ca84d56940c0d775a2b0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-learning-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn Learning voor het automatisch gebruikers inrichten configureren
+# <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn Learning configureren voor het automatisch gebruikers inrichten
 
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in LinkedIn Learning en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar LinkedIn Learning ongedaan. 

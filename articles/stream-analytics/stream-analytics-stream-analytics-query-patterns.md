@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene gebruikspatronen van de Stream Analytics query
 ## <a name="introduction"></a>Inleiding
@@ -63,16 +63,16 @@ Bijvoorbeeld, Controleer het resultaat overschrijven die beginnen met A en eindi
 
 | Maken | LicensePlate | Time |
 | --- | --- | --- |
-| Honda |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Uitvoer**:
 
 | Maken | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Oplossing**:
 
@@ -207,7 +207,7 @@ Bijvoorbeeld hoeveel unieke wordt doorgegeven aan de stand tolstation in een ven
 
 **Uitvoer:**
 
-| Count | Time |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -363,16 +363,16 @@ Bijvoorbeeld: hebt 2 opeenvolgende auto's uit hetzelfde merk onderweg tolstation
 
 | Maken | LicensePlate | Time |
 | --- | --- | --- |
-| Honda |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI 345 |2015-01-01T00:00:04.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Uitvoer**:
 
 | Maken | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
-| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
 **Oplossing**:
 
@@ -469,18 +469,18 @@ Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenom
 
 **Invoer**:
 
-| T | waarde |
+| t | waarde |
 | --- | --- |
-| ' 2014-01-01T06:01:00 ' |1 |
-| ' 2014-01-01T06:01:05 ' |2 |
-| ' 2014-01-01T06:01:10 ' |3 |
-| ' 2014-01-01T06:01:15 ' |4 |
-| ' 2014-01-01T06:01:30 ' |5 |
-| ' 2014-01-01T06:01:35 ' |6 |
+| "2014-01-01T06:01:00" |1 |
+| "2014-01-01T06:01:05" |2 |
+| "2014-01-01T06:01:10" |3 |
+| "2014-01-01T06:01:15" |4 |
+| "2014-01-01T06:01:30" |5 |
+| "2014-01-01T06:01:35" |6 |
 
 **Uitvoer (eerste 10 rijen)**:
 
-| windowend | lastevent.t | lastevent.Value |
+| windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |

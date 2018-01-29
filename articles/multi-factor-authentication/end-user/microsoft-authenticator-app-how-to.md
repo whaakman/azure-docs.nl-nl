@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Aan de slag met de Microsoft Authenticator-app
 De Microsoft Authenticator-app biedt een extra beveiligingsniveau in uw werk of school-account (bijvoorbeeld bsimon@contoso.com) of uw Microsoft-account (bijvoorbeeld bsimon@outlook.com).
@@ -42,7 +42,7 @@ Voor een persoonlijke account moet u de verificatie in twee stappen voor uzelf i
 U kunt ook de Microsoft-Authenticator gebruiken met niet-Microsoft-accounts. Ze kunnen de functie iets anders dan verificatie in twee stappen aanroepen, maar moet u kunnen vinden onder beveiligings- of instellingen.
 
 ## <a name="install-the-app"></a>De app installeren
-De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Accounts toevoegen aan de app.
 Voor elke account die u wilt toevoegen aan de Microsoft Authenticator-app, gebruikt u een van de volgende procedures:
@@ -100,7 +100,7 @@ Als u Touch ID voor Microsoft Authenticator instelt, moet u een challenge normal
 
 Vanaf dat punt doorsturen, wanneer u klaar om te controleren of uw aanmelden vereist, u de pushmelding ontvangen selecteren en scannen van uw vingerafdruk in plaats van uw pincode.
 
-![Push-melding](./media/authenticator-app-how-to/touchid2.png)
+![Pushmelding](./media/authenticator-app-how-to/touchid2.png)
 
 ## <a name="use-the-app-when-you-sign-in"></a>De app gebruiken wanneer u zich aanmeldt
 

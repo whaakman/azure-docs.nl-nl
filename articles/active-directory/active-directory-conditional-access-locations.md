@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory 
 
@@ -100,7 +100,7 @@ Wanneer u de locatie-voorwaarde te configureren, hebt u de optie onderscheid mak
 
 ### <a name="any-location"></a>Elke locatie
 
-Standaard selecteren **elke locatie** zorgt ervoor dat een beleid wordt toegepast op alle IP-adressen, wat betekent elk adres op het Internet dat. Deze instelling is niet beperkt tot IP-adressen die u hebt geconfigureerd als benoemde locatie. Wanneer u selecteert **elke locatie**, kunt u nog steeds specifieke locaties uitsluiten van een beleid. U kunt bijvoorbeeld een beleid toepassen op alle locaties excepts vertrouwde locaties voor het instellen van het bereik voor alle locaties, met uitzondering van het bedrijfsnetwerk.
+Standaard selecteren **elke locatie** zorgt ervoor dat een beleid wordt toegepast op alle IP-adressen, wat betekent elk adres op het Internet dat. Deze instelling is niet beperkt tot IP-adressen die u hebt geconfigureerd als benoemde locatie. Wanneer u selecteert **elke locatie**, kunt u nog steeds specifieke locaties uitsluiten van een beleid. U kunt bijvoorbeeld een beleid toepassen op alle locaties met uitzondering van vertrouwde locaties in te stellen van het bereik op alle locaties, met uitzondering van het bedrijfsnetwerk.
 
 ### <a name="all-trusted-locations"></a>Alle vertrouwde locaties
 

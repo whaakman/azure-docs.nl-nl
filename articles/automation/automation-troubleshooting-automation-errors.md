@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Het oplossen van veelvoorkomende problemen in Azure Automation 
 Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in Azure Automation en mogelijke oplossingen om op te lossen ze voorgesteld.
@@ -195,11 +195,19 @@ U kunt de query voor deze oplossing en de oplossing wordt de query reonboard ver
 
 **Reden voor de volgende fout:**
 
-Deze foutcode betekent dat de implementatie is mislukt vanwege een beleid schendt.
+Deze foutcode betekent dat de implementatie is mislukt vanwege schending van een of meer beleidsregels.
 
 **Tips voor probleemoplossing:**
 
-Controleer de meldingen in de rechterbovenhoek van de Azure portal of navigeer naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure beleid bezoek: [overzicht van Azure-beleid](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+Om de oplossing implementeren, moet u rekening houden met het opgegeven beleid wijzigen. De specifieke wijzigingen die zijn vereist als er veel verschillende typen beleidsregels die kunnen worden gedefinieerd zijn, zijn afhankelijk van het beleid dat is geschonden. Bijvoorbeeld als een beleid is gedefinieerd voor een resourcegroep die geen toegang tot de inhoud van bepaalde soorten resources in die resourcegroep wijzigen, kunt u bijvoorbeeld doen het volgende:
+
+*   Het beleid helemaal verwijderen.
+* Probeer om vrij te geven naar een andere resourcegroep.
+* Herzien het beleid door, bijvoorbeeld:
+   * Opnieuw die gericht is op het beleid aan een een specifieke bron (bijvoorbeeld een specifieke Automation-account).
+   * Wijzigen van de set van resources die het beleid is geconfigureerd om te weigeren.
+
+Controleer de meldingen in de rechterbovenhoek van de Azure portal of navigeer naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure beleid bezoek: [overzicht van Azure beleid](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Volgende stappen
 

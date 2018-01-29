@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in Cerner centraal en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar een schema van de gebruiker in Cerner centrale ongedaan. 
 
@@ -101,13 +101,13 @@ Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemacc
 
 9.  Vul de volgende velden onder **beheerdersreferenties**:
 
-   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap &#4;.
+   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap 4 #.
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Productie: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap &#3; gegenereerd en klikt u op **testverbinding**.
+   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap 3 # gegenereerd en klikt u op **testverbinding**.
 
    * U ziet een melding met succes de upperright-zijde van de portal.
 
@@ -125,7 +125,7 @@ Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zij
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Cerner centraal: Publiceren van identiteitsgegevens met behulp van Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Zelfstudie: Cerner centraal configureren voor eenmalige aanmelding bij Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)

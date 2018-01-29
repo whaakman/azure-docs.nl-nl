@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Controle en diagnostische gegevens voor Azure Service Fabric
 
@@ -136,5 +136,6 @@ Volg de instructies in voor het aanpassen van de grafieken [metrische gegevens i
 
 * Meer informatie over het controleren van het platform en de Service Fabric bevat voor gebeurtenissen [Platform niveau gebeurtenis- en logboekbestanden genereren](service-fabric-diagnostics-event-generation-infra.md)
 * Zie voor aan de slag met het instrumenteren van uw toepassingen, [toepassing niveau gebeurtenis- en logboekbestanden genereren](service-fabric-diagnostics-event-generation-app.md)
-* Gaat u de zelfstudie [bewaken en onderzoeken van een toepassing ASP.NET Core in Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Doorloop de stappen voor het instellen van AI voor uw toepassing met [bewaken en onderzoeken van een toepassing ASP.NET Core in Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Meer informatie over het instellen van OMS logboekanalyse voor het bewaken van containers- [controle en diagnostische gegevens voor Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md)
 

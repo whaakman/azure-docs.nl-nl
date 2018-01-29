@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 06772c9e21936d224f721413ccdc1c859b07b940
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Zelfstudie: ServiceNow configureren voor automatisch gebruikers inrichten met Azure Active Directory
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Zelfstudie: ServiceNow configureren voor het automatisch gebruikers inrichten met Azure Active Directory
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in ServiceNow en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar ServiceNow ongedaan.
 
@@ -60,7 +60,7 @@ Deze sectie helpt u bij het verbinding maken met uw Azure AD ServiceNow van gebr
 
 4. Stel de **inrichting** modus **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
 
 5. In de sectie beheerdersreferenties, moet u de volgende stappen uitvoeren:
    
@@ -86,7 +86,7 @@ Deze sectie helpt u bij het verbinding maken met uw Azure AD ServiceNow van gebr
 
 De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan ServiceNow in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw ServiceNow-app.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

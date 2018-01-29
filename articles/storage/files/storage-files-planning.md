@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via het SMB-standaardprotocol. Omdat Azure Files volledig wordt beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u in productiescenario's implementeren. In dit artikel wordt de onderwerpen in overweging moet nemen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -50,7 +50,7 @@ Azure bestanden biedt twee ingebouwde, handige data access-methoden waarmee u ku
 
 De volgende tabel ziet u hoe uw gebruikers en toepassingen toegang uw Azure-bestandsshare tot hebben:
 
-| | Toegang tot de directe cloud | Azure File-synchronisatie |
+| | Toegang tot de directe cloud | Azure File Sync |
 |------------------------|------------|-----------------|
 | Welke protocollen moet u gebruiken? | Azure Files SMB 2.1, SMB 3.0 en File REST-API ondersteunt. | Toegang tot uw Azure-bestandsshare via elke ondersteunde protocollen op Windows Server (SMB, NFS, FTPS, enz.) |  
 | Waar wordt u uw workload uitgevoerd? | **In Azure**: Azure Files biedt directe toegang tot uw gegevens. | **On-premises met traag netwerk**: Windows, Linux en Mac OS-clients een lokale lokale Windows-bestandsshare als een snelle cache van uw Azure-bestandsshare kunnen koppelen. |
@@ -64,7 +64,7 @@ Azure Files bevat verschillende ingebouwde opties voor optimale gegevensbeveilig
     * Clients die geen ondersteuning bieden voor SMB 3.0 kunnen zonder versleuteling intra-datacenter communiceren via SMB 2.1 of SMB 3.0. Houd er rekening mee dat clients niet inter datacenter communiceren via SMB 2.1 of SMB 3.0 zonder versleuteling zijn toegestaan.
     * Clients kunnen communiceren via de REST-bestand met HTTP of HTTPS.
 * Codering in rust ([Azure Storage-Service: versleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): We zijn bezig met inschakelen van versleuteling voor opslag-Service (SSE) op de onderliggende opslag van de Azure-platform. Dit betekent dat versleuteling wordt standaard voor alle opslagaccounts worden ingeschakeld. Als u een nieuw opslagaccount in een regio met versleuteling in rust op standaard maakt, hebt u niet te ondernemen om in te schakelen. Gegevens in rust versleuteld met een volledig beheerde sleutels. Codering in rust niet opslagkosten verhogen of de prestaties negatief beïnvloeden. 
-* Optionele vereiste van versleutelde gegevens in transit: wanneer u selecteert, Azure Files staat niet toe dat toegang tot de gegevens via niet-versleutelde kanalen. In het bijzonder wordt alleen HTTPS en SMB 3.0 met versleuteling verbindingen worden toegestaan. 
+* Optionele vereiste van versleutelde gegevens in transit: wanneer u selecteert, Azure-bestanden wordt geweigerd voor toegang tot de gegevens via niet-versleutelde kanalen. In het bijzonder zijn alleen HTTPS en SMB 3.0 met versleuteling verbindingen toegestaan. 
 
     > [!Important]  
     > Veilige overdracht van gegevens vereisen zorgt ervoor dat oudere SMB-clients niet kan communiceren met SMB 3.0 met versleuteling mislukken. Zie [koppelen aan Windows](storage-how-to-use-files-windows.md), [koppelen op Linux](storage-how-to-use-files-linux.md), [koppelen op Mac OS](storage-how-to-use-files-mac.md) voor meer informatie.
@@ -73,11 +73,14 @@ Voor een optimale beveiliging wordt aangeraden altijd inschakelen beide versleut
 
 Als u Azure File-synchronisatie gebruikt voor toegang tot uw Azure-bestandsshare, altijd gebruiken we HTTPS en SMB 3.0 met versleuteling uw gegevens naar uw Windows-Servers, ongeacht of het vereisen van versleuteling van gegevens in rust te synchroniseren.
 
-## <a name="data-redundancy"></a>Gegevensredundantie
-Azure Files ondersteunt twee opties voor redundantie van gegevens: lokaal redundante opslag (LRS) en geografisch redundante opslag (GRS). De volgende secties worden de verschillen tussen lokaal redundante opslag en geografisch redundante opslag:
+## <a name="data-redundancy"></a>De gegevensredundantie
+Azure Files ondersteunt drie opties voor de redundantie van gegevens: lokaal redundante opslag (LRS), zone-redundante opslag (ZRS) en geografisch redundante opslag (GRS). De volgende secties worden de verschillen tussen de van de verschillende redundantieopties:
 
 ### <a name="locally-redundant-storage"></a>Lokaal redundante opslag
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Zone-redundante opslag
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Geografisch redundante opslag
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

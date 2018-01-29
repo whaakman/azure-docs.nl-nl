@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ab42789b091898c69091ba6b3fa2a8bf91e711f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources om te voorkomen dat onverwachte wijzigingen vergrendelen 
 
@@ -157,7 +157,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-U vergrendeling resources met Azure CLI geïmplementeerd met behulp van de [az vergrendeling maken](/cli/azure/lock#create) opdracht.
+U vergrendeling resources met Azure CLI geïmplementeerd met behulp van de [az vergrendeling maken](/cli/azure/lock#az_lock_create) opdracht.
 
 Als u wilt vergrendelen van een resource, geef de naam van de bron, het resourcetype en de naam van de resourcegroep.
 
@@ -171,7 +171,7 @@ Als u wilt vergrendelen van een resourcegroep, geef de naam van de resourcegroep
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Als u informatie over een vergrendeling, gebruikt [az vergrendeling lijst](/cli/azure/lock#list). Als u alle vergrendelingen in uw abonnement, gebruikt u:
+Als u informatie over een vergrendeling, gebruikt [az vergrendeling lijst](/cli/azure/lock#az_lock_list). Als u alle vergrendelingen in uw abonnement, gebruikt u:
 
 ```azurecli
 az lock list

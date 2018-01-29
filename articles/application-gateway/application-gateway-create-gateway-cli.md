@@ -1,211 +1,186 @@
 ---
-title: Een toepassingsgateway - Azure CLI 2.0 maken | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI 2.0 in Resource Manager.
+title: Maken van een toepassingsgateway - Azure CLI | Microsoft Docs
+description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI.
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Een toepassingsgateway maken met behulp van de Azure CLI 2.0
+# <a name="create-an-application-gateway-using-the-azure-cli"></a>Een toepassingsgateway met Azure CLI maken
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+U kunt de Azure CLI gebruiken voor het maken of beheren van Toepassingsgateways vanaf de opdrachtregel of in scripts. Deze snelstartgids wordt beschreven hoe u netwerkbronnen, back-endservers en een toepassingsgateway maken.
 
-Azure Application Gateway is een toegewezen virtueel apparaat die toepassing levering controller (ADC) biedt een service en biedt u verschillende laag 7 taakverdeling mogelijkheden voor uw toepassing.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="cli-versions"></a>CLI-versies
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-U kunt een toepassingsgateway maken met behulp van een van de volgende versies van de opdrachtregelinterface (CLI):
+Als u wilt installeren en gebruiken van de CLI lokaal, is deze snelstartgids vereist dat u de Azure CLI versie 2.0.4 uitvoert of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
-* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md): Azure CLI voor het klassieke en Azure Resource Manager-implementatiemodel
-* [Azure CLI 2.0](application-gateway-create-gateway-cli.md): Next generation CLI voor het Resource Manager-implementatiemodel
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Voorwaarde: Installeer de Azure CLI 2.0
+Maak een resource-groep met [az groep maken](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-Als u wilt de stappen in dit artikel uitvoert, moet u [Azure CLI voor Mac OS-, Linux- en Windows installeren](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAG* in de *eastus* locatie.
 
-> [!NOTE]
-> U moet een Azure-account om een toepassingsgateway te maken. Als u niet hebt, zich aanmelden voor een [gratis proefversie](../active-directory/sign-up-organization.md).
-
-## <a name="scenario"></a>Scenario
-
-In dit scenario leert u hoe u een toepassingsgateway maken met behulp van de Azure-portal.
-
-Dit scenario wordt:
-
-* Een middelgrote toepassingsgateway maken met twee exemplaren.
-* Maak een virtueel netwerk met de naam AdatumAppGatewayVNET met een gereserveerd CIDR-blok van 10.0.0.0/16.
-* Maakt u een subnet met de naam Appgatewaysubnet dat gebruikmaakt van 10.0.0.0/28 als CIDR-blok.
-
-> [!NOTE]
-> Verdere configuratie van de toepassingsgateway, inclusief aangepaste statuscontroles, back-end-adressen en extra regels wordt uitgevoerd nadat de toepassingsgateway is gemaakt en niet tijdens de eerste installatie.
-
-## <a name="before-you-begin"></a>Voordat u begint
-
-Een application gateway vereist een eigen subnet. Wanneer u een virtueel netwerk maakt, moet u ervoor zorgen dat u onvoldoende adresruimte voor meerdere subnetten laat. Nadat u een toepassingsgateway met een subnet implementeert, kunt u alleen extra Toepassingsgateways op dat subnet toevoegen.
-
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-
-Open de **Microsoft Azure-opdrachtprompt** en meld u aan:
-
-```azurecli-interactive
-az login -u "username"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> U kunt ook `az login` zonder dat de switch voor apparaat aanmelding waarvoor een code op aka.ms/devicelogin invoert.
+## <a name="create-network-resources"></a>Maken van netwerkbronnen 
 
-Nadat u de voorgaande opdracht invoert, ontvangt u een code. Ga naar https://aka.ms/devicelogin in een browser om door te gaan met het aanmelden.
-
-![cmd tonen apparaat aanmelding][1]
-
-Voer de code die u hebt ontvangen in de browser. Hiermee wordt u omgeleid naar een aanmeldingspagina.
-
-![browser-code invoeren][2]
-
-Voer de code aan te melden en sluit vervolgens de browser om door te gaan.
-
-![aangemeld][3]
-
-## <a name="create-the-resource-group"></a>De resourcegroep maken
-
-Voordat u de toepassingsgateway maakt, maakt u een resourcegroep geplaatst. Gebruik de volgende opdracht:
+Maken van het virtuele netwerk en subnet met behulp van [az network vnet maken](/cli/azure/vnet#az_vnet_create). Maken van het openbare IP-adres met [az netwerk openbare ip-maken](/cli/azure/public-ip#az_public_ip_create).
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location "eastus"
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet   \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-backend-servers"></a>Maken van back-endservers
+
+In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook NGINX installeren op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
+
+### <a name="create-two-virtual-machines"></a>Twee virtuele machines maken
+
+U kunt een cloud-init-configuratiebestand NGINX installeren en uitvoeren van een 'Hello World' Node.js-app op een virtuele Linux-machine. In uw huidige shell, maakt u een bestand met de naam cloud init.txt en kopieer en plak de volgende configuratie in de shell. Zorg ervoor dat u de volledige kopieert cloud init bestand correct, met name de eerste regel:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+Maken van de netwerkinterfaces met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create). Maken van de virtuele machines met [az vm maken](/cli/azure/vm#az_vm_create).
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupAG \
+    --name myNic$i \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet
+  az vm create \
+    --resource-group myResourceGroupAG \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+done
 ```
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Gebruik de back-end-IP-adressen voor uw back-end-server IP-adressen. Deze waarden kunnen worden persoonlijke IP-adressen in het virtuele netwerk, openbare IP-adressen of volledig gekwalificeerde domeinnamen voor uw back-endservers. Het volgende voorbeeld maakt een toepassingsgateway met aanvullende configuraties voor HTTP-instellingen, poorten en regels:
+Maak een application gateway met [az netwerk toepassingsgateway maken](/cli/azure/application-gateway#az_application_gateway_create). Wanneer u een toepassingsgateway met Azure CLI maakt, kunt u configuratie-informatie, zoals de capaciteit, sku en HTTP-instellingen opgeven. De particuliere IP-adressen van de netwerkinterfaces worden toegevoegd als servers in de back-endpool van de toepassingsgateway.
 
 ```azurecli-interactive
+address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers 10.0.0.4 10.0.0.5 \
---capacity 2 \
---sku Standard_Small \
---http-settings-cookie-based-affinity Enabled \
---http-settings-protocol Http \
---frontend-port 80 \
---routing-rule-type Basic \
---http-settings-port 80 \
---public-ip-address "pip2" \
---public-ip-address-allocation "dynamic" \
-
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Enabled \
+  --public-ip-address myAGPublicIPAddress \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --servers "$address1" "$address2"
 ```
 
-Het vorige voorbeeld ziet u diverse eigenschappen die niet vereist zijn tijdens het maken van een toepassingsgateway. Het volgende codevoorbeeld maakt een toepassingsgateway met de vereiste informatie:
+Duurt enkele minuten voor de toepassingsgateway moet worden gemaakt. Nadat de toepassingsgateway is gemaakt, kunt u deze functies ervan zien:
 
-```azurecli-interactive
-az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers "10.0.0.5"  \
---public-ip-address pip
-```
- 
-> [!NOTE]
-> Voor een lijst van parameters moeten worden gebruikt tijdens het maken van de volgende opdracht uitvoeren: `az network application-gateway create --help`.
+- *appGatewayBackendPool* -een toepassingsgateway moet ten minste één back-endadresgroep hebben.
+- *appGatewayBackendHttpSettings* -Hiermee geeft u op poort 80 en een HTTP-protocol wordt gebruikt voor communicatie.
+- *appGatewayHttpListener* -de standaard-listener die zijn gekoppeld aan *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -wijst *myAGPublicIPAddress* naar *appGatewayHttpListener*.
+- *Rule1* : de regel die is gekoppeld aan routering standaard *appGatewayHttpListener*.
 
-In dit voorbeeld maakt een basic-toepassingsgateway met standaardinstellingen voor de listener, back-end-pool, back-end-HTTP-instellingen en -regels. U kunt deze instellingen aanpassen aan uw implementatie nadat het inrichten voltooid is, kunt wijzigen.
+## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
 
-Als u de webtoepassing is gedefinieerd met de back-end-pool in de voorgaande stappen hebt uitgevoerd, begint taakverdeling nu.
+Als u het openbare IP-adres van de toepassingsgateway, gebruikt [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
 
-## <a name="get-the-application-gateway-dns-name"></a>Ophalen van de DNS-naam van de toepassing-gateway
-Nadat u de gateway maakt, configureert u de front-end voor communicatie. Als u een openbaar IP-adres, moet u de toepassingsgateway een dynamisch toegewezen DNS-naam, geen beschrijvende is. Gebruik een CNAME-record om te verwijzen naar het openbare eindpunt van de toepassingsgateway zodat gebruikers kunnen de toepassingsgateway bereikt. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](../dns/dns-custom-domain.md).
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+``` 
 
-Voor het configureren van een alias ophalen van gegevens van de toepassingsgateway en de bijbehorende IP-en DNS-naam met behulp van de PublicIPAddress-element dat is gekoppeld aan de toepassingsgateway. Gebruik DNS-naam van de toepassingsgateway te maken van een CNAME-record die de twee webtoepassingen aan deze DNS-naam wijst. Geen gebruik A-records omdat het VIP kan worden gewijzigd op opnieuw starten van de toepassingsgateway.
+![Test toepassingsgateway](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
 
+## <a name="clean-up-resources"></a>Resources opschonen
 
-```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
-```
+Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#az_group_delete) opdracht de resourcegroep, een toepassingsgateway verwijderen en alle bijbehorende resources.
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
-
-## <a name="delete-all-resources"></a>Alle resources verwijderen
-
-Voer de volgende opdracht voor het verwijderen van alle resources in dit artikel is gemaakt:
-
-```azurecli-interactive
-az group delete --name AdatumAppGatewayRG
+```azurecli-interactive 
+az group delete --name myResourceGroupAG
 ```
  
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over het maken van aangepaste statuscontroles, gaat u naar [een aangepaste test voor de toepassingsgateway maken met behulp van de portal](application-gateway-create-probe-portal.md).
+In deze snelstartgids gemaakt u een resourcegroep, netwerkbronnen en back-endservers. Vervolgens gebruikt u deze resources om een toepassingsgateway te maken. Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
 
-Zie voor informatie over het configureren van SSL-offloading en nemen de kostbare SSL-ontsleuteling uit uw webservers, [een toepassingsgateway voor SSL-offload configureren met behulp van Azure Resource Manager](application-gateway-ssl-arm.md).
-
-<!--Image references-->
-
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png

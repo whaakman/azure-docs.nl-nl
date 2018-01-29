@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en configuratiebestanden van de VPN-clients voor P2S RADIUS-verificatie installeren
 
@@ -56,7 +56,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Met de opdracht retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden van 'VpnClientConfiguration.zip'. Pak het bestand om weer te geven van de volgende mappen: 
  
 * **WindowsAmd64** en **WindowsX86** -deze mappen bevatten het installatieprogramma voor Windows 64-bits en 32-bits pakketten, respectievelijk. 
-* **GenericDevice** -deze map bevat algemene informatie gebruikt om de configuratie van uw eigen VPN-client te maken. Deze map is niet nodig voor de gebruikersnaam en wachtwoord verificatie configuraties.
+* **Algemene** -deze map bevat algemene informatie gebruikt om de configuratie van uw eigen VPN-client te maken. Deze map is niet nodig voor de gebruikersnaam en wachtwoord verificatie configuraties.
 * **Mac** -als IKEv2 tijdens het maken van de virtuele netwerkgateway is geconfigureerd, ziet u een map met de naam 'Mac' met een **mobileconfig** bestand. Dit bestand wordt gebruikt voor het configureren van Mac-clients.
 
 Als u al client configuratiebestanden gemaakt, kunt u ze kunt ophalen met de cmdlet 'Get-AzureRmVpnClientConfiguration'. Echter, als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het Protocol van de VPN-type of verificatie, de configuratie niet automatisch bijgewerkt. U moet de cmdlet, New-AzureRmVpnClientConfiguration' voor het maken van het downloaden van een nieuwe configuratie uitvoeren.
@@ -125,7 +125,7 @@ Configuratiebestanden voor RADIUS-verificatie via certificaat die het EAP-TLS-pr
 Configuratiebestanden voor VPN-clients voor gebruik met verificatie via certificaat genereren. U kunt de configuratiebestanden van de VPN-client met de volgende opdracht genereren:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Met de opdracht retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden van 'VpnClientConfiguration.zip'. Pak het bestand om weer te geven van de volgende mappen:
@@ -138,7 +138,7 @@ Als u al client configuratiebestanden gemaakt, kunt u ze kunt ophalen met de cmd
 Voor het ophalen van eerder gegenereerde client configuratiebestanden, gebruik de volgende opdracht:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2. Windows en Mac-VPN-clients configureren

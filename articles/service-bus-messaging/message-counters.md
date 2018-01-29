@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5d2aa551bbe77a66459907cf5cd1313bb907981
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-counters"></a>Berichtentellers
 
@@ -31,7 +31,7 @@ Met PowerShell, kunt u het aantal als volgt verkrijgen:
 
 ## <a name="message-count-details"></a>Details van bericht van aantal
 
-Het aantal actieve berichten weten is handig om te bepalen of een wachtrij een achterstand waarvoor meer resources maakt worden verwerkt dan wat momenteel is geïmplementeerd. De volgende details voor prestatiemeteritems zijn beschikbaar in de [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) klasse:
+Het aantal actieve berichten weten is handig bij het bepalen of een wachtrij een achterstand waarvoor meer resources maakt worden verwerkt dan wat momenteel is geïmplementeerd. De volgende details voor prestatiemeteritems zijn beschikbaar in de [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) klasse:
 
 -   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount):-berichten in de wachtrij of een abonnement dat in de actieve status en gereed is voor de levering van.
 -   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): berichten in de wachtrij voor onbestelbare berichten.

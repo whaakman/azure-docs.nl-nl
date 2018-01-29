@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510e578f3ebeb6ad7a4d81249cdfd7ce1d3684ad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Gebeurtenis raster beveiligings- en -verificatie 
 
@@ -24,7 +24,7 @@ Azure Event raster heeft drie soorten verificatie:
 
 ## <a name="webhook-event-delivery"></a>WebHook gebeurtenis levering
 
-Webhooks zijn veel manieren voor het ontvangen van gebeurtenissen in realtime uit Azure Event raster. Elke keer dat er wordt een nieuwe gebeurtenis gereed om te worden geleverd, seeding van de gebeurtenis raster Webhook een HTTP-aanvraag naar de geconfigureerde HTTP-eindpunt met de gebeurtenis in de hoofdtekst.
+Webhooks zijn veel manieren voor het ontvangen van gebeurtenissen in realtime uit Azure Event raster. Elke keer dat er wordt een nieuwe gebeurtenis gereed om te worden geleverd, wordt in de gebeurtenis raster Webhook een HTTP-aanvraag verzendt naar de geconfigureerde HTTP-eindpunt met de gebeurtenis in de hoofdtekst.
 
 Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen dat eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster bezorgt geen gebeurtenissen naar WebHook-eindpunten die u hebt de validatie niet doorstaan.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Dropbox voor bedrijven | Microsoft Docs'
+title: 'Zelfstudie: Dropbox configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Dropbox voor bedrijven.
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Zelfstudie: Dropbox voor bedrijven configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Zelfstudie: Dropbox voor bedrijven configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is zodat u de stappen die u wilt uitvoeren in Dropbox voor bedrijven en Azure AD automatisch inrichten en ongedaan inrichten gebruikersaccounts vanuit Azure AD naar Dropbox voor bedrijven.
 
@@ -62,7 +62,7 @@ Deze sectie helpt u bij het verbinden van uw Azure AD met Dropbox voor bedrijven
 
 4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-    ![Inrichting](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
+    ![inrichten](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
 5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Er wordt een Dropbox voor zakelijke aanmeldingsdialoogvenster geopend in een nieuw browservenster.
 
@@ -97,7 +97,7 @@ Een is voltooid gebruikersaanvragen cyclus wordt aangegeven door de bijbehorende
 ![Gebruikers toewijzen](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "gebruikers toewijzen")
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

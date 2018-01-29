@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps en -configuratie
 
@@ -85,12 +85,12 @@ Deze beperkingen gelden voor een enkele logische-app uitvoeren.
 Deze beperkingen gelden voor een enkele logic app-exemplaar.
 
 | Naam | Limiet | Opmerkingen | 
-| ---- | ----- | ----- | 
-| Acties uitvoeringen per 5 minuten | 100,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
+| ----- | ----- | ----- | 
+| Acties uitvoeringen per 5 minuten | 100,000 |<p>De limiet kan worden verhoogd tot 300.000 door een logische app in `High Througput` modus en dit kunnen worden gedaan door het instellen van de `operationOptions` eigenschap onder`runtimeConfiguration` van de werkstroom bron `OptimizedForHighThroughput`. <p>Houd er rekening mee dat hoge doorvoersnelheid-modus bevindt zich in preview. Een werklast kan ook worden gedistribueerd voor meerdere apps, indien nodig. | 
 | Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
-| Runtime-eindpunt: gelijktijdige binnenkomende oproepen | ~1,000 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
-| Runtime-eindpunt: aanroepen per 5 minuten lezen | 60,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
-| Runtime-eindpunt: aanroepen aanroepen per 5 minuten | 45,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
+| Runtime-eindpunt: gelijktijdige binnenkomende oproepen |~1,000 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
+| Runtime-eindpunt: aanroepen per 5 minuten lezen  | 60,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
+| Runtime-eindpunt: aanroepen aanroepen per 5 minuten| 45,000 |Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
 |||| 
 
 Aan deze beperkingen in de normale verwerking of voer load testen die mogelijk groter is dan deze limiet overschrijden [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.

@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Veelgestelde vragen over Microsoft Authenticator-app
 
 In dit artikel antwoorden op veelgestelde vragen die we over de Microsoft Authenticator-app ontvangen. Als u een antwoord op uw vraag niet ziet, gaat u naar de [Microsoft Authenticator-app-forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We hebben ook een andere veelgestelde vragen over een specifieke functie in de app [aanmelden met uw telefoon Veelgestelde vragen over](microsoft-authenticator-app-phone-signin-faq.md).
 
-De Microsoft Authenticator-app de Azure Authenticator-app vervangen en de aanbevolen app is wanneer u Azure multi-factor Authentication. De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+De Microsoft Authenticator-app de Azure Authenticator-app vervangen en de aanbevolen app is wanneer u Azure multi-factor Authentication. De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

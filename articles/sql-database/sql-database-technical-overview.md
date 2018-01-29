@@ -6,21 +6,22 @@ services: sql-database
 documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
+editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview, mvc
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
+ms.date: 12/13/2017
 ms.workload: Active
-ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.reviewer: carlrab
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
@@ -155,7 +156,7 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): stel hier uw vragen over databasebeheer
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): stel hier uw vragen over ontwikkeling
 - [MSDN-forums](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): stel hier uw technische vragen
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): hier kunt u bugs doorgeven en functies aanvragen
+- [Feedback](http://aka.ms/sqlfeedback): hier kunt u bugs rapporteren en functies aanvragen
 - [Reddit](https://www.reddit.com/r/SQLServer/): vragen en antwoorden voor SQL Server
 
 ## <a name="next-steps"></a>Volgende stappen

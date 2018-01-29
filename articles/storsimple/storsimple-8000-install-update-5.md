@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Update 5 installeren op uw StorSimple-apparaat
 
@@ -75,30 +75,30 @@ De hotfix-methode omvat de volgende drie stappen:
 
 U moet downloaden en installeren van de volgende hotfixes in de aangegeven volgorde en de voorgestelde mappen:
 
-| Order | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
+| Volgorde | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Software-update<br> Download beide _HcsSfotwareUpdate.exe_ en _CisMSDAgent.exe_ |Reguliere <br></br>Niet-verstoren |~ 25 minuten |FirstOrderUpdate|
+| 1. |KB4037264 |Software-update<br> Download beide _HcsSoftwareUpdate.exe_ en _CisMSDAgent.exe_ |Reguliere <br></br>Non-disruptive |~ 25 minuten |FirstOrderUpdate|
 
 Als u bijwerkt vanaf een apparaat met Update 4, hoeft u alleen de cumulatieve updates voor het besturingssysteem als tweede volgorde updates installeren.
 
-| Order | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
+| Volgorde | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |OS cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstoren |- |SecondOrderUpdate|
+| 2A. |KB4025336 |OS cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 Als installeren vanaf een apparaat met Update 3 of ouder, installeert u de volgende naast de cumulatieve updates.
 
-| Order | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
+| Volgorde | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |LSI stuurprogramma's en firmware-updates <br> USM firmware-update (versie 3.38) |Reguliere <br></br>Niet-verstoren |~ 3 uur <br> (inclusief 2A. + 2B. (+ 2 C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-beveiligingspakket updates <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstoren |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS-updates-pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstoren |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |LSI stuurprogramma's en firmware-updates <br> USM firmware-update (versie 3.38) |Reguliere <br></br>Non-disruptive |~ 3 uur <br> (inclusief 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-beveiligingspakket updates <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS-updates-pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 
 U moet mogelijk ook installeren schijf firmware-updates boven op de updates die zijn aangegeven in de voorgaande tabellen. U kunt controleren of u de schijf firmware-updates door het uitvoeren van moet de `Get-HcsFirmwareVersion` cmdlet. Als u deze firmwareversies: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, en u niet wilt dat deze updates te installeren.
 
-| Order | KB | Beschrijving | Updatetype | Installatietijd | Installeren in map|
+| Volgorde | KB | Beschrijving | Updatetype | Installatietijd | Installeren in map|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Schijf-firmware |Onderhoud <br></br>Verstoren |~ 30 minuten | ThirdOrderUpdate |
+| 3. |KB4037263 |Schijf-firmware |Onderhoud <br></br>Verstoren |~ 30 mins | ThirdOrderUpdate |
 
 <br></br>
 

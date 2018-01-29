@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -82,7 +82,7 @@ Deze instellingen toepassen op een bestaande AD DS-account met het PowerShell-sc
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-waar 
+Waar 
 
 **$ObjectDN** = Active Directory-account waarvan de machtigingen wilt hoger worden ingesteld.
 
@@ -401,7 +401,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecteer|
-    |CertKeyAlgorithmParams|CertHashString|waar|
+    |CertKeyAlgorithmParams|CertHashString|Waar|
     |||Met|
 
 * Wijzigingen in het volgende schema zijn geïntroduceerd om te kunnen klanten om van aangepaste synchronisatieregels sAMAccountName, domainNetBios en domainFQDN voor een groepsobjecten worden weergegeven, evenals distinguishedName voor gebruikersobjecten stromen te maken:
@@ -473,7 +473,7 @@ Azure AD Connect-synchronisatie
   * Synchronisatie van bijgewerkte standaardregel ingesteld op niet exporteren kenmerken **userCertificate** en **userSMIMECertificate** als meer dan 15 waarden van de kenmerken hebben.
   * AD-kenmerken **werknemer-id** en **msExchBypassModerationLink** zijn nu opgenomen in de regelset van de standaard synchronisatie.
   * AD-kenmerk **photo** is verwijderd uit de standaard synchronisatie regelset.
-  * Toegevoegd **preferredDataLocation** naar de Metaverse-schema en het schema van de AAD-Connector. Klanten die willen werken beide kenmerken in Azure AD kunnen implementeren, aangepaste synchronisatie regels om dit te doen. Meer informatie over het kenmerk, Raadpleeg het artikel gedeelte [Azure AD Connect-synchronisatie: hoe een wijziging aanbrengt in de standaardconfiguratie - synchronisatie inschakelen van PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Toegevoegd **preferredDataLocation** naar de Metaverse-schema en het schema van de AAD-Connector. Klanten die willen werken beide kenmerken in Azure AD kunnen implementeren, aangepaste synchronisatie regels om dit te doen. 
   * Toegevoegd **userType** naar de Metaverse-schema en het schema van de AAD-Connector. Klanten die willen werken beide kenmerken in Azure AD kunnen implementeren, aangepaste synchronisatie regels om dit te doen.
 
 * Azure AD Connect automatisch kunt nu het gebruik van kenmerk ConsistencyGuid als het kenmerk Bronanker voor on-premises AD-objecten. Bovendien kunnen de Azure AD Connect vult het ConsistencyGuid-kenmerk met de waarde van het kenmerk objectGuid als deze leeg is. Deze functie is van toepassing op nieuwe implementatie alleen. Meer informatie over deze functie, Raadpleeg het artikel gedeelte [Azure AD Connect: concepten - msDS-ConsistencyGuid met als sourceAnchor ontwerpen](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

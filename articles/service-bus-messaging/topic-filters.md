@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Onderwerp-filters en acties
 
-Abonnees kunnen definiëren welke berichten die ze willen ontvangen van een onderwerp. Deze berichten worden opgegeven in de vorm van een of meerdere benoemde abonnementsregels. Elke regel bestaat uit een voorwaarde waarmee wordt bepaald berichten en een actie die het geselecteerde bericht annotates geselecteerd. Voor elke overeenkomende regelvoorwaarde produceert het abonnement een kopie van het bericht dat anders voor elke overeenkomende beleidsregel kan worden voorzien.
+Abonnees kunnen definiëren welke berichten die ze willen ontvangen van een onderwerp. Deze berichten worden opgegeven in de vorm van een of meer benoemde abonnementsregels. Elke regel bestaat uit een voorwaarde waarmee wordt bepaald berichten en een actie die het geselecteerde bericht annotates geselecteerd. Voor elke overeenkomende regelvoorwaarde produceert het abonnement een kopie van het bericht dat anders voor elke overeenkomende beleidsregel kan worden voorzien.
 
 Elk onderwerpabonnement gemaakte heeft een initiële standaardregel abonnement. Als u niet expliciet een filtervoorwaarde voor de regel opgeeft, wordt het filter is toegepast is de **true** filter waarmee alle berichten in het abonnement worden geselecteerd. De standaardregel heeft geen bijbehorende aantekening-actie.
 
@@ -39,7 +39,7 @@ Filterregels voor complexe vereisen verwerkingscapaciteit. Het gebruik van SQL-f
 
 ## <a name="actions"></a>Acties
 
-Met de SQL-filtervoorwaarden en met die, kunt u een actie die aantekeningen toevoegen aan het bericht toe te voegen, verwijderen of vervangen van eigenschappen en hun waarden te definiëren. De actie [maakt gebruik van een SQL-achtige expressie](service-bus-messaging-sql-filter.md) die leans los van de syntaxis van de UPDATE van SQL-instructie. De actie wordt uitgevoerd op het bericht nadat is gematcht en voordat het bericht is geselecteerd in het onderwerp. De wijzigingen in de berichteigenschappen zijn persoonlijke aan het bericht gekopieerd naar het abonnement.
+Met de SQL-filtervoorwaarden en met die, kunt u een actie die aantekeningen toevoegen aan het bericht toe te voegen, verwijderen of vervangen van eigenschappen en hun waarden te definiëren. De actie [maakt gebruik van een SQL-achtige expressie](service-bus-messaging-sql-filter.md) die leans los van de syntaxis van de UPDATE van SQL-instructie. De actie wordt uitgevoerd op het bericht nadat deze zijn afgestemd en voordat het bericht is geselecteerd in het onderwerp. De wijzigingen in de berichteigenschappen zijn persoonlijke aan het bericht gekopieerd naar het abonnement.
 
 ## <a name="usage-patterns"></a>Gebruikspatronen
 

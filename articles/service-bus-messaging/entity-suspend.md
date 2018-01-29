@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 09aee1ba9ec3ce72732cb1f60c9a840ffc4beb2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Onderbreken en opnieuw activeren messaging-entiteiten (uitgeschakeld)
 
-Wachtrijen, onderwerpen en abonnementen kunnen tijdelijk worden onderbroken. De entiteit opschorten worden in een uitgeschakelde status, waarin alle berichten in de opslag worden bewaard. Echter berichten kunnen niet worden verwijderd of toegevoegd en de protocolbewerkingen van het betreffende yield fouten.
+Wachtrijen, onderwerpen en abonnementen kunnen tijdelijk worden onderbroken. De entiteit opschorten worden in een uitgeschakelde status waarin alle berichten in de opslag worden bewaard. Echter berichten kunnen niet worden verwijderd of toegevoegd en de protocolbewerkingen van het betreffende yield fouten.
 
 Het uitstellen van een entiteit gewoonlijk wordt uitgevoerd voor urgente beheerredenen. Een scenario is een defecte ontvanger waarmee berichten uit de wachtrij hebben geïmplementeerd mislukt verwerking, en nog niet correct is voltooid de berichten en verwijdert u deze. Als dit probleem is gediagnosticeerd, de wachtrij kan worden uitgeschakeld voor ontvangt totdat de gecorrigeerde code is geïmplementeerd en verdere gegevensverlies door de defecte code kan worden voorkomen.
 
@@ -31,7 +31,7 @@ In de portal de **eigenschappen** sectie voor de respectieve entiteit kunt wijzi
 
 ![][1]
 
-De portal is alleen toegestaan voor wachtrijen volledig uit te schakelen. U kunt ook uitschakelen van de verzenden en ontvangen van bewerkingen afzonderlijk met behulp van de Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API in de .NET Framework SDK of met een Azure Resource Manager-sjabloon via Azure CLI of Azure PowerShell.
+De portal is alleen toegestaan voor wachtrijen volledig uit te schakelen. U kunt ook uitschakelen van de verzenden en ontvangen van bewerkingen afzonderlijk met behulp van de Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's in de .NET Framework SDK of met een Azure Resource Manager-sjabloon via Azure CLI of Azure PowerShell.
 
 ## <a name="suspension-states"></a>Opschorten statussen
 

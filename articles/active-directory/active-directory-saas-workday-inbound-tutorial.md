@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Workday configureren voor automatisch gebruikers inrichten met on-premises Active Directory en Azure Active Directory | Microsoft Docs'
+title: 'Zelfstudie: Workday voor automatisch gebruikers inrichten met Azure Active Directory configureren | Microsoft Docs'
 description: Informatie over het gebruik van Workday als bron van identiteitsgegevens voor Active Directory en Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten met on-premises Active Directory en Azure Active Directory configureren
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
+
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren moet om mensen uit Workday importeren in Active Directory en Azure Active Directory, met optionele Write-back van enkele kenmerken voor Workday. 
 
 
@@ -209,7 +210,7 @@ In deze stap maakt u toewijst aan de nieuwe groepsmachtigingen voor **ophalen** 
 
 1. Voer activeren in het zoekvak en klik vervolgens op de koppeling **activeren in behandeling zijnde wijzigingen in beveiligingsbeleid**. 
    
-    ![Activeren](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "activeren") 
+    ![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
 2. Moet u de wijzigingen in behandeling het beveiligingsbeleid activeren taak eerst een opmerking invoeren voor controledoeleinden en klik vervolgens op **OK**. 
    
     ![In afwachting van beveiliging activeren](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "activeren in afwachting van beveiliging")   
@@ -325,24 +326,24 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | WERKDAG KENMERK | ACTIVE DIRECTORY-KENMERK |  OVEREENKOMENDE ID? | MAKEN / BIJWERKEN |
 | ---------- | ---------- | ---------- | ---------- |
 |  **WorkerID**  |  Werknemer-id | **Ja** | Geschreven op alleen maken | 
-|  **Gemeente**   |   L   |     | Maken en bijwerken |
+|  **Gemeente**   |   l   |     | Maken en bijwerken |
 |  **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
 |  **CountryReferenceTwoLetter**      |   CO |     |   Maken en bijwerken |
-| **CountryReferenceTwoLetter**    |  C  |     |         Maken en bijwerken |
+| **CountryReferenceTwoLetter**    |  c  |     |         Maken en bijwerken |
 | **SupervisoryOrganization**  | Afdeling  |     |  Maken en bijwerken |
-|  **PreferredNameData**  |  Weergavenaam |     |   Maken en bijwerken |
+|  **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
 | **Werknemer-id**    |  algemene naam    |   |   Geschreven op alleen maken |
-| **Faxserver**      | facsimileTelephoneNumber     |     |    Maken en bijwerken |
-| **Voornaam**   | Voornaam       |     |    Maken en bijwerken |
-| **Switch (\[Active\],, '0', 'True', '1')** |  AccountDisabled      |     | Maken en bijwerken |
+| **Fax**      | facsimileTelephoneNumber     |     |    Maken en bijwerken |
+| **FirstName**   | givenName       |     |    Maken en bijwerken |
+| **Switch (\[Active\],, '0', 'True', '1')** |  accountDisabled      |     | Maken en bijwerken |
 | **Mobile**  |    mobiele       |     |       Maken en bijwerken |
 | **EmailAddress**    | E-mail    |     |     Maken en bijwerken |
-| **ManagerReference**   | Manager  |     |  Maken en bijwerken |
+| **ManagerReference**   | manager  |     |  Maken en bijwerken |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Maken en bijwerken |
-| **Postcode**  |   Postcode  |     | Maken en bijwerken |
+| **PostalCode**  |   postalCode  |     | Maken en bijwerken |
 | **LocalReference** |  preferredLanguage  |     |  Maken en bijwerken |
-| ** Vervangen (Mid (Vervang (\[werknemer-id\],, ' (\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Geschreven op alleen maken |
-| **Achternaam**   |   SN   |     |  Maken en bijwerken |
+| **Vervang (Mid (Vervang (\[werknemer-id\],, ' (\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
+| **LastName**   |   SN   |     |  Maken en bijwerken |
 | **CountryRegionReference** |  St     |     | Maken en bijwerken |
 | **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Maken en bijwerken |
@@ -366,14 +367,14 @@ Na de installatie van agent, voer de onderstaande Powershell-opdrachten voor het
 
 **Opdracht #2**
 
-> Voeg ADSyncAgentActiveDirectoryConfiguration
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 * Invoer: Voor 'Directory Name', voer de naam van de AD-Forest, zoals ingevoerd gedeeltelijk \#2
 * Invoer: De gebruikersnaam van de beheerder en het wachtwoord voor Active Directory-forest
 
 **Opdracht #3**
 
-> Voeg ADSyncAgentAzureActiveDirectoryConfiguration
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Invoer: De gebruikersnaam van de globale beheerder en het wachtwoord voor uw Azure AD-tenant
 
@@ -395,7 +396,7 @@ Na de installatie van agent, voer de onderstaande Powershell-opdrachten voor het
 >
 > Bevoegde: False
 >
-> Identificatie: WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
+> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Opdracht #5**
 
@@ -643,7 +644,7 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 
 * Een vorige probleem met de controlelogboeken verschijnt niet in Azure AD-tenants die zich in de Europese Unie is opgelost. Aanvullende agentconfiguratie is echter vereist voor Azure AD-tenants in de EU. Zie voor meer informatie [deel 3: de lokale synchronisatie-agent configureren](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Zelfstudie: Eenmalige aanmelding tussen Workday en Azure Active Directory configureren](active-directory-saas-workday-tutorial.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ Toepassingen die uw organisatie is geregistreerd worden weergegeven onder de 'Mi
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Verwijderen van een multitenant-toepassing geautoriseerd door een andere organisatie
 Een subset van de toepassingen die worden weergegeven onder het filter 'Alle apps' (met uitzondering van de 'Mijn apps' registraties) zijn op uw tenant 'App registraties' hoofdpagina van multitenant-toepassingen. Deze toepassingen met meerdere tenants zijn van een andere tenant en in uw tenant zijn geregistreerd tijdens het proces toestemming in technische voorwaarden. Ze zijn meer specifiek, vertegenwoordigd door alleen een service principal-object in uw tenant, waarbij geen bijbehorende application-object. Zie voor meer informatie over de verschillen tussen de toepassing en service-principals [toepassing en service-principal objecten in Azure AD](active-directory-application-objects.md).
 
-Als u wilt verwijderen een multitenant-toepassing toegang tot uw directory (na heeft toestemming verleend), moet de company administrator de service-principal verwijderen. De beheerder moet globale beheerderstoegang hebben en kunnen verwijderen via de Azure portal de [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) om toegang te verwijderen.
+Als u wilt verwijderen een multitenant-toepassing toegang tot uw directory (na heeft toestemming verleend), moet de company administrator de service-principal verwijderen. De beheerder moet globale beheerderstoegang hebt, en kunnen verwijderen via de Azure portal of gebruik de [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) om toegang te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over de werking van verificatie in Azure AD [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md).

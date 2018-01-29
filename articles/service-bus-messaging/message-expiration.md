@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Verloopdatum voor het bericht (Time to Live)
 
@@ -25,11 +25,11 @@ De nettolading in een bericht of een opdracht of informatie die door een bericht
 
 Voor ontwikkeling en testomgevingen waarin de wachtrijen en onderwerpen vaak worden gebruikt in de context van gedeeltelijk wordt uitgevoerd van toepassingen of onderdelen van de toepassing, is het ook wenselijk gestrande testberichten automatisch worden kunt garbage collector zijn verzameld, zodat de volgende test uitvoeren schone start.
 
-De vervaldatum voor een afzonderlijk bericht kan worden beheerd door het instellen van de [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) systeemeigenschap, waarmee een relatieve duur. De vervaldatum wordt een absolute instant wanneer het bericht in de wachtrij in de entiteit. Op dat moment wordt de [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) voor deze eigenschap is van de waarde [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+De vervaldatum voor een afzonderlijk bericht kan worden beheerd door het instellen van de [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) systeemeigenschap, waarmee een relatieve duur. De vervaldatum wordt een absolute instant wanneer het bericht in de wachtrij in de entiteit. Op dat moment wordt de [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) voor deze eigenschap is van de waarde [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Afgelopen de **ExpiresAtUtc** chatberichten, worden niet in aanmerking voor het ophalen van berichten. De vervaldatum heeft geen invloed op berichten die momenteel zijn vergrendeld voor de levering van; Deze berichten worden nog steeds normaal verwerkt. Als de vergrendeling is verlopen of het bericht wordt afgesloten, wordt de vervaldatum van onmiddellijke kracht.
 
-Terwijl het bericht onder vergrendelen is, wordt de toepassing mogelijk in bezit is van een bericht dat nominaal is verlopen. Hiermee wordt aangegeven of de toepassing wordt wil opwekken tegen verwerking of kiest voor het afbreken van het bericht is tot de implementeerder.
+Terwijl het bericht onder vergrendelen is, wordt de toepassing mogelijk in bezit is van een bericht dat is verlopen. Hiermee wordt aangegeven of de toepassing wordt wil opwekken tegen verwerking of kiest voor het afbreken van het bericht is tot de implementeerder.
 
 ## <a name="entity-level-expiration"></a>Entiteitsniveau verlopen
 
@@ -47,11 +47,11 @@ Neem bijvoorbeeld een website die moet op betrouwbare wijze taken uitvoeren op e
 
 Service Bus-wachtrijen, onderwerpen en abonnementen kunnen worden gemaakt als tijdelijke entiteiten worden automatisch verwijderd wanneer deze gedurende een opgegeven periode niet is gebruikt.
  
-Automatisch opschonen is handig in ontwikkeling en tests scenario's waarin entiteiten worden dynamisch gemaakt en worden niet opgeschoond na gebruik, als gevolg van de test of foutopsporing uitvoeren die is onderbroken. Het is ook handig wanneer een toepassing dynamische entiteiten, zoals een antwoordenwachtrij maakt voor het ontvangen van antwoorden terug in een web server-proces of in een ander relatief eenvoudige object waar het is moeilijk om op te schonen betrouwbaar deze entiteiten wanneer het object exemplaar verdwijnt.
+Automatisch opschonen is handig in ontwikkeling en tests scenario's waarin entiteiten worden dynamisch gemaakt en worden niet opgeschoond na gebruik, als gevolg van een onderbreking van de test of foutopsporing uitvoeren. Het is ook handig wanneer een toepassing dynamische entiteiten, zoals een antwoordenwachtrij maakt voor het ontvangen van antwoorden terug in een web server-proces of in een ander relatief eenvoudige object waar het is moeilijk om op te schonen betrouwbaar deze entiteiten wanneer het object exemplaar verdwijnt.
 
 De functie is ingeschakeld met behulp van de [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) eigenschap die is ingesteld op de duur waarvoor een entiteit moet zijn inactief (ongebruikte) voordat deze automatisch wordt verwijderd. De minimale duur is 5 minuten.
  
-De eigenschap moet worden ingesteld via een Azure Resource Manager-bewerking of via de .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's. Deze waarde kan niet worden ingesteld via de portal.
+De **autoDeleteOnIdle** eigenschap moet worden ingesteld via een Azure Resource Manager-bewerking of via de .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's. Deze waarde kan niet worden ingesteld via de portal.
 
 
 ## <a name="next-steps"></a>Volgende stappen

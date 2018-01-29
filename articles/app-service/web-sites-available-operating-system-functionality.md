@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Besturingssysteem-functionaliteit op Azure App Service
 In dit artikel wordt de algemene basislijn besturingssysteem functionaliteit beschreven die beschikbaar is voor alle apps die worden uitgevoerd op [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit omvat bestand, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -49,7 +49,7 @@ Er bestaan verschillende schijven in App Service, waaronder lokale stations- en 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Lokale stations
-De kern is App Service een service die wordt uitgevoerd op de infrastructuur van Azure PaaS (platform als een service). Als gevolg hiervan zijn de lokale stations die zijn 'gekoppeld' aan een virtuele machine dezelfde stationstypen beschikbaar zijn voor alle worker-rol in Azure wordt uitgevoerd. Dit omvat een systeemstation (het station D:\), een toepassing station waarop Azure cspkg pakketbestanden gebruikt uitsluitend door App Service (en niet toegankelijk is voor klanten) en een 'gebruiker' station (het station C:\), waarvan de grootte afhankelijk van de grootte van de virtuele machine varieert.
+De kern is App Service een service die wordt uitgevoerd op de infrastructuur van Azure PaaS (platform als een service). Als gevolg hiervan zijn de lokale stations die zijn 'gekoppeld' aan een virtuele machine dezelfde stationstypen beschikbaar zijn voor alle worker-rol in Azure wordt uitgevoerd. Dit omvat een systeemstation (het station D:\), een toepassing station waarop Azure cspkg pakketbestanden gebruikt uitsluitend door App Service (en niet toegankelijk is voor klanten) en een 'gebruiker' station (het station C:\), waarvan de grootte afhankelijk van de grootte van de virtuele machine varieert. Het is belangrijk voor het bewaken van uw gebruik van de schijf wanneer uw toepassing groeit. Als het schijfquotum is bereikt, kan dit negatieve gevolgen hebben voor uw toepassing hebben.
 
 <a id="NetworkDrives"></a>
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certificaatassets in Azure Automation
 
@@ -28,18 +28,26 @@ Certificaten kunnen worden veilig opgeslagen in Azure Automation zodat ze toegan
 > Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in de Azure Automation met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, wordt de sleutel voor het automation-account worden ontsleuteld met het basiscertificaat en vervolgens worden gebruikt voor het versleutelen van de asset.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
-
-De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van automation-certificaat activa met Windows PowerShell. Ze worden verzonden als onderdeel van de [Azure PowerShell-module](../powershell-install-configure.md) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
+De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation referentieassets met Windows PowerShell.  Ze worden verzonden als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
 |Cmdlets|Beschrijving|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Hiermee haalt informatie over een certificaat wilt gebruiken in een runbook of de DSC-configuratie. U kunt alleen het certificaat zelf ophalen van Get-AutomationCertificate activiteit.|
-|[Nieuwe AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Maakt een nieuw certificaat in Azure Automation.|
-[Verwijder AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Hiermee verwijdert u een certificaat van Azure Automation.|Maakt een nieuw certificaat in Azure Automation.
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Maakt een nieuw certificaat in Azure Automation.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Hiermee verwijdert u een certificaat van Azure Automation.|Maakt een nieuw certificaat in Azure Automation.
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Hiermee stelt u de eigenschappen voor een bestaand certificaat, met inbegrip van het certificaat te uploaden en het instellen van het wachtwoord voor een .pfx-bestand.|
-|[Voeg AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Een certificaat voor de opgegeven cloud-service geüpload.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Een certificaat voor de opgegeven cloud-service geüpload.|
 
+## <a name="activities"></a>Activiteiten
+De activiteiten in de volgende tabel worden gebruikt voor toegang tot de certificaten in een runbook en DSC-configuraties.
+
+| Activiteiten | Beschrijving |
+|:---|:---|
+|Get-AutomationCertificate|Hiermee haalt u een certificaat wilt gebruiken in een runbook of de DSC-configuratie. Retourneert een [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) object.|
+
+> [!NOTE] 
+> Vermijd het gebruik van variabelen in de parameter-Name van **Get-AutomationCertificate** in een runbook of de DSC-configuratie omdat dit detecteren van afhankelijkheden tussen runbooks of DSC-configuratie en automatisering bemoeilijken kan variabelen in de ontwerpfase.
 
 ## <a name="python2-functions"></a>Python2 functies
 

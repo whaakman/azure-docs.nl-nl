@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>Detectie van duplicaten
 
-Als er optreedt bij een toepassing een fatale fout onmiddellijk na verzendt een bericht en het exemplaar van de opnieuw gestart daarom ten onrechte gelooft dat de levering van de voorafgaande berichten niet optreedt, een latere verzenden zorgt ervoor dat hetzelfde bericht worden weergegeven in het systeem twee keer.
+Als er optreedt bij een toepassing een fatale fout onmiddellijk na verzendt een bericht en exemplaar van de toepassing opnieuw gestart ten onrechte gelooft dat de levering van de voorafgaande berichten niet optreedt, een latere verzenden zorgt ervoor dat hetzelfde bericht tweemaal wordt weergegeven in het systeem.
 
-Het is ook mogelijk voor een fout op het niveau van client- of eerder even optreden, en voor een bericht verzonden om te worden doorgevoerd in de wachtrij met de bevestiging die niet met succes terug naar de client te maken. Dit scenario maakt de client bij twijfel over de uitkomst van de verzendbewerking.
+Het is ook mogelijk dat een fout op het niveau van client- of eerder even optreden en geretourneerd naar de client voor een bericht verzonden om te worden doorgevoerd in de wachtrij, met de bevestiging is mislukt. Dit scenario maakt de client bij twijfel over de uitkomst van de verzendbewerking.
 
 Detectie van duplicaten neemt de twijfel buiten deze situaties doordat de afzender opnieuw verzenden hetzelfde bericht en de wachtrij of onderwerp verwijdert alle dubbele exemplaren.
 
@@ -35,7 +35,7 @@ Voor een bedrijfsproces waarin meerdere berichten worden verzonden tijdens het v
 
 De *MessageId* kunnen altijd worden sommige GUID, maar de id van het bedrijfsproces verankeren levert het voorspelbare herhaalbaarheid die nodig is voor een effectief gebruik te maken van de detectie van duplicaten-functie.
 
-## <a name="enable-duplicate-detection"></a>Detectie van dubbele inschakelen
+## <a name="enable-duplicate-detection"></a>Duplicaatdetectie inschakelen
 
 In de portal voor de functie is ingeschakeld tijdens het maken van de entiteit met de **inschakelen detectie van duplicaten** selectievakje standaard uitgeschakeld is. De instelling voor het maken van nieuwe onderwerpen is gelijk.
 

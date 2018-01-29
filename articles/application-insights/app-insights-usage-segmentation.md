@@ -10,17 +10,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 04efb82addd0f307c68c73e28e46b602e5bc194a
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.date: 01/24/2018
+ms.author: mbullwin; daviste
+ms.openlocfilehash: 1a5380cac08ab32cfea4cf457aed1fb1510099ed
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse van de gebruikers, sessies en gebeurtenissen in Application Insights
 
-Weten wanneer mensen uw web-app gebruikt, welke pagina's die ze zijn het meest geïnteresseerd, waar uw gebruikers zich bevinden, welke browsers en besturingssystemen die ze gebruiken. Bedrijfs- en gebruiksgegevens telemetrie analyseren met behulp van [Azure Application Insights](app-insights-overview.md).
+Nagaan wanneer mensen uw web-app welke pagina's die ze zijn het meest geïnteresseerd gebruiken in, waarbij uw gebruikers zich bevinden en welke browsers en besturingssystemen die ze gebruiken. Bedrijfs- en gebruiksgegevens telemetrie analyseren met behulp van [Azure Application Insights](app-insights-overview.md).
+
+![Schermopname van Application Insights-gebruikers](./media/app-insights-usage-segmentation/0001-users.png)
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -31,40 +33,35 @@ Als er geen gegevens in de gebruikers, sessies of blades gebeurtenissen in de Ap
 Drie van de blades gebruik hetzelfde hulpprogramma gebruiken om te opdelen telemetrie van uw web-app uit drie perspectieven. Door het filteren en de gegevens worden gesplitst, kunt u inzicht in het relatieve gebruik van verschillende pagina's en onderdelen onthullen.
 
 * **Gebruikers hulpprogramma**: hoeveel mensen uw app en de bijbehorende functies gebruikt.  Gebruikers worden met behulp van anonieme id's die zijn opgeslagen in de browsercookies geteld. Verschillende browsers of machines met één persoon wordt geteld als meer dan één gebruiker.
-* **Sessies hulpprogramma**: het aantal sessies van gebruikersactiviteit bepaalde pagina's en functies van uw app hebt opgenomen. Een sessie worden geteld nadat half uur gebruiker inactief of nadat continue 24 uur van gebruik.
+* **Sessies hulpprogramma**: het aantal sessies van gebruikersactiviteit bepaalde pagina's en functies van uw app hebt opgenomen. Een sessie worden geteld na half uur gebruiker inactief of na 24 uur onafgebroken gebruik.
 * **Gebeurtenissen hulpprogramma**: hoe vaak bepaalde pagina's en functies van uw app worden gebruikt. Een paginaweergave geteld als een pagina in een browser wordt geladen vanuit uw app, mits u [geïnstrumenteerd deze](app-insights-javascript.md). 
 
     Een aangepaste gebeurtenis vertegenwoordigt een exemplaar van dat er iets gebeurt in uw app, vaak een gebruikersinteractie, zoals een knop klikt u op of de voltooiing van een taak. Voeg in uw app code [aangepaste gebeurtenissen genereren](app-insights-api-custom-events-metrics.md#trackevent).
 
-![Gebruik hulpprogramma](./media/app-insights-usage-segmentation/users.png)
+## <a name="querying-for-certain-users"></a>Uitvoeren van query's voor bepaalde gebruikers
 
-## <a name="querying-for-certain-users"></a>Uitvoeren van query's voor bepaalde gebruikers 
+Leer de verschillende groepen gebruikers door de query-opties aan de bovenkant van het hulpprogramma gebruikers aan te passen:
 
-Leer de verschillende groepen gebruikers door de query-opties aan de bovenkant van het hulpprogramma gebruikers aan te passen: 
-
-* Wie gebruikt: Kies aangepaste gebeurtenissen en paginaweergaven. 
-* Tijdens: Kies een tijdsbereik. 
-* Door: Kiezen hoe de gegevens laden door een bepaalde periode of door een andere eigenschap zoals browser of een plaats. 
+* Weergeven: Kies een cohort van gebruikers te analyseren.
+* Wie gebruikt: Kies aangepaste gebeurtenissen en paginaweergaven.
+* Tijdens: Kies een tijdsbereik.
+* Door: Kiezen hoe de gegevens laden door een bepaalde periode of door een andere eigenschap zoals browser of een plaats.
 * Splitsen: Kies een eigenschap waarmee te splitsen of segment de gegevens. 
 * Filters toevoegen: De query beperken tot bepaalde gebruikers, sessies of gebeurtenissen op basis van hun eigenschappen, zoals de browser of een plaats. 
  
 ## <a name="saving-and-sharing-reports"></a>Opslaan en delen van rapporten 
-U kunt gebruikers rapporten, persoonlijke aan u in de sectie Mijn rapporten of gedeeld met iedereen met toegang tot deze Application Insights-resource in de sectie gedeelde rapporten anders opslaan.  
- 
-Tijdens het opslaan van een rapport of de eigenschappen bewerken, kiest u 'Actueel relatief tijdsbereik' voor het opslaan van een rapport wordt voortdurend vernieuwd gegevens, een vaste hoeveelheid tijd als u terugkeert.  
- 
-Kies 'Huidig absoluut tijdsbereik' een rapport opslaan met een vaste set van gegevens. Houd er rekening mee dat de gegevens in Application Insights alleen worden opgeslagen voor 90 dagen, dus als er meer dan 90 dagen zijn verstreken sinds een rapport met een absoluut tijdsbereik is opgeslagen, wordt het rapport leeg, weergegeven. 
- 
-## <a name="example-instances"></a>Voorbeeld-exemplaren
+U kunt gebruikers rapporten, persoonlijke aan u in de sectie Mijn rapporten of gedeeld met iedereen met toegang tot deze Application Insights-resource in de sectie gedeelde rapporten anders opslaan.
 
-De voorbeeld-exemplaren in deze sectie bevat informatie over een aantal afzonderlijke gebruikers, sessies of gebeurtenissen die door de huidige query worden vergeleken. Overweegt en verkennen van het gedrag van personen naast statistische functies, krijgt u inzicht in hoe mensen uw app daadwerkelijk gebruiken. 
- 
-## <a name="insights"></a>Inzichten 
+Voor het delen van een koppeling naar een rapport gebruikers, sessies of gebeurtenissen; Klik op **Share** Kopieer de koppeling in de werkbalk.
 
-De zijbalk Insights bevat grote clusters van gebruikers die algemene eigenschappen voor delen. Deze clusters kunnen onthullen verrassend trends in hoe mensen uw app gebruiken. Als bijvoorbeeld 40% van alle over het gebruik van uw app afkomstig is van mensen met een enkele functie.  
+Voor het delen van een kopie van de gegevens in een rapport gebruikers, sessies of gebeurtenissen; Klik op **Share** op de werkbalk, klik vervolgens op de **Word-pictogram** voor het maken van een Word-document met de gegevens. Of klik op de **Word-pictogram** boven het belangrijkste diagram.
 
+## <a name="meet-your-users"></a>Voldoen aan uw gebruikers
+
+De **voldoen aan uw gebruikers** sectie wordt informatie weergegeven over vijf voorbeeldgebruikers overeenkomt met de huidige query. Overweegt en verkennen van het gedrag van personen naast statistische functies, krijgt u inzicht in hoe mensen uw app daadwerkelijk gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 - Om in te schakelen ervaringen gebruik, beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Als u al aangepaste gebeurtenissen of paginaweergaven verzendt, gebruik de informatie over het gebruik hulpprogramma's voor meer informatie over hoe gebruikers gebruiken voor uw service.
     - [Trechters](usage-funnels.md)
@@ -72,4 +69,3 @@ De zijbalk Insights bevat grote clusters van gebruikers die algemene eigenschapp
     - [Gebruikersstromen](app-insights-usage-flows.md)
     - [Werkmappen](app-insights-usage-workbooks.md)
     - [Gebruikerscontext toevoegen](app-insights-usage-send-user-context.md)
-

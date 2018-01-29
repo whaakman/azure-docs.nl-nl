@@ -1,6 +1,6 @@
 ---
-title: Problemen bij het installeren van de toegang tot de toepassing van het deelvenster Browseruitbreiding | Microsoft Docs
-description: Het oplossen van veelvoorkomende fouten aangetroffen bij het installeren van de uitbreiding voor toegang tot Configuratiescherm browser
+title: De extensie in de browser toepassing toegang Configuratiescherm - Azure installeren | Microsoft Docs
+description: Algemene fouten aangetroffen tijdens de installatie van de uitbreiding voor toegang tot Configuratiescherm browser oplossen.
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,113 +14,108 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problemen bij het installeren van de toegang tot de toepassing van het deelvenster Browseruitbreiding
+# <a name="install-the-access-panel-browser-extension"></a>De uitbreiding voor toegang tot Configuratiescherm browser installeren
 
-Het Toegangspaneel is een portal op Internet waarmee een gebruiker met een account voor werk of school in Azure Active Directory (Azure AD) voor weergave in en start cloud-gebaseerde toepassingen die de Azure AD-beheerder heeft deze toegang verleend tot. Een gebruiker met Azure AD-edities kunt ook gebruiken voor groepsbeheer met Self-service en app-mogelijkheden voor beheer via het toegangsvenster. Het Toegangspaneel is gescheiden van de Azure-portal en vereist geen gebruikers een Azure-abonnement hebben.
+Het toegangspaneel is een webportal. Als u een werk hebt of school-account in Azure Active Directory (Azure AD), kunt u het toegangsvenster weergeven en starten van cloud-gebaseerde toepassingen die Azure AD-beheerder u toegang tot heeft verleend. 
 
-Als u wilt gebruiken op basis van wachtwoorden eenmalige aanmelding (SSO) in het deelvenster toegang, moet de extensie Toegangspaneel worden geïnstalleerd in de browser van de gebruiker. Deze extensie wordt automatisch gedownload wanneer een gebruiker selecteert een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
+Als u Azure AD-edities, kunt u ook groepsbeheer met Self-service en app-mogelijkheden voor beheer via het toegangsvenster gebruiken. 
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Vergadering Browservereisten voor het toegangsvenster
+Het toegangspaneel is gescheiden van de Azure-portal. Dit vereist niet dat u een Azure-abonnement hebt.
 
-Het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Als u wilt gebruiken op basis van wachtwoorden eenmalige aanmelding (SSO) in het deelvenster toegang, moet de extensie Toegangspaneel worden geïnstalleerd in de browser van de gebruiker. Deze extensie wordt automatisch gedownload wanneer een gebruiker selecteert een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
+## <a name="web-browser-requirements"></a>Vereisten voor webbrowsers
 
-Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker browsers zijn:
+Ten minste het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Als u wilt worden aangemeld via eenmalige aanmelding op basis van wachtwoorden in het deelvenster toegang aan toepassingen, moet u de uitbreiding van toegang tot Configuratiescherm geïnstalleerd in uw browser hebben. De extensie wordt automatisch gedownload wanneer u een toepassing die geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden selecteert.
 
--   Rand verjaardagseditie van Windows 10 of hoger 
+U kunt een van de volgende browsers gebruiken voor eenmalige aanmelding op basis van wachtwoorden:
 
--   Chrome--Op Windows 7 of hoger, en op Mac OS X of hoger
+- **Rand**: verjaardagseditie van Windows 10 of hoger. 
+- **Chrome**: Windows 7 of hoger, en op Mac OS X of hoger.
+- **Firefox 26,0 of hoger**: Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
+- **Internet Explorer 8, 9, 10, 11**: op Windows 7 of hoger (beperkte ondersteuning).
 
--   Firefox 26,0 of later--op Windows XP SP2 of hoger, en op Mac OS X 10,6 of hoger
+## <a name="install-the-access-panel-browser-extension"></a>De uitbreiding voor toegang tot Configuratiescherm browser installeren
 
--   Internet Explorer 8, 9, 10, 11--op Windows 7 of hoger (beperkte ondersteuning)
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Het installeren van de Browseruitbreiding toegang Configuratiescherm
+Voor het installeren van de uitbreiding voor toegang tot Configuratiescherm browser, het volgende doen:
 
-Volg de onderstaande stappen voor het installeren van de Browseruitbreiding toegang Configuratiescherm:
+1.  Open in een van de ondersteunde browsers en de [toegangspaneel](https://myapps.microsoft.com), en vervolgens weer aanmelden als gebruiker in uw Azure AD-account.
 
-1.  Open de [Toegangspaneel](https://myapps.microsoft.com) in een van de ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
+2.  Selecteer een toepassing eenmalige aanmelding op basis van wachtwoorden.
 
-2.  Klik op een **wachtwoord SSO toepassing** in het deelvenster toegang.
+3.  Wanneer u wordt gevraagd, selecteert u **nu installeren**.  
+    U wordt omgeleid naar de downloadkoppeling voor de geselecteerde browser. 
+    
+4.  Selecteer **Toevoegen**.
 
-3.  Selecteer in het venster met de vraag om de software te installeren, **nu installeren**.
+5.  Als u wordt gevraagd, ofwel **inschakelen** of **toestaan** de extensie.
 
-4.  Op basis van uw browser u omgeleid naar de downloadkoppeling. **Voeg** de uitbreiding van uw browser.
+6.  Nadat de installatie is voltooid, start u de browser opnieuw.
 
-5.  Als uw browser wordt gevraagd, selecteert u op een **inschakelen** of **toestaan** de extensie.
+7.  Aanmelden bij het toegangspaneel en controleer om te zien of u uw toepassingen op basis van wachtwoorden SSO kunt starten.
 
-6.  Nadat deze is geïnstalleerd, **opnieuw** uw browsersessie.
+U kunt ook de uitbreiding downloaden voor Chrome en rand rechtstreeks vanuit de volgende sites:
 
-7.  Meld u aan in het deelvenster toegang en zien als u kunt **starten** uw wachtwoord SSO-toepassingen
+- [Chrome-uitbreiding](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Edge-uitbreiding](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
-U kunt ook de uitbreiding voor Chrome en rand van de onderstaande directe koppelingen downloaden:
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Gebruik de mijn Apps beveiligen aanmelden extensie
+* Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, standaard-URL configureren door het volgende te doen:
+   1. Terwijl u bent *niet* aangemeld bij de extensie, met de rechtermuisknop op het pictogram extensie.
+   2. Selecteer in het menu **URL voor mijn Apps**.
+   3. Selecteer uw standaard-URL.
+   4. Selecteer het pictogram extensie.
+   5. Als u wilt aanmelden bij de extensie, selecteer **melden aan de slag**.
 
--   [Uitbreiding van chrome toegang Configuratiescherm](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+* Om aan te melden rechtstreeks naar een app van de browser, het volgende doen:
+   1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
+   2. Aanmelden bij de app met de aanmeldings-URL.  
+       De aanmeldings-URL is meestal de URL van de app die het formulier aanmeldingspagina wordt weergegeven.
+      De extensie moet een statuswijziging en laat u weten dat een wachtwoord beschikbaar is.
+   3. Als u wilt aanmelden, selecteer het extensie-pictogram.
 
--   [Uitbreiding van de rand toegang Configuratiescherm](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
-
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Hoe gebruik ik de extensie mijn Apps beveiligen aanmelden?
-Het wijzigen van de standaard-URL voor mijn Apps voor de extensie
-
-Als u van een andere mijn Apps URL dan https://myapps.microsoft.com gebruikmaakt vervolgens moet u uw standaard-URL echter de volgende stappen uit:
-1. Terwijl niet aangemeld bij de extensie **Klik met de rechtermuisknop** het extensie-pictogram.
-2. Klik op **URL voor mijn Apps selecteren** in het menu.
-3. **Selecteer** uw standaard-URL.
-4. Klik op het pictogram extensie.
-5. Aanmelden bij de extensie door te selecteren **melden aan de slag**.
-
-Meld u aan rechtstreeks in een app van de browser
-1. Na de installatie van de extensie, aanmelding bij de extensie door te selecteren **melden aan de slag**.
-2. Navigeer naar de **aanmelding URL** van de app die u aanmelden wilt bij dit wordt meestal de URL van de app die wordt weergegeven het aanmeldingsformulier.
-3. De extensie moet een statuswijziging en kunt u dat een wachtwoord verkrijgbaar is, klikt u op de **extensie pictogram** aan te melden.
-
-Een app van de extensie openen
-1. Na de installatie van de extensie, aanmelding bij de extensie door te selecteren **melden aan de slag**.
-2. Klik op het pictogram extensie openen de **menu**.
-3. **Search** voor een app in de portal voor mijn Apps beschikbaar.
-4. Klik op de app vanuit de **zoekresultaten** zodat deze toepassing.
-5. De laatste drie apps gestart wordt ook weergegeven in de **recent gebruikte** snelkoppeling lijst
+* Voor het starten van een app van de extensie, het volgende doen:
+   1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
+   2. Selecteer het pictogram extensie om het menu te openen.
+   3. Zoeken naar een app die beschikbaar is in de portal voor mijn Apps.
+   4. Selecteer de app in de lijst met zoekresultaten.  
+       De laatste drie apps die u hebt gebruikt, worden weergegeven in de **recent gebruikte** snelkoppeling lijst.
 
 > [!NOTE]
-> Deze opties zijn alleen beschikbaar voor de rand, Chrome, Firefox.
+> De voorgaande opties zijn alleen beschikbaar voor rand en Chrome, Firefox.
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Instellen van een groepsbeleid voor Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Instellen van een groepsbeleid voor Internet Explorer
 
-U kunt een groepsbeleid waarmee u op afstand installeren van de extensie Toegangspaneel voor Internet Explorer op computers van uw gebruikers instellen.
+U kunt een groepsbeleid waarmee u de uitbreiding van het deelvenster toegang tot voor Internet Explorer op afstand installeren op computers van uw gebruikers kunt instellen.
 
-De vereisten zijn:
+Voordat u een Groepsbeleid instellen, zorg ervoor dat:
 
 -   U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u hebt uw gebruikers machines toegevoegd aan uw domein.
 
--   U moet de machtiging 'Instellingen bewerken' voor het bewerken van het groepsbeleidsobject (GPO) hebben. Standaard hebben leden van de volgende beveiligingsgroepen deze machtiging: Domeinadministrators, Ondernemingsadministrators en Maker Eigenaar Groepsbeleid. [Meer informatie](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Als u wilt bewerken in het groepsbeleidsobject (GPO), moet u hebben *instellingen bewerken* machtigingen. Standaard wordt deze machtiging verleend aan leden van de volgende beveiligingsgroepen: Domeinadministrators, Ondernemingsadministrators en Maker Eigenaar Groepsbeleid.
 
-Volg de zelfstudie [het implementeren van de uitbreiding van het Configuratiescherm toegang voor Internet Explorer met behulp van Groepsbeleid](active-directory-saas-ie-group-policy.md) voor stapsgewijze instructies voor het configureren van het Groepsbeleid en het implementeren voor gebruikers.
+Zie voor stapsgewijze instructies over het configureren van het Groepsbeleid en geïmplementeerd op gebruikers, [de extensie van het Configuratiescherm toegang voor Internet Explorer implementeren met behulp van Groepsbeleid](active-directory-saas-ie-group-policy.md).
 
 ## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Problemen met de extensie van het Configuratiescherm toegang in Internet Explorer
 
-Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) geleid voor toegang tot een diagnostische hulpprogramma's en stapsgewijze instructies over het configureren van de extensie voor IE.
+Zie voor toegang tot een hulpprogramma voor diagnostische gegevens en informatie over het configureren van de uitbreiding voor Internet Explorer, [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
 > Internet Explorer is beperkte ondersteuning en nieuwe software-updates niet meer ontvangt. Rand is de aanbevolen browser.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Als bovenstaande stappen voor probleemoplossing het probleem niet oplossen
+## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Als de voorgaande stappen het probleem niet verhelpen
 
-een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
+Als deze beschikbaar is, moet u een ondersteuningsticket opent met de volgende informatie:
 
 -   Correlatie fout-ID
-
 -   UPN (e-mailadres van de gebruiker)
-
 -   TenantID
-
 -   Browsertype
-
--   Tijdzone en de tijd/tijdsbestek tijdens fout optreedt
-
+-   Tijdzone, tijd en tijdsbestek als de fout is opgetreden
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen

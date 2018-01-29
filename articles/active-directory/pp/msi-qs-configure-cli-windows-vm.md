@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) configureren voor een virtuele machine met Azure CLI
 
@@ -35,7 +35,7 @@ In dit artikel leert u het inschakelen en het verwijderen van een gebruiker toeg
 Als u wilt uitvoeren in de CLI scriptvoorbeelden in deze zelfstudie, hebt u twee opties:
 
 - Gebruik [Azure Cloud Shell](~/articles/cloud-shell/overview.md) vanuit de Azure-portal of via de knop 'Deze probeer' zich in de rechterbovenhoek van elk codeblok.
-- [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 of hoger) als u liever een lokale CLI-console te gebruiken. Meld u aan met behulp van Azure [az aanmelding](/cli/azure/#login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt de gebruiker toegewezen MSI en VM implementeren:
+- [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 of hoger) als u liever een lokale CLI-console te gebruiken. Meld u aan met behulp van Azure [az aanmelding](/cli/azure/#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt de gebruiker toegewezen MSI en VM implementeren:
 
    ```azurecli
    az login
@@ -45,7 +45,7 @@ Als u wilt uitvoeren in de CLI scriptvoorbeelden in deze zelfstudie, hebt u twee
 
 Deze sectie helpt u bij het maken van de virtuele machine en de toewijzing van de gebruiker toegewezen MSI naar de virtuele machine. Als u al een virtuele machine die u wilt gebruiken, kunt u deze sectie overslaan en doorgaan met de volgende.
 
-1. U kunt deze stap overslaan als u al een resourcegroep die u wilt gebruiken. Maak een [resourcegroep](~/articles/azure-resource-manager/resource-group-overview.md#terminology) voor de implementatie van uw MSI en containment met [az groep maken](/cli/azure/group/#create). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<LOCATION>` parameterwaarden met uw eigen waarden. :
+1. U kunt deze stap overslaan als u al een resourcegroep die u wilt gebruiken. Maak een [resourcegroep](~/articles/azure-resource-manager/resource-group-overview.md#terminology) voor de implementatie van uw MSI en containment met [az groep maken](/cli/azure/group/#az_group_create). Zorg ervoor dat u de `<RESOURCE GROUP>` en `<LOCATION>` parameterwaarden met uw eigen waarden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -73,7 +73,7 @@ Het antwoord bevat de details voor de gebruiker toegewezen MSI gemaakt, ziet er 
    }
    ```
 
-3. Maak een VM met [az vm maken](/cli/azure/vm/#create). Het volgende voorbeeld wordt een virtuele machine die is gekoppeld aan de nieuwe gebruiker toegewezen MSI, zoals opgegeven door de `--assign-identity` parameter. Zorg ervoor dat u de `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, en `<`MSI-ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id-eigenschap in de vorige stap hebt gemaakt: 
+3. Maak een VM met [az vm maken](/cli/azure/vm/#az_vm_create). Het volgende voorbeeld wordt een virtuele machine die is gekoppeld aan de nieuwe gebruiker toegewezen MSI, zoals opgegeven door de `--assign-identity` parameter. Zorg ervoor dat u de `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, en `<`MSI-ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id-eigenschap in de vorige stap hebt gemaakt: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
