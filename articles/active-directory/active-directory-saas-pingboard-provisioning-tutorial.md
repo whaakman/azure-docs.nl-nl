@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 0492a59852a6a2dd424c98e44969eab1ac4697e8
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: f74e890cf716cfd4bc7b41fcc4aa244969cafde5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-pingboard-for-automatic-user-provisioning"></a>Zelfstudie: Pingboard configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Zelfstudie: Pingboard configureren voor het automatisch gebruikers inrichten
 
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren moet om automatische inrichting en de inrichting van gebruikersaccounts vanuit Azure Active Directory naar Pingboard.
 
@@ -93,7 +93,7 @@ De eerste duurt langer dan het volgende wordt gesynchroniseerd, die ongeveer 20 
 
 Zie voor meer informatie over het lezen van de Azure Active Directory provisioning logboeken [rapportage over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
