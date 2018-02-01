@@ -1,6 +1,6 @@
 ---
-title: Meerdere routes met Azure op basis van Locatieservices | Microsoft Docs
-description: Routes voor verschillende modi van reizen met locatie op basis van Azure-Services vinden
+title: Meerdere routes met Azure Location Based Services | Microsoft Docs
+description: Routes vinden voor verschillende manieren van reizen met Azure Location Based Services
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,33 +12,33 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Routes voor verschillende modi van reizen met locatie op basis van Azure-Services vinden
+# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Routes vinden voor verschillende manieren van reizen met Azure Location Based Services
 
-Deze zelfstudie laat zien hoe uw locatie op basis van Azure-Services-account en de Route-SDK, gebruiken om te vinden van de route naar interessante, door de modus van reizen geplaatst. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u uw Azure Location Based Services-account en de Route Service-SDK gebruikt om de route naar uw nuttige plaats te vinden, gerangschikt naar uw manier van reizen. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Uw query Route-Service configureren
-> * Routes geplaatst door de modus van reizen weergeven
+> * Uw query aan Route Service configureren
+> * Routes weergeven gerangschikt naar de manier van reizen
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u doorgaat, zorg ervoor dat [uw locatie op basis van Azure-Services-account maken](./tutorial-search-location.md#createaccount), en [ophalen van de sleutel van het abonnement voor uw account](./tutorial-search-location.md#getkey). U merkt ook het gebruik van het Kaartbesturingselement en zoeken-API's voor Service, zoals beschreven in de zelfstudie [zoeken in de buurt interessante met behulp van Azure op basis van Locatieservices](./tutorial-search-location.md), evenals informatie over het basisgebruik van de Route Service API's als beschreven in de zelfstudie [Route naar een locatie op basis van Azure-Services met behulp van](./tutorial-route-location.md).
+Voordat u doorgaat, zorgt u ervoor dat u [uw Azure Location Based Services-account maakt](./tutorial-search-location.md#createaccount), en [de sleutel van uw account verkrijgt](./tutorial-search-location.md#getkey). U kunt ook leren hoe u de Map Control en Search Service API's gebruikt, zoals beschreven in de zelfstudie [Zoeken naar nuttige plaats in de buurt met behulp van Azure Location Based Services](./tutorial-search-location.md), evenals informatie over het basisgebruik van de Route Service API's, zoals beschreven in de zelfstudie [Route naar een locatie met behulp van Azure Location Based Services](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
 
-## <a name="configure-your-route-service-query"></a>Uw query Route-Service configureren
+## <a name="configure-your-route-service-query"></a>Uw query aan Route Service configureren
 
-Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de locatie op basis van Services toewijzen besturingselement API is ingesloten. 
+Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesloten met de Map Control API van Location Based Services. 
 
-1. Maak een nieuw bestand op uw lokale machine en noem deze **MapTruckRoute.html**. 
-2. De volgende HTML-onderdelen toevoegen aan het bestand:
+1. Maak een nieuw bestand op uw lokale computer en noem dit **MapTruckRoute.html**. 
+2. Voeg de volgende HTML-onderdelen toe aan het bestand:
 
     ```HTML
     <!DOCTYPE html>
@@ -75,19 +75,19 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
 
     </html>
     ```
-    Houd er rekening mee dat de resource-locaties voor CSS en JavaScript-bestanden voor de locatie op basis van Azure-Services-bibliotheek wordt ingesloten door de HTML-header. U ziet ook de *script* segment toevoegen aan de hoofdtekst van het HTML-code, de inline JavaScript-code voor toegang tot de Azure-API voor het beheer van kaart bevat.
-3. Voeg de volgende JavaScript-code naar de *script* blok van het HTML-bestand. Vervang de tijdelijke aanduiding *< insert-sleutel >* met primaire sleutel van uw Services op basis van locatie-account.
+    Let op dat de resource-locaties voor CSS en JavaScript-bestanden voor de locatie op basis van Azure Location Based Services-bibliotheek in de HTML-header worden ingesloten. U ziet ook het *script*-segment in de hoofdtekst van het HTML-bestand, dat de inline JavaScript-code voor toegang tot de API’s van Azure Map Control bevat.
+3. Voeg de volgende JavaScript-code toe aan het blok *script* van het HTML-bestand. Vervang de tijdelijke aanduiding *< insert-key>* met de primaire sleutel van uw Location Based Services-account.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    De **atlas. Kaart** biedt het besturingselement voor een kaart visual en interactieve webpagina en is een onderdeel van de Azure-API voor het beheer van kaart.
+    De **atlas.Map** biedt het besturingselement voor een visuele en interactieve webkaart en is een onderdeel van de Azure Map Control API.
 
-4. Voeg de volgende JavaScript-code naar de *script* blok, de weergave van de stroom verkeer toevoegen aan de kaart:
+4. Voeg de volgende JavaScript-code toe aan het blok *script*, om de weergave van de verkeersstroom toe te voegen aan de kaart:
 
     ```JavaScript
     // Add Traffic Flow to the Map
@@ -95,9 +95,9 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
         flow: "relative"
     });
     ```
-    Deze code wordt het netwerkverkeer ingesteld op `relative`, dit is de snelheid van de weg ten opzichte van de gratis stroom. U kunt deze ook instellen op `absolute` snelheid van de weg of `relative-delay` die de relatieve processorsnelheid waar deze verschilt van gratis overdracht weergegeven. 
+    Deze code stelt de verkeersstroom in op `relative`, dit is de snelheid van de weg ten opzichte van een vrije stroom. U kunt deze ook instellen op `absolute` snelheid van de weg of `relative-delay` de relatieve snelheid weergeven, waar deze verschilt van een vrije stroom. 
 
-5. Voeg de volgende JavaScript-code voor het maken van de pincodes voor het begin- en eindpunten van de route:
+5. Voeg de volgende JavaScript-code toe om de pins te maken voor de begin- en eindpunten van de route:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -113,9 +113,9 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
         icon: "pin-blue"
     });
     ```
-    Deze code maakt u twee [GeoJSON objecten](https://en.wikipedia.org/wiki/GeoJSON) vertegenwoordigt de begin- en eindpunten van de route. 
+    Deze code maakt twee [GeoJSON-objecten](https://en.wikipedia.org/wiki/GeoJSON) die de begin- en eindpunten van de route vertegenwoordigen. 
 
-6. Voeg de volgende JavaScript-code om toe te voegen lagen van *multipoint* voor het Kaartbesturingselement om weer te geven van de routes op basis van de modus van transport, bijvoorbeeld _auto_ en _vrachtwagen_.
+6. Voeg de volgende JavaScript-code toe om lagen van *linestrings* toe te voegen voor Map Control, om routes weer te geven op basis van het soort vervoer, bijvoorbeeld _auto_ of _vrachtwagen_.
 
     ```JavaScript
     // Place route layers on the map
@@ -140,7 +140,7 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
     });
     ```
 
-7. Voeg de volgende JavaScript-code voor de begin- en toevoegen aan de kaart:
+7. Voeg de volgende JavaScript-code toe om de begin- en eindpunten aan de kaart toe te voegen:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -160,17 +160,17 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
         textOffset: [0, -20]
     });
     ``` 
-    De API **map.setCameraBounds** past u het venster volgens de coördinaten van de begin- en eindpunten hebben. De API **map.addPins** voegt de punten toe aan het kaartbesturingselement als visuele onderdelen.
+    De API **map.setCameraBounds** past het kaartenvenster aan naar de coördinaten van de begin- en eindpunten. De API **map.addPins** voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
 
-8. Sla de **MapTruckRoute.html** bestand op uw computer. 
+8. Sla het bestand **MapTruckRoute.html** op uw computer op. 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Routes geplaatst door de modus van reizen weergeven
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Routes weergeven gerangschikt naar de manier van reizen
 
-Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route Service API gebruiken om te zoeken naar meerdere routes van een bepaalde start verwijzen naar een bestemming op basis van de modus van transport. De Route-Service biedt de snelste plannen kortste-API's of systeem route tussen twee locaties, met inbegrip van de voorwaarden Realtime netwerkverkeer. Ook kunnen gebruikers in de toekomst routes met behulp van Azure uitgebreide historische verkeer database en het voorspellen van de duur van de route voor elke dag en tijd plannen. 
+Deze sectie beschrijft hoe u de Route Service API van Azure Location Based Services gebruikt om te zoeken naar meerdere routes van een bepaald beginpunt naar een bestemming op basis van het soort vervoer. De Route Service biedt API’s om de snelste, kortste of zuinigste route tussen twee locaties te plannen, rekening houdend met real-time verkeerscondities. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. 
 
-1. Open de **MapTruckRoute.html** bestand in de voorgaande sectie hebt gemaakt en voeg de volgende JavaScript-code naar de *script* blok ophalen van de route voor een vrachtwagen met behulp van de Route-Service.
+1. Open het bestand **MapTruckRoute.html** dat in de voorgaande sectie is gemaakt en voeg de volgende JavaScript-code toe aan het blok*script* om de route voor een vrachtwagen met de Route Service te verkrijgen.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting truck route on the map
@@ -195,7 +195,7 @@ Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route 
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -207,13 +207,13 @@ Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route 
     xhttpTruck.open("GET", truckRouteUrl, true);
     xhttpTruck.send();
     ```
-    Dit codefragment maakt een [XMLHttpRequest](https://xhr.spec.whatwg.org/), en voegt u een gebeurtenis-handler voor het parseren van het binnenkomende antwoord. Voor een geslaagde reactie wordt gemaakt een matrix van coördinaten voor de route die is geretourneerd, en voegt u het toe van de documentstructuur `truckRouteLayerName` laag. 
+    Dit codefragment maakt een [XMLHttpRequest](https://xhr.spec.whatwg.org/) en voegt een gebeurtenis-handler toe voor het parseren van de binnenkomende respons. Voor een geslaagde respons wordt een matrix van coördinaten gemaakt voor de route die is geretourneerd, en voegt u deze toe aan de laag `truckRouteLayerName` van de kaart. 
     
-    Dit codefragment verzendt ook de query met de Route-Service om op te halen van de route voor het opgegeven begin- en eindpunt voor abonnementssleutel voor uw account. De volgende optionele parameters worden gebruikt om aan te geven van de route voor een zware vrachtwagen:-de parameter `travelMode=truck` geeft de modus van reizen als *vrachtwagen*. Andere modi van reizen ondersteund *taxi*, *bus*, *van*, *motor*, en de standaardinstelling *auto* .  
-        -De parameters `vehicleWidth`, `vehicleHeight`, en `vehicleLength` Geef de afmetingen van de drager in meters en worden beschouwd als alleen als de modus van reizen is *vrachtwagen*.  
-        -De `vehicleLoadType` de lading als gevaarlijke en beperkte op sommige wegen wordt geclassificeerd. Dit wordt momenteel ook beschouwd als alleen voor de *vrachtwagen* modus.  
+    Dit codefragment verzendt ook de query naar de Route Service, om de route op te halen voor het opgegeven begin- en eindpunt, voor uw accountsleutel. De volgende optionele parameters worden gebruikt om de route voor een zware vrachtwagen aan te geven: - de parameter `travelMode=truck` geeft de manier van reizen op als *vrachtwagen*. Andere ondersteunde manieren van reizen zijn *taxi*, *bus*, *bestelwagen*, *motorfiets* en de standaardinstelling *auto*.  
+        -De parameters `vehicleWidth`, `vehicleHeight` en `vehicleLength` specificeren de afmetingen van het voertuig in meters en worden alleen beschouwd als de manier van reizen *vrachtwagen* is.  
+        -De `vehicleLoadType` classificeert de lading als gevaarlijk en beperkt op sommige wegen. Dit wordt momenteel ook alleen beschouwd voor de modus *vrachtwagen*.  
 
-2. Voeg de volgende JavaScript-code voor de route voor een auto met behulp van de Route-Service:
+2. Voeg de volgende JavaScript-code toe voor de route voor een auto met behulp van de Route Service:
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting car route on the map
@@ -238,28 +238,28 @@ Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route 
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttpCar.open("GET", carRouteUrl, true);
     xhttpCar.send();
     ```
-    Dit codefragment maakt u een andere [XMLHttpRequest](https://xhr.spec.whatwg.org/), en voegt u een gebeurtenis-handler voor het parseren van het binnenkomende antwoord. Voor een geslaagde reactie wordt gemaakt een matrix van coördinaten voor de route die is geretourneerd, en voegt u het toe van de documentstructuur `carRouteLayerName` laag. 
+    Dit codefragment maakt weer een [XMLHttpRequest](https://xhr.spec.whatwg.org/), en voegt een gebeurtenis-handler toe voor het parseren van de binnenkomende respons. Voor een geslaagde respons wordt een matrix van coördinaten gemaakt voor de route die is geretourneerd, en toegevoegd aan de laag `carRouteLayerName` van de kaart. 
     
-    Dit codefragment verzendt ook de query met de Route-Service om op te halen van de route voor het opgegeven begin- en eindpunt voor abonnementssleutel voor uw account. Omdat er geen andere parameters worden gebruikt, de route voor de standaardmodus reizen *auto* wordt geretourneerd. 
+    Dit codefragment verzendt ook de query met de Route Service, om de route op te halen voor het opgegeven begin- en eindpunt, voor uw accountsleutel. Omdat er geen andere parameters worden gebruikt, wordt de route voor de standaard manier van reizen *auto* geretourneerd. 
 
-3. Sla de **MapTruckRoute.html** lokaal bestand vervolgens opent u het in een webbrowser naar keuze en bekijk het resultaat. Voor een succesvolle verbinding met de locatie op basis van Services-API's ziet u een vergelijkbaar met de volgende kaart. 
+3. Sla het bestand **MapTruckRoute.html** lokaal op, open het vervolgens in een webbrowser naar keuze en bekijk het resultaat. Voor een succesvolle verbinding met de Location Based Services API's bekijkt u een kaart die vergelijkbaar is met de volgende. 
 
-    ![Prioriteit routes met Azure Route-Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
+    ![Routes rangschikken met Azure Route Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
-    Houd er rekening mee dat in blauw, de route vrachtwagen wordt terwijl de route auto paarse.
+    Houd er rekening mee dat de vrachtwagenroute in blauw is weergegeven, terwijl de autoroute paars is.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Uw query Route-Service configureren
-> * Routes geplaatst door de modus van reizen weergeven
+> * Uw query aan Route Service configureren
+> * Routes weergeven gerangschikt naar de manier van reizen
 
-Ga door naar de **concepten** en **How To** artikelen voor meer informatie over de Azure locatie op basis van Services SDK in de diepte. 
+Ga door naar de artikelen **Concepten** en **Aan de slag** voor meer diepgaande informatie over de Azure Location Based Services SDK. 

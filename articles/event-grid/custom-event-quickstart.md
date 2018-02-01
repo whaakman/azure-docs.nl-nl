@@ -5,14 +5,14 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: d969b44bdfa610b18f3f934b48d987cb1735155f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 867953c0aef877b1f1c07d910a8e9350ec2f2176
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure CLI en Event Grid
 
@@ -29,7 +29,7 @@ Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn v
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de nieuwste versie van Azure CLI (2.0.14 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de nieuwste versie van Azure CLI (2.0.24 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -60,10 +60,11 @@ Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurt
 U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. In het volgende voorbeeld ziet u hoe u zich abonneert op het onderwerp dat u hebt gemaakt, en hoe de URL van RequestBin wordt doorgegeven als het eindpunt voor de gebeurtenismelding. Vervang `<event_subscription_name>` door een unieke naam voor het abonnement, en `<URL_from_RequestBin>` door de waarde uit de voorgaande sectie. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. Gebruik voor `<topic_name>` de waarde die u eerder hebt gemaakt. 
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin> \
+az eventgrid event-subscription create \
   -g gridResourceGroup \
-  --topic-name <topic_name>
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>Een gebeurtenis verzenden naar het onderwerp

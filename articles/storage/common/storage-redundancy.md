@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -50,16 +50,7 @@ Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/sto
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Zone-redundante opslag
-
-Zone-redundante opslag (ZRS) (Preview) is ontworpen om de ontwikkeling van maximaal beschikbare toepassingen te vereenvoudigen. ZRS biedt duurzaamheid voor opslagobjecten van ten minste 99.9999999999% (12 van 9) gedurende een bepaald jaar. ZRS wordt uw gegevens synchroon gerepliceerd tussen meerdere beschikbaarheid zones. U kunt ZRS voor scenario's zoals transactionele toepassingen waar uitvaltijd niet acceptabel is.
-
-ZRS kan klanten te lezen en schrijven van gegevens, zelfs als een enkele zone niet beschikbaar of onherstelbare is. Voegt en updates van gegevens synchroon worden aangebracht en sterke consistent zijn.   
-
-ZRS is momenteel beschikbaar zijn voor het voorbeeld in de volgende regio's met meer regio's zijn binnenkort beschikbaar:
-
-- Verenigde Staten (oost 2) 
-- Verenigde Staten (centraal) 
-- Frankrijk centrale (deze regio is momenteel in preview. Zie [preview van Microsoft Azure met Azure beschikbaarheid Zones nu openen in Frankrijk](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) toegang vragen.)
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>ZRS klassieke accounts
 

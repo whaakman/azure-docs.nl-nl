@@ -1,6 +1,6 @@
 ---
-title: Een internetgerichte load balancer maken - PowerShell | Microsoft Docs
-description: Meer informatie over hoe u met behulp van PowerShell een internetgerichte load balancer maakt in Resource Manager
+title: Een openbare load balancer maken - PowerShell | Microsoft Docs
+description: Meer informatie over het maken van een openbare load balancer in Resource Manager met behulp van PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Een internetgerichte load balancer maken in Resource Manager met behulp van PowerShell
+# <a name="get-started"></a>Een openbare load balancer maken in Resource Manager met behulp van PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Azure-CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>De oplossing implementeren met behulp van Azure PowerShell
 
-De volgende procedures laten zien hoe u Azure Resource Manager gebruikt om een internetgerichte load balancer te maken met behulp van PowerShell. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een load balancer te maken.
+De volgende procedures laten zien hoe u Azure Resource Manager gebruikt om een openbare load balancer te maken met behulp van PowerShell. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een load balancer te maken.
 
 U moet de volgende objecten maken en configureren om een load balancer te implementeren:
 

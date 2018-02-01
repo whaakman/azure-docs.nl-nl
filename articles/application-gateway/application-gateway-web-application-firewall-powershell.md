@@ -1,237 +1,267 @@
 ---
-title: 'Web application firewall configureren: Azure Application Gateway | Microsoft Docs'
-description: In dit artikel biedt richtlijnen voor het gebruik van een web application firewall op een bestaande of nieuwe application gateway.
-documentationcenter: na
+title: Een toepassingsgateway maken met een web application firewall - Azure PowerShell | Microsoft Docs
+description: Informatie over het maken van een toepassingsgateway met een web application firewall met behulp van Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 1489990f583d15f22fb3db26b45f1509850513ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Web application firewall op een nieuwe of bestaande toepassingsgateway configureren
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Een toepassingsgateway maken met een web application firewall met Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure-CLI](application-gateway-web-application-firewall-cli.md)
+U kunt Azure PowerShell gebruiken voor het maken een [toepassingsgateway](application-gateway-introduction.md) met een [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers. Het gebruik van WAF [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regels voor het beveiligen van uw toepassing. Deze regels omvatten bescherming tegen aanvallen, zoals SQL-injectie, cross-site scripting aanvallen en sessie hijacks. 
 
-Informatie over het maken van een web application firewall (WAF)-toepassingsgateway ingeschakeld. Leert ook hoe een WAF toevoegen aan een bestaande toepassingsgateway.
+In dit artikel leert u hoe:
 
-De WAF in Azure Application Gateway beveiligt webtoepassingen van algemene web gebaseerde aanvallen, zoals SQL-injectie, cross-site scripting aanvallen en sessie hijacks.
+> [!div class="checklist"]
+> * Instellen van het netwerk
+> * Een toepassingsgateway maken met WAF ingeschakeld
+> * Maken van een virtuele-machineschaalset
+> * Een opslagaccount maken en configureren van diagnostische gegevens
 
- Application Gateway is een load balancer laag 7. Het biedt failover, HTTP-aanvragen routeren tussen verschillende servers, of ze zich op de cloud of on-premises. Toepassingsgateway biedt veel functies van de toepassing levering netwerkcontroller (ADC):
+![Web application firewall voorbeeld](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
 
- * HTTP-taakverdeling
- * Sessie cookies gebaseerde affiniteit
- * Secure Sockets Layer (SSL)-offload
- * Aangepaste statuscontroles
- * Ondersteuning voor functionaliteit voor meerdere locaties
- 
- Een volledige lijst met ondersteunde functies Zie [overzicht van toepassingsgateway](application-gateway-introduction.md).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Dit artikel laat zien hoe u [een WAF toevoegen aan een bestaande toepassingsgateway](#add-web-application-firewall-to-an-existing-application-gateway). U ziet ook hoe [maken van een toepassingsgateway die gebruikmaakt van een WAF](#create-an-application-gateway-with-web-application-firewall).
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-![afbeelding van scenario][scenario]
+Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
-## <a name="waf-configuration-differences"></a>WAF configuratie verschillen
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Als u hebt gelezen [een toepassingsgateway maken met PowerShell](application-gateway-create-gateway-arm.md), u inzicht in de SKU-instellingen configureren wanneer u een toepassingsgateway maken. De WAF biedt aanvullende instellingen op te geven wanneer u een SKU op een application gateway configureert. Er zijn geen aanvullende wijzigingen die u in de toepassingsgateway zelf aanbrengt.
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een Azure-resource groep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
-| **Instelling** | **Details**
-|---|---|
-|**SKU** |Biedt ondersteuning voor een normale toepassingsgateway zonder een WAF **standaard\_kleine**, **standaard\_gemiddeld**, en **standaard\_grote**grootten. Dankzij de introductie van een WAF, er zijn twee extra SKU's **WAF\_gemiddeld** en **WAF\_grote**. Een WAF wordt niet ondersteund op kleine Toepassingsgateways.|
-|**Laag** | De beschikbare waarden zijn **standaard** of **WAF**. Wanneer u een WAF gebruikt, moet u kiezen **WAF**.|
-|**Modus** | Deze instelling wordt de modus van de WAF. toegestane waarden zijn **detectie** en **preventie**. Wanneer de WAF is ingesteld in **detectie** modus alle bedreigingen zijn opgeslagen in een logboekbestand. In **preventie** modus, gebeurtenissen worden nog wel geregistreerd, maar de aanvaller ontvangt een niet-geautoriseerde 403 reactie van de toepassingsgateway.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Web application firewall toevoegen aan een bestaande application gateway
-
-Zorg ervoor dat u de nieuwste versie van Azure PowerShell. Zie voor meer informatie [gebruik Windows PowerShell met Resource Manager](../powershell-azure-resource-manager.md).
-
-1. Aanmelden bij uw Azure-account.
-
-    ```powershell
-    Login-AzureRmAccount
-    ```
-
-2. Selecteer het abonnement moet worden gebruikt voor dit scenario.
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
-    ```
-
-3. Ophalen van de gateway waar u wilt een WAF toevoegen.
-
-    ```powershell
-    $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
-    ```
-
-4. De SKU WAF configureren. De beschikbare grootten zijn **WAF\_grote** en **WAF\_gemiddeld**. Wanneer u een WAF, de laag moet **WAF**. Controleer de capaciteit bij het instellen van de SKU.
-
-    ```powershell
-    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
-    ```
-
-5. Configureer de instellingen WAF zoals gedefinieerd in het volgende voorbeeld. Voor **FirewallMode**, de beschikbare waarden zijn **preventie** en **detectie**.
-
-    ```powershell
-    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
-    ```
-
-6. De toepassingsgateway bijwerken met de instellingen die u hebt gedefinieerd in de vorige stap.
-
-    ```powershell
-    Set-AzureRmApplicationGateway -ApplicationGateway $gw
-    ```
-
-Met deze opdracht werkt de toepassingsgateway met een WAF. Zie voor informatie over het weergeven van Logboeken voor uw toepassingsgateway, [Application Gateway diagnostics](application-gateway-diagnostics.md). Vanwege de aard van de beveiliging van een WAF, Bekijk Logboeken regelmatig om te begrijpen van de beveiligingsstatus van uw webtoepassingen.
-
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Een toepassingsgateway maken met een web application firewall
-
-De volgende stappen gaat u door het hele proces van het maken van een toepassingsgateway met een WAF.
-
-Zorg ervoor dat u de nieuwste versie van Azure PowerShell. Zie voor meer informatie [gebruik Windows PowerShell met Resource Manager](../powershell-azure-resource-manager.md).
-
-1. Aanmelden bij Azure uitgevoerd `Login-AzureRmAccount`. U wordt gevraagd om te verifiëren met uw referenties.
-
-2. Controleer de abonnementen voor het account door het uitvoeren van `Get-AzureRmSubscription`.
-
-3. Kies welk Azure-abonnement te gebruiken.
-
-    ```powershell
-    Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
-    ```
-
-### <a name="create-a-resource-group"></a>Een resourcegroep maken
-
-Maak een resourcegroep voor de toepassingsgateway.
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep gebruikt.
+## <a name="create-network-resources"></a>Maken van netwerkbronnen 
 
-In het voorgaande voorbeeld, er een resourcegroep genaamd 'appgw-RG"met de locatie 'VS-West.' hebt gemaakt
+De subnetconfiguraties met de naam maken *myBackendSubnet* en *myAGSubnet* met [nieuw AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Maken van het virtuele netwerk met de naam *myVNet* met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) met de subnetconfiguraties. En maak ten slotte het openbare IP-adres met de naam *myAGPublicIPAddress* met [nieuw AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding met de toepassingsgateway en de bijbehorende bronnen opgeven.
 
-> [!NOTE]
-> Als u voor uw toepassingsgateway een aangepaste test moet configureren, raadpleegt u [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests). Zie voor meer informatie [aangepaste tests en statuscontrole](application-gateway-probe-overview.md).
-
-### <a name="configure-a-virtual-network"></a>Een virtueel netwerk configureren
-
-Een application gateway vereist een subnet van een eigen. In deze stap maakt u een virtueel netwerk met een adresruimte van 10.0.0.0/16 en twee subnetten, één voor de toepassingsgateway en één voor leden van de back-end-pool.
-
-```powershell
-# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for application gateway instances. With a smaller subnet, you might not be able to add more instances of your application gateway in the future.
-$gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
-
-# Create a subnet configuration object for the back-end pool members subnet.
-$nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-
-# Create the virtual network with the previously created subnets.
-$vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
 ```
 
-### <a name="configure-the-public-ip-address"></a>Het openbare IP-adres configureren
+## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Verwerken van externe aanvragen, vereist de toepassingsgateway een openbaar IP-adres. Dit openbare IP-adres mag niet hebben een `DomainNameLabel` gedefinieerd die worden gebruikt door de toepassingsgateway.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>De IP-configuraties en de front-endpoort maken
 
-```powershell
-# Create a public IP address for use with the application gateway. Defining the `DomainNameLabel` during creation is not supported for use with the application gateway.
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
+Koppelen *myAGSubnet* die u eerder hebt gemaakt met de application gateway via [nieuw AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Wijs *myAGPublicIPAddress* met de application gateway via [nieuw AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-### <a name="configure-the-application-gateway"></a>De toepassingsgateway configureren
+### <a name="create-the-backend-pool-and-settings"></a>Maak de back-endpool en -instellingen
 
-```powershell
-# Create an IP configuration to configure which subnet the application gateway uses. When the application gateway starts, it picks up an IP address from the configured subnet and routes network traffic to the IP addresses in the back-end IP pool.
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
+Maken van de back-endpool met de naam *appGatewayBackendPool* voor de application gateway met [nieuw AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configureer de instellingen voor de back-end-adresgroepen met [nieuw AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
-# Create a back-end pool to hold the addresses or NIC handles for the application that the application gateway is protecting.
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
-
-# Upload the authentication certificate to be used to communicate with the back-end servers.
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
-
-# Configure the back-end HTTP settings to be used to define how traffic is routed to the back-end pool. The authentication certificate used in the previous step is added to the back-end HTTP settings.
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
-
-# Create a front-end port to be used by the listener.
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
-
-# Create a front-end IP configuration to associate the public IP address with the application gateway.
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
-
-# Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
-
-# Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and SSL certificate to use.
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-
-# Create a load-balancer routing rule that configures the load balancer behavior. In this example, a basic round-robin rule is created.
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-
-# Configure the SKU of the application gateway.
-$sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
-
-# Define the SSL policy to use.
-$policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
-
-# Configure the WAF configuration settings.
-$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
-
-# Create the application gateway by using all the previously created configuration objects.
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-> [!NOTE]
-> Toepassingsgateways gemaakt met de basisconfiguratie van WAF zijn geconfigureerd met CRS 3.0 voor beveiliging.
+### <a name="create-the-default-listener-and-rule"></a>De standaard-listener en regel maken
 
-## <a name="get-an-application-gateway-dns-name"></a>Ophalen van een application gateway DNS-naam
+Een listener is vereist voor het inschakelen van de toepassingsgateway voor het verkeer op de juiste wijze te routeren naar de back-end-adresgroepen. In dit voorbeeld maakt u een basis-listener naar verkeer op de basis-URL luistert. 
 
-Nadat de gateway is gemaakt, wordt de volgende stap is het front-end voor de communicatie te configureren. Wanneer u een openbaar IP-adres gebruikt, moet de toepassingsgateway een dynamisch toegewezen DNS-naam, die geen beschrijvende. Om ervoor te zorgen dat gebruikers de toepassingsgateway kunnen bereikt, een CNAME-record te gebruiken om te verwijzen naar het openbare eindpunt van de toepassingsgateway. Zie voor meer informatie [een aangepaste domeinnaam configureren voor een Azure cloudservice](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Maak een listener met de naam *mydefaultListener* met [nieuw AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) met de frontend-configuratie en de frontend-poort die u eerder hebt gemaakt. Een regel is vereist voor de listener te weten welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Maken van een eenvoudige regel met naam *rule1* met [nieuw AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
-Voor het configureren van een alias ophalen van gegevens van de toepassingsgateway en de bijbehorende IP-en DNS-naam met behulp van de PublicIPAddress-element dat is gekoppeld aan de toepassingsgateway. Gebruik DNS-naam van de toepassingsgateway te maken van een CNAME-record die de twee webtoepassingen aan deze DNS-naam wijst. We raden niet met behulp van A-records, omdat het VIP kan worden gewijzigd wanneer de toepassingsgateway opnieuw wordt opgestart.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name mydefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
+### <a name="create-the-application-gateway-with-the-waf"></a>De toepassingsgateway maken met de WAF
+
+Nu dat u de benodigde ondersteunende resources hebt gemaakt, Geef parameters op voor de application gateway met [nieuw AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). Geeft de WAF configuratie met [nieuw AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration). En maak vervolgens de toepassingsgateway met de naam *myAppGateway* met [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name WAF_Medium `
+  -Tier WAF `
+  -Capacity 2
+$wafConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration `
+  -Enabled $true `
+  -FirewallMode "Detection"
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku `
+  -WebApplicationFirewallConfig $wafConfig
 ```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
+
+## <a name="create-a-virtual-machine-scale-set"></a>Maken van een virtuele-machineschaalset
+
+In dit voorbeeld maakt u een virtuele-machineschaalset ingesteld voor het uitvoeren van servers voor de back endpool in de toepassingsgateway. U de schaal is ingesteld op de back-endpool wanneer u de IP-instellingen configureren.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name myVmssIPConfig `
+  -SubnetId $vnet.Subnets[1].Id `
+  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
+$vmssConfig = New-AzureRmVmssConfig `
+  -Location eastus `
+  -SkuCapacity 2 `
+  -SkuName Standard_DS2 `
+  -UpgradePolicyMode Automatic
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher MicrosoftWindowsServer `
+  -ImageReferenceOffer WindowsServer `
+  -ImageReferenceSku 2016-Datacenter `
+  -ImageReferenceVersion latest
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername azureuser `
+  -AdminPassword "Azure123456!" `
+  -ComputerNamePrefix myvmss
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name myVmssNetConfig `
+  -Primary $true `
+  -IPConfiguration $ipConfig
+New-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmssConfig
 ```
+
+### <a name="install-iis"></a>IIS installeren
+
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+Update-AzureRmVmss `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myvmss `
+  -VirtualMachineScaleSet $vmss
+```
+
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en configureren van diagnostische gegevens
+
+In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie en preventie doeleinden. U kunt ook logboekanalyse of Event Hub gebruiken om gegevens te noteren.
+
+### <a name="create-the-storage-account"></a>De storage-account maken
+
+Maken van een opslagaccount met de naam *myagstore1* met [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
+
+```azurepowershell-interactive
+$storageAccount = New-AzureRmStorageAccount `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myagstore1 `
+  -Location eastus `
+  -SkuName "Standard_LRS"
+```
+
+### <a name="configure-diagnostics"></a>Diagnostische gegevens configureren
+
+Diagnostische gegevens te registreren in de logboeken ApplicationGatewayAccessLog ApplicationGatewayPerformanceLog en ApplicationGatewayFirewallLog configureert. Vervang `<subscriptionId>` met uw abonnements-id en vervolgens configureren met behulp van diagnostische gegevens [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting).
+
+```azurepowershell-interactive
+Set-AzureRmDiagnosticSetting `
+  -ResourceId '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' `
+  -StorageAccountId '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1' `
+  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Enabled $true `
+  -RetentionEnabled $true `
+  -RetentionInDays 30
+```
+
+## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
+
+U kunt [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ophalen van het openbare IP-adres van de toepassingsgateway. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
+
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+```
+
+![Basis-URL te testen in de toepassingsgateway](./media/application-gateway-web-application-firewall-powershell/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het configureren van diagnostische logboekregistratie voor logboekregistratie van de gebeurtenissen die zijn gedetecteerd of voorkomen dat met een WAF, [Application Gateway diagnostics](application-gateway-diagnostics.md).
+In deze zelfstudie heeft u het volgende geleerd:
 
-[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+> [!div class="checklist"]
+> * Instellen van het netwerk
+> * Een toepassingsgateway maken met WAF ingeschakeld
+> * Maken van een virtuele-machineschaalset
+> * Een opslagaccount maken en configureren van diagnostische gegevens
+
+Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.

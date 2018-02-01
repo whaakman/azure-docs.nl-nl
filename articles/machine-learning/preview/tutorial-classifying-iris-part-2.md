@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classificeren van Iris deel 2: een model bouwen
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -326,7 +326,7 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
 3. Gebruik dezelfde opdracht als eerder in het CLI-venster, maar dit keer voor de omgeving _myvm_:
    ```azurecli
    REM executes iris_sklearn.py in a remote Docker container
-   az ml experiment submit -c myvm .\iris_sklearn.py
+   az ml experiment submit -c myvm iris_sklearn.py
    ```
    De opdracht wordt uitgevoerd alsof u een `docker-python`-omgeving gebruikt, behalve dat de uitvoering wordt uitgevoerd op de externe Linux-VM. Het CLI-venster bevat dezelfde uitvoergegevens.
 
@@ -346,7 +346,7 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
 U kunt dit script ook uitvoeren in een HDInsight Spark-cluster. Leer [hoe u een HDInsight Spark-cluster maakt dat u kunt gebruiken in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
 >[!NOTE] 
->Het HDInsight-cluster moet Azure Blob gebruiken als de primaire opslag. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
+>Het HDInsight-cluster moet Azure Blob als primaire opslag gebruiken. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
 
 1. Als u toegang hebt tot een Spark-cluster voor Azure HDInsight, genereert u een opdracht voor het uitvoeren van een HDInsight-configuratie zoals hieronder wordt weergegeven. Geef de naam op van het HDInsight-cluster, en uw HDInsight-gebruikersnaam en wachtwoord op als parameters. Gebruik de volgende opdracht:
 

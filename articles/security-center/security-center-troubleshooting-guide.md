@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/22/2018
 ms.author: yurid
-ms.openlocfilehash: e471f04a86cde73bbdb333826a5e0d25684a4547
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Handleiding voor het oplossen van problemen met Azure Security Center
 Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders van organisaties die Azure Security Center gebruiken en biedt procedures voor het oplossen van problemen met Azure Security Center.
@@ -76,7 +76,7 @@ Er zijn twee installatiescenario's die verschillende resultaten kunnen opleveren
 | Installatie is mislukt: lokale agent is al geïnstalleerd | De installatie van MMA is mislukt. Security Center heeft gedetecteerd dat er al een lokale agent (OMS of SCOM) op de virtuele machine is geïnstalleerd. De installatie van MMA is gestopt om een multihoming-configuratie - de virtuele machine rapporteert aan twee afzonderlijke werkruimten - te voorkomen. | U kunt dit op twee manieren oplossen: [de extensie handmatig installeren](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) en verbinden met de gewenste werkruimte. Of, de gewenste werkruimte instellen als uw standaardwerkruimte en automatische inrichting van de agent inschakelen.  Zie [Automatische inrichting inschakelen](security-center-enable-data-collection.md). |
 | Kan geen verbinding maken tussen agent en werkruimte | De MMA is geïnstalleerd, maar werkt niet vanwege een netwerkverbinding.  Controleer of er internettoegang is. En anders moet er een geldige HTTP-proxy voor de agent zijn geconfigureerd. | Zie [Netwerkvereisten voor Monitoring Agent](#troubleshooting-monitoring-agent-network-requirements). |
 | Agent verbonden met ontbrekende of onbekende werkruimte | Security Center heeft gedetecteerd dat MMA die is geïnstalleerd op de VM, verbonden is met een werkruimte waartoe deze geen toegang heeft. | Dit kan gebeuren in twee gevallen. De werkruimte is verwijderd en bestaat niet meer. Installeer de agent opnieuw met de juiste werkruimte of verwijder de agent en laat Security Center de automatische inrichtingsinstallatie voltooien. In het tweede geval behoort de werkruimte tot een abonnement waarvoor Security Center geen machtigingen heeft. Security Center verleent de Microsoft Security Resource Provider toegang op basis van een abonnement. Als u toegang wilt inschakelen, registreert u het abonnement op Microsoft Security Resource Provider. U kunt dit doen via API, PowerShell, portal of gewoon door in het dashboard **Overzicht** van het Security Center te filteren op abonnement. Zie [Resourceproviders en -typen](../azure-resource-manager/resource-manager-supported-services.md#portal) voor meer informatie. |
-| Agent reageert niet of ID ontbreekt | Security Center kan de beveiligingsgegevens die zijn gescand van de virtuele machine niet ophalen, zelfs niet als de agent is geïnstalleerd. | De agent rapporteert geen gegevens, ook de heartbeat niet. De agent is mogelijk beschadigd of het verkeer wordt geblokkeerd. Of de agent rapporteert gegevens, maar beschikt niet over de Azure-resource-id, waardoor de juiste Azure VM voor de gegevens niet kan worden gevonden. |
+| Agent reageert niet of ID ontbreekt | Security Center kan de beveiligingsgegevens die zijn gescand van de virtuele machine niet ophalen, zelfs niet als de agent is geïnstalleerd. | De agent rapporteert geen gegevens, ook de heartbeat niet. De agent is mogelijk beschadigd of het verkeer wordt geblokkeerd. Of de agent rapporteert gegevens, maar beschikt niet over de Azure-resource-id, waardoor de juiste Azure VM voor de gegevens niet kan worden gevonden. Zie [Troubleshooting Guide for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Handleiding voor het oplossen van problemen met de OMS-agent voor Linux) voor het oplossen van problemen in Linux. Zie [Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines) (Problemen met virtuele Windows-machines oplossen) voor het oplossen van problemen in Windows. |
 | Agent niet geïnstalleerd | Gegevensverzameling is uitgeschakeld. | Schakel gegevensverzameling in het beveiligingsbeleid in of installeer de MMA handmatig. |
 
 

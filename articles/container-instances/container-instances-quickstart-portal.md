@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
 
@@ -61,6 +61,15 @@ Zodra de container de status **Actief** heeft, gaat u naar het IP-adres dat u in
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
+## <a name="delete-the-container"></a>De container verwijderen
+Wanneer u klaar bent met de container, selecteert u de containergroep **mycontainer-myc1** en klikt u vervolgens op **Verwijderen**.
+
+![De containerinstantie verwijderen in de Azure-portal][aci-portal-09]
+
+Dit start een bevestigingsdialoogvenster, selecteer **Ja** wanneer hierom wordt gevraagd.
+
+![Een containerinstantie in de Azure-portal verwijderen][aci-portal-10]
+
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
 [aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
@@ -70,6 +79,8 @@ Zodra de container de status **Actief** heeft, gaat u naar het IP-adres dat u in
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
 [aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
+[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## <a name="next-steps"></a>Volgende stappen
 

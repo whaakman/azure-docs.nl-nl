@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
 In dit document wordt beschreven hoe u de Azure AD Connect Health-agents installeert en configureert. U kunt de agents [hier](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) downloaden.
@@ -103,32 +103,38 @@ Als u de functie Gebruiksanalyse wilt gebruiken om gegevens te verzamelen en te 
 2. Navigeer naar de map **Beveiligingsinstellingen\Lokaal beleid\Gebruikersrechten toewijzen** en dubbelklik op **Beveiligingscontrole genereren**.
 3. Controleer op het tabblad **Lokale beveiligingsinstelling** of het AD FS 2.0-serviceaccount wordt vermeld. Als dit niet zo is, klikt u op **Gebruiker of groep toevoegen**, voegt u het account toe aan de lijst en klikt u op **OK**.
 4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Sluit **Lokaal beveiligingsbeleid** en open vervolgens de module **AD FS-beheer**. Klik op **Start**, wijs naar **Programma's**, wijs naar **Systeembeheer** en klik vervolgens op **AD FS 2.0-beheer** om de module AD FS-beheer te openen.
-6. Klik in het deelvenster **Acties** op **Federation Service-eigenschappen** bewerken.
-7. Klik in het dialoogvenster **Federation Service-eigenschappen** op het tabblad **Gebeurtenissen**.
-8. Schakel de selectievakjes bij **Succesvolle controles** en **Mislukte controles** in.
-9. Klik op **OK**.
+5. Kies **Lokaal beveiligingsbeleid**.
+<br>   -- **De volgende stappen zijn alleen vereist voor primaire AD FS-servers.** -- </br>
+6. Open de module **AD FS-beheer**. Klik op **Start**, wijs naar **Programma's**, wijs naar **Systeembeheer** en klik vervolgens op **AD FS 2.0-beheer** om de module AD FS-beheer te openen.
+7. Klik in het deelvenster **Acties** op **Federation Service-eigenschappen** bewerken.
+8. Klik in het dialoogvenster **Federation Service-eigenschappen** op het tabblad **Gebeurtenissen**.
+9. Schakel de selectievakjes bij **Succesvolle controles** en **Mislukte controles** in.
+10. Klik op **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Controle inschakelen voor AD FS in Windows Server 2012 R2
 1. Open **Lokaal beveiligingsbeleid**. Dit doet u door naar **Serverbeheer** te gaan op het startscherm, of door Serverbeheer te openen via de taakbalk op het bureaublad en door vervolgens op **Extra/Lokaal beveiligingsbeleid** te klikken.
 2. Navigeer naar de map **Beveiligingsinstellingen\Lokaal beleid\Gebruikersrechten toewijzen** en dubbelklik op **Beveiligingscontrole genereren**.
 3. Controleer op het tabblad **Lokale beveiligingsinstelling** of het AD FS-serviceaccount wordt vermeld. Als dit niet zo is, klikt u op **Gebruiker of groep toevoegen**, voegt u het account toe aan de lijst en klikt u op **OK**.
 4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. Sluit **Lokaal beveiligingsbeleid** en open vervolgens de module **AD FS-beheer** (klik in Serverbeheer op Extra en selecteer vervolgens AD FS-beheer).
-6. Klik in het deelvenster Acties op **Federation Service-eigenschappen bewerken**.
-7. Klik in het dialoogvenster Federation Service-eigenschappen op het tabblad **Gebeurtenissen**.
-8. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**.
+5. Kies **Lokaal beveiligingsbeleid**.
+<br>   -- **De volgende stappen zijn alleen vereist voor primaire AD FS-servers.** -- </br>
+6. Open de module **AD FS-beheer** (klik in Serverbeheer op Extra en selecteer vervolgens AD FS-beheer).
+7. Klik in het deelvenster **Acties** op **Federation Service-eigenschappen** bewerken.
+8. Klik in het dialoogvenster **Federation Service-eigenschappen** op het tabblad **Gebeurtenissen**.
+9. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Controle inschakelen voor AD FS in Windows Server 2016
 1. Open **Lokaal beveiligingsbeleid**. Dit doet u door naar **Serverbeheer** te gaan op het startscherm, of door Serverbeheer te openen via de taakbalk op het bureaublad en door vervolgens op **Extra/Lokaal beveiligingsbeleid** te klikken.
 2. Navigeer naar de map **Beveiligingsinstellingen\Lokaal beleid\Gebruikersrechten toewijzen** en dubbelklik op **Beveiligingscontrole genereren**.
 3. Controleer op het tabblad **Lokale beveiligingsinstelling** of het AD FS-serviceaccount wordt vermeld. Als dit niet zo is, klikt u op **Gebruiker of groep toevoegen**, voegt u het AD FS-serviceaccount toe aan de lijst en klikt u op **OK**.
 4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Sluit **Lokaal beveiligingsbeleid** en open vervolgens de module **AD FS-beheer** (klik in Serverbeheer op Extra en selecteer vervolgens AD FS-beheer).
-6. Klik in het deelvenster Acties op **Federation Service-eigenschappen bewerken**.
-7. Klik in het dialoogvenster Federation Service-eigenschappen op het tabblad **Gebeurtenissen**.
-8. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**. Deze moeten standaard zijn ingeschakeld.
-9. Open een PowerShell-venster en voer de volgende opdracht uit: ```Set-AdfsProperties -AuditLevel Verbose```.
+5. Kies **Lokaal beveiligingsbeleid**.
+<br>   -- **De volgende stappen zijn alleen vereist voor primaire AD FS-servers.** -- </br>
+6. Open de module **AD FS-beheer** (klik in Serverbeheer op Extra en selecteer vervolgens AD FS-beheer).
+7. Klik in het deelvenster **Acties** op **Federation Service-eigenschappen** bewerken.
+8. Klik in het dialoogvenster **Federation Service-eigenschappen** op het tabblad **Gebeurtenissen**.
+9. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**. Deze moeten standaard zijn ingeschakeld.
+10. Open een PowerShell-venster en voer de volgende opdracht uit: ```Set-AdfsProperties -AuditLevel Verbose```.
 
 Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD FS-controleverbetering in Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
@@ -211,7 +217,7 @@ Als de configuratie is voltooid, worden deze services als het goed is al uitgevo
 ![Azure AD Connect Health verifiëren](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### <a name="agent-registration-using-powershell"></a>Agentregistratie met behulp van PowerShell
+## <a name="agent-registration-using-powershell"></a>Agentregistratie met behulp van PowerShell
 Wanneer u het juiste setup.exe-bestand hebt geïnstalleerd voor de agent, kunt u de agentregistratiestap uitvoeren met de volgende PowerShell-opdrachten (afhankelijk van de rol). Open een PowerShell-venster en voer de juiste opdracht uit:
 
 ```

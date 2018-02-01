@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het laden van gegevens in Azure SQL Data Warehouse
 Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse. 
@@ -31,7 +31,7 @@ Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL
 ## <a name="preparing-data-in-azure-storage"></a>Gegevens voorbereiden in Azure Storage
 Bepaal uw opslaglaag en uw datawarehouse om de latentie te minimaliseren.
 
-Bij het exporteren van gegevens naar een ORC-bestandsformaat kunnen zware tekstkolommen worden beperkt tot 50 kolommen vanwege fouten door onvoldoende geheugen in Java. U kunt deze beperking omzeilen door slechts een subset van de kolommen te exporteren.
+Bij het exporteren van gegevens in een ORC-bestandsindeling kunnen er Java-geheugenfouten optreden wanneer er grote tekstkolommen zijn. U kunt deze beperking omzeilen door slechts een subset van de kolommen te exporteren.
 
 PolyBase kan rijen met meer dan 1.000.000 bytes aan gegevens niet laden. Wanneer u gegevens in de tekstbestanden in Azure-blob-opslag of Azure Data Lake Store zet, moeten deze minder dan 1.000.000 bytes aan gegevens bevatten. Deze bytebeperking geldt ongeacht het tabelschema.
 
@@ -45,14 +45,22 @@ Voer voor de hoogste laadsnelheid slechts één taak tegelijk uit. Voer een zo k
 
 Als u loads wilt uitvoeren met geschikte rekenresources, maakt u gebruikers voor het laadproces die zijn aangewezen voor het uitvoeren van loads. Wijs elke gebruiker voor het laadproces toe aan een specifieke resourceklasse. Als u een belasting wilt uitvoeren, meldt u zich aan als een van de gebruikers voor het laadproces en voert u de belasting uit. De load wordt uitgevoerd met de resourceklasse van de gebruiker.  Deze methode is eenvoudiger dan de resourceklasse van een gebruiker aanpassen om te voldoen aan de huidige benodigde resourceklasse.
 
-Deze code maakt een gebruiker voor het laadproces voor de resourceklasse staticrc20. Zo wordt toestemming verkregen voor gebruikerscontrole bij een database en de gebruiker wordt vervolgens toegevoegd als lid van de databaserol staticrc20. Meld u aan in als LoaderRC20 en voer de belasting uit om deze uit te voeren met resources voor de statiRC20-resourceklassen. 
+### <a name="example-of-creating-a-loading-user"></a>Voorbeeld van het maken van een gebruiker voor het laadproces
+In dit voorbeeld wordt een gebruiker voor het laadproces gemaakt voor de resourceklasse staticrc20. De eerste stap is **verbinding maken met de master** en een aanmelding maken.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Maak verbinding met het datawarehouse en maak een gebruiker. In de volgende code wordt ervan uitgegaan dat u verbonden bent met de database mySampleDataWarehouse. U ziet hoe u een gebruiker maakt met de naam LoaderRC20 en hoe u die gebruiker machtiging voor het beheer van een database geeft. Vervolgens wordt de gebruiker toegevoegd als lid van de databaserol staticrc20.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+Meld u aan in als LoaderRC20 en voer de belasting uit om deze uit te voeren met resources voor de statiRC20-resourceklassen.
 
 Voer loads bij voorkeur uit onder statische en niet onder dynamische resourceklassen. Met de statische resourceklassen worden dezelfde resources gegarandeerd ongeacht het [serviceniveau](performance-tiers.md#service-levels). Als u een dynamische resourceklasse gebruikt, variëren de resources afhankelijk van uw serviceniveau. Voor dynamische klassen betekent een lager serviceniveau dat u waarschijnlijk een grotere resourceklasse moet gebruiken voor uw gebruiker van het laadproces.
 
@@ -124,7 +132,7 @@ Voer na het migreren van uw externe tabellen naar de nieuwe gegevensbron de volg
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor het controleren van het laadproces [Uw workload controleren met DMV's](sql-data-warehouse-manage-monitor.md).
+Zie [Uw workload controleren met DMV's](sql-data-warehouse-manage-monitor.md) voor het controleren van het laden van gegevens.
 
 
 

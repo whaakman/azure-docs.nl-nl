@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Aan de slag met Azure Search in Node.js
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Zodra u de service hebt gemaakt, keert u terug naar de portal om de URL of `api-
 ## <a name="download-the-sample-files"></a>De voorbeeldbestanden downloaden
 Gebruik een van de volgende methoden om het voorbeeld te downloaden.
 
-1. Ga naar [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Ga naar [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Klik op **Download ZIP** (ZIP downloaden), sla het zip-bestand op en pak vervolgens alle bestanden in het zip-bestand uit.
 
 Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor de bestanden in deze map.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
 
@@ -119,7 +119,7 @@ U kunt de standaardregels niet verwijderen, maar u kunt ze negeren door regels t
 * **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** voor de klassieke versie): dit label omvat de adresruimte van het virtuele netwerk (alle CIDR-bereiken die zijn gedefinieerd voor het virtuele netwerk), alle verbonden on-premises adresruimten en [via peering gekoppelde](virtual-network-peering-overview.md) virtuele netwerken of virtuele netwerken die zijn verbonden via een [virtuele netwerkgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het [IP-adres van een Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653) van waaruit statuscontroles van Azure worden uitgevoerd. Als u de load balancer van Azure niet gebruikt, kunt u deze regel onderdrukken.
 * **Internet** (Resource Manager) (**INTERNET** voor klassiek): met deze tag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit adresbereik omvat ook de [openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureTrafficManager** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Traffic Manager aan.
+* **AzureTrafficManager** (Alleen Resource Manager): deze tag geeft de IP-adresruimte aan voor de Azure Traffic Manager test-IP-adressen. Meer informatie over de test-IP-adressen van Traffic Manager vindt u in de [Veelgestelde vragen over Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).
 * **Storage** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Storage aan. Als u *Storage* opgeeft als waarde, wordt verkeer naar de opslag toegestaan of geweigerd. Als u toegang tot opslag alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure Storage bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Storage.EastUS* opgeven als servicetag. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure Storage, maar geen specifiek Azure Storage-account.
 * **Sql** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels aan van de services Azure SQL Database en Azure SQL Data Warehouse. Als u *Sql* opgeeft als waarde, wordt verkeer naar Sql toegestaan of geweigerd. Als u toegang tot Sql alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure SQL Database bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Sql.EastUS* opgeven als servicetag. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure SQL Database, maar geen specifieke SQL-database of -server.
 

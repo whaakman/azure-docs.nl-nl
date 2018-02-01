@@ -1,213 +1,214 @@
 ---
-title: Een Azure Application Gateway maken en beheren - PowerShell | Microsoft Docs
-description: Op deze pagina vindt u instructies voor het maken, configureren, openen en verwijderen van een Azure-toepassingsgateway met Azure Resource Manager
-documentationcenter: na
+title: Maken van een toepassingsgateway - Azure PowerShell | Microsoft Docs
+description: Informatie over het maken van een toepassingsgateway met behulp van Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: tysonn
+editor: 
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.devlang: azurepowershell
+ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: c419e1032476818e430251246022ae14e4355024
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 7f78e54b16da024c233a7943e82fd50f41c5503a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Een toepassingsgateway maken, openen of verwijderen met Azure Resource Manager
+# <a name="create-an-application-gateway-using-azure-powershell"></a>Een toepassingsgateway met Azure PowerShell maken
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
+U kunt Azure PowerShell gebruiken voor het maken of beheren van Toepassingsgateways vanaf de opdrachtregel of in scripts. Deze snelstartgids wordt beschreven hoe u netwerkbronnen, back-endservers en een toepassingsgateway maken.
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Overzicht van Application Gateway](application-gateway-introduction.md).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-> [!IMPORTANT]
-> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. In dit document leest u meer over het maken van een toepassingsgateway met Azure Resource Manager. Als u de klassieke versie wilt gebruiken, gaat u naar [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md) (Een klassieke toepassingsgatewayimplementatie maken met PowerShell).
+Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 3.6 of hoger van Azure PowerShell vereist. Ga voor de versie uitvoeren `Get-Module -ListAvailable AzureRM` . Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
-1. Als u een bestaand virtueel netwerk hebt, selecteert u een bestaand leeg subnet of maakt u een subnet in uw bestaande virtuele netwerk, uitsluitend voor gebruik door de toepassingsgateway. U kunt de toepassingsgateway niet implementeren op een ander virtueel netwerk dan de resources die u wilt implementeren achter de toepassingsgateway.
-1. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
+Maak een Azure-resource groep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>Wat is er vereist om een toepassingsgateway te maken?
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
 
-* **Back-endserverpool:** de lijst met IP-adressen, FQDN's of NIC's van de back-endservers. Als er IP-adressen worden gebruikt, moeten deze deel uitmaken van het subnet van het virtuele netwerk of moeten dit openbare IP-/VIP-adressen zijn.
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
-* **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
-* **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt.
+## <a name="create-network-resources"></a>Maken van netwerkbronnen 
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Een resourcegroep maken voor Resource Manager
+De subnetconfiguraties met maken [nieuw AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Maken van het virtuele netwerk met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) met de subnetconfiguraties. En maak ten slotte het openbare IP-adres met [nieuw AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Deze resources worden gebruikt om de netwerkverbinding met de toepassingsgateway en de bijbehorende bronnen opgeven.
 
-Zorg ervoor dat u de nieuwste versie van Azure PowerShell gebruikt. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.2.0/24
+New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
+## <a name="create-backend-servers"></a>Maken van back-endservers
 
-1. Meld u aan bij Azure en voer uw referenties in.
+In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook IIS installeren op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
-  ```powershell
-  Login-AzureRmAccount
-  ```
+### <a name="create-two-virtual-machines"></a>Twee virtuele machines maken
 
-2. Controleer de abonnementen voor het account.
+Maken van een netwerkinterface met [nieuw AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Maken van een virtuele-machineconfiguratie met [nieuw AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Wanneer u de volgende opdrachten uitvoert, wordt u gevraagd referenties op te geven. Voer *azureuser* voor de gebruikersnaam en *Azure123456!* voor het wachtwoord. Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$cred = Get-Credential
+for ($i=1; $i -le 2; $i++)
+{
+  $nic = New-AzureRmNetworkInterface `
+    -Name myNic$i `
+    -ResourceGroupName myResourceGroupAG `
+    -Location EastUS `
+    -SubnetId $vnet.Subnets[1].Id
+  $vm = New-AzureRmVMConfig `
+    -VMName myVM$i `
+    -VMSize Standard_DS2
+  $vm = Set-AzureRmVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM$i `
+    -Credential $cred
+  $vm = Set-AzureRmVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+  $vm = Add-AzureRmVMNetworkInterface `
+    -VM $vm `
+    -Id $nic.Id
+  $vm = Set-AzureRmVMBootDiagnostics `
+    -VM $vm `
+    -Disable
+  New-AzureRmVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
+  Set-AzureRmVMExtension `
+    -ResourceGroupName myResourceGroupAG `
+    -ExtensionName IIS `
+    -VMName myVM$i `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+    -Location EastUS
+}
+```
 
-3. Kies welk Azure-abonnement u wilt gebruiken.
+## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-  ```powershell
-  Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-  ```
+### <a name="create-the-ip-configurations-and-frontend-port"></a>De IP-configuraties en de front-endpoort maken
 
-4. Maak een resourcegroep (u kunt deze stap overslaan als u een bestaande resourcegroep gebruikt).
+Gebruik [nieuw AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) om de configuratie die wordt gekoppeld aan het subnet dat u eerder hebt gemaakt met de toepassingsgateway te maken. Gebruik [nieuw AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) om de configuratie waarmee het openbare IP-adres dat u ook een eerder gemaakt worden toegewezen aan de toepassingsgateway te maken. Gebruik [nieuw AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) poort 80 moet worden gebruikt voor toegang tot de toepassingsgateway toewijzen.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name ContosoRG -Location "West US"
-  ```
-
-Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
-
-In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam **ContosoRG** en de locatie **VS - oost**.
-
-> [!NOTE]
-> Ga naar [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests) als u voor uw toepassingsgateway een aangepaste test moet configureren. Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
-
-
-## <a name="create-the-application-gateway-configuration-objects"></a>Het configuratieobject voor de toepassingsgateway maken
-
-Alle configuratie-items moeten zijn ingesteld voordat u de toepassingsgateway maakt. Volg de onderstaande stappen om de configuratie-items te maken die nodig zijn voor een toepassingsgatewayresource.
-
-```powershell
-# Create a subnet and assign the address space of 10.0.0.0/24
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-
-# Create a virtual network with the address space of 10.0.0.0/16 and add the subnet
-$vnet = New-AzureRmVirtualNetwork -Name ContosoVNET -ResourceGroupName ContosoRG -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-# Retrieve the newly created subnet
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$pip = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
 $subnet=$vnet.Subnets[0]
-
-# Create a public IP address that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -name publicIP01 -location "East US" -AllocationMethod Dynamic
-
-# Create a gateway IP configuration. The gateway picks up an IP addressfrom the configured subnet and routes network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-
-# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-
-# Configure backend http settings to determine the protocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-
-# Configure a frontend port that is used to connect to the application gateway through the public IP address
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
-
-# Configure the frontend IP configuration with the public IP address created earlier.
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-
-# Configure the listener.  The listener is a combination of the front end IP configuration, protocol, and port and is used to receive incoming network traffic. 
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-
-# Configure a basic rule that is used to route traffic to the backend servers. The backend pool settings, listener, and backend pool created in the previous steps make up the rule. Based on the criteria defined traffic is routed to the appropriate backend.
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-
-# Configure the SKU for the application gateway, this determines the size and whether or not WAF is used.
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-
-# Create the application gateway
-$appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-Haal als u klaar bent DNS- en VIP-details van de toepassingsgateway op van de openbare IP-resource die aan de toepassingsgateway is gekoppeld.
+### <a name="create-the-backend-pool"></a>De back-endpool maken
 
-```powershell
-Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName ContosoRG
+Gebruik [nieuw AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) om de groep back-end voor de toepassingsgateway te maken. Configureer de instellingen voor de back-end-pool met [nieuw AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+
+```azurepowershell-interactive
+$address1 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
+$address2 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
+$backendPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name myAGBackendPool `
+  -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-## <a name="delete-the-application-gateway"></a>De toepassingsgateway verwijderen
+### <a name="create-the-listener-and-add-a-rule"></a>De listener maken en een regel toevoegen
 
-In het volgende voorbeeld wordt de toepassingsgateway verwijderd.
+Een listener is vereist voor het inschakelen van de toepassingsgateway voor het verkeer op de juiste wijze te routeren naar de back-endpool. Maak een listener met [nieuw AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) met de frontend-configuratie en de frontend-poort die u eerder hebt gemaakt. Een regel is vereist voor de listener te weten welke back-endpool moet worden gebruikt voor binnenkomend verkeer. Gebruik [nieuw AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) voor het maken van een regel met naam *rule1*.
 
-```powershell
-# Retrieve the application gateway
-$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
-
-# Stops the application gateway
-Stop-AzureRmApplicationGateway -ApplicationGateway $gw
-
-# Once the application gateway is in a stopped state, use the `Remove-AzureRmApplicationGateway` cmdlet to remove the service.
-Remove-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Force
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name myAGListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $backendPool `
+  -BackendHttpSettings $poolSettings
 ```
 
-> [!NOTE]
-> U kunt de switch **-force** gebruiken om het bevestigingsbericht voor de verwijdering niet te laten weergeven.
+### <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Gebruik de cmdlet `Get-AzureRmApplicationGateway` als u wilt controleren of de service is verwijderd. Deze stap is niet vereist.
+Nu u de benodigde ondersteunende resources hebt gemaakt, gebruiken [nieuw AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) Geef parameters op voor de toepassingsgateway en gebruik daarna [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) naar Deze maken.
 
-```powershell
-Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $backendPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
 ```
 
-## <a name="get-application-gateway-dns-name"></a>DNS-naam van toepassingsgateway verkrijgen
+## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
 
-Wanneer de gateway is gemaakt, gaat u in de volgende stap de front-end voor communicatie configureren. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. Om ervoor te zorgen dat eindgebruikers de toepassingsgateway kunnen bereiken, kan een CNAME-record worden gebruikt die verwijst naar het openbare eindpunt van de toepassingsgateway. Daartoe haalt u details van de toepassingsgateway en de bijbehorende IP-/ DNS-naam op met het PublicIPAddress-element gekoppeld aan de toepassingsgateway. Dit kunt u doen met Azure DNS of andere DNS-providers door een CNAME-record te maken dat verwijst naar het [openbare IP-adres](../dns/dns-custom-domain.md#public-ip-address). Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
+Gebruik [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ophalen van het openbare IP-adres van de toepassingsgateway. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
 
-> [!NOTE]
-> Er wordt een IP-adres toegewezen aan de toepassingsgateway wanneer de service wordt gestart.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-```
-Name                     : publicIP01
-ResourceGroupName        : ContosoRG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/ContosoAppGateway/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
-```
+![Test toepassingsgateway](./media/application-gateway-create-gateway-arm/application-gateway-iistest.png)
 
-## <a name="delete-all-resources"></a>Alle resources verwijderen
+## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stap uit:
+Wanneer deze niet langer nodig is, kunt u de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht de resourcegroep, een toepassingsgateway verwijderen en alle bijbehorende resources.
 
-```powershell
-Remove-AzureRmResourceGroup -Name ContosoRG
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar: [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Een toepassingsgateway voor SSL-offload configureren) als u SSL-offload wilt configureren.
+In deze snelstartgids gemaakt u een resourcegroep, netwerkbronnen en back-endservers. Vervolgens gebruikt u deze resources om een toepassingsgateway te maken. Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
 
-Ga naar: [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken) als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer.
-
-Als u meer informatie wilt over de algemene opties voor taakverdeling, gaat u naar:
-
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)

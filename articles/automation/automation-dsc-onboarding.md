@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ffe08f0f85f07accdce9e3b8fa9524ef3c99c878
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Computers voorbereiden voor beheer door Azure Automation DSC
 
@@ -43,7 +43,7 @@ De volgende secties worden hoe kunt u vrijgeven elk type van de machine aan Azur
 
 ## <a name="azure-virtual-machines-classic"></a>Virtuele machines in Azure (klassiek)
 
-Met Azure Automation DSC kunt u eenvoudig vrijgeven virtuele machines in Azure (klassiek) voor het beheer van de configuratie met de Azure-portal of PowerShell. Achter de schermen en zonder een beheerder op afstand verbinding met de virtuele machine met de extensie Azure VM Desired State Configuration de virtuele machine geregistreerd bij Azure Automation DSC. Omdat de extensie Azure VM Desired State Configuration asynchroon wordt uitgevoerd, stappen voor het bijhouden van de voortgang of het oplossen van dit probleem vindt u in de [ **probleemoplossing voor Azure virtuele machine voorbereiden** ](#troubleshooting-azure-virtual-machine-onboarding) hieronder.
+Met Azure Automation DSC kunt u eenvoudig vrijgeven virtuele machines in Azure (klassiek) voor het beheer van de configuratie met de Azure-portal of PowerShell. Achter de schermen en zonder een beheerder op afstand verbinding met de virtuele machine met de extensie Azure VM Desired State Configuration de virtuele machine geregistreerd bij Azure Automation DSC. Omdat de extensie Azure VM Desired State Configuration asynchroon wordt uitgevoerd, stappen voor het bijhouden van de voortgang of het oplossen van dit probleem vindt u in de volgende [ **probleemoplossing voor Azure virtuele machine voorbereiden** ](#troubleshooting-azure-virtual-machine-onboarding) sectie.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -51,7 +51,7 @@ In de [Azure-portal](http://portal.azure.com/), klikt u op **Bladeren** -> **vir
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
-De URL van de registratie van zoeken en sleutel voor het Automation-account om vrij te geven van de machine, Zie de [ **registratie Secure** ](#secure-registration) hieronder.
+De URL van de registratie van zoeken en sleutel voor het Automation-account om vrij te geven van de computer, Zie de volgende [ **registratie Secure** ](#secure-registration) sectie:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -119,11 +119,11 @@ $VM | Update-AzureVM
 
 ## <a name="azure-virtual-machines"></a>Virtuele machines van Azure
 
-Azure Automation DSC kunt u eenvoudig vrijgeven Azure virtuele machines voor Configuratiebeheer, via de Azure-portal, Azure Resource Manager-sjablonen of PowerShell. Achter de schermen en zonder een beheerder op afstand verbinding met de virtuele machine met de extensie Azure VM Desired State Configuration de virtuele machine geregistreerd bij Azure Automation DSC. Omdat de extensie Azure VM Desired State Configuration asynchroon wordt uitgevoerd, stappen voor het bijhouden van de voortgang of het oplossen van dit probleem vindt u in de [ **probleemoplossing voor Azure virtuele machine voorbereiden** ](#troubleshooting-azure-virtual-machine-onboarding) hieronder.
+Azure Automation DSC kunt u eenvoudig vrijgeven Azure virtuele machines voor Configuratiebeheer, via de Azure-portal, Azure Resource Manager-sjablonen of PowerShell. Achter de schermen en zonder een beheerder op afstand verbinding met de virtuele machine met de extensie Azure VM Desired State Configuration de virtuele machine geregistreerd bij Azure Automation DSC. Omdat de extensie Azure VM Desired State Configuration asynchroon wordt uitgevoerd, stappen voor het bijhouden van de voortgang of het oplossen van dit probleem vindt u in de volgende [ **probleemoplossing voor Azure virtuele machine voorbereiden** ](#troubleshooting-azure-virtual-machine-onboarding) sectie.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-In de [Azure-portal](https://portal.azure.com/), navigeer naar de Azure Automation-account waarin u vrijgeven virtuele machines wilt. Klik op het dashboard van Automation-account, **DSC-knooppunten** -> **toevoegen Azure VM**.
+In de [Azure-portal](https://portal.azure.com/), navigeer naar de Azure Automation-account waarin u vrijgeven virtuele machines wilt. Klik op het dashboard van Automation-account, **DSC-knooppunten** -> **+ Azure VM toevoegen**.
 
 Selecteer een virtuele machine van Azure om vrij te geven.
 
@@ -135,7 +135,7 @@ Onder **registratie**, voer de [PowerShell DSC Local Configuration Manager-waard
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-Azure virtuele machines kunnen worden geïmplementeerd en vrijgegeven voor Azure Automation DSC via Azure Resource Manager-sjablonen. Zie [configureren van een virtuele machine via de DSC-extensie en Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) voor een van de voorbeeldsjabloon die onboards een bestaande VM aan Azure Automation DSC. Zoeken naar de registratiecode en registratie-URL genomen als invoer in deze sjabloon, Zie de [ **registratie Secure** ](#secure-registration) hieronder.
+Azure virtuele machines kunnen worden geïmplementeerd en vrijgegeven voor Azure Automation DSC via Azure Resource Manager-sjablonen. Zie [configureren van een virtuele machine via de DSC-extensie en Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) voor een van de voorbeeldsjabloon die onboards een bestaande VM aan Azure Automation DSC. Zoeken naar de registratiecode en registratie-URL genomen als invoer in deze sjabloon, Zie de volgende [ **registratie Secure** ](#secure-registration) sectie.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -150,7 +150,7 @@ U kunt eenvoudig vrijgeven Amazon Web Services virtuele machines voor Configurat
 Lokale Windows-machines en Windows-machines in niet-Azure-clouds (zoals Amazon Web Services) kunnen ook worden vrijgegeven aan Azure Automation DSC zolang ze beschikken over uitgaande toegang tot internet, via een paar eenvoudige stappen:
 
 1. Zorg ervoor dat de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) is geïnstalleerd op de computers die u voorbereiden voor Azure Automation DSC wilt.
-2. Volg de aanwijzingen in de sectie [ **genereren DSC metaconfigurations** ](#generating-dsc-metaconfigurations) hieronder voor het genereren van een map met de benodigde DSC-metaconfigurations.
+2. Volg de aanwijzingen in de volgende sectie [ **genereren DSC metaconfigurations** ](#generating-dsc-metaconfigurations) voor het genereren van een map met de benodigde DSC-metaconfigurations.
 3. Van toepassing op afstand de PowerShell DSC-metaconfiguratie toe op de machines die u vrijgeven wilt. **De machine met deze opdracht wordt uitgevoerd vanaf moet hebben tot de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) geïnstalleerd**:
 
     ```powershell
@@ -171,11 +171,11 @@ Lokale Linux-machines, Linux-machines in Azure en Linux-machines in niet-Azure-c
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   + De registratiesleutel en de registratie-URL voor uw Automation-account, Zie de [ **registratie Secure** ](#secure-registration) hieronder.
+   + Zie de volgende informatie over de registratiecode en de registratie-URL voor uw Automation-account [ **registratie Secure** ](#secure-registration) sectie.
 
      Als de standaardwaarden van de PowerShell DSC Local Configuration Manager **doen** **niet** overeen uw gebruiksvoorbeeld, of u voorbereiden wilt, zodat ze alleen aan Azure Automation DSC rapporteren machines maar geen pull-configuratie of het PowerShell-modules doen vanuit het, volgt u stap 3-6. Ga anders verder met stap 6 rechtstreeks.
 
-3. Volg de aanwijzingen in de [ **genereren DSC metaconfigurations** ](#generating-dsc-metaconfigurations) hieronder voor het genereren van een map met de benodigde DSC-metaconfigurations.
+3. Volg de aanwijzingen in de volgende [ **genereren DSC metaconfigurations** ](#generating-dsc-metaconfigurations) sectie voor het genereren van een map met de benodigde DSC-metaconfigurations.
 4. Van toepassing op afstand de PowerShell DSC-metaconfiguratie toe op de machines die u vrijgeven wilt:
 
     ```powershell
@@ -321,7 +321,7 @@ Om vrij te algemeen geven een aan Azure Automation DSC machine een [DSC-metaconf
     DscMetaConfigs @Params
     ```
 
-3. Vul de registratiecode en de URL in voor uw Automation-account, evenals de namen van de machines om vrij te geven. Alle andere parameters zijn optioneel. De registratiesleutel en de registratie-URL voor uw Automation-account, Zie de [ **registratie Secure** ](#secure-registration) hieronder.
+3. Vul de registratiecode en de URL in voor uw Automation-account, evenals de namen van de machines om vrij te geven. Alle andere parameters zijn optioneel. Zie de volgende informatie over de registratiecode en de registratie-URL voor uw Automation-account [ **registratie Secure** ](#secure-registration) sectie.
 4. Als u wilt dat de machines DSC-statusinformatie rapporteren aan Azure Automation DSC, maar geen pull-configuratie of PowerShell-modules, stelt u de **ReportOnly** parameter in op true.
 5. Voer het script uit. U hebt nu een map met de naam **DscMetaConfigs** die in uw werkmap, bevat de PowerShell DSC-metaconfigurations voor de machines voorbereiden (als administrator):
 
@@ -359,9 +359,9 @@ Als de PowerShell DSC Local Configuration Manager-standaardwaarden overeenkomen 
 
 ## <a name="secure-registration"></a>Beveiligde registratie
 
-Machines kunnen veilig vrijgeven aan een Azure Automation-account via het protocol WMF 5 DSC-registratie, waardoor een DSC-knooppunt om een Pull-PowerShell DSC V2 of Reporting server (met inbegrip van Azure Automation DSC) te verifiëren. Het knooppunt wordt geregistreerd met de server op een **registratie URL**, verificatie uitvoert met behulp van een **registratiesleutel**. Tijdens de registratie, de DSC-knooppunt en DSC-Pull/Reporting-server om te onderhandelen over een uniek certificaat voor dit knooppunt wilt gebruiken voor verificatie op de na serverregistratie. Dit proces wordt voorkomen dat de knooppunten van imitatie van een die andere, zoals wanneer een knooppunt is geknoeid en gedragen met kwaadaardige bedoelingen vrijgegeven. Na de registratie, de registratiesleutel wordt niet gebruikt voor verificatie opnieuw en wordt verwijderd uit het knooppunt.
+Machines kunnen veilig vrijgeven aan een Azure Automation-account via het protocol WMF 5 DSC-registratie, waardoor een DSC-knooppunt om een PowerShell DSC-Pull- of Reporting server (met inbegrip van Azure Automation DSC) te verifiëren. Het knooppunt wordt geregistreerd met de server op een **registratie URL**, verificatie uitvoert met behulp van een **registratiesleutel**. Tijdens de registratie, de DSC-knooppunt en DSC-Pull/Reporting-server om te onderhandelen over een uniek certificaat voor dit knooppunt wilt gebruiken voor verificatie op de na serverregistratie. Dit proces wordt voorkomen dat de knooppunten van imitatie van een die andere, zoals wanneer een knooppunt is geknoeid en gedragen met kwaadaardige bedoelingen vrijgegeven. Na de registratie, de registratiesleutel wordt niet gebruikt voor verificatie opnieuw en wordt verwijderd uit het knooppunt.
 
-U kunt de vereiste informatie voor het protocol van de DSC-registratie van de **sleutels beheren** blade in de Azure preview portal. Deze blade openen door te klikken op het sleutelpictogram op de **Essentials** Configuratiescherm voor het Automation-account.
+U kunt de vereiste informatie voor het protocol van de DSC-registratie van **sleutels** onder **Accountinstellingen** in de Azure portal. Deze blade openen door te klikken op het sleutelpictogram op de **Essentials** Configuratiescherm voor het Automation-account.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -377,15 +377,13 @@ Azure Automation DSC kunt u eenvoudig Azure Windows VM's vrijgeven voor Configur
 > [!NOTE]
 > Een voorbereiden op een Windows Azure VM aan Azure Automation DSC die gebruikmaakt van de extensie Azure VM Desired State Configuration-methode kan een uur duren voor het knooppunt om maximaal geregistreerd in Azure Automation weer te geven. Dit wordt veroorzaakt door de installatie van Windows Management Framework 5.0 op de virtuele machine voor de Azure VM DSC-uitbreiding vereist om vrij te geven is de VM naar Azure Automation DSC.
 
-Voor probleemoplossing of weer de status van de Azure VM Desired State Configuration-uitbreiding in de Azure portal gaat u naar de virtuele machine wordt vrijgegeven en vervolgens klik -> **alle instellingen** -> **extensies** -> **DSC**. Voor meer informatie kunt u **gedetailleerde status weergeven**.
-
-[![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
+Als u wilt oplossen of de status van de Azure VM Desired State Configuration-extensie bekijken, in de Azure portal gaat u naar de virtuele machine wordt vrijgegeven en klik vervolgens op **extensies** onder **instellingen**. Klik vervolgens op **DSC** of **DSCForLinux** , afhankelijk van uw besturingssysteem. Voor meer informatie kunt u **gedetailleerde status weergeven**.
 
 ## <a name="certificate-expiration-and-reregistration"></a>Vervaldatum van het certificaat en servernaam
 
 Na de registratie van een machine als een DSC-knooppunt in Azure Automation DSC zijn er een aantal redenen waarom u wellicht dat knooppunt in de toekomst opnieuw registreren:
 
-* Na de registratie wordt elk knooppunt automatisch onderhandeld over een uniek certificaat voor verificatie, die na één jaar verloopt. Het protocol PowerShell DSC-registratie kan niet op dit moment automatisch certificaten vernieuwen wanneer ze bijna zijn verlopen, dus moet u de knooppunten van een jaar later opnieuw te registreren. Voordat het opnieuw te registreren, moet u ervoor zorgen dat elk knooppunt wordt uitgevoerd op de Windows Management Framework 5.0 RTM. Als het verificatiecertificaat van een knooppunt is verlopen en het knooppunt niet is geregistreerd, het knooppunt kan niet communiceren met Azure Automation en zal worden gemarkeerd als 'Unresponsive'. Servernaam uitgevoerd 90 dagen of minder van de verlooptijd van het certificaat, of op elk gewenst moment na de verlooptijd certificaat resulteert in een nieuw certificaat wordt gegenereerd en gebruikt.
+* Na de registratie wordt elk knooppunt automatisch onderhandeld over een uniek certificaat voor verificatie, die na één jaar verloopt. Het protocol PowerShell DSC-registratie kan niet op dit moment automatisch certificaten vernieuwen wanneer ze bijna zijn verlopen, dus moet u de knooppunten van een jaar later opnieuw te registreren. Voordat het opnieuw te registreren, moet u ervoor zorgen dat elk knooppunt wordt uitgevoerd op de Windows Management Framework 5.0 RTM. Als een knooppunt authentication certificaat is verlopen en het knooppunt niet is geregistreerd, het knooppunt kan niet communiceren met Azure Automation en is gemarkeerd als 'Unresponsive'. Servernaam uitgevoerd 90 dagen of minder van de verlooptijd van het certificaat, of op elk gewenst moment na de verlooptijd certificaat resulteert in een nieuw certificaat wordt gegenereerd en gebruikt.
 * Niet te wijzigen [PowerShell DSC Local Configuration Manager-waarden](https://msdn.microsoft.com/powershell/dsc/metaconfig4) die tijdens de initiële registratie van het knooppunt, zoals ConfigurationMode zijn ingesteld. Deze waarden DSC-agent kunnen op dit moment alleen worden gewijzigd via servernaam. De enige uitzondering hierop is de toegewezen aan het knooppunt knooppuntconfiguratie--dit kan rechtstreeks worden gewijzigd in Azure Automation DSC.
 
 Servernaam kan worden uitgevoerd op dezelfde manier als die u geregistreerd het knooppunt in eerste instantie met een van de voorbereiding-methoden die in dit document worden beschreven. U hoeft niet de registratie van een knooppunt uit Azure Automation DSC voordat deze opnieuw te registreren.

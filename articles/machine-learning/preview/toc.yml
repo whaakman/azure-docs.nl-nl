@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: Ondersteunde gegevensbronnen
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Azure Cosmos DB laden als gegevensbron
+          href: data-prep-load-azure-cosmos-db.md
         - name: Ondersteunde controles
           href: data-prep-appendix4-supported-inspectors.md
         - name: Ondersteunde gegevensbestemmingen

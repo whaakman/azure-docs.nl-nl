@@ -1,0 +1,46 @@
+- name: Ansible in Azure
+  href: ./index.yml
+- name: Overzicht
+  items:
+    - name: Over Ansible in Azure
+      href: ./ansible-overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Ansible installeren en configureren
+      href: /azure/virtual-machines/linux/ansible-install-configure
+      maintainContext: true
+    - name: Een Linux-VM maken
+      href: /azure/virtual-machines/linux/ansible-create-vm
+      maintainContext: true
+- name: Zelfstudies
+  items:
+    - name: Een volledige Linux-VM maken
+      href: /azure/virtual-machines/linux/ansible-create-complete-vm
+      maintainContext: true
+    - name: Een playbook uitvoeren in Cloud Shell
+      href: ./ansible-run-playbook-in-cloudshell.md
+      maintainContext: true
+    - name: Dynamische voorraden beheren
+      href: ./ansible-manage-azure-dynamic-inventories.md
+      maintainContext: true
+- name: Naslaginformatie
+  items:
+    - name: Playbook-rollen
+      items:
+        - name: azure_module
+          href: 'https://galaxy.ansible.com/Azure/azure_modules/'
+        - name: azure_preview_module
+          href: 'https://galaxy.ansible.com/Azure/azure_preview_modules'
+    - name: Versies en functies
+      href: ./ansible-matrix.md
+    - name: Azure Container Instances
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_acs_module.html'
+    - name: Azure Functions
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html'
+    - name: Load balancers
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html'
+    - name: Virtuele machines
+      href: 'http://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html'
+    - name: Alle modules voor Azure
+      href: 'http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure'

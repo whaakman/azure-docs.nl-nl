@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 
@@ -312,7 +312,7 @@ De eerste back-uptaak uitvoeren:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent op de virtuele machine installeren
-Deze informatie wordt verstrekt voor het geval u deze nodig hebt. De Azure VM-agent moet worden geïnstalleerd op de virtuele Azure-machine om de Backup-extensie te kunnen gebruiken. Als uw VM echter is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de virtuele machine. Op VM's die zijn gemigreerd vanuit on-premises datacenters, is geen VM-agent geïnstalleerd. In dat geval moet de VM-agent worden geïnstalleerd. Als u problemen ondervindt bij het maken van een back-up van de virtuele Azure-machine, controleert u of de Azure VM-agent correct is geïnstalleerd op de virtuele machine (zie de volgende tabel). Als u een aangepaste VM maakt, [zorgt u ervoor dat het selectievakje **De VM-agent installeren** is ingeschakeld](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voordat de virtuele machine wordt ingericht.
+Deze informatie wordt verstrekt voor het geval u deze nodig hebt. De Azure VM-agent moet worden geïnstalleerd op de virtuele Azure-machine om de Backup-extensie te kunnen gebruiken. Als uw VM echter is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de virtuele machine. Op VM's die zijn gemigreerd vanuit on-premises datacenters, is geen VM-agent geïnstalleerd. In dat geval moet de VM-agent worden geïnstalleerd. Als u problemen ondervindt bij het maken van een back-up van de virtuele Azure-machine, controleert u of de Azure VM-agent correct is geïnstalleerd op de virtuele machine (zie de volgende tabel). Als u een aangepaste VM maakt, installeert u de VM-agent voordat de virtuele machine wordt ingericht.
 
 Meer informatie over de [VM-agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) en [hoe u deze installeert](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

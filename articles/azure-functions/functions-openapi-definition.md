@@ -1,8 +1,8 @@
 ---
-title: De definitie van een OpenAPI voor een functie maken | Microsoft Docs
-description: Maak een definitie van een OpenAPI waarmee andere apps en services aan te roepen van de functie in Azure.
+title: Een OpenAPI-definitie voor een functie maken | Microsoft Docs
+description: Maak een definitie van een OpenAPI waarmee andere apps en services uw functie in Azure aanroepen.
 services: functions
-keywords: OpenAPI, Swagger, cloud-apps, cloud-services
+keywords: OpenAPI, Swagger, cloud-apps, cloud-services,
 documentationcenter: 
 author: mgblythe
 manager: cfowler
@@ -16,28 +16,28 @@ ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-an-openapi-definition-for-a-function"></a>De definitie van een OpenAPI voor een functie maken
-REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/) bestand). Deze definitie bevat informatie over welke bewerkingen zijn beschikbaar in een API en hoe de gegevens van de aanvraag en -antwoord voor de API moet worden opgebouwd.
+# <a name="create-an-openapi-definition-for-a-function"></a>De OpenAPI-definitie maken voor een functie
+REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/)-bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
 
-In deze zelfstudie maakt u een functie waarmee wordt bepaald of een noodherstelproces op een turbine o rendabele. Vervolgens maakt u een OpenAPI definitie voor de functie-app zodat de functie kan worden aangeroepen vanuit andere apps en services.
+In deze zelfstudie maakt u een functie waarmee wordt bepaald of een noodherstelproces op een windturbine rendabel is. Vervolgens maakt u een OpenAPI-definitie voor de functie-app zodat de functie kan worden aangeroepen vanuit andere apps en services.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maken van een functie in Azure
-> * De definitie van een OpenAPI met OpenAPI's genereren
-> * De definitie voor aanvullende metagegevens wijzigen
-> * De definitie van de door het aanroepen van de functie testen
+> * Een maken functie in Azure
+> * Een OpenAPI-definitie genereren met OpenAPI-hulpprogramma’s
+> * De definitie wijzigen voor het leveren van aanvullende metagegevens
+> * De definitie testen door het aanroepen van de functie
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
-U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Een functie-app kunt u functies groeperen als een logische eenheid voor eenvoudiger beheer, implementatie, schaalbaarheid en delen van bronnen. 
+U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren schalen en delen. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -46,23 +46,23 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
 ## <a name="create-the-function"></a>De functie maken
 
-Deze zelfstudie wordt gebruikgemaakt van een HTTP-geactiveerd functie waarvoor twee parameters zijn vereist: de geschatte tijd voor het maken van een turbine herstellen (in uren); en de capaciteit van de turbine (in kilowatt). De functie vervolgens berekend hoeveel reparatie kost en hoeveel omzet turbine kan in een periode van 24 uur.
+Deze zelfstudie maakt gebruik van een HTTP-geactiveerde functie waarvoor twee parameters zijn vereist: de geschatte tijd voor het herstellen van een turbine (in uren); en de capaciteit van de turbine (in kilowatt). De functie berekend vervolgens hoeveel een reparatie kost en hoeveel omzet de turbine in een periode van 24 uur zou kunnen maken.
 
-1. Vouw de functie-app en selecteer de  **+**  naast **functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen. 
+1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen. 
 
     ![De Quick Start-pagina van Functions in Azure Portal](media/functions-openapi-definition/add-first-function.png)
 
-2. Typ in het zoekveld `http` en kies vervolgens **C#** voor de HTTP-trigger-sjabloon. 
+2. Typ `http` in het zoekveld en kies vervolgens**C#** voor het HTTP-activatiesjabloon. 
  
     ![Kies de HTTP-trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Type `TurbineRepair` voor de functie **naam**, kies `Function` voor  **[verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **maken**.  
+3. Type `TurbineRepair` voor de functie **Naam**, kies `Function` bij  **[Verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **Maken**.  
 
-    ![De functie HTTP geactiveerd maken](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![De door HTTP geactiveerde functie maken](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
-1. De inhoud van het bestand run.csx vervangen door de volgende code en klik vervolgens op **opslaan**:
+1. Vervang de inhoud van het bestand run.csx door de volgende code en klik vervolgens op **Opslaan**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 
@@ -96,9 +96,9 @@ Deze zelfstudie wordt gebruikgemaakt van een HTTP-geactiveerd functie waarvoor t
         }); 
     }
     ```
-    Deze functiecode retourneert een bericht van het `Yes` of `No` om aan te geven of een noodherstelproces rendabele, evenals de Omzetkans dat de turbine vertegenwoordigt en de kosten om op te lossen turbine. 
+    Deze functiecode retourneert een bericht van `Yes` of `No` om aan te geven of een noodherstelproces rendabel is, evenals de kans op omzet die de turbine vertegenwoordigt en de kosten om de turbine te repareren. 
 
-1. U kunt de functie testen, klikt u op **testen** helemaal rechts op het tabblad testresultaten uitbreiden. Voer de volgende waarde voor de **aanvraagtekst**, en klik vervolgens op **uitvoeren**.
+1. Om de functie te testen, klikt u op **Testen** helemaal rechts op het tabblad om de testresultaten uit te breiden. Voer de volgende waarde in voor de **Aanvraagtekst**, en klik vervolgens op **Uitvoeren**.
 
     ```json
     {
@@ -107,43 +107,43 @@ Deze zelfstudie wordt gebruikgemaakt van een HTTP-geactiveerd functie waarvoor t
     }
     ```
 
-    ![De functie testen in de Azure portal](media/functions-openapi-definition/test-function.png)
+    ![Test de functie in de Azure Portal](media/functions-openapi-definition/test-function.png)
 
-    De volgende waarde in de hoofdtekst van het antwoord geretourneerd.
+    De volgende waarde wordt in de hoofdtekst van het antwoord geretourneerd.
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-U hebt nu een functie die de kosteneffectiviteit van noodgevallen reparaties bepaalt. Vervolgens genereren en de definitie van een OpenAPI voor de functie-app wijzigen.
+U hebt nu een functie die de kosteneffectiviteit van noodreparaties bepaalt. Vervolgens genereert en wijzigt u de definitie van een OpenAPI voor de functie-app.
 
-## <a name="generate-the-openapi-definition"></a>De definitie OpenAPI genereren
+## <a name="generate-the-openapi-definition"></a>De OpenAPI-definitie genereren
 
-U nu kunt de definitie OpenAPI genereren. Deze definitie kan worden gebruikt door andere Microsoft-technologieën, zoals API-Apps [PowerApps](functions-powerapps-scenario.md) en [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), zoals goed als derde partij ontwikkelhulpprogramma's, zoals [Postman](https://www.getpostman.com/docs/importing_swagger) en [veel meer pakketten](http://swagger.io/tools/).
+U nu kunt de OpenAPI-definitie genereren. Deze definitie kan zowel worden gebruikt door andere Microsoft-technologieën, zoals API-Apps [PowerApps](functions-powerapps-scenario.md) en [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), als door hulpprogramma's voor ontwikkelaars door derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger) en [nog veel meer pakketten](http://swagger.io/tools/).
 
-1. Selecteer alleen de *termen* dat uw API (in dit geval POST ondersteunt). Hierdoor kunt u de gegenereerde API-definitie schonere.
+1. Selecteer alleen de *werkwoorden* die uw API ondersteunt (in dit geval POST). Hierdoor is de gegenereerde API-definitie schoner.
 
-    1. Op de **integreren** tabblad van uw nieuwe functie in de HTTP-Trigger, wijziging **toegestaan HTTP-methoden** naar **methoden geselecteerd**
+    1. Op het tabblad **Integreren** van uw nieuwe functie in de HTTP-Trigger wijzigt u **Toegestane HTTP-methoden** naar **Geselecteerde methoden**
 
-    1. In **geselecteerd HTTP-methoden**, schakelt u elke optie behalve **POST**, klikt u vervolgens op **opslaan**.
+    1. In **Geselecteerde HTTP-methoden** schakelt u elke optie uit behalve **POST**, vervolgens klikt u op **Opslaan**.
 
         ![Geselecteerde HTTP-methoden](media/functions-openapi-definition/selected-http-methods.png)
         
-1. Klik op de functie app-naam (zoals **functie demo energie**) > **platformfuncties** > **API-definitie**.
+1. Klik op uw de naam van uw functie app (zoals **function-demo-energy**) > **Platformfuncties** > **API-definitie**.
 
     ![API-definitie](media/functions-openapi-definition/api-definition.png)
 
-1. Op de **API-definitie** tabblad **functie**.
+1. Op het tabblad **API-definitie** klikt u op **Functie**.
 
     ![Bron van API-definitie](media/functions-openapi-definition/api-definition-source.png)
 
-    In deze stap kunt u een reeks OpenAPI opties voor functie-app, met inbegrip van een eindpunt voor het hosten van een bestand OpenAPI uit van de functie app-domein, een inline-kopie van de [OpenAPI Editor](http://editor.swagger.io), en een API-definitie sjabloon generator.
+    Deze stap maakt een reeks OpenAPI-opties mogelijk voor uw functie-app, met inbegrip van een eindpunt voor het hosten van een OpenAPI-bestand uit het domein van uw functie app, een inline-kopie van de [OpenAPI Editor](http://editor.swagger.io), en een sjabloongenerator voor API-definities.
 
-1. Klik op **genereren API-definitie sjabloon** > **opslaan**.
+1. Klik op **Sjabloon voor API-definitie genereren** > **Opslaan**.
 
     ![Sjabloon voor API-definitie genereren](media/functions-openapi-definition/generate-template.png)
 
-    Azure uw app in de functie voor het aantal HTTP-Trigger functies gescand en maakt gebruik van de gegevens in functions.json voor het genereren van de definitie van een OpenAPI. Hier volgt de definitie die wordt gegenereerd:
+    Azure scant uw functie-app op HTTP-triggerfuncties en maakt gebruik van de gegevens in functions.json voor het genereren van de definitie van een OpenAPI. Hier volgt de definitie die wordt gegenereerd:
 
     ```yaml
     swagger: '2.0'
@@ -178,10 +178,10 @@ U nu kunt de definitie OpenAPI genereren. Deze definitie kan worden gebruikt doo
         in: query
     ```
 
-    Deze definitie wordt beschreven als een _sjabloon_ omdat hiervoor meer metagegevens voor de definitie van een volledige OpenAPI. U kunt de definitie van de volgende stap gaat wijzigen.
+    Deze definitie wordt beschreven als een _sjabloon_ omdat hiervoor meer metagegevens voor de definitie van een volledige OpenAPI nodig zijn. U gaat de definitie in de volgende stap wijzigen.
 
-## <a name="modify-the-openapi-definition"></a>De definitie van de OpenAPI wijzigen
-Nu dat u de Sjabloondefinitie van een hebt, wijzigen om de aanvullende metagegevens over de bewerkingen van de API en de gegevensstructuren. In **API-definitie**, verwijderen van de gegenereerde definitie uit `post` plakken in de onderstaande inhoud naar de onderkant van de definitie en klikt u op **opslaan**.
+## <a name="modify-the-openapi-definition"></a>De OpenAPI-definitie bewerken
+Nu dat u een sjabloondefinitie hebt, wijzigt u het om de aanvullende metagegevens over de bewerkingen van de API en de gegevensstructuren te leveren. In **API-definitie** verwijdert u de gegenereerde definitie uit `post` naar de onderkant van de definitie. Plak onderstaande content en klik op **Opslaan**.
 
 ```yaml
     post:
@@ -243,63 +243,63 @@ securityDefinitions:
     in: query
 ```
 
-In dit geval kan alleen plakken in bijgewerkte metagegevens, maar het is belangrijk te begrijpen van de soorten wijzigingen we in de standaardsjabloon:
+In dit geval kunt u alleen bijgewerkte metagegevens plakken, maar het is belangrijk om de soorten wijzigingen te begrijpen die we in het standaardsjabloon hebben gemaakt:
 
-+ Opgegeven dat de API produceert en maakt gebruik van gegevens in een JSON-indeling.
++ Opgegeven dat de API gegevens produceert en consumeert in een JSON-indeling.
 
-+ De vereiste parameters opgegeven voor hun namen en gegevenstypen.
++ De vereiste parameters opgegeven met hun namen en gegevenstypen.
 
-+ De retourwaarden voor een geslaagde reactie opgegeven met hun namen en gegevenstypen.
++ De retourwaarden opgeven voor een geslaagde respons met hun namen en gegevenstypen.
 
-+ Beschrijvende samenvattingen en beschrijvingen voor de API en de bewerkingen en parameters opgegeven. Dit is belangrijk voor mensen die deze functie gebruiken.
++ Beschrijvende samenvattingen en beschrijvingen geleverd voor de API en zijn bewerkingen en parameters. Dit is belangrijk voor mensen die deze functie zullen gebruiken.
 
-+ X-ms-overzicht en x-ms-zichtbaarheid, die worden gebruikt in de gebruikersinterface voor Microsoft-Flow en Logic Apps toegevoegd. Zie voor meer informatie [OpenAPI uitbreidingen voor aangepaste API's in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
++ x-ms-summary en x-ms-visibility toegevoegd, die worden gebruikt in de gebruikersinterface voor Microsoft Flow en Logic Apps. Zie voor meer informatie [OpenAPI-extensies voor aangepaste API's in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
 
 > [!NOTE]
-> We laten de definitie van de beveiliging met de standaardmethode voor verificatie van de API-sleutel. U zou deze sectie van de definitie wijzigen als u een ander type verificatie gebruikt.
+> We hebben de definitie van de beveiliging laten staan met de standaardmethode voor verificatie van de API-sleutel. U moet deze sectie van de definitie wijzigen als u een ander type verificatie gebruikt.
 
 Zie voor meer informatie over het definiëren van de API-bewerkingen de [Open API-specificatie](https://swagger.io/specification/#operationObject).
 
-## <a name="test-the-openapi-definition"></a>De definitie OpenAPI testen
-Voordat u de API-definitie gebruikt, is het een goed idee om deze te testen in de gebruikersinterface van de Azure-functies.
+## <a name="test-the-openapi-definition"></a>De OpenAPI-definitie testen
+Voordat u de API-definitie gebruikt, is het een goed idee om deze te testen in de gebruikersinterface van Azure Functions.
 
-1. Op de **beheren** tabblad van de functie onder **Hostsleutels**, Kopieer de **standaard** sleutel.
+1. Kopieer in het tabblad **Beheren** van de functie onder **Hostsleutels** de **standaard**-sleutel.
 
-    ![Kopieer de API-sleutel](media/functions-openapi-definition/copy-api-key.png)
+    ![API-sleutel kopiëren](media/functions-openapi-definition/copy-api-key.png)
 
     > [!NOTE]
-    >U gebruikt deze sleutel voor het testen en u deze ook gebruiken wanneer u de API vanuit een app of service aanroept.
+    >U gebruikt deze sleutel voor het testen en u zult deze ook gebruiken wanneer u de API vanuit een app of service aanroept.
 
-1. Ga terug naar de API-definitie: **functie demo energie** > **platformfuncties** > **API-definitie**.
+1. Ga terug naar de API-definitie: **function-demo-energy** > **Platformfuncties** > **API-definitie**.
 
-1. Klik in het rechterdeelvenster **verifiëren**, voer de API-sleutel die u gekopieerd en klik op **verifiëren**.
+1. Klik in het rechterdeelvenster op **Verifiëren**, voer de API-sleutel die u heeft gekopieerd en klik op **Verifiëren**.
 
     ![Verificatie met de API-sleutel](media/functions-openapi-definition/authenticate-api-key.png)
 
-1. Schuif naar beneden en klik op **probeer deze bewerking**.
+1. Scroll naar beneden en klik op **Probeer deze bewerking**.
 
-    ![Voer deze bewerking](media/functions-openapi-definition/try-operation.png)
+    ![Probeer deze bewerking](media/functions-openapi-definition/try-operation.png)
 
 1. Voer waarden in voor **uren** en **capaciteit**.
 
-    ![Geef parameters](media/functions-openapi-definition/parameters.png)
+    ![Parameters invoeren](media/functions-openapi-definition/parameters.png)
 
-    U ziet hoe de beschrijvingen van de API-definitie in de gebruikersinterface wordt gebruikt.
+    U ziet hoe de beschrijvingen van de API-definitie door de gebruikersinterface worden gebruikt.
 
-1. Klik op **aanvraag verzenden**, klikt u vervolgens op de **vrij** tabblad voor een overzicht van de uitvoer.
+1. Klik op **Aanvraag Verzenden**, klik vervolgens op het tabblad **Pretty** voor een overzicht van de uitvoer.
 
-    ![Een aanvraag verzenden](media/functions-openapi-definition/send-request.png)
+    ![Een aanvraag versturen](media/functions-openapi-definition/send-request.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Maken van een functie in Azure
-> * De definitie van een OpenAPI met OpenAPI's genereren
-> * De definitie voor aanvullende metagegevens wijzigen
-> * De definitie van de door het aanroepen van de functie testen
+> * Een maken functie in Azure
+> * Een OpenAPI-definitie genereren met OpenAPI-hulpprogramma’s
+> * De definitie wijzigen voor het leveren van aanvullende metagegevens
+> * De definitie testen door het aanroepen van de functie
 
 Ga naar het volgende onderwerp voor informatie over het maken van een PowerApps-app die gebruikmaakt van de definitie van de OpenAPI die u hebt gemaakt.
 > [!div class="nextstepaction"]
-> [Aanroepen van een functie van PowerApps](functions-powerapps-scenario.md)
+> [Een functie van PowerApps aanroepen](functions-powerapps-scenario.md)

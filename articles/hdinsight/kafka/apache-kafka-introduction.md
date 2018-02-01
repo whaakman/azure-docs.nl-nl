@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 945b16553d56d5138b17e7768e43a298b310551d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Inleiding tot Apache Kafka in HDInsight
 
@@ -29,23 +29,45 @@ ms.lasthandoff: 12/08/2017
 
 Kafka op HDInsight biedt de volgende functies:
 
-* Service Level Agreement (SLA): [SLA-informatie voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99% Service Level Agreement (SLA) op Kafka uptime__: zie voor meer informatie het document [SLA-gegevens voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* Publicatie-/abonnementsberichten: Kafka biedt een producent-API voor het publiceren van records naar een Kafka-onderwerp. De consument-API wordt gebruikt bij het abonneren op een onderwerp.
+* __Fouttolerantie en herkenning van racks__: Kafka is ontworpen met een eendimensionale weergave van een rack wat voor bepaalde omgevingen goed werkt. In omgevingen zoals Azure wordt een rack echter onderverdeeld in twee dimensies: updatedomeinen (UD's) en foutdomeinen (FD's). Microsoft biedt hulpprogramma's die zorgen voor een herverdeling van Kafka-partities en -replica's op UD’s en FD’s. 
 
-* Streamverwerking: Kafka wordt vaak gebruikt met Apache Storm of Spark voor streamverwerking in realtime. In Kafka 0.10.0.0 (HDInsight-versie 3.5 en 3.6) werd een streaming-API geïntroduceerd waarmee u streamingoplossingen kunt maken zonder Storm of Spark.
+    Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
 
-* Horizontale schaal: Kafka partitioneert streams op de knooppunten in het HDInsight-cluster. Consumentenprocessen kunnen worden gekoppeld aan afzonderlijke partities voor een evenwichtige taakverdeling bij het gebruiken van records.
-
-* Levering op volgorde: binnen elke partitie worden records in de stream opgeslagen in de volgorde waarin ze zijn ontvangen. Door één consumentenproces aan een partitie te koppelen, kunt u garanderen dat de records in de juiste volgorde worden verwerkt.
-
-* Fouttolerantie: partities kunnen worden gerepliceerd tussen knooppunten voor fouttolerantie.
-
-* Integratie met Azure Managed Disks: beheerde schijven bieden een hogere schaal en doorvoer voor de schijven die worden gebruikt met de virtuele machines in het HDInsight-cluster.
-
-    Beheerde schijven zijn standaard ingeschakeld voor Kafka in HDInsight. Het aantal schijven dat per knooppunt wordt gebruikt, kan worden geconfigureerd tijdens het maken van HDInsight. Zie [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) voor meer informatie over beheerde schijven.
+* **Integratie met Azure Managed Disks**: beheerde schijven bieden een hogere schaal en doorvoer voor de schijven die door Kafka worden gebruikt op HDInsight, tot 16 TB per knooppunt in het cluster.
 
     Zie [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md) (Schaalbaarheid verhogen van Kafka in HDInsight) voor informatie over het configureren van beheerde schijven met Kafka in HDInsight.
+
+    Zie [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) voor meer informatie over beheerde schijven.
+
+* **Waarschuwingen, controle en predictief onderhoud**: Azure Log Analytics kan worden gebruikt om Kafka op HDInsight te controleren. Log Analytics haalt informatie op VM-niveau naar boven, zoals schijf- en NIC-gegevens en JMX-gegevens van Kafka.
+
+    Zie [Logboeken voor Kafka op HDInsight analyseren](apache-kafka-log-analytics-operations-management.md) voor meer informatie.
+
+* **Replicatie van Kafka-gegevens**: Kafka biedt het hulpprogramma MirrorMaker, waarmee gegevens worden gerepliceerd tussen Kafka-clusters.
+
+    Zie [Kafka-onderwerpen repliceren met Kafka op HDInsight](apache-kafka-mirroring.md) voor informatie over het gebruik van MirrorMaker.
+
+* **Clusterschaling**: met HDInsight kunt u het aantal worker-knooppunten (waarop de Kafka-broker wordt gehost) wijzigen na het maken van het cluster. Een cluster omhoog schalen als de werkbelasting toeneemt of omlaag schalen om de kosten te verlagen. Schalen kan worden uitgevoerd vanuit Azure Portal, Azure PowerShell en andere interfaces voor Azure-beheer. Voor Kafka moet u partitiereplica's na het schalen herverdelen. Door herverdeling van partities kan Kafka gebruikmaken van het nieuwe aantal worker-knooppunten.
+
+    Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
+
+* **Publicatie-/abonnementsberichten**: Kafka biedt een producent-API voor het publiceren van records naar een Kafka-onderwerp. De consument-API wordt gebruikt bij het abonneren op een onderwerp.
+
+    Zie [Starten met Kafka op HDInsight](apache-kafka-get-started.md) voor meer informatie.
+
+* **Streamverwerking**: Kafka wordt vaak gebruikt met Apache Storm of Spark voor streamverwerking in realtime. In Kafka 0.10.0.0 (HDInsight-versie 3.5 en 3.6) werd een streaming-API geïntroduceerd waarmee u streamingoplossingen kunt maken zonder Storm of Spark.
+
+    Zie [Starten met Kafka op HDInsight](apache-kafka-get-started.md) voor meer informatie.
+
+* **Horizontale schaal**: Kafka partitioneert streams op de knooppunten in het HDInsight-cluster. Consumentenprocessen kunnen worden gekoppeld aan afzonderlijke partities voor een evenwichtige taakverdeling bij het gebruiken van records.
+
+    Zie [Starten met Kafka op HDInsight](apache-kafka-get-started.md) voor meer informatie.
+
+* **Levering op volgorde**: binnen elke partitie worden records in de stream opgeslagen in de volgorde waarin ze zijn ontvangen. Door één consumentenproces aan een partitie te koppelen, kunt u garanderen dat de records in de juiste volgorde worden verwerkt.
+
+    Zie [Starten met Kafka op HDInsight](apache-kafka-get-started.md) voor meer informatie.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 
@@ -66,7 +88,7 @@ Dit diagram toont een typische Kafka-configuratie die gebruikmaakt van de consum
 Elke Kafka-broker maakt gebruik van Azure Managed Disks. Het aantal schijven is per gebruiker gedefinieerd en kan maximaal 16 TB aan opslag per broker bieden.
 
 > [!IMPORTANT]
-> Kafka is niet op de hoogte van de onderliggende hardware (rack) in het Azure-datacentrum. Om ervoor te zorgen dat partities correct worden verdeeld over de onderliggende hardware raadpleegt u [hoge beschikbaarheid configureren (Kafka)](apache-kafka-high-availability.md).
+> Kafka is niet op de hoogte van de onderliggende hardware (rack) in het Azure-datacentrum. Om ervoor te zorgen dat partities correct worden verdeeld over de onderliggende hardware raadpleegt u het document [Hoge beschikbaarheid configureren (Kafka)](apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

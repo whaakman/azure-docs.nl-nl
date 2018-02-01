@@ -1,6 +1,6 @@
 ---
-title: "Gegevens kopiëren van/naar Dynamics CRM en 365 met behulp van Azure Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens tot Dynamics CRM en 365 naar gegevensarchieven ondersteunde sink (of) uit gegevensarchieven ondersteunde bron tot Dynamics CRM en 365 met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: "Gegevens kopiëren van en naar Dynamics CRM of Dynamics 365 met behulp van Azure Data Factory | Microsoft Docs"
+description: "Informatie over het kopiëren van gegevens uit Microsoft Dynamics CRM of Microsoft Dynamics 365 ondersteund sink gegevensarchieven of ondersteund van bron gegevensarchieven Dynamics CRM of Dynamics 365, met behulp van een kopieeractiviteit in een data factory-pijplijn."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: 2847be0fec83e923126ba436f09f24d83d69bd9d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Gegevens kopiëren van/naar Dynamics 365 Dynamics CRM met Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 of Dynamics CRM met behulp van Azure Data Factory
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Dynamics 365 Dynamics CRM. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Microsoft Dynamics 365 of Microsoft Dynamics CRM. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Kopieeractiviteit in V1](v1/data-factory-data-movement-activities.md).
+> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Kopieeractiviteit in versie 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens van Dynamics 365 Dynamics CRM kopiëren naar een ondersteunde sink-gegevensarchief of gegevens kopiëren van een ondersteunde brongegevensarchief naar Dynamics 365 Dynamics CRM. Zie voor een lijst met gegevensarchieven als bronnen/put wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit Dynamics 365 of Dynamics CRM kopiëren naar een ondersteunde sink-gegevensarchief. U kunt ook gegevens uit alle ondersteunde brongegevensarchief kopiëren naar Dynamics 365 of Dynamics CRM. Zie voor een lijst met gegevensarchieven als bronnen of PUT wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Biedt ondersteuning voor deze connector Dynamics hieronder Dynamics versies en verificatietypen (*IFD wordt kort voor internetgerichte implementatie*):
+Deze connector Dynamics ondersteunt de volgende versies van Dynamics en verificatietypen. (IFD is kort voor internet facing deployment).
 
 | Dynamics-versies | Verificatietypen | Voorbeelden van de gekoppelde service |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics Online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
-| Dynamics 365 on-premises met IFD <br> Dynamics CRM-2016 met on-premises IFD <br> Dynamics CRM-2015 met on-premises IFD | IFD | [Dynamics On-premises met IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+| Dynamics 365 online <br> Dynamics CRM Online | Office365 | [Dynamics online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
+| Dynamics 365 on-premises met IFD <br> Dynamics CRM-2016 met on-premises IFD <br> Dynamics CRM-2015 met on-premises IFD | IFD | [Dynamics on-premises met IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 Voor de Dynamics 365 met name worden de volgende typen ondersteund:
 
@@ -46,9 +46,9 @@ Voor de Dynamics 365 met name worden de volgende typen ondersteund:
 - Dynamics 365 voor Marketing
 
 > [!NOTE]
-> Gebruik Dynamics connector moet uw wachtwoord opslaan in Azure Sleutelkluis en de kopie vizier pull van daaruit laat bij het uitvoeren van de gegevens opnieuw te kopiëren. Informatie over het configureren van in [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
+> Uw wachtwoord opslaan in Azure Key Vault voor het gebruik van de connector Dynamics en kunt u de kopie activiteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren. Zie voor meer informatie over configuratie van de [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
 
-## <a name="getting-started"></a>Aan de slag
+## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
@@ -56,22 +56,22 @@ De volgende secties bevatten informatie over de eigenschappen die worden gebruik
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service:
+De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 en Dynamics CRM Online
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **Dynamics**. | Ja |
-| deploymentType | Het implementatietype van de Dynamics-exemplaar. Moet **'Online'** voor Dynamics Online. | Ja |
-| Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Nee, moet opgeven wanneer er meer dan één Dynamics-exemplaren die zijn gekoppeld aan de gebruiker. |
-| authenticationType | Het verificatietype dat verbinding maken met Dynamics-server. Geef **'Office365'** voor Dynamics Online. | Ja |
-| gebruikersnaam | Geef de gebruikersnaam voor verbinding maken met de Dynamics. | Ja |
-| wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. U moet het wachtwoord in de Azure Sleutelkluis te plaatsen en het wachtwoord als een 'AzureKeyVaultSecret' configureren. Klik hier als u meer wilt weten van [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als bron gekoppeld-service heeft geen IR |
+| type | De eigenschap type moet worden ingesteld op **Dynamics**. | Ja |
+| deploymentType | Het implementatietype van de Dynamics-exemplaar. Dit moet **'Online'** voor Dynamics online. | Ja |
+| Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Nee, moet opgeven wanneer er meer dan één Dynamics-exemplaren die zijn gekoppeld aan de gebruiker |
+| authenticationType | Het verificatietype dat verbinding maken met een Dynamics-server. Geef **'Office365'** voor Dynamics online. | Ja |
+| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
+| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U moet het wachtwoord in de Sleutelkluis plaatsen en configureren van het wachtwoord als **'AzureKeyVaultSecret'**. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
+| connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als de bron gekoppeld service beschikt niet over een integratie-runtime |
 
 >[!IMPORTANT]
->Als u gegevens **in** Dynamics, standaard Azure integratie Runtime kan niet worden gebruikt om uit te voeren kopiëren. In een ander woord als de bron gekoppeld service beschikt niet over een opgegeven IR expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Dynamics en koppelen in de gekoppelde service Dynamics als in het volgende voorbeeld.
+>Wanneer u gegevens naar Dynamics kopiëren, kan niet de standaard Azure integratie Runtime worden gebruikt om uit te voeren kopiëren. Met andere woorden, als de bron gekoppeld service beschikt niet over een runtime opgegeven integratie expliciet [maken van een Azure-integratie Runtime](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Dynamics-exemplaar. Koppelen in de gekoppelde service Dynamics zoals in het volgende voorbeeld.
 
 **Voorbeeld: Office365 verificatie met behulp van Dynamics online**
 
@@ -105,22 +105,22 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 en Dynamics CRM on-premises met IFD
 
-*Aanvullende eigenschappen vergelijken met het Dyanmics online zijn 'hostnaam' en 'poort'.*
+*Aanvullende eigenschappen die met Dynamics online vergelijken zijn 'hostnaam' en 'poort'.*
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **Dynamics**. | Ja |
-| deploymentType | Het implementatietype van de Dynamics-exemplaar. Moet **'OnPremisesWithIfd'** voor Dynamics met on-premises IFD.| Ja |
-| **hostName** | De hostnaam van de on-premises Dynamics-server. | Ja |
-| **poort** | De poort van de on-premises Dynamics-server. | Nee, standaard is dit 443 |
+| type | De eigenschap type moet worden ingesteld op **Dynamics**. | Ja |
+| deploymentType | Het implementatietype van de Dynamics-exemplaar. Dit moet **'OnPremisesWithIfd'** voor Dynamics met on-premises IFD.| Ja |
+| hostName | De hostnaam van de on-premises Dynamics-server. | Ja |
+| poort | De poort van de on-premises Dynamics-server. | Nee, standaard is dit 443 |
 | Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Ja |
-| authenticationType | Het verificatietype dat verbinding maken met Dynamics-server. Geef **'Ifd'** voor Dynamics met on-premises IFD. | Ja |
-| gebruikersnaam | Geef de gebruikersnaam voor verbinding maken met de Dynamics. | Ja |
-| wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Houd er rekening mee hebt tot het wachtwoord in de Azure Sleutelkluis te plaatsen en het wachtwoord als een 'AzureKeyVaultSecret' configureren. Klik hier als u meer wilt weten van [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
+| authenticationType | Het verificatietype dat verbinding maken met de Dynamics-server. Geef **'Ifd'** voor Dynamics met on-premises IFD. | Ja |
+| gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
+| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U moet het wachtwoord in de Sleutelkluis plaatsen en configureren van het wachtwoord als **'AzureKeyVaultSecret'**. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
+| connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
 
 >[!IMPORTANT]
->Om gegevens te kopiëren naar Dynamics, expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) met de locatie in de buurt van uw Dynamics en koppelen in de gekoppelde service als het volgende voorbeeld.
+>Om gegevens te kopiëren naar Dynamics, expliciet [maken van een Azure-integratie Runtime](create-azure-integration-runtime.md#create-azure-ir) met de locatie in de buurt van uw Dynamics-exemplaar. Koppelen in de gekoppelde service zoals in het volgende voorbeeld.
 
 **Voorbeeld: Dynamics met on-premises IFD IFD-verificatie**
 
@@ -158,16 +158,16 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Dynamics dataset.
 
-Om gegevens te kopiëren van/naar Dynamics, stel de eigenschap type van de gegevensset **DynamicsEntity**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren van en naar Dynamics, stel de eigenschap type van de gegevensset **DynamicsEntity**. De volgende eigenschappen worden ondersteund.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op: **DynamicsEntity** |Ja |
-| entityName | De logische naam van de entiteit ophalen. | Er is geen voor bron (als 'vragen' in de activiteitbron is opgegeven), maar wel voor sink |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op **DynamicsEntity**. |Ja |
+| entityName | De logische naam van de entiteit ophalen. | Er is geen voor bron (als 'query' in de activiteitbron is opgegeven), maar wel voor sink |
 
 > [!IMPORTANT]
->- **De sectie 'structuur' is vereist als het kopiëren van gegevens uit Dynamics** in Dynamics gegevensset, definieert een naam en het gegevenstype kolomtype voor Dynamics gegevens die u kopiëren wilt via. Klik hier als u meer wilt weten van [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) en de [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
->- **Bij het kopiëren van gegevens naar Dynamics, de sectie "structuur" is optioneel** in Dynamics gegevensset. Welke kolom(men) kopiëren naar wordt bepaald door het schema van de bron. Als de bron CSV-bestand zonder header is, 'de structuur' in de invoergegevensset opgeven met de naam en het gegevenstype kolomtype dat wordt toegewezen aan de velden in CSV-bestand, één voor één in volgorde.
+>- Als u gegevens uit Dynamics kopieert, wordt de sectie 'structuur' in de gegevensset Dynamics vereist. Hiermee definieert u het kolomtype naam en het gegevenstype voor de Dynamics-gegevens die u kopiëren wilt via. Zie voor meer informatie, [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) en [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
+>- Wanneer u gegevens naar Dynamics kopiëren, is de sectie "structuur" optioneel in de gegevensset Dynamics. Kolommen die u wilt kopiëren naar wordt bepaald door het schema van de bron. Als de bron een CSV-bestand zonder header is 'de structuur' in de invoergegevensset opgeven met de naam en het gegevenstype kolomtype. Ze worden toegewezen aan de velden in het CSV-bestand één voor één in volgorde.
 
 **Voorbeeld:**
 
@@ -205,18 +205,18 @@ Om gegevens te kopiëren van/naar Dynamics, stel de eigenschap type van de gegev
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Dynamics bron- en sink.
+Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Dynamics bron- en sink-typen.
 
-### <a name="dynamics-as-source"></a>Dynamics als bron
+### <a name="dynamics-as-a-source-type"></a>Dynamics als een type gegevensbron
 
-Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieerbewerking naar **DynamicsSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieerbewerking naar **DynamicsSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **DynamicsSource**  | Ja |
-| query  | FetchXML is een eigen querytaal die wordt gebruikt in Microsoft Dynamics (online & lokale). Verderop in dit voorbeeld en meer informatie van [opbouwen van query's met FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Nee (als het 'entityName in de gegevensset is opgegeven)  |
+| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **DynamicsSource**. | Ja |
+| query | FetchXML is een eigen querytaal die wordt gebruikt in Dynamics (online en on-premises). Zie het volgende voorbeeld Zie voor meer informatie, [opbouwen van query's met FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Nee (als het 'entityName in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 
@@ -270,19 +270,19 @@ Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieerbewerki
 </fetch>
 ```
 
-### <a name="dynamics-as-sink"></a>Dynamics als sink
+### <a name="dynamics-as-a-sink-type"></a>Dynamics als sink-type
 
-Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewerking naar **DynamicsSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie:
+Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewerking naar **DynamicsSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **DynamicsSink**  | Ja |
-| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>De waarde is toegestaan: **"Upsert"**. | Ja |
+| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op **DynamicsSink**. | Ja |
+| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>De waarde is toegestaan **"Upsert"**. | Ja |
 | writeBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
-| ignoreNullValues | Geeft aan of voor het negeren van null-waarden van invoergegevens (met uitzondering van sleutelvelden) tijdens de schrijfbewerking.<br/>Toegestane waarden zijn: **true**, en **false**.<br>-true: laat de gegevens in de doel-object niet worden gewijzigd bij het uitvoeren van bewerking upsert/bijwerken en voeg standaardwaarde gedefinieerd bij het uitvoeren van insert-bewerking.<br/>-false: de gegevens in het doelobject op NULL bijwerken bij het uitvoeren van bewerking upsert/bijwerken en voeg NULL-waarde bij het uitvoeren van insert-bewerking.  | Nee (de standaardwaarde is ONWAAR) |
+| ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van sleutelvelden) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **true** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert of bij te werken. Plaats een gedefinieerde standaardwaarde als u een insert-bewerking doet.<br/>- **ONWAAR**: de gegevens in het doelobject op NULL bijwerken wanneer u een bewerking upsert of bij te werken. Plaats een NULL-waarde als u een insert-bewerking doet. | Nee (de standaardwaarde is ONWAAR) |
 
 >[!NOTE]
->De standaardwaarde van de activiteit writeBatchSize en kopieer sink [parallelCopies](copy-activity-performance.md#parallel-copy) voor Dynamics sink zijn beide 10, wat betekent dat 100 records worden verzonden naar Dynamics gelijktijdig.
+>De standaardwaarde van de sink writeBatchSize en de kopieeractiviteit [parallelCopies](copy-activity-performance.md#parallel-copy) zijn beide 10 voor de Dynamics sink. 100 records worden daarom ingediend bij Dynamics het gelijktijdig.
 
 **Voorbeeld:**
 
@@ -320,22 +320,22 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewer
 
 ## <a name="data-type-mapping-for-dynamics"></a>Gegevenstype toewijzing voor de Dynamics
 
-Bij het kopiëren van gegevens uit Dynamics, worden de volgende toewijzingen van Dynamics gegevenstypen gebruikt voor Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
+Wanneer u gegevens uit Dynamics kopieert, worden de volgende toewijzingen van Dynamics gegevenstypen gebruikt voor Data Factory tussentijdse gegevenstypen. Zie voor meer informatie over hoe het brontype schema en de gegevens in de kopieerbewerking wordt toegewezen aan de sink, [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md).
 
-Configureren van het bijbehorende Data Factory-gegevenstype in de gegevenssetstructuur op basis van uw Dynamics brongegevens typen met behulp van onderstaande toewijzingstabel:
+Configureer het bijbehorende Data Factory-gegevenstype in de gegevenssetstructuur van een op basis van de bron-Dynamics-gegevenstype met behulp van de volgende toewijzingstabel.
 
-| Het gegevenstype Dynamics | Data factory tussentijdse gegevenstype | Ondersteund als bron | Als sink ondersteund |
+| Het gegevenstype Dynamics | Data Factory tussentijdse gegevenstype | Ondersteund als bron | Als sink ondersteund |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lang | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boole-waarde | ✓ | ✓ |
-| AttributeType.Customer | GUID | ✓ |  |
+| AttributeType.Customer | GUID | ✓ | |
 | AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
 | AttributeType.Decimal | Decimale | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Tekenreeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ |  |
-| AttributeType.ManagedProperty | Boole-waarde | ✓ |  |
+| AttributeType.Lookup | GUID | ✓ | |
+| AttributeType.ManagedProperty | Boole-waarde | ✓ | |
 | AttributeType.Memo | Tekenreeks | ✓ | ✓ |
 | AttributeType.Money | Decimale | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
@@ -347,7 +347,7 @@ Configureren van het bijbehorende Data Factory-gegevenstype in de gegevenssetstr
 
 
 > [!NOTE]
-> Het gegevenstype Dynamics AttributeType.CalendarRules en AttributeType.PartyList worden niet ondersteund.
+> De gegevenstypen Dynamics AttributeType.CalendarRules en AttributeType.PartyList worden niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst van gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Gegevensfactory [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

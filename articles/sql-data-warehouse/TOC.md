@@ -6,6 +6,10 @@
 # Snelstartgidsen
 
 ## [Maken en koppelen - portal](create-data-warehouse-portal.md)
+## Berekening onderbreken en hervatten
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Zelfstudies
 ## [1 - Gegevens uit een blob laden](load-data-from-azure-blob-storage-using-polybase.md)

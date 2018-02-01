@@ -13,36 +13,29 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 55211e29149cd334421bd8723d47278a19afbfbb
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="load-data-with-bcp"></a>Gegevens laden met bcp
-> [!div class="op_single_selector"]
-> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [BCP](sql-data-warehouse-load-with-bcp.md)
-> 
-> 
+# <a name="load-data-with-bcp"></a>Gegevens laden met BCP
 
-**[BCP][bcp]** is een opdrachtregelprogramma voor het bulksgewijs laden van gegevens. Hiermee kunt u gegevens kopiëren van en naar SQL Server, gegevensbestanden en SQL Data Warehouse. Gebruikt BCP om veel rijen in SQL Data Warehouse-tabellen te importeren of gegevens uit SQL Server-tabellen te exporteren naar gegevensbestanden. Voor het gebruik van BCP is geen kennis van Transact-SQL vereist, behalve wanneer u de optie queryout wilt gebruiken.
+**[BCP](/sql/tools/bcp-utility.md)** is een opdrachtregelprogramma voor het bulksgewijs laden van gegevens. Hiermee kunt u gegevens kopiëren van en naar SQL Server, gegevensbestanden en SQL Data Warehouse. Gebruikt BCP om veel rijen in SQL Data Warehouse-tabellen te importeren of gegevens uit SQL Server-tabellen te exporteren naar gegevensbestanden. Voor het gebruik van BCP is geen kennis van Transact-SQL vereist, behalve wanneer u de optie queryout wilt gebruiken.
 
-Met BCP kunt u snel en eenvoudig kleinere gegevenssets verplaatsen van en naar een SQL Data Warehouse-database. De exacte aanbevolen hoeveelheid gegevens die u kunt laden/extraheren met BCP is afhankelijk van uw netwerkverbinding met het Azure-datacentrum.  Over het algemeen kunt u dimensietabellen probleemloos laden en extraheren met BCP. Voor grote hoeveelheden gegevens wordt BCP echter niet aangeraden.  Als u veel gegevens wilt laden en extraheren, kunt u het beste Polybase gebruiken. Dit hulpprogramma is beter geschikt voor de uitgebreide parallelle verwerkingsarchitectuur van SQL Data Warehouse.
+Met BCP kunt u snel en eenvoudig kleinere gegevenssets verplaatsen van en naar een SQL Data Warehouse-database. De exacte aanbevolen hoeveelheid gegevens die u kunt laden/extraheren met BCP is afhankelijk van uw netwerkverbinding met Azure.  Kleine dimensietabellen kunnen probleemloos worden geladen en direct worden geëxtraheerd met bcp. Polybase, niet bcp, is echter het aanbevolen hulpprogramma voor het laden en extraheren van grote hoeveelheden gegevens. PolyBase is ontworpen voor de uitgebreide parallelle verwerkingsarchitectuur van SQL Data Warehouse.
 
 Met BCP kunt u:
 
-* Gegevens in SQL Data Warehouse laden met behulp van een eenvoudig opdrachtregelprogramma.
-* Gegevens uit SQL Data Warehouse extraheren met behulp van een eenvoudig opdrachtregelprogramma.
+* Gegevens in SQL Data Warehouse laden met behulp van een opdrachtregelprogramma.
+* Gegevens in SQL Data Warehouse extraheren met behulp van een opdrachtregelprogramma.
 
-In deze zelfstudie leert u hoe u het volgende kunt doen:
+Deze zelfstudie:
 
-* Gegevens importeren in een tabel met behulp van de BCP-opdracht in
-* Gegevens exporteren uit een tabel met behulp van de BCP-opdracht out
+* Importeert gegevens in een tabel met behulp van de bcp in-opdracht
+* Exporteert gegevens in een tabel met behulp van de bcp out-opdracht
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
@@ -52,13 +45,12 @@ In deze zelfstudie leert u hoe u het volgende kunt doen:
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse-database
-* Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
-* Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
+* bcp- en sqlcmd- opdrachtregelprogramma’s. U kunt deze downloaden via het [Microsoft Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=36433). 
 
-> [!NOTE]
-> U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Download Center].
-> 
-> 
+### <a name="data-in-ascii-or-utf-16-format"></a>Gegevens in ASCII- of UTF-16-indeling
+Als u deze zelfstudie wilt uitvoeren met uw eigen gegevens, moeten deze zijn gecodeerd in de ASCII- of UTF-16-indeling, omdat de indeling UTF-8 niet wordt ondersteund in BCP. 
+
+UTF-8 wordt wel ondersteund in PolyBase, maar UTF-16 nog niet. Voor het gebruik van bcp voor het exporteren van gegevens en vervolgens PolyBase voor het laden van gegevens, moet u de gegevens transformeren naar UTF-8 na het exporteren uit SQL Server. 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>Gegevens importeren in SQL Data Warehouse
 In deze zelfstudie maakt u een tabel in Azure SQL Data Warehouse en importeert u gegevens in de tabel.
@@ -82,10 +74,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-> [!NOTE]
-> Zie [Tabeloverzicht][Table Overview] of [Syntaxis voor CREATE TABLE][CREATE TABLE syntax] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
-> 
-> 
+Zie [Tabeloverzicht](sql-data-warehouse-tables-overview.md) of de [ CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse.md)-syntaxis voor meer informatie over het maken van een tabel.
+ 
 
 ### <a name="step-2-create-a-source-data-file"></a>Stap 2: een brongegevensbestand maken
 Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt.
@@ -106,7 +96,7 @@ Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbesta
 ```
 
 > [!NOTE]
-> Denk eraan dat de bestandscodering UTF-8 niet wordt ondersteund in bcp.exe. Gebruik ASCII-bestanden of bestanden met de bestandscodering UTF-16 als u bcp.exe gebruikt.
+> Denk eraan dat de bestandscodering UTF-8 niet wordt ondersteund in bcp.exe. Gebruik ASCII-bestanden of bestanden met de codering UTF-16 als u bcp.exe gebruikt.
 > 
 > 
 
@@ -123,7 +113,7 @@ U kunt controleren of de gegevens zijn geladen door de volgende query uit te voe
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Hierdoor zouden de volgende resultaten moeten worden geretourneerd:
+De aanvraag zou de volgende resultaten moeten retourneren:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +131,8 @@ Hierdoor zouden de volgende resultaten moeten worden geretourneerd:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
-Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie het onderwerp [Statistieken][Statistics] in de groep onderwerpen voor ontwikkelaars voor gedetailleerde uitleg van statistieken. Hieronder ziet u een kort voorbeeld van het maken van statistieken voor de tabellen die zijn geladen in dit voorbeeld
+Na het laden van gegevens is een laatste stap het maken of bijwerken van statistieken. Dit helpt met het verbeteren van queryprestaties. Zie voor meer informatie [Statistieken](sql-data-warehouse-tables-statistics.md). Het volgende voorbeeld met sqlcmd maakt statistieken voor de tabel die de zojuist geladen gegevens bevat.
 
-Voer de volgende CREATE STATISTICS-instructies uit vanaf een SQLCMD-opdrachtprompt:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,7 +143,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>Gegevens uit SQL Data Warehouse exporteren
-In deze zelfstudie maakt u een gegevensbestand op basis van een tabel in SQL Data Warehouse. U exporteert de eerder gemaakte gegevens naar een nieuw gegevensbestand met de naam DimDate2_export.txt.
+In deze zelfstudie maakt u een gegevensbestand op basis van een tabel in SQL Data Warehouse. Deze exporteert de gegevens die u hebt geïmporteerd in de vorige sectie. De resultaten gaan naar een bestand met de naam DimDate2_export.txt.
 
 ### <a name="step-1-export-the-data"></a>Stap 1: de gegevens exporteren
 Met het hulpprogramma BCP kunt u verbinding maken en gegevens exporteren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
@@ -185,21 +174,13 @@ U kunt controleren of de gegevens correct zijn geëxporteerd door het nieuwe bes
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Gegevens laden in SQL Data Warehouse][Load data into SQL Data Warehouse] voor een overzicht van het laden.
-Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview] voor meer tips voor ontwikkelaars.
+Als u uw laadproces wilt ontwerpen, zie [Overzicht laden](sql-data-warehouse-design-elt-data-loading].  
 
-<!--Image references-->
 
-<!--Article references-->
-
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Overview]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

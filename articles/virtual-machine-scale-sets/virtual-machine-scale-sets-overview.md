@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Wat zijn virtuele-machineschaalsets in Azure?
 Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Met behulp van schaalsets worden alle virtuele machines op dezelfde manier geconfigureerd en automatisch geschaald. U hoeft de virtuele machines dus niet vooraf in te richten. Hierdoor wordt het gemakkelijker om grootschalige services te ontwikkelen voor Big Compute, grote gegevens en beperkte workloads.
@@ -35,10 +35,7 @@ Bekijk voor meer informatie over schaalsets deze video's:
 ## <a name="creating-and-managing-scale-sets"></a>Schaalsets maken en beheren
 U kunt een schaalset maken in [Azure Portal](https://portal.azure.com) door **nieuw** te selecteren en **schaal** in de zoekbalk te typen. **Virtuele-machineschaalset** wordt vermeld in de resultaten. Daarna vult u de vereiste velden in om uw schaalset aan te passen en te implementeren. Er zijn in de portal ook opties om basisregels voor automatisch schalen in te stellen op basis van CPU-gebruik. Voor het beheren van uw schaalset kunt u Azure Portal, [Azure PowerShell-cmdlets](virtual-machine-scale-sets-windows-manage.md) of de Azure CLI 2.0 gebruiken.
 
-Schaalsets kunnen naar een [beschikbaarheidszone](../availability-zones/az-overview.md) worden geïmplementeerd.
-
-> [!NOTE]
-> Momenteel kunnen schaalsets voor virtuele machines uitsluitend naar één beschikbaarheidszone worden geïmplementeerd. Implementatie naar meerdere zones is in de toekomst mogelijk.
+Schaalsets kunnen op [beschikbaarheidszones](virtual-machine-scale-sets-use-availability-zones.md) worden geïmplementeerd.
 
 U kunt schaalsets definiëren en implementeren met behulp van JSON-sjablonen en [REST API's](https://msdn.microsoft.com/library/mt589023.aspx), net als individuele virtuele machines in Azure Resource Manager. U kunt daarom alle standaardimplementatiemethoden van Azure Resource Manager gebruiken. Zie [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over sjablonen.
 

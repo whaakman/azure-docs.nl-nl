@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Een demo starten over interactief zoeken naar kaarten met de Azure Location Based Services (preview)
 
@@ -38,13 +38,13 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
     ![Location Based Services-account maken in portal](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Nadat uw account is gemaakt, opent u het account en gaat u naar de **Instellingen** van het account. Klik op **Sleutels** om de primaire en secundaire abonnementsleutels voor uw account op te halen. Kopieer de waarde van de **Primaire sleutel** naar uw lokale klembord voor gebruik in de volgende sectie. 
+5. Nadat uw account is gemaakt, opent u het account en gaat u naar de **Instellingen** van het account. Klik op **Sleutels** om de primaire en secundaire abonnementsleutels voor uw Azure Location Based Services-account op te halen. Kopieer de waarde van de **Primaire sleutel** naar uw lokale klembord voor gebruik in de volgende sectie. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>De demo-toepassing voor Azure-kaarten downloaden
 
 1. Download of kopieer de inhoud van het bestand [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Sla de inhoud van dit bestand lokaal op als **AzureMapDemo.html** en open de inhoud in een teksteditor.
-3. Zoek naar de tekenreeks **&#60;insert-key&#62;** en vervang deze door de waarde voor de **Primaire sleutel** die u in het voorgaande gedeelte hebt verkregen. 
+3. Zoek naar de tekenreeks `<insert-key>` en vervang deze door de waarde voor de **Primaire sleutel** die u in de voorgaande sectie hebt verkregen. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>De demo-toepassing voor Azure-kaarten starten

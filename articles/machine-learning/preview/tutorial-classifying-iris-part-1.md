@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Classifying Iris deel 1: gegevens voorbereiden
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -64,26 +64,30 @@ Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassin
 
    ![Gegevensweergave](media/tutorial-classifying-iris/data_view.png)
 
-3. Laat de standaardwaarden staan en selecteer de knop **Next** (Volgende).  
+3. Selecteer **Tekstbestanden (*.csv, .json, .txt.,...)**  en klik op **Volgende**.
+   ![Gegevensbron](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Blader naar het bestand **iris.csv**, en klik op **Volgende**.  
  
    ![Iris selecteren](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Zorg ervoor dat u voor deze oefening het bestand **iris.csv** vanuit de huidige projectmap selecteert, anders kunnen latere stappen mislukken.
    
-4. Nadat u het bestand hebt geselecteerd, selecteert u de knop **Voltooien**.
+5. Laat de standaardwaarden ongewijzigd en klik op **Voltooien**.
 
-4. Er wordt een nieuw bestand gemaakt met de naam **iris-1.dsource**. Het bestand krijgt een unieke naam door het toevoegen van '-1', omdat het voorbeeldproject al een bestand met de naam **iris.dsource** zonder nummer bevat.  
+6. Er wordt een nieuw bestand gemaakt met de naam **iris-1.dsource**. Het bestand krijgt een unieke naam eindigend op -1, omdat het voorbeeldproject al een bestand met de naam **iris.dsource** zonder nummer bevat.  
 
    Het bestand wordt geopend en de gegevens worden weergegeven. Er wordt automatisch een reeks kolomkoppen, van **Column1** tot **Column5**, toegevoegd aan deze gegevensset. Schuif naar de onderkant. U zult zien dat de laatste rij van de gegevensset leeg is. De rij is leeg omdat er een extra regeleinde in het CSV-bestand staat.
 
    ![Gegevensweergave iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Selecteer de knop **Metrics** (Metrische gegevens). Bekijk de histogrammen. Er is voor elke kolom een volledige set statistieken berekend. U kunt ook de knop **Data** (Gegevens) selecteren om de gegevens opnieuw weer te geven. 
+7. Selecteer de knop **Metrics** (Metrische gegevens). Bekijk de histogrammen. Er is voor elke kolom een volledige set statistieken berekend. U kunt ook de knop **Data** (Gegevens) selecteren om de gegevens opnieuw weer te geven. 
 
    ![Gegevensweergave iris](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Selecteer de knop **Prepare** (Voorbereiden). Het **gelijknamige** dialoogvenster wordt geopend. 
+8. Selecteer de knop **Prepare** (Voorbereiden). Het **gelijknamige** dialoogvenster wordt geopend. 
 
    Het voorbeeldproject bevat een bestand **iris.dprep**. Standaard wordt u gevraagd om een nieuwe gegevensstroom te maken in het gegevensvoorbereidingspakket **iris.dprep** dat al bestaat. 
 
@@ -93,27 +97,27 @@ Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassin
 
    Er wordt een nieuw pakket voor gegevensvoorbereiding gemaakt met de naam **iris-1.dprep** en geopend in de editor voor gegevensvoorbereiding.
 
-7. Nu gaan we enkele eenvoudige stappen uitvoeren om de gegevens voor te bereiden. Wijzig de kolomnamen. Selecteer elke kolomkop om de koptekst te bewerken. 
+9. Nu gaan we enkele eenvoudige stappen uitvoeren om de gegevens voor te bereiden. Wijzig de kolomnamen. Selecteer elke kolomkop om de koptekst te bewerken. 
 
    Geef voor de vijf kolommen respectievelijk **Petal Length**, **Petal Width**, **Petal Length**, **Petal Width** en **Species** op.
 
    ![Kolomnamen wijzigen](media/tutorial-classifying-iris/rename_column.png)
 
-8. Als u afzonderlijke waarden wilt tellen, selecteert u de kolom **Species** en klikt u er met de rechtermuisknop op. Selecteer **Value Counts** (Aantallen waarden) in de vervolgkeuzelijst. 
+10. Als u afzonderlijke waarden wilt tellen, selecteert u de kolom **Species** en klikt u er met de rechtermuisknop op. Selecteer **Value Counts** (Aantallen waarden) in de vervolgkeuzelijst. 
 
    ![Selecteer Value Counts](media/tutorial-classifying-iris/value_count.png)
 
    Hiermee opent u het deelvenster **Inspectors** en ziet u een histogram met vier balken. U ziet dat de doelkolom drie afzonderlijke waarden heeft: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** en een **(null)**-waarde.
 
-9. Null-waarden kunt u wegfilteren door de balk in de grafiek te selecteren die de waarde null vertegenwoordigt. Er is één rij met een **(null)**-waarde. Als u deze rij wilt verwijderen, selecteert u het minteken (**-**).
+11. Null-waarden kunt u wegfilteren door de balk in de grafiek te selecteren die de waarde null vertegenwoordigt. Er is één rij met een **(null)**-waarde. Als u deze rij wilt verwijderen, selecteert u het minteken (**-**).
 
    ![Histogram met aantal waarden](media/tutorial-classifying-iris/filter_out.png)
 
-10. Let op de afzonderlijke stappen die worden beschreven in het deelvenster **STEPS**. De acties voor het wijzigen van de kolomnamen en het wegfilteren van de rijen met null-waarden zijn vastgelegd als stappen voor het voorbereiden van gegevens. U kunt afzonderlijke stappen aanpassen om de instellingen te wijzigen, de volgorde van de stappen veranderen en zelfs stappen verwijderen.
+12. Let op de afzonderlijke stappen die worden beschreven in het deelvenster **STEPS**. De acties voor het wijzigen van de kolomnamen en het wegfilteren van de rijen met null-waarden zijn vastgelegd als stappen voor het voorbereiden van gegevens. U kunt afzonderlijke stappen aanpassen om de instellingen te wijzigen, de volgorde van de stappen veranderen en zelfs stappen verwijderen.
 
    ![Stappen](media/tutorial-classifying-iris/steps.png)
 
-11. Sluit de editor voor gegevensvoorbereiding. Selecteer **Close** (x) op het tabblad **iris 1** met het grafiekpictogram. Uw werk wordt automatisch opgeslagen in het bestand **iris 1.dprep** dat wordt weergegeven onder de kop **Data Preparations** (Gegevensvoorbereiding).
+13. Sluit de editor voor gegevensvoorbereiding. Selecteer **Close** (x) op het tabblad **iris 1** met het grafiekpictogram. Uw werk wordt automatisch opgeslagen in het bestand **iris 1.dprep** dat wordt weergegeven onder de kop **Data Preparations** (Gegevensvoorbereiding).
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket
 

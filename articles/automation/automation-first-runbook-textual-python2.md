@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>Mijn eerste Python-runbook
 
@@ -68,12 +68,11 @@ Klik op **opslaan** om op te slaan van het runbook.
 Voordat u het runbook publiceert om het beschikbaar te maken in productie, wilt u het testen om er zeker van te zijn dat het goed werkt. Wanneer u een runbook test, voert u de **concept**versie uit en geeft u de uitvoer interactief weer.
 
 1. Klik op **Testvenster** om het testvenster te openen.
-   ![Testvenster](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Klik op **Start** om de test te starten. Dit moet de enige ingeschakelde optie zijn.
-1. Een [runbooktaak](automation-runbook-execution.md) wordt gemaakt en de status ervan wordt weergegeven.
+2. Klik op **Start** om de test te starten. Dit moet de enige ingeschakelde optie zijn.
+3. Een [runbooktaak](automation-runbook-execution.md) wordt gemaakt en de status ervan wordt weergegeven.
    In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot er in de cloud een runbook worker beschikbaar is. Deze wordt verplaatst naar *starten* wanneer een werknemer de taak claimt en vervolgens *met* wanneer het runbook daadwerkelijk wordt uitgevoerd.
-1. Wanneer de runbooktaak is voltooid, wordt de uitvoer ervan weergegeven. U ziet in dit geval *Hallo wereld*.
-1. Sluit het testvenster om terug te gaan naar het papier.
+4. Wanneer de runbooktaak is voltooid, wordt de uitvoer ervan weergegeven. U ziet in dit geval *Hallo wereld*.
+5. Sluit het testvenster om terug te gaan naar het papier.
 
 ## <a name="publish-and-start-the-runbook"></a>Publiceren en het runbook starten
 
@@ -82,19 +81,18 @@ Wanneer u een runbook publiceert, kunt u de bestaande gepubliceerde versie overs
 In dit geval hebt u nog geen gepubliceerde versie omdat u het runbook zojuist hebt gemaakt.
 
 1. Klik op **Publiceren** om het runbook te publiceren en klik vervolgens op **Ja** wanneer hierom wordt gevraagd.
-   ![De knop Publiceren](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Als u naar links schuift om weer te geven van het runbook in de **Runbooks** deelvenster, het wordt nu een **ontwerpstatus** van **gepubliceerde**.
+2. Als u naar links schuift om weer te geven van het runbook in de **Runbooks** deelvenster, het wordt nu een **ontwerpstatus** van **gepubliceerde**.
 1. Schuif terug naar rechts om weer te geven van het deelvenster voor **MyFirstRunbook Python**.
    Met de opties bovenaan kunnen we het runbook starten, het runbook weergeven, plannen dat het op een bepaald moment in de toekomst start of een [webhook](automation-webhooks.md) maken, zodat het kan worden gestart via een HTTP-aanroep.
-1. U wilt het runbook wordt gestart, dus klik op **Start** en klik vervolgens op **Ok** wanneer de blade Runbook starten wordt geopend.
-1. Een taakdeelvenster wordt geopend voor de runbooktaak die u hebt gemaakt. U kunt dit deelvenster sluiten, maar in dit geval u open laten zodat u de voortgang van de taak kan bekijken.
-1. De taakstatus wordt weergegeven in **taakoverzicht** en komt overeen met de statussen die u hebt gezien wanneer u het runbook getest.
-1. Zodra voor het runbook de status *Voltooid* wordt weergegeven, klikt u op **Uitvoer**. Het deelvenster Uitvoer wordt geopend en ziet u uw *Hallo wereld*.
-1. Sluit het deelvenster Uitvoer.
-1. Klik op **Alle logboeken** om het deelvenster Streams voor de runbooktaak te openen. U zou alleen *Hallo wereld* moeten zien in de uitvoerstroom, maar er kunnen ook andere stromen voor een runbooktaak worden weergegeven, zoals Uitgebreid en Fout als hiernaar wordt geschreven met het runbook.
-1. Sluit het deelvenster Streams en het deelvenster taak om terug te keren naar het deelvenster MyFirstRunbook-Python.
-1. Klik op **Taken** om het deelvenster Taken voor dit runbook te openen. Hiermee worden alle taken weergegeven die met dit runbook zijn gemaakt. U zou slechts één weergegeven taak moeten zien, aangezien de taak slechts eenmaal is uitgevoerd.
-1. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat u hebt bekeken toen u het runbook startte. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
+2. U wilt het runbook wordt gestart, dus klik op **Start** en klik vervolgens op **Ok** wanneer de blade Runbook starten wordt geopend.
+3. Een taakdeelvenster wordt geopend voor de runbooktaak die u hebt gemaakt. U kunt dit deelvenster sluiten, maar in dit geval u open laten zodat u de voortgang van de taak kan bekijken.
+4. De taakstatus wordt weergegeven in **taakoverzicht** en komt overeen met de statussen die u hebt gezien wanneer u het runbook getest.
+5. Zodra voor het runbook de status *Voltooid* wordt weergegeven, klikt u op **Uitvoer**. Het deelvenster Uitvoer wordt geopend en ziet u uw *Hallo wereld*.
+6. Sluit het deelvenster Uitvoer.
+7. Klik op **Alle logboeken** om het deelvenster Streams voor de runbooktaak te openen. U zou alleen *Hallo wereld* moeten zien in de uitvoerstroom, maar er kunnen ook andere stromen voor een runbooktaak worden weergegeven, zoals Uitgebreid en Fout als hiernaar wordt geschreven met het runbook.
+8. Sluit het deelvenster Streams en het deelvenster taak om terug te keren naar het deelvenster MyFirstRunbook-Python.
+9. Klik op **Taken** om het deelvenster Taken voor dit runbook te openen. Hiermee worden alle taken weergegeven die met dit runbook zijn gemaakt. U zou slechts één weergegeven taak moeten zien, aangezien de taak slechts eenmaal is uitgevoerd.
+10. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat u hebt bekeken toen u het runbook startte. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Verificatie toevoegen voor het beheren van Azure-resources
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-Wanneer u een Python-runbook start (op het **Test** blade of als een gepubliceerd runbook), kunt u de waarden voor parameters in de **Runbook starten** blade onder **Parameters**.
-
-![Tekstvak voor waarde van parameter](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+Wanneer u een Python-runbook start (op het **Test** pagina of als een gepubliceerd runbook), kunt u de waarden voor parameters in de **Runbook starten** pagina onder **Parameters** .
 
 Nadat u een waarde invoeren in het eerste vak gestart, wordt een tweede weergegeven, enzovoort, zodat u zoveel parameterwaarden kan opgeven indien nodig.
 

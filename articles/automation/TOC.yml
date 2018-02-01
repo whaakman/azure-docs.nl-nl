@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Runbooks maken en importeren
           href: automation-creating-importing-runbook.md
+        - name: Een grafisch runbook maken
+          href: automation-first-runbook-graphical.md
+        - name: Een PowerShell-runbook maken
+          href: automation-first-runbook-textual-powershell.md
+        - name: Een PowerShell Workflow-runbook maken
+          href: automation-first-runbook-textual.md
+        - name: Een Python-runbook maken
+          href: automation-first-runbook-textual-python2.md
         - name: Tekstrunbooks bewerken
           href: automation-edit-textual-runbook.md
         - name: Grafische runbooks bewerken

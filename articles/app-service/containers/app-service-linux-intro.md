@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
@@ -73,7 +73,7 @@ Sommige functies, zoals de integratie van virtuele netwerken, verificatie van de
 App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic en Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. De volgende beperkingen zijn ook belangrijk voor App Service onder Linux:
 
 * U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost.
-* Als u Web App for Containers maakt in een resourcegroep die non-Linux Web Apps bevat, moet u een App Service-plan maken in een andere regio dan die van het bestaande plan.
+* Als u Web App for Containers maakt in een resourcegroep die non-Linux Web Apps bevat, moet u een App Service-plan maken in een andere resourcegroep dan die van het bestaande plan.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

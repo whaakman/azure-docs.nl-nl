@@ -1,6 +1,6 @@
 ---
-title: Maken van een Windows-Service Fabric-cluster in Azure | Microsoft Docs
-description: Informatie over het implementeren van een Windows-Service Fabric-cluster in een bestaand Azure virtueel netwerk met behulp van PowerShell.
+title: Een Windows Service Fabric-cluster maken in Azure | Microsoft Docs
+description: Informatie over hoe u een Windows Service Fabric-cluster implementeert in een bestaand virtueel Azure-netwerk met behulp van PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,140 +12,194 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f043ad753560ecac83324a259341a69ffce01fa5
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Service Fabric Windows-cluster in een Azure-netwerk implementeren
-Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Service Fabric-cluster waarop Windows wordt uitgevoerd in een bestaande Azure-netwerk (VNET) en subplan net met behulp van PowerShell. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op.  Zie het maken van een Linux-cluster met behulp van Azure CLI [beveiligde Linux-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
+Deze zelfstudie is deel één van een serie. U leert hoe u een Service Fabric-cluster met Windows in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) implementeert met behulp van PowerShell en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren.  Zie [Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) als u een Linux-cluster wilt maken met behulp van Azure CLI.
+
+In deze zelfstudie wordt een productiescenario beschreven.  Zie [een testcluster met drie knooppunten maken](./scripts/service-fabric-powershell-create-test-cluster.md) als u snel een klein cluster wilt maken voor testdoeleinden.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een VNET maken in Azure met behulp van PowerShell
 > * Een sleutelkluis maken en een certificaat uploaden
-> * Een beveiligde Service Fabric-cluster maken in Azure PowerShell
-> * Beveiligen van het cluster met een X.509-certificaat
+> * Een beveiligd Service Fabric-cluster maken in Azure PowerShell
+> * Het cluster beveiligen met een X.509-certificaat
 > * Verbinding maken met het cluster met behulp van PowerShell
-> * Verwijderen van een cluster
+> * Een cluster verwijderen
 
-In deze zelfstudie reeks leert u hoe:
+In deze serie zelfstudies leert u het volgende:
 > [!div class="checklist"]
-> * Een beveiligde cluster in Azure maken
-> * [Een in- of -cluster schalen](/service-fabric-tutorial-scale-cluster.md)
-> * [Upgrade de runtime van een cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+> * Een beveiligd cluster maken in Azure
+> * [Een cluster in- of uitschalen](/service-fabric-tutorial-scale-cluster.md)
+> * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
+> * [API Management implementeren met Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint:
-- Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+Voor u met deze zelfstudie begint:
+- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Installeer de [Service Fabric SDK en PowerShell-module](service-fabric-get-started.md)
-- Installeer de [Azure Powershell-moduleversie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-De volgende procedures maken een vijf knooppunten Service Fabric-cluster. Voor het berekenen van de kosten die zijn gemaakt door het uitvoeren van een Service Fabric-cluster in Azure gebruik de [Azure Prijscalculator](https://azure.microsoft.com/pricing/calculator/).
+Met de volgende procedures wordt er een Service Fabric-cluster met vijf knooppunten gemaakt. Gebruik de [Azure Prijscalculator](https://azure.microsoft.com/pricing/calculator/) om de kosten te berekenen voor de uitvoering van een Service Fabric-cluster in Azure.
 
-## <a name="introduction"></a>Inleiding
-Deze zelfstudie implementeert u een cluster met vijf knooppunten in een type met één knooppunt in een virtueel netwerk in Azure.
+## <a name="key-concepts"></a>Belangrijkste concepten
+Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Clusters kunnen naar duizenden machines worden geschaald. Een machine of VM die onderdeel uitmaakt van een cluster, heet een knooppunt. Aan elk knooppunt wordt een knooppuntnaam toegewezen (een tekenreeks). Knooppunten hebben kenmerken zoals plaatsingseigenschappen.
 
-Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Clusters kunnen worden geschaald naar duizenden computers. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een knooppunt genoemd. Elk knooppunt wordt de knooppuntnaam van een (een tekenreeks) toegewezen. Knooppunten hebben kenmerken zoals plaatsingseigenschappen.
+Het knooppunttype bepaalt de grootte, het aantal en de eigenschappen voor een set virtuele machines in het cluster. Elk gedefinieerd knooppunttype wordt ingesteld als een [virtuele-machineschaalset](/azure/virtual-machine-scale-sets/), een Azure-rekenresource die u gebruikt om een verzameling virtuele machines als set te implementeren en beheren. Elk knooppunttype kan dan onafhankelijk omhoog of omlaag worden geschaald, verschillende sets open poorten hebben en verschillende capaciteitsstatistieken hebben. Knooppunttypen worden gebruikt voor het definiëren van rollen voor een set clusterknooppunten, zoals "front-end" of "back-end".  Uw cluster kan meer dan één knooppunttype hebben, maar het primaire knooppunttype moet ten minste vijf VM's hebben voor productieclusters (of ten minste drie VM's voor testclusters).  [Service Fabric-systeemservices](service-fabric-technical-overview.md#system-services) worden op de knooppunten van het primaire knooppunttype geplaatst.
 
-Het type van een knooppunt bepaalt de grootte, het aantal en de eigenschappen voor een set van virtuele machines in het cluster. Elke gedefinieerde knooppunttype is ingesteld als een [virtuele-machineschaalset](/azure/virtual-machine-scale-sets/), een Azure compute resource die u kunt implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype kan vervolgens worden uitgebreid of omlaag onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Knooppunttypen worden gebruikt voor het definiëren van rollen voor een set van clusterknooppunten, zoals 'front-end' of 'back-end'.  Het cluster kan meer dan één knooppunttype hebben moet, maar het primaire knooppunttype ten minste vijf VM's voor productie-clusters (of ten minste drie virtuele machines voor testclusters).  [Service Fabric-systeemservices](service-fabric-technical-overview.md#system-services) worden geplaatst op de knooppunten van het type van het primaire knooppunt.
+Het cluster wordt beveiligd met een clustercertificaat. Een clustercertificaat is een X.509-certificaat dat wordt gebruikt om communicatie tussen knooppunten te beveiligen en om eindpunten voor clusterbeheer aan een beheerclient toe te wijzen.  Het clustercertificaat biedt ook een SSL voor de API voor HTTPS-beheer en voor Service Fabric Explorer via HTTPS. Zelf-ondertekende certificaten zijn handig voor testclusters.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat.
 
-## <a name="cluster-capacity-planning"></a>Planning clustercapaciteit
-Deze zelfstudie implementeert u een cluster met vijf knooppunten in een type met één knooppunt.  Voor elk cluster productie-implementatie is capaciteitsplanning een belangrijke stap. Hier volgen enkele overwegingen als onderdeel van dit proces.
-
-- Het aantal knooppunten van het type nodig voor het cluster 
-- De eigenschappen van elk knooppunttype (bijvoorbeeld grootte, primaire, verbonden met internet en het aantal VM's)
-- De betrouwbaarheid en duurzaamheid kenmerken van het cluster
-
-Zie voor meer informatie [overwegingen bij capaciteitsplanning Cluster](service-fabric-cluster-capacity.md).
-
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Aanmelden bij Azure en uw abonnement te selecteren
-Deze handleiding gebruikt Azure PowerShell. Wanneer u een nieuwe PowerShell-sessie start, zich aanmelden bij uw Azure-account en uw abonnement te selecteren voordat u Azure-opdrachten uitvoeren.
- 
-Voer het volgende script aan te melden bij uw Azure-account selecteren voor uw abonnement:
-
-```powershell
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
-
-## <a name="create-a-resource-group"></a>Een resourcegroep maken
-Maak een nieuwe resourcegroep voor uw implementatie en wijs hieraan een naam en een locatie.
-
-```powershell
-$groupname = "sfclustertutorialgroup"
-$clusterloc="southcentralus"
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
-```
-
-## <a name="deploy-the-network-topology"></a>De netwerktopologie implementeren
-Stel de netwerktopologie die API Management en de Service Fabric-cluster wordt geïmplementeerd. De [network.json] [ network-arm] Resource Manager-sjabloon is geconfigureerd voor het maken van een virtueel netwerk (VNET) en ook een beveiligingsgroep subnet en het netwerk (NSG) voor Service Fabric en een subnet en het NSG voor API Management . API Management wordt verderop in deze zelfstudie geïmplementeerd. Meer informatie over VNETs, subnetten en nsg's [hier](../virtual-network/virtual-networks-overview.md).
-
-De [network.parameters.json] [ network-parameters-arm] parameterbestand bevat de namen van de subnetten en nsg's die Service Fabric en API Management op implementeert.  API Management wordt geïmplementeerd in de [volgende zelfstudie](service-fabric-tutorial-deploy-api-management.md). Voor deze handleiding hoeft de parameterwaarden die niet worden gewijzigd. De Service Fabric-Resource Manager-sjablonen gebruiken deze waarden.  Als de waarden hier zijn gewijzigd, moet u ze wijzigen in de andere Resource Manager-sjablonen in deze zelfstudie gebruikt en de [implementeren API Management-zelfstudie](service-fabric-tutorial-deploy-api-management.md). 
-
-De volgende Resource Manager-sjabloon en parameters bestand te downloaden:
-- [Network.JSON][network-arm]
-- [Network.parameters.JSON][network-parameters-arm]
-
-Gebruik de volgende PowerShell-opdracht de Resource Manager-sjabloon en de parameterbestanden bestanden voor de netwerkinstallatie van de te implementeren:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
-```
-
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="deploy-the-service-fabric-cluster"></a>De Service Fabric-cluster implementeren
-Zodra de netwerkbronnen hebt implementeren, wordt de volgende stap is een Service Fabric-cluster implementeren voor het VNET in het subnet en NSG aangewezen voor de Service Fabric-cluster. Een cluster implementeren op een bestaande VNET en subnet (geïmplementeerd eerder in dit artikel), moet een Resource Manager-sjabloon.  De sjabloon is vooraf geconfigureerd voor het gebruik van de namen van de VNET, subnet en NSG die u in de vorige stap hebt ingesteld voor deze zelfstudie reeks.  
-
-De volgende Resource Manager-sjabloon en parameters bestand te downloaden:
-- [cluster.JSON][cluster-arm]
-- [cluster.parameters.JSON][cluster-parameters-arm]
-
-Deze sjabloon gebruiken om een beveiligde cluster te maken.  Een certificaat van de cluster is een X.509-certificaat gebruikt voor het beveiligen van communicatie van knooppunt naar en de eindpunten voor het beheer van cluster naar een management-client te verifiëren.  Het certificaat van het cluster biedt ook een met SSL voor de HTTPS-API en voor Service Fabric Explorer via HTTPS. Azure Sleutelkluis wordt gebruikt voor het beheren van certificaten voor Service Fabric-clusters in Azure.  Wanneer een cluster is geïmplementeerd in Azure, wordt de Azure-resourceprovider verantwoordelijk voor het maken van Service Fabric-clusters certificaten ophaalt uit Sleutelkluis en installeert ze op het cluster virtuele machines. 
-
-U kunt een certificaat van een certificeringsinstantie (CA) gebruiken als het certificaat van het cluster of voor testdoeleinden, een zelfondertekend certificaat maken. De cluster-certificaat moet:
+Het clustercertificaat moet:
 
 - een persoonlijke sleutel bevatten.
-- voor sleuteluitwisseling, kan worden geëxporteerd naar een bestand Personal Information Exchange (.pfx) worden gemaakt.
-- een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot de Service Fabric-cluster. Deze overeenkomst is vereist voor SSL voor het HTTPS-eindpunten voor beheer en de Service Fabric Explorer van het cluster. U kunt een SSL-certificaat van een certificeringsinstantie (CA) kan niet ophalen voor de. cloudapp.azure.com domein. U moet een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
+- gemaakt worden voor sleuteluitwisseling, exporteerbaar naar een Personal Information Exchange-bestand (.pfx).
+- een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot het Service Fabric-cluster. Deze overeenkomst is vereist om de eindpunten van het HTTPS-beheer van het cluster en Service Fabric Explorer te voorzien van SSL. U kunt geen SSL-certificaat van een certificeringsinstantie (CA) krijgen voor het domein .cloudapp.azure.com. U hebt een aangepaste domeinnaam nodig voor uw cluster. Wanneer u een certificaat van een CA aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u gebruikt voor uw cluster.
 
-Vul in deze leeg parameters in de *cluster.parameters.json* -bestand voor uw implementatie:
+Azure Key Vault wordt gebruikt om certificaten voor Service Fabric-clusters in Azure te beheren.  Wanneer een cluster in Azure wordt geïmplementeerd, haalt de Azure-resourceprovider die verantwoordelijk is voor het maken van Service Fabric-clusters, certificaten op uit de Key Vault en installeert deze op de cluster-VM's.
 
-|Parameter|Waarde|
-|---|---|
-|adminPassword|Wachtwoord #1234|
-|adminUserName|vmadmin|
-|Clusternaam|mysfcluster|
-|location|southcentralus|
+In deze zelfstudie wordt een cluster met vijf knooppunten van één knooppunttype geïmplementeerd. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele dingen om te overwegen als onderdeel van dat proces.
 
-Laat de *certificateThumbprint*, *certificateUrlValue*, en *sourceVaultValue* parameters leeg te maken van een zelfondertekend certificaat.  Als u een bestaand certificaat hebt geüpload om een sleutelkluis te gebruiken wilt, vult u deze parameterwaarden.
+- Het aantal knooppunten en knooppunttypen dat nodig is voor uw cluster 
+- De eigenschappen van elk knooppunttype (bijvoorbeeld grootte, primair knooppunt, internetverbinding en het aantal VM's)
+- De betrouwbaarheids- en duurzaamheidskenmerken van het cluster
 
-Het volgende script maakt gebruik van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet en sjabloon voor het implementeren van een nieuw cluster in Azure. De cmdlet ook een nieuwe sleutelkluis maakt in Azure, wordt een nieuw zelfondertekend certificaat toegevoegd aan de sleutelkluis en downloadt het certificaatbestand lokaal. U kunt een bestaand certificaat en/of de sleutelkluis opgeven met behulp van de andere parameters van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet.
+## <a name="download-and-explore-the-template"></a>De sjabloon downloaden en verkennen
+Download de volgende Resource Manager-sjabloonbestanden:
+- [vnet-cluster.json][template]
+- [vnet-cluster.parameters.json][parameters]
+
+De [vnet-cluster.json][template] implementeert een aantal bronnen, waaronder de volgende. 
+
+### <a name="service-fabric-cluster"></a>Service Fabric-cluster
+Er wordt een Windows-cluster geïmplementeerd met de volgende kenmerken:
+- één knooppunttype 
+- vijf knooppunten van het primaire knooppunttype (te configureren in de sjabloonparameters)
+- Besturingssysteem: Windows Server 2016 Datacenter met Containers (te configureren in de sjabloonparameters)
+- beveiligd met een certificaat (configureerbaar in de sjabloonparameters)
+- [omgekeerde proxy](service-fabric-reverseproxy.md) is ingeschakeld
+- [DNS-service](service-fabric-dnsservice.md) is ingeschakeld
+- Een bronzen [duurzaamheidsniveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
+- Een zilveren [betrouwbaarheidsniveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
+- eindpunt van de clientverbinding: 19000 (configureerbaar in de sjabloonparameters)
+- eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Er wordt een load balancer geïmplementeerd en er worden tests en regels ingesteld voor de volgende poorten:
+- eindpunt van de clientverbinding: 19000
+- eindpunt van de HTTP-gateway: 19080 
+- toepassingspoort: 80
+- toepassingspoort: 443
+- omgekeerde proxy van Service Fabric: 19081
+
+Als er andere toepassingspoorten nodig zijn, moet u de bron Microsoft.Network/loadBalancers en de bron Microsoft.Network/networkSecurityGroups zo wijzigen dat verkeer kan binnenkomen.
+
+### <a name="virtual-network-subnet-and-network-security-group"></a>Virtueel netwerk, subnet en netwerkbeveiligingsgroep
+De namen van het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep worden gedefinieerd in de sjabloonparameters.  De adresruimten van het virtuele netwerk en het subnet worden ook gedefinieerd in de sjabloonparameters:
+- adresruimte van virtueel netwerk: 172.16.0.0/20
+- Service Fabric-subnetadresruimte: 172.16.2.0/23
+
+De volgende regels voor binnenkomend verkeer worden ingeschakeld in de netwerkbeveiligingsgroep. U kunt de poortwaarden wijzigen door de sjabloonvariabelen te wijzigen.
+- ClientConnectionEndpoint (TCP): 19000
+- HttpGatewayEndpoint (HTTP/TCP): 19080
+- SMB : 445
+- Internodecommunication - 1025, 1026, 1027
+- Tijdelijk poortbereik – 49152 tot 65534 (minimaal 256 poorten vereist)
+- Poorten voor toepassingsgebruik: 80 en 443
+- Toepassingspoortbereik – 49152 tot 65534 (gebruikt voor communicatie tussen services en worden niet geopend in de Load balancer)
+- Blokkeer alle andere poorten
+
+Als er andere toepassingspoorten nodig zijn, moet u de bron Microsoft.Network/loadBalancers en de bron Microsoft.Network/networkSecurityGroups zo wijzigen dat verkeer kan binnenkomen.
+
+## <a name="set-template-parameters"></a>De sjabloonparameters instellen
+Het parameterbestand [vnet-cluster.parameters.json][parameters] bepaalt veel waarden die worden gebruikt om het cluster en de bijbehorende bronnen te implementeren. Een aantal van de parameters die u mogelijk moet wijzigen voor uw implementatie:
+
+|Parameter|Voorbeeldwaarde|Opmerkingen|
+|---|---||
+|adminUserName|vmadmin| De gebruikersnaam van de beheerder van de cluster-VM's. |
+|adminPassword|Password#1234| Het wachtwoord van de beheerder van de cluster-VM's.|
+|clusterName|mysfcluster123| De naam van het cluster. |
+|location|southcentralus| De locatie van het cluster. |
+|certificateThumbprint|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de waarde van de certificaatvingerafdruk in. Bijvoorbeeld "6190390162C988701DB5676EB81083EA608DCCF3"</p>. | 
+|certificateUrlValue|| <p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft. </p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de URL van het certificaat in. Bijvoorbeeld "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|sourceVaultValue||<p>De waarde moet leeg zijn als u een zelfondertekend certificaat maakt of als u een certificaatbestand opgeeft.</p><p>Als u een bestaand certificaat wilt gebruiken dat u eerder hebt geüpload naar een sleutelkluis, vult u de waarde van de bronkluis in. Bijvoorbeeld "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
+
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
+## <a name="deploy-the-virtual-network-and-cluster"></a>Het virtuele netwerk en het cluster implementeren
+Stel vervolgens de netwerktopologie in en implementeer het Service Fabric-cluster. De Resource Manager-sjabloon [vnet-cluster.json][template] maakt een virtueel netwerk (VNET), evenals een subnet en een netwerkbeveiligingsgroep (NSG) voor Service Fabric. De sjabloon implementeert ook een cluster met certificaatbeveiliging ingeschakeld.  Gebruik voor productieclusters een certificaat van een certificeringsinstantie (CA) als clustercertificaat. Een zelfondertekend certificaat kan worden gebruikt om testclusters te beveiligen.
+
+### <a name="create-a-cluster-using-an-existing-certificate"></a>Een cluster maken met behulp van een bestaand certificaat
+Het volgende script maakt gebruik van de cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) en een sjabloon om een nieuw cluster in Azure te implementeren. De cmdlet maakt ook een nieuwe sleutelkluis in Azure en uploadt uw certificaat. 
 
 ```powershell
 # Variables.
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"  # must match the location parameter in the template
+$templatepath="C:\temp\cluster"
+
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
-$certfolder="c:\mycertificates\"
-$clustername = "mysfcluster"
-$vaultname = "clusterkeyvault111"
-$vaultgroupname="clusterkeyvaultgroup111"
+$clustername = "mysfcluster123"  # must match the clusterName parameter in the template
+$vaultname = "clusterkeyvault123"
+$vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
+# sign in to your Azure account and select your subscription
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\cluster.json' `
--ParameterFile 'C:\winclustertutorial\cluster.parameters.json' -CertificatePassword $certpwd `
--CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
+-ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+-KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
-## <a name="connect-to-the-secure-cluster"></a>Verbinding maken met de beveiligde cluster
-Verbinding maken met het cluster met behulp van de Service Fabric PowerShell-module geïnstalleerd met de Service Fabric SDK.  Installeer eerst het certificaat in het archief Persoonlijk (Mijn) van de huidige gebruiker op uw computer.  Voer de volgende PowerShell-opdracht:
+### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Een cluster met een nieuw, zelfondertekend certificaat maken
+Het volgende script maakt gebruik van de cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) en een sjabloon om een nieuw cluster in Azure te implementeren. De cmdlet maakt ook een nieuwe sleutelkluis in Azure, voegt een nieuw zelfondertekend certificaat toe aan de sleutelkluis en downloadt het certificaatbestand lokaal. 
+
+```powershell
+# Variables.
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"  # must match the location parameter in the template
+$templatepath="C:\temp\cluster"
+
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
+$certfolder="c:\mycertificates\"
+$clustername = "mysfcluster123"
+$vaultname = "clusterkeyvault123"
+$vaultgroupname="clusterkeyvaultgroup123"
+$subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+# sign in to your Azure account and select your subscription
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+
+# Create the Service Fabric cluster.
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
+-ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+
+```
+
+## <a name="connect-to-the-secure-cluster"></a>Verbinding maken met het beveiligde cluster
+Maak verbinding met het cluster met behulp van de Service Fabric PowerShell-module die bij de Service Fabric-SDK wordt geïnstalleerd.  Installeer eerst het certificaat in de persoonlijke opslag (Mijn opslag) van de huidige gebruiker op uw computer.  Voer de volgende PowerShell-opdracht uit:
 
 ```powershell
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
@@ -156,26 +210,26 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 U bent nu klaar om verbinding te maken met het beveiligde cluster.
 
-De **Service Fabric** PowerShell-module biedt veel cmdlets voor het beheren van Service Fabric-clusters, toepassingen en services.  Gebruik de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet verbinding maken met de beveiligde cluster. De vingerafdruk en verbinding eindpunt certificaatdetails zijn gevonden in de uitvoer van de vorige stap.
+De **Service Fabric** PowerShell-module biedt veel cmdlets voor het beheren van Service Fabric-clusters, toepassingen en services.  Gebruik de cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) om verbinding te maken met het beveiligde cluster. De vingerafdruk van het certificaat en de eindpuntdetails van de verbinding vindt u in de uitvoer van de vorige stap.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
           -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Controleer of u verbonden bent en het cluster in orde is met behulp van de [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) cmdlet.
+Controleer of u bent verbonden en of het cluster goed werkt door de cmdlet [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) uit te voeren.
 
 ```powershell
 Get-ServiceFabricClusterHealth
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-De andere artikelen in deze zelfstudie reeks gebruik van het cluster dat u zojuist hebt gemaakt. Als u niet onmiddellijk verplaatsen naar het volgende artikel, is het raadzaam om het cluster en sleutelkluis te vermijden kosten te verwijderen. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen.
+De andere artikelen in deze zelfstudiereeks maken gebruik van het cluster dat u hebt gemaakt. Als u niet onmiddellijk verdergaat met het volgende artikel, kunt u overwegen om het cluster en de sleutelkluis te verwijderen om kosten te besparen. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen.
 
-Verwijderen van de resourcegroep en alle clusterbronnen met behulp van de [cmdlet Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  De resourcegroep met de sleutelkluis ook verwijderd.
+Verwijder de resourcegroep en alle clusterbronnen met behulp van de cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  Verwijder ook de resourcegroep die de sleutelkluis bevat.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $groupname -Force
@@ -188,18 +242,15 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Een VNET maken in Azure met behulp van PowerShell
 > * Een sleutelkluis maken en een certificaat uploaden
-> * Maken van een beveiligde Service Fabric-cluster in Azure met behulp van PowerShell
-> * Beveiligen van het cluster met een X.509-certificaat
+> * Een beveiligde Service Fabric-cluster maken in Azure met behulp van PowerShell
+> * Het cluster beveiligen met een X.509-certificaat
 > * Verbinding maken met het cluster met behulp van PowerShell
-> * Verwijderen van een cluster
+> * Een cluster verwijderen
 
-Ga vervolgens naar de volgende zelfstudie voor informatie over het schalen van uw cluster.
+Ga nu verder met de volgende zelfstudie om te leren hoe u uw cluster kunt schalen.
 > [!div class="nextstepaction"]
-> [Schalen van een Cluster](service-fabric-tutorial-scale-cluster.md)
+> [Een cluster schalen](service-fabric-tutorial-scale-cluster.md)
 
 
-[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
+[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json

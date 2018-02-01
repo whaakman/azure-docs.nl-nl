@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Uw eerste stateful betrouwbare Service Fabric-servicetoepassing maken met C#
 
@@ -82,7 +82,7 @@ Als de toepassing wordt gestart, geeft Visual Studio automatisch de **diagnostis
    
 ![Diagnostische logboeken][5]
 
-De stateful servicesjabloon die wij hebben gebruikt, toont alleen de itemwaarde die wordt verhoogd in de methode `RunAsync` van **MyStatefulService.cs**.
+De gebruikte stateful servicesjabloon toont alleen de itemwaarde die wordt verhoogd in de methode `RunAsync` van **MyStatefulService.cs**.
 
 Vouw een van de gebeurtenissen uit voor meer informatie, zoals het knooppunt waarop de code wordt uitgevoerd. In dit geval is het \_Node\_0. Dit kan anders zijn op uw machine.
    

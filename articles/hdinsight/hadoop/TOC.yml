@@ -207,6 +207,21 @@
             - name: HDInsight-apps publiceren in Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Gepubliceerde app installeren - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Gepubliceerde app installeren - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Gepubliceerde app installeren - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Gepubliceerde app installeren - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Gepubliceerde app installeren - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Beveiligen
       items:
         - name: SSH gebruiken met HDInsight

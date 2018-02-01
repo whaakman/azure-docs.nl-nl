@@ -1,6 +1,6 @@
 ---
 title: Prestatieproblemen analyseren met behulp van Azure Application Insights | Microsoft Docs
-description: Zelfstudie om te zoeken en prestatieproblemen in uw toepassing met behulp van Azure Application Insights.
+description: Zelfstudie voor het vinden en diagnosticeren van prestatieproblemen in uw toepassing met behulp van Azure Application Insights.
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Zoeken en onderzoeken van prestatieproblemen met Azure Application Insights
+# <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Prestatieproblemen vinden en diagnosticeren met behulp van Azure Application Insights
 
-Azure Application Insights verzamelt telemetrie van uw toepassing analyseren van de werking en prestaties.  U kunt deze informatie gebruiken voor het identificeren van problemen die zich zou kunnen voordoen of verbeteringen in de toepassing die de meeste impact gebruikers zouden vast te stellen.  Deze zelfstudie leert u het proces voor het analyseren van de prestaties van zowel de server-onderdelen van uw toepassing en het perspectief van de client.  Procedures voor:
+Azure Application Insights verzamelt telemetrie van uw toepassing om de werking en prestaties te analyseren.  U kunt deze informatie gebruiken om problemen te identificeren die zich kunnen voordoen of om te identificeren welke verbeteringen in de toepassing het meeste effect zouden hebben voor gebruikers.  Deze zelfstudie leidt u door het proces van het analyseren van de prestaties van zowel de servercomponenten van uw applicatie als het perspectief van de client.  Procedures voor:
 
 > [!div class="checklist"]
-> * Identificeren van de prestaties van de operations-serverzijde
-> * Bewerkingen van de server om te bepalen van de hoofdoorzaak van trage prestaties analyseren
-> * Geeft de traagste bewerkingen aan clientzijde
-> * Details van paginaweergaven met querytaal analyseren
+> * Het identificeren van de prestaties van bewerkingen aan de serverzijde
+> * Het analyseren van serverbewerkingen om de hoofdoorzaak van trage prestaties vast te stellen
+> * Het identificeren van de traagste bewerkingen aan de clientzijde
+> * Details van paginaweergaven analyseren met een querytaal
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -34,94 +34,102 @@ Vereisten voor het voltooien van deze zelfstudie:
 - Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - ASP.NET-ontwikkeling en webontwikkeling
     - Azure-ontwikkeling
-- Een .NET-toepassing in Azure implementeert en [inschakelen van de Application Insights-SDK](app-insights-asp-net.md).
-- [De profiler Application Insights inschakelen](app-insights-profiler.md#installation) voor uw toepassing.
+- Implementeer een .NET-toepassing in Azure en [schakel de Application Insights-SDK](app-insights-asp-net.md)in.
+- [Schakel de Application Insights-profiler in](app-insights-profiler.md#installation) voor uw toepassing.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Trage serverbewerkingen identificeren
-Application Insights verzamelt details van de prestaties voor de verschillende bewerkingen in uw toepassing.  U kunt met het vaststellen van deze bewerkingen met de langste duur potentiële problemen te onderzoeken of beste gericht op de verdere ontwikkeling ter verbetering van de algehele prestaties van de toepassing.
+Application Insights verzamelt prestatiedetails over de verschillende bewerkingen in uw toepassing.  Door de bewerkingen met de langste duur te identificeren, kunt u potentiële problemen diagnosticeren of de beste ontwikkelingsrichting bepalen voor het verbeteren van de algehele prestaties van de toepassing.
 
 1. Selecteer **Application Insights** en selecteer vervolgens uw abonnement.  
-1. Openen van de **prestaties** select van het deelvenster **prestaties** onder de **onderzoeken** menu of klik op de **serverreactietijd** grafiek .
+1. U kunt het deelvenster **Prestaties** openen door **Prestaties** te selecteren in het menu **Onderzoeken** of door op de grafiek **Serverreactietijd** te klikken.
 
     ![Prestaties](media/app-insights-tutorial-performance/performance.png)
 
-2. De **prestaties** deelvenster ziet u het aantal en de gemiddelde duur van elke bewerking voor de toepassing.  Deze informatie kunt u deze bewerkingen dat de meeste gebruikers invloed te identificeren. In dit voorbeeld wordt de **klanten/Details ophalen** en **GET Home/Index** waarschijnlijk kandidaten zijn voor het onderzoeken van vanwege hun relatief hoog duur en het aantal aanroepen.  Andere bewerkingen mogelijk een hogere duur maar zelden werden genoemd, zodat het effect van hun verbetering minimaal zou zijn.  
+2. In het deelvenster **Prestaties** deelvenster ziet u het aantal en de gemiddelde duur van elke bewerking voor de toepassing.  U kunt deze informatie gebruiken om de bewerkingen te identificeren die de meeste impact hebben voor gebruikers. In dit voorbeeld zijn **GET Customers/Details** en **GET Home/Index** goede kandidaten om te onderzoeken, vanwege hun relatief lange duur en hoge aantal aanroepen.  Andere bewerkingen hebben wellicht een langere duur, maar werden zelden aangeroepen, zodat het effect van een verbetering ervan minimaal zou zijn.  
 
-    ![Deelvenster prestaties](media/app-insights-tutorial-performance/performance-blade.png)
+    ![Deelvenster Prestaties](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. De grafiek toont momenteel de gemiddelde duur van alle bewerkingen gedurende een bepaalde periode.  De bewerkingen die u bent geïnteresseerd zijn in door ze vastmaken aan de grafiek toevoegen.  Dit betekent dat er een aantal pieken waard zijn.  Dit verdere isoleren doordat het tijdvenster van de grafiek.
+3. De grafiek toont momenteel de gemiddelde duur van alle bewerkingen gedurende een bepaalde periode.  Voeg de bewerkingen waarin u geïnteresseerd bent toe door ze vast te maken aan de grafiek.  Dit laat zien dat er enkele pieken zijn die het onderzoeken waard zijn.  Isoleer dit verder door het tijdvenster van de grafiek te verkleinen.
 
-    ![Pincode-bewerkingen](media/app-insights-tutorial-performance/pin-operations.png)
+    ![Bewerkingen vastmaken](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Klik op een bewerking om het deelvenster prestaties aan de rechterkant weer te geven. Dit toont de distributie van de duur voor andere aanvragen.  Gebruikers worden meestal merken langzame prestaties op het punt een halve seconde, dus het venster verkleinen tot aanvragen via 500 milliseconden.  
+4.  Klik op een bewerking om het prestatiedeelvenster ervan aan de rechterkant weer te geven. Dit toont de distributie van de duur voor verschillende aanvragen.  Gebruikers merken langzame prestaties meestal op bij ongeveer een halve seconde. Reduceer het venster dus tot aanvragen van meer dan 500 milliseconden.  
 
-    ![Duur van de distributie](media/app-insights-tutorial-performance/duration-distribution.png)
+    ![Duurdistributie](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  In dit voorbeeld ziet u dat een groot aantal aanvragen per seconde zijn overname verwerken. U kunt de details van deze bewerking bekijken door te klikken op **Bewerkingsdetails**.
+5.  In dit voorbeeld ziet u dat er een groot aantal aanvragen is waarvan het verwerken langer duurt dan een seconde. U kunt de details van deze bewerking bekijken door op **Bewerkingsdetails** te klikken.
 
-    ![Details van bewerking](media/app-insights-tutorial-performance/operation-details.png)
+    ![Bewerkingsdetails](media/app-insights-tutorial-performance/operation-details.png)
 
-6.  De informatie die u hebt verzameld, tot nu toe alleen bevestigt dat zich op trage prestaties, maar weinig om de hoofdoorzaak is.  De **Profiler** helpt dit door de werkelijke code die is uitgevoerd voor de bewerking en de tijd die nodig zijn voor elke stap weergegeven. Bepaalde bewerkingen mogelijk geen traceren, omdat de profiler periodiek wordt uitgevoerd.  Na verloop van tijd moeten meer bewerkingen traceringen hebben.  De profiler voor de bewerking starten, klikt u op **Profiler traceringen**.
-5.  De tracering toont de afzonderlijke gebeurtenissen voor elke bewerking zo kunt u de hoofdoorzaak voor de duur van de algehele bewerking onderzoeken.  Klik op een van de bovenste voorbeelden die de langste duur hebben.
-6.  Klik op **Hot pad weergeven** Markeer het specifieke pad van gebeurtenissen die de meeste aan de totale duur van de bewerking bijdragen.  In dit voorbeeld ziet u dat de traagste aanroep afkomstig van is *FabrikamFiberAzureStorage.GetStorageTableData* methode. Het onderdeel dat de meeste tijd in beslag neemt is de *CloudTable.CreateIfNotExist* methode. Als u deze regel wordt uitgevoerd telkens wanneer de functie wordt aangeroepen, worden onnodige netwerk oproep- en CPU-bronnen gebruikt. De beste manier om uw code vast is voor deze regel op sommige opstartmethode die slechts één keer worden uitgevoerd. 
+    > [!NOTE]
+    Schakel de [preview-ervaring](app-insights-previews.md) "Unified details: E2E Transaction Diagnostics" (Gecombineerde details: E2E-transactiediagnose) in om alle gerelateerde telemetrie aan de serverzijde in één weergave op het volledige scherm te zien, zoals aanvragen, afhankelijkheden, traceringen, gebeurtenissen, enzovoort. 
 
-    ![Profiler details](media/app-insights-tutorial-performance/profiler-details.png)
+    Met de ingeschakelde preview kunt u zien hoeveel tijd wordt doorgebracht in afhankelijkheidsaanroepen, alsmede eventuele fouten of uitzonderingen, in één gecombineerde ervaring. Voor transacties tussen onderdelen kunnen het Gantt-diagram en het detailvenster u helpen snel het onderdeel, de afhankelijkheid of de uitzondering te diagnosticeren waar de hoofdoorzaak zich bevindt. U kunt de onderste sectie uitvouwen om de tijdreeks te zien van traceringen of gebeurtenissen die voor de geselecteerde onderdeelbewerking zijn verzameld. [Meer informatie over de nieuwe ervaring](app-insights-transaction-diagnostics.md)  
 
-7.  De **prestaties Tip** biedt ondersteuning voor de beoordeling dat de overmatige duur vanwege wachten is aan de bovenkant van het scherm.  Klik op de **wachten** koppeling voor documentatie over het interpreteren van de verschillende typen gebeurtenissen.
+    ![Diagnostische gegevens voor transacties](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
 
-    ![Prestaties tip](media/app-insights-tutorial-performance/performance-tip.png)
 
-8.  Voor verdere analyse, klikt u op **tracering etl downloaden** voor het downloaden van de tracering in naar Visual Studio.
+6.  De informatie die u tot nu toe hebt verzameld, bevestigt alleen dat er trage prestaties zijn, maar helpt niet erg bij het achterhalen van de hoofdoorzaak.  De **Profiler** helpt hiermee door de werkelijke code te laten zien die voor de bewerking is uitgevoerd, en de voor elke stap benodigde tijd. Voor bepaalde bewerkingen is er mogelijk geen tracering, omdat de profiler periodiek wordt uitgevoerd.  Na verloop van tijd moeten meer bewerkingen traceringen hebben.  Klik op **Profilertraceringen** om de profiler voor de bewerking te starten.
+5.  De tracering toont de afzonderlijke gebeurtenissen voor elke bewerking, zodat u de hoofdoorzaak voor de duur van de algehele bewerking kunt onderzoeken.  Klik op een van de bovenste voorbeelden, die de langste duur hebben.
+6.  Klik op **Snelpad weergeven** om het specifieke pad van gebeurtenissen die het meest bijdragen aan de totale duur van de bewerking, te markeren.  In dit voorbeeld ziet u dat de traagste aanroep afkomstig is van de methode *FabrikamFiberAzureStorage.GetStorageTableData*. Het onderdeel dat de meeste tijd in beslag neemt is de methode *CloudTable.CreateIfNotExist*. Als deze regel code wordt uitgevoerd telkens wanneer de functie wordt aangeroepen, worden er onnodige netwerkaanroepen en CPU-bronnen verbruikt. De beste manier om uw code te verbeteren is door deze regel in een opstartmethode te plaatsen die slechts één keer wordt uitgevoerd. 
+
+    ![Profiler-details](media/app-insights-tutorial-performance/profiler-details.png)
+
+7.  De **Prestatietip** bovenaan het scherm ondersteunt de gedachte dat de lange duur te wijten is aan wachten.  Klik op de koppeling **wachten** voor documentatie over het interpreteren van de verschillende typen gebeurtenissen.
+
+    ![Prestatietip](media/app-insights-tutorial-performance/performance-tip.png)
+
+8.  Voor verdere analyse kunt u op **Download .etl trace** (.etl-tracering downloaden) klikken om de tracering naar Visual Studio te downloaden.
 
 ## <a name="use-analytics-data-for-server"></a>Analytische gegevens voor server gebruiken
-Application Insights Analytics biedt een uitgebreide querytaal waarmee u om alle gegevens die worden verzameld door Application Insights te analyseren.  U kunt deze gebruiken voor het uitvoeren van de diepgaande analyse op aanvraag-en prestatiegegevens.
+Application Insights Analytics biedt een uitgebreide querytaal voor het analyseren van alle met Application Insights verzamelde gegevens.  U kunt deze gebruiken om diepgaande analysen uit te voeren op aanvraag- en prestatiegegevens.
 
-1. Terug naar het bewerking detail deelvenster en klik op de knop Analytics.
+1. Ga terug naar het detailvenster van de bewerking en klik op de knop Analytics.
 
     ![Knop Analytics](media/app-insights-tutorial-performance/server-analytics-button.png)
 
-2. Application Insights Analytics wordt geopend met een query voor elk van de weergaven in het deelvenster.  Als ze zijn of voor uw vereisten aanpassen, kunt u deze query's uitvoeren.  De eerste query wordt de duur voor deze bewerking gedurende een bepaalde periode.
+2. Application Insights Analytics wordt geopend met een query voor elk van de weergaven in het deelvenster.  U kunt deze query’s zó uitvoeren, of ze aanpassen aan uw behoeften.  De eerste query laat de duur van deze bewerking gedurende een bepaalde periode zien.
 
     ![Analytische gegevens](media/app-insights-tutorial-performance/server-analytics.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Trage clientbewerkingen identificeren
-Naast het identificeren van serverprocessen te optimaliseren, kunt Application Insights analyseren van het perspectief van clientbrowsers.  Hiermee kunt u mogelijke verbeteringen clientonderdelen identificeren en zelfs geven aan welke problemen met verschillende browsers of andere locaties.
+Naast het identificeren van serverprocessen om te optimaliseren, kan Application Insights ook het perspectief van clientbrowsers analyseren.  Dit kan u helpen potentiële verbeteringen aan clientcomponenten te identificeren en zelfs problemen met verschillende browsers of verschillende locaties te identificeren.
 
-1. Selecteer **Browser** onder **onderzoeken** de samenvatting browser openen.  Dit biedt een visuele samenvatting van verschillende telemetries van uw toepassing vanuit het perspectief van de browser.
+1. Selecteer **Browser** onder **Onderzoeken** om het browseroverzicht te openen.  Dit geeft een visueel overzicht van verschillende telemetrieën van uw toepassing vanuit het perspectief van de browser.
 
-    ![Browser samenvatting](media/app-insights-tutorial-performance/browser-summary.png)
+    ![Browseroverzicht](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  Schuif omlaag naar **wat mijn traagste's zijn?**.  Hiermee wordt een lijst van de pagina's in uw toepassing die u hebt het langst voor clients om te laden.  U kunt deze informatie gebruiken om de prioriteit van de pagina's die de meeste impact op de gebruiker hebben.
-3.  Klik op een van de pagina's te openen de **paginaweergave** Configuratiescherm.  In het voorbeeld wordt de **/FabrikamProd** pagina een overmatige gemiddelde duur wordt weergegeven.  De **paginaweergave** Configuratiescherm vindt u gedetailleerde informatie over deze pagina met inbegrip van een verdeling van andere duur bereiken.
+2.  Schuif omlaag naar **Wat zijn mijn traagste pagina’s?**.  Hier wordt een lijst weergegeven met de pagina’s in uw toepassing waarvan het laden in de clients de meeste tijd heeft gekost.  U kunt deze informatie gebruiken om prioriteit te geven aan de pagina's die de meeste impact op de gebruiker hebben.
+3.  Klik op een van de pagina’s om het deelvenster **Paginaweergave** te openen.  In het voorbeeld laat de pagina **/FabrikamProd** een overmatige gemiddelde duur zien.  Het deelvenster **Paginaweergave** bevat gedetailleerde informatie over deze pagina, waaronder een uitsplitsing van verschillende duurbereiken.
 
     ![Paginaweergave](media/app-insights-tutorial-performance/page-view.png)
 
-4.  Klik op de hoogste duur om te controleren van de details van deze aanvragen.  Klik vervolgens op de afzonderlijke aanvraag details wilt weergeven van de client opvragen van de pagina met inbegrip van het type browser en de locatie.  Deze informatie kan u helpen bij het bepalen of er prestaties problemen betrekking hebben op specifieke typen clients zijn.
+4.  Klik op de langste duur om de details van deze aanvragen te inspecteren.  Klik vervolgens op de afzonderlijke aanvraag om details te bekijken van de client die de pagina aanvraagt, inclusief het type browser en de locatie.  Deze informatie kan u helpen bepalen of er prestatieproblemen zijn die te maken hebben met specifieke typen clients.
 
-    ![Details van aanvraag](media/app-insights-tutorial-performance/request-details.png)
+    ![Gedetailleerde aanvraaggegevens](media/app-insights-tutorial-performance/request-details.png)
 
-## <a name="use-analytics-data-for-client"></a>Analytische gegevens gebruiken voor client
-Als de gegevens verzameld voor de prestaties van de server, Application Insights worden alle clientsgegevens beschikbaar gemaakt voor grondige analyse met Analytics.
+## <a name="use-analytics-data-for-client"></a>Analytische gegevens voor client gebruiken
+Net als de gegevens die worden verzameld voor serverprestaties, maakt Application Insights alle clientgegevens beschikbaar voor diepgaande analyse met behulp van Analytics.
 
-1. Terug naar de browser samenvatting en klik op het pictogram Analytics.
+1. Ga terug naar het browseroverzicht en klik op het pictogram Analytics.
 
-    ![Analytics-pictogram](media/app-insights-tutorial-performance/client-analytics-icon.png)
+    ![Pictogram Analytics](media/app-insights-tutorial-performance/client-analytics-icon.png)
 
-2. Application Insights Analytics wordt geopend met een query voor elk van de weergaven in het deelvenster. De eerste query geeft de duur voor verschillende paginaweergaven gedurende een bepaalde periode.
+2. Application Insights Analytics wordt geopend met een query voor elk van de weergaven in het deelvenster. De eerste query laat de duur zien van verschillende paginaweergaven gedurende een bepaalde periode.
 
     ![Analytische gegevens](media/app-insights-tutorial-performance/client-analytics.png)
 
-3.  Smart diagnostische gegevens is een functie van Application Insights Analytics waarmee unieke patronen in de gegevens.  Wanneer u de Smart Diagnostics punt in het lijndiagram klikt, wordt dezelfde query uitgevoerd zonder de records die de afwijkingsdetectie veroorzaakt.  Details van deze records worden weergegeven in de sectie Opmerking van de query zodat u de eigenschappen van die paginaweergaven die de overmatige duur veroorzaken kunt identificeren.
+3.  Smart Diagnostics is een functie van Application Insights Analytics die unieke patronen in de gegevens identificeert.  Wanneer u op de Smart Diagnostics-stip in het lijndiagram klikt, wordt dezelfde query uitgevoerd zonder de records die de anomalie hebben veroorzaakt.  Details van deze records worden weergegeven in de commentaarsectie van de query, zodat u de eigenschappen van die paginaweergaven kunt identificeren die de overmatige duur veroorzaken.
 
-    ![Smart diagnostische gegevens](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
+    ![Smart Diagnostics](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt geleerd runtime-uitzonderingen te identificeren, Ga naar de volgende zelfstudie voor meer informatie over het maken van waarschuwingen in reactie op fouten.
+Nu u hebt geleerd runtime-uitzonderingen te identificeren, kunt u doorgaan naar de volgende zelfstudie om te leren hoe u waarschuwingen kunt maken in reactie op fouten.
 
 > [!div class="nextstepaction"]
 > [Waarschuwing bij toepassingsstatus](app-insights-tutorial-alert.md)

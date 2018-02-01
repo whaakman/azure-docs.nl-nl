@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Quickstart: Azure Time Series Insights verkennen
-In deze quickstart wordt in een gratis demo-omgeving uitgelegd hoe u aan de slag kunt met de verkenner van Azure Time Series Insights. U leert hoe u in uw webbrowser grote hoeveelheden IoT-gegevens kunt visualiseren en u maakt via een rondleiding kennis met de belangrijkste functies van de verkenner van Time Series Insights. 
+In deze quickstart wordt in een gratis demo-omgeving uitgelegd hoe u aan de slag kunt met de verkenner van Azure Time Series Insights. U leert hoe u in uw webbrowser grote hoeveelheden IoT-gegevens kunt visualiseren en u maakt een rondleiding door de belangrijkste functies van de verkenner van Time Series Insights. 
 
 Azure Time Series Insights is een volledig beheerde service voor analyse, opslag en visualisatie die het eenvoudig maakt om miljarden IoT-gebeurtenissen tegelijkertijd te verkennen en te analyseren. De service biedt u een globaal overzicht van uw gegevens, helpt u snel uw IoT-oplossing te valideren en kostbare stilstand van essentiële apparaten te vermijden door verborgen trends te ontdekken en afwijkingen te vinden, en laat u in bijna realtime oorzaak-gevolganalyses uitvoeren.  Als u een toepassing bouwt die gegevens van tijdreeksen moet opslaan of opvragen, kunt u hiervoor de REST-API's van Time Series Insights gebruiken.
 

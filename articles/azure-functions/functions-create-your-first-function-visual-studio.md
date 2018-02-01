@@ -14,60 +14,52 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e8a43febdb2958f58ecb8d82f9f42b39c591522d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
-Met Azure Functions kunt u uw code in een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren.
+Met Azure Functions kunt u uw code in een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing publiceren.
 
-In dit onderwerp leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een Hallo wereld-functie kunt maken en testen. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017 versie 15.3 of een latere versie.
+In dit artikel leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een ‘Hallo wereld’-functie kunt maken en testen. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017.
 
 ![Azure-functiecode in een Visual Studio-project](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-U kunt, als u wilt, in plaats hiervan ook [de video bekijken](#watch-the-video).
+Dit onderwerp omvat een [video](#watch-the-video) die dezelfde basisstappen laat zien.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie installeert u het volgende:
+Vereisten voor het voltooien van deze zelfstudie:
 
-* [Visual Studio 2017 versie 15.4](https://www.visualstudio.com/vs/) of een latere versie, waaronder de **Azure-ontwikkelworkload**.
+* Installeer [Visual Studio 2017 versie 15.4](https://www.visualstudio.com/vs/) of een latere versie, met inbegrip van de **Azure-ontwikkelworkload**.
 
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+* Zorg ervoor dat u over de meest recente versie van Azure Functions en WebJobs Tools beschikt. Dat kunt u controleren onder **Updates** > **Visual Studio Marketplace** in **Extensions and Updates**.
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## <a name="create-an-azure-functions-project-in-visual-studio"></a>Een Azure Functions-project in Visual Studio maken
+## <a name="create-a-function-app-project"></a>Een functie-appproject maken
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Nu u het project hebt gemaakt, kunt u uw eerste functie maken.
+Visual Studio maakt een project met daarin een klasse die standaardcode voor het gekozen functietype bevat. Met het kenmerk **FunctionName** in de methode wordt de naam van de functie ingesteld. Met het kenmerk **HttpTrigger** wordt aangegeven dat de functie wordt geactiveerd door een HTTP-aanvraag. De standaardcode verzendt een HTTP-reactie met een waarde uit de hoofdtekst van de aanvraag of uit de query-tekenreeks. U kunt in- en uitvoerbindingen toevoegen aan een functie door de juiste kenmerken op de methode toe te passen. Zie de sectie [Triggers en bindingen](functions-dotnet-class-library.md#triggers-and-bindings) van de [Azure Functions C#-referentie voor ontwikkelaars](functions-dotnet-class-library.md) voor meer informatie.
 
-## <a name="create-the-function"></a>De functie maken
+![Functiecodebestand](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item****Toevoegen**. Selecteer **Azure-functie**, voer `HttpTriggerCSharp.cs` in als **Naam** in en klik op **Toevoegen**.
-
-2. Selecteer **HttpTrigger**, selecteer bij **Toegangsrechten** de optie **Anoniem** en klik op **OK**. De gemaakte functie wordt geopend door een HTTP-aanvraag vanaf een client. 
-
-    ![Een nieuwe Azure-functie maken](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    Er wordt een codebestand toegevoegd aan het project met daarin een klasse waarmee de functiecode wordt geïmplementeerd. Deze code is gebaseerd op een sjabloon waarmee een naamwaarde wordt geretourneerd en teruggestuurd. Met het kenmerk **FunctionName** wordt de naam van de functie ingesteld. Met het kenmerk **HttpTrigger** wordt het bericht aangegeven dat de functie activeert. 
-
-    ![Functiecodebestand](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-Nu u een HTTP-geactiveerde-functie hebt gemaakt, kunt u deze testen op uw lokale computer.
+Nu u uw functieproject en een HTTP-geactiveerde functie hebt gemaakt, kunt u deze testen op uw lokale computer.
 
 ## <a name="test-the-function-locally"></a>De functie lokaal testen
 
-Met Azure Functions Core-hulpprogramma's kunt u Azure Functions-projecten uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio start, wordt u gevraagd deze hulpprogramma's te installeren.  
+Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio start, wordt u gevraagd deze hulpprogramma's te installeren.  
 
-1. Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual Studio om Azure Functions Core (CLI)-hulpprogramma's te downloaden en installeren.  Mogelijk moet u ook een firewall-uitzondering inschakelen, zodat de hulpprogramma's HTTP-aanvragen kunnen afhandelen.
+1. Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual Studio om Azure Functions Core (CLI)-hulpprogramma's te downloaden en installeren. Mogelijk moet u ook een firewall-uitzondering inschakelen, zodat de hulpprogramma's HTTP-aanvragen kunnen afhandelen.
 
 2. Kopieer de URL van uw functie vanuit de uitvoer van de Azure Functions-runtime.  
 
@@ -91,7 +83,7 @@ Voordat u uw project kunt publiceren, moet u een functie-app in uw Azure-abonnem
 
 1. Kopieer de basis-URL van de functie-app van de pagina Profiel publiceren. Vervang het `localhost:port`-deel van de URL dat u hebt gebruikt bij het lokaal testen van de functie door de nieuwe basis-URL. Zorg ervoor dat u net als eerder de queryreeks `?name=<yourname>` toevoegt aan de URL en de aanvraag uitvoert.
 
-    De URL die uw HTTP-geactiveerde functie aanroept, ziet er als volgt uit:
+    De URL die uw HTTP-geactiveerde functie aanroept, moet de volgende indeling hebben:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 

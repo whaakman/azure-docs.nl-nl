@@ -13,32 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
+ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: a9f71b566ffdb163f95634835f64589a700d712f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Actieve S2S VPN-verbindingen met Azure VPN-Gateways configureren
 
 Dit artikel begeleidt u bij de stappen voor het maken van de actieve cross-premises en VNet-naar-VNet-verbindingen met het Resource Manager-implementatiemodel en PowerShell.
 
-## <a name="about-highly-available-cross-premises-connections"></a>Over maximaal beschikbare Cross-Premises verbindingen
+## <a name="about-highly-available-cross-premises-connections"></a>Over maximaal beschikbare cross-premises verbindingen
 Om te zorgen voor hoge beschikbaarheid voor cross-premises en VNet-naar-VNet-connectiviteit, moet u meerdere VPN-gateways implementeren en meerdere parallelle verbindingen tussen uw netwerken en Azure tot stand brengen. Zie [maximaal beschikbare Cross-Premises en VNet-naar-VNet-connectiviteit](vpn-gateway-highlyavailable.md) voor een overzicht van opties voor netwerkconnectiviteit en -topologie.
 
-In dit artikel bevat de instructies voor het instellen van een actieve cross-premises VPN-verbinding en de actieve verbinding tussen twee virtuele netwerken:
+Dit artikel bevat de instructies voor het instellen van een actieve cross-premises VPN-verbinding en de actieve verbinding tussen twee virtuele netwerken.
 
 * [Deel 1 - maken en configureren van uw Azure VPN-gateway in de actieve-actieve modus](#aagateway)
 * [Deel 2: actieve cross-premises verbindingen tot stand brengen](#aacrossprem)
 * [Deel 3 - actief / actief-VNet-naar-VNet-verbindingen tot stand brengen](#aav2v)
-* [Deel 4 - bestaande gateway tussen actieve en stand-by active-Update](#aaupdate)
+
+Als u al een VPN-gateway hebt, kunt u:
+* [Bijwerken van een bestaande VPN-gateway van de actieve stand-by-actief-actief of andersom](#aaupdate)
 
 U kunt deze samen om samen te stellen een meer complexe, maximaal beschikbare netwerktopologie die voldoet aan de behoeften van uw combineren.
 
 > [!IMPORTANT]
-> Houd er rekening mee dat de actieve-actieve modus gebruikmaakt van de volgende SKU's: 
+> De actieve-actieve modus maakt gebruik van de volgende SKU's: 
   * VpnGw1, VpnGw2, VpnGw3
   * HighPerformance (voor oude verouderde SKU's)
 > 
@@ -141,26 +143,25 @@ $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $R
 Gebruik de volgende cmdlets voor het weergeven van de twee openbare IP-adressen toegewezen voor uw VPN-gateway en de bijbehorende BGP-Peer-IP-adressen voor elk gatewayexemplaar:
 
 ```powershell
+PS D:\> $gw1pip1.IpAddress
+40.112.190.5
 
-    PS D:\> $gw1pip1.IpAddress
-    40.112.190.5
+PS D:\> $gw1pip2.IpAddress
+138.91.156.129
 
-    PS D:\> $gw1pip2.IpAddress
-    138.91.156.129
-
-    PS D:\> $vnet1gw.BgpSettingsText
-    {
-      "Asn": 65010,
-      "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
-      "PeerWeight": 0
-    }
+PS D:\> $vnet1gw.BgpSettingsText
+{
+  "Asn": 65010,
+  "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
+  "PeerWeight": 0
+}
 ```
 
 De volgorde van de openbare IP-adressen voor de gatewayexemplaren en de bijbehorende BGP-Peering-adressen zijn hetzelfde. In dit voorbeeld wordt de gateway-VM met openbare IP-adres van 40.112.190.5 10.12.255.4 gebruikt als het adres BGP-Peering en de gateway met 138.91.156.129 10.12.255.5 wordt gebruikt. Deze informatie is nodig bij het instellen van uw on premises VPN-apparaten verbinding maken met de gateway actief-actief. De gateway wordt weergegeven in het diagram hieronder met alle adressen:
 
 ![actieve-actieve gateway](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
-Zodra de gateway is gemaakt, kunt u deze gateway tot stand brengen van actieve cross-premises of VNet-naar-VNet-verbinding. De volgende secties worden de stappen voor het voltooien van de oefening doorlopen.
+Zodra de gateway is gemaakt, kunt u deze gateway tot stand brengen van actieve cross-premises of VNet-naar-VNet-verbinding. De volgende secties helpt bij de stappen voor het voltooien van de oefening.
 
 ## <a name ="aacrossprem"></a>Deel 2: een actieve cross-premises-verbinding tot stand brengen
 Als u wilt een cross-premises-verbinding tot stand brengen, moet u een lokale netwerkgateway om weer te geven van uw on-premises VPN-apparaat en een verbinding met de Azure VPN-gateway verbinding met de lokale netwerkgateway maken. In dit voorbeeld is de Azure VPN-gateway actief / actief-actief. Als gevolg hiervan, zelfs als er slechts één on-premises VPN-apparaat (lokale netwerkgateway) en één verbindingsbron, beide exemplaren van Azure VPN-gateway tot stand brengen S2S VPN-tunnels met de on-premises-apparaat.
@@ -214,31 +215,36 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. VPN- en BGP-parameters voor uw on-premises VPN-apparaat
 Het volgende voorbeeld bevat de parameters die u in de configuratiesectie BGP op uw on-premises VPN-apparaat voor deze oefening wordt invoert:
 
-    - Site5 ASN: 65050
-    - BGP-IP-Site5: 10.52.255.253
-    - Voorvoegsels aankondigen: (bijvoorbeeld) 10.51.0.0/16 en 10.52.0.0/16
-    - Azure VNet ASN: 65010
-    - Azure VNet BGP IP 1: 10.12.255.4 voor 40.112.190.5-tunnel
-    - Azure VNet BGP IP 2: 10.12.255.5 voor 138.91.156.129-tunnel
-    - Statische routes: bestemming 10.12.255.4/32, nexthop de VPN-tunnel in de interface 40.112.190.5 bestemming 10.12.255.5/32, de VPN-tunnel in de interface 138.91.156.129 nexthop
-    - eBGP Multihop: Zorg ervoor dat de optie "multihop" voor eBGP is ingeschakeld op uw apparaat, indien nodig
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.253
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 De verbinding moet worden gemaakt na een paar minuten en de BGP-peeringsessie wordt gestart nadat de IPsec-verbinding tot stand is gebracht. In dit voorbeeld is tot nu toe geconfigureerd dat slechts één on-premises VPN-apparaat, wat resulteert in het diagram hieronder weergegeven:
 
-![Active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Stap 3: verbinding maken met twee on-premises VPN-apparaten aan de actieve VPN-gateway
 Als u twee VPN-apparaten op de dezelfde on-premises netwerk hebt, kunt u dubbele redundantie kunt bereiken door de Azure VPN-gateway naar het tweede apparaat met een VPN-verbinding te maken.
 
 #### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. De tweede lokale netwerkgateway voor Site5 maken
-Houd er rekening mee dat de IP-gatewayadres, adresvoorvoegsel en adres voor BGP-peering voor de tweede lokale netwerkgateway elkaar niet met de vorige lokale netwerkgateway voor de dezelfde on-premises netwerk overlappen mogen.
+De gateway IP-adres, adresvoorvoegsel en adres voor BGP-peering voor de tweede lokale netwerkgateway mogen elkaar niet overlappen met de vorige lokale netwerkgateway voor de dezelfde on-premises netwerk.
 
 ```powershell
 $LNGName52 = "Site5_2"
 $LNGPrefix52 = "10.52.255.254/32"
 $LNGIP52 = "131.107.72.23"
 $BGPPeerIP52 = "10.52.255.254"
+```
 
+```powershell
 New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 ```
 
@@ -247,7 +253,9 @@ Maken van de verbinding van TestVNet1 naar Site5_2 met 'EnableBGP' is ingesteld 
 
 ```powershell
 $lng5gw2 = Get-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5
+```
 
+```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
 ```
 
@@ -268,7 +276,7 @@ Op deze manier hieronder een lijst met de parameters voert u in het tweede VPN-a
 
 Wanneer de verbinding (tunnels) worden gemaakt, hebt u twee redundante VPN-apparaten en tunnels verbinding maken met uw on-premises netwerk en Azure:
 
-![Dual-redundantie-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Deel 3: een actieve VNet-naar-VNet-verbinding tot stand brengen
 Deze sectie maakt een actief / actief-VNet-naar-VNet-verbinding met BGP. 
@@ -364,19 +372,19 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 Na het voltooien van deze stappen de verbindingen worden tot stand brengen in een paar minuten en het BGP zijn sessie als peer nadat de VNet-naar-VNet-verbinding is voltooid met een dual redundantie:
 
-![Active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
+![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name ="aaupdate"></a>Deel 4 - bestaande gateway tussen actieve en stand-by active-Update
-De laatste sectie wordt beschreven hoe u een bestaande Azure VPN-gateway van de actieve stand-by-actieve modus of vice versa kunt configureren.
+## <a name ="aaupdate"></a>Een bestaande VPN-gateway bijwerken
 
-> [!NOTE]
-> Deze sectie bevat de stappen voor het vergroten of verkleinen van een verouderde SKU (oude SKU) van een bestaande VPN-gateway van standaard HighPerformance. Deze stappen bijwerken een oude verouderde SKU niet naar een van de nieuwe SKU's.
-> 
-> 
+Deze sectie helpt u een bestaande Azure VPN-gateway gewijzigd van actief stand-by-actieve modus of vice versa.
 
-### <a name="configure-an-active-standby-gateway-to-active-active-gateway"></a>Een actieve stand-by-gateway op actief / actief-gateway configureren
-#### <a name="1-gateway-parameters"></a>1. Gateway-parameters
-Het volgende voorbeeld wordt een gateway actief stand-by-converteert naar een actief / actief-gateway. U moet een ander openbaar IP-adres maken en vervolgens een tweede IP-Gateway-configuratie toevoegen. Hieronder ziet u de parameters die worden gebruikt:
+### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Een actieve stand-by-gateway naar een actieve gateway wijzigen
+
+Het volgende voorbeeld wordt een gateway actief stand-by-converteert naar een actief / actief-gateway. Wanneer u een actieve stand-by-gateway naar actieve wijzigt, u een ander openbaar IP-adres maken en vervolgens een tweede IP-Gateway-configuratie toevoegen.
+
+#### <a name="1-declare-your-variables"></a>1. De variabelen declareren
+
+Vervang de volgende parameters gebruikt voor de voorbeelden met de instellingen die u nodig hebt voor uw eigen configuratie en vervolgens deze variabelen declareren.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
@@ -384,7 +392,11 @@ $VNetName = "TestVNetAA1"
 $RG = "TestVPNActiveActive01"
 $GWIPName2 = "gwpip2"
 $GWIPconf2 = "gw1ipconf2"
+```
 
+U kunt na de variabelen declareren, kopiëren en plakken in dit voorbeeld aan uw PowerShell-console.
+
+```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
@@ -399,28 +411,39 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Actieve-actieve modus inschakelen en de gateway bijwerken
-U moet het gateway-object ingesteld in PowerShell voor het activeren van de feitelijke update. De SKU van de virtuele netwerkgateway moet ook worden gewijzigd (formaat is gewijzigd) in HighPerformance sinds deze eerder is gemaakt als standaard.
+
+In deze stap maakt u actieve-actieve modus inschakelen en bijwerken van de gateway. In het voorbeeld wordt de VPN-gateway momenteel wordt gebruikt door een verouderde standaard SKU. Actieve biedt echter geen ondersteuning voor de standaard SKU. Als u de verouderde SKU die wordt ondersteund (in dit geval HighPerformance), moet u gewoon de ondersteunde oude SKU die u wilt gebruiken opgeven.
+
+* U kunt een verouderde SKU niet wijzigen in een van de nieuwe SKU's met behulp van deze stap. U kunt alleen een verouderde SKU op een andere ondersteunde verouderde SKU grootte. Bijvoorbeeld, kan u wijzigen de SKU van standaard VpnGw1 (Hoewel VpnGw1 wordt ondersteund voor actieve) omdat standaard een verouderde SKU is en VpnGw1 een huidige SKU. Zie voor meer informatie over het wijzigen van de grootte en migreren SKU's [Gateway-SKU's](vpn-gateway-about-vpngateways.md#gwsku).
+
+* Als u het formaat van een huidige SKU, bijvoorbeeld VpnGw1 naar VpnGw3, wilt kunt u doen met behulp van deze stap, omdat de SKU's zich in dezelfde SKU-serie. Om dit te doen, gebruikt u de waarde:```-GatewaySku VpnGw3```
+
+Wanneer u dit in uw omgeving, als u niet hoeft te vergroten of verkleinen van de gateway, hoeft u niet de GatewaySku - opgeven. U ziet in deze stap moet u het gateway-object instellen in PowerShell voor het activeren van de feitelijke update. Deze update kan 30 tot 45 minuten duren, zelfs als u niet vergroten of uw gateway verkleinen bent.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 ```
 
-Deze update kan 30 tot 45 minuten duren.
+### <a name="change-an-active-active-gateway-to-an-active-standby-gateway"></a>Een actieve gateway naar een actieve stand-by-gateway wijzigen
+#### <a name="1-declare-your-variables"></a>1. De variabelen declareren
 
-### <a name="configure-an-active-active-gateway-to-active-standby-gateway"></a>Een actieve gateway actief stand-by-gateway configureren
-#### <a name="1-gateway-parameters"></a>1. Gateway-parameters
-Gebruik dezelfde parameters als hierboven, kunt u de naam van de IP-configuratie die u wilt verwijderen.
+Vervang de volgende parameters gebruikt voor de voorbeelden met de instellingen die u nodig hebt voor uw eigen configuratie en vervolgens deze variabelen declareren.
 
 ```powershell
 $GWName = "TestVNetAA1GW"
 $RG = "TestVPNActiveActive01"
+```
 
+Na de variabelen declareren, krijgen de naam van de IP-configuratie die u wilt verwijderen.
+
+```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 $ipconfname = $gw.IpConfigurations[1].Name
 ```
 
 #### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Verwijderen van de IP-configuratie van de gateway en de actieve-actieve modus uitschakelen
-U moet het gateway-object op dezelfde manier ingesteld in PowerShell voor het activeren van de feitelijke update.
+
+In dit voorbeeld gebruiken om te verwijderen van de IP-configuratie van de gateway en actieve-actieve modus uitschakelen. U ziet dat u het gateway-object in PowerShell voor het activeren van de werkelijke update moet instellen.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGatewayIpConfig -Name $ipconfname -VirtualNetworkGateway $gw

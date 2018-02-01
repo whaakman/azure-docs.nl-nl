@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-a-new-storage-account"></a>Een nieuw opslagaccount maken
+# <a name="create-a-storage-account"></a>Een opslagaccount maken
 
 Een Azure-opslagaccount biedt een unieke naamruimte in de cloud voor het opslaan en openen van uw gegevensobjecten in Azure Storage. Een opslagaccount bevat alle blobs, bestanden, wachtrijen, tabellen en schijven die u in dit account maakt. 
 
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Een opslagaccount voor algemeen gebruik maken
+## <a name="create-a-general-purpose-storage-account"></a>Een opslagaccount voor algemeen gebruik maken
 
-Een opslagaccount voor algemeen gebruik biedt toegang tot alle services van Azure Storage: blobs, bestanden, wachtrijen en tabellen. Een opslagaccount voor algemeen gebruik kan worden gemaakt in een Standard- of Premium-laag. In de voorbeelden in dit artikel ziet u hoe u een opslagaccount voor algemeen gebruik maakt in de Standard-laag (de standaardinstelling). Zie [Inleiding tot Microsoft Azure Storage](storage-introduction.md) voor meer informatie over de opties voor opslagaccounts.
+Een opslagaccount voor algemeen gebruik biedt toegang tot alle services van Azure Storage: blobs, bestanden, wachtrijen en tabellen. Een opslagaccount voor algemeen gebruik kan worden gemaakt in een Standard- of Premium-laag. In de voorbeelden in dit artikel ziet u hoe u een opslagaccount voor algemeen gebruik maakt in de Standard-laag (de standaardinstelling).
+
+Azure Storage biedt twee typen opslagaccounts voor algemeen gebruik:
+
+- V2-accounts voor algemeen gebruik 
+- V1-accounts voor algemeen gebruik. 
+
+> [!NOTE]
+> Het wordt aanbevolen dat u nieuwe opslagaccounts als **v2-accounts voor algemene doeleinden** maakt, om te profiteren van nieuwe functies die beschikbaar zijn voor deze accounts.  
+
+Zie [Opties voor Azure-opslagaccounts](storage-account-options.md) voor meer informatie over opslagaccounts.
 
 Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 
@@ -149,43 +159,72 @@ Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Als u een opslagaccount voor algemeen gebruik wilt maken in Azure Portal, volgt u deze stappen:
+Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
 1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Meer services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 2. Voer een naam in voor het opslagaccount.
-3. Laat deze velden ingesteld op de standaardwaarde: **Implementatiemodel**, **Soort account**, **Prestaties**, **Replicatie**, **Veilige overdracht vereist**.
-4. Kies het abonnement waarin u het opslagaccount wilt maken.
-5. Selecteer in de sectie **Resourcegroep** de optie **Bestaande gebruiken**. Kies vervolgens de resourcegroep die u in de vorige sectie hebt gemaakt.
-6. Kies de locatie voor het nieuwe opslagaccount.
-7. Klik op **Maken** om het opslagaccount te maken.      
+3. Stel het veld **Soort account** in op **StorageV2 (algemeen gebruik v2)**.
+4. Laat het veld **Replicatie** ingesteld op **Lokaal redundante opslag (LRS)**. Ook kunt u kiezen voor **Zone-redundante opslag (ZRS Preview)**, **Geografisch redundante opslag (GRS)** of **Geografisch redundante opslag met leestoegang (RA-GRS)**.
+5. Laat deze velden ingesteld op hun standaardwaarden: **Implementatiemodel**, **Prestaties**, **Veilige overdracht vereist**.
+6. Kies het abonnement waarin u het opslagaccount wilt maken.
+7. Selecteer in de sectie **Resourcegroep** de optie **Bestaande gebruiken**. Kies vervolgens de resourcegroep die u in de vorige sectie hebt gemaakt.
+8. Kies de locatie voor het nieuwe opslagaccount.
+9. Klik op **Maken** om het opslagaccount te maken.      
 
 ![Schermopname van het maken van het opslagaccount in Azure Portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Gebruik de opdracht [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) om een opslagaccount voor algemeen gebruik te maken vanuit PowerShell: 
+Gebruik de opdracht [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) om een v2-opslagaccount voor algemeen gebruik te maken vanuit PowerShell met lokaal redundante opslag (LRS): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Om een v2-opslagaccount voor algemeen gebruik te maken met zone-redundante opslag (ZRS Preview), geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS), vervangt u de **SkuName**-parameter in de onderstaande tabel met de gewenste waarde. 
+
+|Replicatie-optie  |De parameter SkuName  |
+|---------|---------|
+|Lokaal redundante opslag (LRS)     |Standard_LRS         |
+|Zone-redundante opslag (ZRS)     |Standard_ZRS         |
+|Geografisch redundante opslag (GRS)     |Standard_GRS         |
+|Geografisch redundante opslag met leestoegang (GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
-Gebruik de opdracht [az storage account create](/cli/azure/storage/account#create) om een opslagaccount voor algemeen gebruik te maken vanuit Azure CLI.
+Gebruik de opdracht [az storage account create](/cli/azure/storage/account#create) om een v2-opslagaccount voor algemeen gebruik met lokaal redundante opslag te maken vanuit de Azure CLI.
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Om een v2-opslagaccount voor algemeen gebruik te maken met zone-redundante opslag (ZRS Preview), geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS), vervangt u de parameter **sku** in de onderstaande tabel met de gewenste waarde. 
+
+|Replicatie-optie  |sku-parameter  |
+|---------|---------|
+|Lokaal redundante opslag (LRS)     |Standard_LRS         |
+|Zone-redundante opslag (ZRS)     |Standard_ZRS         |
+|Geografisch redundante opslag (GRS)     |Standard_GRS         |
+|Geografisch redundante opslag met leestoegang (GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> [Zone-redundante opslag](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) is momenteel in preview en is alleen beschikbaar in de volgende locaties:
+>    - VS Oost 2
+>    - VS Centraal
+>    - Frankrijk - centraal (deze regio is momenteel in preview. Zie [Preview van Microsoft Azure met beschikbaarheidszones voor Azure die nu in Frankrijk open zijn](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) om toegang te vragen.)
+    
+Zie [Storage-replicatieopties](storage-redundancy.md) voor meer informatie over de verschillende beschikbare soorten replicatie.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

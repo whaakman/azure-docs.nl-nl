@@ -1,27 +1,27 @@
 ---
-title: Quick Start - een persoonlijke Docker-register maken in Azure met PowerShell
-description: Snel informatie over het maken van een persoonlijke Docker-container register met PowerShell.
+title: 'Snelstartgids: een persoonlijk Docker-register in Azure maken met PowerShell'
+description: Leer snel hoe u een persoonlijk Docker-containerregister maakt met behulp van PowerShell.
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Maken van een Azure Container register met behulp van PowerShell
+# <a name="create-an-azure-container-registry-using-powershell"></a>Een Azure Container Registry maken met behulp van PowerShell
 
-Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. Deze handleiding gegevens maken van een Azure Container register-exemplaar met behulp van PowerShell.
+Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze handleiding vindt u instructies voor het maken van een Azure Container Registry-exemplaar met behulp van PowerShell.
 
-Deze snelstartgids vereist Azure PowerShell moduleversie 3,6 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
-U moet ook Docker lokaal geïnstalleerd hebben. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
+Docker moet ook lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -41,9 +41,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
-Maak een ACR-exemplaar met de [nieuw AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) opdracht.
+Maak een ACR-exemplaar met de opdracht [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry).
 
-De naam van het register **moeten uniek zijn**. In het volgende voorbeeld *myContainerRegistry007* wordt gebruikt. Hiermee worden bijgewerkt naar een unieke waarde.
+De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. In het volgende voorbeeld wordt *myContainerRegistry007* gebruikt. Werk deze waarde bij naar een unieke waarde.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
@@ -51,13 +51,13 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 
 ## <a name="log-in-to-acr"></a>Aanmelden bij ACR
 
-Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Gebruik eerst de [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) opdracht voor het ophalen van de beheerdersreferenties voor de ACR-instantie.
+Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Gebruik eerst de opdracht [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) om de beheerdersreferenties voor het ACR-exemplaar op te halen.
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Gebruik vervolgens de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdracht zich aanmelden bij de ACR-exemplaar.
+Gebruik vervolgens de opdracht [docker login](https://docs.docker.com/engine/reference/commandline/login/) om u aan te melden bij het ACR-exemplaar.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
@@ -65,27 +65,27 @@ docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 
 De opdracht retourneert een bericht dat de aanmelding is gelukt.
 
-## <a name="push-image-to-acr"></a>Push-installatiekopie naar ACR
+## <a name="push-image-to-acr"></a>Installatiekopie naar ACR overdragen met een push-bewerking
 
-Voor het pushen van een afbeelding met een Azure-Container register, moet u eerst een afbeelding hebben. Indien nodig, voer de volgende opdracht voor het ophalen van een installatiekopie van een vooraf gemaakte van Docker-Hub.
+Als u een installatiekopie naar een Azure Container Registry wilt pushen, moet u eerst over een installatiekopie beschikken. Voer, indien nodig, de volgende opdracht uit om een vooraf gemaakte installatiekopie op te halen uit Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-De afbeelding moet worden gemarkeerd met de servernaam van de ACR-aanmelding. Voer de [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) opdracht voor het retourneren van de aanmeldingsnaam van de server van het ACR-exemplaar.
+De installatiekopie moet zijn getagd met de naam van de ACR-aanmeldingsserver. Voer de opdracht [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) uit om de naam van de aanmeldingsserver van het ACR-exemplaar te retourneren.
 
 ```powershell
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Label van de installatiekopie met de [docker-tag](https://docs.docker.com/engine/reference/commandline/tag/) opdracht. Vervang *acrLoginServer* met de aanmeldingsnaam van de server van uw ACR-exemplaar.
+Tag de installatiekopie met de opdracht [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Vervang *acrLoginServer* door de naam van de aanmeldingsserver van het ACR-exemplaar.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Gebruik tot slot [docker push](https://docs.docker.com/engine/reference/commandline/push/) voor de push-installatiekopieën van het naar het ACR-exemplaar. Vervang *acrLoginServer* met de aanmeldingsnaam van de server van uw ACR-exemplaar.
+Gebruik ten slotte [docker push](https://docs.docker.com/engine/reference/commandline/push/) om de installatiekopieën naar het ACR-exemplaar te pushen. Vervang *acrLoginServer* door de naam van de aanmeldingsserver van het ACR-exemplaar.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -93,7 +93,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, kunt u de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht om te verwijderen van de resourcegroep, ACR-exemplaar en alle installatiekopieën van de container.
+U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, het ACR-exemplaar en alle containerinstallatiekopieën te verwijderen, wanneer u ze niet meer nodig hebt.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +101,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids kunt u een Azure Container Registry gemaakt met de Azure CLI. Als u gebruiken van Azure Container register met exemplaren van Azure-Container wilt, blijven de zelfstudie exemplaren van Azure-Container.
+In deze snelstartgids hebt u een Azure Container Registry met de Azure-opdrachtregelinterface gemaakt. Als u Azure Container Registry wilt gebruiken met Azure Container Instances, gaat u door naar de zelfstudie Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Azure Containerexemplaren](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Zelfstudie voor Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

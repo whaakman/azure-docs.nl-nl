@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Aan de slag met Azure Automation DSC
 Dit artikel wordt uitgelegd hoe u de meest algemene taken met Azure Automation Desired State Configuration (DSC), zoals het maken, importeren, en compileren configuraties, voorbereiding-machines te beheren, en het weergeven van rapporten. Zie voor een overzicht van wat Azure Automation DSC is, [overzicht van Azure Automation DSC](automation-dsc-overview.md). Zie voor documentatie DSC [Windows PowerShell Desired Configuration overzicht](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Dit artikel bevat een stapsgewijze handleiding voor het gebruik van Azure Automation DSC. Als u een Voorbeeldomgeving is al ingesteld zonder de stappen in dit artikel wilt, kunt u de volgende [Resource Manager-sjabloon](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Deze sjabloon stelt u een voltooide Azure Automation DSC-omgeving, met inbegrip van een virtuele machine van Azure die wordt beheerd door Azure Automation DSC.
+Dit artikel bevat een stapsgewijze handleiding voor het gebruik van Azure Automation DSC. Als u een Voorbeeldomgeving is al ingesteld zonder de stappen in dit artikel wilt, kunt u de volgende Resource Manager-sjabloon: met deze sjabloon heeft een voltooide Azure Automation DSC-omgeving, met inbegrip van een virtuele machine van Azure die is ingesteld beheerd door Azure Automation DSC.
 
 ## <a name="prerequisites"></a>Vereisten
 Het volgende is vereist voor het voltooien van de voorbeelden in dit artikel:
@@ -134,11 +134,11 @@ Azure Automation DSC kunt u virtuele Azure-machines (Classic en Resource Manager
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Voorbereiden van een Azure Resource Manager VM voor beheer door Azure Automation DSC
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik aan de linkerkant op **alle resources** en vervolgens de naam van uw Automation-account.
-3. Op de **Automation-account** pagina, klikt u op **DSC-knooppunten** onder **Configuratiebeheer**...
+3. Op de **Automation-account** pagina, klikt u op **DSC-knooppunten** onder **Configuratiebeheer**.
 4. In de **DSC-knooppunten** pagina, klikt u op **toevoegen Azure VM**.
    
     ![Schermafbeelding van de DSC-knooppunten pagina markering van de knop toevoegen Azure VM](./media/automation-dsc-getting-started/OnboardVM.png)
-5. Op de **virtuele Machines** pagina selecteert u de virtuele machine.  **Azure Virtual machines toevoegen** pagina, klikt u op **selecteert u virtuele machines om vrij te geven**.
+5. Selecteer uw virtuele machine op de pagina virtuele Machines. **Azure Virtual machines toevoegen** pagina, klikt u op **selecteert u virtuele machines om vrij te geven**.
 6. Klik op **Verbinden**.
    
    > [!IMPORTANT]

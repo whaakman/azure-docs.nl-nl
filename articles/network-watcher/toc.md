@@ -7,7 +7,7 @@
 ## [Beveiligingsgroepweergave](network-watcher-security-group-view-overview.md)
 ## [Volgende hop](network-watcher-next-hop-overview.md)
 ## [Problemen met VPN-verbinding oplossen](network-watcher-troubleshoot-overview.md)
-## [Connectiviteit controleren](network-watcher-connectivity-overview.md)
+## [Verbindingsprobleem oplossen](network-watcher-connectivity-overview.md)
 ## [Servicelimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Aan de slag
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure-CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Connectiviteit testen
+## Verbindingsproblemen oplossen
 ### [Azure Portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure-CLI](network-watcher-connectivity-cli.md)

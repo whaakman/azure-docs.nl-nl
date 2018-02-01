@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory
 Deze zelfstudie demonstreert het **kopiëren van een aantal tabellen uit Azure SQL Database naar Azure SQL Data Warehouse**. U kunt hetzelfde patroon toepassen in andere kopieerscenario's. Bijvoorbeeld het kopiëren van tabellen van SQL Server/Oracle naar Azure SQL Database/Data Warehouse/Azure Blob, verschillende paden kopiëren van Blob naar Azure SQL Database-tabellen.
@@ -36,7 +36,7 @@ Op hoog niveau bevat deze zelfstudie de volgende stappen:
 > * Een pijplijnuitvoering starten.
 > * De uitvoering van de pijplijn en van de activiteit controleren.
 
-In deze zelfstudie wordt Azure Portal gebruikt. Zie [Quickstarts](quickstart-create-data-factory-dot-net.md) (Snelstartgidsen) voor meer informatie over het gebruik van andere hulpprogramma's/SDK's voor het maken van een gegevensfactory. 
+In deze zelfstudie wordt Azure Portal gebruikt. Zie [Quickstarts](quickstart-create-data-factory-dot-net.md) (Snelstartgidsen) voor meer informatie over het gebruik van andere hulpprogramma's/SDK's voor het maken van een data factory. 
 
 ## <a name="end-to-end-workflow"></a>End-to-end werkstroom
 In dit scenario gebruikt u een aantal tabellen in Azure SQL Database die u gaat kopiëren naar SQL Data Warehouse. Dit is de logische volgorde van de stappen in de werkstroom die in pijplijnen plaatsvindt:
@@ -73,18 +73,18 @@ Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data 
 2. Selecteer uw server en klik op **Firewall** onder **INSTELLINGEN**.
 3. Klik op de pagina **Firewallinstellingen** op **AAN** bij **Toegang tot Azure-services toestaan**.
 
-## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+## <a name="create-a-data-factory"></a>Een data factory maken
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
 2. Voer op de pagina **New data factory** **ADFTutorialBulkCopyDF** in bij **name**. 
       
-     ![Pagina New data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialBulkCopyDF) en probeert u het opnieuw. Raadpleeg het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-data factory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialBulkCopyDF) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
-3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
+3. Selecteer het Azure-**abonnement** waarin u de data factory wilt maken. 
 4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
       - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst. 
@@ -92,27 +92,27 @@ Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data 
          
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V2 (Preview)** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+5. Selecteer de **locatie** voor de data factory. Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
-8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
+8. Op het dashboard ziet u de volgende tegel met de status: **Data factory implementeren**. 
 
-    ![tegel met de status 'gegevensfactory implementeren'](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
-9. Wanneer het maken is voltooid, ziet u de pagina **Data Factory** zoals in de afbeelding wordt weergegeven.
+    ![tegel met de status 'data factory implementeren'](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
-    ![Startpagina van de gegevensfactory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+    ![Startpagina van de data factory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 10. Klik op **Author & Monitor** om de gebruikersinterface (UI) van Data Factory op een afzonderlijk tabblad te openen.
 11. Ga op de pagina **get started** naar het tabblad **Edit** in het linkervenster, zoals wordt weergegeven in de volgende afbeelding:  
 
     ![Pagina Aan de slag](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-U maakt gekoppelde services om uw gegevensarchieven en compute-services aan een gegevensfactory te koppelen. Een gekoppelde service beschikt over de verbindingsgegevens die de Data Factory-service tijdens runtime gebruikt om een verbinding met het gegevensarchief tot stand te brengen. 
+U maakt gekoppelde services om uw gegevensarchieven en compute-services aan een data factory te koppelen. Een gekoppelde service beschikt over de verbindingsgegevens die de Data Factory-service tijdens runtime gebruikt om een verbinding met het gegevensarchief tot stand te brengen. 
 
-In deze zelfstudie koppelt u uw Azure SQL Database-, Azure SQL Data Warehouse- en Azure Blob Storage-gegevensarchieven aan uw gegevensfactory. De Azure SQL-database fungeert als brongegevensarchief. Azure SQL Data Warehouse fungeert als het sink/doelgegevensarchief. Azure Blob Storage is bedoeld voor het vasthouden van de gegevens voordat deze worden geladen in SQL Data Warehouse met behulp van PolyBase. 
+In deze zelfstudie koppelt u uw Azure SQL Database-, Azure SQL Data Warehouse- en Azure Blob Storage-gegevensarchieven aan uw data factory. De Azure SQL-database fungeert als brongegevensarchief. Azure SQL Data Warehouse fungeert als het sink/doelgegevensarchief. Azure Blob Storage is bedoeld voor het vasthouden van de gegevens voordat deze worden geladen in SQL Data Warehouse met behulp van PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Maak de gekoppelde Azure SQL Database-bronservice.
-In deze stap maakt u een gekoppelde service om uw Azure SQL-database aan de gegevensfactory te koppelen. 
+In deze stap maakt u een gekoppelde service om uw Azure SQL-database aan de data factory te koppelen. 
 
 1. Klik op **Connections** onderaan het venster en klik op **+ New** op de werkbalk. 
 
@@ -172,7 +172,7 @@ In deze zelfstudie zijn de bron- en doel-SQL-tabellen niet vastgelegd in de defi
 1. Klik op **+ (plus)** in het linkervenster en klik op **Dataset**. 
 
     ![Nieuw gegevenssetmenu](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
-2. In het venster **New Dataset** selecteert u **Azure SQL Database** en klikt u op **Finish**. Er is nu een nieuw tabblad met de titel **AzureSqlTable1**. 
+2. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. Er is nu een nieuw tabblad met de titel **AzureSqlTable1**. 
     
     ![Azure SQL-database selecteren](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. Voer in het eigenschappenvenster onderaan **AzureSqlDatabaseDataset** in als **Name**.
@@ -195,7 +195,7 @@ In deze zelfstudie zijn de bron- en doel-SQL-tabellen niet vastgelegd in de defi
 5. Ga naar het tabblad **Parameters** en klik op **+ New**
 
     ![Pagina verbinding brongegevensset](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Voer **DWTableName** in als parameternaam. 
+6. Voer **DWTableName** in als parameternaam. Als u deze naam kopieert/plakt vanaf de pagina, moet u ervoor zorgen dat er geen **spatie** volgt na **DWTableName**. 
 7. In de sectie **Parameterized properties** voert u `@{dataset().DWTableName}` als **tableName**-eigenschap. De **tableName**-eigenschap van de gegevensset is ingesteld op de waarde die wordt doorgegeven als argument voor de **DWTableName**-parameter. De ForEach-activiteit doorloopt een lijst met tabellen en geeft deze één voor één door aan de Copy-activiteit. 
    
     ![Parameternaam](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
@@ -335,12 +335,12 @@ Deze pijplijn voert twee stappen uit:
 
 ## <a name="monitor-the-pipeline-run"></a>De pijplijnuitvoering controleren.
 
-1. Ga naar het tabblad **Monitor**. Klik op **Refresh** totdat u uitvoeringen voor beide pijplijnen in uw oplossing ziet. Blijf de lijst vernieuwen totdat de status **Succeeded** wordt weergegeven. 
+1. Ga naar het tabblad **Controleren**. Klik op **Refresh** totdat u uitvoeringen voor beide pijplijnen in uw oplossing ziet. Blijf de lijst vernieuwen totdat de status **Succeeded** wordt weergegeven. 
 
     ![Pijplijnuitvoeringen](./media/tutorial-bulk-copy-portal/pipeline-runs.png)
 2. Als u uitvoeringen van activiteit wilt weergeven die gekoppeld zijn aan de pijplijn GetTableListAndTriggerCopyData, klikt u op de eerste koppeling in de koppeling Actions voor die pijplijn. Er moeten twee uitvoeringen van activiteit voor deze pijplijnuitvoering te zien zijn. 
 
-    ![Uitvoeringen van activiteit](./media/tutorial-bulk-copy-portal/activity-runs-1.png)    
+    ![Uitvoering van activiteiten](./media/tutorial-bulk-copy-portal/activity-runs-1.png)    
 3. Als u de uitvoer van de **Lookup**-activiteit wilt weergeven, klikt u op de koppeling in de kolom **Output** voor die activiteit. U kunt het venster **Output** maximaliseren en herstellen. Nadat u de uitvoer hebt bekeken, klikt u op **X** om het venster **Output** te sluiten.
 
     ```json
@@ -398,7 +398,7 @@ Deze pijplijn voert twee stappen uit:
     ```    
 4. Als u wilt terugkeren naar de weergave **Pipeline Runs**, klikt u op de koppeling **Pipelines** bovenaan. Klik op **View Activity Runs** (de eerste koppeling in de kolom **Actions**) voor de pijplijn **IterateAndCopySQLTables**. U ziet nu uitvoer zoals weergegeven in de volgende afbeelding: u ziet dat er één **Copy**-uitvoering van activiteit is voor elke tabel in de uitvoer van de **Lookup**-activiteit. 
 
-    ![Uitvoeringen van activiteit](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
+    ![Uitvoering van activiteiten](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 5. Bevestig dat de gegevens zijn gekopieerd naar het beoogde SQL Data Warehouse dat u in deze zelfstudie hebt gebruikt. 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Voor alle REST API-aanroepen in Azure Search geldt dat u de service-URL en API-s
 5. Kopieer de service-URL en een beheersleutel. Deze hebt u later weer nodig wanneer u ze toevoegt aan het bestand **config.properties**.
 
 ## <a name="download-the-sample-files"></a>De voorbeeldbestanden downloaden
-1. Ga naar [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) op GitHub.
+1. Ga naar [search-java-indexeerfunctie-demo](https://github.com/Azure-Samples/search-java-indexer-demo) op GitHub.
 2. Klik op **Download ZIP** (ZIP downloaden), sla het zip-bestand op naar de schijf en pak vervolgens alle bestanden in het zip-bestand uit. U kunt de bestanden eventueel uitpakken naar uw Java-werkruimte, zodat u het project later eenvoudig kunt terugvinden.
 3. De voorbeeldbestanden hebben het kenmerk alleen -lezen Klik met de rechtermuisknop op de mapeigenschappen en verwijder het kenmerk alleen-lezen.
 

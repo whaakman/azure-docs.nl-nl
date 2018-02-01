@@ -2,7 +2,7 @@
 title: 'Inleiding tot Azure Cosmos DBL: Table-API | Microsoft Docs'
 description: Meer informatie over hoe u Azure Cosmos DB kunt gebruiken om grote hoeveelheden sleutelwaardegegevens met lage latentie op te slaan en op te vragen met behulp van de populaire OSS MongoDB-API's.
 services: cosmos-db
-author: mimig
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.openlocfilehash: 9321cf648e149408e68456d30e331e05720b60ab
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.author: mimig
+ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB Table-API
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/28/2017
 * Gegarandeerde hoge beschikbaarheid.
 * [Automatische secundaire indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Toepassingen die zijn geschreven voor Azure Table-opslag kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. De Table-API heeft één client-SDK beschikbaar voor .NET.
+Toepassingen die zijn geschreven voor Azure Table-opslag kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. In Table-API zijn client-SDK's beschikbaar voor .NET, Java, Python en Node.js.
 
 Het is raadzaam om de volgende video te bekijken, waarin Aravind Ramachandran uitlegt hoe u aan de slag gaat met de Table-API voor Azure Cosmos DB:
 

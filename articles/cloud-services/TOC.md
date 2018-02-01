@@ -44,12 +44,12 @@
 ### [Verbinding maken met een aangepaste domeincontroller](cloud-services-connect-to-custom-domain.md)
 
 ## Services beheren
-### [Speculatieve uitvoering beperken] (mitigate-se.md}
 ### [Veelvoorkomende beheertaken](cloud-services-how-to-manage-portal.md)
 ### [Een cloudservice configureren](cloud-services-how-to-configure-portal.md)
 ### [Een cloudservice beheren met Azure Automation](automation-manage-cloud-services.md)
 ### [Automatisch schalen configureren](cloud-services-how-to-scale-portal.md)
 ### [Python gebruiken om Azure-resources te beheren](cloud-services-python-how-to-use-service-management.md)
+### [Speculatieve uitvoering beperken](mitigate-se.md)
 
 ### [Patches voor gastbesturingssysteem](cloud-services-guestos-msrc-releases.md)
 ### Buitengebruikstelling van gastbesturingssysteem

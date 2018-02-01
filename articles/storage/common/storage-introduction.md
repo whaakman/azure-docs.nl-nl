@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
@@ -151,17 +151,15 @@ Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-securi
 
 Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogelijkheid om meerdere kopieën van uw gegevens te onderhouden (en beheren). Dit wordt replicatie genoemd, en soms redundantie. Als u uw opslagaccount gaat instellen, selecteert u een type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is ingesteld.
 
-Alle opslagaccounts hebben **lokaal redundante opslag (LRS)** die zodanig is ontworpen dat ten minste 99,999999999% (11 negens) de duurzaamheid van objecten in een bepaald jaar geven. Dit betekent dat er meerdere kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer wijzigingen worden vastgelegd, worden alle kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de replica's altijd zijn gesynchroniseerd. Bovendien zijn de kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt.
-
 **Lokaal redundante opslag (LRS)**
 
-Zoals hierboven is uitgelegd, beschikt u met LRS over meerdere kopieën van uw gegevens in één datacenter. Hierdoor is het probleem opgelost dat gegevens niet meer beschikbaar zijn als er een opslagknooppunt uitvalt of offline wordt gezet om te worden bijgewerkt. Er is echter wel een probleem als het hele datacenter niet meer beschikbaar is.
+Lokaal redundante opslag (LRS) is zodanig ontworpen dat ten minste 99,999999999% (11 9’s) de duurzaamheid van objecten in een bepaald jaar geven. Dit betekent dat er meerdere kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer wijzigingen worden vastgelegd, worden alle kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de replica's altijd zijn gesynchroniseerd. Bovendien zijn de kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt.
 
-**Zone-redundante opslag (ZRS)**
+**Zone-redundante opslag (ZRS) (Preview)**
 
-Zone-redundante opslag (ZRS) is ontworpen om ten minste 99,9999999999% (12 negens) duurzaamheid van objecten gedurende een bepaald jaar te leveren door lokale kopieën van uw gegevens en een andere set kopieën van uw gegevens te behouden. De tweede set met kopieën wordt asynchroon gerepliceerd tussen datacenters binnen één of twee regio's. ZRS is alleen beschikbaar voor blok-blobs in opslagaccounts voor algemeen gebruik. Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het account niet meer wijzigen in een ander type replicatie, en omgekeerd.
+Zone-redundante opslag (ZRS) is ontworpen om de ontwikkeling van maximaal beschikbare toepassingen te vereenvoudigen. ZRS biedt duurzaamheid voor opslagobjecten van ten minste 99,9999999999% (12 9’s) gedurende een bepaald jaar. ZRS repliceert uw gegevens synchroon tussen meerdere beschikbaarheidszones. Denk aan ZRS voor scenario's zoals transactionele toepassingen waar uitvaltijd niet acceptabel is. ZRS maakt het klanten mogelijk om gegevens te lezen en te schrijven, zelfs als een enkele zone niet beschikbaar of onherstelbaar is. Bijvoegingen en updates van gegevens worden synchroon gemaakt en zijn zeer consistent.    
 
-ZRS-accounts bieden een hogere duurzaamheid dan LRS, maar ZRS-accounts ondersteunen geen metrische gegevens of logboekregistratie.
+De vorige ZRS-mogelijkheid wordt nu aangeduid als ZRS Classic. ZRS Classic-accounts zijn alleen beschikbaar voor blok-blobs in V1-opslagaccounts voor algemeen gebruik. ZRS Classic repliceert gegevens asynchroon in datacenters binnen een tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS of GRS en heeft geen metrische gegevens of logboek-functionaliteit.
 
 **Geografisch redundante opslag (GRS)**
 
@@ -172,10 +170,10 @@ Geografisch redundante opslag (GRS) is ontworpen om 99,99999999999999% (16 negen
 Geografisch redundante opslag met leestoegang is exact hetzelfde als GRS, met als enige verschil dat u leestoegang krijgt tot de gegevens op de secundaire locatie. Als het primaire datacenter tijdelijk niet beschikbaar is, kunt u de gegevens blijven lezen vanaf de secundaire locatie. Dit kan zeer nuttig zijn. U kunt voor een webtoepassing dan bijvoorbeeld instellen dat die moet overschakelen naar de modus Alleen-lezen en verwijzen naar de secundaire kopie, zodat er nog enige toegang mogelijk is, zelfs als updates niet beschikbaar zijn.
 
 > [!IMPORTANT]
-> U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt, tenzij u ZRS hebt opgegeven tijdens het maken van het account. Er worden mogelijk eenmalig extra kosten in rekening gebracht voor de overdracht van gegevens als u overschakelt van LRS naar GRS of RA-GRS.
+> U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt. Er worden echter mogelijk eenmalig extra kosten in rekening gebracht voor de gegevensoverdracht als u overschakelt van LRS naar GRS of RA-GRS.
 >
 
-Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over replicatie.
+Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over replicatie-opties.
 
 Zie [Wat te doen in het geval van een Azure Storage-storing](storage-disaster-recovery-guidance.md) voor informatie over herstel na noodgevallen.
 

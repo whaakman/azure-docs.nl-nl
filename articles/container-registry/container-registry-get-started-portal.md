@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: een persoonlijk Docker-register in Azure maken met Azure Portal'
+title: 'Quickstart: een persoonlijk Docker-register in Azure maken met Azure Portal'
 description: Leer snel een persoonlijk Docker-containerregister maken met Azure Portal.
 services: container-registry
 author: mmacy
@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Een containerregister maken met Azure Portal
 
-Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze snelstartgids maakt u een containerregister in Azure Portal.
+Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze quickstart maakt u een containerregister in Azure Portal.
 
-Als u het register met deze snelstartgids wilt voltooien, moet Docker lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
+Als u het register met deze quickstart wilt voltooien, moet Docker lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-mac]-, [Windows][docker-windows]- of [Linux][docker-linux]-systeem.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -35,7 +35,7 @@ Voer waarden in voor **Registernaam** en **Resourcegroep**. De registernaam moet
 
 ![Een containerregister maken met Azure Portal][qs-portal-03]
 
-In deze snelstartgids maken we een *Basic*-register. Azure Container Registry is beschikbaar in verschillende SKU's, zoals kort beschreven in de onderstaande tabel. Zie [SKU's voor containerregisters][container-registry-skus] voor uitgebreide details.
+In deze quickstart maken we een *Basic*-register. Azure Container Registry is beschikbaar in verschillende SKU's, zoals kort beschreven in de onderstaande tabel. Zie [SKU's voor containerregisters][container-registry-skus] voor uitgebreide details.
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -112,7 +112,7 @@ Verwijder de resourcegroep **myResourceGroup** als u deze niet meer nodig hebt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een Azure Container Registry met de Azure-opdrachtregelinterface gemaakt. Als u Azure Container Registry wilt gebruiken met Azure Container Instances, gaat u door naar de zelfstudie Azure Container Instances.
+In deze quickstart hebt u een Azure Container Registry met Azure Portal gemaakt. Als u Azure Container Registry wilt gebruiken met Azure Container Instances, gaat u door naar de zelfstudie Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances][container-instances-tutorial-prepare-app]

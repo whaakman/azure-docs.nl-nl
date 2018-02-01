@@ -31,10 +31,10 @@ NCv2 exemplaren zijn van de machines NC-serie, aangedreven door de volgende gene
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Maximumaantal gegevensschijven |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6 |112 | 336 | 1 | 12 |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24r_v2 * |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = één P100-kaart.
 
@@ -50,10 +50,10 @@ De ND-serie virtuele machines zijn een nieuwe aanvulling op de GPU-familie die z
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Maximumaantal gegevensschijven |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6 |112 | 336 | 1 | 12 |
-| Standard_ND12 |12 |224 | 672 | 2 | 24 |
-| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24r * |24 |1448 | 1344 | 4 | 32 |
+| Standard_ND6s |6 |112 | 336 | 1 | 12 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 |
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = één p 40-kaart.
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -73,7 +73,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 
 * <a id="redundancy-options"></a>
 **Welke opties voor opslag redundantie worden ondersteund door Azure Files?**  
-    Azure-bestanden ondersteunt momenteel alleen lokaal redundante opslag (LRS) en geografisch redundante opslag (GRS). We willen zone-redundante opslag (ZRS) en opslag met leestoegang geografisch redundante (RA-GRS) in de toekomst ondersteunen, maar er zijn momenteel geen tijdlijnen te delen op dit moment.
+    Op dit moment ondersteunt Azure-bestanden lokaal redundante opslag (LRS), zone-redundante opslag (ZRS) en geografisch redundante opslag (GRS). We willen leestoegang geografisch redundante opslag met (RA-GRS) in de toekomst ondersteunen, maar er zijn momenteel geen tijdlijnen te delen op dit moment.
 
 * <a id="tier-options"></a>
 **Welke opslaglagen worden ondersteund in Azure-bestanden?**  
@@ -86,7 +86,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 **Ik wil een specifieke functie die is toegevoegd aan Azure-bestanden. Kunt u deze toevoegen?**  
     Het team van Azure Files is geïnteresseerd in horen alle feedback hebt over onze service. Neem stemmen over functieaanvragen op [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Denk eens doorsturen naar u verwennen met veel nieuwe functies.
 
-## <a name="azure-file-sync"></a>Azure File-synchronisatie
+## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
 **Welke regio's worden ondersteund voor Azure File-synchronisatie (preview)?**  
@@ -103,7 +103,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 * <a id="afs-conflict-resolution"></a>**Wat gebeurt er als hetzelfde bestand is gewijzigd op twee servers tegelijkertijd ongeveer?**  
     Een strategie voor een eenvoudige conflictoplossing maakt gebruik van Azure File-synchronisatie: we beide wijzigingen in bestanden die zijn gewijzigd op twee servers tegelijkertijd behouden. De meest recent geschreven wijziging blijft de oorspronkelijke bestandsnaam. Het oudere bestand heeft de machine 'bron' en het aantal conflicten is toegevoegd aan de naam. Deze taxonomie volgt: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< Ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Het eerste conflict van CompanyReport.docx zou bijvoorbeeld CompanyReport CentralServer.docx worden als CentralServer waar het oudere schrijven zich heeft voorgedaan. De naam van het tweede conflict zou CompanyReport-CentralServer-1.docx.
 
@@ -171,12 +171,12 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 * <a id="afs-files-excluded"></a>
 **Welke bestanden of mappen worden automatisch uitgesloten door Azure bestand synchronisatie?**  
     Standaard omvat Azure bestand synchronisatie niet de volgende bestanden:
-    * Desktop.ini
+    * desktop.ini
     * Thumbs.DB
     * ehthumbs.DB
     * ~$\*.\*
-    * \*ACCDB
-    * \*tmp
+    * \*.laccdb
+    * \*.tmp
     * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     De volgende mappen worden ook standaard uitgesloten:

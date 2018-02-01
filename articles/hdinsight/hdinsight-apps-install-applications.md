@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Hadoop-toepassingen van derden op Azure HDInsight installeren
 
@@ -28,14 +28,14 @@ Informatie over het installeren van een Hadoop-toepassing van derden op Azure HD
 
 Een HDInsight-toepassing is een toepassing die gebruikers op een HDInsight-cluster installeren kunnen. Deze toepassingen kunnen zijn ontwikkeld door Microsoft, door onafhankelijke softwareleveranciers (ISV) of door u zelf.  
 
-De lijst follosing bevat de gepubliceerde toepassingen:
+De volgende lijst bevat de gepubliceerde toepassingen:
 
 * **AtScale Intelligence Platform** Hiermee schakelt u uw HDInsight-cluster in een scale-out OLAP-server. De toepassing kunt u query miljarden rijen met gegevens die u met de BI-hulpprogramma's van Microsoft Excel, Power BI en Tableau Software naar QlikView.
 * **Cask CDAP voor HDInsight** biedt de eerste unified integratieplatform voor big data dat wordt het de tijd voor de productie voor data-toepassingen en gegevens meren met 80%. Deze toepassing biedt alleen ondersteuning voor standaard HBase 3.4-clusters.
 * **DATAIKU DDS op HDInsight** kunnen gegevens professionals prototype, bouwen en implementeren zeer specifieke services die onbewerkte gegevens naar indrukwekkende business voorspellingen transformeren.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) biedt analisten een interactieve wijze voor het detecteren, analyseren en visualiseren van de resultaten over big data. Betrek eenvoudig aanvullende gegevensbronnen en ontdek snel nieuwe relaties en antwoorden op vragen.
 * **H2O kunstmatige Intelligence voor HDInsight (bèta)** H2O mineraalwater ondersteunt de volgende algoritmen voor gedistribueerde: GLM, Naïve Bayes, gedistribueerde willekeurige Forest, kleurovergang versterking Machine, Deep Neural Networks, Deep leren, K-means, PCA, Lage waarden van positie modellen, Afwijkingsdetectie en Autoencoders gegeneraliseerd.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is een enterprise-ready datawarehouse aangedreven door Apache Kylin en Apache Hadoop; het onderliggende seconde Querylatentie voor grootschalige gegevensset machtigt en gegevensanalyse voor vereenvoudigt zakelijke gebruikers en analisten. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) is een enterprise-ready datawarehouse aangedreven door Apache Kylin en Apache Hadoop; het onderliggende seconde biedt latentie voor grootschalige gegevensset opvragen en gegevensanalyse voor vereenvoudigt zakelijke gebruikers en analisten. 
 * **Paxata Self-service gegevens voorbereiden**
 * **SnapLogic Hadooplex** de SnapLogic Hadooplex uitgevoerd op HDInsight kunnen klanten om te krijgen tot zakelijke inzichten sneller door selfservice gegevensopname en de voorbereiding van vrijwel elke bron voor het Microsoft Azure cloud-platform.
 * **Spark-taakserver voor KNIME Spark Executor** Spark-taakserver voor KNIME Spark Executor wordt gebruikt voor het KNIME Analytics Platform verbinding met HDInsight-clusters.
@@ -75,7 +75,7 @@ U hebt ook de optie HDInsight-toepassingen te installeren wanneer u een cluster 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Lijst van geïnstalleerde HDInsight-apps en -eigenschappen
 De portal toont een lijst van de geïnstalleerde HDInsight-toepassingen voor een cluster en de eigenschappen van elke geïnstalleerde toepassing.
 
-**HDInsight-toepassingen en weergave-eigenschappen weergeven**
+**HDInsight-toepassing weergeven en eigenschappen weergeven**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkermenu op **HDInsight-clusters**. 

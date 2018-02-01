@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f43c95753e2cb190270a25fecd4c490e6fb0ed34
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -35,7 +35,7 @@ Enkele voordelen van peering van virtuele netwerken zijn:
 
 ## <a name="requirements-constraints"></a>Vereisten en beperkingen
 
-* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel als preview beschikbaar in de regio's VS - west-centraal, Canada centraal en VS West 2. Voordat u peering van virtuele netwerken in verschillende regio's gaat instellen, moet u eerst [uw abonnement registreren](virtual-network-create-peering.md#register) voor de preview. Als u dat niet doet, mislukt de peering van virtuele netwerken in verschillende regio's.
+* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel in preview in VS - west-centraal, Canada Centraal, VS West 2, Zuid-Korea, VK Zuid, VK West, Canada Oost, India zuiden, India midden en India westen. Voordat u peering van virtuele netwerken in verschillende regio's gaat instellen, moet u eerst [uw abonnement registreren](virtual-network-create-peering.md#register) voor de preview. Als u dat niet doet, mislukt de peering van virtuele netwerken in verschillende regio's.
     > [!WARNING]
     > Peerings van virtuele netwerken die in verschillende regio's worden gemaakt, hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als peerings waarbij een versie met algemene beschikbaarheid wordt gebruikt. Sommige functies van gekoppelde virtuele netwerken zijn mogelijk beperkt of zijn niet beschikbaar in alle Azure-regio's. Controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor de meest recente meldingen over de beschikbaarheid en de status van deze functie.
 
@@ -98,7 +98,7 @@ Als u bijvoorbeeld de virtuele netwerken genaamd mijnVirtueelNetwerkA en mijnVir
 |mijnVirtueelNetwerkB|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-## <a name="monitor"></a>Bewaken
+## <a name="monitor"></a>Controleren
 
 Wanneer u twee virtuele netwerken koppelt die zijn gemaakt via Resource Manager, moet voor elk virtueel netwerk een peering worden geconfigureerd. U kunt de status van de peeringverbinding controleren. De peeringstatus is een van de volgende statussen:
 

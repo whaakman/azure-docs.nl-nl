@@ -1,6 +1,6 @@
 ---
-title: Een internetgerichte load balancer maken - Azure-sjabloon | Microsoft Docs
-description: Meer informatie over hoe u met een sjabloon een internetgerichte load balancer maakt in Resource Manager
+title: Een openbare load balancer maken - Azure-sjabloon | Microsoft Docs
+description: Meer informatie over het maken van een openbare load balancer in Resource Manager met behulp van een sjabloon
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 10d96920d3aa3cae19750d7c2437b88bac1c8cda
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 21ff5a48d29117ba1d6195f308f00180b1f1edbf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Aan de slag met het maken van een internetgerichte load balancer met een sjabloon
+# <a name="creating-a-public-load-balancer-using-a-template"></a>Een openbare load balancer maken met behulp van een sjabloon
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Azure-CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]

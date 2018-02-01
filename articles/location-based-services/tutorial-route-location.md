@@ -1,6 +1,6 @@
 ---
-title: Zoeken naar route met de Services van Azure-locatie op basis van | Microsoft Docs
-description: Routeren naar een locatie op basis van Azure-Services met behulp van
+title: Overzicht van Azure Location Based Services | Microsoft Docs
+description: Route naar een nuttige plaats op basis van Azure Location Based Services
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,33 +12,33 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Routeren naar een locatie op basis van Azure-Services met behulp van
+# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Route naar een nuttige plaats op basis van Azure Location Based Services
 
-Deze zelfstudie laat zien hoe uw locatie op basis van Azure-Services-account en de Route-SDK, gebruiken om de route naar interessante vinden. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u uw Azure Location Based Services-account en de Route Service SDK gebruikt om de route naar uw nuttige plaats te vinden. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Adres coördinaten ophalen
-> * Query uitvoeren op Route-Service om te verwijzen van belang voor instructies
+> * Adrescoördinaten ophalen
+> * Query uitvoeren op Route Service voor route naar nuttige plaats
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u doorgaat, zorg ervoor dat [uw locatie op basis van Azure-Services-account maken](./tutorial-search-location.md#createaccount), en [ophalen van de sleutel van het abonnement voor uw account](./tutorial-search-location.md#getkey). U merkt ook het gebruik van het Kaartbesturingselement en zoeken-API's voor Service, zoals beschreven in de zelfstudie [zoeken in de buurt interessante met behulp van Azure op basis van Locatieservices](./tutorial-search-location.md).
+Voordat u doorgaat, maakt u [uw Azure Location Based Services-account ](./tutorial-search-location.md#createaccount) en [zorgt u dat u de abonnementssleutel voor uw account verkrijgt](./tutorial-search-location.md#getkey). U merkt ook hoe de Map Control en Search Service API's moet gebruiken, zoals beschreven in de zelfstudie [Zoeken naar nuttige plaats in de buurt met behulp van Azure Location Based Services](./tutorial-search-location.md).
 
 
 <a id="getcoordinates"></a>
 
-## <a name="get-address-coordinates"></a>Adres coördinaten ophalen
+## <a name="get-address-coordinates"></a>Adrescoördinaten ophalen
 
-Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de locatie op basis van Services toewijzen besturingselement API is ingesloten. 
+Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesloten met de Map Control API van Location Based Services. 
 
-1. Maak een nieuw bestand op uw lokale machine en noem deze **MapRoute.html**. 
-2. De volgende HTML-onderdelen toevoegen aan het bestand:
+1. Maak een nieuw bestand op uw lokale computer en noem dit **MapRoute.html**. 
+2. Voeg de volgende HTML-onderdelen toe aan het bestand:
 
     ```HTML
     <!DOCTYPE html>
@@ -75,20 +75,20 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
 
     </html>
     ```
-    Houd er rekening mee hoe de resource-locaties voor CSS en JavaScript-bestanden voor de locatie op basis van Azure-Services-bibliotheek in de HTML-header worden ingesloten. U ziet ook de *script* segment in de hoofdtekst van het HTML-bestand, waarin u de inline JavaScript-code voor toegang tot Azure locatie op basis van de Service-API's.
+    Let op dat de resource-locaties voor CSS en JavaScript-bestanden voor de locatie op basis van Azure Location Based Services-bibliotheek in de HTML-header worden ingesloten. U ziet ook het *script*-segment in de hoofdtekst van het HTML-bestand, dat de inline JavaScript-code voor toegang tot de API’s van Azure Location Based Service bevat.
 
-3. Voeg de volgende JavaScript-code naar de *script* blok van het HTML-bestand. Vervang de tijdelijke aanduiding *< insert-sleutel >* met primaire sleutel van uw Services op basis van locatie-account.
+3. Voeg de volgende JavaScript-code toe aan het blok *script* van het HTML-bestand. Gebruik de primaire sleutel van uw Location Based Services-account in het script.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    De **atlas. Kaart** biedt het besturingselement voor een kaart visual en interactieve webpagina en is een onderdeel van de Azure-API voor het beheer van kaart.
+    De **atlas.Map** biedt het besturingselement voor een visuele en interactieve webkaart en is een onderdeel van de Azure Map Control API.
 
-4. Voeg de volgende JavaScript-code naar de *script* blok. Hiermee voegt u een laag van *multipoint* voor het Kaartbesturingselement om weer te geven van de route:
+4. Voeg de volgende JavaScript-code toe aan het blok *script*. Hiermee voegt u een laag van *linestrings* toe aan Map Control om de route weer te geven:
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -103,7 +103,7 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
     });
     ```
 
-5. Voeg de volgende JavaScript-code voor het maken van de begin- en eindpunten voor de route:
+5. Voeg de volgende JavaScript-code toe voor het maken van de begin- en eindpunten voor de route:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -119,9 +119,9 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
         icon: "pin-blue"
     });
     ```
-    Deze code maakt u twee [GeoJSON objecten](https://en.wikipedia.org/wiki/GeoJSON) vertegenwoordigt de begin- en eindpunten van de route. Het eindpunt is de combinatie breedtegraad/lengtegraad voor een van de *benzine stations* gezocht in de vorige zelfstudie [zoeken in de buurt interessante met behulp van Azure op basis van Locatieservices](./tutorial-search-location.md).
+    Deze code maakt twee [GeoJSON-objecten](https://en.wikipedia.org/wiki/GeoJSON) die de begin- en eindpunten van de route vertegenwoordigen. Het eindpunt is de combinatie breedtegraad/lengtegraad voor een van de *benzinestations* die werden gezocht in de vorige zelfstudie [Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Location Based Services](./tutorial-search-location.md).
 
-6. Voeg de volgende JavaScript-code voor de pincodes voor de begin- en toevoegen aan de kaart:
+6. Voeg de volgende JavaScript-code toe om de pins voor de begin- en eindpunten aan de kaart toe te voegen:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -141,17 +141,17 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
         textOffset: [0, -20]
     });
     ``` 
-    De API **map.setCameraBounds** past u het venster volgens de coördinaten van de begin- en eindpunten hebben. De API **map.addPins** voegt de punten toe aan het kaartbesturingselement als visuele onderdelen.
+    De API **map.setCameraBounds** past het kaartenvenster aan naar de coördinaten van de begin- en eindpunten. De API **map.addPins** voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
 
-7. Sla de **MapRoute.html** bestand op uw computer. 
+7. Sla het bestand **MapRoute.html** op uw computer op. 
 
 <a id="getroute"></a>
 
-## <a name="query-route-service-for-directions-to-point-of-interest"></a>Query uitvoeren op Route-Service om te verwijzen van belang voor instructies
+## <a name="query-route-service-for-directions-to-point-of-interest"></a>Query uitvoeren op Route Service voor route naar nuttige plaats
 
-Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route Service API gebruiken om te zoeken naar de route van een bepaalde beginpunt naar een bestemming. De Route-Service biedt de snelste plannen kortste-API's of systeem route tussen twee locaties, met inbegrip van de voorwaarden Realtime netwerkverkeer. Ook kunnen gebruikers in de toekomst routes met behulp van Azure uitgebreide historische verkeer database en het voorspellen van de duur van de route voor elke dag en tijd plannen. 
+Deze sectie beschrijft hoe u de Route Service API van Azure Location Based Services gebruikt om te zoeken naar de route van een bepaald beginpunt naar een bestemming. De Route Service biedt API’s om de snelste, kortste of zuinigste route tussen twee locaties te plannen, rekening houdend met real-time verkeerscondities. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. 
 
-1. Open de **MapRoute.html** bestand in de voorgaande sectie hebt gemaakt en voeg de volgende JavaScript-code naar de *script* blok ter illustratie van de Route-Service.
+1. Open het bestand **MapRoute.html** dat in de voorgaande sectie is gemaakt en voeg de volgende JavaScript-code toe aan het blok *script* ter illustratie van de Route Service.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
@@ -172,32 +172,32 @@ Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route 
         }
     };
     ```
-    Dit codefragment maakt een [XMLHttpRequest](https://xhr.spec.whatwg.org/), en voegt u een gebeurtenis-handler voor het parseren van het binnenkomende antwoord. Voor een geslaagde reactie vormt het een matrix van coördinaten voor een regel segmenten van de eerste route geretourneerd. Vervolgens wordt deze reeks coördinaten voor deze route toegevoegd aan de kaart *multipoint* laag.
+    Dit codefragment maakt een [XMLHttpRequest](https://xhr.spec.whatwg.org/) en voegt een gebeurtenis-handler toe voor het parseren van de binnenkomende respons. Voor een geslaagde respons vormt het een matrix van coördinaten voor lijnsegmenten van de eerste route die geretourneerd worden. Vervolgens voegt het deze reeks coördinaten aan deze route toe aan de *linestrings*-laag van de kaart.
 
-2. Voeg de volgende code naar de *script* blok, de XMLHttpRequest verzenden naar de locatie op basis van de Route Service van Azure Services:
+2. Voeg de volgende code toe aan het blok *script* om de XMLHttpRequest te verzenden naar Route Service van Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    De bovenstaande aanvraag bevat de vereiste parameters die abonnementssleutel voor uw account en de coördinaten voor de begin- en, in de opgegeven volgorde. 
+    De bovenstaande aanvraag bevat de vereiste parameters die de sleutel van uw account en de coördinaten voor de begin- en eindpunten zijn, in de opgegeven volgorde. 
 
-3. Sla de **MapRoute.html** lokaal bestand vervolgens opent u het in een webbrowser naar keuze en bekijk het resultaat. Voor een succesvolle verbinding met de locatie op basis van Services-API's ziet u een vergelijkbaar met de volgende kaart. 
+3. Sla het bestand **MapRoute.html** lokaal op, open het vervolgens in een webbrowser naar keuze en bekijk het resultaat. Voor een succesvolle verbinding met de Location Based Services API's bekijkt u een kaart die vergelijkbaar is met de volgende. 
 
-    ![Azure Kaartbesturingselement en Route-Service](./media/tutorial-route-location/lbs-map-route.png)
+    ![Azure Map Control en Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Adres coördinaten ophalen
-> * Query uitvoeren op Route-Service om te verwijzen van belang voor instructies
+> * Adrescoördinaten ophalen
+> * Query uitvoeren op Route Service voor route naar nuttige plaats
 
-Ga door naar de zelfstudie [routes vinden voor verschillende modi van reizen met behulp van Azure op basis van Locatieservices](./tutorial-prioritized-routes.md) om informatie over het gebruik van de Azure-Services voor het op basis van locatie om de prioriteit van de routes naar interessante, op basis van de modus van transport. 
+Ga door naar de zelfstudie [Routes vinden voor verschillende voertuigen met behulp van Azure Location Based Services](./tutorial-prioritized-routes.md) om te leren hoe u de Azure Location Based Services gebruikt om routes naar nuttige plaatsen te rangschikken, op basis van de manier van reizen. 

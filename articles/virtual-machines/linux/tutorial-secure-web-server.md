@@ -1,6 +1,6 @@
 ---
 title: Een webserver met SSL-certificaten in Azure beveiligen | Microsoft Docs
-description: Meer informatie over het beveiligen van de NGINX-webserver met SSL-certificaten op een Linux VM in Azure
+description: Meer informatie over het beveiligen van de NGINX-webserver met SSL-certificaten op een Linux-VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,40 +16,40 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Een webserver met SSL-certificaten op een virtuele Linux-machine in Azure beveiligen
-Beveiligde webservers, kan een certificaat Later SSL (Secure Sockets) worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Sleutelkluis en beveiligde implementaties van certificaten aan virtuele Linux-machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
+Om webservers te beveiligen, kan een Secure Sockets Layer (SSL)-certificaat worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Key Vault en beveiligde implementaties van certificaten aan virtuele Linux-machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maken van een Azure Sleutelkluis
-> * Genereren of een certificaat uploaden naar de Sleutelkluis
+> * Een Azure Key Vault maken
+> * Een certificaat genereren of uploaden naar de Key Vault
 > * Een virtuele machine maken en de NGINX-webserver installeren
 > * Het certificaat invoeren in de virtuele machine en NGINX configureren met een SSL-binding
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.22 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.22 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Overzicht
-Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt het beheerproces van het certificaat te stroomlijnen en kunt u controle houdt over sleutels die toegang hebben tot deze certificaten. U kunt een zelfondertekend certificaat in de Sleutelkluis maken of een bestaande, vertrouwd certificaat dat u al bezit uploaden.
+Azure Key Vault beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Key Vault helpt het beheerproces voor certificaten te stroomlijnen en zorgt dat u de controle houdt over de sleutels waarmee deze certificaten toegankelijk zijn. U kunt een zelfondertekend certificaat in Key Vault maken of een bestaand, vertrouwd certificaat dat u al bezit uploaden.
 
-In plaats van met een aangepaste VM-installatiekopie die certificaten bevat standaard uitbreidbaar module u certificaten kunt invoeren in een actieve virtuele machine. Dit proces zorgt ervoor dat de meest recente certificaten tijdens de implementatie op een webserver zijn geïnstalleerd. Als u vernieuwen of vervangen van een certificaat, hebt u niet ook een nieuwe aangepaste VM-installatiekopie maken. De meest recente certificaten worden automatisch toegevoegd als u extra virtuele machines maken. Tijdens het hele proces, de certificaten nooit laat u de Azure-platform of beschikbaar worden gesteld in een script, opdrachtregel geschiedenis of sjabloon.
+In plaats van met een aangepaste VM-installatiekopie die standaard certificaten bevat, kunt u certificaten invoeren in een actieve virtuele machine. Dit proces zorgt ervoor dat de meest recente certificaten tijdens de implementatie op een webserver zijn geïnstalleerd. Als u een certificaat wilt vernieuwen of vervangen, hoeft u niet ook een nieuwe aangepaste VM-installatiekopie te maken. De meest recente certificaten worden automatisch toegevoegd als u extra virtuele machines maakt. Tijdens het hele proces verlaten de certificaten nooit het Azure-platform of zijn ze blootgesteld in een script, opdrachtregelgeschiedenis of sjabloon.
 
 
-## <a name="create-an-azure-key-vault"></a>Maken van een Azure Sleutelkluis
-Voordat u certificaten en een Sleutelkluis maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* in de *eastus* locatie:
+## <a name="create-an-azure-key-vault"></a>Een Azure Key Vault maken
+Voordat u een Key Vault en certificaten kunt maken, moet u eerst een resourcegroep maken met [az group create](/cli/azure/group#create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* gemaakt op de locatie *VS Oost*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Maak vervolgens een Sleutelkluis met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen voor gebruik wanneer u een virtuele machine implementeert. Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang  *<mykeyvault>*  in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis:
+Maak vervolgens een Key Vault met [Az keyvault maken](/cli/azure/keyvault#create) en schakel deze in voor gebruik wanneer u een virtuele machine implementeert. Elke Key Vault moet een unieke naam hebben van alleen kleine letters. Vervang  *<mykeyvault>*  in het volgende voorbeeld met de naam van uw eigen unieke Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -59,8 +59,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-## <a name="generate-a-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in de Sleutelkluis
-Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [az keyvault certificaat importeren](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Voor deze zelfstudie, het volgende voorbeeld toont hoe kunt u een zelfondertekend certificaat met genereren [az keyvault-certificaat maken](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) die gebruikmaakt van het standaardbeleid voor certificaat:
+## <a name="generate-a-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in Key Vault
+Voor gebruik in de productie, moet u een geldig certificaat importeren dat is ondertekend door een vertrouwde provider met [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Voor deze zelfstudie toont het volgende voorbeeld hoe kunt u een zelfondertekend certificaat kunt genereren met [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) dat gebruikmaakt van het standaardbeleid voor certificaten:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -70,7 +70,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Een certificaat voor gebruik met een virtuele machine voorbereiden
-Het certificaat te gebruiken tijdens de virtuele machine proces voor het maken, verkrijgen van de ID van het certificaat met [az keyvault lijst-versies van het clientgeheim](/cli/azure/keyvault/secret#list-versions). Converteren van het certificaat met [az vm indeling-geheim](/cli/azure/vm#format-secret). Het volgende voorbeeld wordt de uitvoer van deze opdrachten naar variabelen voor eenvoudig te gebruiken in de volgende stappen:
+Om het certificaat te gebruiken tijdens het creatieproces van de virtuele machine, verkrijgen de ID van het certificaat met [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Converteren van het certificaat met [az vm format-secret](/cli/azure/vm#format-secret). Het volgende voorbeeld wijst de uitvoer van deze opdrachten toe aan variabelen voor eenvoudig gebruik in de volgende stappen:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -80,10 +80,10 @@ secret=$(az keyvault secret list-versions \
 vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
-### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Maken van een cloud-init-config NGINX beveiligen
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
+### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Maak een cloud-init-config om NGINX te beveiligen
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud-init wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of agents vereist om uw configuratie toe te passen.
 
-Wanneer u maakt een virtuele machine, certificaten en sleutels worden opgeslagen in de beveiligde */var/lib/waagent/* directory. Gebruik cloud init voor het automatiseren van het certificaat toevoegen aan de virtuele machine en de webserver configureren. In dit voorbeeld installeert en de NGINX-webserver configureren. U kunt hetzelfde proces gebruiken voor het installeren en configureren van Apache. 
+Wanneer u een virtuele machine maakt, worden certificaten en sleutels opgeslagen in de beveiligde */var/lib/waagent/* directory. Gebruik cloud-init voor het automatiseren van het toevoegen van het certificaat aan de virtuele machine en het configureren van de webserver. In dit voorbeeld installeert en configureert u de NGINX-webserver. U kunt hetzelfde proces gebruiken voor het installeren en configureren van Apache. 
 
 Maak een bestand met de naam *cloud-init-web-server.txt* en plak de volgende configuratie:
 
@@ -110,7 +110,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Een beveiligde virtuele machine maken
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). De gegevens van het certificaat wordt geïnjecteerd uit de Sleutelkluis met de `--secrets` parameter. U kunt doorgeven in de cloud init-configuratie met de `--custom-data` parameter:
+Maak een virtuele machine met [az vm create](/cli/azure/vm#create). De gegevens van het certificaat worden geïnjecteerd uit de Sleutelkluis met de parameter `--secrets`. U kunt de cloud init-configuratie doorgeven met de parameter `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,9 +123,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot uw site in een webbrowser.
+Het duurt enkele minuten voordat de virtuele machine wordt gemaakt, de pakketten worden geïnstalleerd en de app gestart. Wanneer de virtuele machine is gemaakt, let op de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot uw site in een webbrowser.
 
-Zodat beveiligde webverkeer bereiken van uw virtuele machine poort 443 openen vanaf het Internet met [az vm open poort](/cli/azure/vm#open-port):
+Zodat beveiligde webverkeer uw virtuele machine bereiken kan, open poort 443 vanaf het Internet met [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -136,26 +136,27 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testen van de beveiligde web-app
-Nu kunt u een webbrowser openen en voer *https://<publicIpAddress>*  in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. De beveiligingswaarschuwing accepteren als u een zelfondertekend certificaat gebruikt:
+Nu kunt u een webbrowser openen en *https://<publicIpAddress>*  in de adresbalk invoeren. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. Als u een zelfondertekend certificaat gebruikt, aanvaardt u de beveiligingswaarschuwing:
 
 ![Beveiligingswaarschuwing voor web browser accepteren](./media/tutorial-secure-web-server/browser-warning.png)
 
 Uw beveiligde NGINX-site wordt vervolgens weergegeven zoals in het volgende voorbeeld:
 
-![Actief beveiligde NGINX-site weergeven](./media/tutorial-secure-web-server/secured-nginx.png)
+![Beveiligde actieve NGINX-site weergeven](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt beveiligd u een NGINX-webserver met een SSL-certificaat dat is opgeslagen in Azure Sleutelkluis. U hebt geleerd hoe u:
+In deze zelfstudie heeft u een NGINX-webserver beveiligd met een SSL-certificaat dat is opgeslagen in Azure Key Vault. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Maken van een Azure Sleutelkluis
-> * Genereren of een certificaat uploaden naar de Sleutelkluis
+> * Een Azure Key Vault maken
+> * Een certificaat genereren of uploaden naar de Key Vault
 > * Een virtuele machine maken en de NGINX-webserver installeren
 > * Het certificaat invoeren in de virtuele machine en NGINX configureren met een SSL-binding
 
-Volg deze link om te zien van de vooraf gemaakte virtuele machine scriptvoorbeelden.
+Volg deze link om voorbeelden te zien van vooraf gemaakte virtuele machinescripts.
 
 > [!div class="nextstepaction"]
-> [Windows virtuele machine scriptvoorbeelden](./cli-samples.md)
+> [Voorbeelden van virtuele Linux-machines](./cli-samples.md)
+

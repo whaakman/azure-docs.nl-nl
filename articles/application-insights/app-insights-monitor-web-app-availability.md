@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -30,6 +30,12 @@ Er zijn twee soorten beschikbaarheidstests:
 * [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Enterprise maken en uploaden naar de portal.
 
 Per toepassingsresource kunt u maximaal 100 beschikbaarheidstests maken.
+
+
+> [!NOTE] 
+> * De locaties voor de beschikbaarheidstest zijn onlangs verplaatst naar de datacenters van Azure. Hierdoor kunnen locaties worden toegevoegd voor het toenemende netwerk van Azure-datacenters.  
+> * U hoeft geen tests bij te werken. Alle tests worden gemigreerd en uitgevoerd vanaf de nieuwe locaties. 
+>* Raadpleeg de [service-update](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) voor meer informatie.
 
 ## <a name="create"></a>Een resource openen voor uw beschikbaarheidstestrapporten
 
@@ -118,7 +124,8 @@ U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld 
 Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio Enterprise en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
 
 > [!NOTE]
-> U kunt in uw tests geen gecodeerde functies of lussen gebruiken. De test moet volledig zijn opgenomen in het .webtest-script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
+> * U kunt in uw tests geen gecodeerde functies of lussen gebruiken. De test moet volledig zijn opgenomen in het .webtest-script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
+> * Alleen Engelse tekens worden ondersteund in de webtest met meerdere stappen. Als u Visual Studio in andere talen gebruikt, werkt u het definitiebestand van de webtest bij om niet-Engelse tekens te vertalen of uit te sluiten.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Een scenario opnemen

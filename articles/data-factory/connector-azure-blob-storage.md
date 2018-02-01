@@ -1,6 +1,6 @@
 ---
-title: "Gegevens kopiëren naar/van Azure Blob Storage met behulp van de Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van ondersteunde bron gegevensarchieven naar Azure Blob-opslag (of) van Blob Storage tot gegevensarchieven ondersteunde sink gebruik Data Factory."
+title: "Kopiëren van gegevens of naar Azure Blob-opslag met behulp van de Data Factory | Microsoft Docs"
+description: "Informatie over het kopiëren van gegevens van ondersteunde bron gegevensarchieven naar Azure Blob-opslag, of van Blob-opslag naar gegevensarchieven ondersteunde sink, met behulp van Data Factory."
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -9,51 +9,51 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 512ac1d9423ed76486a131ccd8c871fe56fcf7d1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 199f3f98f71dcc9eb5f7f3338547870f215d3d64
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure Blob Storage met behulp van Azure Data Factory
+# <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure Blob-opslag met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-azure-blob-connector.md)
+> * [Versie 1 - algemeen beschikbaar](v1/data-factory-azure-blob-connector.md)
 > * [Versie 2 - Preview](connector-azure-blob-storage.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar en van Azure Blob Storage. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren naar en van Azure Blob-opslag. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de Kopieeractiviteit.
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Azure Blog van Storage connnector in V1](v1/data-factory-azure-blob-connector.md).
+> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Blob storage-connector in versie 1](v1/data-factory-azure-blob-connector.md).
 
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens van alle ondersteunde brongegevensarchief kopiëren naar Azure Blob-opslag of gegevens uit Azure Blob Storage kopiëren naar een ondersteunde sink-gegevensarchief. Voor een lijst met opgeslagen gegevens die worden ondersteund als bronnen / of PUT door de kopieeractiviteit, Zie de [ondersteunde gegevensarchieven](copy-activity-overview.md) tabel.
+U kunt gegevens uit alle ondersteunde brongegevensarchief kopiëren naar Blob storage. U kunt ook gegevens uit Blob storage kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst met gegevensarchieven die als bronnen of PUT worden ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md) tabel.
 
-In het bijzonder ondersteunt deze Azure Blob-connector:
+In het bijzonder ondersteunt deze Blob-opslag-connector:
 
-- Bezig met het kopiëren van de blobs naar/van zowel algemeen Azure Storage-accounts als Hot/Cool Blob-opslag. 
-- Kopiëren van BLOB's met zowel **accountsleutel** en **Service-SAS** authenticaties (Shared Access Signature).
-- Kopiëren van BLOB's **vanuit blok, toevoegen of pagina-blobs**, gegevens en kopiëren **naar alleen blok-blobs**. Azure Premium-opslag wordt niet ondersteund als een sink omdat het wordt ondersteund door de pagina-blobs.
-- Kopiëren van BLOB's als-is of bij het parseren van/genereren van BLOB's met de [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md).
+- Blobs en naar Azure opslagaccounts en hot/cool blob-opslag worden gekopieerd. 
+- Kopiëren van BLOB's met behulp van zowel accountsleutel als service gedeeld access signature-verificaties.
+- Kopiëren blobs uit blok, toevoegen of pagina-blobs en kopiëren van gegevens naar alleen blok-blobs. Azure Premium-opslag wordt niet ondersteund als een sink omdat het wordt ondersteund door de pagina-blobs.
+- Kopiëren van BLOB's is of parseren of genereren met blobs [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Azure Blob Storage.
+De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Blob storage.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-### <a name="using-account-key"></a>Met behulp van sleutel-account
+### <a name="use-an-account-key"></a>De sleutel van een account gebruiken
 
-U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleutel, die de gegevensfactory met globale toegang tot Azure Storage biedt. De volgende eigenschappen worden ondersteund:
+U kunt een gekoppelde Storage-service maken met behulp van de accountsleutel. Het biedt de gegevensfactory globale toegang tot opslag. De volgende eigenschappen worden ondersteund.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **AzureStorage** |Ja |
-| connectionString | Geef informatie op die nodig zijn voor het verbinding maken met Azure-opslag voor de eigenschap connectionString. Dit veld markeren als een SecureString. |Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+| type | De eigenschap type moet worden ingesteld op **AzureStorage**. |Ja |
+| connectionString | Geef de benodigde informatie om verbinding maken met de opslag voor de eigenschap connectionString. Dit veld markeren als SecureString. |Ja |
+| connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie-Runtime gebruiken (als uw gegevensarchief zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 **Voorbeeld:**
 
@@ -76,26 +76,27 @@ U kunt een gekoppelde Azure Storage-service maken met behulp van de accountsleut
 }
 ```
 
-### <a name="using-service-sas-authentication"></a>Service-SAS-verificatie
+### <a name="use-service-shared-access-signature-authentication"></a>Gebruik service shared access signature-verificatie
 
-U kunt ook een gekoppelde Azure Storage-service maken met behulp van een Shared Access Signature (SAS), waardoor de gegevensfactory met beperkte/tijdsgebonden toegang tot alle/specifieke bronnen (blobcontainer) / in de opslag.
+U kunt ook een gekoppelde Storage-service maken met behulp van een shared access signature. Het biedt de gegevensfactory beperkt/tijdsgebonden toegang tot alle/specifieke bronnen, (blobcontainer) / in de opslag.
 
-Een Shared Access Signature (SAS) biedt gedelegeerde toegang tot bronnen in uw opslagaccount. Met SAS, verleent u dat een client beperkte machtigingen voor objecten in uw storage-account voor een opgegeven periode, zonder dat voor het delen van de toegangssleutels van uw account. De SAS is een URI die de gegevens die zijn vereist voor geverifieerde toegang tot een opslagresource, in de queryparameters omvat. Voor toegang tot de storage-resources met de SA's, moet de client alleen worden doorgegeven in de SA's aan de juiste constructor of methode. Zie voor gedetailleerde informatie over SAS [Shared Access Signatures: inzicht in het SAS-Model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Een shared access signature biedt gedelegeerde toegang tot bronnen in uw opslagaccount. U kunt een shared access signature verlenen dat een client beperkte machtigingen voor objecten in uw storage-account voor een opgegeven periode. U hoeft niet te delen van de toegangssleutels van uw account. De shared access signature is een URI die de gegevens die zijn vereist voor geverifieerde toegang tot een opslagresource, in de queryparameters omvat. Voor toegang tot resources met de shared access signature storage, moet de client alleen om door te geven in de handtekening voor gedeelde toegang tot de juiste constructor of methode. Zie voor meer informatie over handtekeningen voor gedeelde toegang [handtekeningen voor gedeelde toegang: inzicht in het shared access signature-model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!IMPORTANT]
-> Azure Data Factory nu ondersteunt alleen het **Service-SAS** maar geen Account-SAS. Zie [typen van handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) voor meer informatie over deze twee typen en bouwen. De SAS-URL die is gegenereerd op basis van de Azure portal of Opslagverkenner is een SAS-Account, wat niet wordt ondersteund.
+> Data Factory ondersteunt nu alleen handtekeningen voor gedeelde service toegang maar geen account gedeelde handtekeningen voor toegang. Zie voor meer informatie over deze twee typen en het maken van deze [typen handtekeningen voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). De shared access signature-URL is gegenereerd op basis van de Azure portal of Azure Storage Explorer is een shared access signature van account, die wordt niet ondersteund.
 
 > [!TIP]
-> U kunt de onderstaande PowerShell-opdrachten voor het genereren van een SAS-Service voor uw opslagaccount (vervangen de houders van de locatie en de benodigde machtiging grant) uitvoeren:`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> U kunt de volgende PowerShell-opdrachten voor het genereren van een service shared access signature voor uw opslagaccount kunt uitvoeren. Vervang de tijdelijke aanduidingen en de benodigde machtiging verlenen.
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Service-SAS om verificatie te gebruiken, zijn de volgende eigenschappen worden ondersteund:
+Voor het gebruik van shared access signature-verificatie van de service worden de volgende eigenschappen ondersteund.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **AzureStorage** |Ja |
-| sasUri | Shared Access Signature URI voor de Azure Storage-resources zoals blob-container of tabel opgeven. Dit veld markeren als een SecureString. |Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+| type | De eigenschap type moet worden ingesteld op **AzureStorage**. |Ja |
+| sasUri | Geef de shared access signature URI de Storage-resources, zoals de blob-container of tabel. Dit veld markeren als SecureString. |Ja |
+| connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt de Runtime van de integratie van Azure of de Self-hosted integratie-Runtime gebruiken (als uw gegevensarchief bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 **Voorbeeld:**
 
@@ -118,25 +119,25 @@ Service-SAS om verificatie te gebruiken, zijn de volgende eigenschappen worden o
 }
 ```
 
-Bij het maken van een **SAS-URI**, met inbegrip van de volgende punten:
+Wanneer u een shared access signature URI maakt, houd rekening met de volgende punten:
 
-- Stel de juiste lezen/schrijven **machtigingen** op objecten op basis van hoe de gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw gegevensfactory.
-- Stel **verlooptijdstip** op de juiste wijze. Zorg ervoor dat de toegang tot Azure Storage-objecten niet binnen een actieve periode van de pijplijn verloopt.
-- URI moet worden gemaakt op de juiste container/blob of tabelniveau op basis van de behoeften. Een SAS-Uri met een Azure-blob kan de Data Factory-service voor toegang tot bepaalde blob. Een SAS-Uri naar een Azure blob-container kan de Data Factory-service om te doorlopen blobs in de container. Als u wilt toegang later meer/minder objecten bieden of bijwerken van de SAS-URI, moet u bij het bijwerken van de gekoppelde service met de nieuwe URI.
+- Juiste lezen/schrijven-machtigingen voor objecten op basis van hoe de gekoppelde service (lezen, schrijven, lezen/schrijven) wordt gebruikt in uw data factory instellen.
+- Stel **verlooptijdstip** op de juiste wijze. Zorg ervoor dat de toegang tot opslagobjecten niet binnen een actieve periode van de pijplijn verloopt.
+- De URI moet worden gemaakt op het juiste container/blob of tabel op basis van de behoeften. Een shared access signature URI naar een blob kan Data Factory voor toegang tot bepaalde blob. Een shared access signature URI naar een Blob storage-container kunt Data Factory om te doorlopen blobs in de container. Voor toegang tot later meer of minder objecten of bijwerken van de shared access signature URI, vergeet niet bijwerken van de gekoppelde service met de nieuwe URI.
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Blob-gegevensset.
+Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Blob-opslag-gegevensset.
 
-Om gegevens te kopiëren naar/van Azure Blob, stel de eigenschap type van de gegevensset **AzureBlob**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren naar en van Blob-opslag, stel de eigenschap type van de gegevensset **AzureBlob**. De volgende eigenschappen worden ondersteund.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op: **AzureBlob** |Ja |
-| folderPath | Pad naar de container en map in blob storage. Voorbeeld: myblobcontainer/myblobfolder / |Ja |
-| fileName | Geef de naam van de blob in de **folderPath** als u wilt kopiëren naar/van een specifieke blob. Als u geen waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle blobs in de map.<br/><br/>Wanneer de bestandsnaam niet wordt opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in activiteit sink kopieeractiviteit genereert automatisch de blobnaam van de met de volgende indeling: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Bijvoorbeeld: `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |Nee |
-| Indeling | Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de sectie indeling in de definities van beide invoer en uitvoer gegevensset.<br/><br/>Als u wilt parseren of bestanden met een specifieke indeling genereren, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [parketvloeren indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor scenario binaire kopiëren) |
-| Compressie | Geef het type en de compressie van de gegevens. Zie voor meer informatie [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus: **optimale** en **snelst**. |Nee |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op **AzureBlob**. |Ja |
+| folderPath | Het pad naar de container en map in blob storage. Een voorbeeld is myblobcontainer/myblobfolder /. |Ja |
+| fileName | Geef de naam van de blob in **folderPath** als u kopiëren van wilt en naar een specifieke blob. Als u een waarde voor deze eigenschap niet opgeeft, wordt de gegevensset verwijst naar alle blobs in de map.<br/><br/>Wanneer de bestandsnaam is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** is niet opgegeven in de sink activiteit met de kopieerbewerking wordt automatisch gegenereerd met de blobnaam van de met de volgende indeling: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Een voorbeeld is `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |Nee |
+| Indeling | Als u wilt kopiëren van bestanden tussen winkels op basis van bestanden (binaire kopiëren) is, moet u de sectie indeling in zowel de definities van de invoer en uitvoer gegevensset overslaan.<br/><br/>Als u wilt parseren of bestanden met een specifieke indeling genereren, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en **ParquetFormat**. Stel de **type** eigenschap onder **indeling** op een van deze waarden. Zie voor meer informatie de [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [JSON-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [parketvloeren indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor scenario binaire kopiëren) |
+| Compressie | Geef het type en de compressie van de gegevens. Zie voor meer informatie [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus zijn **optimale** en **snelst**. |Nee |
 
 **Voorbeeld:**
 
@@ -166,18 +167,18 @@ Om gegevens te kopiëren naar/van Azure Blob, stel de eigenschap type van de geg
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Blob-bron- en sink.
+Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de bron van Blob-opslag- en sink.
 
-### <a name="azure-blob-as-source"></a>Azure Blob als bron
+### <a name="blob-storage-as-a-source-type"></a>BLOB storage als een type gegevensbron
 
-Om gegevens te kopiëren van Azure-Blob, stelt u het brontype in de kopieerbewerking naar **BlobSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van Blob-opslag, stelt u het brontype in de kopieerbewerking naar **BlobSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **BlobSource** |Ja |
-| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Opmerking Wanneer recursieve is ingesteld op true en sink is bestandsgebaseerde opslag, lege map/subbewerkingen-folder niet worden gekopieerd/gemaakt op de sink.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
+| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **BlobSource**. |Ja |
+| Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. Houd er rekening mee dat wanneer recursieve is ingesteld op true en de sink is een archief op basis van bestanden, een lege map of submap is niet gekopieerd of gemaakt op de sink.<br/>Toegestane waarden zijn **true** (standaard) en **false**. | Nee |
 
 **Voorbeeld:**
 
@@ -211,14 +212,14 @@ Om gegevens te kopiëren van Azure-Blob, stelt u het brontype in de kopieerbewer
 ]
 ```
 
-### <a name="azure-blob-as-sink"></a>Azure Blob als sink
+### <a name="blob-storage-as-a-sink-type"></a>BLOB storage als sink-type
 
-Om gegevens te kopiëren naar Azure Blob, stelt u het sink-type in de kopieerbewerking naar **BlobSink**. De volgende eigenschappen worden ondersteund in de **sink** sectie:
+Om gegevens te kopiëren naar Blob storage, stelt u het sink-type in de kopieerbewerking naar **BlobSink**. De volgende eigenschappen worden ondersteund in de **sink** sectie.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **BlobSink** |Ja |
-| copyBehavior | Definieert het gedrag kopiëren wanneer de bron-bestanden van het gegevensarchief op basis van bestanden.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand naar de bronmap is identiek aan het relatieve pad van doelbestand naar doelmap.<br/><b>-FlattenHierarchy</b>: alle bestanden uit de bronmap zijn in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde naam. <br/><b>-MergeFiles</b>: alle bestanden uit de bronmap op één bestand worden samengevoegd. Als de naam van het bestand/de opgegeven Blob is opgegeven, zijn de samengevoegde bestandsnaam de opgegeven naam; anders zou worden automatisch gegenereerde naam. | Nee |
+| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op **BlobSink**. |Ja |
+| copyBehavior | Definieert het gedrag kopiëren wanneer de bron-bestanden van een bestand gebaseerde gegevensarchief.<br/><br/>Toegestane waarden zijn:<br/><b>-PreserveHierarchy (standaard)</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand naar de bronmap is identiek aan het relatieve pad van doelbestand naar doelmap.<br/><b>-FlattenHierarchy</b>: alle bestanden uit de bronmap zijn in het eerste niveau van de doelmap. De doelbestanden hebben automatisch gegenereerde naam. <br/><b>-MergeFiles</b>: alle bestanden uit de bronmap op één bestand worden samengevoegd. Als de naam van het bestand of blob is opgegeven, is de samengevoegde bestandsnaam de opgegeven naam. Anders is de naam van een automatisch gegenereerd. | Nee |
 
 **Voorbeeld:**
 
@@ -252,18 +253,18 @@ Om gegevens te kopiëren naar Azure Blob, stelt u het sink-type in de kopieerbew
 ]
 ```
 
-### <a name="recursive-and-copybehavior-examples"></a>Voorbeelden van recursieve en copyBehavior
+### <a name="some-recursive-and-copybehavior-examples"></a>Enkele voorbeelden van recursieve en copyBehavior
 
 Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor verschillende combinaties van recursieve en copyBehavior waarden.
 
 | Recursieve | copyBehavior | Structuur van de gegevensbron | Resulterende doel |
 |:--- |:--- |:--- |:--- |
-| waar |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met dezelfde structuur als de bron:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| waar |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met dezelfde structuur als de bron:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | waar |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File5 |
-| waar |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 bestand2 + bestand3 + File4 + bestand 5 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam |
-| onwaar |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
-| onwaar |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
-| onwaar |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| waar |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 bestand2 + bestand3 + File4 + File5 inhoud worden samengevoegd in één bestand met een automatisch gegenereerde naam. |
+| onwaar |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgenomen. |
+| onwaar |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgenomen. |
+| onwaar |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + bestand2 inhoud worden samengevoegd in één bestand met een automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 is niet opgenomen. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).
+Zie voor een lijst van gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Gegevensfactory [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

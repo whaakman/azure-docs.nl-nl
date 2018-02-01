@@ -1,6 +1,6 @@
 ---
-title: Een internetgerichte load balancer maken - Azure CLI | Microsoft Docs
-description: Meer informatie over hoe u met de Azure CLI een internetgerichte load balancer maakt in Resource Manager
+title: Een openbare load balancer maken - Azure CLI | Microsoft Docs
+description: Meer informatie over het maken van een openbare load balancer met behulp van Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Een internetgerichte load balancer maken met behulp van de Azure CLI
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Een openbare load balancer maken met behulp van Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Azure-CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-Dit artikel is van toepassing op het Resource Manager-implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met de klassieke implementatie](load-balancer-get-started-internet-classic-portal.md)
+Dit artikel is van toepassing op het Resource Manager-implementatiemodel. Hier vindt u [meer informatie over hoe u een openbare load balancer maakt met behulp van de klassieke implementatie](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>De oplossing implementeren met de Azure CLI
 
-De volgende stappen laten zien hoe u Azure Resource Manager gebruikt om een internetgerichte load balancer te maken met behulp van CLI. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een resource te maken.
+De volgende stappen laten zien hoe u Azure Resource Manager gebruikt om een openbare load balancer te maken met behulp van CLI. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een resource te maken.
 
 U moet de volgende objecten maken en configureren om een load balancer te implementeren:
 

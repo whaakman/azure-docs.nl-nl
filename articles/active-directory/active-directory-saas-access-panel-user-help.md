@@ -1,6 +1,6 @@
 ---
-title: Wilt u hulp nodig bij de portal voor mijn Apps in Azure Active Directory | Microsoft Docs
-description: Instructies voor het uitvoeren van algemene taken bij het werken met het toegangsvenster ophalen.
+title: Hulp bij het openen en gebruiken van de portal voor mijn Apps in Azure Active Directory | Microsoft Docs
+description: Hulp bij het aanmelden bij en veelvoorkomende taken uitvoeren in het deelvenster toegang.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,123 +15,109 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>Moet u helpen bij de portal voor mijn Apps?
+# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Problemen oplossen met toegang tot en met behulp van de portal mijn Apps
 
-U hebt deze pagina waarschijnlijk bereikt omdat u helaas in een probleem uitvoert wanneer u de portal mijn Apps. Hoewel er gevallen moet u contact op met de helpdesk of uw beheerder om een probleem is opgelost, vindt hier u enkele onderwerpen voor probleemoplossing die kan helpen eerst mogelijk.
+Als u problemen met aanmelden bij of met behulp van de portal voor mijn Apps ondervindt, kunt u deze tips voor het oplossen voordat u contact opneemt met de helpdesk of beheerder voor hulp.
 
 ## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Ik ondervind problemen bij het aanmelden bij de portal mijn Apps
 
-Algemene problemen om te controleren:
+Probeer deze algemene tips:
 
-- Controleer als u bij de juiste URL aanmeldt zich: [https://myapps.microsoft.com](https://myapps.microsoft.com)
-
+- Eerst moet controleren om te zien of u van de juiste URL gebruikmaakt [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Probeer de URL van uw browser vertrouwde sites toevoegen.
-
-- Zorg ervoor dat uw wachtwoord niet is verlopen of is vergeten. Controleer [hier](active-directory-passwords-update-your-own-password.md) voor meer informatie over hoe u uw wachtwoord bij te werken.
-
-- Controleer of uw contactgegevens bij verificatie is up-to-date is en de toegang niet blokkeert. Controleer [hier](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) voor meer informatie over het instellen van de verificatie voor je account.
-
+- Zorg ervoor dat uw wachtwoord juist is en niet is verlopen. Zie voor meer informatie [uw werk of school-wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md).
+- Controleren om ervoor te zorgen dat uw contactgegevens verificatie up-to-date is en de toegang niet blokkeert. Zie voor meer informatie [wat Azure multi-factor Authentication betekent voor mij?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 - Cookies van uw browser te wissen en probeer het vervolgens opnieuw aan te melden.
 
-Als u nog steeds er problemen zijn tijdens het aanmelden, neem voor verdere assistentie contact op met uw beheerder.
+Als u nog steeds er problemen zijn tijdens het aanmelden, moet u contact op met uw beheerder.
 
 
-## <a name="how-do-i-update-my-password"></a>Hoe kan ik mijn wachtwoord bijwerken?
+## <a name="i-seem-to-be-having-password-issues"></a>Ik lijken te ondervindt problemen met wachtwoord
 
-Als u uw wachtwoord bent vergeten, nooit ontvangen van uw IT-personeel, is vergrendeld aan uw account of wilt wijzigen, Zie [hulp nodig hebt, ik ben mijn Azure AD-wachtwoord vergeten](active-directory-passwords-update-your-own-password.md) voor meer informatie.
+Als u uw wachtwoord bent vergeten, nooit van uw IT-personeel ontvangen, uw account zijn vergrendeld of uw wachtwoord wilt wijzigen, Zie [hulp nodig hebt, ik ben mijn Azure AD-wachtwoord vergeten](active-directory-passwords-update-your-own-password.md).
 
-## <a name="how-do-i-register-for-password-reset"></a>Hoe kan ik registreren voor wachtwoordherstel
+## <a name="i-need-to-register-for-password-reset"></a>Ik moet registreren voor wachtwoordherstel
 
-Als een eindgebruiker, kunt u uw wachtwoord opnieuw instellen of uw account ontgrendelen zonder contact op met de selfservice voor wachtwoordherstel (SSPR) met behulp van een persoon. Voordat u deze functie kunt gebruiken, moet u verificatiemethoden registreren of de vooraf gedefinieerde verificatiemethoden bevestigen die uw beheerder heeft ingevuld. Zie voor meer informatie [registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+U kunt uw wachtwoord opnieuw instellen of uw account ontgrendelen zonder contact op met iemand met behulp van de selfservice voor wachtwoordherstel (SSPR). Voordat u deze functionaliteit gebruiken kunt, moet u uw verificatiemethoden registreren of de vooraf gedefinieerde verificatiemethoden die uw beheerder moet bevestigen. Zie voor meer informatie [registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Ik ondervind problemen bij het installeren van de extensie mijn Apps beveiligen aanmelden
 
-Controleer of u voldoet aan de vereisten voor browsers:
+De portal voor mijn Apps vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Als u op basis van wachtwoorden eenmalige aanmelding apps gebruikt, moet u ook de bijbehorende uitbreiding geïnstalleerd. Deze extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor op basis van wachtwoorden eenmalige aanmelding apps start.
 
-- De portal is een browser die JavaScript ondersteunt vereist en CSS is ingeschakeld. Als u op basis van wachtwoorden eenmalige aanmelding apps gebruikt, moet u ook de bijbehorende uitbreiding geïnstalleerd. Deze extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor op basis van wachtwoorden eenmalige aanmelding apps starten.
+Controleren om ervoor te zorgen dat u voldoet aan de volgende browservereisten:
+- **Rand**: verjaardagseditie van Windows 10 of hoger.
+- **Chrome**: Windows 7 of hoger, en op Mac OS X of hoger.
+- **Firefox 26,0 of hoger**: Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
+- **Internet Explorer 8, 9, 10, 11**: op Windows 7 of hoger (beperkte ondersteuning).
 
-- De browservereisten voor de uitbreiding zijn:
-    - Rand verjaardagseditie van Windows 10 of hoger
-    - Chrome op Windows 7 of hoger, en op Mac OS X of hoger
-    - Firefox 26,0 op Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger
-    - Internet Explorer 8, 9, 10, 11 op Windows 7 of hoger (beperkte ondersteuning)
-
-U kunt ook de uitbreiding voor Chrome en rand downloaden via de rechtstreekse koppelingen hieronder:
+U kunt ook de uitbreiding downloaden voor Chrome en rand rechtstreeks vanuit de volgende sites:
 
 - [Chrome-uitbreiding](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Edge-uitbreiding](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Nadat de installatie de volgende stappen uit als er problemen zijn:
+Als u de uitbreiding hebt geïnstalleerd en nog steeds problemen ondervindt, probeert u het volgende:
 
-- Controleer in de instellingen van uw browser extensie dat de extensie is ingeschakeld.
-
+- Controleer uw browserinstellingen extensie om ervoor te zorgen dat de extensie is ingeschakeld.
 - Start uw browser en meld u aan bij de portal mijn Apps.
-
 - Cookies van uw browser te wissen en meld u aan bij de portal mijn Apps.
-- Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) handleiding voor toegang voor een hulpprogramma voor diagnostische gegevens en stapsgewijze instructies over het configureren van de extensie voor IE.
+- Zie voor toegang tot een hulpprogramma voor diagnostische gegevens en stapsgewijze instructies over het configureren van de uitbreiding voor Internet Explorer, [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Hoe gebruik ik de extensie mijn Apps beveiligen aanmelden?
-Het wijzigen van de standaard-URL voor mijn Apps voor de extensie
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Gebruik de mijn Apps beveiligen aanmelden extensie
+* Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, standaard-URL configureren door het volgende te doen:
+   1. Terwijl u bent *niet* aangemeld bij de extensie, met de rechtermuisknop op het pictogram extensie.
+   2. Selecteer in het menu **URL voor mijn Apps**.
+   3. Selecteer uw standaard-URL.
+   4. Selecteer het pictogram extensie.
+   5. Als u wilt aanmelden bij de extensie, selecteer **melden aan de slag**.
 
-Als u van een andere mijn Apps URL dan https://myapps.microsoft.com gebruikmaakt vervolgens moet u uw standaard-URL echter de volgende stappen uit:
-1. Terwijl niet aangemeld bij de extensie **Klik met de rechtermuisknop** het extensie-pictogram.
-2. Klik op **URL voor mijn Apps selecteren** in het menu.
-3. **Selecteer** uw standaard-URL.
-4. Klik op het pictogram extensie.
-5. Aanmelden bij de extensie door te selecteren **melden aan de slag**.
+* Om aan te melden rechtstreeks naar een app van de browser, het volgende doen:
+   1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
+   2. Aanmelden bij de app met de aanmeldings-URL.  
+       De aanmeldings-URL is meestal de URL van de app die het formulier aanmeldingspagina wordt weergegeven.
+      De extensie moet een statuswijziging en laat u weten dat een wachtwoord beschikbaar is.
+   3. Als u wilt aanmelden, selecteer het extensie-pictogram.
 
-Meld u aan rechtstreeks in een app van de browser
-1. Na de installatie van de extensie, aanmelding bij de extensie door te selecteren **melden aan de slag**.
-2. Navigeer naar de **aanmelding URL** van de app die u aanmelden wilt bij dit wordt meestal de URL van de app die wordt weergegeven het aanmeldingsformulier.
-3. De extensie moet een statuswijziging en kunt u dat een wachtwoord verkrijgbaar is, klikt u op de **extensie pictogram** aan te melden
-
-Een app van de extensie openen
-1. Na de installatie van de extensie, aanmelding bij de extensie door te selecteren **melden aan de slag**.
-2. Klik op het pictogram extensie om het menu te openen.
-3. **Search** voor een app in de portal voor mijn Apps beschikbaar.
-4. Klik op de app vanuit de **zoekresultaten** zodat deze toepassing.
-5. De laatste drie apps gestart wordt ook weergegeven in de **recent gebruikte** snelkoppeling lijst
+* Voor het starten van een app van de extensie, het volgende doen:
+   1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
+   2. Selecteer het pictogram extensie om het menu te openen.
+   3. Zoeken naar een app die beschikbaar is in de portal voor mijn Apps.
+   4. Selecteer de app in de lijst met zoekresultaten.  
+       De laatste drie apps die u hebt gebruikt, worden weergegeven in de **recent gebruikte** snelkoppeling lijst.
 
 > [!NOTE]
-> Deze opties zijn alleen beschikbaar voor de rand, Chrome, Firefox.
+> Deze opties zijn alleen beschikbaar voor rand en Chrome, Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Hoe kan ik een nieuwe app toevoegen
 
-1.  Op de **Apps** pagina, klikt u op **App toevoegen**.
+1.  Op de **Apps** pagina **App toevoegen**.
+2.  Zoeken naar de app die u wilt toevoegen en selecteer vervolgens **toevoegen**.
 
-2.  De app die u wilt toevoegen en klik vervolgens op Zoeken **toevoegen**.
-
-**Opmerkingen:**
-
-- U hebt alleen toegang tot deze optie als de beheerder deze heeft ingeschakeld voor uw account.
-
-- Als de app heeft een machtiging nodig, moet u mogelijk wachten op goedkeuring van de beheerder.
-
+   > [!NOTE]
+   > * Alleen als de beheerder deze heeft ingeschakeld voor uw account, kunt u deze optie openen.
+   > * Als de app heeft een machtiging nodig, moet u mogelijk wachten op goedkeuring van de beheerder.
+   > 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Hoe beheer ik mijn groepslidmaatschappen?
 
-1. Klik op de **groepen** tegel. 
-2. Als u wilt maken van een groep, onder de groepen die ik eigenaar bent, klikt u op **groep maken**, en volg de instructies.
-3. Als u wilt deelnemen aan een groep, onder de groepen die ik in, klikt u op **lid worden van groep**, en volg de instructies.
+Selecteer de **groepen** tegel en voert u een van de volgende: 
+* Een groep te maken, klikt u onder **groepen ik eigenaar**, selecteer **groep maken**, en volg de instructies.
+* Lid worden van een groep onder **groepen in de**, selecteer **lid worden van groep**, en volg de instructies.
 
-**Opmerkingen:**
-
-- U hebt alleen toegang tot deze optie als de beheerder deze heeft ingeschakeld voor uw account.
-
-- U lid van zijn groepen kunnen u details weergeven en zorgt dat de groep.
-
-- Kunt u meer informatie weergeven groepen waarvoor u een eigenaar van het toevoegen of verwijderen van leden en zorgt dat de groep.
+   > [!NOTE]
+   > * Alleen als de beheerder deze heeft ingeschakeld voor uw account, kunt u deze optie openen.
+   > * Als u lid zijn van een groep, kunt u details weergeven en zorgt dat de groep.
+   > * Als u een eigenaar van een groep, kunt u details weergeven, toevoegen of verwijderen van leden en zorgt dat de groep.
+   >
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor informatie over het oplossen van problemen [problemen bij het gebruik van de toepassing toegang Configuratiescherm website of mobiele toepassingen](active-directory-application-access-panel-content-map.md)
+Zie voor meer informatie over probleemoplossing [problemen bij het gebruik van de toepassing toegang Configuratiescherm website of mobiele toepassing](active-directory-application-access-panel-content-map.md).
 

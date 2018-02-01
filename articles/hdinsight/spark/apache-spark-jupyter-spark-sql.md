@@ -1,7 +1,7 @@
 ---
 title: Een Apache Spark-cluster maken in Azure HDInsight | Microsoft Docs
-description: HDInsight Spark-QuickStart over het maken van een Apache Spark-cluster in HDInsight.
-keywords: spark-QuickStart,interactieve spark,interactieve query,hdinsight spark,azure spark
+description: HDInsight Spark-snelstartgids over het maken van een Apache Spark-cluster in HDInsight.
+keywords: spark-snelstartgids,interactieve spark,interactieve query,hdinsight spark,azure spark
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2017
+ms.date: 01/18/2018
 ms.author: jgao
-ms.openlocfilehash: 516c48424ef5d1256296240541fb544c1e5d9205
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Een Apache Spark-cluster maken in Azure HDInsight
 
@@ -50,7 +50,7 @@ U maakt een HDInsight Spark-cluster met behulp van een [Azure Resource Manager-s
     * **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
     * **SSH-aanmeldgegevens**.
 
-3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden**, selecteer **Vastmaken aan dashboard** en klik op **Kopen**. U ziet een nieuwe tegel met de titel Implementatie indienen voor Sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster te maken.
+3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden**, selecteer **Vastmaken aan dashboard** en klik op **Kopen**. U ziet een nieuwe tegel met de titel **Implementatie van sjabloonimplementatie**. Het duurt ongeveer 20 minuten om het cluster te maken.
 
 Als u een probleem ondervindt met het maken van HDInsight-clusters, beschikt u mogelijk niet over de juiste machtigingen om dit te doen. Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#create-clusters) voor meer informatie.
 
@@ -69,7 +69,7 @@ Als u een probleem ondervindt met het maken van HDInsight-clusters, beschikt u m
 
 2. Open de Apache Spark-cluster die u hebt gemaakt. Zie [Clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters) voor instructies.
 
-3. Klik in **Snelkoppelingen** op **Clusterdashboards** en klik vervolgens op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
+3. Klik in het portal op **Clusterdashboards** en vervolgens op **Jupyter-notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
    ![Jupyter Notebook openen om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook openen om de interactieve Apache Spark SQL-query uit te voeren")
 
@@ -99,18 +99,29 @@ Zie [Interactieve query's uitvoeren op Apache Spark-clusters in HDInsight](apach
 
 **Apache Spark SQL uitvoeren**
 
-1.  Plak de volgende code uit de notebook in een lege cel en druk op **Shift+Enter** om de code uit te voeren. 
+1. Wanneer u de notebook voor het eerst start, voert de kernel enkele taken in de achtergrond uit. Wacht tot de kernel gereed is. Wanneer u een lege cirkel naast de naam van de kernel in de notebook ziet, is de kernel gereed. Gevulde cirkel geeft aan dat de kernel bezet is.
+
+    ![Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive-query in HDInsight Spark")
+
+2. Wanneer de kernel gereed is, plakt u de volgende code in een lege cel en drukt u op **Shift+Enter** om de code uit te voeren. In de uitvoer moet een `hivesampletable` worden vermeld die standaard in het cluster beschikbaar is.
 
     ```PySpark
     %%sql
-    SELECT * FROM hivesampletable LIMIT 10
+    SHOW TABLES
     ```
 
     ![Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive-query in HDInsight Spark")
 
     Als u een Jupyter Notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Apache Spark SQL. `%%sql` instrueert Jupyter Notebook gebruik te maken van de vooraf ingestelde `sqlContext` om de Hive-query uit te voeren. De query haalt de bovenste tien rijen op uit een Hive-tabel (**hivesampletable**) die standaard worden meegeleverd met alle HDInsight-clusters. Voor meer informatie over de context van de '`%%sql` magic' en de vooraf ingestelde waarden raadpleegt u [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md) (Voor een HDInsight-cluster beschikbare Jupyter-kernels).
 
-    Telkens wanneer u in Jupyter een query uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** en de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
+    Telkens wanneer u in Jupyter een query uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** en de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek.
+    
+2. Voer een andere query uit om de gegevens in `hivesampletable` te zien.
+
+    ```PySpark
+    %%sql
+    SELECT * FROM hivesampletable LIMIT 10
+    ```
     
     Het scherm wordt vernieuwd om de query-uitvoer weer te geven.
 
@@ -122,7 +133,7 @@ Zie [Interactieve query's uitvoeren op Apache Spark-clusters in HDInsight](apach
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-step"></a>Volgende stap 
+## <a name="next-steps"></a>Volgende stappen 
 
 In dit artikel hebt u geleerd hoe u een HDInsight Spark-cluster maakt en een eenvoudige Spark SQL-query uitvoert. Ga naar het volgende artikel voor meer informatie over het gebruik van een HDInsight Spark-cluster om interactieve query's uit te voeren op voorbeeldgegevens.
 

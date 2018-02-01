@@ -1,6 +1,6 @@
 ---
-title: Automatisch schalen Azure-resources op basis van prestatiegegevens of een planning | Microsoft Docs
-description: Een instelling voor automatisch schalen voor een app service-abonnement met metrische gegevens en een planning maken
+title: Automatisch schalen van Azure-resources op basis van prestatiegegevens of een planning | Microsoft Docs
+description: Een instelling maken voor automatisch schalen voor een App Service-plan met behulp van metrische gegevens en een planning
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: MT
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Een instelling voor automatisch schalen voor Azure-resources op basis van prestatiegegevens of een planning maken
+# <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Een instelling maken voor automatisch schalen van Azure-resources op basis van prestatiegegevens of een planning
 
-Instellingen voor automatisch schalen kunnen u exemplaren van service op basis van vooraf gedefinieerde voorwaarden toevoegen of verwijderen. Deze instellingen kunnen worden gemaakt via de portal. Deze methode biedt een gebruikersinterface voor het maken en configureren van een instelling voor automatisch schalen op basis van een browser. 
+Instellingen voor automatisch schalen maken het u mogelijk service-instanties toe te voegen of te verwijderen op basis van vooraf gedefinieerde voorwaarden. Deze instellingen kunnen via de portal worden gemaakt. Deze methode biedt een gebruikersinterface voor het maken en configureren van een instelling voor automatisch schalen, op basis van een browser. 
 
-In deze zelfstudie wordt u 
+In deze zelfstudie leert u 
 > [!div class="checklist"]
-> * Een Web-App en een App Service-abonnement maken
-> * Regels voor schaal in- en scale-out op basis van het aantal aanvragen ontvangt van een Web-App automatisch schalen configureren
-> * Een scale-out triggeractiviteit en bekijk hoe het aantal exemplaren van verhogen
-> * Activeren van een actie schaal in en bekijk hoe het aantal exemplaren van verkleinen
+> * Een Web-App en een App Service-plan maken
+> * Regels configureren voor het automatisch inschalen en uitschalen op basis van het aantal aanvragen die een Web-App ontvangt
+> * Een uitschaalactie activeren en bekijken hoe het aantal instanties toeneemt
+> * Een inschaalactie activeren en bekijken hoe het aantal instanties afneemt
 > * Uw resources opschonen
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -34,156 +34,156 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-web-app-and-app-service-plan"></a>Een Web-App en een App Service-abonnement maken
-Klik op de **nieuw** optie in het navigatiedeelvenster links
+## <a name="create-a-web-app-and-app-service-plan"></a>Een Web-App en een App Service-plan maken
+Klik op de optie **Nieuw** in het navigatiedeelvenster aan de linkerkant
 
-Zoek en selecteer de *Web-App* item en klik op **maken**
+Zoek en selecteer het item *Web-App* en klik op **Maken**
 
-Selecteer een appnaam zoals *MyTestScaleWebApp*. Maak een nieuwe resourcegroep * myResourceGroup' en plaats deze in de resourcegroep van uw keuze.
+Selecteer een app-naam zoals *MyTestScaleWebApp*. Maak een nieuwe resourcegroep * myResourceGroup' en plaats deze in de resourcegroep van uw keuze.
 
-Binnen een paar minuten moeten uw resources worden ingericht. Gebruik de Web-App en bijbehorende App Service-Plan in de rest van deze zelfstudie.
+Binnen een paar minuten moeten uw resources zijn ingericht. Gebruik de Web-App en het bijbehorende App Service-plan in de rest van deze zelfstudie.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Een nieuw App Service-abonnement maken in de portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
-## <a name="navigate-to-autoscale-settings"></a>Navigeer naar de instellingen voor automatisch schalen
-1. Selecteer in het navigatiedeelvenster links de **Monitor** optie. Zodra de pagina wordt geladen Selecteer de **automatisch schalen** tabblad.
-2. Een lijst met de bronnen die ondersteuning bieden voor automatisch schalen in uw abonnement worden hier weergegeven. Identificeren van de App Service-Plan die eerder in de zelfstudie is gemaakt en klik erop.
+## <a name="navigate-to-autoscale-settings"></a>Navigeer naar de instellingen voor Automatisch schalen
+1. Selecteer de optie **Controleren** in het navigatiedeelvenster aan de linkerkant. Selecteer het tabblad **Automatisch schalen** zodra de pagina wordt geladen.
+2. Hier wordt een lijst weergegeven met de resources in uw abonnement die automatisch schalen ondersteunen. Zoek het App Service-Plan dat eerder in de zelfstudie is gemaakt en klik erop.
 
-    ![Navigeer naar de instellingen voor automatisch schalen](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Navigeer naar de instellingen voor Automatisch schalen](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. Klik op de instelling voor automatisch schalen op de **inschakelen voor automatisch schalen** knop
+3. In de instelling voor automatisch schalen klikt u op de knop **Automatisch schalen inschakelen**
 
-De volgende enkele stappen help dat wordt ingevuld van het scherm automatisch schalen eruitzien zoals de volgende afbeelding:
+De volgende stappen helpen u met het invullen van het scherm Automatisch schalen, zodat het eruitziet als de volgende afbeelding:
 
-   ![Opslaan van de instelling voor automatisch schalen](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
+   ![Instelling voor automatisch schalen opslaan](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
- ## <a name="configure-default-profile"></a>Standaard-profiel configureren
-1. Geef een **naam** voor de instelling voor automatisch schalen
-2. In de standaard-profiel, zorg ervoor dat de **Scale modus** is ingesteld op 'Aanpassen aan een specifieke exemplaren'
-3. Stel het aantal exemplaren op **1**. Deze instelling zorgt ervoor dat wanneer er geen ander profiel actief is, of in feite de standaard-profiel als resultaat het aantal exemplaren op 1 geeft.
+ ## <a name="configure-default-profile"></a>Standaardprofiel configureren
+1. Geef een **Naam** voor de instelling voor automatisch schalen
+2. In het standaardprofiel zorgt u ervoor dat de **Schaalmodus** is ingesteld op 'Schalen naar een specifiek aantal instanties'
+3. Stel het aantal instanties in op **1**. Deze instelling zorgt ervoor dat, wanneer er geen ander profiel actief is, of in feite in het standaardprofiel is geselecteerd, het aantal instanties op 1 wordt gezet.
 
-  ![Navigeer naar de instellingen voor automatisch schalen](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+  ![Navigeer naar de instellingen voor Automatisch schalen](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Recurrance-profiel maken
+## <a name="create-recurrance-profile"></a>Herhalingsprofiel maken
 
-1. Klik op de **een scale-voorwaarde toevoegen** koppeling onder het standaardprofiel
+1. Klik op de link **Een schaalvoorwaarde toevoegen** onder het standaardprofiel
 
-2. Bewerk de **naam** van dit profiel zijn 'Maandag tot vrijdag van profiel'
+2. Verander de **Naam** van dit profiel in 'Maandag tot vrijdag-profiel'
 
-3. Zorg ervoor dat de **Scale modus** is ingesteld op 'Schalen op basis van een metriek'
+3. Zorg ervoor dat de **Schaalmodus** is ingesteld op 'Schalen op basis van een metrische waarde'
 
-4. Voor **exemplaar limieten** ingesteld de **Minimum** als '1', de **maximale** als '2' en de **standaard** als '1'. Deze instelling zorgt ervoor dat dit profiel komt niet voor automatisch schalen die de service-abonnement hebt minder dan 1 exemplaar of meer dan 2 exemplaren. Als het profiel niet voldoende gegevens om een beslissing te nemen heeft, wordt het aantal exemplaren (in dit geval 1).
+4. Voor **Instantielimieten** stelt u het **Minimum** in op '1', het **Maximum** op '2' en de **Standaard** op '1'. Deze instelling zorgt ervoor dat dit profiel niet automatisch het serviceabonnement naar minder dan 1 exemplaar of meer dan 2 exemplaren schaalt. Als het profiel niet voldoende gegevens heeft om een beslissing te nemen, wordt het standaard aantal instanties gebruikt (in dit geval 1).
 
-5. Voor **planning**, selecteer 'Repeat specifieke dagen"
+5. Voor **Planning**, selecteer 'Herhalen op specifieke dagen'
 
-6. Het profiel moet worden herhaald van maandag tot vrijdag van 09:00 PST tot 18:00 PST ingesteld. Deze instelling zorgt ervoor dat dit profiel alleen actieve en toepasselijke 9: 00 uur op 18: 00 uur, maandag tot vrijdag is. Het profiel 'Default' is tijdens alle andere tijden het profiel maakt gebruik van de instelling voor automatisch schalen.
+6. Het profiel moet worden ingesteld op herhalen van maandag tot en met vrijdag, van 09:00 PST tot 18:00 PST. Deze instelling zorgt ervoor dat dit profiel alleen actief en van toepassing is van 9:00 uur tot 18:00 uur, maandag tot en met vrijdag. Het profiel 'Standaard' is tijdens alle andere tijden het profiel waarvan de instelling voor automatisch schalen gebruikmaakt.
 
-## <a name="create-a-scale-out-rule"></a>Een scale-out-regel maken
+## <a name="create-a-scale-out-rule"></a>Een regel voor uitschalen maken
 
-1. In de 'maandag tot vrijdag profiel'
+1. In het 'Maandag tot vrijdag-profiel'
 
-2. Klik op de **een regel toevoegen** koppeling
+2. Klik op de link **Een regel toevoegen**
 
-3. Stel de **metrische bron** moet 'andere resource'. Stel de **brontype** als de App-Services en de **Resource** als de Web-App eerder in deze zelfstudie hebt gemaakt.
+3. Stel de **Metrische bron** in op 'andere resource'. Stel het **Resourcetype** in op ‘App Services’ en de **Resource** als de Web-App die eerder in deze zelfstudie is gemaakt.
 
-4. Stel de **aggregatie tijd** als 'Totaal' de **metrische naam** als 'Aanvragen', en de **tijd gebruikerssegmentatie statistiek** als 'Sum'
+4. Stel de **Tijdaggregatie** in op 'Totaal', de **Metrische naam** op 'Aanvragen', en de **Tijdsinterval-statistiek** op 'Som'
 
-5. Stel de **Operator** als 'Groter dan', de **drempelwaarde** als "10" en de **duur** '5' minuten.
+5. Stel de **Operator** in op 'Groter dan', de **Drempelwaarde** op "10" en de **Duur** op '5' minuten.
 
-6. Selecteer de **bewerking** als 'Toename count door', de **aantal exemplaar** als '1', en de **Cool omlaag** '5' minuten
+6. Selecteer de **Bewerking** 'Aantal verhogen met', een **Aantal instanties** van '1', en een **Cooldown** van '5' minuten
 
-7. Klik op de **toevoegen** knop
+7. Klik op de knop **Toevoegen**
 
-Deze regel zorgt ervoor dat als uw Web-App meer dan 10 aanvragen binnen 5 minuten ontvangt of minder, een extra exemplaar wordt toegevoegd aan uw App Service-Plan voor het beheren van belasting.
+Deze regel zorgt ervoor dat als uw Web-App meer dan 10 aanvragen binnen 5 minuten of minder ontvangt, een extra exemplaar aan uw App Service-plan wordt toegevoegd om de belasting te reguleren.
 
-   ![Een scale-out-regel maken](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
+   ![Een regel voor uitschalen maken](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
 
-## <a name="create-a-scale-in-rule"></a>Maak een regel schaal in
-Wij raden u altijd een regel schaal in vergezeld gaan van een regel scale-out hebben. Beide zorgt ervoor dat uw resources niet meer dan zijn ingericht. Ten opzichte van inrichting manier hebt u meer exemplaren met dan nodig is om de huidige belasting te verwerken. 
+## <a name="create-a-scale-in-rule"></a>Een regel voor inschalen maken
+Wij raden u aan om een uitschaalregel altijd door een inschaalregel vergezeld te laten gaan. Beide zorgen ervoor dat er geen overschot in uw resources is. Een overschot betekent dat er meer instanties worden uitgevoerd dan nodig is om de huidige belasting te verwerken. 
 
-1. In de 'maandag tot vrijdag profiel'
+1. In het 'Maandag tot vrijdag-profiel'
 
-2. Klik op de **een regel toevoegen** koppeling
+2. Klik op de link **Een regel toevoegen**
 
-3. Stel de **metrische bron** moet 'andere resource'. Stel de **brontype** als de App-Services en de **Resource** als de Web-App eerder in deze zelfstudie hebt gemaakt.
+3. Stel de **Metrische bron** in op 'andere resource'. Stel het **Resourcetype** in op ‘App Services’ en de **Resource** als de Web-App die eerder in deze zelfstudie is gemaakt.
 
-4. Instellen de **tijd aggregatie** als 'Totaal' de **metrische naam** als 'Aanvragen', en de **tijd gebruikerssegmentatie statistiek** als 'Gemiddelde'
+4. Stel de **Tijdaggregatie** in op 'Totaal', de **Metrische naam** op 'Aanvragen', en de **Tijdsinterval-statistiek** op 'Gemiddeld'
 
-5. Stel de **Operator** als 'Kleiner zijn dan', de **drempelwaarde** als '5' en de **duur** '5' minuten.
+5. Stel de **Operator** in op 'Kleiner dan', de **Drempelwaarde** op ‘5’ en de **Duur** op '5' minuten.
 
-6. Selecteer de **bewerking** als 'Count verlagen door', de **aantal exemplaar** als '1', en de **Cool omlaag** '5' minuten
+6. Selecteer de **Bewerking** 'Aantal verhogen met', een **Aantal instanties** van '1', en een **Cooldown** van '5' minuten
 
-7. Klik op de **toevoegen** knop
+7. Klik op de knop **Toevoegen**
 
-    ![Maak een regel schaal in](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
+    ![Een regel voor inschalen maken](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
-8. **Sla** instelling voor automatisch schalen
+8. Sla de instelling voor automatisch schalen **op**
 
-    ![Opslaan van de instelling voor automatisch schalen](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
+    ![Instelling voor automatisch schalen opslaan](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
-## <a name="trigger-scale-out-action"></a>Scale-out triggeractie
-De Web-App moet meer dan 10 aanvragen hebben in minder dan vijf minuten zodat de voorwaarde van de scale-out in de instelling voor automatisch schalen zojuist hebt gemaakt.
+## <a name="trigger-scale-out-action"></a>Uitschaalactie activeren
+De Web-App moet meer dan 10 aanvragen hebben in minder dan 5 minuten om de zojuist gemaakte voorwaarde voor de uitschaalactie in de instelling voor automatisch schalen te activeren.
 
-1. Open een browservenster en navigeer naar de Web-App die eerder in deze zelfstudie hebt gemaakt. U vindt de URL voor uw Web-App in de Azure Portal door te navigeren naar uw Web-App-resource en te klikken op de **Bladeren** knop op het tabblad 'Overzicht'.
+1. Open een browservenster en navigeer naar de Web-App die eerder in deze zelfstudie is gemaakt. U vindt de URL voor uw Web-App in de Azure Portal door te navigeren naar uw Web-App-resource en te klikken op de knop **Bladeren** op het tabblad 'Overzicht'.
 
-2. Snel achter elkaar laad de pagina opnieuw maximaal 10 keer
+2. Laad de pagina minstens 10 keer snel achter elkaar opnieuw
 
-3. Selecteer in het navigatiedeelvenster links de **Monitor** optie. Zodra de pagina wordt geladen Selecteer de **automatisch schalen** tabblad.
+3. Selecteer de optie **Controleren** in het navigatiedeelvenster aan de linkerkant. Selecteer het tabblad **Automatisch schalen** zodra de pagina wordt geladen.
 
-4. Selecteer de App Service-Plan die in deze zelfstudie wordt gebruikt in de lijst
+4. Selecteer in de lijst het App Service-plan dat in deze zelfstudie wordt gebruikt
 
-5. Klik op de instelling voor automatisch schalen op de **Uitvoeringsgeschiedenis** tabblad
+5. Klik in de instelling voor automatisch schalen op het tabblad **Uitvoeringsgeschiedenis**
 
-6. U ziet een diagram weergeven van het aantal exemplaren van de App Service-abonnement gedurende een periode
+6. U ziet een diagram dat het aantal instanties van het App Service-abonnement in de loop van de tijd weergeeft
 
-7. Het aantal exemplaren moet over een paar minuten oplopen op 1, 2.
+7. Het aantal instanties moet binnen een paar minuten oplopen van 1 naar 2.
 
-8. Onder de grafiek ziet u de activiteit logboekvermeldingen voor elke schaalactie op die door deze instelling voor automatisch schalen.
+8. Onder de grafiek ziet u de vermeldingen in het activiteitenlogboek voor elke schaalactie, die door deze instelling voor automatisch schalen is uitgevoerd.
 
-## <a name="trigger-scale-in-action"></a>Schaal in actie activeren
-De schaal in voorwaarde in de instelling van triggers als er minder dan 5 aanvragen naar de Web-App gedurende een periode van tien minuten worden voor automatisch schalen. 
+## <a name="trigger-scale-in-action"></a>Inschaalactie activeren
+De inschaalvoorwaarde in de instelling voor automatisch schalen wordt geactiveerd als er gedurende een periode van 10 minuten minder dan 5 aanvragen naar de Web-App zijn. 
 
 1. Zorg ervoor dat er geen aanvragen worden verzonden naar uw Web-App
 
-2. Laden van de Azure-Portal
+2. De Azure Portal laden
 
-3. Selecteer in het navigatiedeelvenster links de **Monitor** optie. Zodra de pagina wordt geladen Selecteer de **automatisch schalen** tabblad.
+3. Selecteer de optie **Controleren** in het navigatiedeelvenster aan de linkerkant. Selecteer het tabblad **Automatisch schalen** zodra de pagina wordt geladen.
 
-4. Selecteer de App Service-Plan die in deze zelfstudie wordt gebruikt in de lijst
+4. Selecteer in de lijst het App Service-plan dat in deze zelfstudie wordt gebruikt
 
-5. Klik op de instelling voor automatisch schalen op de **Uitvoeringsgeschiedenis** tabblad
+5. Klik in de instelling voor automatisch schalen op het tabblad **Uitvoeringsgeschiedenis**
 
-6. U ziet een diagram weergeven van het aantal exemplaren van de App Service-abonnement gedurende een bepaalde periode.
+6. U ziet een grafiek dat het aantal instanties van het App Service-plan in de loop van de tijd weergeeft.
 
-7. Het aantal exemplaren moet over een paar minuten verwijderen uit 2, op 1. Het proces duurt minimaal 100 minuten.  
+7. Het aantal instanties moet binnen een paar minuten zakken van 2 naar 1. Het proces duurt minimaal 100 minuten.  
 
-8. Onder de grafiek worden de bijbehorende reeks activiteit logboekvermeldingen voor elke schaalactie op die door deze instelling voor automatisch schalen
+8. Onder de grafiek ziet u de vermeldingen in het activiteitenlogboek voor elke schaalactie, die door deze instelling voor automatisch schalen is uitgevoerd
 
-    ![Schaal in acties weergeven](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
+    ![Inschaalactie weergeven](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-1. Klik in het menu links in de Azure portal op **alle resources** en selecteer vervolgens de Web-App gemaakt in deze zelfstudie.
+1. Klik in het linkermenu van de Azure Portal op **Alle resources** en selecteer de Web-App die u in deze zelfstudie heeft gemaakt.
 
-2. Klik op de bronpagina op **verwijderen**, verwijderen bevestigen door op te geven **Ja** in het tekstvak en klik vervolgens op **verwijderen**.
+2. Klik in uw resourcepagina op **Verwijderen**, bevestig het verwijderen door **ja** in het tekstvak te typen en klik vervolgens op **Verwijderen**.
 
-3. Vervolgens selecteert u de resource App Service-Plan en klik op **verwijderen**
+3. Vervolgens selecteert u de resource App Service-plan en klikt u op **Verwijderen**
 
-4. Verwijderen bevestigen door op te geven **Ja** in het tekstvak en klik vervolgens op **verwijderen**.
+4. Bevestig het verwijderen door **ja** in het tekstvak te typen en klik vervolgens op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u  
+In deze zelfstudie hebt u  
 > [!div class="checklist"]
-> * Een Web-App en een App Service-abonnement gemaakt
-> * Voor de schaal in regels worden geconfigureerd voor automatisch schalen en scale-out op basis van het aantal verzoeken van de Web-App ontvangen
-> * Een scale-out actie geactiveerd en het aantal exemplaren van verhogen gevolgd
-> * Een actie schaal in geactiveerd en het aantal exemplaren van verkleinen gevolgd
-> * Uw resources opschonen
+> * Een Web-App en een App Service-plan gemaakt
+> * Regels geconfigureerd voor het automatisch inschalen en uitschalen op basis van het aantal aanvragen die een Web-App ontvangt
+> * Een uitschaalactie geactiveerd en het aantal instanties zien verhogen
+> * Een inschaalactie geactiveerd en het aantal instanties zien verlagen
+> * Uw resources opgeschoond
 
 
-Voor meer informatie over instellingen voor automatisch schalen, gaan naar de [automatisch schalen overzicht](monitoring-overview-autoscale.md).
+Voor meer informatie over instellingen voor automatisch schalen gaat u naar het [Overzicht automatisch schalen](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [De controlegegevens archiveren](monitor-tutorial-archive-monitoring-data.md)
+> [Bewakingsgegevens archiveren](monitor-tutorial-archive-monitoring-data.md)
