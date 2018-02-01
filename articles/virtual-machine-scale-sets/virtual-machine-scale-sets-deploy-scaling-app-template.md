@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 201b752c2a79362f2e049d2e0f0b953d77aaedfe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Een virtuele-machineschaalset maken met de Azure CLI 2.0
-Met een virtuele-machineschaalsets kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In dit Aan de slag-artikel maakt u een virtuele-machineschaalset in Windows met behulp van een Azure Resource Manager-sjabloon. U kunt ook een schaalset maken met [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) of [Azure Portal](virtual-machine-scale-sets-create-portal.md).
+Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In dit Aan de slag-artikel maakt u een virtuele-machineschaalset in Windows met behulp van een Azure Resource Manager-sjabloon. U kunt ook een schaalset maken met [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) of [Azure Portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="overview-of-templates"></a>Overzicht van sjablonen
@@ -88,7 +88,7 @@ Een sjabloon definieert de configuratie voor elk resourcetype. Een resourcetype 
 
 
 ## <a name="install-an-application"></a>Een toepassing installeren
-Wanneer u een schaalset implementeert, kunnen VM-extensies worden gebruikt voor configuratie na implementatie en voor automatiseringstaken, zoals het installeren van een app. Scripts kunnen worden gedownload van Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies. Als u een extensie toepast op uw schaalset, voegt u de sectie *extensionProfile* toe aan het voorgaande resourcevoorbeeld. Het extensieprofiel definieert doorgaans de volgende eigenschappen:
+Wanneer u een schaalset implementeert, kunnen VM-extensies worden gebruikt voor configuratie- en automatiseringstaken na de implementatie, zoals het installeren van een app. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies. Als u een extensie wilt toepassen op uw schaalset, voegt u de sectie *extensionProfile* toe aan het voorgaande resourcevoorbeeld. Met het extensieprofiel worden doorgaans de volgende eigenschappen gedefinieerd:
 
 - Type extensie
 - Uitgever van de extensie
@@ -129,7 +129,7 @@ Er zijn twee scripts gedefinieerd in *fileUris* - *installserver.sh* en *workser
 ### <a name="aspnet-application-on-windows"></a>ASP.NET-toepassing in Windows
 Het voorbeeldsjabloon [ASP.NET-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) maakt gebruik van de PowerShell DSC-extensie om een ASP.NET MVC-app te installeren die wordt uitgevoerd in IIS. 
 
-Er wordt een installatiescript gedownload van GitHub, zoals gedefinieerd in *URL*. Met de extensie wordt vervolgens *InstallIIS* uitgevoerd vanuit het script *IISInstall.ps1*, zoals gedefinieerd in *Functie* en *Script*. De ASP.NET-app zelf wordt geleverd als een Web Deploy-pakket, dat ook kan worden gedownload vanuit GitHub, zoals gedefinieerd in *WebDeployPackagePath*:
+Er wordt een installatiescript gedownload uit GitHub, zoals gedefinieerd in *URL*. Met de extensie wordt vervolgens *InstallIIS* uitgevoerd vanuit het script *IISInstall.ps1*, zoals gedefinieerd in *Functie* en *Script*. De ASP.NET-app zelf wordt geleverd als een Web Deploy-pakket, dat ook kan worden gedownload uit GitHub, zoals gedefinieerd in *WebDeployPackagePath*:
 
 ```json
 "extensionProfile": {
@@ -175,7 +175,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-Als u de app in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip list](/cli/azure/network/public-ip#show). Dit doet u als volgt:
+Als u de app in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show). Dit doet u als volgt:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -213,7 +213,7 @@ Voer het openbare IP-adres van de load balancer in een webbrowser in. Gebruik hi
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-U kunt [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen als u deze niet meer nodig hebt. Dit doet u als volgt:
+U kunt [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. Dit doet u als volgt:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

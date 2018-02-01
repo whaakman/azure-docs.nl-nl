@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: deb5b8bb6f98ea30af80f450f7e3c07648dc43cb
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 64108098048f8f72a7165175358b99314e8dd820
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-documentation"></a>Documentatie voor IoT Hub 
 
@@ -42,7 +42,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
+        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -125,7 +125,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
-                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
+                        <p><a href="/cli/azure/iot">Azure-CLI</a></p>
                     </div>
                 </div>
             </div>

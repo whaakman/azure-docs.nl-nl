@@ -24,7 +24,7 @@
 ### [On-premises verbinden - toegewezen](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Aan de slag
-## [Uw eerste virtuele netwerk maken](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Uw eerste virtuele netwerk maken](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Procedures
 ## Internetconnectiviteit

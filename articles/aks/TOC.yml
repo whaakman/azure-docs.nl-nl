@@ -57,8 +57,6 @@
           href: azure-disks-dynamic-pv.md
         - name: Azure Files - permanent volume
           href: azure-files-dynamic-pv.md
-        - name: Azure Files - volume
-          href: azure-files.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

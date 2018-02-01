@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
-ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6e8e2c1c3a65aa88dae75fcb8a7d670d6f4c278
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: een bestaande Node.js MongoDB-web-app migreren 
 
@@ -67,7 +67,7 @@ Er wordt een poging gedaan om de toepassing te verbinden met een MongoDB-bron, w
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Als u een geïnstalleerde Azure CLI gebruikt, meldt u zich aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volgt u de instructies op het scherm. U kunt deze stap overslaan als u de Azure Cloud Shell gebruikt.
+Als u een geïnstalleerde Azure CLI gebruikt, meldt u zich aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#az_login) en volgt u de instructies op het scherm. U kunt deze stap overslaan als u de Azure Cloud Shell gebruikt.
 
 ```azurecli
 az login 
@@ -81,7 +81,7 @@ Als `cosmosdb` niet in de lijst met basisopdrachten staat, installeert u [Azure 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd. 
+Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio West-Europa. Kies een unieke naam voor de resourcegroep.
 
@@ -93,7 +93,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
-Maak een Azure Cosmos DB-account met de opdracht [az cosmosdb create](/cli/azure/cosmosdb#create).
+Maak een Azure Cosmos DB-account met de opdracht [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 Vervang in de volgende opdracht waar u de plaatsaanduiding `<cosmosdb-name>` ziet staan, de accountnaam met uw unieke Azure Cosmos DB-accountnaam. Deze unieke naam wordt gebruikt als onderdeel van uw Azure Cosmos DB-eindpunt (`https://<cosmosdb-name>.documents.azure.com/`), dus de naam moet uniek zijn binnen alle Azure Cosmos DB-accounts in Azure. 
 

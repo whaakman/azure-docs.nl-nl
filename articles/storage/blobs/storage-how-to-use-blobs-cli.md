@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Blob-opslagbewerkingen uitvoeren met Azure CLI
 
@@ -44,7 +44,7 @@ Voor deze zelfstudie is versie 2.0.4 of hoger van Azure CLI vereist. Voer `az --
 
 Containers zijn vergelijkbaar met mappen op uw computer. In een container kunt u groepen blobs organiseren zoals u bestanden in een map organiseert. Een opslagaccount kan een onbeperkt aantal containers bevatten. U kunt maximaal 500 TB aan blob-gegevens opslaan in een container. Dit is de maximale hoeveelheid gegevens in een opslagaccount.
 
-Gebruik de opdracht [az storage container create](/cli/azure/storage/container#create) om een container te maken voor het opslaan van blobs.
+Gebruik de opdracht [az storage container create](/cli/azure/storage/container#az_storage_container_create) om een container te maken voor het opslaan van blobs.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ Een nieuwe container is standaard persoonlijk. Dat wil zeggen dat niemand toegan
 
 Als u openbare toegang instelt op `blob` of `container`, schakelt u alleen-lezen toegang in voor iedereen op internet. Zo moet u openbare leestoegang inschakelen als u afbeeldingen wilt weergeven die als blobs op uw website zijn opgeslagen. Als u lees-/schrijftoegang wilt inschakelen, moet u in plaats daarvan een [Shared Access Signature (SAS)](#create-a-shared-access-signature-sas) gebruiken.
 
-Gebruik de opdracht [az storage container set-permission](/cli/azure/storage/container#create) om openbare leestoegang voor de container in te schakelen.
+Gebruik de opdracht [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create) om openbare leestoegang voor de container in te schakelen.
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs zijn het meest voorkomende type blobs dat in Azure Storage wordt opgeslagen. Toevoeg-blobs worden gebruikt wanneer gegevens moeten worden toegevoegd aan een bestaande blob zonder de bestaande inhoud te wijzigen, zoals in het geval van logboekregistratie. Pagina-blobs ondersteunen de VHD-bestanden van virtuele IaaS-machines.
 
-In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob#upload) een blob geüpload naar de container die we in de laatste stap hebben gemaakt.
+In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) een blob geüpload naar de container die we in de laatste stap hebben gemaakt.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschre
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Gebruik de opdracht [az storage blob list](/cli/azure/storage/blob#list) om de blobs in de container weer te geven.
+Gebruik de opdracht [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) om de blobs in de container weer te geven.
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Een blob downloaden
 
-Gebruik de opdracht [az storage blob download](/cli/azure/storage/blob#download) om de blob te downloaden die u in een eerdere stap hebt geüpload.
+Gebruik de opdracht [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) om de blob te downloaden die u in een eerdere stap hebt geüpload.
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Een blob verwijderen
 
-U verwijdert een blob uit een container met de opdracht [az storage blob delete](/cli/azure/storage/blob#delete).
+U verwijdert een blob uit een container met de opdracht [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Blob-eigenschappen en metagegevens weergeven en wijzigen
 
-Elke blob heeft een aantal door de service gedefinieerde eigenschappen die u kunt weergeven met de opdracht [az storage blob show](/cli/azure/storage/blob#show), waaronder de naam, het type, de lengte enzovoort. Met de opdracht [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) kunt u ook een blob met uw eigen eigenschappen en waarden configureren.
+Elke blob heeft een aantal door de service gedefinieerde eigenschappen die u kunt weergeven met de opdracht [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show), waaronder de naam, het type, de lengte enzovoort. Met de opdracht [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update) kunt u ook een blob met uw eigen eigenschappen en waarden configureren.
 
-In dit voorbeeld geven we eerst de door de service gedefinieerde eigenschappen van een blob weer, waarna we de blob bijwerken met twee van onze eigen metagegevenseigenschappen. Tot slot geven we de metagegevenseigenschappen van de blob en de waarden ervan weer met de opdracht [az storage blob metadata show](/cli/azure/storage/blob/metadata#show).
+In dit voorbeeld geven we eerst de door de service gedefinieerde eigenschappen van een blob weer, waarna we de blob bijwerken met twee van onze eigen metagegevenseigenschappen. Tot slot geven we de metagegevenseigenschappen van de blob en de waarden ervan weer met de opdracht [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show).
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Persoonlijke toegang controleren
 
-Als u wilt controleren of er geen openbare leestoegang is tot de blobs in die container, gebruikt u de opdracht [az storage blob url](/cli/azure/storage/blob#url) om de URL voor een van de blobs te verkrijgen.
+Als u wilt controleren of er geen openbare leestoegang is tot de blobs in die container, gebruikt u de opdracht [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) om de URL voor een van de blobs te verkrijgen.
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ Navigeer in een persoonlijk browservenster naar de URL van de blob. Als het goed
 
 ### <a name="create-a-sas-uri"></a>Een SAS-URI maken
 
-Nu gaat u een SAS-URI maken die toegang geeft tot de blob. In het volgende voorbeeld wordt eerst de opdracht [az storage blob url](/cli/azure/storage/blob#url) gegeven om een variabele te vullen met de URL voor de blob. Vervolgens wordt een andere variabele gevuld met een SAS-token dat is gegenereerd met de opdracht [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). Tot slot wordt de volledige SAS-URI voor de blob gegenereerd door de twee samen te voegen, gescheiden door het scheidingsteken voor query-tekenreeksen `?`.
+Nu gaat u een SAS-URI maken die toegang geeft tot de blob. In het volgende voorbeeld wordt eerst de opdracht [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url) gegeven om een variabele te vullen met de URL voor de blob. Vervolgens wordt een andere variabele gevuld met een SAS-token dat is gegenereerd met de opdracht [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). Tot slot wordt de volledige SAS-URI voor de blob gegenereerd door de twee samen te voegen, gescheiden door het scheidingsteken voor query-tekenreeksen `?`.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ Wacht tot de URL is verlopen (twee minuten in dit voorbeeld) en navigeer vervolg
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van het opslagaccount dat u hebt gemaakt en alle bestaande blobs die u in deze zelfstudie hebt geüpload, verwijdert u de resourcegroep met de opdracht [az group delete](/cli/azure/group#delete).
+Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van het opslagaccount dat u hebt gemaakt en alle bestaande blobs die u in deze zelfstudie hebt geüpload, verwijdert u de resourcegroep met de opdracht [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

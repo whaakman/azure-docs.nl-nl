@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Versies 1 en 2 van Azure Data Factory vergelijken
 In dit artikel wordt versie 2 (V2) van Azure Data Factory vergeleken met versie 1 (V1). Zie voor meer informatie over V1 [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md). Zie voor meer informatie over V2 [Inleiding tot Data Factory (V2 - preview)](introduction.md).
@@ -86,7 +86,7 @@ U gebruikt Azure-SSIS als u de SSIS-werkbelastingen naar de cloud wilt verplaats
 
 Azure-SSIS Integration Runtime is een volledig beheerd cluster met virtuele Azure-machines (knooppunten) die uw SSIS-pakketten uitvoeren in de cloud. Als u Azure-SSIS Integration Runtime hebt ingericht, kunt u dezelfde hulpmiddelen gebruiken die u hebt gebruikt voor het implementeren van SSIS-pakketten in een on-premises SSIS-omgeving. 
 
-U kunt bijvoorbeeld SQL Server Data Tools of SQL Server Management Studio gebruiken om SSIS-pakketten te implementeren in deze runtime op Azure. Zie de zelfstudie [Pakketten van SQL Server Integration Services implementeren in Azure](tutorial-deploy-ssis-packages-azure.md) voor stapsgewijze instructies. 
+U kunt bijvoorbeeld SQL Server Data Tools of SQL Server Management Studio gebruiken om SSIS-pakketten te implementeren in deze runtime op Azure. Zie de zelfstudie [Pakketten van SQL Server Integration Services implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md) voor stapsgewijze instructies. 
 
 ## <a name="flexible-scheduling"></a>Flexibel plannen
 In Data Factory V2 hoeft u geen beschikbaarheidschema's voor gegevenssets te definiëren. U kunt een triggerbron definiëren waarmee pijplijnen kunnen worden gepland op basis van een klokplannermodel. U kunt ook vanuit een trigger parameters aan pijplijnen doorgeven voor een flexibel plannings- en uitvoeringsmodel. 

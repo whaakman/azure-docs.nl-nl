@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Een virtuele-machineschaalset in Linux maken met een Azure-sjabloon
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In dit Aan de slag-artikel maakt u een virtuele-machineschaalset in Linux met behulp van een Azure Resource Manager-sjabloon. U kunt ook een schaalset maken met [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) of [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ U kunt de sjabloon [Python HTTP-server in Linux](https://github.com/Azure/azure-
 
 [![Sjabloon implementeren in Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-U kunt ook Azure CLI 2.0 gebruiken om de Python HTTP-server te installeren in Linux met [az group deployment create](/cli/azure/group/deployment#create). Dit doet u als volgt:
+U kunt ook Azure CLI 2.0 gebruiken om de Python HTTP-server te installeren in Linux met [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Dit doet u als volgt:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Geef de waarden op voor de naam van de schaalset, het aantal instanties en de be
 
 
 ## <a name="test-your-sample-application"></a>Voorbeeldtoepassing testen
-Als u de app in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip list](/cli/azure/network/public-ip#show). Dit doet u als volgt:
+Als u de app in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show). Dit doet u als volgt:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Voer het openbare IP-adres van de load balancer in een webbrowser in. Gebruik hi
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-U kunt [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. Dit doet u als volgt:
+U kunt [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, schaalset en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. Dit doet u als volgt:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

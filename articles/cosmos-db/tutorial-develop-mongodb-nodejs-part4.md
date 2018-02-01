@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 60154b9f0a27b1255022f455453cbc88bec63baf
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: e1d96fe8cb06be08863bbcd1885080aaca8fbd61
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Een MongoDB-app maken met Angular en Azure DB Cosmos - Deel 4: Een Azure DB Cosmos-account maken met de Azure CLI
 
@@ -52,7 +52,7 @@ In dit gedeelte van de zelfstudie kunt u ofwel de Azure Cloud Shell gebruiken (i
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
-Maak een Azure Cosmos DB-account met de opdracht [`az cosmosdb create`](/cli/azure/cosmosdb#create).
+Maak een Azure Cosmos DB-account met de opdracht [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

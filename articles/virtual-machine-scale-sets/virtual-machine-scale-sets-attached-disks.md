@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
 [Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteunen nu virtuele machines met gekoppelde gegevensschijven. Gegevensschijven kunnen worden gedefinieerd in het opslagprofiel voor schaalsets dat is gemaakt met Azure Managed Disks. Eerder waren de enige direct gekoppelde opslagopties met virtuele machines in schaalsets het station van het besturingssysteem en tijdelijke stations.
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/20/2017
 >  Wanneer u een schaalset maakt die is gedefinieerd met gekoppelde gegevensschijven, dient u de schijven nog steeds te koppelen en formatteren van binnen een VM om ze te gebruiken (net als bij zelfstandige virtuele Azure-machines). Een handige manier om dit proces te voltooien is om een aangepaste scriptextensie te gebruiken die een standaardscript oproept om alle gegevensschijven op de VM te partitioneren en formatteren.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Een schaalset maken met gekoppelde gegevensschijven
-Een eenvoudige manier om een schaalset met gekoppelde schijven te maken, is om de opdracht [az vmss create](/cli/azure/vmss#create) te gebruiken. In het volgende voorbeeld wordt een Azure-resourcegroep en een virtuele-machineschaalset van 10 virtuele Ubuntu-machines gemaakt, elk met 2 gekoppelde gegevensschijven, van respectievelijk 50 GB en 100 GB.
+Een eenvoudige manier om een schaalset met gekoppelde schijven te maken, is om de opdracht [az vmss create](/cli/azure/vmss#az_vmss_create) te gebruiken. In het volgende voorbeeld wordt een Azure-resourcegroep en een virtuele-machineschaalset van 10 virtuele Ubuntu-machines gemaakt, elk met 2 gekoppelde gegevensschijven, van respectievelijk 50 GB en 100 GB.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-De opdracht [az vmss create](/cli/azure/vmss#create) gebruikt standaard bepaalde configuratiewaarden als u ze niet opgeeft. Probeer het volgende om de beschikbare opties te bekijken die u kunt overschrijven:
+De opdracht [az vmss create](/cli/azure/vmss#az_vmss_create) gebruikt standaard bepaalde configuratiewaarden als u ze niet opgeeft. Probeer het volgende om de beschikbare opties te bekijken die u kunt overschrijven:
 
 ```bash
 az vmss create --help
