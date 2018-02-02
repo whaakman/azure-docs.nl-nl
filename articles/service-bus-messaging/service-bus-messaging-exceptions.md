@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f927aa7a33a650354abd090b6280795875ab693f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: efcfad2834c2d6775c6693f5c705a0531b2650d6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus-berichtuitzonderingen
 Dit artikel worden enkele uitzonderingen die worden gegenereerd door de Microsoft Azure Service Bus-berichtenservice-API's. Deze verwijzing kan worden gewijzigd, Controleer dus regelmatig op updates.
 
 ## <a name="exception-categories"></a>Uitzondering categorieën
-De berichtenservice-API's uitzonderingen die in de volgende categorieën, samen met de bijbehorende actie die u ondernemen kunt om te proberen op te lossen ze kunnen ook worden gegenereerd. Houd er rekening mee dat de betekenis en de oorzaken van een uitzondering afhankelijk van het type Berichtentiteit (wachtrijen/onderwerpen of Event Hubs variëren kunnen):
+De berichtenservice-API's uitzonderingen die in de volgende categorieën, samen met de bijbehorende actie die u ondernemen kunt om te proberen op te lossen ze kunnen ook worden gegenereerd. Houd er rekening mee dat de betekenis en de oorzaken van een uitzondering afhankelijk van het type Berichtentiteit variëren kunnen:
 
 1. Gebruiker fout codering ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Algemene actie: probeert op te lossen de code voordat u doorgaat.
 2. Setup/configuratiefout ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Algemene actie: Controleer de configuratie en wijzig indien nodig.
-3. Tijdelijke uitzonderingen ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [ Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Algemene actie: probeer het opnieuw of gebruikers een melding ontvangen.
+3. Transient exceptions ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Algemene actie: probeer het opnieuw of gebruikers een melding ontvangen.
 4. Andere uitzonderingen ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Algemene actie: specifiek zijn voor het uitzonderingstype; Raadpleeg de tabel in de volgende sectie. 
 
 ## <a name="exception-types"></a>Uitzondering typen
@@ -66,7 +66,7 @@ De volgende tabel bevat messaging uitzondering typen, en hun oorzaken en opmerki
 ### <a name="queues-and-topics"></a>Wachtrijen en onderwerpen
 Voor wachtrijen en onderwerpen is dit vaak de grootte van de wachtrij. De eigenschap van het bericht bevat verdere details, zoals in het volgende voorbeeld:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
@@ -79,7 +79,7 @@ Het bericht geeft aan dat het onderwerp de maximale grootte in deze case 1 GB (d
 
 Voor naamruimten, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) kan erop wijzen dat een toepassing het maximum aantal verbindingen met een naamruimte heeft overschreden. Bijvoorbeeld:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -93,9 +93,6 @@ Er zijn twee algemene oorzaken voor deze fout: de wachtrij voor onbestelbare ber
    
     Het probleem op te lossen lezen en voltooi de berichten uit de wachtrij voor onbestelbare berichten, zoals u zou vanuit een andere wachtrij doen. U kunt de [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) methode om te formatteren pad van de wachtrij voor onbestelbare berichten.
 2. **Ontvanger gestopt** een ontvanger ontvangen van berichten van een wachtrij of het abonnement is gestopt. De manier om dit te identificeren is om te kijken naar de [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) eigenschap die u de volledige uitsplitsing van de berichten kunt. Als de [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) eigenschap hoge of groeiende, wordt de berichten niet snel ze worden geschreven wordt gelezen.
-
-### <a name="event-hubs"></a>Event Hubs
-Event Hubs is een limiet van 20 consumergroepen per Event Hub. Wanneer u probeert te maken, krijgt u een [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
 Een [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) geeft aan dat een gebruiker gestart bewerking langer dan de time-out voor de bewerking duurt. 

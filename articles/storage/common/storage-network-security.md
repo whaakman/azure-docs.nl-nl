@@ -1,5 +1,5 @@
 ---
-title: Configureren van Firewalls voor Azure-opslag en virtuele netwerken (preview) | Microsoft Docs
+title: Configureren van Firewalls voor Azure-opslag en virtuele netwerken | Microsoft Docs
 description: Gelaagde netwerkbeveiliging configureren voor uw opslagaccount.
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configureren van Firewalls voor Azure-opslag en virtuele netwerken (preview)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.
 
-## <a name="preview-availability-and-support"></a>Voorbeeld van beschikbaarheid en ondersteuning
-Firewalls voor opslag en virtuele netwerken zijn Preview-versie.  Deze mogelijkheid is momenteel beschikbaar voor nieuwe of bestaande opslagaccounts in alle openbare Azure-cloud-regio's.
-
-> [!NOTE]
-> Productie-workloads worden niet ondersteund tijdens de preview.
+> [!IMPORTANT]
+> Firewallregels voor uw opslagaccount inschakelt, wordt de toegang tot de binnenkomende aanvragen voor gegevens, met inbegrip van andere Azure-services geblokkeerd.  Dit omvat het gebruik van de Portal voor het schrijven van Logboeken, enzovoort.  Voor deelnemende services u kunt opnieuw functionaliteit inschakelen via de [uitzonderingen](#Exceptions) hieronder.  Toegang tot de Portal moet u dat doen op een computer in de vertrouwde grens (IP of VNet) die u hebt ingesteld.
 >
 
 ## <a name="scenarios"></a>Scenario's
@@ -55,9 +52,6 @@ Standaard aanvaarden opslagaccounts verbindingen van clients op een netwerk.  Om
 
 #### <a name="azure-portal"></a>Azure Portal
 1. Ga naar het opslagaccount dat u wilt beveiligen.  
-> [!NOTE]
-> Zorg ervoor dat uw storage-account in een van de ondersteunde regio's voor de openbare preview.
->
 
 2. Klik op het menu instellingen aangeroepen **Firewalls en virtuele netwerken**.
 3. Kies voor het weigeren van toegang standaard, toegang toestaan via geselecteerde-netwerken.  Kies toegang toestaan via 'alle netwerken, zodat verkeer van alle netwerken.

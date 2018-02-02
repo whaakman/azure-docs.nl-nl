@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -61,9 +61,12 @@ Waar:
 ### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Zijn er RBAC-rollen voor toegewezen gebruikersidentiteiten?
 Ja:
 1. MSI-Inzender: 
+
 - Kan: CRUD toegewezen gebruikersidentiteiten. 
 - Kan geen: Een gebruiker die de identiteit toegewezen aan een resource niet toewijzen. (dat wil zeggen de identiteit van de toewijzen aan een virtuele machine)
+
 2. MSI-Operator: 
+
 - CAN: De identiteit van een gebruiker toegewezen toewijzen aan een resource. (dat wil zeggen de identiteit van de toewijzen aan een virtuele machine)
 - Kan geen: CRUD toegewezen gebruikersidentiteiten.
 
@@ -118,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - De enige manier om alle gebruiker toegewezen MSI-bestanden te verwijderen is doordat het systeem MSI toegewezen. 
 - Het inrichten van de VM-extensie voor een virtuele machine kan mislukken als gevolg van DNS-lookup-fouten. Opnieuw opstarten van de virtuele machine en probeer het opnieuw. 
-- Azure CLI: `Az resource show` en `Az resource list` op een virtuele machine mislukt met MSI toegewezen door een gebruiker. Als tijdelijke oplossing gebruiken`az vm/vmss show`
+- Toevoegen van een MSI 'niet-bestaande' zorgt ervoor dat de virtuele machine mislukt. *Opmerking: De oplossing voor toewijzen-identity mislukken als MSI niet bestaat, wordt teruggedraaid-out*
 - Zelfstudie voor Azure Storage is alleen beschikbaar in de centrale EUAP ons op dit moment. 
-- Als een gebruiker toegewezen MSI is toegang tot een resource verleend, ziet u de IAM-blade voor die bron 'Kan niet voor toegang tot gegevens'. Gebruik als tijdelijke oplossing de CLI roltoewijzingen voor die bron weergeven/bewerken.
-- U maakt een MSI toegewezen met een onderstrepingsteken in de naam van de gebruiker, wordt niet ondersteund.
+- U maakt een MSI met speciale tekens (dat wil zeggen liggend streepje) in de naam van de toegewezen gebruiker, wordt niet ondersteund.
 - Wanneer een tweede gebruiker toe te voegen identiteit toegewezen, de clientID mogelijk niet beschikbaar voor het aanvragen van tokens voor. Als een risicobeperking start opnieuw op de MSI-VM-extensie met de volgende twee bash-opdrachten:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Resources beheren voor Apache Spark-cluster in Azure HDInsight 
 
@@ -76,7 +76,7 @@ De drie belangrijkste parameters die kunnen worden gebruikt voor de configuratie
 De drie configuratieparameters kunnen worden geconfigureerd op het clusterniveau van het (voor alle toepassingen die worden uitgevoerd op het cluster) of voor elke afzonderlijke toepassing ook worden opgegeven.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Wijzig de parameters met Ambari UI
-1. Via de Ambari UI Klik hier **Spark**, klikt u op **Contigs**, en vouw vervolgens **aangepaste spark-standaardwaarden**.
+1. Via de Ambari UI Klik hier **Spark**, klikt u op **Configs**, en vouw vervolgens **aangepaste spark-standaardwaarden**.
 
     ![Parameters instellen met Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. De standaardwaarden zijn goed als er vier Spark scala-toepassingen die gelijktijdig worden uitgevoerd op het cluster. U kunt deze waarden wijzigen via de gebruikersinterface, zoals wordt weergegeven in de volgende schermafbeelding:

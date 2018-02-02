@@ -6,26 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a915473c67a7577582837b56d1a9ccec4d21c461
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Gebeurtenis raster abonnement schema
 
 Voor het maken van een gebeurtenis raster-abonnement, kunt u een aanvraag verzendt naar het maken van de gebeurtenis abonnement opnieuw. Gebruik de volgende notatie:
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Bijvoorbeeld, een gebeurtenisabonnement voor een opslagaccount maken met de naam `examplestorage` in een resourcegroep met de naam `examplegroup`, gebruik de volgende notatie:
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Het artikel beschrijft de eigenschappen en het schema voor de hoofdtekst van de aanvraag.
@@ -34,24 +34,24 @@ Het artikel beschrijft de eigenschappen en het schema voor de hoofdtekst van de 
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Bestemming | object | Het object dat het eindpunt definieert. |
-| Filter | object | Een optioneel veld voor het filteren van de typen gebeurtenissen. |
+| destination | object | Het object dat het eindpunt definieert. |
+| filter | object | Een optioneel veld voor het filteren van de typen gebeurtenissen. |
 
 ### <a name="destination-object"></a>doelobject
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| endpointType | Tekenreeks | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
-| bij voor endpointUrl | Tekenreeks |  | 
+| endpointType | tekenreeks | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
+| bij voor endpointUrl | tekenreeks | De doel-URL voor gebeurtenissen in dit gebeurtenisabonnement. | 
 
 ### <a name="filter-object"></a>Filter-object
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | includedEventTypes | matrix | Treffer wanneer het gebeurtenistype bericht in de gebeurtenis is een exacte overeenkomst voor een van deze gebeurtenis type-namen. Er wordt een fout bij het gebeurtenisnaam komt niet overeen met de namen van het type geregistreerde gebeurtenis voor de gebeurtenisbron. Standaard komt overeen met alle types van gebeurtenissen. |
-| subjectBeginsWith | Tekenreeks | Een voorvoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. | 
-| subjectEndsWith | Tekenreeks | Een achtervoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. |
-| subjectIsCaseSensitive | Tekenreeks | Hoofdlettergevoelige die overeenkomt met filters voor besturingselementen. |
+| subjectBeginsWith | tekenreeks | Een voorvoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. | 
+| subjectEndsWith | tekenreeks | Een achtervoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. |
+| subjectIsCaseSensitive | tekenreeks | Hoofdlettergevoelige die overeenkomt met filters voor besturingselementen. |
 
 
 ## <a name="example-subscription-schema"></a>Voorbeeld abonnement schema

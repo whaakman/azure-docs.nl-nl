@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: d0bc16bc951fce17235d8070012de44ebab89888
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 74488b85ec524e4ad4c06a639a16ddbfd54b3154
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>De werking van PowerShell in Azure Cloud-Shell (Preview)
 PowerShell in de Cloud-Shell (Preview) aanhoudt bestanden met de volgende methode: 
@@ -34,9 +34,9 @@ De `Get-CloudDrive` opdracht haalt de Azure-share bestandsgegevens op dit moment
 U kunt een Azure-bestandsshare die gekoppeld aan Cloud-Shell op elk gewenst moment ontkoppelen. Als de Azure-bestandsshare is verwijderd, wordt u gevraagd om te maken en koppelen van een nieuwe Azure-bestandsshare op de volgende sessie.
 
 De `Dismount-CloudDrive` opdracht een Azure-bestandsshare ontkoppelt van het huidige opslagaccount. Ontkoppelen van het Cloud-station, wordt de huidige sessie beëindigd. De gebruiker wordt gevraagd om te maken en een nieuwe Azure-bestandsshare koppelen tijdens de volgende.
-![Ontkoppeling CloudDrive uitgevoerd](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 [Snelstartgids voor PowerShell](quickstart-powershell.md) <br>

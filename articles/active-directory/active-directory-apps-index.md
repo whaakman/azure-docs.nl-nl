@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Het maken, het onderhoud en het verwijderen van gebruikers-id's in de SaaS-toepa
 | Meer informatie over hoe het werkt en vindt u antwoorden op veelgestelde vragen |[Gebruiker inrichting & opheffen van inrichting tot SaaS-Apps te automatiseren](active-directory-saas-app-provisioning.md) |
 | Configureren hoe de gegevens tussen Azure AD is toegewezen en uw SaaS-Apps |[Kenmerktoewijzingen aanpassen](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Het inschakelen van geautomatiseerde inrichting naar alle Apps die ondersteuning biedt voor het protocol SCIM |[Geautomatiseerde Gebruikersinrichting naar alle Apps SCIM-Enabled instellen](active-directory-scim-provisioning.md) |
-| Het rapport op en gebruikersaanvragen oplossen |[Rapportage over automatisch gebruikers inrichten](active-directory-saas-provisioning-reporting.md)<br><br>[Inrichting van meldingen](active-directory-saas-account-provisioning-notifications.md)<br><br>[Het oplossen van gebruikers inrichten](active-directory-application-provisioning-content-map.md) |
+| Het rapport op en gebruikersaanvragen oplossen |[Rapportage over automatisch gebruikers inrichten](active-directory-saas-provisioning-reporting.md)<br><br>[Het oplossen van gebruikers inrichten](active-directory-application-provisioning-content-map.md) |
 | Limiet die voor een toepassing op basis van de kenmerkwaarden opgehaald ingericht |[Bereikfilters](active-directory-saas-scoping-filters.md) |
 
 Geautomatiseerde gebruikersinrichting is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkte toepassingen worden ondersteund. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor het beheren van welke gebruikers ophalen ingericht](#managing-access-to-applications).

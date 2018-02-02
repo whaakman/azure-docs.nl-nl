@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Verzamel gegevens van computers in uw omgeving met Log Analytics
 
@@ -32,7 +32,7 @@ Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden 
 
 ## <a name="overview"></a>Overzicht
 
-![log-Analytics-agent-Direct-Connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Voordat u analyseren en op de verzamelde gegevens fungeert, moet u eerst installeren en verbinding maken met agents voor alle computers die u wilt gegevens verzenden naar het Log Analytics-service. U kunt agents installeren op uw on-premises computers via Setup, opdrachtregel of met Desired State Configuration (DSC) in Azure Automation. 
 
@@ -41,6 +41,10 @@ De agent voor Linux en Windows uitgaande met de Log Analytics-service communicee
 De agent voor Linux en Windows niet alleen om verbinding te maken in Log Analytics, het ondersteunt ook verbinding maken met het bij Azure Automation host de functie Hybride Runbook worker oplossingen zoals bijhouden en updatebeheer.  Zie voor meer informatie over de hybride Runbook Worker-rol [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 Als de beleidsregels van uw IT-beveiliging niet toestaan computers in uw netwerk verbinding maken met Internet dat, kan de agent kan worden geconfigureerd voor verbinding met de OMS-Gateway voor configuratie-informatie te ontvangen en verzenden van verzamelde gegevens afhankelijk van de oplossing die u hebt ingeschakeld. Zie voor meer informatie en stapsgewijze instructies voor het configureren van uw Linux- of Windows-agent te communiceren via een OMS-Gateway naar de Log Analytics-service [computers koppelen aan OMS met behulp van de Gateway OMS](log-analytics-oms-gateway.md). 
+
+> [!NOTE]
+> De agent voor Windows biedt alleen ondersteuning voor Transport Layer Security (TLS) 1.0 en 1.1.  
+> 
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u begint, lees de volgende informatie om te controleren of u voldoet aan de minimale systeemvereisten.

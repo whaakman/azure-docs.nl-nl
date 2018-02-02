@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7dc10d0cc73960fac4759a0cebec8d294cf1b463
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23249b92b4e99628d49bbd811b4ad1f1dc9cc9b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event raster gebeurtenis schema voor abonnementen
 
@@ -39,7 +39,7 @@ Het volgende voorbeeld ziet u het schema van een resource gemaakt van gebeurteni
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -57,7 +57,9 @@ Het volgende voorbeeld ziet u het schema van een resource gemaakt van gebeurteni
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
         },
-    }
+      "dataVersion": "",
+      "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Het schema voor een gebeurtenis met resource verwijderd is vergelijkbaar:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,27 +95,29 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | Tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. |
-| Onderwerp | Tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | Tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | Tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
-| id | Tekenreeks | De unieke id voor de gebeurtenis. |
-| Gegevens | object | Gebeurtenisgegevens van het abonnement. |
+| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
+| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| gegevens | object | Gebeurtenisgegevens van het abonnement. |
+| dataVersion | tekenreeks | De versie van het schema van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | tekenreeks | De versie van het schema van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Autorisatie | Tekenreeks | De aangevraagde autorisatie voor de bewerking. |
-| Claims | Tekenreeks | De eigenschappen van de claims. |
-| correlationId | Tekenreeks | Een bewerking-ID voor het oplossen van problemen. |
-| httpRequest | Tekenreeks | De details van de bewerking. |
-| ResourceProvider | Tekenreeks | De resourceprovider voor de bewerking wordt uitgevoerd. |
-| resourceUri | Tekenreeks | De URI van de resource in de bewerking. |
-| operationName | Tekenreeks | De bewerking die werd uitgevoerd. |
-| status | Tekenreeks | De status van de bewerking. |
-| subscriptionId | Tekenreeks | De abonnements-ID van de resource. |
-| TenantId | Tekenreeks | De tenant-ID van de resource. |
+| Autorisatie | tekenreeks | De aangevraagde autorisatie voor de bewerking. |
+| claims | tekenreeks | De eigenschappen van de claims. |
+| correlationId | tekenreeks | Een bewerking-ID voor het oplossen van problemen. |
+| httpRequest | tekenreeks | De details van de bewerking. |
+| resourceProvider | tekenreeks | De resourceprovider voor de bewerking wordt uitgevoerd. |
+| resourceUri | tekenreeks | De URI van de resource in de bewerking. |
+| operationName | tekenreeks | De bewerking die werd uitgevoerd. |
+| status | tekenreeks | De status van de bewerking. |
+| subscriptionId | tekenreeks | De abonnements-ID van de resource. |
+| tenantId | tekenreeks | De tenant-ID van de resource. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

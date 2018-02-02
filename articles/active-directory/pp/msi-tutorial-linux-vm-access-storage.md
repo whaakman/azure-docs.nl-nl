@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM te gebruiken voor toegang tot Azure Storage
 
@@ -134,10 +134,10 @@ Omdat bestanden blob-opslag is vereist, moet u een blobcontainer in om op te sla
 
 Met behulp van een MSI-bestand, krijgt uw code toegangstokens voor verificatie naar bronnen die ondersteuning bieden voor Azure AD-verificatie. In deze zelfstudie gebruikt u Azure Storage.
 
-Eerst u de MSI identiteit toegang verlenen tot een Azure Storage-container. In dit geval gebruikt u de container die eerder hebt gemaakt. Werk de waarden voor `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, en `<CONTAINER NAME>` afhankelijk van wat geschikt is voor uw omgeving. Vervang `<CLIENT ID>` met de `clientId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi):
+Eerst u de MSI identiteit toegang verlenen tot een Azure Storage-container. In dit geval gebruikt u de container die eerder hebt gemaakt. Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, en `<CONTAINER NAME>` afhankelijk van wat geschikt is voor uw omgeving. Verder vervangen `<MSI PRINCIPALID>` met de `principalId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Het antwoord bevat de details voor de roltoewijzing gemaakt:

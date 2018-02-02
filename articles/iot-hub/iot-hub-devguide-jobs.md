@@ -3,7 +3,7 @@ title: Azure IoT Hub taken begrijpen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - plannen van taken uit te voeren op meerdere apparaten verbonden met uw IoT-hub. Taken kunnen bijwerken labels en gewenste eigenschappen en methoden niet aanroepen direct voor meerdere apparaten.
 services: iot-hub
 documentationcenter: .net
-author: juanjperez
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
-ms.author: juanpere
-ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 01/29/2018
+ms.author: dobett
+ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
@@ -105,7 +105,7 @@ De volgende lijst bevat de eigenschappen en de bijbehorende beschrijvingen, die 
 | --- | --- |
 | **jobId** |Aanvraag-ID opgegeven voor de taak. |
 | **startTime** |Toepassing opgegeven begintijd (ISO 8601-) voor de taak. |
-| **Eindtijd** |IoT Hub opgegeven datum (ISO 8601-) voor wanneer de taak is voltooid. Geldig nadat de taak de status 'voltooid' bereikt. |
+| **endTime** |IoT Hub opgegeven datum (ISO 8601-) voor wanneer de taak is voltooid. Geldig nadat de taak de status 'voltooid' bereikt. |
 | **type** |Typen taken: |
 | | **scheduledUpdateTwin**: een taak die wordt gebruikt voor het bijwerken van een reeks gewenste eigenschappen of labels. |
 | | **scheduledDeviceMethod**: een taak gebruikt de methode van een apparaat op een reeks horende apparaten aan te roepen. |
@@ -130,11 +130,11 @@ Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide
 * [IoT-hubeindpunten] [ lnk-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont.
 * [Bandbreedtebeperking en quota's] [ lnk-quotas] beschrijving van de quota die betrekking hebben op de IoT Hub-service en het gedrag bandbreedteregeling kunt verwachten wanneer u de service gebruiken.
 * [Azure IoT-SDKs voor apparaat en de service] [ lnk-sdks] geeft een lijst van de verschillende SDK's kunt u bij het ontwikkelen van apps voor het apparaat en de service die communiceren met IoT Hub-taal.
-* [IoT Hub-querytaal voor apparaat horende, taken en berichtroutering] [ lnk-query] beschrijft de IoT Hub-querytaal kunt u gegevens ophalen uit IoT Hub over uw apparaat horende en taken.
+* [IoT Hub-querytaal voor apparaat horende, taken en berichtroutering] [ lnk-query] beschrijft de querytaal IoT Hub. Gebruik deze querytaal ophalen van gegevens uit IoT Hub over uw apparaat horende en taken.
 * [Ondersteuning voor IoT Hub MQTT] [ lnk-devguide-mqtt] meer informatie over IoT Hub ondersteuning biedt voor het MQTT-protocol.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kunt u mogelijk geïnteresseerd in de volgende IoT Hub-zelfstudie:
+Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zie de volgende IoT Hub-zelfstudie:
 
 * [Planning en broadcast-taken][lnk-jobs-tutorial]
 

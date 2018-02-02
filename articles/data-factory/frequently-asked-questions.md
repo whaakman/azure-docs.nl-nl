@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel is van toepassing op versie 2 van de Azure Data Factory-service. Dit vindt u antwoorden op veelgestelde vragen over Data Factory.  
@@ -68,7 +68,7 @@ U hebt nu de vrijheid om het model van de stijl van een stroom die is vereist vo
 Zie voor meer informatie [zelfstudie: stromen beheren](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>SSIS-pakketten implementeren in Azure 
-Als u wilt uw SSIS-werkbelastingen verplaatsen, kunt u een Gegevensfactory versie 2 maken en inrichten van een Azure-SSIS-integratie-runtime. De Azure-SSIS-integratie-runtime is een volledig beheerde cluster met Azure Virtual machines (knooppunten) die zijn toegewezen voor het uitvoeren van SSIS-pakketten in de cloud. Zie voor stapsgewijze instructies de [implementeren SSIS-pakketten naar Azure](tutorial-deploy-ssis-packages-azure.md) zelfstudie. 
+Als u wilt uw SSIS-werkbelastingen verplaatsen, kunt u een Gegevensfactory versie 2 maken en inrichten van een Azure-SSIS-integratie-runtime. De Azure-SSIS-integratie-runtime is een volledig beheerde cluster met Azure Virtual machines (knooppunten) die zijn toegewezen voor het uitvoeren van SSIS-pakketten in de cloud. Zie voor stapsgewijze instructies de [implementeren SSIS-pakketten naar Azure](tutorial-create-azure-ssis-runtime-portal.md) zelfstudie. 
  
 
 ### <a name="sdks"></a>SDK's

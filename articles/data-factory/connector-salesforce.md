@@ -1,6 +1,6 @@
 ---
-title: "Gegevens kopiëren van/naar Salesforce met behulp van Azure Data Factory | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens van Salesforce tot gegevensarchieven ondersteunde sink (of) van de ondersteunde bron gegevensarchieven bij Salesforce met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn."
+title: "Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory | Microsoft Docs"
+description: "Informatie over het kopiëren van gegevens van Salesforce op ondersteunde sink gegevensarchieven of van ondersteunde bron gegevensarchieven bij Salesforce met behulp van een kopieeractiviteit in een data factory-pijplijn."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,34 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cd86922b0445fc81766ca54080e2fd3e64a6c61
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Gegevens kopiëren van/naar Salesforce met behulp van Azure Data Factory
+# <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-salesforce-connector.md)
+> * [Versie 1 - algemeen beschikbaar](v1/data-factory-salesforce-connector.md)
 > * [Versie 2 - Preview](connector-salesforce.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Salesforce. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Salesforce. Dit is gebaseerd op de [Kopieeractiviteit overzicht](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Salesforce-connector in V1](v1/data-factory-salesforce-connector.md).
+> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory, die in het algemeen beschikbaar is, Zie [Salesforce-connector in versie 1](v1/data-factory-salesforce-connector.md).
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens van Salesforce kopiëren naar een ondersteunde sink-gegevensarchief of of gegevens kopiëren van een ondersteunde brongegevensarchief naar Salesforce. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens kopiëren van Salesforce in alle ondersteunde sink-gegevensarchief. U kunt ook gegevens uit alle ondersteunde brongegevensarchief kopiëren naar Salesforce. Zie voor een lijst met gegevensarchieven die als bronnen of PUT worden ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
 In het bijzonder ondersteunt deze Salesforce-connector:
 
-- De volgende versies van Salesforce: **ontwikkelaarsversie, Professional Edition, Enterprise Edition of onbeperkte editie**.
-- Kopiëren van gegevens van/naar Salesforce **productie, sandbox en aangepast domein**.
+- SalesForce Developer, Professional, Enterprise of onbeperkt-edities.
+- Kopiëren van gegevens van en naar de productie, sandbox en aangepast domein Salesforce.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* API-machtiging moet zijn ingeschakeld in Salesforce. Zie [hoe inschakelen API-toegang in Salesforce door machtigingenset?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+API-machtiging moet zijn ingeschakeld in Salesforce. Zie voor meer informatie [inschakelen API-toegang in Salesforce door machtigingen zijn ingesteld](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
 ## <a name="salesforce-request-limits"></a>SalesForce aanvraaglimieten
 
@@ -49,31 +49,31 @@ SalesForce heeft limieten voor totaal aantal API-aanvragen en de gelijktijdige A
 - Als het aantal gelijktijdige aanvragen de limiet overschrijdt, beperking optreedt en er willekeurige fouten.
 - Als het totale aantal aanvragen de limiet overschrijdt, wordt het Salesforce-account van 24 uur geblokkeerd.
 
-De "REQUEST_LIMIT_EXCEEDED" fout kan ook worden weergegeven in beide scenario's. Zie de sectie 'API aanvraaglimieten' in de [Salesforce Developer limieten](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) artikel voor meer informatie.
+U kunt ook het foutbericht 'REQUEST_LIMIT_EXCEEDED' in beide scenario's. Zie voor meer informatie de sectie 'Aanvraaglimieten API' in [Salesforce developer limieten](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
-## <a name="getting-started"></a>Aan de slag
+## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Salesforce-connector.
+De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met de Salesforce-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor Salesforce gekoppelde service:
+De volgende eigenschappen worden ondersteund voor de service Salesforce gekoppeld.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type |De eigenschap type moet worden ingesteld op: **Salesforce**. |Ja |
-| environmentUrl | Geef de URL van de Salesforce-exemplaar. <br> -Standaard is `"https://login.salesforce.com"`. <br> -Geef om gegevens te kopiëren vanuit sandbox, `"https://test.salesforce.com"`. <br> -Om gegevens te kopiëren van een aangepast domein, opgeven, bijvoorbeeld `"https://[domain].my.salesforce.com"`. |Nee |
+| type |De eigenschap type moet worden ingesteld op **Salesforce**. |Ja |
+| environmentUrl | Geef de URL van het exemplaar van Salesforce. <br> -Standaard is `"https://login.salesforce.com"`. <br> -Geef om gegevens te kopiëren vanuit sandbox, `"https://test.salesforce.com"`. <br> -Om gegevens te kopiëren van een aangepast domein, opgeven, bijvoorbeeld `"https://[domain].my.salesforce.com"`. |Nee |
 | gebruikersnaam |Geef een naam op voor het gebruikersaccount. |Ja |
-| wachtwoord |Geef een wachtwoord voor het gebruikersaccount.<br/><br/>U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
-| securityToken |Geef een beveiligingstoken voor de gebruikersaccount. Zie [security token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen of ophalen van een beveiligingstoken. Zie voor informatie over het algemeen over beveiligingstokens, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of beveiligingstoken worden opgeslagen in Azure Sleutelkluis en de kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als bron gekoppeld-service heeft geen IR |
+| wachtwoord |Geef een wachtwoord voor het gebruikersaccount.<br/><br/>U kunt dit veld markeren als SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook het wachtwoord opslaan in Azure Sleutelkluis en de kopie activiteit pull van daaruit laten bij het uitvoeren van de gegevens opnieuw te kopiëren. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
+| securityToken |Geef een beveiligingstoken voor de gebruikersaccount. Zie voor instructies over het opnieuw instellen en ophalen van een beveiligingstoken [ophalen van een beveiligingstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Zie voor informatie over het algemeen over beveiligingstokens, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>U kunt dit veld markeren als SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook het beveiligingstoken opslaan in de Sleutelkluis en de kopie activiteit pull van daaruit laten wanneer u gegevens kopiëren uitvoeren. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
+| connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als de bron gekoppeld service beschikt niet over integratie runtime |
 
 >[!IMPORTANT]
->Als u gegevens **in** Salesforce, standaard Azure integratie Runtime kan niet worden gebruikt om uit te voeren kopiëren. In een ander woord als de bron gekoppeld service beschikt niet over een opgegeven IR expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met een locatie in de buurt van uw Salesforce en koppelen in het Salesforce.
+>Wanneer u gegevens in Salesforce kopieert, kan niet de standaard Azure integratie Runtime worden gebruikt voor het kopiëren uitvoeren. Met andere woorden, als de bron gekoppeld service beschikt niet over een runtime opgegeven integratie expliciet [maken van een Azure-integratie Runtime](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Salesforce-exemplaar. Koppel de gekoppelde Salesforce service zoals in het volgende voorbeeld.
 
-**Voorbeeld: opslaan van referenties in ADF**
+**Voorbeeld: Referenties opgeslagen in Data Factory**
 
 ```json
 {
@@ -99,7 +99,7 @@ De volgende eigenschappen worden ondersteund voor Salesforce gekoppelde service:
 }
 ```
 
-**Voorbeeld: opslaan van referenties in Azure Sleutelkluis**
+**Voorbeeld: Referenties opgeslagen in de Sleutelkluis**
 
 ```json
 {
@@ -135,19 +135,19 @@ De volgende eigenschappen worden ondersteund voor Salesforce gekoppelde service:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Salesforce-gegevensset.
+Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de Salesforce-gegevensset.
 
-Stel de eigenschap type van de gegevensset om gegevens te kopiëren van/naar Salesforce, **SalesforceObject**. De volgende eigenschappen worden ondersteund:
+Stel de eigenschap type van de gegevensset om gegevens te kopiëren van en naar Salesforce, **SalesforceObject**. De volgende eigenschappen worden ondersteund.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **SalesforceObject**  | Ja |
+| type | De eigenschap type moet worden ingesteld op **SalesforceObject**.  | Ja |
 | objectApiName | De objectnaam Salesforce gegevens ophalen van. | Er is geen voor bron Ja voor sink |
 
 > [!IMPORTANT]
-> Het gedeelte '__c' van de API-naam is vereist voor elk object dat aangepast.
+> Het gedeelte '__c' van **API-naam** nodig voor elk object dat aangepast is.
 
-![Naam van de Data Factory - verbinding Salesforce - API](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+![Data Factory Salesforce verbinding API-naam](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
 **Voorbeeld:**
 
@@ -168,30 +168,30 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van/naar Sal
 ```
 
 >[!NOTE]
->Voor de vorige compatibiliy bij het kopiëren van gegevens van Salesforce wordt met behulp van de vorige 'RelationalTable' type gegevensset blijven werken, terwijl u overschakelen naar het nieuwe 'SalesforceObject'-type worden voorgesteld.
+>Voor achterwaartse compatibiliteit: wanneer u gegevens van Salesforce, kopiëren als u de vorige 'RelationalTable' type gegevensset gebruikt, blijft deze werken terwijl u een suggestie ziet overschakelen naar het nieuwe 'SalesforceObject'-type.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op: **RelationalTable** | Ja |
+| type | De eigenschap type van de gegevensset moet worden ingesteld op **RelationalTable**. | Ja |
 | tableName | De naam van de tabel in Salesforce. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Salesforce-bron- en sink.
 
-### <a name="salesforce-as-source"></a>SalesForce als bron
+### <a name="salesforce-as-a-source-type"></a>SalesForce als een type gegevensbron
 
-Om gegevens te kopiëren van Salesforce, stelt u het brontype in de kopieerbewerking naar **SalesforceSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van Salesforce, stelt u het brontype in de kopieerbewerking naar **SalesforceSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **SalesforceSource** | Ja |
-| query |Gebruik de aangepaste query om gegevens te lezen. U kunt een SQL-92-query of [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. Bijvoorbeeld: `select * from MyTable__c`. | Nee (als 'tableName' in de gegevensset is opgegeven) |
+| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **SalesforceSource**. | Ja |
+| query |Gebruik de aangepaste query om gegevens te lezen. U kunt een SQL-92-query of [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. Een voorbeeld is `select * from MyTable__c`. | Nee (als 'tableName' in de gegevensset is opgegeven) |
 
 > [!IMPORTANT]
-> Het gedeelte '__c' van de API-naam is vereist voor elk object dat aangepast.
+> Het gedeelte '__c' van **API-naam** nodig voor elk object dat aangepast is.
 
-![Naam van de Data Factory - verbinding Salesforce - API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+![Data Factory Salesforce verbinding lijst API-naam](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
 **Voorbeeld:**
 
@@ -226,21 +226,21 @@ Om gegevens te kopiëren van Salesforce, stelt u het brontype in de kopieerbewer
 ```
 
 >[!NOTE]
->Voor de vorige compatibiliy bij het kopiëren van gegevens van Salesforce wordt met behulp van de vorige bron van het type kopiëren 'RelationalSource' blijven werken, terwijl u overschakelen naar het nieuwe 'SalesforceSource'-type worden voorgesteld.
+>Voor achterwaartse compatibiliteit: wanneer u gegevens van Salesforce, kopiëren als u het vorige exemplaar van de 'RelationalSource'-type, de bron blijven werken terwijl u een suggestie ziet overschakelen naar het nieuwe 'SalesforceSource'-type.
 
-### <a name="salesforce-as-sink"></a>SalesForce als sink
+### <a name="salesforce-as-a-sink-type"></a>SalesForce als sink-type
 
-Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieerbewerking naar **SalesforceSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie:
+Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieerbewerking naar **SalesforceSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **SalesforceSink** | Ja |
-| WriteBehavior | Het gedrag schrijven voor de bewerking.<br/>Toegestane waarden zijn: **invoegen**, en **Upsert**. | Nee (de standaardwaarde is invoegen) |
-| externalIdFieldName | De naam van het externe ID-veld voor upsert bewerking. Het opgegeven veld moet worden gedefinieerd als 'Externe Id Field' in het Salesforce-object en kan het geen NULL-waarden in de bijbehorende invoergegevens hebben. | Ja voor "Upsert" |
-| writeBatchSize | Het aantal rijen van de gegevens die naar Salesforce zijn geschreven in elke batch. | Nee (de standaardwaarde is 5000) |
-| ignoreNullValues | Hiermee wordt aangegeven of voor het negeren van null-waarden van invoer gegevens tijdens de schrijfbewerking.<br/>Toegestane waarden zijn: **true**, en **false**.<br>- **de waarde True**: laat de gegevens in de doel-object niet worden gewijzigd bij het uitvoeren van bewerking upsert/bijwerken en voeg standaardwaarde gedefinieerd bij het uitvoeren van insert-bewerking.<br/>- **ONWAAR**: de gegevens in het doelobject op NULL bijwerken bij het uitvoeren van bewerking upsert/bijwerken en voeg NULL-waarde bij het uitvoeren van insert-bewerking. | Nee (de standaardwaarde is ONWAAR) |
+| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op **SalesforceSink**. | Ja |
+| writeBehavior | Het gedrag schrijven voor de bewerking.<br/>Toegestane waarden zijn **invoegen** en **Upsert**. | Nee (de standaardwaarde is invoegen) |
+| externalIdFieldName | De naam van het externe ID-veld voor de bewerking upsert. Het opgegeven veld moet worden gedefinieerd als 'Externe Id Field' in het Salesforce-object. Er kan geen NULL-waarden in de bijbehorende invoergegevens. | Ja voor "Upsert" |
+| writeBatchSize | Het aantal rijen van de gegevens die naar Salesforce zijn geschreven in elke batch. | Nee (de standaardwaarde is 5.000) |
+| ignoreNullValues | Hiermee wordt aangegeven of NULL-waarden van invoergegevens tijdens een schrijfactie genegeerd.<br/>Toegestane waarden zijn **true** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een upsert of update-bewerking uitvoeren. Plaats een gedefinieerde standaardwaarde als u een insert-bewerking doet.<br/>- **ONWAAR**: de gegevens in het doelobject op NULL bijwerken wanneer u een upsert of update-bewerking uitvoeren. Plaats een NULL-waarde als u een insert-bewerking doet. | Nee (de standaardwaarde is ONWAAR) |
 
-### <a name="example-salesforce-sink-in-copy-activity"></a>Voorbeeld: Salesforce sink in de kopieerbewerking
+**Voorbeeld: Salesforce sink in een kopieeractiviteit**
 
 ```json
 "activities":[
@@ -277,41 +277,41 @@ Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieerbew
 
 ## <a name="query-tips"></a>Tips voor query
 
-### <a name="retrieving-data-from-salesforce-report"></a>Ophalen van gegevens uit het Salesforce-rapport
+### <a name="retrieve-data-from-a-salesforce-report"></a>Gegevens ophalen uit een Salesforce-rapport
 
-U kunt gegevens ophalen uit het Salesforce-rapporten door te geven van de query als `{call "<report name>"}`. Voorbeeld: `"query": "{call \"TestReport\"}"`.
+U kunt gegevens ophalen uit het Salesforce-rapporten door te geven van een query als `{call "<report name>"}`. Een voorbeeld is `"query": "{call \"TestReport\"}"`.
 
-### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Bij het ophalen van records verwijderd uit Salesforce Prullenbak
+### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Verwijderde records uit de Salesforce-Prullenbak ophalen
 
-Om te vragen de voorlopig verwijderde records uit Salesforce-Prullenbak, kunt u **' IsDeleted = 1 "** in uw query. Bijvoorbeeld:
+Om te vragen de voorlopig verwijderde records uit de Salesforce-Prullenbak, kunt u **' IsDeleted = 1 "** in uw query. Bijvoorbeeld:
 
-* Opgeven om te vragen alleen de verwijderde records, ' Selecteer * uit MyTable__c **waar IsDeleted = 1**'
-* Opgeven om te vragen alle records met inbegrip van de bestaande en de verwijderde, ' Selecteer * uit MyTable__c **waar IsDeleted = 0 of IsDeleted = 1**'
+* Opgeven om te vragen alleen de verwijderde records, ' Selecteer * uit MyTable__c **waar IsDeleted = 1**. "
+* Opgeven om te vragen van alle records, met inbegrip van de bestaande en de verwijderde, ' Selecteer * uit MyTable__c **waar IsDeleted = 0 of IsDeleted = 1**. "
 
-### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Bij het ophalen van gegevens met behulp van waar component voor datum/tijd-kolom
+### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Gegevens ophalen met behulp van een where component voor de datum/tijd-kolom
 
-Geef bij de SOQL of SQL-query, let u op het verschil van datum/tijd-indeling. Bijvoorbeeld:
+Wanneer u de SOQL of SQL-query opgeeft, moet u aandacht schenken aan het verschil van datum/tijd-indeling. Bijvoorbeeld:
 
 * **Voorbeeld van SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL-voorbeeld**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Toewijzing voor de Salesforce-gegevenstype
 
-Bij het kopiëren van gegevens van Salesforce, worden de volgende toewijzingen van Salesforce gegevenstypen gebruikt voor Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
+Als u gegevens van Salesforce kopieert, worden de volgende toewijzingen van Salesforce-gegevenstypen gebruikt voor Data Factory tussentijdse gegevenstypen. Zie voor meer informatie over hoe het brontype schema en de gegevens in de kopieerbewerking wordt toegewezen aan de sink, [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md).
 
-| SalesForce-gegevenstype | Data factory tussentijdse gegevenstype |
+| SalesForce-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Automatische getal |Tekenreeks |
 | Selectievakje |Boole-waarde |
-| Valuta |dubbele |
+| Valuta |Double |
 | Date |Datum en tijd |
 | Datum/tijd |Datum en tijd |
 | E-mail |Tekenreeks |
 | Id |Tekenreeks |
 | Opzoekrelatie |Tekenreeks |
 | Meervoudige selectie selectielijst |Tekenreeks |
-| Aantal |dubbele |
-| Procent |dubbele |
+| Aantal |Double |
+| Procent |Double |
 | Telefoon |Tekenreeks |
 | Selectielijst |Tekenreeks |
 | Tekst |Tekenreeks |
@@ -322,4 +322,4 @@ Bij het kopiëren van gegevens van Salesforce, worden de volgende toewijzingen v
 | URL |Tekenreeks |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst van gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Gegevensfactory [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

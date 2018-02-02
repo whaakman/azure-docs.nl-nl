@@ -15,24 +15,25 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema-updates voor Azure Logic Apps - 1 juni 2016
 
-Deze nieuwe schema en de API-versie voor Azure Logic Apps bevat belangrijke verbeteringen die logische apps betrouwbaarder en eenvoudiger te gebruiken:
+De [schema bijgewerkt](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) en API-versie voor Azure Logic Apps bevat belangrijke verbeteringen die logische apps betrouwbaarder en eenvoudiger te gebruiken:
 
 * [Scopes](#scopes) kunt u een groep of acties nesten als een verzameling van acties.
 * [Voorwaarden en lussen](#conditions-loops) zijn nu klas acties.
 * Nauwkeurigere ordening voor het uitvoeren van acties met de `runAfter` eigenschap vervangen`dependsOn`
 
-Upgrade van uw logische apps van het schema van de preview 1 augustus 2015 aan het schema 1 juni 2016 [Raadpleeg de sectie upgrade](##upgrade-your-schema).
+Upgrade van uw logische apps van het schema van de preview 1 augustus 2015 aan het schema 1 juni 2016 [Raadpleeg de sectie upgrade](#upgrade-your-schema).
 
 <a name="scopes"></a>
-## <a name="scopes"></a>Scopes
+
+## <a name="scopes"></a>Bereiken
 
 Dit schema bevat bereiken, waarmee u groep samen of nest acties in de andere. Een voorwaarde kan bijvoorbeeld een voorwaarde bevatten. Meer informatie over [bereik syntaxis](../logic-apps/logic-apps-loops-and-scopes.md), of in dit voorbeeld basic bereik bekijken:
 
@@ -57,6 +58,7 @@ Dit schema bevat bereiken, waarmee u groep samen of nest acties in de andere. Ee
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Voorwaarden en lussen wijzigingen
 
 Zijn parameters die zijn gekoppeld aan één actie in het schema van vorige versies, de voorwaarden en lussen. Dit schema liftonderhoud deze beperking, zodat de voorwaarden en lussen nu worden weergegeven als actietypen. Meer informatie over [lussen en -scopes](../logic-apps/logic-apps-loops-and-scopes.md), of dit eenvoudige voorbeeld voor een actie voorwaarde bekijken:
@@ -86,6 +88,7 @@ Zijn parameters die zijn gekoppeld aan één actie in het schema van vorige vers
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>de eigenschap 'runAfter'
 
 De `runAfter` eigenschap vervangt `dependsOn`, mits nauwkeuriger wanneer u de volgorde voor acties opgeven op basis van de status van de vorige acties.
@@ -104,7 +107,7 @@ De `dependsOn` eigenschap is gelijk aan 'de actie is uitgevoerd en is geslaagd',
 
 ## <a name="upgrade-your-schema"></a>Uw schema bijwerken
 
-Een upgrade naar het nieuwe schema duurt slechts een paar stappen uitvoeren. Het upgradeproces bevat het upgrade-script uitgevoerd op te slaan als een nieuwe logische app, en als u wilt, mogelijk wordt de vorige logische app overschreven.
+Bijwerken naar de [meest recente schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), hoeft u alleen een paar stappen ondernemen. Het upgradeproces bevat het upgrade-script uitgevoerd op te slaan als een nieuwe logische app, en als u wilt, mogelijk wordt de vorige logische app overschreven.
 
 1. Open uw logische app in de Azure-portal.
 

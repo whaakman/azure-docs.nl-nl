@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synchronisatie: locatie van de gewenste gegevens voor Office 365-gebruikers configureren | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: locatie van de gewenste gegevens voor Multi-Geo-mogelijkheden configureren in Office 365 | Microsoft Docs'
 description: Beschrijft hoe u uw Office 365-Gebruikersbronnen dicht bij de gebruiker met Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 01/30/2018
 ms.author: billmath
-ms.openlocfilehash: 73b9b8d208b5eac2e62f62ab786efafa056e3cb4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect-synchronisatie: locatie van de gewenste gegevens voor Office 365-bronnen configureren
-Het doel als dit onderwerp helpt u bij het configureren van preferredDataLocation in Azure AD Connect-synchronisatie. Dit kenmerk wordt gebruikt om aan te geven op Office 365 waarin de gebruiker zich bevindt, zodat de resources dicht bij de gebruiker kunnen worden geplaatst. Deze functie is bedoeld voor grotere klanten.
+Het doel van dit onderwerp wordt u stapsgewijs door het PreferredDataLocation configureren in Azure AD Connect-synchronisatie. Wanneer een klant Multi-Geo-mogelijkheden in Office 365 gebruikt, wordt dit kenmerk wordt gebruikt om aan te wijzen de geografische locatie van de Office 365-gegevens van de gebruiker.
 
 > [!IMPORTANT]
-> Deze functie is momenteel in preview en in de cloud standaard uitgeschakeld. Als u deelnemen aan het programma preview wilt, klikt u vervolgens contact op met uw Microsoft-vertegenwoordiger.
+> Multi-geografisch is momenteel in preview. Neem contact op met uw Microsoft-vertegenwoordiger als u wilt deelnemen aan het programma preview.
 >
 >
 
@@ -34,11 +34,11 @@ Standaard bevinden Office 365-resources voor uw gebruikers zich in dezelfde regi
 Instellingen voor dit kenmerk kunt u de gebruiker Office 365-resources, zoals de postvak en OneDrive, hebben in dezelfde regio bevinden als de gebruiker en nog steeds een tenant voor uw hele organisatie.
 
 > [!IMPORTANT]
-> U moet ten minste 5000 plaatsen in uw Office 365-abonnement hebben voor deze functie in aanmerking komt.
+> Als u in aanmerking komen voor meerdere Geo, moet u ten minste 5000 seats hebben in uw Office 365-abonnement
 >
 >
 
-De regio's in Office 365 zijn:
+De regio's in Office 365 voor meerdere Geo beschikbaar zijn:
 
 | Regio | Beschrijving |
 | --- | --- |
@@ -56,7 +56,6 @@ Niet alle Office 365-werkbelastingen ondersteunt het gebruik van het instellen v
 Azure AD Connect ondersteunt synchronisatie van de **PreferredDataLocation** kenmerk voor **gebruiker** objecten in versie 1.1.524.0 en na. Meer specifiek, zijn de volgende wijzigingen geïntroduceerd:
 
 * Het schema van het objecttype **gebruiker** in de Azure AD-Connector is uitgebreid met PreferredDataLocation kenmerk van het type één waarde tekenreeks.
-
 * Het schema van het objecttype **persoon** in de Metaverse is uitgebreid met PreferredDataLocation kenmerk is van het type tekenreeks en één waarde.
 
 Het kenmerk PreferredDataLocation is standaard niet ingeschakeld voor synchronisatie. Deze functie is bedoeld voor grote organisaties en niet iedereen wilt profiteren van deze. U moet ook een kenmerk voor het opslaan van de Office 365-regio voor uw gebruikers, omdat er geen kenmerk PreferredDataLocation in de lokale Active Directory is identificeren. Dit is het verstandig om verschillende voor elke organisatie.
@@ -69,14 +68,13 @@ Het kenmerk PreferredDataLocation is standaard niet ingeschakeld voor synchronis
 
 Voordat u de synchronisatie van het kenmerk PreferredDataLocation inschakelt, moet u het volgende doen:
 
- * Bepaal eerst welke lokale Active Directory-kenmerk moet worden gebruikt als het bronkenmerk. Deze moet van het type **één waarde tekenreeks**. In de stappen onder een van de extensionAttributes wordt gebruikt.
-
- * Als u het kenmerk PreferredDataLocation eerder hebt geconfigureerd op bestaande gebruikersobjecten gesynchroniseerd in Azure AD dat gebruikmaakt van Azure AD PowerShell, moet u **backport** de kenmerkwaarden voor de bijbehorende gebruikersobjecten in de lokale Active Directory.
+* Bepaal eerst welke lokale Active Directory-kenmerk moet worden gebruikt als het bronkenmerk. Deze moet van het type **één waarde tekenreeks**. In de stappen onder een van de extensionAttributes wordt gebruikt.
+* Als u het kenmerk PreferredDataLocation eerder hebt geconfigureerd op bestaande gebruikersobjecten gesynchroniseerd in Azure AD dat gebruikmaakt van Azure AD PowerShell, moet u **backport** de kenmerkwaarden voor de bijbehorende gebruikersobjecten in de lokale Active Directory.
 
     > [!IMPORTANT]
     > Als u niet backport de kenmerkwaarden voor de bijbehorende gebruikersobjecten in de lokale Active Directory dit, wordt de bestaande kenmerkwaarden in Azure AD Connect verwijderd in Azure AD wanneer synchronisatie voor het kenmerk PreferredDataLocation is ingeschakeld.
 
- * Het wordt aanbevolen configureren van het bronkenmerk op ten minste twee lokale AD-gebruiker objecten nu, die kan worden gebruikt voor verificatie later.
+* Het wordt aanbevolen configureren van het bronkenmerk op ten minste twee lokale AD-gebruiker objecten nu, die kan worden gebruikt voor verificatie later.
 
 De stappen voor het inschakelen van synchronisatie van het kenmerk PreferredDataLocation kunnen worden samengevat als:
 
@@ -102,7 +100,7 @@ Zorg ervoor dat er geen synchronisatie plaats terwijl u bent in het midden van h
 
 ![Controleer de Synchronization Service Manager - er zijn geen bewerkingen uitgevoerd](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Stap 2: Het bronkenmerk toevoegen aan het schema van lokale ADDS-connector
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Stap 2: Het bronkenmerk toevoegen aan het schema van lokale ADDS-connector
 Niet alle AD-kenmerken worden geïmporteerd in de on-premises AD Connectorgebied overgebracht. Als u hebt geselecteerd om te gebruiken van een kenmerk is niet standaard gesynchroniseerd, moet u het importeren. Het bronkenmerk toevoegen aan de lijst van de geïmporteerde kenmerken:
 
 1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
@@ -124,7 +122,7 @@ Standaard wordt het kenmerk PreferredDataLocation niet geïmporteerd in de ruimt
 
 ![Bronkenmerk toevoegen aan Azure AD-Connector schema](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Stap 4: Een synchronisatieregel voor binnenkomende om de stroom van de waarde van het kenmerk van de lokale Active Directory maken
+## <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Stap 4: Een synchronisatieregel voor binnenkomende om de stroom van de waarde van het kenmerk van de lokale Active Directory maken
 De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het kenmerk vanuit het bronkenmerk van de lokale Active Directory naar de Metaverse:
 
 1. Start de **synchronisatie regeleditor** door te gaan naar **START** > **synchronisatie regeleditor**.
@@ -256,6 +254,15 @@ Ervan uitgaande dat uw tenant is gemarkeerd als u deze functie wilt gebruiken, w
 4. Om te controleren of deze instelling is effectieve via veel postvakken, gebruikt u het script in de [Technet-galerie](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Dit script heeft ook een lijst met alle Office 365 datacenters server voorvoegsels en welke regio bevindt het zich in. Deze kan worden gebruikt als een verwijzing in de vorige stap om te controleren of de locatie van het postvak.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+**Meer informatie over Multi-geografisch in Office 365:**
+
+* Multi-Geo-sessies op Ignite: https://aka.ms/MultiGeoIgnite
+* Multi-geografisch in OneDrive: https://aka.ms/OneDriveMultiGeo
+* Multi-geografisch in SharePoint Online: https://aka.ms/SharePointMultiGeo
+
+**Meer informatie over de configuratiemodel in de synchronisatie-engine:**
+
 * Meer informatie over de configuratiemodel in [Understanding declaratieve inrichting](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Meer informatie over de expressietaal in [Understanding declaratieve inrichting expressies](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

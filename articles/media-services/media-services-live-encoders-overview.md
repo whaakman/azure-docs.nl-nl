@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 68aaf0fda2e60c5736ab020c15e516144e11d68e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31254788b840ccc1f1017df3c533e84b9c99f10d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Het configureren van on-premises coderingsprogramma's bij gebruik van Azure Media Services om multi-bitrate streams te maken
 In dit onderwerp geeft een lijst met on-premises live coderingsprogramma's die u gebruiken kunt voor het vastleggen van uw live gebeurtenissen en het verzenden van een single-bitrate live stream AMS-kanalen (die zijn live codering is ingeschakeld) voor verdere verwerking. Het onderwerp bevat ook koppelingen naar zelfstudies die laten zien hoe vermelde coderingsprogramma's configureren.
@@ -27,7 +27,10 @@ In dit onderwerp geeft een lijst met on-premises live coderingsprogramma's die u
 Voor informatie over het configureren van de [elementair Live](http://www.elementaltechnologies.com/products/elemental-live) codering verzendt een single-bitrate live stream naar een kanaal AMS Zie [elementair Live configureren](media-services-configure-elemental-live-encoder.md).
 
 ## <a name="flash-media-live-encoder"></a>Media Flash Live codering
-Voor informatie over het configureren van de [Media Flash Live coderingsprogramma](http://www.adobe.com/products/flash-media-encoder.html) (FMLE)-codering verzenden van een single-bitrate live stream naar een kanaal AMS Zie [FMLE configureren](media-services-configure-fmle-live-encoder.md) .
+Voor informatie over het configureren van de [Media Flash Live coderingsprogramma](http://www.adobe.com/products/flash-media-encoder.html) (FMLE)-codering verzenden van een single-bitrate live stream naar een kanaal AMS Zie [FMLE configureren](media-services-configure-fmle-live-encoder.md).
+
+## <a name="haivision-kb-encoder"></a>Haivision KB codering
+Voor informatie over het configureren van de [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) codering verzendt een single-bitrate live stream naar een kanaal AMS Zie [Haivision KB-codering configureren](media-services-configure-kb-live-encoder.md).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 Voor informatie over het configureren van de [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) codering verzendt een single-bitrate live stream naar een kanaal AMS Zie [Wirecast configureren](media-services-configure-wirecast-live-encoder.md).

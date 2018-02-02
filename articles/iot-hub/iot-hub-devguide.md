@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub developer guide
 
@@ -42,10 +42,10 @@ Deze IoT Hub developer guide bevat de volgende artikelen:
   * [Verzenden van cloud naar apparaat-berichten uit IoT Hub][devguide-messages-c2d].
   * [Maken en IoT Hub berichten lezen][devguide-format].
 * [Uploaden van bestanden van een apparaat] [ devguide-upload] wordt beschreven hoe u de bestanden van een apparaat kunt uploaden. Het artikel bevat ook informatie over onderwerpen als de meldingen het uploadproces kunt verzenden.
-* [Apparaat-id's van IoT-Hub beheren] [ devguide-identities] wordt beschreven welke gegevens elk IoT-hub register identiteitsopslag en hoe u toegang tot en wijzigt.
+* [Apparaat-id's van IoT-Hub beheren] [ devguide-identities] wordt beschreven welke informatie-identiteitsopslag register elke IoT-hub. Tevens wordt beschreven hoe u toegang tot en wijzigen.
 * [Toegangsbeheer met IoT Hub] [ devguide-security] beschrijving van het beveiligingsmodel dat wordt gebruikt voor het verlenen van toegang tot de functionaliteit van de IoT Hub voor beide apparaten en in de cloud van onderdelen. Het artikel bevat informatie over het gebruik van tokens en X.509-certificaten en details van de machtigingen die u kunt verlenen.
-* [Horende apparaten gebruiken voor het synchroniseren van de status en configuraties] [ devguide-device-twins] beschrijft de *apparaat twin* concept en de functionaliteit zoals het synchroniseren van een apparaat met de apparaat-twin worden getoond. Het artikel bevat informatie over de gegevens die zijn opgeslagen in een twin apparaat.
-* [Een directe methode aangeroepen voor een apparaat] [ devguide-directmethods] beschrijving van de levenscyclus van een directe methode, informatie over het aanroepen van methoden op een apparaat vanuit uw back-end-app en verwerken van de directe methode op uw apparaat.
+* [Horende apparaten gebruiken voor het synchroniseren van de status en configuraties] [ devguide-device-twins] beschrijft de *apparaat twin* concept. Het artikel ook de functionaliteit apparaat horende descibes weergegeven zoals het synchroniseren van een apparaat met de apparaat-twin. Het artikel bevat informatie over de gegevens die zijn opgeslagen in een twin apparaat.
+* [Een directe methode aangeroepen voor een apparaat] [ devguide-directmethods] beschrijving van de levenscyclus van een directe methode. Het artikel wordt beschreven hoe methoden niet aanroepen voor een apparaat vanuit uw back-end-app en het verwerken van de directe methode op uw apparaat.
 * [Plannen van taken op meerdere apparaten] [ devguide-jobs] wordt beschreven hoe u taken op meerdere apparaten kunt plannen. Het artikel wordt beschreven hoe verzenden van taken waarmee taken worden uitgevoerd als een directe methode, het bijwerken van een apparaat met een apparaat-twin uitvoeren. Ook wordt beschreven hoe u de status van een taak opvragen.
 * [Verwijzen naar: Kies een communicatieprotocol] [ devguide-protocol] beschrijft de communicatieprotocollen dat IoT Hub voor apparaatcommunicatie ondersteunt en zijn de poorten die geopend worden moeten.
 * [Referentie - IoT-hubeindpunten] [ devguide-endpoints] beschrijft de verschillende eindpunten die elke IoT-hub voor runtime- en beheerbewerkingen toont. Tevens wordt beschreven hoe u extra eindpunten in uw IoT-hub kunt maken en het gebruik van een veldgateway voor verbindingen met uw IoT Hub-eindpunten in niet-standaard scenario's.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 9cf5b1227e69ada46bc0b1e5ff01cc12e73598f7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft gebruiken met Azure Container Service en Azure Container Registry om een Kubernetes-toepassing te bouwen en implementeren
 
@@ -32,7 +32,7 @@ U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-regi
       az group create --name draft --location eastus
       ```
 
-2. Maak een ACR installatiekopie register met [az acr maken](/cli/azure/acr#create) en zorg ervoor dat de `--admin-enabled` optie is ingesteld op `true`.
+2. Maak een ACR installatiekopie register met [az acr maken](/cli/azure/acr#az_acr_create) en zorg ervoor dat de `--admin-enabled` optie is ingesteld op `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -40,7 +40,7 @@ U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-regi
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Een Azure Container Service maken met Kubernetes
 
-U bent er nu klaar voor om [az acs create](/cli/azure/acs#create) te gebruiken voor het maken van een ACS-cluster met Kubernetes als de `--orchestrator-type`-waarde.
+U bent er nu klaar voor om [az acs create](/cli/azure/acs#az_acs_create) te gebruiken voor het maken van een ACS-cluster met Kubernetes als de `--orchestrator-type`-waarde.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -220,7 +220,7 @@ Elke eigen domeinprovider wijst op zijn eigen manier DNS-servers toe. Als u uw [
     ```
 
 2. Maak een DNS-zone voor uw domein.
-Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
+Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

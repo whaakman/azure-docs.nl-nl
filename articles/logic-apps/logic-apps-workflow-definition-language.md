@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Werkstroom Definition Language-schema voor Azure Logic Apps
 
@@ -44,7 +44,7 @@ Hier wordt de basisstructuur van een werkstroomdefinitie:
   
 |Elementnaam|Vereist|Beschrijving|  
 |------------------|--------------|-----------------|  
-|$schema|Nee|Hiermee geeft u de locatie voor de JSON-schema-bestand dat de versie van de definition language beschrijft. Deze locatie is vereist wanneer u verwijst naar een extern-definitie. Dit document is de locatie: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
+|$schema|Nee|Hiermee geeft u de locatie voor de JSON-schema-bestand dat de versie van de definition language beschrijft. Deze locatie is vereist wanneer u verwijst naar een extern-definitie. Dit is de locatie voor dit document: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|Nee|Hiermee geeft u de versie-definitie. Wanneer u een werkstroom met behulp van de definitie implementeert, kunt u deze waarde om ervoor te zorgen dat de juiste definitie wordt gebruikt.|  
 |parameters|Nee|Hiermee geeft u parameters die worden gebruikt voor het invoeren van gegevens in de definitie. Een maximum van 50 parameters kan worden gedefinieerd.|  
 |Triggers|Nee|Hiermee geeft u informatie voor de triggers die de werkstroom te starten. Er kan maximaal 10 triggers worden gedefinieerd.|  
@@ -71,7 +71,7 @@ Het volgende voorbeeld ziet u de structuur van de parameterdefinitie van een:
 |Elementnaam|Vereist|Beschrijving|  
 |------------------|--------------|-----------------|  
 |type|Ja|**Type**: tekenreeks <p> **Declaratie**:`"parameters": {"parameter1": {"type": "string"}` <p> **Specificatie**:`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Type**: securestring <p> **Declaratie**:`"parameters": {"parameter1": {"type": "securestring"}}` <p> **Specificatie**:`"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Type**: int <p> **Declaratie**:`"parameters": {"parameter1": {"type": "int"}}` <p> **Specificatie**:`"parameters": {"parameter1": {"value" : 5}}` <p> **Type**: bool <p> **Declaratie**:`"parameters": {"parameter1": {"type": "bool"}}` <p> **Specificatie**:`"parameters": {"parameter1": { "value": true }}` <p> **Type**: matrix <p> **Declaratie**:`"parameters": {"parameter1": {"type": "array"}}` <p> **Specificatie**:`"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Type**: object <p> **Declaratie**:`"parameters": {"parameter1": {"type": "object"}}` <p> **Specificatie**:`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Type**: secureobject <p> **Declaratie**:`"parameters": {"parameter1": {"type": "object"}}` <p> **Specificatie**:`"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Opmerking:** de `securestring` en `secureobject` typen worden niet geretourneerd `GET` bewerkingen. Alle wachtwoorden, sleutels en geheimen moeten gebruiken voor dit type.|  
-|Standaardwaarde|Nee|Hiermee geeft u de standaardwaarde voor de parameter wanneer er geen waarde is opgegeven op het moment dat de resource is gemaakt.|  
+|defaultValue|Nee|Hiermee geeft u de standaardwaarde voor de parameter wanneer er geen waarde is opgegeven op het moment dat de resource is gemaakt.|  
 |allowedValues|Nee|Hiermee geeft u een matrix van toegestane waarden voor de parameter.|  
 |Metagegevens|Nee|Hiermee geeft u aanvullende informatie over de parameter, zoals een leesbare beschrijving of het moment van ontwerp gegevens die worden gebruikt door Visual Studio of andere hulpprogramma's.|  
   
@@ -90,7 +90,7 @@ Dit voorbeeld ziet hoe u een parameter in de sectie hoofdtekst van een actie kun
 
 Triggers en acties geeft de oproepen die kunnen deelnemen in workflow worden uitgevoerd. Zie voor meer informatie over deze sectie [werkstroomacties en Triggers](logic-apps-workflow-actions-triggers.md).
   
-## <a name="outputs"></a>uitvoer  
+## <a name="outputs"></a>Uitvoer  
 
 Uitvoer geven informatie op die kan worden geretourneerd van een werkstroom uitgevoerd. Als u een specifieke status of een waarde die u wilt traceren voor elke run hebt, kunt u die gegevens opnemen in de uitvoer uitvoeren. De gegevens worden weergegeven in de Management REST API voor die run en in de gebruikersinterface voor die uitvoeren in de Azure portal. U kunt ook deze uitvoer naar andere externe systemen zoals Power BI stromen om dashboards te maken. Uitvoer zijn *niet* gebruikt om te reageren op binnenkomende aanvragen op de REST-API-Service. Om te reageren op een binnenkomende aanvraag met behulp van de `response` actietype, Hier volgt een voorbeeld:
   
@@ -164,7 +164,7 @@ Operatoren zijn de tekens die u in expressies of functies gebruiken kunt.
 
 U kunt ook functies binnen expressies aanroepen. De volgende tabel ziet u de functies die kunnen worden gebruikt in een expressie.  
   
-|expressie|Evaluatie|  
+|Expressie|Evaluatie|  
 |----------------|----------------|  
 |'@function('Hallo') '|Roept het lid van de functie van de definitie van de letterlijke tekenreeks Hallo als eerste parameter.|  
 |'@function(' Dit '' s Cool!') '|Roept het lid van de functie van de definitie van de letterlijke tekenreeks ''s Cool!' Als de eerste parameter|  
@@ -172,14 +172,14 @@ U kunt ook functies binnen expressies aanroepen. De volgende tabel ziet u de fun
 |'@function('Hallo') .prop1 '|Het lid van de functie van de definitie van de letterlijke tekenreeks 'Hallo' aanroepen als de eerste parameter en retourneert de eigenschap prop1 van het object.|  
 |'@function(parameters('Hello')) '|De parameter Hallo geëvalueerd en wordt de waarde doorgegeven aan functie|  
   
-### <a name="referencing-functions"></a>Functies die verwijzen naar  
+### <a name="referencing-functions"></a>Verwijzingsfuncties  
 
 U kunt deze functies gebruiken om te verwijzen naar uitvoer van andere acties in de logische app of de waarden die worden doorgegeven als de logische app is gemaakt. Bijvoorbeeld, u kunt verwijzen naar de gegevens van de ene stap om deze te gebruiken in een andere.  
   
 |Functienaam|Beschrijving|  
 |-------------------|-----------------|  
 |parameters|Retourneert een parameterwaarde die is gedefinieerd in de definitie. <p>`parameters('password')` <p> **Parameternummer**: 1 <p> **Naam**: Parameter <p> **Beschrijving**: vereist. De naam van de parameter waarvan de gewenste waarden.|  
-|Actie|Hiermee kunt een expressie die moet worden afgeleid van de waarde van andere JSON-naam en waarde-paren of de uitvoer van de huidige runtime-actie. De eigenschap die wordt vertegenwoordigd door propertyPath in het volgende voorbeeld is optioneel. Als propertyPath niet is opgegeven, wordt de verwijzing naar het hele action-object is. Deze functie kan alleen worden gebruikt binnen een-totdat de voorwaarden van een actie. <p>`action().outputs.body.propertyPath`|  
+|actie|Hiermee kunt een expressie die moet worden afgeleid van de waarde van andere JSON-naam en waarde-paren of de uitvoer van de huidige runtime-actie. De eigenschap die wordt vertegenwoordigd door propertyPath in het volgende voorbeeld is optioneel. Als propertyPath niet is opgegeven, wordt de verwijzing naar het hele action-object is. Deze functie kan alleen worden gebruikt binnen een-totdat de voorwaarden van een actie. <p>`action().outputs.body.propertyPath`|  
 |acties|Hiermee kunt een expressie die moet worden afgeleid van de waarde van andere JSON-naam en waarde-paren of de uitvoer van de runtime-actie. Deze expressies declareren expliciet dat één actie afhankelijk van een andere actie is. De eigenschap die wordt vertegenwoordigd door propertyPath in het volgende voorbeeld is optioneel. Als propertyPath niet is opgegeven, wordt de verwijzing naar het hele action-object is. U kunt dit element of het element voorwaarden gebruiken om op te geven, afhankelijkheden, maar u hoeft niet te gebruiken voor dezelfde afhankelijke resource. <p>`actions('myAction').outputs.body.propertyPath` <p> **Parameternummer**: 1 <p> **Naam**: naam van de actie <p> **Beschrijving**: vereist. De naam van de actie waarvan de gewenste waarden. <p> Beschikbare eigenschappen van het actie-object zijn: <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Zie de [Rest-API](http://go.microsoft.com/fwlink/p/?LinkID=850646) voor meer informatie over deze eigenschappen.|
 |Trigger|Hiermee kunt een expressie die moet worden afgeleid van de waarde van andere JSON-naam en waarde-paren of de uitvoer van de runtime-trigger. De eigenschap die wordt vertegenwoordigd door propertyPath in het volgende voorbeeld is optioneel. Als propertyPath niet is opgegeven, wordt de verwijzing naar het hele triggerobject is. <p>`trigger().outputs.body.propertyPath` <p>Binnen een trigger invoer retourneert, de functie de uitvoer van de vorige uitvoering. Echter, wanneer gebruikt in een triggervoorwaarde de `trigger` functie retourneert de uitvoer van de huidige uitvoering. <p> Beschikbare eigenschappen op het triggerobject zijn: <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Zie de [Rest-API](http://go.microsoft.com/fwlink/p/?LinkID=850644) voor meer informatie over deze eigenschappen.|
 |actionOutputs|Deze functie is de afkorting van`actions('actionName').outputs` <p> **Parameternummer**: 1 <p> **Naam**: naam van de actie <p> **Beschrijving**: vereist. De naam van de actie waarvan de gewenste waarden.|  
@@ -194,9 +194,9 @@ Deze functies bepalen het verloop van verzamelingen en Algemeen van toepassing o
   
 |Functienaam|Beschrijving|  
 |-------------------|-----------------|  
-|Bevat|Retourneert waar als het woordenboek bevat een lijst met sleutels, bevat een waarde of tekenreeks subtekenreeks bevat. Bijvoorbeeld: deze functie retourneert `true`: <p>`contains('abacaba','aca')` <p> **Parameternummer**: 1 <p> **Naam**: binnen de verzameling <p> **Beschrijving**: vereist. De verzameling om te doorzoeken in. <p> **Parameternummer**: 2 <p> **Naam**: Find-object <p> **Beschrijving**: vereist. Het object te vinden binnen de **binnen verzameling**.|  
+|bevat|Retourneert waar als het woordenboek bevat een lijst met sleutels, bevat een waarde of tekenreeks subtekenreeks bevat. Bijvoorbeeld: deze functie retourneert `true`: <p>`contains('abacaba','aca')` <p> **Parameternummer**: 1 <p> **Naam**: binnen de verzameling <p> **Beschrijving**: vereist. De verzameling om te doorzoeken in. <p> **Parameternummer**: 2 <p> **Naam**: Find-object <p> **Beschrijving**: vereist. Het object te vinden binnen de **binnen verzameling**.|  
 |lengte|Retourneert het aantal elementen in een matrix of een tekenreeks. Bijvoorbeeld: deze functie retourneert `3`:  <p>`length('abc')` <p> **Parameternummer**: 1 <p> **Naam**: verzameling <p> **Beschrijving**: vereist. De verzameling waarvoor u de lengte ophalen.|  
-|leeg|Retourneert waar als het object, matrix of tekenreeks leeg is. Bijvoorbeeld: deze functie retourneert `true`: <p>`empty('')` <p> **Parameternummer**: 1 <p> **Naam**: verzameling <p> **Beschrijving**: vereist. De verzameling om te controleren als deze leeg is.|  
+|Leeg|Retourneert waar als het object, matrix of tekenreeks leeg is. Bijvoorbeeld: deze functie retourneert `true`: <p>`empty('')` <p> **Parameternummer**: 1 <p> **Naam**: verzameling <p> **Beschrijving**: vereist. De verzameling om te controleren als deze leeg is.|  
 |snijpunt|Retourneert een matrix of object waarvoor standaardelementen tussen matrices of objecten die zijn doorgegeven. Bijvoorbeeld: deze functie retourneert `[1, 2]`: <p>`intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])` <p>De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie van beide) zijn. Als er twee objecten met dezelfde naam, is het laatste object met deze naam wordt weergegeven in het definitieve-object. <p> **Parameternummer**: 1...*n* <p> **Naam**: verzameling*n* <p> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object moet zich in alle verzamelingen die zijn doorgegeven aan in het resultaat verschijnen.|  
 |Union|Retourneert een matrix of object met de elementen die in de matrix of object aan deze functie doorgegeven zijn. Bijvoorbeeld: deze functie retourneert `[1, 2, 3, 10, 101]`: <p>`union([1, 2, 3], [101, 2, 1, 10])` <p>De parameters voor de functie kunnen een set van objecten of een set van matrices (niet een combinatie daarvan) zijn. Als er twee objecten met dezelfde naam in de uiteindelijke uitvoer, is het laatste object met deze naam wordt weergegeven in het definitieve-object. <p> **Parameternummer**: 1...*n* <p> **Naam**: verzameling*n* <p> **Beschrijving**: vereist. De verzamelingen om te evalueren. Een object dat wordt weergegeven in een van de verzamelingen wordt ook weergegeven in het resultaat.|  
 |eerste|Retourneert het eerste element in de matrix of tekenreeks doorgegeven. Bijvoorbeeld: deze functie retourneert `0`: <p>`first([0,2,3])` <p> **Parameternummer**: 1 <p> **Naam**: verzameling <p> **Beschrijving**: vereist. De verzameling te laten worden van het eerste-object.|  
@@ -205,7 +205,7 @@ Deze functies bepalen het verloop van verzamelingen en Algemeen van toepassing o
 |Overslaan|Retourneert de elementen in de matrix die begint bij index **aantal**. Bijvoorbeeld: deze functie retourneert `[3, 4]`: <p>`skip([1, 2 ,3 ,4], 2)` <p> **Parameternummer**: 1 <p> **Naam**: verzameling <p> **Beschrijving**: vereist. De verzameling overslaan van de eerste **aantal** objecten uit. <p> **Parameternummer**: 2 <p> **Naam**: aantal <p> **Beschrijving**: vereist. Het aantal objecten verwijderen uit de voorgrond van **verzameling**. Moet een positief geheel getal zijn.|  
 |join|Retourneert een tekenreeks die bij elk item van een matrix die is gekoppeld met een scheidingsteken, bijvoorbeeld dit retourneert `"1,2,3,4"`:<br /><br /> `join([1, 2, 3, 4], ',')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: verzameling<br /><br /> **Beschrijving**: vereist. De verzameling items uit koppelen.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: scheidingsteken<br /><br /> **Beschrijving**: vereist. De tekenreeks van elkaar te scheiden van items.|  
   
-### <a name="string-functions"></a>Tekenreeks-functies
+### <a name="string-functions"></a>Tekenreeksfuncties
 
 De volgende functies zijn alleen van toepassing op tekenreeksen. U kunt ook sommige functies van de verzameling op tekenreeksen.  
   
@@ -239,17 +239,17 @@ Deze functies zijn nuttig in voorwaarden en kunnen worden gebruikt voor het eval
 |niet|Retourneert waar als de parameters zijn `false`. Beide argumenten moeten Booleaanse waarden. Bijvoorbeeld: deze functie retourneert `true`: <p>`not(contains('200 Success','Fail'))` <p> **Parameternummer**: 1 <p> **Naam**: Booleaanse <p> **Beschrijving**: retourneert true als de parameters zijn `false`. Beide argumenten moeten Booleaanse waarden. Deze functie retourneert `true`:`not(contains('200 Success','Fail'))`|  
 |Als|Retourneert een opgegeven waarde, op basis van of de expressie uitgewezen `true` of `false`.  Bijvoorbeeld: deze functie retourneert `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Parameternummer**: 1 <p> **Naam**: expressie <p> **Beschrijving**: vereist. De expressie moet een Booleaanse waarde die welke waarde bepaalt retourneren. <p> **Parameternummer**: 2 <p> **Naam**: True <p> **Beschrijving**: vereist. De waarde te retourneren als de expressie is `true`. <p> **Parameternummer**: 3 <p> **Naam**: False <p> **Beschrijving**: vereist. De waarde te retourneren als de expressie is `false`.|  
   
-### <a name="conversion-functions"></a>Van conversiefuncties  
+### <a name="conversion-functions"></a>Conversiefuncties  
 
 Deze functies worden gebruikt om te converteren tussen elk van de systeemeigen typen in de taal:  
   
-- Tekenreeks  
+- tekenreeks  
   
 - geheel getal  
   
-- Float  
+- drijvend  
   
-- Booleaanse waarde  
+- booleaans  
   
 - Matrices  
   
@@ -260,14 +260,14 @@ Deze functies worden gebruikt om te converteren tussen elk van de systeemeigen t
 |Functienaam|Beschrijving|  
 |-------------------|-----------------|  
 |int|De parameter niet converteren naar een geheel getal. Deze functie retourneert bijvoorbeeld 100 als een getal in plaats van een tekenreeks: <p>`int('100')` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een geheel getal.|  
-|Tekenreeks|De parameter niet converteren naar een tekenreeks. Bijvoorbeeld: deze functie retourneert `'10'`: <p>`string(10)` <p>U kunt ook een object converteren naar een tekenreeks. Bijvoorbeeld, als de `myPar` parameter is een object met één eigenschap `abc : xyz`, retourneert deze functie `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een tekenreeks.|  
+|tekenreeks|De parameter niet converteren naar een tekenreeks. Bijvoorbeeld: deze functie retourneert `'10'`: <p>`string(10)` <p>U kunt ook een object converteren naar een tekenreeks. Bijvoorbeeld, als de `myPar` parameter is een object met één eigenschap `abc : xyz`, retourneert deze functie `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een tekenreeks.|  
 |JSON|De parameter converteren naar een JSON-type-waarde en is het tegenovergestelde van `string()`. Bijvoorbeeld: deze functie retourneert `[1,2,3]` als een matrix in plaats van een tekenreeks: <p>`json('[1,2,3]')` <p>U kunt ook een tekenreeks converteren naar een object. Bijvoorbeeld: deze functie retourneert `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Parameternummer**: 1 <p> **Naam**: tekenreeks <p> **Beschrijving**: vereist. De tekenreeks die wordt geconverteerd naar een systeemeigen type-waarde. <p>De `json()` functie XML te invoer ondersteunt. Bijvoorbeeld, de parameterwaarde van: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>wordt geconverteerd naar deze JSON: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Float|Het parameterargument niet converteren naar een getal met drijvende komma. Bijvoorbeeld: deze functie retourneert `10.333`: <p>`float('10.333')` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een getal met drijvende komma.|  
+|drijvend|Het parameterargument niet converteren naar een getal met drijvende komma. Bijvoorbeeld: deze functie retourneert `10.333`: <p>`float('10.333')` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een getal met drijvende komma.|  
 |BOOL|De parameter niet converteren naar een Booleaanse waarde. Bijvoorbeeld: deze functie retourneert `false`: <p>`bool(0)` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een Booleaanse waarde.|  
 |Base64|Retourneert de base64-weergave van de invoertekenreeks. Bijvoorbeeld: deze functie retourneert `c29tZSBzdHJpbmc=`: <p>`base64('some string')` <p> **Parameternummer**: 1 <p> **Naam**: String 1 <p> **Beschrijving**: vereist. De tekenreeks voor het coderen naar base64-weergave.|  
 |base64ToBinary|Retourneert een binaire voorstelling van een base64-gecodeerde tekenreeks. Bijvoorbeeld: deze functie retourneert de binaire voorstelling van `some string`: <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Parameternummer**: 1 <p> **Naam**: tekenreeks <p> **Beschrijving**: vereist. De met base64 gecodeerde tekenreeks.|  
 |base64ToString|Retourneert een string-weergave van een based64 gecodeerde tekenreeks. Bijvoorbeeld: deze functie retourneert `some string`: <p>`base64ToString('c29tZSBzdHJpbmc=')` <p> **Parameternummer**: 1 <p> **Naam**: tekenreeks <p> **Beschrijving**: vereist. De met base64 gecodeerde tekenreeks.|  
-|Binaire|Retourneert een binaire voorstelling van een waarde.  Bijvoorbeeld: deze functie retourneert een binaire voorstelling van `some string`: <p>`binary('some string')` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar binair.|  
+|Binair bestand|Retourneert een binaire voorstelling van een waarde.  Bijvoorbeeld: deze functie retourneert een binaire voorstelling van `some string`: <p>`binary('some string')` <p> **Parameternummer**: 1 <p> **Naam**: waarde <p> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar binair.|  
 |dataUriToBinary|Retourneert een binaire voorstelling van een gegevens-URI. Bijvoorbeeld: deze functie retourneert de binaire voorstelling van `some string`: <p>`dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')` <p> **Parameternummer**: 1 <p> **Naam**: tekenreeks <p> **Beschrijving**: vereist. De gegevens te converteren naar een binaire voorstelling URI.|  
 |dataUriToString|Retourneert een tekenreeksrepresentatie van een gegevens-URI. Bijvoorbeeld: deze functie retourneert `some string`: <p>`dataUriToString('data:;base64,c29tZSBzdHJpbmc=')` <p> **Parameternummer**: 1 <p> **Naam**: tekenreeks<p> **Beschrijving**: vereist. De gegevens te converteren naar tekenreeksweergave URI.|  
 |dataUri|Retourneert een gegevens-URI van een waarde. Bijvoorbeeld: deze functie retourneert deze gegevens URI `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=`: <p>`dataUri('some string')` <p> **Parameternummer**: 1<p> **Naam**: waarde<p> **Beschrijving**: vereist. De waarde converteren naar gegevens-URI.|  
@@ -300,7 +300,7 @@ Deze functies zijn van toepassing op XML en objecten.
 |removeProperty|Retourneert een object met een eigenschap die is verwijderd. Als de eigenschap te verwijderen, niet bestaat wordt het oorspronkelijke object geretourneerd. Deze functie retourneert bijvoorbeeld het object `{ "abc" : "xyz" }`: <p>`removeProperty(json('{"abc" : "xyz", "def": "uvw"}'), 'def')` <p> **Parameternummer**: 1 <p> **Naam**: Object <p> **Beschrijving**: vereist. Het object te verwijderen van de eigenschap uit.<p> **Parameternummer**: 2 <p> **Naam**: de naam van eigenschap <p> **Beschrijving**: vereist. De naam van de eigenschap te verwijderen. <p>|
 |XPath|Retourneert een matrix van die overeenkomt met de xpath-expressie van een waarde die de xpath-expressie wordt geëvalueerd als XML-knooppunt. <p> **Voorbeeld 1** <p>Stel de waarde van parameter `p1` een tekenreeksrepresentatie van deze XML is: <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>Deze code:`xpath(xml(parameters('p1')), '/lab/robot/name')` <p>retourneert <p>`[ <name>R1</name>, <name>R2</name> ]` <p>tijdens deze code: <p>`xpath(xml(parameters('p1')), ' sum(/lab/robot/parts)')` <p>retourneert <p>`13` <p> <p> **Voorbeeld 2** <p>De volgende XML-inhoud opgegeven: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>Deze code:`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>of deze code: <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>retourneert <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>En deze code:`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>retourneert <p>``xyz`` <p> **Parameternummer**: 1 <p> **Naam**: Xml <p> **Beschrijving**: vereist. De XML op waarvoor de XPath-expressie wordt geëvalueerd. <p> **Parameternummer**: 2 <p> **Naam**: XPath <p> **Beschrijving**: vereist. De XPath-expressie om te evalueren.|
 
-### <a name="math-functions"></a>Rekenkundige functies  
+### <a name="math-functions"></a>Wiskundige functies  
 
 Deze functies kunnen worden gebruikt voor beide typen van de getallen: **gehele getallen** en **zwevend**.  
   
@@ -312,7 +312,7 @@ Deze functies kunnen worden gebruikt voor beide typen van de getallen: **gehele 
 |div|Retourneert het resultaat van de deling van de twee getallen. Bijvoorbeeld: deze functie retourneert `1.0333`: <p>`div(10.333,10)` <p> **Parameternummer**: 1 <p> **Naam**: deeltal <p> **Beschrijving**: vereist. Het nummer te delen door het **deler**. <p> **Parameternummer**: 2 <p> **Naam**: deler <p> **Beschrijving**: vereist. Het aantal te verdelen de **deeltal** door.|  
 |Mod|Retourneert het restgetal deling van de twee getallen (modulo). Bijvoorbeeld: deze functie retourneert `2`: <p>`mod(10,4)` <p> **Parameternummer**: 1 <p> **Naam**: deeltal <p> **Beschrijving**: vereist. Het nummer te delen door het **deler**. <p> **Parameternummer**: 2 <p> **Naam**: deler <p> **Beschrijving**: vereist. Het aantal te verdelen de **deeltal** door. Na de deling worden wordt de rest genomen.|  
 |min.|Er zijn twee verschillende patronen voor het aanroepen van deze functie. <p>Hier `min` duurt een matrix en de functie retourneert `0`: <p>`min([0,1,2])` <p>U kunt ook deze functie kan duren voordat een door komma's gescheiden lijst met waarden en ook retourneert `0`: <p>`min(0,1,2)` <p> **Opmerking**: alle waarden moeten getallen, dus als de parameter een matrix is, de matrix zijn alleen getallen hebben. <p> **Parameternummer**: 1 <p> **Naam**: verzameling of -waarde <p> **Beschrijving**: vereist. Ofwel een matrix met waarden naar de minimale waarde of de eerste waarde van een set. <p> **Parameternummer**: 2...*n* <p> **Naam**: waarde*n* <p> **Beschrijving**: optioneel. Als de eerste parameter een waarde is, kunt u aanvullende waarden doorgeven en het minimum van alle doorgegeven waarden wordt geretourneerd.|  
-|Maximum aantal|Er zijn twee verschillende patronen voor het aanroepen van deze functie. <p>Hier `max` duurt een matrix en de functie retourneert `2`: <p>`max([0,1,2])` <p>U kunt ook deze functie kan duren voordat een door komma's gescheiden lijst met waarden en ook retourneert `2`: <p>`max(0,1,2)` <p> **Opmerking**: alle waarden moeten getallen, dus als de parameter een matrix is, de matrix zijn alleen getallen hebben. <p> **Parameternummer**: 1 <p> **Naam**: verzameling of -waarde <p> **Beschrijving**: vereist. Ofwel een matrix met waarden naar de maximale waarde of de eerste waarde van een set. <p> **Parameternummer**: 2...*n* <p> **Naam**: waarde*n* <p> **Beschrijving**: optioneel. Als de eerste parameter een waarde is, kunt u aanvullende waarden doorgeven en het maximum van alle doorgegeven waarden wordt geretourneerd.|  
+|max|Er zijn twee verschillende patronen voor het aanroepen van deze functie. <p>Hier `max` duurt een matrix en de functie retourneert `2`: <p>`max([0,1,2])` <p>U kunt ook deze functie kan duren voordat een door komma's gescheiden lijst met waarden en ook retourneert `2`: <p>`max(0,1,2)` <p> **Opmerking**: alle waarden moeten getallen, dus als de parameter een matrix is, de matrix zijn alleen getallen hebben. <p> **Parameternummer**: 1 <p> **Naam**: verzameling of -waarde <p> **Beschrijving**: vereist. Ofwel een matrix met waarden naar de maximale waarde of de eerste waarde van een set. <p> **Parameternummer**: 2...*n* <p> **Naam**: waarde*n* <p> **Beschrijving**: optioneel. Als de eerste parameter een waarde is, kunt u aanvullende waarden doorgeven en het maximum van alle doorgegeven waarden wordt geretourneerd.|  
 |bereik|Genereert een matrix van gehele getallen vanaf een bepaald aantal. U definieert de lengte van de geretourneerde matrix. <p>Bijvoorbeeld: deze functie retourneert `[3,4,5,6]`: <p>`range(3,4)` <p> **Parameternummer**: 1 <p> **Naam**: startIndex <p> **Beschrijving**: vereist. De eerste geheel getal in de matrix. <p> **Parameternummer**: 2 <p> **Naam**: aantal <p> **Beschrijving**: vereist. Deze waarde is het aantal getallen in de matrix.|  
 |rand|Genereert een willekeurige geheel getal zijn binnen het opgegeven bereik (inclusief alleen op de eerste end). Deze functie kunt bijvoorbeeld een `0` of '1': <p>`rand(0,2)` <p> **Parameternummer**: 1 <p> **Naam**: minimale <p> **Beschrijving**: vereist. De laagste geheel getal dat kan worden geretourneerd. <p> **Parameternummer**: 2 <p> **Naam**: maximale <p> **Beschrijving**: vereist. Deze waarde is het volgende gehele getal na het hoogste gehele getal dat kan worden geretourneerd.|  
  
@@ -334,7 +334,7 @@ Deze functies kunnen worden gebruikt voor beide typen van de getallen: **gehele 
 |DayOfYear|Retourneert de dag van het jaar onderdeel van een tijdstempel voor een tekenreeks. Bijvoorbeeld `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Timestamp<br /><br /> **Beschrijving**: vereist. Dit is een tekenreeks waarin de tijd.| 
 |ticks|Retourneert de maatstreepjes eigenschap van een tijdstempel voor een tekenreeks. Bijvoorbeeld `1489603019`:<br /><br /> `ticks('2017-03-15T18:36:59Z')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Timestamp<br /><br /> **Beschrijving**: vereist. Dit is een tekenreeks waarin de tijd.| 
   
-### <a name="workflow-functions"></a>Werkstroom-functies  
+### <a name="workflow-functions"></a>Werkstroomfuncties  
 
 Deze functies vindt u informatie over de werkstroom zichzelf tijdens runtime.  
   

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Meld u aan Microsoft-Account en Azure Active Directory gebruikers in één toepassing
 In het verleden moest toepassingsontwikkelaars die ondersteuning bieden voor beide persoonlijke Microsoft-accounts en -werkaccounts van Azure Active Directory wilt integreren met twee afzonderlijke systemen. Het Azure Active Directory (Azure AD) v2.0-eindpunt introduceert een nieuwe authenticatie-API-versie waarmee dit proces wordt vereenvoudigd. Het Azure AD v2.0-eindpunt kunt aanmelden van beide typen accounts met behulp van een enkele integratie. Toepassingen die gebruikmaken van het Azure AD v2.0-eindpunt kunnen ook gebruiken voor de REST-API's van de [Microsoft Graph API](https://graph.microsoft.io) met behulp van een type account.
@@ -39,7 +39,7 @@ Meer informatie over wat u met de Azure AD v2.0-eindpunt doen kunt:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 Bekijk de gedetailleerde informatie over de Azure AD v2.0-eindpunt-platform:
 
 * [Azure AD v2.0 protocollen verwijzen naar](active-directory-v2-protocols.md)
@@ -51,4 +51,4 @@ Bekijk de gedetailleerde informatie over de Azure AD v2.0-eindpunt-platform:
 > [!NOTE]
 > Als u alleen hoeft aan te melden werk- en schoolaccounts accounts van Azure Active Directory, beginnen met de [ontwikkelaarshandleiding Azure AD](active-directory-developers-guide.md). Het Azure AD v2.0-eindpunt is bedoeld voor gebruik door ontwikkelaars die expliciet hoeft aan te melden in persoonlijke Microsoft-accounts.
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

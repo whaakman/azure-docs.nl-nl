@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Toevoegen, wijzigen of een virtueel netwerksubnet verwijderen
 
@@ -35,7 +35,7 @@ In dit artikel wordt uitgelegd hoe u wilt toevoegen, wijzigen en verwijderen van
 
 Voordat u de taken die worden beschreven in dit artikel, moet u de volgende vereisten voldoen:
 
-- Als u geen ervaring met het werken met virtuele netwerken, raden wij aan u wordt aangeraden de oefening in [maken van uw eerste virtuele Azure-netwerk](virtual-network-get-started-vnet-subnet.md). In deze oefening kunt u vertrouwd raken met virtuele netwerken.
+- Als u geen ervaring met het werken met virtuele netwerken, raden wij aan u wordt aangeraden de oefening in [maken van uw eerste virtuele Azure-netwerk](quick-create-portal.md). In deze oefening kunt u vertrouwd raken met virtuele netwerken.
 - Bekijk voor meer informatie over limieten voor virtuele netwerken, [Azure limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Aanmelden bij de Azure-portal, Azure-opdrachtregelprogramma (Azure CLI) of Azure PowerShell met behulp van uw Azure-account. Als u geen Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u gebruiken van PowerShell-opdrachten wilt voor het voltooien van de taken die in dit artikel wordt beschreven, moet u eerst [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u de meest recente versie van de Azure PowerShell-cmdlets die is geïnstalleerd. Als u de help voor PowerShell-opdrachten in de voorbeelden, voer `get-help <command> -full`.
@@ -66,8 +66,8 @@ Een subnet toevoegen:
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[AZ network vnet subnet maken](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nieuwe AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [toevoegen AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Azure-CLI|[AZ network vnet subnet maken](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>De subnet-wijzigingsinstellingen
 
@@ -84,7 +84,7 @@ U kunt netwerkbeveiligingsgroepen, routetabellen en gebruikerstoegang aan een su
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[AZ network vnet subnet bijwerken](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure-CLI|[AZ network vnet subnet bijwerken](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -102,9 +102,9 @@ U kunt een subnet alleen verwijderen als er geen resources in het subnet zijn. A
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[vnet-AZ netwerk het verwijderen](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Verwijder AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Azure-CLI|[vnet-AZ netwerk het verwijderen](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor informatie over het maken van een virtuele machine in een subnet [een virtueel netwerk maken en implementeren van virtuele machines in het subnet](virtual-network-get-started-vnet-subnet.md#create-vms).
+Zie voor informatie over het maken van een virtuele machine in een subnet [een virtueel netwerk maken en implementeren van virtuele machines in het subnet](quick-create-portal.md#create-virtual-machines).

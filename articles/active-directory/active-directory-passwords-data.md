@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wachtwoord opnieuw instellen zonder dat eindgebruikers registratie implementeren
 
@@ -42,8 +42,13 @@ Als u de standaardinstellingen in Azure AD Connect gebruikt, worden de volgende 
 | On-premises Active Directory | Azure AD | Azure AD authentication contactgegevens |
 | --- | --- | --- |
 | telephoneNumber | Telefoon (werk) | Alternatief telefoonnummer |
-| mobiele | Mobiel telefoonnummer | Telefoon |
+| mobiele | Mobiele telefoon | Telefoon |
 
+Deze velden lijkt leeg totdat een gebruiker de verificatiegegevens bevestigt.
+
+Een globale beheerder kunt handmatig de contactgegevens voor de verificatie instellen voor de gebruiker, zoals weergegeven in de volgende schermafbeelding.
+
+![Neem contact op met][Contact]
 
 ## <a name="security-questions-and-answers"></a>Beveiligingsvragen en antwoorden
 
@@ -154,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
 * [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
 * [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Globale beheerders kunnen de contactgegevens van de verificatie van een gebruiker wijzigen"

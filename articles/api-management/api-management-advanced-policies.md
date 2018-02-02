@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -242,8 +242,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|300 seconden|  
-|Volg omleidingen = "true &#124; False"|Hiermee geeft u op of omleidingen vanaf de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|onwaar|  
+|timeout="integer"|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|300 seconden|  
+|follow-redirects="true &#124; false"|Hiermee geeft u op of omleidingen vanaf de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|onwaar|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -290,7 +290,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|--------------|  
 |sleutel|Een tekenreeks. Een expressie toegestaan. Hiermee geeft u het bereik gelijktijdigheid van taken. Kan worden gedeeld door meerdere beleidsregels.|Ja|N/A|  
-|maximum aantal|Een geheel getal. Hiermee geeft u het maximale aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|N/A|  
+|max-count|Een geheel getal. Hiermee geeft u het maximale aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -339,7 +339,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Kenmerk|Beschrijving|Vereist|  
 |---------------|-----------------|--------------|  
-|logboek-id|De id van het logboek geregistreerd bij uw API Management-service.|Ja|  
+|logger-id|De id van het logboek geregistreerd bij uw API Management-service.|Ja|  
 |partitie-id|Hiermee geeft u de index van de partitie waarin berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-key` wordt gebruikt.|  
 |Partitiesleutel|Hiermee geeft u de waarde voor de partitietoewijzing van de wordt gebruikt wanneer berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-id` wordt gebruikt.|  
   
@@ -441,9 +441,9 @@ status code and media type. If no example or schema found, the content is empty.
 |voorwaarde|Een boolean letterlijke waarde of [expressie](api-management-policy-expressions.md) opgeven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|N/A|  
 |aantal|Een positief getal dat aangeeft het maximale aantal nieuwe pogingen om te proberen.|Ja|N/A|  
 |interval|Een positief getal in seconden, geven de wachtinterval tussen het opnieuw probeert.|Ja|N/A|  
-|Max-interval|Een positief getal in seconden voor het opgeven van de maximale wachttijd interval tussen de pogingen. Wordt gebruikt voor het implementeren van een algoritme exponentiële probeer het opnieuw.|Nee|N/A|  
+|max-interval|Een positief getal in seconden voor het opgeven van de maximale wachttijd interval tussen de pogingen. Wordt gebruikt voor het implementeren van een algoritme exponentiële probeer het opnieuw.|Nee|N/A|  
 |delta|Een positief getal in seconden, de wachttijd interval verhoging opgeven. Wordt gebruikt voor het implementeren van de algoritmen lineaire en exponentieel probeer het opnieuw.|Nee|N/A|  
-|eerste-fast-probeer het opnieuw|Indien ingesteld op `true` , de eerste nieuwe poging wordt onmiddellijk uitgevoerd.|Nee|`false`|  
+|first-fast-retry|Indien ingesteld op `true` , de eerste nieuwe poging wordt onmiddellijk uitgevoerd.|Nee|`false`|  
   
 > [!NOTE]
 >  Wanneer alleen de `interval` is opgegeven, **vaste** interval voor nieuwe pogingen worden uitgevoerd.  
@@ -490,13 +490,13 @@ status code and media type. If no example or schema found, the content is empty.
 |Return-antwoord|Hoofdelement.|Ja|  
 |set-header|Een [set-header](api-management-transformation-policies.md#SetHTTPheader) beleidsverklaring.|Nee|  
 |set-instantie|Een [set hoofdtekst](api-management-transformation-policies.md#SetBody) beleidsverklaring.|Nee|  
-|status instellen|Een [status instellen](api-management-advanced-policies.md#SetStatus) beleidsverklaring.|Nee|  
+|set-status|Een [status instellen](api-management-advanced-policies.md#SetStatus) beleidsverklaring.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|  
 |---------------|-----------------|--------------|  
-|naam van een antwoord variabele|De naam van de variabele context waarnaar wordt verwezen vanuit, bijvoorbeeld een upstream [aanvragen verzenden](api-management-advanced-policies.md#SendRequest) beleid en met een `Response` object|Optioneel.|  
+|response-variable-name|De naam van de variabele context waarnaar wordt verwezen vanuit, bijvoorbeeld een upstream [aanvragen verzenden](api-management-advanced-policies.md#SendRequest) beleid en met een `Response` object|Optioneel.|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -555,7 +555,7 @@ status code and media type. If no example or schema found, the content is empty.
 |-------------|-----------------|--------------|  
 |een-manier-verzoek om te verzenden|Hoofdelement.|Ja|  
 |url|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
-|Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
 |hoofdtekst|De aanvraagtekst.|Nee|  
   
@@ -563,7 +563,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
+|mode="string"|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|  
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
   
@@ -634,7 +634,7 @@ status code and media type. If no example or schema found, the content is empty.
 |-------------|-----------------|--------------|  
 |aanvragen verzenden|Hoofdelement.|Ja|  
 |url|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
-|Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
 |hoofdtekst|De aanvraagtekst.|Nee|  
   
@@ -642,9 +642,9 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
-|antwoord-variabele-name = 'tekenreeks'|Als deze niet aanwezig is, `context.Response` wordt gebruikt.|Nee|N/A|  
-|time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de URL is mislukt.|Nee|60|  
+|mode="string"|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
+|response-variable-name="string"|Als deze niet aanwezig is, `context.Response` wordt gebruikt.|Nee|N/A|  
+|timeout="integer"|De time-outinterval in seconden voordat de aanroep naar de URL is mislukt.|Nee|60|  
 |fout negeren|Indien true en de aanvraag resulteert in een fout opgetreden:<br /><br /> -Als de naam van een antwoord variabele bevat een null-waarde is opgegeven.<br />-Als de naam van een antwoord variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|onwaar|  
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|  
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
@@ -684,7 +684,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|URL = 'tekenreeks'|Proxy-URL in de vorm van http://host:port.|Ja|N/A|  
+|url="string"|Proxy-URL in de vorm van http://host:port.|Ja|N/A|  
 |gebruikersnaam = 'tekenreeks'|De gebruikersnaam moet worden gebruikt voor verificatie met de proxy.|Nee|N/A|  
 |wachtwoord = 'tekenreeks'|Wachtwoord moet worden gebruikt voor verificatie met de proxy.|Nee|N/A|  
 
@@ -778,14 +778,14 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
-|status instellen|Hoofdelement.|Ja|  
+|set-status|Hoofdelement.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|code = 'integer'|De HTTP-statuscode te retourneren.|Ja|N/A|  
-|reden = 'tekenreeks'|Een beschrijving van de reden voor het retourneren van de statuscode.|Ja|N/A|  
+|code="integer"|De HTTP-statuscode te retourneren.|Ja|N/A|  
+|reason="string"|Een beschrijving van de reden voor het retourneren van de statuscode.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -847,7 +847,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 -   System.String  
 -   System.Char  
 -   System.DateTime  
--   System.DateTime  
+-   System.TimeSpan  
 -   System.Byte?  
 -   System.UInt16?  
 -   System.UInt32?  

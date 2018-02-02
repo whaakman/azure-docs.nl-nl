@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Volg de instructies in dit artikel, kunt u de [App Service-resourceprovider](azure-stack-app-service-overview.md) naar een Azure-Stack-omgeving is:
 - niet verbonden met internet
@@ -98,7 +99,7 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
     | Box | Voorbeeld van de naam van een certificaat |
     | --- | --- |
-    | **App Service standaard SSL-certificaat-bestand** | \_. appservice.local.AzureStack.external.pfx |
+    | **App Service standaard SSL-certificaat-bestand** | \_.appservice.local.AzureStack.external.pfx |
     | **API-App Service SSL-certificaatbestand** | api.appservice.local.AzureStack.external.pfx |
     | **App Service Publisher SSL-certificaat-bestand** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -114,13 +115,13 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
      > [!NOTE]
      > Voor implementaties in de instructies in het volgende [planning van capaciteit voor Azure App Service-serverfuncties in Azure-Stack](azure-stack-app-service-capacity-planning.md).
-     > 
+     >
      >
 
     | Rol | Minimale exemplaren | Minimale SKU | Opmerkingen |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
-    | Beheer | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
+    | Beheer | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
     | Uitgever | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Inhoud via FTP en web deployment publiceert. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes aanvragen voor App Service-toepassingen. |
     | Gedeelde Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts webtoepassingen of API en apps van Azure Functions. Mogelijk wilt meer exemplaren toe te voegen. Als operator kunt u definiëren van uw aanbod en eventuele SKU-categorie kiezen. De lagen moeten minimaal één vCPU hebben. |
@@ -159,7 +160,7 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
 2. Schakel in het overzicht onder status om te zien die de **Status** toont **alle rollen gereed zijn**.
 
-    ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)    
+    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)    
 
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>App Service-station op Azure-Stack testen

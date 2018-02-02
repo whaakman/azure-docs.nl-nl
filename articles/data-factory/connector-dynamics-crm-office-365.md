@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: jingwang
-ms.openlocfilehash: 2847be0fec83e923126ba436f09f24d83d69bd9d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 of Dynamics CRM met behulp van Azure Data Factory
 
@@ -45,8 +45,7 @@ Voor de Dynamics 365 met name worden de volgende typen ondersteund:
 - Dynamics 365 voor Project Service Automation
 - Dynamics 365 voor Marketing
 
-> [!NOTE]
-> Uw wachtwoord opslaan in Azure Key Vault voor het gebruik van de connector Dynamics en kunt u de kopie activiteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren. Zie voor meer informatie over configuratie van de [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
+Andere toepassing zoals Operations en Finance, Talent typen, enzovoort worden niet ondersteund.
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -67,7 +66,7 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 | Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Nee, moet opgeven wanneer er meer dan één Dynamics-exemplaren die zijn gekoppeld aan de gebruiker |
 | authenticationType | Het verificatietype dat verbinding maken met een Dynamics-server. Geef **'Office365'** voor Dynamics online. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U moet het wachtwoord in de Sleutelkluis plaatsen en configureren van het wachtwoord als **'AzureKeyVaultSecret'**. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
+| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Niet voor de gegevensbron, Ja voor sink als de bron gekoppeld service beschikt niet over een integratie-runtime |
 
 >[!IMPORTANT]
@@ -87,12 +86,8 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -116,7 +111,7 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 | Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Ja |
 | authenticationType | Het verificatietype dat verbinding maken met de Dynamics-server. Geef **'Ifd'** voor Dynamics met on-premises IFD. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U moet het wachtwoord in de Sleutelkluis plaatsen en configureren van het wachtwoord als **'AzureKeyVaultSecret'**. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
+| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
 
 >[!IMPORTANT]
@@ -138,12 +133,8 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

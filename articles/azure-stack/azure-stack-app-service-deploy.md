@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure-Stack
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Als een Azure-Stack-cloud-operator, kunt u uw gebruikers bieden de mogelijkheid voor het maken van websites en toepassingen van de API. Om dit te doen, moet u eerst toevoegen de [App Service-resourceprovider](azure-stack-app-service-overview.md) voor uw Azure-Stack-implementatie zoals beschreven in dit artikel. Nadat u de App Service resourceprovider hebt geïnstalleerd, kunt u deze opnemen in uw aanbiedingen en plannen. Gebruikers kunnen zich vervolgens aanmelden om de service en beginnen met het maken van toepassingen.
 
 > [!IMPORTANT]
 > Voordat u het installatieprogramma uitvoert, zorg ervoor dat u de instructies in hebt gevolgd [voordat u aan de slag](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -85,7 +86,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     | Box | Voorbeeld van de naam van een certificaat |
     | --- | --- |
-    | **App Service standaard SSL-certificaat-bestand** | \_. appservice.local.AzureStack.external.pfx |
+    | **App Service standaard SSL-certificaat-bestand** | \_.appservice.local.AzureStack.external.pfx |
     | **API-App Service SSL-certificaatbestand** | api.appservice.local.AzureStack.external.pfx |
     | **App Service Publisher SSL-certificaat-bestand** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,13 +102,13 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     > [!NOTE]
     > Voor implementaties in de instructies in het volgende [planning van capaciteit voor Azure App Service-serverfuncties in Azure-Stack](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Rol | Minimale exemplaren | Minimale SKU | Opmerkingen |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
-    | Beheer | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
+    | Beheer | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
     | Uitgever | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Inhoud via FTP en web deployment publiceert. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes aanvragen voor App Service-toepassingen. |
     | Gedeelde Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts webtoepassingen of API en apps van Azure Functions. Mogelijk wilt meer exemplaren toe te voegen. Als operator kunt u definiëren van uw aanbod en eventuele SKU-categorie kiezen. De lagen moeten minimaal één vCPU hebben. |
@@ -146,7 +147,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
 2. Schakel in het overzicht onder status om te zien die de **Status** toont **alle rollen gereed zijn**.
 
-    ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)    
+    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)    
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>App Service-station op Azure-Stack testen
 

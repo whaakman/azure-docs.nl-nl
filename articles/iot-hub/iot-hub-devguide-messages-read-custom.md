@@ -11,26 +11,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Berichtroutes en aangepaste eindpunten gebruikt voor apparaat-naar-cloud-berichten
 
-IoT-Hub kunt u voor het routeren van [apparaat-naar-cloudberichten] [ lnk-device-to-cloud] naar IoT Hub gerichte service-eindpunten op basis van eigenschappen van berichten. Routeringsregels bieden u de flexibiliteit om berichten te verzenden wanneer ze nodig hebben om te gaan zonder dat hiervoor extra services nodig om berichten te verwerken of om aanvullende code te schrijven. Elke regel voor het doorsturen die u configureert heeft de volgende eigenschappen:
+IoT-Hub kunt u voor het routeren van [apparaat-naar-cloudberichten] [ lnk-device-to-cloud] naar IoT Hub gerichte service-eindpunten op basis van eigenschappen van berichten. Routeringsregels bieden u de flexibiliteit om berichten te verzenden wanneer ze nodig hebben om te gaan zonder dat hiervoor extra services of aangepaste code nodig. Elke regel voor het doorsturen die u configureert heeft de volgende eigenschappen:
 
 | Eigenschap      | Beschrijving |
 | ------------- | ----------- |
 | **Naam**      | De unieke naam die de regel identificeert. |
 | **Bron**    | De oorsprong van de gegevensstroom worden gereageerd. Bijvoorbeeld: apparaattelemetrie. |
-| **Voorwaarde** | De queryexpressie voor de routing-regel die is uitgevoerd voor de kopteksten en de hoofdtekst van het bericht en gebruikt om te bepalen of er een overeenkomst voor het eindpunt. Zie voor meer informatie over het maken van een route voorwaarde de [referentie - querytaal voor apparaat horende en taken][lnk-devguide-query-language]. |
-| **Eindpunt**  | De naam van het eindpunt waar IoT Hub verzendt berichten die overeenkomen met de voorwaarde. Eindpunten moet in dezelfde regio bevinden als de IoT-hub, anders u mogelijk in rekening gebracht voor de regio-overschrijdende schrijfbewerkingen. |
+| **Voorwaarde** | De queryexpressie voor de routing-regel die wordt uitgevoerd aan de kopteksten en de hoofdtekst van het bericht en bepaalt of het een overeenkomst voor het eindpunt. Zie voor meer informatie over het maken van een route voorwaarde de [referentie - querytaal voor apparaat horende en taken][lnk-devguide-query-language]. |
+| **Endpoint**  | De naam van het eindpunt waar IoT Hub verzendt berichten die overeenkomen met de voorwaarde. Eindpunten moet in dezelfde regio bevinden als de IoT-hub, anders u mogelijk in rekening gebracht voor de regio-overschrijdende schrijfbewerkingen. |
 
-Een enkel bericht mogelijk overeenkomt met de voorwaarde op meerdere regels voor het doorsturen, geval IoT Hub waarin het bericht naar het eindpunt dat is gekoppeld aan elke overeenkomende regel biedt. IoT Hub deduplicates ook automatisch levering van berichten, dus als een bericht overeenkomt met meerdere regels die hetzelfde doel hebben, wordt alleen geschreven naar deze bestemming eenmaal.
+Een enkel bericht mogelijk overeenkomt met de voorwaarde op meerdere regels voor het doorsturen, geval IoT Hub waarin het bericht naar het eindpunt dat is gekoppeld aan elke overeenkomende regel biedt. IoT Hub ook automatisch deduplicates levering van berichten, dus als een bericht overeenkomt met meerdere regels met hetzelfde doel hebben, ze alleen eenmaal naar deze bestemming geschreven worden.
 
 Een IoT-hub is een standaard [ingebouwd eindpunt][lnk-built-in]. U kunt aangepaste eindpunten om berichten te routeren naar maken door andere services in uw abonnement koppelen aan de hub. IoT Hub ondersteunt momenteel Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen als aangepaste eindpunten.
 

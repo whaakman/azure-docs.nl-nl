@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7a980a9a4f0a4fa22e72aa9d6eec83865250a084
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-publisher-guide"></a>Handleiding voor Azure Marketplace-uitgever
 
@@ -225,7 +225,7 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 
 |**Vereiste**  |**Details**  |**Publicatieoptie**  |
 |---------|---------|---------|
-|**Deelname-beleid**    |  Bekijk de overeenkomst in Azure Marketplace Publisher [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Azure Marketplace deelname beleid [hier] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lijst, proefversie Transact        |
+|**Deelname-beleid**    | Azure Marketplace deelname beleid [hier] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lijst, proefversie Transact        |
 |**Integratie met Microsoft**    | Azure Marketplace-aanbiedingen moeten gebruikmaken van of Microsoft Azure-services zoals Compute, netwerk of opslag uitbreiden en uitgelijnd met een bestaande Azure Marketplace-categorie, zoals Databases, beveiliging, netwerken, enzovoort. De volledige lijst [hier](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lijst, proefversie Transact        |
 |**Doelgroep**    | Azure Marketplace-aanbiedingen moeten zijn voor IT-professionals, Cloud ontwikkelaars of andere technische klantrollen.       |  Lijst, proefversie Transact 
 |**Leads beheren**    | Voor het ontvangen leads van Marketplace, moet u uw CRM (Marketo, Microsoft Dynamics of Salesforce) leadgegevens accepteert inschakelen.        |   Lijst, proefversie Transact      |

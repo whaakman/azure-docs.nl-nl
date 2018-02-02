@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event raster gebeurtenis schema voor event hubs
 
@@ -44,7 +44,9 @@ Deze voorbeeldgebeurtenis ziet u het schema van een event hubs-gebeurtenis die o
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -55,26 +57,28 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | Tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. |
-| Onderwerp | Tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | Tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | Tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
-| id | Tekenreeks | De unieke id voor de gebeurtenis. |
-| Gegevens | object | Gebeurtenisgegevens van de Event hub. |
+| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
+| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| gegevens | object | Gebeurtenisgegevens van de Event hub. |
+| dataVersion | tekenreeks | De versie van het schema van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | tekenreeks | De versie van het schema van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| fileUrl | Tekenreeks | Het pad naar het bestand vastleggen. |
-| Bestandstype | Tekenreeks | Het type van het bestand vastleggen. |
-| partitionId | Tekenreeks | De shard-ID. |
+| fileUrl | tekenreeks | Het pad naar het bestand vastleggen. |
+| fileType | tekenreeks | Het type van het bestand vastleggen. |
+| partitionId | tekenreeks | De shard-ID. |
 | sizeInBytes | geheel getal | De bestandsgrootte. |
 | eventCount | geheel getal | Het aantal gebeurtenissen in het bestand. |
 | firstSequenceNumber | geheel getal | Het kleinste volgnummer uit de wachtrij. |
 | lastSequenceNumber | geheel getal | Het laatste volgnummer uit de wachtrij. |
-| firstEnqueueTime | Tekenreeks | De eerste keer uit de wachtrij. |
-| lastEnqueueTime | Tekenreeks | De laatste keer uit de wachtrij. |
+| firstEnqueueTime | tekenreeks | De eerste keer uit de wachtrij. |
+| lastEnqueueTime | tekenreeks | De laatste keer uit de wachtrij. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

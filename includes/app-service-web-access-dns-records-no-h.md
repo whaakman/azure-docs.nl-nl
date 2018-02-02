@@ -1,3 +1,8 @@
+> [!NOTE]
+> Azure DNS kunt u een aangepaste DNS-naam voor uw Azure-Web-Apps configureren. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+>
+>
+
 Meld u aan bij de website van uw domeinprovider.
 
 Ga naar de pagina voor het beheren van DNS-records. Elke domeinprovider heeft zijn eigen interface voor het beheren van DNS-records. Raadpleeg daarom de documentatie van de provider. Doorgaans heeft het sitegedeelte waar u moet zijn, een naam als **Domain Name**, **DNS** of **Name Server Management**. 

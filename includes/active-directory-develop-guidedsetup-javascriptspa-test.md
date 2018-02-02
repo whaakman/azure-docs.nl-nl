@@ -47,4 +47,4 @@ Als een back-end-API niet vereist een bereik (niet aanbevolen), kunt u de **clie
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 043de0e8a934a2fd92522eeb70261203afac180e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het vol
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] versie v0.10.29 of hoger.
+* [Node.js][Node.js] versie v0.10.29 of hoger. U wordt aangeraden Node.js 6.10 of hoger.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (te installeren via `npm install express-generator -g`)
 * [Git][Git].
 
@@ -80,7 +80,7 @@ Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebrui
    
     ![Node.js leren - Schermopname van de toepassing Hello World in een browservenster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Klik vervolgens in het terminalvenster op CTRL + C om de toepassing te stoppen. Klik daarna op **y** om de batchtaak te beëindigen.
+    Vervolgens wilt stoppen van de toepassing, druk op CTRL + C in het terminalvenster en klik vervolgens op Windows machines, **y** de batchtaak is beëindigd.
 
 ## <a name="_Toc395783179"></a>Stap 3: Aanvullende modules installeren
 Het bestand **package.json** is een van de bestanden die zijn gemaakt in de hoofdmap van het project. Dit bestand bevat een lijst met aanvullende modules die u nodig hebt voor uw Node.js-toepassing. Later, wanneer u deze toepassing naar Azure Websites implementeert, wordt dit bestand gebruikt om te bepalen welke modules moeten worden geïnstalleerd op Azure ter ondersteuning van uw toepassing. Voor deze zelfstudie moeten u nog twee pakketten installeren.
@@ -91,29 +91,6 @@ Het bestand **package.json** is een van de bestanden die zijn gemaakt in de hoof
 2. Installeer de **DocumentDB**-module via NPM. Dit is de module waar alle van de Azure DB die Cosmos-magie plaatsvindt.
    
         npm install documentdb --save
-3. Een snelle controle van het bestand **package.json** van de toepassing toont u de aanvullende modules. Dit bestand vertelt Azure welke pakketten moeten worden gedownload en geïnstalleerd wanneer uw toepassing wordt uitgevoerd. Het bestand is vergelijkbaar met het onderstaande voorbeeld.
-   
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
-   
-    Hiermee wordt bij Node (en later bij Azure) aangegeven dat de toepassing afhankelijk is van deze aanvullende modules.
 
 ## <a name="_Toc395783180"></a>Stap 4: De Azure Cosmos DB-service in een knooppunttoepassing gebruiken
 Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het echte werk beginnen, namelijk het schrijven van code met Azure Cosmos DB.
@@ -384,13 +361,13 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. Werk in het bestand **config.js** de waarden voor HOST en AUTH_KEY bij door gebruik te maken van de waarden op de blade Sleutels van uw Azure Cosmos DB-account in [Microsoft Azure Portal](https://portal.azure.com).
+3. In de **config.js** bestand, werk de waarden van de HOST en auth_key bij door de waarden die op de pagina sleutels van uw Azure DB die Cosmos-account op met de [Microsoft Azure-portal](https://portal.azure.com).
 4. Sla het bestand **config.js** op en sluit het bestand.
 
 ### <a name="modify-appjs"></a>App.js wijzigen
@@ -513,7 +490,7 @@ Dit is alles wat we nodig hebben voor een goed werkende toepassing.
 3. De pagina moet worden bijgewerkt met het nieuwe item in de takenlijst.
    
     ![Schermopname van de toepassing met een nieuw item in de takenlijst](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Als u een taak wilt voltooien, schakelt u het selectievakje in de kolom Complete (Voltooid) in en klikt u vervolgens op **Update tasks** (Taken bijwerken). Hiermee wordt het document dat u al hebt gemaakt, bijgewerkt.
+4. Als u een taak wilt voltooien, schakelt u het selectievakje in de kolom Complete (Voltooid) in en klikt u vervolgens op **Update tasks** (Taken bijwerken). Hiermee wordt het document dat u al hebt gemaakt en wordt deze verwijderd uit de weergave bijgewerkt.
 
 5. Klik om de toepassing te stoppen op CTRL + C in het terminalvenster en klik vervolgens op **y** om de batchtaak te beëindigen.
 
@@ -527,7 +504,7 @@ Dit is alles wat we nodig hebben voor een goed werkende toepassing.
         git push azure master
 4. Binnen een paar seconden zal git publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien uw werk in Azure wordt uitgevoerd!
 
-    Gefeliciteerd. U hebt zojuist uw eerste Node.js Express-webtoepassing met Azure Cosmos DB gemaakt en gepubliceerd naar Azure Websites.
+    Gefeliciteerd! U hebt zojuist uw eerste Node.js Express-webtoepassing met Azure Cosmos DB gemaakt en gepubliceerd naar Azure Websites.
 
     Als u de volledige referentietoepassing voor deze zelfstudie wilt downloaden of raadplegen, kunt u dit doen op [GitHub][GitHub].
 

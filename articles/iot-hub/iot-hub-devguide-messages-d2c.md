@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Apparaat-naar-cloud-berichten verzenden met IoT Hub
 
 Voor het verzenden van telemetrie van de tijdreeks en waarschuwingen van uw apparaten naar de back-end van uw oplossing, apparaat-naar-cloud-berichten van uw apparaat te verzenden naar uw IoT-hub. Zie voor een beschrijving van de andere ondersteund door de IoT Hub apparaat-naar-cloud-opties, [apparaat-naar-cloud communicatie richtlijnen][lnk-d2c-guidance].
 
-U apparaat-naar-cloud-berichten verzenden via een apparaat gerichte-eindpunt (**/devices/ {deviceId} / berichten/gebeurtenissen**). Routering van regels en vervolgens uw berichten doorsturen naar een van de service gerichte eindpunten op uw IoT-hub. Routeringsregels gebruiken de kopteksten en de hoofdtekst van de apparaat-naar-cloud-berichten die door uw hub bepalen waar ze doorsturen. Standaard berichten worden doorgestuurd naar het ingebouwde gerichte service-eindpunt (**berichten/gebeurtenissen**), die compatibel is met [Event Hubs][lnk-event-hubs]. Daarom kunt u standaard [Event Hubs-integratie en SDK's] [ lnk-compatible-endpoint] apparaat-naar-cloud-berichten ontvangen in de back-end van uw oplossing.
+U apparaat-naar-cloud-berichten verzenden via een apparaat gerichte-eindpunt (**/devices/ {deviceId} / berichten/gebeurtenissen**). Routering van regels en vervolgens uw berichten doorsturen naar een van de service gerichte eindpunten op uw IoT-hub. Routeringsregels headers en hoofdtekst van de apparaat-naar-cloud-berichten gebruiken om te bepalen waar u ze op de juiste. Standaard berichten worden doorgestuurd naar het ingebouwde gerichte service-eindpunt (**berichten/gebeurtenissen**), die compatibel is met [Event Hubs][lnk-event-hubs]. Daarom kunt u standaard [Event Hubs-integratie en SDK's] [ lnk-compatible-endpoint] apparaat-naar-cloud-berichten ontvangen in de back-end van uw oplossing.
 
 IoT Hub implementeert apparaat-naar-cloud-berichten met behulp van een streaming messaging-patroon. IoT-Hub apparaat-naar-cloudberichten lijken meer op [Event Hubs] [ lnk-event-hubs] *gebeurtenissen* dan [Service Bus] [ lnk-servicebus] *berichten* dat er wordt een groot aantal gebeurtenissen dat door de service die kan worden gelezen door meerdere lezers.
 
@@ -36,11 +36,11 @@ Apparaat-naar-cloud-berichten met IoT Hub heeft de volgende kenmerken:
 * IoT-Hub kunt miljoenen gelijktijdig verbonden apparaten (Zie [quota's en beperking][lnk-quotas]).
 * IoT Hub is niet toegestaan voor het partitioneren van willekeurige. Apparaat-naar-cloud-berichten worden gepartitioneerd op basis van hun oorspronkelijke **deviceId**.
 
-Zie voor meer informatie over de verschillen tussen de IoT Hub en Event Hubs services [vergelijking van Azure IoT Hub en Azure Event Hubs][lnk-comparison].
+Zie voor meer informatie over de verschillen tussen de IoT Hub en Event Hubs [vergelijking van Azure IoT Hub en Azure Event Hubs][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Niet-telemetrie verkeer verzenden
 
-Vaak naast telemetriegegevenspunten verzenden apparaten van berichten en aanvragen die afzonderlijke uitvoering en verwerking in de back-end oplossing vereisen. Bijvoorbeeld, kritieke waarschuwingen die een specifieke actie in de back-end moeten activeren. U kunt eenvoudig schrijven een [routeringsregel] [ lnk-devguide-custom] deze typen berichten verzenden naar een eindpunt dat is toegewezen aan hun verwerking op basis van de header voor het bericht of een waarde in de berichttekst.
+Vaak naast telemetrie verzenden apparaten van berichten en aanvragen die afzonderlijke uitvoering en verwerking in de back-end oplossing vereisen. Bijvoorbeeld, kritieke waarschuwingen die een specifieke actie in de back-end moeten activeren. U kunt schrijven een [routeringsregel] [ lnk-devguide-custom] deze typen berichten verzenden naar een eindpunt dat is toegewezen aan hun verwerking op basis van de header voor het bericht of een waarde in de berichttekst.
 
 Zie voor meer informatie over de beste manier om dit soort bericht te verwerken, de [zelfstudie: IoT Hub apparaat-naar-cloud-berichten verwerken] [ lnk-d2c-tutorial] zelfstudie.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a208e0709c152ea889e6d5262add71b55cb83aa5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Netwerkdoorvoer voor Azure virtual machines optimaliseren
 
@@ -95,7 +95,7 @@ De prestaties aanzienlijk doorvoer kan worden bereikt door het upgraden van de k
 uname -r
 
 #sample output on Azure kernel:
-#4.11.0-1014-azure
+#4.13.0-1007-azure
 ```
 
 Als uw virtuele machine niet de kernel Azure heeft, wordt het versienummer meestal begint met "4.4." Als de virtuele machine niet de kernel Azure heeft, moet u de volgende opdrachten uitvoeren als hoofdmap:
@@ -142,10 +142,10 @@ Om de optimalisaties, is het raadzaam een virtuele machine maken met de laatste 
 Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren. De optimalisatie van doorvoer wordt LIS, vanaf 4.2. Voer de volgende opdrachten om te downloaden en installeren van LIS:
 
 ```bash
-mkdir lis4.2.3-1
-cd lis4.2.3-1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
-tar xvzf lis-rpms-4.2.3-1.tar.gz
+mkdir lis4.2.3-4
+cd lis4.2.3-4
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-4.tar.gz
+tar xvzf lis-rpms-4.2.3-4.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

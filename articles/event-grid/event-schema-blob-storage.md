@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event raster gebeurtenis schema voor Blob-opslag
 
@@ -51,7 +51,9 @@ Het volgende voorbeeld ziet u het schema van een blob gemaakt van gebeurtenis:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ Het schema voor een gebeurtenis blob verwijderd is vergelijkbaar:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -84,26 +88,28 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | Tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. |
-| Onderwerp | Tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | Tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | Tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
-| id | Tekenreeks | De unieke id voor de gebeurtenis. |
-| Gegevens | object | BLOB storage-gebeurtenisgegevens. |
+| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
+| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| gegevens | object | BLOB storage-gebeurtenisgegevens. |
+| dataVersion | tekenreeks | De versie van het schema van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | tekenreeks | De versie van het schema van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| api | Tekenreeks | De bewerking waarmee de gebeurtenis is geactiveerd. |
-| clientRequestId | Tekenreeks | Een client is gegenereerd, ondoorzichtige waarde met een maximaal 1 KB tekens. Wanneer u opslaganalyse logboekregistratie hebt ingeschakeld, is het vastgelegd in het analytics. |
-| aanvraag-id | Tekenreeks | De unieke id voor de aanvraag. Deze gebruiken voor het oplossen van de aanvraag. |
-| ETag | Tekenreeks | De waarde die u gebruiken kunt voor voorwaardelijk bewerkingen uitvoeren. |
-| ContentType | Tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
+| api | tekenreeks | De bewerking waarmee de gebeurtenis is geactiveerd. |
+| clientRequestId | tekenreeks | Een client is gegenereerd, ondoorzichtige waarde met een maximaal 1 KB tekens. Wanneer u opslaganalyse logboekregistratie hebt ingeschakeld, is het vastgelegd in het analytics. |
+| aanvraag-id | tekenreeks | De unieke id voor de aanvraag. Deze gebruiken voor het oplossen van de aanvraag. |
+| eTag | tekenreeks | De waarde die u gebruiken kunt voor voorwaardelijk bewerkingen uitvoeren. |
+| contentType | tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
 | contentLength | geheel getal | De grootte van de blob in bytes. |
-| BlobType | Tekenreeks | Het type van de blob. |
-| URL | Tekenreeks | Het pad naar de blob. |
-| sequencer | Tekenreeks | Een gebruiker gecontroleerde waarde die u gebruiken kunt om aanvragen te volgen. |
+| blobType | tekenreeks | Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'. |
+| url | tekenreeks | Het pad naar de blob. |
+| sequencer | tekenreeks | Een gebruiker gecontroleerde waarde die u gebruiken kunt om aanvragen te volgen. |
 | storageDiagnostics | object | Informatie over diagnostische gegevens over de opslag. |
  
 ## <a name="next-steps"></a>Volgende stappen

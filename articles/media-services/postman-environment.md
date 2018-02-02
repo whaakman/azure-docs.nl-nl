@@ -1,11 +1,24 @@
- ---
-titel: de omgeving Postman importeren voor Azure Media Services REST-beschrijving aanroepen: dit onderwerp bevat een definitie van de omgeving Postman voor Azure Media Services REST-aanroepen.
-Services: media services documentationcenter: '' auteur: Juliako manager: cfowler-editor: ''
-
-MS.service: media services ms.workload: media ms.tgt_pltfrm: n.v.t. ms.devlang: n.v.t. ms.topic: artikel ms.date: 01/04/2017 ms.author: juliako
-
 ---
-
+title: Importeren van de omgeving Postman voor Azure Media Services REST-aanroepen
+description: Dit onderwerp bevat een definitie van de omgeving Postman voor Azure Media Services REST-aanroepen.
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>De omgeving Postman importeren 
 
 In dit artikel bevat een definitie van de **Postman** omgevingsvariabelen die worden gebruikt de [Postman verzameling](postman-collection.md) die gegroepeerde HTTP-aanvragen die aanroepen van Media Services REST-API's bevat. De omgeving en verzameling bestanden worden gebruikt door de [Postman configureren voor Media Services REST-API-aanroepen](media-rest-apis-with-postman.md) zelfstudie.

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -74,11 +74,11 @@ U kunt apparaten uitschakelen door het bijwerken van de **status** eigenschap va
 
 ## <a name="import-and-export-device-identities"></a>Importeren en exporteren van apparaat-id 's
 
-Kunt u de apparaat-id's in bulk exporteren van een IoT-hub identiteitsregister met behulp van asynchrone bewerkingen op de [IoT Hub resource provider-eindpunt][lnk-endpoints]. Uitvoer zijn langlopende taken die gebruikmaken van een klant opgegeven blob-container apparaat identiteitsgegevens gelezen uit het identiteitenregister op te slaan.
+Asynchrone bewerkingen gebruiken op de [IoT Hub resource provider-eindpunt] [ lnk-endpoints] apparaat-id's in bulk exporteren van een IoT-hub identiteitsregister. Uitvoer zijn langlopende taken die gebruikmaken van een klant opgegeven blob-container apparaat identiteitsgegevens gelezen uit het identiteitenregister op te slaan.
 
-U kunt de apparaat-id's in bulk in een IoT-hub identiteitsregister importeren met behulp van asynchrone bewerkingen op de [IoT Hub resource provider-eindpunt][lnk-endpoints]. Invoer zijn langlopende taken die gebruikmaken van gegevens in een klant opgegeven blob-container apparaat identiteit om gegevens te schrijven in het identiteitsregister.
+Asynchrone bewerkingen gebruiken op de [IoT Hub resource provider-eindpunt] [ lnk-endpoints] voor het importeren van apparaat-id's in bulk naar een IoT-hub identiteitsregister. Invoer zijn langlopende taken die gebruikmaken van gegevens in een klant opgegeven blob-container apparaat identiteit om gegevens te schrijven in het identiteitsregister.
 
-Zie voor gedetailleerde informatie over het importeren en exporteren API's, [resourceprovider IoT Hub REST-API's][lnk-resource-provider-apis]. Zie voor meer informatie over het uitvoeren van importeren en exporteren van taken, [bulksgewijs beheer van IoT Hub apparaat-id's][lnk-bulk-identity].
+Zie voor meer informatie over het importeren en exporteren API's, [resourceprovider IoT Hub REST-API's][lnk-resource-provider-apis]. Zie voor meer informatie over het uitvoeren van importeren en exporteren van taken, [bulksgewijs beheer van IoT Hub apparaat-id's][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Mobiele apparaten inrichten
 
@@ -110,12 +110,12 @@ Eigenschappen: Eigenschappen bericht worden voorafgegaan door de `'$'` symbool.
 $content-type | application/json |
 $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
 $iothub-bericht-bron | deviceLifecycleEvents |
-$content-codering | UTF-8 |
+$content-codering | utf-8 |
 opType | **createDeviceIdentity** of **deleteDeviceIdentity** |
 hubName | Naam van de IoT-Hub |
 deviceId | ID van het apparaat |
 operationTimestamp | ISO8601 tijdstempel van bewerking |
-bericht-iothub-schema | deviceLifecycleNotification |
+iothub-message-schema | deviceLifecycleNotification |
 
 Hoofdtekst: In deze sectie is in JSON-indeling en de twin van de gemaakte apparaat-id vertegenwoordigt. Bijvoorbeeld:
 
@@ -180,7 +180,7 @@ U hebt geleerd hoe u de id-register van IoT Hub, kunt u mogelijk geïnteresseerd
 * [Een directe methode aangeroepen voor een apparaat][lnk-devguide-directmethods]
 * [Taken plannen op meerdere apparaten][lnk-devguide-jobs]
 
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kunt u mogelijk geïnteresseerd in de volgende IoT Hub-zelfstudie:
+Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zie de volgende IoT Hub-zelfstudie:
 
 * [Aan de slag met Azure IoT Hub][lnk-getstarted-tutorial]
 

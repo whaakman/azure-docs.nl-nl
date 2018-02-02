@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Toegangsbeheer op basis van rollen met de Azure-opdrachtregelinterface beheren
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-U kunt op rollen gebaseerde toegangsbeheer (RBAC) in de Azure portal en Azure Resource Manager-API gebruiken voor het beheren van toegang tot uw abonnement en bronnen op een heel nauwkeurig. Met deze functie kunt u toegang tot Active Directory-gebruikers, groepen of service-principals verlenen door sommige rollen toewijzen aan deze bij een bepaald bereik.
+U kunt op rollen gebaseerde toegangsbeheer (RBAC) in de Azure portal en Azure Resource Manager-API gebruiken voor het beheren van toegang tot uw abonnement en bronnen op een heel nauwkeurig. Met deze functie kunt u toegang tot Active Directory-gebruikers, groepen of service-principals verlenen door sommige rollen toewijzen aan deze bij een bepaald bereik. 
 
-Voordat u de Azure-opdrachtregelinterface (CLI) gebruiken kunt voor het beheren van RBAC, hebt u de volgende vereisten:
+> [!NOTE] 
+> De meest recente documentatie voor de rol is nu beschikbaar voor [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++ > De meest recente functie-documentatie voor [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) voordat u de Azure-opdrachtregelinterface (CLI) gebruiken kunt voor het beheren van RBAC, hebt u de volgende vereisten:
 
 * Azure CLI versie 0.8.8 of hoger. Zie voor het installeren van de meest recente versie en deze koppelen aan uw Azure-abonnement, [installeren en configureren van de Azure CLI](../cli-install-nodejs.md).
 * Azure Resource Manager in Azure CLI. Ga naar [met de Azure CLI met Resource Manager](../xplat-cli-azure-resource-manager.md) voor meer informatie.

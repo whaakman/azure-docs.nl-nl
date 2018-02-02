@@ -3,7 +3,7 @@ title: Oplossing voor externe controle integreren met Azure-Stack | Microsoft Do
 description: Informatie over het Azure-Stack integreren met een oplossing voor externe controle in uw datacenter.
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure-Stack
 
@@ -81,10 +82,10 @@ Configureer de invoegtoepassingbestand 'Azurestack_plugin.py' met de volgende pa
 | *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Beheerder abonnements-ID | Via de beheerdersportal of PowerShell ophalen |
-| *Gebruikersnaam* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
+| *User_name* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator abonnement wachtwoord | mijnwachtwoord |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *regio* |  Naam van de regio Azure Stack | lokale |
+| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Naam van de regio Azure Stack | lokaal |
 |  |  |
 
 * De PowerShell-GUID die opgegeven is universal. U kunt deze gebruiken voor elke implementatie.
@@ -139,10 +140,10 @@ De aanvraag haalt alle actieve en gesloten waarschuwingen voor de provider stand
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|TOEVOEGEN     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 '      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
-**Argumenten**
+**Arguments**
 
 |Argument  |Beschrijving  |
 |---------|---------|
@@ -205,7 +206,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |  Argument  |Beschrijving  |
 |---------|---------|
-|*ID*     |      Unieke ID van de waarschuwing.   |
+|*id*     |      Unieke ID van de waarschuwing.   |
 |*naam*     |     Interne naam van de waarschuwing.   |
 |*type*     |     Resourcedefinitie.    |
 |*location*     |       Regionaam.     |
@@ -227,7 +228,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceRegistrationid*    |     ID van de betreffende geregistreerde resource.    |
 |*resourceProviderRegistrationID*   |    ID van de geregistreerde resourceprovider van het betreffende onderdeel.  |
 |*serviceregistrationid*     |    ID van de geregistreerde service.   |
-|*ernst*     |     De ernst van waarschuwing.  |
+|*severity*     |     De ernst van waarschuwing.  |
 |*status*     |    Waarschuwing status.   |
 |*titel*     |    De naam van de waarschuwing.   |
 |*impactedresourceid*     |     ID van de betrokken resource.    |
@@ -242,9 +243,9 @@ De aanvraag wordt gesloten voor een waarschuwing door de unieke ID.
 
 |Methode    |Aanvraag-URI  |
 |---------|---------|
-|PLAATSEN     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 '    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
-**Argumenten**
+**Arguments**
 
 
 |Argument  |Beschrijving  |
@@ -348,7 +349,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |  Argument  |Beschrijving  |
 |---------|---------|
-|*ID*     |      Unieke ID van de waarschuwing.   |
+|*id*     |      Unieke ID van de waarschuwing.   |
 |*naam*     |     Interne naam van de waarschuwing.   |
 |*type*     |     Resourcedefinitie.    |
 |*location*     |       Regionaam.     |
@@ -370,7 +371,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*resourceRegistrationid*    |     ID van de betreffende geregistreerde resource.    |
 |*resourceProviderRegistrationID*   |    ID van de geregistreerde resourceprovider van het betreffende onderdeel.  |
 |*serviceregistrationid*     |    ID van de geregistreerde service.   |
-|*ernst*     |     De ernst van waarschuwing.  |
+|*severity*     |     De ernst van waarschuwing.  |
 |*status*     |    Waarschuwing status.   |
 |*titel*     |    De naam van de waarschuwing.   |
 |*impactedresourceid*     |     ID van de betrokken resource.    |
@@ -386,10 +387,10 @@ De aanvraag Hiermee wordt de status voor alle geregistreerde resourceproviders.
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|TOEVOEGEN    |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 '   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
-**Argumenten**
+**Arguments**
 
 
 |Argumenten  |Beschrijving  |
@@ -434,14 +435,14 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Argument  |Beschrijving  |
 |---------|---------|
-|*ID*     |   Unieke ID van de waarschuwing.      |
+|*Id*     |   Unieke ID van de waarschuwing.      |
 |*naam*     |  Interne naam van de waarschuwing.       |
 |*type*     |  Resourcedefinitie.       |
 |*location*     |  Regionaam.       |
 |*tags*     |     Resourcelabels.    |
-|*registratie-id*     |   Unieke registratie voor de resourceprovider.      |
-|*Weergavenaam*     |Weergavenaam van de resource provider.        |
-|*naamruimte*     |   API-naamruimte de resourceprovider implementeert.       |
+|*registrationId*     |   Unieke registratie voor de resourceprovider.      |
+|*displayName*     |Weergavenaam van de resource provider.        |
+|*namespace*     |   API-naamruimte de resourceprovider implementeert.       |
 |*routePrefix*     |    De URI voor de interactie met de resourceprovider.     |
 |*serviceLocation*     |   Deze resourceprovider is geregistreerd bij de regio.      |
 |*infraURI*     |   De URI van de resourceprovider vermeld als een functie van de infrastructuur.      |
@@ -457,9 +458,9 @@ Status van de aanvraag opgehaald voor een specifieke geregistreerde resourceprov
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|TOEVOEGEN     |     https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 '    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
-**Argumenten**
+**Arguments**
 
 |Argumenten  |Beschrijving  |
 |---------|---------|
@@ -467,7 +468,7 @@ Status van de aanvraag opgehaald voor een specifieke geregistreerde resourceprov
 |*subid*     |Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.         |
 |*RegionName*     |  De naam van het gebied van de Azure-Stack-implementatie.       |
 |*API-versie*     |  De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.       |
-|*Registratie-id* |Registratie-ID voor een bepaalde resourceprovider. |
+|*RegistrationID* |Registratie-ID voor een bepaalde resourceprovider. |
 
 **Antwoord**
 
@@ -502,12 +503,12 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Argument  |Beschrijving  |
 |---------|---------|
-|*ID*     |   Unieke ID van de waarschuwing.      |
+|*Id*     |   Unieke ID van de waarschuwing.      |
 |*naam*     |  Interne naam van de waarschuwing.       |
 |*type*     |  Resourcedefinitie.       |
 |*location*     |  Regionaam.       |
 |*tags*     |     Resourcelabels.    |
-|*registratie-id*     |   Unieke registratie voor de resourceprovider.      |
+|*registrationId*     |   Unieke registratie voor de resourceprovider.      |
 |*resourceType*     |Type resource.        |
 |*resourceName*     |   Naam van de resource.   |
 |*usageMetrics*     |    Gebruik de metrische gegevens voor de resource.     |
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   De URI voor de resource.   |
 |*alertSummary*     |   Samenvatting van kritieke en waarschuwingen, gezondheidsstatus.     |
 
+## <a name="learn-more"></a>Meer informatie
+
+Zie voor meer informatie over ingebouwde statuscontrole [status en waarschuwingen in de Azure-Stack controleren](azure-stack-monitor-health.md).
+
+
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over ingebouwde statuscontrole [status en waarschuwingen in de Azure-Stack controleren](azure-stack-monitor-health.md).
-
-
+[Beveiligingsintegratie](azure-stack-integrate-security.md)

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Een Service Fabric-cluster via een programma schalen 
 
@@ -93,7 +93,7 @@ Als bij het handmatig toevoegen van een knooppunt toevoegen van een schaalset ex
 
 Schalen is vergelijkbaar met het uitbreiden. De werkelijke virtuele-machineschaalset ingesteld wijzigingen zijn vrijwel hetzelfde. Maar zoals eerder is besproken, Service Fabric alleen automatisch opgeruimd verwijderde knooppunten met een duurzaamheid van goud of zilver. Dus in het Brons duurzaamheid schaal in geval is, is het nodig om te communiceren met de Service Fabric-cluster afsluiten van het knooppunt worden verwijderd en vervolgens verwijdert u de status.
 
-Het knooppunt voorbereiden voor het afsluiten omvat het zoeken naar het knooppunt worden verwijderd (het meest recent toegevoegde knooppunt) en het deactiveren. Voor niet-seed-knooppunten nieuwere knooppunten kunnen worden gevonden door te vergelijken `NodeInstanceId`. 
+Het knooppunt voorbereiden voor afsluiten omvat het zoeken naar het knooppunt dat moet worden verwijderd (de laatst toegevoegde virtuele machine scale set exemplaar) en het deactiveren. VM-scale set instanties worden genummerd in de volgorde waarin die ze worden toegevoegd, zodat nieuwere knooppunten u vinden kunnen door te vergelijken met het achtervoegsel in namen van de knooppunten (welke overeen met de onderliggende virtuele-machineschaalset ingesteld exemplaarnamen). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Seed-knooppunten zijn verschillend en niet per se volgt u de overeenkomst groter exemplaar-id's op de eerst worden verwijderd.
 
 Als het knooppunt worden verwijderd, wordt gevonden, deze kunnen worden gedeactiveerd en verwijderd met behulp van dezelfde `FabricClient` exemplaar en de `IAzure` exemplaar van eerder.
 

@@ -1,7 +1,7 @@
 ---
-title: Bewaking in Microsoft Azure | Microsoft Docs
-description: Opties wanneer u wilt bewaken alles in Microsoft Azure. Monitor voor Azure, Application Insights en Log Analytics
-author: rboucher
+title: Azure-toepassingen en bronnen bewaken | Microsoft Docs
+description: Overzicht van de verschillende Microsoft-services en functionaliteit die aan een strategie voor een volledige controle voor uw Azure-services en toepassingen bijdragen.
+author: robb
 manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
@@ -12,79 +12,97 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
-ms.author: robb
-ms.openlocfilehash: c34211e0c55c10defaa32f1e0a2195514ff3ae5f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 01/30/2018
+ms.author: robb,bwren
+ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Overzicht van de bewaking in Microsoft Azure
-Dit artikel bevat een overzicht van de hulpprogramma's en services die zijn betrokken bij holistische bewaking van Microsoft Azure. Van toepassing op:
-- Azure-services gebruiken om Azure-infrastructuur en toepassingen te bewaken
-- Met behulp van Azure services voor hybride monitor en niet-Azure-infrastructuur en toepassingen
-- Niet-Azure-services gebruiken om Azure-infrastructuur en toepassingen te bewaken
+# <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
 
-Dit artikel wordt beschreven voor de verschillende producten en services die beschikbaar zijn en hoe ze samenwerken. Dit kan helpen u om te bepalen welke programma's zijn het meest geschikt is voor u in welke gevallen.  
+Bewaking wordt het verzamelen en analyseren van gegevens om te bepalen van de prestaties, status en beschikbaarheid van uw zakelijke toepassingen en de resources die deze afhankelijk is. Een strategie voor een effectieve controle krijgt u inzicht in de gedetailleerde werking van de verschillende onderdelen van uw toepassing en uw bedrijfstijd verbeteren door het verwittigen van kritieke problemen proactief zodat u deze oplossen kunt voordat ze problemen.
 
-## <a name="why-use-azures-monitoring-services"></a>Waarom Azure bewaking services gebruiken?
+Azure bevat meerdere services die afzonderlijk uitvoeren van een bepaalde rol of de taak in de ruimte bewaking en leveren samen een uitgebreide oplossing voor het verzamelen, analyseren en fungeert voor telemetrie van uw toepassing en de onderliggende Azure-resources Deze ondersteuning.  Ze kunnen ook worden gebruikt voor het bewaken van kritieke on-premises bronnen om te voorzien van een hybride omgeving bewaken.   Kennis van de hulpprogramma's en gegevens die beschikbaar zijn, is de eerste stap bij het ontwikkelen van een strategie voor een volledige controle voor uw toepassing. 
 
-Prestatieproblemen in uw cloud-app kunnen invloed hebben op uw bedrijf. Degradations kan met meerdere onderdelen onderling verbonden en releases vaak gebeuren op elk gewenst moment. En als u een app ontwikkelt, uw gebruikers problemen die u hebt niet vinden in het testen van meestal te detecteren. U moet weten over deze problemen direct en hulpprogramma's voor het opsporen en oplossen van de problemen hebben. Problemen in uw toepassing kunnen bovendien leiden van de onderliggende infrastructuur waarop deze toepassingen worden uitgevoerd, zodat een holistische weergave van uw toepassing en de infrastructuur die essentieel is voor bewaking van uw Azure-omgeving. Microsoft Azure is een reeks hulpmiddelen voor het opsporen en oplossen van dergelijke problemen.
+Het volgende diagram toont een conceptueel overzicht van de verschillende onderdelen die samenwerken om te voorzien in bewaking van Azure-resources.  Elk van deze wordt beschreven in de volgende secties met koppelingen naar gedetailleerde technische informatie.
 
-## <a name="how-do-i-monitor-my-azure-environment"></a>Hoe bewaak ik mijn Azure-omgeving
+![Bewakingsoverzicht](media/monitoring-overview/overview.png)
 
-Er zijn een reeks hulpmiddelen voor het bewaken van uw Azure-omgeving, vanuit de toepassingscode die in Azure wordt uitgevoerd tot de services en de infrastructuur voor uw toepassing te hosten. Deze hulpprogramma's werken samen om uitgebreide bewaking bieden en omvatten:
+## <a name="basic-monitoring"></a>Basiscontrole
+Basic monitoring biedt fundamentele vereist bewaking over Azure-resources.  Deze services minimale configuratie vereisen en verzamelen van core telemetrie die wordt gebruikt door de premium-services controleren.    
 
--   **Monitor voor Azure** -de Azure-service die wordt uitgevoerd als een geconsolideerde pijplijn voor alle bewakingsgegevens van Azure-services. Deze hebt u toegang tot de maatstaven voor prestaties en gebeurtenissen die worden beschreven van de werking van de Azure-infrastructuur en alle Azure-services die u gebruikt. Monitor voor Azure is een controle pijplijn gegevens voor uw Azure-omgeving en die gegevens rechtstreeks in Log Analytics, evenals 3e hulpprogramma's van leveranciers kunt u meer inzicht krijgen in die gegevens en combineren met gegevens van lokale of andere cloudbronnen biedt.
+### <a name="azure-monitor"></a>Azure Monitor
+[Monitor voor Azure](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) kunt basic bewaking voor Azure service doordat de verzameling van [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).  Bijvoorbeeld, het activiteitenlogboek laat u weten wanneer nieuwe resources zijn gemaakt of gewijzigd.  Metrische gegevens beschikbaar zijn die prestatiestatistieken bieden voor verschillende bronnen en ook het besturingssysteem op een virtuele machine.  U kunt deze gegevens weergeven met een van de explorers in de Azure portal, verzenden naar Log Analytics voor trends en gedetailleerde analyse of waarschuwingsregels proactief om u te waarschuwen van kritieke problemen maken.
 
--   **Application Insights** -de Azure-service die application performance monitoring en de gebruiker analytics biedt. Hiermee bewaakt u de code die u hebt geschreven en de toepassingen die u hebt geïmplementeerd in Azure, on-premises of andere clouds. Door het instrumenteren van uw toepassing met de Application Insights-SDK als u krijgt toegang tot grote hoeveelheden gegevens met inbegrip van reactietijden van afhankelijkheden, uitzondering traceringen foutopsporing momentopnamen en profielen kan worden uitgevoerd. Het biedt krachtige hulpprogramma's voor het analyseren van deze toepassingstelemetrie bij de ontwikkeling en het besturingssysteem van uw toepassing. Nauw worden geïntegreerd met Visual Studio, zodat u kunt direct aan de probleem (s) van code zodat u kunt dit verhelpen en biedt gebruiksanalyse voor het analyseren van uw toepassingen voor productmanagers ook gebruik van de klant.
+### <a name="service-health"></a>Service Health
+De status van uw toepassing, is afhankelijk van de Azure-services die afhankelijk zijn van.  [Status van de Azure-Service](../service-health/service-health-overview.md) identificeert eventuele problemen met Azure-services die mogelijk gevolgen voor uw toepassing en helpt u van plan voor het onderhoud van een planning bent.
 
--   **Meld u Analytics** -voorheen bekend als OMS Log Analytics, is een Azure-service die logboek en meetwaarde op die gegevens uit Azure-services (via Azure Monitor), Azure Virtual machines, en on-premises of andere cloudinfrastructuur opgenomen en biedt flexibele logboek zoeken en out van het vak analytics boven op deze gegevens. Het biedt uitgebreide hulpprogramma's om gegevens te analyseren alle bronnen, kunt u complexe query's via alle logboeken en proactief kan waarschuwing bij de opgegeven voorwaarden.  U kunt zelfs aangepaste gegevens verzamelen in de centrale opslagplaats, zodat u kunt opvragen en visualiseren van deze. U kunt ook te profiteren van het logboek analytische ingebouwde oplossingen onmiddellijk om inzicht te krijgen in de beveiliging en functionaliteit van uw infrastructuur.
-
-## <a name="accessing-monitoring-in-the-azure-portal"></a>Toegang tot de bewaking in de Azure portal
-Alle Azure-bewaking services zijn nu beschikbaar in één UI deelvenster. Zie voor meer informatie over toegang krijgen tot dit gebied [aan de slag met Azure Monitor](monitoring-get-started.md). 
-
-U kunt bewaking functies voor specifieke Azure-resources ook openen door te selecteren die bronnen en inzoomen op hun controle-opties. 
-
-## <a name="examples-of-when-to-use-which-tool"></a>Voorbeelden van wanneer u welke hulpprogramma 
-
-De volgende secties ziet u enkele algemene scenario's en welke hulpprogramma's moeten samen worden gebruikt. 
-
-### <a name="scenario-1--fix-errors-in-an-azure-application-under-development"></a>Scenario 1: Fix fouten in een Azure-toepassing in ontwikkeling   
-
-**De beste oplossing is Application Insights, Azure bewaken en Visual Studio samen gebruiken**
-
-Azure biedt nu de kracht van de Visual Studio-foutopsporing in de cloud. Azure-Monitor voor het verzenden van telemetrie naar Application Insights configureren. Visual Studio Application Insights-SDK opnemen in uw toepassing inschakelen. Eenmaal in Application Insights, kunt u de kaart toepassing visueel te ontdekken welke onderdelen van uw actieve toepassing wel of niet in orde zijn. Voor de onderdelen die niet in orde, zijn fouten en uitzonderingen al beschikbaar voor onderzoek. U kunt de verschillende analytics in Application Insights dieper. Als u niet zeker weet over de fout, kunt u de foutopsporingsfunctie als u wilt traceren in code en de pincode van een probleem verder. 
-
-Zie voor meer informatie [Web-Apps bewaken](../application-insights/app-insights-azure-web-apps.md) en verwijzen naar de inhoudsopgave links voor instructies over de verschillende typen apps en talen.  
-
-### <a name="scenario-2--debug-an-azure-net-web-application-for-errors-that-only-show-in-production"></a>Scenario 2: fouten opsporen in een webtoepassing Azure .NET voor fouten die alleen in productie weergeven 
-
-> [!NOTE]
-> Deze functies zijn Preview-versie. 
-
-**De beste optie is het gebruik van Application Insights en als mogelijke Visual Studio voor de volledige foutopsporing optreden.**
-
-Gebruik de Application Insights momentopname foutopsporing fouten opsporen in uw app. Wanneer een bepaalde drempelwaarde voor fout met productieonderdelen optreedt, het systeem automatisch wordt vastgelegd telemetrie in windows van keer aangeroepen "momentopnamen." De hoeveelheid vastgelegd is voor een productie-cloud veilig omdat deze niet te beïnvloeden klein genoeg maar aanzienlijke om toe te staan tracering.  Het systeem kan meerdere momentopnamen vastleggen. U kunt zoeken op een punt in tijd in de Azure portal of Visual Studio gebruiken voor de volledige functionaliteit. Met Visual Studio kunnen ontwikkelaars doorlopen die momentopname alsof ze zijn foutopsporing in realtime. Lokale variabelen, parameters, geheugen en frames zijn allemaal beschikbaar. Ontwikkelaars moeten toegangsrechten voor deze productiegegevens via een [RBAC-rol](../active-directory/role-based-access-built-in-roles.md).  
-
-Zie voor meer informatie [foutopsporing in momentopname](../application-insights/app-insights-snapshot-debugger.md). 
-
-### <a name="scenario-3--debug-an-azure-application-that-uses-containers-or-microservices"></a>Scenario 3: fouten opsporen in een Azure-toepassing die gebruikmaakt van containers of microservices 
-
-**Hetzelfde als scenario 1. Application Insights, Azure bewaken en Visual Studio samen gebruiken**
-
-Application Insights ondersteunt ook verzamelen telemetrie uit de processen die worden uitgevoerd binnen de containers en microservices (Kubernetes, Docker, Azure Service Fabric). Voor meer informatie [deze video bekijken in het foutopsporingsprogramma containers en microservices](https://go.microsoft.com/fwlink/?linkid=848184). 
+### <a name="azure-advisor"></a>Azure Advisor
+[Azure Advisor](../advisor/advisor-overview.md) voortdurend bewaakt uw resource configuratie en gebruik de telemetrie voor u aangepast aanbevelingen op basis van best practices.  Na deze aanbevelingen u helpen te verbeteren de prestaties, beveiliging en beschikbaarheid van de resources die uw toepassingen ondersteunen.
 
 
-### <a name="scenario-4--fix-performance-issues-in-your-azure-application"></a>Scenario 4: prestaties van de oplossing problemen in uw Azure-toepassing
+## <a name="premium-monitoring-services"></a>Premium-bewakingsservices
+De volgende Azure-services bieden uitgebreide mogelijkheden voor het verzamelen en analyseren van bewakingsgegevens.  Deze voor controle en gebruik de algemene basisfunctionaliteit in Azure bouwen en krachtige analytics voorzien van verzamelde gegevens unieke inzichten geven tot uw toepassingen en infrastructuur.  Deze presenteren gegevens in de context van bepaalde scenario's die zijn gericht op verschillende doelgroepen.
 
-De [Application Insights profiler](../application-insights/app-insights-profiler.md) is ontworpen voor het oplossen van problemen. U kunt identificeren en oplossen van prestatieproblemen voor toepassingen die worden uitgevoerd in App Services (Web-Apps, Logic Apps, Mobile Apps, API-Apps, Apps van de functie) en andere bronnen zoals virtuele Machines, virtuele-machineschaalsets (VMSS), Cloud Services berekenen en Service Fabric. 
+### <a name="application-insights"></a>Application Insights
+[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) Hiermee kunt u controleren van de beschikbaarheid, prestaties en gebruik van uw toepassing of deze opgenomen in de cloud of on-premises.  Door het instrumenteren van uw toepassing met Application Insights werkt, kunt u veel inzicht zodat u snel identificeren en te diagnosticeren fouten zonder te wachten op voor een gebruiker voor het rapporteren van deze bereiken. Met de informatie die u hebt verzameld, kunt u geïnformeerd over opties voor het onderhoud en verbeteringen van uw toepassing.  Naast de uitgebreide hulpprogramma's voor interactie met de gegevens die worden verzameld, opslaat Application Insights gegevens in een algemene opslagplaats gedeelde functionaliteit, zoals waarschuwingen, dashboards en grondige analyse met de Log Analytics query language gebruik te maken.
 
-> [!NOTE]
-> De mogelijkheid aan virtuele Machines, virtuele-machineschaalsets (VMSS), Cloud Services en -Services Fabric-profiel is een Preview-versie.   
+### <a name="log-analytics"></a>Log Analytics
+[Meld u Analytics](http://azure.microsoft.com/documentation/services/log-analytics) speelt een centrale rol in de Azure-bewaking door het verzamelen van gegevens uit diverse bronnen op één opslagplaats waar deze kan worden geanalyseerd met een krachtige querytaal.  Application Insights en Azure Security Center kunt u hun gegevens opslaan in de logboekanalyse gegevens opslaan en gebruikmaken van de analyse-engine.  Deze gecombineerd met gegevens die worden verzameld van de Monitor in Azure, oplossingen voor beheer, en agents zijn geïnstalleerd op virtuele machines in de cloud of on-premises kunnen u een volledig overzicht van uw hele omgeving vormen. 
 
-Bovendien u proactief een melding per e-mail over bepaalde soorten fouten, zoals laadtijden voor pagina langzaam, door het hulpprogramma Slimme detectie.  U hoeft niet te geen instellingen op dit hulpprogramma. Zie voor meer informatie [Slimme detectie - afwijkingen](../application-insights/app-insights-proactive-performance-diagnostics.md).
+
+### <a name="service-map"></a>Serviceoverzicht
+[Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) verschaft inzicht in uw omgeving IaaS door virtuele machines met hun verschillende processen en afhankelijkheden van andere computers en externe processen analyseren.  Het is geïntegreerd gebeurtenissen, prestatiegegevens en oplossingen in logboekanalyse zodat u deze gegevens in de context van elke computer en de relatie ervan met de rest van uw omgeving bekijken kunt.  Serviceoverzicht is vergelijkbaar met de [toepassingstoewijzing in Application Insights](../application-insights/app-insights-app-map.md) maar is gericht op de onderdelen van de infrastructuur ondersteuning van uw toepassingen.
+
+### <a name="network-watcher"></a>Network Watcher
+[Netwerk-Watcher](../network-watcher/network-watcher-monitoring-overview.md) biedt scenario's gebaseerde controle en diagnostische gegevens voor scenario's met verschillende netwerken in Azure.  Deze gegevens worden opgeslagen in Azure metrische gegevens en diagnostische gegevens voor verdere analyse en werkt met [beheeroplossingen in logboekanalyse](../log-analytics/log-analytics-azure-networking-analytics.md) voor volledige controle van uw netwerkbronnen.
+
+
+### <a name="management-solutions"></a>Beheeroplossingen
+[Oplossingen voor](../log-analytics/log-analytics-add-solutions.md) verpakte sets van logica die inzicht voor een bepaalde toepassing of service bieden.  Ze afhankelijk van logboekanalyse opslaan en analyseren van de bewakingsgegevens die ze verzamelen.  Oplossingen voor het beheer zijn van Microsoft en partners die voorzien in bewaking voor verschillende Azure en derden services beschikbaar. Voorbeeld van de controle van oplossingen omvatten [Container bewaking](../log-analytics/log-analytics-containers.md) waarmee u weergeven en beheren van de container-hosts en [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md) die worden verzameld en visualiseren maatstaven voor prestaties voor SQL Azure-databases.
+
+
+## <a name="shared-functionality"></a>Gedeelde functionaliteit
+De volgende Azure-hulpprogramma's bieden essentiële functionaliteit naar de premium-services controleren.  Ze worden gedeeld door meerdere services zodat u kunt gebruikmaken van de algemene functies en configuraties op meerdere services.
+
+### <a name="alerts"></a>Waarschuwingen
+[Waarschuwingen van Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactief waarschuwen u essentiële voorwaarden en mogelijk corrigerende maatregelen te nemen.  Waarschuwingsregels kunnen gebruikmaken van gegevens uit meerdere bronnen, met inbegrip van metrische gegevens en logboekbestanden. Ze gebruiken [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md) die unieke reeksen ontvangers en acties in reactie op een waarschuwing bevat.  U kunt waarschuwingen externe acties met behulp van webhooks starten en integreren met uw ITSM hulpprogramma's op basis van uw vereisten, hebben.
+
+### <a name="dashboards"></a>Dashboards
+[Azure Dashboards](../azure-portal/azure-portal-dashboards.md) kunt u verschillende soorten gegevens combineren tot één venster in de Azure-portal en delen met andere Azure-gebruikers.  U kunt bijvoorbeeld een dashboard dat worden gecombineerd met een grafiek van metrische gegevens, een tabel met activiteitenlogboeken, een gebruiksgrafiek met informatie over het van Application Insights en de uitvoer van een zoekopdracht logboek in logboekanalyse tegels maken.
+
+U kunt ook logboekanalyse gegevens exporteren naar [Power BI](https://docs.microsoft.com/power-bi/) om te profiteren van extra visualisaties en zodat de gegevens beschikbaar voor anderen binnen en buiten uw organisatie.
+
+### <a name="metrics-explorer"></a>Metrics Explorer
+[Metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) worden numerieke waarden die worden gegenereerd door de Azure-resources waarmee u inzicht in de werking en prestaties van de resource. U kunt metrische gegevens verzenden naar Log Analytics voor analyse met gegevens uit andere bronnen.
+
+
+
+### <a name="activity-logs"></a>Activiteitenlogboeken
+[Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) bevatten gegevens over de werking van Azure-resources.  Dit omvat deze informatie als configuratiewijzigingen voor de resource, service health incidenten, aanbevelingen over het beter gebruik van de bron en informatie met betrekking tot bewerkingen voor automatisch schalen.  U kunt de logboeken voor een bepaalde bron weergeven op de pagina in de Azure portal of de weergave van de logboeken van meerdere resources in activiteit logboek Explorer.  U kunt ook activiteitenlogboeken verzenden met Log Analytics, zodat ze kunnen worden geanalyseerd met gegevens die worden verzameld door oplossingen voor het beheer, agents op virtuele machines en andere bronnen.
+
+
+## <a name="example-scenarios"></a>Voorbeeldscenario 's
+Hieronder vindt u hoog niveau voorbeelden van hoe u wilt gebruikmaken van andere controleprogramma's in Azure voor verschillende scenario's.
+
+### <a name="monitoring-a-web-application"></a>Bewaking van een webtoepassing
+U kunt een webtoepassing die is geïmplementeerd in Azure met behulp van de App-Services, Azure Storage en een SQL-database.  U zou kunnen beginnen met het openen van [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en [activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) voor elk van deze afzonderlijke bronnen op de pagina's in Azure-portal.  Dit omvat essentiële informatie zoals het aantal aanvragen voor de toepassing en de gemiddelde reactietijd naast configuratiewijzigingen te identificeren.
+
+Vervolgens kan gaat u naar Monitor in de portal om metrische gegevens en logboeken voor de verschillende bronnen samen weergeven.  Standaard parameters voor de metrische gegevens en vast te stellen u [waarschuwingsregels maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) proactief om u te waarschuwen wanneer bijvoorbeeld gemiddelde reactietijd is hoger dan de drempelwaarde.  Om een overzicht van de dagelijkse prestaties van uw toepassing, moet u een Azure-dashboard om weer te geven van grafieken met metrische gegevens die kritieke KPI's maken.
+
+Om uit te voeren diepe bewaking van uw toepassing u [configureren voor Application Insights](../application-insights/quick-monitor-portal.md).  U kunt nu aanvullende gegevens verder biedt meer informatie over de werking en prestaties van uw toepassing verzamelen.  Application Insights detecteert de onderliggende relaties tussen onderdelen van uw app waardoor een visuele representatie via de [toepassingstoewijzing](../application-insights/app-insights-app-map.md) samen met [end-to-end tracering](../application-insights/app-insights-transaction-diagnostics.md) op te sporen de exacte onderdeel, afhankelijkheid of uitzondering waar een probleem opgetreden.  U maakt [beschikbaarheidstests](../application-insights/app-insights-monitor-web-app-availability.md) proactief de toepassing te testen uit verschillende regio's.  Om uw ontwikkelaars te helpen u [inschakelen van de Profiler](../application-insights/enable-profiler-compute.md) zodat u kunt aanvragen en eventuele uitzonderingen naar beneden op een specifieke coderegel bijhouden.  
+
+U toevoegen om nog meer inzicht verkrijgen in services die worden gebruikt in uw toepassing, de [SQL Analytics-oplossing](../log-analytics/log-analytics-azure-sql.md) voor het verzamelen van aanvullende gegevens in logboekanalyse. U besluit na enige tijd voor het onderzoeken van de hoofdoorzaak voor perioden wanneer op de prestaties van de site onder de drempelwaarde ligt.  U schrijft een query met logboekanalyse correleren van gegevens van het gebruik en prestaties door Application Insights met configuratie en prestaties gegevens verzameld over de Azure-resources die uw toepassing te ondersteunen.
+
+
+### <a name="monitoring-virtual-machines"></a>Bewaking van virtuele machines
+U hebt een combinatie van Windows en Linux virtuele machines in Azure.  U Azure Monitor weergeven [activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) en [niveau metrische gegevens hosten](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en voeg vervolgens de [extensie voor diagnostische gegevens van Azure](../virtual-machines/linux/tutorial-monitoring.md#install-diagnostics-extension) aan de virtuele machines om te kunnen verzamelen van meetgegevens over vanuit het gastbesturingssysteem.  Vervolgens maakt u [waarschuwing regels](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) proactief om u te waarschuwen als basis metrische gegevens tussen verschillende drempelwaarden die het gebruik van processors en geheugen.
+
+Meer informatie over virtuele machines met een bedrijfstoepassing verzamelen u [maken van een werkruimte voor logboekanalyse en de VM-extensie inschakelen](../log-analytics/log-analytics-quick-collect-azurevm.md) op elke machine.  U configureert [verzameling van verschillende gegevensbronnen](../log-analytics/log-analytics-data-sources.md) voor uw toepassing en [weergaven maken](../log-analytics/log-analytics-view-designer.md) voor het rapporteren van de dagelijkse werking en prestaties.  U vervolgens [waarschuwingsregels maken](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) om u te waarschuwen wanneer bepaalde foutgebeurtenissen worden ontvangen.  U toevoegen om de status van de geïnstalleerde agent continu bewaakt, de [Health Agent-beheeroplossing](../operations-management-suite/oms-solution-agenthealth.md).
+
+Verder om inzicht te krijgen in de toepassing u [toevoegen van de agent voor afhankelijkheden](../operations-management-suite/operations-management-suite-service-map-configure.md) aan de virtuele machines om te kunnen toevoegen aan [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md).  Het kritieke processen detecteert en identificeert de verbindingen tussen machines met andere services.  Na een storing gemelde u Serviceoverzicht gebruiken om uit te voeren forensische om te identificeren van de specifieke machines die het probleem optrad.  Vervolgens maakt u een [query op de gegevens logboekanalyse](../log-analytics/log-analytics-log-search-new.md) vaststellen van het probleem in de toekomst en maken van een waarschuwingsregel proactief om u te waarschuwen wanneer de voorwaarde is gedetecteerd.
 
 
 
@@ -95,4 +113,4 @@ Meer informatie over
 * [Aan de slag met Azure Monitor](monitoring-get-started.md)
 * [Azure Diagnostics](../azure-diagnostics.md) als u probeert te analyseren van problemen in uw Cloud-Service, de virtuele Machine virtuele machine instellen of de Service Fabric-toepassing schalen.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) als u te diagnostische problemen in uw App Service-Web-app probeert.
-* [Meld u Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) en de [Operations Management Suite](https://www.microsoft.com/oms/) bewakingsoplossing productie
+* [Meld u Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) voor het analyseren van verzamelde bewakingsgegevens.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakket opnamen beheren met Azure met behulp van de portal netwerk-Watcher
 
@@ -80,6 +80,7 @@ De eigenschappen die kunnen worden gedefinieerd op een pakketopname zijn:
 
 **Configuratie vastleggen**
 
+- **Lokale bestandspad** -lokaal pad op de virtuele machine waar pakketopname wordt opgeslagen (alleen geldig als **[bestand]** is ingeschakeld). U moet een geldig pad opgeven. Als u van een virtuele Linux-machine gebruikmaakt, het pad moet beginnen met / var / worden vastgelegd.
 - **Storage-Account** -bepaalt als pakketopname wordt opgeslagen in een opslagaccount.
 - **Bestand** -bepaalt als een pakketopname lokaal wordt opgeslagen op de virtuele machine.
 - **Storage-Accounts** : de storage-account op te slaan van het pakket vastleggen in geselecteerd. Standaardlocatie is https://{storage-account-id name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription} /resourcegroups/ {name}/providers/microsoft.compute/virtualmachines/{virtual machine Resourcegroepnaam} / {jj} / {MM} / {DD} / {HH} packetcapture__{MM}_{SS} _ {XXX} Cap. (Alleen beschikbaar als **opslag** is geselecteerd)

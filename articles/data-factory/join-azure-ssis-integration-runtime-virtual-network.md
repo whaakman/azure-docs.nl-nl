@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 917c3e23fed468a04783456e7dc74a42bea60ae7
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
-Als een van de volgende voorwaarden voldaan wordt, moet u de runtime van Azure SSIS-integratie (IR) toevoegen aan een Azure-netwerk (VNet): 
+Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk (VNet) in de volgende scenario's: 
 
 - U host de SSIS-catalogusdatabase in een SQL Server Managed Instance (private preview) die deel uitmaakt van een VNet.
 - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
@@ -35,10 +35,10 @@ Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud to
 
 Hier volgen enkele belangrijke punten met: 
 
-- Als er geen bestaande VNet verbonden met uw on-premises netwerk is, maakt u eerst een [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) of een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een site-naar-site [VPN-gatewayverbinding](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) verbinding van dit VNet naar uw on-premises netwerk.
-- Als er een bestaande Azure Resource Manager VNet of een klassiek die vnet met uw on-premises netwerk in dezelfde locatie als uw Azure-SSIS-integratie runtime verbonden, kunt u uw Azure-SSIS-integratie runtime aan koppelen.
-- Als er een bestaande klassieke VNet met uw on-premises netwerk in een andere locatie van de Runtime van uw Azure-SSIS-integratie verbonden is, kunt u eerst maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie Runtime om toe te voegen. Configureer vervolgens een [klassiek naar klassieke VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) verbinding. Kunt u een [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
-- Als er een bestaande Azure Resource Manager VNet verbonden met uw on-premises netwerk in een andere locatie van uw Azure-SSIS-integratie Runtime, kunt u eerst maken een [Azure Resource Manager VNet](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vnet) voor uw Azure-SSIS integratie runtime om toe te voegen. Configureer vervolgens een Azure Resource Manager naar Azure Resource Manager VNet-verbinding. U kunt ook maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
+- Als er geen bestaande VNet verbonden met uw on-premises netwerk is, maakt u eerst een [Azure Resource Manager VNet](../virtual-network/quick-create-portal.md#create-a-virtual-network) of een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een site-naar-site [VPN-gatewayverbinding](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) verbinding van dit VNet naar uw on-premises netwerk.
+- Als er een bestaande Azure Resource Manager of klassiek VNet en met uw on-premises netwerk in dezelfde locatie als uw Azure-SSIS-IR verbonden, kunt u de IR koppelen aan dit VNet.
+- Als er een bestaande klassieke VNet met uw on-premises netwerk in een andere locatie van uw Azure-SSIS-IR verbonden, kunt u eerst maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-IR om toe te voegen. Configureer vervolgens een [klassiek naar klassieke VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) verbinding. Kunt u een [Azure Resource Manager VNet](../virtual-network/quick-create-portal.md#create-a-virtual-network) voor uw Azure-SSIS-integratie runtime om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
+- Als er een bestaande Azure Resource Manager VNet verbonden met uw on-premises netwerk in een andere locatie van uw Azure-SSIS-IR, kunt u eerst maken een [Azure Resource Manager VNet](../virtual-network/quick-create-portal.md##create-a-virtual-network) voor uw Azure-SSIS-IR om toe te voegen. Configureer vervolgens een Azure Resource Manager naar Azure Resource Manager VNet-verbinding. U kunt ook maken een [klassieke VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor uw Azure-SSIS-IR om toe te voegen. Configureer vervolgens een [klassieke Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) verbinding.
 
 ## <a name="domain-name-services-server"></a>Domain Name Services-server 
 Als u uw eigen server Services DNS (Domain Name) te gebruiken in een VNet die worden toegevoegd door de runtime van uw Azure-SSIS-integratie wilt, voert u de richtlijnen voor [ervoor zorgen dat de knooppunten van de runtime van uw Azure-SSIS-integratie in VNet een Azure-eindpunten kunnen omzetten](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
@@ -48,36 +48,15 @@ Als u nodig hebt voor het implementeren van Netwerkbeveiligingsgroep (NSG) in ee
 
 | Poorten | Richting | Protocol-Transport | Doel | Inkomende bron/uitgaande bestemming |
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
-| 10100<br/>20100<br/>30100  | Inkomend | TCP | Deze poorten Azure-services gebruiken om te communiceren met de knooppunten van de runtime van uw Azure-SSIS-integratie in VNet. | Internet | 
+| 10100, 20100, 30100 (als u IR lid in de klassieke VNet)<br/><br/>29876, 29877 (als u IR join in Azure Resource Manager VNet) | Inkomend | TCP | Deze poorten Azure-services gebruiken om te communiceren met de knooppunten van de runtime van uw Azure-SSIS-integratie in VNet. | Internet | 
 | 443 | Uitgaand | TCP | De knooppunten van de runtime van uw Azure-SSIS-integratie in VNet deze poort gebruiken voor toegang tot Azure-services, bijvoorbeeld de Azure Storage, de Event Hub, enzovoort. | INTERNET | 
 | 1433<br/>11000-11999<br/>14000-14999  | Uitgaand | TCP | De knooppunten van de runtime van uw Azure-SSIS-integratie in VNet via deze poorten SSISDB gehost door uw Azure SQL Database-server (niet van toepassing op SSISDB gehost door beheerde exemplaar van Azure SQL). | Internet | 
 
-## <a name="configure-vnet"></a>VNet configureren
-U moet eerst configureren VNet met een van de volgende manieren (vs script. Azure-portal) voordat u kunt deelnemen aan een Azure-SSIS-IR naar het VNet. 
-
-### <a name="script-to-configure-vnet"></a>Script voor het configureren van VNet 
-Voeg het volgende script om automatisch te configureren VNet machtigingsinstellingen voor uw Azure-SSIS-integratie runtime lid worden van het VNet.
-
-```powershell
-# Register to Azure Batch resource provider
-if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
-{
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
-    {
-    Start-Sleep -s 10
-    }
-    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
-    {
-        # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
-    }
-}
-```
+## <a name="azure-portal-data-factory-ui"></a>Azure-portal (Data Factory-UI)
+In deze sectie wordt beschreven hoe u een bestaande Azure SSIS-runtime toevoegen aan een VNet (klassiek of Azure Resource Manager) met behulp van de Azure-portal en de Data Factory-gebruikersinterface. Eerst moet u het VNet op de juiste wijze configureren voordat u uw Azure SSIS-IR toevoegt aan het VNet. Ga via een van de volgende twee secties op basis van het type van uw VNet (klassiek of Azure Resource Manager). Ga vervolgens verder met de derde sectie uw Azure SSIS-IR koppelen aan het VNet. 
 
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Portal gebruiken voor het configureren van een klassiek VNet
-Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als u geen hebt toegang tot het configureren van die VNet of de automatische configuratie is mislukt, de eigenaar van dit VNet / u kunt proberen handmatig configureren in de volgende stappen:
+U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR naar het VNet.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken (klassiek)**.
@@ -112,7 +91,7 @@ Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als
     Als er geen `Microsoft.Batch` is in de lijst om te registreren, [leeg Azure Batch-account maken](../batch/batch-account-create-portal.md) in uw abonnement. U kunt deze later verwijderen. 
 
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Portal gebruiken voor het configureren van een Azure Resource Manager VNet
-Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als u geen hebt toegang tot het configureren van die VNet of de automatische configuratie is mislukt, de eigenaar van dit VNet / u kunt proberen handmatig configureren in de volgende stappen:
+U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR naar het VNet.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken**.
@@ -129,17 +108,76 @@ Uitvoeren van het script is de eenvoudigste manier om het VNet configureren. Als
 
     Als er geen `Microsoft.Batch` is in de lijst om te registreren, [leeg Azure Batch-account maken](../batch/batch-account-create-portal.md) in uw abonnement. U kunt deze later verwijderen.
 
-## <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Een Azure-SSIS-IR maken en toevoegen aan een VNet
-U kunt een Azure-SSIS-IR maken en toevoegen aan het VNet op hetzelfde moment. Zie voor de volledige script en instructies voor het maken van een Azure-SSIS-IR en toevoegen aan een VNet op hetzelfde moment [maken Azure SSIS-IR](create-azure-ssis-integration-runtime.md).
+### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>De Azure SSIS-IR toevoegen aan een VNet
 
-## <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>Een bestaande Azure SSIS-IR toevoegen aan een VNet
+
+1. In de [Azure-portal](https://portal.azure.com), selecteer **gegevensfactory** in het menu links. Als er geen **gegevensfactory** selecteren in het menu **meer services**, selecteer **gegevensfactory** in de **INTELLIGENCE en analyse** sectie. 
+    
+    ![Lijst met Data Factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
+2. Selecteer uw gegevensfactory met Azure SSIS-integratie runtime in de lijst. U Zie de startpagina van uw gegevensfactory. Selecteer **auteur & implementeren** tegel. U ziet de Data Factory-gebruikersinterface (UI) op een afzonderlijke tabblad. 
+
+    ![Startpagina van de gegevensfactory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
+3. In de Data Factory-gebruikersinterface overschakelen naar de **bewerken** tabblad **verbindingen**, en schakel over naar de **integratie Runtimes** tabblad. 
+
+    ![Tabblad Integratie-runtimes](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
+4. Als uw Azure SSIS-IR wordt uitgevoerd in de lijst van de runtime integratie selecteert **stoppen** knop in de **acties** kolom voor uw Azure SSIS-IR U kunt een IR niet bewerken, totdat u het stopt. 
+
+    ![IR stoppen](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
+1. Selecteer in de lijst van de runtime integratie **bewerken** knop in de **acties** kolom voor uw Azure SSIS-IR
+
+    ![Integratie runtime bewerken](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtime-edit.png)
+5. Op de **algemene instellingen** pagina van de **integratie Runtime-instellingen** Selecteer **volgende**. 
+
+    ![Installatie van IR - algemene instellingen](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-general-settings.png)
+6. Op de **SQL-instellingen** pagina, voert u beheerder **wachtwoord**, en selecteer **volgende**.
+
+    ![Installatie van IR - SQL-instellingen](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-sql-settings.png)
+7. Op de **geavanceerde instellingen** pagina, de volgende acties uitvoeren: 
+
+    1. Schakel het selectievakje voor de **selecteert u een VNet-naar-VNet-machtigingen/instellingen configureren voor uw Azure-SSIS-integratie-Runtime voor het koppelen van Azure-services toestaan**. 
+    2. Voor **Type**, opgeven of het VNet een klassiek VNet of een Azure Resource Manager VNet. 
+    3. Voor **VNet-naam**, selecteert u uw VNet.
+    4. Voor **subnetnaam**, selecteert u uw subnet in het VNet. 
+    5. Selecteer **Update**. 
+
+        ![De installatie van de IR - geavanceerde instellingen](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
+8. U kunt nu de IR starten met behulp van de **Start** knop in de **acties** kolom voor uw Azure SSIS-IR Het duurt ongeveer 20 minuten een Azure SSIS-IR starten 
+
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="configure-vnet"></a>VNet configureren
+U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR naar het VNet. Voeg het volgende script om automatisch te configureren VNet machtigingsinstellingen voor uw Azure-SSIS-integratie runtime lid worden van het VNet.
+
+```powershell
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+    Start-Sleep -s 10
+    }
+    if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
+    {
+        # Assign VM contributor role to Microsoft.Batch
+        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+    }
+}
+```
+
+### <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Een Azure-SSIS-IR maken en toevoegen aan een VNet
+U kunt een Azure-SSIS-IR maken en toevoegen aan het VNet op hetzelfde moment. Zie voor de volledige script en instructies voor het maken van een Azure-SSIS-IR en toevoegen aan een VNet op hetzelfde moment [maken Azure SSIS-IR](create-azure-ssis-integration-runtime.md#azure-powershell).
+
+### <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>Een bestaande Azure SSIS-IR toevoegen aan een VNet
 Het script in de [maken Azure SSIS-integratie runtime](create-azure-ssis-integration-runtime.md) artikel laat zien hoe een Azure-SSIS-IR maken en toevoegen aan een VNet in hetzelfde script. Als u een bestaande Azure-SSIS, voert de volgende stappen uit als u wilt toevoegen aan het VNet. 
 
 1. De Azure-SSIS-IR stoppen
 2. De Azure-SSIS-IR om lid van het VNet te configureren. 
 3. De Azure-SSIS-IR starten 
 
-## <a name="define-the-variables"></a>De variabelen definiëren
+### <a name="define-the-variables"></a>De variabelen definiëren
 
 ```powershell
 $ResourceGroupName = "<Azure resource group name>"
@@ -192,7 +230,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-## <a name="start-the-azure-ssis-ir"></a>De Azure-SSIS-IR starten
+### <a name="start-the-azure-ssis-ir"></a>De Azure-SSIS-IR starten
 Voer de volgende opdracht uit om de Azure SSIS Integration Runtime te starten: 
 
 ```powershell
@@ -208,7 +246,7 @@ Het duurt **20-30 minuten** voordat deze opdracht is voltooid.
 Zie voor meer informatie over Azure-SSIS-runtime, in de volgende onderwerpen: 
 
 - [Azure-SSIS-integratie Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat conceptuele informatie over de integratie runtimes in het algemeen met inbegrip van de Azure-SSIS-IR 
-- [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-deploy-ssis-packages-azure.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
+- [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
 - [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (Private Preview) en het toevoegen van de IR aan een VNet. 
 - [Een Azure-SSIS IR controleren](monitor-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel leest u hoe u informatie over een Azure-SSIS IR ophaalt. Daarnaast bevat het artikel beschrijvingen van statuswaarden die worden gebruikt in de geretourneerde informatie. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 

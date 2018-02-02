@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
-
-*Van toepassing op: Azure Stack geïntegreerd systemen*
-
 U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
 
 De volgende tabel ziet u de verschillen tussen de twee identiteit keuzes:
@@ -26,7 +24,7 @@ De volgende tabel ziet u de verschillen tussen de twee identiteit keuzes:
 |---------|---------|---------|
 |Facturering|Capaciteit moet<br> Enterprise Agreement (EA) alleen|Capaciteit of Pay-as-gebruik<br>EA of Cloud Solution Provider (CSP)|
 |Identiteit|Moet de AD FS|Azure AD of AD FS|
-|Marketplace-syndicatie|Momenteel niet beschikbaar|Ondersteund<br>BYOL-licentieverlening|
+|Marketplace-syndicatie|Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
 |Registratie|Aanbevolen, vereist een verwisselbaar medium<br> en een afzonderlijke aangesloten apparaat.|Geautomatiseerd|
 |Patch en bij te werken|Vereist, vereist een verwisselbaar medium<br> en een afzonderlijke aangesloten apparaat.|Updatepakket kan rechtstreeks worden gedownload.<br> van Internet naar het Azure-Stack.|
 
@@ -56,7 +54,7 @@ Vereisten:
 
 |Onderdeel|Vereiste|
 |---------|---------|
-|Graph|Microsoft Active Directory-2012/2012 R2/2016|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Instellen van integratie met grafiek
@@ -109,7 +107,7 @@ Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poor
 |---------|---------|---------|
 |LDAP|389|TCP EN UDP|
 |LDAP SSL|636|TCP|
-|GLOBALE CATALOGUS LDAP|3268|TCP|
+|LDAP GC|3268|TCP|
 |LDAP GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Instellen van integratie met AD FS federatiemetagegevens downloaden
@@ -119,7 +117,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|Naam van de claimprovider. <cr>Lijkt op die manier op de startpagina van de AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Koppeling van federatieve metagegevens|https://AD01.contoso.com/FederationMetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Koppeling van federatieve metagegevens|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatisering van trigger voor het configureren van de vertrouwensrelatie met claimproviders in Azure-Stack
@@ -158,7 +156,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|Naam van de claimprovider. De indeling lijkt op die manier op de startpagina van de AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Bestand met federatieve metagegevens|https://AD01.contoso.com/FederationMetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Bestand met federatieve metagegevens|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Bestand met federatieve metagegevens maken
 
@@ -247,13 +245,13 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
 3. Als u wilt de relying party trust toevoegen, de volgende Windows PowerShell-opdracht worden uitgevoerd op uw exemplaar van AD FS of een Farmlid. Zorg ervoor dat het eindpunt van de AD FS worden bijgewerkt en verwijzen naar het bestand is gemaakt in stap 1.
 
-   **Voor AD FS 2016**
+   **For AD FS 2016**
 
    ```powershell
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
-   **Voor AD FS 2012/2012 R2**
+   **For AD FS 2012/2012 R2**
 
    ```powershell
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
@@ -335,4 +333,4 @@ Als een van de cmdlets mislukt, kunt u aanvullende logboekbestanden verzamelen m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Azure datacenter integratie Stack - eindpunten publiceren](azure-stack-integrate-endpoints.md)
+[Azure Stack registreren](azure-stack-registration.md)

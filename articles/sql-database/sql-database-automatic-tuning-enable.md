@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/19/2016
 ms.author: veljko-msft
-ms.openlocfilehash: bf8e0203112a42132a80e234964747c550fea284
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: b599273874a4b5a3bbcb78284d69b4c8d02b5f2c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="enable-automatic-tuning"></a>Automatisch instellen inschakelen
 
@@ -28,17 +28,21 @@ Azure SQL-Database is een automatisch beheerd gegevens-service die voortdurend b
 ## <a name="enable-automatic-tuning-on-server"></a>Automatische afstemming op server inschakelen
 Op het niveau van de server kunt u automatische afstemmen configuratie van de 'Azure standaard' overnemen of niet worden overgenomen van de configuratie. Azure zijn standaard ingeschakeld FORCE_LAST_GOOD_PLAN, CREATE_INDEX ingeschakeld en DROP_INDEX uitgeschakeld.
 
-### <a name="portal"></a>Portal
+## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Automiatic afstemmen e-mailmeldingen configureren
+
+Zie [automatische afstemming van e-mailmeldingen](sql-database-automatic-tuning-email-notifications.md)
+
+### <a name="azure-portal"></a>Azure Portal
 Om automatische afstemming op Azure SQL Database-server, gaat u naar de server in Azure-portal en selecteer vervolgens **automatische afstemming** in het menu. Selecteer de automatische afstemmen opties die u wilt inschakelen en selecteer **toepassen**:
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 Opties voor automatische afstemmen op de server worden toegepast op alle databases op de server. Standaard alle databases de configuratie van hun bovenliggende server overnemen, maar dit kan worden genegeerd en afzonderlijk opgegeven voor elke database.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 [Klik hier voor meer informatie over het inschakelen van automatische afstemming op het niveau van de server via de REST-API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
-## <a name="enable-automatic-tuning-on-database"></a>Schakel automatische afstemming op database
+## <a name="enable-automatic-tuning-on-an-individual-database"></a>Automatische afstemming op een individuele database inschakelen
 
 De Azure SQL Database kunt u de automatische configuratie afstemmen afzonderlijk op elke database opgeven. Op het databaseniveau kunt u automatische afstemmen configuratie overnemen van bovenliggende server, 'Azure standaard' of niet worden overgenomen van de configuratie. Azure zijn standaard ingeschakeld FORCE_LAST_GOOD_PLAN, CREATE_INDEX ingeschakeld en DROP_INDEX uitgeschakeld.
 
@@ -46,7 +50,7 @@ De Azure SQL Database kunt u de automatische configuratie afstemmen afzonderlijk
 > Er is een algemene aanbevelingen voor het beheren van de automatische afstemmen configuratie op serverniveau zodat dezelfde configuratie-instellingen kunnen worden toegepast op elke database automatisch. Configureer Automatische afstemming op een individuele database als de database andere die door anderen op dezelfde server.
 >
 
-### <a name="portal"></a>Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Navigeer naar de database in de Azure portal om automatische afstemming op een individuele database, en vervolgens selecteert **automatische afstemming**. U kunt een individuele database om de instellingen overnemen van de server door de optie configureren of u kunt de configuratie voor een database afzonderlijk opgeven.
 

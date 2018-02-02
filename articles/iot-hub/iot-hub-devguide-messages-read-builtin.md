@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het ingebouwde eindpunt
 
@@ -32,7 +32,7 @@ IoT-Hub kunt u beheren consumer-groepen op de ingebouwde apparaat-naar-cloud ein
 
 Standaard worden alle berichten die niet expliciet overeen met een regel voor het doorsturen van een bericht geschreven naar het eindpunt van de ingebouwde. Als u deze route voor terugval uitschakelt, worden berichten die niet expliciet overeen met alle regels voor het doorsturen van bericht verwijderd.
 
-U kunt ofwel de bewaartijd wijzigen programmatisch via de [resourceprovider IoT Hub REST-API's][lnk-resource-provider-apis], of met behulp van de [Azure-portal][lnk-management-portal].
+U kunt de bewaartijd wijzigen programmatisch met behulp van de [resourceprovider IoT Hub REST-API's][lnk-resource-provider-apis], of met de [Azure-portal] [ lnk-management-portal].
 
 IoT-Hub toont de **berichten/gebeurtenissen** ingebouwd eindpunt voor uw back-end-services om te lezen van de apparaat-naar-cloud-berichten dat is ontvangen door de hub. Dit eindpunt is Event Hub-compatibele, waarmee u een van de mechanismen gebruiken de Event Hubs-service ondersteunt voor het lezen van berichten.
 
@@ -40,14 +40,14 @@ IoT-Hub toont de **berichten/gebeurtenissen** ingebouwd eindpunt voor uw back-en
 
 Wanneer u gebruikt de [Azure Service Bus-SDK voor .NET] [ lnk-servicebus-sdk] of de [Event Hubs - Gebeurtenisprocessorhost][lnk-eventprocessorhost], kunt u eventuele verbindingstekenreeksen IoT Hub met de juiste machtigingen. Gebruik vervolgens **berichten/gebeurtenissen** als de naam van de Event Hub.
 
-Wanneer u SDK's (of product integraties) gebruikt die zich niet bewust zijn van IoT Hub, moet u een Event Hub-compatibele eindpunt en een Event Hub-compatibele naam ophalen van uw IoT hub-instellingen:
+Wanneer u SDK's (of product integraties) gebruikt die zich niet bewust zijn van IoT Hub, moet u een Event Hub-compatibele eindpunt en een Event Hub-compatibele naam ophalen:
 
 1. Aanmelden bij de [Azure-portal] [ lnk-management-portal] en navigeer naar uw IoT-hub.
 1. Klik op **Eindpunten**.
 1. In de **ingebouwde eindpunten** sectie, klikt u op **gebeurtenissen**. 
 1. Een pagina met eigenschappen wordt geopend, waarin de volgende waarden: **Event Hub-compatibele eindpunt**, **Event Hub-compatibele naam**, **partities**,  **Bewaartijd**, en **consumergroepen**.
 
-    ![Apparaat-naar-cloud-instellingen][img-eventhubcompatible]
+    ![Apparaat-naar-cloudinstellingen][img-eventhubcompatible]
 
 De naam voor het eindpunt van IoT Hub, die is vereist dat de IoT Hub SDK **berichten/gebeurtenissen** zoals wordt weergegeven onder **eindpunten**.
 

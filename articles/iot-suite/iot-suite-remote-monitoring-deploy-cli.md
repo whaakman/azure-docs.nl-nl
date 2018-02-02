@@ -1,22 +1,22 @@
 ---
 title: Implementeren van de externe bewakingsoplossing - Azure Java | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u de vooraf geconfigureerde oplossing voor externe controle Java microsoervices met behulp van de CLI inrichten.
+description: Deze zelfstudie laat zien hoe u de vooraf geconfigureerde oplossing voor externe controle met behulp van de CLI inrichten.
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>De vooraf geconfigureerde oplossing voor externe controle met behulp van de CLI implementeren
 
@@ -54,8 +54,10 @@ Wanneer u de vooraf geconfigureerde oplossing implementeert, zijn er verschillen
 
 | Optie | Waarden | Beschrijving |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | Een _basic_ implementatie is bedoeld voor test- en demonstraties, deze alle microservices op één virtuele machine implementeert. Een _standaard_ implementatie is bedoeld voor productie, deze de microservices op meerdere virtuele machines implementeert. |
+| SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie is bedoeld voor test- en demonstraties, deze alle microservices op één virtuele machine implementeert. Een _standaard_ implementatie is bedoeld voor productie, deze de microservices op meerdere virtuele machines implementeert. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure-services, zoals opslag en Cosmos-database in de cloud. |
 | Runtime | `dotnet`, `java` | Hiermee selecteert u de implementatie van de taal van de microservices. |
+
+Zie voor meer informatie over het gebruik van de lokale implementatie, [die lokaal wordt uitgevoerd met de oplossing voor externe controle](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="deploy-the-preconfigured-solution"></a>De vooraf geconfigureerde oplossing implementeren
 

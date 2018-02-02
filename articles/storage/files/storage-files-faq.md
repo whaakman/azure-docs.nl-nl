@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -90,7 +90,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 
 * <a id="afs-region-availability"></a>
 **Welke regio's worden ondersteund voor Azure File-synchronisatie (preview)?**  
-    Azure File-synchronisatie is momenteel beschikbaar in VS-Oost, VS-West, West-Europa, Australië-Oost en Zuidoost-Azië. Ondersteuning voor meer regio's worden toegevoegd wanneer we voor algemene beschikbaarheid werken. Zie voor meer informatie [beschikbaarheid in regio's](storage-sync-files-planning.md#region-availability).
+    Azure File-synchronisatie is momenteel beschikbaar in Australië-Oost, Canada centraal, VS-Oost, Zuidoost-Azië, VK Zuid, West-Europa en VS-West. Ondersteuning voor meer regio's worden toegevoegd wanneer we voor algemene beschikbaarheid werken. Zie voor meer informatie [beschikbaarheid in regio's](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Kan ik domein en niet-domein-servers in de groep voor synchronisatie met dezelfde hebben?**  

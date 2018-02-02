@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Vervangen van een hardware-onderdeel op een Azure-Stack scale unit-knooppunt
 
@@ -28,7 +28,7 @@ In dit artikel beschrijft het algemene proces ter vervanging van hardwareonderde
 
 Niet hot-verwisselbare onderdelen omvatten het volgende:
 
-- CPU *
+- CPU*
 - Geheugen *
 - Moederbord/baseboard management controller (BMC) / video kaart
 - Schijf controller/hostbusadapter (HBA) / backplane
@@ -44,11 +44,11 @@ Het volgende stroomdiagram ziet u het algemene proces FRU niet hot-verwisselbare
 
 * Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
 
-** Of de leverancier van de OEM-hardware voert de vervangende onderdeel en de firmware-updates kan verschillen, op het ondersteunen van contract.
+** Of de leverancier van de OEM-hardware voert de component vervanging en updates van die de firmware kan variëren op basis van uw support-contract.
 
 ## <a name="review-alert-information"></a>Bekijk informatie over waarschuwingen
 
-De status van de Azure-Stack en het bewakingssysteem houden de status van netwerkadapters en gegevensstations beheerd door opslagruimten Direct. Andere hardware-onderdelen worden niet bijgehouden. Waarschuwingen worden gegenereerd voor alle andere hardwareonderdelen in de leverancierspecifieke hardware bewakingsoplossing die wordt uitgevoerd op de host van de levenscyclus van hardware.
+De status van de Azure-Stack en het bewakingssysteem houden de status van netwerkadapters en gegevensstations beheerd door opslagruimten Direct. Andere hardware-onderdelen worden niet bijgehouden. Waarschuwingen worden gegenereerd voor alle andere hardwareonderdelen in de leverancierspecifieke hardware bewakingsoplossing die wordt uitgevoerd op de host van de levenscyclus van hardware.  
 
 ## <a name="component-replacement-process"></a>Proces voor het onderdeel vervangen
 
@@ -60,7 +60,7 @@ De volgende stappen bevatten een overzicht van het proces voor het onderdeel ver
    > In elk geval slechts één knooppunt kan worden geleegd en op hetzelfde moment zonder dat u de S2D uitgeschakeld (opslagruimten Direct).
 
 2. Nadat het scale unit-knooppunt in de onderhoudsmodus bevindt is, gebruikt u de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) in te grijpen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
- 
+
    > [!NOTE]
    > In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, gebruikt u de baseboard management controller (BMC) webinterface.
 
@@ -74,4 +74,3 @@ De volgende stappen bevatten een overzicht van het proces voor het onderdeel ver
 
 - Zie voor meer informatie over het vervangen van een fysieke hot verwisselbare schijf [een schijf vervangen](azure-stack-replace-disk.md).
 - Zie voor meer informatie over het vervangen van een fysiek knooppunt [vervangen van een scale unit knooppunt](azure-stack-replace-node.md).
-- 

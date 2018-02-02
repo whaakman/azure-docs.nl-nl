@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Cloud-naar-apparaat-berichten uit IoT Hub verzenden
 
@@ -41,12 +41,12 @@ Wanneer de service IoT Hub een bericht naar een apparaat verzendt, wordt de beri
 
 Een apparaat kunt ook:
 
-* *Afwijzen* het bericht, waardoor de IoT Hub worden ingesteld op de **Deadlettered** status. Apparaten die verbinding via het protocol MQTT maken afwijzen niet cloud-naar-apparaat-berichten.
+* *Afwijzen* het bericht, waardoor de IoT Hub worden ingesteld op de **dode lettered** status. Apparaten die verbinding via het protocol MQTT maken afwijzen niet cloud-naar-apparaat-berichten.
 * *Afbreken* het bericht, waardoor de IoT-Hub te plaatsen van het bericht weer in de wachtrij met de status ingesteld op **in wachtrij gezet**. Apparaten die verbinding via het protocol MQTT maken kunnen niet afbreken cloud-naar-apparaat-berichten.
 
 Een thread kan een bericht te verwerken zonder dit IoT-Hub te mislukken. In dit geval automatisch de overgang van berichten van de **onzichtbaar** status terug naar de **in wachtrij gezet** status na een *zichtbaarheid (of vergrendelen) time-out*. De standaardwaarde van deze time-out is 1 minuut.
 
-De **max. aantal levering** eigenschap in IoT Hub bepaalt het maximum aantal keren dat een bericht kan worden overgedragen tussen de **in wachtrij gezet** en **onzichtbaar** statussen. Na dit aantal transities IoT Hub stelt u de status van het bericht **Deadlettered**. Op deze manier IoT Hub stelt u de status van een bericht naar **Deadlettered** na de verlooptijd (Zie [Time to live][lnk-ttl]).
+De **max. aantal levering** eigenschap in IoT Hub bepaalt het maximum aantal keren dat een bericht kan worden overgedragen tussen de **in wachtrij gezet** en **onzichtbaar** statussen. Na dit aantal transities IoT Hub stelt u de status van het bericht **dode lettered**. Op deze manier IoT Hub stelt u de status van een bericht naar **dode lettered** na de verlooptijd (Zie [Time to live][lnk-ttl]).
 
 De [het verzenden van berichten van de cloud-naar-apparaat met IoT Hub] [ lnk-c2d-tutorial] ziet u hoe cloud-naar-apparaat-berichten vanuit de cloud verzendt en ontvangt op een apparaat.
 
@@ -76,7 +76,7 @@ Wanneer u een cloud-naar-apparaat-bericht verzendt, kunnen de levering van per b
 | ACK-eigenschap | Gedrag |
 | ------------ | -------- |
 | **positief** | Als het cloud-naar-apparaat-bericht bereikt de **voltooid** staat, IoT-Hub genereert een feedbackbericht. |
-| **negatieve** | Als het cloud-naar-apparaat-bericht bereikt de **Deadlettered** staat, IoT-Hub genereert een feedbackbericht. |
+| **negative** | Als het cloud-naar-apparaat-bericht bereikt de **dode lettered** staat, IoT-Hub genereert een feedbackbericht. |
 | **volledige**     | IoT Hub genereert een feedbackbericht in beide gevallen. |
 
 Als **Ack** is **volledige**, en u niet een feedbackbericht ontvangt, betekent dit dat het Feedbackbericht is verlopen. De service kan niet weet wat is er gebeurd met het oorspronkelijke bericht. In de praktijk kan een service Zorg ervoor dat de feedback verwerken kan voordat deze verloopt. De maximale verlooptijd is twee dagen, die tijd om de service blijft nogmaals uit te voeren als er een fout optreedt.
@@ -86,7 +86,7 @@ Zoals uitgelegd in [eindpunten][lnk-endpoints], IoT-Hub levert feedback via een 
 | Eigenschap     | Beschrijving |
 | ------------ | ----------- |
 | EnqueuedTime | De tijdstempel die aangeeft wanneer het bericht is gemaakt. |
-| Gebruikers-id       | `{iot hub name}` |
+| UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 De hoofdtekst is een JSON-geserialiseerd matrix met records, elk met de volgende eigenschappen:
@@ -95,7 +95,7 @@ De hoofdtekst is een JSON-geserialiseerd matrix met records, elk met de volgende
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | De tijdstempel die aangeeft wanneer het resultaat van het bericht is er gebeurd. Bijvoorbeeld, verlopen het apparaat is voltooid of het bericht. |
 | OriginalMessageId  | **MessageId** van het cloud-naar-apparaat-bericht waarop deze informatie feedback betrekking heeft. |
-| statusCode         | Een vereiste tekenreeks. In de feedbackberichten die gegenereerd worden door de IoT Hub gebruikt. <br/> 'Geslaagd' <br/> 'Verlopen' <br/> 'DeliveryCountExceeded' <br/> 'Geweigerd' <br/> 'Opgeschoond' |
+| StatusCode         | Een vereiste tekenreeks. In de feedbackberichten die gegenereerd worden door de IoT Hub gebruikt. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Geweigerd' <br/> 'Purged' |
 | Beschrijving        | Waarden voor de tekenreeks **StatusCode**. |
 | Apparaat-id           | **DeviceId** van het doelapparaat van het cloud-naar-apparaat-bericht waarop deze stukje feedback betrekking heeft. |
 | DeviceGenerationId | **DeviceGenerationId** van het doelapparaat van het cloud-naar-apparaat-bericht waarop deze stukje feedback betrekking heeft. |

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Stroom big data in een datawarehouse
 
@@ -74,7 +74,7 @@ Voor deze zelfstudie hebt voltooid, moet u het volgende hebben:
 
 ## <a name="deploy-the-infrastructure"></a>De infrastructuur implementeren
 
-Om te vereenvoudigen in dit artikel, moet u de vereiste infrastructuur met Resource Manager-sjabloon implementeren. Geef weer voor de resources die zijn geïmplementeerd, de [sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Voor de preview-versie gebeurtenis raster ondersteunt **westus2** en **westcentralus** regio's. Gebruik een van deze gebieden voor de locatie van de resourcegroep.
+Om te vereenvoudigen in dit artikel, moet u de vereiste infrastructuur met Resource Manager-sjabloon implementeren. Geef weer voor de resources die zijn geïmplementeerd, de [sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Gebruik een van de [ondersteunde regio's](overview.md) voor locatie van de resourcegroep.
 
 Gebruik voor Azure CLI:
 

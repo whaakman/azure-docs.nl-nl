@@ -1,6 +1,6 @@
 ---
-title: Maken van oplossingen voor het beheer in de Operations Management Suite (OMS) | Microsoft Docs
-description: De functionaliteit van Operations Management Suite (OMS) uitbreiden beheeroplossingen door verpakte beheerscenario die klanten aan hun OMS-werkruimte toevoegen kunnen.  Dit artikel biedt details over hoe u oplossingen voor het beheer moet worden gebruikt in uw eigen omgeving kunt maken of beschikbaar gesteld aan uw klanten.
+title: Een solution management bestand maken in Azure | Microsoft Docs
+description: Management-oplossingen bieden verpakte beheerscenario die klanten aan Azure-omgeving toevoegen kunnen.  Dit artikel biedt details over hoe u oplossingen voor het beheer moet worden gebruikt in uw eigen omgeving kunt maken of beschikbaar gesteld aan uw klanten.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Maken van een bestand van de oplossing voor beheer in Operations Management Suite (OMS) (Preview)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Een solution management bestand maken in Azure (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.  
+> Dit is voorlopige documentatie voor het maken van de oplossingen in Azure die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.  
 
-Oplossingen voor het beheer in de Operations Management Suite (OMS) worden geïmplementeerd als [Resource Manager-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md).  Leren van de belangrijkste taak bij het leren van het ontwerpen van oplossingen voor het [ontwerpen van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md).  Dit artikel bevat een unieke gegevens van sjablonen die worden gebruikt voor oplossingen en het configureren van standaardoplossing resources.
+Oplossingen in Azure worden geïmplementeerd als [Resource Manager-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md).  Leren van de belangrijkste taak bij het leren van het ontwerpen van oplossingen voor het [ontwerpen van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md).  Dit artikel bevat een unieke gegevens van sjablonen die worden gebruikt voor oplossingen en het configureren van standaardoplossing resources.
 
 
 ## <a name="tools"></a>Hulpprogramma's
@@ -53,7 +53,8 @@ De basisstructuur van een bestand van management-oplossing is hetzelfde als een 
 ## <a name="parameters"></a>Parameters
 [Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) zijn waarden die u nodig van de gebruiker hebt bij de installatie van de oplossing voor beheer.  Er zijn standaard parameters die alle oplossingen hebben en u kunt zo nodig extra parameters toevoegen voor uw specifieke oplossing.  Hoe gebruikers parameterwaarden wordt opgeven bij de installatie van uw oplossing afhankelijk van de specifieke parameter en hoe de oplossing wordt geïnstalleerd.
 
-Wanneer een gebruiker uw beheeroplossing voor via installeert de [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) of [Azure-snelstartsjablonen](operations-management-suite-solutions.md#finding-and-installing-management-solutions) wordt ze gevraagd om te selecteren een [OMS-werkruimteendeAutomation-account](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Deze worden gebruikt voor het vullen van de waarden van elk van de standaard parameters.  De gebruiker niet gevraagd rechtstreeks waarden opgeven voor de standaard parameters, maar wordt ze gevraagd waarden opgeven voor elke extra parameters.
+Wanneer een gebruiker uw beheeroplossing voor via installeert de [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) of [Azure-snelstartsjablonen](operations-management-suite-solutions.md#finding-and-installing-management-solutions) wordt ze gevraagd om te selecteren een [werkruimte voor logboekanalyse en automatisering account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Deze worden gebruikt voor het vullen van de waarden van elk van de standaard parameters.  De gebruiker niet gevraagd rechtstreeks waarden opgeven voor de standaard parameters, maar wordt ze gevraagd waarden opgeven voor elke extra parameters.
+
 
 Wanneer de gebruiker geïnstalleerd in uw oplossing [een andere methode](operations-management-suite-solutions.md#finding-and-installing-management-solutions), moeten deze een waarde opgeven voor alle standaardparameters en alle extra parameters.
 
@@ -86,7 +87,7 @@ De volgende tabel bevat de standaardparameters voor alle beheeroplossingen voor.
 
 | Parameter | Type | Beschrijving |
 |:--- |:--- |:--- |
-| Accountnaam |tekenreeks |Azure Automation-accountnaam. |
+| accountName |tekenreeks |Azure Automation-accountnaam. |
 | pricingTier |tekenreeks |De prijscategorie van de werkruimte voor logboekanalyse zowel Azure Automation-account. |
 | regionId |tekenreeks |De regio van het Azure Automation-account. |
 | SolutionName |tekenreeks |Naam van de oplossing.  Als u uw oplossing via snelstartsjablonen implementeert, moet vervolgens u definiëren solutionName als een parameter zodat definieert u een tekenreeks in plaats daarvan vereisen dat de gebruiker een opgeven. |
@@ -168,8 +169,9 @@ In dit geval u verwijzen naar variabelen binnen de oplossing met de syntaxis **v
 ### <a name="dependencies"></a>Afhankelijkheden
 De **dependsOn** element geeft een [afhankelijkheid](../azure-resource-manager/resource-group-define-dependencies.md) op een andere resource.  Wanneer de oplossing is geïnstalleerd, wordt een bron is niet gemaakt totdat alle afhankelijkheden ervan zijn gemaakt.  Bijvoorbeeld: uw oplossing mogelijk [een runbook start](operations-management-suite-solutions-resources-automation.md#runbooks) wanneer deze geïnstalleerd met behulp van een [taak resource](operations-management-suite-solutions-resources-automation.md#automation-jobs).  De bron van de taak is afhankelijk van de runbook-bron om ervoor te zorgen dat het runbook is gemaakt voordat de taak is gemaakt.
 
-### <a name="oms-workspace-and-automation-account"></a>OMS-werkruimte en de Automation-account
-Oplossingen vereisen een [OMS-werkruimte](../log-analytics/log-analytics-manage-access.md) bevat weergaven en een [Automation-account](../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten worden voldaan voordat de resources in de oplossing zijn gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [een werkruimte en de account opgeven](operations-management-suite-solutions.md#oms-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar als de auteur moet u rekening houden met de volgende punten.
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-werkruimte en de Automation-account
+Oplossingen vereisen een [werkruimte voor logboekanalyse](../log-analytics/log-analytics-manage-access.md) bevat weergaven en een [Automation-account](../automation/automation-security-overview.md#automation-account-overview) runbooks en verwante resources bevat.  Deze moeten worden voldaan voordat de resources in de oplossing zijn gemaakt en moeten niet worden gedefinieerd in de oplossing zelf.  De gebruiker wordt [een werkruimte en de account opgeven](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) wanneer ze uw oplossing implementeren, maar als de auteur moet u rekening houden met de volgende punten.
+
 
 ## <a name="solution-resource"></a>Oplossing resource
 Elke oplossing vereist een resource-vermelding in de **resources** element dat de oplossing zelf definieert.  Dit heeft een type **Microsoft.OperationsManagement/solutions** en hebben de volgende structuur. Dit omvat [standaardparameters](#parameters) en [variabelen](#variables) die meestal worden gebruikt om de eigenschappen van de oplossing te definiëren.
@@ -227,7 +229,7 @@ De **plan** entiteit van de oplossing-bron heeft de eigenschappen in de volgende
 | naam |Naam van de oplossing. |
 | versie |De versie van de oplossing zoals wordt bepaald door de auteur. |
 | product |Unieke tekenreeks voor het identificeren van de oplossing. |
-| Uitgever |Uitgever van de oplossing. |
+| publisher |Uitgever van de oplossing. |
 
 
 

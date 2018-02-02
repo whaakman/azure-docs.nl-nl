@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure verbonden implementatie planningsbeslissingen voor Azure-Stack geïntegreerd systemen
 Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-deployment-decisions.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.
@@ -41,7 +41,7 @@ Wanneer u Azure AD gebruikt voor uw archief twee Azure AD-accounts vereist: een 
     - Als de Service-beheerdersaccount. Dit is de eigenaar van de provider standaardabonnement (die u kunt later wijzigen). U kunt zich aanmelden bij de Azure-Stack-beheerportal aan dit account en kunt gebruiken voor aanbiedingen en planningen maken, quota instellen en andere beheertaken in Azure-Stack.
 2. **Factureringsaccount** (vereist voor zowel verbonden als implementaties verbroken). Deze Azure-account wordt gebruikt voor de facturering relatie tussen uw Azure-Stack geïntegreerd-systeem en de back-end van Azure commerce tot stand brengen. Dit is het account dat wordt gefactureerd voor Azure-Stack-kosten. Dit account wordt ook gebruikt voor marketplace-syndicatie en andere hybride scenario's. 
 
-### <a name="ad-fs-identity-store"></a>AD FS IDENTITEIT STORE
+### <a name="ad-fs-identity-store"></a>AD FS identiteit store
 Selecteer deze optie als u wilt uw eigen identiteit store, zoals uw zakelijke Active Directory, gebruiken voor uw Service Administrator-accounts.  
 
 ## <a name="choose-a-billing-model"></a>Kies een factureringsmodel selecteren
@@ -57,9 +57,8 @@ Als u wilt gebruiken een CSP-abonnement, raadpleegt u de tabel hieronder om u te
 
 |Scenario|Opties voor domein- en -abonnement|
 |-----|-----|
-|U bent een directe of indirecte CSP Partner en werkt u de Azure-Stack|Gebruik een CSL (Common Layer voor de Service)-abonnement.|
-|U bent een directe of indirecte CSP Partner en werkt u de Azure-Stack|Partner Center Maak in een Azure AD-tenant met een beschrijvende naam, bijvoorbeeld <your organization>CSPAdmin en een Azure-CSP-abonnement gekoppeld.|
-|U bent een indirecte CSP wederverkoper en werkt u de Azure-Stack|Vraag uw indirecte CSP-Provider te maken, met behulp van de Partner Center, een Azure AD-tenant voor uw organisatie en een Azure-CSP-abonnement gekoppeld.|
+|U bent een **directe CSP Partner** of een **indirecte CSP-Provider**, en werkt u de Azure-Stack|Gebruik een CSL (Common Layer voor de Service)-abonnement.<br>     of<br>Maak een Azure AD-tenant met een beschrijvende naam in Partnercentrum geopend. Bijvoorbeeld &lt;uw organisatie > CSPAdmin met een CSP van de Azure-abonnement gekoppeld.|
+|U bent een **indirecte CSP wederverkoper**, en werkt u de Azure-Stack|Vraag uw indirecte CSP-Provider maken van een Azure AD-tenant voor uw organisatie met een CSP van de Azure-abonnement gekoppeld met behulp van de Partner Center.|
 
 ### <a name="capacity-based-billing"></a>Capaciteit gebaseerde facturering
 Als u besluit het facturering Capaciteitsmodel gebruiken, moet u een Azure-Stack capaciteit plannen SKU op basis van de capaciteit van uw systeem aanschaffen. U moet weten van het aantal fysieke kernen in uw Azure-Stack het juiste aantal kopen. 
@@ -70,3 +69,6 @@ Capaciteit facturering vereist een Enterprise Agreement (EA) voor registratie bi
 - Zie voor meer informatie over gebruiksvoorbeelden, kopen, partners en hardwareleveranciers OEM de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.
 - Voor informatie over de roadmap en geo-beschikbaarheid voor Azure-Stack geïntegreerde systemen, Zie het white paper: [Azure Stack: een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Voor meer informatie over Microsoft Azure-Stack verpakken en prijzen [downloaden van de .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Volgende stappen
+[Datacenter-netwerkintegratie](azure-stack-network.md)

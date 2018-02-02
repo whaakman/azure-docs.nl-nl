@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.openlocfilehash: e1bfb7199ddf9f02297db9de529729ba3833cf8c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor een runtime integratie in Azure Data Factory  
 **Integratie runtime** is de beheerinfrastructuur gebruikt door Azure Data Factory voor verschillende mogelijkheden voor de integratie van gegevens in verschillende netwerkomgevingen. Er zijn drie soorten integratie runtimes die worden aangeboden door de Data Factory:
@@ -49,7 +49,7 @@ De volgende tabel bevat beschrijvingen van eigenschappen die zijn geretourneerd 
 | Status | De status van de integratie van Azure-runtime. | 
 | Locatie | Locatie van de integratie van Azure-runtime. Zie voor meer informatie over de locatie van een Azure-integratie runtime [Inleiding tot integratie runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Naam van de gegevensfactory die de integratie van Azure-runtime bij hoort. | 
-| resourceGroupName | Naam van de resourcegroep waartoe de gegevensfactory.  |
+| ResourceGroupName | Naam van de resourcegroep waartoe de gegevensfactory.  |
 | Beschrijving | Beschrijving van de integratie-runtime.  |
 
 ### <a name="status"></a>Status
@@ -58,7 +58,7 @@ De volgende tabel bevat de mogelijke statussen van een runtime integratie van Az
 | Status | Opmerkingen/scenario 's | 
 | ------ | ------------------ |
 | Online | De integratie van Azure-runtime is online en klaar om te worden gebruikt. | 
-| Off line | De integratie van Azure-runtime is offline vanwege een interne fout. |
+| Offline | De integratie van Azure-runtime is offline vanwege een interne fout. |
 
 ## <a name="self-hosted-integration-runtime"></a>Zelf-hostende Integration Runtime
 Deze sectie vindt u beschrijvingen voor eigenschappen die worden geretourneerd door de cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime. 
@@ -89,10 +89,10 @@ De volgende tabel bevat de mogelijke statussen van een knooppunt van de runtime 
 | Status | Beschrijving |
 | ------ | ------------------ | 
 | Online | Knooppunt is verbonden met de Data Factory-service. |
-| Off line | Knooppunt is offline. |
-| Een upgrade | Het knooppunt wordt automatisch bijgewerkt. |
+| Offline | Knooppunt is offline. |
+| Upgraden | Het knooppunt wordt automatisch bijgewerkt. |
 | Beperkt | Vanwege een verbindingsprobleem. Kan worden veroorzaakt door HTTP-poort 8050 probleem, service bus-connectiviteitsprobleem of een synchronisatieprobleem in de referentie. |
-| Inactieve | Er is een knooppunt in een configuratie van de configuratie van andere knooppunten van de meeste andere. |
+| Inactief | Er is een knooppunt in een configuratie van de configuratie van andere knooppunten van de meeste andere. |
 
 Een knooppunt mag inactief zijn als er geen verbinding met andere knooppunten maken.
 
@@ -103,7 +103,7 @@ De volgende tabel bevat de mogelijke statussen van een host zichzelf integratie-
 | ------ | ----------- | 
 | Registratie moet | Er is geen knooppunt is nog geregistreerd voor deze host zichzelf integratie-runtime. |
 | Online | Alle knooppunten zijn online. |
-| Off line | Er is geen knooppunt is online. |
+| Offline | Er is geen knooppunt is online. |
 | Beperkt | Niet alle knooppunten in de runtime van deze host zichzelf integratie zijn in een foutloze toestand bevindt. Deze status is een waarschuwing dat sommige knooppunten mogelijk niet actief. Deze status kan worden veroorzaakt door een synchronisatieprobleem in de referentie op dispatcher/werkrolknooppunt. |
 
 Gebruik de **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet voor het ophalen van de JSON-nettolading met de gedetailleerde gehost zelf integratie runtime eigenschappen en hun momentopname waarden tijdens de periode van de uitvoering van de cmdlet.
@@ -170,7 +170,7 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 | Subnet | De subnetnaam voor uw Azure-SSIS-integratie runtime om toe te voegen. |
 | Id | De resource-ID van de runtime van uw Azure-SSIS-integratie. |
 | Type | Het type (beheerde/zelfstandige-Hosted) van de runtime van uw Azure-SSIS-integratie. |
-| resourceGroupName | De naam van uw Azure-resourcegroep, waarin uw gegevensfactory en de Azure-SSIS-integratie runtime zijn gemaakt. |
+| ResourceGroupName | De naam van uw Azure-resourcegroep, waarin uw gegevensfactory en de Azure-SSIS-integratie runtime zijn gemaakt. |
 | DataFactoryName | De naam van uw Azure-gegevensfactory. |
 | Naam | De naam van uw Azure-SSIS-integratie-runtime. |
 | Beschrijving | De beschrijving van de runtime van uw Azure-SSIS-integratie. |
@@ -189,7 +189,7 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 
 | Algemene status | Beschrijving | 
 | -------------- | ----------- | 
-| Initiële | De knooppunten van de runtime van uw Azure-SSIS-integratie is niet toegewezen/voorbereid. | 
+| Oorspronkelijk | De knooppunten van de runtime van uw Azure-SSIS-integratie is niet toegewezen/voorbereid. | 
 | Starting | De knooppunten van de runtime van uw Azure-SSIS-integratie worden toegewezen/voorbereid en facturering is gestart. |
 | Gestart | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn toegewezen/voorbereid en ze gereed zijn voor u SSIS-pakketten implementeren/uitvoeren. |
 | Stopping  | De knooppunten van de runtime van uw Azure-SSIS-integratie zijn wordt vrijgegeven. |
@@ -198,7 +198,7 @@ Azure-SSIS-integratie runtime is een volledig beheerde cluster van Azure virtuel
 Zie de volgende artikelen voor meer informatie over Azure-SSIS-integratie runtime:
 
 - [Azure-SSIS-integratie Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat conceptuele informatie over de integratie runtimes in het algemeen met inbegrip van de Azure-SSIS-IR 
-- [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-deploy-ssis-packages-azure.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
+- [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
 - [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (Private Preview) en het toevoegen van de IR aan een VNet. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
 - [Een Azure-SSIS IR toevoegen aan een VNet](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk (VNet) van Azure. Er wordt ook beschreven hoe u Azure Portal gebruikt om VNet te configureren voor het deelnemen van een Azure-SSIS IR aan het VNet. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -159,6 +159,6 @@ Sommige van de Azure VPN-services hebben een kosten, terwijl andere gratis. Weer
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Maken van uw eerste VNet en verbinding maken met een paar virtuele machines, via de stappen in de [maken van uw eerste virtuele netwerk](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
+- Maken van uw eerste VNet en verbinding maken met een paar virtuele machines, via de stappen in de [maken van uw eerste virtuele netwerk](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - De computer met een VNet verbinden via de stappen in de [een punt-naar-site-verbinding configureren](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - Taakverdeling maken voor Internet-verkeer op openbare servers via de stappen in de [een internetgerichte load balancer maken](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.

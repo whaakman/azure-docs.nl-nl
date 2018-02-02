@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Uploaden van bestanden met IoT Hub
 
@@ -96,7 +96,7 @@ De volgende onderwerpen met naslaginformatie bieden u meer informatie over het u
 
 ## <a name="file-upload-notifications"></a>Bestand uploaden meldingen
 
-Wanneer een apparaat een melding van IoT Hub een upload is voltooid, kunt IoT Hub eventueel genereren in een bericht op dat de locatie van de naam en de opslag van het bestand bevat.
+Wanneer een apparaat een melding van IoT Hub een upload is voltooid, genereert IoT Hub eventueel een bericht op dat de locatie van de naam en de opslag van het bestand bevat.
 
 Zoals uitgelegd in [eindpunten][lnk-endpoints], IoT Hub biedt bestand uploaden meldingen via een gerichte service-eindpunt (**/messages/servicebound/fileuploadnotifications**) Als berichten. De receive-semantiek voor het bestand uploaden meldingen zijn hetzelfde als voor cloud-naar-apparaat-berichten en hebben dezelfde [bericht lifecycle][lnk-lifecycle]. Elk bericht opgehaald uit het bestand uploaden-meldingseindpunt is een JSON-record met de volgende eigenschappen:
 
@@ -153,7 +153,7 @@ Nu u het uploaden van bestanden van apparaten met behulp van IoT Hub hebt geleer
 * [Een directe methode aangeroepen voor een apparaat][lnk-devguide-directmethods]
 * [Taken plannen op meerdere apparaten][lnk-devguide-jobs]
 
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kunt u mogelijk geïnteresseerd in de volgende IoT Hub-zelfstudie:
+Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zie de volgende IoT Hub-zelfstudie:
 
 * [Het uploaden van bestanden van apparaten naar de cloud met IoT Hub][lnk-fileupload-tutorial]
 

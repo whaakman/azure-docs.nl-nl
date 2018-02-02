@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Service Fabric Reliable Services
 
@@ -26,7 +26,7 @@ ASP.NET Core is een nieuw open source en platformoverschrijdende framework voor 
 
 In dit artikel is een uitgebreide handleiding voor ASP.NET Core hostingservices in Service Fabric Reliable Services met behulp van de **Microsoft.ServiceFabric.AspNetCore.** * set NuGet-pakketten.
 
-Zie voor een inleidende zelfstudie voor ASP.NET Core in Service Fabric en instructies over het ophalen van uw ontwikkelomgeving instellen [bouwen van een webfront-end voor uw toepassing met behulp van ASP.NET Core](service-fabric-add-a-web-frontend.md).
+Zie voor een inleidende zelfstudie voor ASP.NET Core in Service Fabric en instructies over het ophalen van uw ontwikkelomgeving instellen [maken van een .NET-toepassing](service-fabric-tutorial-create-dotnet-app.md).
 
 De rest van dit artikel wordt ervan uitgegaan dat u al bekend bent met ASP.NET Core. Als u niet het geval is, wordt aangeraden lezen via de [ASP.NET Core grondbeginselen](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -104,7 +104,7 @@ HttpSys is gebaseerd op de [Windows HTTP-Server API](https://msdn.microsoft.com/
 
 Het volgende diagram illustreert hoe HttpSys gebruikt de *http.sys* kernel-stuurprogramma in Windows voor het delen van poort:
 
-![HTTP.sys][3]
+![http.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HttpSys in een stateless service
 Te gebruiken `HttpSys` in een stateless service overschrijven de `CreateServiceInstanceListeners` methode en retourneren een `HttpSysCommunicationListener` exemplaar:
@@ -309,7 +309,7 @@ Wanneer blootgesteld aan Internet, moet een stateless service een bekende en sta
 |  |  | **Opmerkingen bij de** |
 | --- | --- | --- |
 | Webserver | kestrel | Kestrel is de voorkeur webserver omdat dit wordt ondersteund in Windows en Linux. |
-| Poortconfiguratie | Statische | Een bekende statische poort moet worden geconfigureerd in de `Endpoints` configuratie van ServiceManifest.xml, zoals 80 voor HTTP en 443 voor HTTPS. |
+| Poortconfiguratie | statisch | Een bekende statische poort moet worden geconfigureerd in de `Endpoints` configuratie van ServiceManifest.xml, zoals 80 voor HTTP en 443 voor HTTPS. |
 | ServiceFabricIntegrationOptions | Geen | De `ServiceFabricIntegrationOptions.None` moet worden gebruikt bij het Service Fabric-integratie middleware configureren zodat de service niet probeert te valideren van binnenkomende aanvragen voor een unieke id. Externe gebruikers van uw toepassing weet niet de unieke gegevens die worden gebruikt door de middleware. |
 | Aantal exemplaren | -1 | In een typische gebruiksvoorbeelden, moet het aantal exemplaren instellen '1' worden ingesteld zodat een exemplaar is beschikbaar op alle knooppunten die verkeer van een load balancer ontvangt. |
 
@@ -336,7 +336,7 @@ Stateless services die alleen worden aangeroepen vanuit binnen het cluster moete
 | Webserver | kestrel | Hoewel HttpSys kan worden gebruikt voor interne stateless services, is Kestrel de aanbevolen server zodat meerdere exemplaren van de service voor het delen van een host.  |
 | Poortconfiguratie | dynamisch toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of hostbesturingssysteem delen en moeten dus unieke poorten. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Bij toewijzing van de dynamische poort is deze instelling voorkomt dat het probleem onjuiste identiteit is eerder beschreven. |
-| InstanceCount | alle | Het aantal exemplaren instelling kan worden ingesteld op een andere waarde nodig om de service. |
+| InstanceCount | willekeurig | Het aantal exemplaren instelling kan worden ingesteld op een andere waarde nodig om de service. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Alleen intern stateful ASP.NET Core-service
 Stateful services die alleen worden aangeroepen vanuit binnen het cluster moeten dynamisch toegewezen poorten gebruiken om ervoor te zorgen samenwerking tussen meerdere services. De volgende configuratie wordt aanbevolen:

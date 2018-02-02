@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Herstel na noodgevallen in Azure voor on-premises fysieke servers instellen
 
@@ -64,7 +64,7 @@ Zorg ervoor dat uw Azure-account is gemachtigd voor de replicatie van machines n
 
 ### <a name="set-up-an-azure-network"></a>Een Azure-netwerk instellen
 
-Instellen van een [Azure-netwerk](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Instellen van een [Azure-netwerk](../virtual-network/quick-create-portal.md).
 
 - Virtuele machines in Azure worden geplaatst in dit netwerk wanneer ze zijn gemaakt na een failover.
 - Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis
@@ -142,7 +142,7 @@ Selecteer en controleer doelbronnen.
 2. Geef het doel-implementatiemodel.
 3. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
 
-   ![doel](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Doel](./media/tutorial-physical-to-azure/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken

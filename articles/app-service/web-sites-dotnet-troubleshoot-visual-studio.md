@@ -3,8 +3,8 @@ title: Een web-app in Azure App Service met behulp van Visual Studio oplossen
 description: Informatie over het oplossen van problemen met een Azure-web-app met behulp van foutopsporing op afstand, traceren en logboekregistratie-hulpprogramma's die zijn ingebouwd in Visual Studio 2013.
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Een web-app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -103,7 +103,7 @@ Vaak is de eenvoudigste manier om de oorzaak van de fout te achterhalen om in te
 
     `<customErrors mode="Off"></customErrors>`
 
-    ![Web.config bewerken](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
+    ![Edit Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 4. Vernieuw de browser die de onnuttige foutbericht wordt weergegeven en u nu een gedetailleerd foutbericht, zoals in het volgende voorbeeld:
 
     ![Gedetailleerd foutbericht](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
@@ -117,9 +117,9 @@ Als het gedetailleerde foutbericht niet voldoende informatie geven, en u kan nie
 
 Foutopsporing op afstand werkt niet in de Express-edities van Visual Studio.
 
-Deze sectie wordt beschreven hoe u foutopsporing op afstand met behulp van het project dat u maakt in [maken van een ASP.NET-web-app in Azure][app-service-web-get-started-dotnet.md].
+Deze sectie wordt beschreven hoe u foutopsporing op afstand met behulp van het project dat u maakt in [een ASP.NET-web-app maken in Azure](app-service-web-get-started-dotnet.md).
 
-1. Open het webproject dat u hebt gemaakt in [maken van een ASP.NET-web-app in Azure][app-service-web-get-started-dotnet.md].
+1. Open het webproject dat u hebt gemaakt in [een ASP.NET-web-app maken in Azure](app-service-web-get-started-dotnet.md).
 
 2. Open *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Deze sectie wordt beschreven hoe u foutopsporing op afstand met behulp van het p
 
 5. In **Solution Explorer**, met de rechtermuisknop op het project en klik op **publiceren**.
 
-6. In de **profiel** vervolgkeuzelijst, Selecteer hetzelfde profiel dat u gebruikt in [maken van een ASP.NET-web-app in Azure][app-service-web-get-started-dotnet.md]. Klik op instellingen.
+6. In de **profiel** vervolgkeuzelijst, Selecteer hetzelfde profiel dat u gebruikt in [een ASP.NET-web-app maken in Azure](app-service-web-get-started-dotnet.md). Klik op instellingen.
 
 7. In de **publiceren** dialoogvenster, klikt u op de **instellingen** tabblad en wijzig vervolgens de **configuratie** naar **Debug**, en klik vervolgens op  **Sla**.
 
@@ -230,7 +230,7 @@ Foutopsporing op afstand werkt alleen met doorlopende webtaken. Geplande en on-d
 
 16. Klik op de naam van de functie voor informatie over de functie wordt uitgevoerd.
 
-     ![Details van functie](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
+     ![Functiedetails](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
 Als de functie [Logboeken geschreven](https://github.com/Azure/azure-webjobs-sdk/wiki), kunt u op **ToggleOutput** te zien.
 
@@ -595,7 +595,7 @@ U kunt de logboeken voor tracering van mislukte aanvragen weergeven in een brows
 
     ![Tracering van mislukte aanvragen in de browser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="nextsteps"></a>Volgende stappen
+## <a name="nextsteps"></a>De volgende stappen
 U hebt gezien hoe Visual Studio kunt u gemakkelijk logboeken die zijn gemaakt door een Azure-web-app. De volgende secties vindt koppelingen naar meer bronnen op Verwante onderwerpen:
 
 * Azure-web-app oplossen
@@ -637,7 +637,7 @@ Er zijn geen grondige en up-to-date introductie van ASP.NET-tracering beschikbaa
 
 * [Bewaking en telemetrie (gebouw echte Cloud-Apps met Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   E-book hoofdstuk met aanbevelingen voor tracering in Azure-cloud-toepassingen.
-* [ASP.NET-tracering](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [ASP.NET Tracing](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Oude maar nog steeds een goede resource voor een algemene inleiding tot aan het onderwerp.
 * [Traceer-Listeners](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Informatie over traceer-listeners, maar wordt niet vermeld in de [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).

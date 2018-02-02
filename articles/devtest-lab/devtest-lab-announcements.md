@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Een aankondiging naar een lab boeken in Azure DevTest Labs
 
@@ -47,6 +47,13 @@ De aankondiging-functie is bedoeld om te worden gebruikt voor tijdelijke melding
 
 1. Als u een bericht voor de gebruikers in dit lab, stelt **ingeschakeld** naar **Ja**.
 
+1. Kunt u een **vervaldatum** om op te geven van een datum en tijd waarna de aankondiging niet meer wordt weergegeven aan gebruikers. Als u een vervaldatum niet opgeeft, wordt de aankondiging blijft totdat u deze uitschakelen.
+
+   > [!NOTE]
+   > Na het verstrijken van de aankondiging niet langer aan gebruikers worden weergegeven, maar nog bestaat de **Lab aankondiging** deelvenster. U kunt wijzigingen aanbrengen en deze actief maken opnieuw inschakelen.
+   >
+   >
+
 1. Voer een **aankondiging titel** en de **aankondiging tekst**.
 
    De titel mag maximaal 100 tekens en wordt getoond aan de gebruiker op de pagina overzicht van de testomgeving. Als de gebruiker de titel selecteert, wordt de tekst van de aankondiging weergegeven.
@@ -58,7 +65,7 @@ De aankondiging-functie is bedoeld om te worden gebruikt voor tijdelijke melding
 
 1. Selecteer **opslaan** zodra uw aankondiging is gereed om te plaatsen.
 
-Wanneer u niet meer weergeven van deze aankondiging voor gebruikers van de testomgeving wilt, terug naar de **Lab aankondiging** pagina en stel **ingeschakeld** naar **Nee**.
+Wanneer u niet meer weergeven van deze aankondiging voor gebruikers van de testomgeving wilt, terug naar de **Lab aankondiging** pagina en stel **ingeschakeld** naar **Nee**. Als u een vervaldatum hebt opgegeven, wordt de aankondiging automatisch uitgeschakeld op die de datum en tijd.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Stappen voor gebruikers om weer te geven van een aankondiging
 

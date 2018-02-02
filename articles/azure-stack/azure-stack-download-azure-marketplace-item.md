@@ -3,8 +3,8 @@ title: Downloaden van marketplace-items van Azure | Microsoft Docs
 description: Ik kan de marketplace-items van Azure downloaden aan mijn Azure-Stack-implementatie.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
+
 Als u welke inhoud besluit wilt opnemen in uw Azure-Stack marketplace, moet u rekening houden met de inhoud die beschikbaar zijn vanuit Azure marketplace. U kunt downloaden van een geselecteerde lijst met Azure marketplace-items die vooraf geteste zijn worden uitgevoerd op Azure-Stack. Nieuwe items worden regelmatig toegevoegd aan deze lijst, zorg er dus om te controleren op nieuwe inhoud weer.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Marketplace-items in een scenario met verbonden (met een internetverbinding) downloaden
 
-1. Als u wilt downloaden marketplace-items, moet u eerst [Azure Stack registreren bij Azure](azure-stack-register.md). 
+1. Als u wilt downloaden marketplace-items, moet u eerst [Azure Stack registreren bij Azure](azure-stack-register.md).
 2. Aanmelden bij de Azure-Stack-beheerdersportal (https://portal.local.azurestack.external).
 3. Sommige marketplace-items kunnen oplopen. Controleer of er voldoende schijfruimte op het systeem door te klikken op **Resourceproviders** > **opslag**.
 
@@ -51,7 +52,7 @@ Als u welke inhoud besluit wilt opnemen in uw Azure-Stack marketplace, moet u re
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Marketplace-items in een niet-verbonden of een gedeeltelijk verbonden scenario downloaden (met beperkte verbinding met internet)
 
-Wanneer u Azure-Stack implementeert in een niet-verbonden modus (zonder een verbinding met internet), kunt u items voor de marketplace niet downloaden met behulp van de Stack van Azure-portal. U kunt echter de marketplace syndication-hulpprogramma gebruiken voor het downloaden van de marketplace-items voor een machine die verbinding heeft met internet en deze vervolgens overbrengen naar uw Azure-Stack-omgeving. 
+Wanneer u Azure-Stack implementeert in een niet-verbonden modus (zonder een verbinding met internet), kunt u items voor de marketplace niet downloaden met behulp van de Stack van Azure-portal. U kunt echter de marketplace syndication-hulpprogramma gebruiken voor het downloaden van de marketplace-items voor een machine die verbinding heeft met internet en deze vervolgens overbrengen naar uw Azure-Stack-omgeving.
 
 ### <a name="prerequisites"></a>Vereisten
 Voordat u de marketplace syndication-hulpprogramma gebruiken kunt, zorg ervoor dat u hebt [Azure Stack geregistreerd bij uw Azure-abonnement](azure-stack-register.md).  
@@ -132,12 +133,12 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. De portal gebruiken voor het uploaden van uw Marketplace-item (. Azpkg) naar Azure Stack Blob-opslag. U kunt uploaden naar de lokale opslag van de Azure-Stack of uploaden naar Azure Storage. (Dit is een tijdelijke locatie voor het pakket.) Zorg ervoor dat de blob openbaar toegankelijk is en noteer de URI.  
 
-5. Het marketplace-item publiceren naar Azure Stack met behulp van de **toevoegen AzureRMGalleryItem**. Bijvoorbeeld:
+5. Het marketplace-item publiceren naar Azure Stack met behulp van de **toevoegen AzsGalleryItem**. Bijvoorbeeld:
 
    ```powershell
    Add-AzsGalleryItem `

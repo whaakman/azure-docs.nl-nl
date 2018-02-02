@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. [Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security) is een framework waarin de kennis die is opgedaan met tal van mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Programma Center en grondige kennis van de cyberbeveiliging beveiliging threat Liggend.
@@ -52,11 +52,11 @@ De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azu
 ### <a name="automation"></a>Automatisering
 Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) biedt een manier voor gebruikers om de handmatige, langlopende, foutgevoelige en regelmatig herhaalde taken die vaak worden uitgevoerd in een cloud en enterprise-omgeving te automatiseren. Het bespaart tijd en verhoogt de betrouwbaarheid van regelmatige beheertaken. Deze worden zelfs gepland om met regelmatige intervallen automatisch te worden uitgevoerd. U kunt processen automatiseren met behulp van runbooks of configuratiebeheer automatiseren met behulp van Desired State Configuration.
 
-### <a name="backup"></a>Back-up
+### <a name="backup"></a>Back-up maken
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) is de service op basis van Azure kunt u back-up (of beveiligen) en het herstellen van uw gegevens in de Microsoft cloud. Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup-onderdelen tabel](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Siteherstel
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) biedt bedrijfscontinuïteit bij het orkestreren van replicatie van on-premises virtuele en fysieke machines naar Azure of een secundaire site. Als uw primaire site niet beschikbaar is, kunt u een failover toepassen naar de secundaire locatie zodat gebruikers kunnen doorwerken en failback toepassen wanneer systemen weer normaal beginnen te functioneren. intelligente en effectieve bedreigingsdetectie.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) biedt bedrijfscontinuïteit bij het orkestreren van replicatie van on-premises virtuele en fysieke machines naar Azure of een secundaire site. Als uw primaire site niet beschikbaar is, kunt u een failover toepassen naar de secundaire locatie zodat gebruikers kunnen doorwerken en failback toepassen wanneer systemen weer normaal beginnen te functioneren. Azure Security Center gebruiken om uit te voeren intelligente en effectieve bedreigingsdetectie.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) is uitgebreide identiteit als een Service (IDaaS) van Microsoft die:

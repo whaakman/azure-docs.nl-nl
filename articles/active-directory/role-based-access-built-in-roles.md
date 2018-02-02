@@ -3,24 +3,23 @@ title: Acties en NotActions - Azure op rollen gebaseerde toegangsbeheer (RBAC) |
 description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC). De rollen worden continu toegevoegd, dus Controleer de nieuwheid documentatie.
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -68,7 +67,9 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [Redis-Cache Inzender](#redis-cache-contributor) |Redis-caches kunt beheren |
 | [Scheduler-taak verzamelingen Inzender](#scheduler-job-collections-contributor) |Scheduler-taakverzamelingen kunt beheren |
 | [Search Service Inzender](#search-service-contributor) |Search-services kunt beheren |
-| [Beveiligingsbeheer](#security-manager) |Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren |
+| [De beheerder beveiliging](#security-administrator) | In Security Center alleen: kunt weergeven beveiligingsbeleid, beveiliging statussen weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
+| [Beveiligingsbeheer](#security-manager) | Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren |
+| [Beveiliging lezer](#security-reader) | In Security Center alleen: kunt aanbevelingen en waarschuwingen, weergave beveiligingsbeleid weergeven van beveiliging, maar geen wijzigingen aanbrengen weergeven |
 | [Site Recovery Inzender](#site-recovery-contributor) | Site Recovery kunt beheren in Recovery Services-kluis |
 | [Site Recovery-Operator](#site-recovery-operator) | Failover en failback bewerkingen Site Recovery in de Recovery Services-kluis kunnen beheren |
 | [Site Recovery lezer](#site-recovery-reader) | Alle beheerbewerkingen van Site Recovery kunt weergeven  |
@@ -506,21 +507,50 @@ Search-services kunt beheren
 | Microsoft.Search/searchServices/* |Maken en beheren van de search-services |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
+### <a name="security-administrator"></a>Beveiligingsbeheerder
+In Security Center alleen: kunt weergeven beveiligingsbeleid, beveiliging statussen weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen
+
+| **Acties** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Lezen van rollen en roltoewijzingen |
+| Microsoft.Authorization/policyAssignments/* | Maken en beheren van de toewijzingen van beleid |
+| Microsoft.Authorization/policySetDefinitions/* | Maken en beheren van sets van beleid |
+| Microsoft.Authorization/policyDefinitions/* | Maken en beheren van beleidsdefinities |
+| Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
+| Microsoft.operationalInsights/workspaces/*/read | Log Analytics-gegevens weergeven |
+| Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
+| Microsoft.Security/*/read | Lees beveiligingsonderdelen en beleidsregels |
+| Microsoft.Support/* |Maken en ondersteuningstickets beheren |
+
 ### <a name="security-manager"></a>Beveiligingsbeheer
 Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren
 
 | **Acties** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
-| Microsoft.ClassicCompute/*/read |Lezen van configuratiegegevens klassieke virtuele machines berekenen |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Configuratie voor virtuele machines schrijven |
+| Microsoft.Authorization/*/read |Lezen van rollen en roltoewijzingen |
+| Microsoft.ClassicCompute/*/read |Lezen van configuratiegegevens klassieke virtuele machines |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Configuratie voor klassieke virtuele machines schrijven |
 | Microsoft.ClassicNetwork/*/read |Configuratie-informatie lezen over klassiek netwerk |
-| Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
+| Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Security/* |Beveiligingsonderdelen en -beleid maken en beheren |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
+
+### <a name="security-reader"></a>Beveiligingslezer
+In Security Center alleen: kunt aanbevelingen en waarschuwingen, weergave beveiligingsbeleid weergeven van beveiliging, maar geen wijzigingen aanbrengen weergeven
+
+| **Acties** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Lezen van rollen en roltoewijzingen |
+| Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
+| Microsoft.operationalInsights/workspaces/*/read | Log Analytics-gegevens weergeven |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
+| Microsoft.Security/*/read | Lees beveiligingsonderdelen en beleidsregels |
+| Microsoft.Support/* |Maken en ondersteuningstickets beheren |
+| Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery-inzender
 Alle beheeracties van Site Recovery, met uitzondering van de Recovery Services-kluis maken en toewijzen van rechten aan andere gebruikers kunnen beheren
@@ -872,3 +902,4 @@ Kunt beheren, websites, maar niet de web-abonnementen waaraan ze zijn verbonden
 * [Aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md): informatie over het maken van aangepaste rollen aan uw behoeften toegang.
 * [Maken van een geschiedenisrapport voor gewijzigde van toegang](role-based-access-control-access-change-history-report.md): bijhouden van wijzigen van roltoewijzingen in RBAC.
 * [Probleemoplossing voor toegangsbeheer op basis van rollen](role-based-access-control-troubleshooting.md): Profiteer van tips voor het oplossen van veelvoorkomende problemen.
+* [Machtigingen in Azure Security Center](../security-center/security-center-permissions.md)

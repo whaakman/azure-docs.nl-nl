@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Overzicht App Service op Azure Stack
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Azure App Service op Azure-Stack is een platform-as-a-service (PaaS)-oplossing van Microsoft Azure beschikbaar zijn voor Azure-Stack. De service kunt u uw klanten - interne of externe - maken web-API en Azure Functions toepassingen voor alle platforms en apparaten. Ze kunnen uw apps integratie met on-premises toepassingen en hun bedrijfsprocessen automatiseren. Azure Stack cloudoperators kunnen klant apps uitvoeren op volledig beheerde virtuele machines (VM's) met hun keuze uit gedeelde VM-resources of toegewezen virtuele machines.
 

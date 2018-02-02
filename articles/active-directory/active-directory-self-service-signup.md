@@ -1,5 +1,5 @@
 ---
-title: Selfservice of zeer snelle registratie in Azure Active Directory | Microsoft Docs
+title: Selfservice of proefversie registratie in Azure Active Directory | Microsoft Docs
 description: Gebruik van de toepassing met selfserviceregistratie in een tenant van Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Wat is een toepassing met selfserviceregistratie voor Azure Active Directory?
 Dit artikel wordt uitgelegd toepassing met selfserviceregistratie en hoe u voor de ondersteuning in Azure Active Directory (Azure AD). Als u wilt een domeinnaam overnemen van een niet-beheerde Azure AD-tenant, Zie [overnemen van een niet-beheerde directory als administrator](domains-admin-takeover.md).
@@ -46,7 +46,12 @@ Beheerders hebben twee selfservice besturingselementen vandaag. Ze kunnen bepale
 Een beheerder kan deze mogelijkheden met de volgende Azure AD-cmdlet Set-MsolCompanySettings-parameters kunt configureren:
 
 * **AllowEmailVerifiedUsers** bepaalt of een gebruiker kunt maken of koppelen van een niet-beheerde directory. Als u deze parameter op $false instelt, kunnen geen e-mailbericht geverifieerde gebruikers lid worden van de map.
-* **AllowAdHocSubscriptions** Hiermee bepaalt u de mogelijkheid voor gebruikers om uit te voeren van de toepassing met selfserviceregistratie. Als u deze parameter op $false instelt, kunnen geen gebruikers de toepassing met selfserviceregistratie uitvoeren.
+* **AllowAdHocSubscriptions** Hiermee bepaalt u de mogelijkheid voor gebruikers om uit te voeren van de toepassing met selfserviceregistratie. Als u deze parameter op $false instelt, kunnen geen gebruikers de toepassing met selfserviceregistratie uitvoeren. 
+  
+  > [!NOTE]
+  > Stroom en PowerApps proefversie signups niet wordt beheerd door de **AllowAdHocSubscriptions** instelling. Raadpleeg voor meer informatie de volgende artikelen:
+  > * [Hoe voorkom ik mijn bestaande gebruikers u Power BI starten](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Stromen in uw organisatie met Q & A](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Hoe werken de besturingselementen samen?
 Deze twee parameters kunnen worden gebruikt in combinatie meer controle over de toepassing met selfserviceregistratie definiëren. Bijvoorbeeld de volgende opdracht, kunnen gebruikers toepassing met selfserviceregistratie, maar alleen uitvoeren als deze gebruikers al een account in Azure AD hebben (met andere woorden, gebruikers die een e-mailadres gecontroleerd account moet worden gemaakt moet eerst niet uitvoeren toepassing met selfserviceregistratie):

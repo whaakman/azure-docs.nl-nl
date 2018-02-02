@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Application Insights-Connector oplossing (Preview) in de Operations Management Suite (OMS)
 
@@ -84,7 +84,7 @@ Klik op de **Application Insights** tegel openen de **Application Insights** das
 
 Het dashboard bevat de blades weergegeven in de tabel. Elke blade bevat maximaal 10 items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt een zoekopdracht logboek waarmee alle records geretourneerd wanneer u klikt op uitvoeren **alle** aan de onderkant van de blade of wanneer u klikt op de blade-header.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Kolom** | **Beschrijving** |
 | --- | --- |
@@ -164,7 +164,7 @@ De oplossing ontvangt de volgende typen telemetrie van gegevens van uw verbonden
 
 Gegevens worden ontvangen door OMS van Application Insights zodra deze beschikbaar is.
 
-## <a name="output-data"></a>uitvoergegevens
+## <a name="output-data"></a>Uitvoergegevens
 
 Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type invoergegevens. ApplicationInsights records hebben eigenschappen die worden weergegeven in de volgende secties:
 
@@ -173,7 +173,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Type | ApplicationInsights |
-| client-IP |   |
+| ClientIP |   |
 | TimeGenerated | Tijd van de record |
 | ApplicationId | De instrumentatiesleutel van de Application Insights-app |
 | ApplicationName | Naam van de Application Insights app |
@@ -251,7 +251,7 @@ Een record met een *type* van *ApplicationInsights* is gemaakt voor elk type inv
 | Host | Web server-host |
 | URLBase | Volledige URL van de aanvraag |
 | ApplicationProtocol | Type protocol dat wordt gebruikt door de toepassing |
-| requestCount | 100 /(Sampling Rate). Bijvoorbeeld, 4 =&gt; 25% |
+| RequestCount | 100 /(Sampling Rate). Bijvoorbeeld, 4 =&gt; 25% |
 | RequestDurationCount | 100 /(Sampling Rate). Bijvoorbeeld, 4 =&gt; 25% |
 | RequestDurationMin | Voor opgevangen records bevat dit veld de minimale aanvragenset duur (in milliseconden) voor de gegevenspunten dat wordt vertegenwoordigd. |
 | RequestDurationMax | Dit veld bevat opgevangen records, de maximale aanvraag duur (in milliseconden) voor de vertegenwoordigde gegevenspunten |

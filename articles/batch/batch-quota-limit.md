@@ -3,8 +3,8 @@ title: Quota en limieten voor Azure Batch service | Microsoft Docs
 description: Meer informatie over Azure Batch standaardquota, limieten en beperkingen en verhoogt het quotum aanvragen
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -49,13 +49,13 @@ Als u een Batch-account maken met toepassingen toewijzing modus is ingesteld op 
 | [Gelijktijdige taken](batch-parallel-node-tasks.md) per rekenknooppunt |4 x aantal kernen voor knooppunt |
 | [Toepassingen](batch-application-packages.md) per Batch-account |20 |
 | Toepassingspakketten per toepassing |40 |
-| Grootte van de toepassing-pakket (elk) |Ongeveer 195GB<sup>1</sup> |
+| Grootte van de toepassing-pakket (elk) |Approx. 195GB<sup>1</sup> |
 | Maximale startgrootte van taak | 32768 tekens<sup>2</sup> |
 | Taak maximale levensduur | 7 dagen<sup>3</sup> |
 
 <sup>1</sup> azure Storage-limiet voor maximale blob blokgrootte<br />
 <sup>2</sup> bevat bronbestanden en omgevingsvariabelen<br />
-<sup>3</sup> de maximale levensduur van een taak uit wanneer deze wordt toegevoegd aan de taak is wanneer deze is voltooid, is 7 dagen. Voltooide taken behouden voor onbepaalde tijd; gegevens voor taken zijn niet voltooid binnen de maximale levensduur is niet toegankelijk.
+<sup>3</sup> de maximale levensduur van een taak uit wanneer deze wordt toegevoegd aan de taak is wanneer deze is voltooid, is 7 dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
 
 
 ## <a name="view-batch-quotas"></a>Batch-quota's weergeven

@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="understanding-cost-reports"></a>Understanding kosten verbonden aan rapporten
+# <a name="understanding-cost-reports"></a>Inzicht krijgen in kostenrapporten
 
 In dit artikel helpt u begrijpen basisstructuur Cloudyn-rapporten en -functies. De meeste Cloudyn rapporten zijn intuïtieve en een uniform uiterlijk hebben. Nadat u dit artikel hebt gelezen, zijn klaar voor gebruik van alle rapporten. Veel standaard functies zijn beschikbaar in de verschillende rapporten, zodat u kunt de rapporten met gemak navigeren. Rapporten kunnen worden aangepast en u kunt kiezen uit diverse opties voor het berekenen en de resultaten weer te geven.
 
@@ -101,7 +101,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     De resolutie gebruiken de resolutie tijd binnen het geselecteerde datumbereik selecteren. Uw oplossing tijd bepaalt hoe eenheden worden weergegeven in het rapport en kunnen:
     - Dagelijks
-    - Per week
+    - Wekelijks
     - Maandelijks
     - Per kwartaal
     - Jaarlijks
@@ -124,7 +124,7 @@ Elke genummerde gebied in de voorgaande afbeelding wordt beschreven in de volgen
 
     ![weergave-indelingen](./media/understanding-cost-reports/display-formats.png)
 
-13. **Meerdere kleuren**
+13. **Multi-color**
 
     Meerdere kleuren gebruiken om in te stellen de kleur van de grafieken in het rapport.
 

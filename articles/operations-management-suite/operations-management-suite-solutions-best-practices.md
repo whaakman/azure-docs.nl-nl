@@ -1,5 +1,5 @@
 ---
-title: Aanbevolen procedures voor OMSManagement oplossing | Microsoft Docs
+title: Oplossing voor het beheer in Azure aanbevolen procedures | Microsoft Docs
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Aanbevolen procedures voor het maken van oplossingen voor het beheer in Operations Management Suite (OMS) (Preview)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Aanbevolen procedures voor het maken van oplossingen in Azure (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.  
+> Dit is voorlopige documentatie voor het maken van de oplossingen in Azure die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.  
 
-Dit artikel vindt u aanbevolen procedures voor [maken van een bestand van de oplossing management](operations-management-suite-solutions-solution-file.md) in Operations Management Suite (OMS).  Deze informatie wordt bijgewerkt extra aanbevelingen zijn aangeduid.
+Dit artikel vindt u aanbevolen procedures voor [maken van een bestand van de oplossing management](operations-management-suite-solutions-solution-file.md) in Azure.  Deze informatie wordt bijgewerkt extra aanbevelingen zijn aangeduid.
 
 ## <a name="data-sources"></a>Gegevensbronnen
 - Gegevensbronnen kunnen worden [geconfigureerd met een Resource Manager-sjabloon](../log-analytics/log-analytics-template-workspace-configuration.md), maar ze moeten niet worden opgenomen in een oplossingsbestand.  De reden is dat gegevensbronnen configureren momenteel niet idempotent is, wat betekent dat uw oplossing bestaande configuratie in de werkruimte van de gebruiker kan overschreven.<br><br>Uw oplossing moet mogelijk waarschuwings- en gebeurtenissen van het logboek voor toepassingsgebeurtenissen.  Als u dit als een gegevensbron in uw oplossing opgeeft, kunnen gegevens gebeurtenissen wordt verwijderd als de gebruiker dit niet is geconfigureerd in de werkruimte heeft.  Als u alle gebeurtenissen worden opgenomen, klikt u mogelijk worden overmatige informatie en gebeurtenissen verzamelen in de werkruimte van de gebruiker.

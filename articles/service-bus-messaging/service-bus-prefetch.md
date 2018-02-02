@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prefetch Azure Service Bus-berichten
 
@@ -27,7 +27,7 @@ Een enkele initiële [ontvangen](/dotnet/api/microsoft.servicebus.messaging.queu
 
 ## <a name="enable-prefetch"></a>Prefetch inschakelen
 
-In .NET, schakelt u de functie Prefetch door in te stellen de [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) eigenschap van een **MessageReceiver**, **QueueClient**, of **SubscriptionClient**  naar een getal groter dan nul. Als de waarde nul schakelt prefetch.
+Met .NET, u de functie Prefetch inschakelen door in te stellen de [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) eigenschap van een **MessageReceiver**, **QueueClient**, of **SubscriptionClient**  naar een getal groter dan nul. Als de waarde nul schakelt prefetch.
 
 U kunt deze instelling eenvoudig toevoegen aan de receive-zijde van de [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) of [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) voorbeelden de instellingen voor een overzicht van het effect in deze context.
 
@@ -37,7 +37,7 @@ Prefetch werkt ook op dezelfde manier als met de [OnMessage](/dotnet/api/microso
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Als het is sneller en waarom Prefetch niet de standaardoptie?
 
-Prefetch sneller de berichtenstroom wanneer er een bericht direct beschikbaar is voor het ophalen van lokale wanneer en voordat de toepassing wordt gevraagd om een. Het voordeel van deze doorvoer is het resultaat van een afweging beslissing die de auteur van de toepassing moet expliciet aanbrengen:
+Prefetch sneller de berichtenstroom wanneer er een bericht direct beschikbaar is voor het ophalen van lokale wanneer en voordat de toepassing wordt gevraagd om een. Het voordeel van deze doorvoer is het resultaat van een compromis die de auteur van de toepassing moet expliciet aanbrengen:
 
 Met de [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) modus ontvangen, worden alle berichten die zijn verkregen in de buffer prefetch zijn niet meer beschikbaar in de wachtrij en alleen bevinden zich in de buffer in het geheugen prefetch totdat ze worden ontvangen in de toepassing via de **ontvangen**/**ReceiveAsync** of **OnMessage**/**OnMessageAsync** API's. Als de toepassing wordt beëindigd voordat de berichten worden ontvangen in de toepassing, zijn deze berichten permanent verloren.
 

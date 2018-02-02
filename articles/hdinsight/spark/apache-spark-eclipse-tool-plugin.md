@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor Eclipse Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -44,7 +44,7 @@ Het gebruik van HDInsight Tools in Azure Toolkit voor Eclipse Spark scala-toepas
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse en de Scala invoegtoepassing installeren
-### <a name="install-hdinsight-toolsazure-toolkit-for"></a>HDInsight Toolsazure toolkit-voor installeren
+### <a name="install-azure-toolkit-for-eclipse"></a>Azure Toolkit voor Eclipse installeren
 HDInsight Tools voor Eclipse is beschikbaar als onderdeel van Azure Toolkit voor Eclipse. Zie voor installatie-instructies [Azure Toolkit installeren voor Eclipse](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 ### <a name="install-the-scala-plug-in"></a>De invoegtoepassing Scala installeren
 Wanneer u Eclipse opent, detecteert HDInsight-hulpprogramma automatisch of u de invoegtoepassing Scala geïnstalleerd. Selecteer **OK** blijven en volg de instructies voor het installeren van de invoegtoepassing van de Marketplace Eclipse.

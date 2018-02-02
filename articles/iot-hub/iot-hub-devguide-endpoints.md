@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - eindpunten van IoT-Hub
 
@@ -81,7 +81,12 @@ Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota's en 
 
 ### <a name="when-using-azure-storage-containers"></a>Bij gebruik van Azure Storage-containers
 
-IoT Hub biedt alleen ondersteuning voor het schrijven van gegevens naar Azure Storage-containers als blobs in de [Apache Avro](http://avro.apache.org/) indeling. IoT Hub berichten batches en schrijft gegevens naar een blob wanneer deze van een bepaalde grootte bereikt of nadat een bepaalde hoeveelheid tijd is verstreken, afhankelijk van wat er gebeurt eerst. IoT Hub worden geschreven met een lege blob als er geen gegevens zijn schrijven.
+IoT Hub biedt alleen ondersteuning voor het schrijven van gegevens naar Azure Storage-containers als blobs in de [Apache Avro](http://avro.apache.org/) indeling. IoT Hub berichten batches en schrijft gegevens naar een blob wanneer:
+
+* De batch een bepaalde grootte heeft bereikt.
+* Of een bepaalde hoeveelheid tijd is verstreken.
+
+IoT Hub wordt biedt schrijven een lege blob als er geen gegevens schrijven.
 
 IoT Hub wordt standaard ingesteld op de volgende naamconventie van bestand:
 

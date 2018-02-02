@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM te gebruiken voor toegang tot Azure Resource Manager
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI biedt uw code met een toegangstoken voor verificatie bij resource API's die ondersteuning bieden voor Azure AD-verificatie. Uw code in deze zelfstudie heeft toegang tot de Azure Resource Manager-API. 
 
-Voordat uw code echter toegang krijgen de API tot kan, moet u het MSI identiteit toegang verlenen tot een resource in Azure Resource Manager. In dit geval de resourcegroep waarin de virtuele machine is opgenomen. Zorg ervoor dat u de `<CLIENT ID>`, `<SUBSCRIPTION ID>`, en `<RESOURCE GROUP>` parameterwaarden met uw eigen waarden. Vervang `<CLIENT ID>` met de `clientId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi): 
+Voordat uw code echter toegang krijgen de API tot kan, moet u het MSI identiteit toegang verlenen tot een resource in Azure Resource Manager. In dit geval de resourcegroep waarin de virtuele machine is opgenomen. Werk de waarden voor `<SUBSCRIPTION ID>` en `<RESOURCE GROUP>` afhankelijk van wat geschikt is voor uw omgeving. Verder vervangen `<MSI PRINCIPALID>` met de `principalId` eigenschap die is geretourneerd door de `az identity create` opdracht in [maken van een gebruiker toegewezen MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 Het antwoord bevat de details voor de roltoewijzing gemaakt, vergelijkbaar met het volgende voorbeeld:

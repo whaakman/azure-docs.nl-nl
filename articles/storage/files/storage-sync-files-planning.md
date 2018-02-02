@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -131,7 +131,7 @@ De volgende oplossingen bekend zijn bij het overslaan van offlinebestanden onder
 
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (Zie "scannen alleen wat u moet' op de pagina 90 van het PDF-bestand)
-- [Kaspersky Anti-virus](https://support.kaspersky.com/4684)
+- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
 - [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
 - [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
 
@@ -158,11 +158,13 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 
 | Regio | Datacenter-locatie |
 |--------|---------------------|
-| VS - oost | Virginia, Verenigde Staten |
-| VS - west | Californië, Verenigde Staten |
-| West-Europa | Nederland |
+| Australië - oost | New South Wales |
+| Canada - midden | Toronto |
+| VS - oost | Virginia |
 | Zuidoost-Azië | Singapore |
-| Australië - oost | Nieuwe Limburg, Australië |
+| Verenigd Koninkrijk Zuid | Londen |
+| West-Europa | Nederland |
+| VS - west | Californië |
 
 Wij ondersteunen alleen met een Azure-bestandsshare die zich in dezelfde regio bevinden als de Storage-Sync-Service synchroniseren in preview.
 

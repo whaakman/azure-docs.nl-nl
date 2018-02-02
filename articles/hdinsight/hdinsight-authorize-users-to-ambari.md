@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Gebruikers machtigen voor Ambari-weergaven
 
-[HDInsight-clusters domein](./domain-joined/apache-domain-joined-introduction.md) bieden bedrijfsniveau mogelijkheden, zoals verificatie op basis van Azure Active Directory. U kunt nieuwe gebruikers synchroniseren
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[HDInsight-clusters domein](./domain-joined/apache-domain-joined-introduction.md) bieden bedrijfsniveau mogelijkheden, zoals verificatie op basis van Azure Active Directory. U kunt nieuwe gebruikers synchroniseren <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> toegevoegd aan Azure AD-groepen die toegang tot het cluster, zodat deze bepaalde gebruikers bepaalde acties uit te voeren. Werken met gebruikers, groepen en machtigingen in Ambari wordt ondersteund voor zowel de HDInsight-cluster domein en de standaard HDInsight-cluster.
 
 Active Directory: gebruikers kunnen zich aanmelden op de clusterknooppunten met hun domeinreferenties. Ze kunnen ook hun domeinreferenties gebruiken om te verifiëren, cluster-interacties met andere goedgekeurde eindpunten zoals Hue, Ambari-weergaven, ODBC, JDBC, PowerShell en de REST-API's.
 

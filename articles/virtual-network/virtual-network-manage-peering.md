@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 381dacd14afe8a2cb20be8d5e5d8065034db22c8
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
 Informatie over het maken, wijzigen of verwijderen van een virtueel netwerk peering. Virtueel netwerk peering, kunt u virtuele netwerken zijn verbonden via de Azure-backbone-netwerk. Zodra de peer is ingesteld, worden de virtuele netwerken nog steeds beheerd als afzonderlijke resources. Als u niet bekend bent met het virtuele netwerk peering bent, raden wij aan lezen de [peering Virtual network-overzicht](virtual-network-peering-overview.md) en het uitvoeren van de [maken van een virtueel netwerk peering zelfstudie](virtual-network-create-peering.md), voordat de taken in dit artikel is voltooid.
 
-Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel als preview beschikbaar in de regio's VS - west-centraal, Canada centraal en VS West 2. U kunt [uw abonnement voor de preview registreren](virtual-network-create-peering.md).
+Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Virtuele netwerken in verschillende regio's is momenteel in preview-peering. Zie [virtuele netwerk updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network) voor beschikbare regio's. U moet [registreren van uw abonnement voor de preview](virtual-network-create-peering.md).
 
 > [!WARNING]
 > Peerings van virtuele netwerken die in dit scenario worden gemaakt, hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als scenario's waarbij een versie met algemene beschikbaarheid wordt gebruikt. Sommige functies van gekoppelde virtuele netwerken zijn mogelijk beperkt of zijn niet beschikbaar in alle Azure-regio's. Controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor de meest recente meldingen over de beschikbaarheid en de status van deze functie.

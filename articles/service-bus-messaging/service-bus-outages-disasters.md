@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Aanbevolen procedures voor de isolatie van toepassingen tegen storingen van de Service Bus en noodsituaties
 
@@ -31,12 +31,7 @@ Een noodgeval wordt gedefinieerd als permanent verlies van een Service Bus-schaa
 ## <a name="current-architecture"></a>Huidige architectuur
 Service Bus maakt gebruik van meerdere berichten-stores voor het opslaan van berichten die worden verzonden naar wachtrijen en onderwerpen. Een niet-gepartitioneerde wachtrij of onderwerp is toegewezen aan één berichten-store. Als deze berichten-store niet beschikbaar is, mislukt de alle bewerkingen voor de wachtrij of onderwerp.
 
-Alle Service Bus messaging-entiteiten (wachtrijen, onderwerpen, relays) zich bevinden in een service-naamruimte die is gekoppeld aan een datacenter. Service Bus kunnen niet automatisch geo-replicatie van gegevens, noch toestaan een naamruimte te combineren van meerdere datacenters.
-
-## <a name="protecting-against-acs-outages"></a>Bescherming tegen storingen van ACS
-Als u van referenties voor ACS gebruikmaakt en ACS niet meer beschikbaar is, kunnen clients niet langer tokens verkrijgen. Clients die een token hebben op het moment dat ACS uitvalt kunnen blijven gebruiken van Service Bus totdat de tokens verlopen. De standaardlevensduur van de token is drie uur.
-
-Ter bescherming tegen storingen van ACS, gebruikt u de Shared Access Signature (SAS)-tokens. In dit geval verifieert de client rechtstreeks met Service Bus met een zelf minted token-ondertekening met een geheime sleutel. Aanroepen naar ACS zijn niet langer vereist. Zie voor meer informatie over SAS-tokens [Service Bus verificatie][Service Bus authentication].
+Alle Service Bus messaging-entiteiten (wachtrijen, onderwerpen, relays) zich bevinden in een service-naamruimte die is gekoppeld aan een datacenter. Service Bus nu ondersteunt [ *Geo-noodherstel* en *Geo-replicatie* ](service-bus-geo-dr.md) op het niveau van de naamruimte.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Beveiligen van wachtrijen en onderwerpen tegen storingen store messaging
 Een niet-gepartitioneerde wachtrij of onderwerp is toegewezen aan één berichten-store. Als deze berichten-store niet beschikbaar is, mislukt de alle bewerkingen voor de wachtrij of onderwerp. Een gepartitioneerde wachtrij aan de andere kant bestaat uit meerdere fragmenten. Elke fragment wordt opgeslagen in een andere berichten-store. Wanneer een bericht wordt verzonden naar een gepartitioneerde wachtrij of onderwerp, wijst Service Bus het bericht toe aan een van de fragmenten. Als de bijbehorende berichten-store niet beschikbaar is, schrijft Service Bus het bericht indien mogelijk naar een andere fragment. Zie voor meer informatie over gepartitioneerde entiteiten [gepartitioneerde berichtentiteiten][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Als u passieve replicatie gebruikt, in de volgende scenario's kunnen berichten z
 
 De [Geo-replicatie met Service Bus brokered berichten] [ Geo-replication with Service Bus Brokered Messages] voorbeeld demonstreert passieve replicatie van berichtentiteiten.
 
+## <a name="geo-replication"></a>Geo-replicatie
+
+Service Bus ondersteunt Geo-noodherstel en Geo-replicatie op het niveau van de naamruimte. Zie voor meer informatie [Azure Service Bus Geo-noodherstel](service-bus-geo-dr.md). De functie disaster recovery, beschikbaar voor de [Premium-SKU](service-bus-premium-messaging.md) alleen metagegevens noodherstel implementeert, en is afhankelijk van de primaire en secundaire disaster recovery naamruimten.
+
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over herstel na noodgevallen, deze artikelen:
 
+* [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md)
 * [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
 * [Robuuste toepassingen voor Azure ontwerpen][Azure resiliency technical guidance]
 

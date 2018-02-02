@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 7288466cf31e180a16db18f8ddfe02ace3588a8d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -42,14 +42,13 @@ U kunt met Microsoft Azure:
 
 ## <a name="scope"></a>Bereik
 
-Het centrale punt van dit technisch document betreft beveiligingsfuncties en -functionaliteit ondersteunen de basisonderdelen van Microsoft Azure, namelijk [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL-Databases](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure virtuele machine model](https://docs.microsoft.com/azure/virtual-machines/    ), en de hulpprogramma's en de infrastructuur die alles beheren. Dit document de focus op Microsoft Azure technische mogelijkheden beschikbaar zijn voor u als klanten te voldoen aan de rol bij het beschermen van de beveiliging en privacy van gegevens.
+Het centrale punt van dit technisch document betreft beveiligingsfuncties en -functionaliteit ondersteunen de basisonderdelen van Microsoft Azure, namelijk [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL-Databases](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure virtuele machine model](https://docs.microsoft.com/azure/virtual-machines/), en de hulpprogramma's en de infrastructuur die alles beheren. Dit document de focus op Microsoft Azure technische mogelijkheden beschikbaar zijn voor u als klanten te voldoen aan de rol bij het beschermen van de beveiliging en privacy van gegevens.
 
 Het belang van inzicht in dit model gedeelde verantwoordelijkheid is essentieel voor klanten die zijn verplaatst naar de cloud. Cloudproviders bieden aanzienlijke voordelen voor beveiliging en naleving inspanningen, maar deze voordelen niet absolve doen voor de klant hun gebruikers, toepassingen en serviceaanbiedingen beveiligen.
 
 De klant is verantwoordelijk of een gedeelde verantwoordelijk is voor het beveiligen en beheren van het besturingssysteem, netwerkconfiguratie, toepassingen, identiteit, clients en gegevens voor IaaS-oplossingen.  PaaS-oplossingen bouwen op IaaS-implementaties, de klant is nog steeds zelf verantwoordelijk of een gedeelde verantwoordelijkheid voor het beveiligen en beheren van toepassingen, identiteit, clients en gegevens. Voor SaaS-oplossingen, Nonetheless, blijft de klant verantwoordelijk zijn. Ze moeten ervoor zorgen dat gegevens correct ingedeeld en ze een verantwoordelijkheid delen voor het beheren van hun gebruikers- en eindpunt-apparaten.
 
 Dit document biedt geen gedetailleerde dekking van elk van de bijbehorende onderdelen van Microsoft Azure-platform zoals Azure websites, Azure Active Directory, HDInsight, Media Services en andere services die op de belangrijkste onderdelen zijn gelaagd. Hoewel een minimaal niveau van algemene informatie is opgegeven, zijn lezers verondersteld bekend bent met Azure basisconcepten, zoals beschreven in andere verwijzingen naar door Microsoft geleverd en opgenomen in de koppelingen in dit document.
-
 
 ## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Beschikbare beveiligingsupdates technische mogelijkheden om te voldoen aan de verantwoordelijkheid van de gebruiker (klant) - grote afbeelding
 
@@ -61,11 +60,11 @@ Microsoft Azure biedt services waarmee klanten kunnen de beveiliging, privacy en
 
 Azure helpt u zakelijke en persoonlijke gegevens beveiligen doordat u uw gebruikers-id's en referenties beheren en toegang beheren.
 
-### <a name="azure-active-directory"></a>Azure active directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud, extra niveaus van validatie van de multi-factor authentication en voorwaardelijke toegang inschakelen beleid. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) biedt eenmalige aanmelding tot duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitgevoerd.
 
-Beveiligingsvoordelen van Azure Active Directory (AD) omvatten de mogelijkheid om te:
+De voordelen van de beveiliging van Azure Active Directory (Azure AD) omvatten de mogelijkheid om te:
 
 - Maken en beheren van één identiteit voor elke gebruiker in uw onderneming hybride, gebruikers, groepen en apparaten synchroon te houden.
 
@@ -75,11 +74,11 @@ Beveiligingsvoordelen van Azure Active Directory (AD) omvatten de mogelijkheid o
 
 - Veilige externe toegang tot on-premises webtoepassingen via Azure AD-toepassingsproxy inrichten.
 
-[Azure active directory-portal](http://aad.portal.azure.com/) vindt u een deel van de azure-portal. Uit dit dashboard kunt u een overzicht van de status van uw organisatie en eenvoudig Duik in de directory, gebruikers of toegang tot toepassingen beheren.
+De [Azure Active Directory-portal](http://aad.portal.azure.com/) vindt u een deel van de Azure-portal. Uit dit dashboard kunt u een overzicht van de status van uw organisatie en eenvoudig Duik in de directory, gebruikers of toegang tot toepassingen beheren.
 
-![Azure active directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Volgende zijn belangrijkste Azure Identity management mogelijkheden:
+Hier volgen de belangrijkste Azure Identity management mogelijkheden:
 
 - Eenmalige aanmelding
 
@@ -107,13 +106,13 @@ Niet alleen gebruikers hoeven niet te beheren van meerdere sets met gebruikersna
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure multi-factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is een methode voor verificatie dat vereist het gebruik van meer dan één verificatiemethode en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. [MFA helpt safeguard](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoonoproep, tekstbericht of mobiele app melding of verificatie van code en derden OAuth-tokens.
+[Azure multi-factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is een methode voor verificatie dat vereist het gebruik van meer dan één verificatiemethode en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. [MFA helpt safeguard](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoonoproep, tekstbericht of mobiele app melding of verificatie van code en derden OAuth-tokens.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Beveiligingsbewaking, waarschuwingen en machine learning gebaseerde rapporten
 
 Beveiligingsbewaking en waarschuwingen en machine learning gebaseerde rapporten die inconsistente toegangspatronen aangeven kunt u uw bedrijf te beveiligen. U kunt toegang tot Azure Active Directory- en gebruiksrapporten meer inzicht verkrijgen in de integriteit en beveiliging van de directory van uw organisatie. Met deze informatie kunt kan directory-beheerder beter bepalen waar mogelijk beveiligingsrisico's mogelijk liggen zodat ze voldoende plannen kunnen die risico's te beperken.
 
-In de Azure portal of via [Azure Active directory-portal](http://aad.portal.azure.com/), [rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) zijn onderverdeeld in de volgende manieren:
+In de Azure portal of via de [Azure Active Directory-portal](http://aad.portal.azure.com/), [rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) zijn onderverdeeld in de volgende manieren:
 
 - Rapporten voor afwijkingsdetectie – bevatten aanmelden gebeurtenissen die we afwijkende worden gevonden. Ons doel is u rekening houden met deze activiteit en kunt u om te bepalen of een gebeurtenis verdacht is.
 
@@ -133,9 +132,9 @@ In de afgelopen, toepassingsontwikkelaars die wilden [aanmelden en meld u aan co
 
 Wanneer u Azure Active Directory B2C gebruikt, uw consumenten zich registreren voor uw toepassingen met behulp van hun bestaande sociale accounts (Facebook, Google, Amazon, LinkedIn) of door het maken van nieuwe referenties (e-mailadres en wachtwoord of gebruikersnaam en wachtwoord).
 
-Apparaatregistratie
+#### <a name="device-registration"></a>Apparaatregistratie
 
-[Azure AD-apparaatregistratie](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure Active Directory-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor verificatie van het apparaat wanneer de gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van voorwaardelijk toegangsbeleid voor toepassingen die in de cloud en on-premises worden gehost.
+[Azure AD-apparaatregistratie](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure AD-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor verificatie van het apparaat wanneer de gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van voorwaardelijk toegangsbeleid voor toepassingen die in de cloud en on-premises worden gehost.
 
 In combinatie met een [beheer van mobiele apparaten (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) oplossing zoals Intune, de apparaatkenmerken in Azure Active Directory worden bijgewerkt met aanvullende informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance
 
@@ -161,7 +160,7 @@ Azure AD Privileged Identity Management kunt u:
 
 ## <a name="secured-resource-access-in-azure"></a>Toegang tot beveiligde bronnen in Azure
 
-Toegangsbeheer in Azure wordt gestart vanuit het oogpunt van facturering van. De eigenaar van een Azure-account toegankelijk in via de [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions), is het Account Administrator (AA). Abonnementen zijn een container voor facturering, maar ze ook fungeren als een beveiligingsgrens: elk abonnement heeft een Service Administrator (SA) die u kunt toevoegen, verwijderen en wijzigen van de Azure-resources in het desbetreffende abonnement met behulp van de Azure-portal. De SA standaard van een nieuw abonnement is de AA, maar de AA de SA in het midden van Azure-Accounts kunt wijzigen.
+Toegangsbeheer in Azure wordt gestart vanuit het oogpunt van facturering van. De eigenaar van een Azure-account toegankelijk in via de [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions), is het Account Administrator (AA). Abonnementen zijn een container voor facturering, maar ze ook fungeren als een beveiligingsgrens: elk abonnement heeft een Service Administrator (SA) die u kunt toevoegen, verwijderen en wijzigen van de Azure-resources in het desbetreffende abonnement met behulp van de Azure-portal. De SA standaard van een nieuw abonnement is de AA, maar de AA de SA in het Azure-Accountcentrum kunt wijzigen.
 
 ![Toegang tot beveiligde bronnen in Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
@@ -173,7 +172,7 @@ Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte ma
 
 Met RBAC kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties. Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
 
-![Toegang tot beveiligde bronnen in Azure(RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Toegang tot beveiligde bronnen in Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="azure-data-security-and-encryption-protect"></a>Azure gegevensbeveiliging en -versleuteling (beveiligen)
 
@@ -183,9 +182,9 @@ Een van de sleutels voor bescherming van gegevens in de cloud is accounting voor
 
 - In Transit: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, zoals via het netwerk via een servicebus (van on-premises naar cloud en vice versa, inclusief hybride verbindingen zoals ExpressRoute) of tijdens een i/o, dit wordt beschouwd als worden in beweging.
 
-### <a name="encryption--rest"></a>Versleuteling @ rest
+### <a name="encryption-at-rest"></a>Versleuteling 'at rest'
 
-Als u versleuteling in de Rest van de volgende opties:
+Als u wilt bereiken versleuteling in rust, doet u elk van de volgende:
 
 Ondersteuning voor ten minste één van de aanbevolen versleuteling modellen in de volgende tabel wordt beschreven om gegevens te versleutelen.
 
@@ -224,15 +223,15 @@ Voor elke store die u gebruikt, gebruikmaken van de bestaande versleuteling op R
 
 Gebruik voor de virtuele machine en lokale schijfopslag Azure Disk Encryption indien ondersteund:
 
-IaaS
+#### <a name="iaas"></a>IaaS
 
 Services met IaaS VM's (Windows of Linux) moeten gebruiken [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) voor het versleutelen van volumes met gegevens van de klant.
 
-PaaS-v2
+#### <a name="paas-v2"></a>PaaS v2
 
 Services die worden uitgevoerd op PaaS-v2 met Service Fabric via Azure disk encryption voor virtuele-Machineschaalset [VMSS] coderen van hun PaaS v2 VM's.
 
-PaaS v1
+#### <a name="paas-v1"></a>PaaS v1
 
 Azure Disk Encryption is momenteel niet ondersteund voor PaaS v1. Daarom moet u versleuteling van toepassing op persistente gegevens in rust te versleutelen.  Dit omvat, maar is niet beperkt tot toepassingsgegevens, tijdelijke bestanden, logboeken en crashdumps.
 
@@ -319,13 +318,11 @@ Azure biedt ook diverse functies voor eenvoudig te gebruiken om u te helpen beve
 
 - [Azure Active Directory-verificatie voor uw app instellen](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-
 - [Beveiliging van verkeer naar uw app door in te schakelen Transport Layer Security (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
-    - [Alle binnenkomend verkeer via HTTPS-verbinding afdwingen](http://microsoftazurewebsitescheatsheet.info/)
+  - [Alle binnenkomend verkeer via HTTPS-verbinding afdwingen](http://microsoftazurewebsitescheatsheet.info/)
 
   - [Strikte transportbeveiliging (HSTS) inschakelen](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
-
 
 - [Toegang tot uw app beperken door IP-adres van client](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
@@ -416,7 +413,7 @@ Met OMS, kunt u een instantie in een cloud, met inbegrip van lokale, Azure, AWS,
 
 Deze methode kunt u gegevens uit diverse bronnen consolideren, zodat u kunt combineren gegevens van uw Azure-services met uw bestaande lokale omgeving. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
 
-### <a name="azure-security-center"></a>Azure security center
+### <a name="azure-security-center"></a>Azure Security Center
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
@@ -462,7 +459,7 @@ Controle van de netwerkbeveiliging van uw is het essentieel zijn voor netwerk be
 
 [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) metrische gegevens die samengevoegde statistieken en capaciteit transactiegegevens over aanvragen met storage-service zijn kan opslaan. Transacties worden gerapporteerd op beide API bewerking niveau en op het niveau van de service storage en capaciteit op het niveau van de service storage wordt gerapporteerd. Metrische gegevens kan worden gebruikt om storage-service analyseren, onderzoeken van problemen met aanvragen ten opzichte van de storage-service en verbeteren de prestaties van toepassingen die gebruikmaken van een service.
 
-### <a name="application-insights"></a>Application insights
+### <a name="application-insights"></a>Application Insights
 
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbaar Management APM (Application Performance)-service voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. Dit omvat analytics krachtige hulpprogramma's voor hulp bij het vaststellen van problemen en om te begrijpen wat gebruikers doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. Het kan worden geïntegreerd met uw devOps-proces en verwijst naar een verschillende ontwikkelingsprogramma's heeft.
 
@@ -487,6 +484,7 @@ Met deze service kunt u het volgende controleren:
 - **Diagnostische traceerlogboeken** van uw app - met behulp hiervan kunt u de samenhang vaststellen tussen traceergebeurtenissen en aanvragen.
 
 - **Aangepaste gebeurtenissen en metrische gegevens** zelf in de code client of server zakelijke gebeurtenissen bijhouden zoals verkochte artikelen, of games gewonnen te schrijven.
+
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunt u werken met de resources in uw oplossing als een groep.
 
 U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources.
@@ -518,7 +516,7 @@ Meer informatie over beveiliging door het lezen van enkele van de onderwerpen ov
 
 - [Controle en logboekregistratie](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
 
-- [Cybercriminaliteit](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
+- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
 
 - [Ontwerp- en operationele beveiliging](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
 

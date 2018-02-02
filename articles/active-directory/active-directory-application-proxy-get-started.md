@@ -3,7 +3,7 @@ title: Het verstrekken van veilige externe toegang tot lokale apps
 description: Bevat informatie over hoe u Azure AD-toepassingsproxy gebruiken voor veilige externe toegang tot uw lokale apps.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 24def898f282c4e122ae53932ae86047e815595c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 819226d0ecace0be617e9a3ebc22942782510ec4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Het verstrekken van veilige externe toegang tot on-premises toepassingen
 
@@ -45,7 +45,7 @@ Azure AD-toepassingsproxy is:
 * **Beveiligen**
    * Wanneer u uw apps met behulp van Azure AD-toepassingsproxy publiceert, kunt u profiteren van de uitgebreide autorisatie besturingselementen en beveiligingsanalyse in Azure. U ophalen cloud-scale beveiligings- en Azure-beveiligingsfuncties zoals voorwaardelijke toegang en in twee stappen verificatie.
    * U hoeft niet te openen van alle binnenkomende verbindingen via uw firewall om uw gebruikers externe toegang. 
-* **Rendabele**
+* **Cost-effective**
    * Toepassingsproxy werkt in de cloud, zodat u tijd en geld kunt besparen. Oplossingen voor on-premises normaal gesproken moeten u instellen en onderhouden DMZ's, randservers of andere complexe infrastructuren.  
 
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Wat voor soort toepassingen werken met toepassingsproxy?

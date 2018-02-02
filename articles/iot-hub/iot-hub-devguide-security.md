@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -72,7 +72,7 @@ Zie voor meer informatie over het maken en gebruiken van beveiligingstokens [IoT
 
 Elke ondersteunde protocollen, zoals MQTT AMQP en HTTPS, transporten tokens op verschillende manieren.
 
-Wanneer u MQTT, het pakket verbinding maken met de apparaat-id heeft als de ClientId, {iothubhostname} / {deviceId} in het veld Username en een SAS-token in het veld wachtwoord. {iothubhostname} moet de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure-devices.net).
+Wanneer u MQTT, het CONNECT-pakket heeft de apparaat-id als de ClientId `{iothubhostname}/{deviceId}` in het veld Username en een SAS-token in het veld wachtwoord. `{iothubhostname}`moet u de volledige CName van de IoT-hub (bijvoorbeeld contoso.azure-devices.net).
 
 Wanneer u [AMQP][lnk-amqp], IoT-Hub ondersteunt [SASL zonder opmaak] [ lnk-sasl-plain] en [AMQP Claims-beveiliging op basis van-] [ lnk-cbs].
 

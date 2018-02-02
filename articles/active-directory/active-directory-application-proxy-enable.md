@@ -3,7 +3,7 @@ title: Azure AD-App-Proxy - aan de slag-connector installeren | Microsoft Docs
 description: Toepassingsproxy inschakelen in de Azure-portal en installeer de Connectors voor de omgekeerde proxy.
 services: active-directory
 documentationcenter: 
-author: billmath
+author: MarkusVi
 manager: mtillman
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
-ms.author: billmath
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 09497144ef4047c1191f3c02afccb881d48aaf3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Aan de slag met Application Proxy en installeer de connector
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
@@ -56,10 +56,10 @@ Als u uw omgeving voorbereiden voor Azure AD-toepassingsproxy, moet u eerst de c
 2. Als uw firewall of proxyserver kunt DNS-whitelisting, kunt u geaccepteerde verbindingen met msappproxy.net en servicebus.windows.net. Als u niet het geval is, moet u toegang tot de [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), dat elke week worden bijgewerkt.
 
 3. Microsoft maakt gebruik van vier adressen certificaten controleren. Toegang tot de volgende URL's toestaan als u dit nog niet hebt gedaan voor andere producten:
-   * mscrl.Microsoft.com:80
-   * CRL.Microsoft.com:80
-   * OCSP.msocsp.com:80
-   * www.Microsoft.com:80
+   * mscrl.microsoft.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
+   * www.microsoft.com:80
 
 4. De connector moet toegang tot login.windows.net en login.microsoftonline.com voor het registratieproces.
 

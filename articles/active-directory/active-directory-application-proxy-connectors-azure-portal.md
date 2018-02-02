@@ -3,7 +3,7 @@ title: Publicatie van toepassingen op afzonderlijke netwerken en locaties met be
 description: Bevat informatie over het maken en beheren van groepen van connectors in Azure AD-toepassingsproxy.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
-ms.author: daveba
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met groepen van de connector
 
@@ -74,11 +74,11 @@ Toepassingen die zijn geïnstalleerd op IaaS voor toegang tot de cloud, bieden c
 
 Neem bijvoorbeeld een organisatie met verschillende virtuele machines die zijn verbonden met hun eigen IaaS gehost virtueel netwerk. Zodat werknemers van het gebruik van deze toepassingen worden deze particuliere netwerken zijn verbonden met het bedrijfsnetwerk via VPN van site-naar-site. Dit biedt een goede ervaring voor werknemers die zich op locatie zijn. Maar deze mogelijk niet ideaal voor externe werknemers, omdat hiervoor extra on-premises infrastructuur voor het routeren van toegang, zoals u in het onderstaande diagram kunt zien:
 
-![AzureAD Iaas-netwerk](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
+![AzureAD Iaas Network](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
 Met groepen van Azure AD-toepassingsproxy-connector, kunt u een algemene service de toegang tot alle toepassingen beveiligen zonder aanvullende afhankelijkheid in uw bedrijfsnetwerk inschakelen:
 
-![AzureAD Iaas meerdere Cloud leveranciers](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
+![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Meerdere forests – verschillende connector groepen voor elke forest
 

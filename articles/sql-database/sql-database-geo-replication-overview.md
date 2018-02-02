@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Overzicht: Failover-groepen en actieve geo-replicatie
 Actieve geo-replicatie kunt u maximaal vier leesbare secundaire databases in de locaties van dezelfde of verschillende data center (regio's) configureren. Secundaire databases zijn beschikbaar voor het uitvoeren van query's en voor failover als er een datacentrum of het onvermogen om verbinding met de primaire database. De failover moet handmatig worden gestart door de toepassing van de gebruiker. Na een failover heeft de nieuwe primaire het eindpunt van een andere verbinding. 
@@ -71,7 +71,7 @@ De functie van actieve geo-replicatie biedt de volgende essentiële mogelijkhede
 * **Meerdere secundaire databases**: twee of meer secundaire databases verhogen redundantie en het niveau van beveiliging voor de primaire database en de toepassing. Als er meerdere secundaire databases bestaan, is de toepassing blijft beveiligd zelfs als een van de secundaire databases mislukt. Als er slechts één secundaire database, en dit mislukt, wordt de toepassing wordt blootgesteld aan een hoger risico totdat er een nieuwe secundaire database is gemaakt.
 
    > [!NOTE]
-   > Als u het bouwen van een globaal gedistribueerde toepassing en hoeft op te geven alleen-lezen toegang tot gegevens in meer dan vier segions actieve geo-replicatie gebruikt, kunt u secundaire van een secundaire (dit proces wordt '-koppeling genoemd). Op deze manier kunt u vrijwel onbeperkt schalen van databasereplicatie bereiken. Bovendien vermindert chaining de overhead van replicatie vanaf de primaire database. De verhouding is de vertraging meer replicatie van de leaf meest secundaire databases. 
+   > Als u actieve geo-replicatie gebruikt voor het bouwen van een globaal gedistribueerde toepassing en hoeft op te geven alleen-lezen toegang tot gegevens in meer dan vier verschillende regio's, kunt u secundaire van een secundaire (dit proces wordt '-koppeling genoemd). Op deze manier kunt u vrijwel onbeperkt schalen van databasereplicatie bereiken. Bovendien vermindert chaining de overhead van replicatie vanaf de primaire database. De verhouding is de vertraging meer replicatie van de leaf meest secundaire databases. 
    >
 
 * **Ondersteuning van de elastische groep databases**: actieve geo-replicatie kan worden geconfigureerd voor een database in een elastische pool. De secundaire database kan zich in een andere elastische pool. Voor gewone databases kan de secundaire een elastische pool en vice versa zijn, zolang de servicecategorieën hetzelfde zijn. 
@@ -156,12 +156,12 @@ Zoals eerder besproken automatische failover-groepen (in preview) en active kan 
 | Cmdlet | Beschrijving |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hiermee haalt u een of meer databases. |
-| [Nieuwe AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Hiermee maakt u een secundaire database voor een bestaande database en start gegevensreplicatie. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Hiermee maakt u een secundaire database voor een bestaande database en start gegevensreplicatie. |
 | [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Een secundaire database als primaire initiëren failover verandert. |
-| [Verwijder AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Beëindigt gegevensreplicatie tussen een SQL-Database en de opgegeven secundaire database. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Beëindigt gegevensreplicatie tussen een SQL-Database en de opgegeven secundaire database. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Hiermee haalt u de geo-replicatiekoppelingen tussen een Azure SQL Database en een resourcegroep of SQL Server. |
-| [Nieuwe AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Deze opdracht maakt een failover-groep en registreert deze op de primaire en secundaire servers|
-| [Verwijder AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Hiermee verwijdert u de groep failover van de server en verwijdert u alle secundaire databases opgenomen in de groep |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Deze opdracht maakt een failover-groep en registreert deze op de primaire en secundaire servers|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Hiermee verwijdert u de groep failover van de server en verwijdert u alle secundaire databases opgenomen in de groep |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Haalt de configuratie van de failover |
 | [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Hiermee wijzigt u de configuratie van de failover-groep |
 | [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover van de groep failover naar de secundaire server |

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2738af56782dbe8c917afd942e3f6b1eada026b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 47ba146d18a20cf6c7e7480d74a02ba354486988
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Zelfstudie: Azure Active Directory-integratie met PatentSQUARE
 
@@ -118,7 +118,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-patentsquare-tutorial/tutorial_general_400.png)
 
-6. Eenmalige aanmelding configureren op **PatentSQUARE** zijde, moet u de gedownloade verzenden **Metadata XML** naar [PatentSQUARE ondersteuningsteam](http://www.panasonic.com/jp/company/pstc.html). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+6. Eenmalige aanmelding configureren op **PatentSQUARE** zijde, moet u de gedownloade verzenden **Metadata XML** naar [PatentSQUARE ondersteuningsteam](https://www.panasonic.com/jp/business/its/patentsquare.html). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,7 +158,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
  
 ### <a name="create-a-patentsquare-test-user"></a>Een testgebruiker PatentSQUARE maken
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in PatentSQUARE maken. Werken met [PatentSQUARE ondersteuningsteam](http://www.panasonic.com/jp/company/pstc.html) de gebruikers van het platform PatentSQUARE toevoegen. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in PatentSQUARE maken. Werken met [PatentSQUARE ondersteuningsteam](https://www.panasonic.com/jp/business/its/patentsquare.html) de gebruikers van het platform PatentSQUARE toevoegen. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

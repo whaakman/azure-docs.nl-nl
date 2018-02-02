@@ -2,17 +2,17 @@
 title: Azure Batch-pool in een virtueel netwerk inrichten | Microsoft Docs
 description: U kunt een Batch-pool maken in een virtueel netwerk, zodat de rekenknooppunten veilig kunnen communiceren met andere virtuele machines in het netwerk, zoals een bestandsserver.
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: v-dotren
-ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: danlep
+ms.openlocfilehash: 647a123e403b0ed6458bc26e7b26a73f3c1f8e91
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
@@ -65,7 +65,7 @@ Om ervoor te zorgen dat de rekenknooppunten van uw Azure Batch-pool werken in ee
 
 Wanneer u een gebruiker gedefinieerde route toevoegt, de route voor elk gerelateerde Batch IP-adresvoorvoegsel definiëren en instellen **volgende hop type** naar **Internet**. Zie het volgende voorbeeld:
 
-![Gebruiker gedefinieerde route](./media/batch-virtual-network/user-defined-route.png)
+![Door de gebruiker gedefinieerde route](./media/batch-virtual-network/user-defined-route.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot allerlei scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder aanpassingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -37,11 +37,8 @@ U kunt alleen met de importeren rechtstreeks vanuit de Runbookgalerie met de Azu
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Een runbook importeren vanuit de galerie Runbook met de Azure-portal
 1. Open uw Automation-account in Azure Portal.
-2. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.
-3. Klik op **bladeren galerie** knop.
-   
-    ![Galerie knop Bladeren](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Ga naar het galerij-item u wilt en selecteert u deze om de details ervan weer te geven.
+2. Onder **procesautomatisering**, klikt u op **Runbooks galerie**
+3. Ga naar het galerij-item u wilt en selecteert u deze om de details ervan weer te geven. U kunt aanvullende zoekparameters invoeren voor de publisher en het type aan de linkerkant.
    
     ![Galerie bladeren](media/automation-runbook-gallery/browse-gallery.png)
 5. Klik op **weergave bronproject** om weer te geven van het item in de [TechNet Script Center](http://gallery.technet.microsoft.com/).
@@ -94,14 +91,8 @@ PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en besta
    
     ![Details van de PowerShell-module](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Voor het installeren van de module rechtstreeks in Azure Automation, klikt u op de **importeren** knop.
-   
-    ![Knop importeren-module](media/automation-runbook-gallery/module-import-button.png)
 8. Als u op de knop importeren op de **importeren** deelvenster ziet u de naam van de module die u wilt importeren. Als alle afhankelijkheden zijn geïnstalleerd, de **OK** knop wordt geactiveerd. Als u afhankelijkheden ontbreekt, moet u die importeren voordat u deze module kunt importeren.
-9. Klik op **OK** de module te importeren. Terwijl Azure Automation importeert een module in uw account, pakt deze metagegevens over de module en de cmdlets.
-   
-    ![Pagina van de module importeren](media/automation-runbook-gallery/module-import-blade.png)
-   
-    Dit kan enkele minuten duren, omdat elke activiteit moet worden geëxtraheerd.
+9. Op de **importeren** pagina, klikt u op **OK** de module te importeren. Terwijl Azure Automation importeert een module in uw account, pakt deze metagegevens over de module en de cmdlets. Dit kan enkele minuten duren, omdat elke activiteit moet worden geëxtraheerd.
 10. U ontvangt een initiële melding dat de module wordt geïmplementeerd en nog een melding wanneer deze is voltooid.
 11. Nadat de module is geïmporteerd, kunt u de beschikbare activiteiten bekijken en kunt u de resources in uw runbooks en Desired State Configuration.
 

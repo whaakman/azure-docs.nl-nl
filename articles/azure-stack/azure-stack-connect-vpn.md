@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Verbinding maken met Azure-Stack in Azure maken met VPN
 
@@ -71,7 +71,7 @@ U maakt eerst de netwerkbronnen voor Azure. De volgende instructies wordt aangeg
 3. Selecteer **gatewaysubnet** een gatewaysubnet toevoegen aan het virtuele netwerk.
 4. De naam van het subnet is standaard ingesteld op **Gatewaysubnet**.
    Gatewaysubnetten zijn speciaal en hebben deze specifieke naam nodig om goed te functioneren.
-5. In de **-adresbereik** veld, controleert u of het adres is **10.100.0.0/24**.
+5. In de **-adresbereik** veld, controleert u of het adres is **10.100.1.0/24**.
 6. Selecteer **OK** het gatewaysubnet maken.
 
 ### <a name="create-the-virtual-network-gateway"></a>De gateway van het virtuele netwerk maken
@@ -93,7 +93,7 @@ U maakt eerst de netwerkbronnen voor Azure. De volgende instructies wordt aangeg
 5. Selecteer in de lijst met resources **lokale netwerkgateway**.
 6. In **naam**, type **Azs GW**.
 7. In **IP-adres**, typt u het openbare IP-adres voor uw Azure-Stack virtuele netwerkgateway die eerder in de tabel van de configuratie van netwerk wordt vermeld.
-8. In **adresruimte**, uit Azure Stack, typt u de **10.0.10.0/23** -adresruimte voor **AzureVNet**.
+8. In **adresruimte**, uit Azure Stack, typt u de **10.1.0.0/24** en **10.1.1.0/24** -adresruimte voor **AzureVNet**.
 9. Controleer uw **abonnement**, **resourcegroep**, en **locatie** juist zijn en selecteer vervolgens **maken**.
 
 ## <a name="create-the-connection"></a>De verbinding maken
@@ -118,7 +118,7 @@ Nu een virtuele machine in Azure maken en op de VM-subnet in het virtuele netwer
 5. Typ een geldige gebruikersnaam en wachtwoord. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze gemaakt.
 6. Geef een **abonnement**, **resourcegroep**, en **locatie**, en selecteer vervolgens **OK**.
 7. Op de **grootte** sectie, selecteer de grootte van een virtuele machine voor dit exemplaar en selecteer vervolgens **Selecteer**.
-8. Op de **instellingen** sectie, kunt u de standaardinstellingen accepteren. Zorg ervoor dat de **AzureVnet** virtueel netwerk is geselecteerd en controleren of het subnet is ingesteld op **10.0.20.0/24**. Selecteer **OK**.
+8. Op de **instellingen** sectie, kunt u de standaardinstellingen accepteren. Zorg ervoor dat de **AzureVnet** virtueel netwerk is geselecteerd en controleren of het subnet is ingesteld op **10.100.0.0/24**. Selecteer **OK**.
 9. Controleer de instellingen op de **samenvatting** sectie en selecteer vervolgens **OK**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Maken van de netwerkbronnen in Azure-Stack
@@ -181,7 +181,7 @@ Een manier om na te denken over deze meer algemeen is dat de lokale gateway netw
 4. Selecteer in de lijst met resources **lokale netwerkgateway**.
 5. In **naam**, type **Azure-GW**.
 6. In **IP-adres**, typt u het openbare IP-adres voor de virtuele netwerkgateway in Azure **Azure-GW-PiP**. Dit adres wordt eerder in de tabel van de configuratie van netwerk weergegeven.
-7. In **adresruimte**, voor de adresruimte van het Azure VNET dat u hebt gemaakt, typt u **10.0.20.0/23**.
+7. In **adresruimte**, voor de adresruimte van het Azure VNET dat u hebt gemaakt, typt u **10.100.0.0/24** en **10.100.1.0/24**.
 8. Controleer uw **abonnement**, **resourcegroep**, en **locatie** juist zijn en selecteer vervolgens **maken**.
 
 ### <a name="create-the-connection"></a>De verbinding maken
@@ -225,7 +225,7 @@ Om ervoor te zorgen dat u het verkeer via de site-naar-site-verbinding verzenden
 5. Aanmelden met het account dat u hebt geconfigureerd tijdens het maken van de virtuele machine.
 6. Open een opdrachtprompt met verhoogde bevoegdheid **Windows PowerShell** venster.
 7. Typ **ipconfig /all**.
-8. Zoek in de uitvoer naar de **IPv4-adres**, en sla het adres voor later gebruik. Dit is het adres dat u van Azure pingt. In de voorbeeldomgeving, het adres is **10.0.10.4**, maar in uw omgeving mogelijk andere. Deze moet vallen binnen de **10.0.10.0/24** subnet dat u eerder hebt gemaakt.
+8. Zoek in de uitvoer naar de **IPv4-adres**, en sla het adres voor later gebruik. Dit is het adres dat u van Azure pingt. In de voorbeeldomgeving, het adres is **10.1.0.4**, maar in uw omgeving kan het anders zijn. Deze moet vallen binnen de **10.1.0.0/24** subnet dat u eerder hebt gemaakt.
 9. Voer de volgende PowerShell-opdracht voor het maken van een firewallregel waarmee de virtuele machine op pings reageren:
 
    ```powershell
@@ -242,7 +242,7 @@ Om ervoor te zorgen dat u het verkeer via de site-naar-site-verbinding verzenden
 5. Aanmelden met het account dat u hebt geconfigureerd tijdens het maken van de virtuele machine.
 6. Open een opdrachtprompt met verhoogde bevoegdheid **Windows PowerShell** venster.
 7. Typ **ipconfig /all**.
-8. Er is een IPv4-adres valt binnen **10.0.20.0/24**. In de voorbeeldomgeving, het adres is **10.0.20.4**, maar uw adres kan anders zijn.
+8. Er is een IPv4-adres valt binnen **10.100.0.0/24**. In de voorbeeldomgeving, het adres is **10.100.0.4**, maar uw adres kan anders zijn.
 9. Voer de volgende PowerShell-opdracht voor het maken van een firewallregel waarmee de virtuele machine op pings reageren:
 
    ```powershell
@@ -252,7 +252,7 @@ Om ervoor te zorgen dat u het verkeer via de site-naar-site-verbinding verzenden
    ```
 
 10. Ping van de virtuele machine in Azure, de virtuele machine in Azure-Stack via de tunnel. Om dit te doen, moet u het DIP die u hebt vastgelegd van Azs VM pingen.
-   In de voorbeeldomgeving is dit **10.0.10.4**, maar zorg ervoor dat het adres dat u hebt genoteerd in uw testomgeving pingen. Hier ziet u een resultaat dat op de volgende schermafbeelding lijkt:
+   In de voorbeeldomgeving is dit **10.1.0.4**, maar zorg ervoor dat het adres dat u hebt genoteerd in uw testomgeving pingen. Hier ziet u een resultaat dat op de volgende schermafbeelding lijkt:
    
     ![Geslaagde ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Een antwoord van de externe virtuele-machine geeft aan dat een geslaagde test! U kunt de virtuele machine-venster sluiten. U kunt uw om verbinding te testen, andere soorten gegevensoverdrachten zoals het kopiëren van een bestand.
@@ -264,7 +264,7 @@ Als u wilt weten op hoeveel gegevens worden doorgegeven via de site-naar-site-ve
 2. Ga naar **alle resources**, en selecteer vervolgens de **Azs Azure** verbinding. **Verbindingen** wordt weergegeven.
 4. Op de **verbinding** sectie, de statistieken voor **gegevens in** en **gegevensuitvoer** worden weergegeven. In de volgende schermafbeelding worden grote aantallen toegeschreven aan extra bestandsoverdracht. U ziet er sommige andere waarden.
    
-    ![Gegevens in en uit](media/azure-stack-connect-vpn/Connection.png)
+    ![Inkomende/uitgaande gegevens](media/azure-stack-connect-vpn/Connection.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

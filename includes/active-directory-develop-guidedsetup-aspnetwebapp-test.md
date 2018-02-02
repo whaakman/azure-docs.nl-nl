@@ -64,4 +64,4 @@ U kunt-toegang beperken tot alleen gebruikersaccounts die in een Azure AD-organi
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Gebruik een aangepaste methode voor het valideren van uitgevers van certificaten
 U kunt implementeren een aangepaste methode voor het valideren van uitgevers van certificaten met behulp van de **IssuerValidator** parameter. Lees voor meer informatie over het gebruik van deze parameter over de [TokenValidationParameters klasse](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) op MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

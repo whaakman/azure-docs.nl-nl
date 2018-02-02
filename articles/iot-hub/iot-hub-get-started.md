@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub get zelfstudies gestart
 
 U kunt Azure IoT Hub en het apparaat met Azure IoT SDK's gebruiken om oplossingen voor Internet der dingen (IoT) te maken:
 
 * Azure IoT Hub is een volledig beheerde service in de cloud die veilig verbindt, bewaakt en beheert uw IoT-apparaten. Gebruik de Azure IoT-apparaat-SDK's voor het implementeren van uw IoT-apparaten.
-* Gebruik een IoT-gateway in complexere IoT-scenario's. Bijvoorbeeld, waarbij u moet rekening houden factoren zoals de oudere apparaten, kosten van bandbreedte, beveiliging en privacy-beleid of gegevensverwerking rand. In deze scenario's gebruikt u Azure IoT rand voor het implementeren van een gateway die apparaten verbinding met uw IoT-hub.
+* Gebruik een IoT-gateway in complexere IoT-scenario's. Bijvoorbeeld, waarbij u moet rekening houden factoren zoals de oudere apparaten, kosten van bandbreedte, beveiliging en privacy-beleid of gegevensverwerking rand. In deze scenario's, gebruikt u [Azure IoT rand](https://docs.microsoft.com/azure/iot-edge/) voor het implementeren van een gateway die apparaten verbinding met uw IoT-hub.
 
 ## <a name="what-the-tutorials-cover"></a>Wat de zelfstudies hebben betrekking op
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/30/2018
 ms.author: alfredop
-ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 855d74698f2109fa426d34044cbc89b83c224e6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Veelgestelde vragen in Azure Stack gebruiks-API
 Dit artikel worden enkele veelgestelde vragen over de Azure-API voor het gebruik van Stack.
@@ -28,8 +28,8 @@ Gebruik wordt voor de volgende resourceproviders gerapporteerd:
 
 | **Resourceprovider** | **ID van de meter** | **De naam van de meter** | **Unit** | **Aanvullende informatie** |
 | --- | --- | --- | --- | --- |
-| **Netwerk** |F271A8A388C44D93956A063E1D2FA80B |Gebruik van statische IP-adres |IP-adressen| Telling van IP-adressen die worden gebruikt |
-| |9E2739BA86744796B465F64674B822BA |Gebruik van dynamische IP-adres |IP-adressen| Telling van IP-adressen die worden gebruikt |
+| **Netwerk** |F271A8A388C44D93956A063E1D2FA80B |Gebruik van statische IP-adres |IP-adressen| Telling van IP-adressen die worden gebruikt. Als u het gebruik van API met dagelijkse samenvattingen aanroept, wordt de meter IP-adres vermenigvuldigd met het aantal uren geretourneerd. |
+| |9E2739BA86744796B465F64674B822BA |Gebruik van dynamische IP-adres |IP-adressen| Telling van IP-adressen die worden gebruikt. Als u het gebruik van API met dagelijkse samenvattingen aanroept, wordt de meter IP-adres vermenigvuldigd met het aantal uren geretourneerd. |
 | **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*uur |Totale capaciteit verbruikt door tabellen |
 | |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*uur |Totale capaciteit van pagina-blobs gebruikt |
 | |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*uur |Totale capaciteit gebruikt door de wachtrij |
@@ -43,10 +43,10 @@ Gebruik wordt voor de volgende resourceproviders gerapporteerd:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Aanvragen tellen in 10, 000's |Wachtrij-serviceaanvragen (per 10 000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Inkomende gegevens in GB |Wachtrij-service gegevens inkomend in GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Uitgaande in GB |Uitgaande van Queue-service gegevens in GB |
-| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*uur   | Totale capaciteit van de database bij het maken, elk uur wordt gerapporteerd.  |
-| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*uur    | Totale capaciteit van de database bij het maken, elk uur wordt gerapporteerd. |
-| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Basis VM-grootte-uren |Virtuele core minuten | Aantal virtuele kernen time-out minuten die de virtuele machine is uitgevoerd |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Uren Windows VM-grootte |Virtuele core minuten | Aantal virtuele kernen time-out minuten die de virtuele machine is uitgevoerd |
+| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*uur   | Totale capaciteit van de database bij het maken van. Als u het gebruik van API met dagelijkse samenvattingen aanroept, wordt de meter MB vermenigvuldigd met het aantal uren geretourneerd. |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*uur    | Totale capaciteit van de database bij het maken van. Als u het gebruik van API met dagelijkse samenvattingen aanroept, wordt de meter MB vermenigvuldigd met het aantal uren geretourneerd. |
+| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Basis VM-grootte-uren |Virtuele core-uren | Aantal virtuele kernen vermenigvuldigd met de uren dat de virtuele machine is uitgevoerd |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Uren Windows VM-grootte |Virtuele core-uren | Aantal virtuele kernen vermenigvuldigd met uur uitgevoerd voor de virtuele machine |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Uren voor VM-grootte |VM-uren |Basis- en Windows VM bevat. Niet aangepast voor kernen |
 | **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Sleutelkluis-transacties | Aantal verzoeken in 10 000's| Aantal ontvangen door de Sleutelkluis gegevens vlak REST-API-aanvragen |
 | **App service** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | Virtuele core-uren  | Aantal virtuele kernen gebruikt voor het uitvoeren van app service |

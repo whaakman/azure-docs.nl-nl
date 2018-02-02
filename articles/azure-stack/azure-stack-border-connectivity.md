@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: c1a5496f3ab9a625d7d97c3096ae89100b7c5592
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 93dd609df90adac2c84ba8c62cf0d18f55a317bb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="border-connectivity"></a>Border-connectiviteit 
 Integratie met netwerkplanning is een belangrijk vereist voor een geslaagde implementatie van Azure-Stack geïntegreerd systemen, bewerking en beheer. Rand connectiviteit planning begint door te kiezen of u gebruik van dynamische routering met border gateway protocol (BGP) of niet. Hiervoor moet een 16-bits autonoom systeemnummer BGP (openbare of persoonlijke) toe te wijzen of met statische routering, waarbij een standaard statische route is toegewezen aan de rand-apparaten.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-database tenancymodus patronen
 
@@ -96,7 +96,7 @@ Azure SQL Database biedt de hulpprogramma's die nodig zijn om te configureren, b
 
 De Azure SQL Database-platform heeft veel beheerfuncties zijn ontworpen voor het beheer van grote aantallen van databases op grote schaal, zoals ook meer dan 100.000 databases.  Deze voorzieningen maken het patroon database per tenant aannemelijke.
 
-Stel bijvoorbeeld dat een systeem heeft een database 1000-tenant als slechts één database.  De database wellicht 20 indexen.  Als de worden geconverteerd naar de databases van 1000 single-tenant, wordt de quatity van indexen komt tot 20.000.  In SQL-Database als onderdeel van [automatische afstemming][docu-sql-db-automatic-tuning-771a], de automatische indexering functies zijn standaard ingeschakeld.  Automatische indexering beheert voor u alle 20.000 indexen en hun lopende maken en -neerzetten-optimalisatie.  Deze geautomatiseerde acties worden uitgevoerd binnen een individuele database, en ze niet zijn gecoördineerd of beperkt door soortgelijke acties in andere databases.  Automatisch indexeren wordt behandeld indexen anders in een bezet database dan in een minder bezet database.  Dit type index management aanpassing zou zijn op de schaal van de database per tenant als deze grote beheertaak zou moeten handmatig worden uitgevoerd.
+Stel bijvoorbeeld dat een systeem heeft een database 1000-tenant als slechts één database.  De database wellicht 20 indexen.  Als de worden geconverteerd naar de databases van 1000 single-tenant, wordt het aantal indexen komt tot 20.000.  In SQL-Database als onderdeel van [automatische afstemming][docu-sql-db-automatic-tuning-771a], de automatische indexering functies zijn standaard ingeschakeld.  Automatische indexering beheert voor u alle 20.000 indexen en hun lopende maken en -neerzetten-optimalisatie.  Deze geautomatiseerde acties worden uitgevoerd binnen een individuele database, en ze niet zijn gecoördineerd of beperkt door soortgelijke acties in andere databases.  Automatisch indexeren wordt behandeld indexen anders in een bezet database dan in een minder bezet database.  Dit type index management aanpassing zou zijn op de schaal van de database per tenant als deze grote beheertaak zou moeten handmatig worden uitgevoerd.
 
 Andere functies die goed schaalbaar omvatten het volgende:
 
@@ -175,14 +175,14 @@ In dit model hybride kunnen de databases voor één tenant voor abonnee tenants 
 
 De volgende tabel geeft een overzicht van de verschillen tussen de belangrijkste tenancymodus-modellen.
 
-| Meting | Zelfstandige app | Database per tenant | Shard multitenant |
+| Meting | Zelfstandige app | Database-per-tenant | Shard multitenant |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Schalen | Middelgroot<br />1 100s | Zeer hoog<br />1 100.000 | Onbeperkt<br />1 1.000.000 |
+| Schalen | Middelgroot<br />1-100s | Zeer hoog<br />1 100.000 | Onbeperkt<br />1 1.000.000 |
 | Isolatie van tenants | Zeer hoog | Hoog | Laag; met uitzondering van een singleton-tenant (dat wil zeggen alleen in een db MT). |
 | Databasekosten per tenant | Hoog; voor pieken wordt aangepast. | Laag; Pools gebruikt. | Laagste, voor kleine tenants in MT-databases. |
 | Bewaking van toepassingsprestaties en beheer | Per-tenant alleen | Aggregatie + per tenant | Aggregatie; Hoewel per tenant alleen voor singletons is. |
 | Ontwikkeling complexiteit | Laag | Laag | Gemiddeld; Als gevolg van sharding. |
-| Operationele complexiteit | Laag-hoog. Afzonderlijk eenvoudige en complexe op grote schaal. | Laag-Medium. Patronen complexiteit op grote schaal. | Laag-hoog. Beheer van een afzonderlijke tenant is complex. |
+| Operationele complexiteit | Laag-hoog. Afzonderlijk eenvoudige en complexe op grote schaal. | Low-Medium. Patronen complexiteit op grote schaal. | Laag-hoog. Beheer van een afzonderlijke tenant is complex. |
 | &nbsp; ||||
 
 ## <a name="next-steps"></a>Volgende stappen

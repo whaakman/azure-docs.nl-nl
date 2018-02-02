@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
 
@@ -22,18 +22,20 @@ U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar 
 
 Op dit moment ondersteunt raster gebeurtenis de volgende gebieden:
 
+* Azië (zuidoost)
+* Asia East
 * VS - midden
 *   VS - oost
 *   VS - oost 2
+* Europa (west)
+* Europa (noord)
 *   West-centraal VS
 *   VS - west
 *   VS - west 2
 
-Andere regio's worden toegevoegd.
-
 Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md). De volgende afbeelding toont hoe gebeurtenis raster uitgevers en handlers verbinding maakt, maar biedt geen een uitgebreide lijst met ondersteunde opties.
 
-![Gebeurtenis raster functionele model](./media/overview/event-grid-functional-model.png)
+![Gebeurtenis raster functionele model](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Gebeurtenisuitgevers
 
@@ -42,10 +44,10 @@ De volgende Azure-services hebt op dit moment wordt de uitgever van de ingebouwd
 * Azure-abonnementen (beheerbewerkingen)
 * Aangepaste-onderwerpen
 * Event Hubs
+* IoT Hub
 * Resourcegroepen (beheerbewerkingen)
-* Storage-Blob
-
-Andere Azure-services worden van dit jaar met toegevoegd.
+* Storage Blob
+* Opslag voor algemene doeleinden v2 (GPv2)
 
 ## <a name="event-handlers"></a>Gebeurtenis-handlers
 
@@ -55,10 +57,10 @@ De volgende Azure-services hebt op dit moment handler ingebouwde ondersteuning v
 * Azure Functions
 * Event Hubs
 * Logic Apps
-* Microsoft-stroom
-* Webhooks.
+* Microsoft Flow
+* WebHooks
 
-Andere Azure-services worden van dit jaar met toegevoegd.
+Wanneer u Azure Functions als de handler, gebruikt u de trigger gebeurtenis raster in plaats van de algemene HTTP-triggers. Gebeurtenis raster valideert automatisch gebeurtenis raster functie triggers. U moet implementeren met algemene HTTP-triggers de [validatie antwoord](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Concepten
 
@@ -111,9 +113,7 @@ Event Grid verbindt uw app met andere services. Bijvoorbeeld, een eigen onderwer
 
 ## <a name="how-much-does-event-grid-cost"></a>Wat kost gebeurtenis raster?
 
-Azure gebeurtenis raster maakt gebruik van een prijsmodel voor betalen per gebeurtenis, zodat u alleen betaalt voor wat u gebruikt.
-
-Gebeurtenis raster kost $0,60 per miljoen operations ($0,30 tijdens de preview) en de eerste 100.000 bewerking per maand zijn gratis. Bewerkingen worden gedefinieerd als gebeurtenis inkomend, geavanceerde overeen, levering poging en management aanroepen.  Meer informatie vindt u op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure gebeurtenis raster maakt gebruik van een prijsmodel voor betalen per gebeurtenis, zodat u alleen betaalt voor wat u gebruikt. De eerste 100.000 bewerkingen per maand zijn gratis. Bewerkingen worden gedefinieerd als gebeurtenis inkomend, geavanceerde overeen, levering poging en management aanroepen. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

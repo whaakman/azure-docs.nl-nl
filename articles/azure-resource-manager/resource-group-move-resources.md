@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: MT
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -53,7 +53,10 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Als de tenant-id's voor de bron- en doelserver abonnementen niet hetzelfde zijn zijn, moet u contact opnemen [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) de resources verplaatsen naar een nieuwe tenant.
+  Als de tenant-id's voor de bron- en doelserver abonnementen niet hetzelfde zijn, moet u de volgende methoden gebruiken om af te stemmen van de tenant-id's: 
+
+  * [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md)
+  * [Het koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. De service moet de mogelijkheid activeren om resources te verplaatsen. Dit artikel vindt welke services kunnen verplaatsen bronnen en welke services zwevende resources niet inschakelen.
 3. Het doelabonnement moet zijn geregistreerd voor de resourceprovider van de resource die wordt verplaatst. Als u niet het geval is, er een foutbericht met de mededeling dat de **abonnement is niet geregistreerd voor een brontype**. U kunt dit probleem tegenkomen bij het verplaatsen van een resource naar een nieuw abonnement, terwijl dat abonnement nooit is gebruikt met dat type resource.
@@ -93,7 +96,7 @@ U kunt de meeste resources via de selfservice bewerkingen die wordt weergegeven 
 
 Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) wanneer u moet:
 
-* Uw resources verplaatsen naar een nieuwe Azure-account (en Azure Active Directory-tenant).
+* Uw resources verplaatsen naar een nieuwe Azure-account (en Azure Active Directory-tenant) en u hulp nodig bij de instructies in de vorige sectie.
 * Klassieke resources verplaatsen, maar hebben problemen met de beperkingen.
 
 ## <a name="services-that-enable-move"></a>Services waarmee verplaatsen
@@ -319,7 +322,7 @@ Verplaatsen van een virtuele machine geregistreerd bij **Azure backup** tussen r
  1. Tijdelijk stoppen van de back-up en bewaren van back-upgegevens
  2. Verplaats de VM naar de doelresourcegroep
  3. Opnieuw beveiligen met de dezelfde/nieuwe kluis die gebruikers met de beschikbare herstelpunten gemaakt vóór de verplaatsing herstellen kunnen.
-Als de gebruiker de virtuele machine van een back-up voor abonnementen verplaatst, blijven stap 1 en 2 hetzelfde. Gebruiker moet de virtuele machine met een nieuwe kluis aanwezig / worden gemaakt in het doelabonnement beveiligen in stap 3. Recovery Services-kluis ondersteuning beschikt niet over meerdere abonnement back-ups.
+Als de gebruiker de virtuele machine van een back-up voor abonnementen verplaatst, blijven stap 1 en 2 hetzelfde. Gebruiker moet de virtuele machine met een nieuwe kluis aanwezig / worden gemaakt in het doelabonnement beveiligen in stap 3. Recovery Services-kluis biedt geen ondersteuning voor back-ups van cross-abonnement.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-beperkingen
 

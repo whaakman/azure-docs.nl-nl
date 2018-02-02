@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Overzicht van service Fabric programming model
 Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunt gebruiken van de Service Fabric-API's te kunnen profiteren van het platform functies en toepassingsframeworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal of de code die wordt uitgevoerd in een container gewoon worden gehost op een Service Fabric-cluster.
@@ -45,7 +45,7 @@ Reliable Services kunnen ook stateful is, worden uitsluitend van toepassing op S
 ## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core is een nieuw open source en platformoverschrijdende framework voor het bouwen van moderne cloud-gebaseerde Internet verbonden toepassingen, zoals web-apps, IoT-apps en mobiele back-ends. Service Fabric worden geïntegreerd met ASP.NET Core, dus u kunt zowel stateless als stateful ASP.NET Core schrijven toepassingen die van betrouwbare verzamelingen en Service-Fabric geavanceerde orchestration mogelijkheden gebruikmaken.
 
-[Meer informatie over ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) of aan de slag door [uw eerste ASP.NET Core Service Fabric-toepassing schrijft](service-fabric-add-a-web-frontend.md).
+[Meer informatie over ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) of aan de slag door [uw eerste ASP.NET Core Service Fabric-toepassing schrijft](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Het betrouwbare Actor-framework is gebouwd op Reliable Services, is een toepassingsframework dat het virtuele Actor-patroon, op basis van het ontwerppatroon actor implementeert. Onafhankelijke eenheden van de berekenings- en status van het betrouwbare Actor-framework gebruikt met één thread uitvoering actoren aangeroepen. Het betrouwbare Actor-framework biedt ingebouwde communicatie voor actors en vooraf ingestelde status persistentie en scale-out-configuraties.
@@ -55,7 +55,7 @@ Als Reliable Actors zelf een toepassingsframework dat is gebaseerd op Reliable S
 [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md) of aan de slag door [schrijven van uw eerste betrouwbare Actor-service](service-fabric-reliable-actors-get-started.md)
 
 
-[Een front-end-service met behulp van ASP.NET Core bouwen](service-fabric-add-a-web-frontend.md)
+[Een front-end-service met behulp van ASP.NET Core bouwen](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Overzicht van service Fabric en containers](service-fabric-containers-overview.md)

@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>De werking van Bash in de Cloud Shell-opslag 
 Bash in de Cloud-Shell aanhoudt bestanden via beide van de volgende methoden: 
@@ -69,12 +69,12 @@ De bestandsshare blijft bestaan, tenzij u deze handmatig verwijderen. Cloud-Shel
 ![Met de ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Hoewel deze opdracht uit te voeren wordt niet alle resources moet verwijderen, handmatig verwijderen van een resourcegroep, de storage-account of bestandsshare die toegewezen aan Cloud Shell worden gewist door uw `$Home` directory schijfimage en alle bestanden in de bestandsshare. Deze actie kan niet ongedaan worden gemaakt.
+> Hoewel u deze opdracht uitvoert, alle resources niet verwijderen wordt, wist handmatig verwijderen van een resourcegroep, het opslagaccount of de bestandsshare die toegewezen aan Cloud Shell uw `$Home` directory schijfimage en alle bestanden in de bestandsshare. Deze actie kan niet ongedaan worden gemaakt.
 
 ## <a name="list-clouddrive"></a>Lijst`clouddrive`
 Om te ontdekken welke bestandsshare is gekoppeld als `clouddrive`, voert de `df` opdracht. 
 
-Het pad naar clouddrive ziet dat de naam van het opslagaccount en bestandsshare in de URL. Bijvoorbeeld: `//storageaccountname.file.core.windows.net/filesharename`
+Het pad naar clouddrive ziet u dat de naam van het opslagaccount en bestandsshare in de URL. Bijvoorbeeld: `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,7 +88,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 [In de Cloud Shell snel Bash](quickstart.md) <br>

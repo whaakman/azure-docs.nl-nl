@@ -1,8 +1,5 @@
 > [!NOTE]
-> 
-> **Probeer gratis Azure Machine Learning**
->
-> Een creditcard of een Azure-abonnement is niet vereist. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Meteen aan de slag >**.</a>
+> U kunt gratis Azure Machine Learning. Er is geen creditcard of Azure-abonnement vereist. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">Nu aan de slag</a>.
 > 
 > 
 

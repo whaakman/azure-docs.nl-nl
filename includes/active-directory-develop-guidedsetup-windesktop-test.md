@@ -35,4 +35,4 @@ Voor toegang tot agenda's van de gebruiker in de context van een toepassing, voe
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

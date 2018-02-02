@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -383,9 +383,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
-| **type** | n.v.t.| Vereist - moet worden ingesteld op `httpTrigger`. |
-| **direction** | n.v.t.| Vereist - moet worden ingesteld op `in`. |
-| **naam** | n.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
+| **type** | N.v.t.| Vereist - moet worden ingesteld op `httpTrigger`. |
+| **direction** | N.v.t.| Vereist - moet worden ingesteld op `in`. |
+| **naam** | N.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het machtigingsniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er is geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een specifieke functies API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [autorisatie sleutels](#authorization-keys). |
 | **methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Als niet wordt opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Definieert het Routesjabloon aanvragen waarmee uw functie reageert URL's beheren. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
@@ -528,6 +528,8 @@ Webhook autorisatie wordt verwerkt door het onderdeel van de ontvanger webhook, 
 ## <a name="trigger---limits"></a>Trigger - limieten
 
 De lengte van de HTTP-aanvraag is beperkt tot 100 kB (102,400) en de URL-lengte is beperkt tot 4 kB (4.096). Deze limieten worden opgegeven door de `httpRuntime` element van de runtime [Web.config-bestand](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Een functie die wordt gebruikt de HTTP-trigger niet voltooid binnen ongeveer 2,5 minuten, de time-out van gateway wordt als een HTTP 502-fout geretourneerd. De functie blijft doorlopen, maar niet om te retourneren van een HTTP-antwoord. Voor langlopende functies, wordt aangeraden dat u async patronen volgt en retourneert een locatie waar u de status van de aanvraag kunt pingen. Zie voor informatie over hoe lang een functie kunt uitvoeren, [schaal en host - verbruik plannen](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen host.json
 

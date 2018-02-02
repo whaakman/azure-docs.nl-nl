@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2934257e6feb6836492a4957e976abd02df12cfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-input-parameters"></a>Invoerparameters voor runbook
 
-Invoerparameters van Runbook vergroot de flexibiliteit van runbooks doordat u gegevens moeten worden doorgegeven aan wanneer deze wordt gestart. De parameters kunnen de acties van het runbook moet worden toegepast voor specifieke scenario's en omgevingen. In dit artikel begeleidt we u stapsgewijs door verschillende scenario's waar invoerparameters worden gebruikt in runbooks.
+Invoerparameters van Runbook vergroot de flexibiliteit van runbooks doordat u gegevens moeten worden doorgegeven aan wanneer deze wordt gestart. De parameters kunnen de acties van het runbook moet worden toegepast voor specifieke scenario's en omgevingen. In dit artikel helpt u bij verschillende scenario's waar invoerparameters worden gebruikt in runbooks.
 
 ## <a name="configure-input-parameters"></a>Invoerparameters configureren
 
@@ -30,16 +30,16 @@ Invoerparameters kunnen worden geconfigureerd in PowerShell, PowerShell Workflow
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>De invoerparameters in PowerShell en PowerShell Workflow-runbooks configureren
 
-PowerShell en [PowerShell Workflow-runbooks](automation-first-runbook-textual.md) in Azure Automation ondersteunen invoerparameters die via de volgende kenmerken worden gedefinieerd.  
+PowerShell en [PowerShell Workflow-runbooks](automation-first-runbook-textual.md) in Azure Automation ondersteunen invoerparameters die zijn gedefinieerd door de volgende kenmerken:  
 
 | **Eigenschap** | **Beschrijving** |
 |:--- |:--- |
 | Type |Vereist. Het gegevenstype voor de waarde van parameter verwacht. Elk type .NET is ongeldig. |
 | Naam |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kan bevatten alleen letters, cijfers of onderstrepingstekens bevatten. Moet beginnen met een letter. |
 | Verplicht |Optioneel. Hiermee geeft u op of een waarde voor de parameter moet worden opgegeven. Als u dit instellen op **$true**, en vervolgens moet een waarde worden opgegeven wanneer het runbook wordt gestart. Als u dit instellen op **$false**, en vervolgens een waarde optioneel is. |
-| Standaardwaarde |Optioneel.  Hiermee geeft u een waarde die voor de parameter worden gebruikt als een waarde niet is doorgegeven als het runbook wordt gestart. Een standaardwaarde zal kan worden ingesteld voor elke parameter en automatisch de parameter optioneel ongeacht de verplichte instelling. |
+| Standaardwaarde |Optioneel. Hiermee geeft u een waarde die wordt gebruikt voor de parameter als een waarde niet is doorgegeven als het runbook wordt gestart. Een standaardwaarde zal kan worden ingesteld voor elke parameter en automatisch de parameter optioneel ongeacht de verplichte instelling. |
 
-Windows PowerShell ondersteunt meer kenmerken van invoerparameters dan die hier worden vermeld, zoals validatie, aliassen en parametersets. Azure Automation ondersteunt momenteel echter alleen de invoerparameters die hierboven worden genoemd.
+Windows PowerShell ondersteunt meer kenmerken van invoerparameters dan die hier worden vermeld, zoals validatie, aliassen en parametersets. Azure Automation ondersteunt momenteel echter alleen de voorgaande invoerparameters.
 
 De parameterdefinitie van een in PowerShell Workflow-runbooks heeft de volgende algemene vorm waarin meerdere parameters zijn gescheiden door komma's.
 
@@ -55,7 +55,7 @@ De parameterdefinitie van een in PowerShell Workflow-runbooks heeft de volgende 
    ```
 
 > [!NOTE]
-> Wanneer u parameters, als u geen opgeeft definieert het **verplichte** kenmerk, wordt standaard de parameter wordt beschouwd als optioneel. Ook als u een standaardwaarde voor een parameter in PowerShell Workflow-runbooks instelt, wordt deze verwerkt door PowerShell als een optionele parameter, ongeacht de **verplichte** kenmerkwaarde.
+> Wanneer u parameters, als u geen opgeeft definieert het **verplichte** kenmerk, wordt standaard de parameter wordt beschouwd als optioneel. Ook als u een standaardwaarde voor een parameter in PowerShell Workflow-runbooks instelt, wordt deze behandeld door PowerShell als een optionele parameter, ongeacht de **verplichte** kenmerkwaarde.
 > 
 > 
 
@@ -81,7 +81,7 @@ Naar [configureren van een grafisch runbook](automation-first-runbook-graphical.
 
 [**Runbooks verifiëren met Azure uitvoeren als-account** ](automation-sec-configure-azure-runas-account.md) te verifiëren bij Azure.
 
-[**Get-AzureRmVm** ](https://msdn.microsoft.com/library/mt603718.aspx) ophalen van de eigenschappen van een virtuele machines.
+[**Get-AzureRmVm** ](https://msdn.microsoft.com/library/mt603718.aspx) ophalen van de eigenschappen van een virtuele machine.
 
 U kunt de [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.aspx) activiteit voor uitvoer van de namen van virtuele machines. De activiteit **Get-AzureRmVm** twee parameters accepteert de **virtuele-machinenaam** en de **Resourcegroepnaam**. Omdat deze parameters voor verschillende waarden telkens wanneer die u het runbook start vereist kunnen, kunt u invoerparameters toevoegen aan uw runbook. Hier volgen de stappen voor de invoerparameters toevoegen:
 
@@ -93,18 +93,18 @@ U kunt de [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.as
    
    | **Eigenschap** | **Beschrijving** |
    |:--- |:--- |
-   | Naam |Vereist.  De naam van de parameter. Dit moet uniek zijn binnen het runbook en kan bevatten alleen letters, cijfers of onderstrepingstekens bevatten. Moet beginnen met een letter. |
+   | Naam |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kan bevatten alleen letters, cijfers of onderstrepingstekens bevatten. Moet beginnen met een letter. |
    | Beschrijving |Optioneel. Beschrijving van het doel van de invoerparameter. |
    | Type |Optioneel. Het gegevenstype dat voor de waarde van parameter wordt verwacht. De van de ondersteunde parametertypen zijn **tekenreeks**, **Int32**, **Int64**, **decimale**, **Booleaanse**, **DateTime**, en **Object**. Als een gegevenstype dat niet is ingeschakeld, wordt standaard **tekenreeks**. |
    | Verplicht |Optioneel. Hiermee geeft u op of een waarde voor de parameter moet worden opgegeven. Als u ervoor kiest **Ja**, en vervolgens moet een waarde worden opgegeven wanneer het runbook wordt gestart. Als u ervoor kiest **geen**, en vervolgens een waarde niet vereist is als het runbook wordt gestart en een standaardwaarde kan worden ingesteld. |
-   | Standaardwaarde |Optioneel. Hiermee geeft u een waarde die voor de parameter worden gebruikt als een waarde niet is doorgegeven als het runbook wordt gestart. Een standaardwaarde kan worden ingesteld voor een parameter die is niet verplicht. Als u wilt een standaardwaarde instelt, kies **aangepaste**. Deze waarde wordt gebruikt, tenzij een andere waarde wordt opgegeven als het runbook wordt gestart. Kies **geen** als u niet wilt bieden een standaardwaarde. |
+   | Standaardwaarde |Optioneel. Hiermee geeft u een waarde die wordt gebruikt voor de parameter als een waarde niet is doorgegeven als het runbook wordt gestart. Een standaardwaarde kan worden ingesteld voor een parameter die is niet verplicht. Als u wilt een standaardwaarde instelt, kies **aangepaste**. Deze waarde wordt gebruikt, tenzij een andere waarde wordt opgegeven als het runbook wordt gestart. Kies **geen** als u niet wilt bieden een standaardwaarde. |
    
     ![Nieuwe invoer toevoegen](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
-4. Twee parameters maken met de volgende eigenschappen die worden gebruikt door de **Get-AzureRmVm** activiteit:
+4. Maak twee parameters met de volgende eigenschappen die wordt gebruikt door de **Get-AzureRmVm** activiteit:
    
    * **Parameter1:**
      
-     * Naam - VMName
+     * Name - VMName
      * Type - tekenreeks
      * Verplicht - Nee
    * **Parameter2:**
@@ -114,7 +114,7 @@ U kunt de [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.as
      * Verplicht - Nee
      * Standaardwaarde - aangepast
      * Aangepaste standaardwaarde - \<naam van de resourcegroep met de virtuele machines >
-5. Nadat u de parameters toevoegt, klikt u op **OK**.  U kunt nu deze bekijken in de **invoer en uitvoer blade**. Klik op **OK** opnieuw, en klik vervolgens op **opslaan** en **publiceren** uw runbook.
+5. Nadat u de parameters toevoegt, klikt u op **OK**. U kunt nu deze bekijken in de **invoer en uitvoer blade**. Klik op **OK** opnieuw, en klik vervolgens op **opslaan** en **publiceren** uw runbook.
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>De invoerparameters in Python runbooks configureren
 
@@ -127,7 +127,7 @@ Zie voor een voorbeeld van hoe u invoerparameters gebruikt in een runbook Python
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Geef waarden op de invoerparameters in runbooks
 
-Waarden voor de invoerparameters in runbooks in de volgende scenario's kan worden doorgegeven.
+U kunt doorgeven waarden voor de invoerparameters in runbooks in de volgende scenario's:
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Een runbook Start en parameters toe te wijzen
 
@@ -135,16 +135,14 @@ Een runbook kan op veel verschillende manieren worden gestart: via de Azure port
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Een gepubliceerd runbook start met behulp van de Azure-portal en parameters toewijzen
 
-Wanneer u [het runbook starten](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), wordt de **Runbook starten** blade wordt geopend en u kunt waarden opgeven voor de parameters die u zojuist hebt gemaakt.
+Wanneer u [het runbook starten](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), wordt de **Runbook starten** blade wordt geopend en u kunt waarden opgeven voor de parameters die u hebt gemaakt.
 
 ![Aan de slag met de portal](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
 In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de parameter. Kenmerken zijn verplicht of optioneel, type en de standaardwaarde. In de help-ballon naast de parameternaam van de ziet u alle belangrijke gegevens die u moet nemen van beslissingen over invoer parameterwaarden. Deze informatie omvat of een parameter verplicht of optioneel is. Dit omvat ook het type en de standaardwaarde (indien aanwezig) en andere nuttige opmerkingen.
 
-![Ballon met Help](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
-
 > [!NOTE]
-> Ondersteuning voor parameters van type String **leeg** tekenreekswaarden.  Invoeren **[EmptyString]** in de invoerparameter vak een lege tekenreeks wordt doorgegeven aan de parameter. Ook de parameters van het type tekenreeks niet ondersteunen **Null** waarden worden doorgegeven. Als u niet de waarde van een aan de tekenreeksparameter doorgeeft, wordt vervolgens PowerShell geïnterpreteerd als null.
+> Ondersteuning voor parameters van type String **leeg** tekenreekswaarden.  Invoeren **[EmptyString]** invoerparameter van het vak geeft een lege tekenreeks aan de parameter. Ook de parameters van het type tekenreeks niet ondersteunen **Null** waarden worden doorgegeven. Als u niet de waarde van een aan de tekenreeksparameter doorgeeft, vervolgens PowerShell geïnterpreteerd als null.
 > 
 > 
 
@@ -159,7 +157,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure Service Management-cmdlets:** kunt u beginnen met een automation-runbook dat is gemaakt in een standaardresourcegroep met behulp van [Start AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+* **Cmdlets van Azure classic deployment model:** kunt u beginnen met een automation-runbook dat is gemaakt in een standaardresourcegroep met behulp van [Start AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
   
   **Voorbeeld:**
   
@@ -195,7 +193,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
       return response.Job;
       }
   ```
-* **Azure Service Management-methode:** kunt u een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Azure classic deployment model methode:** kunt u een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +227,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Een runbook start met behulp van de REST-API en parameters toe te wijzen
-Een runbooktaak worden gemaakt en gestart met de REST-API van Azure Automation met behulp van de **plaatsen** methode met de volgende aanvraag-URI.
+Een runbooktaak worden gemaakt en gestart met de REST-API van Azure Automation met behulp van de **plaatsen** methode met de volgende aanvraag-URI:
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -259,15 +257,15 @@ Als u wilt beginnen de **Get-AzureVMTextual** runbook dat eerder is gemaakt met 
     }
    ```
 
-Een HTTP-statuscode 201 wordt geretourneerd als de taak is gemaakt. Raadpleeg voor meer informatie over antwoordheaders en de antwoordtekst naar het artikel over het [een runbooktaak maken met behulp van de REST-API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+Een HTTP-statuscode 201 wordt geretourneerd als de taak is gemaakt. Zie voor meer informatie over antwoordheaders en de antwoordtekst het artikel over het [een runbooktaak maken met behulp van de REST-API.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Een runbook testen en parameters toewijzen
-Wanneer u [de conceptversie van uw runbook testen](automation-testing-runbook.md) met de optie test de **testen** blade wordt geopend en u kunt waarden configureren voor de parameters die u zojuist hebt gemaakt.
+Wanneer u [de conceptversie van uw runbook testen](automation-testing-runbook.md) met de optie test de **testen** pagina wordt geopend en kunt u waarden voor de parameters die u hebt gemaakt.
 
 ![Testen en parameters toewijzen](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Een planning aan een runbook koppelen en parameters toe te wijzen
-U kunt [een planning koppelen](automation-schedules.md) aan uw runbook zodat het runbook wordt gestart op een bepaald tijdstip. U toewijzen invoerparameters wanneer u de planning maakt en het runbook deze waarden worden gebruikt wanneer deze is gestart volgens de planning. U kunt de planning niet opslaan, totdat alle verplichte parameterwaarden zijn opgegeven.
+U kunt [een planning koppelen](automation-schedules.md) aan uw runbook zodat het runbook wordt gestart op een bepaald tijdstip. U toewijzen invoerparameters wanneer u de planning maakt en deze waarden van het runbook wordt gebruikt wanneer deze is gestart volgens de planning. U kunt de planning niet opslaan, totdat alle verplichte parameterwaarden zijn opgegeven.
 
 ![Plannen en parameters toewijzen](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 

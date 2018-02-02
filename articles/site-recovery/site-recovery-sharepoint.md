@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/23/2017
 ms.author: sutalasi
-ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery repliceren
 
@@ -71,6 +71,7 @@ Virtuele VMware-machines met Windows Server 2012 R2 Enterprise zijn voor het mak
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysieke server** | Ja | Ja
+**Azure** | N.v.t. | Ja
 
 ### <a name="sharepoint-versions"></a>SharePoint-versies
 De volgende versies van de SharePoint-server worden ondersteund.
@@ -116,7 +117,7 @@ Voor sites, internetgericht [maken van een Traffic Manager-profiel van het type 
 
 | **Waar** | **Bron** | **Doel**|
 | --- | --- | --- |
-| Openbare DNS-server | Openbare DNS-server voor SharePoint-sites <br/><br/> Voorbeeld: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.NET |
+| Openbare DNS-server | Openbare DNS-server voor SharePoint-sites <br/><br/> Voorbeeld: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | On-premises DNS | sharepointonprem.contoso.com | Openbare IP-adres op de lokale farm |
 
 
@@ -152,15 +153,15 @@ U kunt de meest gebruikte Azure Site Recovery-scripts implementeren in uw Automa
 
 1. Een script vóór actie toevoegen aan 'Groep 1' bij failover-SQL-beschikbaarheidsgroep. Het is gepubliceerd in de voorbeeldscripts 'ASR SQL FailoverAG'-script gebruiken. Zorg ervoor dat u Volg de instructies in het script en breng de gewenste wijzigingen in het script op de juiste wijze.
 
-    ![Toevoegen-AG-Script-stap-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Toevoegen-AG-Script-stap-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Een script post actie om te koppelen van een load balancer op de mislukte toevoegen via de virtuele machines van de weblaag (groep 2). Het is gepubliceerd in de voorbeeldscripts 'ASR AddSingleLoadBalancer'-script gebruiken. Zorg ervoor dat u Volg de instructies in het script en breng de gewenste wijzigingen in het script op de juiste wijze.
 
-    ![Toevoegen-LB-Script-stap-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Toevoegen-LB-Script-stap-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Toevoegen van een handmatige stap voor het bijwerken van de DNS-records om te verwijzen naar de nieuwe farm in Azure.
 

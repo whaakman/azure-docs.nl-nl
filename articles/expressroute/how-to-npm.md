@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
 
@@ -46,6 +46,7 @@ U kunt ExpressRoute-circuits in elk deel van de hele wereld bewaken met behulp v
 * West-Europa 
 * VS - oost 
 * Zuidoost-Azië 
+* Zuid-Oost-Australië
 
 ## <a name="workflow"></a>Werkstroom
 
@@ -109,7 +110,7 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
 Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute-verbinding (dat wil zeggen, on-premises Azure VNETs) voor redundantie installeren. Gebruik de volgende stappen uit om agents te installeren:
 
 1. Voer **Setup** de agent te installeren op elke server die u gebruiken wilt voor het bewaken van ExpressRoute. De server die u voor het bewaken van gebruikt een virtuele machine of on-premises kan zijn en toegang tot Internet moet hebben. U moet ten minste één agent on-premises, en een agent installeren op elk netwerksegment dat u wilt bewaken in Azure.
-2. Op de **Welkom** pagina, klikt u op **volgende**.
+2. Klik op de pagina **Welkom** op **Volgende**.
 3. Op de **licentievoorwaarden** pagina, lees de licentievoorwaarden en klik vervolgens op **ik ga akkoord**.
 4. Op de **doelmap** pagina, wijzigen of de standaardinstallatiemap houden en klik vervolgens op **volgende**.
 5. Op de **installatieopties voor Agent** pagina kunt u de agent verbinden met Azure logboekanalyse (OMS) of Operations Manager. Of u kunt de keuzes leeg laten als u wilt dat de agent later configureren. Nadat u uw selection(s), klikt u op **volgende**.
@@ -124,7 +125,7 @@ Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute
 
     ![Account](.\media\how-to-npm\10.png)
 6. Op de **gereed voor installatie** pagina, Controleer uw selecties en klik vervolgens op **installeren**.
-7. Op de **configuratie voltooid** pagina, klikt u op **voltooien**.
+7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
 8. Als u klaar is Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt uw configuratie er bekijken en controleren of de agent aan Operational Insights (OMS) is verbonden. Wanneer verbonden met OMS, de agent wordt weergegeven voor een bericht weergegeven: **de Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service**.
 
 ### <a name="proxy"></a>2.3: Configureer proxy-instellingen (optioneel)
@@ -174,16 +175,13 @@ Voor het controleren van agentservers die zich in Azure, moet u configureren (NS
 
 Zie voor meer informatie over het NSG [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Stap 4: Aanvraag voor geaccepteerde werkruimte
-
 >[!NOTE]
 >Zorg ervoor dat u de agents (zowel de lokale server-agent en de Azure-server-agent) hebt geïnstalleerd en het PowerShell-script voordat u doorgaat met deze stap hebt uitgevoerd.
 >
 >
 
-Voordat u kunt met behulp van de ExpressRoute-monitorfunctie van NPM, moet u vragen om uw werkruimte wilt plaatsen. [Klik hier om te gaan naar de pagina en vul het aanvraagformulier](https://aka.ms/npmcohort). (Hint: U kunt deze koppeling opent in een nieuw venster of tabblad). Het proces whitelisting kan een werkdag of langer duren. Zodra de whitelisting voltooid is, ontvangt u een e-mailbericht.
 
-## <a name="setupmonitor"></a>Stap 5: NPM configureren voor het bewaken van ExpressRoute
+## <a name="setupmonitor"></a>Stap 4: NPM configureren voor het bewaken van ExpressRoute
 
 >[!WARNING]
 >Pas verder verder nadat uw werkruimte goedgekeurde lijst is en u een bevestiging per e-mail ontvangt.
@@ -208,7 +206,7 @@ Nadat u de vorige secties en controleer of dat u goedgekeurde lijst zijn, kunt u
 
   ![tegels bewaking](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Stap 6: Weergave tegels bewaking
+## <a name="explore"></a>Stap 5: Weergave tegels bewaking
 
 ### <a name="dashboard"></a>Pagina van de Prestatiemeter netwerk
 

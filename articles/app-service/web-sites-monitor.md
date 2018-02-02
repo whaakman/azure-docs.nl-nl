@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
 ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>How to: in Azure App Service-Apps bewaken
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde bewaking functionaliteit in de [Azure-portal](https://portal.azure.com).
@@ -44,7 +44,7 @@ Als de toepassing wordt gehost een **Basic**, **standaard** of **Premium** plant
   * Totale hoeveelheid CPU toegestaan voor deze toepassing in een dag. Dit quotum wordt elke 24 uur om middernacht UTC hersteld.
 * **Geheugen**
   * Totale hoeveelheid geheugen die is toegestaan voor deze toepassing.
-* **Bandbreedte**
+* **Bandwidth**
   * Totale hoeveelheid bandbreedte voor uitgaande toegestaan voor deze toepassing in een dag.
     Dit quotum wordt elke 24 uur om middernacht UTC hersteld.
 * **Bestandssysteem**
@@ -83,13 +83,13 @@ Voor een **toepassing**, zijn de beschikbare metrische gegevens:
   * Aantal aanvragen, wat resulteert in een HTTP-statuscode > = 200 maar < 300.
 * **HTTP-3xx**
   * Aantal aanvragen, wat resulteert in een HTTP-statuscode > 300 maar 400 < =.
-* **401 HTTP**
+* **Http 401**
   * Het aantal aanvragen, wat resulteert in een 401 HTTP-statuscode.
-* **HTTP-fout 403**
+* **Http 403**
   * Het aantal aanvragen, wat resulteert in 403 HTTP-statuscode.
-* **HTTP 404**
+* **Http 404**
   * Het aantal aanvragen, wat resulteert in een HTTP 404-statuscode.
-* **HTTP 406**
+* **Http 406**
   * Het aantal aanvragen, wat resulteert in 406 HTTP-statuscode.
 * **HTTP-4xx**
   * Aantal aanvragen, wat resulteert in een HTTP-statuscode > = 400 maar < 500.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -118,6 +118,9 @@ U kunt uw virtuele machine op basis van een goedgekeurde basisinstallatiekopie i
 Wij raden u aan uw VHD in de cloud te ontwikkelen met behulp van Remote Desktop Protocol (RDP). U verbinding met RDP met de gebruikersnaam en wachtwoord die zijn opgegeven tijdens het inrichten.
 
 > [!IMPORTANT]
+> **Gebruik geen schijven die worden beheerd.** De virtuele machine die wordt gebruikt voor het ontwikkelen van de VHD naar de cloud moet niet worden gebaseerd op schijven die worden beheerd, omdat deze momenteel biedt geen ondersteuning voor het maken van een installatiekopie van een van deze.
+> Maken van de virtuele machine in de optionele functiewijziging de standaardwaarde voor schijven beheerd.
+
 > Als u uw VHD ontwikkelt op locatie (dit wordt niet aanbevolen), Zie [maken van de installatiekopie van een virtuele machine op de lokale](marketplace-publishing-vm-image-creation-on-premise.md). Downloaden van de VHD is niet nodig als u in de cloud ontwikkelt.
 >
 >

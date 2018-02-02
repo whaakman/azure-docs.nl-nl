@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: afdef7898ef68930ef702ddf67baaadae9360236
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1bd4cee783944b0c6e0efcb7ec63c5a72bd13cc8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adressen die worden gebruikt door de Application Insights en Log Analytics
 De [Azure Application Insights](app-insights-overview.md) service gebruikt een aantal IP-adressen. Mogelijk moet u weten van deze adressen als de app die u bewaakt achter een firewall wordt gehost.
@@ -32,9 +32,9 @@ U moet een aantal uitgaande poorten openen in de firewall van uw server om toe t
 
 | Doel | URL | IP | Poorten |
 | --- | --- | --- | --- |
-| Telemetrie |DC.Services.visualstudio.com<br/>DC.applicationinsights.Microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
-| Metrische gegevens livestream |RT.Services.visualstudio.com<br/>RT.applicationinsights.Microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
-| Interne telemetrie |breeze.aimon.applicationinsights.IO |52.161.11.71 |443 |
+| Telemetrie |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
+| Metrische gegevens livestream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Interne telemetrie |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## <a name="status-monitor"></a>Statuscontrole
 Status monitorconfiguratie: alleen nodig wanneer u wijzigingen aanbrengt.
@@ -53,7 +53,7 @@ Status monitorconfiguratie: alleen nodig wanneer u wijzigingen aanbrengt.
 ## <a name="hockeyapp"></a>HockeyApp
 | Doel | URL | IP | Poorten |
 | --- | --- | --- | --- |
-| Crashgegevens |gate.hockeyapp.NET |104.45.136.42 |80, 443 |
+| Crashgegevens |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Beschikbaarheidstests
 Dit is de lijst met adressen waaruit [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) worden uitgevoerd. Als u wilt uitvoeren van webtests van uw app, maar de webserver beperkt is tot specifieke clients van dienst, hebt u toe dat binnenkomend verkeer op onze beschikbaarheid test-servers.
@@ -61,44 +61,34 @@ Dit is de lijst met adressen waaruit [webtests voor beschikbaarheid](app-insight
 Open de poorten 80 (http) en 443 (https) voor binnenkomend verkeer naar deze adressen (IP-adressen zijn gegroepeerd op locatie):
 
 ```
-AU : Sydney
+Australia East
 13.70.83.252
 13.75.150.96
 13.75.153.9
 13.75.158.185
-BR : Sao Paulo
+Brazil South
 191.232.32.122
 191.232.172.45
 191.232.176.218
 191.232.191.225
-CH : Zurich
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
+France South
 52.136.140.221
 52.136.140.222
 52.136.140.223
 52.136.140.226
-FR : Paris
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-94.245.72.52
-94.245.72.53
-52.143.140.242 
+France Central
+52.143.140.242
 52.143.140.246
 52.143.140.247
 52.143.140.249
-HK : Hong Kong
+East Asia
 13.75.121.122
 23.99.115.153
 23.99.123.38
 23.102.232.186
 52.175.38.49
 52.175.39.103
-IE : Dublin
+North Europe
 13.74.184.101
 13.74.185.160
 40.69.200.198
@@ -107,12 +97,12 @@ IE : Dublin
 52.169.14.11
 52.169.237.149
 52.178.183.105
-JP : Kawaguchi
+Japan East
 52.243.33.33
 52.243.33.141
 52.243.35.253
 52.243.41.117
-NL : Amsterdam
+West Europe
 52.174.166.113
 52.174.178.96
 52.174.31.140
@@ -121,33 +111,24 @@ NL : Amsterdam
 52.178.109.190
 52.178.111.139
 52.233.166.221
-RU : Moscow
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
+UK South
 51.140.79.229
 51.140.84.172
 51.140.87.211
 51.140.105.74
-SE : Stockholm
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-GB : United Kingdom
+UK West
 51.141.25.219
 51.141.32.101
 51.141.35.167
 51.141.54.177
-SG : Singapore
+Southeast Asia
 52.187.29.7
 52.187.179.17
 52.187.76.248
 52.187.43.24
 52.163.57.91
 52.187.30.120
-US : CA-San Jose
+West US
 104.45.228.236
 104.45.237.251
 13.64.152.110
@@ -158,15 +139,7 @@ US : CA-San Jose
 40.118.131.182
 40.83.189.192
 40.83.215.122
-US : FL-Miami
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-65.54.78.57
-65.54.78.58
-65.54.78.59
-65.54.78.60
+Central US
 52.165.130.58
 52.173.142.229
 52.173.147.190
@@ -175,7 +148,7 @@ US : FL-Miami
 52.173.244.190
 52.173.36.222
 52.176.1.226
-US : IL-Chicago
+North Central US
 23.96.247.139
 23.96.249.113
 52.162.124.242
@@ -188,7 +161,7 @@ US : IL-Chicago
 52.237.156.14
 52.237.157.218
 52.237.157.37
-US : TX-San Antonio
+South Central US
 104.210.145.106
 13.84.176.24
 13.84.49.16
@@ -199,7 +172,7 @@ US : TX-San Antonio
 52.171.141.253
 52.171.57.172
 52.171.58.140
-US : VA-Ashburn
+East US
 13.82.218.95
 13.90.96.71
 13.90.98.52
@@ -216,23 +189,23 @@ US : VA-Ashburn
 ## <a name="application-insights-api"></a>Application Insights-API
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| API |API.applicationinsights.IO<br/>api1.applicationinsights.IO<br/>api2.applicationinsights.IO<br/>api3.applicationinsights.IO<br/>api4.applicationinsights.IO<br/>api5.applicationinsights.IO |13.82.26.252<br/>40.76.213.73 |80,443 |
-| API-docs |dev.applicationinsights.IO<br/>dev.applicationinsights.Microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.IO<br/>www.applicationinsights.Microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
+| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
+| API-docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Interne API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamische|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics-API
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| API |API.loganalytics.IO<br/>*. api.loganalytics.io |dynamische |80,443 |
-| API-docs |dev.loganalytics.IO<br/>Docs.loganalytics.IO<br/>www.loganalytics.IO |dynamische |80,443 |
+| API |api.loganalytics.io<br/>*.api.loganalytics.io |dynamische |80,443 |
+| API-docs |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |dynamische |80,443 |
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Analytics-Portal | Analytics.applicationinsights.IO | dynamische | 80,443 |
-| CDN | applicationanalytics.azureedge.NET | dynamische | 80,443 |
-| Media CDN | applicationanalyticsmedia.azureedge.NET | dynamische | 80,443 |
+| Analytics-Portal | analytics.applicationinsights.io | dynamische | 80,443 |
+| CDN | applicationanalytics.azureedge.net | dynamische | 80,443 |
+| Media CDN | applicationanalyticsmedia.azureedge.net | dynamische | 80,443 |
 
 Opmerking: *. applicationinsights.io domein is eigendom van Application Insights-team.
 
@@ -240,8 +213,8 @@ Opmerking: *. applicationinsights.io domein is eigendom van Application Insights
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Portal | Portal.loganalytics.IO | dynamische | 80,443 |
-| CDN | applicationanalytics.azureedge.NET | dynamische | 80,443 |
+| Portal | portal.loganalytics.io | dynamische | 80,443 |
+| CDN | applicationanalytics.azureedge.net | dynamische | 80,443 |
 
 Opmerking: *. loganalytics.io domein eigendom is van het team logboekanalyse.
 
@@ -250,27 +223,27 @@ Opmerking: *. loganalytics.io domein eigendom is van het team logboekanalyse.
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
 | Application Insights-extensie | stamp2.app.insightsportal.visualstudio.com | dynamische | 80,443 |
-| Application Insights-extensie CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal prod2-asiae cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamische | 80,443 |
+| Application Insights-extensie CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamische | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights-SDK 's
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Application Insights-SDK voor JS CDN | az416426.VO.msecnd.NET | dynamische | 80,443 |
-| Application Insights Java SDK | aijavasdk.BLOB.Core.Windows.NET | dynamische | 80,443 |
+| Application Insights-SDK voor JS CDN | az416426.vo.msecnd.net | dynamische | 80,443 |
+| Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamische | 80,443 |
 
 ## <a name="profiler"></a>Profiler
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
-| Portal | gateway.azureserviceprofiler.NET | dynamische | 443
-| Storage | *. core.windows.net | dynamische | 443
+| Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
+| Portal | gateway.azureserviceprofiler.net | dynamische | 443
+| Storage | *.core.windows.net | dynamische | 443
 
 ## <a name="snapshot-debugger"></a>Snapshot Debugger
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Agent | ppe.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
-| Portal | ppe.gateway.azureserviceprofiler.NET | dynamische | 443
-| Storage | *. core.windows.net | dynamische | 443
+| Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
+| Portal | ppe.gateway.azureserviceprofiler.net | dynamische | 443
+| Storage | *.core.windows.net | dynamische | 443

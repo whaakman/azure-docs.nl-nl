@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevensoverdracht met het AzCopy in Windows
 AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob-, bestands- en tabel opslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -610,7 +610,7 @@ U kunt het ook voor tabellen uitvoeren:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
-## <a name="azcopy-parameters"></a>AzCopy-Parameters
+## <a name="azcopy-parameters"></a>AzCopy Parameters
 
 Parameters voor AzCopy worden hieronder beschreven. U kunt ook een van de volgende opdrachten uit vanaf de opdrachtregel voor hulp bij het gebruik van AzCopy typen:
 
@@ -624,7 +624,7 @@ Hiermee geeft u de brongegevens waaruit u wilt kopiëren. De bron kan een bestan
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="destdestination"></a>/ Dest: "doelmap"
+### <a name="destdestination"></a>/Dest:"destination"
 
 Hiermee geeft u het doel om naar te kopiëren. Het doel mag een bestandssysteemmap, een blob-container, een blob virtuele map, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
 
@@ -652,7 +652,7 @@ Hiermee geeft u de toegangssleutel voor de doelbron.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="destsassas-token"></a>/ DestSAS: 'sas-token'
+### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
 Hiermee geeft u een Shared Access Signature (SAS) met machtigingen voor lezen en schrijven voor de bestemming (indien van toepassing). De SAS met dubbele aanhalingstekens rond omdat deze mogelijk speciale opdrachtregelprogramma tekens bevat.
 
@@ -668,7 +668,7 @@ Hiermee geeft u de opslagaccountsleutel voor de bronresource.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="sourcesassas-token"></a>/ SourceSAS: 'sas-token'
+### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
 Hiermee geeft u een Shared Access Signature met lees- en machtigingen voor de bron (indien van toepassing). De SAS met dubbele aanhalingstekens rond omdat deze mogelijk speciale opdrachtregelprogramma tekens bevat.
 
@@ -678,7 +678,7 @@ Als de bron een bestandsshare is of een sleutel of een SAS tabel moet worden opg
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="s"></a>/ S
+### <a name="s"></a>/S
 
 Hiermee geeft u een recursieve modus voor het kopiëren van. In de modus voor recursieve kopieert AzCopy alle blobs of bestanden die overeenkomen met het opgegeven bestandspatroon, inclusief verbindingen in submappen.
 
@@ -718,7 +718,7 @@ Het logboekbestand heet standaard AzCopyVerbose.log in `%LocalAppData%\Microsoft
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="zjournal-file-folder"></a>/ Z: [journaal-map]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Hiermee geeft u een map journaal-bestand voor het hervatten van een bewerking.
 
@@ -750,11 +750,11 @@ U kunt meerdere antwoordbestanden opgeven. Houd er echter rekening mee AzCopy bi
 
 ### <a name="y"></a>/Y
 
-Alle AzCopy bevestiging vragen onderdrukt.
+Alle AzCopy bevestiging vragen onderdrukt. Deze optie kan ook het gebruik van alleen-schrijven SAS-tokens voor scenario's het uploaden van gegevens, /XO en /XN worden opgegeven.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
-### <a name="l"></a>/ L
+### <a name="l"></a>/L
 
 Hiermee geeft u een bewerking in de lijst. Er zijn geen gegevens worden gekopieerd.
 
@@ -789,7 +789,7 @@ Alleen bestanden die het kenmerk Archief hebt geüpload.
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Alleen bestanden die een van de opgegeven kenmerken set hebt geüpload.
 
@@ -808,7 +808,7 @@ Beschikbare kenmerken zijn onder andere:
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Sluit bestanden die een of meer van de opgegeven kenmerken is ingesteld.
 
@@ -827,7 +827,7 @@ Beschikbare kenmerken zijn onder andere:
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="delimiterdelimiter"></a>/ Scheidingsteken: "scheidingsteken"
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Hiermee geeft u het scheidingsteken dat wordt gebruikt voor het scheiden van virtuele mappen in een blob-naam.
 
@@ -859,7 +859,7 @@ Hiermee wordt aangegeven dat de `destination` bron is een blob beschikbaar zijn 
 
 **Van toepassing op:** Blobs, tabellen
 
-### <a name="pkrskey1key2key3"></a>/ PKRS: "key&#1;key2 key&#3;..."
+### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
 Splitst de partitiesleutelbereik zodat de tabelgegevens parallel de snelheid van de exportbewerking verhoogt te exporteren.
 
@@ -871,7 +871,7 @@ Elke bewerking exporteert een van drie partitie sleutel bereiken, zoals hieronde
 
   [aa, bb)
 
-  [bb, laatste partitiesleutel]
+  [bb, last-partition-key]
 
 **Van toepassing op:** tabellen
 
@@ -915,7 +915,7 @@ U kunt deze optie gebruiken bij het kopiëren van bestanden in Blob storage, bin
 
 **Van toepassing op:** Blobs, bestanden
 
-### <a name="setcontenttypecontent-type"></a>/ SetContentType: 'content-type'
+### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
 Hiermee geeft u het MIME-inhoudstype voor bestemming blobs of bestanden.
 

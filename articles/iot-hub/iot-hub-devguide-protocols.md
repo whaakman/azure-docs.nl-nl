@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37602bf78f7a43fb8255ddc0aad21f24095cb43c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f115d1e7313d2c9d378129c021a37489674fe81f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Verwijzen naar - een communicatieprotocol kiezen
 
@@ -44,7 +44,7 @@ Houd rekening met de volgende punten wanneer u ervoor uw protocol voor het appar
 
 * **Cloud-naar-apparaat patroon**. HTTPS heeft geen een efficiënte manier voor het implementeren van server-push. Als zodanig wanneer u HTTPS gebruikt, pollen apparaten IoT Hub voor cloud-naar-apparaat-berichten. Deze aanpak is inefficiënt voor het apparaat en de IoT-Hub. Onder de huidige richtlijnen voor HTTPS, moet elk apparaat voor berichten pollen, elke 25 minuten of langer. MQTT en AMQP ondersteuning voor server push tijdens het ontvangen van berichten van de cloud-naar-apparaat. Ze inschakelen direct pushes van berichten uit IoT Hub naar het apparaat. Als levering latentie is een probleem, zijn MQTT of AMQP de aanbevolen protocollen gebruiken. Voor zelden verbonden apparaten werkt HTTPS als goed.
 * **Veld gateways**. Wanneer u MQTT en HTTPS, u meerdere apparaten (elk met zijn eigen referenties per apparaat) kan geen verbinding kunt maken met behulp van dezelfde TLS-verbinding. Voor [veld gatewayscenario's] [ lnk-azure-gateway-guidance] waarvoor een TLS-verbinding tussen de veldgateway en IoT Hub voor elk aangesloten apparaat vereist, zijn deze protocollen suboptimale.
-* **Resource apparaten geringe**. De protocollen MQTT- en HTTPS-bibliotheken hebben een kleiner oppervlak dan het AMQP-bibliotheken. Als zodanig als het apparaat resources (voor bijvoorbeeld minder dan 1 MB RAM) beperkt heeft, zijn deze protocollen de enige protocol-implementatie.
+* **Resource apparaten geringe**. De protocollen MQTT- en HTTPS-bibliotheken hebben een kleiner oppervlak dan het AMQP-bibliotheken. Als zodanig als het apparaat resources (bijvoorbeeld minder dan 1 MB RAM) beperkt heeft, zijn deze protocollen de enige protocol-implementatie.
 * **{De passage netwerk**. Het standaard AMQP-protocol gebruikt poort 5671 en MQTT luistert op poort 8883. Gebruik van deze poorten kan problemen veroorzaken in netwerken die niet-HTTPS-protocollen worden gesloten. Gebruik MQTT via WebSockets, AMQP via WebSockets of HTTPS in dit scenario.
 * **Pakketgrootte**. MQTT en AMQP zijn binaire protocollen, waardoor het meer compacte nettoladingen dan HTTPS.
 

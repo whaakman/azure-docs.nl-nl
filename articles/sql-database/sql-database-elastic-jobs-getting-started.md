@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor elastische Database
-Elastische Database-taken (preview) voor Azure SQL Database kunt u betrouwbaarheid T-SQL-scripts die meerdere databases tijdens het automatisch opnieuw uit te voeren en het geven van de uiteindelijke voltooiing garanties omvatten uitvoeren. Zie voor meer informatie over de functie van de taak elastische Database [elastische taken](sql-database-elastic-jobs-overview.md).
+Elastische Database-taken (preview) voor Azure SQL Database kunt u op betrouwbare wijze uitvoeren T-SQL-scripts die meerdere databases tijdens het automatisch opnieuw uit te voeren en het geven van de uiteindelijke voltooiing garanties omvatten. Zie voor meer informatie over de functie van de taak elastische Database [elastische taken](sql-database-elastic-jobs-overview.md).
 
 In dit artikel wordt uitgebreid voor het voorbeeld dat is gevonden in [aan de slag met hulpprogramma's voor elastische Database](sql-database-elastic-scale-get-started.md). Wanneer voltooid, maar u informatie over het maken en beheren van taken die een groep verwante databases beheren. Het is niet vereist voor het gebruik van de elastische Schaalfunctionaliteit van hulpprogramma's om te profiteren van de voordelen van elastische taken.
 

@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Met behulp van Azure Container register webhooks.
 
@@ -48,7 +48,7 @@ Voorbeeld van de webhook formulier:
 
 ## <a name="create-webhook-azure-cli"></a>Azure CLI-webhook maken
 
-Gebruik voor het maken van een webhook met de Azure CLI het [az acr-webhook maken](/cli/azure/acr/webhook#create) opdracht.
+Gebruik voor het maken van een webhook met de Azure CLI het [az acr-webhook maken](/cli/azure/acr/webhook#az_acr_webhook_create) opdracht.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -66,9 +66,9 @@ Versies vóór met behulp van de webhook voor container push installatiekopie en
 
 ![ACR-webhook maken gebruikersinterface in de Azure portal](./media/container-registry-webhook/webhook-02.png)
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 
-U kunt een ACR-webhook met de Azure CLI testen met de [az acr webhook ping](/cli/azure/acr/webhook#ping) opdracht.
+U kunt een ACR-webhook met de Azure CLI testen met de [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) opdracht.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -86,7 +86,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 Elke webhook kan worden verwijderd door de webhook selecteren en vervolgens de **verwijderen** knop in de Azure-portal.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01

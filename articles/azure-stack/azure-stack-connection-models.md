@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack geïntegreerd systemen verbinding modellen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u begrijpen [verschillende datacenter Integratieoverwegingen](azure-stack-datacenter-integration.md) voor de implementatie van de Azure-Stack om te bepalen hoe u het systeem wordt inpassen in uw datacenter. Bovendien moet u beslissen precies hoe u wordt integreren met Azure-Stack uw hybride cloud-omgeving. Dit artikel bevat een overzicht van deze belangrijke beslissingen, waaronder Azure verbinding, identity-store en facturering model beslissingen te nemen.
@@ -46,5 +46,7 @@ U kunt voor het implementeren van Azure-Stack is verbonden met internet (en naar
 Nadat u hebt besloten in het model van Azure verbinding moet worden gebruikt voor de implementatie van Azure-Stack, moeten aanvullende, verbinding-afhankelijke beslissingen voor de identiteit store en facturering methode worden aangebracht. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [Azure verbonden beslissingen voor de implementatie van Azure-Stack](azure-stack-connected-deployment.md)
-- Meer informatie over [Azure verbroken beslissingen voor de implementatie van Azure-Stack](azure-stack-disconnected-deployment.md)
+
+[Azure verbonden beslissingen voor de implementatie van Azure-Stack](azure-stack-connected-deployment.md)
+
+[Azure beslissingen voor niet-verbonden Azure Stack-implementatie](azure-stack-disconnected-deployment.md)

@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Capaciteitsplanning voor Azure App Service-serverfuncties in Azure-Stack
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Voor het inrichten van een gereed productie-implementatie van Azure App Service op Azure-Stack, moet u plannen voor de capaciteit die u verwacht dat het systeem om te ondersteunen.  Hier vindt u richtlijnen voor het minimum aantal exemplaren en rekencapaciteit SKU's moet u voor een productie-implementatie.
 
@@ -28,8 +29,8 @@ Uw strategie voor App Service-capaciteit met behulp van deze richtlijnen voldoet
 
 | App Service-serverrol | Minimaal aanbevolen aantal exemplaren | Aanbevolen compute SKU|
 | --- | --- | --- |
-| Domeincontroller | 2 | A1 |
-| Front-End | 2 | A1 |
+| Controller | 2 | A1 |
+| Front-end | 2 | A1 |
 | Beheer | 2 | A3 |
 | Uitgever | 2 | A1 |
 | Werknemers van de Web - gedeeld | 2 | A1 |
@@ -91,7 +92,7 @@ Bij het kiezen van het aantal gedeelde Web-werkrollen te gebruiken, controleert 
 Voor de rol bestandsserver, kunt u een zelfstandige bestandsserver voor ontwikkeling en testen, bijvoorbeeld bij het implementeren van Azure App Service op de Azure-Stack Development Kit kunt u deze sjabloon - https://aka.ms/appsvconmasdkfstemplate. Voor productiedoeleinden moet u een vooraf geconfigureerde Windows-bestandsserver of een vooraf geconfigureerde niet-Windows-bestandsserver.
 
 De functie bestandsserver optreedt in een productieomgeving intensieve schijf-i/o. Omdat ook alle inhoud en toepassing bestanden voor websites van de gebruiker nieuwste, moet u een van de volgende voor deze rol vooraf configureren:
-- een Windows-bestandsserver
+- a Windows File Server
 - Bestandsservercluster
 - een niet-Windows-bestandsserver
 - bestandsservercluster

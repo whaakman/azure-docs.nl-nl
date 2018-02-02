@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat horende, taken en het routeren van berichten
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Deze groepering query zou een resultaat te retourneren vergelijkbaar met het volgende voorbeeld. Hier drie apparaten rapporteren geslaagde configuratie, twee nog steeds toepassen van de configuratie en een heeft een fout gerapporteerd. 
+Deze groepering query zou een resultaat te retourneren vergelijkbaar met het volgende voorbeeld:
 
 ```json
 [
@@ -149,6 +149,8 @@ Deze groepering query zou een resultaat te retourneren vergelijkbaar met het vol
     }
 ]
 ```
+
+In dit voorbeeld drie apparaten gerapporteerd geslaagde configuratie, twee nog steeds toepassen van de configuratie en een heeft een fout gerapporteerd.
 
 Projectie van query's kunnen ontwikkelaars om alleen de eigenschappen die ze interesseren te retourneren. Bijvoorbeeld, verbroken om op te halen van de laatste activiteitstijd van alle apparaten gebruik de volgende query:
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Opmerking hoe de **query** object is gemaakt met een paginagrootte (maximaal 100) en vervolgens meerdere pagina's kunnen worden opgehaald door het aanroepen van de **GetNextAsTwinAsync** methoden meerdere keren.
-Opmerking dat het queryobject meerdere bevat **volgende***, afhankelijk van de deserialisatie-optie die door de query, zoals apparaatobjecten twin of de taak, of gewoon JSON vereist om te worden gebruikt als u projecties.
+De **query** object is gemaakt met een paginagrootte (maximaal 100). Vervolgens meerdere pagina's worden opgehaald door het aanroepen van de **GetNextAsTwinAsync** methoden meerdere keren.
+
+Het queryobject bevat meerdere **volgende** waarden, afhankelijk van de deserialisatie-optie vereist door de query. Bijvoorbeeld, apparaatobjecten twin of de taak, of gewoon JSON bij gebruik van projecties.
 
 ### <a name="nodejs-example"></a>Node.js-voorbeeld
 De queryfunctionaliteit die wordt blootgelegd door de [Azure IoT service SDK voor Node.js] [ lnk-hub-sdks] in de **register** object.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Opmerking hoe de **query** object is gemaakt met een paginagrootte (maximaal 100) en vervolgens meerdere pagina's kunnen worden opgehaald door het aanroepen van de **nextAsTwin** methoden meerdere keren.
-Opmerking dat het queryobject meerdere bevat **volgende***, afhankelijk van de deserialisatie-optie die door de query, zoals apparaatobjecten twin of de taak, of gewoon JSON vereist om te worden gebruikt als u projecties.
+De **query** object is gemaakt met een paginagrootte (maximaal 100). Vervolgens meerdere pagina's worden opgehaald door het aanroepen van de **nextAsTwin** methode meerdere keren.
+
+Het queryobject bevat meerdere **volgende** waarden, afhankelijk van de deserialisatie-optie vereist door de query. Bijvoorbeeld, apparaatobjecten twin of de taak, of gewoon JSON bij gebruik van projecties.
 
 ### <a name="limitations"></a>Beperkingen
+
 > [!IMPORTANT]
-> Apparaat horende queryresultaten, kunnen een paar minuten vertraging met betrekking tot de meest recente waarden bevatten. Als het uitvoeren van query's afzonderlijk apparaat horende door-id, is het altijd beter om de ophalen apparaat twin API, die altijd de meest recente waarden bevat en is beperking hoger limieten gebruiken.
+> Apparaat horende queryresultaten, kunnen een paar minuten vertraging met betrekking tot de meest recente waarden bevatten. Als een afzonderlijk apparaat horende door ID opvragen, moet u de ophalen apparaat twin API gebruiken. Deze API is altijd de meest recente waarden bevat en heeft hoger beperking limieten.
 
 Op dit moment vergelijkingen bijvoorbeeld alleen tussen primitieve typen (geen objecten) worden ondersteund `... WHERE properties.desired.config = properties.reported.config` wordt alleen ondersteund als deze eigenschappen primitieve waarden hebben.
 
 ## <a name="get-started-with-jobs-queries"></a>Aan de slag met taken query 's
+
 [Taken] [ lnk-jobs] bieden een manier om het uitvoeren van bewerkingen op sets van apparaten. Elk apparaat twin bevat de informatie van de taken die het onderdeel in een verzameling met de naam is **taken**.
 Logisch,
 
@@ -243,7 +249,7 @@ Logisch,
 Deze verzameling is momenteel als waarop **devices.jobs** querytaal van de IoT-Hub.
 
 > [!IMPORTANT]
-> De eigenschap taken wordt op dit moment nooit geretourneerd tijdens het opvragen van apparaat horende (dat wil zeggen, query's met ' apparaten'). Kan alleen worden benaderd rechtstreeks met query's met `FROM devices.jobs`.
+> De eigenschap taken wordt op dit moment nooit geretourneerd tijdens het opvragen van apparaat horende. Dat wil zeggen, query's met 'vanaf apparaten'. De eigenschap taken alleen toegankelijk zijn rechtstreeks met query's met `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ Op dit moment wordt een query op **devices.jobs** bieden geen ondersteuning voor
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>Apparaat-naar-cloud berichtroutes query-expressies
 
-Met behulp van [apparaat-naar-cloud routes][lnk-devguide-messaging-routes], kunt u IoT Hub apparaat-naar-cloud-berichten naar verschillende eindpunten op basis van expressies geëvalueerd op basis van afzonderlijke berichten verzenden.
+Met behulp van [apparaat-naar-cloud routes][lnk-devguide-messaging-routes], kunt u een IoT Hub apparaat-naar-cloud-berichten naar verschillende eindpunten verzending configureren. Tijdens het verzenden is gebaseerd op expressies geëvalueerd op basis van afzonderlijke berichten.
 
-De route [voorwaarde] [ lnk-query-expressions] de dezelfde querytaal van IoT Hub gebruikt als voorwaarden in twin en taak query's. Route voorwaarden worden geëvalueerd op het berichtkoppen en de hoofdtekst. Uw routering query-expressie is mogelijk alleen berichtkoppen, alleen de hoofdtekst van het bericht of beide headers bericht en berichttekst. IoT Hub wordt ervan uitgegaan van een specifiek schema voor de kopteksten en de hoofdtekst van het bericht om te routeren van berichten. De volgende secties wordt beschreven wat is vereist voor de IoT-Hub te routeren correct.
+De route [voorwaarde] [ lnk-query-expressions] de dezelfde querytaal van IoT Hub gebruikt als voorwaarden in twin en taak query's. Route voorwaarden worden geëvalueerd op het berichtkoppen en de hoofdtekst. Uw routering query-expressie kan alleen berichtkoppen omvatten de hoofdtekst van het bericht of beide. IoT Hub wordt ervan uitgegaan van een specifiek schema voor de kopteksten en de hoofdtekst van het bericht om te routeren van berichten. De volgende secties wordt beschreven wat is vereist voor de IoT-Hub te routeren correct.
 
 ### <a name="routing-on-message-headers"></a>Routering op berichtkoppen
 
@@ -311,7 +317,7 @@ IoT Hub wordt ervan uitgegaan dat de volgende JSON-weergave van berichtkoppen vo
 ```
 
 Bericht Systeemeigenschappen worden voorafgegaan door de `'$'` symbool.
-Eigenschappen van de gebruiker worden altijd geopend met hun naam. Als de naam van een eigenschap gebeurt overeenkomen met een systeemeigenschap (zoals `$to`), de eigenschap wordt opgehaald met de `$to` expressie.
+Eigenschappen van de gebruiker worden altijd geopend met hun naam. Als de naam van een eigenschap valt met een systeemeigenschap samen (zoals `$to`), de gebruikerseigenschap is opgehaald met de `$to` expressie.
 U kunt altijd toegang hebt tot de systeemeigenschap met behulp van haakjes `{}`: u kunt bijvoorbeeld de expressie gebruiken `{$to}` voor toegang tot de systeemeigenschap `to`. Eigenschapnamen ophalen altijd de bijbehorende systeemeigenschap.
 
 Houd er rekening mee dat de namen van eigenschappen zijn niet hoofdlettergevoelig.
@@ -342,7 +348,7 @@ Raadpleeg de [expressie en voorwaarden] [ lnk-query-expressions] sectie voor een
 
 ### <a name="routing-on-message-bodies"></a>Routering op de berichttekst
 
-IoT Hub kan alleen worden doorgestuurd op basis van de berichttekst inhoud als de berichttekst correct is gevormd JSON gecodeerd in UTF-8, UTF-16- of UTF-32. Instellen van het type inhoud van het bericht om `application/json` en de inhoudsversleuteling op een van de ondersteunde coderingen UTF in berichtkoppen. Als een van de headers niet is opgegeven, wordt niet IoT Hub proberen om te evalueren van een queryexpressie met betrekking tot de hoofdtekst tegen het bericht. Als uw bericht is niet een JSON-bericht, of als het bericht geeft niet het type inhoud en de codering van inhoud, kan u nog steeds berichtroutering gebruiken voor het routeren van het bericht op basis van de berichtkoppen.
+IoT Hub kan alleen worden doorgestuurd op basis van de berichttekst inhoud als de berichttekst correct is gevormd JSON gecodeerd in UTF-8, UTF-16- of UTF-32. Het inhoudstype van het bericht instellen `application/json`. De inhoud op een van de ondersteunde coderingen UTF in berichtkoppen codering ingesteld. Als een van de headers niet is opgegeven, probeert IoT Hub niet evalueren van een queryexpressie met betrekking tot de hoofdtekst tegen het bericht. Als uw bericht is niet een JSON-bericht, of als het bericht geeft niet het type inhoud en de codering van inhoud, kunt u nog steeds berichtroutering gebruiken voor het routeren van het bericht op basis van de berichtkoppen.
 
 U kunt `$body` in de query-expressie voor het routeren van het bericht. U kunt een eenvoudige hoofdtekst-verwijzing, hoofdtekst matrixverwijzing of meerdere hoofdtekst verwijzingen in de query-expressie. Uw query-expressie kunt ook een verwijzing instantie met een verwijzing van de header bericht combineren. De volgende zijn bijvoorbeeld alle geldige query-expressies:
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Basisprincipes van een IoT Hub-query
-Elke IoT Hub-query bestaat van is geselecteerd en van componenten met optionele waar als de componenten GROUP BY. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaat horende. De component FROM geeft aan dat de te worden herhaald op documentenverzameling (**apparaten** of **devices.jobs**). Klik wordt in de component WHERE gefilterd. Met aggregaties, worden de resultaten van deze stap gegroepeerd als opgegeven in de component GROUP BY en voor elke groep, een rij wordt gegenereerd zoals opgegeven in de component SELECT.
+Elke IoT Hub-query bestaat van is geselecteerd en van componenten met optionele waar als de componenten GROUP BY. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaat horende. De component FROM geeft aan dat de te worden herhaald op documentenverzameling (**apparaten** of **devices.jobs**). Klik wordt in de component WHERE gefilterd. Met aggregaties, worden de resultaten van deze stap zijn gegroepeerd zoals opgegeven in de component GROUP BY. Voor elke groep een rij wordt gegenereerd zoals opgegeven in de component SELECT.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ De toegestane voorwaarden worden beschreven in de sectie [expressies en voorwaar
 
 ## <a name="select-clause"></a>SELECT-component
 De **Selecteer < select_list >** is verplicht en Hiermee geeft u de waarden die worden opgehaald uit de query. Deze geeft de JSON-waarden moeten worden gebruikt voor het genereren van de nieuwe JSON-objecten.
-De Projectiefase genereert voor elk element van de gefilterde (en desgewenst gegroepeerde) subset van de verzameling van een nieuwe JSON-object gemaakt met de opgegeven waarden in de component SELECT.
+De Projectiefase genereert voor elk element van de gefilterde (en desgewenst gegroepeerde) subset van de verzameling van een nieuwe JSON-object. Dit object is gemaakt met de opgegeven waarden in de component SELECT.
 
 Hieronder vindt u de grammatica van de component SELECT:
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 Op dit moment selectie componenten anders dan **Selecteer*** worden alleen ondersteund in cumulatieve query's in horende apparaten.
 
 ## <a name="group-by-clause"></a>GROUP BY-component
-De **GROUP BY < group_specification >** component is een optionele stap die kan worden uitgevoerd na het opgegeven in de component WHERE, en voordat de projectie Selecteer in het opgegeven filter. Deze groepen documenten op basis van de waarde van een kenmerk. Deze groepen worden gebruikt voor het genereren van geaggregeerde waarden zoals opgegeven in de component SELECT.
+De **GROUP BY < group_specification >** component is een optionele stap die wordt uitgevoerd na het opgegeven in de component WHERE, en voordat de projectie Selecteer in het opgegeven filter. Deze groepen documenten op basis van de waarde van een kenmerk. Deze groepen worden gebruikt voor het genereren van geaggregeerde waarden zoals opgegeven in de component SELECT.
 
 Er is een voorbeeld van een GROUP BY-query:
 
@@ -433,7 +439,7 @@ Op een hoog niveau een *expressie*:
 * Resulteert in een exemplaar van een JSON-type (zoals Boolean, getal, string, matrix of object).
 * Wordt gedefinieerd door het bewerken van gegevens die afkomstig zijn van de JSON-document apparaat en de constanten die met ingebouwde operatoren en functies.
 
-*Voorwaarden* expressies die in een Booleaanse waarde resulteren zijn. Een constante anders dan Booleaanse waarde **true** wordt beschouwd als **false** (inclusief **null**, **niet-gedefinieerde**, een willekeurig exemplaar object of de matrix een willekeurige tekenreeks en duidelijk de Booleaanse waarde **false**).
+*Voorwaarden* expressies die in een Booleaanse waarde resulteren zijn. Een constante anders dan Boolean **true** wordt beschouwd als **false**. Deze regel bevat **null**, **niet-gedefinieerde**, een willekeurig object of de matrix-exemplaar, een willekeurige tekenreeks en de Booleaanse waarde **false**.
 
 De syntaxis voor expressies is:
 
@@ -467,7 +473,7 @@ Om te begrijpen wat elke symbool in de syntaxis van de expressies voor staat, ra
 
 | Symbool | Definitie |
 | --- | --- |
-| %{attribute_name/ | Een eigenschap van het JSON-document in de **FROM** verzameling. |
+| attribute_name | Een eigenschap van het JSON-document in de **FROM** verzameling. |
 | binary_operator | Een binaire operator die worden vermeld in de [Operators](#operators) sectie. |
 | functie_naam| Een functie die worden vermeld in de [functies](#functions) sectie. |
 | decimal_literal |Een float uitgedrukt in decimale notatie. |
@@ -497,11 +503,11 @@ In situaties routes, worden de volgende wiskundige functies ondersteund:
 | ABS(x) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
 | EXP(x) | Berekent de exponentiële waarde van de opgegeven numerieke expressie (e ^ x). |
 | Power(x,y) | Retourneert de waarde van de opgegeven expressie voor de opgegeven macht (x ^ y).|
-| Square(x) | Retourneert het kwadraat van de numerieke waarde die is opgegeven. |
+| SQUARE(x) | Retourneert het kwadraat van de numerieke waarde die is opgegeven. |
 | CEILING(x) | Retourneert de kleinste waarde van geheel getal groter dan of gelijk zijn aan de opgegeven numerieke expressie. |
-| Floor(x) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
+| FLOOR(x) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
 | Sign(x) | Retourneert de positief (+ 1), nul (0) of minteken (-1) van de opgegeven numerieke expressie.|
-| WORTEL(x) | Retourneert de vierkantswortel van de numerieke waarde die is opgegeven. |
+| SQRT(x) | Retourneert de vierkantswortel van de numerieke waarde die is opgegeven. |
 
 In situaties routes, worden het volgende type controleren en de casten functies ondersteund:
 
@@ -514,7 +520,7 @@ In situaties routes, worden het volgende type controleren en de casten functies 
 | IS_NULL | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie null is. |
 | IS_NUMBER | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een getal. |
 | IS_OBJECT | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een JSON-object is. |
-| IS_PRIMITIVE | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een primitief (string, Boolean, numerieke of `null`). |
+| IS_PRIMITIVE | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een primitief (string, Boolean, numerieke, of `null`). |
 | IS_STRING | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een tekenreeks is. |
 
 In situaties routes, worden de volgende tekenreeksfuncties ondersteund:

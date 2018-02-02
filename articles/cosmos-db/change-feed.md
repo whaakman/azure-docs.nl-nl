@@ -3,7 +3,7 @@ title: Werken met de wijziging feed ondersteuning in Azure Cosmos DB | Microsoft
 description: Azure Cosmos DB wijzigen feed ondersteuning gebruiken voor het bijhouden van wijzigingen in documenten en het uitvoeren van verwerking op basis van gebeurtenissen zoals triggers en caches en analyses systemen up-to-date te houden.
 keywords: Feed wijzigen
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de ondersteuning in Azure Cosmos DB feed wijziging
 
@@ -60,6 +60,7 @@ Aanvullende details:
 * Wijzigingen kunnen worden gesynchroniseerd vanuit elk punt in tijd, er is geen vaste Gegevensretentieperiode waarvoor wijzigingen beschikbaar zijn.
 * Wijzigingen zijn beschikbaar in segmenten van de partitie sleutelbereiken. Op deze manier kunt wijzigingen in grote verzamelingen parallel worden verwerkt door meerdere gebruikers /-servers.
 * Toepassingen kunnen meerdere wijziging feeds gelijktijdig op dezelfde verzameling aanvragen.
+* ChangeFeedOptions.StartTime kan worden gebruikt om een initiële beginpunt, bijvoorbeeld, het vervolgtoken overeenkomt met de opgegeven kloktijd vinden. De ContinuationToken wins indien opgegeven, via de StartTime en StartFromBeginning waarden. De precisie van ChangeFeedOptions.StartTime is ~ 5 seconden. 
 
 ## <a name="use-cases-and-scenarios"></a>Gebruiksvoorbeelden en scenario 's
 

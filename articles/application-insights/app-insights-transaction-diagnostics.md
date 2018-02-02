@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Unified cross-onderdeel transactie diagnostische gegevens
 
@@ -26,7 +26,7 @@ De preview introduceert een nieuwe eenduidige diagnostics-ervaring die automatis
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Wat betekent onderdeel in de context van Application Insights?
 
-Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedistribueerd/microservices. Ontwikkelaars en operations teams hebben zichtbaarheid van de code-niveau of toegang tot de telemetrie die is gegenereerd door de onderdelen van deze toepassing. 
+Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedistribueerd/microservices. Ontwikkelaars en operations teams hebben zichtbaarheid van de code-niveau of toegang tot de telemetrie die is gegenereerd door de onderdelen van deze toepassing.
 
 * Onderdelen zijn anders dan 'waargenomen' externe afhankelijkheden, zoals SQL, enz. EventHub die uw team/organisatie mogelijk geen toegang tot (code of telemetrie).
 * Onderdelen worden uitgevoerd op een willekeurig aantal exemplaren van de rol-server-container.
@@ -40,11 +40,11 @@ Inschakelen "Unified details: E2E transactie diagnostische gegevens ' van de [pr
 
 ![Voorbeeld inschakelen](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Dit voorbeeld is momenteel beschikbaar zijn voor de serverzijde aanvragen, afhankelijkheden en uitzonderingen. U hebt toegang tot de nieuwe ervaring van **zoekresultaten**, **prestaties**, of **fout** ervaringen te sorteren. De preview vervangt de bijbehorende klassieke details blades. 
+Dit voorbeeld is momenteel beschikbaar zijn voor de serverzijde aanvragen, afhankelijkheden en uitzonderingen. U hebt toegang tot de nieuwe ervaring van **zoekresultaten**, **prestaties**, of **fout** ervaringen te sorteren. De preview vervangt de bijbehorende klassieke details blades.
 
 ![Prestatievoorbeelden](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Transactie diagnostics ervaring 
+## <a name="transaction-diagnostics-experience"></a>Transactie diagnostics ervaring
 In deze weergave bevat drie belangrijke onderdelen: een grafiek transactie cross-onderdeel, een tijdreeks lijst met alle telemetrie van de bewerking van een specifiek onderdeel, en het deelvenster met details voor een geselecteerde telemetrie-item aan de linkerkant.
 
 ![Belangrijke delen](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ Dit deelvenster geeft de details van de geselecteerde items uit de twee secties 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler en momentopname-foutopsporingsprogramma
 
 [Application Insights profiler](app-insights-profiler.md) of [momentopname foutopsporingsprogramma](app-insights-snapshot-debugger.md) met een code-niveau diagnostische gegevens van problemen met prestaties en de fout. Met deze ervaring, ziet u profiler traceringen of momentopnamen van elk onderdeel met één klik.
+
+Als er kan geen Profiler werkt, contact op met**serviceprofilerhelp@microsoft.com**
+
+Als er kan geen momentopname foutopsporingsprogramma werkt, contact op met**snapshothelp@microsoft.com**
 
 ![Foutopsporing-integratie](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

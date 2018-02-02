@@ -1,6 +1,6 @@
 ---
-title: Script voor het maken van Service Manager-Web-app verbinding maken met de IT-Service Management-Connector in OMS geautomatiseerde | Microsoft Docs
-description: Een Service Manager-Web-app met een geautomatiseerde script verbinding maken met de IT-Service Management-Connector in OMS, centraal kunt bewaken en beheren van de werkitems ITSM maken.
+title: Geautomatiseerde scripts voor het maken van Service Manager-Web-app verbinding maken met de IT-Service Management-Connector in Azure | Microsoft Docs
+description: Een Service Manager-Web-app met een geautomatiseerde script verbinding maken met de IT-Service Management-Connector in Azure, centraal kunt bewaken en beheren van de werkitems ITSM maken.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Service Manager-Web-app met behulp van de geautomatiseerde script (Preview) maken
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Service Manager-Web-app met behulp van de geautomatiseerde script maken
 
 Gebruik het volgende script te maken van de Web-app voor uw exemplaar van de Service Manager. Meer informatie over Service Manager-verbinding is hier: [Service Manager-Web-app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Voer het script door de volgende vereiste gegevens:
 
 - Details van de Azure-abonnement
-- De naam van resourcegroep
+- Resourcegroepnaam
 - Locatie
 - Details van Service Manager-server (server name, domein, gebruikersnaam en wachtwoord)
 - Site-voorvoegsel voor uw Web-app

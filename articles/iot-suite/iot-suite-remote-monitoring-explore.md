@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle
 
@@ -31,6 +31,10 @@ In deze zelfstudie leert u het volgende:
 > * Reageren op een waarschuwing wordt gegeven
 > * Werk de firmware in uw apparaten
 > * Uw assets ordenen
+
+De volgende video ziet u een overzicht van de oplossing voor externe controle:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -75,10 +79,10 @@ Operators bij Contoso weten de drempelwaarden die bepalen of een apparaat goed w
 
 | Regelnaam | Beschrijving | Drempelwaarde | Ernst | Beïnvloede apparaten |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Koelunit druk te hoog | Waarschuwingen als chillers hoger dan de normale druk niveaus bereiken   |P > 250 psi       | Kritiek | Chillers            |
-| Maken van een prototype apparaat temp te hoog  | Als het maken van een prototype-apparaten naar hoger dan de normale temperatuurniveaus van waarschuwingen  |T > 80&deg; F |Kritiek | Maken van een prototype-apparaten |
+| Koelunit druk te hoog | Waarschuwingen als chillers hoger dan de normale druk niveaus bereiken   |P>250 psi       | Kritiek | Chillers            |
+| Maken van een prototype apparaat temp te hoog  | Als het maken van een prototype-apparaten naar hoger dan de normale temperatuurniveaus van waarschuwingen  |T>80&deg; F |Kritiek | Maken van een prototype-apparaten |
 | Engine vervangen leeg  | Waarschuwingen als brandstoftank engine leeg gaat                     | F < 5 gallon | Info     | Engines             |
-| Hoger is dan de normale lading temperatuur | Als de vrachtwagen lading temperatuur hoger dan normaal is waarschuwingen                 | T < 45&deg; F |Waarschuwing  | Vrachtwagens              |
+| Hoger is dan de normale lading temperatuur | Als de vrachtwagen lading temperatuur hoger dan normaal is waarschuwingen                 | T<45&deg; F |Waarschuwing  | Vrachtwagens              |
 | Lift-trillingen gestopt      | Waarschuwingen als lift volledig stopt (op basis van trillingen niveau)                     | V < 0,1 mm |Waarschuwing  | Liften           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>De implementatie van de steekproef Contoso werkt

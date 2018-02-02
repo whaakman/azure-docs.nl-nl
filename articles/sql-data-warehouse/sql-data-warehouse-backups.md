@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Back-up en herstel in SQL Data Warehouse
 Dit artikel wordt uitgelegd dat de details van back-ups in SQL Data Warehouse. Back-ups van gegevens datawarehouse gebruiken om een momentopname maken van de primaire regio database te herstellen of herstel van een geo-back-up voor uw regio geo gekoppeld. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Geo-back-ups
 SQL Data Warehouse voert een geo-back-up eenmaal per dag een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md). De RPO voor een geo-restore is 24 uur. U kunt de geo-back-up terugzetten naar de server in de regio geo gekoppeld. geo-back-up zorgt ervoor dat u kunt datawarehouse herstellen als u geen toegang de momentopnamen die in uw primaire regio tot.
 
-Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse is geoptimaliseerd voor elasticiteit, kunt u [opt-out](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) als u wenst. U geo-back-ups met de geoptimaliseerde kunnen zich niet afmelden voor compute prestatielaag.
+Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse is geoptimaliseerd voor elasticiteit, kunt u [opt-out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) als u wenst. U geo-back-ups met de geoptimaliseerde kunnen zich niet afmelden voor compute prestatielaag.
 
 ## <a name="backup-costs"></a>Back-kosten
 U ziet dat de Azure-factuur heeft een regelitem voor Azure Premium-opslag- en een regelitem voor geografisch redundante opslag. De kosten van de Premium-opslag is de totale kosten voor het opslaan van gegevens in de primaire regio, waaronder momentopnamen.  De geografisch redundante kosten bevat informatie over de kosten voor het opslaan van de geo-back-ups.  

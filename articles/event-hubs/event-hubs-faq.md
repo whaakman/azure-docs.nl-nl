@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Event Hubs
 
@@ -40,7 +40,7 @@ U selecteren expliciet Event Hubs-doorvoereenheden, via de Azure-portal of Event
 
 * Up 1 MB per seconde van ingangsgebeurtenissen (gebeurtenissen verzonden naar een event hub), maar niet meer dan 1000 ingangsgebeurtenissen, beheerbewerkingen of besturingselement API-aanroepen per seconde.
 * Tot 2 MB per seconde van uitgaande gebeurtenissen (gebeurtenissen van een event hub gebruikt).
-* 84 GB gebeurtenis opslag (volstaat voor de bewaartermijn voor 24 uur).
+* Maximaal 84 GB voor opslag van gebeurtenissen (voldoende voor de gebruikelijke bewaarperiode van 24 uur).
 
 Event Hubs doorvoereenheden per uur worden gefactureerd, op basis van het maximum aantal eenheden dat is geselecteerd in het opgegeven uur. U kunt automatisch [Verhoog het aantal doorvoereenheden](event-hubs-auto-inflate.md) als uw gebruik toeneemt.
 
@@ -58,7 +58,7 @@ Met behulp van de [automatisch vergroten](event-hubs-auto-inflate.md) functie, k
 Ja, zolang alle event hubs in dezelfde naamruimte zijn.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Wat is de maximale bewaarperiode voor gebeurtenissen?
-Event Hubs standaardcategorie ondersteunt momenteel een maximale bewaarperiode van 7 dagen. Houd er rekening mee event hubs zijn niet bedoeld als een permanente gegevensarchief. De bewaarperiode is langer dan 24 uur zijn bedoeld voor scenario's waarin het is handig voor de replay van een stroom gebeurtenissen in de dezelfde systemen; Als u bijvoorbeeld wilt trainen of een nieuwe machine learning-model op bestaande gegevens te verifiëren. Als u bewaren dan 7 dagen-bericht moet, waardoor [Event Hubs vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) op uw event hub de gegevens ophaalt uit uw event hub aan de Storage-account of een Azure Data Lake-Service-account van uw keuze. Een kosten op basis van uw aangeschafte doorvoereenheid leidt ertoe dat vastleggen inschakelen.
+Event Hubs standaardcategorie ondersteunt momenteel een maximale bewaarperiode van 7 dagen. Event Hubs zijn echter niet bedoeld als permanente gegevensopslag. De bewaarperiode is langer dan 24 uur zijn bedoeld voor scenario's waarin het is handig voor de replay van een stroom gebeurtenissen in de dezelfde systemen; Als u bijvoorbeeld wilt trainen of een nieuwe machine learning-model op bestaande gegevens te verifiëren. Als u bewaren dan 7 dagen-bericht moet, waardoor [Event Hubs vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) op uw event hub de gegevens ophaalt uit uw event hub aan de Storage-account of een Azure Data Lake-Service-account van uw keuze. Een kosten op basis van uw aangeschafte doorvoereenheid leidt ertoe dat vastleggen inschakelen.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Waar Azure Event Hubs beschikbaar is?
 Azure Event Hubs is beschikbaar in alle ondersteunde Azure-regio's. Voor een lijst, gaat u naar de [Azure-regio's](https://azure.microsoft.com/regions/) pagina.  
@@ -66,7 +66,8 @@ Azure Event Hubs is beschikbaar in alle ondersteunde Azure-regio's. Voor een lij
 ## <a name="best-practices"></a>Aanbevolen procedures
 
 ### <a name="how-many-partitions-do-i-need"></a>Het aantal partities moet ik gebruiken?
-Houd er rekening mee dat de partitie rekenen op een event hub worden niet moet gewijzigd na de installatie. Met daarom is het belangrijk om na te denken over hoeveel partities die u nodig hebt voordat u aan de slag. 
+
+Houd er rekening mee dat het aantal partities voor een event hub kan niet worden gewijzigd na de installatie. Met daarom is het belangrijk om na te denken over hoeveel partities die u nodig hebt voordat u aan de slag. 
 
 Event Hubs is zo ontworpen dat een lezer één partitie per consumergroep. Gebruik in de meeste gevallen is de standaardinstelling van vier partities is voldoende. Als u wilt schalen van de verwerking van gebeurtenissen, kunt u overwegen extra partities toe te voegen. Er is geen limiet specifieke doorvoer op een andere partitie, maar de geaggregeerde doorvoer in uw naamruimte wordt beperkt door het aantal doorvoereenheden. Als u het aantal doorvoereenheden in uw naamruimte verhoogt, kunt u extra partities om toe te staan van gelijktijdige lezers hun eigen maximale doorvoer te bereiken.
 
@@ -81,7 +82,7 @@ Zie voor meer informatie over prijzen van Event Hubs de [Event Hubs prijsinforma
 De Event Hubs standaardcategorie staat toe dat bericht bewaren perioden van meer dan 24 uur, maximaal 7 dagen. Als de grootte van het totale aantal opgeslagen gebeurtenissen overschrijdt de toegestane opslag voor het aantal geselecteerde doorvoereenheden (84 GB per doorvoereenheid), de grootte die langer is dan de toegestane wordt in rekening gebracht gepubliceerde Azure Blob storage. De toegestane opslag in elke doorvoereenheid bevat informatie over alle kosten voor opslag voor de bewaarperiode van 24 uur (standaardinstelling) zelfs als de doorvoereenheid van wordt gebruikt voor de toegestane maximale inkomende gegevens.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Hoe wordt de maximale grootte van het Event Hubs berekend en in rekening gebracht?
-De totale grootte van alle opgeslagen gebeurtenissen, met inbegrip van een interne overhead voor gebeurtenissen, kopteksten of op schijf opslag structuren in alle event hubs wordt gemeten gedurende de dag. Aan het einde van de dag wordt de grootte van de piekopslag berekend. De dagelijkse opslag vergoeding wordt berekend op basis van het minimum aantal doorvoereenheden die zijn geselecteerd tijdens de dag (elke doorvoereenheid biedt een correctie van 84 GB). Als de totale grootte de berekende dagelijkse vergoeding voor opslag overschrijdt, de overtollige opslag wordt gefactureerd met behulp van Azure Blob storage tarieven (op het **lokaal redundante opslag** snelheid).
+De totale grootte van alle opgeslagen gebeurtenissen, met inbegrip van een interne overhead voor gebeurtenissen, kopteksten of op schijf opslag structuren in alle event hubs wordt gemeten gedurende de dag. Aan het einde van de dag wordt de grootte van de piekopslag berekend. De dagelijkse opslaglimiet wordt berekend op basis van het minimum aantal doorvoereenhden dat gedurende de dag is geselecteerd (elke doorvoereenheid biedt een limiet van 84 GB). Als de totale grootte de berekende dagelijkse vergoeding voor opslag overschrijdt, de overtollige opslag wordt gefactureerd met behulp van Azure Blob storage tarieven (op het **lokaal redundante opslag** snelheid).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Hoe kan ik Event Hubs ingangsgebeurtenissen berekend?
 Elke gebeurtenis verzonden naar een event hub, telt als een factureerbare bericht. Een *inkomend gebeurtenis* is gedefinieerd als een gegevenseenheid die kleiner is dan of gelijk aan 64 KB. De gebeurtenis die kleiner is dan of gelijk aan 64 KB groot wordt beschouwd als een factureerbare gebeurtenis. Als de gebeurtenis groter dan 64 KB is, wordt het aantal gebeurtenissen factureerbare berekend afhankelijk van de gebeurtenisgrootte, in veelvouden van 64 KB. Bijvoorbeeld, een 8 KB gebeurtenis verzonden naar de event hub wordt gefactureerd als een gebeurtenis, maar een 96 KB-bericht verzonden naar de event hub wordt gefactureerd als twee gebeurtenissen.
@@ -89,7 +90,7 @@ Elke gebeurtenis verzonden naar een event hub, telt als een factureerbare berich
 Gebeurtenissen van een event hub, alsmede beheerbewerkingen en besturingselement aanroepen zoals controlepunten worden niet meegeteld als factureerbare ingangsgebeurtenissen maar doorlopen tot de doorvoer eenheid toegestane verbruikt.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Pas kosten brokered verbinding naar Event Hubs?
-Verbinding gelden alleen wanneer het AMQP-protocol wordt gebruikt. Er zijn geen kosten verbinding voor het verzenden van gebeurtenissen met behulp van HTTP, ongeacht het aantal systemen of apparaten verzenden. Als u van plan bent te AMQP (bijvoorbeeld als u de streaming-efficiënter gebeurtenis of te bidirectionele communicatie in IoT-opdracht inschakelen en beheren van scenario's) gebruiken, raadpleegt u de [Event Hubs prijsgegevens](https://azure.microsoft.com/pricing/details/event-hubs/) pagina voor meer informatie over het aantal verbindingen zijn opgenomen in elke servicecategorie.
+Verbinding gelden alleen wanneer het AMQP-protocol wordt gebruikt. Er worden geen verbindingskosten in rekening gebracht voor het verzenden van gebeurtenissen via HTTP, ongeacht het aantal verzendsystemen/-apparaten. Als u van plan bent te AMQP (bijvoorbeeld als u de streaming-efficiënter gebeurtenis of te bidirectionele communicatie in IoT-opdracht inschakelen en beheren van scenario's) gebruiken, raadpleegt u de [Event Hubs prijsgegevens](https://azure.microsoft.com/pricing/details/event-hubs/) pagina voor meer informatie over het aantal verbindingen zijn opgenomen in elke servicecategorie.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Hoe wordt Event Hubs Capture gefactureerd?
 Vastleggen is ingeschakeld wanneer een event hub in de naamruimte de optie vastleggen is ingeschakeld is. Vastleggen van Event Hubs wordt per uur gefactureerd per doorvoereenheid hebt aangeschaft. Als het aantal van de eenheid doorvoer wordt vergroot of verkleind, weerspiegelt Event Hubs vastleggen facturering deze wijzigingen in de hele intervallen van uren. Zie voor meer informatie over Event Hubs vastleggen facturering [Event Hubs prijsgegevens](https://azure.microsoft.com/pricing/details/event-hubs/).

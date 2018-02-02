@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>host.JSON-documentatie voor Azure Functions
 
@@ -49,6 +49,13 @@ Het volgende voorbeeld *host.json* bestand heeft alle mogelijke opties opgegeven
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -95,7 +102,7 @@ Het volgende voorbeeld *host.json* bestand heeft alle mogelijke opties opgegeven
 
 De volgende secties van dit artikel wordt uitgelegd voor elke eigenschap op het hoogste niveau. Zijn optioneel tenzij anders aangegeven.
 
-## <a name="aggregator"></a>Aggregator
+## <a name="aggregator"></a>aggregator
 
 Geeft aan hoeveel functie aanroepen zijn geaggregeerd wanneer [berekenen van de metrische gegevens voor Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
@@ -135,13 +142,13 @@ Bepaalt de [steekproeven functie in Application Insights](functions-monitoring.m
 |IsEnabled|onwaar|Hiermee of steekproeven uitgeschakeld.| 
 |maxTelemetryItemsPerSecond|5|De drempelwaarde op welke steekproeven begint.| 
 
-## <a name="eventhub"></a>EventHub
+## <a name="eventhub"></a>eventHub
 
 Configuratie-instellingen voor [Event Hub-triggers en bindingen](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>functies
+## <a name="functions"></a>functions
 
 Een lijst met functies die de host van de taak wordt uitgevoerd.  Een lege matrix betekent dat alle functies uitvoeren.  Bedoeld voor gebruik alleen wanneer [lokaal uitgevoerd](functions-run-local.md). In functie-apps gebruiken de *function.json* `disabled` eigenschap in plaats van deze eigenschap in *host.json*.
 
@@ -161,6 +168,30 @@ Hiermee geeft u de time-outduur voor alle functies. Het geldige bereik is van 1 
 }
 ```
 
+## <a name="healthmonitor"></a>healthMonitor
+
+Configuratie-instellingen voor [health monitor voor de Host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Eigenschap  |Standaard | Beschrijving |
+|---------|---------|---------| 
+|ingeschakeld|waar|Hiermee wordt aangegeven of de functie is ingeschakeld. | 
+|healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond status wordt gecontroleerd. | 
+|healthCheckWindow|2 minuten|Een verschuivende tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
+|healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat een recyclebewerking host wordt gestart.| 
+|counterThreshold|0.80|De drempelwaarde waarmee een prestatiemeteritem beschouwd als niet in orde.| 
+
 ## <a name="http"></a>http
 
 Configuratie-instellingen voor [HTTP-triggers en bindingen](functions-bindings-http-webhook.md).
@@ -177,7 +208,7 @@ De unieke ID voor een taak host. Een kleine letter GUID met streepjes u kunt ver
 }
 ```
 
-## <a name="logger"></a>Logboek
+## <a name="logger"></a>logger
 
 Besturingselementen voor het filteren voor Logboeken geschreven door een [ILogger object](functions-monitoring.md#write-logs-in-c-functions) of door [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -226,7 +257,7 @@ Configuratie-instellingen voor [opslag queue-triggers en bindingen](functions-bi
 |maxDequeueCount|5|Het aantal pogingen voor het verwerken van een bericht voordat u deze verplaatst naar de wachtrij verontreinigd.| 
 |newBatchThreshold|batchSize/2|De drempelwaarde waarmee een nieuwe batch van berichten worden opgehaald.| 
 
-## <a name="servicebus"></a>Service Bus
+## <a name="servicebus"></a>serviceBus
 
 Configuratie-instelling voor [Service Bus-triggers en bindingen](functions-bindings-service-bus.md).
 
@@ -270,7 +301,7 @@ Configuratie-instellingen voor de logboeken die u met behulp van maakt een `Trac
 
 |Eigenschap  |Standaard | Beschrijving |
 |---------|---------|---------| 
-|consoleLevel|Info|Het niveau van de tracering voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
+|consoleLevel|info|Het niveau van de tracering voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
 |fileLoggingMode|debugOnly|De tracering niveau voor logboekregistratie. Opties zijn `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories

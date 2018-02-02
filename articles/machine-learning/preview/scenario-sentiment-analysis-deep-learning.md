@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analyse van gevoel met grondige Learning met Azure Machine Learning
 
-Gevoel analyse is een bekende taak in de realm van de verwerking van natuurlijke taal. Een set van teksten gezien, is het doel om te bepalen van de gevoel van deze tekst. Het doel van deze oplossing is CNTK gebruiken als de back-end voor Keras (een model niveau bibliotheek, bieden op hoog niveau bouwstenen voor het ontwikkelen van grondige learning-modellen) en analyse van film beoordelingen gevoel implementeren.
+Gevoel analyse is een bekende taak in de realm van de verwerking van natuurlijke taal. Een set van teksten gezien, is het doel om te bepalen van de gevoel van deze tekst. Het doel van deze oplossing is te diep Learning gebruiken voor het voorspellen van gevoel van film beoordelingen.
 
 De oplossing bevindt zich op https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aandachtspunten voor Datacenter-integratie voor Azure-Stack geïntegreerd systemen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enkele van de belangrijke planningsoverwegingen rond de implementatie en hoe het systeem in uw datacenter past begrijpen. Dit artikel bevat een overzicht van deze overwegingen bij de infrastructuur van belangrijke beslissingen voor uw Azure-Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met uw hardwareleverancier OEM als ze Azure Stack op uw datacenter implementeren.  
@@ -27,9 +27,7 @@ Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enke
 > [!NOTE]
 > Azure Stack systemen met meerdere knooppunten kunnen alleen worden gekocht bij geautoriseerde hardwareleveranciers. 
 
-Voor het implementeren van Azure-Stack er een aantal beslissingen die u moet zijn aanbrengen in goed Azure Stack integreren in uw omgeving. U moet deze informatie geven aan uw solution provider tijdens het planningsproces en gereed zijn voor de hardwareleverancier voordat implementatie begint te helpen bij het proces gaat soepel en snel.
-
-Deze informatie nodig bereiken over netwerken-, beveiligings- en identiteitsgegevens met veel belangrijke beslissingen waarvoor kennis van veel verschillende gebieden en besluitvormers. U moet daarom ophalen van de mensen van meerdere teams in uw organisatie om ervoor te zorgen dat u alle vereiste informatie bij de hand hebt voordat de implementatie begint. Kunt u contact opnemen met uw hardwareleverancier bij het verzamelen van deze informatie zoals ze advies die nuttig zijn hebben wellicht voor uw beslissingen.
+U moet voor het implementeren van Azure-Stack planningsinformatie bieden aan uw solution provider voordat implementatie begint te helpen bij het proces gaat soepel en snel. Deze informatie nodig bereiken over netwerken-, beveiligings- en identiteitsgegevens met veel belangrijke beslissingen waarvoor kennis van veel verschillende gebieden en besluitvormers. U moet daarom ophalen van de mensen van meerdere teams in uw organisatie om ervoor te zorgen dat u alle vereiste informatie bij de hand hebt voordat de implementatie begint. Kunt u contact opnemen met uw hardwareleverancier bij het verzamelen van deze informatie zoals ze advies die nuttig zijn hebben wellicht voor uw beslissingen.
 
 Tijdens het onderzoeken en de vereiste gegevens verzamelen, moet u mogelijk enkele vóór implementatie configuratiewijzigingen aanbrengen in uw netwerkomgeving. Dit omvat het reserveren van IP-adresruimten voor de Azure-Stack-oplossing, uw routers, switches en firewalls om voor te bereiden voor de verbinding met de nieuwe Azure-Stack oplossing switches configureren. Zorg ervoor dat u hebt het onderwerp gebied expert die maximaal helpt u bij de planning.
 
@@ -38,7 +36,7 @@ Azure-Stack is een verzegeld systeem waar de infrastructuur is vergrendeld zowel
 
 Voor het dagelijkse beheer en bewerkingen is er geen onbeperkte beheerderstoegang tot de infrastructuur. Azure Stack-operators moeten het systeem via de beheerdersportal of via Azure Resource Manager (via PowerShell of de REST-API) te beheren. Er is geen toegang tot het systeem door andere beheerprogramma's zoals Hyper-V-beheer of Failover Cluster Manager. Ter bescherming van het systeem kan niet binnen de onderdelen van de infrastructuur van Azure-Stack software van derden (bijvoorbeeld agents) worden geïnstalleerd. Interoperabiliteit met externe software voor beheer en beveiliging vindt plaats via PowerShell of de REST-API.
 
-Wanneer een hoger niveau van toegang nodig is voor het oplossen van problemen die door waarschuwing uitoefenen stappen niet zijn opgelost, moet u werken met ondersteuning. Dankzij de ondersteuning is er een methode voor tijdelijke volledige beheerderstoegang tot het systeem meer geavanceerde bewerkingen uit te voeren. 
+Wanneer een hoger niveau van toegang nodig is voor het oplossen van problemen die door waarschuwing uitoefenen stappen niet zijn opgelost, moet u samenwerken met Microsoft Support. Dankzij de ondersteuning is er een methode voor tijdelijke volledige beheerderstoegang tot het systeem meer geavanceerde bewerkingen uit te voeren. 
 
 ## <a name="identity-considerations"></a>Identiteit overwegingen
 
@@ -179,7 +177,10 @@ Als u wilt repliceren van gegevens naar een secundaire locatie en stroomlijnen d
 > [!IMPORTANT]
 > Op de eerste release van geïntegreerde systemen door ons ondersteund beveiligingstechnologieën die op de het gastniveau van de virtuele machine voor IaaS werkt. U kunt geen agents installeren op de onderliggende infrastructuurservers.
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="learn-more"></a>Meer informatie
 
 - Zie voor meer informatie over gebruiksvoorbeelden, kopen, partners en hardwareleveranciers OEM de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.
 - Voor informatie over de roadmap en geo-beschikbaarheid voor Azure-Stack geïntegreerde systemen, Zie het white paper: [Azure Stack: een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Volgende stappen
+[Azure Stack verbinding implementatiemodellen](azure-stack-connection-models.md)

@@ -1,6 +1,6 @@
 ---
-title: Oplossing doelen instellen in OMS | Microsoft Docs
-description: Doelitems oplossing is een functie in Operations Management Suite (OMS) waarmee u oplossingen voor een specifieke set van agents beperken.  Dit artikel wordt beschreven hoe u de configuratie van een scope maken en dit toepassen op een oplossing.
+title: Targeting oplossingen in Azure | Microsoft Docs
+description: Targeting beheeroplossingen, kunt u oplossingen voor een specifieke set van agents beperken.  Dit artikel wordt beschreven hoe u de configuratie van een scope maken en dit toepassen op een oplossing.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Oplossing voor oplossingen voor het beheer van bereik naar specifieke agents (Preview) in de Operations Management Suite (OMS) als doel instellen gebruiken
-Wanneer u een oplossing met OMS toevoegt, wordt het automatisch naar alle Windows- en Linux-agents verbonden met uw werkruimte voor logboekanalyse standaard geïmplementeerd.  Mogelijk wilt de kosten beheren en beperken van de hoeveelheid gegevens die door het beperken van het aan een bepaalde set van agents naar een oplossing worden verzameld.  In dit artikel wordt beschreven hoe u **oplossing Targeting** dit is een OMS-functie waarmee u een bereik toepassen op uw oplossingen.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Doelitems oplossingen in Azure (Preview)
+Wanneer u een oplossing voor uw abonnement toevoegt, wordt het automatisch naar alle Windows- en Linux-agents verbonden met uw werkruimte voor logboekanalyse standaard geïmplementeerd.  Mogelijk wilt de kosten beheren en beperken van de hoeveelheid gegevens die door het beperken van het aan een bepaalde set van agents naar een oplossing worden verzameld.  In dit artikel wordt beschreven hoe u **oplossing Targeting** dit is een functie waarmee u een bereik toepassen op uw oplossingen.
 
 ## <a name="how-to-target-a-solution"></a>Het doel een oplossing
-Er zijn drie stappen voor het doel van een oplossing zoals beschreven in de volgende secties.  Houd er rekening mee dat u zowel de OMS-portal en de Azure-portal voor de verschillende stappen moet.
+Er zijn drie stappen voor het doel van een oplossing zoals beschreven in de volgende secties. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Maak een computergroep

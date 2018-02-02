@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f95d66950feb8729a7edcad3e02ea9a932123e16
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Aan de slag met Azure Table Storage met .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -29,14 +29,18 @@ Azure Table Storage is een service die gestructureerde NoSQL-gegevens opslaat in
 U kunt Table Storage gebruiken voor de opslag van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens of andere soorten metagegevens die uw service nodig heeft. In elke tabel kunt u een willekeurig aantal entiteiten opslaan. Een opslagaccount kan een onbeperkt aantal tabellen bevatten, tot de maximale capaciteit van het opslagaccount.
 
 ### <a name="about-this-tutorial"></a>Over deze zelfstudie
-In deze zelfstudie leert u hoe u de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) in een aantal veelvoorkomende scenario's voor Azure Table Storage gebruikt. Deze scenario's worden geïllustreerd met C#-voorbeelden voor het maken en verwijderen van een tabel en het invoegen, bijwerken, verwijderen en opvragen van tabelgegevens.
+Deze zelfstudie leert u hoe u de [tabel bibliotheek van Microsoft Azure CosmosDB voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) in algemene scenario's voor Azure Table-opslag. De naam van het pakket geeft is voor gebruik met Azure Cosmos DB, maar het pakket werkt met Azure Cosmos DB en opslag van de Azure-tabellen, elke service heeft zojuist een unieke eindpunt. Deze scenario's worden verkend met C# voorbeelden van hoe:
+* Maken en verwijderen van tabellen
+* Invoegen, bijwerken en verwijderen van rijen
+* Querytabellen
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Algemene bibliotheek Azure Storage voor .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Dit is een vereiste preview-pakket dat wordt ondersteund in productieomgevingen. 
+* [Microsoft Azure CosmosDB tabel-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [Azure Configuration Manager voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure Storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -47,17 +51,120 @@ Zie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.c
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
 
-[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+U kunt werken met tabellen met Azure Table storage of Azure Cosmos DB. U kunt meer informatie over de verschillen tussen de services door te lezen [tabel de offerings](table-introduction.md#table-offerings). U moet maken van een account voor de service die u gaat gebruiken. 
+
+### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
+De eenvoudigste manier om uw eerste Azure-opslagaccount te maken, is via [Azure Portal](https://portal.azure.com). Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie.
+
+U kunt ook een Azure-opslagaccount maken met behulp van [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) of de [clientbibliotheek van Storage Resource Provider voor .NET](/dotnet/api/microsoft.azure.management.storage).
+
+Als u op dit moment liever nog geen opslagaccount maakt, kunt u ook de Azure-opslagemulator gebruiken om de code in een lokale omgeving uit te voeren en te testen. Zie [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor het ontwikkelen en testen) voor meer informatie.
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
+
+Zie voor instructies over het maken van een account voor Azure Cosmos DB tabel API [maken van een tabel-API-account](create-table-dotnet.md#create-a-database-account).
+
+## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
+Vervolgens stelt u in Visual Studio uw ontwikkelomgeving in, zodat u de codevoorbeelden in deze handleiding kunt uitproberen.
+
+### <a name="create-a-windows-console-application-project"></a>Een Windows-consoletoepassingsproject maken
+Maak in Visual Studio een nieuwe Windows-consoletoepassing. In de volgende stappen ziet u hoe u een consoletoepassing maakt in Visual Studio 2017. De stappen zijn nagenoeg gelijk in andere versies van Visual Studio.
+
+1. Selecteer **Bestand** > **Nieuw** > **Project**.
+2. Selecteer **geïnstalleerd** > **Visual C#** > **Classic Windows Desktop**.
+3. Selecteer **Consoletoepassing (.NET Framework)**.
+4. Typ een naam voor de toepassing in het veld **Naam:**.
+5. Selecteer **OK**.
+
+Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode `Main()` van het bestand `Program.cs` van de consoletoepassing.
+
+U kunt de Azure CosmosDB tabel bibliotheek in elk type .NET-toepassing, met inbegrip van een Azure-cloud service of web-app en desktop- en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
+
+### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
+Er zijn drie pakketten die u nodig hebt om te verwijzen naar in uw project om deze zelfstudie te voltooien:
+
+* [Algemene bibliotheek Azure Storage voor .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
+* [Microsoft Azure CosmosDB tabel-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Cosmos DB tabel API-account of Azure Table storage-account.
+* [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
+
+Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
+
+1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
+2. Zoek online naar 'Microsoft.Azure.Storage.Common' en selecteer **installeren** de algemene Azure Storage-bibliotheek voor .NET (Preview) en de bijbehorende afhankelijkheden te installeren. Zorg ervoor dat de **Include prerelease** selectievakje is ingeschakeld als dit een preview-pakket is.
+3. Zoek online naar 'Microsoft.Azure.CosmosDB.Table' en selecteer **installeren** voor het installeren van de bibliotheek van Microsoft Azure CosmosDB tabel.
+4. Zoek online naar 'WindowsAzure.ConfigurationManager' en selecteer **installeren** voor het installeren van de Configuration Manager-bibliotheek van Microsoft Azure.
+
+> [!NOTE]
+> De ODataLib-afhankelijkheden in de opslag algemene bibliotheek voor .NET worden opgelost door de ODataLib-pakketten beschikbaar zijn op NuGet niet van WCF Data Services. U kunt de ODataLib-bibliotheken rechtstreeks downloaden of u kunt er via NuGet in uw codeproject naar verwijzen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) en [Spatial](http://nuget.org/packages/System.Spatial/). Hoewel deze bibliotheken door de Azure Table-Opslagklassen worden gebruikt, zijn ze vereiste afhankelijkheden voor het programmeren met de algemene bibliotheek-opslag.
+> 
+> 
+
+### <a name="determine-your-target-environment"></a>De doelomgeving bepalen
+U kunt de voorbeelden in deze gids in twee omgevingen uitvoeren:
+
+* U kunt de code uitvoeren met een Azure Storage-account in de cloud. 
+* U kunt de code uitvoeren met een Azure DB die Cosmos-account in de cloud.
+* U kunt de code uitvoeren met de Azure-opslagemulator. De opslagemulator is een lokale omgeving die een Azure Storage-account in de cloud emuleert. De emulator is een gratis optie waarmee u uw code kunt testen en fouten in de code kunt opsporen terwijl de toepassing nog in ontwikkeling is. De emulator maakt gebruik van een bekend account en een bekende sleutel. Zie [De Azure-opslagemulator gebruiken voor ontwikkeling en testen](../storage/common/storage-use-emulator.md) voor meer informatie.
+
+Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toegangssleutel voor uw opslagaccount vanuit Azure Portal. Zie [Opslagtoegangssleutels bekijken en kopiëren](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) voor meer informatie.
+
+> [!NOTE]
+> Gebruik de opslagemulator als u mogelijke kosten in verband met Azure-opslag wilt vermijden. Als u er echter voor kiest om een Azure-opslagaccount in de cloud te gebruiken, zijn de kosten voor de uitvoering van deze zelfstudie te verwaarlozen.
+> 
+> 
+
+Als u voor een Azure DB die Cosmos-account ontwikkelt, kopieert u de primaire toegangssleutel voor uw tabel API-account van de Azure-portal. Zie voor meer informatie [bijwerken van de verbindingsreeks](create-table-dotnet.md#update-your-connection-string).
+
+### <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
+De Azure Storage algemene bibliotheek voor .NET ondersteunt het gebruik van een opslagverbindingsreeks om eindpunten en referenties voor toegang tot opslagservices te configureren. De beste manier om de opslagverbindingsreeks te onderhouden, is met een configuratiebestand. 
+
+Zie [Azure Storage-verbindingsreeksen configureren](../storage/common/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
+
+> [!NOTE]
+> De sleutel van uw account is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw opslagaccount altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel via de Azure-portal als er mogelijk inbreuk op de sleutel heeft plaatsgevonden.
+> 
+> 
+
+U configureert de verbindingsreeks door het bestand `app.config` te openen vanuit Solution Explorer in Visual Studio. Voeg de inhoud van het element `<appSettings>` hieronder toe. Vervang `account-name` met de naam van uw account en `account-key` door uw toegangssleutel voor account:
+
+```xml
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+    </appSettings>
+</configuration>
+```
+
+Bijvoorbeeld, als u een Azure Storage-account, de configuratie-instellingen worden weergegeven vergelijkbaar met:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+```
+
+Als u een account voor Azure Cosmos DB, weergegeven, lijkt op uw configuratie-instellingen:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+```
+
+Als u de opslagemulator wilt gebruiken, kunt u de bekende accountnaam en -sleutel op een snelle manier toewijzen. In dat geval heeft de verbindingsreeks de volgende instelling:
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+```
 
 ### <a name="add-using-directives"></a>Using-instructies toevoegen
 Voeg de volgende **using**-instructies aan het begin van het bestand `Program.cs` toe:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
+using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 
 ### <a name="parse-the-connection-string"></a>De verbindingsreeks parseren

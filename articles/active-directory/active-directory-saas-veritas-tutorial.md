@@ -4,20 +4,20 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Zelfstudie: Azure Active Directory-integratie met Veritas Enterprise Vault.cloud SSO
 
@@ -110,7 +110,23 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. In de **id** tekstvak de URL aan de hand van het Datacenter gebruiken
+
+    | Datacenter| URL |
+    |----------|----|
+    | Noord-Amerika| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Azië en Stille Oceaan| `https://auth.syd.archivecloud.net`|
+
+    c. In de **antwoord-URL** tekstvak de URL aan de hand van het Datacenter gebruiken
+
+    | Datacenter| URL |
+    |----------|----|
+    | Noord-Amerika| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Azië en Stille Oceaan| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Veritas Enterprise Vault.cloud SSO-Client-ondersteuningsteam](https://www.veritas.com/support/.html) deze waarde op te halen. 
@@ -204,7 +220,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel Veritas Enterprise Vault.cloud SSO in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Veritas Enterprise Vault.cloud eenmalige aanmelding.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

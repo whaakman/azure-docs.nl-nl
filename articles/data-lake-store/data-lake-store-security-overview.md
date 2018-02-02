@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 52e176711f512e8a3788309a58011c8484821a1e
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel bedrijven profiteert van big data-analyses voor zakelijke inzichten zodat beslissingen voor de smartcard. Een organisatie kan een complex en gereglementeerde omgeving met een toenemend aantal diverse gebruikers hebben. Is het essentieel is voor een ondernemings-om ervoor te zorgen dat essentiële bedrijfsgegevens veiliger, wordt opgeslagen met het juiste niveau van toegang te krijgen tot afzonderlijke gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsmogelijkheden van Data Lake Store, met inbegrip van:
 
-* Authentication
+* Verificatie
 * Autorisatie
 * Netwerkisolatie
 * Gegevensbeveiliging
@@ -54,7 +54,7 @@ Houd er rekening mee dat hoewel rollen zijn toegewezen voor accountbeheer, sommi
 
 | Rollen | Rights management | Data access-rechten | Uitleg |
 | --- | --- | --- | --- |
-| Er is geen rol die is toegewezen |Geen |Beheerst door de ACL |De gebruiker niet de Azure portal of Azure PowerShell-cmdlets gebruiken om te bladeren Data Lake Store. De gebruiker kan alleen de opdrachtregelprogramma's gebruiken. |
+| Er is geen rol die is toegewezen |None |Beheerst door de ACL |De gebruiker niet de Azure portal of Azure PowerShell-cmdlets gebruiken om te bladeren Data Lake Store. De gebruiker kan alleen de opdrachtregelprogramma's gebruiken. |
 | Eigenaar |Alle |Alle |De rol van eigenaar is een beheerder. Deze rol kan alles beheren en heeft volledige toegang tot gegevens. |
 | Lezer |Alleen-lezen |Beheerst door de ACL |De rol lezer kunt alles met betrekking tot accountbeheer, zoals welke gebruiker is toegewezen aan welke rol weergeven. De rol lezer kunt geen wijzigingen aanbrengen. |
 | Inzender |Alles behalve rollen toevoegen en verwijderen |Beheerst door de ACL |De rol Inzender kunt bepaalde aspecten van een account, zoals implementaties en bij het maken en beheren van waarschuwingen beheren. De rol Inzender kunt toevoegen of verwijderen van rollen. |
@@ -63,7 +63,7 @@ Houd er rekening mee dat hoewel rollen zijn toegewezen voor accountbeheer, sommi
 Zie voor instructies [gebruikers of beveiligingsgroepen toewijzen aan Data Lake Store-accounts](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Met behulp van ACL's voor bewerkingen voor bestandssystemen
-Data Lake Store is een hiërarchische bestandssysteem zoals Hadoop Distributed File System (HDFS) en het ondersteunt [POSIX-ACL's](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Hiermee kunt u lezen (r), (b) schrijven en uitvoeren van (machtigingen voor de resources voor de rol van eigenaar, voor de groep eigenaren en voor andere gebruikers en groepen x). In de openbare preview van de Data Lake Store (de huidige release) kunnen ACL's worden ingeschakeld voor de hoofdmap, submappen en afzonderlijke bestanden. Zie voor meer informatie over de werking van ACL's in de context van Data Lake Store [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md).
+Data Lake Store is een hiërarchische bestandssysteem zoals Hadoop Distributed File System (HDFS) en het ondersteunt [POSIX-ACL's](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Hiermee kunt u lezen (r), (b) schrijven en uitvoeren van (machtigingen voor de resources voor de rol van eigenaar, voor de groep eigenaren en voor andere gebruikers en groepen x). In Data Lake Store kunnen de ACL's worden ingeschakeld voor de hoofdmap, submappen en afzonderlijke bestanden. Zie voor meer informatie over de werking van ACL's in de context van Data Lake Store [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md).
 
 Het is raadzaam dat u voor meerdere gebruikers met behulp van ACL's definiëren [beveiligingsgroepen](../active-directory/active-directory-groups-create-azure-portal.md). Gebruikers toevoegen aan een beveiligingsgroep en vervolgens de ACL's voor een bestand of map toewijzen aan die beveiligingsgroep. Dit is handig wanneer u toegang bieden aangepaste, wilt omdat u beperkt tot maximaal negen items voor aangepaste toegang toe te voegen. Zie voor meer informatie over het beter beveiligen van gegevens die zijn opgeslagen in Data Lake Store met Azure Active Directory-beveiligingsgroepen [gebruikers of beveiligingsgroep als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 

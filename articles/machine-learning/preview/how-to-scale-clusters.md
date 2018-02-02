@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Het cluster voor het beheren van web service doorvoer schalen
 
@@ -85,7 +85,7 @@ Bijvoorbeeld: instelling `autoscale-min-replicas` tot en met 5 vijf replica's ma
 
 | Parameternaam | Type | Beschrijving |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Booleaanse waarde | Hiermee geeft u op of automatisch schalen is ingeschakeld. Standaard: true |
+| `autoscale-enabled` | booleaans | Hiermee geeft u op of automatisch schalen is ingeschakeld. Standaard: true |
 | `autoscale-min-replicas` | geheel getal | Hiermee geeft u het minimum aantal gehele product. Moet 0 of hoger. Standaard: 1 |
 | `autoscale-max-replicas` | geheel getal | Hiermee geeft u het maximum aantal gehele product. Moet 1 of hoger. Als u automatisch schalen-max-replica's kleiner is dan automatisch schalen-min-replica's, worden automatisch schalen-max-replica's genegeerd. Standaard: 10 |
 | `autoscale-refresh-period-seconds` | geheel getal | Hiermee geeft u de duur in seconden tussen automatisch schalen wordt vernieuwd. Standaard: 1 |
@@ -159,6 +159,6 @@ Zodra u de dashboardserver hebt gestart, open een browser en voer de volgende UR
 
 Klik in het hoofdvenster van dashboard op **implementaties** op de linkernavigatiebalk. Als het navigatiedeelvenster niet wordt weergegeven, selecteert u dit pictogram ![Menu die bestaan uit drie korte horizontale lijnen](media/how-to-scale-clusters/icon-hamburger.png) in de linkerbovenhoek.
 
-Zoek de implementatie als wilt wijzigen en klik op dit pictogram ![pictogram die bestaan uit drie verticale punten](media/how-to-scale-clusters/icon-kebab.png) aan de rechterkant en klik vervolgens op **weergeven/edi YAML**.
+Zoek de implementatie als wilt wijzigen en klik op dit pictogram ![pictogram die bestaan uit drie verticale punten](media/how-to-scale-clusters/icon-kebab.png) aan de rechterkant en klik vervolgens op **weergeven/bewerken YAML**.
 
 Zoek op het scherm van de implementatie bewerken de *spec* knooppunt wijzigen de *replica's* waarde en klik op **Update**.

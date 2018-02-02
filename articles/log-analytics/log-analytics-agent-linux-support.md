@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Het oplossen van problemen met het Linux-agent voor logboekanalyse
 
@@ -34,7 +34,7 @@ Dit artikel bevat help het oplossen van problemen die u mogelijk ondervindt met 
 1. Reonboard naar de Log Analytics-service met de OMS-Agent voor Linux met behulp van de volgende opdracht met de optie `-v` ingeschakeld. Hiermee worden uitgebreide uitvoer van de agent een verbinding via de proxy die de OMS-Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Raadpleeg de sectie [configuratie van de agent voor gebruik met een proxy of Gateway OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) om te controleren of u de agent communiceren via een proxyserver correct hebben geconfigureerd.    
+2. Raadpleeg de sectie [proxy-instellingen bijwerken](log-analytics-agent-manage.md#update-proxy-settings) om te controleren of u de agent communiceren via een proxyserver correct hebben geconfigureerd.    
 * Controleer of de volgende Log Analytics-service-eindpunten goedgekeurde lijst zijn:
 
     |Agentresource| Poorten |  
@@ -42,7 +42,7 @@ Dit artikel bevat help het oplossen van problemen die u mogelijk ondervindt met 
     |*.ods.opinsights.azure.com | Poort 443|   
     |*.oms.opinsights.azure.com | Poort 443|   
     |ods.systemcenteradvisor.com | Poort 443|   
-    |*.BLOB.Core.Windows.NET/ | Poort 443|   
+    |*.blob.core.windows.net/ | Poort 443|   
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Probleem: U ontvangt een fout 403 bij een poging om vrij te geven
 

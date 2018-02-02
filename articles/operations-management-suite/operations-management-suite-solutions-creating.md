@@ -1,6 +1,6 @@
 ---
-title: Een oplossing in OMS opzetten | Microsoft Docs
-description: De functionaliteit van Operations Management Suite (OMS) uitbreiden beheeroplossingen door verpakte beheerscenario die klanten aan hun OMS-werkruimte toevoegen kunnen.  Dit artikel biedt details over hoe u oplossingen voor het beheer moet worden gebruikt in uw eigen omgeving kunt maken of beschikbaar gesteld aan uw klanten.
+title: Een beheeroplossing voor in Azure bouwen | Microsoft Docs
+description: Oplossingen voor opnemen verpakte beheerscenario's in Azure die klanten aan de werkruimte voor logboekanalyse toevoegen kunnen.  Dit artikel biedt details over hoe u oplossingen voor het beheer moet worden gebruikt in uw eigen omgeving kunt maken of beschikbaar gesteld aan uw klanten.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Ontwerpen en bouwen van een beheeroplossing in Operations Management Suite (OMS) (Preview)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Ontwerpen en bouwen van een beheeroplossing in Azure (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.
+> Dit is voorlopige documentatie voor het maken van de oplossingen in Azure die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.
 
-[Oplossingen voor](operations-management-suite-solutions.md) breiden de functionaliteit van Operations Management Suite (OMS) doordat verpakte beheerscenario die klanten aan hun OMS-werkruimte toevoegen kunnen.  Dit artikel biedt een basic-proces voor het ontwerpen en bouwen van een beheersysteem dat geschikt is voor de meest voorkomende vereisten.  Als u niet bekend bent met het bouwen van oplossingen voor het beheer kunt u dit proces als uitgangspunt gebruiken en vervolgens gebruikmaken van de concepten voor complexere oplossingen zoals ontwikkelen van uw vereisten.
+[Oplossingen voor](operations-management-suite-solutions.md) verpakte beheerscenario die klanten aan de werkruimte voor logboekanalyse toevoegen kunnen bieden.  Dit artikel biedt een basic-proces voor het ontwerpen en bouwen van een beheersysteem dat geschikt is voor de meest voorkomende vereisten.  Als u niet bekend bent met het bouwen van oplossingen voor het beheer kunt u dit proces als uitgangspunt gebruiken en vervolgens gebruikmaken van de concepten voor complexere oplossingen zoals ontwikkelen van uw vereisten.
 
 ## <a name="what-is-a-management-solution"></a>Wat is een oplossing voor het beheer?
 
-Beheeroplossingen bevatten OMS en Azure-resources die samenwerken voor een bepaald scenario bewaking.  Ze worden geïmplementeerd als [Resource Management-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md) die bevatten meer informatie over het installeren en configureren van hun ingesloten bronnen als de oplossing is geïnstalleerd.
+Oplossingen voor bevatten Azure-resources die samenwerken voor een bepaalde beheerscenario.  Ze worden geïmplementeerd als [Resource Management-sjablonen](../azure-resource-manager/resource-manager-template-walkthrough.md) die bevatten meer informatie over het installeren en configureren van hun ingesloten bronnen als de oplossing is geïnstalleerd.
 
 De basis-strategie is uw beheeroplossing voor starten door het bouwen van de afzonderlijke onderdelen in uw Azure-omgeving.  Wanneer u beschikt over de functionaliteit correct werkt, klikt u vervolgens kunt u beginnen verpakken in een [management oplossingsbestand](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ De basis-strategie is uw beheeroplossing voor starten door het bouwen van de afz
 ## <a name="design-your-solution"></a>Ontwerp uw oplossing
 De meest voorkomende patroon voor een oplossing wordt weergegeven in het volgende diagram.  De verschillende onderdelen in dit patroon worden besproken in de onderstaande.
 
-![Overzicht van de OMS-oplossing](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Overzicht van de Management-oplossing](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Gegevensbronnen

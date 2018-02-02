@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+
 
 App-Service op Azure-Stack ondersteunt implementatie van meerdere Resourcebeheerproviders op aanvraag. Deze functie kunt direct implementeren vanaf hun source control-opslagplaatsen voor ontwikkelaars van toepassingen. Als gebruikers verbinding maken met hun opslagplaatsen-App Service configureren, moet eerst de integratie tussen op Azure-Stack-App Service en de broncodebeheerprovider configureren in een cloud-operator.  
 
@@ -38,7 +40,7 @@ De Resourcebeheerproviders wordt ondersteund, naast de lokale Git zijn:
 3. Klik op **bron configuratie**.  Hier ziet u de lijst met alle implementatie bronnen die zijn geconfigureerd.
     ![App Service Resource Provider Admin bron configuratie][2]
 
-## <a name="configure-github"></a>GitHub configureren
+## <a name="configure-github"></a>Configure GitHub
 
 Er moet een GitHub-account om deze taak te voltooien. Mogelijk wilt een account gebruiken voor uw organisatie in plaats van een persoonlijk account.
 

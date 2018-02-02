@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub quota's en beperking
 
 ## <a name="quotas-and-throttling"></a>Quota en beperkingen
 Elk Azure-abonnement kan maximaal 10 IoT hubs en maximaal 1 gratis hub hebben.
 
-Elke IoT-hub is ingericht met een bepaald aantal eenheden in een specifieke SKU (Zie voor meer informatie [prijzen van Azure IoT Hub][lnk-pricing]). De SKU en het aantal eenheden bepalen het dagelijkse maximumquotum van berichten die u kunt verzenden.
+Elke IoT-hub is ingericht met een bepaald aantal eenheden in een specifieke SKU. Zie voor meer informatie [prijzen van Azure IoT Hub][lnk-pricing]. De SKU en het aantal eenheden bepalen het dagelijkse maximumquotum van berichten die u kunt verzenden.
 
 De SKU bepaalt ook de bandbreedteregeling beperkingen die IoT Hub worden afgedwongen voor alle bewerkingen.
 
 ## <a name="operation-throttles"></a>Bewerking vertragingen
-Bewerking vertragingen zijn snelheid beperkingen die zijn toegepast in de minuut bereiken en zijn bedoeld om te voorkomen dat misbruik. IoT Hub wordt geprobeerd om te voorkomen dat er fouten indien mogelijk wordt geretourneerd, maar deze wordt gestart uitzonderingen retourneren als de beperking wordt geschonden te lang.
+Bewerking vertragingen zijn snelheid beperkingen die zijn toegepast in minuut bereiken en zijn bedoeld om te voorkomen dat misbruik. IoT Hub wordt geprobeerd om te voorkomen dat er fouten indien mogelijk wordt geretourneerd, maar begint uitzonderingen retourneren als de beperking wordt geschonden te lang.
 
 De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een afzonderlijke hub.
 
@@ -50,15 +50,16 @@ De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een 
 
 <sup>1</sup>beperking van de grootte van de meter is 8 KB
 
-Het is belangrijk om te verduidelijken dat de *apparaatverbindingen* versnelling bepaalt de snelheid waarmee nieuwe apparaatverbindingen worden met een IoT-hub gemaakt kunnen. De *apparaatverbindingen* versnelling heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De beperking, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT-hub.
+> [!IMPORTANT]
+> De *apparaatverbindingen* versnelling bepaalt de snelheid waarmee nieuwe apparaatverbindingen worden met een IoT-hub gemaakt kunnen. De *apparaatverbindingen* versnelling heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De beperking, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT-hub.
 
 Als u één eenheid S1 koopt, krijgt u bijvoorbeeld een vertraging van 100 verbindingen per seconde. Daarom voor 100.000 apparaten verbinding, duurt het minimaal 1000 seconden (ongeveer 16 minuten). U kunt echter zo veel gelijktijdig verbonden apparaten als er apparaten zijn geregistreerd in het identiteitenregister hebben.
 
 Voor een gedetailleerdere beschrijving van IoT Hub beperking gedrag, Zie het blogbericht [IoT-Hub bandbreedtebeperking en u][lnk-throttle-blog].
 
 > [!NOTE]
-> Op elk gewenst is het mogelijk om te quota's of versnelling limieten verhogen door het aantal ingerichte eenheden van IoT-hub te verhogen.
-> 
+> Op elk gewenst kunt u quota's of versnelling limieten verhogen door het aantal ingerichte eenheden van IoT-hub te verhogen.
+
 > [!IMPORTANT]
 > Bewerkingen in het systeemregister identiteit zijn bedoeld voor gebruik tijdens runtime in Apparaatbeheer en inrichting van scenario's. Lezen of bijwerken van een groot aantal apparaat-id's wordt ondersteund door [importeren en exporteren van taken][lnk-importexport].
 > 
@@ -77,7 +78,7 @@ IoT Hub worden afgedwongen andere operationele beperkingen:
 | Apparaat-naar-cloud-berichten | Maximale berichtgrootte van 256 KB |
 | Messaging-cloud-naar-apparaat | Maximale berichtgrootte van 64 KB |
 | Messaging-cloud-naar-apparaat | Maximaal aantal berichten voor de levering van in behandeling is 50 |
-| Directe methode | Directe methode maximale nettolading is 128KB |
+| Directe methode | Directe methode maximale nettolading is 128 KB |
 
 > [!NOTE]
 > Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is momenteel 500.000. Als u deze limiet verhogen wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).

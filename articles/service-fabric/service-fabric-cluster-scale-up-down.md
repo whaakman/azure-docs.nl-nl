@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Schalen van een Service Fabric-cluster in- of met regels voor automatisch schalen
 Virtuele-machineschaalsets zijn een Azure compute resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of uit onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Lees meer over in de [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Omdat de typen van de Service Fabric-knooppunt in het cluster zijn gemaakt van de virtuele-machineschaalsets op de back-end, moet u regels voor elk knooppunt type/virtuele-machineschaalset automatisch schalen instellen.
@@ -91,7 +91,7 @@ In dat geval moet u het uitvoeren van de volgende stappen uit één VM-instantie
 4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Gedrag kunnen zich in Service Fabric Explorer
-Wanneer u een cluster opschalen heeft de Service Fabric Explorer geeft het aantal knooppunten (virtuele-machineschaalset exemplaren) die deel van het cluster uitmaken.  Wanneer u schaalt een cluster omlaag u wordt echter wel het verwijderde knooppunt/VM-exemplaar in een slechte status weergegeven, tenzij u aanroepen [verwijderen ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) met de naam van het juiste knooppunt.   
+Wanneer u een cluster opschalen heeft de Service Fabric Explorer geeft het aantal knooppunten (virtuele-machineschaalset exemplaren) die deel van het cluster uitmaken.  Wanneer u schaalt een cluster omlaag u wordt echter wel het verwijderde knooppunt/VM-exemplaar in een slechte status weergegeven, tenzij u aanroepen [verwijderen ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) met de naam van het juiste knooppunt.   
 
 Hier is de uitleg van dit probleem.
 

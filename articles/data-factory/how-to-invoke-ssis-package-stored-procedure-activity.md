@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
 In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen procedure aanroepen. 
@@ -31,7 +31,7 @@ In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-p
 De procedures in dit artikel maakt gebruik van een Azure SQL-database die als host fungeert voor de SSIS-catalogus. U kunt ook een Azure SQL beheerd-exemplaar (afgeschermd voorbeeld).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Een Azure SSIS Integration Runtime maken
-Een Azure-SSIS-integratie runtime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren SSIS-pakketten](tutorial-deploy-ssis-packages-azure.md).
+Een Azure-SSIS-integratie runtime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren SSIS-pakketten](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Data Factory-gebruikersinterface (Azure-portal)
 In deze sectie kunt u Data Factory-gebruikersinterface gebruiken voor het maken van een Data Factory-pijplijn met een opgeslagen procedure-activiteit die wordt aangeroepen SSIS-pakket.
@@ -43,11 +43,11 @@ Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal.
 2. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. In de **nieuwe gegevensfactory** pagina **ADFTutorialDataFactory** voor de **naam**. 
+2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
-     ![Nieuwe data factory-pagina](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u de volgende fout voor het naamveld ziet, moet u de naam van de gegevensfactory (naar bijvoorbeeld Uwnaamadftutorialdatafactory) wijzigen. Zie [Data Factory - naamgevingsregels](naming-rules.md) artikel voor naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie het artikel [Data Factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
      ![Naam niet beschikbaar - fout](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -58,30 +58,30 @@ Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal.
          
     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V2 (Preview)** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Alleen de locaties die worden ondersteund door de Data Factory worden weergegeven in de vervolgkeuzelijst. De gegevens worden opgeslagen (Azure Storage, Azure SQL Database, etc.) en berekeningen (HDInsight, enzovoort) dat wordt gebruikt door data factory kunnen op andere locaties.
+5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst ziet u alleen locaties die worden ondersteund in Data Factory. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich op andere locaties bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Nadat het maken voltooid is, ziet u de **Data Factory** pagina zoals in de afbeelding.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
     ![Startpagina van de gegevensfactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
-10. Klik op **auteur & Monitor** tegel om de toepassing Azure Data Factory gebruiker gebruikersinterface (UI) op een afzonderlijke tabblad te starten. 
+10. Klik op de tegel **Maken en controleren** om de gebruikersinterface (UI) van Azure Data Factory te openen op een afzonderlijk tabblad. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Een pijplijn maken met de activiteit opgeslagen procedure
 In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van een pijplijn. U een opgeslagen procedure-activiteit toevoegen aan de pijplijn en configureren voor het uitvoeren van SSIS-pakket met behulp van de sp_executesql opgeslagen procedure. 
 
 1. Klik in de pagina aan de slag, **maken pijplijn**: 
 
-    ![Gestarte pagina ophalen](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+    ![Pagina Aan de slag](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. In de **activiteiten** werkset Vouw **SQL-Database**, en slepen en neerzetten **opgeslagen Procedure** activiteit aan de pijplijn desginer oppervlak. 
 
     ![De activiteit opgeslagen procedure slepen en neerzetten](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. In het eigenschappenvenster voor de activiteit opgeslagen procedure overschakelen naar de **-Account voor SQL** tabblad en klik op **+ nieuw**. U maken een verbinding met de Azure SQL database die als host fungeert voor de catalogus SSIS (SSIDB database). 
    
-    ![Knop Nieuw gekoppelde service](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. In de **nieuwe gekoppelde Service** venster de volgende stappen uit te voeren: 
+    ![Knop Nieuwe gekoppelde service](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
+4. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
 
     1. Selecteer **Azure SQL Database** voor **Type**.
     2. Selecteer uw Azure SQL-server die als host fungeert voor de SSISDB-database voor de **servernaam** veld.
@@ -107,7 +107,7 @@ In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van e
         ```
 
         ![Een gekoppelde Azure SQL Database-service](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Voor het valideren van de configuratie van de pipeline, klikt u op **valideren** op de werkbalk. Sluit de **pijplijn validatierapport**, klikt u op  **>>** .
+6. Voor het valideren van de configuratie van de pipeline, klikt u op **valideren** op de werkbalk. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken.
 
     ![Pijplijn valideren](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. De pijplijn publiceren naar Data Factory door te klikken op **Alles publiceren** knop. 
@@ -120,10 +120,10 @@ In deze sectie een pijplijn run activeren en deze vervolgens te controleren.
 1. Als u wilt activeren van een pijplijn die worden uitgevoerd, klikt u op **Trigger** op de werkbalk en klikt u op **nu starten**. 
 
     ![Nu activeren](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Overschakelen naar de **Monitor** tabblad aan de linkerkant. U ziet de pijplijn uitvoeren en de status ervan samen met andere informatie (zoals tijd uitvoeren starten). Als u wilt de weergave vernieuwen, klikt u op **vernieuwen**.
+2. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet de pijplijn uitvoeren en de status ervan samen met andere informatie (zoals tijd uitvoeren starten). Als u de lijst wilt vernieuwen, klikt u op **Vernieuwen**.
 
     ![Pijplijnuitvoeringen](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
-3. Klik op **weergave activiteiten bij uitvoering** koppelen de **acties** kolom. Er is slechts één activiteit die wordt uitgevoerd als de pijplijn slechts één activiteit (opgeslagen procedure heeft).
+3. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. Er is slechts één activiteit die wordt uitgevoerd als de pijplijn slechts één activiteit (opgeslagen procedure heeft).
 
     ![Activiteiten bij uitvoering](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4. Klik kunt u het volgende uitvoeren **query** tegen de SSISDB-database in uw Azure SQL-server om te controleren of het pakket uitgevoerd. 
 

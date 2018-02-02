@@ -2,22 +2,20 @@
 title: Stack datacenter integratie van Azure - DNS-
 description: Meer informatie over het Azure-Stack DNS integreren in uw datacenter DNS
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Stack datacenter integratie van Azure - DNS-
-
-*Van toepassing op: Azure Stack geïntegreerd systemen*
-
 Voor toegang tot Azure-Stack-eindpunten kunnen (`portal`, `adminportal`, `management`, `adminmanagement`, enz.)  u moet de DNS-Stack van Azure-services integreren met de DNS-servers die als host fungeren van de DNS-zones die u wilt gebruiken in Azure-Stack uit externe Azure-Stack.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure-Stack DNS-naamruimte
@@ -140,4 +138,4 @@ De meeste DNS-registrars moeten u minimaal twee DNS-servers voor het voltooien v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Stack datacenter integratie van Azure - identiteit](azure-stack-integrate-identity.md)
+[Firewall-integratie](azure-stack-firewall.md)

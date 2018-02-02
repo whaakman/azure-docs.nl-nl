@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Overzicht van de rapportage-API's voor Enterprise-klanten
 De rapportage-API's kunnen klanten Azure Enterprise programmatisch gebruiks- en factureringsgegevens ophalen in de gewenste hulpprogramma's voor gegevensanalyse. 
@@ -43,6 +43,9 @@ Een Swagger-eindpunt is beschikbaar [hier](https://consumption.azure.com/swagger
 
 * **Prijslijst** : de [Price Sheet API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) het tarief voor elke Meter biedt voor de opgegeven registratie en facturering periode. 
 
+## <a name="data-freshness"></a>Nieuwheid van gegevens
+Etags geretourneerd in het antwoord van de bovenstaande API. Een wijziging in de Etag Hiermee geeft u dat de gegevens zijn vernieuwd.  In de volgende aanroepen naar de dezelfde API met de parameters die de vastgelegde Etag worden doorgegeven met de sleutel 'If-None-Match' in de kop van http-aanvraag. De statuscode van antwoord zou 'NotModified' zijn als de gegevens niet verdere is vernieuwd en worden er geen gegevens geretourneerd. API wordt de volledige gegevensset geretourneerd voor de vereiste periode wanneer er een wijziging in de etag.
+
 ## <a name="helper-apis"></a>Helper-API 's
  **Lijst van facturering perioden** : de [facturering perioden API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) retourneert een lijst met facturering perioden met gegevens over het verbruik voor de opgegeven registratie in omgekeerde volgorde. Elke categorie bevat een eigenschap die verwijst naar de API-route voor de vier gegevenssets - BalanceSummary, UsageDetails Marketplace-kosten en prijslijst.
 
@@ -50,11 +53,11 @@ Een Swagger-eindpunt is beschikbaar [hier](https://consumption.azure.com/swagger
 ## <a name="api-response-codes"></a>API-reactiecodes  
 |Statuscode van antwoord|Bericht|Beschrijving|
 |-|-|-|
-|200| OK|Er is geen fout|
+|200| OK|Geen fout|
 |401| Niet geautoriseerd| API-sleutel niet wordt gevonden, ongeldig, verlopen enzovoort.|
 |404| Niet beschikbaar| Rapport eindpunt is niet gevonden|
-|400| Onjuiste aanvraag| Ongeldige parameters: datumbereiken, EA nummers, enz.|
-|500| Server-fout| Fout bij verwerking van aanvraag Unexoected| 
+|400| Ongeldig verzoek| Ongeldige parameters: datumbereiken, EA nummers, enz.|
+|500| Serverfout| Fout bij verwerking van aanvraag Unexoected| 
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 66b4f068189fd17f08a6a57ed44233c04c16fff7
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
 In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen procedure aanroepen. 
@@ -31,7 +31,7 @@ In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-p
 De procedures in dit artikel maakt gebruik van een Azure SQL-database die als host fungeert voor de SSIS-catalogus. U kunt ook een Azure SQL beheerd-exemplaar (afgeschermd voorbeeld).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Een Azure SSIS Integration Runtime maken
-Een Azure-SSIS-integratie runtime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren SSIS-pakketten](../tutorial-deploy-ssis-packages-azure.md). U moet een gegevensfactory van versie 2 voor het maken van een Azure-SSIS-integratie runtime maken. 
+Een Azure-SSIS-integratie runtime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren SSIS-pakketten](../tutorial-create-azure-ssis-runtime-portal.md). U moet een gegevensfactory van versie 2 voor het maken van een Azure-SSIS-integratie runtime maken. 
 
 ## <a name="azure-portal"></a>Azure Portal
 In deze sectie kunt u de Azure portal gebruiken voor het maken van een Data Factory-pijplijn met een opgeslagen procedure-activiteit die wordt aangeroepen SSIS-pakket.
@@ -43,11 +43,11 @@ Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal.
 2. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. In de **nieuwe gegevensfactory** pagina **ADFTutorialDataFactory** voor de **naam**. 
+2. Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in als **naam**. 
       
-     ![Nieuwe data factory-pagina](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![De pagina Nieuwe data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u de volgende fout voor het naamveld ziet, moet u de naam van de gegevensfactory (naar bijvoorbeeld Uwnaamadftutorialdatafactory) wijzigen. Zie [Data Factory - naamgevingsregels](data-factory-naming-rules.md) artikel voor naamgevingsregels voor Data Factory-artefacten.
+   De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als het volgende foutbericht wordt weergegeven voor het naamveld, wijzigt u de naam van de data factory (bijvoorbeeld uwnaamADFTutorialDataFactory). Zie het artikel [Data factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 
     `Data factory name ADFTutorialDataFactory is not available`
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
@@ -58,13 +58,13 @@ Eerste stap is het maken van een gegevensfactory met behulp van de Azure-portal.
          
     Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
 4. Selecteer **V1** voor de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Alleen de locaties die worden ondersteund door de Data Factory worden weergegeven in de vervolgkeuzelijst. De gegevens worden opgeslagen (Azure Storage, Azure SQL Database, etc.) en berekeningen (HDInsight, enzovoort) dat wordt gebruikt door data factory kunnen op andere locaties.
+5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst ziet u alleen locaties die worden ondersteund in Data Factory. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich op andere locaties bevinden.
 6. Selecteer **Vastmaken aan dashboard**.     
 7. Klik op **Create**.
 8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Nadat het maken voltooid is, ziet u de **Data Factory** pagina zoals in de afbeelding.
+9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
     ![Startpagina van de gegevensfactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klik op **auteur en implementeren van** tegel starten van de Data Factory-Editor.

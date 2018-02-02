@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeren van uw toepassing op virtuele-machineschaalsets
 Om toepassingen op de virtuele machine (VM)-exemplaren in een schaalset uitvoeren, moet u eerst de toepassingsonderdelen en de vereiste bestanden wilt installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor de instanties in een schaal ingesteld of installatiescripts automatisch wordt uitgevoerd op een bestaande VM-exemplaren. U leert ook hoe voor het beheren van de toepassing of updates voor het besturingssysteem op een scale-set.
@@ -43,11 +43,11 @@ Als u het beheer van de configuratie en de tijd voor het inrichten van een virtu
 
 
 ## <a name="already-provisioned"></a>Een app installeren met de extensie voor aangepaste scripts
-De aangepaste Scriptextensie downloads en scripts worden uitgevoerd op Azure Virtual machines. Deze uitbreiding is nuttig voor post-implementatieconfiguratie, software-installatie of een andere configuratie / beheertaak. Scripts kunnen worden gedownload van Azure storage of GitHub, of naar de Azure portal tijdens runtime extensie.
+De aangepaste Scriptextensie downloads en scripts worden uitgevoerd op Azure Virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies.
 
 De aangepaste scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen en kan ook worden uitgevoerd met de Azure CLI, PowerShell, Azure-portal of de REST-API van Azure virtuele Machine. 
 
-Zie voor meer informatie de [overzicht van de aangepaste Scriptextensie](../virtual-machines/windows/extensions-customscript.md).
+Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/windows/extensions-customscript.md).
 
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
@@ -94,7 +94,7 @@ Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplar
 ### <a name="use-azure-cli-20"></a>Azure CLI 2.0 gebruiken
 Als u wilt de aangepaste Scriptextensie met de Azure CLI gebruiken, moet u een JSON-bestand dat definieert welke bestanden verkrijgen en de opdrachten uit te voeren maken. Deze JSON-definities kunnen opnieuw worden gebruikt met scale set implementaties om toe te passen consistente toepassing wordt geïnstalleerd.
 
-Maak een bestand met de naam in uw huidige shell *customConfig.json* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloudConfig.json` voor het maken van het bestand en een overzicht van beschikbare editors.
+Maak een bestand met de naam in uw huidige shell *customConfig.json* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud Shell, niet op uw lokale computer. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloudConfig.json` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien.
 
 ```json
 {
@@ -103,7 +103,7 @@ Maak een bestand met de naam in uw huidige shell *customConfig.json* en plak de 
 }
 ```
 
-De configuratie van de aangepaste Scriptextensie toepassen op de VM-exemplaren in uw instellen met schaal [az vmss extensie set](/cli/azure/vmss/extension#set). Het volgende voorbeeld wordt de *customConfig.json* configuratie van de *myScaleSet* VM-exemplaren in de resourcegroep met de naam *myResourceGroup*. Voer uw eigen namen:
+De configuratie van de aangepaste Scriptextensie toepassen op de VM-exemplaren in uw instellen met schaal [az vmss extensie set](/cli/azure/vmss/extension#az_vmss_extension_set). Het volgende voorbeeld wordt de *customConfig.json* configuratie van de *myScaleSet* VM-exemplaren in de resourcegroep met de naam *myResourceGroup*. Voer uw eigen namen:
 
 ```azurecli
 az vmss extension set \
@@ -166,13 +166,13 @@ Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplar
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Een app installeren voor een Linux-VM met cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io/latest/) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud-init wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of agents vereist om uw configuratie toe te passen.
 
 Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
 
 Voor meer informatie, waaronder een voorbeeld *cloud init.txt* bestand, Zie [cloud init gebruiken voor het aanpassen van Azure Virtual machines](../virtual-machines/linux/using-cloud-init.md).
 
-Toevoegen als u wilt een schaalset maken en gebruiken van een cloud-init-bestand, de `--custom-data` -parameter voor de [az vmss maken](/cli/azure/vmss#create) opdracht in en geef de naam van een cloud-init-bestand. Het volgende voorbeeld wordt een set met de naam scale *myScaleSet* in *myResourceGroup* en VM-instanties configureert met een bestand met de naam *cloud init.txt*. Voer uw eigen namen:
+Toevoegen als u wilt een schaalset maken en gebruiken van een cloud-init-bestand, de `--custom-data` -parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht in en geef de naam van een cloud-init-bestand. Het volgende voorbeeld wordt een set met de naam scale *myScaleSet* in *myResourceGroup* en VM-instanties configureert met een bestand met de naam *cloud init.txt*. Voer uw eigen namen:
 
 ```azurecli
 az vmss create \

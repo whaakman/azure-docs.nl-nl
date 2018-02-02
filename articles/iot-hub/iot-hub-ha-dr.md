@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
 Een Azure-service biedt IoT Hub redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing met hoge beschikbaarheid (HA). Het Microsoft Azure-platform omvat ook functies waarmee u oplossingen bouwen met herstelfuncties van noodherstel (DR) of de regio-overschrijdende beschikbaarheid. Als u wilt bieden globale, hoge beschikbaarheid van de regio-overschrijdende voor apparaten of gebruikers profiteren van deze Azure DR-functies. Het artikel [Azure zakelijke continuïteit technische richtlijnen](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en Noodherstel. De [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] [ Disaster recovery and high availability for Azure applications] papier biedt architectuurrichtlijnen op strategieën voor het Azure-toepassingen om HA en Noodherstel te bereiken.
 
-## <a name="azure-iot-hub-dr"></a>Azure IoT-Hub DR
+## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
 IoT Hub implementeert naast intra-regio HA, failover-mechanismen voor herstel na noodgevallen waarvoor geen tussenkomst van de gebruiker. IoT Hub DR automatisch wordt gestart en heeft een beoogde hersteltijd (RTO) van 2-26 uur en de volgende herstelpuntdoelen (RPO's):
 
 | Functionaliteit | RPO |
@@ -34,6 +34,8 @@ IoT Hub implementeert naast intra-regio HA, failover-mechanismen voor herstel na
 | Bewerkingen berichten controleren |Alle ongelezen berichten gaan verloren |
 | Cloud-naar-apparaat-berichten |0-5 minuten gegevensverlies |
 | Cloud-naar-apparaat feedbackwachtrij |Alle ongelezen berichten gaan verloren |
+| Apparaatgegevens twin |0-5 minuten gegevensverlies |
+| Taken met bovenliggende en apparaat |0-5 minuten gegevensverlies |
 
 ## <a name="regional-failover-with-iot-hub"></a>Regionale failover met IoT Hub
 Een volledige behandeling van implementatietopologieën in IoT-oplossingen is buiten het bereik van dit artikel. Het artikel behandelt de *regionale failover* implementatiemodel omwille van de hoge beschikbaarheid en herstel na noodgevallen.

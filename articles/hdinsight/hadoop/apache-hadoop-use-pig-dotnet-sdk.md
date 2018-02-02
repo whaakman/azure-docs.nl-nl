@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Pig-taken met de .NET SDK voor Hadoop in HDInsight uitvoeren
 
@@ -55,7 +55,7 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
    | Template | Console Application |
    | Naam | SubmitPigJob |
 
-3. Klik op **OK** om het project te maken.
+3. Klik op **OK** om het project aan te maken.
 
 4. Van de **extra** selecteert u **Library Package Manager** of **NuGet Package Manager**, en selecteer vervolgens **Package Manager Console**.
 
@@ -70,7 +70,7 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

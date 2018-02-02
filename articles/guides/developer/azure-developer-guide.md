@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -44,7 +44,7 @@ Nu bekijken we enkele van de specifieke services die we aanbevelen voor uw toepa
 
 Azure biedt dat verschillende cloud-gebaseerde compute aanbiedingen voor het uitvoeren van uw toepassing zodat u niet hoeft te hoeven maken over de details van de infrastructuur. U kunt eenvoudig omhoog schalen of uitschalen van uw resources wanneer het toepassingsgebruik van uw groeit.
 
-Azure biedt services die ondersteuning bieden voor uw toepassing ontwikkelen en hosten van behoeften. Azure biedt een infrastructuur-as-a-service (IaaS) zodat u volledige controle over het hosten van uw toepassing. Azure platform as a service (PaaS)-aanbiedingen bieden de volledig beheerde service in te schakelen van uw apps. Er is zelfs true zonder server die als host fungeert in Azure waarbij hoeft u uw code te schrijven.
+Azure biedt services die ondersteuning bieden voor uw toepassing ontwikkelen en hosten van behoeften. Azure biedt een infrastructuur als een Service (IaaS) zodat u volledige controle over het hosten van uw toepassing. Azure Platform als een Service (PaaS)-aanbiedingen bieden de volledig beheerde service in te schakelen van uw apps. Er is zelfs true zonder server die als host fungeert in Azure waarbij hoeft u uw code te schrijven.
 
 ![Azure-toepassing hosting-opties](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ U kunt uw bestaande toepassingen naar App Service migreren met behulp van de [on
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Als een infrastructure as a service (IaaS)-provider kunt Azure u op implementeren of migreren van uw toepassing op Windows of Linux-machines. Samen met Azure Virtual Network, virtuele Machines van Azure biedt ondersteuning voor de implementatie van Windows of Linux-machines naar Azure. Met virtuele machines hebt u volledige controle over de configuratie van de machine. Wanneer u virtuele machines, bent u verantwoordelijk voor alle software-installatie, configuratie, onderhoud en besturingssysteem patches server.
+Als een infrastructuur als een Service (IaaS)-provider kunt Azure u op implementeren of migreren van uw toepassing op Windows of Linux-machines. Samen met Azure Virtual Network, virtuele Machines van Azure biedt ondersteuning voor de implementatie van Windows of Linux-machines naar Azure. Met virtuele machines hebt u volledige controle over de configuratie van de machine. Wanneer u virtuele machines, bent u verantwoordelijk voor alle software-installatie, configuratie, onderhoud en besturingssysteem patches server.
 
 Vanwege de mate van controle die u met virtuele machines hebt, kunt u een breed scala aan server-werkbelasting uitvoeren op Azure die niet passen in een PaaS-model. Deze werkbelastingen behoren databaseservers, Windows Server Active Directory en Microsoft SharePoint. Zie voor meer informatie de documentatie van de virtuele Machines voor [Linux](/azure/virtual-machines/linux/) of [Windows](/azure/virtual-machines/windows/).
 
@@ -153,7 +153,7 @@ Azure biedt verschillende manieren voor gebruik van containers in uw toepassinge
 
     >**Aan de slag**: [gebruik van een aangepaste Docker-afbeelding voor App-Service op Linux](../../app-service/containers/quickstart-custom-docker-image.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Het is essentieel niet alleen weten wie uw toepassingen wordt gebruikt, maar ook om te voorkomen dat onbevoegde toegang tot uw resources. Azure biedt verschillende manieren om uw app-clients te verifiëren.
 

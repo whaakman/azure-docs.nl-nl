@@ -13,13 +13,16 @@ Table Storage omvat de volgende onderdelen:
 
 ![Diagram van onderdelen van Table Storage][Table1]
 
-* **URL-indeling:** voor tabellen in een account wordt code met de volgende adresindeling gebruikt:   
-  http://`<storage account>`.table.core.windows.net/`<table>`  
-  
+* **URL-indeling:** Azure Table Storage-accounts gebruiken deze indeling:`http://<storage account>.table.core.windows.net/<table>`
+
+  Azure Cosmos DB tabel API-accounts gebruiken deze indeling:`http://<storage account>.table.cosmosdb.azure.com/<table>`  
+
   U kunt rechtstreeks naar Azure-tabellen verwijzen met dit adres met het OData-protocol. Zie [OData.org][OData.org] voor meer informatie.
-* **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
-* **Tabel**: een tabel is een verzameling entiteiten. Met tabellen wordt geen schema voor entiteiten afgedwongen, wat betekent dat één tabel entiteiten kan bevatten die verschillende sets eigenschappen hebben. Het aantal tabellen dat een opslagaccount kan bevatten, wordt alleen beperkt door de capaciteitslimiet van het opslagaccount.
-* **Entiteit**: een entiteit is een set eigenschappen die vergelijkbaar is met een databaserij. Een entiteit kan maximaal 1 MB groot zijn.
+* **Accounts:** alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit. 
+
+    Alle toegang tot Azure Cosmos DB wordt gedaan door een tabel-API-account. Zie [een tabel-API-account maken](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) voor meer informatie het maken van een tabel-API-account.
+* **Tabel**: een tabel is een verzameling entiteiten. Met tabellen wordt geen schema voor entiteiten afgedwongen, wat betekent dat één tabel entiteiten kan bevatten die verschillende sets eigenschappen hebben.  
+* **Entiteit**: een entiteit is een set eigenschappen die vergelijkbaar is met een databaserij. Een entiteit in Azure Storage mag maximaal 1MB groot zijn. Een entiteit in Azure Cosmos DB kan maximaal 2MB groot zijn.
 * **Eigenschappen**: een eigenschap is een naamwaardepaar. Elke entiteit kan maximaal 252 eigenschappen voor het opslaan van gegevens bevatten. Elke entiteit heeft ook drie systeemeigenschappen waarmee een partitiesleutel, een rijsleutel en een timestamp worden opgegeven. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd en in atomische bewerkingen worden ingevoegd/bijgewerkt. De rijsleutel van een entiteit is de unieke id in een partitie.
 
 Zie [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Inzicht krijgen in het Table Service-gegevensmodel) voor meer informatie over de naamgeving van tabellen en eigenschappen.

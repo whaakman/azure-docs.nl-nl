@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 8f0bb2266cb3a8a869ad50c40a46eb82985d17ed
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure-Stack Public Key Infrastructure-certificaatvereisten
 Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern toegankelijke openbare IP-adressen die zijn toegewezen aan een klein aantal Stack Azure-services en mogelijk tenant-VM's. PKI-certificaten met de juiste DNS-namen voor deze eindpunten van de infrastructuur voor openbare Azure-Stack zijn vereist tijdens de implementatie van Azure-Stack. In dit artikel bevat informatie over:
@@ -91,8 +91,9 @@ De volgende tabel beschrijft de eindpunten en certificaten zijn vereist voor de 
 
 <sup>2</sup> A &#42;. App service.  *&lt;regio >.&lt; FQDN-naam >* jokerteken certificaat kan niet worden gebruikt in plaats van deze drie certificaten (api.appservice. *&lt;regio >. &lt;FQDN-naam >*, ftp.appservice. *&lt;regio >. &lt;FQDN-naam >*, en sso.appservice. *&lt;regio >. &lt;FQDN-naam >*. Het gebruik van afzonderlijke certificaten vereist Appservice expliciet voor deze eindpunten. 
 
+## <a name="learn-more"></a>Meer informatie
+Meer informatie over hoe [genereren van PKI-certificaten voor de implementatie van Azure-Stack](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[PKI-certificaten voor de implementatie van Azure-Stack genereren](azure-stack-get-pki-certs.md) 
-
+[Identiteitintegratie](azure-stack-integrate-identity.md)
 

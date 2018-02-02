@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Besturingselementen in Azure Active Directory voorwaardelijke toegang 
 
@@ -46,7 +46,7 @@ Er zijn twee typen besturingselementen:
 
 Dit onderwerp worden de verschillende besturingselementen die beschikbaar in voorwaardelijke toegang van Azure AD zijn. 
 
-## <a name="grant-controls"></a>Verleen besturingselementen
+## <a name="grant-controls"></a>Besturingselementen toekennen
 
 Met grant-besturingselementen, kunt u helemaal toegang blokkeren of toestaan van toegang met aanvullende vereisten als u selecteert de gewenste besturingselementen. Voor meerdere besturingselementen kunt u het volgende nodig:
 
@@ -107,7 +107,7 @@ Deze besturingselementen toestaan van het gebruik van bepaalde diensten externe 
 
 Biedt momenteel een compatibele service providers zijn onder andere:
 
-- Duo beveiliging
+- [Duo beveiliging](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -150,11 +150,11 @@ Een aangepast besturingselement bewerken, moet u het huidige besturingselement v
 
 ## <a name="session-controls"></a>Sessie-besturingselementen
 
-Sessie-besturingselementen inschakelen beperkte ervaring in een cloud-app. De sessie-besturingselementen worden afgedwongen door de cloud-apps en zijn gebaseerd op aanvullende informatie verstrekt door Azure AD naar de app over de sessie.
+Met de sessiebesturingselementen wordt de beperkte ervaring in een cloud-app ingeschakeld. De sessie-besturingselementen worden afgedwongen door de cloud-apps en zijn gebaseerd op aanvullende informatie verstrekt door Azure AD naar de app over de sessie.
 
 ![Besturingselement](./media/active-directory-conditional-access-controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Afgedwongen app-beperkingen gebruiken
+### <a name="use-app-enforced-restrictions"></a>Door apps gehandhaafde beperkingen gebruiken
 
 Dit besturingselement kunt u Azure AD de apparaatgegevens doorgeven aan de cloud-app vereisen. Dit helpt de cloud-app als de gebruiker afkomstig is van een compatibel apparaat of een domein zijn toegevoegd apparaat weten. Dit besturingselement momenteel wordt alleen ondersteund met SharePoint als de cloud-app. De apparaatgegevens SharePoint gebruikt om gebruikers een ervaring beperkt of volledig afhankelijk van de apparaatstatus.
 Zie voor meer informatie over het vereisen van beperkte toegang met SharePoint, [toegang beheren vanuit niet-beheerde apparaten](https://aka.ms/spolimitedaccessdocs).

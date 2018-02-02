@@ -1,0 +1,98 @@
+---
+title: Na de gebeurtenis naar aangepaste Azure gebeurtenis raster onderwerp
+description: Hierin wordt beschreven hoe u een gebeurtenis naar een aangepaste onderwerp posten voor Azure Event raster
+services: event-grid
+author: tfitzmac
+manager: timlt
+ms.service: event-grid
+ms.topic: article
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/01/2018
+---
+# <a name="post-to-custom-topic-for-azure-event-grid"></a>Voor Azure Event raster naar aangepaste onderwerp boeken
+
+Dit artikel wordt beschreven hoe u een gebeurtenis naar een aangepaste onderwerp boekt. De indeling van de post en gebeurtenis-gegevens worden weergegeven. De [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) alleen van toepassing op berichten die overeenkomen met de verwachte indeling.
+
+## <a name="endpoint"></a>Eindpunt
+
+Bij het verzenden van de HTTP POST naar een aangepaste onderwerp, gebruikt u de URI-notatie: `https://<topic-endpoint>?api-version=2018-01-01`.
+
+Een geldige URI is bijvoorbeeld: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
+
+Als u het eindpunt voor een aangepaste onderwerp met Azure CLI, gebruikt u:
+
+```azurecli-interactive
+az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "endpoint"
+```
+
+Als u het eindpunt voor een aangepaste onderwerp met Azure PowerShell, gebruikt u:
+
+```powershell
+(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+```
+
+## <a name="header"></a>Koptekst
+
+Opnemen in de aanvraag een headerwaarde met de naam `aeg-sas-key` die bevat een sleutel voor verificatie.
+
+Bijvoorbeeld, een geldige headerwaarde is `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`.
+
+Als u de sleutel voor een aangepaste onderwerp met Azure CLI, gebruikt u:
+
+```azurecli
+az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --query "key1"
+```
+
+Als u de sleutel voor een aangepaste onderwerp met PowerShell, gebruikt u:
+
+```powershell
+(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
+```
+
+## <a name="event-data"></a>Gebeurtenisgegevens
+
+Voor aangepaste onderwerpen bevat de gegevens op het hoogste niveau dezelfde velden als resource gedefinieerd gebeurtenissen (standaard). Een van deze eigenschappen is een gegevens-eigenschap met eigenschappen die uniek is voor het aangepaste onderwerp. Als gebeurtenisuitgever, moet u de eigenschappen voor dat gegevensobject bepalen. Gebruik het volgende schema:
+
+```json
+[
+  {
+    "id": string,    
+    "eventType": string,
+    "subject": string,
+    "eventTime": string-in-date-time-format,
+    "data":{
+      object-unique-to-each-publisher
+    },
+    "dataVersion": string
+  }
+]
+```
+
+Zie voor een beschrijving van deze eigenschappen [Azure gebeurtenis raster gebeurtenis schema](event-schema.md).
+
+Bijvoorbeeld, is een geldige gebeurtenisnaam gegevensschema:
+
+```json
+[{
+  "id": "1807",
+  "eventType": "recordInserted",
+  "subject": "myapp/vehicles/motorcycles",
+  "eventTime": "2017-08-10T21:03:07+00:00",
+  "data": {
+    "make": "Ducati",
+    "model": "Monster"
+  },
+  "dataVersion": "1.0"
+}]
+```
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Zie voor een inleiding tot routering aangepaste gebeurtenissen, [maken en route aangepaste gebeurtenissen met de Azure CLI en gebeurtenis raster](custom-event-quickstart.md) of [maken en route aangepaste gebeurtenissen met Azure PowerShell en gebeurtenis raster](custom-event-quickstart-powershell.md).
+* Zie voor meer informatie over de verificatiesleutel [gebeurtenis raster beveiligings- en verificatie](security-authentication.md).
+* Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).

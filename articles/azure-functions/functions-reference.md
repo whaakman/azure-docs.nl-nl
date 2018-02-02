@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 Specifieke functies delen in Azure Functions enkele core technische concepten en -onderdelen, ongeacht de taal of een binding die u gebruikt. Voordat u in het leren van gegevens die specifiek zijn voor een bepaalde taal of binding gaan, moet Lees dit overzicht die van toepassing op alle mappen.
@@ -53,9 +53,9 @@ De `bindings` eigenschap is waar u zowel triggers en bindingen configureren. Elk
 
 | Eigenschap | Waarden/typen | Opmerkingen |
 | --- | --- | --- |
-| `type` |Tekenreeks |Bindingstype. Bijvoorbeeld `queueTrigger`. |
+| `type` |tekenreeks |Bindingstype. Bijvoorbeeld `queueTrigger`. |
 | `direction` |'in', 'out' |Hiermee wordt aangegeven of de binding voor het ontvangen van gegevens in de functie of het verzenden van gegevens van de functie. |
-| `name` |Tekenreeks |De naam die wordt gebruikt voor de afhankelijke gegevens in de functie. Voor C# is dit de naam van een argument; voor JavaScript is de sleutel in een sleutel/waarde-lijst. |
+| `name` |tekenreeks |De naam die wordt gebruikt voor de afhankelijke gegevens in de functie. Voor C# is dit de naam van een argument; voor JavaScript is de sleutel in een sleutel/waarde-lijst. |
 
 ## <a name="function-app"></a>Functie-app
 Een functie-app bestaat uit een of meer afzonderlijke functies die samen worden beheerd door Azure App Service. Alle functies in een functie-app delen de dezelfde prijsstelling, continue implementatie en runtime-versie. Functies die zijn geschreven in meerdere talen kunnen alle dezelfde functie app delen. Een functie-app beschouwen als een manier om te organiseren en gezamenlijk beheren van uw functies. 
@@ -102,7 +102,7 @@ Wanneer meerdere activerende gebeurtenissen sneller plaatsvinden dan een functie
 
 ## <a name="functions-runtime-versioning"></a>Functies runtime versiebeheer
 
-U kunt configureren dat de versie van de functies runtime met behulp van de `FUNCTIONS_EXTENSION_VERSION` app-instelling. De waarde '~ 1' geeft bijvoorbeeld aan uw App in de functie wordt gebruik 1 als de primaire versie. Functie Apps zijn bijgewerkt naar elke nieuwe secundaire versie zodra ze worden vrijgegeven. Zie voor meer informatie, inclusief het weergeven van de exacte versie van uw app functie [hoe gericht op Azure Functions-runtime-versies](functions-versions.md).
+U kunt configureren dat de versie van de functies runtime met behulp van de `FUNCTIONS_EXTENSION_VERSION` app-instelling. De waarde '~ 1' geeft bijvoorbeeld aan uw App in de functie wordt gebruik 1 als de primaire versie. Functie Apps zijn bijgewerkt naar elke nieuwe secundaire versie zodra ze worden vrijgegeven. Zie voor meer informatie, inclusief het weergeven van de exacte versie van uw app functie [hoe gericht op Azure Functions-runtime-versies](set-runtime-version.md).
 
 ## <a name="repositories"></a>Opslagplaatsen
 De code voor Azure Functions is open source en opgeslagen in de GitHub-opslagplaatsen:

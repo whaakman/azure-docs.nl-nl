@@ -3,7 +3,7 @@ title: Opnieuw instellen van het wachtwoord of de configuratie van extern bureau
 description: Informatie over het opnieuw instellen van wachtwoord van een account of extern bureaublad-services op een Windows-VM met de Azure-portal of Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: 
-author: genlin
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: 555a9e44d1386e27dcb71b3826d162f2ea99f200
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d9ca3d393bd4544fb4efdbc779f139ca13d98bcd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Het opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord in een Windows-VM
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service (wordt niet ondersteund op Windows-domeincontrollers). U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Als u met behulp van PowerShell, controleert u of u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
@@ -82,8 +82,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" 
 > [!TIP]
 > Een virtuele machine kan slechts één virtuele machine toegang agent hebben op elk gewenst moment. De virtuele machine toegang heeft, Agenteigenschappen instellen de `-ForceRerun` optie kan worden gebruikt. Wanneer u `-ForceRerun`, zorg ervoor dat u dezelfde naam voor de virtuele machine toegang agent zoals gebruikt in alle vorige opdrachten gebruiken.
 
-Als u nog steeds kan niet extern verbinding met uw virtuele machine maakt, raadpleegt u extra stappen uitvoeren om bij de [problemen met extern bureaublad-verbindingen met een op basis van Windows Azure virtuele machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+Als u nog steeds kan niet extern verbinding met uw virtuele machine maakt, raadpleegt u extra stappen uitvoeren om bij de [problemen met extern bureaublad-verbindingen met een op basis van Windows Azure virtuele machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Als u verbinding met de Windows-domeincontroller verliest, moet u herstel een back-up van een domein-controller.
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u de uitbreiding van de toegang tot Azure VM reageert niet en kan het wachtwoord opnieuw instellen, kunt u [opnieuw instellen van het lokale Windows-wachtwoord offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Deze methode is een meer geavanceerde proces en moet u de virtuele harde schijf van de VM is problematisch verbinding met een andere virtuele machine. Volg de stappen beschreven in dit artikel eerst en probeert u alleen de methode offline wachtwoord opnieuw instellen als een laatste toevlucht.

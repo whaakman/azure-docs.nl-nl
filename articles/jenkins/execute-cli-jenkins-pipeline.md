@@ -15,17 +15,17 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en de Azure CLI
-Als u wilt een Java-web-app implementeren in Azure, kunt u Azure CLI in [Jenkins pijplijn](https://jenkins.io/doc/book/pipeline/). In deze zelfstudie maakt u een pijplijn CI/CD maken op een virtuele machine in Azure met inbegrip van hoe:
+Als u wilt een Java-web-app implementeren in Azure, kunt u Azure CLI in [Jenkins pijplijn](https://jenkins.io/doc/book/pipeline/). In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
 
 > [!div class="checklist"]
-> * Maak een VM Jenkins
+> * Een Jenkins-VM maken
 > * Jenkins configureren
 > * Een web-app maken in Azure
 > * Voorbereiden van een GitHub-opslagplaats
@@ -62,7 +62,7 @@ Een Azure-referentie is nodig voor het uitvoeren van Azure CLI.
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Een Azure App Service voor het implementeren van de Java-web-app maken
 
-Maken van een Azure App Service-abonnement met de **vrije** prijzen met behulp van laag de [az appservice-abonnement maken](/cli/azure/appservice/plan#create) CLI-opdracht. Het plan appservice definieert de fysieke resources gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een appservice-abonnement kunt u deze resources, zodat u kosten opslaan bij het hosten van meerdere apps delen. 
+Maken van een Azure App Service-abonnement met de **vrije** prijzen met behulp van laag de [az appservice-abonnement maken](/cli/azure/appservice/plan#az_appservice_plan_create) CLI-opdracht. Het plan appservice definieert de fysieke resources gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een appservice-abonnement kunt u deze resources, zodat u kosten opslaan bij het hosten van meerdere apps delen. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ Wanneer de definitie van de web-app klaar is, toont de Azure CLI informatie verg
 
 ### <a name="configure-java"></a>Java configureren 
 
-Instellen van de Java runtime-configuratie die uw app met moet de [az appservice web config update](/cli/azure/appservice/web/config#update) opdracht.
+Instellen van de Java runtime-configuratie die uw app met moet de [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update) opdracht.
 
 De volgende opdracht configureert u de web-app uit te voeren op een recente Java 8 JDK en [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -225,7 +225,7 @@ Een andere manier voor de implementatie, is het gebruik van Docker biedt onderst
 In deze zelfstudie maakt u een Jenkins pijplijn die de broncode in GitHub-repo-uitgecheckt geconfigureerd. Maven om samen te stellen van een war-bestand wordt uitgevoerd en vervolgens met behulp van Azure CLI implementeren in Azure App Service. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Maak een VM Jenkins
+> * Een Jenkins-VM maken
 > * Jenkins configureren
 > * Een web-app maken in Azure
 > * Voorbereiden van een GitHub-opslagplaats

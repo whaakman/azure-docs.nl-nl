@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -38,8 +38,6 @@ U wordt aangeraden deze te downloaden wanneer er updates voor de VM-extensies di
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [Toegang voor Linux VM](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Deze update downloaden op de in-box-versie van de VMAccess voor Linux-extensie. Dit is belangrijk als u wilt gebruiken, Debian virtuele Linux-machines.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup-extensie voor Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | De extensie van de back-up Acronis voor Microsoft Azure is onderdeel van de back-up Acronis-familie van data protection producten. | Internationale GmbH Acronis. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup-extensie voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | De extensie van de back-up Acronis voor Microsoft Azure is onderdeel van de back-up Acronis-familie van data protection producten. | Internationale GmbH Acronis. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro grondige Security-extensie voor Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro grondige Security-extensie voor Windows. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Installatiekopieën van virtuele machines van Microsoft en de Oplossingssjablonen
 
@@ -47,7 +45,7 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 
 |  | De itemnaam van het | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Bedrijfsniveau oplossingen die eenvoudig te implementeren, rendabele toepassing gericht en de gebruiker gericht. Deze installatiekopieën worden regelmatig bijgewerkt met de meest recente patches. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Bedrijfsniveau oplossingen die eenvoudig te implementeren, rendabele toepassing gericht en de gebruiker gericht. Deze installatiekopieën worden regelmatig bijgewerkt met de meest recente patches. <b>Belangrijke informatie: afbeeldingen gedownload voordat 18 januari 2018 moet worden verwijderd en door de meest recente versies vervangen.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Implementatie van extern bureaublad-Services (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Maak een eenvoudige implementatie van extern bureaublad-Services (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013-evaluatieversie op Windows Server 2012 Datacenter- en 2017 van Visual Studio community edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | SharePoint Server 2016 proefversie van Microsoft Windows Server 2016 datacentrum. | Microsoft |

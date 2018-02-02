@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de duurzame functies extensie en voorbeelden (Azure-functies)
 
@@ -123,7 +123,7 @@ Als u liever, kunt u de Azure-portal voor het ontwikkelen van duurzame functies.
 
 1. Maak een nieuwe functie-app op [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configureren van de functie app [versie 2.0 runtime](functions-versions.md).
+2. Configureren van de functie app [versie 2.0 runtime](set-runtime-version.md).
 
 3. Maak een nieuwe functie door te selecteren **'uw eigen aangepaste functie maken'.** .
 
@@ -173,7 +173,7 @@ Als u liever, kunt u de Azure-portal voor het ontwikkelen van duurzame functies.
         }
     ```
 
-Gefeliciteerd. Uw eerste functie duurzame is actief in Azure-Portal.
+Gefeliciteerd! Uw eerste functie duurzame is actief in Azure-Portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 

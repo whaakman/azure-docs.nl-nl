@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: c0f9d0e13cb159188bdaf2b915c1bf6de73be855
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-naar-apparaat communicatie richtlijnen
 IoT Hub biedt drie opties voor apparaat-apps om functionaliteit om een back-endserver voor apps weer te geven:
@@ -36,7 +36,7 @@ Hier volgt een gedetailleerde vergelijking van de verschillende communicatieopti
 | Duurzaamheid | Niet-verbonden apparaten geen contact wordt opgenomen. De back-end oplossing wordt gemeld dat het apparaat niet is verbonden. | Eigenschapswaarden worden bewaard in de apparaat-twin. Apparaat wordt lezen op de volgende opnieuw verbinding te maken. Eigenschapswaarden zijn worden opgehaald met de [IoT Hub-querytaal][lnk-query]. | Berichten worden behouden door de IoT Hub voor maximaal 48 uur. |
 | Doelen | Met behulp van één apparaat **deviceId**, of meerdere apparaten met behulp van [taken][lnk-jobs]. | Met behulp van één apparaat **deviceId**, of meerdere apparaten met behulp van [taken][lnk-jobs]. | Eén apparaat door **deviceId**. |
 | Grootte | Maximaal 8 KB aanvragen en antwoorden van 8 KB. | Maximum aantal gewenste grootte van de eigenschappen van 8 KB. | Berichten van maximaal 64 KB. |
-| Frequentie | Hoog. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Normaal. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Laag. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. |
+| Frequentie | Hoog. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Gemiddeld. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Laag. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. |
 | Protocol | Beschikbaar met MQTT of AMQP. | Beschikbaar met MQTT of AMQP. | Beschikbaar op alle protocollen. Apparaat moet controleren wanneer u HTTPS. |
 
 Meer informatie over het gebruik van directe methoden, eigenschappen van de gewenste en cloud-naar-apparaat-berichten in de volgende zelfstudies:

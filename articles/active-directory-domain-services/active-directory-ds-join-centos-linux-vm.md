@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux virtuele machine toevoegen aan een beheerd domein
 In dit artikel leest u hoe een CentOS Linux virtuele machine in Azure koppelen aan een beheerd domein van Azure AD Domain Services.
@@ -35,7 +35,7 @@ Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u h
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Een CentOS Linux-machine inrichten
 Een CentOS virtuele machine inrichten in Azure met behulp van een van de volgende methoden:
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
@@ -82,11 +82,11 @@ Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, de vo
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE]
-      > **Voor probleemoplossing:** als *realm detecteren* is niet gevonden uw beheerde domein:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+    > [!NOTE]
+    > **Voor probleemoplossing:** als *realm detecteren* is niet gevonden uw beheerde domein:  
+      * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).  
+      * Controleer of de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is. 
+      * Controleer als u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.  
       >
 
 2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH:

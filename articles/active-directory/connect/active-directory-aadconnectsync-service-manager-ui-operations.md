@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 309a4ca2d5ef929bb50ed899f24709c062d7db29
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Het tabblad Synchronisatie Service Manager-bewerkingen
 
@@ -34,7 +34,7 @@ De **Status** kolom is de belangrijkste informatie en ziet u het meest ernstige 
 
 | Status | Opmerking |
 | --- | --- |
-| Stop-* |De sessie kan niet worden voltooid. Bijvoorbeeld als het externe systeem is niet actief en kan geen verbinding worden gemaakt. |
+| Stop-\* |De sessie kan niet worden voltooid. Bijvoorbeeld als het externe systeem is niet actief en kan geen verbinding worden gemaakt. |
 | gestopt fout limiet |Er zijn meer dan 5000 fouten. De run is automatisch gestopt vanwege het grote aantal fouten. |
 | voltooide -\*-fouten |De uitvoering is voltooid, maar er zijn fouten (minder dan 5000) die moeten worden onderzocht. |
 | voltooide -\*-waarschuwingen |De uitvoering is voltooid, maar sommige gegevens is niet de verwachte status. Als u fouten hebt, klikt u vervolgens dit bericht is meestal slechts een symptoom zijn. Totdat u fouten hebt opgelost, moet u de waarschuwingen niet onderzoeken. |

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: e2d190dddc3b84eb07eaf2ffea1af48bba0ea13a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2dffd22ecfc0aaf6e338567d5cf107a2c07383
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="amqp-10-support-in-service-bus"></a>AMQP 1.0-ondersteuning in Service Bus
 De Azure Service Bus cloud-service en de on-premises [Service Bus voor Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) ondersteuning van de geavanceerde Message Queueing Protocol (AMQP) 1.0. AMQP kunt u cross-platform, hybride toepassingen met behulp van een open standaard protocol bouwen. U kunt opstellen toepassingen met behulp van de onderdelen die zijn gemaakt met behulp van verschillende talen en frameworks en die worden uitgevoerd op verschillende besturingssystemen worden uitgevoerd. Al deze onderdelen verbinding met Service Bus en naadloos maken kunnen uitwisselen gestructureerde business berichten efficiënt en volledig betrouwbaar.
@@ -47,7 +47,7 @@ AMQP 1.0 is in ontwikkeling sinds 2008 door een groep core van meer dan 20 bedri
 
 In oktober 2011 werd de projecten die aan een technische Comité binnen de organisatie voor de vooruitgang van gestructureerde gegevens Standards (OASIS) en de standaard OASIS AMQP 1.0 is overgegaan uitgebracht in oktober 2012. De volgende bedrijven hebben deelgenomen aan het technische Comité tijdens de ontwikkeling van de standaard:
 
-* **Technologieleveranciers**: Axway Software, Huawei technologieën, vorm Software, INETCO systemen, Kaazing, Microsoft, Mitre Corporation, Primeton technologieën, voortgang van de Software, Red Hat, SITA, Software AG, Solace systemen, VMware, WSO2, Zenika.
+* **Technology vendors**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **Gebruiker ondernemingen**: Bank-Amerika, tegoed Zwitserland, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
 Enkele van de vaak vermelde voordelen van open standaarden:
@@ -76,7 +76,7 @@ Op dit moment worden de volgende clientbibliotheken bekende werken met Service B
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .net Lite |
+| C# |AMQP .Net Lite |
 
 **Afbeelding 2: Tabel met AMQP 1.0-clientbibliotheken**
 

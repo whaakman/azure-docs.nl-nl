@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream de Azure Activity Log naar Event Hubs
 De [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie 'Exporteren' in de portal of doordat de Service Bus regel-Id in een logboek profiel via de Azure PowerShell-Cmdlets of Azure CLI.
@@ -35,16 +35,17 @@ U kunt het inschakelen van het activiteitenlogboek streaming via programmacode o
 De service bus of event hub-naamruimte heeft geen zich in hetzelfde abonnement als het abonnement dat Logboeken, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
 
 ### <a name="via-azure-portal"></a>Via de Azure-portal
-1. Navigeer naar de **activiteitenlogboek** blade via het menu aan de linkerkant van de portal.
+1. Navigeer naar de **activiteitenlogboek** blade via alle services zoeken aan de linkerkant van de portal.
    
-    ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Klik op de **exporteren** knop aan de bovenkant van de blade.
+    ![Navigeer naar activiteitenlogboek in portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Klik op de **exporteren** knop aan de bovenkant van de activiteit logboek blade.
    
-    ![Knop exporteren in de portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In de blade die wordt weergegeven, kunt u de regio's waarvoor u wilt stroom gebeurtenissen en de Service Bus-Namespace waarin u een Event Hub wordt gemaakt voor het streamen van deze gebeurtenissen wilt selecteren.
+    ![Knop exporteren in de portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. In de blade die wordt weergegeven, kunt u de regio's waarvoor u wilt stroom gebeurtenissen en de Service Bus-Namespace waarin u een Event Hub wordt gemaakt voor het streamen van deze gebeurtenissen wilt selecteren. Selecteer **alle regio's**.
    
-    ![Activiteitenlogboek blade exporteren](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Klik op **opslaan** deze instellingen op te slaan. De instellingen zijn onmiddellijk worden toegepast op uw abonnement.
+    ![Activiteitenlogboek blade exporteren](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+4. Klik op **opslaan** deze instellingen op te slaan. De instellingen zijn direct toegepast op uw abonnement.
+5. Als u meerdere abonnementen hebt, moet u deze bewerking en alle gegevens verzenden naar de dezelfde event hub.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
 Als een profiel voor een logboek al bestaat, moet u eerst dat profiel te verwijderen.
@@ -53,8 +54,10 @@ Als een profiel voor een logboek al bestaat, moet u eerst dat profiel te verwijd
 2. Als dit het geval is, gebruik `Remove-AzureRmLogProfile` om deze te verwijderen.
 3. Gebruik `Set-AzureRmLogProfile` om een profiel te maken:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 De regel-ID van Service Bus is een tekenreeks met deze indeling: {service bus resource ID} /authorizationrules/ {sleutelnaam}, bijvoorbeeld 
@@ -66,7 +69,7 @@ Als een profiel voor een logboek al bestaat, moet u eerst dat profiel te verwijd
 2. Als dit het geval is, gebruik `azure insights logprofile delete` om deze te verwijderen.
 3. Gebruik `azure insights logprofile add` om een profiel te maken:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

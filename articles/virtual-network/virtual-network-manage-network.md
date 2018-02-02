@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -36,7 +36,7 @@ In dit artikel wordt uitgelegd hoe maken, wijzigen en verwijderen van virtuele n
 
 Voordat u de taken die worden beschreven in dit artikel, moet u de volgende vereisten voldoen:
 
-- Als u geen ervaring met het werken met virtuele netwerken, raden wij aan u wordt aangeraden de oefening in [maken van uw eerste virtuele Azure-netwerk](virtual-network-get-started-vnet-subnet.md). In deze oefening kunt u vertrouwd raken met virtuele netwerken.
+- Als u geen ervaring met het werken met virtuele netwerken, raden wij aan u wordt aangeraden de oefening in [maken van uw eerste virtuele Azure-netwerk](quick-create-portal.md). In deze oefening kunt u vertrouwd raken met virtuele netwerken.
 - Bekijk voor meer informatie over limieten voor virtuele netwerken, [Azure limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Aanmelden bij de Azure-portal, Azure-opdrachtregelprogramma (Azure CLI) of Azure PowerShell met behulp van uw Azure-account. Als u geen Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u gebruiken van PowerShell-opdrachten wilt voor het voltooien van de taken die in dit artikel wordt beschreven, moet u eerst [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Zorg ervoor dat u de meest recente versie van de Azure PowerShell-cmdlets die is geïnstalleerd. Als u de help voor PowerShell-opdrachten in de voorbeelden, voer `get-help <command> -full`.
@@ -57,7 +57,7 @@ Een virtueel netwerk maken:
         - 255.255.255.255/32 (Broadcast)
         - 127.0.0.0/8 (Loopback)
         - 169.254.0.0/16 (Link-local)
-        - 168.63.129.16/32 (interne DNS)
+        - 168.63.129.16/32 (Internal DNS)
 
       Hoewel u slechts één adresruimte definiëren kunt wanneer u het virtuele netwerk maakt, kunt u meer adresruimten toevoegen nadat het virtuele netwerk is gemaakt. Zie voor meer informatie over het toevoegen van een adresruimte aan een bestaand virtueel netwerk, [toevoegen of verwijderen van een adresruimte](#add-address-spaces) in dit artikel.
 
@@ -81,8 +81,8 @@ Een virtueel netwerk maken:
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[AZ network vnet maken](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nieuwe-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Azure-CLI|[AZ network vnet maken](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Virtuele netwerken weergeven en instellingen
 
@@ -115,7 +115,7 @@ Virtuele netwerken en instellingen weergeven:
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[AZ network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Azure-CLI|[AZ network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -127,7 +127,7 @@ U kunt toevoegen en verwijderen van adresruimten voor virtueel netwerk. Een adre
 - 255.255.255.255/32 (Broadcast)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (interne DNS)
+- 168.63.129.16/32 (Internal DNS)
 
 Toevoegen of verwijderen van een adresruimte:
 
@@ -144,7 +144,7 @@ Toevoegen of verwijderen van een adresruimte:
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|Alleen Resource Manager|[AZ network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure-CLI|Alleen Resource Manager|[AZ network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Toevoegen, wijzigen of verwijderen van een DNS-server
@@ -169,7 +169,7 @@ Alle virtuele machines die zijn verbonden met het register van het virtuele netw
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[AZ network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure-CLI|[AZ network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Een virtueel netwerk verwijderen
@@ -188,13 +188,13 @@ U kunt een virtueel netwerk alleen verwijderen als er geen resources mee zijn ve
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|Azure CLI|[Azure network vnet verwijderen](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Azure-CLI|[Azure network vnet verwijderen](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een virtuele machine maken en vervolgens verbinding met een virtueel netwerk, [een virtueel netwerk maken en verbinding maken met virtuele machines](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Zie voor een virtuele machine maken en vervolgens verbinding met een virtueel netwerk, [een virtueel netwerk maken en verbinding maken met virtuele machines](quick-create-portal.md#create-virtual-machines).
 - Als u wilt filteren van netwerkverkeer tussen subnetten binnen een virtueel netwerk, Zie [netwerkbeveiligingsgroepen maken](virtual-networks-create-nsg-arm-pportal.md).
 - Zie to-peer-een virtueel netwerk met een ander virtueel netwerk, [peering van een virtueel netwerk maken](virtual-network-create-peering.md#portal).
 - Zie voor meer informatie over opties voor het verbinden van een virtueel netwerk met een on-premises netwerk, [over VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

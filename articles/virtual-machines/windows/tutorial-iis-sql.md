@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Installeer een SQL- &#92; IIS &#92;. NET-stack in Azure
 
@@ -32,7 +32,9 @@ In deze zelfstudie installeren we een SQL- &#92; IIS &#92;. NET stack met Azure 
 > * Een virtuele machine met SQL Server maken
 > * De uitbreiding voor de SQL Server installeren
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 5.1.1 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-iis-vm"></a>Een IIS-virtuele machine maken 
 
@@ -41,9 +43,10 @@ In dit voorbeeld gebruiken we de [nieuw AzVM](https://www.powershellgallery.com/
 Klik op de **probeert het** knop aan de rechterbovenhoek van het codeblok Cloud Shell in dit venster te starten. U wordt gevraagd referenties op te geven voor de virtuele machine op de opdrachtprompt.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Installatie van IIS en .NET framework met behulp van de extensie voor aangepaste scripts.
@@ -52,7 +55,7 @@ Installatie van IIS en .NET framework met behulp van de extensie voor aangepaste
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -60,7 +63,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -Location EastUS
 ```
 
-## <a name="azure-sql-vm"></a>Azure SQL-VM
+## <a name="azure-sql-vm"></a>Azure SQL VM
 
 We gebruiken een vooraf geconfigureerde Azure marketplace-installatiekopie van een SQL server de SQL-VM's te maken. We eerst de virtuele machine maken en de SQL Server-extensie wordt geïnstalleerd op de virtuele machine. 
 

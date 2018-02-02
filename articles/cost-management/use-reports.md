@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cost-management-reports"></a>Kosten-rapporten gebruiken
+# <a name="use-cost-management-reports"></a>Kostenbeheerrapporten gebruiken
 
 In dit artikel wordt beschreven hoe verschillende kostenbeheer rapporten gebruiken in de portal Cloudyn. De meeste Cloudyn rapporten zijn intuïtieve en een uniform uiterlijk hebben. Zie voor een overzicht over Cloudyn rapporten [Understanding kosten verbonden aan rapporten](understading-cost-reports.md). Het artikel beschrijft ook verschillende opties en de velden in de meeste rapporten gebruikt.
 
@@ -135,7 +135,7 @@ Hier volgt een voorbeeld van dezelfde gegevens in een tabel.
 
 
 
-### <a name="cost-over-time-report"></a>Rapport van de kosten gedurende een periode
+### <a name="cost-over-time-report"></a>Rapport met overuren
 
 Het rapport kosten gedurende een periode bevat uitgaven gedurende een bepaalde periode, zodat u kunt zien van trends en onregelmatigheden in uw implementatie detecteren. In wezen ziet u kosten verdeeld over een opgegeven periode. Het rapport bevat de medewerkers van uw belangrijkste kosten inclusief lopende kosten en eenmalige gereserveerde exemplaar kosten die worden besteed gedurende een geselecteerde periode. Beleid dat is ingesteld in kosten Manager 360° kunnen worden gebruikt in dit rapport.
 

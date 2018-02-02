@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Richtlijnen voor apparaat-naar-cloud-communicatie
 Bij het verzenden van informatie van de app voor het apparaat naar de oplossing voor back beschrijft-end, IoT-Hub de drie opties:
@@ -34,10 +34,10 @@ Hier volgt een gedetailleerde vergelijking van de verschillende communicatieopti
 | Scenario | Telemetrie tijdreeks en waarschuwingen. Bijvoorbeeld, 256 KB sensor gegevensbatches verzonden om de 5 minuten. | Beschikbare mogelijkheden en voorwaarden. Bijvoorbeeld, de huidige apparaat connectiviteitsmodus zoals Mobiel of Wi-Fi. Langlopende werkstromen, zoals configuratie en software-updates synchroniseren. | Media-bestanden. Grote (meestal gecomprimeerde) telemetrie batches. |
 | Opslaan en ophalen | Tijdelijk opgeslagen door de IoT Hub maximaal 7 dagen. Alleen opeenvolgende lezen. | In de apparaat-twin opgeslagen door de IoT Hub. Ophalen mogelijk gebruik van de [IoT Hub-querytaal][lnk-query]. | Opgeslagen in Azure Storage-account van gebruiker. |
 | Grootte | Maximaal 256 KB-berichten. | Maximum aantal gemelde eigenschappen grootte is 8 KB. | Maximale bestandsgrootte die wordt ondersteund door Azure Blob Storage. |
-| Frequentie | Hoog. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Normaal. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Laag. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. |
+| Frequentie | Hoog. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Gemiddeld. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Laag. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. |
 | Protocol | Beschikbaar op alle protocollen. | Beschikbaar met MQTT of AMQP. | Beschikbaar zijn wanneer u elk protocol voor, maar vereist HTTPS op het apparaat. |
 
-Het is mogelijk dat een toepassing, moeten zowel gegevens als een tijdreeks telemetrie verzenden of signaal en het beschikbaar maken in de apparaat-twin. In dit scenario kunt u een van de volgende opties kiezen:
+Een toepassing moet mogelijk voor het verzenden van gegevens als een tijdreeks telemetrie of waarschuwing en het beschikbaar maken in de apparaat-twin. In dit scenario kunt u een van de volgende opties kiezen:
 
 * De app apparaat verzendt een bericht apparaat-naar-cloud en rapporten van een wijziging van de eigenschap.
 * De back-end oplossing kunt de gegevens opslaan in de apparaat-twin labels wanneer het bericht wordt ontvangen.

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Netwerkverbinding
+# <a name="network-connectivity"></a>Netwerkverbinding
 Dit artikel bevat informatie over de infrastructuur Azure netwerkstack kunt u het beste Azure Stack integreren in uw bestaande netwerkomgeving bepalen. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Deze /24 (254 host IP van) netwerk is gebonden aan de Stack van Azure-regio (wor
 - **Interne virtuele IP-netwerk**. A/25 netwerk gereserveerd voor intern gebruik bestemde VIP's voor de software load balancer.
 
 ### <a name="azure-stack-infrastructure-network"></a>Netwerk van Azure Stack-infrastructuur
-Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen zodat ze kunnen communiceren en uitwisselen van gegevens onderling. Dit subnet routeerbare IP-adressen vereist, maar worden privé gehouden met de oplossing met behulp van toegangsbeheerlijsten (ACL's), dit wordt niet verwacht te routeren afgezien van de rand switches, met uitzondering van een zeer kleine bereik overeen in grootte met een/27 netwerk door enkele van deze gebruikt wanneer ze nodig toegang tot externe bronnen en/of de internet hebben-Services. 
+Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen zodat ze kunnen communiceren en uitwisselen van gegevens onderling. Dit subnet routeerbare IP-adressen vereist, maar worden privé gehouden met de oplossing met behulp van toegangsbeheerlijsten (ACL's). Er wordt niet verwacht te routeren afgezien van de rand switches, met uitzondering van een klein bereik overeen in grootte met een/27 netwerk door sommige van deze services worden gebruikt wanneer ze toegang tot externe bronnen en/of internet vereist. 
 
 ### <a name="public-infrastructure-network"></a>Infrastructuur voor openbare netwerk
-Dit/27 netwerk is het zeer kleine bereik van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk voor de Emergency Recovery-Console (ERCS) worden toegewezen, de ERCS VM is internettoegang vereist tijdens de registratie in Azure en moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
+Dit/27 netwerk is de kleine variëren van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk voor de Emergency Recovery-Console (ERCS) worden toegewezen, de ERCS VM is internettoegang vereist tijdens de registratie in Azure en moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
 
 ### <a name="public-vip-network"></a>Openbare VIP-netwerk
 Het openbare VIP-netwerk is toegewezen aan de netwerkcontroller in Azure-Stack. Het is niet een logisch netwerk op de switch. De SLB maakt gebruik van de groep met adressen en wijst/32 voor bedrijfstoepassingen huurder netwerken. Deze 32 IP-adressen zijn op de switch-routeringstabel geadverteerd als een beschikbare route via BGP. Dit netwerk bevat de externe toegankelijk of openbare IP-adressen. De infrastructuur van Azure-Stack maakt gebruik van ten minste 8 adressen van deze openbare VIP-netwerk terwijl de rest wordt gebruikt door de tenant-VM's. De netwerkgrootte op dit subnet kan variëren van een minimum van /26 (64-hosts) tot maximaal /22 (1022 hosts), is het raadzaam dat u van plan bent voor een/24 netwerk.
@@ -82,12 +82,7 @@ U moet Azure Stack services beschikbaar stellen aan gebruikers van buiten Azure-
 ### <a name="ports-and-urls"></a>Poorten en URL 's
 Om ervoor te Stack Azure-services (zoals de portals Azure Resource Manager, DNS, etc.) beschikbaar met externe netwerken, moet u binnenkomend verkeer op deze eindpunten toestaan voor specifieke URL's, poorten en protocollen.
  
-In een implementatie waarbij een transparentproxy uplinkpoortprofiel met een traditioneel proxyserver, moet u toestaan bepaalde poorten en URL's voor uitgaande communicatie. Deze omvatten poorten en URL's voor identiteit, marketplace syndication, patch en update, registratie en gebruiksgegevens.
-
-Zie voor meer informatie:
-- [Poorten voor inkomend verkeer en protocollen](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Uitgaande poorten en URL 's](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+In een implementatie waarbij een transparentproxy uplinks met een traditioneel proxyserver, moet u toestaan bepaalde poorten en URL's voor zowel [inkomende](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) en [uitgaande](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) communicatie. Deze omvatten poorten en URL's voor identiteit, marketplace syndication, patch en update, registratie en gebruiksgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure Stack rand connectiviteit](azure-stack-border-connectivity.md)
+[Border-connectiviteit](azure-stack-border-connectivity.md)

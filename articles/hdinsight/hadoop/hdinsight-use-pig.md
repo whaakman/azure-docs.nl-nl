@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f5b34c6610a1c07687f0681480f7422986d6f20
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ca68391db99d882887e41005928a30610c7cb930
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Pig gebruiken met Hadoop in HDInsight
 
-Informatie over het gebruik [Apache Pig](http://pig.apache.org/) met HDInsight...
+Informatie over het gebruik [Apache Pig](http://pig.apache.org/) met HDInsight.
 
 Pig is een platform voor het maken van programma's voor Hadoop met behulp van een procedurele taal bekend als *Pig Latin*. Pig vormt een alternatief voor Java voor het maken van *MapReduce* oplossingen en deze is opgenomen in Azure HDInsight. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop varkens kan worden gebruikt met HDInsight:
 
@@ -34,7 +34,6 @@ Pig is een platform voor het maken van programma's voor Hadoop met behulp van ee
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- of Windows |Windows (voor nu) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- of Windows |Windows |
-| [Extern bureaublad](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 en 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -101,10 +100,9 @@ HDInsight kunt Pig Latin taken uitvoeren met behulp van een aantal methoden. Geb
 | **Gebruik deze** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
+| [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- of Windows |Windows (voor nu) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- of Windows |Windows |
-| [Extern bureaublad](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 en 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -115,7 +113,7 @@ SQL Server Integration Services (SSIS) kunt u een Pig-taak uitvoert. Het Azure-f
 
 * [Azure HDInsight Pig-taak][pigtask]
 
-* [Azure abonnement Verbindingsbeheer][connectionmanager]
+* [Azure Subscription Connection Manager][connectionmanager]
 
 Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
 

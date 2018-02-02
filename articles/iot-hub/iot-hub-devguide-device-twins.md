@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaat horende in IoT-Hub
 
@@ -58,47 +58,49 @@ Een apparaat-twin is een JSON-document met:
 
 Het volgende voorbeeld ziet u een apparaat twin JSON-document:
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 In het hoofdobject het apparaat identiteitseigenschappen en containerobjecten voor `tags` en beide `reported` en `desired` eigenschappen. De `properties` container bevat sommige alleen-lezen-elementen (`$metadata`, `$etag`, en `$version`) dat wordt beschreven in de [twin Apparaatmetagegevens] [ lnk-twin-metadata] en [ Optimistische gelijktijdigheid] [ lnk-concurrency] secties.
 
@@ -112,26 +114,32 @@ In het vorige voorbeeld de apparaat-twin bevat een `batteryLevel` eigenschap die
 In het vorige voorbeeld de `telemetryConfig` apparaat twin gewenst en gemelde eigenschappen worden gebruikt door de back-end van de oplossing en de apparaat-app voor het synchroniseren van de telemetrie-configuratie voor dit apparaat. Bijvoorbeeld:
 
 1. De back-end oplossing stelt de gewenste eigenschap met de waarde van de gewenste configuratie. Dit is het gedeelte van het document met de gewenste eigenschap is ingesteld:
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. De apparaat-app ontvangt een melding van de wijziging onmiddellijk als verbonden of op de eerste opnieuw verbinding te maken. De apparaat-app vervolgens verslag uitbrengt de bijgewerkte configuratie (of een fout voorwaarde met behulp van de `status` eigenschap). Dit is het gedeelte van de gerapporteerde eigenschappen:
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. De back-end oplossing kunt volgen de resultaten van de configuratie-bewerking op veel apparaten door [opvragen] [ lnk-query] horende apparaten.
 
 > [!NOTE]
@@ -144,23 +152,26 @@ U kunt horende langlopende bewerkingen zoals firmware-updates te synchroniseren.
 ## <a name="back-end-operations"></a>Back-end-bewerkingen
 De back-end van de oplossing is van invloed op het apparaat twin met behulp van de volgende atomische bewerkingen, die toegankelijk is via HTTPS:
 
-* **Apparaat-twin ophalen met id**. Deze bewerking wordt het apparaat twin document, inclusief tags en eigenschappen van het gewenste en gerapporteerd.
+* **Apparaat-twin door-ID ophalen**. Deze bewerking wordt het apparaat twin document, inclusief tags en eigenschappen van het gewenste en gerapporteerd.
 * **Gedeeltelijk bijwerken apparaat twin**. Deze bewerking kunt de back-end oplossing gedeeltelijk de codes of de gewenste eigenschappen in een twin apparaat bijwerken. De gedeeltelijke update wordt uitgedrukt als een JSON-document dat wordt toegevoegd of updates van een eigenschap. Eigenschappen ingesteld op `null` worden verwijderd. Het volgende voorbeeld wordt een nieuwe gewenste eigenschap met de waarde `{"newProperty": "newValue"}`, overschrijft de bestaande waarde van `existingProperty` met `"otherNewValue"`, en verwijdert u `otherOldProperty`. Er zijn geen andere wijzigingen zijn aangebracht aan de bestaande gewenste eigenschappen of labels:
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **Gewenste eigenschappen vervangen**. Deze bewerking kunt u de back-end oplossing voor het volledig overschrijven alle bestaande gewenste eigenschappen en vervangen door een nieuwe JSON-document voor `properties/desired`.
 * **Vervang labels**. Deze bewerking kunt u de back-end oplossing voor het volledig overschrijven alle bestaande tags en vervangen door een nieuwe JSON-document voor `tags`.
-* **Dubbele meldingen ontvangen**. Deze bewerking kunt de back-end oplossing wilt worden gewaarschuwd als de twin is gewijzigd. Om dit te doen, moet uw IoT-oplossing het maken van een route en stelt u de gegevensbron op *twinChangeEvents*. Standaard geen twin meldingen worden verzonden, dat wil zeggen, geen dergelijke routes vooraf bestaan. Als de wijzigingssnelheid te hoog is, of om andere redenen als interne fouten, kan de IoT-Hub slechts één melding waarin alle wijzigingen verzenden. Dus als uw toepassing moet betrouwbare voor controle en logboekregistratie van alle tussenliggende statussen, nog steeds aanbevolen wordt dat u D2C berichten. Het meldingsbericht twin bevat eigenschappen en hoofdtekst.
+* **Dubbele meldingen ontvangen**. Deze bewerking kunt de back-end oplossing wilt worden gewaarschuwd als de twin is gewijzigd. Om dit te doen, moet uw IoT-oplossing het maken van een route en stelt u de gegevensbron op *twinChangeEvents*. Standaard geen twin meldingen worden verzonden, dat wil zeggen, geen dergelijke routes vooraf bestaan. Als de wijzigingssnelheid te hoog is, of om andere redenen als interne fouten, kan de IoT-Hub slechts één melding waarin alle wijzigingen verzenden. Als uw toepassing moet betrouwbare voor controle en logboekregistratie van alle tussenliggende statussen, moet u apparaat-naar-cloud-berichten. Het meldingsbericht twin bevat eigenschappen en hoofdtekst.
 
     - Eigenschappen
 
@@ -169,11 +180,11 @@ De back-end van de oplossing is van invloed op het apparaat twin met behulp van 
     $content-type | application/json |
     $iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
     $iothub-bericht-bron | twinChangeEvents |
-    $content-codering | UTF-8 |
+    $content-codering | utf-8 |
     deviceId | ID van het apparaat |
     hubName | Naam van de IoT-Hub |
     operationTimestamp | [ISO8601] tijdstempel van bewerking |
-    bericht-iothub-schema | deviceLifecycleNotification |
+    iothub-message-schema | deviceLifecycleNotification |
     opType | 'replaceTwin' of 'updateTwin' |
 
     Bericht Systeemeigenschappen worden voorafgegaan door de `'$'` symbool.
@@ -181,7 +192,8 @@ De back-end van de oplossing is van invloed op het apparaat twin met behulp van 
     - Hoofdtekst
         
     Deze sectie bevat alle twin wijzigingen in een JSON-indeling. Met het verschil dat deze alle twin secties kan bevatten, wordt dezelfde indeling als een patch: labels, properties.reported properties.desired en dat deze de elementen '$metadata bevat'. Bijvoorbeeld:
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ De back-end van de oplossing is van invloed op het apparaat twin met behulp van 
             }
         }
     }
-    ``` 
+    ```
 
 Ondersteuning voor alle voorgaande bewerkingen [optimistische gelijktijdigheid] [ lnk-concurrency] en vereisen de **ServiceConnect** toestemming hebben, zoals gedefinieerd in de [beveiliging] [ lnk-security] artikel.
- 
+
 Naast deze bewerkingen kan de back-end oplossing:
 
 * De apparaat-horende met behulp van de SQL-achtige query [IoT Hub-querytaal][lnk-query].
@@ -225,23 +237,25 @@ Labels, gewenste eigenschappen en gerapporteerde eigenschappen zijn JSON-objecte
 * Alle waarden in de JSON-objecten van de volgende JSON-typen kunnen zijn: boolean, getal, string, object. Matrices zijn niet toegestaan. De maximale waarde voor de gehele getallen 4503599627370495 is en de minimale waarde voor gehele getallen-4503599627370496 is.
 * Alle JSON-objecten in tags, gewenste en gerapporteerde eigenschappen kunnen een maximale diepte van 5 hebben. De volgende object is bijvoorbeeld geldig:
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * Alle tekenreekswaarden mag maximaal 4 KB lang.
 
@@ -254,48 +268,50 @@ IoT Hub worden alle bewerkingen die u wilt de grootte van deze documenten boven 
 IoT Hub onderhoudt het tijdstempel van de laatste update voor elk JSON-object in de apparaat-twin gewenst en eigenschappen gerapporteerd. De tijdstempels in UTC en gecodeerd in de [ISO8601] indeling `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Bijvoorbeeld:
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 Deze informatie wordt opgeslagen op elk niveau (niet alleen de knooppunten van de JSON-structuur)-updates die objectsleutels verwijderen moet worden bewaard.
 
@@ -336,7 +352,7 @@ Nu hebt u geleerd over horende apparaat, hebt u mogelijk geïnteresseerd in de v
 * [Een directe methode aangeroepen voor een apparaat][lnk-methods]
 * [Taken plannen op meerdere apparaten][lnk-jobs]
 
-Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, kunt u mogelijk geïnteresseerd in de volgende zelfstudies met IoT Hub:
+Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zie de volgende zelfstudies met IoT Hub:
 
 * [Het gebruik van de apparaat-twin][lnk-twin-tutorial]
 * [Het gebruik van twin apparaateigenschappen][lnk-twin-properties]

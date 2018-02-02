@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: d4398d1c292548b08d91d70a8ba35b31234c5d5f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Voordat u Azure App Service op de Stack Azure implementeert, moet u voldoen aan de vereisten in dit artikel.
 
@@ -30,14 +31,14 @@ Voordat u Azure App Service op de Stack Azure implementeert, moet u voldoen aan 
 2. Download de [App-Service op Azure-Stack-installatieprogramma](https://aka.ms/appsvconmasinstaller).
 3. Pak de bestanden van het ZIP-bestand van de helper-scripts. De volgende bestanden en de mapstructuur worden weergegeven:
    - Common.ps1
-   - Maak AADIdentityApp.ps1
-   - Maak ADFSIdentityApp.ps1
-   - Maak AppServiceCerts.ps1
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
+   - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
-   - Verwijder AppService.ps1
+   - Remove-AppService.ps1
    - Modules
      - GraphAPI.psm1
-    
+
 ## <a name="prepare-for-high-availability"></a>Voorbereiden voor hoge beschikbaarheid
 
 Op Azure-Stack-Azure App Service kan niet op dit moment bieden voor hoge beschikbaarheid omdat Azure Stack werkbelastingen in slechts één domein met fouten implementeert.
@@ -54,9 +55,9 @@ Het eerste script werkt met de Azure-Stack-certificeringsinstantie vier certific
 | Bestandsnaam | Gebruiken |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | App Service standaard SSL-certificaat |
-| API.appservice.local.azurestack.external.pfx | App Service API SSL-certificaat |
-| FTP.appservice.local.azurestack.external.pfx | App Service publisher SSL-certificaat |
-| SSO.appservice.local.azurestack.external.pfx | App Service-identiteitscertificaat toepassing |
+| Api.appservice.local.azurestack.external.pfx | App Service API SSL-certificaat |
+| ftp.appservice.local.azurestack.external.pfx | App Service publisher SSL-certificaat |
+| Sso.appservice.local.azurestack.external.pfx | App Service-identiteitscertificaat toepassing |
 
 Het script uitvoert op de host Azure Stack Development Kit en zorg ervoor dat u PowerShell als azurestack\CloudAdmin uitvoert:
 
@@ -67,8 +68,8 @@ Het script uitvoert op de host Azure Stack Development Kit en zorg ervoor dat u 
 
 | Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| PfxPassword | Vereist | Null | Wachtwoord beschermt de privésleutel voor certificaten |
-| Domeinnaam | Vereist | Local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
+| pfxPassword | Vereist | Null | Wachtwoord beschermt de privésleutel voor certificaten |
+| DomainName | Vereist | local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Vereiste certificaten voor een productie-implementatie van Azure App Service op Azure-Stack
 
@@ -82,8 +83,8 @@ Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met 
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| \*.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | \*. appservice.redmond.azurestack.external |
-| \*. scm.appservice. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
+| \*.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | \*.appservice.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API-certificaat
 
@@ -91,7 +92,7 @@ De API-certificaat is op de rol geplaatst. De resourceprovider gebruikt om u te 
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| API.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | API.appservice.Redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Publicatiecertificaat
 
@@ -99,7 +100,7 @@ Het certificaat voor de rol Publisher beveiligt het verkeer FTPS voor eigenaren 
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| FTP.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | API.appservice.Redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Identiteitscertificaat
 
@@ -111,7 +112,7 @@ Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de vo
 
 | Indeling | Voorbeeld |
 | --- | --- |
-| SSO.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | SSO.appservice.Redmond.azurestack.external |
+| sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-basiscertificaat voor Azure-Stack
 
@@ -119,7 +120,7 @@ Voer het script Get-AzureStackRootCert.ps1 vanuit de map waar u de scripts helpe
 
 | Get-AzureStackRootCert.ps1 parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| PrivelegedEndpoint | Vereist | AzS ERCS01 | Bevoorrechte eindpunt |
+| PrivelegedEndpoint | Vereist | AzS-ERCS01 | Bevoorrechte eindpunt |
 | CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Account domeinreferentie voor beheerders voor Azure-Stack-cloud |
 
 
@@ -244,7 +245,7 @@ Voor implementaties van Azure Stack Development Kit, kunt u SQL Server Express 2
 
 Voor productie en hoge beschikbaarheid doeleinden, u moet een volledige versie van SQL Server 2014 SP2 of hoger, gemengde modus-verificatie inschakelen en implementeren in een [maximaal beschikbare configuratie](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-De SQL Server-exemplaar voor Azure App Service op Azure-Stack moet toegankelijk is vanaf alle functies van de App Service. U kunt SQL Server in het abonnement van de Provider standaard in Azure-Stack implementeren. Of u kunt het gebruik van de bestaande infrastructuur binnen uw organisatie (zo lang er is verbinding met Azure-Stack). Als u een Azure Marketplace-installatiekopie, moet u de firewall dienovereenkomstig configureren. 
+De SQL Server-exemplaar voor Azure App Service op Azure-Stack moet toegankelijk is vanaf alle functies van de App Service. U kunt SQL Server in het abonnement van de Provider standaard in Azure-Stack implementeren. Of u kunt het gebruik van de bestaande infrastructuur binnen uw organisatie (zo lang er is verbinding met Azure-Stack). Als u een Azure Marketplace-installatiekopie, moet u de firewall dienovereenkomstig configureren.
 
 Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, moet u handmatig de SQL Server Browser-service starten en open poort 1434.
 
@@ -276,7 +277,7 @@ Volg deze stappen:
 12. Selecteer **toepassing** in de lijst.
 13. Selecteer **vereist machtigingen** > **machtigingen verlenen** > **Ja**.
 
-| Maak AADIdentityApp.ps1 parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Create-AADIdentityApp.ps1  parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Vereist | Null | Azure AD tenant-ID. Geef het GUID of een tekenreeks. Een voorbeeld is myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Vereist | Null | Beheerder Azure Resource Manager-eindpunt. Een voorbeeld is adminmanagement.local.azurestack.external. |
@@ -305,7 +306,7 @@ Volg deze stappen:
 5.  In de **referentie** venster uw AD FS cloud admin-account en wachtwoord invoeren. Selecteer **OK**.
 6.  Geef de bestandspad certificaat en het wachtwoord van het certificaat voor de [certificaat eerder gemaakte](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat voor deze stap standaard is gemaakt, **sso.appservice.local.azurestack.external.pfx**.
 
-| Maak ADFSIdentityApp.ps1 parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
+| Create-ADFSIdentityApp.ps1  parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Vereist | Null | Beheerder Azure Resource Manager-eindpunt. Een voorbeeld is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Vereist | Null | Bevoorrechte eindpunt. Een voorbeeld is AzS ERCS01. |
