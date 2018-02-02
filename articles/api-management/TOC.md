@@ -42,7 +42,7 @@
 ## Cache
 ### [Cache toevoegen voor betere prestaties](api-management-howto-cache.md)
 ## Uw back-end beveiligen
-### [Back-end van web-API beveiligen met AAD](api-management-howto-protect-backend-with-aad.md)
+### [Back-end van web-API beveiligen met Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Verbinding maken met een virtueel netwerk](api-management-using-with-vnet.md)
 ### [Verbinding maken met een intern virtueel netwerk](api-management-using-with-internal-vnet.md)
 ### [Application Gateway in een interne VNET integreren](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +50,8 @@
 ## De ontwikkelaarservaring aanpassen
 ### [Pagina-inhoud en -indeling wijzigen](api-management-modify-content-layout.md)
 ### [Systeempagina's aanpassen met behulp van sjablonen](api-management-developer-portal-templates.md)
-### [Verificatie met AAD](api-management-howto-aad.md)
-### [Verificatie met AAD B2C](api-management-howto-aad-b2c.md)
+### [Verificatie met Azure AD](api-management-howto-aad.md)
+### [Verificatie met Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Gedelegeerde verificatie](api-management-howto-setup-delegation.md)
 ### [E-mailmeldingen en sjablonen](api-management-howto-configure-notifications.md)
 ### [OAuth-ondersteuning in de console inschakelen](api-management-howto-oauth2.md)

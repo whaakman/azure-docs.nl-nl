@@ -40,10 +40,11 @@
 
 # Handleidingen
 ## Plannen
-### [IoT Hub met Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
+### [IoT Hub en Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
 ### [Uw oplossing schalen](iot-hub-scaling.md)
 ### [Hoge beschikbaarheid en herstel na noodgevallen](iot-hub-ha-dr.md)
 ### [Aanvullende protocollen ondersteunen](iot-hub-protocol-gateway.md)
+### [Berichtroutering en gebeurtenisroutering vergelijken](iot-hub-event-grid-routing-comparison.md)
 ## [Ontwikkelen](iot-hub-how-to.md)
 ### [Ontwikkelaarsgids](iot-hub-devguide.md)
 #### [Gids voor apparaat-naar-cloud-functies](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [Berichten verzenden en ontvangen](iot-hub-devguide-messaging.md)
 ##### [Apparaat-naar-cloud-berichten verzenden naar IoT Hub](iot-hub-devguide-messages-d2c.md)
 ##### [Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt](iot-hub-devguide-messages-read-builtin.md)
+##### [Reageren op IoT Hub-gebeurtenissen](iot-hub-event-grid.md)
 ##### [Aangepaste eindpunten en routeringsregels gebruiken voor apparaat-naar-cloud-berichten](iot-hub-devguide-messages-read-custom.md)
 ##### [Cloud-naar-apparaat-berichten verzenden vanuit IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [IoT Hub-berichten maken en lezen](iot-hub-devguide-messages-construct.md)

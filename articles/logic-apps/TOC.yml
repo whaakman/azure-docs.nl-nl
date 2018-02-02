@@ -62,25 +62,7 @@
         - name: Uw logische apps beveiligen
           href: logic-apps-securing-a-logic-app.md
         - name: Aangepaste connectors ontwikkelen
-          items:
-            - name: Overzicht van aangepaste connectors
-              href: custom-connector-overview.md
-            - name: Connectors maken vanuit web-API's
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Connectors beveiligen met Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: API's beschrijven met Postman
-              href: custom-connector-api-postman-collection.md
-            - name: OpenAPI voor aangepaste connectors uitbreiden
-              href: custom-connector-openapi-extensions.md
-            - name: Een OpenAPI-connector maken en registreren
-              href: logic-apps-custom-connector-register.md
-            - name: Een SOAP-connector maken en registreren
-              href: logic-apps-soap-connector-create-register.md
-            - name: De connector certificeren
-              href: custom-connector-submit-certification.md
-            - name: Veelgestelde vragen over aangepaste connectors
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: Aangepaste API's ontwikkelen
           items:
             - name: Aangepaste API's maken voor logische apps
@@ -140,6 +122,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Toewijzingen voor XML-transformatie toevoegen
           href: logic-apps-enterprise-integration-maps.md
+        - name: JSON transformeren
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Beveiligingscertificaten toevoegen
           href: logic-apps-enterprise-integration-certificates.md
         - name: B2B-fouten oplossen

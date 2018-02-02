@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Gebruikersinterface (UI)
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 - On-premises gegevens in de cloud kopiëren
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Gebruikersinterface (UI)
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Voorbeelden
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: SSIS-pakketten aanroepen met behulp van opgeslagen procedureactiviteit
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Azure-SSIS-integratie-runtime plannen
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Triggers maken
       items:
         - name: Een planningstrigger maken

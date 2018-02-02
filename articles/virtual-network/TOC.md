@@ -15,7 +15,9 @@
 ### [Toegangsbeheerlijsten](virtual-networks-acl.md)
 
 # Aan de slag
-## [Uw eerste virtuele netwerk maken](virtual-network-get-started-vnet-subnet.md)
+## [Een virtueel netwerk maken - Portal](quick-create-portal.md)
+## [Een virtueel netwerk maken - PowerShell](quick-create-powershell.md)
+## [Een virtueel netwerk maken - Azure CLI](quick-create-cli.md)
 
 # Procedures
 ## Plannen en ontwerpen

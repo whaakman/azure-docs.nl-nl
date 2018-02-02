@@ -20,8 +20,6 @@
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
 ### [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
-
 
 ## Implementeren
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Windows-implementatieproblemen](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Inzicht in implementatiefouten](resource-manager-troubleshoot-tips.md)
 
-# Verwijzing
+# Naslaginformatie
 ## [Sjabloonindeling](/azure/templates/)
 ## [Sjabloonfuncties](resource-group-template-functions.md)
 ### [Matrix- en objectfuncties](resource-group-template-functions-array.md)

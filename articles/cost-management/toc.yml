@@ -29,6 +29,10 @@
       href: understading-cost-reports.md
 - name: Handleidingen
   items:
+    - name: Azure-abonnementen en -accounts activeren
+      href: activate-subs-accounts.md
+    - name: Uitgebreide metrische gegevens voor virtuele machines toevoegen
+      href: azure-vm-extended-metrics.md
     - name: Kostenbeheerrapporten gebruiken
       href: use-reports.md
 - name: Resources

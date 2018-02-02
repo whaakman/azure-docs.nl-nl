@@ -63,6 +63,8 @@
       href: functions-cli-samples.md
 - name: Concepten
   items:
+    - name: 1.x en 2.x vergelijken
+      href: functions-versions.md
     - name: Schaal en hosting
       href: functions-scale.md
     - name: Triggers en bindingen
@@ -146,7 +148,7 @@
         - name: Een functie-app beheren
           href: functions-how-to-use-azure-function-app-settings.md
         - name: De runtimeversie instellen
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Controleren
       href: functions-monitoring.md
     - name: Integreren
@@ -175,7 +177,7 @@
           href: durable-functions-counter.md
         - name: Menselijke tussenkomst
           href: durable-functions-phone-verification.md
-- name: Verwijzing
+- name: Naslaginformatie
   items:
     - name: Bindingen
       items:
@@ -183,6 +185,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Extern bestand

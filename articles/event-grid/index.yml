@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentatie voor Azure Event Grid
 metadata:
-  title: 'Documentatie voor Azure Event Grid - zelfstudies, API-verwijzing'
+  title: Documentatie voor Azure Event Grid - zelfstudies, API-verwijzing
   description: Gebruik Azure Event Grid om vrijwel in realtime te reageren op relevante gebeurtenissen in Azure- en niet-Azure-services.
   services: event-grid
   author: czeumault
@@ -13,47 +13,65 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
+  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 02/01/2018
 abstract:
-  description: 'Azure Event Grid is een volledig beheerde, intelligente service voor gebeurtenisroutering die uniform gebeurtenisverbruik mogelijk maakt op basis van een Publish-Subscribe-model. Gebruik Azure Event Grid om vrijwel in realtime te reageren op relevante gebeurtenissen in Azure- en niet-Azure-services. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Event Grid gebruikt.'
+  description: Azure Event Grid is een volledig beheerde, intelligente service voor gebeurtenisroutering die uniform gebeurtenisverbruik mogelijk maakt op basis van een Publish-Subscribe-model. Gebruik Azure Event Grid om vrijwel in realtime te reageren op relevante gebeurtenissen in Azure- en niet-Azure-services. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Event Grid gebruikt.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: Snelstartgidsen van vijf minuten
+  items:
+  - type: paragraph
+    text: Leer hoe u aangepaste gebeurtenissen maakt en u hierop abonneert.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Leer hoe u aangepaste gebeurtenissen maakt en u hierop abonneert.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/event-grid/custom-event-quickstart-portal
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure-CLI
+      href: /azure/event-grid/custom-event-quickstart
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image:
+        src: /azure/event-grid/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: Leer hoe u blob-opslaggebeurtenissen doorstuurt.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Leer hoe u toepassingen ontwikkelt die op gebeurtenissen reageren.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Wijzigingen in virtuele machines bewaken met logische apps</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Formaat van geüploade afbeeldingen wijzigen</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Azure Automation integreren met Event Grid</a>
-  - title: Naslaginformatie
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure-CLI
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u toepassingen ontwikkelt die op gebeurtenissen reageren.
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/cli/azure/eventgrid">Azure-CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
-          - title: REST-API’s
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Schema 's
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Abonnementsschema</a></p><p><a href="/azure/event-grid/event-schema">Gebeurtenisschema</a></p>
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Wijzigingen in virtuele machines bewaken met logische apps</a>
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Formaat van geüploade afbeeldingen wijzigen</a>"
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Azure Automation integreren met Event Grid</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure/eventgrid">Azure-CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: "REST-API’s"
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+    - title: Schema 's
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Abonnementsschema</a></p><p><a href="/azure/event-grid/event-schema">Gebeurtenisschema</a></p>

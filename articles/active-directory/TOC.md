@@ -176,6 +176,16 @@
 ##### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Gebruikers voor SaaS-apps inrichten en de inrichting ongedaan maken](active-directory-saas-app-provisioning.md)
+#### [Zelfstudies voor app-integratie](active-directory-saas-tutorial-list.md)
+#### [Inrichting automatiseren voor apps die SCIM ondersteunen](active-directory-scim-provisioning.md)
+#### [Kenmerktoewijzingen aanpassen](active-directory-saas-customizing-attribute-mappings.md)
+#### [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Bereikfilters toevoegen](active-directory-saas-scoping-filters.md)
+#### [Rapporteren over het automatisch inrichten van gebruikers](active-directory-saas-provisioning-reporting.md)
+#### [Problemen met het automatisch inrichten van gebruikers oplossen](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
 #### Aan de slag
@@ -219,7 +229,7 @@
 #### [Geavanceerde certificaatondertekening voor SAML-apps](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Een toepassing verbergen voor een gebruiker](active-directory-coreapps-hide-third-party-app.md)
 ### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](active-directory-auto-acceleration-using-hrd.md)
-
+### [AD FS-apps migreren naar Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Toegang tot resources delegeren
 ### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
-#### [Beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
+#### [Een beheerdersrol toewijzen aan een gebruiker](active-directory-users-assign-role-azure-portal.md)
+#### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](users-default-permissions.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 ### [Beheerdersaccounts voor noodtoegang beheren](active-directory-admin-manage-emergency-access-accounts.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Andere services integreren met Azure AD]()
-### [LinkedIn-integratie inschakelen](linkedin-integration.md)
+## Andere services integreren met Azure AD
+### [LinkedIn integreren met Azure AD](linkedin-integration.md)
 
 ## [AD DS implementeren op Azure-VM's](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory op virtuele Azure-machines](active-directory-deploying-ws-ad-guidelines.md)

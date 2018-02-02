@@ -84,11 +84,15 @@
       items:
         - name: Gebruiken met Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Verbinding maken met Azure SQL Database
+          href: apache-spark-connect-to-sql-database.md
     - name: Spark-streaming
       items:
         - name: Overzicht
           href: apache-spark-streaming-overview.md
-        - name: Streaming-gebeurtenissen verwerken
+        - name: Maximaal beschikbare Spark-streamingtaken in YARN maken
+          href: apache-spark-streaming-high-availability.md
+        - name: Streaminggebeurtenissen verwerken
           href: apache-spark-eventhub-streaming.md
         - name: Gestructureerd streamen met Event Hubs
           href: apache-spark-eventhub-structured-streaming.md
@@ -101,6 +105,8 @@
         - name: Spark-streaming (DStream) met Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Spark-streamingtaken maken met exactly-once-gebeurtenisverwerking
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark en Machine Learning
       items:
         - name: HVAC-prestaties voorspellen
@@ -198,6 +204,8 @@
           maintainContext: true
     - name: Beheren
       items:
+        - name: Spark-instellingen configureren
+          href: apache-spark-settings.md
         - name: Spark-taken optimaliseren
           href: apache-spark-perf.md
         - name: Planning clustercapaciteit

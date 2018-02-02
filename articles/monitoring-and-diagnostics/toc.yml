@@ -2,9 +2,9 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Azure Monitor
-      href: monitoring-overview-azure-monitor.md
-- name: Quickstarts
+    - name: Bewaking in Azure
+      href: monitoring-overview.md
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Waarschuwing op basis van metrische gegevens
@@ -27,8 +27,8 @@
       href: monitoring-partners.md
     - name: Aanvullende overzichten
       items:
-        - name: Controleprogramma's in Azure
-          href: monitoring-overview.md
+        - name: Azure Monitor
+          href: monitoring-overview-azure-monitor.md
         - name: Metrische gegevens
           href: monitoring-overview-metrics.md
         - name: Waarschuwingen
@@ -168,7 +168,7 @@
       href: monitor-stream-monitoring-data-event-hubs.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/azurerm.insights

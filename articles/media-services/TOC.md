@@ -117,6 +117,7 @@
 ### [On-premises coderingsprogramma's configureren voor gebruik met cloudcoderingsprogramma's](media-services-live-encoders-overview.md)
 #### [Elemental Live-coderingsprogramma](media-services-configure-elemental-live-encoder.md)
 #### [FMLE-coderingsprogramma](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB-coderingsprogramma](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster-coderingsprogramma](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast-coderingsprogramma](media-services-configure-wirecast-live-encoder.md)
 ### [Langdurige bewerkingen afhandelen](media-services-dotnet-long-operations.md)

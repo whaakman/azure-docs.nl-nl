@@ -4,6 +4,8 @@
   items:
     - name: Informatie over SQL DB
       href: sql-database-technical-overview.md
+    - name: PaaS of IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: Concepten
   items:
-    - name: Servicekenmerken
+    - name: Databaseservice
       items:
         - name: Servers en databases
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Connectiviteitsarchitectuur
           href: sql-database-connectivity-architecture.md
-        - name: Firewall-regels
-          href: sql-database-firewall-configure.md
-        - name: Virtueel-netwerkregels voor firewall
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU's en eDTU's
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
           href: sql-database-benchmark-overview.md
-        - name: PaaS of IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Controleren
-          href: sql-database-auditing.md
-        - name: Detectie van bedreigingen
-          href: sql-database-threat-detection.md
-        - name: Databaseback-ups
-          href: sql-database-automated-backups.md
-        - name: Retentie van back-ups
-          href: sql-database-long-term-retention.md
-        - name: Failover-groepen
-          href: sql-database-geo-replication-overview.md
-        - name: Elastische clientbibliotheek
-          href: sql-database-elastic-database-client-library.md
-        - name: Elastische query’s
-          href: sql-database-elastic-query-overview.md
-        - name: Elastische transacties
-          href: sql-database-elastic-transactions-overview.md
-        - name: Elastische taken
-          href: sql-database-elastic-jobs-overview.md
-        - name: Evaluatie van SQL-beveiligingsproblemen
-          href: sql-vulnerability-assessment.md
         - name: Algemene SQL Server-functies
           href: sql-database-features.md
+    - name: Hoge beschikbaarheid
+      href: sql-database-high-availability.md
     - name: Beveiliging
       items:
         - name: Overzicht
           href: sql-database-security-overview.md
+        - name: Firewall-regels
+          href: sql-database-firewall-configure.md
+        - name: Virtueel-netwerkregels voor firewall
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Toegangsbeheer
           href: sql-database-control-access.md
         - name: Azure AD
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Multi-Factor Authentication
           href: sql-database-ssms-mfa-authentication.md
+        - name: Controleren
+          href: sql-database-auditing.md
+        - name: Detectie van bedreigingen
+          href: sql-database-threat-detection.md
         - name: Tabel controleren en TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Gegevensmaskering
+        - name: Dynamische gegevensmaskering
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Hoge beschikbaarheid
-      href: sql-database-high-availability.md
+        - name: Evaluatie van beveiligingsproblemen
+          href: sql-vulnerability-assessment.md
+        - name: Gegevensdetectie en -classificatie
+          href: sql-database-data-discovery-and-classification.md
     - name: Bedrijfscontinuïteit
       items:
         - name: Overzicht
           href: sql-database-business-continuity.md
+        - name: Databaseback-ups
+          href: sql-database-automated-backups.md
+        - name: Retentie van back-ups
+          href: sql-database-long-term-retention.md
+        - name: Failover-groepen
+          href: sql-database-geo-replication-overview.md
         - name: Databaseherstel
           href: sql-database-recovery-using-backups.md
         - name: Beveiliging configureren
@@ -185,6 +179,14 @@
       items:
         - name: Overzicht
           href: sql-database-elastic-scale-introduction.md
+        - name: Elastische clientbibliotheek
+          href: sql-database-elastic-database-client-library.md
+        - name: Elastische query’s
+          href: sql-database-elastic-query-overview.md
+        - name: Elastische transacties
+          href: sql-database-elastic-transactions-overview.md
+        - name: Elastische taken
+          href: sql-database-elastic-jobs-overview.md
         - name: Shard-kaarten
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Query-routering
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: Automatisch instellen inschakelen
           href: sql-database-automatic-tuning-enable.md
+        - name: E-mailmeldingen automatisch instellen
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Intelligent Insights-prestatieproblemen oplossen
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: DMV's gebruiken voor het bewaken van prestatiegegevens
