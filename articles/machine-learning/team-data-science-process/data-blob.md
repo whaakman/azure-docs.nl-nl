@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: a31b77ca2d315b506c925a83a5050c0e70c54842
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: garye;bradsev
+ms.openlocfilehash: f3388728b2c2ea699a2caf764dc0fd3e9ff19505
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Azure blob-gegevens met geavanceerde analyses verwerken
 Dit document bevat informatie over gegevens verkennen en genereren van de functies van de gegevens die zijn opgeslagen in Azure Blob-opslag. 
@@ -77,11 +77,11 @@ Hier volgen enkele voorbeelden van methoden voor het verkennen van gegevens met 
         print miss_num
 7. Als u ontbrekende waarden voor een specifieke kolom in de gegevens hebt, kunt u ze als volgt verwijderen:
    
-     dataframe_blobdata_noNA dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape =
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    Ontbrekende waarden te vervangen op een andere manier is met de modusfunctie:
    
-     dataframe_blobdata_mode dataframe_blobdata.fillna = ({< column_name >: .mode()[0]}) dataframe_blobdata ['< column_name >"]        
+     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Histogram tekent variabele aantal opslaglocaties gebruiken om te tekenen van de distributie van een variabele maken    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

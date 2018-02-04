@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Snelstartgids: Onderbreken en hervatten berekenen voor een Azure SQL Data Warehouse in PowerShell
 PowerShell gebruiken om te pauzeren compute voor een Azure SQL Data Warehouse om kosten te besparen. Berekeningen hervatten wanneer u klaar bent voor gebruik van het datawarehouse.
@@ -59,15 +59,16 @@ Volg deze stappen voor de locatie-informatie voor uw datawarehouse niet vinden.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **SQL-databases** op de pagina naar links van de Azure portal.
-3. Selecteer **mySampleDataWarehouse** van de **SQL-databases** pagina. Hiermee opent u het datawarehouse. 
+3. Selecteer **mySampleDataWarehouse** van de **SQL-databases** pagina. Hiermee opent u het datawarehouse.
 
     ![Servergroep en de bron](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Noteer de naam datawarehouse die wordt gebruikt als de databasenaam van de. Ook noteert u de naam van de server en de resourcegroep. U wilt gebruiken in het onderbreken en hervatten opdrachten.
-5. Als uw server foo.database.windows.net, gebruikt u alleen het eerste deel als de naam van de server in de PowerShell-cmdlets. In de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. We gebruiken **newserver 20171113** als de naam van de server in de PowerShell-cmdlet.
+4. Noteer de naam voor datawarehouse, de naam van de database. Ook noteert u de naam van de server en de resourcegroep. U 
+5.  deze in de opdrachten onderbreken en hervatten.
+6. Als uw server foo.database.windows.net, gebruikt u alleen het eerste deel als de naam van de server in de PowerShell-cmdlets. In de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. Verwijderen van het achtervoegsel en gebruik **newserver 20171113** als de naam van de server in de PowerShell-cmdlet.
 
 ## <a name="pause-compute"></a>De rekencapaciteit onderbreken
-Als u wilt opslaan kosten, kunt u onderbreken en hervatten van compute bronnen op de aanvraag. Bijvoorbeeld als u niet de database's nachts en in het weekend gebruikt, kunt u tijdens de tijdstippen onderbreken en hervatten gedurende de dag. U geen afgeschreven rekenresources terwijl de database is onderbroken. U blijft echter in rekening gebracht voor opslag. 
+Als u wilt opslaan kosten, kunt u onderbreken en hervatten van compute bronnen op de aanvraag. Bijvoorbeeld als u de database's nachts en tijdens het weekend niet gebruikt, kunt u tijdens de tijdstippen onderbreken en hervatten gedurende de dag. Er zijn geen kosten voor de rekenresources terwijl de database is onderbroken. U blijven echter in rekening gebracht voor opslag. 
 
 Een database onderbreken, gebruikt u de [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. Het volgende voorbeeld wordt een datawarehouse met de naam onderbroken **mySampleDataWarehouse** gehost op een server met de naam **newserver 20171113**. De server zich in een Azure-resourcegroep met de naam **myResourceGroup**.
 

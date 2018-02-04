@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: c75624d8551adabbd993d22ac4901ca26ef40d51
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Routeren van berichten met IoT Hub (Java)
 
@@ -126,6 +126,9 @@ In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de sl
 In deze sectie maakt een Service Bus-wachtrij, verbinden met uw IoT-hub en configureren van uw IoT-hub om berichten te verzenden naar de wachtrij op basis van de aanwezigheid van een eigenschap van het bericht. Zie voor meer informatie over het verwerken van berichten van Service Bus-wachtrijen [aan de slag met wachtrijen][lnk-sb-queues-java].
 
 1. Een Service Bus-wachtrij maakt, zoals beschreven in [aan de slag met wachtrijen][lnk-sb-queues-java]. Noteer de naam van de naamruimte en de wachtrij.
+
+    > [!NOTE]
+    > Service Bus-wachtrijen en onderwerpen die worden gebruikt als IoT-hubeindpunten mag geen **sessies** of **detectie van dubbele** ingeschakeld. Als een van deze opties zijn ingeschakeld, het eindpunt wordt weergegeven als **onbereikbaar** in de Azure portal.
 
 2. Open uw IoT-hub in de Azure-portal en klikt u op **eindpunten**.
 

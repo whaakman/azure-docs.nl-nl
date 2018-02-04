@@ -1,7 +1,7 @@
 ---
 title: Maak en registreer de SOAP-connectors - Azure Logic Apps | Microsoft Docs
-description: SOAP-connectors voor gebruik in Azure Logic Apps instellen
-author: divyaswarnkar
+description: SOAP-connectors instellen voor gebruik in Azure Logic Apps
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,161 +13,161 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: LADocs; estfan
+ms.openlocfilehash: 031762e5639fc52e0b0a6a5bf8d12db25da25e12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Maak en registreer de SOAP-connectors in Azure Logic Apps
 
-U kunt voor het integreren van SOAP-services in uw logische app werkstromen, maken en registreren van een aangepaste SOAP Simple Object Access Protocol ()-connector via beschrijving taal WSDL (Web Services) die worden beschreven SOAP-service. De SOAP-connectors werken zoals vooraf gedefinieerde connectors, zodat u ze op dezelfde manier als andere connectors in logic apps gebruiken kunt.
+U kunt SOAP-services integreren in de werkstromen van uw logische apps door een aangepaste SOAP-connector (Simple Object Access Protocol) te maken en registreren door gebruik te maken van de WSDL-taal (Web Services Description Language), waarmee u de SOAP-service kunt beschrijven. De SOAP-connectors werken zoals vooraf gedefinieerde connectors. U kunt ze dus op dezelfde manier als andere connectors gebruiken in logische apps.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het registreren van de SOAP-connector, moet u deze items:
+Deze items zijn vereist om de SOAP-connector te registreren:
 
-* Een Azure-abonnement. Als u geen een abonnement hebt, kunt u beginnen met een [gratis Azure-account](https://azure.microsoft.com/free/). Anders zich aanmelden voor een [abonnement met betalen naar gebruik](https://azure.microsoft.com/pricing/purchase-options/).
+* Een Azure-abonnement. Als u geen abonnement hebt, kunt u beginnen met een [gratis Azure-account](https://azure.microsoft.com/free/). U kunt ook kiezen voor een [Betalen per gebruik-abonnement](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Een item hier:
-  * Een URL naar een WSDL die de SOAP-service definieert en de API 's
-  * Een WSDL-bestand waarin uw SOAP-service en de API 's
+* Een van deze items:
+  * Een URL naar een WSDL die de SOAP-service en de API's definieert
+  * Een WSDL-bestand dat de SOAP-service en de API's definieert
 
-  Voor deze zelfstudie kunt u ons voorbeeld [Orders SOAP-Service](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl).
+  Voor deze zelfstudie kunt u ons voorbeeld [Orders SOAP Service](http://fazioapisoap.azurewebsites.net/FazioService.svc?singleWsdl) gebruiken.
 
-* Optioneel: Een afbeelding gebruiken als een pictogram voor uw aangepaste connector
+* Optioneel: een afbeelding die u als een pictogram wilt gebruiken voor uw aangepaste connector
 
 
 ## <a name="1-create-your-connector"></a>1. De connector maken
 
-1. Kies in de Azure-portal in de Azure hoofdmenu **nieuw**. "Connector logic apps" invoeren als filter in het zoekvak en druk op Enter.
+1. Kies **Nieuw** in het Azure-hoofdmenu in Azure Portal. Typ 'logic apps connector' als filter in het zoekvak en druk op Enter.
 
-   ![Nieuwe, zoek naar "connector logic apps"](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
+   ![Zoek naar 'logic apps connector'](./media/logic-apps-soap-connector-create-register/create-logic-apps-connector.png)
 
-2. Kies in de lijst met resultaten **Logic Apps Connector** > **maken**.
+2. Kies in de lijst met resultaten **Logic Apps-connector** > **Maken**.
 
-   ![Logic Apps-connector maken](./media/logic-apps-soap-connector-create-register/choose-logic-apps-connector.png)
+   ![Een Logic Apps-connector maken](./media/logic-apps-soap-connector-create-register/choose-logic-apps-connector.png)
 
-3. Geef details voor het registreren van de connector, zoals beschreven in de tabel. Als u bent klaar, kiest u **vastmaken aan dashboard** > **maken**.
+3. Geef details op voor het registreren van de connector, zoals wordt beschreven in de tabel. Als u klaar bent, kiest u **Vastmaken aan dashboard** > **Maken**.
 
-   ![Gegevens van de aangepaste connector Logic App](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
+   ![Details van aangepaste Logic App-connector](./media/logic-apps-soap-connector-create-register/logic-apps-soap-connector-details.png)
 
    | Eigenschap | Voorgestelde waarde | Beschrijving | 
    | -------- | --------------- | ----------- | 
-   | **Naam** | *SOAP-connectornaam* | Geef een naam voor de connector. | 
-   | **Abonnement** | *Naam van een Azure-abonnement* | Selecteer uw Azure-abonnement. | 
-   | **Resourcegroep** | *Azure-resource-group-name* | Maak of Selecteer een Azure-groep voor het ordenen van uw Azure-resources. | 
-   | **Locatie** | *implementatie-regio* | Selecteer een regio implementatie voor de connector. | 
+   | **Naam** | *naam-soap-connector* | Geef een naam op voor de connector. | 
+   | **Abonnement** | *naam-Azure-abonnement* | Selecteer uw Azure-abonnement. | 
+   | **Resourcegroep** | *naam-Azure-resourcegroep* | Maak of selecteer een Azure-groep voor het ordenen van uw Azure-resources. | 
+   | **Locatie** | *implementatie-regio* | Selecteer een implementatieregio voor de connector. | 
    |||| 
 
-   Nadat u Azure implementeert de connector, wordt het menu van logic apps connector automatisch geopend. 
-   Als dat niet het geval is, kiest u de soap-connector van de Azure-dashboard.
+   Nadat Azure de connector heeft geïmplementeerd, wordt automatisch het menu van de Logic Apps-connector geopend. 
+   Als dat niet het geval is, kiest u de SOAP-connector in het Azure-dashboard.
 
-## <a name="2-define-your-connector"></a>2. Definieer de connector
+## <a name="2-define-your-connector"></a>2. De connector definiëren
 
-Nu de WSDL-bestand of de URL opgeven voor het maken van de connector, de verificatie die gebruikmaakt van de connector en de acties en triggers waarmee de soap-connector
+Geef nu het WSDL-bestand of de URL op voor het maken van de connector, de verificatie die door de connector wordt gebruikt, en de acties en triggers die de SOAP-connector ondersteunt.
 
 
 ### <a name="2a-specify-the-wsdl-file-or-url-for-your-connector"></a>2a. Het WSDL-bestand of de URL voor de connector opgeven
 
-1. De connector Kies in het menu als niet is geselecteerd, **Logic Apps Connector**. Kies in de werkbalk **bewerken**.
+1. Kies in het menu van de connector **Logic Apps-connector** als u dat nog niet hebt gedaan. Kies **Bewerken** op de werkbalk.
 
    ![Aangepaste connector bewerken](./media/logic-apps-soap-connector-create-register/edit-soap-connector.png)
 
-2. Kies **algemene** zodat u de informatie in deze tabellen voor het maken opgeven kunt, beveiligen en de acties en wordt geactiveerd voor de SOAP-connector te definiëren.
+2. Kies **Algemeen** zodat u de gegevens uit deze tabellen kunt opgeven om de acties en triggers voor de SOAP-connector te maken, beveiligen en definiëren.
 
-   1. Voor **aangepaste connectors**, selecteer **SOAP** voor uw **API-eindpunt** zodat u de WSDL-bestand met een beschrijving van uw API kan leveren.
+   1. Selecteer bij **Aangepaste connectoren** het keuzerondje **SOAP** voor het **API-eindpunt** , zodat u het WSDL-bestand kunt opgeven dat een beschrijving van uw API bevat.
 
-      ![Geef het WSDL-bestand voor uw API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
+      ![WSDL-bestand opgeven voor uw API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
       | Optie | Indeling |Beschrijving | 
       | ------ | ------ | ----------- | 
-      | **WSDL uit bestand uploaden** | *WSDL-bestand* | Blader naar de locatie voor het WSDL-bestand en selecteer dat bestand. | 
-      | **Uploaden van WSDL van URL** | http://*pad naar wsdl bestand* | Geef de URL voor uw service-WSDL-bestand. | 
-      | **SOAP-voor REST** |   | Transformeren API's in de SOAP-service in REST-API's. | 
+      | **WSDL uploaden uit bestand** | *WSDL-bestand* | Blader naar de locatie van het WSDL-bestand en selecteer dat bestand. | 
+      | **WSDL-bestand uploaden via URL** | http://*pad-naar-wsdl-bestand* | Geef de URL op voor het WSDL-bestand van uw service. | 
+      | **SOAP naar REST** |   | API's in de SOAP-service transformeren naar REST-API's. | 
       |||| 
 
-   2. Voor **algemene informatie**, upload een pictogram voor de connector. 
-   Normaal gesproken de **beschrijving**, **Host**, en **basis-URL** velden worden automatisch ingevuld uit het WSDL-bestand. 
-   Maar als ze niet, deze informatie toevoegen, zoals beschreven in de tabel en kies **doorgaan**. 
+   2. In de sectie **Algemene informatie** kunt u een pictogram voor de connector uploaden. 
+   De velden **Beschrijving**, **Host** en **Basis-URL** worden meestal automatisch ingevuld op basis van de gegevens in het WSDL-bestand. 
+   Als dat niet zo is, voegt u deze informatie toe aan de hand van de onderstaande tabel en kiest u vervolgens **Doorgaan**. 
 
-      ![Details van de connector](./media/logic-apps-soap-connector-create-register/add-general-details.png)
+      ![Connectorgegevens](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
       | Optie of instelling | Indeling | Beschrijving | 
       | ----------------- | ------ | ----------- | 
-      | **Pictogram uploaden** | *PNG-or-jpg-File-under-1-MB* | Een pictogram dat staat voor de connector <p>Kleur: Bij voorkeur een witte logo tegen een achtergrondkleur. <p>Afmetingen: Een ~ 160 pixel logo in een vierkant 230 pixel | 
-      | **Pictogram achtergrondkleur** | *pictogram merk-kleur-hexadecimaal-code* | <p>De kleur achter het pictogram dat overeenkomt met de achtergrondkleur die in uw pictogrambestand. <p>Indeling: hexadecimale. #007ee5 vertegenwoordigt bijvoorbeeld blauw. | 
-      | **Beschrijving** | *Beschrijving connector* | Geef een korte beschrijving voor de connector. | 
-      | **Host** | *Connector-host* | Geef het hostdomein voor de SOAP-service. | 
-      | **Basis-URL** | *Connector-basis-URL* | Geef de basis-URL voor de SOAP-service. | 
+      | **Connectorpictogram uploaden** | *png-of-jpg-bestand-kleiner-dan-1-MB* | Een pictogram dat de connector voorstelt. <p>Kleur: bij voorkeur een wit logo tegen een gekleurde achtergrond. <p>Afmetingen: een logo van ~ 160 pixels in een vierkant van 230 pixels. | 
+      | **Achtergrondkleur van het pictogram** | *hexadecimale-code-kleur-pictogram* | <p>De kleur achter het pictogram die overeenkomt met de achtergrondkleur in uw pictogrambestand. <p>Indeling: hexadecimaal. #007ee5 vertegenwoordigt bijvoorbeeld de kleur blauw. | 
+      | **Beschrijving** | *beschrijving-connector* | Geef een korte beschrijving op voor de connector. | 
+      | **Host** | *connector-host* | Geef het hostdomein voor de SOAP-service op. | 
+      | **Basis-URL** | *basis-URL-connector* | Geef de basis-URL voor de SOAP-service op. | 
       |||| 
 
-### <a name="2b-describe-the-authentication-that-your-connector-uses"></a>2b. De verificatie die gebruikmaakt van de connector beschrijven
+### <a name="2b-describe-the-authentication-that-your-connector-uses"></a>2b. De verificatie beschrijven die de connector gebruikt
 
-1. Nu kiezen **beveiliging** zodat u kunt controleren of de verificatie die gebruikmaakt van de connector te beschrijven. Verificatie zorgt ervoor dat uw gebruikers-id's op de juiste wijze tussen uw service en clients vloeien.
+1. Kies nu **Beveiliging** zodat u de verificatie kunt controleren of beschrijven die door de connector wordt gebruikt. Verificatie zorgt ervoor dat de id's van uw gebruikers op de juiste wijze worden uitgewisseld tussen uw service en eventuele clients.
 
-   Standaard de connector van **verificatietype** is ingesteld op **geen verificatie**.
+   De optie **Verificatietype** van een connector is standaard ingesteld op **Geen verificatie**.
    
    ![Verificatietype](./media/logic-apps-soap-connector-create-register/security-authentication-options.png)
 
-   Als u het verificatietype wijzigen kiezen **bewerken**. U kunt selecteren **basisverificatie**. Voor het gebruik van parameterlabels dan standaardwaarden, werken ze onder **parameterlabel**.
+   Als u het verificatietype wilt wijzigen, kiest u **Bewerken**. U kunt vervolgens **Basisverificatie** selecteren. Als u niet de standaardwaarden voor de parameterlabels wilt gebruiken, wijzigt u de waarden onder **Parameterlabel**.
 
    ![Basisverificatie](./media/logic-apps-soap-connector-create-register/security.png)
 
    
-2. Kies voor het opslaan van de connector na het invoeren van de beveiligingsgegevens boven aan de pagina **connector bijwerken**, en kies vervolgens **doorgaan**. 
+2. U kunt de connector opslaan na het invoeren van de beveiligingsgegevens door boven aan de pagina eerst **Connector bijwerken** te kiezen en vervolgens **Doorgaan**. 
 
-### <a name="2c-review-update-or-define-actions-and-triggers-for-your-connector"></a>2c. Controleer, bijwerken of acties en wordt geactiveerd voor uw connector definiëren
+### <a name="2c-review-update-or-define-actions-and-triggers-for-your-connector"></a>2c. Acties en triggers voor uw connector controleren, bijwerken of definiëren
 
-1. Nu kiezen **definitie** zodat u bekijken kunt, bewerken of nieuwe acties en triggers die gebruikers aan hun werkstromen toevoegen kunnen definiëren.
+1. Kies nu **Definitie** zodat u acties en triggers kunt controleren, bewerken of definiëren die gebruikers aan hun werkstromen kunnen toevoegen.
 
-   Acties en triggers zijn gebaseerd op de bewerkingen gedefinieerd in de WSDL-bestand, waardoor automatisch invullen de **definitie** pagina en de aanvraag- en -waarden bevatten. Dus als de vereiste bewerkingen al hier weergegeven, kunt u met de volgende stap in het registratieproces gaan zonder de wijzigingen op deze pagina.
+   Acties en triggers worden gebaseerd op de bewerkingen die zijn gedefinieerd in het WSDL-bestand. Aan de hand van deze bewerkingen worden bepaalde waarden op de pagina **Definitie** automatisch ingevuld, zoals in de secties Aanvraag en Antwoord. Dus als de vereiste bewerkingen hier al worden weergegeven, kunt u verdergaan met de volgende stap in het registratieproces zonder wijzigingen aan te brengen op deze pagina.
 
-   ![De definitie van de connector](./media/logic-apps-soap-connector-create-register/definition.png)
+   ![Definitie van connector](./media/logic-apps-soap-connector-create-register/definition.png)
 
 2. Eventueel, als u wilt bewerken, bestaande acties en triggers of nieuwe toevoegen, [doorgaan met deze stappen](logic-apps-custom-connector-register.md#add-action-or-trigger).
 
 
-## <a name="3-finish-creating-your-connector"></a>3. Maken van de connector voltooien
+## <a name="3-finish-creating-your-connector"></a>3. Connector voltooien
 
-Als u klaar bent, kiest u **Update Connector** zodat u de connector kunt implementeren. 
+Als u klaar bent, kiest u **Connector bijwerken** zodat u de connector kunt implementeren. 
 
-Gefeliciteerd. Nu wanneer u een logische app maakt, kunt u de connector niet vinden in Logic Apps Designer en die connector toevoegen aan uw logische app.
+Gefeliciteerd! Als u vanaf nu een logische app gaat maken, kunt u de connector vinden in de ontwerpfunctie voor logische apps en toevoegen aan uw logische app.
 
-![Zoeken naar de connector in Logic Apps Designer](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
+![Connector zoeken in ontwerpfunctie voor logische apps](./media/logic-apps-soap-connector-create-register/soap-connector-created.png)
 
-## <a name="share-your-connector-with-other-logic-apps-users"></a>De connector delen met andere gebruikers Logic Apps
+## <a name="share-your-connector-with-other-logic-apps-users"></a>Connector delen met andere Logic Apps-gebruikers
 
-Geregistreerd maar niet-gecertificeerde aangepaste connectors werken zoals Microsoft beheerde connectors, maar zichtbaar zijn en beschikbare *alleen* voor de auteur en gebruikers die werken met de dezelfde Azure Active Directory-tenant en de Azure-abonnement van de connector voor logische apps in de regio waar de apps die zijn geïmplementeerd. Hoewel delen optioneel is, moet u wellicht scenario's waar u uw connectors delen met andere gebruikers. 
+Aangepaste connectors die zijn geregistreerd maar niet zijn gecertificeerd, werken zoals door Microsoft beheerde connectors, maar zijn *alleen* zichtbaar en beschikbaar voor de maker van de connector en voor gebruikers met dezelfde Azure Active Directory-tenant en hetzelfde Azure-abonnement voor logische apps in de regio waarin die apps worden geïmplementeerd. Hoewel delen optioneel is, zijn er scenario's mogelijk waarin u uw connectors moet delen met andere gebruikers. 
 
 > [!IMPORTANT]
-> Als u een connector deelt, gaan anderen mogelijk afhankelijk zijn van die connector. 
-> ***De connector verwijdert, worden alle verbindingen met die connector.***
+> Als u een connector deelt, kunnen anderen afhankelijk zijn van de connector. 
+> ***Wanneer u de connector verwijdert, worden alle verbindingen met die connector ook verwijderd.***
  
 De connector met externe gebruikers buiten deze grenzen bijvoorbeeld delen met alle gebruikers van Logic Apps, [uw connector voor Microsoft-certificeringsinstantie indienen](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>Veelgestelde vragen
 
 **V:** Is de SOAP-connector algemeen beschikbaar (GA)? </br>
-**A:** het SOAP-connector bevindt zich in **Preview**, en nog niet een GA-service.
+**A:** De SOAP-connector bevindt zich in **preview**, en is nog geen GA-service.
 
-**V:** zijn er beperkingen en bekende problemen voor SOAP-connector? </br>
-**A:** Ja, Zie de [SOAP-connector beperkingen en bekende problemen](../api-management/api-management-api-import-restrictions.md#wsdl).
+**V:** Zijn er beperkingen en bekende problemen voor de SOAP-connector? </br>
+**A:** Ja, zie de [beperkingen en bekende problemen voor de SOAP-connector](../api-management/api-management-api-import-restrictions.md#wsdl).
 
-**V:** zijn er beperkingen voor aangepaste connectors? </br>
-**A:** Ja, Zie de [aangepaste connector beperkt hier](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
+**V:** Gelden er limieten voor aangepaste connectors? </br>
+**A:** Ja, die worden [hier](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits) beschreven.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-* Voor de ondersteuning met een ontwikkelings- en voorbereiding of met functies die niet beschikbaar zijn in de wizard registreren, neem contact op met [ condevhelp@microsoft.com ](mailto:condevhelp@microsoft.com). Microsoft controleert deze account voor ontwikkelaars vragen en problemen en doorgestuurd naar het juiste team.
+* Voor ondersteuning met ontwikkeling en onboarding, of om functies aan te vragen die niet beschikbaar zijn in de registratiewizard, neemt u contact op met [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com). Microsoft controleert dit account op vragen en problemen van ontwikkelaars en stuurt deze door naar het juiste team.
 
-* Vraag of vragen beantwoorden of zien wat anderen Azure Logic Apps doen, gaat u naar de [Azure Logic Apps-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Ga naar het [forum voor Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) om vragen te stellen, vragen te beantwoorden en te zien wat andere gebruikers van Azure Logic Apps aan het doen zijn.
 
-* Om te verbeteren van Logic Apps, stem op of dien ideeën op de [Logic Apps gebruiker feedback site](http://aka.ms/logicapps-wish). 
+* Ter verbetering van Logic Apps kunt u stemmen op ideeën of ideeën indienen op de [site voor gebruikersfeedback van Logic Apps](http://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Optioneel: Certificeren uw connector](../logic-apps/custom-connector-submit-certification.md)
-* [Veelgestelde vragen over aangepaste connector](../logic-apps/custom-connector-faq.md)
+* [Veelgestelde vragen over aangepaste connectors voor Azure Logic Apps, Microsoft Flow en PowerApps](../logic-apps/custom-connector-faq.md)

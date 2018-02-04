@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Uitpakken, transformeren en laden (ETL) op grote schaal
 
@@ -42,9 +42,7 @@ Orchestration is nodig voor het uitvoeren van de juiste taak op het juiste momen
 
 Apache Oozie is een coördinatiesysteem voor werkstromen waarmee Hadoop-taken worden beheerd. Oozie binnen een HDInsight-cluster wordt uitgevoerd en is geïntegreerd met de Hadoop-stack. Oozie ondersteunt Hadoop-taken voor Apache MapReduce, Apache Pig, Apache Hive en Apache Sqoop. Oozie kan ook worden gebruikt voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
-Zie voor meer informatie [Oozie gebruiken met Hadoop om te definiëren en uitvoeren van een werkstroom in HDInsight](../hdinsight-use-oozie-linux-mac.md)
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+Zie voor meer informatie [Oozie gebruiken met Hadoop om te definiëren en uitvoeren van een werkstroom op HDInsight](../hdinsight-use-oozie-linux-mac.md) voor een diepgaand waarin wordt getoond hoe Oozie gebruiken om een end-to-end-pijplijn, Zie [operationeel maken van de pijplijn gegevens](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
@@ -145,4 +143,4 @@ Wanneer u gegevens bestaat in de gekozen locatie, moet u deze op te schonen, com
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Apache Hive gebruiken als een ETL-hulpprogramma](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

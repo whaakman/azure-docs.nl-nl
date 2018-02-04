@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
@@ -146,7 +146,7 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 
 | Eigenschap | Opties | Beschrijving |
 | --- | --- | --- |
-| deviceId |vereist alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId |vereist alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |vereist alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks maximaal 128 tekens. Deze waarde wordt gebruikt om te onderscheiden van apparaten met dezelfde **deviceId**wanneer ze zijn verwijderd en opnieuw gemaakt. |
 | ETag |vereist alleen-lezen |Een tekenreeks voor een zwakke ETag voor de identiteit van het apparaat als per [RFC7232][lnk-rfc7232]. |
 | auth |optioneel |Een samengestelde-object met de informatie en beveiliging materiaal verificatie. |

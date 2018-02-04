@@ -36,7 +36,7 @@ Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplac
 
 * [RogueWave op basis van CentOS HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server voor HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
-*  [TIBCO raster-Engine van Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+*  [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Azure voor Gegevenswetenschap VM voor Windows en Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
@@ -57,14 +57,14 @@ Aangepaste of commerciële HPC-toepassingen worden uitgevoerd in Azure. Enkele v
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB gedistribueerde Computing Server](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
 ### <a name="graphics-and-rendering"></a>Afbeeldingen en rendering
 
-* [Autodesk Maya, 3ds Max en Arnold](../articles/batch/batch-rendering-service.md) op Azure Batch (preview)
+* [Autodesk Maya, 3ds Max en Arnold](../articles/batch/batch-rendering-service.md) op Azure Batch 
 
 ### <a name="ai-and-deep-learning"></a>AI en grondige leren
 
@@ -103,17 +103,18 @@ Aanbieders van SaaS- of ontwikkelaars HPC-toepassingen of werkbelastingen van de
 
 Leer hoe u het volgende doet:
 
-* [Te beginnen met ontwikkelen met Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Te beginnen met ontwikkelen met Batch](../articles/batch/quick-run-dotnet.md)
 * [Gebruik van Azure Batch-codevoorbeelden](https://github.com/Azure/azure-batch-samples)
 * [Met lage prioriteit virtuele machines, met Batch](../articles/batch/batch-low-pri-vms.md)
 * [Beperkte HPC-workloads uitvoeren met Batch scheepswerf](https://github.com/Azure/batch-shipyard)
 * [Gebruik de taal R met Batch](https://github.com/Azure/doAzureParallel)
+* [De Azure gedistribueerde Data Engineering Toolkit uitvoeren op Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Werkbelasting managers
 
 Hier volgen enkele voorbeelden van het cluster en de belasting van managers die kunnen worden uitgevoerd in Azure-infrastructuur. Zelfstandige clusters maken in Azure Virtual machines of burst virtuele Azure-machines van een on-premises-cluster. 
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
-* [Helder Clusterbeheer](http://www.brightcomputing.com/technology-partners/microsoft)
+* [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spectrum Symphony en Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
 * [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) -opties in te voeren ziet [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) virtuele machines 
@@ -127,6 +128,7 @@ Grootschalige Batch- en HPC-workloads hebben vaak voor opslag van gegevens en de
 Meer informatie:
 
 * [Parallelle bestandssystemen voor HPC-opslag in Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Hoogwaardige opslagoplossingen cloud van [Avere](http://www.averesystems.com/about-us/about-avere) (nu [die lid zijn van Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Gerelateerde Azure Services
@@ -139,11 +141,14 @@ Azure virtuele machines, virtuele-machineschaalsets Batch en verwante compute se
 * [Opslag van bestanden](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Gegevens en analyse
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) voor Hadoop-clusters op Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>AI en cognitieve services
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Netwerken
 * [Virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md)
@@ -167,7 +172,7 @@ Hier volgen enkele voorbeelden van klanten die zakelijke problemen met Azure HPC
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-* [Mitsubishi UFJ effecten International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 

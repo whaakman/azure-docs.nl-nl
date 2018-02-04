@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -49,8 +49,7 @@ Er moet een GitHub-account om deze taak te voltooien. Mogelijk wilt een account 
 2. Voer een **toepassingsnaam** voorbeeld - App Service op Azure-Stack.
 3. Voer de **startpagina URL**. De startpagina-URL moet een adres van de Stack-Azure-Portal. Bijvoorbeeld: https://portal.local.azurestack.external.
 4. Voer een **Toepassingsbeschrijving**.
-5. Voer de **retouraanroep-autorisatie-URL**.  De Url is in een Azure-Stack standaardimplementatie in de https://portal.local.azurestack.external/tokenauthorize formulier als u werkt met om uw domein voor azurestack.local onder een ander domein substitute.
-    ![GitHub - Register een nieuwe toepassing met waarden ingevuld][4]
+5. Voer de **retouraanroep-autorisatie-URL**.  In een implementatie van de Azure-Stack standaard de Url is in de https://portal.local.azurestack.external/tokenauthorize formulier als u werkt met onder een ander domein substitute uw domein voor local.azurestack.external ![GitHub - Registreer een nieuw toepassing met waarden ingevuld][4]
 6. Klik op **toepassing registreren**.  Nu worden weergegeven met een aanbieding pagina de **Client-ID** en **Clientgeheim** voor de toepassing.
     ![GitHub - registratie van de voltooide toepassing][5]
 7.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.

@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Met lage prioriteit virtuele machines, met Batch
 
-Azure Batch biedt een lage prioriteit (virtuele machines) te verlagen de kosten van het Batch-workloads. Prioriteit Laag virtuele machines maken nieuwe typen van Batch-workloads mogelijk doordat een grote hoeveelheid rekenkracht die ook voordelige.
-
-Prioriteit Laag virtuele machines te profiteren van de overtollige capaciteit in Azure. Wanneer u lage prioriteit VM's in uw pools opgeeft, kunt gebruiken Azure Batch automatisch deze teveel indien beschikbaar.
-
-Voor het gebruik van virtuele machines prioriteit Laag afweging is dat deze virtuele machines worden gebruikt wanneer er geen overtollige capaciteit beschikbaar in Azure is. Om deze reden prioriteit Laag VMs meest geschikt zijn voor bepaalde typen werkbelastingen. Prioriteit Laag VM's gebruiken voor batch en asynchrone verwerking werkbelastingen waar de voltooiingstijd van de taak is flexibel en het werk verdeeld is over veel virtuele machines.
-
+Azure Batch biedt een lage prioriteit (virtuele machines) te verlagen de kosten van het Batch-workloads. Prioriteit Laag virtuele machines maken nieuwe typen van Batch werkbelastingen die mogelijk doordat een grote hoeveelheid rekenkracht moet worden gebruikt voor een zeer lage kosten.
+ 
+Prioriteit Laag virtuele machines te profiteren van de overtollige capaciteit in Azure. Wanneer u lage prioriteit VM's in uw pools opgeeft, kunt Azure Batch deze teveel, indien beschikbaar.
+ 
+Voor het gebruik van virtuele machines prioriteit Laag afweging is dat deze VMs mogelijk niet beschikbaar om te worden toegewezen of kunnen worden gebruikt op elk gewenst moment, afhankelijk van de beschikbare capaciteit. Om deze reden prioriteit Laag VMs meest geschikt zijn voor bepaalde typen werkbelastingen. Prioriteit Laag VM's gebruiken voor batch en asynchrone verwerking werkbelastingen waar de voltooiingstijd van de taak is flexibel en het werk verdeeld is over veel virtuele machines.
+ 
 Prioriteit Laag VM's zijn beschikbaar op een aanzienlijk gereduceerde prijs vergeleken met de toegewezen virtuele machines. Zie voor prijsinformatie, [prijzen van Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 

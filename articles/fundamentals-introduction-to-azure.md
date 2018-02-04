@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Inleiding tot Microsoft Azure
 Microsoft Azure is Microsoft toepassingsplatform voor de openbare cloud.  Het doel van dit artikel is het bieden u een basis voor informatie over de grondbeginselen van Azure, zelfs als u niet over cloud weet computing.
@@ -82,7 +82,7 @@ Voor ontwikkeling ondersteunt Web-Apps .NET, PHP, Node.js, Java en Python samen 
 Web-Apps is bedoeld om het nuttig zijn voor ondernemingen, ontwikkelaars en instanties van web-ontwerp. Voor ondernemingen is het een gemakkelijk te beheren, schaalbare, maximaal beveiligde en maximaal beschikbare oplossing voor het uitvoeren van de aanwezigheid websites. Wanneer u voor het instellen van een Website, is het raadzaam te starten met Azure-Web-Apps en doorgaan met Cloud-Services wanneer u moet een functie die niet beschikbaar. Zie het einde van de sectie 'Compute' voor meer koppelingen kunt u kiezen tussen de opties.
 
 ### <a name="cloud-services"></a>Cloud Services
-![Azure-Cloudservice](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
+![Azure Cloud Service](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Afbeelding: Azure Cloud Services hier kunt u zeer schaalbare aangepaste code uitvoeren op een Platform als een Service (PaaS)-omgeving*
 
 Stel dat u wilt een cloudtoepassing bouwt die veel gelijktijdige gebruikers ondersteunen, hoeft niet veel beheer en nooit uitvalt. Bent u mogelijk een tot stand gebrachte softwareleverancier bijvoorbeeld die heeft besloten te spelen op Software als een Service (SaaS) door het maken van een versie van een van uw toepassingen in de cloud. Of u mogelijk een beginnend bedrijf bent het maken van een consumer-toepassing die u verwacht te snel groeien. Als u in Azure maakt, welk model uitvoeren moet u gebruiken?
@@ -111,7 +111,7 @@ De mogelijkheid voor het uitvoeren van SQL Server of een ander DBMS in een virtu
 Weer de status van de virtuele Machine en eventuele aanvullende gegevensschijf u maakt of uploadt worden ondersteund door de blob-opslag (die we later over hebben).  
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
-![Azure Storage SQL-Database](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)   
+![Azure Storage SQL Database](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)   
 
 *Afbeelding: Azure SQL Database biedt een beheerde relationele databaseservice in de cloud.*
 
@@ -139,7 +139,7 @@ En niet te verwarren met de naam: deze technologie niet relationele opslag biede
 Stel dat u wilt maken een Azure-toepassing die snelle toegang tot nodig hebt getypt gegevens, mogelijk veel ervan, maar hoeven niet te complex SQL-query's uitvoeren op deze gegevens. Stel dat u maakt een consumer-toepassing die moet worden opgeslagen profiel klantgegevens voor elke gebruiker. Uw app is het verstandig om zeer populair is, zodat u wilt toestaan voor grote hoeveelheden gegevens, maar u u niet veel met deze gegevens na het opslaan hebt, klikt u vervolgens bij het ophalen van het op eenvoudige manieren. Dit is precies het soort scenario waarbij Azure-tabellen zinvol is.
 
 ### <a name="blobs"></a>Blobs
-![Azure Storage-Blobs](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png)    
+![Azure Storage Blobs](./media/fundamentals-introduction-to-azure/StorageBlobsIntroNew.png)    
 *Afbeelding: Azure Blobs bevat niet-gestructureerde binaire gegevens.*  
 
 Azure-Blobs (opnieuw 'Blob Storage' en alleen 'Storage-Blobs' zijn hetzelfde) is ontworpen voor het opslaan van ongestructureerde binaire gegevens. Zoals tabellen, kan Blobs biedt goedkope opslag, en één blob even groot zijn als 1TB (één terabyte). Azure-toepassingen kunnen ook gebruiken voor Azure stations waarmee blobs permanente opslag bieden voor een Windows-bestandssysteem gekoppeld in een Azure-instantie. De toepassing ziet gewone Windows-bestanden, maar de gegevens daadwerkelijk worden opgeslagen in een blob.
@@ -163,7 +163,7 @@ Soms wilt u grote hoeveelheden gegevens naar Azure verplaatst. Die zou lang dure
 * **Gegevensherstel gearchiveerd** -kunt u voor importeren/exporteren om Microsoft-overdracht die grote hoeveelheden gegevens opgeslagen in Azure Blob-opslag met een opslagapparaat die u verzendt en vervolgens hebt dat apparaat geleverd terug naar een locatie die u wenst. Omdat dit het enige tijd duurt, is het niet een goede optie voor noodherstel. Het is raadzaam voor gearchiveerde gegevens die u snel toegang tot niet nodig.
 
 ### <a name="file-service"></a>File-Service
-![Azure File-Service](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
+![Azure File Service](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
 *Afbeelding: Azure Bestandsservices biedt SMB \\ \\server\share paden voor toepassingen die worden uitgevoerd in de cloud.*
 
 On-premises is het gebruikelijk om grote hoeveelheden toegankelijk via de Server Message Block (SMB) protocol met behulp van bestandsopslag een \\ \\Server\share-indeling. Azure heeft nu een service waarmee u met dit protocol in de cloud. Toepassingen die worden uitgevoerd in Azure kunnen deze gebruiken voor het delen van bestanden tussen virtuele machines met bekend bestandssysteem API's zoals ReadFile en WriteFile. Bovendien zijn de bestanden ook toegankelijk op hetzelfde moment via een REST-interface waarmee u toegang tot de shares on-premises wanneer u ook een virtueel netwerk instellen. Azure Files is ingebouwd in de blob-service zodat de dezelfde beschikbaarheid, duurzaamheid, schaalbaarheid en geografische redundantie ingebouwd in Azure Storage worden overgenomen.
@@ -236,7 +236,7 @@ Visual Studio Team Services biedt een service voor het testen van belasting. U k
 
 Visual Studio Team Services biedt ook ondersteuning voor het flexibel ontwikkelen met functies zoals continue integratie bouwt, kanbanborden en virtueel team ruimten.
 
-**Visual Studio Team Services-scenario 's**
+**Visual Studio Team Services Scenarios**
 
 Visual Studio Team Services is een goede optie voor bedrijven die moeten samenwerken overal ter wereld en niet de infrastructuur hebben opgesteld om dit te doen. U kunt setup ophalen in minuten, kiest u een bronbeheersysteem en beginnen met het schrijven van code en bouwen van die dag.  De team hulpprogramma's bieden een plaats voor coördinatie en samenwerking en de aanvullende hulpprogramma's bieden de analyse nodig om te testen en snel afstemmen van uw toepassing.
 
@@ -409,7 +409,7 @@ Service Bus kunt rechtstreekse communicatie via de relay-service biedt een veili
 Toepassingen die via Service Bus communiceren mogelijk op Azure-toepassingen of software die wordt uitgevoerd op een andere cloud-platform. Ze kunnen ook toepassingen die worden uitgevoerd buiten de cloud, maar worden. Een luchtvaartmaatschappij dat reserveringsinformatie op computers in een eigen datacenter implementeert bijvoorbeeld zien. De luchtvaartmaatschappij moet deze services te veel clients, waaronder incheckbalies op luchthavens, reservering agent aansluitingen, beschikbaar stellen en mogelijk zelfs klanten telefoons. Deze mogelijk gebruik van Service Bus hiervoor losse interacties tussen de verschillende toepassingen maken.
 
 #### <a name="service-bus-topics-and-subscriptions"></a>Service Bus-onderwerpen en -abonnementen
-![Azure Service Bus-onderwerpen](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png)   
+![Azure Service Bus Topics](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png)   
  *Afbeelding: Service Bus-onderwerpen kunnen meerdere apps berichten en andere toepassingen voor een abonnement voor het ontvangen van berichten die aan een bepaald criterium voldoen.*
 
 Service Bus biedt een mechanisme voor publiceren en abonneren aangeroepen onderwerpen en abonnementen. Met publish-subscribe, kunt een toepassing berichten verzenden naar een onderwerp, terwijl andere toepassingen abonnementen naar dit onderwerp kunnen maken. Hierdoor kan een-op-veel-communicatie tussen een set met toepassingen, waardoor hetzelfde bericht worden gelezen door meerdere ontvangers.
@@ -424,7 +424,7 @@ Op elk gewenst moment u instelt waarbij er zijn veel berichten die alle belangri
 
 Soms moet u verbinding maken met systemen die communiceren met behulp van verschillende-indelingen. Het is gebruikelijk voor bedrijven hebben andere database schema's en XML-messaging-indelingen, zelfs als een algemene standaard beschikbaar. In plaats van een groot aantal aangepaste code schrijven, kunt u BizTalk Server on-premises, voor het integreren van verschillende systemen.  Azure BizTalk Services geeft hetzelfde type van de service, maar in de cloud. U kunt alleen wat u gebruikt en u geen zorgen over schalen zoals u tot on-premises hebben zou betalen.
 
-**BizTalk Services-scenario 's**
+**BizTalk Services Scenarios**
 
 Dit type vertaling voor bedrijven vereisen meestal interacties Business-to-Business (B2B).  Bijvoorbeeld, een bedrijf bouwen vliegtuigen moet volgorde-onderdelen van de verschillende onderdelen leveranciers. Er is veel leveranciers van onderdelen.  Deze orders moeten worden geautomatiseerd om rechtstreeks vanuit de vliegtuig opbouwfuncties systemen van de leveranciers-systemen.  Geen van beide bedrijven wil wijzigen van hun core systemen en berichtindelingen en is zeer onwaarschijnlijk dat deze indelingen hetzelfde zijn. BizTalk Services kan duren voordat de berichten en tussen de nieuwe indelingen beide manieren vertalen. Het werk te vertalen kunt doen door de leverancier van het vliegtuig of de verschillende leveranciers kunnen, afhankelijk van die wil meer controle en de hoeveelheid vertaling nodig.     
 

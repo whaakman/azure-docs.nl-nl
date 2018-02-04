@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2018
+ms.date: 02/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
@@ -101,18 +101,21 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Op basis van centOS 7.3 of Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS of Red Hat Enterprise Linux 7.3 of 7.4
 
-1. Installeer de meest recente Linux-integratieservices voor Hyper-V.
+1. Bijwerken van de kernel.
 
-  > [!IMPORTANT]
-  > Als u een installatiekopie op basis van CentOS HPC geïnstalleerd op een NC24r VM, gaat u verder met stap 3. Omdat Azure RDMA-stuurprogramma's en Linux-integratieservices in de HPC-installatiekopie vooraf worden geïnstalleerd, LIS moet niet worden bijgewerkt en kernel-updates zijn standaard uitgeschakeld.
-  >
+  ```
+  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+  
+  sudo reboot
+
+2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
  
   cd LISISO
  
@@ -124,8 +127,6 @@ sudo reboot
 3. Opnieuw verbinding maken met de virtuele machine en doorgaan met installatie met de volgende opdrachten:
 
   ```bash
-  sudo yum install kernel-devel
-
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
   sudo yum install dkms
@@ -162,20 +163,22 @@ Als het stuurprogramma is geïnstalleerd, ziet u uitvoer ziet er als volgt. Houd
 ![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-
 ## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
 
 RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines van RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
 
 ### <a name="distributions"></a>Distributies
 
-RDMA-compatibele N-reeks-virtuele machines van een van de volgende afbeeldingen in de Azure Marketplace die ondersteuning biedt voor RDMA-netwerkverbinding implementeren:
+RDMA-compatibele N-reeks-virtuele machines van een installatiekopie in Azure Marketplace die ondersteuning biedt voor RDMA-connectiviteit op N-reeks virtuele machines implementeren:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA-stuurprogramma's op de virtuele machine configureren en registreren met Intel Intel MPI downloaden:
+* **Ubuntu 16.04 LTS** - RDMA-stuurprogramma's op de virtuele machine configureren en registreren met Intel Intel MPI downloaden:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **Op basis van centOS HPC** -7.3 HPC op basis van CentOS. RDMA-stuurprogramma's en Intel MPI 5.1 worden geïnstalleerd op de virtuele machine. 
+> [!NOTE]
+> CentOS HPC-installatiekopieën worden momenteel niet aanbevolen voor RDMA-verbindingen op virtuele machines N-serie. RDMA wordt niet ondersteund op de meest recente CentOS 7.4 kernel die ondersteuning biedt voor NVIDIA GPU's.
+> 
+
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>RASTER stuurprogramma's voor virtuele machines NV installeren
 
@@ -237,7 +240,7 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 9. Start de virtuele machine op en gaat u verder met de installatie verifiëren.
 
 
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Op basis van centOS 7.3 of Red Hat Enterprise Linux 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS of Red Hat Enterprise Linux 
 
 1. De kernel en DKMS bijwerken.
  
@@ -262,9 +265,9 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 3. De virtuele machine opnieuw opstarten, opnieuw verbinding maken en installeer de meest recente Linux-integratieservices voor Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-2.tar.gz
+  tar xvzf lis-rpms-4.2.3-5.tar.gz
 
   cd LISISO
 
@@ -343,8 +346,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 Dit bestand kan worden aangeroepen als basis voor opgestart door het maken van een vermelding voor het in `/etc/rc.d/rc3.d`.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-
-* Er is een bekend probleem met stuurprogramma's voor CUDA op N-reeks virtuele machines in Azure die de 4.4.0-75 Linux kernel op Ubuntu 16.04 TNS worden uitgevoerd. Als u een upgrade vanaf een eerdere kernelversie uitvoert, upgrade uit naar ten minste kernel versie 4.4.0-77.
 
 * U kunt instellen persistentie modus met `nvidia-smi` zodat de uitvoer van de opdracht sneller is als u query-kaarten wilt. Persistentie als modus wilt instellen, uitvoeren `nvidia-smi -pm 1`. Houd er rekening mee dat als de virtuele machine opnieuw wordt opgestart, de instelling voor de verdwijnt. U kunt de instelling voor de uit te voeren bij het opstarten altijd script.
 

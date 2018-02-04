@@ -3,7 +3,7 @@ title: Switch-instructie voor verschillende acties in Azure Logic Apps | Microso
 description: Kies verschillende acties uitvoeren in logic apps op basis van Expressiewaarden met behulp van een switch-instructie
 services: logic-apps
 keywords: Switch-instructie
-author: derek1ee
+author: ecfan
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs; deli
-ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: LADocs; estfan
+ms.openlocfilehash: 8f11d18009d60ea5c74781ccef2ff7d811516750
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Verschillende acties worden uitgevoerd in logic apps met een switch-instructie
 
@@ -74,7 +74,7 @@ Als u wilt weergeven op de werking van een switch-instructie, wordt in dit voorb
 
 4. Het oorspronkelijke bestand geüpload naar Dropbox door deze actie toe te voegen na de instructie switch worden verwijderd: **Dropbox - bestand verwijderen**
 
-5. Sla uw logische app. Uw app testen door een bestand uploadt naar Dropbox. U ontvangt binnenkort een e-mailbericht goedkeuring. Selecteer een optie en het gedrag observeren.
+5. Sla uw logische app op. Uw app testen door een bestand uploadt naar Dropbox. U ontvangt binnenkort een e-mailbericht goedkeuring. Selecteer een optie en het gedrag observeren.
 
    > [!TIP]
    > Bekijk hoe [uw logische apps bewaken](logic-apps-monitor-your-logic-apps.md).

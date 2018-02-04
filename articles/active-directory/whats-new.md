@@ -6,21 +6,22 @@ documentationcenter:
 author: MarkusVi
 manager: mtillman
 editor: 
-featureFlags: clicktale
+featureFlags:
+- clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -74,7 +75,7 @@ Het voor een risicogebeurtenis gedetecteerde dat u inzicht is gekoppeld aan uw a
 
 Met de editie Azure AD Premium-P1 weergegeven detecties die niet wordt gedekt door uw licentie als de risicogebeurtenis aanmelden met extra risico gedetecteerd.
 
-Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-reporting-risk-events.md) voor meer informatie.
+Zie [Risicogebeurtenissen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) voor meer informatie.
  
 
 ---
@@ -89,7 +90,7 @@ Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-reporting-
 U kunt nu beter beheren hoe Office 365-toepassingen weergegeven op uw gebruikers toegang panelen via een nieuwe gebruikersinstelling. Deze optie is handig voor het beperken van de hoeveelheid apps in een gebruiker toegang panelen als u liever alleen Office-apps worden weergegeven in de Office-portal. De instelling bevindt zich in de **gebruikersinstellingen** en label **kunnen gebruikers alleen Office 365-apps in de Office 365-beheerportal zien**.
  
 
-Zie voor meer informatie [verbergen van een toepassing van de gebruikerservaring in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+Zie voor meer informatie [verbergen van een toepassing van de gebruikerservaring in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -109,7 +110,7 @@ De Browseruitbreiding van mijn Apps is nu beschikbaar via een handig hulpmiddel 
 - Snelkoppelingen naar de laatst gebruikte apps van de extensie
 - De extensie is beschikbaar voor Edge, Chrome en Firefox.
  
-Zie voor meer informatie [mijn Apps beveiligen aanmelden extensie](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+Zie voor meer informatie [mijn Apps beveiligen aanmelden extensie](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -154,9 +155,9 @@ Als onderdeel van de overgang naar de nieuwe beheerconsole, hebben we 2 nieuwe A
 
 Zie voor meer informatie:
 
-- [Aan de slag met de Azure Active Directory rapportage-API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Aan de slag met de Azure Active Directory rapportage-API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -226,7 +227,7 @@ Een optie voor beheerders moet hun gebruikers uit te breiden de gebruiksvoorwaar
 
 Selecteer een **op** of **uit** gebruikers moeten de gebruiksvoorwaarden uitbreiden. De **op** instelling moet gebruikers om weer te geven van de gebruiksrechtovereenkomst voordat ze worden geaccepteerd.
 
-Zie voor meer informatie de [Azure AD-voorwaarden van de functie gebruiken (preview)](active-directory-tou.md).
+Zie voor meer informatie de [Azure AD-voorwaarden van de functie gebruiken (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -239,7 +240,7 @@ Zie voor meer informatie de [Azure AD-voorwaarden van de functie gebruiken (prev
  
 Roltoewijzingen in aanmerking komende Azure-resource met minder autonomie dan de oorspronkelijke toewijzing standaardinstellingen activeren kunt u binnen het bereik activering. Een voorbeeld is als u als eigenaar van een abonnement in uw tenant krijgt. Met een bereik-activering, kunt u de rol van eigenaar voor maximaal vijf bronnen die zich bevinden in het abonnement (zoals resourcegroepen en virtuele machines) activeren. De activering scoping mogelijk beperkt u de kans van de uitvoering van ongewenste wijzigingen in kritieke Azure-resources.
 
-Zie voor meer informatie [wat is Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+Zie voor meer informatie [wat is Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -342,7 +343,7 @@ Vandaag de dag toegang geblokkeerd wanneer u deze voorwaarde gebruiken. Wanneer 
 
 Zoek naar deze functionaliteit en meer informatie in toekomstige blogs en release-opmerkingen. 
 
-Zie voor meer informatie [voorwaardelijke toegang in Azure AD](active-directory-conditional-access-azure-portal.md).
+Zie voor meer informatie [voorwaardelijke toegang in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -357,7 +358,7 @@ Zie voor meer informatie [voorwaardelijke toegang in Azure AD](active-directory-
 
 
 
-De volgende apps zijn gepland om te worden toegevoegd aan de lijst met [client-apps goedgekeurd](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+De volgende apps zijn gepland om te worden toegevoegd aan de lijst met [client-apps goedgekeurd](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -365,8 +366,8 @@ De volgende apps zijn gepland om te worden toegevoegd aan de lijst met [client-a
 
 Zie voor meer informatie:
 
-- [Goedgekeurde app vereiste](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD app gebaseerde voorwaardelijke toegang](active-directory-conditional-access-mam.md)
+- [Goedgekeurde app vereiste](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -408,7 +409,7 @@ Als er problemen met de verbinding met uw lokale Write-back-client zijn, ziet u 
 - Een koppeling naar de documentatie die u helpt bij het oplossen van het probleem. 
 
 
-Zie voor meer informatie [on-premises integratie](active-directory-passwords-how-it-works.md#on-premises-integration).
+Zie voor meer informatie [on-premises integratie](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -427,9 +428,9 @@ Zie voor meer informatie [on-premises integratie](active-directory-passwords-how
 
 
 
-Nu kunt u toegangsbeperkingen voor Office 365 en andere Azure AD verbonden cloud-apps naar [client-apps goedgekeurd](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) die ondersteuning bieden voor beveiligingsbeleid voor Intune-app met behulp van [voorwaardelijke toegang van Azure AD op basis van een app](active-directory-conditional-access-mam.md). Intune app beveiliging beleidsregels worden gebruikt om te configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
+Nu kunt u toegangsbeperkingen voor Office 365 en andere Azure AD verbonden cloud-apps naar [client-apps goedgekeurd](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) die ondersteuning bieden voor beveiligingsbeleid voor Intune-app met behulp van [voorwaardelijke toegang van Azure AD op basis van een app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune app beveiliging beleidsregels worden gebruikt om te configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
 
-Door te combineren [op basis van een app](active-directory-conditional-access-mam.md) met [op basis van apparaten](active-directory-conditional-access-policy-connected-applications.md) beleid voor voorwaardelijke toegang hebt u de flexibiliteit om gegevens voor persoonlijke en zakelijke apparaten te beveiligen.
+Door te combineren [op basis van een app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) met [op basis van apparaten](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) beleid voor voorwaardelijke toegang hebt u de flexibiliteit om gegevens voor persoonlijke en zakelijke apparaten te beveiligen.
 
 De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik met voorwaardelijke toegang op basis van een app:
 
@@ -447,7 +448,7 @@ De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik 
 - Goedgekeurde client-apps vereisen
 
 
-Zie voor meer informatie [voorwaardelijke toegang van Azure AD op basis van een app](active-directory-conditional-access-mam.md).
+Zie voor meer informatie [voorwaardelijke toegang van Azure AD op basis van een app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -471,7 +472,7 @@ Nu kunt u uw apparaten die zijn verbonden met Azure AD en de activiteiten die be
 - BitLocker-sleutels voor uw Azure AD-die lid zijn van apparaten zoeken, beheren van uw apparaat met Intune en meer.
 - Apparaat-gerelateerde Azure AD-instellingen beheren.
 
-Zie voor meer informatie [apparaten beheren met behulp van de Azure-portal](device-management-azure-portal.md).
+Zie voor meer informatie [apparaten beheren met behulp van de Azure-portal](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -496,7 +497,7 @@ U kunt nu opnemen of uitsluiten Mac OS als een voorwaarde voor het platform van 
 Zie voor meer informatie:
 
 - [Maken van een nalevingsbeleid voor apparaten voor Mac OS-apparaten met Intune](https://aka.ms/macoscompliancepolicy)
-- [Voorwaardelijke toegang in Azure AD](active-directory-conditional-access-azure-portal.md)
+- [Voorwaardelijke toegang in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -517,7 +518,7 @@ De Network Policy Server-extensie voor Azure multi-factor Authentication wordt c
 Deze uitbreiding is gemaakt voor organisaties die beveiligen van VPN-verbindingen willen zonder de Azure multi-factor Authentication-Server implementeren. Network Policy Server extensie als een adapter tussen RADIUS- en cloud-gebaseerde Azure multi-factor Authentication fungeert voor een tweede factor van verificatie voor federatieve of gesynchroniseerde gebruikers.
 
 
-Zie voor meer informatie [uw bestaande infrastructuur van Network Policy Server integreren met Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+Zie voor meer informatie [uw bestaande infrastructuur van Network Policy Server integreren met Azure multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -556,7 +557,7 @@ In het Azure AD-beheercentrum kunt u nu:
 **Product mogelijkheid:** identiteit beveiliging en bescherming
 
 
-De volgende apps zijn toegevoegd aan de lijst met [client-apps goedgekeurd](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+De volgende apps zijn toegevoegd aan de lijst met [client-apps goedgekeurd](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -564,8 +565,8 @@ De volgende apps zijn toegevoegd aan de lijst met [client-apps goedgekeurd](acti
 
 Zie voor meer informatie:
 
-- [Goedgekeurde app vereiste](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD app gebaseerde voorwaardelijke toegang](active-directory-conditional-access-mam.md)
+- [Goedgekeurde app vereiste](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -580,7 +581,7 @@ Zie voor meer informatie:
  
 U nu kunt gebruiken ' of ' (een van de geselecteerde besturingselementen vereisen) voor besturingselementen van voorwaardelijke toegang. U kunt deze functie gebruiken om beleid te maken met 'of' tussen toegangsbeheer. Bijvoorbeeld, kunt u deze functie voor het maken van een beleid dat een gebruiker aan te melden met behulp van multi-factor authentication 'of' op een compatibel apparaat vereist.
 
-Zie voor meer informatie [besturingselementen in voorwaardelijke toegang van Azure AD](active-directory-conditional-access-controls.md).
+Zie voor meer informatie [besturingselementen in voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -634,7 +635,7 @@ Als gevolg van deze nieuwe functies zijn het rapport API's onder het eindpunt/Re
 
 
 
-Azure AD biedt ondersteuning voor automatische aanmelding veld detectie voor toepassingen die een gebruiker HTML-veld naam en het wachtwoord genereren. Deze stappen zijn gedocumenteerd in [automatisch vastleggen velden aanmelden voor een toepassing](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). U vindt deze mogelijkheid door toe te voegen een *Non-galerie* toepassing op de **bedrijfstoepassingen** pagina in de [Azure-portal](http://aad.portal.azure.com). Bovendien kunt u de **Single Sign-on** modus op deze nieuwe toepassing **op basis van wachtwoorden Single Sign-on**, voer een URL en sla de pagina.
+Azure AD biedt ondersteuning voor automatische aanmelding veld detectie voor toepassingen die een gebruiker HTML-veld naam en het wachtwoord genereren. Deze stappen zijn gedocumenteerd in [automatisch vastleggen velden aanmelden voor een toepassing](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). U vindt deze mogelijkheid door toe te voegen een *Non-galerie* toepassing op de **bedrijfstoepassingen** pagina in de [Azure-portal](http://aad.portal.azure.com). Bovendien kunt u de **Single Sign-on** modus op deze nieuwe toepassing **op basis van wachtwoorden Single Sign-on**, voer een URL en sla de pagina.
  
 Deze functionaliteit is vanwege een serviceprobleem tijdelijk uitgeschakeld. Het probleem is opgelost en de detectie automatisch aanmelden veld weer beschikbaar is.
 
@@ -656,7 +657,7 @@ Multi-factor authentication (MFA) is een essentieel onderdeel van het beveiligen
 
 Met deze openbare preview MFA beheer- en rapportageopties een geïntegreerde deel uitmaken van de ervaring van de core Azure AD-configuratie. U kunt nu de portal beheerfunctionaliteit MFA binnen de ervaring van de Azure AD beheren.
 
-Zie voor meer informatie [verwijzing voor het melden van MFA in de Azure portal](active-directory-reporting-activity-sign-ins-mfa.md). 
+Zie voor meer informatie [verwijzing voor het melden van MFA in de Azure portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -679,7 +680,7 @@ U kunt Azure AD gebruiksvoorwaarden gebruiken in de volgende scenario's:
 - Specifieke gebruiksvoorwaarden op basis van een gebruiker kenmerken (bijvoorbeeld arts versus verpleegkundigen) of binnenlandse versus internationale werknemers, uitgevoerd door dynamische groepen
 - Gebruiksvoorwaarden specifieke voor toegang tot hoge impact business-apps, zoals Salesforce
 
-Zie voor meer informatie [Azure AD gebruiksvoorwaarden](active-directory-tou.md).
+Zie voor meer informatie [Azure AD gebruiksvoorwaarden](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -700,7 +701,7 @@ U kunt met Azure AD Privileged Identity Management, beheren en toegang tot Azure
 
 Alle resources binnen de Azure-portal met de Azure RBAC-functionaliteit kunnen profiteren van de beveiliging en de levenscyclus van beheermogelijkheden voor Azure AD Privileged Identity Management te bieden heeft.
 
-Zie voor meer informatie [Privileged Identity Management voor Azure-resources](privileged-identity-management/azure-pim-resource-rbac.md).
+Zie voor meer informatie [Privileged Identity Management voor Azure-resources](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -721,7 +722,7 @@ Organisaties kunnen toegang beoordelingen (preview) gebruiken voor het efficiën
 
 U kunt de controles van toegangsbeoordelingen verzamelen in programma's die relevant zijn voor uw organisatie, om beoordelingen bij te houden voor naleving of risicogevoelige toepassingen.
 
-Zie voor meer informatie [beoordeelt de toegang van Azure AD](active-directory-azure-ad-controls-access-reviews-overview.md).
+Zie voor meer informatie [beoordeelt de toegang van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -738,7 +739,7 @@ Zie voor meer informatie [beoordeelt de toegang van Azure AD](active-directory-a
 
 Nu kunt u beter apps beheren die worden weergegeven voor uw gebruikers portals via een nieuwe **app verbergen** eigenschap. U kunt apps om in gevallen waarin app-tegels voor back-end-services of dubbele tegels en overzichtelijker gebruikers app voor ruimtevaartuigen weergegeven te verbergen. De wisselknop is in de **eigenschappen** sectie van de app van derden en label **zichtbaar voor gebruiker?** U kunt ook een app via een programma via PowerShell verbergen. 
 
-Zie voor meer informatie [verbergen van een toepassing van derden van de gebruikerservaring in Azure AD](active-directory-coreapps-hide-third-party-app.md). 
+Zie voor meer informatie [verbergen van een toepassing van derden van de gebruikerservaring in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **Wat is er beschikbaar?**

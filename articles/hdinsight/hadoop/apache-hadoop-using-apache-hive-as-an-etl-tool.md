@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 1ccbfe23e9c887a98a0dbfa8031078a15c6e41b6
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 6d0d7c8643551dde69a7bf785de72c1ca984c580
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive gebruiken als een hulpprogramma voor uitpakken, transformeren en Load (ETL)
 
@@ -94,7 +94,8 @@ Als het doel van de gegevens niet een database, genereert u een bestand in de ju
 
 Als u verschillende bewerkingen op de gegevens die worden uitgevoerd als onderdeel van het ETL-proces moet, kunt u overwegen hoe u ze beheren. Als de bewerkingen worden beheerd door een extern programma, moet en niet als een werkstroom binnen de oplossing u om te bepalen of bepaalde bewerkingen parallel kunnen worden uitgevoerd en om te detecteren wanneer elke taak is voltooid. Met een werkstroom mechanisme zoals Oozie in Hadoop is mogelijk beter dan bij het indelen van een reeks bewerkingen met externe scripts of op aangepaste programma's. Zie voor meer informatie over Oozie [werkstroom en taak orchestration](https://msdn.microsoft.com/library/dn749829.aspx).
 
-<!-- ## Next steps -->
-<!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->
-<!-- * [Operationalize Data Pipelines with Oozie](hdinsight-operationalize-data-pipeline.md): Learn how to build a data pipeline that uses Hive to summarize CSV flight delay data, stage the prepared data in Azure Storage blobs, and then use Sqoop to load the summarized data into Azure SQL Database. -->
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md): Walk through an end-to-end ETL pipeline.  -->
+## <a name="next-steps"></a>Volgende stappen
+
+* [ETL op grote schaal](apache-hadoop-etl-at-scale.md)
+* [Een pijplijn gegevens operationeel maken](../hdinsight-operationalize-data-pipeline.md)
+<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

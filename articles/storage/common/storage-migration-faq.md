@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Veelgestelde vragen over Azure Storage-migratie
 
@@ -280,7 +280,7 @@ Voor andere gebruikers toegang tot de storage-resources:
       
     - **AzCopy**: Append **-secundaire** aan de naam van het opslagaccount in de URL voor toegang tot het secundaire eindpunt. Bijvoorbeeld:  
      
-      https://storageaccountname-Secondary.BLOB.Core.Windows.NET/vhds/BlobName.VHD
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS-token**: een SAS-token gebruiken voor toegang tot gegevens van het eindpunt. Zie voor meer informatie [gedeelde handtekeningen voor toegang](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -294,6 +294,10 @@ Maar u kunt aangepaste niet-HTTPS-domeinen. Zie voor meer informatie [een aangep
 Er is geen manier toegang krijgen tot een opslagaccount via FTP. U kunt echter instellen van Azure een virtuele machine en vervolgens een FTP-server installeren op de virtuele machine. U kunt de FTP-server bestanden opslaan op een share Azure Files of op een gegevensschijf die beschikbaar is voor de virtuele machine hebben.
 
 Als u alleen gegevens wilt zonder gebruik te maken van Storage Explorer of een vergelijkbare toepassing te downloaden, kunt u mogelijk gebruikmaken van een SAS-token. Zie voor meer informatie [gedeelde handtekeningen voor toegang](storage-dotnet-shared-access-signature-part-1.md).
+
+**Hoe Migreer ik Blobs uit één opslagaccount naar de andere?**
+
+ U kunt dit doen met behulp van onze [migratiescript Blob](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

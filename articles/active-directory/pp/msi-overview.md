@@ -3,8 +3,8 @@ title: Beheerde Service-identiteit (MSI) voor Azure Active Directory
 description: Een overzicht van beheerde Service-identiteit voor Azure-resources.
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: 
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 53577c8da5f82235284d1cb9e48f2d47254aa6bd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service-identiteit (MSI) voor Azure-resources
 
@@ -92,10 +92,10 @@ De volgende services ondersteuning bieden voor Azure AD-verificatie en getest me
 
 | Service | Resource-id | Status | Date | Toegang toewijzen |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Beschikbaar | September 2017 | [Azure-CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://Vault.Azure.NET/ | Beschikbaar | September 2017 | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Beschikbaar | September 2017 | |
-| Azure SQL | https://database.Windows.NET/ | Beschikbaar | Oktober 2017 | |
+| Azure Resource Manager | https://management.azure.com/ | Beschikbaar | September 2017 | [Azure-CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Beschikbaar | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Beschikbaar | September 2017 | |
+| Azure SQL | https://database.windows.net/ | Beschikbaar | Oktober 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Wat kost Service-identiteit beheerd?
 

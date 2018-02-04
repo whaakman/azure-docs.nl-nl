@@ -1,4 +1,4 @@
-  Navigeer naar de blade Cosmos DB-account en klik op **Sleutels**. Deze waarden gebruiken we in de webtoepassing die we nu gaan maken.
+  Nu gaat u naar de pagina Azure DB die Cosmos-account en klik op **sleutels**, zoals deze waarden in de webtoepassing die u vervolgens maakt worden gebruikt.
 
-![Schermopname van Azure Portal waarin een Cosmos DB-account wordt weergegeven met de knop Sleutels gemarkeerd op de blade Cosmos DB-account en de waarden URI, PRIMAIRE SLEUTEL en SECUNDAIRE SLEUTEL gemarkeerd op de blade Sleutels](./media/cosmos-db-keys/keys.png)
+![Schermopname van de Azure-portal met de knop sleutels gemarkeerd op de pagina Azure DB die Cosmos-account](./media/cosmos-db-keys/keys.png)
 

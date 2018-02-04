@@ -3,21 +3,21 @@ title: Gebruik van een Linux-VM-MSI voor toegang tot Azure Storage met behulp va
 description: Een zelfstudie waarin wordt getoond hoe u een Linux VM beheerde Service identiteit (MSI) wordt gebruikt voor toegang tot Azure-opslag, via een SAS-referentie in plaats van een toegangssleutel voor opslagaccount.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: a4dda36ce1ae01c4fe66394a86dd9624b3c41d9f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: d612e71b7a765a2243be54964a56f5be7bfdc09b
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Gebruik van een Linux VM beheerde Service-identiteit voor toegang tot Azure Storage via een SAS-referentie
 

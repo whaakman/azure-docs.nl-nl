@@ -3,7 +3,7 @@ title: Veelgestelde vragen en bekende problemen met beheerde Service identiteit 
 description: Bekende problemen met de Service-identiteit beheerd voor Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: bryanla
-ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: daveba
+ms.openlocfilehash: 0541e63a1d3467b9691032e66892efe8f0f0cad8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -44,7 +44,7 @@ De volgende Linux-distributies ondersteunen MSI:
 
 - Virtuele CoreOS stabiel
 - CentOS 7.1
-- 7.2 RedHat
+- RedHat 7.2
 - Ubuntu 15.04
 
 Andere Linux-distributies worden momenteel niet ondersteund en extensie mislukken op niet-ondersteunde distributies.

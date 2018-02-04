@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspectors ondersteund voor de preview van Azure Machine Learning gegevens voorbereiden
 Dit document bevat een overzicht van de reeks inspectors die beschikbaar in deze preview zijn.
 
-## <a name="the-halo-effect"></a>Het effect halo 
+## <a name="the-halo-effect"></a>Het halo-effect 
 Sommige inspectors ondersteuning voor het effect halo. Daartoe maakt gebruik van twee verschillende kleuren om de wijziging van een transformatie visueel onmiddellijk weer te geven. De grijze vertegenwoordigt de waarde hebben voorafgaand aan de meest recente transformatie, en de blauwe wordt de huidige waarde. Hiertoe worden ingeschakeld en in de opties uitgeschakeld.
 
 ## <a name="graphical-filtering"></a>Grafische filteren 
@@ -52,6 +52,7 @@ Deze controle ondersteunt het effect halo.
 - Standaardaantal buckets (van Scott regel) 
 - Halo weergeven
 - Kernel dichtheid tekent overlay (Gaussiaans kernel) 
+- Logaritmische schaal gebruiken
 
 
 ### <a name="actions"></a>Acties
@@ -65,6 +66,7 @@ Deze controle geeft een Frequentietabel van waarden voor de kolom die momenteel 
 - Aflopend
 - Null/fout waarden bevatten
 - Halo weergeven
+- Logaritmische schaal gebruiken
 
 
 ### <a name="actions"></a>Acties 

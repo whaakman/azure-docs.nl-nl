@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Voorbeelden van Event Hubs 
 
@@ -33,7 +33,7 @@ Zie voor meer informatie over de verschillende versies van .NET Framework [Frame
 
 Meer voorbeelden worden toegevoegd na verloop van tijd, dus Kijk regelmatig op updates.
 
-## <a name="net-standard"></a>.NET-standaard
+## <a name="net-standard"></a>.NET Standard
 
 De volgende voorbeelden laten zien hoe u verzenden en ontvangen van gebeurtenissen met de [Event Hubs-client](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) voor de [standaard .NET-bibliotheek](/dotnet/articles/standard/library).
 
@@ -45,7 +45,7 @@ De [verzenden aan de slag](https://github.com/Azure/azure-event-hubs/tree/master
 
 De [aan de slag met het Event Processor Host ontvangen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) voorbeeld is een .NET Core-consoletoepassing die berichten ontvangt van een event hub met behulp van de Event Processor Host.
 
-## <a name="net-framework"></a>.NET framework   
+## <a name="net-framework"></a>.NET Framework   
 
 Deze voorbeelden demonstreren verschillende andere functies van Azure Event Hubs, die gericht is op de [.NET Framework-bibliotheek](/dotnet/framework/index).
  
@@ -60,10 +60,6 @@ De [Event Hubs aan de slag](https://code.msdn.microsoft.com/Service-Bus-Event-Hu
 ### <a name="scale-out-event-processing"></a>Verwerking van de gebeurtenis uitschalen 
 
 De [Scale-out gebeurtenisverwerking](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) voorbeeld laat zien hoe u de [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) voor het distribueren van de werkbelasting van Event Hubs stroom verbruik. Er wordt weergegeven hoe voor het implementeren van de **EventProcessor** en **EventProcessorFactory** objecten voor het beheren van de gebeurtenisstroom. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Ophalen van gegevens uit SQL in een event hub
-
-De [binnenhalen van SQL-gegevens](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) voorbeeld laat zien hoe u gegevens ophalen uit een SQL-tabel en dit doorgeven aan een event hub, moet worden gebruikt als invoer in downstream analytische toepassingen.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Pull-web-gegevens in een event hub 
 

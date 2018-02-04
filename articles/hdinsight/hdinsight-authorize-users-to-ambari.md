@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Gebruikers machtigen voor Ambari-weergaven
 
-[HDInsight-clusters domein](./domain-joined/apache-domain-joined-introduction.md) bieden bedrijfsniveau mogelijkheden, zoals verificatie op basis van Azure Active Directory. U kunt nieuwe gebruikers synchroniseren <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> toegevoegd aan Azure AD-groepen die toegang tot het cluster, zodat deze bepaalde gebruikers bepaalde acties uit te voeren. Werken met gebruikers, groepen en machtigingen in Ambari wordt ondersteund voor zowel de HDInsight-cluster domein en de standaard HDInsight-cluster.
+[HDInsight-clusters domein](./domain-joined/apache-domain-joined-introduction.md) bieden bedrijfsniveau mogelijkheden, zoals verificatie op basis van Azure Active Directory. U kunt [nieuwe gebruikers synchroniseren](hdinsight-sync-aad-users-to-cluster.md) toegevoegd aan Azure AD-groepen die toegang tot het cluster, zodat deze bepaalde gebruikers bepaalde acties uit te voeren. Werken met gebruikers, groepen en machtigingen in Ambari wordt ondersteund voor zowel de HDInsight-cluster domein en de standaard HDInsight-cluster.
 
 Active Directory: gebruikers kunnen zich aanmelden op de clusterknooppunten met hun domeinreferenties. Ze kunnen ook hun domeinreferenties gebruiken om te verifiëren, cluster-interacties met andere goedgekeurde eindpunten zoals Hue, Ambari-weergaven, ODBC, JDBC, PowerShell en de REST-API's.
 
@@ -145,5 +145,4 @@ We hebben ons Azure AD-gebruiker van het domein 'hiveuser2' toegewezen aan de *C
 * [Op domein HDInsight Hive-beleid configureren](./domain-joined/apache-domain-joined-run-hive.md)
 * [Domein-HDInsight-clusters beheren](./domain-joined/apache-domain-joined-manage.md)
 * [De weergave Hive gebruiken met Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Synchroniseren van Azure AD-gebruikers aan het cluster](hdinsight-sync-aad-users-to-cluster.md)

@@ -1,6 +1,6 @@
 ---
 title: Web application firewall toevoegen in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de Azure Security Center aanbevelingen implementeren ** toevoegen van een web application firewall ** en ** voltooien toepassing beveiliging **.
+description: Dit document ziet u hoe de Azure Security Center aanbevelingen implementeren **web application firewall toevoegen** en **Toepassingsbeveiliging voltooien**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 01/31/2018
 ms.author: terrylan
-ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Web application firewall toevoegen in Azure Security Center
 Azure Security Center kan aanbevelen web application firewall (WAF) toe te voegen uit een Microsoft-partner voor het beveiligen van uw webtoepassingen. Dit document vindt u via een voorbeeld van het toepassen van deze aanbeveling.
 
 Een WAF aanbeveling wordt voor een openbare internetgerichte IP (exemplaar niveau IP- of Load Balanced IP) met een gekoppelde netwerkbeveiligingsgroep met poorten voor inkomend web openen (80,443) weergegeven.
 
-Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op App Service-omgeving inrichten. Een as-omgeving (App Service omgeving) is een [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-plan optie van Azure App Service die een volledig geïsoleerde en toegewezen omgeving biedt voor het veilig uitvoeren van Azure App Service-apps. Zie voor meer informatie over het as-omgeving, de [documentatie van App Service-omgeving](../app-service/environment/intro.md).
+Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op externe App Service-omgevingen inrichten. Een as-omgeving (App Service omgeving) is een [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-plan optie van Azure App Service die een volledig geïsoleerde en toegewezen omgeving biedt voor het veilig uitvoeren van Azure App Service-apps. Zie voor meer informatie over het as-omgeving, de [documentatie van App Service-omgeving](../app-service/environment/intro.md).
 
 > [!NOTE]
 > In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit document is niet een stapsgewijze handleiding.
@@ -33,30 +33,30 @@ Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen 
 >
 
 ## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
-1. In de **aanbevelingen** blade Selecteer **-webtoepassing met web application firewall Secure**.
+1. Onder **aanbevelingen**, selecteer **-webtoepassing met web application firewall Secure**.
    ![Web Application beveiligen][1]
-2. In de **beveiligen van uw webtoepassingen met web application firewall** blade, selecteert u een webtoepassing. De **Web Application Firewall toevoegen** blade wordt geopend.
+2. Onder **beveiligen van uw webtoepassingen met web application firewall**, selecteert u een webtoepassing. **Een Web Application Firewall toevoegen** wordt geopend.
    ![Een firewall voor webtoepassingen toevoegen][2]
 3. U kunt kiezen om een bestaande web application firewall als beschikbaar of u kunt een nieuwe maken. In dit voorbeeld zijn er geen bestaande WAFs beschikbaar, dus we een WAF maken.
 4. Selecteer voor het maken van een WAF, een oplossing uit de lijst met geïntegreerde partners. In dit voorbeeld selecteren we **Barracuda Web Application Firewall**.
-5. De **Barracuda Web Application Firewall** blade wordt geopend zodat u informatie over de partneroplossing. Selecteer **maken** in de blade informatie.
+5. **Barracuda Web Application Firewall** wordt geopend zodat u informatie over de partneroplossing. Selecteer **Maken**.
 
    ![Firewall-informatie-blade][3]
 
-6. De **nieuwe Web Application Firewall** blade wordt geopend, waar u kunt uitvoeren **VM-configuratie** stappen en geef **WAF informatie**. Selecteer **VM-configuratie**.
-7. In de **VM-configuratie** blade, voert u gegevens die zijn vereist voor de virtuele machine die wordt uitgevoerd de WAF draaien.
+6. **Nieuwe Web Application Firewall** wordt geopend, waar u kunt uitvoeren **VM-configuratie** stappen en geef **WAF informatie**. Selecteer **VM-configuratie**.
+7. Onder **VM-configuratie**, voert u gegevens die zijn vereist voor de virtuele machine die wordt uitgevoerd de WAF draaien.
    ![VM-configuratie][4]
-8. Ga terug naar de **nieuwe Web Application Firewall** blade en selecteer **WAF informatie**. In de **WAF informatie** blade u de WAF zelf configureren. Stap 7 kunt u voor het configureren van de virtuele machine waarop de WAF wordt uitgevoerd en stap 8 kunt u voor het inrichten van de WAF zelf.
+8. Ga terug naar **nieuwe Web Application Firewall** en selecteer **WAF informatie**. Onder **WAF informatie**, u de WAF zelf configureren. Stap 7 kunt u voor het configureren van de virtuele machine waarop de WAF wordt uitgevoerd en stap 8 kunt u voor het inrichten van de WAF zelf.
 
 ## <a name="finalize-application-protection"></a>Toepassingsbeveiliging voltooien
-1. Ga terug naar de **aanbevelingen** blade. Een nieuwe vermelding is gegenereerd nadat u de WAF, aangeroepen gemaakt **Toepassingsbeveiliging voltooien**. Deze vermelding laat u weten dat u voltooien van het proces moet van het daadwerkelijk bekabeling van de WAF binnen het virtuele netwerk van Azure, zodat deze de toepassing kunt beveiligen.
+1. Ga terug naar **aanbevelingen**. Een nieuwe vermelding is gegenereerd nadat u de WAF, aangeroepen gemaakt **Toepassingsbeveiliging voltooien**. Deze vermelding laat u weten dat u voltooien van het proces moet van het daadwerkelijk bekabeling van de WAF binnen het virtuele netwerk van Azure, zodat deze de toepassing kunt beveiligen.
 
    ![Toepassingsbeveiliging voltooien][5]
 
 2. Selecteer **Toepassingsbeveiliging voltooien**. Er wordt een nieuwe blade geopend. U ziet dat er een webtoepassing die u moet beschikken over de verkeer gerouteerd.
 3. Selecteer de webtoepassing. Er wordt een blade geopend waarmee u stappen voor het voltooien van de web application firewall-instellingen. Voer de stappen uit en selecteer vervolgens **verkeer te beperken**. Security Center doet vervolgens de bedrading-up voor u.
 
-   ![Verkeer te beperken][6]
+   ![Verkeer beperken][6]
 
 > [!NOTE]
 > U kunt meerdere webtoepassingen in Security Center beveiligen door deze toepassingen toevoegen aan uw bestaande WAF-implementaties.

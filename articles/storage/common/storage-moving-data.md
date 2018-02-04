@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Gegevens verplaatsen naar en uit Azure Storage
 Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of andersom), zijn er verschillende manieren om dit te doen. De benadering die voor u het meest geschikt is afhankelijk van uw scenario. In dit artikel biedt een snel overzicht van verschillende scenario's en de juiste aanbiedingen voor elk criterium.
@@ -41,16 +41,16 @@ Bekijk onze lijst met [Azure Storage Explorers](../storage-explorers.md) voor me
 Als u vereisen of meer vertrouwd met een opdrachtregelprogramma (bijvoorbeeld systeembeheerders bent), zijn hier een aantal opties voor u te overwegen:
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy is een Windows-opdrachtregelprogramma dat is  ontworpen voor het high-performance kopiëren van gegevens van en naar Azure Storage. U kunt ook gegevens binnen een opslagaccount of tussen verschillende opslagaccounts kopiëren.
+AzCopy is een opdrachtregelprogramma dat is ontworpen voor high-performance kopiëren van gegevens naar en van Azure Storage. U kunt ook gegevens binnen een opslagaccount of tussen verschillende opslagaccounts kopiëren. AzCopy is beschikbaar op [Windows](storage-use-azcopy.md) en klik op [Linux](storage-use-azcopy-linux.md).
 
-Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) voor meer informatie.
+Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) of [gegevensoverdracht met AzCopy op Linux](storage-use-azcopy-linux.md) voor meer informatie.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell is een module die cmdlets biedt voor het beheren van services op Azure. Het is een op taken gebaseerde opdrachtregelshell en scripttaal die speciaal is ontworpen voor systeembeheer.
 
 Zie [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md) voor meer informatie.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 Azure CLI biedt een set van open-source platformoverschrijdende opdrachten voor het werken met Azure-services. Azure CLI is beschikbaar op Windows, OSX en Linux.
 
 Zie [met de Azure CLI met Azure Storage](../storage-azure-cli.md) voor meer informatie.

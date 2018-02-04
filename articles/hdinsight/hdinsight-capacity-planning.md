@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -50,7 +50,7 @@ De standaard-opslag, een Azure Storage-account of een Azure Data Lake Store moet
 
 Als u al een opslagaccount of de Data Lake Store met uw gegevens en deze opslag gebruiken als uw cluster standaard opslag wilt, moet u uw cluster op die dezelfde locatie implementeren.
 
-### <a name="storage-size"></a>Maximale grootte
+### <a name="storage-size"></a>Opslaggrootte
 
 Nadat u een HDInsight-cluster dat is geïmplementeerd hebt, kunt u toegang tot andere gegevensarchieven Lake of extra Azure Storage-accounts te koppelen. Alle opslagaccounts moeten zich bevinden op dezelfde locatie als uw cluster. Een Data Lake Store kunnen zich in een andere locatie, hoewel dit leiden enige vertraging worden bijgewerkt gegevens lezen/schrijven tot kan.
 
@@ -67,9 +67,7 @@ Voor een cluster met knooppunten 48 aangeraden 4 tot en met 8 storage-accounts. 
 
 ## <a name="choose-a-cluster-type"></a>Kies een clustertype
 
-Het clustertype bepaalt de werkbelasting van die uw HDInsight-cluster is geconfigureerd om te worden uitgevoerd, zoals Hadoop, Storm, Kafka of Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Elk clustertype heeft een specifieke implementatietopologie die voldoet aan vereisten voor de grootte en het aantal knooppunten.
+Het clustertype bepaalt de werkbelasting van die uw HDInsight-cluster is geconfigureerd om te worden uitgevoerd, zoals Hadoop, Storm, Kafka of Spark. Zie voor een gedetailleerde beschrijving van de beschikbare typen [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Elk clustertype heeft een specifieke implementatietopologie die voldoet aan vereisten voor de grootte en het aantal knooppunten.
 
 ## <a name="choose-the-vm-size-and-type"></a>Kies de VM-grootte en het type
 
@@ -96,9 +94,7 @@ U kunt schalen uit het cluster om te voldoen aan de eisen van piek laden en verv
 
 ### <a name="cluster-lifecycle"></a>De levenscyclus van het cluster
 
-Worden in rekening gebracht voor de levensduur van het cluster. Als er alleen op specifieke tijdstippen die u uw cluster nodig en die wordt uitgevoerd, kunt u op aanvraag clusters met behulp van Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-U kunt ook PowerShell-scripts die in te richten en verwijder uw cluster maken en vervolgens deze scripts met plannen [Azure Automation](https://azure.microsoft.com/services/automation/).
+Worden in rekening gebracht voor de levensduur van het cluster. Als er alleen specifieke tijdstippen die u moet uw cluster up en wordt uitgevoerd, kunt u [op aanvraag clusters met behulp van Azure Data Factory maken](hdinsight-hadoop-create-linux-clusters-adf.md). U kunt ook PowerShell-scripts die in te richten en verwijder uw cluster maken en vervolgens deze scripts met plannen [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Wanneer een cluster wordt verwijderd, wordt de standaard Hive-metastore ook verwijderd. Gebruiken om te blijven behouden de metastore voor de volgende cluster opnieuw maken, een externe metagegevens store, zoals Azure Database of Oozie.

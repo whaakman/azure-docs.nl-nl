@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testen van uw oplossing met gesimuleerde apparaten
 
@@ -131,24 +131,24 @@ De volgende opdrachten gebruiken de `az` opdracht [Azure CLI 2.0](https://docs.m
 1. Als u SSH toegang tot uw virtuele machine, voert u de volgende opdracht met de naam van de beveiligingsgroep van uw netwerk uit de vorige stap:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Als u wilt weergeven in de lijst met regels voor binnenkomende verbindingen voor uw netwerk, voer de volgende opdracht:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. De virtuele machine om wachtwoord te wijzigen in een wachtwoord dat u weet, kunt u de volgende opdracht uitvoeren. Gebruik de naam van de virtuele machine die u eerder hebt genoteerd en een wachtwoord van uw keuze:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Het IP-adres van uw virtuele machine vinden, gebruikt u de volgende opdracht en noteer het openbare IP-adres:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. U kunt nu SSH verbinding maken met uw virtuele machine. De `ssh` opdracht vooraf is geïnstalleerd in de Cloud-Shell. Het openbare IP-adres van de vorige stap en klik desgevraagd het wachtwoord dat u hebt geconfigureerd voor de virtuele machine:

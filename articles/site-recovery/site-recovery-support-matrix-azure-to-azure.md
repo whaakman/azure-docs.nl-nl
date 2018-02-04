@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6157ec92433830998c275b3b01b32f25c8d9f758
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van Azure naar Azure
 
@@ -80,8 +80,8 @@ De onderstaande ondersteuning is van toepassing op elke workload uitgevoerd op d
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6,8, 6,9, 7.0, 7.1, 7.2, 7.3,7.4
-- CentOS 6.5, 6.6, 6.7, 6,8, 6,9, 7.0, 7.1, 7.2, 7.3,7.4
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 TNS Server [ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 TNS Server [ (kernel-versies ondersteund)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
@@ -100,14 +100,14 @@ De onderstaande ondersteuning is van toepassing op elke workload uitgevoerd op d
 
 **Release** | **De versie van de Mobility-service** | **Kernelversie** |
 --- | --- | --- |
-14.04 TNS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
-14.04 TNS | 9.11 | 3.13.0-24-Generic naar 3.13.0-125-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-83-generic |
-14.04 TNS | 9.12 | 3.13.0-24-Generic naar 3.13.0-132-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-96-generic |
-14.04 TNS | 9.13 | 3.13.0-24-Generic naar 3.13.0-137-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-104-generic |
-16.04 TNS | 9.10 | 4.4.0-21-Generic naar 4.4.0-81-generic,<br/>4.8.0-34-Generic naar 4.8.0-56-generic,<br/>4.10.0-14-Generic naar 4.10.0-24-generic |
-16.04 TNS | 9.11 | 4.4.0-21-Generic naar 4.4.0-83-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-27-generic |
-16.04 TNS | 9.12 | 4.4.0-21-Generic naar 4.4.0-96-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-35-generic |
-16.04 TNS | 9.13 | 4.4.0-21-Generic naar 4.4.0-104-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic |
+14.04 LTS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-Generic naar 3.13.0-125-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-83-generic |
+14.04 LTS | 9.12 | 3.13.0-24-Generic naar 3.13.0-132-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic naar 3.13.0-137-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-104-generic |
+16.04 LTS | 9.10 | 4.4.0-21-Generic naar 4.4.0-81-generic,<br/>4.8.0-34-Generic naar 4.8.0-56-generic,<br/>4.10.0-14-Generic naar 4.10.0-24-generic |
+16.04 LTS | 9.11 | 4.4.0-21-Generic naar 4.4.0-83-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-27-generic |
+16.04 LTS | 9.12 | 4.4.0-21-Generic naar 4.4.0-96-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic naar 4.4.0-104-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Ondersteunde bestandssystemen en Gast opslagconfiguraties op Azure virtuele machines met Linux-besturingssysteem
 
@@ -127,7 +127,7 @@ Azië | India Zuid, India centraal, Zuidoost-Azië Oost-Azië, Japan-Oost, Japan
 Australië   | Australië-Oost, Australië-Zuidoost
 Azure Government    | VS GOV Virginia, VS GOV Iowa, VS GOV Arizona, VS GOV Texas, VS DOD Oost, VS DOD-centraal
 Duitsland | Duitsland centraal, Duitsland noordoosten
-China | China Oost, China Noord
+China | China East, China North
 
 >[!NOTE]
 >
@@ -154,8 +154,8 @@ Virtuele machines gemigreerd met behulp van Site Recovery | Ondersteund | Als di
 Maximale grootte van de OS-schijven | 2048 GB | Raadpleeg [schijven die worden gebruikt door virtuele machines.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 De grootte van maximaal gegevensschijf | 4095 GB | Raadpleeg [schijven die worden gebruikt door virtuele machines.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Aantal gegevensschijven | Maximaal 64 ondersteund door een specifieke Azure VM-grootte | Raadpleeg [grootten voor virtuele machine van Azure](../virtual-machines/windows/sizes.md)
-Tijdelijke schijf | Altijd uitgesloten van replicatie | Tijdelijke schijf is uitgesloten van replicatie altijd. Plaats geen permanente gegevens niet op de tijdelijke schijf aan de hand van Azure richtlijnen. Raadpleeg [tijdelijke schijf op Azure Virtual machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) voor meer informatie.
-Snelheid van de gegevens wijzigen op de schijf | Maximaal 6 MBps per schijf | Als de gemiddelde gegevens snelheid wijzigen op de schijf is dan 6 MBps continu, replicatie wordt niet kan verwerken. Echter, als dit een ' burst ' in incidentele gegevens is en de snelheid waarmee u gegevens wijzigt is groter dan 6 MBps enige tijd en ontvangt u omlaag, replicatie wordt lopen. In dit geval ziet u mogelijk enigszins vertraagd herstelpunten.
+Tijdelijke schijf | Altijd uitgesloten van replicatie | Tijdelijke schijf is uitgesloten van replicatie altijd. Plaats geen permanente gegevens niet op de tijdelijke schijf aan de hand van Azure guida NS. Raadpleeg [tijdelijke schijf op Azure Virtual machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) voor meer informatie.
+Snelheid van de gegevens wijzigen op de schijf | Maximaal 10 MBps per schijf voor Premium-opslag en 2 MBps per schijf voor Standard-opslag | Als de gemiddelde gegevenswijzigingssnelheid op de schijf dan 10 (voor Premium) en 2 MBps (voor standaard) continu is, replicatie wordt niet kan verwerken. Echter, als dit een ' burst ' in incidentele gegevens is en de gegevenswijzigingssnelheid is groter dan 10 MBps (voor Premium) en 2 MBps (voor Standard) voor enige tijd en ontvangt u omlaag, replicatie wordt lopen. In dit geval ziet u mogelijk enigszins vertraagd herstelpunten.
 Schijven op standaard storage-accounts | Ondersteund |
 Schijven op premium storage-accounts | Ondersteund | Als een virtuele machine schijven die zijn verdeeld over premium en standard storage-accounts bevat, kunt u een ander doel storage-account voor elke schijf om te controleren of hebt u dezelfde opslagconfiguratie van de in doelregio selecteren
 Standaardschijven beheerd | Niet ondersteund |  
@@ -170,7 +170,7 @@ GRS | Ondersteund |
 RA-GRS | Ondersteund |
 ZRS | Niet ondersteund |  
 Cool en Hot Storage | Niet ondersteund | Schijven voor virtuele machine worden niet ondersteund op cool en hot storage
-Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken)  | Nee | Waardoor de toegang tot specifieke Azure virtuele netwerken van cache storage-accounts gebruikt voor het opslaan van de gerepliceerde gegevens wordt niet ondersteund. 
+Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken)  | Nee | Waardoor de toegang tot specifieke Azure virtuele netwerken van cache storage-accounts gebruikt voor het opslaan van de gerepliceerde gegevens wordt niet ondersteund.
 V2 opslagaccounts voor algemeen gebruik (zowel Hot en Cool laag) | Nee | Transactie kosten toename vergeleken aanzienlijk met algemeen V1 storage-accounts
 
 >[!IMPORTANT]

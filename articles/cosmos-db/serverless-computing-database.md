@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -35,7 +35,7 @@ Azure Cosmos DB en Azure Functions, kunt u voor het integreren van uw databases 
 * Een functie binden aan een Azure Cosmos DB verzameling met een **uitvoer binding**. Wanneer een functie is voltooid, uitvoer bindingen gegevens schrijven naar een container.
 
 > [!NOTE]
-> Op dit moment worden de Azure DB die Cosmos trigger bindingen invoer en uitvoer bindingen met SQL-API en Graph API-accounts werken.
+> Op dit moment werken de Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen alleen met SQL API- en Graph API-accounts.
 
 Het volgende diagram illustreert elk van deze drie integraties: 
 
@@ -101,7 +101,7 @@ In retail-implementaties wanneer een gebruiker een item wordt toegevoegd aan hun
 
 **Implementatie:** meerdere Azure Cosmos DB triggers luisteren naar een verzameling
 
-1. U kunt meerdere Azure Functions maken door toe te voegen Azure DB die Cosmos-triggers aan elk - die allemaal op hetzelfde luisteren feed van winkelen winkelwagen gegevens wijzigen. Houd er rekening mee dat wanneer meerdere functies luisteren naar dezelfde feed wijzigen, een nieuwe verzameling van de lease is vereist voor elke functie.
+1. U kunt meerdere Azure Functions maken door toe te voegen Azure DB die Cosmos-triggers aan elk - die allemaal op hetzelfde luisteren feed van winkelen winkelwagen gegevens wijzigen. Houd er rekening mee dat wanneer meerdere functies luisteren naar dezelfde feed wijzigen, een nieuwe verzameling van de lease is vereist voor elke functie. Zie voor meer informatie over verzamelingen lease [inzicht in de bibliotheek wijzigen Feed Processor](change-feed.md#understand-cf).
 2. Wanneer een nieuw item wordt toegevoegd aan een winkelwagen gebruikers, wordt elke functie onafhankelijk aangeroepen door een wijziging feed uit de winkelwagen winkelwagen-container.
     * Een functie kan de inhoud van het huidige mandje gebruiken om de weergave van andere items die de gebruiker mogelijk geïnteresseerd zijn in wijzigen.
     * Een andere functie kan bijwerken inventarisatie totalen.
@@ -138,7 +138,7 @@ Als u op zoek bent om te integreren met Azure Functions voor het opslaan van geg
 
 Voordelen van Azure Functions: 
 
-* **Gebeurtenisafhankelijke**. Azure Functions zijn gebeurtenisafhankelijke en een wijziging in de feed vanuit Azure Cosmos DB kunnen volgen. Dit betekent dat u hoeft niet te luisteren logica maken, u alleen Let om de wijzigingen die u voor luistert. 
+* **Event-driven**. Azure Functions zijn gebeurtenisafhankelijke en een wijziging in de feed vanuit Azure Cosmos DB kunnen volgen. Dit betekent dat u hoeft niet te luisteren logica maken, u alleen Let om de wijzigingen die u voor luistert. 
 
 * **Er zijn geen limieten**. Functies uitvoeren in parallelle instructies en de service draaien up zoveel als u nodig hebt. U instellen de parameters.
 

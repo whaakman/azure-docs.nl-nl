@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
 
 Bewaking wordt het verzamelen en analyseren van gegevens om te bepalen van de prestaties, status en beschikbaarheid van uw zakelijke toepassingen en de resources die deze afhankelijk is. Een strategie voor een effectieve controle krijgt u inzicht in de gedetailleerde werking van de verschillende onderdelen van uw toepassing en uw bedrijfstijd verbeteren door het verwittigen van kritieke problemen proactief zodat u deze oplossen kunt voordat ze problemen.
 
-Azure bevat meerdere services die afzonderlijk uitvoeren van een bepaalde rol of de taak in de ruimte bewaking en leveren samen een uitgebreide oplossing voor het verzamelen, analyseren en fungeert voor telemetrie van uw toepassing en de onderliggende Azure-resources Deze ondersteuning.  Ze kunnen ook worden gebruikt voor het bewaken van kritieke on-premises bronnen om te voorzien van een hybride omgeving bewaken.   Kennis van de hulpprogramma's en gegevens die beschikbaar zijn, is de eerste stap bij het ontwikkelen van een strategie voor een volledige controle voor uw toepassing. 
+Azure bevat meerdere services die afzonderlijk uitvoeren van een bepaalde rol of de taak in de ruimte bewaking en leveren samen een uitgebreide oplossing voor het verzamelen, analyseren en fungeert voor telemetrie van uw toepassing en de onderliggende Azure-resources Deze ondersteuning.  Ze kunnen ook worden gebruikt voor het bewaken van kritieke lokale bronnen om te voorzien van een hybride omgeving bewaken.   Kennis van de hulpprogramma's en gegevens die beschikbaar zijn, is de eerste stap bij het ontwikkelen van een strategie voor een volledige controle voor uw toepassing. 
 
 Het volgende diagram toont een conceptueel overzicht van de verschillende onderdelen die samenwerken om te voorzien in bewaking van Azure-resources.  Elk van deze wordt beschreven in de volgende secties met koppelingen naar gedetailleerde technische informatie.
 
@@ -47,7 +47,7 @@ De status van uw toepassing, is afhankelijk van de Azure-services die afhankelij
 De volgende Azure-services bieden uitgebreide mogelijkheden voor het verzamelen en analyseren van bewakingsgegevens.  Deze voor controle en gebruik de algemene basisfunctionaliteit in Azure bouwen en krachtige analytics voorzien van verzamelde gegevens unieke inzichten geven tot uw toepassingen en infrastructuur.  Deze presenteren gegevens in de context van bepaalde scenario's die zijn gericht op verschillende doelgroepen.
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) Hiermee kunt u controleren van de beschikbaarheid, prestaties en gebruik van uw toepassing of deze opgenomen in de cloud of on-premises.  Door het instrumenteren van uw toepassing met Application Insights werkt, kunt u veel inzicht zodat u snel identificeren en te diagnosticeren fouten zonder te wachten op voor een gebruiker voor het rapporteren van deze bereiken. Met de informatie die u hebt verzameld, kunt u geïnformeerd over opties voor het onderhoud en verbeteringen van uw toepassing.  Naast de uitgebreide hulpprogramma's voor interactie met de gegevens die worden verzameld, opslaat Application Insights gegevens in een algemene opslagplaats gedeelde functionaliteit, zoals waarschuwingen, dashboards en grondige analyse met de Log Analytics query language gebruik te maken.
+[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) Hiermee kunt u controleren van de beschikbaarheid, prestaties en gebruik van uw toepassing of deze in de cloud of on-premises wordt gehost.  Door het instrumenteren van uw toepassing met Application Insights werkt, kunt u veel inzicht zodat u snel identificeren en te diagnosticeren fouten zonder te wachten op voor een gebruiker voor het rapporteren van deze bereiken. Met de informatie die u hebt verzameld, kunt u geïnformeerd over opties voor het onderhoud en verbeteringen van uw toepassing.  Naast de uitgebreide hulpprogramma's voor interactie met de gegevens die worden verzameld, opslaat Application Insights gegevens in een algemene opslagplaats gedeelde functionaliteit, zoals waarschuwingen, dashboards en grondige analyse met de Log Analytics query language gebruik te maken.
 
 ### <a name="log-analytics"></a>Log Analytics
 [Meld u Analytics](http://azure.microsoft.com/documentation/services/log-analytics) speelt een centrale rol in de Azure-bewaking door het verzamelen van gegevens uit diverse bronnen op één opslagplaats waar deze kan worden geanalyseerd met een krachtige querytaal.  Application Insights en Azure Security Center kunt u hun gegevens opslaan in de logboekanalyse gegevens opslaan en gebruikmaken van de analyse-engine.  Deze gecombineerd met gegevens die worden verzameld van de Monitor in Azure, oplossingen voor beheer, en agents zijn geïnstalleerd op virtuele machines in de cloud of on-premises kunnen u een volledig overzicht van uw hele omgeving vormen. 

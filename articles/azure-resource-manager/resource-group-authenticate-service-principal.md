@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources
 
@@ -46,7 +46,7 @@ Als u een service-principal instelt, u het volgende gebruiken:
 
 | Opdracht | Beschrijving |
 | ------- | ----------- | 
-| [Nieuwe AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Hiermee maakt u een Azure Active Directory service-principal |
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Hiermee maakt u een Azure Active Directory service-principal |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | De opgegeven RBAC-rol toegewezen aan de opgegeven principal, bij het opgegeven bereik. |
 
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-In het voorbeeld sluimert voor 20 seconden wacht u even voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: ' PrincipalNotFound: Principal {ID} bestaat niet in de map. "
+In het voorbeeld sluimert voor 20 seconden wacht u even voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: "Principal {ID} bestaat niet in de map {DIR-ID}."
 
 Het volgende script kunt u opgeven van een scope dan het standaardabonnement en de roltoewijzing pogingen als een fout optreedt:
 
@@ -128,7 +128,7 @@ Enkele items te weten over het script:
 * De identiteit om toegang te verlenen aan de standaardabonnement, hoeft u geen ResourceGroup of SubscriptionId parameters opgeven.
 * Geef de parameter ResourceGroup alleen als u wilt beperken welke van de roltoewijzing aan een resourcegroep.
 *  In dit voorbeeld kunt u de service-principal toevoegen aan de rol Inzender. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md).
-* Het script modus ingeschakeld gedurende 15 seconden om toe te staan enige tijd voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: ' PrincipalNotFound: Principal {ID} bestaat niet in de map. "
+* Het script modus ingeschakeld gedurende 15 seconden om toe te staan enige tijd voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: "Principal {ID} bestaat niet in de map {DIR-ID}."
 * Als u de service principal toegang verlenen tot meer abonnementen of resourcegroepen moet, voert u de `New-AzureRMRoleAssignment` cmdlet opnieuw met een verschillend bereik.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-In het voorbeeld sluimert voor 20 seconden wacht u even voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: ' PrincipalNotFound: Principal {ID} bestaat niet in de map. "
+In het voorbeeld sluimert voor 20 seconden wacht u even voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: "Principal {ID} bestaat niet in de map {DIR-ID}."
 
 Het volgende script kunt u opgeven van een scope dan het standaardabonnement en de roltoewijzing pogingen als een fout optreedt. U moet Azure PowerShell 2.0 op Windows 10 of Windows Server 2016 hebben.
 
@@ -223,7 +223,7 @@ Enkele items te weten over het script:
 * De identiteit om toegang te verlenen aan de standaardabonnement, hoeft u geen ResourceGroup of SubscriptionId parameters opgeven.
 * Geef de parameter ResourceGroup alleen als u wilt beperken welke van de roltoewijzing aan een resourcegroep.
 * In dit voorbeeld kunt u de service-principal toevoegen aan de rol Inzender. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md).
-* Het script modus ingeschakeld gedurende 15 seconden om toe te staan enige tijd voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: ' PrincipalNotFound: Principal {ID} bestaat niet in de map. "
+* Het script modus ingeschakeld gedurende 15 seconden om toe te staan enige tijd voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: "Principal {ID} bestaat niet in de map {DIR-ID}."
 * Als u de service principal toegang verlenen tot meer abonnementen of resourcegroepen moet, voert u de `New-AzureRMRoleAssignment` cmdlet opnieuw met een verschillend bereik.
 
 Als u **hebben geen Windows 10 of Windows Server 2016 Technical Preview**, moet u voor het downloaden van de [zelf-ondertekend certificaat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) van Microsoft Script Center. Pak de inhoud en importeren van de cmdlet die u nodig hebt.
@@ -321,7 +321,7 @@ Enkele items te weten over het script:
 
 * Toegang is afgestemd op het abonnement.
 * In dit voorbeeld kunt u de service-principal toevoegen aan de rol Inzender. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md).
-* Het script modus ingeschakeld gedurende 15 seconden om toe te staan enige tijd voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: ' PrincipalNotFound: Principal {ID} bestaat niet in de map. "
+* Het script modus ingeschakeld gedurende 15 seconden om toe te staan enige tijd voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wacht, ziet u een foutbericht waarin wordt gemeld: "Principal {ID} bestaat niet in de map {DIR-ID}."
 * Als u de service principal toegang verlenen tot meer abonnementen of resourcegroepen moet, voert u de `New-AzureRMRoleAssignment` cmdlet opnieuw met een verschillend bereik.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Geef het certificaat via automatische PowerShell-script

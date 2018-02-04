@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
 
@@ -39,7 +39,7 @@ In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naa
 
 ## <a name="create-a-sender-console-application"></a>Een consoletoepassing voor afzenders maken
 
-In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar uw Event Hub verzendt.
+In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar uw event hub verzendt.
 
 1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Afzender**.
    
@@ -99,7 +99,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
   ```
 8. Voer het programma uit en controleer of er geen fouten zijn.
   
-Gefeliciteerd. U hebt nu berichten verzonden naar een Event Hub.
+Gefeliciteerd! U hebt nu berichten verzonden naar een Event Hub.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt, kunt u naar de volgende scenario's gaan:

@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Unified cross-onderdeel transactie diagnostische gegevens
 
 *Deze ervaring is momenteel in preview en vervangt de bestaande diagnostische gegevens blades voor serverzijde aanvragen, afhankelijkheden en uitzonderingen.*
 
-De preview introduceert een nieuwe eenduidige diagnostics-ervaring die automatisch serverzijde telemetrie van voor alle onderdelen van uw Application Insights bewaakt in één weergave correleert. Het maakt niet uit als er meerdere bronnen met afzonderlijke instrumentatiesleutels; Application Insights detecteert de onderliggende relatie en kunt u eenvoudig onderzoeken het toepassingsonderdeel, afhankelijkheid of uitzondering die een transactie vertraging of een fout veroorzaakt.
+De preview introduceert een nieuwe eenduidige diagnostics-ervaring die automatisch serverzijde telemetrie van voor alle onderdelen van uw Application Insights bewaakt in één weergave correleert. Het maakt niet uit als u meerdere bronnen met afzonderlijke instrumentatiesleutels hebt. Application Insights detecteert de onderliggende relatie en kunt u eenvoudig onderzoeken het toepassingsonderdeel, afhankelijkheid of uitzondering die een transactie vertraging of een fout veroorzaakt.
 
-## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Wat betekent onderdeel in de context van Application Insights?
+## <a name="what-is-a-component"></a>Wat is een onderdeel?
 
 Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedistribueerd/microservices. Ontwikkelaars en operations teams hebben zichtbaarheid van de code-niveau of toegang tot de telemetrie die is gegenereerd door de onderdelen van deze toepassing.
 
@@ -32,10 +32,12 @@ Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedi
 * Onderdelen worden uitgevoerd op een willekeurig aantal exemplaren van de rol-server-container.
 * Onderdelen kunnen worden afzonderlijke Application Insights-instrumentatiesleutels (zelfs als abonnementen verschillend zijn) of verschillende rollen die rapporteren aan een enkele Application Insights-instrumentatiesleutel. De nieuwe ervaring worden details weergegeven voor alle onderdelen, ongeacht hoe ze zijn ingesteld.
 
-> [!Tip]
-> Zorg dat alle onderdelen zijn uitgerust met de nieuwste Application Insights stabiele SDK's voor de beste resultaten. Als er verschillende Application Insights-bronnen, zorg ervoor dat u juiste rechten hebben om hun telemetrie weergeven.
+> [!NOTE]
+> * **De koppelingen verwant item ontbreekt?** Alle van de telemetrie die is gerelateerd aan de serverzijde aanvraag, afhankelijkheid en uitzonderingen zijn in de [boven](#cross-component-transaction-chart) en [onder](#all-telemetry-related-to-the-selected-component-operation) secties van de linkerkant. 
+> * De [boven](#cross-component-transaction-chart) sectie correleert de transactie voor alle onderdelen. Zorg dat alle onderdelen zijn uitgerust met de nieuwste Application Insights stabiele SDK's voor de beste resultaten. Als er verschillende Application Insights-bronnen, zorg ervoor dat u juiste rechten hebben om hun telemetrie weergeven.
+> * De [onder](#all-telemetry-related-to-the-selected-component-operation) sectie van de linkerkant ziet **alle** telemetrie inclusief traceringen en gebeurtenissen in verband met de aanvraag van het geselecteerde onderdeel.
 
-## <a name="enable-and-access"></a>Toegang en inschakelen
+## <a name="enable-transaction-diagnostics-experience"></a>Ervaring van de transactie diagnostische gegevens inschakelen
 Inschakelen "Unified details: E2E transactie diagnostische gegevens ' van de [previews lijst](app-insights-previews.md)
 
 ![Voorbeeld inschakelen](media/app-insights-e2eTxn-diagnostics/previews.png)
@@ -49,7 +51,7 @@ In deze weergave bevat drie belangrijke onderdelen: een grafiek transactie cross
 
 ![Belangrijke delen](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="1-cross-component-transaction-chart"></a>[1] Cross-onderdeel transactie-grafiek
+## <a name="cross-component-transaction-chart"></a>Cross-onderdeel transactie-grafiek
 
 Dit diagram biedt een tijdlijn met horizontale balken voor de duur van aanvragen en afhankelijkheden voor onderdelen. Eventuele uitzonderingen die worden verzameld, worden ook gemarkeerd op de tijdlijn.
 
@@ -57,20 +59,20 @@ Dit diagram biedt een tijdlijn met horizontale balken voor de duur van aanvragen
 * Alle aanroepen naar externe afhankelijkheden zijn eenvoudige niet samenvouwbare rijen, met de pictogrammen van het afhankelijkheidstype.
 * Aanroepen naar de andere onderdelen zijn samenvouwbare rijen. Elke rij overeenkomt met een specifieke bewerking aangeroepen op het onderdeel.
 * Standaard wordt de aanvraag, afhankelijkheid of uitzondering die u aanvankelijk hebt geselecteerd op de grafiek weergegeven.
-* Selecteer een rij voor de informatie over het recht. Klik op 'Open profiler traceringen' of 'Open foutopsporing momentopname' voor code niveau diagnostische gegevens in de bijbehorende details deelvensters.
+* Selecteer een rij om te zien de [meer informatie over het recht](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Aanroepen naar de andere onderdelen hebben twee rijen: één rij vertegenwoordigt de uitgaande aanroep (afhankelijkheden) van het onderdeel van de aanroeper, en de andere rij komt overeen met de binnenkomende aanvraag op het onderdeel genoemd. Het toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken kunt onderscheiden.
+Aanroepen naar de andere onderdelen hebben twee rijen: één rij vertegenwoordigt de uitgaande aanroep (afhankelijkheden) van het onderdeel van de aanroeper, en de andere rij komt overeen met de binnenkomende aanvraag op het onderdeel genoemd. Het toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken helpen onderscheiden.
 
-### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] telemetrie van de bewerking van het geselecteerde onderdeel in de tijd geordend
+## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Alle telemetrie die betrekking hebben op de geselecteerde onderdeel-bewerking
 
-Elke rij in de grafiek cross-onderdeel transactie geselecteerd is gerelateerd aan een bewerking aangeroepen op een bepaald onderdeel. Deze bewerking geselecteerd onderdeel wordt doorgevoerd in de titel van het onderste gedeelte. Open in deze sectie om te zien van een tijdreeks platte van alle telemetrie die gerelateerd zijn aan die bepaalde bewerking. In deze lijst om te zien van corresponderende gegevens aan de rechterkant kunt u elk telemetrie-item selecteren.
+Elke rij in de grafiek cross-onderdeel transactie geselecteerd is gerelateerd aan een bewerking aangeroepen op een bepaald onderdeel. Deze bewerking geselecteerd onderdeel wordt doorgevoerd in de titel van het onderste gedeelte. Open in deze sectie om te zien van een tijdreeks platte van alle telemetrie die gerelateerd zijn aan die bepaalde bewerking. U kunt elk telemetrie-item selecteren in deze lijst om te zien overeenkomt [meer informatie over het recht](#details-of-the-selected-telemetry).
 
 ![Volgorde van de tijd van alle telemetrie](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="3-details-pane"></a>[3] deelvenster met details
+## <a name="details-of-the-selected-telemetry"></a>Details van de geselecteerde telemetrie
 
-Dit deelvenster geeft de details van de geselecteerde items uit de twee secties aan de linkerkant. 'Alles weergeven', worden alle van de standaard kenmerken die worden verzameld. Eventuele aangepaste kenmerken worden afzonderlijk onder de standaardset weergegeven.
+Dit deelvenster geeft de details van de geselecteerde items uit de twee secties aan de linkerkant. 'Alles weergeven', worden alle van de standaard kenmerken die worden verzameld. Eventuele aangepaste kenmerken worden afzonderlijk onder de standaardset weergegeven. Klik op 'Open profiler traceringen' of 'Open foutopsporing momentopname' voor code niveau diagnostische gegevens in de bijbehorende details deelvensters.
 
 ![Uitzonderingsdetail](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
@@ -104,7 +106,7 @@ Ja. De nieuwe ervaring verenigt alle gerelateerde serverzijde telemetrie in éé
 
 *Ik zie dubbele rijen voor de afhankelijkheden. Wordt dit verwacht?*
 
-Op dit moment zijn we de uitgaande afhankelijkheidsaanroep gescheiden van de binnenkomende aanvraag weergegeven. Het aanroepen van de twee zoek normaal gesproken identiek zijn met alleen de van de duurwaarde wordt retournetwerklatentie verschillende als gevolg van het netwerk. Het toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken kunt onderscheiden. Deze presentatie van de gegevens verwarrend is? Geef ons uw feedback op prijs!
+Op dit moment zijn we de uitgaande afhankelijkheidsaanroep gescheiden van de binnenkomende aanvraag weergegeven. Het aanroepen van de twee zoek normaal gesproken identiek zijn met alleen de van de duurwaarde wordt retournetwerklatentie verschillende als gevolg van het netwerk. Het toonaangevende pictogram en de afzonderlijke stijl van de duur van de balken helpen onderscheiden. Deze presentatie van de gegevens verwarrend is? Geef ons uw feedback op prijs!
 
 *Hoe zit klok Hiermee laat u overhellen over verschillende onderdeelexemplaren?*
 

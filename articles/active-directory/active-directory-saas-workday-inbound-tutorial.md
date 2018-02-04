@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -164,13 +164,17 @@ U moet een onbeperkte integratie systeembeveiligingsgroep maken en aan de gebrui
     ![Systeembeveiligingsgroep](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Systeembeveiligingsgroep")  
 
 ### <a name="configure-security-group-options"></a>Configureer de beveiligingsopties voor groep
-In deze stap maakt u toewijst aan de nieuwe groepsmachtigingen voor **ophalen** en **plaatsen** bewerkingen op de objecten die zijn beveiligd door de volgende beveiligingsbeleidsregels van het domein:
+In deze stap hebt u domeinbeveiliging beleid machtigingen voor de worker-gegevens worden beveiligd door het volgende beveiligingsbeleid voor domein verlenen:
 
-* Extern Account inrichten
-* Werknemersgegevens: Openbare Worker rapporten
-* Werknemersgegevens: Alle posities
-* Werknemersgegevens: Huidige bezetting van informatie
-* Werknemersgegevens: Functie in werknemersprofiel
+
+| Bewerking | Beveiligingsbeleid voor domein |
+| ---------- | ---------- | 
+| Ophalen en plaatsen |  Extern Account inrichten |
+| Ophalen en plaatsen | Werknemersgegevens: Openbare Worker rapporten |
+| Ophalen en plaatsen | Werknemersgegevens: Alle posities |
+| Ophalen en plaatsen | Werknemersgegevens: Huidige bezetting van informatie |
+| Ophalen en plaatsen | Werknemersgegevens: Functie in werknemersprofiel |
+| Weergeven en wijzigen | Werknemersgegevens: Werke-mailadres |
 
 **Groep Beveiligingsopties configureren:**
 
@@ -348,7 +352,7 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',), '([řŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | userPrincipalName     |     | Maken en bijwerken                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',), '([řŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken                                                   
 | **Switch (\[gemeente\], ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = = standaard, organisatie-eenheid locaties, DC = = contoso, DC = com ', 'Dallas' ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Dallas, OU = locaties, DC = = contoso, DC = com ', 'Austin' ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Austin, OU = locaties, DC = = contoso, DC = com ","Seattle"' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Seattle, OU = locaties, DC = = contoso, DC = com ', 'Londen', ' organisatie-eenheid standaardgebruikers = OU = Users, organisatie-eenheid Londen, OU = locaties, DC = = contoso, DC = com ")**  | parentDistinguishedName     |     |  Maken en bijwerken |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Deel 3: De lokale synchronisatie-agent configureren
@@ -638,11 +642,121 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 
 5. Een voltooid, wordt er een overzichtsrapport van de audit schrijven in de **inrichten** tabblad, zoals hieronder wordt weergegeven.
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>De lijst met gebruikerskenmerken Workday aanpassen
+De inrichting van apps voor Active Directory en Azure AD zowel een standaardlijst met gebruikerskenmerken Workday opnemen werkdag u kunt kiezen uit. Deze lijsten zijn echter niet uitgebreid. Werkdag ondersteunt honderden mogelijke gebruikerskenmerken, die kunnen standaard of uniek is voor uw Workday-tenant zijn. 
+
+De Azure AD-service inricht ondersteunt de mogelijkheid voor het aanpassen van de lijst of Workday-kenmerk op alle kenmerken die worden weergegeven in de [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) bewerking van de API Human Resources.
+
+Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-download) uitpakken van de XPath-expressies die staan voor de kenmerken die u wilt gebruiken en deze vervolgens toevoegen aan uw provisioning-configuratie met behulp van de geavanceerde kenmerkeditor in de Azure portal.
+
+**Voor het ophalen van een XPath-expressie voor een gebruikerskenmerk Workday:**
+
+1. Download en installeer [Workday Studio](https://community.workday.com/studio-download). U moet een werkdag community-account voor toegang tot het installatieprogramma.
+
+2. Download het bestand Workday Human_Resources WDSL vanaf deze URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+
+3. Werkdag Studio starten.
+
+4. Selecteer in de opdrachtbalk de **Workday > Test-webservice in Tester** optie.
+
+5. Selecteer **externe**, en selecteert u het gedownloade Human_Resources WSDL-bestand in stap 2.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Stel de **locatie** veld `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, maar "IMPL CC" vervangen door uw werkelijke type instantie en 'TENANT' met de tenantnaam van uw echte.
+
+7. Stel **bewerking** naar **Get_Workers**
+
+8.  Klik op de kleine **configureren** koppeling hieronder de deelvensters aanvragen/reacties uw Workday-referenties in te stellen. Controleer **verificatie**, en voer vervolgens de gebruikersnaam en het wachtwoord voor het systeem-account van uw Workday-integratie. Zorg ervoor dat de naam van de gebruiker als indeling name@tenant, en laat de **WS-Security UsernameToken** optie is geselecteerd.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. Selecteer **OK**.
+
+10. De **aanvragen** deelvenster plakken in de XML-code hieronder en stel **werknemer** naar de werknemer-ID van een echte gebruiker in uw Workday-tenant. Selecteer een gebruiker die het kenmerk heeft ingevuld die u wilt uitpakken.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Klik op de **aanvraag verzenden** (groene pijl) de opdracht uit te voeren. Als geslaagd, het antwoord moet worden weergegeven in de **antwoord** deelvenster. Controleer het antwoord om te controleren of dat de gegevens van de ingevoerde gebruikersnaam heeft en niet een fout opgetreden.
+
+12. Als dit lukt, kopieert u de XML van de **antwoord** deelvenster en als XML-bestand op te slaan.
+
+13. Selecteer in de opdracht balk van Workday Studio **bestand > bestand openen...**  en open het XML-bestand dat u zojuist hebt opgeslagen. Dit geopend in de Workday Studio XML-editor.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. Navigeer in de bestandsstructuur van het via **/env:Envelope > env > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** om gegevens van uw gebruikers te zoeken. 
+
+15. Onder **wd:Worker**vinden van het kenmerk dat u wilt toevoegen en selecteer deze.
+
+16. Kopieer de XPath-expressie voor het geselecteerde kenmerk buiten de **documentpad** veld.
+
+17. Verwijder de **/env:Envelope / env / wd:Get_Workers_Response / wd:Response_Data /** voorvoegsel van de gekopieerde expressie. 
+
+18. Als het laatste item in de gekopieerde expressie is van een knooppunt (voorbeeld: "/ wd:Birth_Date '), Voeg **/text()** aan het einde van de expressie. Dit is niet nodig als een kenmerk is het laatste item (voorbeeld: '/@wd:type').
+
+19. Het resultaat moet ongeveer `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Dit is wat u kopieert naar de Azure-portal.
+
+
+**Uw Workday-kenmerk voor aangepaste gebruiker toevoegen aan uw provisioning-configuratie:**
+
+1. Start de [Azure-portal](https://portal.azure.com), en navigeer naar de sectie inrichten van uw werkdag inrichting van toepassing, zoals eerder in deze zelfstudie wordt beschreven.
+
+2. Ingesteld **inrichting Status** naar **uit**, en selecteer **opslaan**. Dit helpt ervoor te zorgen dat uw wijzigingen van kracht alleen wanneer u klaar bent.
+
+3. Onder **toewijzingen**, selecteer **werknemers synchroniseren naar OnPremises** (of **werknemers synchroniseren naar Azure AD**).
+
+4. Ga naar de onderkant van het volgende scherm en selecteer **geavanceerde opties weergeven**.
+
+5. Selecteer **kenmerk controlelijst voor Workday**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Ga naar de onderkant van de lijst met kenmerken aan waarvoor de invoer velden zijn.
+
+7. Voor **naam**, voer een weergavenaam voor het kenmerk.
+
+8. Voor **Type**, selecteren dat op de juiste wijze komt met het kenmerk overeen (**tekenreeks** is gebruikelijk).
+
+9. Voor **API expressie**, geef de XPath-expressie die u hebt gekopieerd uit Workday Studio. Voorbeeld:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Selecteer **kenmerk toevoegen**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Selecteer **opslaan** hierboven, en vervolgens **Ja** naar het dialoogvenster. Sluit het scherm kenmerk toewijzen als deze nog steeds geopend.
+
+12. Terug op de hoofdblade **inrichten** tabblad **werknemers synchroniseren naar OnPremises** (of **werknemers synchroniseren naar Azure AD**) opnieuw.
+
+13. Selecteer **toevoegen van nieuwe toewijzing**.
+
+14. Het nieuwe kenmerk wordt nu weergegeven in de **bronkenmerk** lijst.
+
+15. Een toewijzing voor het nieuwe kenmerk naar wens toevoegen.
+
+16. Als u klaar bent denken bij het **inrichting Status** terug naar **op** en op te slaan.
+
+
 ## <a name="known-issues"></a>Bekende problemen
 
 * Bij het uitvoeren van de **toevoegen ADSyncAgentAzureActiveDirectoryConfiguration** Powershell-opdracht, er is momenteel een bekend probleem met de hoofdbeheerdersreferenties werkt niet als ze met een aangepast domein (voorbeeld: admin@contoso.com) . Als tijdelijke oplossing maken en gebruiken van een globale beheerdersaccount in Azure AD met een onmicrosoft.com-domein (voorbeeld: admin@contoso.onmicrosoft.com).
 
 * Een vorige probleem met de controlelogboeken verschijnt niet in Azure AD-tenants die zich in de Europese Unie is opgelost. Aanvullende agentconfiguratie is echter vereist voor Azure AD-tenants in de EU. Zie voor meer informatie [deel 3: de lokale synchronisatie-agent configureren](#Part 3: Configure the on-premises synchronization agent)
+
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Zelfstudie: Eenmalige aanmelding tussen Workday en Azure Active Directory configureren](active-directory-saas-workday-tutorial.md)

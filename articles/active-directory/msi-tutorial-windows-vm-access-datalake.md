@@ -3,7 +3,7 @@ title: Het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toe
 description: Een zelfstudie waarin wordt getoond hoe u een Windows VM beheerde Service identiteit (MSI) wordt gebruikt voor toegang tot Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: ad9b92f11571b013f371eb36c0676afb3e9e5213
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 367008c41aee6ee31811f7fa7ee4be69120b8851
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
 
@@ -205,7 +205,7 @@ In deze zelfstudie maakt verifiëren u voor het Data Lake Store-bestandssysteem 
 
 Met andere bestandssysteem Data Lake Store downloaden API's die u kunt toevoegen aan bestanden, bestanden en meer.
 
-Gefeliciteerd.  U hebt geverifieerd voor het Data Lake Store-bestandssysteem met behulp van een VM MSI.
+Gefeliciteerd!  U hebt geverifieerd voor het Data Lake Store-bestandssysteem met behulp van een VM MSI.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 

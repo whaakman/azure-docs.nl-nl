@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure-Stack Public Key Infrastructure-certificaatvereisten
 Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern toegankelijke openbare IP-adressen die zijn toegewezen aan een klein aantal Stack Azure-services en mogelijk tenant-VM's. PKI-certificaten met de juiste DNS-namen voor deze eindpunten van de infrastructuur voor openbare Azure-Stack zijn vereist tijdens de implementatie van Azure-Stack. In dit artikel bevat informatie over:
@@ -27,6 +27,8 @@ Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern to
 - Welke certificaten zijn vereist voor het implementeren van Azure-Stack
 - Het proces voor het verkrijgen van certificaten die overeenkomt met deze specificaties
 - Het voorbereiden, valideren en gebruiken van die certificaten tijdens de implementatie
+> [!NOTE]
+> Tijdens de implementatie moet u certificaten kopiëren naar de implementatiemap die overeenkomt met de id-provider die u tegen (Azure AD of AD FS implementeert). Als u één certificaat voor alle eindpunten gebruikt, kopieert u dit certificaatbestand in de implementatiemap van elke zoals wordt beschreven in de onderstaande tabellen. Structuur van de vooraf is ingebouwd in de implementatie van virtuele machine en kan worden gevonden op: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Certificaatvereisten
 De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor het implementeren van Azure-Stack: 

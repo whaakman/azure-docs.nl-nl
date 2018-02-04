@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/1/2018
 ms.author: tedway
-ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb0d02bc580822dcc9451dc6c22bd28d895dbbf7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Een Azure Machine Learning-webservice gebruiken vanuit Excel
  Azure Machine Learning Studio kunt gemakkelijk aanroepen van webservices rechtstreeks vanuit Excel zonder code te schrijven.
@@ -39,7 +39,7 @@ Zodra u een webservice hebt, klikt u op in de **WEBSERVICES** sectie aan de link
     ![][1]
 2. Klik op **Excel-werkmap downloaden**.
 
-**Nieuwe webservice**
+**New Web Service**
 
 1. Selecteer in de portal voor Azure Machine Learning-webservice **verbruiken**.
 2. Op de pagina verbruiken in de **Web-verbruik serviceopties** sectie, klikt u op het Excel-pictogram.

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
 In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen procedure aanroepen. 
@@ -75,7 +75,7 @@ In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van e
 1. Klik in de pagina aan de slag, **maken pijplijn**: 
 
     ![Pagina Aan de slag](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. In de **activiteiten** werkset Vouw **SQL-Database**, en slepen en neerzetten **opgeslagen Procedure** activiteit aan de pijplijn desginer oppervlak. 
+2. In de **activiteiten** werkset Vouw **SQL-Database**, en slepen en neerzetten **opgeslagen Procedure** activiteit naar het ontwerpoppervlak pijplijn. 
 
     ![De activiteit opgeslagen procedure slepen en neerzetten](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. In het eigenschappenvenster voor de activiteit opgeslagen procedure overschakelen naar de **-Account voor SQL** tabblad en klik op **+ nieuw**. U maken een verbinding met de Azure SQL database die als host fungeert voor de catalogus SSIS (SSIDB database). 
@@ -94,11 +94,11 @@ In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van e
         ![Een gekoppelde Azure SQL Database-service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In het eigenschappenvenster overschakelen naar de **opgeslagen Procedure** TAB-toets van de **-Account voor SQL** tabblad en voer de volgende stappen uit: 
 
-    1. Voor de **opgeslagen procedurenaam** veld Enter `sp_executesql` . 
+    1. Voor de **opgeslagen procedurenaam** veld Enter `sp_executesql`. 
     2. Klik op **+ nieuw** in de **opgeslagen procedureparameters** sectie. 
     3. Voor **naam** invoeren van de parameter **instructie INSERT**. 
-    4. Voor **type** invoeren van de parameter **tekenreeks** . 
-    5. Voor **waarde** van de parameter, voert u de volgende SQL-query.
+    4. Voor **type** invoeren van de parameter **tekenreeks**. 
+    5. Voor **waarde** van de parameter, voert u de volgende SQL-query:
 
         Geef in de SQL-query de juiste waarden voor de **mapnaam**, **projectnaam**, en **naam_van_pakket** parameters. 
 
@@ -133,7 +133,9 @@ In deze sectie een pijplijn run activeren en deze vervolgens te controleren.
 
     ![Controleer of de pakket-uitvoeringen](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-U kunt ook een geplande trigger maken voor uw pijplijn, zodat de pijplijn wordt uitgevoerd volgens een schema (houly, dagelijks, enz.). Zie voor een voorbeeld [Maak een gegevensfactory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> U kunt ook een geplande trigger maken voor uw pijplijn, zodat de pijplijn wordt uitgevoerd volgens een schema (elk uur, dagelijks, enz.). Zie voor een voorbeeld [Maak een gegevensfactory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een Data Factory-pijplijn met een opgeslagen procedure-activiteit die wordt aangeroepen SSIS-pakket. 
@@ -321,7 +323,7 @@ In de vorige stap, moet u de pijplijn op aanvraag aangeroepen. U kunt ook een sc
     }    
     ```
 2. In **Azure PowerShell**, overschakelen naar de **C:\ADF\RunSSISPackage** map.
-3. Voer de **Set AzureRmDataFactoryV2Trigger** cmdlet voor het maken van de trigger. 
+3. Voer de **Set AzureRmDataFactoryV2Trigger** cmdlet, waarbij de trigger wordt gemaakt. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"

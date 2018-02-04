@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0fd6de8b59400270e42d428664df74d81d790f62
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -64,7 +64,7 @@ public class TableStorage
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
         TraceWriter log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -349,7 +349,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal.|
-|**richting** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
+|**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
 |**naam** | N.v.t. | De naam van de variabele die staat voor de tabel of de entiteit in functiecode. | 
 |**tableName** | **TableName** | De naam van de tabel.| 
 |**partitionKey** | **PartitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
@@ -608,7 +608,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `table`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal.|
-|**richting** | N.v.t. | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
+|**direction** | N.v.t. | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
 |**naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode die de tabel of een entiteit vertegenwoordigt. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
 |**tableName** |**TableName** | De naam van de tabel.| 
 |**partitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 

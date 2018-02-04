@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
@@ -43,7 +43,8 @@ U kunt:
 
 U kunt ExpressRoute-circuits in elk deel van de hele wereld bewaken met behulp van een werkruimte die wordt gehost in een van de volgende gebieden:
 
-* West-Europa 
+* West-Europa
+* West-centraal VS
 * VS - oost 
 * Zuidoost-Azië 
 * Zuid-Oost-Australië
@@ -57,14 +58,13 @@ Bewaking agents zijn geïnstalleerd op meerdere servers, zowel on-premises en in
     * Installeer monitoring-agents op de on-premises servers en de Azure VM's.
     * Instellingen configureren op de monitoring agentservers om toe te staan van de bewaking agents om te communiceren. (Open firewall-poorten, enz.)
 3. Configureren (NSG) netwerkbeveiligingsgroepen zodat de monitoring agent is geïnstalleerd op Azure Virtual machines om te communiceren met on-premises monitoring-agents.
-4. Verzoek voor het goedgekeurde IP-adressen de NPM-werkruimte.
-5. Bewaking ingesteld: Voer automatisch ontdekken en te beheren welke netwerken zichtbaar zijn in NPM.
+4. Bewaking ingesteld: Voer automatisch ontdekken en te beheren welke netwerken zichtbaar zijn in NPM.
 
 Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of -services en u al werkruimte in een van de ondersteunde regio's hebt, kunt u stap 1 en 2 van de stap overslaan en beginnen met de configuratie met stap 3.
 
-## <a name="configure"></a>Stap 1: Een werkruimte maken
+## <a name="configure"></a>Stap 1: Een werkruimte (in het abonnement waarvoor de VNETs die zijn gekoppeld aan de ExpressRoute-Circuit(s)) maken
 
-1. In de [Azure-portal](https://portal.azure.com), zoek in de lijst van services in de **Marketplace** voor 'Prestatiemeter netwerk'. Klik in het retourtype op om de **netwerk Prestatiemeter** pagina.
+1. In de [Azure-portal](https://portal.azure.com), selecteer het abonnement waarvoor de VNETs brengen aan uw ExpressRoute-circuit. Zoek in de lijst van services in de **Marketplace** voor 'Prestatiemeter netwerk'. Klik in het retourtype op om de **netwerk Prestatiemeter** pagina.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Aan de onderkant van de belangrijkste **netwerk Prestatiemeter** pagina, klikt u op **maken** openen **netwerk-Prestatiemeter - nieuwe oplossing maken** pagina. Klik op **OMS-werkruimte - Selecteer een werkruimte** om de werkruimten pagina te openen. Klik op **+ maken nieuwe werkruimte** om de pagina van de werkruimte te openen.
@@ -105,7 +105,7 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
 
   ![PowerShell-script](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: een monitoring agent installeren op elke server controleren
+### <a name="installagent"></a>2.2: een monitoring agent installeren op elke server monitoring (op elke VNET dat u wilt controleren)
 
 Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute-verbinding (dat wil zeggen, on-premises Azure VNETs) voor redundantie installeren. Gebruik de volgende stappen uit om agents te installeren:
 
@@ -127,6 +127,8 @@ Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute
 6. Op de **gereed voor installatie** pagina, Controleer uw selecties en klik vervolgens op **installeren**.
 7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
 8. Als u klaar is Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt uw configuratie er bekijken en controleren of de agent aan Operational Insights (OMS) is verbonden. Wanneer verbonden met OMS, de agent wordt weergegeven voor een bericht weergegeven: **de Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service**.
+
+9. Herhaal de dit voor elk VNET dat u moet worden bewaakt.
 
 ### <a name="proxy"></a>2.3: Configureer proxy-instellingen (optioneel)
 
@@ -165,7 +167,7 @@ Poort 8084 wordt standaard geopend. U kunt een aangepaste poort gebruiken door d
 >
 >
 
-Open een PowerShell-venster met beheerdersbevoegdheden op de agentservers. Voer de [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell-script (die u eerder hebt gedownload). Gebruik geen parameters.
+Open een PowerShell-venster met beheerdersbevoegdheden op de agentservers. Voer de [EnableRules](https://aka.ms/npmpowershellscript) PowerShell-script (die u eerder hebt gedownload). Gebruik geen parameters.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Zie voor meer informatie over het NSG [Netwerkbeveiligingsgroepen](../virtual-ne
 
 ## <a name="setupmonitor"></a>Stap 4: NPM configureren voor het bewaken van ExpressRoute
 
->[!WARNING]
->Pas verder verder nadat uw werkruimte goedgekeurde lijst is en u een bevestiging per e-mail ontvangt.
->
->
-
-Nadat u de vorige secties en controleer of dat u goedgekeurde lijst zijn, kunt u controle instellen.
+Nadat u de vorige secties hebt voltooid, kunt u controle instellen.
 
 1. Navigeer naar de overzichttegel Prestatiemeter netwerk door te gaan naar de **alle Resources** pagina en klik op de goedgekeurde lijst NPM-werkruimte.
 

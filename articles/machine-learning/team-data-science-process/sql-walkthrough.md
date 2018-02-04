@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
-ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Server
 In deze zelfstudie helpt u bij het proces van het maken en implementeren van een machine learning-model met behulp van SQL Server en een openbare gegevensset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard wetenschappelijke werkstroom: opnemen en Verken de gegevens, engineering-functies om te vergemakkelijken learning, en vervolgens te bouwen en implementeren van een model.
@@ -604,7 +604,7 @@ Voor het implementeren van een nieuwe webservice, moet u:
 
 Maken van een experiment score van een **voltooid** training experiment, klikt u op **maken score berekenen EXPERIMENTEREN** in de onderste actiebalk.
 
-![Score berekenen voor Azure][18]
+![Azure Scoring][18]
 
 Azure Machine Learning probeert te maken van een score experiment op basis van de onderdelen van het trainingsexperiment. In het bijzonder wordt:
 

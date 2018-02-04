@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter biedt geen ondersteuning voor toewijzing SMB koppelingen naar containers ([die wordt alleen ondersteund op Windows Server versie 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Dit voorkomt dat volume netwerktoewijzing en Azure Files volume stuurprogramma's voor versies ouder dan 1709. 
+> Windows Server 2016 Datacenter biedt geen ondersteuning voor toewijzing SMB koppelingen naar containers ([die wordt alleen ondersteund op Windows Server versie 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Deze beperking wordt voorkomen dat volume netwerktoewijzing en stuurprogramma's voor Azure Files volume op versies ouder dan 1709. 
 >   
 
 
@@ -53,8 +53,9 @@ De invoegtoepassingen zijn opgegeven in het toepassingsmanifest als volgt:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ De invoegtoepassingen zijn opgegeven in het toepassingsmanifest als volgt:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ De invoegtoepassingen zijn opgegeven in het toepassingsmanifest als volgt:
 
 De **bron** tag voor de **Volume** element verwijst naar de bronmap. De bronmap mag een map in de virtuele machine die als host fungeert voor de containers of een permanente externe opslag. De **bestemming** label is de locatie die het **bron** is toegewezen aan in de actieve container. De bestemming kan dus een locatie die al in de container bestaat niet.
 
+Parameters voor de toepassing worden ondersteund voor volumes, zoals wordt weergegeven in het bovenstaande codefragment manifest (zoekt `MyStoreVar` gebruiken voor een voorbeeld).
+
 Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch het volume met behulp van de opgegeven parameters. De **bron** label is de naam van het volume en de **stuurprogramma** tag Hiermee geeft u het volume van invoegtoepassing stuurprogramma. Opties kunnen worden opgegeven met behulp van de **DriverOption** labelen als volgt:
 
 ```xml
@@ -93,4 +96,4 @@ Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch 
 Als een stuurprogramma Docker-logboek is opgegeven, hebt u voor het implementeren van agents (of containers) voor het afhandelen van de logboeken in het cluster. De **DriverOption** code kan worden gebruikt om opties opgeven voor het logboek-stuurprogramma.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor het implementeren van containers naar een Service Fabric-cluster, [implementeren van een Service Fabric-container](service-fabric-deploy-container.md).
+Raadpleeg het artikel voor het implementeren van containers naar een Service Fabric-cluster, [implementeren van een Service Fabric-container](service-fabric-deploy-container.md).

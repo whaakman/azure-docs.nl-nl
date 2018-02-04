@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/26/2017
+ms.date: 01/29/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 34dee9511822acec46ba4854729939b84f3c06c6
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Een Bacpac-bestand importeren in een nieuwe Azure SQL Database
 
@@ -27,10 +27,6 @@ Wanneer moet u een database te importeren vanuit een archief of wanneer u migree
 
 > [!IMPORTANT] 
 > Nadat u de database naar Azure SQL Database migreert, kunt u de werking van de database op het huidige compatibiliteitsniveau (level 100 voor de database AdventureWorks2008R2) of op een hoger niveau. Zie voor meer informatie over de gevolgen en opties voor de werking van een database op een specifieke compatibiliteitsniveau [databasecompatibiliteitsniveau ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Zie ook [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) voor meer informatie over aanvullende databaseniveau instellingen met betrekking tot compatibiliteitsniveaus.   >
-
-> [!NOTE]
-> Als u wilt een BACPAC importeren naar een nieuwe database, moet u eerst een logische Azure SQL Database-server maken. Zie voor een zelfstudie waarin u een SQL Server-database migreren naar Azure SQL Database met SQLPackage [migreren van een SQL Server-Database](sql-database-migrate-your-sql-server-database.md)
->
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Importeren uit een Bacpac-bestand met Azure portal
 

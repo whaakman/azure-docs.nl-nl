@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Gegevens verplaatsen van Sybase met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ Gateway is vereist, zelfs als de Sybase-database wordt gehost in een Azure IaaS 
 > Zie [gateway problemen](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) voor tips over het oplossen van verbinding of gateway gerelateerde problemen.
 
 ## <a name="supported-versions-and-installation"></a>Ondersteunde versies en installatie
-Voor de Data Management Gateway verbinding maken met de Sybase-Database, moet u voor het installeren van de [data provider voor Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 of hoger op hetzelfde systeem als Data Management Gateway. Sybase versie 16 en hoger wordt ondersteund.
+Voor de Data Management Gateway verbinding maken met de Sybase-Database, moet u voor het installeren van de [data provider voor Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 of hoger op hetzelfde systeem als Data Management Gateway. 
+
+SAP-Sybase SQL overal (ASA) versie 16 en hoger ondersteund. IQ en as-omgeving worden niet ondersteund.
 
 ## <a name="getting-started"></a>Aan de slag
 U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens vanuit een on-premises Cassandra-gegevensopslag verplaatst met behulp van verschillende hulpprogramma's voor API's. 

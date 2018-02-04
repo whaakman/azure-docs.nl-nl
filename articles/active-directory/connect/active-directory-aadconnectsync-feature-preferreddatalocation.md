@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect-synchronisatie: locatie van de gewenste gegevens voor Office 365-bronnen configureren
-Het doel van dit onderwerp wordt u stapsgewijs door het PreferredDataLocation configureren in Azure AD Connect-synchronisatie. Wanneer een klant Multi-Geo-mogelijkheden in Office 365 gebruikt, wordt dit kenmerk wordt gebruikt om aan te wijzen de geografische locatie van de Office 365-gegevens van de gebruiker.
+Het doel van dit onderwerp wordt u stapsgewijs door het PreferredDataLocation configureren in Azure AD Connect-synchronisatie. Wanneer een klant Multi-Geo-mogelijkheden in Office 365 gebruikt, wordt dit kenmerk wordt gebruikt om aan te wijzen de geografische locatie van de Office 365-gegevens van de gebruiker. De voorwaarden **regio** en **Geo** uitwisselbaar worden gebruikt.
 
 > [!IMPORTANT]
 > Multi-geografisch is momenteel in preview. Neem contact op met uw Microsoft-vertegenwoordiger als u wilt deelnemen aan het programma preview.
@@ -29,36 +29,41 @@ Het doel van dit onderwerp wordt u stapsgewijs door het PreferredDataLocation co
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Synchronisatie van PreferredDataLocation inschakelen
-Standaard bevinden Office 365-resources voor uw gebruikers zich in dezelfde regio bevinden als uw Azure AD-tenant. Bijvoorbeeld, als uw tenant bevindt zich in Noord-Amerika zich vervolgens de Exchange-postvakken van gebruikers bevinden eveneens in Noord-Amerika. Voor een organisatie meerdere nationale dit mogelijk niet optimaal. Door het instellen van het kenmerk preferredDataLocation kan regio van de gebruiker worden gedefinieerd.
+Standaard bevinden Office 365-resources voor uw gebruikers zich in de dezelfde geo als uw Azure AD-tenant. Bijvoorbeeld, als uw tenant bevindt zich in Noord-Amerika zich vervolgens de Exchange-postvakken van gebruikers bevinden eveneens in Noord-Amerika. Voor een organisatie meerdere nationale dit mogelijk niet optimaal. Door het instellen van het kenmerk preferredDataLocation kan geo van de gebruiker worden gedefinieerd.
 
-Instellingen voor dit kenmerk kunt u de gebruiker Office 365-resources, zoals de postvak en OneDrive, hebben in dezelfde regio bevinden als de gebruiker en nog steeds een tenant voor uw hele organisatie.
+Instellingen voor dit kenmerk kunt u de gebruiker Office 365 bronnen, zoals het postvak en OneDrive, in de dezelfde geo als de gebruiker hebt en nog steeds een tenant voor uw hele organisatie.
 
 > [!IMPORTANT]
 > Als u in aanmerking komen voor meerdere Geo, moet u ten minste 5000 seats hebben in uw Office 365-abonnement
 >
 >
 
-De regio's in Office 365 voor meerdere Geo beschikbaar zijn:
+Een lijst met alle geografische gebieden voor Office 365 vindt u in [waar zijn de gegevens zich](https://aka.ms/datamaps).
 
-| Regio | Beschrijving |
+De geografische gebieden in Office 365 voor meerdere Geo beschikbaar zijn:
+
+| Geografisch gebied | preferredDataLocation waarde |
 | --- | --- |
-| NAAM | Noord-Amerika |
-| EUR | Europa |
-| APC | Azië en Stille Oceaan |
-| JPN | Japan |
-| AUS | Australië |
-| CAN | Canada |
-| GBR | Groot-Brittannië |
-| LAM | Latijns-Amerika |
+| Azië en Stille Oceaan | APC |
+| Australië | AUS |
+| Canada | CAN |
+| Europese Unie | EUR |
+| India | IND |
+| Japan | JPN |
+| Zuid-Korea | KOR |
+| Verenigd Koninkrijk | GBR |
+| Verenigde Staten | NAAM |
 
-Niet alle Office 365-werkbelastingen ondersteunt het gebruik van het instellen van een gebruiker regio.
+* Als een geografisch niet wordt vermeld in deze tabel, bijvoorbeeld Zuid-Amerika, kan niet vervolgens deze worden gebruikt voor meerdere Geo.
+* India en Zuid-Korea geografische gebieden zijn alleen beschikbaar voor klanten met facturering adressen en gekochte licenties in deze geografische gebieden.
+* Niet alle Office 365-werkbelastingen ondersteunt het gebruik van een gebruiker geo in te stellen.
 
 Azure AD Connect ondersteunt synchronisatie van de **PreferredDataLocation** kenmerk voor **gebruiker** objecten in versie 1.1.524.0 en na. Meer specifiek, zijn de volgende wijzigingen geïntroduceerd:
 
 * Het schema van het objecttype **gebruiker** in de Azure AD-Connector is uitgebreid met PreferredDataLocation kenmerk van het type één waarde tekenreeks.
 * Het schema van het objecttype **persoon** in de Metaverse is uitgebreid met PreferredDataLocation kenmerk is van het type tekenreeks en één waarde.
 
-Het kenmerk PreferredDataLocation is standaard niet ingeschakeld voor synchronisatie. Deze functie is bedoeld voor grote organisaties en niet iedereen wilt profiteren van deze. U moet ook een kenmerk voor het opslaan van de Office 365-regio voor uw gebruikers, omdat er geen kenmerk PreferredDataLocation in de lokale Active Directory is identificeren. Dit is het verstandig om verschillende voor elke organisatie.
+Het kenmerk PreferredDataLocation is standaard niet ingeschakeld voor synchronisatie. Deze functie is bedoeld voor grote organisaties en niet iedereen wilt profiteren van deze. U moet ook een kenmerk voor het opslaan van de Office 365 geo voor uw gebruikers, omdat er geen kenmerk PreferredDataLocation in de lokale Active Directory is identificeren. Dit is het verstandig om verschillende voor elke organisatie.
 
 > [!IMPORTANT]
 > Azure AD kan op dit moment is dat het kenmerk PreferredDataLocation op gesynchroniseerde gebruikersobjecten en cloud gebruiker objecten rechtstreeks worden geconfigureerd met behulp van Azure AD PowerShell. Wanneer u de synchronisatie van het kenmerk PreferredDataLocation hebt ingeschakeld, moet u stoppen met Azure AD PowerShell voor het configureren van het kenmerk op **gesynchroniseerd gebruikersobjecten** als Azure AD Connect overschrijft toe op basis van de bron-kenmerkwaarden in de lokale Active Directory.
@@ -245,13 +250,13 @@ De ingebouwde sync scheduler opnieuw inschakelen:
 ## <a name="step-8-verify-the-result"></a>Stap 8: Controleer of het resultaat
 Het is nu tijd om te controleren of de configuratie en inschakelen voor uw gebruikers.
 
-1. De regio aan het geselecteerde kenmerk van een gebruiker toevoegen. De lijst met beschikbare regio's vindt u in [deze tabel](#enable-synchronization-of-preferreddatalocation).  
+1. De geo toevoegen aan het geselecteerde kenmerk van een gebruiker. De lijst met beschikbare geo vindt u in [deze tabel](#enable-synchronization-of-preferreddatalocation).  
 ![AD-kenmerk toegevoegd aan een gebruiker](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Wachten op het kenmerk moeten worden gesynchroniseerd naar Azure AD.
 3. Met behulp van Exchange Online PowerShell, Controleer of de regio van het Postvak correct is ingesteld.  
 ![Postvak regio ingesteld voor een gebruiker een Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Ervan uitgaande dat uw tenant is gemarkeerd als u deze functie wilt gebruiken, wordt het postvak verplaatst naar de juiste regio. Dit kan worden gecontroleerd door te zoeken op naam van de server waar het postvak zich bevindt.
-4. Om te controleren of deze instelling is effectieve via veel postvakken, gebruikt u het script in de [Technet-galerie](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Dit script heeft ook een lijst met alle Office 365 datacenters server voorvoegsels en welke regio bevindt het zich in. Deze kan worden gebruikt als een verwijzing in de vorige stap om te controleren of de locatie van het postvak.
+Ervan uitgaande dat uw tenant is gemarkeerd als u deze functie wilt gebruiken, wordt het postvak verplaatst naar de juiste geo. Dit kan worden gecontroleerd door te zoeken op naam van de server waar het postvak zich bevindt.
+4. Om te controleren of deze instelling is effectieve via veel postvakken, gebruikt u het script in de [Technet-galerie](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Dit script heeft ook een lijst met alle Office 365 datacenters server voorvoegsels en welke geo bevindt het zich in. Deze kan worden gebruikt als een verwijzing in de vorige stap om te controleren of de locatie van het postvak.
 
 ## <a name="next-steps"></a>Volgende stappen
 

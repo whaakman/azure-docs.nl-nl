@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met Azure On-premises Data Gateway
 De lokale data gateway fungeert als een brug, bieden veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio, werkt de meest recente versie van de gateway ook met Azure Logic Apps, Power BI, Power-Apps en Microsoft-Flow. U kunt meerdere services in dezelfde regio koppelen met een enkele gateway. 
@@ -28,11 +28,11 @@ Uitvoeren van setup met de gateway de eerste keer is een vierdelige proces:
 
 - **Downloaden en uitvoeren van setup** -deze stap installeert u een gatewayservice op een computer in uw organisatie. U ook aanmelden bij Azure met behulp van een account in uw [van tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (Gast) accounts worden niet ondersteund.
 
-- **Registreren van uw gateway** - In deze stap maakt u een naam opgeven en herstel van belangrijke voor uw gateway, en selecteer een regio, uw gateway registreren met de Gateway-Cloudservice. Uw gateway resource **moeten worden geregistreerd in dezelfde regio** als Analysis Services-servers. 
+- **Registreren van uw gateway** - In deze stap maakt u een naam opgeven en herstel van belangrijke voor uw gateway en selecteer een regio, uw gateway registreren met de Gateway-Cloudservice. De bron van de gateway kan worden geregistreerd in elke regio, maar het is raadzaam dat deze zich in dezelfde regio bevinden als de Analysis Services-servers. 
 
 - **Een gateway-resource maken in Azure** -In deze stap maakt u een gateway-bron in uw Azure-abonnement.
 
-- **Verbind uw servers met uw gateway resource** -zodra u een gateway-bron in uw abonnement hebt, kunt u beginnen uw servers verbinding mee te maken. U kunt meerdere servers en andere resources verbinden, mits ze zich in de regio.
+- **Verbind uw servers met uw gateway resource** -zodra u een gateway-bron in uw abonnement hebt, kunt u beginnen uw servers verbinding mee te maken. U kunt verbinding maakt met meerdere servers en andere bronnen.
 
 Als u wilt meteen aan de slag, Zie [installeren en configureren van lokale gegevensgateway](analysis-services-gateway-install.md).
 
@@ -69,17 +69,17 @@ Hieronder vindt u de volledig gekwalificeerde domeinnamen gebruikt door de gatew
 
 | Domeinnamen | Uitgaande poorten | Beschrijving |
 | --- | --- | --- |
-| *. powerbi.com |80 |HTTP gebruikt voor het downloaden van het installatieprogramma. |
-| *. powerbi.com |443 |HTTPS |
-| *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
-| *. servicebus.windows.net |5671-5672 |Geavanceerde Message Queuing-Protocol (AMQP) |
-| *. servicebus.windows.net |443, 9350-9354 |Listeners op Service Bus Relay via TCP (443 voor toegangsbeheer token aanschaf vereist) |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
-| Login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Gebruikt voor het testen van verbinding met internet, als de gateway onbereikbaar zijn door de Power BI-service is. |
-| *.microsoftonline p.com |443 |Gebruikt voor verificatie, afhankelijk van de configuratie. |
+| *.powerbi.com |80 |HTTP gebruikt voor het downloaden van het installatieprogramma. |
+| *.powerbi.com |443 |HTTPS |
+| *.analysis.windows.net |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |Geavanceerde Message Queuing-Protocol (AMQP) |
+| *.servicebus.windows.net |443, 9350-9354 |Listeners op Service Bus Relay via TCP (443 voor toegangsbeheer token aanschaf vereist) |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
+| login.microsoftonline.com |443 |HTTPS |
+| *.msftncsi.com |443 |Gebruikt voor het testen van verbinding met internet, als de gateway onbereikbaar zijn door de Power BI-service is. |
+| *.microsoftonline-p.com |443 |Gebruikt voor verificatie, afhankelijk van de configuratie. |
 
 ### <a name="force-https"></a>HTTPS-communicatie met Azure Service Bus forceren
 U kunt de gateway om te communiceren met Azure Service Bus via HTTPS in plaats van rechtstreekse TCP; afdwingen echter, doen dus aanzienlijk vermindert de prestaties. U kunt de *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* bestand door het wijzigen van de waarde van `AutoDetect` naar `Https`. Dit bestand bevindt zich doorgaans in *C:\Program Files\On-premises gegevensgateway*.
@@ -131,7 +131,7 @@ U kunt de hulpprogramma van derden Azure snelheid testen-app gebruiken om te met
 **Een**: Nee. De Windows-service moet een geldige Windows-account hebben. De service wordt standaard uitgevoerd met de Service-SID NT SERVICE\PBIEgwService.
 
 **Q**: hoe kan ik overname een gateway? <br/>
-**Een**: In zodat overname een gateway (door het uitvoeren van Setup/wijzigen in het Configuratiescherm > programma's) moet u om te worden van een eigenaar voor de gateway-resource in Azure en de herstelsleutel. Gateway resource eigenaren kunnen worden geconfigureerd in de Access Control.
+**Een**: voor overname een gateway (door het uitvoeren van Setup/wijzigen in het Configuratiescherm > programma's), moet u om te worden van een eigenaar voor de gateway-resource in Azure en de herstelsleutel. Gateway resource eigenaren kunnen worden geconfigureerd in de Access Control.
 
 ### <a name="high-availability"></a>Hoge beschikbaarheid en herstel na noodgevallen
 
@@ -144,7 +144,7 @@ U kunt de hulpprogramma van derden Azure snelheid testen-app gebruiken om te met
 ## <a name="troubleshooting"></a>Probleemoplossing
 
 **Q**: Waarom zie ik niet mijn gateway in de lijst met gatewayexemplaren bij het maken van de bron van de gateway in Azure? <br/>
-**Een**: Er zijn twee mogelijke oorzaken. De eerste is dat een resource al is gemaakt voor de gateway in de huidige of een ander abonnement. Om te voorkomen dat mogelijkheid, opsommen resources van het type **gegevensgateways On-premises** vanuit de portal. Zorg ervoor dat alle abonnementen selecteren bij het inventariseren van alle resources. Houd er rekening mee dat zodra de resource is gemaakt, de gateway niet in de lijst met de gatewayexemplaren in de portal ervaring voor de Gateway-Resource maken weergegeven wordt. De tweede mogelijkheid is dat de identiteit van de Azure AD van de gebruiker die de gateway geïnstalleerd van de gebruiker is aangemeld bij Azure Portal verschilt. U kunt dit oplossen door het aanmelden bij de portal met hetzelfde account als de gebruiker die de gateway wordt geïnstalleerd.
+**Een**: Er zijn twee mogelijke oorzaken. De eerste is dat een resource al is gemaakt voor de gateway in de huidige of een ander abonnement. Om te voorkomen dat mogelijkheid, opsommen resources van het type **gegevensgateways On-premises** vanuit de portal. Zorg ervoor dat alle abonnementen selecteren bij het inventariseren van alle resources. Zodra de resource is gemaakt, de gateway niet wordt weergegeven in de lijst met de gatewayexemplaren in de portal ervaring voor de Gateway-Resource maken. De tweede mogelijkheid is dat de identiteit van de Azure AD van de gebruiker die de gateway geïnstalleerd van de gebruiker is aangemeld bij Azure-portal verschilt. Om op te lossen, moet u zich aanmelden bij de portal met hetzelfde account als de gebruiker die de gateway wordt geïnstalleerd.
 
 **Q**: hoe kan ik zien wat query's worden verzonden naar de on-premises gegevensbron? <br/>
 **Een**: U kunt inschakelen querytracering, waaronder de query's die worden verzonden. Vergeet niet om te wijzigen van de query traceren terug naar de oorspronkelijke waarde gedaan bij het oplossen van problemen. Querytracering ingeschakeld verlaten maakt grotere Logboeken.
@@ -162,7 +162,7 @@ Veel problemen kunnen surface wanneer de gatewayversie is verouderd. Zorg ervoor
 
 U kunt deze fout kan ophalen, als u probeert de gateway installeren op een domeincontroller wordt niet ondersteund. Zorg ervoor dat u de gateway op een computer die een domeincontroller niet implementeert.
 
-## <a name="logs"></a>Logboeken
+## <a name="logs"></a>Logs
 
 Logboekbestanden zijn een belangrijke bron wanneer het oplossen van problemen.
 
@@ -182,7 +182,7 @@ Logboekbestanden zijn een belangrijke bron wanneer het oplossen van problemen.
 U vindt de logboeken van de Data Management Gateway en PowerBIGateway onder **servicelogboeken voor toepassingen en**.
 
 
-## <a name="telemetry"></a>Telemetrie
+## <a name="telemetry"></a>Telemetry
 Telemetrie kan worden gebruikt voor bewaking en probleemoplossing. Standaard
 
 **Telemetrie inschakelen**
@@ -203,5 +203,5 @@ Telemetrie kan worden gebruikt voor bewaking en probleemoplossing. Standaard
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Installeren en configureren van lokale gegevensgateway](analysis-services-gateway-install.md).   
-* [Analyseservices beheren](analysis-services-manage.md)
+* [Manage Analysis Services](analysis-services-manage.md)
 * [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)

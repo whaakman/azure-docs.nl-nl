@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van de kopieeractiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +36,17 @@ De kopieeractiviteit in Azure Data Factory biedt twee manieren om af te handelen
  ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 Kopieeractiviteit ondersteunt drie scenario's voor het detecteren, wordt overgeslagen en logboekregistratie incompatibel gegevens:
 
-- **Incompatibiliteit tussen het gegevensbrontype en het systeemeigen type sink**. <br/><br/> Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob storage naar een SQL-database met de schemadefinitie van een dat drie kolommen van het type INT bevat. De CSV-bestand rijen die numerieke gegevens, zoals 123.456.789 bevatten is gekopieerd naar de store sink. Echter, de rijen met niet-numerieke waarden, zoals 123,456, abc zijn gedetecteerd als niet compatibel en worden overgeslagen.
-- **Het aantal kolommen tussen de bron en de sink komt niet overeen**. <br/><br/> Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob storage naar een SQL-database met de schemadefinitie van een dat zes kolommen bevat. De CSV-bestand-rijen met zes kolommen worden gekopieerd naar de store sink. De CSV-bestand rijen die minder dan zes of meer kolommen bevatten als niet compatibel zijn gedetecteerd en worden overgeslagen.
-- **Primaire sleutel is geschonden bij het schrijven naar een relationele database**.<br/><br/> Bijvoorbeeld: gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die in de bron voorkomen kunnen niet worden gekopieerd naar de sink. Alleen de eerste rij van de brongegevens Kopieeractiviteit gekopieerd naar de sink. De volgende bronrijen met dubbele primaire sleutelwaarde zijn gedetecteerd als niet compatibel en worden overgeslagen.
+- **Incompatibiliteit tussen het gegevensbrontype en het systeemeigen type sink**. 
+
+    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob storage naar een SQL-database met de schemadefinitie van een dat drie kolommen van het type INT bevat. De CSV-bestand rijen die numerieke gegevens, zoals 123.456.789 bevatten is gekopieerd naar de store sink. Echter, de rijen met niet-numerieke waarden, zoals 123,456, abc zijn gedetecteerd als niet compatibel en worden overgeslagen.
+
+- **Het aantal kolommen tussen de bron en de sink komt niet overeen**.
+
+    Bijvoorbeeld: gegevens kopiëren van een CSV-bestand in Blob storage naar een SQL-database met de schemadefinitie van een dat zes kolommen bevat. De CSV-bestand-rijen met zes kolommen worden gekopieerd naar de store sink. De CSV-bestand rijen die minder dan zes of meer kolommen bevatten als niet compatibel zijn gedetecteerd en worden overgeslagen.
+
+- **Primaire sleutel is geschonden bij het schrijven naar een relationele database**.
+
+    Bijvoorbeeld: gegevens kopiëren van een SQL-server naar een SQL-database. Een primaire sleutel is gedefinieerd in de sink SQL-database, maar die geen primaire sleutel is gedefinieerd in de bron-SQL-server. De dubbele rijen die in de bron voorkomen kunnen niet worden gekopieerd naar de sink. Alleen de eerste rij van de brongegevens Kopieeractiviteit gekopieerd naar de sink. De volgende bronrijen met dubbele primaire sleutelwaarde zijn gedetecteerd als niet compatibel en worden overgeslagen.
 
 >[!NOTE]
 >Deze functie is niet van toepassing wanneer kopieeractiviteit is geconfigureerd voor het aanroepen van externe gegevens laden met inbegrip van mechanisme [Azure SQL Data Warehouse PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) of [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). Gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase, PolyBase van systeemeigen fouttolerantie ondersteuning door te geven '[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)' in de kopieerbewerking.

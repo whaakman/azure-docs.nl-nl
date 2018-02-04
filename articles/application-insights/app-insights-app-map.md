@@ -1,6 +1,6 @@
 ---
 title: Kaart van de toepassing in Azure Application Insights | Microsoft Docs
-description: Een visuele presentatie van de afhankelijkheden tussen de onderdelen van de app, voorzien van KPI's en waarschuwingen.
+description: "Bewaken van complexe toepassingen topologieën met de toepassing-kaart"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>De toepassingstoewijzing in Application Insights
-In [Azure Application Insights](app-insights-overview.md), toewijzing van de toepassing is een visuele indeling van de afhankelijkheidsrelaties tussen onderdelen van uw toepassing. Elk onderdeel toont KPI's zoals belasting, prestaties, fouten en waarschuwingen, om te zien van de onderdelen die zijn veroorzaakt door een prestatieprobleem of fout. U kunt via van elk onderdeel klikken om meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen te. Als uw app gebruikmaakt van Azure-services, kunt u ook doorklikken naar Azure diagnostics, zoals SQL Database Advisor aanbevelingen.
+# <a name="application-map-triage-distributed-applications"></a>De toepassingstoewijzing: Sorteren gedistribueerde toepassingen
+De toepassingstoewijzing helpt u ter plaatse prestatieknelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel van de of de afhankelijkheden ervan; health KPI en heeft de status van waarschuwingen. U kunt via van elk onderdeel klikken om meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen te. Als uw app gebruikmaakt van Azure-services, kunt u ook doorklikken naar Azure diagnostics, zoals SQL Database Advisor aanbevelingen.
 
-U kunt een toepassing toewijzen aan de Azure-dashboard, waar deze zich volledig functioneel vastmaken zoals andere grafieken. 
+## <a name="what-is-a-component"></a>Wat is een onderdeel?
 
-## <a name="open-the-application-map"></a>Open de toepassing-kaart
-De kaart openen vanuit de overzichtsblade van uw toepassing:
+Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedistribueerd/microservices. Ontwikkelaars en operations teams hebben zichtbaarheid van de code-niveau of toegang tot de telemetrie die is gegenereerd door de onderdelen van deze toepassing. 
 
-![Open de app-kaart](./media/app-insights-app-map/01.png)
+* Onderdelen zijn anders dan 'waargenomen' externe afhankelijkheden, zoals SQL, enz. EventHub die uw team/organisatie mogelijk geen toegang tot (code of telemetrie).
+* Onderdelen worden uitgevoerd op een willekeurig aantal exemplaren van de rol-server-container.
+* Onderdelen kunnen worden afzonderlijke Application Insights-instrumentatiesleutels (zelfs als abonnementen verschillend zijn) of verschillende rollen die rapporteren aan een enkele Application Insights-instrumentatiesleutel. De ervaring voor de preview-kaart bevat de onderdelen ongeacht hoe ze zijn ingesteld.
 
-![App-kaart](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Samengestelde toepassingstoewijzing (Preview)
+*Dit is een vroege voorbeeld en er meer functies toevoegen aan deze kaart. We graag uw feedback over de nieuwe ervaring ophalen. U kunt eenvoudig schakelen tussen de preview en klassieke ervaringen.*
+
+"De samengestelde toepassingstoewijzing" inschakelen via de [previews lijst](app-insights-previews.md), of klik op 'Preview kaart' in de wisselknop in de rechterbovenhoek. Overschakelen naar de klassieke ervaring kunt u deze in-of uitschakelen.
+![Inschakelen van de preview-kaart](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Deze preview vervangt de voorafgaande "Mult-toepassing rollenoverzicht" preview. Op dit moment gebruiken deze om de volledige topologie op meerdere niveaus van de toepassing onderdeel afhankelijkheden weer te geven. Geef ons uw feedback, we meer mogelijkheden vergelijkbaar met wat de klassieke kaart ondersteunt gaat toevoegen.
+
+U ziet de topologie van de volledige toepassing op meerdere niveaus van gerelateerde toepassingsonderdelen. Onderdelen worden verschillende Application Insights-bronnen of verschillende rollen in één resource. De kaart app zoekt onderdelen met de volgende HTTP-afhankelijkheidsaanroepen tussen servers met de Application Insights-SDK geïnstalleerd. 
+
+Deze ervaring begint met het progressief detectie van de onderdelen. Wanneer u het voorbeeld voor het eerst laadt, wordt een set van query's worden geactiveerd voor het detecteren van de onderdelen die betrekking hebben op dit onderdeel. Een knop op de linkerbovenhoek wordt bijgewerkt met het aantal onderdelen in uw toepassing zodra ze worden gedetecteerd. 
+![Preview-kaart](media/app-insights-app-map/preview.png)
+
+Op "Update kaart-onderdelen" klikt, wordt de kaart met alle onderdelen die zijn gedetecteerd tot vernieuwd.
+![Preview geladen-kaart](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Deze stap van de detectie is niet vereist als alle onderdelen rollen binnen één Application Insights-resource. De eerste belasting voor een dergelijke toepassing hebben alle onderdelen daarvan.
+
+Een van de belangrijkste doelstellingen met de nieuwe ervaring is mogelijk te visualiseren complexe topologieën met honderden of onderdelen. De nieuwe ervaring ondersteunt zoomen en details toegevoegd, zoals u inzoomen. U kunt uitzoomen om meer onderdelen in één oogopslag en nog steeds ter plaatse onderdelen met hogere snelheid van de fout te bekijken. 
+
+![Zoomen niveaus](media/app-insights-app-map/zoom-levels.png)
+
+Klik op een onderdeel om te zien van gerelateerde insights en gaat u naar de prestaties en de fout selectie ervaring voor dat onderdeel.
+
+![Doel](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Klassieke toepassingstoewijzing
 
 De kaart wordt weergegeven:
 
@@ -37,6 +66,8 @@ De kaart wordt weergegeven:
 * Client-side-onderdeel (bewaakt met de JavaScript SDK)
 * Server-side-onderdeel
 * Afhankelijkheden van de client en server-onderdelen
+
+![App-kaart](./media/app-insights-app-map/02.png)
 
 U kunt uitvouwen en samenvouwen afhankelijkheid koppeling groepen:
 
@@ -98,22 +129,6 @@ Voor sommige brontypen resourcestatus weergegeven aan de bovenkant van het deelv
 ![Status van resources](./media/app-insights-app-map/resource-health.png)
 
 U kunt klikken op de naam van de resource standaard overzicht metrische gegevens voor die bron weergeven.
-
-## <a name="end-to-end-system-app-maps"></a>End-to-end-systeem app maps
-
-*SDK-versie 2.3 of hoger vereist*
-
-Als uw toepassing verschillende onderdelen - bijvoorbeeld een back-endservice verder naar de web-app heeft - moet u ze kunt weergeven op één geïntegreerde app-kaart.
-
-![Filters instellen](./media/app-insights-app-map/multi-component-app-map.png)
-
-De app-kaart wordt opgezocht serverknooppunten HTTP afhankelijkheid-aanroepen tussen servers met de Application Insights-SDK geïnstalleerd. Elke Application Insights-resource wordt uitgegaan van één server bevatten.
-
-### <a name="multi-role-app-map-preview"></a>Met meerdere functie-app-kaart (preview)
-
-De preview-functie voor het toewijzen van meerdere functie-app kunt u de app-kaart gebruiken met meerdere servers die gegevens te verzenden naar dezelfde Application Insights-resource / instrumentatiesleutel. Servers in de kaart worden gesegmenteerd op de eigenschap cloud_RoleName op telemetrie-items. Ingesteld *toepassing van meerdere rollenoverzicht* naar *op* op de blade Previews zodat deze configuratie.
-
-Deze aanpak is het wellicht wenselijk in een toepassing micro-services of in andere scenario's waarvoor gebeurtenissen met elkaar correleren over meerdere servers in één Application Insights-resource.
 
 ## <a name="video"></a>Video
 

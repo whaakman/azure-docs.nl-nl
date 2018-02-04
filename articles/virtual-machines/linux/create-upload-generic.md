@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informatie voor niet-aanbevolen distributies
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -33,7 +33,7 @@ Alle verdelingen uitgevoerd op Azure moet voldoen aan een aantal vereisten voor 
 
 Het is daarom raadzaam dat u met een van begint onze [Linux op Azure goedgekeurde distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) indien mogelijk. De volgende artikelen begeleidt u bij het voorbereiden van de verschillende aangebracht Linux distributies die worden ondersteund op Azure:
 
-* **[Op basis van centOS distributies](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS-based Distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -143,6 +143,7 @@ De [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-mac
 * De Azure Linux Agent vereist Python v2.6 +.
 * De agent is ook vereist voor de module python pyasn1. De meeste distributies biedt dit als een afzonderlijk pakket dat kan worden geïnstalleerd.
 * In sommige gevallen de Azure Linux Agent mogelijk niet compatibel met NetworkManager. Veel van de RPM/Deb-pakketten dat is geleverd door distributies NetworkManager configureren als een conflict met het pakket waagent en dus verwijdert NetworkManager wanneer u de Linux-agent-pakket installeert.
+* De Azure Linux Agent moet hoger dan de minimaal ondersteunde versie Raadpleeg dit artikel voor [details](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Linux-systeem voor algemene vereisten
 

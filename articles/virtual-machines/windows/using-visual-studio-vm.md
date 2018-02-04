@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"></a> Visual Studio-installatiekopieën in Azure
 Met Visual Studio in een vooraf geconfigureerde Azure virtuele machine (VM), is de snelste en gemakkelijkste manier verder niets voor een ontwikkelingsomgeving omhoog en uitgevoerd.  Installatiekopieën met verschillende configuraties van Visual Studio zijn beschikbaar in de [Azure Marketplace](https://portal.azure.com/). Gewoon een virtuele machine opstarten en uitschakelen u gaat.
@@ -27,14 +27,14 @@ Met Visual Studio in een vooraf geconfigureerde Azure virtuele machine (VM), is 
 Bent u nog niet bekend met Azure? [Maak een gratis Azure-account](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Welke configuraties en -versies zijn beschikbaar?
-In Azure Marketplace u installatiekopieën vinden voor de meest recente primaire versies: Visual Studio 2017 en Visual Studio 2015.  Voor elke primaire versie, ziet u de officiële (aka ' RTW') versie en de 'nieuwste' bijgewerkte versies.  Voor elk van deze verschillende versies vindt u de Visual Studio Enterprise en Visual Studio Community-edities.
+In Azure Marketplace, u installatiekopieën vinden voor de meest recente primaire versies: Visual Studio 2017 en Visual Studio 2015.  Voor elke primaire versie, ziet u de officiële (aka ' RTW') versie en de 'nieuwste' bijgewerkte versies.  Voor elk van deze verschillende versies vindt u de Visual Studio Enterprise en Visual Studio Community-edities.  Werken wij deze installatiekopieën ten minste elke maand zodanig dat de meest recente updates voor Visual Studio en Windows.  Terwijl de namen van de installatiekopieën hetzelfde blijft, wordt elke installatiekopie desription bevat de versie van het geïnstalleerde product en 'vanaf datum van de afbeelding.
 
-|               Release-versie              |          Edities            |    Versie van het product    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017 - nieuwste (versie 15,5) |    Enterprise, Community     |     Versie 15.5.3    |
-|         Visual Studio 2017 - RTW           |    Enterprise, Community     |     Versie 15.0.7    |
-|   Visual Studio 2015 - nieuwste (Update 3)   |    Enterprise, Community     | Versie 14.0.25431.01 |
-|         Visual Studio 2015 - RTW           | Geen (verlopen voor onderhoud) |          ---          |
+|               Release-versie              |          Edities            |     Versie van het product     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 - nieuwste (versie 15,5) |    Enterprise, Community     |      Versie 15.5.3     |
+|         Visual Studio 2017 - RTW           |    Enterprise, Community     |      Versie 15.0.7     |
+|   Visual Studio 2015 - nieuwste (Update 3)   |    Enterprise, Community     |  Versie 14.0.25431.01  |
+|         Visual Studio 2015 - RTW           |              Geen            | (Verlopen voor onderhoud) |
 
 > [!NOTE]
 > In overeenstemming met Microsoft-beleid, de officiële onderhoud (aka ' RTW') versie van Visual Studio 2015 is verlopen voor onderhoud.  Visual Studio 2015 Update 3 is daarom de enige resterende versie geboden voor de regel voor het product van Visual Studio 2015.
@@ -52,20 +52,32 @@ Elke installatiekopie bevat de aanbevolen functieset voor deze versie van Visual
 
 Dit is de opdrachtregel die we gebruiken voor het installeren van Visual Studio bij het maken van installatiekopieën van het:
 
-   * vs_enterprise.exe--allWorkloads--includeRecommended--passieve ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * toevoegen van Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * toevoegen van Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 Als de afbeeldingen geen een Visual Studio-functie die u nodig hebt, feedback geven die via het hulpprogramma feedback (rechterbovenhoek van de pagina).
 
 ## <a name="what-size-vm-should-i-choose"></a>Welke VM-grootte moet ik kiezen?
-Inrichting van een nieuwe virtuele machine is eenvoudig en Azure biedt een breed scala aan de grootte van virtuele machines.  Net als bij de aanschaf van alle hardware die u wilt prestaties in vergelijking met kosten worden verdeeld.  Aangezien Visual Studio een krachtige toepassing met meerdere threads is, wilt u een VM-grootte die ten minste twee processors en 7 GB geheugen bevat.  Zie voor meer informatie over de grootte van de meest recente machines [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+Inrichting van een nieuwe virtuele machine is eenvoudig en Azure biedt een breed scala aan de grootte van virtuele machines.  Net als bij de aanschaf van alle hardware die u wilt prestaties in vergelijking met kosten worden verdeeld.  Aangezien Visual Studio een krachtige toepassing met meerdere threads is, wilt u een VM-grootte die ten minste 2 processors en 7 GB geheugen bevat.  Dit zijn de aanbevolen VM-grootten voor de installatiekopieën van het Visual Studio:
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+Zie voor meer informatie over de grootte van de meest recente machines [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 Met Azure, bent u niet gebonden aan uw eerste pick – u kunt uw eerste keuze opnieuw door het formaat van de virtuele machine te verdelen.  Kunt u een nieuwe virtuele machine met een grootte geschiktere inrichten, of u kunt de grootte van uw bestaande virtuele machine naar andere onderliggende hardware.  Zie voor meer informatie [vergroten of verkleinen van een virtuele machine van Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 

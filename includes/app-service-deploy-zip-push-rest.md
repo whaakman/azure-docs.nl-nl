@@ -7,7 +7,7 @@ Het hulpprogramma cURL wordt het volgende voorbeeld een aanvraag waarin het ZIP-
 Vervang de `<deployment_user>` tijdelijke aanduiding voor de gebruikersnaam van de referenties voor uw implementatie. Wanneer u hierom cURL, typ het wachtwoord. Zie voor meer informatie over het instellen van referenties voor implementatie voor uw app, [instellen en opnieuw instellen op gebruikersniveau referenties](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 Deze aanvraag activeert push-implementatie van het geüploade ZIP-bestand. U kunt de huidige en eerdere implementaties bekijken met behulp van het eindpunt https://<app_name>.scm.azurewebsites.net/api/deployments, zoals weergegeven in de volgende cURL-voorbeeld. Opnieuw vervangen `<app_name>` met de naam van uw app en `<deployment_user>` aan de gebruikersnaam van de referenties voor uw implementatie.

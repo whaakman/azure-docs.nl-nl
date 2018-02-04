@@ -1,7 +1,5 @@
 # Overzicht
 ## [Ontwikkelaarsgids](azure-developer-guide.md) 
-## [Overzicht van Azure-services](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Overzicht van Portal](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snelstartgids
@@ -27,7 +25,7 @@
 ## [Docker-web-app implementeren op Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
 
 # Voorbeelden
-## Azure CLI
+## Azure-CLI
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
@@ -81,7 +79,7 @@
 ### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Virtuele machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
-## Bewaken
+## Controleren
 ### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
@@ -102,7 +100,7 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Opdrachtregelinterfaces
-### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure-CLI](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Facturering](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 

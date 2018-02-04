@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Apache Kafka met Storm op HDInsight gebruiken
 
@@ -119,7 +119,7 @@ Dit project bevat twee topologieën:
 * **KafkaReader**: gedefinieerd door de **reader.yaml** bestand, deze topologie leest de gegevens uit met behulp van de opgegeven met Apache Storm KafkaSpout Kafka en vervolgens de gegevens geregistreerd in stdout.
 
     Deze topologie wordt de Storm-HdfsBolt gebruikt om gegevens te schrijven naar de opslag van de standaard voor het Storm-cluster.
-### <a name="flux"></a>Lichtstroom
+### <a name="flux"></a>Flux
 
 De topologieën worden gedefinieerd met [lichtstroom](https://storm.apache.org/releases/1.1.0/flux.html). Lichtstroom werd geïntroduceerd in 0.10.x Storm en kunt u de topologieconfiguratie van de code te scheiden. De topologie is voor de topologieën die gebruikmaken van het framework lichtstroom, gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand gebruikt wanneer u de topologie indienen zijn. Lichtstroom ondersteunt ook het vervangen van de variabelen tijdens runtime, die wordt gebruikt in dit voorbeeld.
 

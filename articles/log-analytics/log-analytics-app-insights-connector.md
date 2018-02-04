@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Application Insights-Connector oplossing (Preview) in de Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview) 
 
 ![Application Insights symbool](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-De toepassingen Insights-Connector-oplossing helpt u bij het vaststellen van prestatieproblemen en inzicht in wat gebruikers doen met uw app wanneer deze wordt bewaakt met [Application Insights](../application-insights/app-insights-overview.md). Weergaven van dezelfde toepassingstelemetrie die ontwikkelaars in Application Insights weergegeven zijn beschikbaar in OMS. Wanneer u uw Application Insights-apps met OMS integreert, wordt echter zichtbaarheid van uw toepassingen verhoogd met als bewerking en toepassingsgegevens op één plek. Met de dezelfde weergaven, kunt u samenwerken met uw app-ontwikkelaars. De algemene weergaven kunt minder tijd om te detecteren en oplossen van zowel de toepassing en de problemen met het platform.
+De toepassingen Insights-Connector-oplossing helpt u bij het vaststellen van prestatieproblemen en inzicht in wat gebruikers doen met uw app wanneer deze wordt bewaakt met [Application Insights](../application-insights/app-insights-overview.md). Weergaven van dezelfde toepassingstelemetrie die ontwikkelaars in Application Insights weergegeven zijn beschikbaar in logboekanalyse. Wanneer u uw Application Insights-apps met Log Analytics integreert, wordt echter zichtbaarheid van uw toepassingen verhoogd met als bewerking en toepassingsgegevens op één plek. Met de dezelfde weergaven, kunt u samenwerken met uw app-ontwikkelaars. De algemene weergaven kunt minder tijd om te detecteren en oplossen van zowel de toepassing en de problemen met het platform.
 
 Wanneer u de oplossing gebruikt, kunt u het volgende doen:
 
 - Alle apps in uw Application Insights weergeven in één aanwezig is, zelfs wanneer ze zich in verschillende Azure-abonnementen
 - Correleren van gegevens van de infrastructuur met toepassingsgegevens
 - Toepassingsgegevens visualiseren met perspectieven in logboek zoeken
-- Log Analytics-gegevens naar uw Application Insights-app in de OMS en Azure portals draaipunt
+- Draaien met Log Analytics-gegevens naar uw Application Insights-app in de Azure portal
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 
@@ -63,8 +63,8 @@ Gegevens beschikbaar in ongeveer 30 minuten en de Application Insights-tegel wor
 
 Andere punten rekening moet houden:
 
-- U kunt alleen Application Insights-apps koppelen aan een OMS-werkruimte.
-- U kunt alleen koppelen [Standard of Premium Application Insights-resources](https://azure.microsoft.com/pricing/details/application-insights) met OMS-logboekanalyse. U kunt echter de laag gratis van logboekanalyse.
+- U kunt alleen Application Insights-apps koppelen aan een werkruimte voor logboekanalyse.
+- U kunt alleen koppelen [Standard of Premium Application Insights-resources](https://azure.microsoft.com/pricing/details/application-insights) met logboekanalyse. U kunt echter de laag gratis van logboekanalyse.
 
 ## <a name="management-packs"></a>Management packs
 
@@ -129,7 +129,7 @@ Perspectief onderdelen zijn bijgewerkt, afhankelijk van de zoekopdracht. Dit bet
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Draait in een app in de Azure-portal
 
-Application Insights-Connector blades zijn ontworpen om u aan de geselecteerde Application Insights-app van draaipunt *wanneer u de OMS-portal gebruiken*. U kunt de oplossing gebruiken als een controle platform van hoog niveau die u helpt een app oplossen. Wanneer u een potentieel probleem in een van uw verbonden toepassingen zien, kunt u beide inzoomen in deze in de OMS-zoekopdracht of u rechtstreeks naar de Application Insights-app kunt draaien.
+Application Insights-Connector blades zijn ontworpen om u aan de geselecteerde Application Insights-app van draaipunt *wanneer u de OMS-portal gebruiken*. U kunt de oplossing gebruiken als een controle platform van hoog niveau die u helpt een app oplossen. Wanneer u een potentieel probleem in een van uw verbonden toepassingen zien, kunt u beide inzoomen in deze in de zoekopdracht Log Analytics of u rechtstreeks naar de Application Insights-app kunt draaien.
 
 Als u wilt draaien, klikt u op de weglatingstekens (**...** ) die wordt weergegeven aan het einde van elke regel en selecteer **geopend in Application Insights**.
 
@@ -140,7 +140,7 @@ Als u wilt draaien, klikt u op de weglatingstekens (**...** ) die wordt weergege
 
 ### <a name="sample-corrected-data"></a>Voorbeeld gecorrigeerd gegevens
 
-Application Insights biedt  *[steekproef nemen correctie](../application-insights/app-insights-sampling.md)*  om u te helpen verminderen het verkeer van telemetrie. Als u steekproeven op uw Application Insights-app inschakelt, krijgt u een kleiner aantal vermeldingen die zijn opgeslagen in de Application Insights en in OMS. Terwijl de consistentie van de gegevens blijft behouden in de **Application Insights-Connector** pagina en perspectieven, u moet handmatig steekproefgegevens corrigeren voor uw aangepaste query's.
+Application Insights biedt  *[steekproef nemen correctie](../application-insights/app-insights-sampling.md)*  om u te helpen verminderen het verkeer van telemetrie. Als u steekproeven op uw Application Insights-app inschakelt, krijgt u een kleiner aantal vermeldingen in Application Insights en Log Analytics opgeslagen. Terwijl de consistentie van de gegevens blijft behouden in de **Application Insights-Connector** pagina en perspectieven, u moet handmatig steekproefgegevens corrigeren voor uw aangepaste query's.
 
 Hier volgt een voorbeeld van steekproeven correctie in een logboek zoekquery:
 
@@ -162,7 +162,7 @@ De oplossing ontvangt de volgende typen telemetrie van gegevens van uw verbonden
 - Paginaweergaven – voor uw werkruimte voor het ontvangen van paginaweergaven, moet u uw apps voor het verzamelen van gegevens configureren. Zie voor meer informatie [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Aangepaste gebeurtenissen – voor uw werkruimte aangepaste gebeurtenissen ontvangen, moet u uw apps voor het verzamelen van gegevens configureren. Zie voor meer informatie [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Gegevens worden ontvangen door OMS van Application Insights zodra deze beschikbaar is.
+Gegevens worden ontvangen door logboekanalyse van Application Insights zodra deze beschikbaar.
 
 ## <a name="output-data"></a>Uitvoergegevens
 

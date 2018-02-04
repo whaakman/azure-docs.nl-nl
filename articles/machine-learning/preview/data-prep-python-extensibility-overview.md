@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Gegevensextensies voorbereidingen Python
 Als een manier invullen van functionaliteit onderbrekingen tussen de ingebouwde functies bevat Azure Machine Learning gegevens voorbereidingen uitbreidbaarheid op meerdere niveaus. In dit document, geven we een overzicht op de uitbreidingsmogelijkheden via door de Python-script. 
@@ -125,7 +125,7 @@ of
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Gebruik aangepaste modules
-Schrijf python-code als volgt in transformeren gegevensstroom (Script):
+Schrijf de volgende Python-code in transformeren gegevensstroom (Script)
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-In de kolom toevoegen (Script), Code Bloktype instellen = Module en python code volgend schrijven:
+In de kolom toevoegen (Script), Code Bloktype instellen = Module en de volgende Python-code schrijven
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Voor de uitvoering van de verschillende contexten (lokale computer, docker spark), wijst u het absolute pad op de juiste plaats. U wilt gebruiken 'os.getcwd() + relativePath' terug te vinden.
+Voor de uitvoering van verschillende wijs contexten (lokaal, Docker, Spark), absoluut pad de juiste plaats. U wilt gebruiken 'os.getcwd() + relativePath' terug te vinden.
 
 
 ## <a name="column-data"></a>Kolomgegevens 

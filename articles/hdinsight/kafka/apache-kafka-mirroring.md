@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker gebruiken om te repliceren van Apache Kafka onderwerpen met Kafka in HDInsight
 
@@ -120,7 +120,7 @@ Terwijl u een Azure-netwerk maken kunt en Kafka handmatig clusters, is het gemak
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Vervang `$CLUSTERNAME` met de naam van de broncluster. Voer desgevraagd het wachtwoord voor de cluster-serviceaccount voor aanmelding (admin).
+    Vervang `$CLUSTERNAME` met de naam van de broncluster. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
 
 3. Maken van een onderwerp met de naam `testtopic`, gebruik de volgende opdracht:
 
@@ -187,7 +187,7 @@ Terwijl u een Azure-netwerk maken kunt en Kafka handmatig clusters, is het gemak
     echo $DEST_BROKERHOSTS
     ```
 
-    Vervang `$CLUSTERNAME` met de naam van het doelcluster. Voer desgevraagd het wachtwoord voor de cluster-serviceaccount voor aanmelding (admin).
+    Vervang `$CLUSTERNAME` met de naam van het doelcluster. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
 
     De `echo` opdracht retourneert informatie vergelijkbaar met de volgende tekst:
 
@@ -209,6 +209,41 @@ Terwijl u een Azure-netwerk maken kunt en Kafka handmatig clusters, is het gemak
     Vervang **DEST_BROKERS** met de broker-informatie van de vorige stap.
 
     Zie voor meer informatie producent configuratie, [producent Configs](https://kafka.apache.org/documentation#producerconfigs) op kafka.apache.org.
+
+5. Gebruik de volgende opdrachten de Zookeeper hosts vinden voor het doelcluster:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Vervang `$CLUSTERNAME` met de naam van het doelcluster. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
+
+7. De standaardconfiguratie voor Kafka op HDInsight is niet toegestaan voor het automatisch maken van onderwerpen. Voordat u begint de spiegelen moet u een van de volgende opties gebruiken:
+
+    * **Maken van de onderwerpen op de doelcluster**: deze optie kunt u het aantal partities en de replicatie-factor instellen.
+
+        U kunt de onderwerpen tevoren maken met behulp van de volgende opdracht:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Vervang `testtopic` met de naam van het onderwerp te maken.
+
+    * **Configureren van het cluster voor het maken van automatische onderwerp**: met deze optie kunt MirrorMaker voor het automatisch maken van onderwerpen, maar deze met een verschillend aantal partities of replicatie factor dan het bron-onderwerp maken kan.
+
+        Voer deze stappen voor het configureren van het doelcluster voor het automatisch maken van onderwerpen:
+
+        1. Van de [Azure-portal](https://portal.azure.com), selecteer de bestemming Kafka-cluster.
+        2. Selecteer in het overzicht van het cluster __Cluster-dashboard__. Selecteer vervolgens __HDInsight-cluster-dashboard__. Wanneer u wordt gevraagd, worden geverifieerd met behulp van de aanmeldingsreferenties (admin) voor het cluster.
+        3. Selecteer de __Kafka__ service in de lijst aan de linkerkant van de pagina.
+        4. Selecteer __Configs__ in het midden van de pagina.
+        5. In de __Filter__ en voer een waarde van `auto.create`. Dit filtert de lijst met eigenschappen en geeft de `auto.create.topics.enable` instelling.
+        6. Wijzig de waarde van `auto.create.topics.enable` op true en selecteer vervolgens __opslaan__. Een opmerking toevoegen en selecteer vervolgens __opslaan__ opnieuw.
+        7. Selecteer de __Kafka__ service, selecteer __opnieuw__, en selecteer vervolgens __opnieuw alle betrokken__. Wanneer u wordt gevraagd, selecteert u __bevestigen start opnieuw alle__.
 
 ## <a name="start-mirrormaker"></a>MirrorMaker starten
 
@@ -243,19 +278,17 @@ Terwijl u een Azure-netwerk maken kunt en Kafka handmatig clusters, is het gemak
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Vervang `$CLUSTERNAME` met de naam van de broncluster. Voer desgevraagd het wachtwoord voor de cluster-serviceaccount voor aanmelding (admin).
+    Vervang `$CLUSTERNAME` met de naam van de broncluster. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
 
      Wanneer u bij een lege regel met een cursor aankomt, typt u in een paar tekstberichten. De berichten worden verzonden naar het onderwerp op de **bron** cluster. Wanneer u klaar bent, gebruikt u **Ctrl + c drukken** om de producent proces te beëindigen.
 
-3. Van de SSH-verbinding met de **bestemming** cluster, gebruikt u **Ctrl + c drukken** om de MirrorMaker proces te beëindigen. Om te controleren of het onderwerp en de berichten zijn gerepliceerd naar de bestemming, gebruik de volgende opdrachten:
+3. Van de SSH-verbinding met de **bestemming** cluster, gebruikt u **Ctrl + c drukken** om de MirrorMaker proces te beëindigen. Het duurt enkele seconden om het proces te beëindigen. Om te bevestigen dat de berichten zijn gerepliceerd naar de bestemming, gebruik de volgende opdracht:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Vervang `$CLUSTERNAME` met de naam van het doelcluster. Voer desgevraagd het wachtwoord voor de cluster-serviceaccount voor aanmelding (admin).
+    Vervang `$CLUSTERNAME` met de naam van het doelcluster. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin).
 
     De lijst met onderwerpen bevat nu `testtopic`, die wordt gemaakt wanneer MirrorMaster komt overeen met het onderwerp van het broncluster naar de bestemming. De berichten die zijn opgehaald van het onderwerp zijn hetzelfde als in de broncluster ingevoerd.
 

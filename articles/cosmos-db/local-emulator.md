@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danoble
-ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
@@ -359,9 +359,16 @@ Starting interactive shell
 
 Nu gebruik van het eindpunt en de hoofdsleutel in uit het antwoord in de client en het SSL-certificaat importeren in de host. Doe het volgende vanaf een opdrachtprompt admin voor het importeren van het SSL-certificaat:
 
-```
+Vanaf de opdrachtregel:
+```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
+```
+
+Vanuit PowerShell:
+```powershell
+cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
+.\importcert.ps1
 ```
 
 De interactieve shell sluiten nadat de Emulator is gestart wordt afgesloten container van de Emulator.

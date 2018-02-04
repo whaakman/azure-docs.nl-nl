@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community
 Deze community-pagina voor Azure Media Services (AMS) worden verschillende manieren om updates over AMS besproken. U kunt ook nieuwe video's en podcasts bekijken, vragen stellen en feedback geven.   
@@ -27,28 +27,29 @@ Deze community-pagina voor Azure Media Services (AMS) worden verschillende manie
 
 - [Beveiligen van uw mediainhoud met DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
 - [Beveiligen van uw mediainhoud met AES-versleuteling](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
-- [Azure Media Services diepgaand voor ontwikkelaars](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
+- [Azure Media Services Developer Deep Dive](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
 - [Azure Media Indexer maakt automatisch transcripties voor uw media](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
-- [Microsoft Hyperlapse in Azure mediaservices met Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
+
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Uw feedback en suggesties
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discussie
 ### <a name="twitter"></a>Twitter
-Gebruik de [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter-ingang naar de AMS-nieuws en updates Volg op Twitter. U kunt de [ @AzureSupport ](https://twitter.com/azuresupport) twitter-ingang naar vraag ondersteuning voor op Twitter.  
+Gebruik de [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter-ingang contact met ons opnemen of Voer de updates op Twitter. U kunt de [ @AzureSupport ](https://twitter.com/azuresupport) twitter-ingang naar vraag ondersteuning voor op Twitter.  
 
 ### <a name="online-forums"></a>Onlineforums
 De volgende forums kunnen worden gebruikt voor vragen over huidige producten en -functies.
 
-MSDN is momenteel primaire AMS-forum.
+MSDN is momenteel primaire community-forum voor Media Services-team.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
+Het team bewaakt ook vragen gemarkeerd op de Stack Overflow met 'azure media services'.
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Neem contact op met het team
-Azure Media Services primaire e-mailadres is:  **mediaservices@microsoft.com** .
+Azure Media Services ondersteuning voor primaire e-mailadres is:  **amshelp@microsoft.com** .
 
 De volgende tabel geeft een lijst met e-mailadres van sub functieteams:
 

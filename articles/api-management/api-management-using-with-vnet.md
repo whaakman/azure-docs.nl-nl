@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -111,20 +111,21 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Eindpunt voor Azure-portal en Powershell |Intern |
 | * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Afhankelijkheid van Azure Storage**, Azure Service Bus en Azure Active Directory (indien van toepassing).|Externe & interne | 
 | * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure SQL-eindpunten** |Externe & interne |
-| * / 5671, 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek Event Hub-beleid en bewakingsagent |Externe & interne |
+| * / 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek Event Hub-beleid en bewakingsagent |Externe & interne |
 | * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure-bestandsshare voor GIT |Externe & interne |
+| * / 1886 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Vereist voor het publiceren van de status voor resourcestatus |Externe & interne |
 | * / 25028 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten |Externe & interne |
 | * / 6381 - 6383 |Binnenkomend en uitgaand |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Exemplaren van toegang tot Redis-Cache tussen RoleInstances |Externe & interne |
 | * / * | Inkomend |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure-infrastructuur Load Balancer |Externe & interne |
 
 >[!IMPORTANT]
-> * De poorten waarvoor de *doel* is **vet** zijn vereist voor API Management-service is geïmplementeerd. De andere poorten worden geblokkeerd wordt echter tot mindere de mogelijkheid om te gebruiken en controleren van de service.
+> De poorten waarvoor de *doel* is **vet** zijn vereist voor API Management-service is geïmplementeerd. De andere poorten worden geblokkeerd wordt echter tot mindere de mogelijkheid om te gebruiken en controleren van de service.
 
 * **SSL-functionaliteit**: inschakelen van SSL-certificaat-ketens en validatie van de API Management-service moet uitgaande netwerkverbinding ocsp.msocsp.com, mscrl.microsoft.com en crl.microsoft.com. Deze afhankelijkheid is niet vereist, als een certificaat dat u naar API Management uploadt de volledige keten aan de basis-CA bevat.
 
 * **DNS-toegang**: uitgaand verkeer op poort 53 is vereist voor communicatie met de DNS-servers. Als een aangepaste DNS-server op het andere einde van een VPN-gateway bestaat, moet de DNS-server bereikbaar is vanuit het subnet voor het hosten van API Management zijn.
 
-* **Metrische gegevens en statuscontrole**: uitgaande netwerkverbinding met de Azure Monitoring-eindpunten die onder de volgende domeinen oplossen: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, Prod.warmpath.msftcloudes.com.
+* **Metrische gegevens en statuscontrole**: uitgaande netwerkverbinding met de Azure Monitoring-eindpunten die onder de volgende domeinen oplossen: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, Prod.warmpath.msftcloudes.com, prod3 black.prod3.metrics.nsatc.net en prod3 red.prod3.metrics.nsatc.net.
 
 * **Express Route-instelling**: een algemene configuratie van de klant is voor het definiëren van hun eigen standaardroute (0.0.0.0/0), waardoor uitgaand internetverkeer in plaats daarvan lokale stromen. Dit netwerkverkeer altijd verbinding met Azure API Management wordt verbroken omdat het uitgaande verkeer geblokkeerd on-premises wordt of NAT zou een onherkenbare set adressen die niet langer met verschillende Azure-eindpunten werken. De oplossing is voor het definiëren van een (of meer) gebruiker gedefinieerde routes ([udr's][UDRs]) op het subnet waarin de Azure API Management. Een UDR definieert subnet-specifieke routes die in plaats van de standaardroute gehonoreerd.
   Het verdient indien mogelijk, gebruik de volgende configuratie:
@@ -132,7 +133,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
  * De UDR toegepast op het subnet met de Azure API Management definieert 0.0.0.0/0 met een volgend hoptype van Internet.
  Het gecombineerde effect van deze stappen is dat subnetniveau UDR voorrang op de ExpressRoute geforceerde tunneling heeft, zodat uitgaande toegang tot Internet vanaf de Azure API Management.
 
-**Routering via virtuele netwerkapparaten**: configuraties waarmee een UDR met een standaardroute (0.0.0.0/0) internet bestemd verkeer vanuit het subnet van API Management routeren via een netwerk van een virtueel apparaat worden uitgevoerd in Azure kunnen volledige communicatie tussen de API Management en de vereiste services. Deze configuratie wordt niet ondersteund. 
+* **Routering via virtuele netwerkapparaten**: configuraties waarmee een UDR met een standaardroute (0.0.0.0/0) internet bestemd verkeer vanuit het subnet van API Management routeren via een netwerk van een virtueel apparaat worden uitgevoerd in Azure wordt geblokkeerd beheer van verkeer afkomstig zijn van Internet op geïmplementeerd binnen het subnet van het virtuele netwerk van API Management-service-exemplaar. Deze configuratie wordt niet ondersteund.
 
 >[!WARNING]  
 >Azure API Management wordt niet ondersteund met ExpressRoute-configuraties die **onjuist cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering**. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen route-advertisements van Microsoft voor een groot aantal Microsoft Azure-IP-adresbereiken. Als deze adresbereiken onjuist cross aangekondigd op het pad voor persoonlijke peering, is het eindresultaat dat alle uitgaande pakketten van het Azure API Management-exemplaar subnet onjuist force via een tunnel naar een klant on-premises netwerk infrastructuur. Deze stroom van het netwerk verbreekt Azure API Management. De oplossing voor dit probleem is cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering stoppen.
@@ -153,7 +154,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 ## <a name="subnet-size"></a> Vereiste subnet
 Azure bepaalde IP-adressen binnen elk subnet gereserveerd en deze adressen kunnen niet worden gebruikt. De eerste en laatste IP-adressen van de subnetten die zijn gereserveerd voor protocol overeenstemming, samen met drie meer adressen voor Azure-services gebruikt. Zie voor meer informatie [zijn er beperkingen voor het gebruik van IP-adressen binnen deze subnetten?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Naast de IP-adressen die worden gebruikt door de Azure-VNET-infrastructuur, elk exemplaar van Api Management in het subnet gebruikt twee IP-adressen per eenheid van Premium-SKU of één 1-IP-adres voor de SKU-ontwikkelaar. Elk exemplaar gereserveerd 1 IP-adres voor de externe load balancer. Bij het implementeren in de interne vnet, is een extra IP-adres voor de interne load balancer vereist.
+Naast de IP-adressen die worden gebruikt door de Azure-VNET-infrastructuur, gebruikt elk exemplaar van Api Management in het subnet twee IP-adressen per eenheid van Premium-SKU of één IP-adres voor de SKU van de ontwikkelaar. Elk exemplaar reserveert een extra IP-adres voor de externe load balancer. Bij het implementeren in de interne vnet, is een extra IP-adres voor de interne load balancer vereist.
 
 Opgegeven van de berekening boven de minimale grootte van het subnet waarin API Management kunnen worden geïmplementeerd, is slechts/29 waarmee 3 IP-adressen.
 

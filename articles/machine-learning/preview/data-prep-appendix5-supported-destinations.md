@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 50d2d481b91199630bbfbf3cfdd21a1bf3062ff0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 18db3caf487375252ca50f3942d7bdf538367ba6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Uitvoer van de gegevens voor deze preview ondersteund 
 Het is mogelijk om te exporteren naar verschillende indelingen. U kunt deze indelingen gebruiken voor het bewaren van de tussenliggende resultaten van het voorbereiden van gegevens voordat u de resultaten in de rest van de Machine Learning-werkstroom integreren.
@@ -32,7 +32,7 @@ Een bestand met door komma's gescheiden waarden schrijven naar de opslag.
 - Scheidingsteken
 
 
-### <a name="parquet"></a>Parketvloeren 
+### <a name="parquet"></a>Parquet 
 Een gegevensset niet schrijven naar de opslag als parketvloeren.
 
 Parketvloeren als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen en schrijven naar één .parquet bestanden. 

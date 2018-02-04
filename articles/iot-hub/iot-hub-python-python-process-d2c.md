@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Routeren van berichten met IoT Hub (Python)
 
@@ -117,6 +117,9 @@ In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de sl
 In deze sectie zowel een Service Bus-wachtrij en een opslagaccount maken, verbind ze met uw IoT-hub en configureren van uw IoT-hub om berichten te verzenden naar de wachtrij op basis van de aanwezigheid van een eigenschap van het bericht en alle berichten naar het opslagaccount. Zie voor meer informatie over het verwerken van berichten van Service Bus-wachtrijen [aan de slag met wachtrijen] [ lnk-sb-queues-node] en hoe u opslag te beheren, Zie [aan de slag met Azure Storage] [Azure Storage].
 
 1. Een Service Bus-wachtrij maakt, zoals beschreven in [aan de slag met wachtrijen][lnk-sb-queues-node]. Noteer de naam van de naamruimte en de wachtrij.
+
+    > [!NOTE]
+    > Service Bus-wachtrijen en onderwerpen die worden gebruikt als IoT-hubeindpunten mag geen **sessies** of **detectie van dubbele** ingeschakeld. Als een van deze opties zijn ingeschakeld, het eindpunt wordt weergegeven als **onbereikbaar** in de Azure portal.
 
 1. Open uw IoT-hub in de Azure-portal en klikt u op **eindpunten**.
 

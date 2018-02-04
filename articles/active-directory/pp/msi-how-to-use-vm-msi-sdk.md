@@ -3,8 +3,8 @@ title: Het gebruik van een gebruiker toegewezen beheerde Service-identiteit van 
 description: Codevoorbeelden voor het gebruik van Azure SDK's met een MSI gebruiker toegewezen op een virtuele machine.
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,24 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Gebruik Azure SDK's met een gebruiker toegewezen beheerde Service identiteit (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Dit artikel bevat een lijst met de SDK-voorbeelden die gebruik van hun respectieve Azure SDK van ondersteuning voor de gebruiker toegewezen MSI aantonen.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Dit artikel bevat een lijst met de SDK-voorbeelden die gebruik van hun respectieve Azure SDK van ondersteuning voor de gebruiker toegewezen MSI aantonen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - Alle code/voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client wordt uitgevoerd op een virtuele Machine van MSI-functionaliteit. Gebruik de virtuele machine 'Verbinding'-functie in de Azure portal op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI op een virtuele machine [configureren van een VM beheerde Service identiteit (MSI) met de Azure CLI](msi-qs-configure-cli-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, Azure Portal, een sjabloon of een Azure-SDK). 
+> - Alle code/voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client wordt uitgevoerd op een virtuele Machine van MSI-functionaliteit. Gebruik de virtuele machine 'Verbinding'-functie in de Azure portal op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI op een virtuele machine [configureren van een VM beheerde Service identiteit (MSI) met de Azure CLI](msi-qs-configure-cli-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, Azure-portal, een sjabloon of een Azure-SDK). 
 
 ## <a name="sdk-code-samples"></a>SDK-codevoorbeelden
 

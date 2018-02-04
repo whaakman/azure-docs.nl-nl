@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Een HDInsight-cluster traag of fouten oplossen
+# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Problemen met een traag of niet werkend HDInsight-cluster oplossen
 
 Als een HDInsight-cluster traag verlopen of is mislukt met een foutcode, hebt u verschillende opties voor probleemoplossing. Als uw taken langer duurt dan verwacht, of u trage responstijden in het algemeen ziet, kunnen er fouten stroomopwaarts van het cluster, zoals de services op het cluster wordt uitgevoerd. De meest voorkomende oorzaak van deze vertragingen is echter ontoereikend schalen. Wanneer u een nieuwe HDInsight-cluster maakt, selecteer de relevante [grootten van virtuele machines](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -112,7 +112,7 @@ Als u vertragingen in het cluster ondervinden, kunt u uw services via de Ambari-
 
 HDInsight-clusters bestaan uit verschillende soorten knooppunten uitgevoerd op virtuele machine-exemplaren. Elk knooppunt kan worden gecontroleerd voor de resource-beroving, problemen met de netwerkverbinding en andere problemen die het cluster kunnen vertragen. Elk cluster bevat twee hoofdknooppunten en de meeste clustertypen bevatten een combinatie van worker en edge-knooppunten. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+Zie voor een beschrijving van de verschillende knooppunten maakt gebruik van elk clustertype [clusters in HDInsight met Hadoop, Spark en Kafka instellen](hdinsight-hadoop-provision-linux-clusters.md).
 
 De volgende secties wordt beschreven hoe u controleert de status van elk knooppunt en het hele cluster.
 
@@ -255,7 +255,7 @@ Dumpbestanden voor heap bevatten een momentopname van de toepassing geheugen, me
 
 HDInsight-clusters zijn vooraf geconfigureerd met de standaardinstellingen voor gerelateerde services, zoals Hadoop, Hive en HBase. Afhankelijk van het type van het cluster, de hardwareconfiguratie van de, het aantal knooppunten, de typen taken wordt uitgevoerd, en de gegevens u werkt met (en hoe deze gegevens wordt verwerkt), moet u mogelijk uw configuratie optimaliseren.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Zie voor gedetailleerde instructies voor het optimaliseren van prestatieconfiguraties voor de meeste scenario [optimaliseren clusterconfiguraties met Ambari](hdinsight-changing-configs-via-ambari.md). Wanneer u Spark, Zie [taken Spark optimaliseren voor prestaties](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Stap 7: Reproduceer het probleem op een ander cluster
 

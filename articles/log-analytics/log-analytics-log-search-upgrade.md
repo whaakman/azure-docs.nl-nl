@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics upgraden naar de nieuwe logboek zoekopdracht
 
@@ -52,7 +52,7 @@ Als uw werkruimte automatisch bijgewerkt wordt, ziet u een banner waarmee wordt 
 De volgende wijzigingen aangebracht in uw werkruimte wanneer deze wordt omgezet:
 
 - Alle opgeslagen zoekopdrachten, regels voor waarschuwingen en weergaven die u hebt gemaakt met de ontwerpfunctie voor weergaven worden automatisch geconverteerd naar de nieuwe taal.  Zoekopdrachten die zijn opgenomen in oplossingen niet automatisch worden geconverteerd, maar ze zijn in plaats daarvan geconverteerd onderweg wanneer u ze opent.  
-- [Mijn dashboard](log-analytics-dashboards.md) wordt afgeschaft voor [ontwerper](log-analytics-view-designer.md) en [Azure Dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Tegels die u hebt toegevoegd aan mijn Dashboard nog steeds beschikbaar zijn, maar ze zijn alleen-lezen.
+- [Mijn dashboard](log-analytics-dashboards.md) wordt afgeschaft voor [ontwerper](log-analytics-view-designer.md) en [Azure Dashboards](../azure-portal/azure-portal-dashboards.md).  Tegels die u hebt toegevoegd aan mijn Dashboard nog steeds beschikbaar zijn, maar ze zijn alleen-lezen.
 - [Power BI-integratie](log-analytics-powerbi.md) is vervangen door een nieuw proces.  Eventuele bestaande Power BI-schema's die u hebt gemaakt wordt uitgeschakeld en moet u deze vervangen door het nieuwe proces.
 - Reacties van [waarschuwing acties](log-analytics-alerts-actions.md) met webhooks en runbooks hebben een nieuwe indeling en mogelijk moet u uw waarschuwingsregels worden dienovereenkomstig bijgewerkt.
 - Bekijk de [Veelgestelde vragen over het logboek zoeken](log-analytics-log-search-faq.md) voor veelgestelde vragen over de upgrade.

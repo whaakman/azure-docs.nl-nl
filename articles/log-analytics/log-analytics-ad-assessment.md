@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing voor Active Directory-Serverstatus controleren in Log Analytics
 
@@ -67,7 +67,7 @@ Active Directory-Serverstatus controleren verzamelt gegevens uit de volgende bro
 - .NET Framework
 - Gebeurtenislogboek 
 - Active Directory Service interfaces (ADSI)
-- Windows PowerShell
+- Windows Powershell
 - Bestandsgegevens 
 - Windows Management Instrumentation (WMI)
 - DCDIAG hulpprogramma API
@@ -122,13 +122,8 @@ Als u hebt de aanbevelingen die u wilt negeren, kunt u een tekstbestand dat Log 
 2. Gebruik de volgende query uit om de lijst met aanbevelingen die zijn mislukt voor computers in uw omgeving.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query zou Wijzig in het volgende.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
     Hier volgt een schermopname de logboek-zoekopdracht wordt weergegeven:<br><br> ![mislukte aanbevelingen](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
 3. Kies de aanbevelingen die u wilt negeren. Gebruik de waarden voor RecommendationId zult u in de volgende procedure.
@@ -147,12 +142,8 @@ Na de volgende health controle wordt uitgevoerd, standaard elke zeven dagen gepl
 1. U kunt de volgende logboek zoekquery's gebruiken voor een lijst met alle aanbevelingen genegeerd.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query zou Wijzig in het volgende.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. Als u later besluit dat u wilt zien genegeerd aanbevelingen, IgnoreRecommendations.txt bestanden verwijderen of u kunt RecommendationIDs verwijderen uit deze.
 
@@ -163,7 +154,7 @@ Na de volgende health controle wordt uitgevoerd, standaard elke zeven dagen gepl
 
 *Is er een manier om te configureren hoe vaak de statuscontrole wordt uitgevoerd?*
 
-* Op dit moment niet.
+* Momenteel niet.
 
 *Als een andere server voor wordt gedetecteerd nadat ik heb een oplossing van de controle van status toegevoegd zal worden gecontroleerd*
 
@@ -183,7 +174,7 @@ Na de volgende health controle wordt uitgevoerd, standaard elke zeven dagen gepl
 
 *Is er een manier om te configureren wanneer gegevens worden verzameld?*
 
-* Op dit moment niet.
+* Momenteel niet.
 
 *Waarom worden alleen de top 10 aanbevelingen weergegeven?*
 

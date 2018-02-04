@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 83ed72c0f2eb342c372ef97e5443d60eab1e2174
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 1d057a4df43cf25e6817672d198207d9a50e462e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="how-to-unprovision-devices-enrolled-by-your-provisioning-service"></a>Hoe apparaten die zijn geregistreerd door de inrichting service inrichting
 
@@ -31,10 +31,17 @@ In het algemeen een apparaat ongedaan maken inrichting bestaat uit twee stappen:
 
 2. Uitschakelen of verwijderen van vermelding in het identiteitenregister van het apparaat voor de IoT-Hub waar het inrichten. Zie voor meer informatie, [apparaat identiteiten beheren](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) in de documentatie van Azure IoT Hub. 
 
-De exacte stappen waarmee u inrichting van een apparaat is afhankelijk van de attestation-mechanisme dat wordt gebruikt.
+De exacte stappen waarmee u inrichting van een apparaat, is afhankelijk van de attestation-mechanisme en de toepasselijke inschrijving vermelding met uw provisioning-service.
 
-Apparaten die gebruikmaken van TPM attestation of X.509 attestation met een zelf-ondertekend leaf-certificaat (geen certificaatketen) zijn ingericht via een afzonderlijke inschrijving-vermelding. Voor deze apparaten kunt u de vermelding te permanent van het apparaat toegang tot de inrichting service intrekken of uitschakelen van de vermelding om in te trekken tijdelijk de toegang en opgevolgd door verwijderen of uitschakelen van het apparaat in het identiteitenregister met de IoT verwijderen hub die voor het inrichten.
+## <a name="individual-enrollments"></a>Afzonderlijke inschrijvingen
+Apparaten die gebruikmaken van TPM attestation of X.509 attestation met een leaf-certificaat zijn ingericht via een afzonderlijke inschrijving-vermelding. 
 
+Inrichting van een apparaat met een afzonderlijke inschrijving: 
+1. Voor apparaten die gebruikmaken van TPM attestation, verwijdert u de afzonderlijke inschrijving vermelding te permanent van het apparaat toegang tot de inrichting service intrekken of uitschakelen van de vermelding voor het tijdelijk de toegang intrekken. Voor apparaten die gebruikmaken van X.509 attestation, kunt u verwijderen of uitschakelen van de vermelding. Vergeet echter als u een afzonderlijke registratie voor een apparaat verwijdert die gebruikmaakt van X.509 attestation en een inschrijvingsgroep ingeschakeld voor voor een handtekeningcertificaat bestaat in dat de certificaatketen van het apparaat, het apparaat opnieuw kunt inschrijven. Voor dergelijke apparaten mogelijk veiliger uitschakelen van de vermelding voor de inschrijving. Hierdoor wordt dus voorkomen dat het apparaat opnieuw te registreren, ongeacht of er een ingeschakelde inschrijvingsgroep bestaat voor een van de handtekeningcertificaten.
+2. Uitschakelen of het apparaat in het identiteitenregister van de IoT-hub die het inrichten te verwijderen. 
+
+
+## <a name="enrollment-groups"></a>Groepen voor inschrijving
 Met X.509-attestation worden apparaten ook ingericht via een registratie-groep. Inschrijving groepen zijn geconfigureerd met een handtekeningcertificaat, ofwel een tussenliggende of basis-CA-certificaat en de toegang tot de inrichting service voor apparaten met een certificaat dat in de certificaatketen. Zie voor meer informatie over inschrijving groepen en X.509-certificaten met de inrichting service, [X.509-certificaten](concepts-security.md#x509-certificates). 
 
 Een overzicht van de apparaten die zijn ingericht via een inschrijvingsgroep-kunt u de registratie-groep details weergeven. Dit is een eenvoudige manier om te begrijpen welke IoT-hub aan elk apparaat is ingericht. De lijst met apparaten weergeven: 
@@ -48,8 +55,15 @@ Een overzicht van de apparaten die zijn ingericht via een inschrijvingsgroep-kun
 
 Met groepen van de inschrijving zijn er twee scenario's te overwegen:
 
-- Als u wilt alle apparaten die zijn ingericht via een inschrijvingsgroep inrichting, moet u eerst de registratie-groep voor het handtekeningcertificaat van de zwarte uitschakelen. Vervolgens kunt u de lijst met ingerichte apparaten voor die groep registratie uit te schakelen of elk apparaat verwijderen uit het identiteitenregister van de respectieve IoT-hub. Na het uitschakelen of verwijderen van alle apparaten van hun respectieve IoT hubs, kunt u eventueel de registratie-groep verwijderen. Bedenk wel dat, als u de inschrijvingsgroep verwijdert en er een inschrijvingsgroep ingeschakeld voor voor een handtekeningcertificaat hoger staan in de certificaatketen van een of meer van de apparaten is, die apparaten opnieuw kunnen inschrijven. 
-- Als u wilt één apparaat uit een inschrijvingsgroep inrichting, moet u eerst een uitgeschakelde afzonderlijke inschrijving voor het certificaat leaf (apparaat) maken. Dit trekt u toegang tot de inrichting service voor dat apparaat terwijl nog steeds toegang voor andere apparaten waarop het handtekeningcertificaat van de registratie-groep in de keten. Vervolgens kunt u de lijst met ingerichte apparaten in de groep inschrijvingsgegevens de IoT-hub die het apparaat is ingericht om te zoeken en aan uitschakelen of verwijderen uit het register-id's van de hub. De uitgeschakelde afzonderlijke registratie voor het apparaat niet verwijderen. In dat geval kunt het apparaat opnieuw in te schrijven via de registratie-groep. 
+- Inrichting alle apparaten die zijn ingericht via een inschrijvingsgroep:
+  1. De registratie-groep voor het handtekeningcertificaat van de zwarte uitschakelen. 
+  2. Gebruik de lijst met ingerichte apparaten voor die groep registratie uit te schakelen of elk apparaat verwijderen uit het identiteitenregister van de respectieve IoT-hub. 
+  3. Na het uitschakelen of verwijderen van alle apparaten van hun respectieve IoT hubs, kunt u eventueel de registratie-groep verwijderen. Bedenk wel dat, als u de inschrijvingsgroep verwijdert en er een inschrijvingsgroep ingeschakeld voor voor een handtekeningcertificaat hoger staan in de certificaatketen van een of meer van de apparaten is, die apparaten opnieuw kunnen inschrijven. 
+- Inrichting één apparaat uit een inschrijvingsgroep:
+  1. Maak een uitgeschakelde afzonderlijke inschrijving voor het certificaat leaf (apparaat). Dit trekt u toegang tot de inrichting service voor dat apparaat terwijl nog steeds toegang voor andere apparaten waarop het handtekeningcertificaat van de registratie-groep in de keten. De uitgeschakelde afzonderlijke registratie voor het apparaat niet verwijderen. In dat geval kunt het apparaat opnieuw in te schrijven via de registratie-groep. 
+  2. Gebruik de lijst met ingerichte apparaten voor die inschrijvingsgroep de IoT-hub die het apparaat is ingericht om te vinden en uitschakelen of verwijderen uit het register-id's van de hub. 
+  
+  
 
 
 

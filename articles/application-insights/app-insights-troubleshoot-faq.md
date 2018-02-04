@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/03/2018
 * [Cloudservices op Azure](app-insights-cloudservices.md)
 * [Appservers die in Docker](app-insights-docker.md)
 * [Single-page-web-apps](app-insights-javascript.md)
-* [SharePoint](app-insights-sharepoint.md)
+* [Sharepoint](app-insights-sharepoint.md)
 * [Windows-bureaublad-app](app-insights-windows-desktop.md)
 * [Andere platforms](app-insights-platforms.md)
 
@@ -69,7 +69,7 @@ De details zijn afhankelijk van het type project. Voor een webtoepassing:
 * Deze bestanden toevoegt aan uw project:
 
   * ApplicationInsights.config.
-  * AI.js
+  * ai.js
 * Installeert deze NuGet-pakketten:
 
   * *Application Insights-API* -de kern API
@@ -82,7 +82,7 @@ De details zijn afhankelijk van het type project. Voor een webtoepassing:
 * Hiermee voegt items in:
 
   * Web.config
-  * Packages.config
+  * packages.config
 * (Nieuwe alleen - projecten als u [Application Insights toevoegen aan een bestaand project][start], hebt u dit handmatig doen.) Codefragmenten ingevoegd in de client en server code te initialiseren met de Application Insights-resource-ID. Bijvoorbeeld: code in een MVC-app is ingevoegd in de basispagina Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hoe voer ik een upgrade van oudere versies van de SDK?
@@ -152,7 +152,7 @@ Kijk eens naar [bewaren van gegevens en Privacy][data].
 
 Dit is mogelijk als uw code dergelijke gegevens verzendt. Het kan ook gebeuren als variabelen in de stack-traces PII bevatten. Uw ontwikkelteam neemt risicoanalyse om ervoor te zorgen dat PII goed wordt afgehandeld. [Meer informatie over bewaren van gegevens en privacy](app-insights-data-retention-privacy.md).
 
-Het laatste octet van het webadres van de client is altijd ingesteld op 0 na opname door de portal.
+**Alle** octetten van het webadres van de client altijd zijn ingesteld op 0 nadat de geografische locatie kenmerken worden opgezocht.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Mijn iKey is zichtbaar in de bron van mijn webpagina. 
 

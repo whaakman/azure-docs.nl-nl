@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 02/01/2018
 ---
@@ -190,43 +190,29 @@ U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement als het v
 
 ## <a name="app-service-limitations"></a>App Service-beperkingen
 
-Als u werkt met App Service-apps, kunt u alleen een App Service-abonnement niet verplaatsen. Uw opties zijn beschikbaar voor het verplaatsen van App Service-apps:
+De beperkingen voor het verplaatsen van resources in App Service verschillen op basis van of het verplaatsen van de resources binnen een abonnement of in een nieuw abonnement.
 
-* De App Service-abonnement en alle andere App Service-resources in die resourcegroep verplaatsen naar een nieuwe resourcegroep die geen App Service-resources. Deze vereiste betekent dat u zelfs de App Service-resources die niet gekoppeld aan de App Service-abonnement zijn te verplaatsen.
-* De apps naar een andere resourcegroep verplaatsen, maar blijven alle App Service-abonnementen in de oorspronkelijke resourcegroep.
+### <a name="moving-within-the-same-subscription"></a>Verplaatsen binnen hetzelfde abonnement
 
-De App Service-abonnement hoeft niet te bevinden zich in dezelfde resourcegroep als de app voor de app te laten functioneren.
+Wanneer u een Web-App verplaatst _binnen hetzelfde abonnement_, u kunt de geüploade SSL-certificaten niet verplaatsen. Echter kunt u een Web-App in de nieuwe resourcegroep zonder het verplaatsen van de geüploade SSL-certificaat en de SSL-functionaliteit van uw app werkt nog altijd. 
 
-Bijvoorbeeld, als uw resourcegroep bevat:
+Als u verplaatsen van het SSL-certificaat met de Web-App wilt, voert u de volgende stappen uit:
 
-* **Web-a** die is gekoppeld aan **plan een**
-* **Web-b** die is gekoppeld aan **plan b**
+1.  Het geüploade certificaat verwijderen uit de Web-App.
+2.  Verplaats de Web-App.
+3.  Upload het certificaat naar de verplaatste Web-App.
 
-Uw opties zijn:
+### <a name="moving-across-subscriptions"></a>Verplaatsen tussen abonnementen
 
-* Verplaats **web-a**, **plan een**, **web-b**, en **plan b**
-* Verplaats **web-a** en **web-b**
-* Verplaats **web-a**
-* Verplaats **web-b**
+Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperkingen:
 
-Alle andere combinaties hebben betrekking op verlaten achter een brontype dat bij het verplaatsen van een App Service-abonnement (type van de bron-App Service) kan niet worden achtergelaten.
-
-Als uw web-app bevindt zich in een andere resourcegroep dan de App Service-abonnement, maar u wilt zowel voor een nieuwe resourcegroep te verplaatsen, moet u de verplaatsing in twee stappen uitvoeren. Bijvoorbeeld:
-
-* **Web-a** bevindt zich in **web-groep**
-* **plan een** bevindt zich in **plan-groep**
-* Gewenste **web-a** en **plan een** zich bevinden **gecombineerd groep**
-
-Voer hiertoe verplaatsing twee afzonderlijke migratiebewerkingen in de volgende volgorde:
-
-1. Verplaats de **web-a** naar **plan-groep**
-2. Verplaats **web-a** en **plan een** naar **gecombineerd groep**.
-
-U kunt een App Service-certificaat verplaatsen naar een nieuwe resourcegroep of abonnement zonder problemen. Als uw web-app een SSL-certificaat dat u hebt aangeschaft extern en geüpload naar de app bevat, moet u het certificaat verwijderen voordat u de web-app. U kunt bijvoorbeeld de volgende stappen uitvoeren:
-
-1. Het geüploade certificaat verwijderen van de web-app
-2. Verplaatsen van de web-app
-3. Upload het certificaat naar de web-app
+- De resourcegroep bestemming mag geen alle bestaande App Service-resources. App Service-resources omvatten:
+    - Web Apps
+    - App Service-abonnementen
+    - Geüploade of geïmporteerde SSL-certificaten
+    - App Service-omgevingen
+- Alle App Service-resources in de resourcegroep moeten samen worden verplaatst.
+- App Service-bronnen kunnen alleen worden verplaatst van de resourcegroep waarin ze werden gemaakt. Als een App Service-resource niet meer in de oorspronkelijke resourcegroep is, deze moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen. 
 
 ## <a name="classic-deployment-limitations"></a>Beperkingen voor klassieke implementatie
 

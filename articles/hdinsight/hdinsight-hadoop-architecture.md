@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Architectuur van Hadoop in HDInsight
+# <a name="hadoop-architecture-in-hdinsight"></a>Hadoop-architectuur in HDInsight
 
 Hadoop bevat twee basisonderdelen, hoge dichtheid File System (HDFS) waarmee u opslag en nog een andere Resource onderhandelaar (YARN) waarmee de verwerking. Een cluster wordt met mogelijkheden voor opslag en verwerking kan worden uitgevoerd van MapReduce-programma's uit te voeren van de gewenste gegevens verwerkt.
 
 > [!NOTE]
-> Een HDFS wordt doorgaans niet geïmplementeerd in het HDInsight-cluster om opslag te bieden. In plaats daarvan wordt een HDFS-compatibele interfacelaag gebruikt door de Hadoop-onderdelen. De werkelijke opslagcapaciteit wordt verstrekt door Azure Storage of Azure Data Lake Store. Voor Hadoop, MapReduce-taken worden uitgevoerd op het HDInsight-cluster worden uitgevoerd als een HDFS aanwezig zijn en dus vereisen geen wijzigingen ter ondersteuning van hun opslagbehoeften aan. Opslag is externe in Hadoop in HDInsight, maar YARN verwerking een kernonderdeel blijft. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> Een HDFS wordt doorgaans niet geïmplementeerd in het HDInsight-cluster om opslag te bieden. In plaats daarvan wordt een HDFS-compatibele interfacelaag gebruikt door de Hadoop-onderdelen. De werkelijke opslagcapaciteit wordt verstrekt door Azure Storage of Azure Data Lake Store. Voor Hadoop, MapReduce-taken worden uitgevoerd op het HDInsight-cluster worden uitgevoerd als een HDFS aanwezig zijn en dus vereisen geen wijzigingen ter ondersteuning van hun opslagbehoeften aan. Opslag is externe in Hadoop in HDInsight, maar YARN verwerking een kernonderdeel blijft. Zie voor meer informatie [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Dit artikel bevat YARN en hoe deze coördineert de uitvoering van toepassingen op HDInsight.
 
@@ -56,8 +54,7 @@ Alle HDInsight-clustertypen implementeren YARN. De ResourceManager wordt geïmpl
 
 ![YARN in HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>Zie ook
+## <a name="next-steps"></a>Volgende stappen
 
 * [MapReduce in Hadoop in HDInsight gebruiken](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Inleiding tot Azure HDInsight](hadoop/apache-hadoop-introduction.md)
