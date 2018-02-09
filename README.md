@@ -4,7 +4,7 @@ Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.
 Zie voor meer informatie de [Code van Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [ opencode@microsoft.com ](mailto:opencode@microsoft.com) met aanvullende vragen of opmerkingen.
 
 ## <a name="contribute-to-azure-technical-documentation"></a>Bijdragen aan technische documentatie voor Azure
-Wij welkomen bijdragen vanuit de community (gebruikers, klanten, partners, MSFT werknemers buiten core Azure producteenheden, enz.) en vanuit werknemers in core Azure producteenheden. Op welke manier u kunt bijdragen hangt af van wie u bent:
+Bijdragen vanuit de community (gebruikers, klanten, partners, MSFT werknemers buiten core Azure producteenheden, enz.) en vanuit werknemers in core Azure producteenheden zijn van harte welkom. Op welke manier u kunt bijdragen hangt af van wie u bent:
 
 * **Community - minder ingrijpende updates**: Als u kleine wijzigingen wilt toepassen kunt u het artikel vinden in deze repository of bezoek het artikel op [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) en klik op de **Bewerken** koppeling in het artikel welke u naar de GitHub-bron voor het artikel zal brengen. Vervolgens kunt u aan de hand van de GitHub UI uw updates toepassen. U bent ook van harte welkom om de repository te forken en via uw fork de updates te verzenden.
 
