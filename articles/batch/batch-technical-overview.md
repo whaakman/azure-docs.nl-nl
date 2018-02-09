@@ -1,88 +1,97 @@
 ---
-title: Met Azure Batch worden oplossingen voor grootschalige parallelle rekenbewerkingen uitgevoerd in de cloud | Microsoft Docs
+title: Met Azure Batch worden oplossingen voor grootschalige parallelle taken uitgevoerd in de cloud | Microsoft Docs
 description: Meer informatie over het gebruik van de Azure Batch-service voor grootschalige parallelle en HPC-workloads
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: mscurrell
+manager: jkabat
 editor: 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
+ms.assetid: 
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
-ms.author: tamram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: overview
+ms.date: 01/19/2018
+ms.author: mscurrell
+ms.custom: mvc
+ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Intrinsiek parallelle workloads uitvoeren met Batch
+# <a name="what-is-azure-batch"></a>Wat is Azure Batch?
 
-Azure Batch is een platformservice voor het efficiënt uitvoeren van grootschalige parallelle en HPC-toepassingen (High Performance Computing) in de cloud. Azure Batch plant de uitvoering van rekenintensief werk op een beheerde verzameling van virtuele machines en kan automatisch het aantal rekenresources aanpassen aan de behoeften van uw jobs.
+Met Azure Batch kunt u grootschalige parallelle en HPC-batchrekentaken (High Performance Computing) efficiënt uitvoeren in Azure. Azure Batch maakt en beheert een pool van rekenknooppunten (virtuele machines), installeert de toepassingen die u wilt uitvoeren, en plant het uitvoeren van taken op de knooppunten. Er is geen cluster- of taakplanner-software die u moet installeren, beheren of schalen. In plaats daarvan gebruikt u [Batch-API's en hulpprogramma's](batch-apis-tools.md), scripts voor de opdrachtregel of de Azure-portal voor het configureren, beheren en bewaken van uw taken. 
 
-Met Azure Batch kunt u gemakkelijk Azure-rekenresources definiëren om uw toepassingen parallel en op de juiste schaal uit te voeren. U hoeft niet handmatig een HPC-cluster, individuele virtuele machines, virtuele netwerken of een complexe job- en taakplanningsinfrastructuur te maken, te configureren en te beheren. Azure Batch automatiseert of vereenvoudigt deze taken voor u.
+Ontwikkelaars kunnen Batch gebruiken als een platformservice voor het bouwen van de SaaS-toepassingen of de client-apps waar grootschalige uitvoering is vereist. Bijvoorbeeld een service met Batch bouwen die een Monte Carlo risicosimulatie uitvoert voor een financiële dienstverlener, of een service voor het verwerken van vele installatiekopieën.
 
-## <a name="use-cases-for-batch"></a>Gebruiksvoorbeelden voor Batch
-Batch is een beheerde Azure-service die wordt gebruikt voor *batchverwerking* of *batchberekeningen*, waarbij een groot aantal vergelijkbare taken wordt uitgevoerd om een bepaald gewenst resultaat te verkrijgen. Batchverwerking wordt doorgaans gebruikt door organisaties die regelmatig grote hoeveelheden gegevens verwerken, transformeren en analyseren.
-
-Batch is bijzonder geschikt voor intrinsiek parallelle (ook wel bekend als 'perfect parallelle') toepassingen en workloads. Intrinsiek parallelle workloads zijn workloads die eenvoudig kunnen worden onderverdeeld in meerdere taken die op meerdere computers tegelijk werk verrichten.
-
-![Parallelle taken][1]<br/>
-
-Dit zijn enkele voorbeelden van workloads die vaak met deze techniek worden verwerkt:
-
-* Modellering van financiële risico's
-* Hydrologische en klimaatgegevensanalyse
-* Rendering, analyse en verwerking van beelden
-* Mediacodering en -transcodering
-* Genetische sequentieanalyse
-* Technische spanningsanalyse
-* Softwaretests
-
-Batch kan ook parallelle berekeningen met aan het einde een verkleiningsstap, evenals complexere HPC-workloads, uitvoeren zoals [Message Passing Interface (MPI)](batch-mpi.md)-toepassingen.
+Er worden geen extra kosten berekend voor het gebruik van Batch. U betaalt alleen voor bijbehorende verbruikte resources, zoals de virtuele machines, opslag en netwerken.
 
 Zie [HPC-, Batch- en Big Compute-oplossingen](../virtual-machines/linux/high-performance-computing.md) voor een vergelijking tussen Batch en andere HPC-oplossingsopties in Azure.
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+## <a name="run-parallel-workloads"></a>Uitvoeren van parallelle workloads
+Batch is bijzonder geschikt voor intrinsiek parallelle (ook wel bekend als ‘perfect parallelle’) workloads. Bij intrinsiek parallelle workloads kunnen de toepassingen onafhankelijk worden uitgevoerd en voltooit elke instantie een deel van het werk. Wanneer de toepassingen worden uitgevoerd, kunnen ze toegang krijgen tot een aantal algemene gegevens, maar ze communiceren niet met andere instanties van de toepassing. Intrinsiek parallelle workloads kunnen daarom op grote schaal worden uitgevoerd. Dit wordt bepaald door de hoeveelheid rekenresources die beschikbaar zijn voor toepassingen die tegelijkertijd worden uitgevoerd.
 
-## <a name="scenario-scale-out-a-parallel-workload"></a>Scenario: een parallelle workload uitschalen
-Een gangbare oplossing die gebruikmaakt van de Batch-API's om met de Batch-service te communiceren, bestaat erin intrinsiek parallel werk (zoals de rendering van beelden voor 3D-scènes) uit te schalen op een pool van rekenknooppunten. Deze pool van rekenknooppunten kan uw 'render farm' zijn die bijvoorbeeld tientallen, honderden of zelfs duizenden kernen aan uw renderingjob beschikbaar stelt.
+Enkele voorbeelden van intrinsiek parallelle workloads die u kunt overbrengen naar Batch:
+
+* Modellering van financiële risico's met behulp van Monte Carlo-simulaties
+* Rendering van VFX en 3D-afbeeldingen
+* Analyse en verwerking van beelden
+* Transcodering van media
+* Genetische sequentieanalyse
+* Optische tekenherkenning (OCR)
+* Gegevensopname, -verwerking en ETL-bewerkingen
+* Software-testuitvoering
+
+U kunt met Batch ook [nauw gekoppelde workloads uitvoeren](batch-mpi.md); dit zijn wo waar de toepassingen die u uitvoert met elkaar moeten communiceren, in tegenstelling tot wanneer ze onafhankelijk van elkaar worden uitgevoerd. Nauw gekoppelde toepassingen gebruiken normaal gesproken de Message Passing Interface (MPI) API. U kunt uw nauw gekoppelde workloads met Batch uitvoeren met behulp van [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) of Intel MPI. Toepassingsprestaties verbeteren met gespecialiseerde [HPC](../virtual-machines/linux/sizes-hpc.md) en [GPU-geoptimaliseerde](../virtual-machines/linux/sizes-gpu.md) VM-grootten.
+
+Enkele voorbeelden van nauw gekoppelde workloads:
+* Beperkte elementanalyse
+* Vloeiende dynamics
+* AI-training met meerdere knooppunten
+
+Met behulp van Batch kunnen veel nauw gekoppelde taken parallel worden uitgevoerd. Voer bijvoorbeeld meerdere simulaties uit van een vloeistof die door een leiding met verschillende leidingbreedtes loopt.
+
+## <a name="additional-batch-capabilities"></a>Aanvullende functies van Batch
+
+Workload-specifieke mogelijkheden van een hoger niveau zijn voor Azure Batch ook beschikbaar:
+* Batch ondersteunt grootschalige [rendering-workloads](batch-rendering-service.md) met hulpprogramma's voor rendering inclusief Autodesk Maya, 3ds Max, Arnold en V-Ray. 
+* R-gebruikers kunnen het [doAzureParallel R-pakket](https://github.com/Azure/doAzureParallel) installeren om eenvoudig de uitvoering van R-algoritmen voor Batch-pools uit te schalen.
+
+U kunt ook Batch-taken uitvoeren als onderdeel van een grotere Azure-werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+
+
+## <a name="how-it-works"></a>Hoe werkt het?
+Een gangbare oplossing voor Batch, bestaat uit het uitschalen van intrinsiek parallel werk, zoals de rendering van beelden voor 3D-scènes, op een pool van rekenknooppunten. Deze pool van rekenknooppunten kan uw "render farm" zijn, die tientallen, honderden of zelfs duizenden kernen aan uw renderingjob beschikbaar stelt.
 
 Het volgende diagram toont een algemene Batch-werkstroom, met een clienttoepassing of gehoste service die gebruikmaakt van Batch om een parallelle workload uit te voeren.
 
-![Werkstroom van Batch-oplossing][2]
+![Overzicht van Batch-oplossing](./media/batch-technical-overview/tech_overview_03.png)
 
-In dit veelvoorkomende scenario verwerkt uw toepassing of service een rekenworkload in Azure Batch door de volgende stappen uit te voeren:
 
-1. Upload de **invoerbestanden** en de **toepassing** die deze bestanden zal verwerken naar uw Azure-opslagaccount. De invoerbestanden kunnen alle gegevens zijn die uw toepassing zal verwerken, zoals de modellering van financiële gegevens of te transcoderen videobestanden. De toepassingsbestanden kunnen elke toepassing zijn die wordt gebruikt voor het verwerken van de gegevens, zoals een 3D-renderingtoepassing of mediatranscoder.
-2. Maak een Batch-**pool** van rekenknooppunten in uw Batch-account. Deze knooppunten zijn de virtuele machines die uw taken zullen uitvoeren. U geeft eigenschappen op, zoals de [knooppuntgrootte](../cloud-services/cloud-services-sizes-specs.md), het bijbehorende besturingssysteem en de locatie in Azure Storage van de toepassing die moet worden geïnstalleerd wanneer de knooppunten aan de pool worden toegevoegd (de toepassing die u in stap 1 hebt geüpload). U kunt ook de pool zodanig configureren dat deze [automatisch wordt geschaald](batch-automatic-scaling.md) als reactie op de workload die door uw taken wordt gegenereerd. Door automatisch te schalen, wordt het aantal rekenknooppunten in de pool automatisch aangepast.
-3. Maak een Batch-**job** om de workload uit te voeren op de pool van rekenknooppunten. Wanneer u een taak maakt, koppelt u deze aan een Batch-pool.
-4. Voeg **taken** toe aan de job. Wanneer u taken aan een taak toevoegt, plant de Batch-service automatisch de taken voor uitvoering op de rekenknooppunten in de pool. Elke taak maakt gebruik van de toepassing die u hebt geüpload om de invoerbestanden te verwerken.
-   
-   * 4a. Voordat een taak wordt uitgevoerd, kan deze de gegevens (de invoerbestanden) die deze moet verwerken, downloaden naar het rekenknooppunt waaraan de taak is toegewezen. Als de toepassing nog niet op het knooppunt is geïnstalleerd (zie stap 2), kan deze in plaats daarvan hier worden gedownload. Nadat de downloads zijn voltooid, worden de taken uitgevoerd op hun toegewezen knooppunten.
-5. Wanneer de taken worden uitgevoerd, kunt u in Batch een query uitvoeren om de voortgang van de job en de bijbehorende taken te controleren. Uw clienttoepassing of -service communiceert met de Batch-service via HTTPS. Omdat u mogelijk duizenden taken bewaakt die worden uitgevoerd op duizenden rekenknooppunten, moet u ervoor zorgen dat u [een query op de Batch-service op efficiënte wijze uitvoert](batch-efficient-list-queries.md).
-6. Nadat de taken zijn voltooid, kunnen ze hun resultaatgegevens uploaden naar Azure Storage. U kunt ook bestanden rechtstreeks ophalen van het bestandssysteem op een rekenknooppunt.
-7. Wanneer u bij uw controle detecteert dat de taken in uw job zijn voltooid, kan uw clienttoepassing of service de uitvoergegevens downloaden voor verdere verwerking of evaluatie.
+|Stap  |Beschrijving  |
+|---------|---------|
+|1.  Upload de **invoerbestanden** en de **toepassingen** die deze bestanden zullen verwerken naar uw Azure Storage-account.     |De invoerbestanden kunnen alle gegevens zijn die uw toepassing zal verwerken, zoals de modellering van financiële gegevens of te transcoderen videobestanden. De toepassingsbestanden kunnen scripts of toepassingen bevatten die de gegevens verwerken, zoals een mediatranscoder.|
+|2.  Maak een Batch-**pool** van rekenknooppunten in uw Batch-account, een **taak** voor het uitvoeren van de workload op de groep, en **opdrachten** binnen de taak.     | Pool-knooppunten zijn de virtuele machines die uw taken uitvoeren. Geef eigenschappen op, zoals het aantal en de grootte van de knooppunten, een Windows- of Linux-VM-installatiekopie, en een toepassing wordt geïnstalleerd wanneer de knooppunten aan de pool worden toegevoegd. Beheer de kosten en de grootte van de pool met behulp van [Lage-prioriteit VM’s](batch-low-pri-vms.md) of [automatisch schalen](batch-automatic-scaling.md) van het aantal knooppunten als de workload wordt gewijzigd. <br/><br/>Wanneer u taken aan een taak toevoegt, plant de Batch-service automatisch de taken voor uitvoering op de rekenknooppunten in de pool. Elke taak maakt gebruik van de toepassing die u hebt geüpload om de invoerbestanden te verwerken. |
+|3.  Download **invoerbestanden** en de **toepassingen** in Batch     |Voordat elke taak wordt uitgevoerd, kan deze de invoerbestanden naar het toegewezen rekenknooppunt downloaden. Als de toepassing nog niet op de pool-knooppunten is geïnstalleerd, kan deze in plaats daarvan hier worden gedownload. Als het downloaden vanuit Azure Storage is voltooid, wordt de taak wordt uitgevoerd op het toegewezen knooppunt.|
+|4.  **Taakuitvoering** controleren     |Wanneer de taken worden uitgevoerd, kunt u in Batch een query uitvoeren om de voortgang van de taak en de bijbehorende opdrachten te controleren. Uw clienttoepassing of -service communiceert met de Batch-service via HTTPS. Omdat u mogelijk duizenden taken bewaakt die worden uitgevoerd op duizenden rekenknooppunten, moet u ervoor zorgen dat u [een query op de Batch-service op efficiënte wijze uitvoert](batch-efficient-list-queries.md).|
+|5.  **Taakuitvoer** uploaden     |Nadat de taken zijn voltooid, kunnen ze hun resultaatgegevens uploaden naar Azure Storage. U kunt ook bestanden rechtstreeks ophalen van het bestandssysteem op een rekenknooppunt.|
+|6.  **Uitvoerbestanden** downloaden     |Wanneer u bij uw controle detecteert dat de taken in uw job zijn voltooid, kan uw clienttoepassing of service de uitvoergegevens downloaden voor verdere verwerking.|
 
-Houd er rekening mee dat dit slechts één manier is om Batch te gebruiken en dat in dit scenario slechts enkele van de beschikbare functies worden beschreven. U kunt bijvoorbeeld [meerdere taken parallel](batch-parallel-node-tasks.md) uitvoeren op elk rekenknooppunt en u kunt [jobvoorbereidingstaken en jobvrijgevingstaken](batch-job-prep-release.md) gebruiken om de knooppunten voor te bereiden op uw taken, en ze achteraf op te schonen.
+
+
+
+Houd er rekening mee dat dit slechts één manier is om Batch te gebruiken en dat in dit scenario slechts enkele van de beschikbare functies worden beschreven. Bijvoorbeeld, kunt u [meerdere taken parallel](batch-parallel-node-tasks.md) op elk rekenknooppunt uitvoeren. Of gebruik [taakvoorbereiding en -voltooiingsopdrachten](batch-job-prep-release.md) om de knooppunten voor te bereiden op uw taken, schoon het daarna op. 
+
+Zie het [Overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md) voor meer gedetailleerde informatie over pools, knooppunten, opdrachten en taken, en de vele API-functies die u tijdens het bouwen van uw Batch-toepassing kunt gebruiken. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een gedetailleerd overzicht van de Batch-service hebt gezien, is het tijd om dieper in te gaan op hoe u dit kunt gebruiken om uw rekenintensieve parallelle workloads te verwerken.
 
-* Bekijk het [overzicht met Batch-functies voor ontwikkelaars](batch-api-basics.md), essentiële informatie voor iedereen die Batch wil gaan gebruiken. Het artikel bevat meer gedetailleerde informatie over de Batch-serviceresources zoals groepen, knooppunten, jobs en taken, en de vele API-functies die u tijdens het maken van de Batch-toepassing kunt gebruiken.
-* Meer informatie over de [Batch-API's en -hulpprogramma's](batch-apis-tools.md) die beschikbaar zijn voor het bouwen van Batch-oplossingen.
-* Lees [Aan de slag met de Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md) voor informatie over het gebruik van C# en de Batch .NET-bibliotheek om een eenvoudige workload uit te voeren met een gebruikelijke Batch-werkstroom. Als u de Batch-service wilt leren gebruiken, is dit artikel een van de eerste artikelen die u zeker moet lezen. Er is ook een [Python-versie](batch-python-tutorial.md) van de zelfstudie.
-* Download de [codevoorbeelden op GitHub][github_samples] om te zien hoe C# en Python kunnen samenwerken met Batch om voorbeeldworkloads te plannen en te verwerken.
-* Bekijk het [Batch-leertraject][learning_path] voor een beter beeld van de resources die beschikbaar zijn terwijl u met Batch leert werken.
+Lees een van deze snelstartgidsen om snel aan de slag te gaan met Azure Batch:
+* [Uw eerste Batch-taak uitvoeren met Azure CLI](quick-create-cli.md)
+* [Uw eerste Batch-taak uitvoeren met de Azure-portal](quick-create-portal.md)
+* [Uw eerste Batch-taak uitvoeren met de .NET-API](quick-run-dotnet.md)
+* [Uw eerste Batch-taak uitvoeren met de Python-API](quick-run-python.md)
 
-
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-
-[1]: ./media/batch-technical-overview/tech_overview_01.png
-[2]: ./media/batch-technical-overview/tech_overview_02.png

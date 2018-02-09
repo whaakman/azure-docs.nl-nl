@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -26,9 +26,9 @@ Een toepassing of service moet vaak communiceren met andere toepassingen of serv
 
 ## <a name="service-bus-fundamentals"></a>Grondbeginselen van Service Bus
 
-Verschillende situaties vragen om verschillende communicatiemethoden. Soms is het de beste oplossing als toepassingen berichten verzenden en ontvangen via een eenvoudige wachtrij. In andere gevallen is een gewone wachtrij niet voldoende en voldoet een wachtrij met een mechanisme voor publiceren en abonneren beter. In sommige gevallen is alleen een verbinding tussen toepassingen nodig en is er geen behoefte aan een wachtrij. Service Bus biedt alle drie de opties, zodat uw toepassingen op verschillende manieren met elkaar kunnen communiceren.
+Verschillende situaties vragen om verschillende communicatiemethoden. Soms is het de beste oplossing als toepassingen berichten verzenden en ontvangen via een eenvoudige wachtrij. In andere gevallen is een gewone wachtrij niet voldoende en voldoet een wachtrij met een mechanisme voor publiceren en abonneren beter. In sommige gevallen is alleen een verbinding tussen toepassingen nodig en is er geen behoefte aan een wachtrij. Azure Service Bus biedt alle drie de opties, zodat uw toepassingen op verschillende manieren met elkaar kunnen communiceren.
 
-Service Bus is een multitenant-cloudservice, hetgeen betekent dat de service wordt gedeeld door meerdere gebruikers. Elke gebruiker, zoals een toepassingsontwikkelaar, maakt een *naamruimte* en definieert vervolgens de communicatiemechanismen die binnen deze naamruimte nodig zijn. In afbeelding 1 ziet u hoe deze architectuur eruit ziet.
+Service Bus is een multitenant-cloudservice, hetgeen betekent dat de service wordt gedeeld door meerdere gebruikers. Elke gebruiker, zoals een toepassingsontwikkelaar, maakt een *naamruimte* en definieert vervolgens de communicatiemechanismen die binnen deze naamruimte nodig zijn. In afbeelding 1 ziet u deze architectuur:
 
 ![][1]
 
@@ -48,13 +48,13 @@ Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal
 
 ## <a name="queues"></a>Wachtrijen
 
-Stel dat u met twee toepassingen verbinding wilt maken via een Service Bus-wachtrij. In afbeelding 2 ziet u deze situatie.
+Stel dat u met twee toepassingen verbinding wilt maken via een Service Bus-wachtrij. In afbeelding 2 ziet u deze situatie:
 
 ![][2]
 
 **Afbeelding 2: Service Bus-wachtrijen bieden asynchrone wachtrijservices in één richting.**
 
-Het proces is eenvoudig: een afzender verzendt een bericht naar een Service Bus-wachtrij en een ontvanger neemt het bericht op een later tijdstip in ontvangst. Een wachtrij kan slechts één ontvanger, hebben, zoals in afbeelding 2 wordt weergegeven. Of meerdere toepassingen kunnen vanuit de dezelfde wachtrij lezen. In het laatste geval wordt elk bericht door slechts één ontvanger gelezen. Voor een multicast-service is het echter beter om een onderwerp te gebruiken.
+Een afzender verzendt een bericht naar een Service Bus-wachtrij en een ontvanger neemt het bericht op een later tijdstip in ontvangst. Een wachtrij kan slechts één ontvanger, hebben, zoals in afbeelding 2 wordt weergegeven. Of meerdere toepassingen kunnen vanuit de dezelfde wachtrij lezen. In het laatste geval wordt elk bericht door slechts één ontvanger gelezen. Voor een multicast-service is het echter beter om een onderwerp te gebruiken.
 
 Elk bericht bestaat uit twee delen: een reeks eigenschappen, elk een sleutel-waardepaar, en een berichtnettolading. De nettolading kan binair, tekst of zelfs XML zijn. Hoe deze worden gebruikt, hangt af van wat een toepassing probeert te doen. Een toepassing die een bericht verzendt over een recente verkoop, kan bijvoorbeeld de eigenschappen **Verkoper = Ava** en **Bedrag = 10000** bevatten. De berichttekst kan een gescande afbeelding bevatten van de ondertekende verkoopovereenkomst of, als die niet beschikbaar is, leeg blijven.
 
@@ -72,13 +72,13 @@ Wachtrijen zijn handig in tal van situaties. Met behulp van wachtrijen kunnen to
 
 ## <a name="topics"></a>Onderwerpen
 
-Hoewel ze handig zijn, zijn wachtrijen niet altijd de juiste oplossing. Service Bus-onderwerpen komen soms beter van pas. Afbeelding 3 laat dit zien.
+Hoewel ze handig zijn, zijn wachtrijen niet altijd de juiste oplossing. Soms zijn onderwerpen beter. Afbeelding 3 laat dit zien:
 
 ![][3]
 
 **Afbeelding 3: Op basis van het filter dat door een geabonneerde toepassing wordt opgegeven, kan de toepassing enkele of alle berichten ontvangen die naar een Service Bus-onderwerp zijn verzonden.**
 
-Een *onderwerp* lijkt in veel opzichten op een wachtrij. Afzenders verzenden berichten op dezelfde manier naar een onderwerp als naar een wachtrij en de berichten zien er hetzelfde uit als bij een wachtrij. Het verschil is dat het bij onderwerpen mogelijk is dat elke ontvangende toepassing zijn eigen *abonnement* maakt door een *filter* te definiëren. Een abonnee ziet vervolgens alleen de berichten die overeenkomen met het filter. In afbeelding 3 ziet u bijvoorbeeld een afzender en een onderwerp met drie abonnees, elk met een eigen filter:
+Een *onderwerp* lijkt in veel opzichten op een wachtrij. Afzenders verzenden berichten op dezelfde manier naar een onderwerp als naar een wachtrij en de berichten zien er hetzelfde uit als bij een wachtrij. Het verschil is dat het bij onderwerpen mogelijk is dat elke ontvangende toepassing zijn eigen *abonnement* en eventueel een *filter* definieert. Een abonnee ziet vervolgens alleen de berichten die overeenkomen met het filter. In afbeelding 3 ziet u bijvoorbeeld een afzender en een onderwerp met drie abonnees, elk met een eigen filter:
 
 * Abonnee 1 ontvangt alleen berichten met de eigenschap *Verkoper =Ava*.
 * Abonnee 2 ontvangt berichten met de eigenschap *Verkoper = Ruby* en/of een eigenschap *Bedrag* met een waarde van meer dan 100.000. Wellicht is Ruby de verkoopmanager en wil ze zowel haar eigen verkopen als alle omvangrijke verkopen zien, ongeacht wie ze tot stand brengt.
@@ -88,7 +88,7 @@ Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berich
 
 ## <a name="relays"></a>Relays
 
-Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus *relays*, zoals weergegeven in afbeelding 4.
+Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus *relays*, zoals afbeelding 4 laat zien:
 
 ![][4]
 

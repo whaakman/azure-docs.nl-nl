@@ -1,5 +1,5 @@
 ---
-title: Maken van een functie in Linux met een aangepaste installatiekopie (preview) | Microsoft Docs
+title: Een functie in Linux maken met een aangepaste installatiekopie (preview) | Microsoft Docs
 description: Informatie over het maken van Azure Functions uitgevoerd op een aangepaste installatiekopie van Linux.
 services: functions
 keywords: 
@@ -11,55 +11,55 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 9ba5f45034561f8d897676e8cc4b1a59945403b8
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Maken van een functie in Linux met een aangepaste installatiekopie (preview)
+# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Een functie in Linux maken met een aangepaste installatiekopie (preview)
 
-Azure Functions, kunt u uw functies op Linux in uw eigen aangepaste container hosten. Deze functionaliteit is momenteel in preview. U kunt ook [host op een standaard-Azure App Service-container](functions-create-first-azure-function-azure-cli-linux.md).  
+Met Azure Functions kunt u uw functies voor Linux hosten in uw eigen aangepaste container. U kunt ze ook [hosten op een standaard-Azure App Service-container](functions-create-first-azure-function-azure-cli-linux.md). Deze functionaliteit is momenteel alleen in preview en vereist [de runtime van Functions 2.0](functions-versions.md), die ook in preview is.
 
-In deze zelfstudie leert u het implementeren van een functie-app als een aangepaste Docker-installatiekopie. Dit patroon is handig als u wilt aanpassen van de installatiekopie van het ingebouwde App Service-container. U wilt gebruiken een aangepaste installatiekopie wanneer uw functies de versie van een specifieke taal moeten of een specifieke afhankelijkheid of de configuratie die nog niet binnen de installatiekopie van het ingebouwde vereisen.
+In deze zelfstudie leert u een functie-app te implementeren als een aangepaste Docker-installatiekopie. Dit patroon is handig wanneer u de installatiekopie van de ingebouwde App Service-container moet aanpassen. U kunt een aangepaste installatiekopie gebruiken wanneer uw functies een specifieke taalversie nodig hebben of een specifieke afhankelijkheid of configuratie vereisen die niet binnen de ingebouwde installatiekopie aanwezig is.
 
-Deze zelfstudie leert u hoe u met Azure Functions maken en toepassen van een aangepaste installatiekopie met Docker-Hub. Vervolgens gebruikt u deze installatiekopie als de implementatiebron voor een functie-app die wordt uitgevoerd op Linux. U kunt Docker bouwen en de installatiekopie van het push. Met de Azure CLI kunt u een functie-app maken en implementeren van een installatiekopie van Docker-Hub. 
+In deze zelfstudie leert u hoe u met Azure Functions een aangepaste installatiekopie kunt maken en deze naar Docker Hub kunt pushen. Vervolgens gebruikt u deze installatiekopie als implementatiebron voor een functie-app in Linux. U gebruikt Docker voor het maken en pushen van de installatiekopie. Met de Azure CLI kunt u een functie-app maken en de installatiekopie implementeren vanuit Docker Hub. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een aangepaste installatiekopie met behulp van Docker bouwen.
-> * Een aangepaste installatiekopie naar een container register publiceren. 
-> * Maak een Azure Storage-account. 
-> * Maak een Linux-App Service-abonnement. 
-> * Implementeer een functie-app van Docker-Hub.
+> * Een aangepaste installatiekopie naar een containerregister publiceren. 
+> * Een Azure Storage-account maken. 
+> * Een Linux App Service-plan maken. 
+> * Een functie-app vanuit Docker Hub implementeren.
 > * Toepassingsinstellingen toevoegen aan de functie-app. 
 
-De volgende stappen uit worden op een Mac-, Windows- of Linux-computer ondersteund.  
+De volgende stappen worden ondersteund op een Mac-, Windows- of Linux-computer.  
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Git](https://git-scm.com/downloads)
-* Een actieve [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* Een actief [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Docker](https://docs.docker.com/get-started/#setup)
-* Een [Docker-Hub-account](https://docs.docker.com/docker-id/)
+* Een [Docker Hub-account](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voer de volgende opdracht om een kloon de opslagplaats van de voorbeeld-app op uw lokale computer en wijzigt u vervolgens naar de map waarin zich de voorbeeldcode in een terminalvenster.
+Voer de volgende opdrachten uit in een terminalvenster. Hiermee wordt de voorbeeldtoepassing gekloond naar uw lokale computer en navigeert u naar de map met de voorbeeldcode.
 
 ```bash
 git clone https://github.com/Azure-Samples/functions-linux-custom-image.git --config core.autocrlf=input
 cd functions-linux-custom-image
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>De installatiekopie maken van de Docker-bestand
+## <a name="build-the-image-from-the-docker-file"></a>De installatiekopie maken op basis van het Docker-bestand
 
-In deze Git-opslagplaats te kijken hoe de _Dockerfile_. Dit bestand bevat een beschrijving van de omgeving die nodig is voor het uitvoeren van de functie-app op Linux. 
+Bekijk in deze Git-opslagplaats het _Docker-bestand_. Dit bestand beschrijft de omgeving die vereist is om de functie-app uit te voeren in Linux. 
 
 ```docker
 # Base the image on the built-in Azure Functions Linux image.
@@ -70,16 +70,16 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 COPY . /home/site/wwwroot 
 ```
 >[!NOTE]
-> Bij het hosten van een installatiekopie in een register privé-container, moet u de verbindingsinstellingen toevoegen aan de functie-app met behulp van **ENV** variabelen in de Dockerfile. Omdat deze zelfstudie kan niet worden gegarandeerd dat u een persoonlijke register, de verbindingsinstellingen zijn [toegevoegd na de implementatie met behulp van de Azure CLI](#configure-the-function-app) als een best practice voor beveiliging.   
+> Bij het hosten van een installatiekopie in een persoonlijk containerregister moet u de verbindingsinstellingen toevoegen aan de functie-app met behulp van **ENV**-variabelen in het Docker-bestand. Omdat deze zelfstudie niet kan garanderen dat u een persoonlijk register gebruikt, worden de verbindingsinstellingen [na de implementatie toegevoegd met behulp van de Azure CLI](#configure-the-function-app) als een aanbevolen procedure voor beveiliging.   
 
-### <a name="run-the-build-command"></a>Voer de opdracht Build
-De Docker-installatiekopie bouwen, voer de `docker build` opdracht in en geef een naam `mydockerimage`, en de tag `v1.0.0`. Vervang `<docker-id>` rekening met uw Hub Docker ID.
+### <a name="run-the-build-command"></a>De Build-opdracht uitvoeren
+U maakt de Docker-installatiekopie door de `docker build`-opdracht uit te voeren en vervolgens een naam, `mydockerimage`, en label, `v1.0.0`, op te geven. Vervang `<docker-id>` door de ID van uw Docker Hub-account.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-De opdracht geeft de uitvoer ziet er als volgt:
+De opdracht geeft een uitvoer die er ongeveer als volgt uitziet:
 
 ```bash
 Sending build context to Docker daemon  169.5kB
@@ -101,36 +101,36 @@ Successfully built 5bdac9878423
 Successfully tagged ggailey777/mydockerimage:v1.0.0
 ```
 
-### <a name="test-the-image-locally"></a>De installatiekopie van het lokaal testen
-Controleer of de installatiekopie van het ingebouwde werkt door de Docker-installatiekopie in een lokale container. Probleem de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht en de naam en het label van de afbeelding doorgeven. Zorg ervoor dat u de poort met behulp van de `-p` argument.
+### <a name="test-the-image-locally"></a>De installatiekopie lokaal testen
+Controleer of de installatiekopie van de build werkt door de Docker-installatiekopie uit te voeren in een lokale container. Geef de opdracht [docker run](https://docs.docker.com/engine/reference/commandline/run/) en geef de naam en het label van de installatiekopie door. Zorg ervoor dat u de poort opgeeft met behulp van het argument `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Met de aangepaste installatiekopie uitgevoerd in een lokale Docker-container, Controleer of de functie-app en de container goed werken door te bladeren naar <http://localhost: 8080>.
+Met de aangepaste installatiekopie die wordt uitgevoerd in een lokale Docker-container controleert u of de functie-app en container goed werken door te bladeren naar <http://localhost: 8080>.
 
-![De functie-app lokaal testen.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+![Test de functie-app lokaal.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Nadat u hebt geverifieerd hav de functie-app in de container, stopt u de uitvoering. U kunt nu de aangepaste installatiekopie pushen naar uw account Docker-Hub.
+Nadat u de functie-app in de container hebt geverifieerd, stopt u de uitvoering. U kunt nu de aangepaste installatiekopie naar uw Docker Hub-account pushen.
 
-## <a name="push-the-custom-image-to-docker-hub"></a>De aangepaste installatiekopie push naar Docker-Hub
+## <a name="push-the-custom-image-to-docker-hub"></a>De aangepaste installatiekopie naar Docker Hub pushen
 
-Een register is een toepassing die als host fungeert voor installatiekopieën en biedt services voor services en de container. Om uw installatiekopie delen, moet u dit doorgeven aan een register. Docker-Hub is een register voor de Docker-installatiekopieën waarmee u uw eigen opslagplaatsen, openbare of particuliere hosten. 
+Een register is een toepassing die als host fungeert voor installatiekopieën en biedt installatiekopie- en containerservices. Om uw installatiekopie te delen, moet u deze naar een register pushen. Docker Hub is een register voor Docker-installatiekopieën waarmee u uw eigen openbare of particuliere opslagplaatsen kunt hosten. 
 
-Voordat u een installatiekopie van een pushen kunt, moet u zich aanmeldt bij Docker-Hub met behulp van de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdracht. Vervang `<docker-id>` met uw accountnaam en typt u uw wachtwoord in de console bij de opdrachtprompt. Zie voor andere wachtwoordopties Docker-Hub het [docker aanmelding opdracht documentatie](https://docs.docker.com/engine/reference/commandline/login/).
+Voordat u een installatiekopie kunt pushen, moet u zich aanmelden bij Docker Hub met behulp van de opdracht [docker login](https://docs.docker.com/engine/reference/commandline/login/). Vervang `<docker-id>` door uw accountnaam en typ uw wachtwoord bij de opdrachtprompt in de console. Zie [documentatie bij de opdracht voor dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/) voor andere wachtwoordopties voor Docker Hub.
 
 ```bash
 docker login --username <docker-id> 
 ```
 
-Een bericht 'aanmelding geslaagd' wordt bevestigd dat u bent aangemeld. Nadat u zich hebt aangemeld, u de installatiekopie van het Docker-hub pushen met behulp van de [docker push](https://docs.docker.com/engine/reference/commandline/push/) opdracht.
+Een bericht 'aanmelding geslaagd' bevestigt dat u bent aangemeld. Nadat u zich hebt aangemeld, pusht u de installatiekopie naar Docker Hub met behulp van de [docker push](https://docs.docker.com/engine/reference/commandline/push/)-opdracht.
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-Controleer of dat de push-bewerking is voltooid door in de opdracht-uitvoer.
+Controleer of de push-bewerking is voltooid door de uitvoer van de opdracht te inspecteren.
 
 ```bash
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
@@ -141,28 +141,28 @@ ae9a05b85848: Mounted from microsoft/azure-functions-runtime
 45c86e20670d: Mounted from microsoft/azure-functions-runtime
 v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 ```
-Nu kunt u deze installatiekopie als de implementatiebron voor een nieuwe functie-app in Azure. 
+U kunt nu deze installatiekopie gebruiken als implementatiebron voor een nieuwe functie-app in Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in dit onderwerp is vereist voor de Azure CLI versie 2.0.21 of hoger. Voer `az --version` de versie die u hebt te vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0.21 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Een Linux-App Service-abonnement maken
+## <a name="create-a-linux-app-service-plan"></a>Een Linux App Service-abonnement maken
 
-Linux die als host fungeert voor functies wordt momenteel niet ondersteund in verbruik plannen. U moet uitvoeren op een Linux-App Service-abonnement. Zie voor meer informatie over het hosten van [vergelijking van Azure Functions hosting plannen](functions-scale.md). 
+Linux-hosting voor Functions wordt momenteel niet ondersteund in verbruiksabonnementen. U moet een Linux App Service-plan uitvoeren. Zie [deze vergelijking van hostingabonnementen van Azure Functions](functions-scale.md) voor meer informatie over hosting. 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 
-## <a name="create-and-deploy-the-custom-image"></a>Maken en implementeren van de aangepaste installatiekopie
+## <a name="create-and-deploy-the-custom-image"></a>De aangepaste installatiekopie maken en implementeren
 
-De functie-app als host fungeert voor de uitvoering van uw functies. Een functie-app van een installatiekopie van een Docker-Hub te maken met behulp van de [az functionapp maken](/cli/azure/functionapp#create) opdracht. 
+Een functie-app fungeert als host voor de uitvoering van uw functies. Een functie-app maken op basis van een Docker Hub-installatiekopie met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
-Vervang de naam van een unieke functie-app waarin u ziet in de volgende opdracht de `<app_name>` tijdelijke aanduiding en het storage-account een naam voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. Als voorheen `<docker-id>` is de naam van uw Docker-account.
+Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. Net als voorheen is `<docker-id>` de naam van uw Docker-account.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -188,14 +188,14 @@ Nadat de functie-app is gemaakt, toont Azure CLI soortgelijke informatie als in 
 }
 ```
 
-De _implementatie-container-installatiekopie-name_ parameter geeft aan dat de afbeelding die wordt gehost op Docker-Hub gebruiken om te maken van de functie-app. 
+De _deployment-container-image-name_-parameter geeft aan dat de afbeelding die wordt gehost op Docker Hub wordt gebruikt om de functie-app te maken. 
 
 
 ## <a name="configure-the-function-app"></a>De functie-app configureren
 
-De functie moet de verbindingsreeks verbinding maken met het standaardopslagaccount. Als u uw aangepaste installatiekopie naar een privé-container-account publiceert, moet u de instellingen voor deze toepassing in plaats daarvan instellen als omgevingsvariabelen in het Dockerfile met de [ENV instructie](https://docs.docker.com/engine/reference/builder/#env), of gelijkwaardig. 
+De functie heeft de verbindingsreeks nodig om verbinding te maken met het standaardopslagaccount. Als u uw aangepaste installatiekopie naar een persoonlijk containeraccount publiceert, moet u de instellingen voor deze toepassing instellen als omgevingsvariabelen in het Docker-bestand met de [ENV-instructie](https://docs.docker.com/engine/reference/builder/#env) of een equivalent daarvan. 
 
-In dit geval `<storage_account>` is de naam van het opslagaccount dat u hebt gemaakt. Ophalen van de verbindingsreeks met het [az storage-account weergeven verbindingsreeks](/cli/azure/storage/account#show-connection-string) opdracht. Deze toepassingsinstellingen toevoegen in de functie-app met de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
+In dit geval is `<storage_account>` de naam van het opslagaccount dat u hebt gemaakt. Haal de verbindingsreeks op met de opdracht [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Voeg deze toepassingsinstellingen toe aan de functie-app met de opdracht [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -208,7 +208,7 @@ az functionapp config appsettings set --name <function_app> \
 AzureWebJobsStorage=$storageConnectionString
 ```
 
-U kunt nu uw functies met op Linux in Azure testen.
+U kunt nu uw functies op Linux in Azure testen.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
@@ -220,13 +220,13 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een aangepaste installatiekopie met behulp van Docker bouwen.
-> * Een aangepaste installatiekopie naar een container register publiceren. 
-> * Maak een Azure Storage-account. 
-> * Maak een Linux-App Service-abonnement. 
-> * Implementeer een functie-app van Docker-Hub.
+> * Een aangepaste installatiekopie naar een containerregister publiceren. 
+> * Een Azure Storage-account maken. 
+> * Een Linux App Service-plan maken. 
+> * Een functie-app vanuit Docker Hub implementeren.
 > * Toepassingsinstellingen toevoegen aan de functie-app.
 
-Meer informatie over het ontwikkelen van Azure Functions lokaal via de hulpprogramma's van Azure Functions Core.
+Lees meer over het lokaal ontwikkelen van Azure-functies met behulp van Azure Functions Core Tools.
 
 > [!div class="nextstepaction"] 
-> [Code en Azure Functions lokaal testen](functions-run-local.md)
+> [Azure-functies lokaal programmeren en testen](functions-run-local.md)

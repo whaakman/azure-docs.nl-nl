@@ -7,12 +7,10 @@
 ## [Een Event Hub maken](event-hubs-create.md)
 ## Gebeurtenissen verzenden
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Gebeurtenissen ontvangen
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Gebeurtenissen vastleggen
@@ -30,6 +28,8 @@
 ### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)
 ### [Doorvoereenheden automatisch schalen](event-hubs-auto-inflate.md)
 ## Ontwikkelen
+### [Gebeurtenissen verzenden met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Gebeurtenissen ontvangen met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Beschikbare API's](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Omleiding configureren
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Externe omleiding configureren
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure-CLI](tutorial-external-site-redirect-powershell.md)
 ## Web-apps als leden van back-end-pools configureren
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Statuscontroles configureren

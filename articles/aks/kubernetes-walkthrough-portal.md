@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a8a6bf83f0e76aebdfd5accd3e86cccda8f36eed
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) implementeren
 
@@ -154,7 +154,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:redis-v1
+        image: microsoft/azure-vote-front:v1
         ports:
         - containerPort: 80
         env:
@@ -231,7 +231,7 @@ In deze quickstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een Kubernetes-cluster geïmplementeerd en vervolgens een toepassing met meerdere containers naar het cluster geïmplementeerd.
+In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd en vervolgens een toepassing met meerdere containers naar het cluster geïmplementeerd.
 
 Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot implementatie gaat u naar de zelfstudie over Kubernetes-clusters.
 

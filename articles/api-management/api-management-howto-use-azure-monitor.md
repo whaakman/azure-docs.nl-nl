@@ -1,6 +1,6 @@
 ---
-title: Monitor gepubliceerd API's in Azure API Management | Microsoft Docs
-description: Volg de stappen van deze zelfstudie voor informatie over het bewaken van uw API in Azure API Management.
+title: In Azure API Management gepubliceerde API's bewaken | Microsoft Docs
+description: Volg de stappen in deze zelfstudie voor informatie over het bewaken van uw API in Azure API Management.
 services: api-management
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
-Monitor voor Azure is een Azure-service met één bron voor de bewaking van alle Azure-resources. Met Azure-Monitor kunt u visualiseren, query, routeren, archiveren en acties uitvoeren op de metrische gegevens en de logboeken die afkomstig zijn van de Azure-bronnen zoals API Management. 
+Azure Monitor is een Azure-service die één bron biedt voor het bewaken al uw Azure-resources. Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en actie ondernemen op basis van de metrische gegevens en logboeken in Azure-resources als API Management. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Activiteitenlogboeken bekijken
-> * Diagnostische logboeken bekijken
-> * Metrische gegevens weergeven van uw API 
-> * Een waarschuwingsregel instellen wanneer uw API aanroepen met niet-geautoriseerde opgehaald
+> * Diagnostische logboeken weergeven
+> * Metrische gegevens van uw API weergeven 
+> * Een waarschuwingsregel instellen als uw API niet-gemachtigde aanroepen krijgt
 
-De volgende video toont het bewaken van API Management met behulp van Azure-Monitor. 
+In de volgende video kunt u zien hoe u API Management kunt bewaken met Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 >
@@ -40,73 +40,75 @@ De volgende video toont het bewaken van API Management met behulp van Azure-Moni
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-+ Ook de volgende zelfstudie te voltooien: [importeren en publiceren van uw eerste API](import-and-publish.md).
++ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="diagnostic-logs"></a>Activiteit-logboeken bekijken
+## <a name="diagnostic-logs"></a>Activiteitenlogboeken bekijken
 
-Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw API Management-services. Met activiteitenlogboeken, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die op uw API Management-services worden uitgevoerd. 
+Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd voor uw API Management-services. Met activiteitenlogboeken kunt u het 'wat, wie en wanneer' bepalen voor schrijfbewerkingen (PUT, POST, DELETE) die voor uw API Management-services worden uitgevoerd. 
 
 > [!NOTE]
-> Activiteitenlogboeken bevatten geen leesbewerkingen (GET) of bewerkingen uitgevoerd in de klassieke Portal van de uitgever of met de oorspronkelijke Management-API's.
+> Activiteitenlogboeken bevatten geen lees(GET)-bewerkingen of bewerkingen die zijn uitgevoerd in de klassieke Publisher-portal of met behulp van de oorspronkelijke Management-API's.
 
-U kunt toegang krijgen tot activiteitenlogboeken in uw API Management-service of toegang tot de logboeken van alle Azure-resources in Azure-Monitor. 
+U kunt activiteitenlogboeken in uw API Management-service openen. U kunt alle logboeken van al uw Azure-resources in Azure Monitor openen. 
 
 Activiteitenlogboeken weergeven:
 
-1. Van uw **API Management** exemplaar, klikt u op **activiteitenlogboek**.
+1. Selecteer uw exemplaar van de APIM-service.
+2. Klik op **Activiteitenlogboek**.
 
-## <a name="view-diagnostic-logs"></a>Diagnostische logboeken bekijken
+## <a name="view-diagnostic-logs"></a>Diagnoselogboeken weergeven
 
-Logboeken met diagnostische gegevens bevatten uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor controle, evenals het oplossen van problemen. Diagnostische logboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnostische logboeken bieden inzicht in bewerkingen dat de bron zelf uitgevoerd.
+Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
 
-Toegang tot diagnoselogboeken:
+Diagnostische logboeken openen:
 
-1. Van uw **API Management** exemplaar, klikt u op **diagnostische logboeken**.
+1. Selecteer uw exemplaar van de APIM-service.
+2. Klik op **Diagnoselogboek**.
 
-## <a name="view-metrics-of-your-apis"></a>Metrische gegevens weergeven van uw API 's
+## <a name="view-metrics-of-your-apis"></a>Metrische gegevens van uw API's weergeven
 
-API Management verzendt metrische gegevens elke minuut, zodat u bijna real-time inzicht in de status en gezondheid van uw API's. Hier volgt een samenvatting van een deel van de beschikbare metrische gegevens:
+API Management geeft elke minuut metrische gegevens vrij, waardoor u in vrijwel realtime inzicht hebt in de status van uw API's. Er volgt nu een overzicht van enkele beschikbare metrische gegevens:
 
-* Capaciteit (preview): helpt u beslissingen te nemen over uw services APIM upgraden/downgraden. De metriek per minuut is verzonden en reflecteert de gateway-capaciteit op het moment van reporting. De metriek bereik van 0-100 en wordt berekend op basis van de gateway recourses zoals CPU-en geheugengebruik.
-* Totaal aantal verzoeken van de Gateway: het aantal API-aanvragen in de periode. 
-* Geslaagde aanvragen voor de Gateway: het aantal API-aanvragen dat geslaagde HTTP-antwoordcodes waaronder 304, 307 en iets kleiner is dan 301 (bijvoorbeeld 200) ontvangen. 
-* Mislukte aanvragen van de Gateway: het aantal API-aanvragen dat foutieve HTTP-antwoordcodes waaronder 400 en iets groter zijn dan 500 ontvangen.
-* Niet-geautoriseerde Gateway verzoeken: het aantal API-aanvragen die HTTP-antwoordcodes waaronder 401, 403 en 429 ontvangen. 
-* Andere Gateway verzoeken: het aantal API-aanvragen die HTTP-antwoordcodes die niet bij een van de voorgaande categorieën (bijvoorbeeld 418 horen) ontvangen.
+* Capaciteit (preview): hiermee kunt u beslissingen nemen over het uitvoeren van een up- of downgrade van uw APIM-services. Dit gegeven komt elke minuut beschikbaar en is een weerspiegeling van de capaciteit van de gateway ten tijde van de export. Het bereik van het gegeven loopt van 0 tot 100 en wordt berekend op basis van gateway-resources als CPU- en geheugengebruik.
+* Totaal aantal gateway aanvragen: het aantal API-aanvragen per periode. 
+* Geslaagde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes met goed gevolg hebben ontvangen, waaronder 304, 307 en codes kleiner dan 301 (bijvoorbeeld 200). 
+* Mislukt gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes bij aanvraagfouten hebben ontvangen, waaronder 400 en codes groter dan 500.
+* Niet-gemachtigde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen, waaronder de nummers 401,403 en 429. 
+* Overige gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen die niet in een van de bovenstaande categorieën vallen (bijvoorbeeld 418).
 
-Toegang krijgen tot metrische gegevens:
+Metrische gegevens openen:
 
-1. Selecteer **metrische gegevens** in het menu aan de onderkant van de pagina.
-2. Selecteer in de vervolgkeuzelijst metrische gegevens die u geïnteresseerd bent in (u kunt meerdere metrische gegevens toevoegen). 
+1. Selecteer **Metrische gegevens** in het menu onder aan de pagina.
+2. Selecteer in de vervolgkeuzelijst de gewenste metrische gegevens (u kunt meerdere gegevens toevoegen). 
     
-    Selecteer bijvoorbeeld **totaal aantal aanvragen dat Gateway** en **mislukte aanvragen voor Gateway** uit de lijst met beschikbare metrische gegevens.
-3. Het diagram toont het totale aantal API-aanroepen. Ook ziet u het aantal API-aanroepen die is mislukt. 
+    Selecteer bijvoorbeeld **Totaal aantal gateway-aanvragen** en **Mislukte gateway-aanvragen** in de lijst met beschikbare metrische gegevens.
+3. De grafiek toont het totale aantal API-aanroepen. Ook het aantal mislukte API-aanroepen wordt getoond. 
 
-## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Een waarschuwingsregel voor niet-geautoriseerde aanvraag instellen
+## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Een waarschuwingsregel instellen voor een niet-gemachtigde aanvraag
 
-U kunt configureren voor het ontvangen van meldingen op basis van de logboeken van metrische gegevens en de activiteit. Azure Monitor kunt u de volgende handelingen uit als er wordt een waarschuwing configureren:
+U kunt instellen dat u waarschuwingen ontvangt op basis van metrische gegevens en activiteitenlogboeken. Met Azure Monitor kunt u een waarschuwing zodanig configureren dat deze bij activering het volgende doet:
 
-* E-mailmelding verzenden
-* een webhook aanroepen
-* Een Azure Logic App aanroepen
+* Een e-mailmelding verzenden
+* Een webhook aanroepen
+* Een logische Azure-app aanroepen
 
 Waarschuwingen configureren:
 
-1. Selecteer **waarschuwing regels** in het menu aan de onderkant van de pagina.
-2. Selecteer **metrische waarschuwing toevoegen**.
-3. Voer een **naam** voor deze waarschuwing.
-4. Selecteer **ongeautoriseerde Gateway aanvragen** als de metrische gegevens om te controleren.
-5. Selecteer **e-eigenaren, bijdragers en lezers**.
+1. Selecteer **Waarschuwingsregels** in de menubalk onder aan de pagina.
+2. Selecteer **Waarschuwing voor metrische gegevens toevoegen**.
+3. Voer een **Naam** voor deze waarschuwing in.
+4. Selecteer **Niet-gemachtigde gateway-aanvragen** als het te controleren metrische gegeven.
+5. Selecteer **E-maileigenaren, bijdragers en lezers**.
 6. Druk op **OK**.
-7. Probeer onze API conferentie zonder een API-sleutel aan te roepen. Als de eigenaar van deze API Management-service ontvangt u een e-mailmelding. 
+7. Roep de vergadering-API aan zonder API-sleutel. Als eigenaar van deze API Management-service ontvangt u een e-mailmelding. 
 
     > [!TIP]
-    > De waarschuwingsregel kan een haakje Web of Azure Logic App ook aanroepen, wanneer deze wordt geactiveerd.
+    > De waarschuwingsregel kan bij activering tevens een webhook of een logische Azure-app aanroepen.
 
-    ![installeren van waarschuwing](./media/api-management-azure-monitor/set-up-alert.png)
+    ![waarschuwing-instellingen](./media/api-management-azure-monitor/set-up-alert.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -114,11 +116,11 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Activiteitenlogboeken bekijken
-> * Diagnostische logboeken bekijken
-> * Metrische gegevens weergeven van uw API 
-> * Een waarschuwingsregel instellen wanneer uw API aanroepen met niet-geautoriseerde opgehaald
+> * Diagnostische logboeken weergeven
+> * Metrische gegevens van uw API weergeven 
+> * Een waarschuwingsregel instellen als uw API niet-gemachtigde aanroepen krijgt
 
-Ga naar de volgende zelfstudie:
+Ga door naar de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Traceringsaanroepen](api-management-howto-api-inspector.md)
+> [Oproepen traceren](api-management-howto-api-inspector.md)

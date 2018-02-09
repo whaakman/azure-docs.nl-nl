@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: davidmu
-ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5d26a603eb1bbe3ce7f8f95b19ba816c32222c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
 
@@ -30,7 +30,7 @@ In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contos
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Aanvragen voor http://contoso.com/video* worden gerouteerd naar VideoServerPool en http://contoso.com/images* naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
+Aanvragen voor http://contoso.com/video/* worden gerouteerd naar VideoServerPool en http://contoso.com/images/* naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
 
 > [!IMPORTANT]
 > Regels worden verwerkt in de volgorde die wordt weergegeven in de portal. Het is raadzaam om eerst listeners voor meerdere locaties te configureren voordat u een basislistener configureert.  Dit zorgt ervoor dat verkeer naar de juiste back-end wordt geleid. Als een basislistener als eerste wordt weergegeven en overeenkomt met een inkomende aanvraag, wordt deze door die listener verwerkt.

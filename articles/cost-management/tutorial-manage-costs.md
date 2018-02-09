@@ -1,115 +1,115 @@
 ---
-title: Kosten beheren met behulp van Azure kosten Management | Microsoft Docs
-description: Kosten beheren met behulp van de toewijzing en showback en terugstorting Kostenrapporten.
+title: Kosten beheren met behulp van Azure Cost Management | Microsoft Docs
+description: Lees hier alles over het beheren van kosten met behulp van kostentoewijzing en rapporten over showback en chargeback.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Kosten beheren met behulp van Azure kosten Management
+# <a name="manage-costs-by-using-azure-cost-management"></a>Kosten beheren met behulp van Azure Cost Management
 
-U beheert kosten en produceren van rapporten in Azure kosten Management Cloudyn showback door toe te wijzen kosten op basis van labels. Kosten van het proces van kostentoewijzing toegewezen aan uw verbruikte cloudresources. Wanneer al uw resources worden gecategoriseerd met labels kosten volledig toegewezen. Nadat de kosten worden toegewezen, kunt u showback of terugstorting bieden aan uw gebruikers met dashboards en rapporten. Echter veel resources mogelijk zonder tags of untaggable wanneer u begint met het gebruik van beheer van kosten.
+In Azure Cost Management van Cloudyn kunt u kosten beheren en showback-rapporten maken door kosten toe te wijzen op basis van tags. Het proces van kostentoewijzing houdt in dat er kosten worden toegewezen aan uw verbruikte cloudresources. Kosten worden volledig toegewezen als al uw resources met behulp van tags in categorieën zijn ingedeeld. Nadat de kosten zijn toegewezen, kunt u met dashboards en rapporten showback of chargeback bieden aan uw gebruikers. Als u aan de slag gaat met Cost Management, hebben veel resources mogelijk nog geen tags of kunnen er geen tags aan worden toegewezen.
 
-U wilt ophalen voor technische kosten terugbetaald. U wilt dat uw engineeringteam die u een bepaald bedrag moet, op basis van de kosten voor resources weergeven. U ze kunt weergeven, kunt u een rapport voor de verbruikte resources die zijn gelabeld *engineering*.
+Stel dat u engineering-kosten vergoed wilt hebben. U moet aan het engineering-team laten zien dat u een bepaald bedrag nodig hebt, op basis van resourcekosten. U kunt ze een rapport laten zien voor alle verbruikte resources met de tag *engineering*.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Gebruik aangepaste labels kosten wilt toewijzen.
-> * Showback en doorberekeningsrapporten maken.
+> * Aangepaste tags gebruiken voor het toewijzen van kosten.
+> * Showback- en chargeback-rapporten maken.
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Gebruik aangepaste labels kosten wilt toewijzen
+## <a name="use-custom-tags-to-allocate-costs"></a>Aangepaste tags gebruiken voor het toewijzen van kosten
 
-Wanneer u kostentoewijzing start, is het eerste wat dat u doet het bereik definiëren met behulp van een kostprijsmodel. Het kostprijsmodel kosten niet verandert, wordt dit verdeeld. Wanneer u een kostprijsmodel maakt, kunt u uw gegevens door kosten entiteit, account of -abonnement en op meerdere labels segmenteren. Veelgebruikte voorbeeld tags kunnen bevatten een facturering code, kostenplaats of groepsnaam op. Labels kunnen u ook uitvoeren showback of terugstorting aan andere onderdelen van uw organisatie.
+Wanneer u kostentoewijzing start, is het eerste wat u doet het definiëren van het bereik met behulp van een kostenmodel. Het kostenmodel heeft geen invloed op de kosten, maar zorgt alleen voor de verdeling ervan. Wanneer u een kostenmodel maakt, kunt u uw gegevens segmenteren op kostenentiteit, rekening of abonnement, en op meerdere tags. Voorbeelden van veelgebruikte tags zijn een factureringstag, kostenplaats of groepsnaam. Tags kunnen ook helpen bij het uitvoeren van showback of chargeback naar andere onderdelen van uw organisatie.
 
-Selecteer voor het maken van een model van de toewijzing van aangepaste kosten **kosten** &gt; **kostenbeheer** &gt; **kostentoewijzing 360°** in het rapport menu.
+Als u een aangepast model voor de toewijzing van kosten wilt maken, selecteert u **Cost** &gt; **Cost Management** &gt; **Cost Allocation 360°** in het menu van het rapport.
 
-![Kosten toewijzing 360-selectie](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Selectie van Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-Op de **kosten toewijzing 360** pagina **toevoegen** en voer een naam en beschrijving voor het kostprijsmodel van uw. Selecteer alle accounts of individuele accounts. Als u gebruiken van individuele accounts wilt, kunt u meerdere accounts van meerdere cloudserviceproviders. Klik vervolgens op **categorisatie** de gedetecteerde labels die uw kostengegevens categoriseren kiezen. Kies labels (categorieën) die u wilt opnemen in uw model. In het volgende voorbeeld wordt de **eenheid** is geselecteerd.
+Selecteer op de pagina **Cost Allocation 360** de optie **Add** en voer een naam en beschrijving in voor het kostenmodel. Selecteer alle accounts of individuele accounts. Als u individuele accounts wilt gebruiken, kunt u meerdere accounts selecteren van verschillende cloudserviceproviders. Klik vervolgens op **Categorization** om de gedetecteerde tags te kiezen voor het categoriseren van uw kostengegevens. Kies tags (categorieën) die u wilt opnemen in uw model. In het volgende voorbeeld is de tag **Unit** geselecteerd.
 
-![Voorbeeld van de kosten model categorisatie](./media/tutorial-manage-costs/cost-model01.png)
-
-
-
-Het voorbeeld ziet $14,444 is niet-gecategoriseerde (zonder tags).
-
-Selecteer vervolgens **niet-gecategoriseerde Resources** en selecteer de services die niet-kosten toegewezen. Vervolgens definieert u regels voor het toewijzen van kosten.
-
-U wilt bijvoorbeeld uw Azure opslagkosten nemen en distribueren van de kosten evenveel naar virtuele Azure-machines (VM's). Om dit te doen, selecteert u de **Azure-opslag** service, selecteer **die evenredig is met gecategoriseerd**, en selecteer vervolgens **/virtuele machine van Azure**. Selecteer **maken**.
-
-![Voorbeeld van de kosten model toewijzingsregel voor evenredige verdeling](./media/tutorial-manage-costs/cost-model02.png)
+![Voorbeeld van onderverdeling in categorieën van kostenmodel](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-In een ander voorbeeld is het raadzaam alle kosten van uw Azure-netwerk toewijzen aan een specifieke zakelijke eenheid in uw organisatie. Om dit te doen, selecteert u de **Azure/Network** service en selecteer vervolgens **expliciete distributie**. Vervolgens stelt u het distributiepercentage en 100 en selecteer de business unit:**G&amp;A** in de volgende afbeelding:
+In het voorbeeld ziet u dat $14.444 niet is gecategoriseerd (zonder tags).
 
-![Voorbeeld van de kosten model toewijzingsregel voor een specifieke zakelijke eenheid](./media/tutorial-manage-costs/cost-model03.png)
+Selecteer vervolgens **Uncategorized Resources** en selecteer de services die niet-toegewezen kosten hebben. Definieer vervolgens regels voor het toewijzen van kosten.
 
+Stel dat u de Azure opslagkosten evenredig wilt verdelen over de virtuele machines van Azure (VM's). U selecteert dan eerst de service **Azure/Storage**, **Proportional to Categorized** en **Azure/VM**. Ten slotte selecteert u **Create**.
 
-
-Voor alle resterende niet-gecategoriseerde resources van extra toewijzingsregels te maken.
-
-Als u geen niet-toegewezen Amazon Web Services (AWS) gereserveerd instanties hebt, kunt u deze toewijzen aan gelabelde categorieën met **gereserveerde exemplaren**.
-
-U kunt informatie over de opties die u hebt aangebracht kosten wilt toewijzen, selecteer **samenvatting**. Uw gegevens op te slaan en om te blijven werken op extra regels later, selecteert u **als concept opslaan**. Of als u wilt uw gegevens opslaan en Cloudyn begonnen met de verwerking van uw kosten toewijzing model, selecteer **opslaan en activeren**.
-
-De lijst met kosten modellen wordt het nieuwe kostprijsmodel met **verwerkingsstatus**. Het kan even duren voordat de Cloudyn-database wordt bijgewerkt met het kostprijsmodel van uw. Bij het verwerken is voltooid, wordt de status bijgewerkt naar **voltooid**. Vervolgens kunt u gegevens uit uw kostprijsmodel in het rapport analyse van de kosten onder bekijken **uitgebreid Filters** &gt; **kostprijsmodel**.
-
-### <a name="category-manager"></a>Categorie Manager
-
-Categorie Manager is een hulpprogramma voor opschonen van de gegevens waarmee u de waarden van verschillende categorieën (tags) voor het maken van nieuwe samenvoegen. Dit is een eenvoudige regel gebaseerd hulpprogramma waar u een categorie te selecteren en regels voor het samenvoegen van bestaande waarden maken. Bijvoorbeeld, u wellicht bestaande categorieën voor **R&amp;D** en **dev** waarbij zowel de ontwikkelingsgroep vertegenwoordigen.
-
-Klik op het symbool tandwielpictogram in het bovenste rechts en selecteer in de portal Cloudyn **categorie Manager**. Als u een nieuwe categorie, selecteert het plusteken (**+**). Voer een naam voor de categorie en klik vervolgens onder **sleutels**, voer de categorie sleutels die u wilt opnemen in de nieuwe categorie.
-
-Wanneer u een regel definieert, kunt u meerdere waarden met een alternatieve voorwaarde kunt toevoegen. U kunt ook bepaalde tekenreeksbewerkingen basic doen. Voor beide gevallen klikt u op het weglatingsteken (**...** ) rechts van **regel**.
-
-Voor het definiëren van een nieuwe regel in de **regels** gebied, maakt u een nieuwe regel. Voer bijvoorbeeld **dev** onder **regels** en voer vervolgens **R&amp;D** onder **acties**. Wanneer u bent klaar, slaat u uw nieuwe categorie.
-
-De volgende afbeelding toont een voorbeeld van regels die zijn gemaakt voor een nieuwe categorie met de naam **werklast**:
-
-![Voorbeeld van de categorie](./media/tutorial-manage-costs/category01.png)
-
-### <a name="tag-sources-and-reports"></a>Tag bronnen en rapporten
-
-Taggegevens die u in rapporten Cloudyn ziet afkomstig op drie locaties:
-
-- Provider cloudresources API 's
-- Cloudprovider facturering API 's
-- Handmatig gemaakte labels van de volgende bronnen:
-    - Cloudyn entity-tags - gebruiker gedefinieerde metagegevens toegepast op Cloudyn entiteiten
-    - Categorie Manager - een hulpprogramma waarmee u nieuwe labels op basis van regels die worden toegepast op bestaande labels opschoon gegevens
-
-U moet een aangepaste kosten toewijzing model met kosten toewijzing 360 maken om cloud provider labels in Cloudyn Kostenrapporten weer te geven. Om dit te doen, gaat u naar **kosten** > **kostenbeheer** > **kosten toewijzing 360**, selecteert u de gewenste tags en definieer vervolgens regels voor het afhandelen van niet-gecodeerde kosten. Vervolgens maakt u een nieuw kostprijsmodel. Daarna kunt u rapporten bekijken in kosten toewijzing Analysis weergave filteren en sorteren op uw Azure-resource-tags.
-
-Azure-resourcelabels worden alleen weergegeven in **kosten toewijzing Analysis** rapporten.
-
-Cloud provider facturering labels worden weergegeven in alle kostenrapporten.
-
-Cloudyn entity-tags en labels die u handmatig maken weergegeven in Kostenrapporten voor alle.
+![Voorbeeld van toewijzingsregel van kostenmodel voor evenredige verdeling](./media/tutorial-manage-costs/cost-model02.png)
 
 
-## <a name="create-showback-and-chargeback-reports"></a>Showback en doorberekeningsrapporten maken
 
-De methode die organisaties gebruiken om uit te voeren showback en terugstorting varieert aanzienlijk. Echter, kunt u een van de dashboards en rapporten in de portal Cloudyn als basis voor een doel. U kunt gebruikerstoegang voor iedereen in uw organisatie opgeven zodat ze dashboards en rapporten op aanvraag kunnen bekijken. Alle kosten Analysis rapporten showback ondersteunen, omdat ze de resources die ze verbruikt gebruikers weergeven. En Hiermee kunnen gebruikers inzoomen kosten of gebruik gegevens die specifiek is voor de groep binnen uw organisatie.
+In een ander voorbeeld is het bijvoorbeeld wenselijk om alle Azure-netwerkkosten toe te rekenen aan een specifieke bedrijfseenheid in uw organisatie. Hiervoor selecteert u eerst de service **Azure/Network** en **Explicit Distribution**. Vervolgens stelt u het distributiepercentage in op 100 en selecteert u de bedrijfseenheid, **G&amp;A** in de volgende afbeelding:
 
-De resultaten van de kostentoewijzing van de weergeven, opent u het rapport analyse van de kosten en selecteer het kostprijsmodel die u hebt gemaakt. Vervolgens voegt u een groepering door een of meer van de labels die is geselecteerd in het kostprijsmodel.
+![Voorbeeld van toewijzingsregel van kostenmodel voor een specifieke bedrijfseenheid](./media/tutorial-manage-costs/cost-model03.png)
 
-![Rapport analyse kosten](./media/tutorial-manage-costs/cost-analysis.png)
 
-U kunt gemakkelijk maken en opslaan van rapporten die gericht zijn op specifieke services die worden gebruikt door specifieke groepen. U wellicht bijvoorbeeld een afdeling in die gebruikmaakt van Azure Virtual machines uitgebreid. U kunt een rapport wordt gefilterd op Azure Virtual machines om weer te geven en de kosten maken.
 
-Als u momentopnamegegevens leveren aan andere teams wilt, kunt u een rapport in PDF- of CSV-indeling te exporteren.
+Voor alle resterende niet-gecategoriseerde resources stelt u aanvullende toewijzingsregels op.
+
+Als u niet-toegewezen gereserveerde instanties van AWS (Amazon Web Services) hebt, kunt u deze met **Reserved Instances** toewijzen aan getagde categorieën.
+
+Als u informatie wilt bekijken over de keuzes die u hebt gemaakt voor het toewijzen van kosten, selecteert u **Summary**. Selecteer **Save As Draft** om uw gegevens op te slaan en later verder te werken aan de aanvullende regels. Als u de gegevens wilt opslaan en Cloudyn het model voor kostentoewijzing direct mag verwerken, selecteert u **Save and Activate**.
+
+In de lijst met kostenmodellen wordt het nieuwe kostenmodel vermeld met de status **Processing**. Het kan even duren voordat de Cloudyn-database is bijgewerkt met uw kostenmodel. Als de verwerking is voltooid, wordt de status bijgewerkt naar **Completed**. U kunt gegevens uit uw kostenmodel nu bekijken in het rapport Cost Analysis, onder **Extended Filters** &gt; **Cost Model**.
+
+### <a name="category-manager"></a>Category Manager
+
+Category Manager is een hulpprogramma voor het opschonen van gegevens waarmee u de waarden van verschillende categorieën (tags) kunt samenvoegen om nieuwe categorieën te maken. Het is een eenvoudig, op regels gebaseerd hulpprogramma: u selecteert een categorie en maakt regels voor het samenvoegen van bestaande waarden. Stel dat u bestaande categorieën hebt voor **R&amp;D** en **dev**, die allebei dezelfde ontwikkelingsgroep vertegenwoordigen.
+
+Klik in de rechterbovenhoek van de portal van Cloudyn op het tandwielpictogram en selecteer **Category Manager**. Als u een nieuwe categorie wilt maken, selecteert u het plusteken (**+**). Voer een naam in voor de categorie en voer vervolgens onder **Keys** de categoriesleutels in die u wilt opnemen in de nieuwe categorie.
+
+Wanneer u een regel definieert, kunt u meerdere waarden toevoegen met behulp van een OR-voorwaarde. U kunt ook enkele eenvoudige bewerkingen op tekenreeksen uitvoeren. In beide gevallen klikt u op het beletselteken (**...** ) rechts van **Rule**.
+
+Als u een nieuwe regel wilt definiëren, kan dat in het gebied **Rules**. Voer bijvoorbeeld eerst **dev** in onder **Rules** en vervolgens **R&amp;D** onder **Actions**. Als u dat hebt gedaan, kunt u de nieuwe categorie opslaan.
+
+De volgende afbeelding toont een voorbeeld van regels die zijn gemaakt voor een nieuwe categorie met de naam **Work-Load**:
+
+![Voorbeeld van categorie](./media/tutorial-manage-costs/category01.png)
+
+### <a name="tag-sources-and-reports"></a>Tagbronnen en rapporten
+
+Taggegevens in Cloudyn-rapporten zijn afkomstig van drie locaties:
+
+- API's van cloudprovider-resources
+- API's van cloudproviders voor facturering
+- Handmatig gemaakte tags uit de volgende bronnen:
+    - Tags voor Cloudyn-entiteiten: door de gebruiker gedefinieerde metagegevens die zijn toegepast op Cloudyn entiteiten
+    - Category Manager: een hulpprogramma voor het opschonen van gegevens waarmee u nieuwe tags kunt maken op basis van regels die worden toegepast op bestaande tags
+
+Als u tags van cloudproviders in kostenrapporten van Cloudyn wilt zien, moet u een aangepast model voor kostentoewijzing maken met behulp van Cost Allocation 360. Ga hiervoor naar **Cost** > **Cost Management** > **Cost Allocation 360**, selecteer de gewenste tags en definieer regels voor het afhandelen van kosten zonder tag. Maak vervolgens een nieuw kostenmodel. Daarna kunt u in Cost Allocation Analysis rapporten weergeven om tags van Azure-resources te bekijken, te filteren en te sorteren.
+
+Tags van Azure-resources worden alleen weergegeven in rapporten van **Cost Allocation Analysis**.
+
+Factureringstags van cloudproviders worden weergegeven in alle kostenrapporten.
+
+Tags van Cloudyn-entiteiten en tags die u handmatig maakt, worden in alle kostenrapporten weergegeven.
+
+
+## <a name="create-showback-and-chargeback-reports"></a>Showback- en chargeback-rapporten maken
+
+De methode die organisaties gebruiken om showback en chargeback uit te voeren, varieert aanzienlijk. U kunt echter alle dashboards en rapporten in de portal van Cloudyn gebruiken als de basis voor beide doeleinden. U kunt iedereen in uw organisatie toegang geven, zodat ze op aanvraag dashboards en rapporten kunnen bekijken. Alle kostenanalyserapporten ondersteunen showback omdat ze informatie bevatten over de resources die door gebruikers zijn verbruikt. Daarnaast bieden ze gebruikers de gelegenheid om in te zoomen op kosten- of gebruiksgegevens die specifiek zijn voor hun groep binnen uw organisatie.
+
+Als u de resultaten van de kostentoewijzing wilt bekijken, opent u het kostenanalyserapport en selecteert u het kostenmodel dat u hebt gemaakt. Vervolgens voegt u een groepering door op een of meer van de tags die zijn geselecteerd in het kostenmodel.
+
+![Kostenanalyserapport](./media/tutorial-manage-costs/cost-analysis.png)
+
+U kunt eenvoudig rapporten maken en opslaan die zijn toegespitst op specifieke services die zijn verbruikt door bepaalde groepen. Stel dat een afdeling binnen uw organisatie intensief gebruikmaakt van VM's van Azure. U kunt dan een rapport maken dat is gefilterd op VM's van Azure om het verbruik en de kosten inzichtelijk te maken.
+
+Als u momentopname van de gegevens beschikbaar wilt stellen aan andere teams, kunt u een rapport exporteren in de PDF- of CSV-indeling.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -117,12 +117,12 @@ Als u momentopnamegegevens leveren aan andere teams wilt, kunt u een rapport in 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Gebruik aangepaste labels kosten wilt toewijzen.
-> * Showback en doorberekeningsrapporten maken.
+> * Aangepaste tags gebruiken voor het toewijzen van kosten.
+> * Showback- en chargeback-rapporten maken.
 
 
 
-Voor meer informatie over aan de slag met Cloudyn en ga verder met behulp van de functies de Cloudyn-documentatie.
+Raadpleeg de documentatie van Cloudyn om aan de slag te gaan met de oplossing.
 
 > [!div class="nextstepaction"]
-> [Cloudyn documentatie](https://support.cloudyn.com/hc/)
+> [Documentatie van Cloudyn](https://support.cloudyn.com/hc/)

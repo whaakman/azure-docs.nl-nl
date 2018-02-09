@@ -1,6 +1,6 @@
 ---
 title: Demo in eigen tempo over Serviceoverzicht | Microsoft Docs
-description: Serviceoverzicht is een oplossing in Operations Management Suite (OMS) die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst.  Dit is een demo in eigen tempo over hoe u Serviceoverzicht kunt gebruiken om een gesimuleerd probleem in een webtoepassing te identificeren en te diagnosticeren.
+description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst.  Dit is een demo in eigen tempo over hoe u Serviceoverzicht kunt gebruiken om een gesimuleerd probleem in een webtoepassing te identificeren en te diagnosticeren.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>OMS-demo (Operations Management Suited-demo) in eigen tempo - Serviceoverzicht
-Deze demo in eigen tempo laat zien hoe u de oplossing [Serviceoverzicht](operations-management-suite-service-map.md) in Operations Management Suite (OMS) kunt gebruiken om een gesimuleerd probleem in een webtoepassing te identificeren en te diagnosticeren.  Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe.  De oplossing voegt ook gegevens samen die zijn verzameld door andere OMS-services, om u te helpen bij het analyseren van prestaties en het identificeren van problemen.  U gaat ook gebruikmaken van [zoeken in opdrachten in Log Analytics](../log-analytics/log-analytics-log-searches.md), waarmee u de verzamelde gegevens verder kunt bestuderen om de hoofdoorzaak van een probleem te achterhalen.
+# <a name="self-paced-demo---service-map"></a>Demo in eigen tempo - Serviceoverzicht
+Dit is een demo die u in uw eigen tempo kunt uitvoeren en waarin u leert hoe u de [oplossing Serviceoverzicht](operations-management-suite-service-map.md) kunt gebruiken in Azure om een gesimuleerd probleem in een webtoepassing te identificeren en te diagnosticeren.  Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe.  De oplossing voegt ook gegevens samen die zijn verzameld door andere services en oplossingen, om u te helpen bij het analyseren van prestaties en het identificeren van problemen.  U gaat ook gebruikmaken van [zoeken in opdrachten in Log Analytics](../log-analytics/log-analytics-log-searches.md), waarmee u de verzamelde gegevens verder kunt bestuderen om de hoofdoorzaak van een probleem te achterhalen.
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -35,7 +35,7 @@ U hebt zojuist een melding ontvangen dat de ACME Customer Portal-toepassing pres
 ## <a name="walk-through"></a>Overzicht
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Verbinding maken met het OMS Experience Center
-In dit overzicht wordt gebruikgemaakt van het [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), waarmee u beschikt over een volledige OMS-omgeving met voorbeeldgegevens. U begint met deze koppeling te volgen, uw gegevens in te voeren en het scenario **Insight and Analytics** te selecteren.
+In dit overzicht wordt gebruikgemaakt van het [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), waarmee u beschikt over een volledige omgeving voor Log Analytics met voorbeeldgegevens. U begint met deze koppeling te volgen, uw gegevens in te voeren en het scenario **Insight and Analytics** te selecteren.
 
 
 ### <a name="2-start-service-map"></a>2. Serviceoverzicht starten
@@ -80,7 +80,7 @@ U gaat **acmetomcat** nader bekijken.  Klik in de rechterbovenhoek van **acmetom
 
 
 ### <a name="7-view-change-tracking"></a>7. Wijzigingen bijhouden weergeven
-Nu gaat u uitzoeken waardoor deze pieken in het gebruik worden veroorzaakt.  Klik op het tabblad **Samenvatting**.  Hier vindt u informatie over de computer die door OMS is verzameld, zoals mislukte verbindingen, kritieke waarschuwingen en wijzigingen in de software.  Secties met relevante recente informatie zijn al uitgevouwen en u kunt ook alle overige secties uitvouwen als u de betreffende informatie wilt inspecteren.
+Nu gaat u uitzoeken waardoor deze pieken in het gebruik worden veroorzaakt.  Klik op het tabblad **Samenvatting**.  Hier vindt u informatie over de computer die door Log Analytics is verzameld, zoals mislukte verbindingen, kritieke waarschuwingen en wijzigingen in de software.  Secties met relevante recente informatie zijn al uitgevouwen en u kunt ook alle overige secties uitvouwen als u de betreffende informatie wilt inspecteren.
 
 
 Vouw **Wijzigingen bijhouden** open als dit nog niet is gebeurd.  Hier vindt u informatie die door de oplossing [Wijzigingen bijhouden](../log-analytics/log-analytics-change-tracking.md) is verzameld.  Het lijkt erop dat er in dit tijdvenster een softwarewijziging heeft plaatsgevonden.  Klik op **Software** voor meer details.  Even na 4:00 uur is er een back-upproces aan de computer toegevoegd. Dit lijkt de oorzaak te zijn van het overmatig gebruik van resources.
@@ -90,13 +90,13 @@ Vouw **Wijzigingen bijhouden** open als dit nog niet is gebeurd.  Hier vindt u i
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Details weergeven in Zoeken in logboeken
-U kunt dit verder controleren door de gedetailleerde prestatiegegevens te bekijken die zijn verzameld in de Log Analytics-opslagplaats.  Klik nogmaals op het tabblad **Waarschuwingen** en vervolgens op een van de waarschuwingen in **Hoog CPU-verbruik**.  Klik op **Weergeven in Zoeken in logboeken**.  Hiermee opent u het venster Zoeken in logboeken, waar u [zoekopdrachten](../log-analytics/log-analytics-log-searches.md) kunt starten naar gegevens die in de opslagplaats zijn opgeslagen.  Serviceoverzicht heeft al een query voor ons ingevuld voor het ophalen van de waarschuwing waarin we zijn geïnteresseerd.  
+We kunnen dit verder onderzoeken door de gedetailleerde prestatiegegevens te bekijken die zijn verzameld in de werkruimte van Log Analytics.  Klik nogmaals op het tabblad **Waarschuwingen** en vervolgens op een van de waarschuwingen in **Hoog CPU-verbruik**.  Klik op **Weergeven in Zoeken in logboeken**.  Hiermee opent u het venster Zoeken in logboeken, waar u [zoekopdrachten](../log-analytics/log-analytics-log-searches.md) kunt starten naar gegevens die in de werkruimte zijn opgeslagen.  Serviceoverzicht heeft al een query voor ons ingevuld voor het ophalen van de waarschuwing waarin we zijn geïnteresseerd.  
 
 ![Zoekopdrachten in logboeken](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Opgeslagen zoekopdracht openen
-Misschien kunt u meer informatie krijgen over de prestatieverzameling die deze waarschuwing heeft gegenereerd, om te controleren of de problemen inderdaad zijn veroorzaakt door dit back-upproces.  Wijzig het tijdsbereik in **6 uur**.  Klik vervolgens op **Favorieten** en blader omlaag naar de opgeslagen zoekopdrachten voor **Serviceoverzicht**.  Dit zijn query's die specifiek voor deze analyse zijn gemaakt.  Klik op **Top 5 Processes by CPU for acmetomcat**.
+Misschien kunt u meer informatie krijgen over de prestatieverzameling die deze waarschuwing heeft gegenereerd, om te controleren of de problemen inderdaad zijn veroorzaakt door dit back-upproces.  Wijzig het tijdsbereik in **6 uur**.  Klik vervolgens op **Favorieten** en blader omlaag naar de opgeslagen zoekopdrachten voor **Serviceoverzicht**.  We hebben deze query's specifiek ontwikkeld voor deze analyse.  Klik op **Top 5 Processes by CPU for acmetomcat**.
 
 ![Opgeslagen zoekopdracht](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
@@ -108,8 +108,8 @@ In dit geval ziet u dat het back-upproces consistent ongeveer 60% van de CPU van
 
 ## <a name="summary-points"></a>Overzichtspunten
 - [Serviceoverzicht](operations-management-suite-service-map.md) geeft een beeld van de gehele toepassing, zelfs als u niet alle servers en afhankelijkheden kent.
-- Serviceoverzicht toont gegevens die door andere OMS-oplossingen zijn verzameld, om u te helpen bij het identificeren van problemen met uw toepassing en de onderliggende infrastructuur.
-- Met [Zoeken in logboeken](../log-analytics/log-analytics-log-searches.md) kunt u inzoomen op specifieke gegevens die zijn verzameld in de Log Analytics-opslagplaats.    
+- Serviceoverzicht toont gegevens die door andere beheeroplossingen zijn verzameld, om u te helpen bij het identificeren van problemen met uw toepassing en de onderliggende infrastructuur.
+- Met [Zoeken in logboeken](../log-analytics/log-analytics-log-searches.md) kunt u inzoomen op specifieke gegevens die zijn verzameld in de werkruimte van Log Analytics.    
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Serviceoverzicht](operations-management-suite-service-map.md).

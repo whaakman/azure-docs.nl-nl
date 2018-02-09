@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Een naamruimte maken met Event Hub en Capture inschakelen met behulp van een sjabloon
 
-In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Event Hubs-naamruimte te maken met één exemplaar van de gebeurtenishub en de [functie Capture](event-hubs-capture-overview.md) op de gebeurtenishub in te schakelen. In het artikel wordt beschreven hoe u kunt aangeven welke resources worden geïmplementeerd en hoe u de parameters definieert die bij de uitvoering van de implementatie zijn opgegeven. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een [Event Hubs](event-hubs-what-is-event-hubs.md)-naamruimte te maken met één exemplaar van de gebeurtenishub en de [functie Capture](event-hubs-capture-overview.md) op de gebeurtenishub in te schakelen. In het artikel wordt beschreven hoe u kunt aangeven welke resources worden geïmplementeerd en hoe u de parameters definieert die bij de uitvoering van de implementatie zijn opgegeven. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
 Ook wordt uitgelegd hoe u kunt opgeven dat gebeurtenissen worden vastgelegd in Azure Storage-blobs of in een Azure Data Lake Store, op basis van de bestemming die u kiest.
 
@@ -42,11 +42,7 @@ Voor de volledige-sjablonen klikt u op de volgende GitHub-koppelingen:
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 
-Met deze sjabloon implementeert u een Event Hubs-naamruimte met een gebeurtenishub en schakelt u tevens [Event Hubs Cinapture](event-hubs-capture-overview.md) in.
-
-[Event Hubs](event-hubs-what-is-event-hubs.md) is een verwerkingsservice van gebeurtenissen, die wordt gebruikt om zeer grote hoeveelheden gebeurtenissen en telemetriegegevens verzamelt in Azure met een lage latentie en hoge betrouwbaarheid. Met Event Hubs Capture kunt u automatisch de gegevensstroom in uw gebeurtenishubs bezorgen in een Azure Blob-opslagaccount of Azure Data Lake Store van uw keuze, binnen een opgegeven periode of grootte van uw keuze.
-
-Klik op de volgende knop om Event Hubs Capture in te schakelen in Azure Storage:
+Met deze sjabloon implementeert u een Event Hubs-naamruimte met een gebeurtenishub en schakelt u tevens [Event Hubs Cinapture](event-hubs-capture-overview.md) in. Met Event Hubs Capture kunt u automatisch de gegevensstroom in uw gebeurtenishubs bezorgen in een Azure Blob-opslagaccount of Azure Data Lake Store van uw keuze, binnen een opgegeven periode of grootte van uw keuze. Klik op de volgende knop om Event Hubs Capture in te schakelen in Azure Storage:
 
 [![Implementeren in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ De sjabloon definieert de volgende parameters.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-De naam van de [Event Hubs-naamruimte](event-hubs-create.md) die wordt gemaakt.
+De naam van de Event Hubs-naamruimte die wordt gemaakt.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ De naam van de [Event Hubs-naamruimte](event-hubs-create.md) die wordt gemaakt.
 
 ### <a name="eventhubname"></a>eventHubName
 
-De naam van de gebeurtenishub die in de [Event Hubs-naamruimte](event-hubs-create.md) wordt gemaakt.
+De naam van de gebeurtenishub die in de Event Hubs-naamruimte wordt gemaakt.
 
 ```json
 "eventHubName":{  
@@ -405,7 +401,7 @@ Een sjabloon implementeren om Event Hubs Capture in te schakelen in Azure Data L
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
 Azure Blob Storage als doel:
 

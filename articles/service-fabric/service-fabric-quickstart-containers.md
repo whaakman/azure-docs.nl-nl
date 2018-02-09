@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Een Service Fabric Windows-containertoepassing implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -79,24 +79,44 @@ Configureer de poorttoewijzing poort-naar-host voor de container door een `PortB
 Een volledig voorbeeld van een ApplicationManifest.xml-bestand vindt u aan het einde van dit artikel.
 
 ## <a name="create-a-cluster"></a>Een cluster maken
-U kunt voor het implementeren van de toepassing naar een cluster in Azure uw eigen cluster maken of een cluster van derden gebruiken.
+U kunt voor het implementeren van de toepassing naar een cluster in Azure een Party-cluster gebruiken of [uw eigen cluster maken in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden.  
+Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. 
 
-Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) voor meer informatie over het maken van uw eigen cluster.
+Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Het certificaat en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
 
-Let op het verbindingseindpunt, u gaat dit in de volgende stap gebruiken.  
+![PFX en verbindingseindpunt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Op een Windows-computer installeert u het PFX-bestand in het certificaatarchief *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Onthoud de vingerafdruk voor de volgende stap.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>De toepassing publiceren in Azure met Visual Studio
 Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar een cluster.
 
 Klik met de rechtermuisknop op **MyFirstContainer** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 
-![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Advanced Connection Parameters** en vul de volgende gegevens in.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in de vorige stap is geïnstalleerd. 
 
-Typ het verbindingseindpunt van het cluster in het veld **Verbindingseindpunt**. Bij het aanmelden voor het externe cluster wordt het eindpunt van de verbinding beschikbaar in de browser, bijvoorbeeld `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Klik op **Publiceren** om de toepassing te implementeren.
+![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Open een browser en ga naar http://winh1x87d1d.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
+Klik op **Publish**.
+
+Elke toepassing in het cluster moet een unieke naam hebben.  Clusters van derden vormen echter een openbare, gedeelde omgeving en er kan een conflict met een bestaande toepassing optreden.  Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
+
+Open een browser en ga naar http://zwin7fh14scd.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
 Dit zijn de volledige manifesten voor de service en toepassing die worden gebruikt in deze snelstartgids.
@@ -167,6 +187,7 @@ Dit zijn de volledige manifesten voor de service en toepassing die worden gebrui
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

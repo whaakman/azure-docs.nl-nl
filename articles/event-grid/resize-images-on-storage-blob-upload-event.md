@@ -1,6 +1,6 @@
 ---
-title: "Gebruik Azure gebeurtenis raster te automatiseren vergroten of verkleinen geüpload installatiekopieën | Microsoft Docs"
-description: "Azure Event raster kunt activeren voor uploaden van blob in Azure Storage. U kunt deze gebruiken voor het verzenden van afbeeldingsbestanden naar Azure Storage is geüpload naar andere verbeteringen en andere services, zoals Azure Functions voor het vergroten of verkleinen."
+title: "Formaat van geüploade afbeeldingen automatisch wijzigen met Azure Event Grid | Microsoft Docs"
+description: "U kunt instellen dat Azure Event Grid wordt geactiveerd als er blobs worden geüpload in Azure Storage. Dit is handig om afbeeldingsbestanden naar Azure Storage die worden geüpload naar Azure Storage te verzenden naar andere services, zoals Azure Functions, voor het aanpassen van het formaat en andere verbeteringen."
 services: event-grid
 author: ggailey777
 manager: cfowler
@@ -12,50 +12,50 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatiseren geüploade afbeeldingen met gebeurtenis raster vergroten of verkleinen
+# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
-[Azure Event raster](overview.md) is een gebeurtenisservice voor de cloud. Gebeurtenis raster kunt u abonnementen op gebeurtenissen die worden gegenereerd door de Azure-services of derden resources maken.  
+[Azure Event Grid](overview.md) is een gebeurtenisservice voor de cloud. Met Event Grid kunt u abonnementen nemen op gebeurtenissen die worden gegenereerd door Azure-services of resources van derden.  
 
-Deze zelfstudie maakt deel uit van een reeks zelfstudies voor opslag. Hiermee wordt uitgebreid de [vorige opslag zelfstudie] [ previous-tutorial] om toe te voegen zonder server automatisch miniaturen genereren met behulp van Azure Event raster en Azure Functions. Gebeurtenis raster kunt [Azure Functions](..\azure-functions\functions-overview.md) om te reageren op [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) gebeurtenissen en genereren van miniaturen van geüploade afbeeldingen. Een gebeurtenisabonnement wordt gemaakt op basis van de Blob storage gebeurtenis maken. Wanneer een blob is toegevoegd aan een specifieke Blob storage-container, wordt een functie-eindpunt aangeroepen. Gegevens die zijn doorgegeven aan de functiebinding van de gebeurtenis raster wordt gebruikt voor toegang tot de blob en het genereren van de miniatuur. 
+Deze zelfstudie is deel twee in een reeks zelfstudies over Azure Storage en is een vervolg op de [vorige zelfstudie over Storage][previous-tutorial] met als doel om zonder tussenkomst van een server automatisch miniaturen te genereren met behulp van Azure Event Grid en Azure Functions. Event Grid zorgt ervoor dat [Azure Functions](..\azure-functions\functions-overview.md) kan reageren op gebeurtenissen van [Azure Blob-opslag](..\storage\blobs\storage-blobs-introduction.md) om miniaturen van geüploade afbeeldingen te genereren. Een gebeurtenisabonnement wordt gekoppeld aan gebeurtenis waarmee Blob-opslag wordt gemaakt. Wanneer er een blob wordt toegevoegd aan een specifieke Blob-opslagcontainer, wordt er een functie-eindpunt aangeroepen. Aan de hand van gegevens die vanuit Event Grid worden doorgegeven aan de functiebinding, wordt er toegang verkregen tot de blob en wordt de miniatuurafbeelding gegenereerd. 
 
-Met de Azure CLI en de Azure portal kunt u het formaat functionaliteit toevoegen aan een bestaande installatiekopie uploaden app.
+Met behulp van de Azure CLI en Azure Portal kunt u de functionaliteit voor formaatwijziging toevoegen aan een bestaande app voor het uploaden van afbeeldingen.
 
-![Gepubliceerde web-app in Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Gepubliceerde web-app in de Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een algemeen Azure Storage-account maken
-> * Als u kiest met behulp van Azure Functions-code implementeren
-> * Maken van een Blob-opslag voor een gebeurtenisabonnement in gebeurtenis raster
+> * Een algemene Azure Storage-account maken
+> * Serverloze code implementeren met behulp van Azure Functions
+> * Een gebeurtenisabonnement voor Blob-opslag maken in Event Grid
 
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-+ U moet voltooid van de vorige Blob storage-zelfstudie: [image-gegevens in de cloud met Azure Storage uploadt][previous-tutorial]. 
++ U moet de vorige zelfstudie over Blob-opslag hebben voltooid: [Afbeeldingsgegevens uploaden in de cloud met Azure Storage][previous-tutorial]. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in dit onderwerp is vereist dat u de Azure CLI versie 2.0.14 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0.14 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 Als u Cloud Shell niet gebruikt, moet u eerst zich aanmelden met `az login`.
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
-Azure Functions is een algemeen opslagaccount vereist. Een afzonderlijke algemeen opslagaccount in de resourcegroep maken met behulp van de [az storage-account maken](/cli/azure/storage/account#create) opdracht.
+Voor Azure Functions is een algemeen opslagaccount vereist. Maak een afzonderlijk algemeen opslagaccount in de resourcegroep met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. 
 
-In de volgende opdracht te vervangen door uw eigen globaal unieke naam voor de algemeen opslagaccount waarin u zien hoe de `<general_storage_account>` tijdelijke aanduiding. 
+Vervang in de volgende opdracht de tijdelijke aanduiding `<general_storage_account>` door uw eigen unieke naam voor het algemene opslagaccount. 
 
 ```azurecli-interactive
 az storage account create --name <general_storage_account> \
@@ -65,20 +65,20 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Een functie-app maken  
 
-U moet een functie-app voor het hosten van de uitvoering van de functie hebben. De functie-app biedt een omgeving waarin uw functiecode zonder server kan worden uitgevoerd. Een functie-app maken met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#create). 
+U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functie. De functie-app biedt een omgeving waarin uw functiecode zonder server kan worden uitgevoerd. Een functie-app maken met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
-Vervang de naam van uw eigen unieke functie-app waarin u ziet in de volgende opdracht de `<function_app>` tijdelijke aanduiding. De `<function_app>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. In dit geval `<general_storage_account>` is de naam van het algemeen opslagaccount dat u hebt gemaakt.  
+Vervang in de volgende opdracht de tijdelijke aanduiding `<function_app>` door de unieke naam van uw eigen functie-app. De `<function_app>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. In dit geval is `<general_storage_account>` de naam van het algemene opslagaccount dat u hebt gemaakt.  
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
 --resource-group myResourceGroup --consumption-plan-location westcentralus
 ```
 
-Nu moet u de functie-app verbinding maken met blobopslag configureren. 
+Nu moet u de functie-app configureren om verbinding te maken met de blob-opslag. 
 
 ## <a name="configure-the-function-app"></a>De functie-app configureren
 
-De functie moet de verbindingsreeks verbinding maken met de blob storage-account. In dit geval `<blob_storage_account>` is de naam van de Blob storage-account die u in de vorige zelfstudie hebt gemaakt. Ophalen van de verbindingsreeks met het [az storage-account weergeven verbindingsreeks](/cli/azure/storage/account#show-connection-string) opdracht. De containernaam miniatuurafbeelding moet ook worden ingesteld op `thumbs`. Deze toepassingsinstellingen toevoegen in de functie-app met de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
+De functie heeft de verbindingsreeks nodig om verbinding te maken met het blob-opslagaccount. In dit geval is `<blob_storage_account>` de naam van het Blob-opslagaccount dat u hebt gemaakt in de vorige zelfstudie. Haal de verbindingsreeks op met de opdracht [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). De containernaam van de miniatuurafbeelding moet ook worden ingesteld op `thumbs`. Voeg deze toepassingsinstellingen toe aan de functie-app met de opdracht [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -91,13 +91,13 @@ az functionapp config appsettings set --name <function_app> \
 myContainerName=thumbs
 ```
 
-U kunt nu een functie CodeProject om deze functie-app te implementeren.
+U kunt nu een codeproject van Functions implementeren naar deze functie-app.
 
 ## <a name="deploy-the-function-code"></a>De functiecode implementeren 
 
-De C#-functie waarmee de grootte van afbeeldingen aanpassen is beschikbaar in deze [voorbeeld GitHub-opslagplaats](https://github.com/Azure-Samples/function-image-upload-resize). Deze functies CodeProject naar de functie-app implementeren met behulp van de [az functionapp implementatieconfiguratie bron](/cli/azure/functionapp/deployment/source#config) opdracht. 
+De C#-functie waarmee het formaat van afbeeldingen wordt aangepast, is beschikbaar in deze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure-Samples/function-image-upload-resize). Implementeer dit codeproject van Functions naar de functie-app met behulp van de opdracht [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
 
-In de volgende opdracht `<function_app>` wordt dezelfde functie-app die u hebt gemaakt in het vorige script.
+In de volgende opdracht is `<function_app>` dezelfde functie-app die u hebt gemaakt in het vorige script.
 
 ```azurecli-interactive
 az functionapp deployment source config --name <function_app> \
@@ -105,67 +105,69 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-De functie van de installatiekopie van formaat wordt geactiveerd door een gebeurtenisabonnement op een gebeurtenis Blob gemaakt. De gegevens die zijn doorgegeven aan de trigger bevat de URL van de blob die op zijn beurt wordt doorgegeven naar de invoer binding voor de installatiekopie van het geüploade van Blob-opslag. De functie genereert een miniatuur en de resulterende stroom schrijft naar een afzonderlijke container in Blob-opslag. Zie voor meer informatie over deze functie, de [Leesmij-bestand in de opslagplaats voorbeeld](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
-De functie projectcode wordt rechtstreeks vanuit de opslagplaats openbaar voorbeeld geïmplementeerd. Zie voor meer informatie over de implementatieopties voor Azure Functions, [continue implementatie voor Azure Functions](../azure-functions/functions-continuous-deployment.md).
+De functie voor het aanpassen van het afbeeldingsformaat wordt geactiveerd door een gebeurtenisabonnement op een gebeurtenis voor het maken van een blob. De gegevens die worden doorgegeven aan de trigger bevatten de URL van de blob, die weer wordt doorgegeven aan de invoerbinding om de geüploade afbeelding op te halen uit de Blob-opslag. De functie genereert een miniatuurafbeelding en de resulterende stroom wordt weggeschreven naar een afzonderlijke container in de Blob-opslag. Meer informatie over deze functie kunt u lezen in het [readme-bestand in de opslagplaats met voorbeelden](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
 
-## <a name="create-your-event-subscription"></a>Uw gebeurtenisabonnement maken
+Dit project gebruikt `EventGridTrigger` als het type trigger. Het wordt aangeraden om de trigger van Event Grid te gebruiken in plaats van algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
 
-Een gebeurtenisabonnement geeft aan welke gebeurtenissen provider worden gegenereerd op de gewenste verzonden naar een specifieke eindpunt. In dit geval wordt wordt het eindpunt blootgelegd door de functie. Gebruik de volgende stappen uit voor een gebeurtenisabonnement van de functie in de Azure-portal: 
+Het codeproject van Functions wordt rechtstreeks vanuit de openbare opslagplaats met voorbeelden geïmplementeerd. Zie [Doorlopende implementatie voor Azure Functions](../azure-functions/functions-continuous-deployment.md) voor meer informatie over implementatieopties voor Azure Functions.
 
-1. In de [Azure-portal](https://portal.azure.com), klikt u op de pijl naar linksonder om uit te breiden alle services, typt u `functions` in de **Filter** veld en kies vervolgens **functie Apps**. 
+## <a name="create-your-event-subscription"></a>Gebeurtenisabonnement maken
 
-    ![Blader naar de functie Apps in Azure portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurtenissen u naar een bepaald eindpunt wilt versturen. In dit geval wordt het eindpunt bepaald door de functie. Gebruik de volgende stappen om in Azure Portal een gebeurtenisabonnement te maken voor de functie: 
 
-2. Vouw de functie-app, kiest u de **imageresizerfunc** functioneren en selecteer vervolgens **toevoegen gebeurtenis raster abonnement**.
+1. Klik in [Azure Portal](https://portal.azure.com) op de pijl linksonder om alle services uit te vouwen, typ `functions` in het veld **Filter** en kies vervolgens **Functie-apps**. 
 
-    ![Blader naar de functie Apps in Azure portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    ![Naar Functie-apps bladeren in Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-3. Gebruik de gebeurtenis abonnementsinstellingen zoals opgegeven in de tabel.
+2. Vouw de functie-app uit, kies de functie **imageresizerfunc** en selecteer vervolgens **Event Grid-abonnement toevoegen**.
 
-    ![Voor een gebeurtenisabonnement van de functie in de Azure portal maken](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Naar Functie-apps bladeren in Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+
+3. Gebruik de instellingen voor het gebeurtenisabonnement zoals die zijn opgegeven in de tabel onder de afbeelding.
+
+    ![Een gebeurtenisabonnement maken voor de functie in Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Naam** | imageresizersub | De naam die uw abonnement op nieuwe gebeurtenissen identificeert. | 
-    | **Onderwerptype** |  Opslagaccounts | Kies de opslagprovider voor de account-gebeurtenis. | 
-    | **Abonnement** | Uw abonnement | Standaard moet uw huidige abonnement worden geselecteerd.   |
-    | **Resourcegroep** | myResourceGroup | Selecteer **gebruik bestaande** en kiest u de resourcegroep die u hebt gebruikt in dit onderwerp.  |
-    | **Exemplaar** |  `<blob_storage_account>` |  Kies de Blob storage-account die u hebt gemaakt. |
-    | **Typen gebeurtenissen** | BLOB gemaakt | Schakel alle typen dan **Blob gemaakt**. Gebeurtenistypen van `Microsoft.Storage.BlobCreated` zijn doorgegeven aan de functie.| 
-    | **Abonnee eindpunt** | automatisch gegenereerde | Gebruik de eindpunt-URL die wordt gegenereerd voor u. | 
-    | **Voorvoegsel filter** | / blobServices/standaard/containers/installatiekopieën/blobs / | Gebeurtenissen van de opslag tot alleen degenen gefilterd op de **installatiekopieën** container.| 
+    | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
+    | **Onderwerptype** |  Opslagaccounts | Kies de provider voor de gebeurtenissen van het opslagaccount. | 
+    | **Abonnement** | Uw Azure-abonnement | De standaardinstelling is dat u uw huidige Azure-abonnement selecteert.   |
+    | **Resourcegroep** | myResourceGroup | Selecteer **Bestaande gebruiken** en kies de resourcegroep die u in deze zelfstudie hebt gebruikt.  |
+    | **Exemplaar** |  `<blob_storage_account>` |  Kies het Blob-opslagaccount dat u hebt gemaakt. |
+    | **Gebeurtenistypen** | BlobCreated | Schakel alle typen uit behalve **BlobCreated**. Alleen gebeurtenistypen van `Microsoft.Storage.BlobCreated` worden doorgegeven aan de functie.| 
+    | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
+    | **Voorvoegselfilter** | /blobServices/default/containers/images/blobs/ | Opslaggebeurtenissen filteren op alleen de gebeurtenissen in de container **images**.| 
 
-4. Klik op **maken** het gebeurtenisabonnement wilt toevoegen. Hiermee maakt u een abonnement op gebeurtenissen die activeert **imageresizerfunc** wanneer een blob wordt toegevoegd aan de **installatiekopieën** container. Installatiekopieën van het formaat is gewijzigd, worden toegevoegd aan de **duim** container.
+4. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die **imageresizerfunc** activeert op het moment dat er een blob wordt toegevoegd aan de container **images**. Afbeeldingen waarvan het formaat is gewijzigd, worden toegevoegd aan de container **thumbs**.
 
-Nu dat de back-end-services zijn geconfigureerd, kunt u de installatiekopie formaat functionaliteit testen in de voorbeeld-web-app. 
+De services in de back-end zijn nu geconfigureerd. Dit betekent dat u de functionaliteit voor het aanpassen van het formaat van afbeeldingen kunt gaan testen in de voorbeeld-web-app. 
 
 ## <a name="test-the-sample-app"></a>De voorbeeld-app testen
 
-Als u wilt testen in de web-app grootte van afbeeldingen, blader naar de URL van uw gepubliceerde app. De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.
+U kunt de formaatwijziging door de web-app testen door naar de URL van de gepubliceerde app te gaan. De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.
 
-Klik op de **foto's uploaden** regio selecteren en een bestand te uploaden. U kunt ook een foto slepen naar deze regio. 
+Klik ergens in het gebied **Foto's uploaden** om een bestand te selecteren en te uploaden. U kunt ook een foto naar dit gebied slepen. 
 
-Nadat de installatiekopie van het geüploade verdwijnt, een kopie van de installatiekopie van het geüploade wordt weergegeven de **gegenereerd miniaturen** carrousel. Deze installatiekopie is gewijzigd door de functie, toegevoegd aan de container duim en door de webclient gedownload. 
+Zodra de geüploade afbeelding is verdwenen, ziet u een kopie van de geüploade afbeelding in de carrousel **Gegenereerde miniaturen**. Het formaat van deze afbeelding is gewijzigd door de functie, waarna de afbeelding is toegevoegd aan de container thumbs en is gedownload door de webclient. 
 
-![Gepubliceerde web-app in Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Gepubliceerde web-app in de Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een algemeen Azure Storage-account maken
-> * Als u kiest met behulp van Azure Functions-code implementeren
-> * Maken van een Blob-opslag voor een gebeurtenisabonnement in gebeurtenis raster
+> * Een algemene Azure Storage-account maken
+> * Serverloze code implementeren met behulp van Azure Functions
+> * Een gebeurtenisabonnement voor Blob-opslag maken in Event Grid
 
-Ga naar deel 2 van de opslag van de zelfstudie reeks voor informatie over het beveiligen van toegang tot het opslagaccount.
+Ga naar deel drie van de reeks met zelfstudies over Azure Storage om te leren hoe u de toegang tot het opslagaccount beveiligt.
 
 > [!div class="nextstepaction"]
-> [Veilige toegang tot gegevens in een toepassingen in de cloud](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Toegang tot gegevens van een toepassingen in de cloud beveiligen](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 
-+ Zie voor meer informatie over de gebeurtenis raster, [een inleiding tot Azure gebeurtenis raster](overview.md). 
-+ U probeert een ander zelfstudie met functionaliteit voor Azure Functions, Zie [maken van een functie die kan worden geïntegreerd met Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 
++ Zie [Een inleiding tot Azure Event Grid](overview.md) voor meer informatie over Event Grid. 
++ Zie [Een functie maken die kan worden geïntegreerd met Azure Logic Apps](..\azure-functions\functions-twitter-email.md) als u nog een zelfstudie wilt volgen waarin Azure Functions wordt gebruikt. 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

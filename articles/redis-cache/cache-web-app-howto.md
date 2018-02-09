@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: wesmc
-ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98750c4f8d2449fb4fdf68b03a00d846e636a93a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Een web-app maken met Redis-Cache
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-In deze zelfstudie ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in een web-app in Azure App Service met behulp van Visual Studio 2017. In de voorbeeldtoepassing wordt een lijst met teamstatistieken uit een database weergegeven. U maakt kennis met verschillende manieren waarop u Azure Redis-cache kunt gebruiken om gegevens op te slaan in en op te halen uit de cache. Wanneer u de zelfstudie hebt voltooid, hebt u een actieve web-app die naar een database leest en schrijft. Deze web-app is geoptimaliseerd met Azure Redis-cache en wordt gehost in Azure.
+In deze zelfstudie ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in een web-app in Azure App Service met behulp van Visual Studio 2017. In de voorbeeldtoepassing wordt een lijst met teamstatistieken uit een database weergegeven. U maakt kennis met verschillende manieren waarop u Azure Redis-cache kunt gebruiken om gegevens op te slaan in en op te halen uit de cache. Wanneer u de zelfstudie hebt voltooid, hebt u een actieve web-app die naar een database leest en schrijft. Deze web-app is geoptimaliseerd met Azure Redis Cache en wordt gehost in Azure.
 
-U leert het volgende:
+U leert hier hoe u de volgende handelingen kunt uitvoeren:
 
 * Een ASP.NET MVC 5-webtoepassing maken in Visual Studio.
 * Toegang krijgen tot gegevens uit een database met behulp van Entity Framework.
@@ -84,8 +84,8 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
 
 ### <a name="add-the-entity-framework-nuget-package"></a>Het Entity Framework NuGet-pakket toevoegen
 
-1. Klik in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
-2. Voer de volgende opdracht uit in het venster **Pakketbeheerconsole**.
+1. Klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**.
+2. Voer de volgende opdracht uit in het venster **Pakketbeheerconsole**:
     
     ```
     Install-Package EntityFramework
@@ -100,7 +100,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 2. Voer `Team` in als de naam van de klasse en klik op **Add**.
    
     ![De modelklasse toevoegen][cache-model-add-class-dialog]
-3. Vervang de `using`-instructies boven aan het bestand `Team.cs` door de volgende `using`-instructies.
+3. Vervang de `using`-instructies boven aan het bestand `Team.cs` door de volgende `using`-instructies:
 
     ```csharp
     using System;
@@ -185,15 +185,15 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 1. Dubbelklik in **Solution Explorer** op **web.config** om het bestand te openen.
    
     ![Web.config][cache-web-config]
-2. Voeg de volgende `connectionStrings`-sectie toe. De naam van de verbindingsreeks moet overeenkomen met de naam van de contextklasse van de Entity Framework-database. Dit is `TeamContext`.
+2. Voeg de volgende sectie `connectionStrings` toe aan de sectie `configuration`. De naam van de verbindingsreeks moet overeenkomen met de naam van de contextklasse van de Entity Framework-database. Dit is `TeamContext`.
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
-    U kunt de nieuwe `connectionStrings`-sectie toevoegen zodat deze achter `configSections` staat, zoals wordt weergegeven in het volgende voorbeeld.
+    In het volgende voorbeeld ziet u de nieuwe sectie `connectionStrings` na `configSections` in de sectie `configuration`:
 
     ```xml
     <configuration>
@@ -224,7 +224,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 5. Vouw in **Solution Explorer** het bestand **Global.asax** uit en dubbelklik op **Global.asax.cs** om het te openen.
    
     ![Global.asax.cs][cache-global-asax]
-6. Voeg boven aan het bestand, onder de andere `using`-instructies, de volgende twee `using`-instructies toe.
+6. Voeg boven aan het bestand, onder de andere `using`-instructies, de volgende twee `using`-instructies toe:
 
     ```csharp
     using System.Data.Entity;
@@ -232,7 +232,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
     ```
 
 
-1. Voeg de volgende regel code toe aan het einde van de `Application_Start`-methode.
+1. Voeg de volgende regel code toe aan het einde van de `Application_Start`-methode:
 
     ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
@@ -242,7 +242,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 1. Vouw in **Solution Explorer** `App_Start` uit en dubbelklik op `RouteConfig.cs`.
    
     ![RouteConfig.cs][cache-RouteConfig-cs]
-2. Vervang `controller = "Home"` in de volgende code in de `RegisterRoutes`-methode door `controller = "Teams"`, zoals weergegeven in het volgende voorbeeld.
+2. Vervang `controller = "Home"` in de volgende code in de `RegisterRoutes`-methode door `controller = "Teams"`, zoals weergegeven in het volgende voorbeeld:
 
     ```csharp
     routes.MapRoute(
@@ -257,7 +257,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 1. Vouw in **Solution Explorer** de map **Views** uit. Vouw vervolgens de map **Shared** uit en dubbelklik op **_Layout.cshtml**. 
    
     ![_Layout.cshtml][cache-layout-cshtml]
-2. Wijzig de inhoud van het element `title` en vervang `My ASP.NET Application` door `Contoso Team Stats`, zoals weergegeven in het volgende voorbeeld.
+2. Wijzig de inhoud van het element `title` en vervang `My ASP.NET Application` door `Contoso Team Stats`, zoals weergegeven in het volgende voorbeeld:
 
     ```html
     <title>@ViewBag.Title - Contoso Team Stats</title>
@@ -270,12 +270,12 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
    * Na: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
      
      ![Codewijzigingen][cache-layout-cshtml-code]
-2. Druk op **Ctrl+F5** om de toepassing op te bouwen en uit te voeren. Deze versie van de toepassing leest de resultaten rechtstreeks uit de database. De acties **Nieuw**, **Bewerken**, **Details** en **Verwijderen** zijn automatisch aan de toepassing toegevoegd door de structuur **MVC 5 Controller with views, using Entity Framework**. In het volgende gedeelte van de zelfstudie voegt u Redis-cache toe om de gegevenstoegang te optimaliseren en om extra functies te bieden voor de toepassing.
+2. Druk op **Ctrl+F5** om de toepassing op te bouwen en uit te voeren. Deze versie van de toepassing leest de resultaten rechtstreeks uit de database. De acties **Nieuw**, **Bewerken**, **Details** en **Verwijderen** zijn automatisch aan de toepassing toegevoegd door de structuur **MVC 5 Controller with views, using Entity Framework**. In het volgende gedeelte van de zelfstudie voegt u Redis Cache toe om de gegevenstoegang te optimaliseren en om extra functies te bieden voor de toepassing.
 
 ![Beginnerstoepassing][cache-starter-application]
 
 ## <a name="configure-the-application-to-use-redis-cache"></a>De toepassing configureren voor het gebruik van Redis-cache
-In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met behulp van de cacheclient [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) Contoso-teamstatistieken op te slaan en op te halen uit een exemplaar van de Azure Redis-cache.
+In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met behulp van de cacheclient [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) Contoso-teamstatistieken op te slaan en op te halen uit een exemplaar van Azure Redis Cache.
 
 * [De toepassing configureren voor gebruik van StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 * [De klasse TeamsController zodanig bijwerken dat deze resultaten retourneert uit de cache of de database](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -283,8 +283,8 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
 * [De weergave Teamindex bijwerken voor gebruik met de cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>De toepassing configureren voor gebruik van StackExchange.Redis
-1. Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
-2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`.
+1. Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis), klikt u op **Tools > NuGet Package Manager > Package Manager Console**.
+2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`:
     
     ```
     Install-Package StackExchange.Redis
@@ -294,14 +294,14 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
 3. Vouw in **Solution Explorer** de map **Controllers** uit en dubbelklik op **TeamsController.cs** om dit bestand te openen.
    
     ![TeamsController][cache-teamscontroller]
-4. Voeg de volgende twee `using`-instructies toe aan **TeamsController.cs**.
+4. Voeg de volgende twee `using`-instructies toe aan **TeamsController.cs**:
 
     ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
-5. Voeg de volgende twee eigenschappen toe aan de klasse `TeamsController`.
+5. Voeg de volgende twee eigenschappen toe aan de klasse `TeamsController`:
 
     ```csharp   
     // Redis Connection string info
@@ -322,14 +322,15 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
 
 6. Maak op uw computer een bestand met de naam `WebAppPlusCacheAppSecrets.config`. Sla het op een locatie op die niet wordt ingecheckt met de broncode van uw voorbeeldtoepassing, mocht u besluiten deze ergens in te checken. In dit voorbeeld bevindt het bestand `AppSettingsSecrets.config` zich op de locatie `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
-    Bewerk het bestand `WebAppPlusCacheAppSecrets.config` en voeg de volgende inhoud toe. Als u de toepassing lokaal uitvoert, wordt deze informatie gebruikt om verbinding te maken met uw exemplaar van Azure Redis-cache. Verderop in de zelfstudie richt u een exemplaar van Azure Redis-cache in en werkt u de cachenaam en het wachtwoord bij. Als u de voorbeeldtoepassing niet lokaal wilt uitvoeren, kunt u het maken van dit bestand en de hierop volgende stappen die naar het bestand verwijzen, overslaan. Wanneer u in Azure implementeert, haalt de toepassing de verbindingsgegevens van de cache namelijk op uit de app-instelling voor de web-app en niet uit dit bestand. Aangezien de `WebAppPlusCacheAppSecrets.config` niet samen met uw toepassing in Azure wordt geïmplementeerd, hebt u deze niet nodig, tenzij u de toepassing lokaal wilt uitvoeren.
+    Bewerk het bestand `WebAppPlusCacheAppSecrets.config` en voeg de volgende inhoud toe:
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
+    Als u de toepassing lokaal uitvoert, wordt deze informatie gebruikt om verbinding te maken met uw exemplaar van Azure Redis-cache. Verderop in de zelfstudie richt u een exemplaar van Azure Redis-cache in en werkt u de cachenaam en het wachtwoord bij. Als u de voorbeeldtoepassing niet lokaal wilt uitvoeren, kunt u het maken van dit bestand en de hierop volgende stappen die naar het bestand verwijzen, overslaan. Wanneer u in Azure implementeert, haalt de toepassing de verbindingsgegevens van de cache namelijk op uit de app-instelling voor de web-app en niet uit dit bestand. Aangezien de `WebAppPlusCacheAppSecrets.config` niet samen met uw toepassing in Azure wordt geïmplementeerd, hebt u deze niet nodig, tenzij u de toepassing lokaal wilt uitvoeren.
 
 1. Dubbelklik in **Solution Explorer** op **web.config** om het bestand te openen.
    
@@ -338,7 +339,7 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
    
    * Voor: `<appSettings>`
    * Na: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u uw web-app in Azure implementeert, wordt het bestand `WebAppPlusCacheAppSecrests.config` niet geïmplementeerd (dat is de bedoeling). Er zijn verschillende manieren om deze geheimen op te geven in Azure. In deze zelfstudie worden ze automatisch voor u geconfigureerd wanneer u in een latere stap van de zelfstudie [de Azure-resources inricht](#provision-the-azure-resources). Raadpleeg [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Aanbevolen procedures voor het implementeren van wachtwoorden en andere gevoelige gegevens naar ASP.NET en Azure App Service) voor meer informatie over het werken met geheimen in Azure.
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>De klasse TeamsController zodanig bijwerken dat deze resultaten retourneert uit de cache of de database
@@ -349,14 +350,14 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 > 
 > 
 
-1. Voeg bovenaan, bij de andere `using`-instructies, de volgende `using`-instructies toe aan het `TeamsController.cs`-bestand.
+1. Voeg bovenaan, bij de andere `using`-instructies, de volgende `using`-instructies toe aan het `TeamsController.cs`-bestand:
 
     ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
-2. Vervang de huidige implementatie van de `public ActionResult Index()`-methode door de volgende implementatie.
+2. Vervang de huidige implementatie van de `public ActionResult Index()`-methode door de volgende implementatie:
 
     ```csharp
     // GET: Teams
@@ -576,7 +577,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>De methoden Maken, Bewerken en Verwijderen bijwerken voor gebruik met de cache
 De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat de methoden om teams toe te voegen, te bewerken en te verwijderen. Telkens wanneer er een team wordt toegevoegd, bewerkt of verwijderd, raken de gegevens in de cache verouderd. In deze sectie bewerkt u deze drie methoden, zodat de in de cache opgeslagen teams worden gewist en de cache synchroon loopt met de database.
 
-1. Blader naar de `Create(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
+1. Blader naar de `Create(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld:
 
     ```csharp
     // POST: Teams/Create
@@ -601,7 +602,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     ```
 
 
-1. Blader naar de `Edit(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
+1. Blader naar de `Edit(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld:
 
     ```csharp
     // POST: Teams/Edit/5
@@ -625,7 +626,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     ```
 
 
-1. Blader naar de `DeleteConfirmed(int id)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
+1. Blader naar de `DeleteConfirmed(int id)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld:
 
     ```csharp
     // POST: Teams/Delete/5
@@ -648,7 +649,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
 1. Vouw in **Solution Explorer** de map **Views** uit. Vouw vervolgens de map **Teams** uit en dubbelklik op **Index.cshtml**.
    
     ![Index.cshtml][cache-views-teams-index-cshtml]
-2. Zoek boven in het bestand naar het volgende alinea-element.
+2. Zoek boven in het bestand naar het volgende alinea-element:
    
     ![Actietabel][cache-teams-index-table]
    
@@ -686,7 +687,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     ```
 
 
-1. Ga naar de onderkant van het bestand **Index.cshtml** en voeg het volgende `tr`-element toe, zodat dit de laatste rij in de laatste tabel in het bestand is.
+1. Ga naar de onderkant van het bestand **Index.cshtml** en voeg het volgende `tr`-element toe, zodat dit de laatste rij in de laatste tabel in het bestand is:
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -698,13 +699,13 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
 2. Druk op **F6** om het project te bouwen.
 
 ## <a name="provision-the-azure-resources"></a>De Azure-resources inrichten
-Als u uw toepassing in Azure wilt hosten, moet u eerst de Azure-services inrichten die vereist zijn voor uw toepassing. De voorbeeldtoepassing in deze zelfstudie maakt gebruik van de volgende Azure-services.
+Als u uw toepassing in Azure wilt hosten, moet u eerst de Azure-services inrichten die vereist zijn voor uw toepassing. De voorbeeldtoepassing in deze zelfstudie maakt gebruik van de volgende Azure-services:
 
 * Azure Redis-cache
 * App Service-web-app
 * SQL Database
 
-Als u deze services wilt implementeren in een nieuwe of bestaande resourcegroep naar keuze, klikt u op de knop **Deploy to Azure**.
+Als u deze services wilt implementeren in een nieuwe of bestaande resourcegroep naar keuze, klikt u op de knop **Deploy to Azure**:
 
 [![Implementeren in Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
@@ -758,7 +759,7 @@ In deze stap van de zelfstudie publiceert u de toepassing in Azure en voert u de
    
     ![Cache toegevoegd][cache-added-to-application]
 
-De volgende tabel beschrijft elke actiekoppeling in de voorbeeldtoepassing.
+De volgende tabel beschrijft elke actiekoppeling in de voorbeeldtoepassing:
 
 | Bewerking | Beschrijving |
 | --- | --- |
@@ -804,11 +805,11 @@ Als u de toepassing lokaal wilt uitvoeren op uw computer, hebt u een exemplaar v
 Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar de cache in de Azure-portal bladeren en de [hostnaam](cache-configure.md#properties) en de [toegangssleutels](cache-configure.md#access-keys) voor uw cache ophalen. Zie [Redis-cache-instellingen configureren](cache-configure.md#configure-redis-cache-settings) voor instructies.
 
 1. Open het bestand `WebAppPlusCacheAppSecrets.config` dat u hebt gemaakt tijdens de stap [De toepassing configureren voor het gebruik van Redis-cache](#configure-the-application-to-use-redis-cache) in deze zelfstudie. Gebruik hiervoor een editor naar keuze.
-2. Bewerk het kenmerk `value` en vervang `MyCache.redis.cache.windows.net` door de [hostnaam](cache-configure.md#properties) van de cache. Geef vervolgens de [primaire of secundaire sleutel](cache-configure.md#access-keys) van uw cache op als wachtwoord.
+2. Bewerk het kenmerk `value` en vervang `YourCacheName.redis.cache.windows.net` door de [hostnaam](cache-configure.md#properties) van de cache. Vervang vervolgens `YourAccessKey` door de [primaire of secundaire sleutel](cache-configure.md#access-keys) van uw cache als het wachtwoord.
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 

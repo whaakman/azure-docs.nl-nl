@@ -1,104 +1,104 @@
 ---
-title: Bekijk informatie over het gebruik en kosten in Azure kosten Management | Microsoft Docs
-description: "Bekijk informatie over het gebruik en kosten voor het bijhouden van trends inefficiëntie detecteren, en waarschuwingen maken."
+title: Gebruik en kosten bekijken in Azure Cost Management | Microsoft Docs
+description: "Bekijk gebruik en kosten om trends bij te houden, inefficiëntie te detecteren en waarschuwingen te maken."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="review-usage-and-costs"></a>Bekijk informatie over het gebruik en de kosten
+# <a name="review-usage-and-costs"></a>Gebruik en kosten bekijken
 
-Azure kostenbeheer door Cloudyn leest u informatie over het gebruik en kosten zodat u trends kunt bijhouden inefficiëntie detecteren en maken van waarschuwingen. Alle informatie over het gebruik en de kosten van gegevens wordt weergegeven in Cloudyn dashboards en rapporten. De voorbeelden in deze zelfstudie helpt u stapsgewijs Hoewel gebruiks- en kosten met dashboards en rapporten bekijken. In deze zelfstudie leert u het volgende:
+Azure Cost Management van Cloudyn geeft gebruik en kosten weer, zodat u trends kunt bijhouden, inefficiëntie kunt detecteren en waarschuwingen kunt maken. Alle gegevens over gebruik en kosten worden weergegeven in Cloudyn-dashboards en -rapporten. Aan de hand van de voorbeelden in deze zelfstudie bekijkt u het gebruik en de kosten met behulp van dashboards en rapporten. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Gebruik bijhouden en de kosten van trends
-> * Gebruik inefficiëntie detecteren
-> * Waarschuwingen voor ongebruikelijke uitgaven of overspending maken
+> * Gebruiks- en kostentrends bijhouden
+> * Inefficiënt gebruik detecteren
+> * Waarschuwingen maken voor ongebruikelijke uitgaven of te hoge uitgaven
 
 
 
-## <a name="open-the-cloudyn-portal"></a>De Cloudyn portal openen
+## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
-U bekijken alle informatie over het gebruik en kosten in de portal Cloudyn. De portal Cloudyn openen vanuit de Azure-portal of Ga naar https://azure.cloudyn.com en aanmelden.
+U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit de Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
 
-## <a name="track-usage-and-cost-trends"></a>Gebruik bijhouden en de kosten van trends
+## <a name="track-usage-and-cost-trends"></a>Gebruiks- en kostentrends bijhouden
 
-U bijhouden werkelijke uitgaven voor informatie over het gebruik en kosten met rapporten om trends te identificeren gedurende een periode. Als u wilt kijken trends, gebruikt u het rapport werkelijke kosten gedurende een periode. Klik op het menu rapporten boven aan de portal **kosten** > **kosten Analysis** > **werkelijke kosten gedurende een periode**. Wanneer u het rapport voor het eerst opent, zijn er zijn geen groepen of filters toegepast.
+U houdt de werkelijke uitgaven voor gebruik en kosten bij met rapporten om trends in de loop van de tijd te identificeren. Als u trends wilt bekijken, gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd). Klik op het rapportmenu bovenaan in de portal en klik op **Cost** > **Cost Analysis** > **Actual Cost Over Time**. Wanneer u het rapport voor het eerst opent, zijn er geen groepen of filters op toegepast.
 
-Hier volgt een voorbeeld van een rapport:
+Hier volgt een voorbeeldrapport:
 
-![Voorbeeld van een rapport](./media/tutorial-review-usage/actual-cost01.png)
+![voorbeeldrapport](./media/tutorial-review-usage/actual-cost01.png)
 
-Dit rapport bevat alle bestedingslimiet gedurende de afgelopen 30 dagen. Om weer te geven alleen uitgaven voor Azure-services, de servicegroep toepassen en filter vervolgens voor alle Azure-services. De volgende afbeelding ziet u de gefilterde services.
+Het rapport toont alle uitgaven gedurende de afgelopen 30 dagen. Als u alleen uitgaven voor Azure-services wilt weergeven, past u de groep Service toe en filtert u op alle Azure-services. In de volgende afbeelding ziet u de gefilterde services.
 
 ![gefilterde services](./media/tutorial-review-usage/actual-cost02.png)
 
-In het voorgaande voorbeeld is minder geld besteed op 2017-08-31 dan voordat wordt gestart. Deze trend kosten blijft voor de verschillende services ongeveer negen dagen. Vervolgens extra uitgaven blijft hetzelfde als voorheen. Te veel kolommen kunnen echter een duidelijke trend worden verborgen. U kunt de rapportweergave wijzigen naar een regel of gebied grafiek zien van de gegevens die worden weergegeven in andere weergaven. De volgende afbeelding toont de trend duidelijker.
+In het voorgaande voorbeeld is vanaf 2017-08-31 minder geld uitgegeven dan daarvoor. Deze kostentrend zet zich ongeveer negen dagen voort voor de verschillende services. Daarna zijn de uitgaven vergelijkbaar met daarvoor. Te veel kolommen kunnen een duidelijke trend echter moeilijk zichtbaar maken. U kunt de rapportweergave wijzigen in een lijn- of vlakdiagram om de gegevens in andere weergaven te zien. In de volgende afbeelding wordt de trend duidelijker weergegeven.
 
-![trend van rapport](./media/tutorial-review-usage/actual-cost03.png)
+![trend in rapport](./media/tutorial-review-usage/actual-cost03.png)
 
-In het voorbeeld duidelijk ziet u dat Azure Storage verwijderde starten op 2017-08-31 kosten terwijl uitgaven aan andere Azure-services bleef niveau. Ja, wat de oorzaak van deze verlaging in uitgaven? In dit voorbeeld sommige werknemers zijn op vakantie weg werk en de Storage-service niet gebruikt.
+In het voorbeeld ziet u duidelijk dat de kosten van Azure Storage afnemen vanaf 2017-08-31, terwijl de uitgaven voor andere Azure-services gelijk bleven. Wat veroorzaakte deze verlaging in de uitgaven? In dit voorbeeld waren enkele werknemers met vakantie, zodat ze de Storage-service niet gebruikten.
 
-Een zelfstudie als video wilt bekijken over het bijhouden van gebruik en de kosten van trends, Zie [analyseren van uw cloud rekeninggegevens versus tijd met Azure kosten Management door Cloudyn](https://youtu.be/7LsVPHglM0g).
+Zie [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) als u een zelfstudievideo wilt bekijken over het bijhouden van gebruiks- en kostentrends.
 
-## <a name="detect-usage-inefficiencies"></a>Gebruik inefficiëntie detecteren
+## <a name="detect-usage-inefficiencies"></a>Inefficiënt gebruik detecteren
 
-Optimalisatie van rapporten om efficiëntie te verbeteren, gebruik optimaliseren en manieren om op te slaan uitgaven aan uw cloudresources identificeren. Ze zijn vooral handig met rendabele sizing aanbevelingen bedoeld om te beperken van niet-actieve of dure VM's.
+Optimalisatierapporten verbeteren de efficiëntie, optimaliseren het gebruik en vinden manieren om geld te besparen dat u uitgeeft aan uw cloudresources. Ze zijn vooral handig voor kosteneffectieve aanbevelingen betreffende afmetingen om zo niet-actieve of dure VM's te helpen verminderen.
 
-Een veelvoorkomend probleem dat betrekking heeft op organisaties wanneer ze in eerste instantie naar resources in de cloud is hun virtualisatiestrategie voor het. Ze vaak een benadering die overeenkomt met het abonnement dat ze gebruikt voor het maken van virtuele machines voor het virtualisatie on-premises omgeving gebruiken. En ze wordt ervan uitgegaan dat kosten worden beperkt door het verplaatsen van hun lokale virtuele machines naar de cloud-is. Deze aanpak is echter niet waarschijnlijk om kosten te verlagen.
+Een veelvoorkomend probleem waarmee organisaties te maken krijgen wanneer ze resources naar de cloud verplaatsen, is hun virtualisatiestrategie. Ze hanteren vaak een benadering die vergelijkbaar is met de benadering die ze hanteren voor het maken van virtuele machines voor de on-premises virtualisatieomgeving. En ze gaan ervan uit dat de kosten afnemen wanneer ze hun lokale VM's ongewijzigd naar de cloud verplaatsen. Deze aanpak levert echter waarschijnlijk geen kostenbesparing op.
 
-Het probleem is dat de bestaande infrastructuur is al betaald. Gebruikers kunnen maken en houden grote virtuele machines die worden uitgevoerd als ze bevallen, niet-actieve of niet, en met weinig tot gevolg. Grote of niet-actieve virtuele machines verplaatsen naar de cloud is waarschijnlijk *verhogen* kosten. Toewijzing van de kosten voor resources is belangrijk wanneer u naar overeenkomsten met cloudserviceproviders invoert. U moet betaalt voor wat u aan of u de bron volledig of niet gebruiken doorvoeren.
+Het probleem is dat al voor de bestaande infrastructuur is betaald. Als gebruikers dat willen, kunnen ze grote VM's maken en houden, die al dan niet actief zijn, waarbij dit weinig gevolgen heeft. Als grote of niet-actieve VM's naar de cloud worden verplaatst, zullen de kosten echter waarschijnlijk *toenemen*. Kostentoewijzing voor resources is belangrijk wanneer u een overeenkomst sluit met een cloudserviceprovider. U moet betalen voor datgene waartoe u zich verplicht, of u de resource nu volledig gebruikt of helemaal niet.
 
-Het rapport voordelige Sizing aanbevelingen identificeert jaarlijkse besparing door VM-exemplaar type capaciteit aan hun historische CPU en geheugen gebruiksgegevens vergelijken.  
+Het rapport Cost Effective Sizing Recommendations (Aanbevelingen voor kosteneffectieve aanpassingen van de afmetingen) identificeert jaarlijkse besparingen door de capaciteit van VM-exemplaren te vergelijken met historische gegevens over hun CPU- en geheugengebruik.  
 
-Klik op het menu rapporten boven aan de portal **optimaliseren** > **prijzen optimalisatie** > **voordelige Sizing aanbevelingen**. Filteren van de provider in Azure om te kijken naar Azure-machines. Hier volgt een voorbeeld van de installatiekopie.
+Klik op het rapportmenu bovenaan in de portal en klik op **Optimizer** > **Pricing Optimization** > **Cost Effective Sizing Recommendations**. Filter de provider op Azure om alleen Azure-VM's te bekijken. Hier ziet u een voorbeeldafbeelding.
 
 ![Azure-VM's](./media/tutorial-review-usage/sizing01.png)
 
-In dit voorbeeld kan $3,114 aan de hand van de aanbevelingen voor het wijzigen van de VM-exemplaar typen worden opgeslagen. Klik op het plusteken (+) onder **Details** voor de eerste aanbeveling. Hier vindt u meer informatie over de eerste aanbeveling.
+In dit voorbeeld kan $ 3.114 worden bespaard door de aanbevelingen voor het wijzigen van de VM-exemplaartypen op te volgen. Klik op het plusteken (+) onder **Details** voor de eerste aanbeveling. Hier vindt u meer informatie over de eerste aanbeveling.
 
-![gegevens over de aanbeveling](./media/tutorial-review-usage/sizing02.png)
+![details van de aanbeveling](./media/tutorial-review-usage/sizing02.png)
 
-VM-exemplaar-id's weergeven door te klikken op het plusteken naast **lijst van kandidaten**.
+Bekijk de id's van de VM-exemplaren door te klikken op het plusteken naast **List of Candidates**.
 
 ![Lijst met kandidaten](./media/tutorial-review-usage/sizing03.png)
 
-Een zelfstudie als video wilt bekijken over het detecteren van informatie over het gebruik inefficiëntie, Zie [optimaliseren van VM-grootte in Azure kosten Management Cloudyn](https://youtu.be/1xaZBNmV704).
+Zie [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) als u een zelfstudievideo wilt bekijken over het detecteren van inefficiënt gebruik.
 
-## <a name="create-alerts-for-unusual-spending"></a>Waarschuwingen voor ongebruikelijke uitgaven maken
+## <a name="create-alerts-for-unusual-spending"></a>Waarschuwingen maken voor ongebruikelijke uitgaven
 
-U kunt een waarschuwing belanghebbenden automatisch voor de bestedingslimiet afwijkingen en overspending risico's. U kunt snel en eenvoudig maken gebruik van rapporten dat ondersteuning waarschuwingen op basis van budget en de kosten van drempelwaarden voor waarschuwingen.
+U kunt belanghebbenden automatisch waarschuwen als er sprake is van afwijkende bestedingen of kans op budgetoverschrijding. U kunt snel en eenvoudig waarschuwingen maken met behulp van rapporten die waarschuwingen op basis van budget en kostendrempels ondersteunen.
 
-U maakt een waarschuwing voor elke bestedingslimiet die elk kostenrapport. In dit voorbeeld gebruikt u het rapport werkelijke kosten gedurende een periode om u te waarschuwen wanneer het totale budget Azure VM uitgaven bijna. Klik op het menu rapporten boven aan de portal **kosten** > **kosten Analysis** > **werkelijke kosten gedurende een periode**. Ingesteld **groepen** naar **Service** en stel **-Filter op de service** naar **/virtuele machine van Azure**. In de rechterbovenhoek van het rapport, klikt u op **acties** en selecteer vervolgens **rapport plant**.
+U maakt een waarschuwing voor elke uitgave met behulp van een kostenrapport. In dit voorbeeld gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd) om u te waarschuwen wanneer de uitgaven voor een Azure-VM het totale budget naderen. Klik op het rapportmenu bovenaan in de portal en klik op **Cost** > **Cost Analysis** > **Actual Cost Over Time**. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. Klik rechtsboven in het rapport op **Actions** en selecteer **Schedule report**.
 
-Gebruik de **planning** tabblad uzelf een e-mailadres van het rapport met de frequentie waarmee u wilt verzenden. Alle tags zijn, u hebt gebruikt gefilterd en gegroepeerd zijn opgenomen in het e-mailrapport. Klik op de **drempelwaarde** Kies het tabblad en selecteer **tegenover werkelijke kosten. Drempelwaarde**. Als u had een totale budget van USD 500.000 en melding die u wilt wanneer kosten in de buurt van helft, maakt u een **rode waarschuwing** op $250.000 en een **gele waarschuwing** op $240,000. Kies vervolgens het aantal opeenvolgende waarschuwingen. Wanneer u totaal aantal waarschuwingen dat u hebt opgegeven ontvangt, worden er geen extra waarschuwingen verzonden. De geplande rapport opslaan.
+Gebruik het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u had een totaal budget van $ 500.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** op $ 250.000 en een **gele waarschuwing** op $ 240.000. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen dat u hebt opgegeven, hebt ontvangen, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
 
-![Voorbeeld van een rapport](./media/tutorial-review-usage/schedule-alert01.png)
+![voorbeeldrapport](./media/tutorial-review-usage/schedule-alert01.png)
 
-U kunt ook de vs kosten als Percentage. Budget drempelwaarde metriek om waarschuwingen te maken. U kunt met deze metriek wordt budget percentages gebruiken in plaats van valutawaarden.
+U kunt ook de drempeloptie Cost Percentage vs. Budget kiezen om waarschuwingen te maken. Als u deze optie kiest, kunt u budgetpercentages in plaats van bedragen gebruiken.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
+In deze zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Gebruik bijhouden en de kosten van trends
-> * Gebruik inefficiëntie detecteren
-> * Waarschuwingen voor ongebruikelijke uitgaven of overspending maken
+> * Gebruiks- en kostentrends bijhouden
+> * Inefficiënt gebruik detecteren
+> * Waarschuwingen maken voor ongebruikelijke uitgaven of te hoge uitgaven
 
 
-Ga naar de volgende zelfstudie voor meer informatie over het beheren van toegang tot gegevens.
+In de volgende zelfstudie leert u hoe u toegang tot gegevens beheert.
 
 > [!div class="nextstepaction"]
 > [Toegang tot gegevens beheren](tutorial-user-access.md)

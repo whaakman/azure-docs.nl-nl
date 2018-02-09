@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor Azure Container Service - toepassing schalen
-description: Zelfstudie voor Azure Container Service - toepassing schalen
+title: 'Zelfstudie Azure Container Service: Toepassing schalen'
+description: 'Zelfstudie Azure Container Service: Toepassing schalen'
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,36 +9,36 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a748e15abbc01f260349fba2678c03a40c4d7713
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Schaal Kubernetes gehele product en Kubernetes infrastructuur
+# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes-schillen en Kubernetes-infrastructuur schalen
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Als u de zelfstudies volgt hebt, hebt u een werkende Kubernetes cluster in Azure Container Service en u de app Azure stemmen hebt geïmplementeerd. 
+Als u de zelfstudies volgt, hebt u een werkend Kubernetes-cluster in Azure Container Service en hebt u de Azure Voting-app geïmplementeerd. 
 
-In deze zelfstudie maakt deel uit vijf zeven, uitbreiden van het gehele product in de app en probeer het schil automatisch schalen. U leert ook hoe schalen het aantal knooppunten van de Azure VM-agent wijzigen van het cluster capaciteit voor het hosten van werkbelastingen. Taken zijn voltooid, zijn onder andere:
+In deze zelfstudie, deel vijf van zeven, schaalt u de schillen in de app en probeert u automatisch schalen van schillen uit. U leert ook hoe u het aantal knooppunten van de Azure VM-agent schaalt om de capaciteit van het cluster voor het hosten van werkbelastingen te wijzigen. Dit zijn de uitgevoerde taken:
 
 > [!div class="checklist"]
-> * Handmatig schalen Kubernetes gehele product
-> * Automatisch schalen gehele product met de front-end van de app configureren
-> * De agent Kubernetes Azure knooppunten schalen
+> * Kubernetes-schillen handmatig schalen
+> * Schillen die de front-end van de app uitvoeren, automatisch schalen
+> * De knooppunten van de Kubernetes Azure-agent schalen
 
-In volgende zelfstudies leert de stem van de Azure-toepassing wordt bijgewerkt en Operations Management Suite is geconfigureerd voor het controleren van het cluster Kubernetes.
+In de volgende zelfstudies wordt de Azure Vote-toepassing bijgewerkt en wordt Operations Management Suite geconfigureerd om het Kubernetes-cluster te controleren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In vorige zelfstudies is een toepassing worden verpakt in een installatiekopie van een container, deze installatiekopie geüpload naar het register van Azure-Container en een Kubernetes-cluster gemaakt. De toepassing is vervolgens op het cluster Kubernetes uitgevoerd. 
+In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt. De toepassing is vervolgens in het Kubernetes-cluster uitgevoerd. 
 
-Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar de [zelfstudie 1 – installatiekopieën van de container maken](./container-service-tutorial-kubernetes-prepare-app.md). 
+Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## <a name="manually-scale-pods"></a>Handmatig schalen gehele product
+## <a name="manually-scale-pods"></a>Schillen handmatig schalen
 
-Dus helemaal, de Azure-stem front-end- en het Redis-exemplaar zijn geïmplementeerd, elk met een enkele replica. Uitvoeren om te controleren, de [kubectl ophalen](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) opdracht.
+Tot nu toe zijn de Azure Vote-front-end en het Redis-exemplaar geïmplementeerd, elk met één replica. U kunt dit controleren door de opdracht [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) uit te voeren.
 
 ```azurecli-interactive
 kubectl get pods
@@ -52,13 +52,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Handmatig wijzigen van het nummer van het gehele product in de `azure-vote-front` implementatie met behulp van de [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) opdracht. In dit voorbeeld verhoogt het aantal op 5.
+Wijzig het aantal schillen in de `azure-vote-front`-implementatie handmatig met behulp van de opdracht [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). In dit voorbeeld wordt het aantal verhoogd naar 5.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Voer [kubectl ophalen gehele product](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) Kubernetes maken van het gehele product controleren. Na een minuut of dat worden het extra gehele product uitgevoerd:
+Voer [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) uit om te controleren of Kubernetes de schillen heeft gemaakt. Na ongeveer een minuut worden de extra schillen uitgevoerd:
 
 ```azurecli-interactive
 kubectl get pods
@@ -76,11 +76,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a>Gehele product automatisch schalen
+## <a name="autoscale-pods"></a>Schillen automatisch schalen
 
-Biedt ondersteuning voor Kubernetes [horizontale schil automatisch schalen](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) aanpassen zodat het nummer van het gehele product in een implementatie, afhankelijk van de CPU-gebruik of andere metrische gegevens selecteren. 
+Kubernetes biedt ondersteuning voor het [automatisch horizontaal schalen van schillen](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) om zo het aantal schillen in een implementatie aan te passen op basis van het CPU-gebruik of andere geselecteerde metrische gegevens. 
 
-Voor het gebruik van de autoscaler hebt uw gehele product CPU-aanvragen en limieten die zijn gedefinieerd. In de `azure-vote-front` voor implementatie, de front-container aanvragen 0,25 CPU, met een limiet van 0,5 CPU. De instellingen eruitzien als:
+Als u automatisch schalen wilt gebruiken, moeten CPU-aanvragen en -limieten voor uw schillen zijn gedefinieerd. In de `azure-vote-front`-implementatie vraagt de front-end container om 0,25 CPU, met een limiet van 0,5 CPU. De instellingen zien er als volgt uit:
 
 ```YAML
 resources:
@@ -90,14 +90,14 @@ resources:
      cpu: 500m
 ```
 
-Het volgende voorbeeld wordt de [kubectl automatisch schalen](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) opdracht die moet worden automatisch schalen het aantal gehele product in de `azure-vote-front` implementatie. Als het CPU-gebruik hoger is dan 50%, verhoogt de autoscaler hier het gehele product tot maximaal 10.
+In het volgende voorbeeld wordt de opdracht [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) gebruikt om het aantal schillen in de `azure-vote-front`-implementatie automatisch te schalen. Als het CPU-gebruik in dit geval hoger is dan 50%, wordt het aantal schillen automatisch verhoogd naar maximaal 10.
 
 
 ```azurecli-interactive
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Overzicht van de status van de autoscaler, voer de volgende opdracht:
+Voer de volgende opdracht uit om de status van het automatisch schalen te bekijken:
 
 ```azurecli-interactive
 kubectl get hpa
@@ -110,19 +110,19 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Na een paar minuten, met minimale belasting van de app Azure stem vermindert het aantal replica's schil automatisch in 3.
+Bij een minimale belasting van de Azure Vote-app neemt het aantal schilreplica's na enkele minuten automatisch af tot 3.
 
 ## <a name="scale-the-agents"></a>De agents schalen
 
-Als u uw Kubernetes-cluster met standaardopdrachten in de vorige zelfstudie hebt gemaakt, heeft deze drie knooppunten van de agent. Als u van plan meer of minder container werkbelastingen uw cluster bent, kunt u het aantal agents handmatig aanpassen. Gebruik de [az acs schalen](/cli/azure/acs#scale) opdracht in en geef het aantal agents met de `--new-agent-count` parameter.
+Als u uw Kubernetes-cluster in de vorige zelfstudie hebt gemaakt met standaardopdrachten, heeft deze drie agentknooppunten. U kunt het aantal agents handmatig aanpassen als u meer of minder containerwerkbelastingen in uw cluster plant. Gebruik de opdracht [az acs scale](/cli/azure/acs#az_acs_scale) en geef het aantal agents op met de parameter `--new-agent-count`.
 
-Het volgende voorbeeld verhoogt het aantal knooppunten tot en met 4 in het Kubernetes-cluster met de naam agent *myK8sCluster*. De opdracht duurt enkele minuten duren.
+In het volgende voorbeeld wordt het aantal agentknooppunten in het Kubernetes-cluster genaamd *myK8sCluster* verhoogd tot 4. Het uitvoeren van deze opdracht duurt enkele minuten.
 
 ```azurecli-interactive
 az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
 ```
 
-Uitvoer van de opdracht toont het aantal agent knooppunten in de waarde van `agentPoolProfiles:count`:
+De uitvoer van de opdracht toont het aantal agentknooppunten in de waarde van `agentPoolProfiles:count`:
 
 ```azurecli
 {
@@ -141,15 +141,15 @@ Uitvoer van de opdracht toont het aantal agent knooppunten in de waarde van `age
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie kunt u verschillende functies die schalen in uw cluster Kubernetes gebruikt. Taken aan de orde opgenomen:
+In deze zelfstudie hebt u verschillende schaalfuncties in uw Kubernetes-cluster gebruikt. Behandelde taken zijn:
 
 > [!div class="checklist"]
-> * Handmatig schalen Kubernetes gehele product
-> * Automatisch schalen gehele product met de front-end van de app configureren
-> * De agent Kubernetes Azure knooppunten schalen
+> * Kubernetes-schillen handmatig schalen
+> * Schillen die de front-end van de app uitvoeren, automatisch schalen
+> * De knooppunten van de Kubernetes Azure-agent schalen
 
-Ga naar de volgende zelfstudie voor meer informatie over het bijwerken van de toepassing in Kubernetes.
+Ga naar de volgende zelfstudie om te leren hoe u de toepassing bijwerkt in Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Bijwerken van een toepassing in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
+> [Een toepassing bijwerken in Kubernetes](./container-service-tutorial-kubernetes-app-update.md)
 

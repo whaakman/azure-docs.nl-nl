@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -38,7 +38,7 @@ Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand 
 |-------|---------                                               |---------      |
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
-|Standaard|10.0.0.0/8                                              |Geen           |
+|Standaard|10.0.0.0/8                                              |None           |
 |Standaard|172.16.0.0/12                                           |None           |
 |Standaard|192.168.0.0/16                                          |None           |
 |Standaard|100.64.0.0/10                                           |None           |
@@ -110,7 +110,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 |Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Internet                        |Internet                                        |Internet (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Geen                            |None                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Peering op virtueel netwerk         |VNet-peering                                    |Niet van toepassing|
 |Service-eindpunt voor virtueel netwerk|VirtualNetworkServiceEndpoint                   |Niet van toepassing|
 
@@ -161,7 +161,7 @@ Wanneer u het adresvoorvoegsel 0.0.0.0/0 overschrijft, wordt de standaardrouteri
         - Het apparaat moet het netwerkadres kunnen omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, en het verkeer terugleiden naar internet. 
     - **Gateway van virtueel netwerk**: als de gateway een ExpressRoute-gateway is, kan een on-premises apparaat dat met internet is verbonden het netwerkadres omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, via [privé-peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) van ExpressRoute. 
 
-  Zie [DMZ tussen Azure en uw on-premises datacenter](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) en [DMZ tussen Azure en internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) voor uitgebreide informatie over de implementatie bij gebruik van virtuele netwerkgateways en virtuele apparaten tussen internet en Azure.
+  Zie [DMZ tussen Azure en uw on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) en [DMZ tussen Azure en internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) voor uitgebreide informatie over de implementatie bij gebruik van virtuele netwerkgateways en virtuele apparaten tussen internet en Azure.
 
 ## <a name="routing-example"></a>Voorbeeld van routering
 
@@ -242,7 +242,7 @@ De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 |Standaard |Actief |10.10.0.0/16        |Gateway van een virtueel netwerk   |[X.X.X.X]          |
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
 |Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
-|Standaard |Actief |100.64.0.0/10       |Geen                      |                   |
+|Standaard |Actief |100.64.0.0/10       |None                      |                   |
 |Standaard |Actief |172.16.0.0/12       |None                      |                   |
 |Standaard |Actief |192.168.0.0/16      |None                      |                   |
 

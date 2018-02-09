@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor Azure Container Service - ACR voorbereiden
-description: Zelfstudie voor Azure Container Service - ACR voorbereiden
+title: 'Zelfstudie Azure Container Service: ACR voorbereiden'
+description: 'Zelfstudie Azure Container Service: ACR voorbereiden'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,62 +9,62 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: ea2574a64c5ae5c10680ad0da7e06ffe12cc72cb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Implementeren en gebruiken van Azure Container register
+# <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry implementeren en gebruiken
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Azure Container register (ACR) is een register op basis van Azure, persoonlijke voor installatiekopieën van de Docker-container. Deze zelfstudie, deel uit van zeven, wordt begeleid bij het implementeren van een Azure Container register-exemplaar en een installatiekopie van een container te pushen. Stappen voltooid omvatten:
+Azure Container Registry (ACR) is een op Azure gebaseerd, persoonlijk register voor installatiekopieën van Docker-container. Deze zelfstudie, deel twee van zeven, beschrijft het implementeren van een Azure Container Registry-exemplaar en het pushen een containerinstallatiekopie naar dat exemplaar. Dit zijn de uitgevoerde stappen:
 
 > [!div class="checklist"]
-> * Implementatie van een exemplaar van Azure Container register (ACR)
-> * Een installatiekopie van een container voor ACR-tagging
+> * Een exemplaar van Azure Container Registry (ACR) implementeren
+> * Een containerinstallatiekopie voor ACR taggen
 > * De installatiekopie uploaden naar ACR
 
-In volgende zelfstudies, is dit ACR-exemplaar geïntegreerd met een Azure Container Service Kubernetes-cluster. 
+In volgende zelfstudies wordt dit ACR-exemplaar geïntegreerd met een Kubernetes-cluster Azure Container Service. 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de [vorige zelfstudie](./container-service-tutorial-kubernetes-prepare-app.md), een installatiekopie van een container voor een eenvoudige toepassing voor Azure uw stem is gemaakt. Als u de installatiekopie van het Azure stemmen app niet hebt gemaakt, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./container-service-tutorial-kubernetes-prepare-app.md).
+In de [vorige zelfstudie](./container-service-tutorial-kubernetes-prepare-app.md) hebt u een containerinstallatiekopie voor een eenvoudige Azure Voting-toepassing gemaakt. Als u de installatiekopie voor de Azure Voting-toepassing niet hebt gemaakt, ga dan terug naar [Zelfstudie 1: Containerinstallatiekopieën maken](./container-service-tutorial-kubernetes-prepare-app.md).
 
-Deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Voor deze zelfstudie moet u de versie Azure CLI 2.0.4 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="deploy-azure-container-registry"></a>Register met Azure Container implementeren
+## <a name="deploy-azure-container-registry"></a>Azure Container Registry implementeren
 
-Wanneer u een Azure Container Registry implementeert, moet u eerst een resourcegroep. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Wanneer u een Azure Container Registry implementeert, hebt u eerst een resourcegroep nodig. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). In dit voorbeeld wordt een resourcegroep met de naam `myResourceGroup` wordt gemaakt in de `westeurope` regio.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). In dit voorbeeld wordt er een resourcegroep met de naam `myResourceGroup` gemaakt in de regio `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Maken van een Azure-Container register met de [az acr maken](/cli/azure/acr#create) opdracht. De naam van een Container register **moeten uniek zijn**.
+Maak een Azure Container Registry met de opdracht [az acr create](/cli/azure/acr#az_acr_create). De naam van een containerregister **moet uniek zijn**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-In de rest van deze zelfstudie gebruiken we `<acrname>` als een tijdelijke aanduiding voor de naam van de container-register.
+In de rest van deze zelfstudie gebruiken we `<acrname>` als tijdelijke aanduiding voor de naam van het containerregister.
 
-## <a name="container-registry-login"></a>Container register aanmelding
+## <a name="container-registry-login"></a>Aanmelden bij het containerregister
 
-Gebruik de [az acr aanmelding](https://docs.microsoft.com/cli/azure/acr#az_acr_login) opdracht zich aanmelden bij de ACR-exemplaar. U moet de unieke naam die is opgegeven in het register van de container wanneer deze is gemaakt.
+Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) om u aan te melden bij het ACR-exemplaar. Geef de unieke naam op van het containerregister toen dat werd gemaakt.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-De opdracht retourneert een bericht 'Aanmelding geslaagd' eenmaal is voltooid.
+De opdracht retourneert een bericht dat de aanmelding is gelukt.
 
-## <a name="tag-container-images"></a>Installatiekopieën van de tag-container
+## <a name="tag-container-images"></a>Containerinstallatiekopieën taggen
 
-Als een lijst met huidige afbeeldingen wilt weergeven, gebruikt de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht.
+Als u een lijst met huidige installatiekopieën wilt weergeven, gebruikt u de opdracht [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
 ```bash
 docker images
@@ -79,21 +79,21 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Elke container installatiekopie moet worden gemarkeerd met de naam loginServer van het register. Deze code wordt gebruikt voor routering wanneer container afbeeldingen met een installatiekopie-register worden gepusht.
+Elke containerinstallatiekopie moet worden getagd met de loginServer-naam van het register. Deze tag wordt gebruikt voor routering bij het pushen van containerinstallatiekopieën naar een installatiekopieregister.
 
-Als u de naam van de loginServer, voer de volgende opdracht.
+Voer de volgende opdracht uit om de naam van de loginServer op te vragen.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tag nu de `azure-vote-front` installatiekopie met de loginServer van het register van de container. Ook toe te voegen `:redis-v1` aan het einde van de naam van de installatiekopie. Deze code geeft de versie van de installatiekopie.
+Tag nu de `azure-vote-front`-installatiekopie met de loginServer van het containerregister. Voeg bovendien `:v1` toe aan het eind van de naam van de installatiekopie. Deze tag geeft de versie van de installatiekopie aan.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Wanneer gecodeerd, uitvoeren [docker afbeeldingen] (https://docs.docker.com/engine/reference/commandline/images/) om te controleren of de bewerking.
+Na het taggen voert u [Docker-installatiekopieën] (https://docs.docker.com/engine/reference/commandline/images/) uit om de bewerking te verifiëren.
 
 ```bash
 docker images
@@ -104,26 +104,26 @@ Uitvoer:
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   redis-v1            eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
 redis                                                latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
 
-## <a name="push-images-to-registry"></a>Push-installatiekopieën in register
+## <a name="push-images-to-registry"></a>Installatiekopieën naar het register pushen
 
-Push de `azure-vote-front` afbeelding in het register. 
+Push de `azure-vote-front`-installatiekopie naar het register. 
 
-In het volgende voorbeeld vervangen door de naam van de loginServer ACR de loginServer uit uw omgeving.
+In het volgende voorbeeld vervangt u de naam van de ACR-loginServer door de naam van de loginServer uit uw omgeving.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:redis-v1
+docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
 Dit duurt enkele minuten duren.
 
-## <a name="list-images-in-registry"></a>Lijst met afbeeldingen in register
+## <a name="list-images-in-registry"></a>Installatiekopieën vermelden in het register
 
-Een lijst van installatiekopieën van een pushbericht hebben ontvangen aan het register Azure-Container retourneren gebruiker de [az acr opslagplaats lijst](/cli/azure/acr/repository#list) opdracht. De opdracht bijwerken met de naam van het ACR-exemplaar.
+U kunt een lijst met installatiekopieën die naar Azure Container Registry zijn gepusht, retourneren met de opdracht [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Werk de opdracht bij met de naam van het ACR-exemplaar.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -137,7 +137,7 @@ Result
 azure-vote-front
 ```
 
-En gebruik vervolgens de labels voor een specifieke installatiekopie vindt de [az acr opslagplaats weergeven-labels](/cli/azure/acr/repository#show-tags) opdracht.
+Gebruik vervolgens de opdracht [az acr repository show-tags](/cli/azure/acr/repository#show-tags) om de tags voor een specifieke installatiekopie weer te geven.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -148,21 +148,21 @@ Uitvoer:
 ```azurecli
 Result
 --------
-redis-v1
+v1
 ```
 
-Bij zelfstudie voltooien is de container-installatiekopie opgeslagen in een persoonlijke Azure-Container register-exemplaar. Deze installatiekopie wordt geïmplementeerd vanaf ACR naar een cluster Kubernetes in volgende zelfstudies.
+Bij het voltooien van de zelfstudie is de containerinstallatiekopie opgeslagen in een persoonlijk Azure Container Registry-exemplaar. Deze installatiekopie wordt vanuit ACR geïmplementeerd naar een Kubernetes-cluster in volgende zelfstudies.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie is een Azure Container Registry voorbereid voor gebruik in een cluster ACS Kubernetes. De volgende stappen zijn voltooid:
+In deze zelfstudie is een Azure Container Registry voorbereid voor gebruik in een ACS Kubernetes-cluster. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * Een exemplaar van het register van Azure-Container geïmplementeerd
-> * Een installatiekopie van een container voor ACR met tags
-> * De installatiekopie naar ACR geüpload
+> * Er is een Azure Container Registry-exemplaar geïmplementeerd
+> * Er is een containerinstallatiekopie voor ACR getagd
+> * De installatiekopie is geüpload naar ACR
 
-Ga naar de volgende zelfstudie voor meer informatie over het implementeren van een cluster Kubernetes in Azure.
+Ga naar de volgende zelfstudie voor informatie over het implementeren van een Kubernetes-cluster in Azure.
 
 > [!div class="nextstepaction"]
 > [Kubernetes-cluster implementeren](./container-service-tutorial-kubernetes-deploy-cluster.md)

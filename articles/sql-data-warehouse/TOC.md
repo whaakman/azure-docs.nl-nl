@@ -9,6 +9,10 @@
 ## Berekening onderbreken en hervatten
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## De schaal van Compute aanpassen
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Zelfstudies
@@ -113,8 +117,6 @@
 ### [Uw werkbelasting analyseren](analyze-your-workload.md)
 
 ## Uitschalen
-### [Compute beheren - portal](sql-data-warehouse-manage-compute-portal.md)
-### [Compute beheren - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Compute beheren - REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Rekenniveaus automatiseren](manage-compute-with-azure-functions.md)
 

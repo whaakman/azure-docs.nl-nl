@@ -1,4 +1,4 @@
-Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) een [web-app](../articles/app-service/containers/app-service-linux-intro.md) in het App Service-plan `myAppServicePlan`. 
+Maak in Cloud Shell een [web-app](../articles/app-service/containers/app-service-linux-intro.md) in het `myAppServicePlan` App Service-plan met de opdracht [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
 Vervang in het volgende voorbeeld `<app_name>` door een unieke naam (geldige tekens zijn `a-z`, `0-9`, en `-`). 
 

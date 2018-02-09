@@ -15,15 +15,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/09/2017
 ms.author: carlrab
-ms.openlocfilehash: f7496c7b78449d5ceae861dc0daac607acdb1f84
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bb3396c95d884f0ad90e2d1c07209fecd87ece15
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python gebruiken om een query uit te voeren voor een Azure SQL-database
 
- In deze Quick Start wordt gedemonstreerd hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens.
+ In deze Quick Start wordt gedemonstreerd hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens. Voor meer informatie voor sdk, bekijk onze [verwijzings](https://docs.microsoft.com/python/api/overview/azure/sql)-documentatie, een pyodbc-[voorbeeld](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), en de [pyodbc-](https://github.com/mkleehammer/pyodbc/wiki/) GitHub-opslagplaats.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -36,7 +36,7 @@ Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te volt
 - U hebt Python en verwante software voor het besturingssysteem geïnstalleerd:
 
     - **MacOS**: installeer Homebrew en Python, installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
-    - **Ubuntu**: installeer Python en andere vereiste pakketten, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
+    - **Ubuntu**: installeer Python en andere vereiste pakketten, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
     - **Windows**: installeer de nieuwste versie van Python (de omgevingsvariabele wordt nu voor u geconfigureerd), installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het Python-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens

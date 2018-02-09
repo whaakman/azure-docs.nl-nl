@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 70167322f1576b4a9cbd5f499edfc934b8a9a799
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0ba6cf4532e5bcd86c53a63349241509bfc941ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Een .NET-Service Fabric-toepassing maken in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -39,7 +39,7 @@ Met behulp van deze toepassing leert u hoe u:
 > * Een rolling upgrade op een toepassingen uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
-Dit zijn de vereisten voor het voltooien van deze snelstartgids:
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
 1. [Visual Studio 2017 installeren](https://www.visualstudio.com/) met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingworkloads**.
 2. [Git installeren](https://git-scm.com/)
 3. [Microsoft Azure Service Fabric SDK installeren](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -123,9 +123,27 @@ Als u de foutopsporingssessie wilt stoppen, drukt u op **Shift+F5**.
 Voor het implementeren van de toepassing in Azure, hebt u een Service Fabric-cluster nodig waarop de toepassing wordt uitgevoerd. 
 
 ### <a name="join-a-party-cluster"></a>Deelnemen aan een cluster van derden
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. 
+Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor knooppunt-naar-knooppunt- en client-naar-knooppunt-beveiliging. 
 
-Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Vergeet niet wat er is gezegd over de waarde voor het **verbindingseindpunt** die in de volgende stappen wordt gebruikt.
+Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Het certificaat en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
+
+![PFX en verbindingseindpunt](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+
+Op een Windows-computer installeert u de PFX in het certificaatarchief *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Onthoud de vingerafdruk voor de volgende stap.
 
 > [!Note]
 > Standaard is de web-front-endservice geconfigureerd om te luisteren op poort 8080 naar binnenkomend verkeer. Poort 8080 is geopend in het cluster van derden.  Als u de poort van de toepassing moet wijzigen, moet u dat doen op een van de poorten die in het cluster van derden zijn geopend.
@@ -136,24 +154,29 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 1. Klik met de rechtermuisknop op **Voting** in Solution Explorer en kies **Publiceren**. Het dialoogvenster Publiceren wordt weergegeven.
 
-    ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt** en klik op **Publiceren**. Bijvoorbeeld `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Kopieer het **verbindingseindpunt** van het cluster van derden naar het veld **Verbindingseindpunt**. Bijvoorbeeld `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klik op **Advanced Connection Parameters** en vul de volgende gegevens in.  De waarden *FindValue* en *ServerCertThumbprint* moeten overeenkomen met de vingerafdruk van het certificaat dat in een vorige stap is geïnstalleerd. 
+
+    ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
     Elke toepassing in het cluster moet een unieke naam hebben.  Clusters van derden vormen echter een openbare, gedeelde omgeving en er kan een conflict met een bestaande toepassing optreden.  Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
 
-3. Open een browser en typ het adres van het cluster gevolgd door ':8080' om bij de toepassing in het cluster te komen, bijvoorbeeld `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. U zou nu moeten kunnen zien dat de toepassing in het cluster in Azure wordt uitgevoerd.
+3. Klik op **Publish**.
+
+4. Open een browser en typ het adres van het cluster gevolgd door ':8080' om bij de toepassing in het cluster te komen, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. U zou nu moeten kunnen zien dat de toepassing in het cluster in Azure wordt uitgevoerd.
 
 ![Front-end van de toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
 Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn meerdere manieren waarop u uw services kunt schalen. U kunt daarvoor scripts of opdrachten van PowerShell of Service Fabric-CLI (sfctl) gebruiken. Gebruik voor dit voorbeeld Service Fabric Explorer.
 
-Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+
+U kunt een waarschuwing van de browser krijgen dat de locatie niet wordt vertrouwd. Dat komt omdat het certificaat zelfondertekend is. U kunt de waarschuwing negeren en doorgaan. Selecteer het geïnstalleerde certificaat om verbinding te maken indien u daarom wordt gevraagd. 
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 2. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -185,7 +208,7 @@ Als u de toepassing wilt upgraden, gaat u als volgt te werk:
 7. Schakel in het dialoogvenster **Service Fabric-toepassing publiceren** het selectievakje De toepassing bijwerken in en klik op **Publiceren**.
 
     ![Upgrade-instelling in het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Open uw browser en blader naar het adres van het cluster op poort 19080, bijvoorbeeld `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+8. Open uw browser en blader naar het adres van het cluster op poort 19080, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Klik in de structuurweergave op het knooppunt **Toepassingen** en vervolgens op **Upgrades worden uitgevoerd** in het rechterdeelvenster. U ziet nu hoe de upgrade wordt uitgevoerd op de upgradedomeinen in uw cluster en dat elk domein wordt bijgewerkt voordat het volgende wordt bijgewerkt. Een upgradedomein wordt in de voortgangsbalk groen weergegeven als de status van het domein is geverifieerd.
     ![Weergave van de upgrade in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

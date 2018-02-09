@@ -1,6 +1,6 @@
 ---
-title: Ontwerp van uw eerste Azure SQL database | Microsoft Docs
-description: Informatie over het ontwerpen van uw eerste Azure SQL database in de Azure-portal en met SQL Server Management Studio.
+title: Uw eerste Azure SQL-database ontwerpen | Microsoft Docs
+description: Lees hier alles over het ontwerpen van uw eerste Azure SQL database in Azure Portal en met SQL Server Management Studio.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 08/25/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.openlocfilehash: d7c0ba8a8ac477e7e3175d590a6de13fb3f460cb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>Ontwerp van uw eerste Azure SQL database
+# <a name="design-your-first-azure-sql-database"></a>Uw eerste Azure SQL-database ontwerpen
 
-Azure SQL-Database is een relationele database als een service (DBaaS) in de Microsoft-Cloud (Azure). In deze zelfstudie leert u hoe de Azure portal gebruiken en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) naar: 
+Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met Azure Portal en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) de volgende taken uitvoert: 
 
 > [!div class="checklist"]
-> * Maak een database in de Azure-portal
-> * Een firewallregel op serverniveau in de Azure portal instellen
-> * Verbinding maken met de database met SSMS
+> * Een database maken in Azure Portal
+> * Een serverfirewallregel instellen in Azure Portal
+> * Verbinding maken met de database via SSMS
 > * Tabellen maken met SSMS
-> * Gegevens voor bulksgewijs laden met BCP
-> * Opvragen van die gegevens met SSMS
-> * Herstel de database naar een eerdere [wijst naar een bepaald tijstip](sql-database-recovery-using-backups.md#point-in-time-restore) in de Azure portal
+> * Gegevens bulksgewijs laden met BCP
+> * Query uitvoeren op die gegevens met SSMS
+> * De database [herstellen naar een eerder tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore) in Azure Portal
 
-Als u een Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/) voordat u begint.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg dat u hebt geïnstalleerd voor het voltooien van deze zelfstudie:
+Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 - De nieuwste versie van [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 - De nieuwste versie van [BCP en SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
@@ -51,7 +51,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md). 
 
-Volg deze stappen voor het maken van een lege SQL-database. 
+Volg deze stappen om een lege SQL-database te maken. 
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
@@ -66,24 +66,24 @@ Volg deze stappen voor het maken van een lege SQL-database.
    | **Databasenaam** | mySampleDatabase | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. | 
    | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
    | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
-   | **Bron selecteren** | Lege database | Hiermee geeft u op dat een lege database moet worden gemaakt. |
+   | **Bron selecteren** | Lege database | Hiermee geeft u aan dat er een lege database moet worden gemaakt. |
 
-4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul de **nieuwe serverformulier** met de volgende informatie: 
+4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in met de volgende gegevens: 
 
    | Instelling       | Voorgestelde waarde | Beschrijving | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Servernaam** | Een wereldwijd unieke naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige servernamen. | 
    | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen.|
-   | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet ten minste acht tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
+   | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet uit minstens acht tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
    | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
 
    ![database-server maken](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Klik op **Selecteren**.
 
-6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's en de hoeveelheid opslag op te geven. Bekijk de opties voor het aantal dtu's en opslag die u voor elke servicelaag beschikbaar is. 
+6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. 
 
-7. Voor deze zelfstudie selecteert u de **standaard** servicelaag en gebruik vervolgens de schuifregelaar om te selecteren **100 dtu's (S3)** en **400** GB aan opslagruimte.
+7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **100 DTU's (S3)** en **400** GB aan opslagruimte te selecteren.
 
    ![database-s1 maken](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -92,12 +92,12 @@ Volg deze stappen voor het maken van een lege SQL-database.
    > [!IMPORTANT]
    > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
    >
-   >\* In de Premium-laag is op dit moment opslag van meer dan 1 TB beschikbaar in de volgende regio's: VS Oost 2, VS West, VS (overheid) Virginia, West-Europa, Duitsland Centraal, Zuidoost-Azië, Japan - oost, Australië - oost, Canada Centraal en Canada Oost. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
-10. Selecteer een **sortering** voor de lege database (Gebruik de standaardwaarde voor deze zelfstudie). Zie voor meer informatie over sorteringen [sorteringen](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Selecteer een **sortering** voor de lege database (gebruik de standaardwaarde in deze zelfstudie). Zie [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations) (Sorteringen) voor meer informatie over sorteringen
 
 11. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
 
@@ -119,7 +119,7 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 
    ![servernaam](./media/sql-database-get-started-portal/server-name.png) 
 
-3. Klik op **serverfirewall ingesteld** op de werkbalk. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
+3. Klik op de werkbalk op **Serverfirewall instellen**. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
 
    ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
@@ -144,9 +144,9 @@ Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op 
 
    ![verbindingsgegevens](./media/sql-database-get-started-portal/server-name.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database met SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SSMS
 
-Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) geen verbinding met uw Azure SQL Database-server.
+Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) om verbinding te maken met uw Azure SQL Database-server.
 
 1. Open SQL Server Management Studio.
 
@@ -154,9 +154,9 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    | Instelling       | Voorgestelde waarde | Beschrijving | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Servertype | Database-engine | Deze waarde is vereist |
-   | Servernaam | De volledig gekwalificeerde servernaam | De naam moet er ongeveer als volgt: **mynewserver20170824.database.windows.net**. |
-   | Authentication | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
+   | Servertype | Database-engine | Deze waarde is verplicht |
+   | Servernaam | De volledig gekwalificeerde servernaam | De naam moet er ongeveer als volgt uitzien: **mynewserver20170824.database.windows.net**. |
+   | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
    | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
    | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
 
@@ -170,27 +170,27 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
 5. In Objectverkenner vouwt u **Databases** en daarna **mySampleDatabase** uit om de objecten in de voorbeelddatabase weer te geven.
 
-   ![database-objecten](./media/sql-database-connect-query-ssms/connected.png)  
+   ![databaseobjecten](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="create-tables-in-the-database"></a>Tabellen maken in de database 
 
-Het schema van een database maken met vier tabellen die een beheersysteem studenten voor universiteiten met model [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
+Maak met [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) een databaseschema met vier tabellen die overeenkomen met belangrijke gegevens uit een studenteninformatiesysteem voor universiteiten:
 
-- Persoon
-- Cursus
+- Person
+- Course
 - Student
-- Dit model van een beheersysteem studenten voor universiteiten creditcard
+- Credit
 
-Het volgende diagram toont hoe deze tabellen aan elkaar zijn gerelateerd. Sommige van deze tabellen verwijzen naar kolommen in andere tabellen. Bijvoorbeeld, de tabel studenten verwijst naar de **PersonId** kolom van de **persoon** tabel. Het diagram om te begrijpen hoe de tabellen in deze zelfstudie zijn gerelateerd aan elkaar bestuderen. Zie voor een diepgaande blik op het maken van effectief databasetabellen, [effectieve databasetabellen maken](https://msdn.microsoft.com/library/cc505842.aspx). Zie voor meer informatie over het kiezen van gegevenstypen [gegevenstypen](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
+Het volgende diagram laat zien hoe deze tabellen aan elkaar zijn gerelateerd. Sommige van deze tabellen verwijzen naar kolommen in andere tabellen. Zo verwijst de tabel Student naar de kolom **PersonId** van de tabel **Person**. Bekijk het diagram goed om te begrijpen hoe de tabellen in deze zelfstudie aan elkaar zijn gerelateerd. Zie dit Engelstalige artikel over het [maken van effectieve databasetabellen](https://msdn.microsoft.com/library/cc505842.aspx) voor uitgebreide informatie over het maken van effectieve databasetabellen. Zie [Gegevenstypen](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) voor informatie over het kiezen van gegevenstypen.
 
 > [!NOTE]
-> U kunt ook de [tabelontwerp in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) maken en ontwerpen van uw tabellen. 
+> U kunt ook de functie voor het [ontwerpen van tabellen in SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) gebruiken om tabellen te maken en ontwerpen. 
 
 ![Relaties tussen tabellen](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
 1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en klik vervolgens op **Nieuwe query**. Er wordt een leeg queryvenster geopend dat is verbonden met uw database.
 
-2. Uitvoeren van de volgende query vier om tabellen te maken in uw database in het queryvenster: 
+2. Voer in het queryvenster de volgende query uit om vier tabellen te maken in uw database: 
 
    ```sql 
    -- Create Person table
@@ -239,24 +239,24 @@ Het volgende diagram toont hoe deze tabellen aan elkaar zijn gerelateerd. Sommig
 
    ![Tabellen maken](./media/sql-database-design-first-database/create-tables.png)
 
-3. Vouw het knooppunt 'tabellen' in SQL Server Management Studio Object explorer om te zien van de tabellen die u hebt gemaakt.
+3. Vouw het knooppunt 'Tables' in Object Explorer van SQL Server Management Studio uit om de tabellen te zien die u hebt gemaakt.
 
-   ![SSMS tabellen gemaakt](./media/sql-database-design-first-database/ssms-tables-created.png)
+   ![Tabellen gemaakt in SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
 ## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
 
 1. Maak een map **SampleTableData** in de map Downloads voor het opslaan van voorbeeldgegevens voor uw database. 
 
-2. Met de rechtermuisknop op de volgende koppelingen en opslaan in de **SampleTableData** map. 
+2. Klik met de rechtermuisknop op de volgende koppelingen en sla deze op in de map **SampleTableData**. 
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Open een opdrachtpromptvenster en navigeer naar de map SampleTableData.
+3. Open een venster met een opdrachtprompt en ga naar de map SampleTableData.
 
-4. Voer de volgende opdrachten in de tabellen Vervang de waarden voor de voorbeeldgegevens invoegen **ServerName**, **DatabaseName**, **gebruikersnaam**, en **wachtwoord** met de waarden voor uw omgeving.
+4. Voer de volgende opdrachten uit om voorbeeldgegevens toe te voegen aan de tabellen. Vervang hierbij de waarden voor **ServerName**, **DatabaseName**, **UserName** en **Password** door de waarden voor uw omgeving.
   
    ```bcp
    bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
@@ -269,9 +269,9 @@ U hebt nu voorbeeldgegevens geladen in de tabellen die u eerder hebt gemaakt.
 
 ## <a name="query-data"></a>Querygegevens
 
-De volgende query's om informatie te halen uit de databasetabellen worden uitgevoerd. Zie [SQL-query's schrijven](https://technet.microsoft.com/library/bb264565.aspx) voor meer informatie over het schrijven van SQL-query's. De eerste query koppelt alle vier tabellen bij om te zoeken naar alle de studenten geleerd door ' Dominick Pope' die een klasse die hoger is dan 75% in de klasse hebben. De tweede query koppelt alle vier tabellen en vindt alle cursussen waarin 'Noe Coleman' ooit is ingeschreven.
+Voer de volgende query's uit om gegevens op te halen uit de databasetabellen. Zie [SQL-query's schrijven](https://technet.microsoft.com/library/bb264565.aspx) voor meer informatie over het schrijven van SQL-query's. Met de eerste query worden alle vier de tabellen gekoppeld om alle studenten te vinden geleerd die 'Dominick Pope' als docent hebben en die een cijfer hoger dan 75% van hem hebben gehad. Met de tweede query worden alle vier de tabellen gekoppeld en worden alle cursussen gevonden waarvoor 'Noe Coleman' zich ooit heeft ingeschreven.
 
-1. In een SQL Server Management Studio query-venster de volgende query wordt uitgevoerd:
+1. Voer in een venster van SQL Server Management Studio de volgende query uit:
 
    ```sql 
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
@@ -288,7 +288,7 @@ De volgende query's om informatie te halen uit de databasetabellen worden uitgev
    AND Grade > 75
    ```
 
-2. Uitvoeren na de query in een SQL Server Management Studio query-venster:
+2. Voer in een venster van SQL Server Management Studio de volgende query uit:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
@@ -306,36 +306,36 @@ De volgende query's om informatie te halen uit de databasetabellen worden uitgev
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
 
-Stel dat u een tabel per ongeluk hebt verwijderd. Dit is iets dat die u eenvoudig niet vanuit herstellen. Azure SQL Database kunt u teruggaan naar een willekeurig punt in tijd in het laatste tot 35 dagen en dit punt in tijd om een nieuwe database te herstellen. U kunt u deze database om de verwijderde gegevens te herstellen. Voordat u de tabellen zijn toegevoegd, de volgende stappen uit de voorbeelddatabase herstellen naar een punt.
+Stel dat u een tabel per ongeluk hebt verwijderd. Dit is iets wat u niet eenvoudig kunt herstellen. In Azure SQL Database kunt u echter gedurende een periode van maximaal 35 dagen teruggaan naar een bepaald tijdstip om vanaf dat moment de gegevens te herstellen in een nieuwe database. U kunt deze database vervolgens gebruiken om de verwijderde gegevens terug te halen. Met de volgende stappen wordt de voorbeelddatabase hersteld naar een punt voordat de tabellen zijn toegevoegd.
 
-1. Klik op de pagina SQL-Database voor uw database **herstellen** op de werkbalk. De **herstellen** pagina wordt geopend.
+1. Klik op de pagina SQL-database voor uw database op **Restore** op de werkbalk. De**gelijknamige**pagina wordt geopend.
 
-   ![herstellen](./media/sql-database-design-first-database/restore.png)
+   ![De pagina Restore](./media/sql-database-design-first-database/restore.png)
 
-2. Vul de **herstellen** formulier met de vereiste informatie:
+2. Vul in het formulier **Restore** de vereiste gegevens in:
     * Databasenaam: voer een naam in voor de database 
-    * Punt in tijd: Selecteer de **punt in tijd** tabblad van het formulier herstellen 
-    * Herstelpunt: Selecteer een tijd die deze gebeurtenis treedt op voordat de database is gewijzigd
-    * Doelserver: U kunt deze waarde niet wijzigen wanneer een database herstellen 
-    * Pool voor elastische database: Selecteer **None**  
-    * Prijscategorie: Selecteer **20 dtu's** en **40 GB** van opslag.
+    * Point-in-time: selecteer het tabblad **Point-in-time** van het formulier Restore 
+    * Restore point: selecteer een tijdstip voorafgaand aan het moment waarop de database is gewijzigd
+    * Target server: u kunt deze waarde niet wijzigen als u een database gaat herstellen 
+    * Elastic database pool: selecteer **None**  
+    * Pricing tier: select **20 DTUs** en **40 GB** opslag.
 
    ![herstelpunt](./media/sql-database-design-first-database/restore-point.png)
 
-3. Klik op **OK** de database te herstellen [herstellen naar een punt in tijd](sql-database-recovery-using-backups.md#point-in-time-restore) voordat de tabellen zijn toegevoegd. Terugzetten van een database naar een ander punt in tijd een dubbele database gemaakt in dezelfde server als de oorspronkelijke database vanaf het punt in tijd die u opgeeft, mits dit binnen de bewaarperiode voor uw [servicelaag](sql-database-service-tiers.md).
+3. Klik op **OK** om de database te [herstellen naar een eerder tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore), voordat de tabellen werden toegevoegd. Als u een database herstelt naar een eerder tijdstip, wordt er op de server van de oorspronkelijke database een database gemaakt met de inhoud zoals die aanwezig was op het tijdstip dat u opgeeft. Dit tijdstip moet wel binnen de bewaarperiode liggen die wordt gehanteerd voor uw [servicelaag](sql-database-service-tiers.md).
 
 ## <a name="next-steps"></a>Volgende stappen 
-In deze zelfstudie hebt u geleerd basic databasetaken, zoals een database en tabellen maken, laden en een query over gegevens en de database naar een eerder tijdstip herstellen. U hebt geleerd hoe u:
+In deze zelfstudie hebt u kennisgemaakt met eenvoudige databasetaken, zoals het maken van een database en tabellen, het laden en opvragen van gegevens, en het herstellen van een database naar een eerder tijdstip. U hebt geleerd hoe u:
 > [!div class="checklist"]
 > * Een database maken
 > * Een firewallregel instellen
-> * Verbinding maken met de database met [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Verbinding maken met de database met behulp van [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
 > * Tabellen maken
-> * Gegevens voor bulksgewijs laden
-> * Deze gegevens opvragen
-> * De database naar een eerder punt herstellen met behulp van SQL-Database [wijst naar een bepaald tijstip](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheden
+> * Bulksgewijs gegevens laden
+> * Een query uitvoeren op deze gegevens
+> * De database herstellen naar een eerder tijdstip met behulp van [SQL-Database](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-Ga naar de volgende zelfstudie voor meer informatie over het ontwerpen van een database met Visual Studio en C#.
+Ga naar de volgende zelfstudie als u alles wilt weten over het ontwerpen van een database met Visual Studio en C#.
 
 > [!div class="nextstepaction"]
->[Ontwerp van een Azure SQL database en verbinding maken met C# en ADO.NET](sql-database-design-first-database-csharp.md)
+>[Een Azure SQL-database ontwerpen en verbinding maken met C# en ADO.NET](sql-database-design-first-database-csharp.md)

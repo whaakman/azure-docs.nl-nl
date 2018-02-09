@@ -13,14 +13,17 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 6265c6b72e37f5f25234c03080b2d5e6c5533cd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Pakketten van SQL Server Integration Services implementeren in Azure
 Deze zelfstudie bevat de stappen voor het inrichten van een Azure SSIS Integration Runtime (IR) in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure. In deze zelfstudie voert u de volgende stappen uit:
+
+> [!NOTE]
+> In dit artikel wordt Azure PowerShell gebruikt voor het inrichten van een Azure SSIS-IR. Als u de gebruikersinterface (UI) van Data Factory wilt gebruiken voor het inrichten van een Azure SSIS-IR, gaat u naar [Zelfstudie: een Azure-SSIS-integratieruntime maken](tutorial-create-azure-ssis-runtime-portal.md). 
 
 > [!div class="checklist"]
 > * Een data factory maken.
@@ -33,6 +36,7 @@ Deze zelfstudie bevat de stappen voor het inrichten van een Azure SSIS Integrati
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint. Zie [Overzicht van Integration Runtime in Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime) voor algemene informatie over Azure-SSIS IR.
+
 
 ## <a name="prerequisites"></a>Vereisten
 - **Azure SQL Database-server**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. 
@@ -136,7 +140,7 @@ Als uw resourcegroep al bestaat, hoeft u deze code niet naar het script te kopi�
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-## <a name="create-a-data-factory"></a>Een data factory maken
+## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Voer de volgende opdracht uit om een data factory te maken:
 
 ```powershell
@@ -206,7 +210,7 @@ Met het PowerShell-script in deze sectie wordt er een instantie van de Azure SSI
 
 > [!NOTE]
 > - Het script maakt verbinding met uw Azure SQL-database om de SSIS-catalogusdatabase (SSISDB) voor te bereiden. Het script configureert ook machtigingen en instellingen voor uw VNet, indien opgegeven, en verbindt de nieuwe instantie van de Azure SSIS Integration Runtime met het VNet.
-> - Wanneer u een exemplaar van de SQL-database inricht voor het hosten van SSISDB, worden ook het Azure-functiepakket voor SSIS en het te distribueren Azure-pakket geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. Onderdelen van derden voor SSIS kunnen op dit moment niet worden geïnstalleerd (met inbegrip van onderdelen van derden van Microsoft, zoals de Oracle- en Teradata-onderdelen van Attunity en de SAP BI-onderdelen).
+> - Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Feature Pack voor SSIS en de Access Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. Onderdelen van derden voor SSIS kunnen op dit moment niet worden geïnstalleerd (met inbegrip van onderdelen van derden van Microsoft, zoals de Oracle- en Teradata-onderdelen van Attunity en de SAP BI-onderdelen).
 
 
 Voor een lijst met ondersteunde **prijscategorieën** voor Azure SQL Database raadpleegt u [SQL Database resource limits](../sql-database/sql-database-resource-limits.md) (Limieten voor SQL Database-resources). 

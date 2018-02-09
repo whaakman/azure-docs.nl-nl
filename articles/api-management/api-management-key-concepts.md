@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>Wat is API Management?
 
@@ -30,7 +30,7 @@ Bekijk de volgende video voor een overzicht van Azure API Management en leer hoe
 > 
 > 
 
-Dit onderwerp bevat een overzicht van veelvoorkomende scenario's met APIM.  Het bevat ook een kort overzicht van de belangrijkste onderdelen van het APIM-systeem. Het onderwerp biedt vervolgens een meer gedetailleerd overzicht van elk onderdeel.
+Dit artikel bevat een overzicht van veelvoorkomende scenario's met APIM.  Het bevat ook een kort overzicht van de belangrijkste onderdelen van het APIM-systeem. Het artikel biedt vervolgens een meer gedetailleerd overzicht van elk onderdeel.
 
 ## <a name="overview"></a>Overzicht
 
@@ -50,14 +50,14 @@ Het systeem bestaat uit de volgende onderdelen:
   * Uw API snel kan worden getransformeerd zonder codewijzigingen.
   * Antwoorden van de back-end in de cache worden opgeslagen indien ingesteld.
   * Aanroepmetagegevens worden voor analysedoeleinden aan het logboek toegevoegd.
-* De **publicatieportal** is de beheerinterface waar u uw API-programma instelt. Gebruik deze voor het volgende:
+* **Azure Portal** is de beheerinterface waar u uw API-programma instelt. Gebruik deze voor het volgende:
   
   * API-schema definiëren of importeren.
   * API's verpakken in producten.
   * Beleidsregels instellen zoals quota of transformaties voor de API's.
   * Inzicht krijgen van analytische gegevens.
   * Gebruikers beheren.
-* De **ontwikkelaarsportal** fungeert als de belangrijkste aanwezigheid op het web voor ontwikkelaars. Ze kunnen hier het volgende:
+* De **portal voor ontwikkelaars** fungeert als de belangrijkste informatiebron op het web voor ontwikkelaars. Ze kunnen hier het volgende doen:
   
   * API-documentatie lezen.
   * Een API uitproberen via de interactieve console.
@@ -104,7 +104,7 @@ Als ontwikkelaars zich op een product abonneren, krijgen ze de primaire en secun
 Zie voor meer informatie [Ontwikkelaars maken of uitnodigen][How to create or invite developers] en [Groepen koppelen aan ontwikkelaars][How to associate groups with developers].
 
 ## <a name="policies"> </a> Beleidsregels
-Beleidsregels zijn een krachtige mogelijkheid van API Management waarmee de uitgever het gedrag van de API via configuratie kan wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Populaire instructies omvatten indelingsconversie van XML in JSON en beperking van de aanroepfrequentie om het aantal inkomende aanroepen van een ontwikkelaar te beperken. Er zijn nog vele andere beleidsregels beschikbaar.
+Beleidsregels zijn een krachtige mogelijkheid van API Management waarmee het gedrag van de API via configuratie in Azure Portal kan worden gewijzigd. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of het antwoord van een API. Populaire instructies omvatten indelingsconversie van XML in JSON en beperking van de aanroepfrequentie om het aantal inkomende aanroepen van een ontwikkelaar te beperken. Er zijn nog vele andere beleidsregels beschikbaar.
 
 Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management-beleidsregels, tenzij het beleid iets anders aangeeft. Sommige beleidsregels, zoals de beleidsregels [Stroom controleren](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) en [Variabele instellen](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), zijn gebaseerd op beleidsexpressies. Zie [Geavanceerde beleidsregels](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) en [Beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) voor meer informatie.
 

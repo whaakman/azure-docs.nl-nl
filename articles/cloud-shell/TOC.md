@@ -17,12 +17,14 @@
 # Voorbeelden
 ## [Azure-resources met Terraform in Bash implementeren](example-terraform-bash.md)
 
+## [Ansible uitvoeren in Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+
 # [Cloud Shell insluiten](embed-cloud-shell.md)
 
 # [Problemen oplossen](troubleshooting.md)
 
 # Naslaginformatie
-## [Azure CLI](/cli/azure)
+## [Azure-CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Resources

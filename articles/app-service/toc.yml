@@ -75,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Diagnostiek
       href: app-service-diagnostics.md
+    - name: Patches toepassen voor het besturingssysteem en de runtime
+      href: app-service-patch-os-runtime.md
 - name: Handleidingen
   items:
     - name: App configureren
@@ -164,7 +166,7 @@
         - name: Een app klonen
           href: app-service-web-app-cloning.md
         - name: Resources verplaatsen
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Achtergrondtaken uitvoeren
       items:
         - name: WebJobs maken

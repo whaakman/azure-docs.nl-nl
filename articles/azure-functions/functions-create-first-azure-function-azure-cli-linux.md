@@ -11,15 +11,15 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Uw eerste Linux-functie maken vanuit Azure CLI (preview)
 
-Met Azure Functions kunt u uw functies voor Linux hosten in een standaardcontainer van Azure App Service. Deze functionaliteit is momenteel in preview. U kunt ook [uw eigen aangepaste container](functions-create-function-linux-custom-image.md) gebruiken. 
+Met Azure Functions kunt u uw functies voor Linux hosten in een standaardcontainer van Azure App Service. U kunt ook [uw eigen aangepaste container](functions-create-function-linux-custom-image.md) gebruiken. Deze functionaliteit is momenteel alleen in preview en vereist [de runtime van Functions 2.0](functions-versions.md), die ook in preview is.
 
 In deze quickstart wordt stapsgewijs uitgelegd hoe u Azure Functions gebruikt met de Azure CLI voor het maken van uw eerste functie-app voor Linux, gehost in de standaardcontainer van App Service. De functiecode zelf wordt vanuit een opslagplaats met voorbeelden van GitHub geïmplementeerd naar de installatiekopie.    
 
@@ -49,7 +49,7 @@ Linux-hosting voor Functions wordt momenteel alleen ondersteund via een App Serv
 
 ## <a name="create-a-function-app-on-linux"></a>Een functie-app maken in Linux
 
-U moet beschikken over een functie-app om de uitvoering van uw functies in Linux te hosten. De functie-app biedt een omgeving waarin uw functiecode kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Maak een functie-app door de opdracht [az functionapp create](/cli/azure/functionapp#create) te gebruiken met een Linux App Service-abonnement. 
+U moet beschikken over een functie-app om de uitvoering van uw functies in Linux te hosten. De functie-app biedt een omgeving waarin uw functiecode kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Maak een functie-app door de opdracht [az functionapp create](/cli/azure/functionapp#az_functionapp_create) te gebruiken met een Linux App Service-abonnement. 
 
 Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. De parameter _deployment-source-url_ verwijst naar een opslagplaats met voorbeeld in GitHub die een door HTTP getriggerde functie 'Hello World' bevat.
 

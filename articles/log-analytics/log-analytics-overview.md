@@ -1,6 +1,6 @@
 ---
-title: Wat is Log Analytics in Operations Management Suite (OMS)? | Microsoft Docs
-description: Log Analytics is een service in Operations Management Suite (OMS) voor het verzamelen en analyseren van operationele gegevens die zijn gegenereerd door resources in uw cloud- en on-premises omgevingen.  Dit artikel geeft een kort overzicht van de verschillende onderdelen van Log Analytics en koppelingen naar gedetailleerde inhoud.
+title: Wat is Log Analytics in Azure? | Microsoft Docs
+description: Log Analytics is een service in Azure voor het verzamelen en analyseren van operationele gegevens die zijn gegenereerd door resources in uw cloud- en on-premises omgevingen.  Dit artikel geeft een kort overzicht van de verschillende onderdelen van Log Analytics en koppelingen naar gedetailleerde inhoud.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2017
+ms.date: 01/24/2018
 ms.author: bwren
-ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a95528f5bd259a36ea96c7bc0660ca082c09d6e6
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-log-analytics"></a>Wat is Log Analytics?
-Log Analytics is een service in [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) waarmee u uw cloud- en on-premises omgevingen kunt bewaken om zo hun beschikbaarheid en prestaties te onderhouden.  De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.  Dit artikel bevat een korte beschrijving van de waarde die Log Analytics toevoegt, een overzicht van hoe het werkt en koppelingen naar meer gedetailleerde inhoud zodat u dieper op het onderwerp in kunt gaan.
+Log Analytics is een service in Azure waarmee u uw cloud- en on-premises omgevingen kunt bewaken om zo hun beschikbaarheid en prestaties te onderhouden.  De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.  Dit artikel bevat een korte beschrijving van de waarde die Log Analytics toevoegt, een overzicht van hoe het werkt en koppelingen naar meer gedetailleerde inhoud zodat u dieper op het onderwerp in kunt gaan.
 
 ## <a name="is-log-analytics-for-you"></a>Is Log Analytics iets voor u?
 Als u op dit moment niet beschikt over een bewakingsfunctie voor uw Azure-omgeving, kunt u beginnen met [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) om bewakingsgegevens voor uw Azure-resources te verzamelen en analyseren.  Log Analytics kan [gegevens van Azure Monitor opvragen](log-analytics-azure-storage.md) en deze correleren met andere gegevens om zo aanvullende analyse mogelijk te maken.
@@ -30,9 +30,9 @@ Als u uw on-premises omgeving wilt bewaken of als u bewaking hebt ingesteld op b
 
 
 ## <a name="using-log-analytics"></a>Log Analytics gebruiken
-Log Analytics is via elke browser toegankelijk vanuit de OMS-portal of Azure Portal. U kunt daar configuratie-instellingen opgeven en verschillende hulpprogramma's uitvoeren om de verzamelde gegevens te analyseren en er actie op te ondernemen.  Vanuit de portal kunt u gebruikmaken van [zoekopdrachten in logboeken](log-analytics-log-searches.md) waar u query's samenstelt om verzamelde gegevens te analyseren, [dashboards](log-analytics-dashboards.md) die u kunt aanpassen met grafische views van uw waardevolste zoekopdrachten en [oplossingen](log-analytics-add-solutions.md) die aanvullende functionaliteit en analysehulpprogramma's bieden.
+Log Analytics is via elke browser toegankelijk vanuit Azure Portal. U kunt daar configuratie-instellingen opgeven en verschillende hulpprogramma's uitvoeren om de verzamelde gegevens te analyseren en er actie op te ondernemen.  Vanuit de portal kunt u gebruikmaken van [zoekopdrachten in logboeken](log-analytics-log-searches.md) waar u query's samenstelt om verzamelde gegevens te analyseren, [dashboards](log-analytics-dashboards.md) die u kunt aanpassen met grafische views van uw waardevolste zoekopdrachten en [oplossingen](log-analytics-add-solutions.md) die aanvullende functionaliteit en analysehulpprogramma's bieden.
 
-Hieronder ziet u een afbeelding van de OMS-portal, met daarin het dashboard met samenvattingsinformatie voor de [oplossingen](#add-functionality-with-management-solutions) die in de werkruimte zijn geïnstalleerd.  U kunt klikken op een tegel om verder in te zoomen op de gegevens voor die oplossing.
+Hieronder ziet u een afbeelding van het scherm Overzicht, met daarin het dashboard met samenvattingsinformatie voor de [oplossingen](#add-functionality-with-management-solutions) die in de werkruimte zijn geïnstalleerd.  U kunt klikken op een tegel om verder in te zoomen op de gegevens voor die oplossing.
 
 ![OMS-portal](media/log-analytics-overview/portal.png)
 
@@ -40,25 +40,21 @@ Log Analytics ondersteunt een querytaal voor het snel ophalen en samenvoegen van
 
 ![Zoekopdrachten in logboeken](media/log-analytics-overview/log-search.png)
 
-Om een snelle grafische weergave van de status van uw algehele omgeving te krijgen, kunt u visualisaties voor opgeslagen zoekopdrachten in logboeken toevoegen aan uw [dashboard](log-analytics-dashboards.md).   
-
-![Dashboard](media/log-analytics-overview/dashboard.png)
-
-Als u gegevens buiten Log Analytics wilt analyseren, kunt u de gegevens uit de OMS-opslagplaats OMS exporteren in hulpprogramma's zoals [Power BI](log-analytics-powerbi.md) of Excel.  U kunt ook gebruikmaken van de [API voor de zoekopdrachten in logboeken](log-analytics-log-search-api.md) om aangepaste oplossingen te bouwen die gebruikmaken van Log Analytics-gegevens of om te integreren met andere systemen.
+Als u gegevens buiten Log Analytics wilt analyseren, kunt u de gegevens exporteren naar hulpprogramma's zoals [Power BI](log-analytics-powerbi.md) of Excel.  U kunt ook gebruikmaken van de [API voor de zoekopdrachten in logboeken](log-analytics-log-search-api.md) om aangepaste oplossingen te bouwen die gebruikmaken van Log Analytics-gegevens of om te integreren met andere systemen.
 
 ## <a name="add-functionality-with-management-solutions"></a>Functionaliteit toevoegen met beheeroplossingen
-[Beheeroplossingen](log-analytics-add-solutions.md) voegen functionaliteit toe aan OMS, waardoor er aanvullende gegevens- en analysefuncties beschikbaar komen voor Log Analytics.  Er zijn ook oplossingen waarmee nieuwe recordtypen kunnen worden gedefinieerd die moeten worden verzameld. Deze kunnen vervolgens worden geanalyseerd met zoekopdrachten in logboeken of door een aanvullende gebruikersinterface die door de oplossing wordt weergegeven in het dashboard.  In de afbeelding hieronder ziet u de oplossing [Windows-bestandstracering](log-analytics-change-tracking.md).
+[Beheeroplossingen](log-analytics-add-solutions.md) voegen functionaliteit toe aan Log Analytics, waardoor er aanvullende gegevens- en analysefuncties beschikbaar komen voor Log Analytics.  Er zijn ook oplossingen waarmee nieuwe recordtypen kunnen worden gedefinieerd die moeten worden verzameld. Deze kunnen vervolgens worden geanalyseerd met zoekopdrachten in logboeken of door een aanvullende gebruikersinterface die door de oplossing wordt weergegeven in het dashboard.  In de afbeelding hieronder ziet u de oplossing [Windows-bestandstracering](log-analytics-change-tracking.md).
 
 ![Traceringsoplossingen wijzigen](media/log-analytics-overview/change-tracking.png)
 
-Er zijn oplossingen voor allerlei functies en er worden elke dag weer nieuwe oplossingen toegevoegd.  U kunt in de oplossingengalerie of Azure Marketplace eenvoudig door de beschikbare oplossingen bladeren en [deze toevoegen aan uw OMS-werkruimte](log-analytics-add-solutions.md).  Veel van de oplossing worden automatisch geïmplementeerd en zijn direct bruikbaar, terwijl voor andere oplossingen mogelijk enige configuratie vereist is.
+Er zijn oplossingen voor allerlei functies en er worden elke dag weer nieuwe oplossingen toegevoegd.  U kunt in Azure Marketplace eenvoudig door de beschikbare oplossingen bladeren en [deze toevoegen aan uw werkruimte](log-analytics-add-solutions.md).  Veel van de oplossing worden automatisch geïmplementeerd en zijn direct bruikbaar, terwijl voor andere oplossingen mogelijk enige configuratie vereist is.
 
 ![Galerie van oplossingen](media/log-analytics-overview/solution-gallery.png)
 
 ## <a name="log-analytics-components"></a>Onderdelen van Log Analytics
-In het centrum van Log Analytics bevindt zich de OMS-opslagplaats die in de Azure-cloud wordt beheerd.  Gegevens worden vanuit verbonden bronnen verzameld in de opslagplaats door gegevensbronnen te configureren en oplossingen toe te voegen aan uw abonnement.  Gegevensbronnen en oplossingen creëren elk verschillende recordtypen die hun eigen set eigenschappen hebben, maar nog steeds samen kunnen worden geanalyseerd in query's in de opslagplaats.  Hiermee kunt u dezelfde hulpprogramma's en methoden gebruiken om te werken met verschillende soorten gegevens die door verschillende bronnen zijn verzameld.
+Het hart van Log Analytics wordt gevormd door een opslagplaats met verzamelde gegevens, die wordt gehost in de Azure-cloud.  Gegevens worden vanuit verbonden bronnen verzameld door gegevensbronnen te configureren en oplossingen toe te voegen aan uw abonnement.  Gegevensbronnen en oplossingen creëren elk verschillende recordtypen die hun eigen set eigenschappen hebben, maar nog steeds samen kunnen worden geanalyseerd in query's in de opslagplaats.  Hiermee kunt u dezelfde hulpprogramma's en methoden gebruiken om te werken met verschillende soorten gegevens die door verschillende bronnen zijn verzameld.
 
-![OMS-opslagplaats](media/log-analytics-overview/overview.png)
+![Onderdelen van Log Analytics](media/log-analytics-overview/overview.png)
 
 Verbonden bronnen zijn de computers en andere bronnen die gegevens genereren die worden verzameld door Log Analytics.  Dit kunnen agenten zijn die zijn geïnstalleerd op [Windows-](log-analytics-windows-agent.md) en [Linux](log-analytics-linux-agents.md)-computers die rechtstreeks verbinding maken of agenten in een [verbonden beheergroep van System Center Operations Manager](log-analytics-om-agents.md).  In het geval van Azure-resources verzamelt Log Analytics gegevens uit [Azure Monitor en Azure Diagnostics](log-analytics-azure-storage.md).
 
@@ -69,14 +65,14 @@ Als u speciale vereisten hebt, kunt u de [API HTTP Data Collector](log-analytics
 ## <a name="log-analytics-architecture"></a>Architectuur van Log Analytics
 De implementatievereisten van Log Analytics zijn minimaal omdat de centrale onderdelen in de Azure-cloud worden gehost.  Dit omvat de opslagplaats naast de services die u in staat stellen verzamelde gegevens te correleren en te analyseren.  De portal is toegankelijk vanuit elke browser. Er is dus geen vereiste voor de clientsoftware.
 
-U moet agenten installeren op [Windows](log-analytics-windows-agent.md)- en [Linux](log-analytics-linux-agents.md)-computers, maar er is geen aanvullende agent vereist voor computers die al lid van zijn een [verbonden SCOM-beheergroep](log-analytics-om-agents.md).  SCOM-agenten blijven communiceren met beheerservers die hun gegevens doorsturen naar Log Analytics.  Een aantal oplossingen vereist echter agenten om rechtstreeks te communiceren met Log Analytics.  In de documentatie voor elke oplossing worden de communicatievereisten gespecificeerd.
+U moet agenten installeren op [Windows](log-analytics-windows-agent.md)- en [Linux](log-analytics-linux-agents.md)-computers, maar er is geen aanvullende agent vereist voor computers die al lid van zijn een [verbonden beheergroep van System Center Operations Manager](log-analytics-om-agents.md).  Agenten van Operations Manager blijven communiceren met beheerservers die hun gegevens doorsturen naar Log Analytics.  Een aantal oplossingen vereist echter agenten om rechtstreeks te communiceren met Log Analytics.  In de documentatie voor elke oplossing worden de communicatievereisten gespecificeerd.
 
-Wanneer u [zich aanmeldt voor Log Analytics](log-analytics-get-started.md), maakt u een OMS-werkruimte.  U kunt de werkruimte zien als een unieke omgeving van Log Analytics met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. U kunt meerdere werkruimten maken in uw abonnement om meerdere omgevingen zoals een productieomgeving en testomgeving te ondersteunen.
+Wanneer u [zich aanmeldt voor Log Analytics](log-analytics-get-started.md), maakt u een werkruimte.  U kunt de werkruimte zien als een unieke omgeving van Log Analytics met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. U kunt meerdere werkruimten maken in uw abonnement om meerdere omgevingen zoals een productieomgeving en testomgeving te ondersteunen.
 
 ![Architectuur van Log Analytics](media/log-analytics-overview/architecture.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meld u aan voor een gratis Log Analytics-account](log-analytics-get-started.md) om in uw eigen omgeving te testen.
-* Bekijk de verschillende [gegevensbronnen](log-analytics-data-sources.md) die beschikbaar voor het verzamelen van gegevens in de OMS-opslagplaats.
+* Bekijk de verschillende [gegevensbronnen](log-analytics-data-sources.md) die beschikbaar voor het verzamelen van gegevens in Log Analytics.
 * [Blader door de beschikbare oplossingen in de Galerie van oplossingen](log-analytics-add-solutions.md) om functionaliteit toe te voegen aan Log Analytics.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
@@ -131,21 +131,21 @@ Via de Blob Service kunt u openbare toegang bieden tot een container en de bijbe
 
 ## <a name="encryption"></a>Versleuteling
 
-Er zijn een paar eenvoudige typen versleuteling beschikbaar voor de Storage-services.
+Er zijn twee basistypen versleuteling beschikbaar voor de Storage-services. Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-security-guide.md) voor meer informatie over beveiliging en versleuteling.
 
 ### <a name="encryption-at-rest"></a>Versleuteling 'at rest'
 
-U kunt SSE (Storage Service Encryption) inschakelen voor de Files-service (preview) of de Blob-service voor een Azure-opslagaccount. Als u SSE inschakelt, worden alle gegevens die worden weggeschreven naar de specifieke service eerst versleuteld. Wanneer u de gegevens leest, worden deze ontsleuteld en dan pas geretourneerd.
+Azure SSE (Storage Service Encryption) ondersteunt versleuteling 'at rest' om uw gegevens te beschermen en te beveiligen, zodat u aan de beveiligings- en nalevingsafspraken van uw organisatie voldoet. Met deze functie worden uw gegevens automatisch versleuteld door Azure Storage voordat deze worden opgeslagen en ontsleutelt voordat ze weer worden opgehaald. De processen van versleuteling, ontsleuteling en sleutelbeheer zijn volledig transparant voor gebruikers.
+
+U kunt SSE (Storage Service Encryption) inschakelen voor Blob opslag of voor Azure Files (preview). Als u SSE inschakelt, worden alle gegevens die worden weggeschreven naar de specifieke service eerst versleuteld. Wanneer u de gegevens leest, worden deze ontsleuteld en dan pas geretourneerd.
+
+Meer informatie over SSE-versleuteling 'at rest' vindt u in [Azure Storage Service-versleuteling voor inactieve gegevens](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Clientversleuteling
 
 De opslagclientbibliotheken ondersteunen methoden die u kunt aanroepen om gegevens programmatisch te versleutelen voordat deze via de kabel worden verzonden van de client naar Azure. De gegevens worden versleuteld opgeslagen, wat betekent dat ze ook 'at rest' zijn versleuteld. Bij het opnieuw lezen van de gegevens, worden de gegevens na ontvangst ontsleuteld.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Versleuteling tijdens overdracht met Azure-bestandsshares
-
-Zie [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie over handtekeningen voor gedeelde toegang. Zie [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md) en [Verificatie voor de Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179428.aspx) voor meer informatie over veilige toegang tot uw Storage-account.
-
-Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-security-guide.md) voor meer informatie over het beveiligen van uw opslagaccount en uw gegevens.
+Zie [Versleuteling aan clientzijde met .NET voor Microsoft Azure Storage](storage-client-side-encryption.md) voor meer informatie over versleuteling op de client.
 
 ## <a name="replication"></a>Replicatie
 

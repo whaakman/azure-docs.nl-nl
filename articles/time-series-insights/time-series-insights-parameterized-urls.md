@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -63,14 +63,16 @@ Geaccepteerde waarden komen overeen met het menu **quick time** in de Time Serie
 
 Met de parameter `timeSeriesDefinitions=<collection of term objects>` geeft u de onderdelen van een Time Series Insights-weergave op waarbij:
 
-- `name=<string>`
+- "name":"<string>"
   - De naam van het *onderdeel*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - De naam van de kolom waarop moet worden *gesplitst*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - De kolomnaam van de *meting*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - De *where*-component voor filteren aan de serverzijde.
+-  "useSum":"true"
+  - Dit is een optionele parameter waarin het gebruik van een som voor uw meting wordt aangegeven.  Houd er rekening mee dat als "Events" de geselecteerde meting is, standaard "count" wordt geselecteerd.  Als "Events" niet is geselecteerd, wordt standaard "average" geselecteerd.  
 
 De parameter multiChartStack=<true/false> maakt stapeling in het diagram mogelijk en de parameter multiChartSameScale=<true/false> maakt dezelfde schaling van de Y-as mogelijk voor verschillende onderdelen binnen een optionele parameter.  
 

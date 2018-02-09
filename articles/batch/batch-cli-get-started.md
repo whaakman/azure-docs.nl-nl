@@ -3,8 +3,8 @@ title: Aan de slag met Azure CLI voor Batch | Microsoft Docs
 description: Een korte inleiding in de Batch-opdrachten in Azure CLI voor het beheren van Azure Batch-serviceresources
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
 
@@ -69,7 +69,7 @@ Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in 
 1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
 2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
 
-Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/#login) op de opdrachtregel:
+Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/#az_login) op de opdrachtregel:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,16 +120,9 @@ De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-script
 
 U kunt de Azure CLI gebruiken om Batch-taken end-to-end uit te voeren zonder code te schrijven. Batch-sjabloonbestanden ondersteunen het maken van pools, jobs en taken met de Azure CLI. U kunt de Azure CLI ook gebruiken om jobinvoerbestanden te uploaden naar het Azure Storage-account dat is gekoppeld aan het Batch-account en de jobuitvoerbestanden ervan downloaden. Zie [Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie.
 
-## <a name="sample-shell-scripts"></a>Voorbeelden van shell-scripts
+## <a name="script-examples"></a>Voorbeeldscripts
 
-De voorbeeldscripts in de volgende tabel laten zien hoe u Azure CLI-opdrachten gebruikt met de Batch-service en de Batch-Management-service om veelvoorkomende taken uit te voeren. In deze voorbeeldscripts worden veel van de opdrachten behandeld die beschikbaar zijn in de Azure CLI voor Batch. 
-
-| Script | Opmerkingen |
-|---|---|
-| [Een Batch-account maken](./scripts/batch-cli-sample-create-account.md) | Hiermee maakt u een Batch-account en wordt dit gekoppeld aan een opslagaccount. |
-| [Een toepassing toevoegen](./scripts/batch-cli-sample-add-application.md) | Hiermee voegt u een toepassing toe en worden pakketten met binaire bestanden geüpload.|
-| [Batch-pools beheren](./scripts/batch-cli-sample-manage-pool.md) | In dit script ziet u hoe u pools maakt, deze groter of kleiner maakt en beheert. |
-| [Een functie en taken uitvoeren met Batch](./scripts/batch-cli-sample-run-job.md) | In dit script ziet u hoe u een functie uitvoert en taken toevoegt. |
+Bekijk de [Voorbeelden van CLI-scripts](cli-samples.md) voor Batch voor veelvoorkomende taken. Deze voorbeelden omvatten veel van de opdrachten die beschikbaar zijn in de Azure CLI voor Batch voor het maken en beheren van accounts, pools en taken. 
 
 ## <a name="json-files-for-resource-creation"></a>JSON-bestanden voor het maken van resources
 

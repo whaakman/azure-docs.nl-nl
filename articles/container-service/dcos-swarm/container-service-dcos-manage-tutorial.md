@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor Azure Container Service - DC/OS beheren
-description: Zelfstudie voor Azure Container Service - DC/OS beheren
+title: 'Zelfstudie Azure Container Service: DC/OS beheren'
+description: 'Zelfstudie Azure Container Service: DC/OS beheren'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0c58bd764cf0fdacd55675f8343c6e7481a11823
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 04b5d158c636668a726e046e4f471b452e31ff0d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Zelfstudie voor Azure Container Service - DC/OS beheren
+# <a name="azure-container-service-tutorial---manage-dcos"></a>Zelfstudie Azure Container Service: DC/OS beheren
 
-DC/OS biedt een gedistribueerde platform voor lopende moderne en beperkte toepassingen. Met Azure Container Service is het inrichten van een productie gereed DC/OS-cluster snel en eenvoudig. Deze eenvoudige stappen die nodig zijn voor snel starten-details implementeert een DC/OS-cluster en voer basic werkbelasting.
+DC/OS biedt een gedistribueerd platform voor het uitvoeren van moderne toepassingen in containers. Met Azure Container Service kunt u eenvoudig en snel een DC/OS-cluster inrichten dat gereed is voor productie. In deze zelfstudie worden de basisstappen beschreven die nodig zijn om een DC/OS-cluster te implementeren en een eenvoudige werkbelasting uit te voeren.
 
 > [!div class="checklist"]
-> * Een ACS-DC/OS-cluster maken
+> * Een ACS DC/OS-cluster maken
 > * Verbinding maken met het cluster
 > * De DC/OS CLI installeren
-> * Een toepassing implementeert op het cluster
-> * Schalen van een toepassing op het cluster
-> * De DC/OS clusterknooppunten schalen
-> * Basic DC/OS-management
-> * De DC/OS-cluster verwijderen
+> * Een toepassing implementeren in het cluster
+> * Een toepassing in het cluster schalen
+> * De DC/OS-clusterknooppunten schalen
+> * Eenvoudig DC/OS-beheer
+> * Het DC/OS-cluster verwijderen
 
 Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="create-dcos-cluster"></a>DC/OS-cluster maken
+## <a name="create-dcos-cluster"></a>Een DC/OS-cluster maken
 
-Maak eerst een resourcegroep met de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Maak eerst een resourcegroep met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *Europa West*.
 
@@ -41,9 +41,9 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location westeurope
 ```
 
-Maak vervolgens een DC/OS-cluster met de [az acs maken](/cli/azure/acs#create) opdracht.
+Maak vervolgens een DC/OS-cluster met de opdracht [az acs create](/cli/azure/acs#az_acs_create).
 
-Het volgende voorbeeld wordt een DC/OS-cluster met de naam *myDCOSCluster* en SSH-sleutels gemaakt als deze niet al bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
+In het volgende voorbeeld wordt een DC/OS-cluster gemaakt met de naam *myDCOSClster* en worden SSH-sleutels gemaakt, als deze nog niet bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
 ```azurecli
 az acs create \
@@ -53,31 +53,31 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Na enkele minuten, de opdracht is voltooid en retourneert informatie over de implementatie.
+Na enkele minuten is de opdracht voltooid en wordt er informatie geretourneerd over de implementatie.
 
-## <a name="connect-to-dcos-cluster"></a>Verbinding maken met DC/OS-cluster
+## <a name="connect-to-dcos-cluster"></a>Verbinding maken met een DC/OS-cluster
 
-Zodra een DC/OS-cluster is gemaakt, kan het zijn toegang tot en met een SSH-tunnel. Voer de volgende opdracht om te retourneren van het openbare IP-adres van de DC/OS-master. Dit IP-adres is opgeslagen in een variabele en gebruikt in de volgende stap.
+Zodra een DC/OS-cluster is gemaakt, hebt u toegang tot het cluster via een SSH-tunnel. Voer de volgende opdracht uit om het openbare IP-adres van de DC/OS-master te retourneren. Dit IP-adres wordt opgeslagen in een variabele en gebruikt in de volgende stap.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-De SSH-tunnel maken, voert de volgende opdracht uit en volg de aanwijzingen op het scherm instructies. Als poort 80 al in gebruik is is, mislukt de opdracht. De via een tunnel poort naar een niet in gebruik, zoals bijwerken `85:localhost:80`. 
+Voer de volgende opdracht uit en volg de instructies op het scherm op de SSH-tunnel te maken. Als poort 80 al in gebruik is, mislukt de opdracht. Werk de poort bij naar een poort die nog niet als tunnel wordt gebruikt, zoals `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-## <a name="install-dcos-cli"></a>DC/OS CLI installeren
+## <a name="install-dcos-cli"></a>De DC/OS CLI installeren
 
-Installeer de DC/OS cli met de [az acs dcos install-cli](/azure/acs/dcos#install-cli) opdracht. Als u Azure CloudShell gebruikt, wordt de DC/OS CLI is al geïnstalleerd. Als u de Azure CLI voor Mac OS- of Linux uitvoert, moet u mogelijk de opdracht uitvoert met sudo.
+Installeer de DC/OS CLI met behulp van de opdracht [az acs dcos install-cli](/azure/acs/dcos#install-cli). Als u Azure CloudShell gebruikt, is de DC/OS CLI al geïnstalleerd. Als u Azure CLI uitvoert in Mac OS of Linux, moet u de opdracht mogelijk uitvoeren met sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Voordat de CLI kan worden gebruikt met het cluster, moet deze worden geconfigureerd voor het gebruik van de SSH-tunnel. Voer de volgende opdracht, de poort aan te passen, indien nodig om dit te doen.
+Voordat de CLI kan worden gebruikt met het cluster, moet deze worden geconfigureerd voor gebruik van de SSH-tunnel. Voer hiervoor de volgende opdracht, waarbij u de poort aanpast, indien nodig.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -85,7 +85,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
-De standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. Marathon wordt gebruikt om een toepassing starten en beheren van de status van de toepassing op de DC/OS-cluster. Als u een toepassing via Marathon plannen, maakt u een bestand met de naam **marathon app.json**, en kopieer de volgende inhoud in de App. 
+Het standaardmechanisme voor het plannen van een ACS DC/OS-cluster is Marathon. Marathon wordt gebruikt om een toepassing te starten en de status van de toepassing te beheren op het DC/OS-cluster. Als u een toepassing wilt plannen via Marathon, maakt u een bestand met de naam **marathon app.json** en kopieert u de volgende inhoud in dit bestand. 
 
 ```json
 {
@@ -113,19 +113,19 @@ De standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. M
 }
 ```
 
-Voer de volgende opdracht om te plannen van de toepassing uit te voeren op de DC/OS-cluster.
+Voer de volgende opdracht uit om het uitvoeren van de toepassing op het DC/OS-cluster te plannen.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Overzicht van de implementatiestatus voor de app, voer de volgende opdracht.
+Voer de volgende opdracht uit om de implementatiestatus voor de app te zien.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Wanneer de **taken** kolomwaarde verandert van *0/1* naar *1/1*, implementatie van toepassing is voltooid.
+Wanneer de waarde in de kolom **TASKS** is veranderd van *0/1* in *1/1*, is de implementatie van de toepassing voltooid.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -134,7 +134,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ## <a name="scale-marathon-application"></a>Marathon-toepassing schalen
 
-In het vorige voorbeeld is een toepassing met één exemplaar gemaakt. Voor het bijwerken van deze implementatie dat drie exemplaren van de toepassing beschikbaar zijn, opent u de **marathon app.json** bestand, en werk de exemplaareigenschap tot 3.
+In het vorige voorbeeld is één exemplaar van een toepassing gemaakt. Werk deze implementatie bij, zodat drie exemplaren van de toepassing beschikbaar zijn. Open hiervoor het bestand **marathon-app.json** en werk de eigenschap voor exemplaar bij naar 3.
 
 ```json
 {
@@ -162,32 +162,32 @@ In het vorige voorbeeld is een toepassing met één exemplaar gemaakt. Voor het 
 }
 ```
 
-Bijwerken van de toepassing met behulp van de `dcos marathon app update` opdracht.
+Werk de toepassing bij met de opdracht `dcos marathon app update`.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
-Overzicht van de implementatiestatus voor de app, voer de volgende opdracht.
+Voer de volgende opdracht uit om de implementatiestatus voor de app te zien.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Wanneer de **taken** kolomwaarde verandert van *1/3* naar *31/*, implementatie van toepassing is voltooid.
+Wanneer de waarde in de kolom **TASKS** is veranderd van *1/3* in *3/1*, is de implementatie van de toepassing voltooid.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## <a name="run-internet-accessible-app"></a>Internet toegankelijk app uitvoeren
+## <a name="run-internet-accessible-app"></a>Op internet toegankelijk app uitvoeren
 
-De ACS-DC/OS-cluster bestaat uit twee sets van knooppunt, een openbare die toegankelijk is op het internet en een particuliere dat niet toegankelijk op het internet. De standaardset is de persoonlijke knooppunten, die is gebruikt in het vorige voorbeeld.
+Het ACS DC/OS-cluster bestaat uit twee sets knooppunten, een openbare set die toegankelijk is op internet en een privéset die niet toegankelijk is op internet. De standaardset bestaat uit de privéknooppunten, die zijn gebruikt in het vorige voorbeeld.
 
-U kunt een toepassing toegankelijk op het internet, moet u deze aan de verzameling openbare implementeren. Om dit te doen, geven de `acceptedResourceRoles` een waarde van het object `slave_public`.
+Als u een toepassing toegankelijk wilt maken op internet, moet u deze implementeren in de openbare set knooppunten. Geef hiervoor het object `acceptedResourceRoles` een waarde van `slave_public`.
 
-Maak een bestand met de naam **nginx public.json** en kopieer de volgende inhoud in de App.
+Maak een bestand met de naam **nginx-public.json** en kopieer de volgende inhoud naar het bestand.
 
 ```json
 {
@@ -219,41 +219,41 @@ Maak een bestand met de naam **nginx public.json** en kopieer de volgende inhoud
 }
 ```
 
-Voer de volgende opdracht om te plannen van de toepassing uit te voeren op de DC/OS-cluster.
+Voer de volgende opdracht uit om het uitvoeren van de toepassing op het DC/OS-cluster te plannen.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
 ```
 
-Haal het openbare IP-adres van de DC/OS-cluster openbare agents.
+Haal het openbare IP-adres van de openbare DC/OS-clusteragents op.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Bladeren naar dit adres retourneert de standaard NGINX-site.
+Als u naar dit adres gaat, wordt de standaardsite NGINX geopend.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
-## <a name="scale-dcos-cluster"></a>Schaal DC/OS-cluster
+## <a name="scale-dcos-cluster"></a>Het DC/OS-cluster schalen
 
-In de voorgaande voorbeelden is een toepassing geschaald naar meerdere exemplaren. De DC/OS-infrastructuur kan ook worden uitgebreid om meer of minder rekencapaciteit. Dit wordt gedaan met de [az acs schalen]() opdracht. 
+In de voorgaande voorbeelden is een toepassing geschaald naar meerdere exemplaren. De DC/OS-infrastructuur kan ook worden geschaald om meer of minder rekencapaciteit te bieden. Dit wordt gedaan met de opdracht [az acs scale](). 
 
-Als het huidige aantal DC/OS-agents weergeven, gebruikt de [az acs weergeven](/cli/azure/acs#show) opdracht.
+Als u het huidige aantal DC/OS-agents wilt zien, gebruikt u de opdracht [az acs show](/cli/azure/acs#az_acs_show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Voor een verhoging van het aantal tot en met 5, gebruiken de [az acs schalen](/cli/azure/acs#scale) opdracht. 
+Als u het aantal wilt verhogen naar 5, gebruikt u de opdracht [az acs scale](/cli/azure/acs#az_acs_scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
 ```
 
-## <a name="delete-dcos-cluster"></a>DC/OS-cluster verwijderen
+## <a name="delete-dcos-cluster"></a>Het DC/OS-cluster verwijderen
 
-Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#delete) opdracht voor het verwijderen van de resourcegroep, DC/OS-cluster, en alle bijbehorende resources.
+U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, het DC/OS-cluster en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -261,18 +261,18 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over basic DC/OS-beheertaak, waaronder de volgende. 
+In deze zelfstudie hebt u meer geleerd over eenvoudige DC/OS-beheertaken, waaronder de volgende. 
 
 > [!div class="checklist"]
-> * Een ACS-DC/OS-cluster maken
+> * Een ACS DC/OS-cluster maken
 > * Verbinding maken met het cluster
 > * De DC/OS CLI installeren
-> * Een toepassing implementeert op het cluster
-> * Schalen van een toepassing op het cluster
-> * De DC/OS clusterknooppunten schalen
-> * De DC/OS-cluster verwijderen
+> * Een toepassing implementeren in het cluster
+> * Een toepassing in het cluster schalen
+> * De DC/OS-clusterknooppunten schalen
+> * Het DC/OS-cluster verwijderen
 
-Ga naar de volgende zelfstudie voor meer informatie over taakverdeling toepassing in DC/OS op Azure. 
+Volg de volgende zelfstudie voor meer informatie over taakverdeling in een toepassing in DC/OS in Azure. 
 
 > [!div class="nextstepaction"]
-> [Load balancing gebruiken voor toepassingen](container-service-load-balancing.md)
+> [Taakverdeling gebruiken voor toepassingen](container-service-load-balancing.md)

@@ -1,8 +1,8 @@
 ---
-title: Een PHP- en MySQL web-app in Azure App Service maken op Linux | Microsoft Docs
-description: Informatie over het ophalen van een PHP-app in Azure, met verbinding met een MySQL-database in Azure AD werkt.
+title: Een PHP- en MySQL-web-app maken in Azure App Service in Linux | Microsoft Docs
+description: Informatie over het werkend krijgen van een PHP-app in Azure, met verbinding naar een MySQL-database in Azure.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: 
 author: cephalin
 manager: erikre
 ms.service: app-service-web
@@ -12,43 +12,43 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL web-app in Azure App Service maken op Linux
+# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-web-app maken in Azure App Service in Linux
 
 > [!NOTE]
-> In dit artikel implementeert een app in App Service op Linux. Voor de implementatie in App Service _Windows_, Zie [een PHP- en MySQL web-app in Azure bouwen](../app-service-web-tutorial-php-mysql.md).
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een PHP- en een MySQL-web-app in Azure maken](../app-service-web-tutorial-php-mysql.md), als u App Service in _Windows_ wilt implementeren.
 >
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze zelfstudie laat zien hoe een PHP-web-app maken en te verbinden met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/) app die op App Service op Linux wordt uitgevoerd.
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt getoond hoe u een Ruby-web-app maakt en deze verbinding laat maken met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/)-app die op App Service in Linux wordt uitgevoerd.
 
 ![PHP-app uitgevoerd in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een MySQL-database maken in Azure
-> * Een PHP-app verbinden met MySQL
+> * Een MySQL-database in Azure maken
+> * Een Python-app verbinden met MySQL
 > * De app implementeren in Azure
-> * Bijwerken van het gegevensmodel en de app implementeren
-> * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal beheren
+> * Het gegevensmodel bijwerken en de app opnieuw implementeren
+> * Logboeken met diagnostische gegevens vanaf Azure streamen
+> * De app in Azure Portal beheren
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
 * [Git installeren](https://git-scm.com/)
-* [Installeren van PHP 5.6.4 of hoger](http://php.net/downloads.php)
+* [Installeer PHP 5.6.4 of hoger](http://php.net/downloads.php)
 * [Composer installeren](https://getcomposer.org/doc/00-intro.md)
-* De volgende Laravel behoeften van de PHP-uitbreidingen inschakelen: OpenSSL, PDO MySQL, Mbstring, Tokenizer, XML
-* [Installeren en starten van MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+* Schakel de volgende PHP-extensies in die Laravel nodig heeft: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* [MySQL installeren en starten](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Lokale MySQL voorbereiden
 
@@ -56,25 +56,25 @@ In deze stap maakt u een database in uw lokale MySQL-server voor gebruik in deze
 
 ### <a name="connect-to-local-mysql-server"></a>Verbinding maken met lokale MySQL-server
 
-In een terminalvenster verbinding maken met uw lokale MySQL-server. Alle opdrachten kunt uitvoeren in deze zelfstudie kunt u deze terminalvenster.
+Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit terminalvenster gebruiken om alle opdrachten in deze zelfstudie uit te voeren.
 
 ```bash
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord voor de `root` account. Als je het wachtwoord van je root-account, Zie [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het account `root`. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Als uw opdracht is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorg ervoor dat de lokale MySQL-server is gestart door de [MySQL na de installatie stappen](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
 ### <a name="create-a-database-locally"></a>Lokaal een database maken
 
-Op de `mysql` vragen, maakt u een database.
+Op de prompt `mysql` maakt u een database.
 
 ```sql 
 CREATE DATABASE sampledb;
 ```
 
-Uw serververbinding sluiten door te typen `quit`.
+Sluit uw serververbinding door `quit` te typen.
 
 ```sql
 quit
@@ -82,12 +82,12 @@ quit
 
 <a name="step2"></a>
 
-## <a name="create-a-php-app-locally"></a>Een PHP-app lokaal maken
-In deze stap een voorbeeldtoepassing Laravel ophalen, de databaseverbinding configureren en het lokaal uitvoeren. 
+## <a name="create-a-php-app-locally"></a>Lokaal een PHP-app maken
+In deze stap krijgt u een Laravel-voorbeeld-app, configureert u de databaseverbinding en voert u deze lokaal uit. 
 
-### <a name="clone-the-sample"></a>Klonen van de steekproef
+### <a name="clone-the-sample"></a>Het voorbeeld klonen
 
-In het terminalvenster `cd` in een werkmap.
+In het terminalvenster, `cd` in een werkmap.
 
 Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 
@@ -95,7 +95,7 @@ Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd`de gekloonde-adreslijst.
+`cd` naar de gekloonde adreslijst.
 Installeer de vereiste pakketten.
 
 ```bash
@@ -105,7 +105,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>MySQL-verbinding configureren
 
-Maak een bestand met de naam in de hoofdmap van de opslagplaats *.env*. Kopieer de volgende variabelen in de *.env* bestand. Vervang de  _&lt;root_password >_ aanduiding voor items met de MySQL-hoofdgebruiker wachtwoord.
+Maak een bestand met de naam *.env* in de hoofdmap van de opslagplaats. Kopieer de volgende variabelen in het bestand *.env*. Vervang de tijdelijke aanduiding _&lt;root_password>_ met het wachtwoord van de MySQL-hoofdgebruiker.
 
 ```txt
 APP_ENV=local
@@ -119,17 +119,17 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Voor informatie over hoe Laravel gebruikt de _.env_ bestand, Zie [Laravel omgeving configuratie](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Zie [Laravel-omgeving configureren](https://laravel.com/docs/5.4/configuration#environment-configuration) voor informatie over hoe Laravel het _.env_-bestand gebruikt.
 
 ### <a name="run-the-sample-locally"></a>Het voorbeeld lokaal uitvoeren
 
-Voer [Laravel database migraties](https://laravel.com/docs/5.4/migrations) moeten de toepassing van de tabellen maken. Als u wilt zien welke tabellen worden gemaakt in de migratie, zoeken in de _database/migraties_ map in de Git-opslagplaats.
+Voer [Laravel-databasemigraties](https://laravel.com/docs/5.4/migrations) uit om de tabellen te maken die de toepassing nodig heeft. Als u wilt zien welke tabellen worden gemaakt in de migraties, zoek dan in de map _database/migrations_ in de Git-opslagplaats.
 
 ```bash
 php artisan migrate
 ```
 
-Genereer een nieuwe sleutel van de Laravel-toepassing.
+Genereer een nieuwe sleutel voor de Laravel-toepassing.
 
 ```bash
 php artisan key:generate
@@ -141,17 +141,17 @@ Voer de toepassing uit.
 php artisan serve
 ```
 
-Ga naar `http://localhost:8000` in een browser. Een paar taken op de pagina toevoegen.
+Ga naar `http://localhost:8000` in een browser. Voeg een paar taken op de pagina toe.
 
-![PHP verbonden is met MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP maakt verbinding met MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-Typ om te stoppen PHP, `Ctrl + C` in de terminal.
+Typ `Ctrl + C` in de terminal om PHP te stoppen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>MySQL in Azure maken
 
-In deze stap maakt u een MySQL-database in [Azure Database voor MySQL (Preview)](/azure/mysql). Later kunt configureren u de PHP-toepassing verbinding maken met deze database.
+In deze stap maakt u een MySQL-database in [Azure Database for MySQL (Preview)](/azure/mysql). Later configureert u de PHP-toepassing om verbinding te maken met deze database.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -159,15 +159,15 @@ In deze stap maakt u een MySQL-database in [Azure Database voor MySQL (Preview)]
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-Een server in Azure-Database voor MySQL (Preview) te maken met de [az mysql-server maken](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) opdracht.
+Een server in Azure Database for MySQL (Preview) maken met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
-Vervang de naam van uw MySQL-server waarin u ziet in de volgende opdracht de  _&lt;mysql_server_name >_ tijdelijke aanduiding (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de MySQL-server de hostnaam (`<mysql_server_name>.database.windows.net`), moet worden globaal uniek zijn.
+Vervang in de volgende opdracht de naam van uw MySQL-server waarin u de tijdelijke aanduiding _&lt;mysql_server_name>_ ziet (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.database.windows.net`), hij moet globaal uniek zijn.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
-Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld:
+Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld:
 
 ```json
 {
@@ -182,31 +182,31 @@ Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar 
 }
 ```
 
-### <a name="configure-server-firewall"></a>Een firewall configureren
+### <a name="configure-server-firewall"></a>Een serverfirewall configureren
 
-Maken van een firewallregel voor uw MySQL-server clientverbindingen toestaat met behulp van de [az mysql server-firewallregel maken](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) opdracht.
+Maak een firewallregel voor uw MySQL-server om clientverbindingen toe te staan met behulp van de opdracht [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Azure-Database voor MySQL (Preview) biedt geen momenteel verbindingen alleen voor Azure-services beperken. Zoals IP-adressen in Azure dynamisch toegewezen worden, is het beter om te zorgen dat alle IP-adressen. De service zich in preview. Betere methoden voor het beveiligen van uw database zijn gepland.
+> Azure Database for MySQL (Preview) beperkt momenteel de verbindingen niet tot alleen Azure-services. Omdat IP-adressen in Azure dynamisch toegewezen worden, is het beter om te zorgen dat alle IP-adressen actief zijn. De service is in preview. Betere methoden voor het beveiligen van uw database zijn gepland.
 >
 
-### <a name="connect-to-production-mysql-server-locally"></a>Verbinding maken met lokaal MySQL-server in productie
+### <a name="connect-to-production-mysql-server-locally"></a>Verbinding maken met lokale MySQL-server in productie
 
-In het terminalvenster verbinding maken met de server MySQL in Azure. Gebruik de waarde die u eerder hebt opgegeven voor  _&lt;mysql_server_name >_.
+Maak in het terminalvenster verbinding met de MySQL-server in Azure. Gebruik de waarde die u eerder hebt opgegeven voor _&lt;mysql_server_name>_.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Wanneer u wordt gevraagd om een wachtwoord, gebruiken _tr0ngPa $$ w0rd!_, die u hebt opgegeven toen u de database-server gemaakt.
+Gebruik _$tr0ngPa$w0rd!_, dat u hebt opgegeven toen u de databaseserver maakte, wanneer u wordt gevraagd om een wachtwoord.
 
-### <a name="create-a-production-database"></a>Een productiedatabase maken
+### <a name="create-a-production-database"></a>Maak een productiedatabase
 
-Op de `mysql` vragen, maakt u een database.
+Op de prompt `mysql` maakt u een database.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -214,14 +214,14 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>Een gebruiker met machtigingen maken
 
-Maken van een databasegebruiker aangeroepen _phpappuser_ en geef deze alle bevoegdheden in de `sampledb` database.
+Maak een databasegebruiker met de naam _phpappuser_ en geef deze alle bevoegdheden in de `sampledb`-database.
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
 GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
 ```
 
-De verbinding met de sluiten door te typen `quit`.
+Sluit uw serververbinding door `quit` te typen.
 
 ```sql
 quit
@@ -229,13 +229,13 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>App verbinden met Azure MySQL
 
-In deze stap maakt u verbinding maakt het PHP-toepassing aan de MySQL-database die u hebt gemaakt in Azure-Database voor MySQL (Preview).
+In deze stap verbindt u de PHP-toepassing met de MySQL-database die u hebt gemaakt in Azure Database for MySQL (Preview).
 
 <a name="devconfig"></a>
 
 ### <a name="configure-the-database-connection"></a>Verbinding met de database configureren
 
-Maak in de hoofdmap van de opslagplaats een _. env.production_ -bestand en kopieer de volgende variabelen in de App. Vervang de tijdelijke aanduiding  _&lt;mysql_server_name >_.
+Maak in de hoofdmap van de opslagplaats een _. env.production_ -bestand en kopieer de volgende variabelen ernaartoe. Vervang de tijdelijke aanduiding _&lt;mysql_server_name>_.
 
 ```txt
 APP_ENV=production
@@ -247,79 +247,82 @@ DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
+MYSQL_SSL=true
 ```
-<!-- MYSQL_SSL=true -->
 
 Sla de wijzigingen op.
 
 > [!TIP]
-> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (Zie _.gitignore_ in de hoofdmap van de opslagplaats). Later kunt u informatie over het configureren van omgevingsvariabelen in App Service verbinding maken met uw database in Azure-Database voor MySQL (Preview). Met omgevingsvariabelen, hoeft u niet de *.env* bestand in App Service.
+> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (Zie _.gitignore_ in de hoofdmap van de opslagplaats). Later leert u hoe u omgevingsvariabelen in App Service configureert om verbinding te maken met uw database in Azure Database for MySQL (Preview). Met omgevingsvariabelen heeft u het *.env*-bestand in App Service niet nodig.
 >
 
-<!-- ### Configure SSL certificate
+### <a name="configure-ssl-certificate"></a>SSL-certificaat configureren
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use a _.pem_ SSL certificate.
+Azure Database for MySQL dwingt standaard SSL-verbindingen van clients af. Voor verbinding met uw MySQL-database in Azure moet u het [_.pem_-certificaat gebruiken dat is opgegeven door Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 
-Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `connections.mysql`, as shown in the following code.
+Open _config/database.php_ en voeg de parameters _sslmode_ en _opties_ toe aan `connections.mysql`, zoals wordt weergegeven in de volgende code.
 
 ```php
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
     ] : []
 ],
 ```
 
-To learn how to generate this _certificate.pem_, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
-
-> [!TIP]
-> The path _/ssl/certificate.pem_ points to an existing _certificate.pem_ file in the Git repository. This file is provided for convenience in this tutorial. For best practice, you should not commit your _.pem_ certificates into source control. 
-> -->
+Het certificaat `BaltimoreCyberTrustRoot.crt.pem` is voor uw gemak in deze zelfstudie in de opslagplaats geleverd. 
 
 ### <a name="test-the-application-locally"></a>De toepassing lokaal testen
 
-Voer Laravel database migraties met _. env.production_ als het bestand omgeving maken van de tabellen in uw MySQL-database in Azure-Database voor MySQL (Preview). Vergeet niet dat _. env.production_ heeft de verbindingsgegevens wilt toevoegen aan uw MySQL-database in Azure.
+Voer Rails-databasemigraties uit met _.env.production_ als het omgevingsbestand om de tabellen te maken in de MySQL-database in Azure Database for MySQL (Preview). Vergeet niet dat _. env.production_ de verbindingsgegevens heeft voor uw MySQL-database in Azure.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-_. env.production_ nog een geldige App-sleutel niet is voorzien. Een nieuw wachtwoord voor het genereren in de terminal.
+_. env.production_ heeft nog geen geldige toepassingssleutel. Genereer hiervoor een nieuwe in de terminal.
 
 ```bash
 php artisan key:generate --env=production --force
 ```
 
-Uitvoeren van de voorbeeldtoepassing met _. env.production_ als het bestand omgeving.
+Voer de voorbeeldtoepassing uit met _. env.production_ als het omgevingsbestand.
 
 ```bash
 php artisan serve --env=production
 ```
 
-Navigeer naar `http://localhost:8000`. Als de pagina wordt geladen zonder fouten, wordt de PHP-toepassing maakt verbinding met de MySQL-database in Azure.
+Navigeer naar `http://localhost:8000`. Als de pagina zonder fouten wordt geladen, maakt de PHP-toepassing verbinding met de MySQL-database in Azure.
 
-Een paar taken op de pagina toevoegen.
+Voeg een paar taken op de pagina toe.
 
-![PHP wel verbinding kunt maken met Azure-Database voor MySQL (Preview)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP maakt verbinding met Azure Database for MySQL (Preview)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
-Typ om te stoppen PHP, `Ctrl + C` in de terminal.
+Typ `Ctrl + C` in de terminal om PHP te stoppen.
 
-### <a name="commit-your-changes"></a>Uw wijzigingen
+### <a name="commit-your-changes"></a>Uw wijzigingen doorvoeren
 
-Voer de volgende Git-opdrachten uw wijzigingen:
+Voer de volgende Git-opdrachten uit om uw wijzigingen door te voeren:
 
 ```bash
 git add .
 git commit -m "database.php updates"
 ```
 
-Uw app is gereed om te worden geïmplementeerd.
+Uw app kan worden geïmplementeerd.
 
 ## <a name="deploy-to-azure"></a>Implementeren in Azure
 
-In deze stap maakt implementeren u de MySQL verbonden PHP-toepassing in Azure App Service.
+In deze stap implementeert u de met MySQL verbonden PHP-toepassing naar Azure App Service.
+
+De toepassing Laravel wordt gestart in de map _/public_. De standaardinstallatiekopie van PHP Docker voor App Service maakt gebruik van Apache, dit laat u de `DocumentRoot` niet aanpassen voor Laravel. U kunt echter `.htaccess` gebruiken om alle aanvragen te herschrijven, zodat zij verwijzen naar _/openbaar_ in plaats van naar de hoofdmap. In de hoofdmap van de opslagplaats is voor dit doel al een `.htaccess` toegevoegd. Uw Laravel-toepassing is hiermee gereed om te worden geïmplementeerd.
+
+> [!NOTE] 
+> Als u echter liever niet _.htaccess_ herschrijft, kunt u uw Laravel-toepassing in plaats daarvan met een [aangepaste Docker-installatiekopie](quickstart-custom-docker-image.md) implementeren.
+>
+>
 
 ### <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
 
@@ -335,16 +338,15 @@ In deze stap maakt implementeren u de MySQL verbonden PHP-toepassing in Azure Ap
 
 ### <a name="configure-database-settings"></a>Database-instellingen configureren
 
-In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht.
+In App Service stelt u de omgevingsvariabelen in op _app-instellingen_ met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
-De volgende opdracht uit de app-instellingen configureert `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;mysql_server_name >_.
+De volgende opdracht configureert de app-instellingen `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen _&lt;appname>_ en _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
- <!-- MYSQL_SSL="true" -->
 
-U kunt de PHP [getenv](http://www.php.net/manual/function.getenv.php) methode voor toegang tot de instellingen. de code Laravel gebruikt een [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper boven de PHP `getenv`. Bijvoorbeeld, de MySQL-configuratie in _config/database.php_ vergelijkbaar is met de volgende code:
+U kunt de PHP-methode [getenv](http://www.php.net/manual/function.getenv.php) gebruiken voor toegang tot de instellingen. De Laravel-code gebruikt een [env](https://laravel.com/docs/5.4/helpers#method-env)-wrapper boven de PHP `getenv`. Zo is de MySQL-configuratie in _config/database.php_ bijvoorbeeld vergelijkbaar met de volgende code:
 
 ```php
 'mysql' => [
@@ -357,35 +359,23 @@ U kunt de PHP [getenv](http://www.php.net/manual/function.getenv.php) methode vo
 ],
 ```
 
-### <a name="configure-laravel-environment-variables"></a>Omgevingsvariabelen Laravel configureren
+### <a name="configure-laravel-environment-variables"></a>Laravel-omgevingsvariabelen configureren en instellen
 
-Laravel moet de sleutel van een toepassing in App Service. U kunt deze configureren met app-instellingen.
+Laravel heeft een toepassingssleutel nodig in App Service. U kunt deze configureren met app-instellingen.
 
-Gebruik `php artisan` voor het genereren van een nieuwe Toepassingssleutel zonder op te slaan naar _.env_.
+Gebruik `php artisan` voor het genereren van een nieuwe toepassingssleutel zonder deze op te slaan op _.env_.
 
 ```bash
 php artisan key:generate --show
 ```
 
-Stel de Toepassingssleutel in de App Service web-app met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;outputofphpartisankey: genereren >_.
+Stel de toepassingssleutel in de App Service-web-app in met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Vervang de tijdelijke aanduidingen _&lt;appname>_ en _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"`Hiermee geeft u Laravel foutopsporing om informatie te retourneren wanneer de geïmplementeerde web-app fouten optreden. Als een productietoepassing wordt uitgevoerd, stelt u deze naar `false`, die is veiliger.
-
-### <a name="set-the-virtual-application-path"></a>Het pad van de virtuele toepassing instellen
-
-Het pad van de virtuele toepassing voor de web-app ingesteld. Deze stap is vereist omdat de [Laravel toepassing lifecycle](https://laravel.com/docs/5.4/lifecycle) begint in de _openbare_ map in plaats van de hoofdmap van de toepassing. Andere PHP-frameworks waarvan de levenscyclus van starten in de hoofdmap werken zonder handmatige configuratie van het pad van de virtuele toepassing.
-
-Pad van de virtuele toepassing instellen via de [az resource update](/cli/azure/resource?view=azure-cli-latest#az_resource_update) opdracht. Vervang de  _&lt;appname >_ tijdelijke aanduiding.
-
-```azurecli-interactive
-az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
-```
-
-Azure App Service wijst standaard het hoofdpad voor de virtuele toepassing (_/_) naar de hoofdmap van de geïmplementeerde toepassing-bestanden (_sites\wwwroot_).
+`APP_DEBUG="true"` geeft Laravel de opdracht foutopsporingsinformatie te retourneren wanneer de geïmplementeerde web-app fouten tegenkomt. Als een productietoepassing wordt uitgevoerd, stelt u deze in op `false`, dat is veiliger.
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
 
@@ -395,13 +385,13 @@ Voeg een externe Azure-instantie toe aan uw lokale Git-opslagplaats.
 git remote add azure <paste_copied_url_here>
 ```
 
-Push naar de Azure-externe voor het implementeren van de PHP-toepassing. U wordt gevraagd om het wachtwoord dat u eerder hebt opgegeven als onderdeel van het maken van de gebruiker voor de implementatie.
+Push naar de externe Azure-instantie om uw PHP-toepassing te implementeren. U wordt gevraagd naar het wachtwoord dat u eerder hebt opgegeven als onderdeel van het maken van de implementatiegebruiker.
 
 ```bash
 git push azure master
 ```
 
-Azure App Service communiceert tijdens de implementatie van de voortgang met Git.
+Tijdens de implementatie communiceert Azure App Service de voortgang naar Git.
 
 ```bash
 Counting objects: 3, done.
@@ -419,42 +409,42 @@ remote: Running deployment command...
 ```
 
 > [!NOTE]
-> U merkt dat het implementatieproces installeert [Composer](https://getcomposer.org/) pakketten aan het einde. App Service kan niet worden uitgevoerd deze automatische tijdens de standaardimplementatie van de, zodat deze opslagplaats voorbeeld heeft drie extra bestanden in de hoofdmap in te schakelen:
+> U merkt dat het implementatieproces aan het einde [Composer](https://getcomposer.org/)-pakketten installeert. In App Service worden deze automatische taken tijdens de standaardimplementatie niet uitgevoerd, dus bevat deze voorbeeldopslagplaats drie extra bestanden in de hoofdmap om deze in te schakelen:
 >
-> - `.deployment`-Dit bestand vertelt App Service om uit te voeren `bash deploy.sh` als het script voor aangepaste implementatie.
-> - `deploy.sh`-Het script voor aangepaste implementatie. Als u het bestand bekijkt, ziet u dat deze wordt uitgevoerd `php composer.phar install` nadat `npm install`.
-> - `composer.phar`-De Composer-Pakketbeheer.
+> - `.deployment` - Dit bestand draagt App Service op om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
+> - `deploy.sh` - Het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `php composer.phar install` wordt uitgevoerd na `npm install`.
+> - `composer.phar` - Het Composer-pakketbeheer.
 >
-> Deze aanpak kunt u een stap toevoegen aan uw implementatie op basis van Git in App Service. Zie voor meer informatie [aangepaste implementatiescript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+> U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie naar App Service. Zie voor meer informatie het [Script voor aangepaste implementatie](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Blader naar de Azure-web-app
+### <a name="browse-to-the-azure-web-app"></a>Bladeren naar de Azure-web-app
 
-Blader naar `http://<app_name>.azurewebsites.net` en een paar taken toevoegen aan de lijst.
+Blader naar `http://<app_name>.azurewebsites.net` en voeg een paar taken toe aan de lijst.
 
 ![PHP-app uitgevoerd in Azure App Service](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
 
-Gefeliciteerd, u een PHP-gegevensgestuurde app in Azure App Service uitvoert.
+Gefeliciteerd, u voert een gegevensgestuurde PHP-app uit in Azure App Service.
 
-## <a name="update-model-locally-and-redeploy"></a>Lokaal model bijwerken en implementeren
+## <a name="update-model-locally-and-redeploy"></a>Het model lokaal bijwerken en opnieuw implementeren
 
-In deze stap maakt u een eenvoudige wijziging in de `task` gegevensmodel en de Web-App en de update vervolgens publiceren naar Azure.
+In deze stap maakt u een eenvoudige wijziging in het `task`-gegevensmodel en de web-app en publiceert u de update vervolgens naar Azure.
 
-Voor het scenario taken wijzigen u de toepassing, zodat u kunt een taak als voltooid markeren.
+Voor het takenscenario wijzigt u de toepassing, zodat u een taak als voltooid kunt markeren.
 
 ### <a name="add-a-column"></a>Een kolom toevoegen
 
 Ga in de terminal naar de hoofdmap van de Git-opslagplaats.
 
-Genereren van de databasemigratie van een nieuwe voor de `tasks` tabel:
+Genereer een nieuwe databasemigratie voor de tabel `tasks`:
 
 ```bash
 php artisan make:migration add_complete_column --table=tasks
 ```
 
-Deze opdracht geeft u de naam van de migratiebestand dat wordt gegenereerd. Dit bestand in _database/migraties_ en open het bestand.
+Deze opdracht laat u de naam zien van het migratiebestand dat wordt gegenereerd. Zoek dit bestand in _database/migrations_ en open het.
 
-Vervang de `up` methode met de volgende code:
+Vervang de `up`-methode door de volgende code:
 
 ```php
 public function up()
@@ -465,9 +455,9 @@ public function up()
 }
 ```
 
-De bovenstaande code wordt toegevoegd een Booleaanse kolom in de `tasks` tabel met de naam `complete`.
+De bovenstaande code voegt een Booleaanse kolom toe aan de tabel `tasks` met de naam `complete`.
 
-Vervang de `down` methode met de volgende code voor de actie ongedaan maken:
+Vervang de methode `down` door de volgende code voor de terugdraaiactie:
 
 ```php
 public function down()
@@ -478,19 +468,19 @@ public function down()
 }
 ```
 
-Voer in de terminal Laravel database migraties om de wijziging in de lokale database.
+Voer in de terminal Laravel-databasemigraties uit om de wijziging in de lokale database door te voeren.
 
 ```bash
 php artisan migrate
 ```
 
-Op basis van de [Laravel naamgevingsconventie](https://laravel.com/docs/5.4/eloquent#defining-models), het model `Task` (Zie _app/Task.php_) wordt toegewezen aan de `tasks` tabel standaard.
+Op basis van de [Laravel-naamgevingsconventie](https://laravel.com/docs/5.4/eloquent#defining-models) wordt het model `Task` (zie _app/Task.php_) standaard toegewezen aan de tabel `tasks`.
 
-### <a name="update-application-logic"></a>Logica van de toepassing bijwerken
+### <a name="update-application-logic"></a>Toepassingslogica bijwerken
 
-Open de *routes/web.php* bestand. De toepassing definieert de routes en zakelijke logica hier.
+Open het bestand *routes/web.php*. De toepassing definieert hier de routes en bedrijfslogica.
 
-Toevoegen aan het einde van het bestand een route met de volgende code:
+Voeg aan het einde van het bestand een route toe met de volgende code:
 
 ```php
 /**
@@ -507,17 +497,17 @@ Route::post('/task/{id}', function ($id) {
 });
 ```
 
-De bovenstaande code maakt een eenvoudige update naar het gegevensmodel door het uitschakelen van de waarde van `complete`.
+De bovenstaande code voert een eenvoudige update uit op het gegevensmodel door het omschakelen van de waarde van `complete`.
 
 ### <a name="update-the-view"></a>De weergave bijwerken
 
-Open de *resources/views/tasks.blade.php* bestand. Zoek de `<tr>` tag te openen en vervang ze door:
+Open het bestand *resources/views/tasks.blade.php*. Zoek de `<tr>`-openingstag en vervang deze door:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
 ```
 
-De bovenstaande code wordt de rijkleur, afhankelijk van of de taak voltooid is.
+De bovenstaande code verandert de rijkleur, afhankelijk van of de taak voltooid is.
 
 U hebt de volgende code in de volgende regel:
 
@@ -525,7 +515,7 @@ U hebt de volgende code in de volgende regel:
 <td class="table-text"><div>{{ $task->name }}</div></td>
 ```
 
-Vervang de volledige regel door de volgende code:
+Vervang de gehele rij door de volgende code:
 
 ```html
 <td>
@@ -540,31 +530,31 @@ Vervang de volledige regel door de volgende code:
 </td>
 ```
 
-De bovenstaande code wordt toegevoegd voor de verzendknop die verwijst naar de route die u eerder hebt gedefinieerd.
+De bovenstaande code voegt de verzendknop toe die verwijst naar de route die u eerder hebt gedefinieerd.
 
 ### <a name="test-the-changes-locally"></a>De wijzigingen lokaal testen
 
-Voer de ontwikkelaarsserver uit de hoofddirectory van de Git-opslagplaats.
+Voer de ontwikkelaarsserver uit vanuit de hoofdmap van de Git-opslagplaats.
 
 ```bash
 php artisan serve
 ```
 
-Om te zien van de status van de taak wijzigen, gaat u naar `http://localhost:8000` en schakel het selectievakje.
+Om de status van de taak te zien wijzigen, gaat u naar `http://localhost:8000` en selecteert u het selectievakje.
 
-![Toegevoegde selectievakje in als de taak](./media/tutorial-php-mysql-app/complete-checkbox.png)
+![Selectievakje toegevoegd aan de taak](./media/tutorial-php-mysql-app/complete-checkbox.png)
 
-Typ om te stoppen PHP, `Ctrl + C` in de terminal.
+Typ `Ctrl + C` in de terminal om PHP te stoppen.
 
-### <a name="publish-changes-to-azure"></a>Wijzigingen publiceren naar Azure
+### <a name="publish-changes-to-azure"></a>Wijzigingen publiceren in Azure
 
-Voer in de terminal Laravel database migraties met de productie-verbindingsreeks te maken van de wijziging in de Azure-database.
+Voer in de terminal Laravel-databasemigraties uit met de productieverbindingsreeks om de wijziging te maken in de Azure-database.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-Voer de wijzigingen in Git en vervolgens de codewijzigingen pushen naar Azure.
+Voer uw wijzigingen door in Git en push de codewijzigingen vervolgens naar Azure.
 
 ```bash
 git add .
@@ -572,11 +562,11 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Eenmaal de `git push` is voltooid, gaat u naar de Azure-web-app en testen van de nieuwe functionaliteit.
+Zodra `git push` voltooid is, gaat u naar de Azure-web-app en probeert u de nieuwe functionaliteit uit.
 
-![Model en de database-wijzigingen die zijn gepubliceerd naar Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
+![In Azure gepubliceerde model- en databasewijzigingen](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-Als u alle taken toegevoegd, worden ze in de database bewaard. Updates voor het schema van de laten bestaande gegevens intact.
+Als u taken heeft toegevoegd, worden deze in de database bewaard. Als u het schema bijwerkt, blijven bestaande gegevens intact.
 
 ## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
 
@@ -586,9 +576,9 @@ Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-a
 
 ![Navigatie in de portal naar de Azure-web-app](./media/tutorial-php-mysql-app/access-portal.png)
 
-De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u eenvoudige beheertaken zoals stoppen, starten, opnieuw opstarten, bladeren en verwijderen uitvoeren.
+De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals stoppen, starten, opnieuw starten, bladeren en verwijderen.
 
-Het menu links biedt pagina's voor het configureren van uw app.
+Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 ![App Service-pagina in Azure Portal](./media/tutorial-php-mysql-app/web-app-blade.png)
 
@@ -601,14 +591,14 @@ Het menu links biedt pagina's voor het configureren van uw app.
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een MySQL-database maken in Azure
-> * Een PHP-app verbinden met MySQL
+> * Een MySQL-database in Azure maken
+> * Een Python-app verbinden met MySQL
 > * De app implementeren in Azure
-> * Bijwerken van het gegevensmodel en de app implementeren
-> * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal beheren
+> * Het gegevensmodel bijwerken en de app opnieuw implementeren
+> * Logboeken met diagnostische gegevens vanaf Azure streamen
+> * De app in Azure Portal beheren
 
-Ga naar de volgende zelfstudie voor informatie over het toewijzen van een aangepaste DNS-naam aan een web-app.
+Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan een web-app kunt toewijzen.
 
 > [!div class="nextstepaction"]
 > [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

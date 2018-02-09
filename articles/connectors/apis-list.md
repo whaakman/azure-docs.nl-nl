@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Lijst van connectors
 Zie [Connectordetails](/connectors/) om de triggers en acties die zijn gedefinieerd door de Swagger-beschrijving van elke connector plus eventuele connectorlimieten te vinden.
@@ -82,7 +82,7 @@ De Enterprise Integration Pack (EIP) bevat connectors die erg bekend zijn in de 
 | --- | --- | --- | --- |
 | [![API-pictogram][as2icon]<br/>**AS2</br>-decodering**][as2decode] | [![API-pictogram][as2icon]<br/>**AS2</br>-codering**][as2encode] | [![API-pictogram][x12icon]<br/>**EDIFACT</br>-decodering**][EDIFACTdecode] | [![API-pictogram][x12icon]<br/>**EDIFACT</br>-codering**][EDIFACTencode] |
 [![API-pictogram][flatfileicon]<br/>**Plat bestand</br>, decodering**][flatfiledoc] | [![API-pictogram][flatfiledecodeicon]<br/>**Plat bestand</br>, codering**][flatfiledecodedoc] | [![API-pictogram][integrationaccounticon]<br/>**Integratie<br/>account**][integrationaccountdoc] | [![API-pictogram][xmltransformicon]<br/>**Transformeren<br/>XML**][xmltransformdoc] |
-| [![API-pictogram][x12icon]<br/>**X12</br>-decodering**][x12decode] | [![API-pictogram][x12icon]<br/>**X12</br>-codering**][x12encode] | [![API-pictogram][xmlvalidateicon]<br/>**XML <br/>validatie**][xmlvalidatedoc] | |
+| [![API-pictogram][x12icon]<br/>**X12</br>-decodering**][x12decode] | [![API-pictogram][x12icon]<br/>**X12</br>-codering**][x12encode] | [![API-pictogram][xmlvalidateicon]<br/>**XML <br/>validatie**][xmlvalidatedoc] | [![API-pictogram][liquidicon]<br/>**Transformeren <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Bedrijfsconnectoren
 
@@ -189,6 +189,7 @@ Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo j
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Meer informatie over EDIFACT-decodering in Enterprise Integration"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Meer informatie over EDIFACT-codering in Enterprise Integration"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Schema's, kaarten, partners en meer opzoeken in uw integratieaccount"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Meer informatie over JSON-transformaties met Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Verbinding maken met Box. Uw bestanden uploaden, ophalen, verwijderen, vermelden, en meer"
@@ -328,3 +329,4 @@ Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo j
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

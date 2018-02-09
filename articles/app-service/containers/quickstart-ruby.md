@@ -16,24 +16,24 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: f160a3291357387fcef75d8c2257e6e37274b0e7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze snelstartgids laat zien hoe u een eenvoudige Ruby on Rails-toepassing maakt en implementeert als web-app in Azure Web App on Linux.
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze quickstart laat zien hoe u een eenvoudige Ruby on Rails-toepassing maakt en implementeert als web-app in Azure Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 of hoger installeren</a>
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -90,19 +90,19 @@ Uw app is nu geconfigureerd. Navigeer met behulp van uw webbrowser naar `http://
 
 ## <a name="create-a-ruby-web-app-on-azure"></a>Een Ruby web-app maken in Azure
 
-Een resourcegroep is vereist voor de benodigde activa voor uw web-app. U kunt een resourcegroep maken met de opdracht [az group create]().
+Een resourcegroep is vereist voor de benodigde activa voor uw web-app. Gebruik de opdracht [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) om een resourcegroep te maken.
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+Maak een App Service-plan voor uw web-app met de opdracht [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Gebruik vervolgens de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) om de web-app te maken voor het zojuist gemaakte App Service-plan. Merk op dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om `<app name>` te vervangen door een unieke app-naam.
+Gebruik vervolgens de opdracht [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) om de web-app te maken die het zojuist gemaakte serviceplan gebruikt. Merk op dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om `<app name>` te vervangen door een unieke app-naam.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Als de implementatie is voltooid, moet u de web-app opnieuw opstarten om de implementatie van kracht te laten worden. Hiertoe voert u de opdracht [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) uit, zoals in dit voorbeeld:
+Als de implementatie is voltooid, moet u de web-app opnieuw opstarten om de implementatie van kracht te laten worden. Hiertoe voert u de opdracht [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) uit, zoals in dit voorbeeld:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

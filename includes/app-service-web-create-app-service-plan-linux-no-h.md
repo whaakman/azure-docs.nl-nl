@@ -1,8 +1,8 @@
-In de Cloud-Shell, maakt u een App Service-plan in de resourcegroep met de [az appservice-abonnement maken](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) opdracht.
+Maak in Cloud Shell een App Service-plan in de resourcegroep met de opdracht [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-Het volgende voorbeeld wordt een App Service-abonnement met de naam `myAppServicePlan` in de **standaard** prijscategorie (`--sku S1`) en in een Linux-container (`--is-linux`).
+In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `myAppServicePlan` in de prijscategorie **Standard** (`--sku S1`) en in een Linux-container (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

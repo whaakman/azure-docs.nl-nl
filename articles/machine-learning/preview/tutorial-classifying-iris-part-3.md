@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -146,6 +146,17 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
    
    De naam van het cluster is een manier om de omgeving te identificeren. De locatie moet dezelfde zijn als de locatie van het account voor Modelbeheer dat u hebt gemaakt in Azure Portal.
 
+   Als u er zeker van wilt zijn dat de omgeving goed is ingesteld, voert u de volgende opdracht uit om de status te controleren:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   'Inrichtingsstatus' moet de waarde 'Voltooid' hebben (zoals hieronder wordt weergegeven) voordat u de omgeving gaat instellen in stap 5.
+
+   ![Inrichtingsstatus](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Maak een account voor Modelbeheer. (Dit is een eenmalige installatie.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -158,7 +169,7 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
 
 5. Stel de omgeving in.
 
-   Als de installatie is voltooid, gebruikt u de volgende opdracht om de omgevingsvariabelen in te stellen die zijn vereist om de omgeving operationeel te maken. Gebruik dezelfde naam van de omgeving die u eerder hebt gebruikt in stap 2. Gebruik dezelfde naam voor de resourcegroep die als uitvoer wordt weergegeven in het opdrachtvenster wanneer het installatieproces is voltooid.
+   Als de installatie is voltooid, gebruikt u de volgende opdracht om de omgevingsvariabelen in te stellen die zijn vereist om de omgeving operationeel te maken. Gebruik dezelfde naam voor de omgeving die u eerder hebt gebruikt in stap 2. Gebruik dezelfde naam voor de resourcegroep die als uitvoer wordt weergegeven in het opdrachtvenster wanneer het installatieproces is voltooid.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
@@ -258,8 +269,9 @@ Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record 
 
 2. Als u de service wilt testen, voert u de geretourneerde run-opdracht voor de service uit:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    De uitvoer is **2**. Dit is de voorspelde klasse. (Uw resultaat kan afwijken.) 
 

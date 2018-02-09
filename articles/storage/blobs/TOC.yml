@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Werken met blobs - Python
       href: storage-quickstart-blobs-python.md
+    - name: Werken met blobs - Go
+      href: storage-quickstart-blobs-go.md
     - name: Werken met blobs - Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Werken met blobs - Node.js

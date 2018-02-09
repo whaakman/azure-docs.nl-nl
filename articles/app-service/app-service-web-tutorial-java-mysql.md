@@ -1,6 +1,6 @@
 ---
-title: Een Java- en MySQL web-app in Azure bouwen
-description: Informatie over het ophalen van een Java-app die is verbonden met de Azure MySQL-database-service in Azure App service werkt.
+title: Een Java- en MySQL-web-app bouwen in Azure
+description: Informatie over het ophalen van een Java-app die is verbonden met de Azure MySQL-databaseservice die in Azure App Service werkt.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
@@ -15,137 +15,135 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Een Java- en MySQL web-app in Azure bouwen
+# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Een Java- en MySQL-web-app bouwen in Azure
 
 > [!NOTE]
-> In dit artikel implementeert een app in App Service in Windows. Voor de implementatie in App Service _Linux_, Zie [een beperkte Spring Boot-app implementeren in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+> In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een beperkte Spring Boot-app implementeren in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin) voor de implementatie naar App Service op _Linux_.
 >
 
-Deze zelfstudie laat zien hoe u een Java-web-app in Azure maken en te verbinden met een MySQL-database. Wanneer u klaar bent, hebt u een [Spring Boot](https://projects.spring.io/spring-boot/) toepassing opslaan van gegevens in [Azure Database voor MySQL](https://docs.microsoft.com/azure/mysql/overview) uitgevoerd op [Azure App Service Web Apps](app-service-web-overview.md).
+In deze zelfstudie wordt getoond hoe u een Java-web-app in Azure maakt en deze verbinding laat maken met een MySQL-database. Wanneer u klaar bent, hebt u een [Spring Boot](https://projects.spring.io/spring-boot/)-toepassing die gegevens opslaat in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) en wordt uitgevoerd op [Azure App Service Web Apps](app-service-web-overview.md).
 
-![Java-app uitgevoerd in Azure App service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Java-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een MySQL-database maken in Azure
+> * Een MySQL-database in Azure maken
 > * Een voorbeeld-app verbinden met de database
 > * De app implementeren in Azure
 > * De app bijwerken en opnieuw implementeren
-> * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal controleren
+> * Logboeken met diagnostische gegevens vanaf Azure streamen
+> * De app in de Azure Portal controleren
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
 1. [Download en installeer Git](https://git-scm.com/)
-1. [Download en installeer de JDK die Java 7 of hoger](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-1. [Downloaden, installeren en starten van MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+1. [Download en installeer de Java 7 JDK of hoger](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Download, installeer en start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Lokale MySQL voorbereiden 
 
-In deze stap maakt u een database in een lokale MySQL-server voor gebruik in de app lokaal op uw computer te testen.
+In deze stap maakt u een database in een lokale MySQL-server voor gebruik bij het lokaal testen van de app op uw computer.
 
-### <a name="connect-to-mysql-server"></a>Verbinding maken met de MySQL-server
+### <a name="connect-to-mysql-server"></a>Verbinding maken met MySQL-server
 
-In een terminalvenster verbinding maken met uw lokale MySQL-server. Alle opdrachten kunt uitvoeren in deze zelfstudie kunt u deze terminalvenster.
+Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit terminalvenster gebruiken om alle opdrachten in deze zelfstudie uit te voeren.
 
 ```bash
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord voor de `root` account. Als je het wachtwoord van je root-account, Zie [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het account `root`. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Als uw opdracht is uitgevoerd, wordt al uw MySQL-server uitgevoerd. Als dit niet het geval is, zorg ervoor dat de lokale MySQL-server is gestart door de [MySQL na de installatie stappen](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server al uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
 ### <a name="create-a-database"></a>Een database maken 
 
-In de `mysql` vragen, maakt u een database en een tabel voor de taakitems.
+Maak in de prompt `mysql` een database en een tabel voor de taakitems.
 
 ```sql
 CREATE DATABASE tododb;
 ```
 
-Uw serververbinding sluiten door te typen `quit`.
+Sluit uw serververbinding door `quit` te typen.
 
 ```sql
 quit
 ```
 
-## <a name="create-and-run-the-sample-app"></a>Maken en uitvoeren van de voorbeeld-app 
+## <a name="create-and-run-the-sample-app"></a>De voorbeeld-app maken en uitvoeren 
 
-In deze stap voorbeeldapp Spring opstarten klonen, configureert voor het gebruik van de lokale MySQL-database en uitvoeren op uw computer. 
+In deze stap kloont u een Spring-opstart-app, configureert u deze voor het gebruik van de lokale MySQL-database en voert u hem uit op uw computer. 
 
-### <a name="clone-the-sample"></a>Klonen van de steekproef
+### <a name="clone-the-sample"></a>Het voorbeeld klonen
 
-Navigeer naar een werkmap in een terminalvenster en kloon de opslagplaats voorbeeld. 
+Navigeer naar een werkmap in het terminalvenster en kloon de voorbeeldopslagplaats. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
-### <a name="configure-the-app-to-use-the-mysql-database"></a>De app voor het gebruik van de MySQL-database configureren
+### <a name="configure-the-app-to-use-the-mysql-database"></a>De app configureren voor het gebruik van de MySQL database
 
-Update de `spring.datasource.password` en de waarde *spring-boot-mysql-todo/src/main/resources/application.properties* met hetzelfde root-wachtwoord gebruikt om de MySQL-prompt te openen:
+Werk de `spring.datasource.password` en de waarde in *spring-boot-mysql-todo/src/main/resources/application.properties* bij met hetzelfde rootwachtwoord dat is gebruikt om de MySQL-prompt te openen:
 
 ```
 spring.datasource.password=mysqlpass
 ```
 
-### <a name="build-and-run-the-sample"></a>Bouwen en uitvoeren van de steekproef
+### <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
 
-Bouwen en uitvoeren van het voorbeeld met de Maven-wrapper die is opgenomen in de opslagplaats:
+Bouw het voorbeeld en voer het uit met de Maven-wrapper die is opgenomen in de opslagplaats:
 
 ```bash
 cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Open uw browser naar `http://localhost:8080` om te zien in het voorbeeld in te grijpen. Zoals u taken aan de lijst toevoegen, gebruikt u de volgende SQL-opdrachten in de MySQL-prompt om de gegevens die zijn opgeslagen in de MySQL weer te geven.
+Open `http://localhost:8080` in uw browser om het voorbeeld in actie te zien. Gebruik de volgende SQL-opdrachten in de MySQL-prompt om de gegevens  weer te geven die zijn opgeslagen in de MySQL-prompt wanneer u taken aan de lijst toevoegt.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Stop de toepassing te raken `Ctrl` + `C` in de terminal. 
+Stop de toepassing door `Ctrl`+`C` te gebruiken in de terminal. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-azure-mysql-database"></a>Een Azure-MySQL-database maken
+## <a name="create-an-azure-mysql-database"></a>Een Azure MySQL-database maken
 
-In deze stap maakt u een [Azure Database voor MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instantie met de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). U configureert de voorbeeldtoepassing later op deze database gebruiken in de zelfstudie.
+In deze stap maakt u een [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md)-instantie met de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). U configureert de voorbeeldtoepassing later in de zelfstudie om deze database te gebruiken.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waar verwante resources, zoals web-apps, databases en storage-accounts worden geïmplementeerd en beheerd. 
+Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [`az group create`](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin verwante resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd. 
 
-Het volgende voorbeeld maakt een resourcegroep in de regio Noord-Europa:
+In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Noord-Europa:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
-Om te zien van de mogelijke waarden die u hebt, kunnen gebruiken voor `--location`, gebruiken de [az appservice lijst-locaties](/cli/azure/appservice#list-locations) opdracht.
+Gebruik de opdracht [`az appservice list-locations`](/cli/azure/appservice#list-locations) om te zien welke waarden u kunt gebruiken voor `--location`.
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-In de Cloud-Shell, maakt u een server in Azure-Database voor MySQL (Preview) met de [az mysql-server maken](/cli/azure/mysql/server#create) opdracht.    
-Vervangen door uw eigen unieke MySQL-servernaam waarin u zien hoe de `<mysql_server_name>` tijdelijke aanduiding. Deze naam maakt deel uit van de hostnaam van uw MySQL-server, `<mysql_server_name>.mysql.database.azure.com`, zodat het moet globaal uniek zijn. Ook vervangen `<admin_user>` en `<admin_password>` met uw eigen waarden.
+Maak vanuit de Cloud Shell een server in Azure Database for MySQL (Preview) met behulp van de opdracht [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Vervang de tijdelijke aanduiding `<mysql_server_name>` waar u deze ziet door de naam van uw eigen unieke MySQL-server. Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.mysql.database.azure.com`), dus hij moet globaal uniek zijn. Vervang `<admin_user>` en `<admin_password>` door uw eigen waardes.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
 ```
 
-Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld:
+Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld:
 
 ```json
 {
@@ -161,20 +159,20 @@ Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar 
 }
 ```
 
-### <a name="configure-server-firewall"></a>Een firewall configureren
+### <a name="configure-server-firewall"></a>Een serverfirewall configureren
 
-In de Cloud-Shell, maakt u een firewallregel voor uw MySQL-server clientverbindingen toestaat met behulp van de [az mysql server-firewallregel maken](/cli/azure/mysql/server/firewall-rule#create) opdracht. 
+Maak in de Cloud Shell een firewallregel voor uw MySQL-server om clientverbindingen toe te staan met behulp van de opdracht [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Azure-Database voor MySQL (Preview) kunnen niet automatisch momenteel verbindingen van Azure-services. Als het IP-adressen in Azure worden dynamisch toegewezen, is het beter om alle IP-adressen inschakelen voor nu. Wanneer de service de preview blijft, kunt u betere methoden voor het beveiligen van uw database wordt ingeschakeld.
+> Azure Database for MySQL (Preview) activeert momenteel niet automatisch verbindingen van Azure-services. Omdat IP-adressen in Azure dynamisch toegewezen worden, is het beter om te zorgen dat alle IP-adressen actief zijn. Wanneer de service met de preview doorgaat, zullen betere methoden voor het beveiligen van uw database wordt ingeschakeld.
 
 ## <a name="configure-the-azure-mysql-database"></a>De Azure MySQL-database configureren
 
-In het lokale terminalvenster verbinding maken met de server MySQL in Azure. Gebruik de waarde die u eerder hebt opgegeven voor `<admin_user>` en `<mysql_server_name>`.
+Maak in het lokale terminalvenster verbinding met de MySQL-server in Azure. Gebruik de waarde die u eerder hebt opgegeven voor `<admin_user>` en `<mysql_server_name>`.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
@@ -182,7 +180,7 @@ mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.
 
 ### <a name="create-a-database"></a>Een database maken 
 
-In de `mysql` vragen, maakt u een database en een tabel voor de taakitems.
+Maak in de prompt `mysql` een database en een tabel voor de taakitems.
 
 ```sql
 CREATE DATABASE tododb;
@@ -190,28 +188,28 @@ CREATE DATABASE tododb;
 
 ### <a name="create-a-user-with-permissions"></a>Een gebruiker met machtigingen maken
 
-Een databasegebruiker maken en hieraan alle bevoegdheden de `tododb` database. Vervang de tijdelijke aanduidingen `<Javaapp_user>` en `<Javaapp_password>` met uw eigen unieke app-naam.
+Maak een databasegebruiker en geef deze alle bevoegdheden in de `tododb`-database. Vervang de tijdelijke aanduidingen `<Javaapp_user>` en `<Javaapp_password>` met uw eigen unieke app-naam.
 
 ```sql
 CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
 GRANT ALL PRIVILEGES ON tododb.* TO '<Javaapp_user>';
 ```
 
-Uw serververbinding sluiten door te typen `quit`.
+Sluit uw serververbinding door `quit` te typen.
 
 ```sql
 quit
 ```
 
-## <a name="deploy-the-sample-to-azure-app-service"></a>Het voorbeeld in Azure App Service implementeren
+## <a name="deploy-the-sample-to-azure-app-service"></a>Het voorbeeld naar Azure App Service implementeren
 
-Maken van een Azure App Service-abonnement met de **vrije** prijzen met behulp van laag de [az appservice-abonnement maken](/cli/azure/appservice/plan#create) CLI-opdracht. Het plan appservice definieert de fysieke resources gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een appservice-abonnement kunt u deze resources, zodat u kosten opslaan bij het hosten van meerdere apps delen. 
+Maak een Azure App Service-plan met de prijscategorie **GRATIS** met behulp van de CLI-opdracht [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create). Het App Service-plan definieert de fysieke resources die gebruikt worden voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources, zodat u kosten kunt besparen als u meerdere apps host. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Wanneer het plan klaar is, ziet u de Azure CLI vergelijkbare uitvoer naar het volgende voorbeeld:
+Wanneer het plan klaar is, laat de Azure CLI uitvoer zien die vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 { 
@@ -229,17 +227,17 @@ Wanneer het plan klaar is, ziet u de Azure CLI vergelijkbare uitvoer naar het vo
 } 
 ``` 
 
-### <a name="create-an-azure-web-app"></a>Een Azure-Web-app maken
+### <a name="create-an-azure-web-app"></a>Een Azure-web-app maken
 
- In de Cloud-Shell gebruiken de [az webapp maken](/cli/azure/appservice/web#create) CLI-opdracht voor het maken van de definitie van een web-app in de `myAppServicePlan` App Service-abonnement. De definitie van de web-app biedt een URL voor toegang tot uw toepassing met en configureert u diverse opties voor het implementeren van uw code naar Azure. 
+Gebruik in de Cloud Shell de CLI-opdracht [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) voor het maken van de definitie van een web-app in het `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Vervang de `<app_name>` aanduiding voor items met uw eigen unieke app-naam. Deze unieke naam maakt deel uit van de standaard-domeinnaam voor de web-app zodat de naam moet uniek zijn in alle apps in Azure. Voordat u het beschikbaar aan uw gebruikers stellen, kunt u een vermelding van de naam van aangepast domein toewijzen aan de web-app.
+Vervang de tijdelijke aanduiding `<app_name>` met uw eigen unieke app-naam. Deze naam maakt deel uit van de standaarddomeinnaam voor de web-app, daarom moet de naam uniek zijn voor alle apps in Azure. U kunt een aangepaste domeinnaam toewijzen aan de web-app voordat u deze beschikbaar maakt voor uw gebruikers.
 
-Wanneer de definitie van de web-app klaar is, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld: 
+Wanneer de definitie van de web-app is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld: 
 
 ```json 
 {
@@ -258,9 +256,9 @@ Wanneer de definitie van de web-app klaar is, toont de Azure CLI informatie verg
 
 ### <a name="configure-java"></a>Java configureren 
 
-In de Cloud-Shell de Java runtime configuratie instellen dat uw app met moet de [az appservice web config update](/cli/azure/appservice/web/config#update) opdracht.
+Stel in de Cloud Shell de Java-runtime-configuratie in die uw app nodig heeft met de opdracht [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
 
-De volgende opdracht configureert u de web-app uit te voeren op een recente Java 8 JDK en [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+De volgende opdracht configureert de web-app om op een recente Java 8 JDK en [Apache Tomcat](http://tomcat.apache.org/) 8.0 te worden uitgevoerd.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
@@ -268,9 +266,9 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 ### <a name="configure-the-app-to-use-the-azure-sql-database"></a>De app voor het gebruik van de Azure SQL database configureren
 
-Voordat u de voorbeeld-app, stelt u toepassingsinstellingen op de web-app de Azure-MySQL-database die u hebt gemaakt in Azure gebruiken. Deze eigenschappen worden blootgesteld aan de webtoepassing als omgevingsvariabelen en de waarden in de application.properties binnen de verpakte web-app overschreven. 
+Voordat u de voorbeeld-app uitvoert, stelt u toepassingsinstellingen op de web-app in om de Azure MySQL-database te gebruiken die u in Azure hebt gemaakt. Deze eigenschappen worden als omgevingsvariabelen blootgesteld aan de webtoepassing en overschrijven de waarden in de application.properties binnen de verpakte web-app. 
 
-In de Cloud-Shell toepassingsinstellingen met [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in de CLI:
+Stel in de Cloud Shell de toepassingsinstellingen in met [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in de CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -284,10 +282,10 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_u
 az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
 ```
 
-### <a name="get-ftp-deployment-credentials"></a>FTP-implementatiereferenties ophalen 
-U kunt uw toepassing in Azure App service op verschillende manieren, met inbegrip van de FTP-, lokale Git, GitHub, Visual Studio Team Services en BitBucket implementeren. In dit voorbeeld FTP voor het implementeren van de. WAR-bestand is gebouwd eerder op uw lokale machine in Azure App Service.
+### <a name="get-ftp-deployment-credentials"></a>FTP-implementatiereferenties verkrijgen 
+U kunt uw web-app op verschillende manieren in Azure App Service implementeren, zoals met FTP, lokale Git, GitHub, Visual Studio Team Services en Bitbucket. In dit voorbeeld gebruikt u FTP voor het implementeren van het .WAR-bestand dat eerder op uw lokale machine in Azure App Service is gebouwd.
 
-Gebruiken om te bepalen wat referenties door te geven in een FTP-opdracht in de Web-App, [implementatie in az appservice web-lijst-publicatie-profielen](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) opdracht in de Cloud-Shell: 
+Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -303,9 +301,9 @@ az webapp deployment list-publishing-profiles --name <app_name> --resource-group
 ]
 ```
 
-### <a name="upload-the-app-using-ftp"></a>Uploaden van de app met FTP
+### <a name="upload-the-app-using-ftp"></a>De app uploaden met FTP
 
-Uw favoriete FTP-hulpprogramma gebruiken voor het implementeren van de. WAR-bestand in de */site/wwwroot/webapps* map op het adres van de server die afkomstig zijn uit de `URL` veld in de vorige opdracht. Verwijder de bestaande map van de standaard (ROOT)-toepassing en vervang de bestaande ROOT.war met de. WAR-bestand in de eerder in de zelfstudie wordt gebouwd.
+Gebruik uw favoriete FTP-hulpprogramma voor het implementeren van het .WAR-bestand in de map */site/wwwroot/webapps* op het adres van de server dat afkomstig is uit het veld `URL` in de vorige opdracht. Verwijder de bestaande de standaard (ROOT)-toepassingsmap en vervang de bestaande ROOT.war met het .WAR-bestand dat in de eerder in de zelfstudie is gebouwd.
 
 ```bash
 ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
@@ -322,24 +320,24 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 
 ### <a name="test-the-web-app"></a>De web-app testen
 
-Blader naar `http://<app_name>.azurewebsites.net/` en een paar taken toevoegen aan de lijst. 
+Blader naar `http://<app_name>.azurewebsites.net/` en voeg een paar taken toe aan de lijst. 
 
-![Java-app uitgevoerd in Azure App service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Java-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-**Gefeliciteerd!** U uitvoert een Java-gegevensgestuurde app in Azure App Service.
+**Gefeliciteerd!** U voert een gegevensgestuurde Java-app uit in Azure App Service.
 
 ## <a name="update-the-app-and-redeploy"></a>De app bijwerken en opnieuw implementeren
 
-Bijwerken van de toepassing te nemen van een extra kolom in de takenlijst voor welke dag het item is gemaakt. Spring opstarten verwerkt het databaseschema bijwerken voor u als de wijzigingen in het gegevensmodel zonder uw bestaande databaserecords zelf te wijzigen.
+Werk de toepassing bij om een extra kolom in de takenlijst op te nemen, voor op welke dag het item is gemaakt. Spring Boot verwerkt het bijwerken van het databaseschema voor u, omdat het gegevensmodel verandert zonder uw bestaande databaserecords te wijzigen.
 
-1. Open op uw lokale systeem *src/main/java/com/example/fabrikam/TodoItem.java* en voeg de volgende import toe aan de klasse:   
+1. Open op uw lokale systeem *src/main/java/com/example/fabrikam/TodoItem.java* en voeg de volgende importen toe aan de klasse:   
 
     ```java
     import java.text.SimpleDateFormat;
     import java.util.Calendar;
     ```
 
-2. Voeg een `String` eigenschap `timeCreated` naar *src/main/java/com/example/fabrikam/TodoItem.java*, deze met een tijdstempel bij het maken van een object te initialiseren. Getters/setters toevoegen voor de nieuwe `timeCreated` eigenschap tijdens het bewerken van dit bestand.
+2. Voeg een `String`-eigenschap `timeCreated` toe aan *src/main/java/com/example/fabrikam/TodoItem.java* om deze te initialiseren met een tijdstempel bij het maken van een object. Voeg getters/setters toe voor de nieuwe eigenschap `timeCreated` tijdens het bewerken van dit bestand.
 
     ```java
     private String name;
@@ -363,7 +361,7 @@ Bijwerken van de toepassing te nemen van een extra kolom in de takenlijst voor w
     }
     ```
 
-3. Update *src/main/java/com/example/fabrikam/TodoDemoController.java* met een regel in de `updateTodo` methode om in te stellen de tijdstempel:
+3. Werk *src/main/java/com/example/fabrikam/TodoDemoController.java* bij met een regel in de methode `updateTodo` om de tijdstempel in te stellen:
 
     ```java
     item.setComplete(requestItem.isComplete());
@@ -372,7 +370,7 @@ Bijwerken van de toepassing te nemen van een extra kolom in de takenlijst voor w
     repository.save(item);
     ```
 
-4. Ondersteuning voor het nieuwe veld in de sjabloon Thymeleaf toevoegen. Update *src/main/resources/templates/index.html* met een nieuwe tabel-header voor het tijdstempel en een nieuw veld om de waarde van het tijdstempel in elke tabelrij gegevens weer te geven.
+4. Voeg ondersteuning toe voor het nieuwe veld in het sjabloon `Thymeleaf`. Werk *src/main/resources/templates/index.html* bij met een nieuwe tabelheader voor de tijdstempel en een nieuw veld om de waarde van de tijdstempel in elke gegevensrij van de tabel weer te geven.
 
     ```html
     <th>Name</th>
@@ -385,23 +383,23 @@ Bijwerken van de toepassing te nemen van een extra kolom in de takenlijst voor w
     <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
     ```
 
-5. De toepassing bouwen:
+5. Herbouw de toepassing:
 
     ```bash
     mvnw clean package 
     ```
 
-6. FTP-de update. WAR als voorheen kunt u verwijdert de bestaande *site/wwwroot/webapps/ROOT* directory en *ROOT.war*, en vervolgens de bijgewerkte uploaden. WAR-bestand als ROOT.war. 
+6. FTP de bijgewerkte .WAR als voorheen, verwijder de bestaande map *site/wwwroot/webapps/ROOT* en *ROOT.war*, en upload vervolgens het bijgewerkte WAR-bestand als ROOT.war. 
 
-Bij het vernieuwen van de app een **Aanmaaktijd** kolom nu zichtbaar is. Wanneer u een nieuwe taak toevoegt, wordt de app de tijdstempel automatisch gevuld. Uw bestaande taken blijven ongewijzigd en werken met de app, zelfs als het onderliggende gegevensmodel is gewijzigd. 
+Bij het vernieuwen van de app is nu de kolom **Aanmaaktijd** zichtbaar. Wanneer u een nieuwe taak toevoegt, vult de app automatisch de tijdstempel. Uw bestaande taken blijven ongewijzigd en werken met de app, zelfs als het onderliggende gegevensmodel is gewijzigd. 
 
 ![Java-app bijgewerkt met een nieuwe kolom](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
       
-## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken 
+## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen 
 
-Als uw Java-toepassing in Azure App Service wordt uitgevoerd, kunt u de logboeken van de console doorgesluisd rechtstreeks aan uw terminal opvragen. Op die manier kunt u de dezelfde diagnostische berichten op te sporen toepassingsfouten ophalen.
+Terwijl uw Java-toepassing in Azure App Service wordt uitgevoerd, kunt u de consolelogboeken doorgesluisd krijgen naar uw terminal. Op die manier krijgt u de dezelfde diagnostische berichten om toepassingsfouten op te sporen.
 
-Gebruik voor het starten van de streaming-logboek de [az webapp logboek tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) opdracht in de Cloud-Shell.
+Gebruik voor het starten van logboekstreaming de opdracht [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in de Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 
@@ -409,19 +407,17 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
 
-Ga naar de Azure-portal om te zien van de web-app die u hebt gemaakt.
-
-Hiervoor moet u zich aanmelden bij [https://portal.azure.com](https://portal.azure.com).
+Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
 
 Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-web-app.
 
 ![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-Standaard toont de blade van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. U kunt hier ook beheertaken zoals stoppen, starten, opnieuw opstarten en verwijderen uitvoeren. De tabbladen aan de linkerkant van de blade tonen de verschillende configuratiepagina's die u kunt openen.
+Standaard toont de pagina van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-blade in Azure Portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![App Service-pagina in Azure Portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
-Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoegen aan uw web-app. De volgende lijst bevat slechts enkele van de mogelijkheden:
+Deze tabbladen op de pagina bevatten de vele handige functies die u kunt toevoegen aan uw web-app. De volgende lijst bevat slechts enkele van de mogelijkheden:
 * Een aangepaste DNS-naam toewijzen
 * Een aangepast SSL-certificaat binden
 * Continue implementatie inschakelen
@@ -430,7 +426,7 @@ Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoege
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze resources niet voor een andere zelfstudie hoeft (Zie [Vervolgstappen](#next)), kunt u ze verwijderen met de volgende opdracht in de Cloud-Shell: 
+Als u deze resources niet voor een andere zelfstudie nodig hebt (zie [Volgende stappen](#next)), kunt u ze verwijderen door de volgende opdracht in de Cloud Shell uit te voeren: 
   
 ```azurecli-interactive
 az group delete --name myResourceGroup 
@@ -441,14 +437,14 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="checklist"]
-> * Een MySQL-database maken in Azure
+> * Een MySQL-database in Azure maken
 > * Een voorbeeld Java-app verbinden met de MySQL
 > * De app implementeren in Azure
 > * De app bijwerken en opnieuw implementeren
-> * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal beheren
+> * Logboeken met diagnostische gegevens vanaf Azure streamen
+> * De app in Azure Portal beheren
 
-Ga naar de volgende zelfstudie voor informatie over het toewijzen van een aangepaste DNS-naam naar de app.
+Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan een web-app kunt toewijzen.
 
 > [!div class="nextstepaction"] 
 > [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md)

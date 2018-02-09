@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 804294e91375e0fb5b11190ae969710bbd4c15b1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Een .NET Core- en SQL Database-web-app maken in Azure App Service onder Linux
+
+> [!NOTE]
+> In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een .NET Core- en SQL Database-web-app maken in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md) als u in App Service wilt implementeren onder _Windows_.
+>
 
 [App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt getoond hoe u een .NET Core-app maakt en verbinding laat maken met een SQL-database. Als u klaar bent, hebt u een .NET Core MVC-app die onder Linux in App Service wordt uitgevoerd.
 
@@ -37,14 +41,14 @@ U leer het volgende:
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
 > * De app in Azure Portal beheren
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
 1. [Git installeren](https://git-scm.com/)
 1. [.NET Core SDK 1.1.2 installeren](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-local-net-core-app"></a>Lokale .NET Core-app maken
 
@@ -93,7 +97,7 @@ Voor SQL Database wordt in deze zelfstudie gebruikgemaakt van [Azure SQL Databas
 
 ### <a name="create-a-sql-database-logical-server"></a>Een logische SQL Database-server maken
 
-Maak een logische Azure SQL Database-server in Cloud Shell met de opdracht [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
+Maak een logische Azure SQL Database-server in Cloud Shell met de opdracht [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
 Vervang de tijdelijke aanduiding *\<server_name>* door een unieke SQL Database-naam. Deze naam wordt gebruikt als onderdeel van het SQL Database-eindpunt, `<server_name>.database.windows.net`. De naam moet dus uniek zijn voor alle logische servers in Azure. De naam mag alleen kleine letters, cijfers en het afbreekstreepje (-) bevatten, en moet tussen de 3 en 50 tekens lang zijn. Vervang tevens *\<db_username>* en *\<db_password>* door een gebruikersnaam en wachtwoord dat u zelf mag kiezen. 
 
@@ -124,7 +128,7 @@ Wanneer de logische SQL Database-server wordt gemaakt, toont de Azure CLI inform
 
 ### <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
 
-Maak een [Azure SQL Database-firewallregel op serverniveau](../../sql-database/sql-database-firewall-configure.md) met de opdracht [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Als zowel het IP-beginadres als het IP-eindadres zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
+[Een firewallregel op serverniveau voor Azure SQL Database configureren](../../sql-database/sql-database-firewall-configure.md) met de opdracht [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Als zowel het IP-beginadres als het IP-eindadres zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Een database maken
 
-Maak een database met een [prestatieniveau van S0](../../sql-database/sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Maak een database met een [prestatieniveau van S0](../../sql-database/sql-database-service-tiers.md) op de server met de opdracht [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +170,7 @@ In deze stap implementeert u de met SQL Database verbonden .NET Core-app met App
 
 ### <a name="configure-an-environment-variable"></a>Een omgevingsvariabele configureren
 
-Als u de verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. In de volgende opdracht vervangt u *\<app name>* en de parameter *\<connection_string>* door de eerder gemaakte verbindingsreeks.
+Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. In de volgende opdracht vervangt u *\<app name>* en de parameter *\<connection_string>* door de eerder gemaakte verbindingsreeks.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

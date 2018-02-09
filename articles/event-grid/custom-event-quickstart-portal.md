@@ -3,23 +3,23 @@ title: Aangepaste gebeurtenissen voor Azure Event Grid met Azure Portal | Micros
 description: Gebruik Azure Event Grid en PowerShell om een onderwerp te publiceren en u te abonneren op deze gebeurtenis.
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0fe498b7b6dcf59bc5caef8ff5a40053e0498f85
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Portal en Event Grid
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een URL via welke de berichten alleen maar worden verzameld. U maakt deze URL met behulp van een open source-hulpprogramma van derden, met de naam [RequestBin](https://requestb.in/).
+Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een URL via welke de berichten alleen maar worden verzameld. U maakt deze URL met behulp van hulpprogramma's van derden vanuit [RequestBin](https://requestb.in/) of [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** is een open source-hulpprogramma dat niet is bedoeld voor gebruik met een hoge doorvoer. Het gebruik van het hulpprogramma hier is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
+>**RequestBin** en **Hookbin** zijn niet bedoeld voor gebruik met hoge doorvoer. Het gebruik van deze hulpprogramma's is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
 
 Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn verzonden.
 
@@ -51,7 +51,7 @@ Een onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebe
 
    ![Event Grid-onderwerp toevoegen](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. Geef een naam op voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Voor de preview-versie ondersteunt Event Grid de locaties **westus2** en **westcentralus**. Selecteer de resourcegroep die u eerder hebt gemaakt. Selecteer **Maken**.
+1. Geef een naam op voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Selecteer een van de [ondersteunde regio's](overview.md). Selecteer de resourcegroep die u eerder hebt gemaakt. Selecteer **Maken**.
 
    ![Waarden opgeven voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -61,7 +61,7 @@ Een onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebe
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. RequestBin is een open source-hulpprogramma van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [RequestBin](https://requestb.in/) en klik op **Een RequestBin maken**.  Kopieer de URL. U hebt deze nodig wanneer u zich abonneert op het onderwerp.
+Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. RequestBin en Hookbin zijn hulpprogramma's van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [RequestBin](https://requestb.in/) en klik op **Create a RequestBin** of ga naar [Hookbin](https://hookbin.com/) en klik op **Create New Endpoint**.  Kopieer de URL. U hebt deze nodig wanneer u zich abonneert op het onderwerp.
 
 ## <a name="subscribe-to-a-topic"></a>Abonneren op een onderwerp
 
@@ -75,7 +75,7 @@ U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen
 
    ![Event Grid-abonnement toevoegen](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. Geef een unieke naam op voor het gebeurtenisabonnement. Selecteer als onderwerptype **Event Grid-onderwerpen**. Selecteer voor het exemplaar het aangepaste onderwerp dat u hebt gemaakt. Geef de URL van RequestBin op als eindpunt voor gebeurtenismeldingen. Als u klaar bent het opgeven van de waarden, klikt u op **Maken**.
+1. Geef een unieke naam op voor het gebeurtenisabonnement. Selecteer als onderwerptype **Event Grid-onderwerpen**. Selecteer voor het exemplaar het aangepaste onderwerp dat u hebt gemaakt. Geef de URL van RequestBin of Hookbin op als eindpunt voor gebeurtenismeldingen. Als u klaar bent het opgeven van de waarden, klikt u op **Maken**.
 
    ![Waarde opgeven voor Event Grid-abonnement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -106,7 +106,7 @@ CURL is een hulpprogramma waarmee HTTP-aanvragen worden uitgevoerd. In dit artik
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de RequestBin-URL die u eerder hebt gemaakt. Of klik in het geopende RequestBin-browservenster op Vernieuwen. U ziet de gebeurtenis die u zojuist hebt verzonden.
+U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de eindpunt-URL die u eerder hebt gemaakt. U kunt ook op Vernieuwen klikken in het geopende browservenster. U ziet de gebeurtenis die u zojuist hebt verzonden.
 
 ```json
 [{
@@ -118,6 +118,8 @@ U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

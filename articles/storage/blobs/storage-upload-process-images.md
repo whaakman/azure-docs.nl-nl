@@ -1,6 +1,6 @@
 ---
-title: Uploaden van afbeeldingsgegevens in de cloud met Azure Storage | Microsoft Docs
-description: Azure blob storage gebruiken met een web-app voor het opslaan van toepassingsgegevens
+title: Afbeeldingsgegevens uploaden in de cloud met Azure Storage | Microsoft Docs
+description: Azure Blob Storage gebruiken me een web-app om toepassingsgegevens op te slaan
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -14,35 +14,35 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 8d187e51cbb391ee1f34fb5934c8ae1868bb6244
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Uploaden van afbeeldingsgegevens in de cloud met Azure Storage
+# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
-Deze zelfstudie maakt deel uit een reeks. Deze zelfstudie laat zien hoe u een webtoepassing die gebruikmaakt van de Azure Storage-clientbibliotheek voor het uploaden van afbeeldingen met een opslagaccount te implementeren. Wanneer u klaar bent, hebt u een web-app opslaan en weergeven van installatiekopieën van Azure-opslag.
+Deze zelfstudie is deel één van een serie. In deze zelfstudie leert u hoe u een webtoepassing implementeert die gebruikmaakt van de Azure Storage-clientbibliotheek voor het uploaden van afbeeldingen in een opslagaccount. Als u klaar bent, hebt u een web-app die afbeeldingen vanuit Azure Storage kan opslaan en weergeven.
 
-![De weergave van afbeeldingen container](media/storage-upload-process-images/figure2.png)
+![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure2.png)
 
-Deel een van de reeks, leert u hoe:
+In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
 > * Een opslagaccount maken
 > * Een container maken en machtigingen instellen
 > * Een toegangssleutel ophalen
-> * Configureer toepassingsinstellingen
-> * Een Web-App implementeren in Azure
-> * Interactie met de webtoepassing
+> * Toepassingsinstellingen configureren
+> * Een web-app implementeren in Azure
+> * Interactie aangaan met de webtoepassing
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken 
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
  
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt.
  
@@ -52,12 +52,12 @@ az group create --name myResourceGroup --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
  
-Installatiekopieën van uploadt het voorbeeld naar een blobcontainer in Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en toegang tot uw Azure storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
+Met het voorbeeld worden afbeeldingen geüpload naar een blobcontainer in een Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw Azure Storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> In deel 2 van de zelfstudie gebruikt u abonnementen voor blob-opslag. Gebeurtenisabonnementen worden momenteel alleen ondersteund voor Blob storage-accounts in de West-Centraal VS en VS-West 2. Vanwege deze beperking, moet u een Blob storage-account dat wordt gebruikt door de voorbeeld-app voor het opslaan van afbeeldingen en miniaturen maken.   
+> In deel 2 van de zelfstudie gebruikt u gebeurtenisabonnementen voor blob-opslag. Gebeurtenisabonnementen worden momenteel alleen ondersteund voor Blob Storage-accounts in West-centraal VS en VS - west 2. Vanwege deze beperking dient u een Blob Storage-account te maken dat door de voorbeeld-app wordt gebruikt voor het opslaan van afbeeldingen en miniaturen.   
 
-In de volgende opdracht te vervangen door uw eigen globaal unieke naam op voor de Blob storage-account waarin u zien hoe de `<blob_storage_account>` tijdelijke aanduiding.  
+Vervang in de volgende opdracht het Blob Storage-account in de tijdelijke aanduiding `<blob_storage_account>` door uw eigen unieke naam.  
 
 ```azurecli-interactive 
 az storage account create --name <blob_storage_account> \
@@ -65,13 +65,13 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## <a name="create-blob-storage-containers"></a>Blob storage-containers maken
+## <a name="create-blob-storage-containers"></a>Blob Storage-containers maken
  
-De app gebruikmaakt van twee containers in de Blob storage-account. Containers zijn vergelijkbaar met mappen en worden gebruikt voor het opslaan van blobs. De _installatiekopieën_ container is waar de app uploadt installatiekopieën van een hoge resolutie. Op een hoger deel van de reeks een Azure-functie-app geüpload formaat miniatuurweergaven voor de _duim_ container. 
+De app gebruikt twee containers in het Blob Storage-account. Containers zijn vergelijkbaar met mappen en worden gebruikt voor het opslaan van blobs. In de container _images_ worden afbeeldingen in volledige resolutie opgeslagen. In een later deel van de reeks leert u hoe een Azure-functie-app verkleinde afbeeldingsminiaturen naar de container _Thumbs_ uploadt. 
 
-De opslagaccountsleutel ophalen met behulp van de [lijst met opslagaccounts die sleutels az](/cli/azure/storage/account/keys#list) opdracht. Vervolgens gebruikt u deze sleutel voor het maken van twee containers met behulp van de [az storage-container maken](/cli/azure/storage/container#az_storage_container_create) opdracht.  
+Haal de opslagaccountsleutel op met behulp van de opdracht [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Gebruik vervolgens deze sleutel om twee containers te maken met behulp van de opdracht [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-In dit geval `<blob_storage_account>` is de naam van de Blob storage-account die u hebt gemaakt. De _installatiekopieën_ containers openbare toegang is ingesteld op `off`, wordt de _duim_ containers openbare toegang is ingesteld op `container`. De `container` openbare toegangsinstelling kan de miniaturen kan worden bekeken naar mensen die gaat u naar de webpagina.
+In dit geval is `<blob_storage_account>` de naam van het Blob Storage-account dat u hebt gemaakt. De openbare toegang tot de _images_-containers wordt ingesteld op `off`, die tot de _thumbs_-containers op `container`. Dankzij de instelling voor de openbare toegang tot de `container` zijn de miniaturen zichtbaar voor personen die de webpagina bezoeken.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -89,7 +89,7 @@ echo "Make a note of your blob storage account key..."
 echo $blobStorageAccountKey 
 ``` 
 
-Maak een notitie van uw blob-opslag-accountnaam en de sleutel. De voorbeeld-app gebruikt deze instellingen voor verbinding met de storage-account voor het uploaden van afbeeldingen. 
+Noteer de naam van het Blob Storage-account en de -sleutel. De voorbeeld-app maakt gebruik van deze instellingen om verbinding te maken met het opslagaccount om afbeeldingen te kunnen uploaden. 
 
 ## <a name="create-an-app-service-plan"></a>Een App Service-plan maken 
 
@@ -105,19 +105,19 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken 
 
-De web-app biedt een hosting ruimte voor de voorbeeldcode van de app die vanuit de GitHub-opslagplaats voorbeeld is geïmplementeerd. Maak een [web-app](../../app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#az_webapp_create).  
+De web-app biedt een hostingruimte voor de code van de voorbeeld-app. De ruimte wordt geïmplementeerd vanuit de GitHub-voorbeeld opslagplaats. Maak een [web-app](../../app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#az_webapp_create).  
  
-Vervang in de volgende opdracht `<web_app>` met een unieke naam (geldige tekens zijn `a-z`, `0-9`, en `-`). Als `<web_app>` is niet uniek is, dat u het volgende foutbericht: _Website met de gegeven naam `<web_app>` bestaat al._ De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.  
+Vervang in de volgende opdracht `<web_app>` door een unieke naam (geldige tekens zijn `a-z`, `0-9` en `-`). Als `<web_app>` niet uniek is, wordt er een foutbericht weergegeven: _Er bestaat al een website met de naam `<web_app>`._ De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive 
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## <a name="deploy-the-sample-app-from-the-github-repository"></a>Implementeer de voorbeeldapp vanuit de GitHub-opslagplaats 
+## <a name="deploy-the-sample-app-from-the-github-repository"></a>Voorbeeld-app implementeren vanuit de GitHub-opslagplaats 
 
-App Service biedt ondersteuning voor verschillende manieren om inhoud te distribueren naar een web-app. In deze zelfstudie implementeert u de web-app uit een [openbaar voorbeeld GitHub-opslagplaats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configureren van de GitHub-implementatie naar de web-app met de [az webapp implementatieconfiguratie bron](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) opdracht. Vervang `<web_app>` met de naam van de web-app die u in de vorige stap hebt gemaakt.
+App Service ondersteunt diverse manieren om inhoud in een web-app te implementeren. In deze zelfstudie implementeert u de web-app vanaf een [openbare GitHub-voorbeeldopslagplaats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp) (Engelstalig). Configureer GitHub-implementatie naar de webtoepassing met de opdracht [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Vervang `<web_app>` door de naam van de web-app die u in de vorige stap hebt gemaakt.
 
-Het voorbeeldproject bevat een [ASP.NET MVC](https://www.asp.net/mvc) app dat accepteert van een afbeelding, opgeslagen in een opslagaccount en afbeeldingen uit een container miniaturen worden weergegeven. De webtoepassing gebruikt het [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), en de [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) naamruimten uit in de Azure-opslag om te communiceren met Azure storage-clientbibliotheek. 
+Het voorbeeldproject bevat een [ASP.NET MVC](https://www.asp.net/mvc)-app die een afbeelding accepteert, deze opslaat in een opslagaccount en afbeeldingen vanuit een miniaturencontainer weergeeft. De web-app gebruikt de naamruimten [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) en [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) van de Azure Storage-clientbibliotheek voor interactie met Azure Storage. 
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -125,11 +125,11 @@ az webapp deployment source config --name <web_app> \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ``` 
 
-## <a name="configure-web-app-settings"></a>Instellingen voor web-app configureren 
+## <a name="configure-web-app-settings"></a>Web-app-instellingen configureren 
 
-Het voorbeeld web-app gebruikt de [Azure Storage-clientbibliotheek](/dotnet/api/overview/azure/storage?view=azure-dotnet) aan aanvraag toegangstokens, die worden gebruikt voor het uploaden van afbeeldingen. De opslagaccountreferenties die wordt gebruikt door de opslag-SDK worden ingesteld in de toepassingsinstellingen voor de web-app. Toepassingsinstellingen toevoegen aan de geïmplementeerde app met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) opdracht. 
+De voorbeeldweb-app gebruikt de [Azure Storage-clientbibliotheek](/dotnet/api/overview/azure/storage?view=azure-dotnet) om toegangstokens aan te vragen. Hiermee worden afbeeldingen geüpload. De referenties van het opslagaccount die worden gebruikt door de Storage-SDK, worden ingesteld in de toepassingsinstellingen voor de web-app. Voeg toepassingsinstellingen toe aan de geïmplementeerde app met de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). 
 
-In de volgende opdracht `<blob_storage_account>` is de naam van uw Blob storage-account en `<blob_storage_key>` is van de bijbehorende sleutel. Vervang `<web_app>` met de naam van de web-app die u in de vorige stap hebt gemaakt.     
+In de volgende opdracht is `<blob_storage_account>` de naam van uw Blob Storage-account en `<blob_storage_key>` de bijbehorende sleutel. Vervang `<web_app>` door de naam van de web-app die u in de vorige stap hebt gemaakt.     
 
 ```azurecli-interactive 
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -139,15 +139,15 @@ AzureStorageConfig__ThumbnailContainer=thumbs \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
-Nadat de web-app is geïmplementeerd en geconfigureerd, kunt u de installatiekopie uploaden functionaliteit testen in de app.   
+Als de web-app is geïmplementeerd en geconfigureerd, kunt u de functionaliteit voor het uploaden van afbeeldingen in de app testen.   
 
 ## <a name="upload-an-image"></a>Een installatiekopie uploaden 
 
-Als u wilt testen van de web-app, blader naar de URL van uw gepubliceerde app. De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`. Selecteer de **foto's uploaden** regio te selecteren en het uploaden van een bestand of het slepen en neerzetten van een bestand op het gebied. De afbeelding verdwijnt als geüpload.
+U kunt de web-app testen door naar de URL van de gepubliceerde app te gaan. De standaard-URL van de web-app is `https://<web_app>.azurewebsites.net`. Selecteer het gebied **Upload photos** om een bestand te selecteren en uploaden of sleep een bestand naar het gebied. Als de afbeelding is geüpload, verdwijnt deze.
 
-![ImageResizer app](media/storage-upload-process-images/figure1.png)
+![App ImageResizer](media/storage-upload-process-images/figure1.png)
 
-In de voorbeeldcode de `UploadFiletoStorage` taak de `Storagehelper.cs` bestand wordt gebruikt om de installatiekopieën uploadt naar de `images` container binnen de storage-account via de [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) methode. De volgende voorbeeldcode bevat de `UploadFiletoStorage` taak. 
+In de voorbeeldcode wordt de taak `UploadFiletoStorage` in bestand `Storagehelper.cs` gebruikt om de afbeeldingen te uploaden naar de `images`-container in het opslagaccount door middel van de methode [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). Het volgende codevoorbeeld bevat de taak `UploadFiletoStorage`. 
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -174,7 +174,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 }
 ```
 
-De volgende klassen en methoden worden gebruikt in de vorige bewerking:
+In de vorige taak zijn de volgende klassen en methoden gebruikt:
 
 |Klasse  |Methode  |
 |---------|---------|
@@ -184,43 +184,43 @@ De volgende klassen en methoden worden gebruikt in de vorige bewerking:
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
-## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Controleer of dat de afbeelding wordt weergegeven in het opslagaccount
+## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Controleren of de afbeelding in het opslagaccount wordt weergegeven
 
-Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het menu links **opslagaccounts**, selecteert u de naam van uw opslagaccount. Onder **overzicht**, selecteer de **installatiekopieën** container.
+Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer onder **Overzicht** de **images**-container.
 
-Controleer of dat de afbeelding wordt weergegeven in de container.
+Controleer of de afbeelding in de container wordt weergegeven.
 
-![De weergave van afbeeldingen container](media/storage-upload-process-images/figure13.png)
+![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure13.png)
 
-## <a name="test-thumbnail-viewing"></a>Test miniatuur weer te geven
+## <a name="test-thumbnail-viewing"></a>Weergave van miniaturen testen
 
-Als u wilt testen miniatuur weer te geven, hebt u een installatiekopie van een uploaden naar de miniatuur container om ervoor te zorgen dat de toepassing de miniatuur container kan lezen.
+Als u de weergave van miniaturen wilt testen, uploadt u een afbeelding naar de miniaturencontainer, zodat u er zeker van bent dat de toepassing de miniaturencontainer kan lezen.
 
-Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het menu links **opslagaccounts**, selecteert u de naam van uw opslagaccount. Selecteer **Containers** onder **Blob-Service** en selecteer de **duim** container. Selecteer **uploaden** openen de **blob uploaden** deelvenster.
+Meld u aan bij [Azure Portal](https://portal.azure.com). In het linkermenu selecteert u **opslagaccounts** en vervolgens de naam van uw opslagaccount. Selecteer **Containers** onder **Blob-service** en selecteer de **thumbs**-container. Selecteer **Uploaden** om het deelvenster **Blob uploaden** te openen.
 
-Kies een bestand met de bestandskiezer en selecteer **uploaden**.
+Kies een bestand met de bestandenkiezer en selecteer **Uploaden**.
 
-Ga terug naar uw app om te controleren die de installatiekopie van het geüpload naar de **duim** container zichtbaar is.
+Ga terug naar de app om te controleren of de naar de **thumbs**-container geüploade afbeelding zichtbaar is.
 
-![De weergave van afbeeldingen container](media/storage-upload-process-images/figure2.png)
+![Containerweergave van afbeeldingen](media/storage-upload-process-images/figure2.png)
 
-In de **duim** container in Azure portal, selecteert u de installatiekopie die u geüpload en selecteer **verwijderen** verwijderen van de installatiekopie. U wilt het maken van de miniatuurafbeeldingen in deel twee van de reeks automatiseren zodat deze testinstallatiekopie is niet nodig.
+In de **thumbs**-container in Azure Portal selecteert u de geüploade afbeelding en vervolgens **Verwijderen** om de afbeelding te verwijderen. In deel 2 van de reeks automatiseert u het maken van miniatuurafbeeldingen, zodat u deze testafbeelding niet meer nodig hebt.
 
-CDN worden ingeschakeld voor het cache-inhoud van uw Azure storage-account. Terwijl niet in deze zelfstudie wordt beschreven, voor meer informatie over het inschakelen van CDN met uw Azure storage-account, kunt u bezoeken: [integreren van een Azure storage-account met Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+CDN kan worden ingeschakeld om inhoud vanuit uw Azure Storage-account in de cache op te slaan. In deze zelfstudie wordt niet beschreven hoe u CDN inschakelt voor uw Azure-opslagaccount. Ga hiervoor naar [Een Azure Storage-account integreren met Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deel 1 van de reeks, hebt u geleerd over het configureren van een web-app interactie met opslag, zoals het:
+In deel 1 van de reeks hebt u geleerd hoe u een web-app configureert die interactie aangaat met opslag, bijvoorbeeld:
 
 > [!div class="checklist"]
 > * Een opslagaccount maken
 > * Een container maken en machtigingen instellen
 > * Een toegangssleutel ophalen
-> * Configureer toepassingsinstellingen
-> * Een Web-App implementeren in Azure
-> * Interactie met de webtoepassing
+> * Toepassingsinstellingen configureren
+> * Een web-app implementeren in Azure
+> * Interactie aangaan met de webtoepassing
 
-Ga naar deel twee van de reeks voor meer informatie over het gebruik van gebeurtenis raster voor het activeren van een Azure-functie voor het formaat van een afbeelding.
+Ga door naar deel 2 van de reeks om te leren hoe u Event Grid gebruikt om een Azure-functie te activeren als u het formaat van een afbeelding wilt aanpassen.
 
 > [!div class="nextstepaction"]
-> [Gebeurtenis raster voor het activeren van een Azure-functie om de grootte van de installatiekopie van een geüploade te gebruiken](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Event Grid gebruiken om een Azure-functie te activeren bij het aanpassen van geüploade afbeeldingen](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

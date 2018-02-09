@@ -1,6 +1,6 @@
 ---
-title: Maak een .NET-toepassing voor Service Fabric | Microsoft Docs
-description: Informatie over het maken van een toepassing met een front-ASP.NET Core en een stateful betrouwbare service back-end en de toepassing implementeren naar een cluster.
+title: Een .NET-toepassing maken voor Service Fabric | Microsoft Docs
+description: Informatie over het maken van een toepassing met een ASP.NET Core front-end en een betrouwbare stateful back-endservice en de toepassing implementeren in een cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,69 +12,69 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2018
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Maken en implementeren van een toepassing met een front-ASP.NET Core Web API-service en een stateful back-endservice
-Deze zelfstudie maakt deel uit een reeks.  U leert hoe een Azure Service Fabric-toepassing maken met een front-end van ASP.NET Core Web-API en een stateful back-end-service voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u niet wilt dat u handmatig de stemtoepassing maken, kunt u [download de broncode](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en gaat u verder met [doorlopen van de stemmende voorbeeldtoepassing](#walkthrough_anchor).
+# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
+Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Deel een van de reeks, leert u hoe:
+In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
-> * Een ASP.NET Core Web API-service als betrouwbare stateful service maken
-> * Een ASP.NET-webtoepassing Core-service als een stateless webservice maken
+> * Een ASP.NET Core web-API-service als een betrouwbare stateful service maken
+> * Een ASP.NET Core-webtoepassingsservice als een stateless webservice maken
 > * De omgekeerde proxy gebruiken om te communiceren met de stateful service
 
-In deze zelfstudie reeks leert u hoe:
+In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * Een .NET-Service Fabric-toepassing bouwen
-> * [De toepassing naar een externe-cluster implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [CI/CD met behulp van Visual Studio Team Services configureren](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * Een .NET Service Fabric-toepassing bouwen
+> * [De toepassing implementeren in een extern cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [CI/CD configureren met behulp van Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze zelfstudie begint:
-- Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.3 of hoger, waarop de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
-- [De Service Fabric SDK installeren](service-fabric-get-started.md)
+Voor u met deze zelfstudie begint:
+- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.3 of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingworkloads**.
+- [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
 
-## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET Web API-service als een betrouwbare service maken
-Maak eerst de web-front-van de stemmende toepassing met behulp van ASP.NET Core. ASP.NET Core is een lichtgewicht, platformoverschrijdende ontwikkeling webframework die u gebruiken kunt voor het maken van moderne webgebruikersinterface en web-API's. Als u een compleet begrip van hoe ASP.NET Core met Service Fabric integreert, wordt aangeraden lezen via de [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) artikel. Op dit moment kunt u deze zelfstudie voor snel aan de slag. Zie voor meer informatie over ASP.NET Core, de [ASP.NET Core documentatie](https://docs.microsoft.com/aspnet/core/).
+## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET web-API-service als een betrouwbare service maken
+Maak eerst de webfront-end van de stemtoepassing met behulp van ASP.NET Core. ASP.NET Core is een lichtgewicht, platformoverschrijdend webontwikkelingsframework dat u kunt gebruiken voor het maken van moderne webgebruikersinterface en web-API's. Voor een completer inzicht in hoe u ASP.NET Core integreert met Service Fabric, raden we u sterk aan het artikel [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) te lezen. Op dit moment kunt u deze zelfstudie volgen om snel aan de slag te gaan. Zie de [Documentatie bij ASP.NET Core](https://docs.microsoft.com/aspnet/core/) voor meer informatie over ASP.NET Core.
 
 1. Start Visual Studio als **beheerder**.
 
-2. Maken van een project met **bestand**->**nieuw**->**Project**
+2. Maak een project met **File**->**New**->**Project**
 
 3. Kies in het dialoogvenster **Nieuw Project** de optie **Cloud > Service Fabric-toepassing**.
 
-4. Naam van de toepassing **Voting** en druk op **OK**.
+4. Noem de toepassing **Voting** en druk op **OK**.
 
    ![Dialoogvenster voor nieuw project in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. Op de **nieuwe Service Fabric-Service** pagina **staatloze ASP.NET Core**, en de naam van uw service **VotingWeb**.
+5. Kies op de pagina **New Service Fabric Service** de optie **Stateless ASP.NET Core** en noem uw service **VotingWeb**.
    
-   ![ASP.NET-webservice te kiezen in het dialoogvenster voor nieuwe service](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
+   ![ASP.NET-webservice kiezen in het dialoogvenster voor een nieuwe service](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. De volgende pagina bevat een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **webtoepassing (Model-View-Controller)**. 
+6. De volgende pagina bevat een set van ASP.NET Core-projectsjablonen. Kies voor deze zelfstudie **Web Application (Model-View-Controller)**. 
    
-   ![ASP.NET-project kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
+   ![ASP.NET-projecttype kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
    Visual Studio maakt een toepassing en een serviceproject en geeft deze weer in Solution Explorer.
 
-   ![Solution Explorer na het maken van een toepassing met ASP.NET core Web API-service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+   ![Solution Explorer na het maken van de toepassing met de ASP.NET Core web-API-service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>AngularJS toevoegen aan de VotingWeb-service
-Voeg [AngularJS](http://angularjs.org/) naar uw service met [Bower ondersteuning](/aspnet/core/client-side/bower). Voeg een configuratiebestand Bower eerst toe aan het project.  Klik in Solution Explorer met de rechtermuisknop op **VotingWeb** en selecteer **toevoegen -> Nieuw Item**. Selecteer **Web** en vervolgens **Bower configuratiebestand**.  De *bower.json* -bestand wordt gemaakt.
+Voeg [AngularJS](http://angularjs.org/) toe aan uw service met behulp van [Bower-ondersteuning](/aspnet/core/client-side/bower). Voeg eerst een Bower-configuratiebestand toe aan het project.  Klik in Solution Explorer met de rechtermuisknop op **VotingWeb** en selecteer **Add->New Item**. Selecteer **Web** en vervolgens **Bower Configuration File**.  Het bestand *bower.json* wordt gemaakt.
 
-Open *bower.json* en vermeldingen voor hoeken en hoekvormige bootstrap toevoegen en vervolgens uw wijzigingen niet opslaan.
+Open *bower.json* en voeg vermeldingen toe voor angular en angular-bootstrap en sla vervolgens uw wijzigingen op.
 
 ```json
 {
@@ -90,10 +90,10 @@ Open *bower.json* en vermeldingen voor hoeken en hoekvormige bootstrap toevoegen
   }
 }
 ```
-Bij het opslaan de *bower.json* bestand Angular is geïnstalleerd in uw project *wwwroot/lib* map. Bovendien wordt vermeld in de *afhankelijkheden/Bower* map.
+Bij het opslaan van het bestand *bower.json*, wordt Angular geïnstalleerd in de map *wwwroot/lib* van uw project. Het wordt ook vermeld in de map *Dependencies/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Het bestand site.js bijwerken
-Open de *wwwroot/js/site.js* bestand.  De inhoud ervan vervangen door JavaScript gebruikt door de startpagina weergaven:
+Open het bestand *wwwroot/js/site.js*.  Vervang de inhoud ervan door het JavaScript dat wordt gebruikt door de beginweergaven:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -133,7 +133,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-indexcshtml-file"></a>Het bestand Index.cshtml bijwerken
-Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor de controller startpagina.  Vervang de inhoud door het volgende, sla de wijzigingen vervolgens.
+Open het bestand *Views/Home/Index.cshtml*, de weergave die specifiek is voor de begincontroller.  Vervang de inhoud door het volgende en sla uw wijzigingen op.
 
 ```html
 @{
@@ -196,7 +196,7 @@ Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor 
 ```
 
 ### <a name="update-the-layoutcshtml-file"></a>Het bestand _Layout.cshtml bijwerken
-Open de *Views/Shared/_Layout.cshtml* -bestand, de standaardindeling voor de ASP.NET-app.  Vervang de inhoud door het volgende, sla de wijzigingen vervolgens.
+Open het bestand *Views/Shared/_Layout.cshtml*, de standaardindeling voor de ASP.NET-app.  Vervang de inhoud door het volgende en sla uw wijzigingen op.
 
 ```html
 <!DOCTYPE html>
@@ -227,11 +227,11 @@ Open de *Views/Shared/_Layout.cshtml* -bestand, de standaardindeling voor de ASP
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Het bestand VotingWeb.cs bijwerken
-Open de *VotingWeb.cs* bestand, dat wordt gemaakt van de WebHost ASP.NET Core binnen de staatloze service met de webserver WebListener.  
+Open het bestand *VotingWeb.cs* dat de ASP.NET Core WebHost maakt binnen de stateless service met behulp van de WebListener-webserver.  
 
-Voeg de `using System.Net.Http;` richtlijn boven aan het bestand.  
+Plaats de instructie `using System.Net.Http;` boven aan het bestand.  
 
-Vervang de `CreateServiceInstanceListeners()` werken met het volgende en sla vervolgens uw wijzigingen.
+Vervang de functie `CreateServiceInstanceListeners()` door het volgende en sla uw wijzigingen op.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -264,7 +264,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Voeg ook de `GetVotingDataServiceName` methode, die de naam van de service als gepeild retourneert:
+Voeg ook de methode `GetVotingDataServiceName` toe, die de servicenaam retourneert wanneer gepolld:
 
 ```csharp
 internal static Uri GetVotingDataServiceName(ServiceContext context)
@@ -274,9 +274,9 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Het bestand VotesController.cs toevoegen
-Een controller, waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van het bestand 'VotesController.cs' en klik op **toevoegen**.  
+Voeg een controller toe, waarmee stemacties worden gedefinieerd. Klik met de rechtermuisknop op de map **Controllers** en selecteer **Add->New item->Class**.  Noem het bestand 'VotesController.cs' en klik op **Add**.  
 
-Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.  Verderop in [bijwerken van het bestand VotesController.cs](#updatevotecontroller_anchor), dit bestand is gewijzigd om te lezen en schrijven van stemmende gegevens op de back-endservice.  Op dit moment retourneert de controller statische tekenreeksgegevens naar de weergave.
+Vervang de bestandsinhoud door het volgende en sla uw wijzigingen op.  Verderop, in [Het bestand VotesController.cs bijwerken](#updatevotecontroller_anchor), wordt dit bestand gewijzigd voor het lezen en schrijven van stemgegevens vanaf de back-endservice.  Voor nu retourneert de controller statische tekenreeksgegevens naar de weergave.
 
 ```csharp
 namespace VotingWeb.Controllers
@@ -319,7 +319,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### <a name="configure-the-listening-port"></a>De luisterpoort configureren
-Wanneer de front-endservice VotingWeb is gemaakt, zijn Visual Studio selecteert willekeurig een poort voor de service voor luisteren.  De service VotingWeb fungeert als front-end voor deze toepassing en externe verkeer accepteert, dus die service binden aan een vaste en poort ook weten.  De [servicemanifest](service-fabric-application-and-service-manifests.md) declareert u de service-eindpunten. Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoeken de **eindpunt** resource in de **Resources** sectie en wijzig de **poort** waarde in op 80 of naar een andere poort. Als u wilt implementeren en de toepassing lokaal uitvoeren, moet de toepassing luisterpoort open en beschikbare op uw computer.
+Wanneer de front-end VotingWeb-service is gemaakt, selecteert Visual Studio willekeurig een poort voor de service om op te luisteren.  De VotingWeb-service fungeert als de front-end voor deze toepassing en accepteert extern verkeer, dus gaan we die service met een vaste en bekende poort verbinden.  Het [servicemanifest](service-fabric-application-and-service-manifests.md) declareert de service-eindpunten. Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoek de resource **Endpoint** op in de sectie **Resources** en wijzig de waarde van **Port** in 80 of een andere poort. Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de luisterende poort van de toepassing open zijn en beschikbaar zijn op uw computer.
 
 ```xml
 <Resources>
@@ -332,40 +332,40 @@ Wanneer de front-endservice VotingWeb is gemaakt, zijn Visual Studio selecteert 
   </Resources>
 ```
 
-De waarde van de toepassings-URL-eigenschap in het project Voting ook bijwerken zodat een webbrowser op de juiste poort opent wanneer u fouten opspoort, druk op F5 '.  Klik in Solution Explorer, selecteer de **Voting** project en werk de **toepassings-URL** eigenschap.
+Werk ook de eigenschapswaarde van de toepassings-URL in het stemproject bij, zodat een webbrowser op de juiste poort opent wanneer u fouten opspoort via 'F5'.  Selecteer in Solution Explorer het project **Voting** en werk de eigenschap **Application URL** bij.
 
-![De URL van toepassing](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
+![Toepassings-URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
-### <a name="deploy-and-run-the-application-locally"></a>Implementeren en de toepassing lokaal uitvoeren
-U kunt nu doorgaan en de toepassing uitvoeren. Druk op `F5` in Visual Studio om de toepassing voor foutopsporing te implementeren. `F5`mislukt als u niet eerder Visual Studio als Open **beheerder**.
+### <a name="deploy-and-run-the-application-locally"></a>De toepassing lokaal implementeren en uitvoeren
+U kunt de toepassing nu gaan uitvoeren. Druk op `F5` in Visual Studio om de toepassing voor foutopsporing te implementeren. `F5` mislukt als u Visual Studio niet eerder als **administrator** hebt geopend.
 
 > [!NOTE]
-> De eerste keer dat u de toepassing lokaal uitvoert en implementeert, wordt door Visual Studio een lokaal cluster voor foutopsporing gemaakt.  Maken van het cluster kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
+> De eerste keer dat u de toepassing lokaal uitvoert en implementeert, wordt door Visual Studio een lokaal cluster voor foutopsporing gemaakt.  Het maken van een cluster kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
 
-Uw web-app moet er op dit punt wordt als volgt uitzien:
+Op dit punt moet uw web-app er als volgt uitzien:
 
-![ASP.NET Core front-](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
+![ASP.NET Core front-end](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-Als u wilt stop de foutopsporing voor de toepassing, gaat u terug naar Visual Studio en druk op **Shift + F5**.
+Als u wilt stoppen met de foutopsporing voor de toepassing, gaat u terug naar Visual Studio en drukt u op **Shift + F5**.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>Een stateful back-endservice toevoegt aan uw toepassing
-Een ASP.NET Web API-service wordt uitgevoerd in de toepassing, gaat u verder gaan en een stateful betrouwbare service voor het opslaan van sommige gegevens in de toepassing toevoegen.
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>Een stateful back-endservice toevoegen aan de toepassing
+Nu een ASP.NET Web API-service wordt uitgevoerd in de toepassing, gaat u verder en voegt u een stateful betrouwbare service toe voor het opslaan van sommige gegevens in de toepassing.
 
-Service Fabric kunt u voor het opslaan van uw gegevens rechtstreeks in uw service met behulp van betrouwbare verzamelingen consistent en betrouwbaar. Betrouwbare verzamelingen zijn een set van maximaal beschikbare en betrouwbare verzameling klassen die bekend zijn voor iedereen die is gebruikt C#-verzamelingen.
+Service Fabric biedt u de mogelijkheid om uw gegevens consistent en betrouwbaar rechtstreeks in uw service op te slaan met behulp van betrouwbare verzamelingen. Betrouwbare verzamelingen zijn een set van maximaal beschikbare en betrouwbare verzamelingsklassen die bekend zijn voor iedereen die wel eens C#-verzamelingen heeft gebruikt.
 
 In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare verzameling opslaat.
 
-1. Klik in Solution Explorer met de rechtermuisknop op **Services** in de toepassing project en kies **toevoegen > nieuwe Service Fabric-Service**.
+1. Klik in Solution Explorer met de rechtermuisknop op **Services** in het toepassingsproject en kies **Add > New Service Fabric Service**.
     
-2. In de **nieuwe Service Fabric-Service** dialoogvenster kiezen **Stateful ASP.NET Core**, en de naam van de service **VotingData** en druk op **OK**.
+2. Kies in het dialoogvenster **New Service Fabric Service** de optie **Stateful ASP.NET Core** en noem de service **VotingData** en druk op **OK**.
 
     ![Dialoogvenster voor nieuwe service in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
-    Nadat uw serviceproject is gemaakt, hebt u twee services in uw toepassing. Als u doorgaat met uw toepassing bouwen, kunt u meer services die zich op dezelfde manier kunt toevoegen. Elk zijn onafhankelijk samengestelde en bijgewerkte.
+    Nadat uw serviceproject is gemaakt, hebt u twee services in uw toepassing. Als u doorgaat met het bouwen van uw toepassing, kunt u op dezelfde manier meer services toevoegen. Elk kan onafhankelijke versies en upgrades hebben.
 
-3. De volgende pagina bevat een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **Web API**.
+3. De volgende pagina bevat een set van ASP.NET Core-projectsjablonen. Voor deze zelfstudie kiest u **Web API**.
 
-    ![ASP.NET-project kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
+    ![ASP.NET-projecttype kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
     Visual Studio maakt een serviceproject en geeft deze weer in Solution Explorer.
 
@@ -373,14 +373,9 @@ In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare ver
 
 ### <a name="add-the-votedatacontrollercs-file"></a>Het bestand VoteDataController.cs toevoegen
 
-In de **VotingData** project met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**. Naam van het bestand 'VoteDataController.cs' en klik op **toevoegen**. Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.
+Klik in het project **VotingData** met de rechtermuisknop op de map **Controllers** en selecteer **Add->New item->Class**. Noem het bestand 'VoteDataController.cs' en klik op **Add**. Vervang de bestandsinhoud door het volgende en sla uw wijzigingen op.
 
 ```csharp
-// ------------------------------------------------------------
-//  Copyright (c) Microsoft Corporation.  All rights reserved.
-//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
-// ------------------------------------------------------------
-
 namespace VotingData.Controllers
 {
     using System.Collections.Generic;
@@ -410,9 +405,9 @@ namespace VotingData.Controllers
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
+                Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
                 List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
@@ -465,17 +460,17 @@ namespace VotingData.Controllers
 ```
 
 
-## <a name="connect-the-services"></a>Verbinding maken met de services
-In deze stap, verbinding maken met de twee services en breng de front-end-webservers toepassing get en set-informatie van de back-endservice stemmen.
+## <a name="connect-the-services"></a>De services verbinden
+In deze stap verbindt u de twee services en zorgt u dat de front-end webtoepassing stemgegevens ophaalt en instelt vanuit de back-endservice.
 
-Service Fabric biedt volledige flexibiliteit in hoe u met reliable services communiceren. Binnen één toepassing hebt u mogelijk services die toegankelijk via TCP zijn. Andere services die mogelijk toegankelijk via een HTTP REST-API en nog andere services kunnen toegang worden verkregen via websockets. Zie voor achtergrondinformatie over de beschikbare opties en de wisselwerking betrokken [services communiceert](service-fabric-connect-and-communicate-with-services.md).
+Service Fabric biedt volledige flexibiliteit in hoe u met betrouwbare services communiceert. Binnen één toepassing hebt u mogelijk services die toegankelijk zijn via TCP. Andere services die mogelijk toegankelijk zijn via een HTTP REST-API en nog andere services kunnen toegankelijk zijn via websockets. Zie [Communiceren met services](service-fabric-connect-and-communicate-with-services.md) voor achtergrondinformatie over de beschikbare opties en betrokken afwegingen.
 
-In deze zelfstudie gebruikt [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+Gebruik in deze zelfstudie [ASP.NET Core web-API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### <a name="update-the-votescontrollercs-file"></a>Het bestand VotesController.cs bijwerken
-In de **VotingWeb** project, open de *Controllers/VotesController.cs* bestand.  Vervang de `VotesController` definitie inhoud met de volgende klasse en sla vervolgens uw wijzigingen.
+Open in het project **VotingWeb** het bestand *Controllers/VotesController.cs*.  Vervang de inhoud van de `VotesController`-klassedefinitie door het volgende en sla uw wijzigingen op.
 
 ```csharp
 public class VotesController : Controller
@@ -604,12 +599,12 @@ Wanneer u in de toepassing stemt, vinden de volgende gebeurtenissen plaats:
 3. De back-endservice neemt de binnenkomende aanvraag aan en slaat het bijgewerkte resultaat op in een betrouwbare dictionary die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en opgeslagen op schijf. Gegevens van de toepassing worden opgeslagen in het cluster, zodat er geen database nodig is.
 
 ## <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
-Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing opgeslagen gegevens in de back-end-service met behulp van een betrouwbare woordenlijst. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
+Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing slaat u gegevens in de back-endservice op met behulp van een betrouwbare dictionary. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
 
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
-1. Open de **VotesController.cs** bestands- en stel een onderbrekingspunt in de web-API's **plaatsen** methode (line-63) - u kunt zoeken naar het bestand in Solution Explorer in Visual Studio.
+1. Open het bestand **VotesController.cs** en stel een onderbrekingspunt in de methode **Put** van de web-API (regel 63) in. U kunt in Solution Explorer in Visual Studio naar het bestand zoeken.
 
-2. Open de **VoteDataController.cs** bestands- en stel een onderbrekingspunt in deze web-API **plaatsen** methode (line 53).
+2. Open het bestand **VoteDataController.cs** en stel een onderbrekingspunt in de methode **Put** van deze web-API (regel 53) in.
 
 3. Ga terug naar de browser en klik op een stemoptie of voeg een nieuwe stemoptie toe. U komt uit bij het eerste onderbrekingspunt in de API-controller van de web-front-end.
     
@@ -617,31 +612,31 @@ Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
     
     ![Front-endservice van Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Eerst samenstellen van de URL van de ReverseProxy voor de back-endservice **(1)**.
-    3. Verzend het HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
-    4. Ten slotte het retourtype het antwoord van de back-end-service op de client **(3)**.
+    2. Maak eerst de URL naar de ReverseProxy voor de back-endservice **(1)**.
+    3. Verzend vervolgens de HTTP PUT-aanvraag naar de ReverseProxy **(2)**.
+    4. Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
 
 4. Druk op **F5** om door te gaan
     1. U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
     
     ![Back-endservice Vote toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. In de eerste regel in de methode **(1)** gebruiken de `StateManager` ophalen of het toevoegen van een betrouwbare woordenlijst aangeroepen `counts`.
+    2. Gebruik in de eerste regel in de methode **(1)** de `StateManager` om een betrouwbare dictionary met de naam `counts` op te halen of toe te voegen.
     3. Alle interacties met waarden in een betrouwbare dictionary vereisen een transactie, met deze instructie **(2)** wordt die transactie gemaakt.
-    4. Werk de waarde van de relevante sleutel voor de optie in de transactie en voert u de bewerking **(3)**. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de dictionary en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
+    4. Werk in de transactie de waarde bij van de relevante sleutel voor de stemoptie en voer de bewerking **(3)** door. Zodra de doorvoermethode resultaten retourneert, worden de gegevens bijgewerkt in de dictionary en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice kan een failover-overschakeling uitvoeren naar andere knooppunten, waarbij de gegevens beschikbaar blijven.
 5. Druk op **F5** om door te gaan
 
 Als u de foutopsporingssessie wilt stoppen, drukt u op **Shift+F5**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit deel van de zelfstudie hebt u geleerd hoe:
+In dit deel van de zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een ASP.NET Core Web API-service als betrouwbare stateful service maken
-> * Een ASP.NET-webtoepassing Core-service als een stateless webservice maken
+> * Een ASP.NET Core web-API-service als een betrouwbare stateful service maken
+> * Een ASP.NET Core-webtoepassingsservice als een stateless webservice maken
 > * De omgekeerde proxy gebruiken om te communiceren met de stateful service
 
-Ga naar de volgende zelfstudie:
+Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]
-> [De toepassing implementeren naar Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [De toepassing implementeren in Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)

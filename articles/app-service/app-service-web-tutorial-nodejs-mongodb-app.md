@@ -1,6 +1,6 @@
 ---
-title: Een Node.js en MongoDB web-app in Azure bouwen | Microsoft Docs
-description: Informatie over het ophalen van een Node.js-app in Azure, werken met verbinding met een Cosmos-DB-database met een verbindingsreeks voor MongoDB.
+title: Een web-app voor Node.js en MongoDB bouwen in Azure | Microsoft Docs
+description: Informatie over hoe u een Node.js-web-app kunt laten werken in Azure, gekoppeld aan een Cosmos DB-database met een MongoDB-verbindingsreeks.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,31 +15,33 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Een Node.js en MongoDB web-app in Azure bouwen
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Een web-app voor Node.js en MongoDB bouwen in Azure
 
 > [!NOTE]
-> In dit artikel implementeert een app in App Service in Windows. Voor de implementatie in App Service _Linux_, Zie [bouwen van een Node.js en MongoDB web-app in Azure App Service op Linux](./containers/tutorial-nodejs-mongodb-app.md).
+> In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een Node.js- en MongoDB-web-app bouwen in Azure App Service onder Linux ](./containers/tutorial-nodejs-mongodb-app.md) om een app te implementeren in App Service onder _Linux_.
 >
 
-Azure Web Apps biedt een zeer schaalbaar, zelf patch webhosting-service. Deze zelfstudie laat zien hoe een Node.js-web-app in Azure maken en te verbinden met een MongoDB-database. Wanneer u bent klaar, hebt u een gemiddelde-toepassing (MongoDB, snelle AngularJS en Node.js) wordt uitgevoerd in [Azure App Service](app-service-web-overview.md). Voor de eenvoud, de voorbeeldtoepassing gebruikt de [MEAN.js webframework](http://meanjs.org/).
+Azure Web Apps biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie wordt getoond hoe u een Node.js-web-app maakt en verbinding laat maken met een MongoDB-database. Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd in [Azure App Service](app-service-web-overview.md). In het voorbeeld wordt ter vereenvoudiging gebruikgemaakt van het [MEAN.js-webframework](http://meanjs.org/).
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Wat u leert:
 
 > [!div class="checklist"]
-> * Maak een MongoDB-database in Azure
+> * Een MongoDB-database maken in Azure
 > * Een Node.js-app verbinden met MongoDB
 > * De app implementeren in Azure
-> * Bijwerken van het gegevensmodel en de app implementeren
-> * Diagnostische logboeken van de stroom van Azure
-> * De app in de Azure portal beheren
+> * Het gegevensmodel bijwerken en de app opnieuw implementeren
+> * Logboeken met diagnostische gegevens vanaf Azure streamen
+> * De app in Azure Portal beheren
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -47,33 +49,31 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 1. [Git installeren](https://git-scm.com/)
 1. [Node.js en NPM installeren](https://nodejs.org/)
-1. [Bower installeren](https://bower.io/) (vereist door de [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Installeer Gulp.js](http://gulpjs.com/) (vereist door de [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Installeren en uitvoeren van MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+1. [Bower installeren ](https://bower.io/) (vereist voor [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [Gulp.js installeren ](http://gulpjs.com/) (vereist voor [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [MongoDB Community Edition installeren en uitvoeren](https://docs.mongodb.com/manual/administration/install-community/) 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## <a name="test-local-mongodb"></a>MongoDB lokaal testen
 
-## <a name="test-local-mongodb"></a>Test lokale MongoDB
+Open het terminalvenster en `cd` naar de `bin`-map van uw MongoDB-installatie. U kunt dit terminalvenster gebruiken om alle opdrachten in deze zelfstudie uit te voeren.
 
-Open de terminalvenster en `cd` naar de `bin` map van de MongoDB-installatie. Alle opdrachten kunt uitvoeren in deze zelfstudie kunt u deze terminalvenster.
-
-Voer `mongo` in de terminal verbinding maken met uw lokale MongoDB-server.
+Voer `mongo` uit in de terminal om verbinding te maken met de lokale MongoDB-server.
 
 ```bash
 mongo
 ```
 
-Als de verbinding geslaagd is, wordt klikt u vervolgens de MongoDB-database al uitgevoerd. Als dit niet het geval is, zorg ervoor dat de lokale MongoDB-database is gestart door de stappen op [Installeer MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Vaak MongoDB is geïnstalleerd, maar u moet nog steeds start met `mongod`. 
+Als er verbinding wordt gemaakt, wordt de MongoDB-database al uitgevoerd. Zo niet, controleer dan of de lokale MongoDB-database kan worden gestart via de stappen in [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (MongoDB Community Edition installeren). Vaak is MongoDB al geïnstalleerd, maar u moet de database nog wel starten door `mongod` uit te voeren. 
 
-Wanneer u klaar bent test de MongoDB-database, typ `Ctrl+C` in de terminal. 
+Nadat u de MongoDB-database hebt getest, typt u `Ctrl+C` in de terminal. 
 
 ## <a name="create-local-nodejs-app"></a>Lokale Node.js-app maken
 
-In deze stap moet u het lokale Node.js-project instellen.
+In deze stap stelt u het lokale Node.js-project in.
 
 ### <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-In het terminalvenster `cd` in een werkmap.  
+In het terminalvenster, `cd` in een werkmap.  
 
 Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
 
@@ -81,11 +81,11 @@ Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-Deze repository voorbeeld bevat een kopie van de [MEAN.js opslagplaats](https://github.com/meanjs/mean). Het is gewijzigd om te worden uitgevoerd op App Service (voor meer informatie raadpleegt u de opslagplaats MEAN.js [Leesmij-bestand](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
+Dit voorbeeld van een opslagplaats bevat een kopie van de [MEAN.js-opslagplaats](https://github.com/meanjs/mean). Deze is gewijzigd om op App Service te kunnen worden uitgevoerd (zie het [README-bestand](https://github.com/Azure-Samples/meanjs/blob/master/README.md) bij de MEAN.js-opslagplaats voor meer informatie).
 
 ### <a name="run-the-application"></a>De toepassing uitvoeren
 
-Voer de volgende opdrachten voor het installeren van de vereiste pakketten en de toepassing niet starten.
+Voer de volgende opdrachten uit om de vereiste pakketten te installeren en de toepassing te starten.
 
 ```bash
 cd meanjs
@@ -93,7 +93,7 @@ npm install
 npm start
 ```
 
-Wanneer de app volledig wordt geladen is, ziet u iets soortgelijks als in het volgende bericht:
+Wanneer de app volledig is geladen, ziet u een bericht zoals dit:
 
 ```console
 --
@@ -107,41 +107,41 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Ga naar `http://localhost:3000` in een browser. Klik op **aanmelden** in het bovenste menu en een testgebruiker maken. 
+Ga naar `http://localhost:3000` in een browser. Klik op **Registreren** in het bovenste menu en maak een testgebruiker. 
 
-De MEAN.js-voorbeeldtoepassing slaat gebruikersgegevens op in de database. Als u geslaagde in het maken van een gebruiker en aanmelden, kunnen uw app is gegevens schrijven naar de lokale MongoDB-database.
+De MEAN.js-voorbeeldtoepassing slaat gebruikersgegevens op in de database. Als de gebruiker is gemaakt en u bent aangemeld, schrijft de app gegevens naar de lokale MongoDB-database.
 
 ![MEAN.js maakt een geslaagde verbinding met MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Selecteer **Admin > artikelen beheren** sommige artikelen toevoegen.
+Selecteer **Admin > Manage Articles** om enkele artikelen toe te voegen.
 
-Als u wilt Node.js op elk gewenst moment stoppen, drukt u op `Ctrl+C` in de terminal. 
+Als u Node.js wilt stoppen, drukt u in de terminal op `Ctrl+C`. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-production-mongodb"></a>Productie MongoDB maken
+## <a name="create-production-mongodb"></a>Productie-MongoDB maken
 
-In deze stap maakt u een MongoDB-database in Azure. Wanneer uw app wordt geïmplementeerd naar Azure, wordt deze cloud-database gebruikt.
+In deze stap maakt u een MongoDB-database in Azure. Als de app is geïmplementeerd in Azure, wordt deze cloud-database gebruikt.
 
-Voor MongoDB, het gebruik van deze zelfstudie [Azure Cosmos DB](/azure/documentdb/). MongoDB-clientverbindingen biedt ondersteuning voor cosmos DB.
+Voor MongoDB wordt in deze zelfstudie gebruikgemaakt van [Azure Cosmos DB](/azure/documentdb/). Cosmos DB ondersteunt MongoDB-clientverbindingen.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-cosmos-db-account"></a>Een Cosmos-DB-account maken
+### <a name="create-a-cosmos-db-account"></a>Cosmos DB-account maken
 
-In de Cloud-Shell, maakt u een Cosmos-DB-account met de [az cosmosdb maken](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) opdracht.
+Maak in Cloud Shell een Cosmos DB-account met de opdracht [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
 
-In de volgende opdracht te vervangen door een unieke naam van de Cosmos-database voor de * \<cosmosdb_name >* tijdelijke aanduiding. Deze naam wordt gebruikt als het onderdeel van het eindpunt Cosmos DB `https://<cosmosdb_name>.documents.azure.com/`, zodat de naam moet uniek zijn in alle Cosmos-DB-accounts in Azure. De naam mag alleen kleine letters, cijfers en het koppelteken (-) en moet tussen 3 en 50 tekens bevatten.
+Vervang in de volgende opdracht de tijdelijke aanduiding *\<cosmosdb_name>* door een unieke Cosmos DB-naam. Deze naam wordt gebruikt als onderdeel van het Cosmos DB-eindpunt, `https://<cosmosdb_name>.documents.azure.com/`. De naam moet dus uniek zijn voor alle Cosmos DB-accounts in Azure. De naam mag alleen kleine letters, cijfers en het afbreekstreepje (-) bevatten, en moet tussen de 3 en 50 tekens lang zijn.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
-De *--kind MongoDB* parameter zorgt ervoor dat MongoDB-clientverbindingen.
+De parameter *--kind MongoDB* maakt MongoDB-clientverbindingen mogelijk.
 
-Wanneer de Cosmos-DB-account is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld:
+Wanneer het Cosmos DB-account wordt gemaakt toont de Azure CLI informatie die lijkt op het volgende voorbeeld:
 
 ```json
 {
@@ -159,19 +159,19 @@ Wanneer de Cosmos-DB-account is gemaakt, toont de Azure CLI informatie vergelijk
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>App verbinden met productie MongoDB
+## <a name="connect-app-to-production-mongodb"></a>App verbinden met productie-MongoDB
 
-In deze stap maakt u verbinding maken uw voorbeeldtoepassing MEAN.js naar de Cosmos-DB-database die u zojuist hebt gemaakt, met een verbindingsreeks voor MongoDB. 
+In deze stap verbindt u uw MEAN.js-voorbeeldtoepassing met de Cosmos DB-database die u zojuist hebt gemaakt, met behulp van een MongoDB-verbindingsreeks. 
 
 ### <a name="retrieve-the-database-key"></a>De databasesleutel ophalen
 
-Voor verbinding met de database van de Cosmos-database, moet u de databasesleutel. In de Cloud-Shell gebruiken de [az cosmosdb lijst-sleutels](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) opdracht voor het ophalen van de primaire sleutel.
+U hebt de databasesleutel nodig om verbinding te kunnen maken met de Cosmos DB-database. Gebruik in Cloud Shell de opdracht [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) om de primaire sleutel op te halen.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
-De Azure CLI toont informatie vergelijkbaar met het volgende voorbeeld:
+De Azure CLI toont informatie die lijkt op het volgende voorbeeld:
 
 ```json
 {
@@ -187,9 +187,9 @@ Kopieer de waarde van `primaryMasterKey`. U hebt deze informatie nodig voor de v
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configureer de verbindingsreeks in uw Node.js-toepassing
 
-In de opslagplaats van uw lokale MEAN.js, in de _config/env/_ map, maakt u een bestand met de naam _lokale production.js_. Standaard _.gitignore_ is geconfigureerd voor dit bestand uit de opslagplaats houden. 
+Maak in de lokale MEAN.js-opslagplaats, in de map _config/env/_, een bestand met de naam _lokale-productie.js_. _.gitignore_ is standaard geconfigureerd om dit bestand buiten de opslagplaats te houden. 
 
-Kopieer de volgende code in de App. Zorg ervoor dat u de twee * \<cosmosdb_name >* tijdelijke aanduidingen door uw Cosmos-DB databasenaam en vervang de * \<primary_master_key >* aanduiding voor items met de sleutel u in de vorige stap hebt gekopieerd.
+Kopieer er de volgende code naartoe. Vervang de twee tijdelijke aanduidingen *\<cosmosdb_name>* door de naam van de Cosmos DB-database en vervang de tijdelijke aanduiding *\<primary_master_key>* door de sleutel die u in de vorige stap hebt gekopieerd.
 
 ```javascript
 module.exports = {
@@ -199,19 +199,19 @@ module.exports = {
 };
 ```
 
-De `ssl=true` optie is vereist omdat [Cosmos DB SSL vereist](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+De optie `ssl=true` is vereist omdat [Cosmos DB SSL vereist](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Sla uw wijzigingen op.
 
-### <a name="test-the-application-in-production-mode"></a>Test de toepassing in productiemodus 
+### <a name="test-the-application-in-production-mode"></a>De toepassing in productiemodus testen 
 
-Voer de volgende opdracht te minify en scripts voor de productie-omgeving te bundelen. Dit proces wordt gegenereerd voor de bestanden die nodig is voor de productie-omgeving.
+Voer de volgende opdracht uit om scripts voor de productieomgeving te minimaliseren en bundelen. In dit proces worden de bestanden gemaakt die nodig zijn in de productieomgeving.
 
 ```bash
 gulp prod
 ```
 
-Voer de volgende opdracht te gebruiken van de verbindingsreeks die u hebt geconfigureerd in _config/env/local-production.js_.
+Voer de volgende opdracht uit om de verbindingsreeks te gebruiken die u in _config/env/local-production.js_ hebt geconfigureerd.
 
 ```bash
 # Bash
@@ -222,9 +222,9 @@ $env:NODE_ENV = "production"
 node server.js
 ```
 
-`NODE_ENV=production`Hiermee stelt u de variabele voor de omgeving waarin wordt uitgelegd Node.js om uit te voeren in de productieomgeving.  `node server.js`Hiermee start u de Node.js-server met `server.js` in de hoofdmap van uw opslagplaats. Dit is hoe uw Node.js-toepassing wordt geladen in Azure. 
+`NODE_ENV=production` stelt de omgevingsvariabele in die aangeeft dat Node.js in de productieomgeving moet worden uitgevoerd.  `node server.js` start de Node.js-server met `server.js` in de hoofdmap van de opslagplaats. Op deze manier wordt de Node.js-toepassing in Azure geladen. 
 
-Wanneer de app wordt geladen, moet u controleren om ervoor te zorgen dat deze wordt uitgevoerd in de productieomgeving:
+Nadat de app is geladen, controleert u of de app wordt uitgevoerd in de productieomgeving:
 
 ```console
 --
@@ -237,13 +237,13 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Ga naar `http://localhost:8443` in een browser. Klik op **aanmelden** in het bovenste menu en een testgebruiker maken. Als u geslaagde maken van een gebruiker en aanmelden, kunnen uw app is gegevens schrijven naar de database van de Cosmos-database in Azure. 
+Ga naar `http://localhost:8443` in een browser. Klik op **Registreren** in het bovenste menu en maak een testgebruiker. Als de gebruiker is gemaakt en u bent aangemeld, schrijft de app gegevens naar de Cosmos DB-database in Azure. 
 
-In de terminal in stoppen Node.js `Ctrl+C`. 
+Stop Node.js door in het terminalvenster `Ctrl+C` te typen. 
 
-## <a name="deploy-app-to-azure"></a>App implementeren in Azure
+## <a name="deploy-app-to-azure"></a>App in Azure implementeren
 
-In deze stap maakt implementeren u uw MongoDB verbonden Node.js-toepassing in Azure App Service.
+In deze step implementeert u uw met MongoDB verbonden Node.js-toepassing in Azure App Service.
 
 ### <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
 
@@ -253,25 +253,26 @@ In deze stap maakt implementeren u uw MongoDB verbonden Node.js-toepassing in Az
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Configureren van een omgevingsvariabele
+### <a name="configure-an-environment-variable"></a>Een omgevingsvariabele configureren
 
-Standaard het project MEAN.js houdt _config/env/local-production.js_ buiten de Git-opslagplaats. Dus voor uw Azure-web-app gebruikt u app-instellingen voor het definiëren van de MongoDB-verbindingsreeks.
+Standaard houdt het MEAN.js-project _config/env/local-production.js_ buiten de Git-opslagplaats. Voor uw Azure-web-app gebruikt u dus app-instellingen om de MongoDB-verbindingsreeks te definiëren.
 
-U kunt app-instellingen instellen met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht in de Cloud-Shell. 
+Gebruik de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell om de app-instellingen te definiëren. 
 
-Het volgende voorbeeld wordt een `MONGODB_URI` app-instelling in uw Azure-web-app. Vervang de * \<app_naam >*, * \<cosmosdb_name >*, en * \<primary_master_key >* tijdelijke aanduidingen.
+In het volgende voorbeeld wordt een `MONGODB_URI`-app-instelling in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduidingen *\<app_name>*, *\<cosmosdb_name>* en *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-In een Node.js-code, opent u deze app-instelling met `process.env.MONGODB_URI`, net zoals u toegang krijgen een omgevingsvariabele tot zou. 
+In Node.js-code opent u deze app-instelling met `process.env.MONGODB_URI`, net zoals u een andere omgevingsvariabele zou openen. 
 
-Open in uw lokale MEAN.js-opslagplaats _config/env/production.js_ (geen _config/env/local-production.js_), die een specifieke configuratie van productie-omgeving heeft. De standaard MEAN.js app is al geconfigureerd voor het gebruik van de `MONGODB_URI` omgevingsvariabele die u hebt gemaakt.
+In uw lokale MEAN.js-opslagplaats opent u _config/env/production.js_ (niet _config/env/local-production.js_), waarvoor een configuratie geldt die specifiek is voor de productieomgeving. De standaard-MEAN.js-app is al geconfigureerd om gebruik te maken van de omgevingsvariabele `MONGODB_URI` die u hebt gemaakt.
 
 ```javascript
 db: {
@@ -304,40 +305,40 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ``` 
 
-U merkt dat het implementatieproces wordt uitgevoerd [Gulp](http://gulpjs.com/) nadat `npm install`. App Service wordt niet Gulp of knorvis taken uitgevoerd tijdens de implementatie, zodat deze opslagplaats voorbeeld heeft twee extra bestanden in de hoofdmap in te schakelen: 
+Het implementatieproces voert [Gulp](http://gulpjs.com/) na `npm install` uit. In App Service worden tijdens de implementatie geen Gulp- of Grunt-taken uitgevoerd, dus deze voorbeeldopslagplaats bevat twee extra bestanden in de hoofdmap om deze in te schakelen: 
 
-- _.Deployment_ -dit bestand vertelt App Service om uit te voeren `bash deploy.sh` als het script voor aangepaste implementatie.
-- _Deploy.sh_ -het script voor aangepaste implementatie. Als u het bestand bekijkt, ziet u dat deze wordt uitgevoerd `gulp prod` nadat `npm install` en `bower install`. 
+- _.deployment_: dit bestand meldt App Service om `bash deploy.sh` uit te voeren als het aangepaste implementatiescript.
+- _deploy.sh_: het aangepaste implementatiescript. Als u het bestand bekijkt, ziet u dat `gulp prod` wordt uitgevoerd na `npm install` en `bower install`. 
 
-Deze aanpak kunt u een stap toevoegen aan uw implementatie op basis van Git. Als u uw Azure-web-app op elk moment opnieuw opstart, wordt niet deze automatiseringstaken opnieuw uitvoeren App Service.
+U kunt deze aanpak gebruiken om een stap toe te voegen aan de op Git gebaseerde implementatie. Als u de Azure-web-app op een gegeven moment opnieuw start, worden deze geautomatiseerde taken niet in App Service uitgevoerd.
 
-### <a name="browse-to-the-azure-web-app"></a>Blader naar de Azure-web-app 
+### <a name="browse-to-the-azure-web-app"></a>Bladeren naar de Azure-web-app 
 
-Blader naar de geïmplementeerde web-app met behulp van uw webbrowser. 
+Blader naar de geïmplementeerde web-app via uw webbrowser. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
 ``` 
 
-Klik op **aanmelden** in het bovenste menu en maak een dummy-gebruiker. 
+Klik op **Registreren** in het bovenste menu en maak een dummygebruiker aan. 
 
-Als u met succes voltooid zijn en de app automatisch zich bij de gebruiker aanmeldt, heeft uw MEAN.js-app in Azure verbinding met de database MongoDB (Cosmos DB). 
+Als de app automatisch voor de aangemaakte gebruiker wordt aangemeld, dan heeft de MEAN.js-app in Azure verbinding met de MongoDB (Cosmos DB)-database. 
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Selecteer **Admin > artikelen beheren** sommige artikelen toevoegen. 
+Selecteer **Admin > Manage Articles** om enkele artikelen toe te voegen. 
 
-**Gefeliciteerd!** U uitvoert een gegevensgestuurd Node.js-app in Azure App Service.
+**Gefeliciteerd!** U voert een gegevensgestuurde Node.js-app uit in Azure App Service.
 
-## <a name="update-data-model-and-redeploy"></a>Update-gegevensmodel en de implementatie opnieuw uit
+## <a name="update-data-model-and-redeploy"></a>Gegevensmodel bijwerken en opnieuw implementeren
 
-In deze stap maakt u wijzigt de `article` data model en de wijziging van uw publiceren naar Azure.
+In deze stap wijzigt u het `article`-gegevensmodel en publiceert u de wijziging in Azure.
 
-### <a name="update-the-data-model"></a>Bijwerken van het gegevensmodel
+### <a name="update-the-data-model"></a>Gegevensmodel bijwerken
 
 Open _modules/articles/server/models/article.server.model.js_.
 
-In `ArticleSchema`, Voeg een `String` type aangeroepen `comment`. Wanneer u bent klaar, ziet uw schema-code als volgt:
+Voeg een `String`-type met de naam `comment` toe in `ArticleSchema`. Als u klaar bent, ziet het schema er als volgt uit:
 
 ```javascript
 var ArticleSchema = new Schema({
@@ -354,15 +355,15 @@ var ArticleSchema = new Schema({
 });
 ```
 
-### <a name="update-the-articles-code"></a>De code artikelen bijwerken
+### <a name="update-the-articles-code"></a>Artikelencode bijwerken
 
-Bijwerken van de rest van uw `articles` code voor het gebruik `comment`.
+Werk de rest van de `articles`-code bij om `comment` te gebruiken.
 
-Er zijn vijf bestanden die u wilt wijzigen: de server-controller en de weergaven vier client. 
+U moet vijf bestanden wijzigen: de servercontroller en de vier clientweergaven. 
 
 Open _modules/articles/server/controllers/articles.server.controller.js_.
 
-In de `update` werkt, het toevoegen van een toewijzing voor `article.comment`. De volgende code toont de voltooide `update` functie:
+Voeg aan de `update`-functie een toewijzing voor `article.comment` toe. De volgende code toont de voltooide `update`-functie:
 
 ```javascript
 exports.update = function (req, res) {
@@ -378,7 +379,7 @@ exports.update = function (req, res) {
 
 Open _modules/articles/client/views/view-article.client.view.html_.
 
-Net boven de afsluitende `</section>` labelen, voeg de volgende regel om weer te geven `comment` samen met de rest van de artikelgegevens:
+Voeg vlak boven de afsluitende `</section>`-tag de volgende regel toe om `comment` samen met de rest van de artikelgegevens weer te geven:
 
 ```HTML
 <p class="lead" ng-bind="vm.article.comment"></p>
@@ -386,7 +387,7 @@ Net boven de afsluitende `</section>` labelen, voeg de volgende regel om weer te
 
 Open _modules/articles/client/views/list-articles.client.view.html_.
 
-Net boven de afsluitende `</a>` labelen, voeg de volgende regel om weer te geven `comment` samen met de rest van de artikelgegevens:
+Voeg vlak boven de afsluitende `</a>`-tag de volgende regel toe om `comment` samen met de rest van de artikelgegevens weer te geven:
 
 ```HTML
 <p class="list-group-item-text" ng-bind="article.comment"></p>
@@ -394,7 +395,7 @@ Net boven de afsluitende `</a>` labelen, voeg de volgende regel om weer te geven
 
 Open _modules/articles/client/views/admin/list-articles.client.view.html_.
 
-In de `<div class="list-group">` element en net boven de afsluitende `</a>` labelen, voeg de volgende regel om weer te geven `comment` samen met de rest van de artikelgegevens:
+Voeg binnen het `<div class="list-group">`-element en vlak boven de afsluitende `</a>`-tag de volgende regel toe om `comment` samen met de rest van de artikelgegevens weer te geven:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
@@ -402,7 +403,7 @@ In de `<div class="list-group">` element en net boven de afsluitende `</a>` labe
 
 Open _modules/articles/client/views/admin/form-article.client.view.html_.
 
-Zoek de `<div class="form-group">` element met de verzendknop, welke ziet er als volgt:
+Zoek het `<div class="form-group">`-element met de verzendknop, dat er als volgt uitziet:
 
 ```HTML
 <div class="form-group">
@@ -410,7 +411,7 @@ Zoek de `<div class="form-group">` element met de verzendknop, welke ziet er als
 </div>
 ```
 
-Net boven deze tag toevoegen `<div class="form-group">` element waarmee mensen bewerken de `comment` veld. Uw nieuwe element moet er als volgt uitzien:
+Voeg vlak boven deze tag een ander `<div class="form-group">`-element toe waarmee een gebruiker het `comment`-veld kan bewerken. Het nieuwe element ziet er als volgt uit:
 
 ```HTML
 <div class="form-group">
@@ -419,11 +420,11 @@ Net boven deze tag toevoegen `<div class="form-group">` element waarmee mensen b
 </div>
 ```
 
-### <a name="test-your-changes-locally"></a>Uw wijzigingen lokaal testen
+### <a name="test-your-changes-locally"></a>De wijzigingen lokaal testen
 
 Sla al uw wijzigingen op.
 
-Test uw wijzigingen in de productiemodus opnieuw in het lokale terminalvenster.
+Test in het lokale terminalvenster opnieuw uw wijzigingen in productiemodus.
 
 ```bash
 # Bash
@@ -436,54 +437,54 @@ $env:NODE_ENV = "production"
 node server.js
 ```
 
-Navigeer naar `http://localhost:8443` in een browser en zorg ervoor dat u bent aangemeld.
+Ga in een browser naar `http://localhost:8443` en zorg dat u bent aangemeld.
 
-Selecteer **Admin > artikelen beheren**, klikt u vervolgens een artikel toevoegen door te selecteren de ** + ** knop.
+Selecteer **Admin > Manage Articles** en voeg een artikel toe door de **+**-knop te selecteren.
 
-U ziet de nieuwe `Comment` textbox nu.
+U ziet nu het nieuwe tekstvak `Comment`.
 
-![Veld toegevoegde opmerking aan artikelen](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
+![Aan Artikelen toegevoegd veld voor o0pmerkingen](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-In de terminal in stoppen Node.js `Ctrl+C`. 
+Stop Node.js door in het terminalvenster `Ctrl+C` te typen. 
 
-### <a name="publish-changes-to-azure"></a>Wijzigingen publiceren naar Azure
+### <a name="publish-changes-to-azure"></a>Wijzigingen publiceren in Azure
 
-Uw wijzigingen in Git in het lokale terminalvenster en de codewijzigingen pushen naar Azure.
+Leg in het lokale terminalvenster uw wijzigingen vast in Git en push de codewijzigingen naar Azure.
 
 ```bash
 git commit -am "added article comment"
 git push azure master
 ```
 
-Eenmaal de `git push` is voltooid, gaat u naar uw Azure-web-app en de nieuwe functionaliteit uitproberen.
+Zodra `git push` voltooid is, gaat u naar de Azure-web-app en probeert u de nieuwe functionaliteit uit.
 
-![Model en de database-wijzigingen die zijn gepubliceerd naar Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
+![In Azure gepubliceerde model- en databasewijzigingen](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
-Als u alle artikelen die eerder is toegevoegd, kunt u nog steeds zien. Bestaande gegevens in uw Cosmos-database is niet verloren gaan. Ook de updates aan het gegevensschema en uw bestaande gegevens intact blijft.
+Als u eerder artikelen hebt toegevoegd, kunt u deze nog steeds zien. Bestaande gegevens in Cosmos DB zijn nog aanwezig. En uw updates aan het gegevensschema zijn nog intact.
 
-## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken 
+## <a name="stream-diagnostic-logs"></a>Diagnostische logboeken streamen 
 
-Als uw Node.js-toepassing in Azure App Service wordt uitgevoerd, kunt u de logboeken van de console doorgesluisd naar uw terminal opvragen. Op die manier kunt u de dezelfde diagnostische berichten op te sporen toepassingsfouten ophalen.
+Terwijl uw Node.js-toepassing in Azure App Service wordt uitgevoerd, kunt u de consolelogboeken doorgesluisd krijgen naar uw terminal. Op die manier krijgt u de dezelfde diagnostische berichten om toepassingsfouten op te sporen.
 
-Gebruik voor het starten van de streaming-logboek de [az webapp logboek tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) opdracht in de Cloud-Shell.
+Gebruik voor het starten van logboekstreaming de opdracht [ `az webapp log tail` ](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in de Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Uw Azure-web-app in de browser om op te halen van sommige webverkeer eenmaal streaming-logboek is gestart, worden vernieuwd. U ziet nu de logboeken van de console is doorgegeven naar de terminal.
+Nadat logboekstreaming is gestart, vernieuwt u uw Azure-web-app in de browser om wat webverkeer te genereren. U ziet dat consolelogboeken nu worden doorgegeven aan uw terminal.
 
-Stop log streaming op elk gewenst moment door typen `Ctrl+C`. 
+U kunt logboekstreaming op elk gewenst moment stoppen door te drukken op `Ctrl+C`. 
 
 ## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
 
-Ga naar de [Azure-portal](https://portal.azure.com) om te zien van de web-app die u hebt gemaakt.
+Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
 
 Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
 ![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-Standaard ziet u de portal voor uw web-app **overzicht** pagina. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina's worden weergegeven de andere configuratie dat kunt u openen.
+In de portal wordt standaard de pagina **Overzicht** van de web-app getoond. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
 ![App Service-pagina in Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -495,14 +496,14 @@ Standaard ziet u de portal voor uw web-app **overzicht** pagina. Deze pagina gee
 Wat u hebt geleerd:
 
 > [!div class="checklist"]
-> * Maak een MongoDB-database in Azure
+> * Een MongoDB-database maken in Azure
 > * Een Node.js-app verbinden met MongoDB
 > * De app implementeren in Azure
-> * Bijwerken van het gegevensmodel en de app implementeren
-> * Logboeken van de stroom van Azure naar uw terminal
-> * De app in de Azure portal beheren
+> * Het gegevensmodel bijwerken en de app opnieuw implementeren
+> * Logboeken vanaf Azure naar uw terminal streamen
+> * De app in Azure Portal beheren
 
-Ga naar de volgende zelfstudie voor informatie over het toewijzen van een aangepaste DNS-naam aan uw web-app.
+Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw web-app kunt toewijzen.
 
 > [!div class="nextstepaction"] 
 > [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md)

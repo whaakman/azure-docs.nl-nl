@@ -1,5 +1,5 @@
 ---
-title: Een Azure SQL-datawarehouse maken - Azure Portal | Microsoft Docs
+title: 'Snelstartgids: Een Azure SQL-datawarehouse maken - Azure Portal | Microsoft Docs'
 description: Maak voor Azure SQL Data Warehouse een SQL-server, een firewallregel op serverniveau en een datawarehouse in Azure Portal. Voer hier vervolgens een query voor uit.
 keywords: zelfstudie voor SQL Data Warehouse, een SQL-datawarehouse maken
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Een Azure SQL-datawarehouse maken en hier een query voor uitvoeren in Azure Portal
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snelstartgids: Een Azure SQL-datawarehouse maken en hier een query voor uitvoeren in Azure Portal
 
 Maak snel een Azure SQL-datawarehouse en voer hier een query voor uit in Azure Portal.
 
@@ -144,7 +144,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertype | Database-engine | Deze waarde is verplicht |
    | Servernaam | De volledig gekwalificeerde servernaam | Hier volgt een voorbeeld: **mynewserver-20171113.database.windows.net**. |
-   | Authentication | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat in deze zelfstudie is geconfigureerd. |
+   | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat in deze zelfstudie is geconfigureerd. |
    | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
    | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
 

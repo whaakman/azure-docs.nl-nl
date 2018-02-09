@@ -1,4 +1,4 @@
-Voeg in het lokale terminalvenster een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Deze Azure extern is gemaakt voor u in [maken van een web-app](#create-a-web-app).
+Voeg in het lokale terminalvenster een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Vervang _&lt;paste\_copied\_url\_here>_ door de URL van de externe Git-instantie die u hebt opgeslagen vanuit [Een web-app maken](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -10,4 +10,4 @@ Push naar de externe Azure-instantie om uw app te implementeren met de volgende 
 git push azure master
 ```
 
-Met deze opdracht kan even duren om uit te voeren. Tijdens de uitvoering wordt weergegeven informatie is vergelijkbaar met het volgende voorbeeld:
+Het kan enkele minuten duren voor deze opdracht is uitgevoerd. De opdracht geeft informatie weer die lijkt op het volgende voorbeeld:
