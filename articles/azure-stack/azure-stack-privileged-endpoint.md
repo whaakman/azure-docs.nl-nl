@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
@@ -78,8 +78,6 @@ Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscy
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
     
 3.  Nadat u verbinding maakt, verandert de prompt voor **[*IP-adres of ERCS VM naam*]: PS >** of **[azs ercs01]: PS >**, afhankelijk van de omgeving. Hier kunt uitvoeren `Get-Command` om de lijst met beschikbare cmdlets weer te geven.
-
-    ![De cmdlet Get-Command uitvoer met een lijst met beschikbare opdrachten](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Veel van deze cmdlets zijn alleen bedoeld voor geïntegreerde systeemomgevingen (zoals de cmdlets die betrekking hebben op datacenter-integratie). In de ASDK zijn de volgende cmdlets gevalideerd:
 

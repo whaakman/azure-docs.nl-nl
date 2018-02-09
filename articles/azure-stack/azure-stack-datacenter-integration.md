@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aandachtspunten voor Datacenter-integratie voor Azure-Stack geïntegreerd systemen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enkele van de belangrijke planningsoverwegingen rond de implementatie en hoe het systeem in uw datacenter past begrijpen. Dit artikel bevat een overzicht van deze overwegingen bij de infrastructuur van belangrijke beslissingen voor uw Azure-Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met uw hardwareleverancier OEM als ze Azure Stack op uw datacenter implementeren.  
@@ -45,7 +45,7 @@ U moet rekening houden met welke id-provider die u wilt gebruiken voor Azure-Sta
 
 Uw keuze van de provider identiteit heeft geen invloed op de virtuele machines van tenants, de van identiteitssysteem en accounts die ze gebruiken, of ze kunnen deelnemen aan een Active Directory-domein, enzovoort. Dit is een afzonderlijke.
 
-U kunt meer informatie over het kiezen van een id-provider in de [beslissingen voor de implementatie voor Azure-Stack geïntegreerde systemen artikel](.\azure-stack-deployment-decisions.md).
+U kunt meer informatie over het kiezen van een id-provider in de [Azure Stack geïntegreerde systemen verbinding modellen artikel](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integratie van AD FS en grafiek
 Als u kiest voor het implementeren van Azure-Stack AD FS gebruikt als de id-provider, moet u het exemplaar van AD FS op Azure-Stack integreren met een bestaand exemplaar van AD FS via een federatieve vertrouwensrelatie. Hierdoor identiteiten in een bestaand Active Directory-forest om te verifiëren met resources in Azure-Stack.
@@ -53,18 +53,25 @@ Als u kiest voor het implementeren van Azure-Stack AD FS gebruikt als de id-prov
 U kunt ook de grafiek service in Azure-Stack integreren met bestaande Active Directory. Hiermee kunt u voor het beheren van op rollen gebaseerde toegangsbeheer (RBAC) in Azure-Stack. Wanneer u toegang tot een resource wordt overgedragen, zoekt het onderdeel van de grafiek het gebruikersaccount in het bestaande Active Directory-forest met de LDAP-protocol.
 
 Het volgende diagram toont de geïntegreerde grafiek en AD FS-netwerkverkeer.
-![Diagram van de AD FS en grafiek netwerkverkeer](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagram van de AD FS en grafiek netwerkverkeer](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Licentiemodel
+U moet beslissen welke licentiemodel die u wilt gebruiken. De beschikbare opties is afhankelijk van of u een Azure-Stack is verbonden met internet implementeren:
+- Voor een [verbonden implementatie](azure-stack-connected-deployment.md), kunt u betalen-als-gebruik of op basis van capaciteit-licentieverlening. Betalen-als-gebruik vereist een verbinding naar Azure te rapporteren over het gebruik, die vervolgens wordt gefactureerd via Azure commerce. 
+- Alleen op basis van capaciteit licentieverlening wordt ondersteund als u [implementeren verbroken](azure-stack-disconnected-deployment.md) vanaf internet. 
 
-U moet beslissen welke licentiemodel die u wilt gebruiken. Voor een implementatie verbonden kunt u betalen-als-gebruik of op basis van capaciteit-licentieverlening. Betalen-als-gebruik vereist een verbinding naar Azure te rapporteren over het gebruik, die vervolgens wordt gefactureerd via Azure commerce. Alleen capaciteit op basis van licentieverlening wordt ondersteund als u implementeert de internetverbinding verbroken. Zie voor meer informatie over de licentiemodellen [Microsoft Azure-Stack verpakken en prijzen](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Zie voor meer informatie over de licentiemodellen [Microsoft Azure-Stack verpakken en prijzen](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Beslissingen voor de naamgeving
 
-U moet u bedenken hoe wilt u van plan bent uw Azure-Stack-naamruimte, met name de regio, en externe domeinnaam. De volledig gekwalificeerde domeinnaam (FQDN) van uw Azure-Stack-implementatie voor openbare eindpunten is de combinatie van deze twee namen &lt; *regio*&gt;&lt;*external_FQDN*  &gt;, bijvoorbeeld *east.cloud.fabrikam.com*. In dit voorbeeld zou de Azure-Stack-portals zijn beschikbaar op de volgende URL's:
+U moet u bedenken hoe wilt u van plan bent uw Azure-Stack-naamruimte, met name de regio en externe domeinnaam. De externe volledig gekwalificeerde domeinnaam (FQDN) van uw Azure-Stack-implementatie voor openbare eindpunten is de combinatie van deze twee namen: &lt; *regio*&gt;.&lt; *fqdn*&gt;. Bijvoorbeeld: *east.cloud.fabrikam.com*. In dit voorbeeld zou de Azure-Stack-portals zijn beschikbaar op de volgende URL's:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> De regionaam van de die u voor uw Azure-Stack-implementatie kiest moet uniek zijn en worden weergegeven in de portal adressen. 
 
 De volgende tabel geeft een overzicht van deze domain naming beslissingen.
 
@@ -128,14 +135,14 @@ U kunt Azure-Stack verbinden met Azure via [ExpressRoute](https://docs.microsoft
 
 Het volgende diagram toont ExpressRoute voor een scenario voor één tenant (waarbij 'Verbinding van de klant' is van het ExpressRoute-circuit).
 
-![Diagram waarin één tenant ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagram waarin één tenant ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 Het volgende diagram toont ExpressRoute voor een scenario met meerdere tenants.
 
-![Diagram waarin meerdere tenants ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagram waarin meerdere tenants ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Externe controle
-Ophalen van één enkele weergave van alle waarschuwingen van uw Azure-Stack-implementatie en apparaten en waarschuwingen integreren met bestaande werkstromen voor IT-service voor tickets, kunt u Azure-Stack integreren met externe datacenter bewakingsoplossingen.
+Ophalen van één enkele weergave van alle waarschuwingen van uw Azure-Stack-implementatie en apparaten en waarschuwingen integreren met bestaande werkstromen voor IT-service voor tickets, kunt u [Azure Stack integreren met externe datacenter bewakingsoplossingen](azure-stack-integrate-monitor.md).
 
 De host van de levenscyclus van hardware is opgenomen met de Azure-Stack-oplossing, is een computer buiten een Azure-Stack die wordt uitgevoerd door OEM geleverde leverancier beheerhulpprogramma's voor hardware. U kunt deze hulpprogramma's of andere oplossingen die rechtstreeks worden geïntegreerd met bestaande bewakingsoplossingen in uw datacenter.
 
@@ -143,15 +150,15 @@ De volgende tabel geeft een overzicht van de lijst met beschikbare opties.
 
 | Onderwerp | Oplossing voor externe controle |
 | -- | -- |
-| Azure Stack-software. | - [Azure Stack Management Pack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST gebaseerde API-aanroepen | 
-| Fysieke servers (bmc's via IPMI) | -Operations Manager-leverancier van management pack<br>-OEM leverancier geleverde hardwareoplossing<br>-Hardwareleverancier Nagios-invoegtoepassingen | OEM-partner ondersteund bewakingsoplossing (opgenomen) | 
-| Netwerkapparaten (SNMP) | -Detectie van netwerkapparaten operations Manager<br>-OEM leverancier geleverde hardwareoplossing<br>-Nagios switch-invoegtoepassing |
-| Statuscontrole voor tenant-abonnement | - [System Center Management Pack voor Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure Stack-software. | [Azure Stack Management Pack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Op basis van REST-API-aanroepen | 
+| Fysieke servers (bmc's via IPMI) | OEM-hardware - management pack voor Operations Manager-leverancier<br>Door OEM geleverde leverancier hardwareoplossing<br>Hardwareleverancier Nagios-invoegtoepassingen | OEM-partner ondersteund bewakingsoplossing (opgenomen) | 
+| Netwerkapparaten (SNMP) | Detectie van netwerkapparaten Operations Manager<br>Door OEM geleverde leverancier hardwareoplossing<br>Invoegtoepassing Nagios-switch |
+| Statuscontrole voor tenant-abonnement | [System Center Management Pack voor Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Houd rekening met de volgende vereisten:
 - De oplossing die u gebruikt moet worden zonder agent. U kunt van derden agents binnen Azure Stack-componenten niet installeren. 
-- Als u gebruiken van System Center Operations Manager wilt, moet hiervoor Operations Manager 2012 R2 of Operations Manager 2016.
+- Als u gebruiken van System Center Operations Manager wilt, is Operations Manager 2012 R2 of Operations Manager 2016 vereist.
 
 ## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgevallen
 
@@ -159,7 +166,7 @@ Planning voor back-up en herstel na noodgevallen omvat het plannen voor zowel de
 
 ### <a name="protect-infrastructure-components"></a>Onderdelen van de infrastructuur beveiligen
 
-Azure Stack back-ups van onderdelen van de infrastructuur tot een share die u opgeeft.
+U kunt [back-up van Azure-Stack](azure-stack-backup-back-up-azure-stack.md) infrastructuuronderdelen tot een SMB-share die u opgeeft:
 
 - U moet een externe SMB-bestandsshare op een bestaande Windows-bestandsserver of een apparaat van derden.
 - U moet deze dezelfde share voor de back-up van netwerkswitches en de host van de levenscyclus van hardware. Uw hardwareleverancier OEM helpt richtlijnen te bieden voor back-up en herstel van deze onderdelen wanneer deze externe naar Azure-Stack. U bent verantwoordelijk voor het uitvoeren van de back-werkstromen op basis van de OEM-leverancier aanbeveling.

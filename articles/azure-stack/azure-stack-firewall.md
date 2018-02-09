@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integratie van Azure Stack-firewall
 Het verdient aanbeveling dat u een firewall-apparaat gebruiken voor het beveiligde Azure-Stack. Hoewel firewalls bij zaken als gedistribueerde denial-of-service (DDOS) aanvallen, inbraakdetectie en inhoudscontrole helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services zoals blobs, tabellen en wachtrijen geworden.
@@ -41,7 +41,7 @@ Enkele van de nadelen van het gebruik van de NAT voor openbare VIP zijn:
 - Voor hybride cloud scenario's met Azure, kunt u Azure biedt geen ondersteuning voor de instelling van een VPN-tunnel naar een eindpunt met NAT bevinden.
 
 ### <a name="ssl-decryption"></a>SSL-ontsleuteling
-Momenteel onze aanbeveling SSL decodering is dat u deze uitschakelt op alle Azure-Stack-verkeer, in de toekomst bieden we hulp bij het inschakelen van SSL-ontsleuteling voor Azure-Stack.
+Het verdient aanbeveling momenteel SSL ontsleuteling op alle Azure-Stack-verkeer uitschakelen. Als dit wordt ondersteund in toekomstige updates, worden richtlijnen gegeven die over het inschakelen van SSL-ontsleuteling voor Azure-Stack.
 
 ## <a name="edge-firewall-scenario"></a>Edge-firewall-scenario
 In de implementatie van een edge Azure Stack geïmplementeerd rechtstreeks achter de router van de rand of de firewall. In deze scenario's wordt ondersteund voor de firewall moet boven de rand of als het apparaat van de rand fungeert als deze gelijk Cost Multi Path (ECMP) met BGP of statische routering ondersteunt.

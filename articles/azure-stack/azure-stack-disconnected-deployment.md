@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-niet-verbonden implementatie planningsbeslissingen voor Azure-Stack geïntegreerd systemen
-Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-deployment-decisions.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.
+Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-connection-models.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.
 
 Met de niet-verbonden met de optie Azure-implementatie, kunt u implementeren en gebruiken van Azure Stack zonder verbinding met Internet. Met een implementatie met een niet-verbonden bent u echter beperkt tot een AD FS-identity-store en het facturering model op basis van capaciteit. 
 
@@ -34,7 +34,7 @@ Selecteer deze optie als u:
 > [!TIP]
 > Soms wordt wordt dit type omgeving ook wel 'Onderzeese scenario'.
 
-Een niet-verbonden implementatie betekent niet strikt dat u geen later verbinding uw Azure-Stack-exemplaar naar Azure voor hybride tenantscenario VM's maken. Betekent dit dat u hebt geen verbinding met Azure tijdens de implementatie van of u niet wilt dat Azure Active Directory gebruiken als uw archief. Als u verbinding hebt met Azure na de implementatie wilt ongeacht wat u wilt gebruiken als uw identiteit archief, moet u de verbinding maken met Azure-implementatie-optie kiezen. 
+Een niet-verbonden implementatie betekent niet strikt dat u geen later verbinding uw Azure-Stack-exemplaar naar Azure voor hybride tenantscenario VM's maken. Betekent dit dat u hebt geen verbinding met Azure tijdens de implementatie van of u niet wilt dat Azure Active Directory gebruiken als uw archief.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Functies die gehinderd of niet beschikbaar in niet-verbonden implementaties zijn 
 Azure-Stack is ontworpen om te werken het beste wanneer verbonden met Azure, dus is het belangrijk te weten dat er zijn sommige functies en functionaliteiten die gehinderd of helemaal niet beschikbaar in de modus zonder verbinding. 

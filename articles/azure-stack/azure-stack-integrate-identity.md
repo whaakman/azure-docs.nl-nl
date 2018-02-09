@@ -5,22 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
 U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
 
 De volgende tabel ziet u de verschillen tussen de twee identiteit keuzes:
 
-||Fysiek losgekoppeld|Fysiek verbonden|
+||De internetverbinding verbroken|Verbonden met internet|
 |---------|---------|---------|
 |Facturering|Capaciteit moet<br> Enterprise Agreement (EA) alleen|Capaciteit of Pay-as-gebruik<br>EA of Cloud Solution Provider (CSP)|
 |Identiteit|Moet de AD FS|Azure AD of AD FS|

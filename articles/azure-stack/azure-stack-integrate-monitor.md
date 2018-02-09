@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure-Stack
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+Voor externe controle van de Azure-Stack-infrastructuur, moet u de Azure-Stack-software, de fysieke computers en het fysieke netwerk-switches bewaken. Elk van deze gebieden biedt een methode voor het ophalen van de waarschuwing de status en informatie:
 
-Voor externe controle van de Azure-Stack-infrastructuur, moet u de Azure-Stack-software, de fysieke computers en het fysieke netwerk-switches bewaken. Elk van deze gebieden biedt een methode voor het ophalen van informatie van de status en waarschuwing.
-
-- Azure Stack-software biedt een op basis van REST-API om op te halen van de status en waarschuwingen. (Met het gebruik van technologieën zoals opslagruimten Direct door software gedefinieerde opslag status en waarschuwingen zijn onderdeel van de bewaking van de software).
+- Azure Stack-software biedt een op basis van REST-API om op te halen van de status en waarschuwingen. (Met het gebruik van door software gedefinieerde technologieën zoals opslagruimten Direct opslag status en waarschuwingen zijn onderdeel van de bewaking van de software.).
 - Fysieke computers kunnen status en informatie over waarschuwingen beschikbaar maken via de baseboard management controllers (BMC).
 - Fysieke netwerkapparaten kunnen status en informatie over waarschuwingen beschikbaar maken via het SNMP-protocol.
 
@@ -48,16 +46,16 @@ U kunt de Operations Manager gebruiken voor externe controle van Azure-Stack. De
 
 Het management pack voor Azure-Stack biedt de volgende mogelijkheden:
 
-- U kunt meerdere Azure-Stack-implementaties beheren.
-- Er is ondersteuning voor Azure Active Directory (Azure AD) en Active Directory Federation Services (AD FS).
-- U kunt ophalen en waarschuwingen sluiten.
-- Er is een status en een dashboard capaciteit.
-- Bevat de onderhoudsmodus automatische detectie voor wanneer patch en bij te werken (P & U) wordt uitgevoerd.
-- Taken voor het bijwerken van kracht voor implementatie en regio bevat.
-- U kunt aangepaste gegevens toevoegen aan een regio.
-- Ondersteunt meldingen en rapportage.
+- U kunt meerdere Azure-Stack-implementaties beheren
+- Er is ondersteuning voor Azure Active Directory (Azure AD) en Active Directory Federation Services (AD FS)
+- U kunt ophalen en waarschuwingen sluiten
+- Er is een status en een dashboard capaciteit
+- Bevat de onderhoudsmodus automatische detectie voor wanneer patch en bij te werken (P & U) wordt uitgevoerd
+- Omvat taken Update afdwingen voor implementatie en regio
+- U kunt aangepaste gegevens toevoegen aan een regio
+- Ondersteunt meldingen en rapportage
 
-U kunt de System Center Management Pack voor Microsoft Azure-netwerkstack en de bijbehorende gebruikershandleiding downloaden [hier](https://www.microsoft.com/en-us/download/details.aspx?id=55184), of rechtstreeks uit Operations Manager.
+U kunt de System Center Management Pack voor Microsoft Azure-netwerkstack en de bijbehorende downloaden [gebruikershandleiding](https://www.microsoft.com/en-us/download/details.aspx?id=55184), of rechtstreeks uit Operations Manager.
 
 Voor een ticketsysteem oplossing, kunt u Operations Manager integreren met System Center Service Manager. De geïntegreerde productconnector kunnen bidirectionele communicatie waarmee u een waarschuwing in Azure-Stack en Operations Manager sluiten nadat u een serviceaanvraag in Service Manager hebt opgelost.
 
@@ -140,7 +138,7 @@ De aanvraag haalt alle actieve en gesloten waarschuwingen voor de provider stand
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|TOEVOEGEN     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Arguments**
@@ -387,7 +385,7 @@ De aanvraag Hiermee wordt de status voor alle geregistreerde resourceproviders.
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
+|TOEVOEGEN    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Arguments**
@@ -458,7 +456,7 @@ Status van de aanvraag opgehaald voor een specifieke geregistreerde resourceprov
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+|TOEVOEGEN     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Arguments**
 

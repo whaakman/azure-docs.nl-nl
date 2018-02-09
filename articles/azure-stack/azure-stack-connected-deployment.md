@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure verbonden implementatie planningsbeslissingen voor Azure-Stack geïntegreerd systemen
-Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-deployment-decisions.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.
+Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-connection-models.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.
 
 Implementatie Azure-Stack is verbonden met Azure betekent dat u kunt Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) voor uw archief. U kunt ook kiezen uit de facturering model: pay-as-gebruik of op basis van capaciteit. Een gekoppelde implementatie is de standaardoptie omdat kunnen klanten het belangrijkst onvoldoende Stack Azure, met name voor hybride cloud-scenario's die betrekking hebben op de Azure- en Azure-Stack ophalen. 
 
@@ -45,7 +45,7 @@ Wanneer u Azure AD gebruikt voor uw archief twee Azure AD-accounts vereist: een 
 Selecteer deze optie als u wilt uw eigen identiteit store, zoals uw zakelijke Active Directory, gebruiken voor uw Service Administrator-accounts.  
 
 ## <a name="choose-a-billing-model"></a>Kies een factureringsmodel selecteren
-U kunt een **Pay-as-gebruik** of de **capaciteit** facturering model. Het facturering model implementaties pay-as-gebruik moet kunnen rapporteren over het gebruik via een verbinding met Azure ten minste één keer voor elke 30 dagen, dus als er verbinding wordt niet beschikbaar, het facturering model capaciteit is de enige optie. 
+U kunt een **Pay-as-gebruik** of de **capaciteit** facturering model. Het facturering model implementaties pay-as-gebruik moet kunnen rapporteren over het gebruik via een verbinding met Azure ten minste één keer voor elke 30 dagen. Daarom is het facturering model Pay-as-gebruik is alleen beschikbaar voor implementaties van verbonden.  
 
 ### <a name="pay-as-you-use"></a>Pay-as-you-use
 Met het facturering model Pay-as-gebruik gebruik verrekend met een Azure-abonnement. U betaalt alleen wanneer u de Azure-Stack-services gebruikt. Als dit het model dat u kiest, moet u een Azure-abonnement en de account-ID die is gekoppeld aan dat abonnement (bijvoorbeeld serviceadmin@contoso.onmicrosoft.com). EA CSP en CSL abonnementen worden ondersteund. Rapportage over het gebruik wordt geconfigureerd tijdens [Azure Stack registratie](azure-stack-registration.md).
