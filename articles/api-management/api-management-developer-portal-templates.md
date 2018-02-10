@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Het aanpassen van de Azure API Management portal voor ontwikkelaars met behulp van sjablonen
 
@@ -31,13 +31,7 @@ Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kun
 Sjablonen worden gebruikt voor het aanpassen van de inhoud van het systeem gegenereerde developer portal-pagina's (bijvoorbeeld API docs, producten, gebruikersverificatie, enz.). Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en een opgegeven set bronnen met gelokaliseerde tekenreeksen, pictogrammen en paginabesturingselementen, hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's wens naar.
 
 ## <a name="developer-portal-templates-overview"></a>Overzicht van Developer portal-sjablonen
-Het bewerken van sjablonen wordt uitgevoerd van de **ontwikkelaarsportal** tijdens wordt aangemeld als beheerder. Wilt u er eerst open de Azure-Portal en klik op **publicatieportal** werkbalk van de service van uw exemplaar van API Management.
-
-![Publicatieportal][api-management-management-console]
-
-Klik daarna in de rechterbovenhoek op **Ontwikkelaarsportal**. 
-
-![Menu Developer-portal][api-management-developer-portal-menu]
+Het bewerken van sjablonen wordt uitgevoerd van de **ontwikkelaarsportal** tijdens wordt aangemeld als beheerder. Wilt u er eerst open de Azure-Portal en klik op **ontwikkelaarsportal** werkbalk van de service van uw exemplaar van API Management.
 
 Voor toegang tot de portal developer-sjablonen, klikt u op het pictogram aanpassen aan de linkerkant om het menu aanpassing weergeven en klik op **sjablonen**.
 
@@ -47,7 +41,7 @@ De lijst met sjablonen worden verschillende categorieën van sjablonen die betre
 
 ![Developer portal-sjablonen][api-management-templates-menu]
 
-Een sjabloon te klikken gaat u naar de developer portal pagina die kan worden aangepast door dat de sjabloon. In dit voorbeeld de **productlijst** sjabloon wordt weergegeven. De **productlijst** sjabloon bepaalt het gebied van het scherm aangegeven door de rode rechthoek. 
+Een sjabloon te klikken gaat u naar de developer portal pagina die kan worden aangepast door dat de sjabloon. In dit voorbeeld wordt de **productlijst** sjabloon wordt weergegeven. De **productlijst** sjabloon bepaalt het gebied van het scherm aangegeven door de rode rechthoek. 
 
 ![De sjabloon lijst met producten][api-management-developer-portal-templates-overview]
 
@@ -65,7 +59,7 @@ De **sjabloongegevens** deelvenster biedt een handleiding voor het gegevensmodel
 
 ![Sjabloon-gegevensmodel][api-management-template-data]
 
-In het vorige voorbeeld zijn er twee producten weergegeven in de portal voor ontwikkelaars die zijn opgehaald van de gegevens die worden weergegeven de **sjabloongegevens** deelvenster, zoals wordt weergegeven in het volgende voorbeeld.
+In het vorige voorbeeld zijn er twee producten weergegeven in de portal voor ontwikkelaars die zijn opgehaald van de gegevens die worden weergegeven de **sjabloongegevens** deelvenster, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```json
 {

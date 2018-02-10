@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten configureren
 
@@ -41,11 +41,11 @@ Voorwaardelijke toegang op basis van apparaten ties **voorwaardelijke toegang va
 
 In een wereld mobiel eerste, cloud eerste kunnen Azure Active Directory eenmalige aanmelding aan apparaten, apps en services vanaf elke locatie. Voor bepaalde bronnen in uw omgeving, het verlenen van toegang aan de juiste gebruikers mogelijk niet voldoende. Naast de juiste gebruikers, kunt u ook een vertrouwd apparaat moet worden gebruikt voor toegang tot een bron vereisen. In uw omgeving, kunt u definiëren wat een vertrouwd apparaat is gebaseerd op de volgende onderdelen:
 
-- De [apparaatplatforms](active-directory-conditional-access-azure-portal.md#device-platforms) op een apparaat
+- De [apparaatplatforms](active-directory-conditional-access-conditions.md#device-platforms) op een apparaat
 - Hiermee wordt aangegeven of een apparaat is compatibel met
 - Hiermee wordt aangegeven of een apparaat is lid van een domein 
 
-De [apparaatplatforms](active-directory-conditional-access-azure-portal.md#device-platforms) wordt gekenmerkt door het besturingssysteem dat wordt uitgevoerd op uw apparaat. In uw beleid voor voorwaardelijke toegang op basis van apparaten, kunt u toegang tot bepaalde bronnen voor specifieke apparaatplatforms beperken.
+De [apparaatplatforms](active-directory-conditional-access-conditions.md#device-platforms) wordt gekenmerkt door het besturingssysteem dat wordt uitgevoerd op uw apparaat. In uw beleid voor voorwaardelijke toegang op basis van apparaten, kunt u toegang tot bepaalde bronnen voor specifieke apparaatplatforms beperken.
 
 
 

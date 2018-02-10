@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 1de1b8e68648e4bac05eca4b306e741bcdb6868b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 921382a727816b6b0b58d185608a7b6a01dae752
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Zelfstudie: DocuSign configureren voor het automatisch gebruikers inrichten
 
@@ -89,9 +89,9 @@ Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van A
 
 12. Klik op **opslaan.**
 
-De initiële synchronisatie van alle gebruikers die zijn toegewezen aan DocuSign in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app DocuSign beschrijven.
+De initiële synchronisatie van alle gebruikers die zijn toegewezen aan DocuSign in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken waarin alle acties die worden uitgevoerd door de inrichting van uw app DocuSign-service.
 
-U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd voor DocuSign.
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

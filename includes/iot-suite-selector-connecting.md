@@ -19,7 +19,7 @@ Het apparaat voorbeeld ook:
 * Reageert op acties geactiveerd vanuit de **apparaten** pagina in de oplossing.
 * Reageert op wijzigingen in de configuratie verzenden vanuit de **apparaten** pagina in de oplossing.
 
-U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
@@ -36,13 +36,13 @@ Wanneer het inrichtingsproces voor de oplossing voor externe controle is voltooi
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Het apparaat inrichten in de oplossing voor externe controle
 
 > [!NOTE]
-> Als u al een apparaat in uw oplossing hebt ingericht, kunt u deze stap overslaan. De referenties van het apparaat moet u bij het maken van de clienttoepassing.
+> Als u al een apparaat in uw oplossing hebt ingericht, kunt u deze stap overslaan. U moet de verbindingsreeks apparaat, kunt u bij het maken van de clienttoepassing ophalen uit de Azure-portal.
 
-Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U kunt de apparaat-referenties ophalen uit de oplossing **apparaten** pagina. Verderop in deze zelfstudie neemt u de referenties van het apparaat op in de clienttoepassing.
+Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U hebt de mogelijkheid om op te slaan apparaat verbindingsreeks de referenties bevat bij het toevoegen van het apparaat de oplossing. De verbindingsreeks van het apparaat in uw clienttoepassing verderop in deze zelfstudie te nemen.
 
 Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u de volgende stappen uitvoeren op de **apparaten** pagina in de oplossing:
 
-1. Kies **inrichten**, en kies vervolgens **fysieke** als de **apparaattype**:
+1. Kies **+ nieuw apparaat**, en kies vervolgens **fysieke** als de **apparaattype**:
 
     ![Een fysiek apparaat inrichten](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u 
 
     ![Opties voor apparaten kiezen](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Kies **toepassen**. Maak een notitie van de **apparaat-ID**, **primaire sleutel**, en **Connection string primaire sleutel** waarden:
+
+    ![Referenties ophalen](media/iot-suite-selector-connecting/credentials.png)
+
 Als u wilt de referenties op die het apparaat gebruiken moet voor verbinding met de vooraf geconfigureerde oplossing hebt gevonden, gaat u naar de Azure-portal in uw browser. Meld u aan uw abonnement.
-
-1. Zoek de resourcegroep met de Azure-services die maakt gebruik van uw oplossing voor externe controle. De resourcegroep heeft dezelfde naam als de externe bewakingsoplossing die u hebt ingericht.
-
-1. Navigeer naar de IoT-hub in deze resourcegroep. Kies vervolgens **IoT-apparaten**:
-
-    ![Apparaat explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Kies de **apparaat-ID** u hebt gemaakt op de **apparaten** pagina in de oplossing voor externe controle.
-
-1. Noteer de **apparaat-ID** en **primaire sleutel** waarden. U kunt deze waarden gebruiken wanneer u code toevoegen aan uw apparaat aansluit op de oplossing.
 
 U hebt nu een fysiek apparaat in de externe controle ingericht vooraf geconfigureerde oplossing. In de volgende secties vindt implementeren u de clienttoepassing die de referenties van het apparaat verbinding maakt met uw oplossing.
 
@@ -68,4 +62,4 @@ De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een 
 
 * De eigenschappen van het apparaat rapporteert aan de oplossing. Bijvoorbeeld, een **Koelunit** apparaat rapporteert informatie over de firmware en de locatie.
 * De typen telemetrie het apparaat verzendt naar de oplossing. Bijvoorbeeld, een **Koelunit** apparaat verzendt temperatuur en vochtigheid druk waarden.
-* De methoden die u kunt vanuit de oplossing wilt laten uitvoeren op het apparaat. Bijvoorbeeld, een **Koelunit** apparaat moet worden geïmplementeerd **opnieuw opstarten**, **FirmwareUpdate**, **EmergencyValveRelease**, en  **IncreasePressuree** methoden.
+* De methoden die u kunt vanuit de oplossing wilt laten uitvoeren op het apparaat. Bijvoorbeeld, een **Koelunit** apparaat moet worden geïmplementeerd **opnieuw opstarten**, **FirmwareUpdate**, **EmergencyValveRelease**, en  **IncreasePressure** methoden.

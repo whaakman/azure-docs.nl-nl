@@ -3,7 +3,7 @@ title: Acties en NotActions - Azure op rollen gebaseerde toegangsbeheer (RBAC) |
 description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC). De rollen worden continu toegevoegd, dus Controleer de nieuwheid documentatie.
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 01/30/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen
 Gebruik van gereserveerde exemplaar begrijpen met behulp van de ReservationId van [reservering pagina](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) en het bestand informatie over het gebruik van [EA-portal.](https://ea.azure.com) U ziet ook het gebruik van de reservering in de samenvatting van gebruik van [EA-portal.](https://ea.azure.com)
@@ -56,6 +56,16 @@ Gebruik ook in de samenvatting van gebruik van de portal EA weergegeven exemplaa
 
 1. Er zijn niet in rekening gebracht voor hardware-onderdeel van de virtuele machine als deze wordt omspannen door gereserveerde exemplaar. 
 2. Er worden in rekening gebracht voor Windows-software zoals Azure hybride voordeel wordt niet gebruikt. 
+
+## <a name="next-steps"></a>Volgende stappen
+Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.
+
+- [Vooruitbetalen voor virtuele Machines met een gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Exemplaren van de gereserveerde virtuele Machine beheren](billing-manage-reserved-vm-instance.md)
+- [Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren](billing-save-compute-costs-reservations.md)
+- [Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
+- [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

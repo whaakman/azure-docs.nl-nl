@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Overwegingen voor een App Service-omgeving netwerken #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Overwegingen voor een App-serviceomgeving netwerken #
 
 ## <a name="overview"></a>Overzicht ##
 
@@ -47,7 +47,7 @@ Als u een ILB-as-omgeving hebt, is het IP-adres van de ILB het eindpunt voor HTT
 
 De normale app-poorten zijn:
 
-| Gebruiken | Van | Handeling |
+| Gebruiken | Vanaf | Handeling |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Gebruiker worden geconfigureerd |  80, 443 |
 |  FTP/FTPS    | Gebruiker worden geconfigureerd |  21, 990, 10001-10020 |
@@ -55,15 +55,22 @@ De normale app-poorten zijn:
 
 Dit geldt als u op een externe as-omgeving of op een as ILB-omgeving. Als u op een externe as-omgeving, heeft deze poorten op het openbare VIP. Als u van een as ILB-omgeving gebruikmaakt, heeft deze poorten op de ILB. Als u poort 443 vergrendelen, kunnen er gevolgen heeft voor sommige functies die worden weergegeven in de portal. Zie voor meer informatie [Portal afhankelijkheden](#portaldep).
 
+## <a name="ase-subnet-size"></a>As-omgeving subnetgrootte ##
+
+De grootte van het subnet dat wordt gebruikt voor het hosten van een as-omgeving kan niet worden gewijzigd nadat de as-omgeving is geïmplementeerd.  De as-omgeving maakt gebruik van een adres voor elke infrastructuurrol ook als voor elk exemplaar van geïsoleerde App Service-abonnement.  Bovendien zijn er 5 adressen die door het Azure-netwerken wordt gebruikt voor elk subnet dat is gemaakt.  Een as-omgeving met geen App Service-plannen op alle gebruikt 12 adressen voordat u een app maakt.  Als het een ILB-as-omgeving wordt het 13 adressen gebruiken voordat u een app in die as-omgeving maken. Als u uw App service-plannen uitschalen zijn er extra adressen nodig voor elke front-end dat is toegevoegd.  Standaard worden de Front-endservers toegevoegd voor exemplaren van elke 15 totale App Service-plan. 
+
+   > [!NOTE]
+   > Niets anders kan niet in het subnet, maar de as-omgeving. Zorg dat u kiest een adresruimte waarmee voor toekomstige groei. U kan niet deze instelling later wijzigen. Een grootte van het is raadzaam `/25` met 128 adressen.
+
 ## <a name="ase-dependencies"></a>Afhankelijkheden van de as-omgeving ##
 
 Een as-omgeving binnenkomende-afhankelijkheid is:
 
-| Gebruiken | Van | Handeling |
+| Gebruiken | Vanaf | Handeling |
 |-----|------|----|
 | Beheer | App Service management-adressen | As-omgeving subnet: 454, 455 |
 |  Interne communicatie as-omgeving | As-omgeving subnet: alle poorten | As-omgeving subnet: alle poorten
-|  Azure load balancer toestaan binnenkomende | Azure load balancer | As-omgeving subnet: alle poorten
+|  Azure load balancer toestaan binnenkomende | Azure Load Balancer | As-omgeving subnet: alle poorten
 |  App toegewezen IP-adressen | App toegewezen adressen | As-omgeving subnet: alle poorten
 
 Het binnenkomende verkeer biedt opdracht en controle van de as-omgeving naast het controleren van het systeem. De bron-IP-adressen voor dit verkeer worden vermeld in de [as-omgeving Management adressen] [ ASEManagement] document. De netwerkconfiguratie van de beveiliging moet toegang vanaf alle IP-adressen op de poorten 454 en 455 toestaan.
@@ -76,12 +83,12 @@ Als u app toegewezen IP-adressen die u wilt toestaan dat verkeer van de IP-adres
 
 Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe systemen. Die afhankelijkheden systeem zijn gedefinieerd met behulp van DNS-namen en niet toewijzen aan een vaste set van IP-adressen. De as-omgeving is dus uitgaand verkeer van het subnet van de as-omgeving op alle externe IP-adressen in een groot aantal poorten vereist. Een as-omgeving heeft de volgende uitgaande afhankelijkheden:
 
-| Gebruiken | Van | Handeling |
+| Gebruiken | Vanaf | Handeling |
 |-----|------|----|
 | Azure Storage | As-omgeving subnet | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is alleen nodig voor ASEv1.) |
 | Azure SQL Database | As-omgeving subnet | database.Windows.NET: 1433, 11000 11999, 14000 14999 (Zie voor meer informatie [SQL Database V12 Poortgebruik](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure management | As-omgeving subnet | Management.Core.Windows.NET, management.azure.com: 443 
-| Verificatie van SSL-certificaat |  As-omgeving subnet            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure management | As-omgeving subnet | management.core.windows.net, management.azure.com: 443 
+| Verificatie van SSL-certificaat |  As-omgeving subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | As-omgeving subnet            |  Internet: 443
 | App Service-beheer        | As-omgeving subnet            |  Internet: 443
 | Azure DNS                     | As-omgeving subnet            |  Internet: 53
@@ -125,7 +132,7 @@ Zowel functies en Web taken afhankelijk zijn van de site SCM maar worden onderst
 
 ## <a name="ase-ip-addresses"></a>As-omgeving IP-adressen ##
 
-Een as-omgeving heeft enkele IP-adressen moet houden. Ze zijn:
+Een as-omgeving heeft enkele IP-adressen moet houden. Dit zijn:
 
 - **Openbare binnenkomende IP-adres**: gebruikt voor het verkeer van de app in een externe as-omgeving en beheer van verkeer in zowel een externe as-omgeving en een ILB-as-omgeving.
 - **Uitgaande openbare IP-adres**: gebruikt als het 'van' IP-adres voor uitgaande verbindingen van de as-omgeving die laat het VNet, die niet worden doorgestuurd naar beneden een VPN.
@@ -150,7 +157,7 @@ In een as-omgeving hebt u geen toegang tot de virtuele machines gebruikt als hos
 
 Nsg's kunnen worden geconfigureerd via de Azure portal of via PowerShell. De informatie hier ziet u de Azure-portal. U maakt en nsg's in de portal beheren als een bron op het hoogste niveau onder **Networking**.
 
-Wanneer u de vereisten voor binnenkomend en uitgaand in aanmerking worden genomen, het nsg's zijn vergelijkbaar met het nsg's in dit voorbeeld wordt getoond. Het adresbereik van het VNet is _192.168.250.0/16_, en het subnet dat u het as-omgeving in _192.168.251.128/25_.
+Wanneer u de vereisten voor binnenkomend en uitgaand in aanmerking worden genomen, het nsg's zijn vergelijkbaar met het nsg's in dit voorbeeld wordt getoond. Het adresbereik van het VNet is _192.168.250.0/23_, en het subnet dat u het as-omgeving in _192.168.251.128/25_.
 
 De eerste twee inkomende vereisten voor de as-omgeving naar de functie worden aan de bovenkant van de lijst in dit voorbeeld weergegeven. Deze as-omgeving beheer inschakelen en de as-omgeving om te communiceren met zichzelf toestaan. De andere vermeldingen zijn alle tenant kunnen worden geconfigureerd en toegang tot het netwerk naar de as-omgeving gehoste toepassingen kunnen bepalen. 
 
@@ -168,13 +175,13 @@ Nadat uw nsg's zijn gedefinieerd, kunt u ze aan het subnet dat u uw as-omgeving 
 
 ## <a name="routes"></a>Routes ##
 
-Routes worden meest problematisch wanneer u uw VNet met Azure ExpressRoute configureren. Er zijn drie soorten routes in een VNet:
+Routes zijn een essentieel onderdeel van geforceerde tunnels en hoe deze werken. In een virtueel Azure-netwerk vindt routering plaats op basis van LPM (Longest Prefix Match). Als er meer dan één route met dezelfde overeenkomende LPM is, wordt een route geselecteerd op basis van de oorsprong. Dit gebeurt in de volgende volgorde:
 
--   Systeemroutes
--   BGP-routes
--   Gebruiker gedefinieerde routes (udr's)
+- UDR (door de gebruiker opgegeven route)
+- BGP-route (wanneer u ExpressRoute gebruikt)
+- Systeemroute
 
-BGP-routes overschrijven systeemroutes. Udr's overschrijven BGP-routes. Zie voor meer informatie over routes in virtuele netwerken van Azure [overzicht van de gebruiker gedefinieerde routes][UDRs].
+Lees [User-defined routes en doorsturen via IP][UDRs] (Door de gebruiker opgegeven routes en Doorsturen via IP) voor meer informatie over routering in een virtueel netwerk .
 
 De Azure SQL-database die gebruikmaakt van de as-omgeving voor het beheren van het systeem is een firewall. Is er communicatie afkomstig te zijn van het openbare VIP as-omgeving. Verbindingen met de SQL-database van de as-omgeving wordt geweigerd als deze onder de ExpressRoute-verbinding en u een ander IP-adres worden verzonden.
 
@@ -182,15 +189,15 @@ Als antwoorden op binnenkomende management-aanvragen worden verzonden naar bened
 
 Voor de as werken terwijl uw VNet is geconfigureerd met een ExpressRoute-omgeving, is het eenvoudigste wat te doen:
 
--   Configureren van ExpressRoute adverteren _0.0.0.0/0_. Standaard deze geforceerd tunnels alle uitgaande verkeer van de lokale.
+-   Configureren van ExpressRoute adverteren _0.0.0.0/0_. Standaard maakt hierdoor al het uitgaande verkeer dat naar on-premises locaties wordt verzonden gebruik van geforceerde tunnels.
 -   Maak een UDR. Toepassen op het subnet waarin de as-omgeving met een adresvoorvoegsel van _0.0.0.0/0_ en type van een volgende hop _Internet_.
 
 Als u deze twee wijzigingen aanbrengt, wordt niet internet bestemd verkeer dat afkomstig van het subnet van de as-omgeving is uitgevoerd op de ExpressRoute- en de as-omgeving werkt. 
 
 > [!IMPORTANT]
-> De routes die zijn gedefinieerd in een UDR moet specifieke voorrang op alle routes die worden geadverteerd door de ExpressRoute-configuratie. Het adresbereik brede 0.0.0.0/0 maakt gebruik van het vorige voorbeeld. Mogelijk kan worden per ongeluk overschreven door de route-advertisements met meer specifieke adresbereiken.
+> De routes die zijn gedefinieerd in een UDR, moeten specifiek genoeg zijn om voorrang te krijgen boven alle routes die worden geadverteerd met de ExpressRoute-configuratie. In het voorgaande voorbeeld wordt het brede adresbereik 0.0.0.0/0 gebruikt. Dit bereik kan mogelijk per ongeluk worden overschreven door routeadvertenties die gebruikmaken van specifiekere adresbereiken.
 >
-> ASEs worden niet ondersteund met ExpressRoute-configuraties die cross routes van het openbare peering pad naar het pad voor persoonlijke peering adverteert. ExpressRoute-configuraties met openbare peering geconfigureerd ontvangen route-advertisements van Microsoft. De aankondigingen bevatten een groot aantal Microsoft Azure-IP-adresbereiken. Als de adresbereiken cross aangekondigd op het pad voor persoonlijke peering, zijn alle uitgaande pakketten van subnet van de as-omgeving force tunneled aan een klant on-premises netwerkinfrastructuur. Deze stroom netwerk wordt momenteel niet ondersteund met ASEs. Er is een oplossing voor dit probleem cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering stoppen.
+> ASEs worden niet ondersteund met ExpressRoute-configuraties die cross routes van het openbare peering pad naar het pad voor persoonlijke peering adverteert. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen routeadvertenties van Microsoft. De advertenties bevatten een groot aantal IP-adresbereiken van Microsoft Azure. Als de adresbereiken cross aangekondigd op het pad voor persoonlijke peering, zijn alle uitgaande pakketten van subnet van de as-omgeving force tunneled aan een klant on-premises netwerkinfrastructuur. Deze stroom netwerk wordt momenteel niet ondersteund met ASEs. Een mogelijke oplossing voor dit probleem is om advertentieoverschrijdende routes van het openbare-peeringpad naar het privé-peeringpad te stoppen.
 
 Volg deze stappen voor het maken van een UDR:
 

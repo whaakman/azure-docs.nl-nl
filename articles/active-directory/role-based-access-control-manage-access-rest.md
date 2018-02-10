@@ -3,7 +3,7 @@ title: Op rollen gebaseerde toegangsbeheer met de REST - Azure AD | Microsoft Do
 description: Op rollen gebaseerde toegangsbeheer met de REST-API beheren
 services: active-directory
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: andredm
-ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: rolyon
+ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Op rollen gebaseerde toegangsbeheer met de REST-API beheren
 > [!div class="op_single_selector"]
@@ -439,7 +439,7 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 | naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
 | properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol. Maximale grootte 128 tekens. |
 | Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol. Maximale grootte 1024 tekens. |
-| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
+| properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
 | Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen die zijn verleend door de aangepaste rol. |
 | properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die zijn verleend door de aangepaste rol. |
 | properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de aangepaste rol kan worden gebruikt. |
@@ -542,7 +542,7 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 | naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
 | properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol die is bijgewerkt. |
 | Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol die is bijgewerkt. |
-| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
+| properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
 | Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen waarvoor de bijgewerkte aangepaste rol die toegang verleent. |
 | properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die de bijgewerkte aangepaste rol toekent. |
 | properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de bijgewerkte aangepaste rol kan worden gebruikt. |

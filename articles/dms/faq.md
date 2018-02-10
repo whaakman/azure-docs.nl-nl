@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Service Azure Database migreren
 Dit artikel worden enkele veelgestelde vragen over het gebruik van de Service Azure Database migratie samen met verwante antwoorden.
@@ -81,6 +81,9 @@ U kunt enkele doen om de databasemigratie van uw met de service te versnellen:
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Hoe stel ik een Azure Virtual Network
 Bij meerdere Microsoft-zelfstudies die u u bij het proces helpt kunnen voor het instellen van een Azure-VNET, de officiële documentatie wordt weergegeven in het artikel [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. Waarom wordt mijn Azure Database migratie-Service niet beschikbaar of is gestopt?
+Als de gebruiker expliciet stopt met het Azure Database migratie Service (DMS) of als de service niet actief gedurende een periode van 24 uur is, wordt de service zich in een gestopt of onderbroken status automatisch. In elk geval kan zijn de service niet beschikbaar en in een gestopte status.  Als u wilt hervatten active migraties, start u de service opnieuw.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>Q. Waar kan ik feedback geven over de migratie van Azure databaseservice?
 Wij willen graag van u. Stuur alle feedback en / ideeën hebt over de Service Azure Database migratie via User Voice [hier](https://feedback.azure.com/forums/906100-azure-database-migration-service).

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 Specifieke functies delen in Azure Functions enkele core technische concepten en -onderdelen, ongeacht de taal of een binding die u gebruikt. Voordat u in het leren van gegevens die specifiek zijn voor een bepaalde taal of binding gaan, moet Lees dit overzicht die van toepassing op alle mappen.
@@ -117,6 +117,8 @@ De code voor Azure Functions is open source en opgeslagen in de GitHub-opslagpla
 Hier volgt een lijst met alle ondersteunde bindingen.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Hebt u problemen met fouten die afkomstig zijn van de bindingen? Controleer de [foutcodes voor Azure Functions-Binding](functions-bindings-error-pages.md) documentatie.
 
 ## <a name="reporting-issues"></a>Melden van problemen
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Richtlijnen voor het implementeren van Windows Server Active Directory op virtuele machines in Azure
 Dit artikel wordt uitgelegd dat de belangrijke verschillen tussen implementatie Windows Server Active Directory Domain Services (AD DS) en Active Directory Federation Services (AD FS) lokale versus implementeren op Microsoft Azure virtuele machines.
@@ -327,9 +327,9 @@ Deze tabel bevat een overzicht van de Windows Server Active Directory-technologi
 
 Bijvoorbeeld, als u een replica van een DC op een virtueel netwerk implementeren en uw forest één domein heeft, kan vervolgens te kiezen voor het implementeren van een globale-catalogusserver in dat geval niet worden essentieel is voor het scenario van implementatie omdat eventuele aanvullende replicatie wordt niet gemaakt vereisten. Aan de andere kant als het forest in meerdere domeinen is, klikt u vervolgens de beslissing voor het implementeren van een globale catalogus op een virtueel netwerk in het gedrang beschikbare bandbreedte, prestaties, verificatie, directory zoekacties, enzovoort.
 
-| Windows Server Active Directory-technologiegebied | Beslissingen | Factoren |
+| Windows Server Active Directory-technologiegebied | Beslissingen | Factors |
 | --- | --- | --- |
-| [Netwerktopologie](#BKMK_NetworkTopology) |Een virtueel netwerk maken? |<li>Vereisten voor toegang tot bronnen Corp</li> <li>Authentication</li> <li>Accountbeheer</li> |
+| [Netwerktopologie](#BKMK_NetworkTopology) |Een virtueel netwerk maken? |<li>Vereisten voor toegang tot bronnen Corp</li> <li>Verificatie</li> <li>Accountbeheer</li> |
 | [Configuratie van DC-implementatie](#BKMK_DeploymentConfig) |<li>Een afzonderlijk forest zonder eventuele vertrouwensrelaties implementeren?</li> <li>Een nieuw forest met Federatie implementeren?</li> <li>Een nieuw forest met Windows Server Active Directory-forest vertrouwen of Kerberos implementeren?</li> <li>Corp-forest uitbreiden door het implementeren van een replica van een DC?</li> <li>Corp-forest uitbreiden door het implementeren van een nieuw onderliggend domein of een domeinstructuur?</li> |<li>Beveiliging</li> <li>Naleving</li> <li>Kosten</li> <li>Tolerantie en fouttolerantie</li> <li>Toepassingscompatibiliteit</li> |
 | [Windows Server Active Directory-site-topologie](#BKMK_ADSiteTopology) |Hoe configureer u subnetten, sites en site-koppelingen met Azure Virtual Network verkeer optimaliseren en kosten te minimaliseren? |<li>Definities van subnet en een site</li> <li>Site-eigenschappen van koppeling en wijzig melding</li> <li>Compressie van replicatie</li> |
 | [IP-adressen en DNS](#BKMK_IPAddressDNS) |Het IP-adressen en naamomzetting configureren? |<li>Gebruik van de cmdlet de Set-AzureStaticVNetIP gebruik een statisch IP-adres toewijzen</li> <li>Windows Server DNS-server installeren en configureren van de eigenschappen van virtueel netwerk met de naam en IP-adres van de virtuele machine die als host fungeert voor de domeincontroller en DNS-server-rollen</li> |
@@ -433,7 +433,7 @@ Gebruik geen SYSPREP om te implementeren of klonen van domeincontrollers. De mog
 Selecteer waar u de Windows Server AD DS-database, logboekbestanden en SYSVOL. Ze moeten worden geïmplementeerd op Azure gegevensschijven.
 
 > [!NOTE]
-> Azure-schijven die gegevens zijn beperkt tot 1 TB.
+> Azure-schijven die gegevens zijn beperkt tot 4 TB.
 > 
 > 
 

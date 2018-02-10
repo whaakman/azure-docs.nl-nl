@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Wat is Azure Diagnostics
 Azure Diagnostics is de functie binnen Azure waarmee het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens van een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure Cloud Service-Web- en werkrollen, Azure Virtual Machines met Microsoft Windows en de Service Fabric. Andere Azure-services hebben hun eigen afzonderlijke diagnostische gegevens.
@@ -75,6 +75,6 @@ Aan de slag op [bewaken van een Service Fabric-toepassing](../service-fabric/ser
 ## <a name="general-azure-diagnostics-articles"></a>Algemene Azure Diagnostics-artikelen
 * [Configuratie van Azure Diagnostics Schema](https://msdn.microsoft.com/library/azure/mt634524.aspx) -informatie over het wijzigen van het schemabestand om te verzamelen en doorsturen van de diagnostics-gegevens. Opmerking: u kunt ook Visual Studio gebruiken om de schemabestand te wijzigen.
 * [Hoe Azure Diagnostics-gegevens worden opgeslagen in Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -kennen van de namen van de tabellen en blobs waar de diagnostische gegevens worden geschreven.
-* Informatie over het [prestatiemeteritems gebruiken in Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Informatie over het [prestatiemeteritems gebruiken in Azure Diagnostics](../cloud-services/diagnostics-performance-counters.md).
 * Informatie over het [Route Azure diagnostische gegevens naar Application Insights](azure-diagnostics-configure-application-insights.md)
 * Als u problemen met diagnostische gegevens starten ondervindt of uw gegevens zoeken in Azure Storage-tabellen, Zie [Azure Diagnostics probleemoplossing](azure-diagnostics-troubleshooting.md)

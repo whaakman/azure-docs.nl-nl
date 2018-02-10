@@ -3,7 +3,7 @@ title: Aangepaste rollen maken voor Azure RBAC | Microsoft Docs
 description: "Informatie over het definiëren van aangepaste rollen met op rollen gebaseerd toegangsbeheer voor nauwkeurigere identiteitsbeheer in uw Azure-abonnement."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer
 Maak een aangepaste rol in gebaseerd toegangsbeheer (RBAC) als geen van de ingebouwde rollen aan de behoeften van uw specifieke toegang. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure-opdrachtregelinterface](role-based-access-control-manage-access-azure-cli.md) (CLI) en de [REST-API](role-based-access-control-manage-access-rest.md). Net als de ingebouwde rollen kunt u aangepaste rollen toewijzen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en resource bereiken. Aangepaste rollen worden opgeslagen in een Azure AD-tenant en kunnen worden gedeeld door abonnementen.
@@ -121,6 +121,6 @@ De **AssignableScopes** ook de eigenschap van de aangepaste rol bepaalt wie kunt
 * Zie voor een lijst van beschikbare bewerkingen [Resourceprovider van Azure Resource Manager operations](role-based-access-control-resource-provider-operations.md).
 * Meer informatie over het beheren van toegang met:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
-  * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+  * [Azure-CLI](role-based-access-control-manage-access-azure-cli.md)
   * [REST API](role-based-access-control-manage-access-rest.md)
 * [Ingebouwde rollen](role-based-access-built-in-roles.md): meer informatie over de functies die standaard in RBAC.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Zelfstudie: Asana configureren voor het automatisch gebruikers inrichten
 
@@ -93,7 +93,7 @@ Deze sectie helpt u bij het verbinding maken met uw Azure AD Asana gebruikersacc
 
 12. Selecteer **Opslaan**. 
 
-Nu de initiële synchronisatie wordt uitgevoerd voor alle gebruikers die zijn toegewezen aan Asana in de **gebruikers** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. Gebruik de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van rapporten van activiteiten. De rapporten worden alle acties die worden uitgevoerd door de inrichting service op uw app Asana beschreven.
+Nu de initiële synchronisatie wordt uitgevoerd voor alle gebruikers die zijn toegewezen aan Asana in de **gebruikers** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. Gebruik de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken. De controlelogboeken beschrijven alle acties die worden uitgevoerd door de inrichting van uw app Asana-service.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 

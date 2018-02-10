@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Een as-omgeving maken met een Azure Resource Manager-sjabloon
 
@@ -40,7 +40,7 @@ Voor het automatiseren van uw as-omgeving maken:
 
 2. Nadat u uw as ILB-omgeving is gemaakt, wordt een SSL-certificaat dat overeenkomt met uw domein ILB as-omgeving geüpload.
 
-3. Het geüploade SSL-certificaat is toegewezen aan de as-omgeving voor de ILB als de 'standaard' SSL-certificaat.  Dit certificaat wordt gebruikt voor SSL-verkeer voor apps op de as ILB-omgeving wanneer ze het algemene hoofddomein dat toegewezen aan de as-omgeving (bijvoorbeeld https://someapp.mycustomrootcomain.com) gebruiken.
+3. Het geüploade SSL-certificaat is toegewezen aan de as-omgeving voor de ILB als de 'standaard' SSL-certificaat.  Dit certificaat wordt gebruikt voor SSL-verkeer voor apps op de as ILB-omgeving wanneer ze het algemene hoofddomein dat toegewezen aan de as-omgeving (bijvoorbeeld https://someapp.mycustomrootdomain.com) gebruiken.
 
 
 ## <a name="create-the-ase"></a>De as-omgeving maken
@@ -69,7 +69,7 @@ Een geldig SSL-certificaat ophalen met behulp van de interne CA's, een certifica
 * **Onderwerp**: dit kenmerk moet worden ingesteld op **.your-hoofdmap-domain-here.com*.
 * **Alternatieve onderwerpnaam**: dit kenmerk moet bevatten beide **.your-hoofdmap-domain-here.com* en **.scm.your-hoofdmap-domain-here.com*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app een adres van het formulier gebruiken *your-app-name.scm.your-root-domain-here.com*.
 
-Met een geldig SSL-certificaat in de hand, worden twee aanvullende voorbereidende stappen uitgevoerd. Het SSL-certificaat, converteren/opslaan als een .pfx-bestand. Houd er rekening mee dat het .pfx-bestand moet alle tussenliggende bevatten en de hoofd-certificaten. Beveilig deze met een wachtwoord.
+Met een geldig SSL-certificaat in de hand, worden twee aanvullende voorbereidende stappen uitgevoerd. Converteer het SSL-certificaat naar een .pfx-bestand of sla het certificaat in deze indeling op. Houd er rekening mee dat het .pfx-bestand moet alle tussenliggende bevatten en de hoofd-certificaten. Beveilig het bestand met een wachtwoord.
 
 Het pfx-bestand moet worden geconverteerd naar een base64-tekenreeks omdat het SSL-certificaat wordt geüpload met behulp van een Resource Manager-sjabloon. Omdat Resource Manager-sjablonen tekstbestanden zijn, kan het pfx-bestand moet worden geconverteerd naar een base64-tekenreeks. Op deze manier kan zijn opgenomen als een parameter van de sjabloon.
 
@@ -146,11 +146,11 @@ Nadat de sjabloon is voltooid, kan apps op de as ILB-omgeving kunnen worden bena
 Ontwikkelaars kunnen echter net als bij apps die worden uitgevoerd op de openbare multitenant-service, configureren aangepaste hostnamen voor afzonderlijke apps. Ze kunnen ook unieke SNI-SSL-certificaatbindingen voor afzonderlijke apps configureren.
 
 ## <a name="app-service-environment-v1"></a>App Service-omgeving v1 ##
-App Service-omgeving zijn er twee versies: ASEv1 en ASEv2. De voorgaande informatie is gebaseerd op ASEv2. Deze sectie leest u de verschillen tussen ASEv1 en ASEv2.
+App Service Environment heeft twee versies: ASEv1 en ASEv2. De voorgaande informatie is gebaseerd op ASEv2. In deze sectie leest u wat de verschillen zijn tussen ASEv1 en ASEv2.
 
-In ASEv1 beheert u alle resources handmatig. Dat betekent onder meer de front-ends, werknemers en IP-adressen gebruikt voor SSL op basis van IP. Voordat u uw App Service-abonnement uitbreiden kunt, moet u de worker-groep die u wilt deze hosten uitschalen.
+In ASEv1 beheert u alle resources handmatig. Dit geldt ook voor de front-ends, werkrollen en IP-adressen die worden gebruikt voor op IP gebaseerd SSL. Voordat u uw App Service-abonnement uitbreiden kunt, moet u de worker-groep die u wilt deze hosten uitschalen.
 
-ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke vCPU toegewezen. Dat betekent onder meer vcpu's die worden gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Grootte van de maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel ASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie voor meer informatie over ASEv1, [App Service-omgeving v1 inleiding][ASEv1Intro].
+ASEv1 maakt gebruik van een ander prijsmodel dan ASEv2. In ASEv1 betaalt u voor elke toegewezen vCPU. Dat betekent onder meer vcpu's die worden gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. In ASEv1 is de maximale schaalgrootte voor een AS-omgeving standaard 55 hosts (in totaal). Dit is inclusief werkrollen en front-ends. Een voordeel van ASEv1 is dat deze versie kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie [Inleiding tot App Service Environment v1][ASEv1Intro] voor meer informatie over ASEv1.
 
 Zie voor informatie over het maken van een ASEv1 met behulp van een Resource Manager-sjabloon [een v1 ILB as-omgeving maken met Resource Manager-sjabloon][ILBASEv1Template].
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory voorwaardelijke toegang wat gebeurt er als hulpprogramma - preview
 
@@ -78,14 +78,14 @@ De standaardwaarde voor deze instelling is **alle cloud-apps**. De standaardinst
 
 ### <a name="ip-address"></a>IP-adres
 
-Het IP-adres is één IPv4-adres om na te bootsen de [locatie voorwaarde](active-directory-conditional-access-azure-portal.md#locations). Het adres vertegenwoordigt Internetgericht adres van het apparaat dat wordt gebruikt door de gebruiker aan te melden. U kunt controleren of het IP-adres van een apparaat, bijvoorbeeld, navigeren naar [wat Mijn IP-adres is](https://whatismyipaddress.com).    
+Het IP-adres is één IPv4-adres om na te bootsen de [locatie voorwaarde](active-directory-conditional-access-locations.md). Het adres vertegenwoordigt Internetgericht adres van het apparaat dat wordt gebruikt door de gebruiker aan te melden. U kunt controleren of het IP-adres van een apparaat, bijvoorbeeld, navigeren naar [wat Mijn IP-adres is](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Apparaatplatformen
 
-Deze instelling lijkt de [apparaat platforms voorwaarde](active-directory-conditional-access-azure-portal.md#device-platforms) en geeft u het equivalent van **alle platforms (inclusief niet-ondersteunde)**. 
+Deze instelling lijkt de [apparaat platforms voorwaarde](active-directory-conditional-access-conditions.md#device-platforms) en geeft u het equivalent van **alle platforms (inclusief niet-ondersteunde)**. 
 ### <a name="client-apps"></a>Client-apps
 
-Deze instelling lijkt de [client apps voorwaarde](active-directory-conditional-access-azure-portal.md#client-apps).
+Deze instelling lijkt de [client apps voorwaarde](active-directory-conditional-access-conditions.md#client-apps).
 Standaard deze instelling zorgt ervoor dat een evaluatie van alle beleidsregels met **Browser** of **mobiele apps en bureaublad-clients** ofwel afzonderlijk of beide geselecteerd. Detecteert ook beleidsregels die afdwingen **Exchange ActiveSync (EAS)**. U kunt deze instelling afbakenen door te selecteren:
 
 - **Browser** om alle beleidsregels met ten minste te evalueren **Browser** geselecteerde. 
@@ -95,7 +95,7 @@ Standaard deze instelling zorgt ervoor dat een evaluatie van alle beleidsregels 
 
 ### <a name="sign-in-risk"></a>Aanmeldingsrisico
 
-Deze instelling lijkt de [aanmelden risico voorwaarde](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Deze instelling lijkt de [aanmelden risico voorwaarde](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Evaluatie 

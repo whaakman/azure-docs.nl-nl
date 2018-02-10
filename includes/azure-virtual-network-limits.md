@@ -52,7 +52,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Regels per resource, Basic | 150 | 250 |
 | Regels per resource, standaard | 1250 | 1500 |
 | Regels per IP-configuratie | 299 |299 |
-| Frontend-IP-adresconfiguraties, Basic | 10 | contact met ondersteuning |
+| Frontend-IP-adresconfiguraties, Basic | 10 | 200 |
 | Frontend-IP-adresconfiguraties, standaard | 10 | 600 |
 | Back-endpool Basic | 100, één Beschikbaarheidsset | - |
 | Back-endpool Standard | 1000, enkel VNet | - |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten
 
@@ -101,13 +101,13 @@ Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemacc
 
 9.  Vul de volgende velden onder **beheerdersreferenties**:
 
-   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap 4 #.
+   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap &#4;.
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
 > Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap 3 # gegenereerd en klikt u op **testverbinding**.
+   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap &#3; gegenereerd en klikt u op **testverbinding**.
 
    * U ziet een melding met succes de upperright-zijde van de portal.
 
@@ -121,9 +121,9 @@ Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemacc
 
 14. Klik op **Opslaan**. 
 
-Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan de centrale Cerner in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de Azure AD-service inricht wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app Cerner centraal beschrijven.
+Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan de centrale Cerner in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-service inricht wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken, die alle acties die worden uitgevoerd door de inrichting service op uw app Cerner centraal beschrijven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

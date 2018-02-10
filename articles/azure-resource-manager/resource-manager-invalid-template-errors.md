@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Los de fouten voor ongeldige sjabloon
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Dubbele de toegestane waarden in de sjabloon en geef een tijdens de implementatie.
 
-### <a name="solution-4---circular-dependency-detected"></a>Oplossing 4 - circulaire afhankelijkheid gedetecteerd
+### <a name="solution-4---too-many-target-resource-groups"></a>Oplossing 4: te veel doel resourcegroepen
+
+Als u meer dan vijf doel resourcegroepen in een implementatie met één opgeeft, ontvangt deze foutmelding. Houd rekening met het aantal resourcegroepen in uw implementatie of implementeren van sommige sjablonen als afzonderlijke-implementaties. Zie voor meer informatie [implementeren Azure-resources aan meer dan één abonnement of resourcegroep](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Oplossing 5 - circulaire afhankelijkheid gedetecteerd
 
 U ontvangt deze foutmelding wanneer resources afhankelijk van elkaar op een manier waardoor de implementatie zijn niet worden gestart. Een combinatie van afhankelijkheden maakt twee of meer resources, wacht u totdat de andere bronnen die ook wachten. Bijvoorbeeld resource1 is afhankelijk van resource3, resource2, is afhankelijk van resource1 en resource3 is afhankelijk van resource2. Meestal kunt u dit probleem oplossen door het verwijderen van onnodige afhankelijkheden.

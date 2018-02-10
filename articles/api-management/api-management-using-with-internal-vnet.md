@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Gebruik van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk op het internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -26,7 +26,7 @@ Met virtuele netwerken van Azure beheren Azure API Management API's die niet toe
 * Intern
 
 
-Wanneer API Management wordt geïmplementeerd in de modus intern virtueel netwerk, zijn alle service-eindpunten (gateway, developer-portal, publicatieportal, direct beheer en Git) alleen zichtbaar zijn in een virtueel netwerk dat u de toegang tot beheren. Geen van de service-eindpunten zijn geregistreerd op de openbare DNS-server.
+Wanneer API Management wordt geïmplementeerd in de modus intern virtueel netwerk, zijn alle service-eindpunten (gateway, de portal voor ontwikkelaars, de Azure-portal, direct beheer en Git) alleen zichtbaar zijn in een virtueel netwerk dat u de toegang tot beheren. Geen van de service-eindpunten zijn geregistreerd op de openbare DNS-server.
 
 U kunt de volgende scenario's met behulp van API Management in de interne modus, bereiken:
 * Controleer de API's die worden gehost in uw persoonlijke datacenter veilig toegankelijk door derden buiten via site-naar-site of Azure ExpressRoute VPN-verbindingen.
@@ -72,14 +72,14 @@ U kunt ook virtuele netwerkverbindingen inschakelen met behulp van PowerShell-cm
 Wanneer u API Management in de modus voor extern virtueel netwerk, worden de DNS-server wordt beheerd door Azure. U hebt voor de modus van een intern virtueel netwerk voor het beheren van uw eigen routering.
 
 > [!NOTE]
-> API Management-service luistert niet op aanvragen die afkomstig zijn van IP-adressen. Alleen reageert op aanvragen voor de hostnaam die is geconfigureerd op de service-eindpunten. Deze eindpunten zijn gateway, developer-portal, publicatieportal, direct beheer eindpunt en Git.
+> API Management-service luistert niet op aanvragen die afkomstig zijn van IP-adressen. Alleen reageert op aanvragen voor de hostnaam die is geconfigureerd op de service-eindpunten. Deze eindpunten zijn gateway, de portal voor ontwikkelaars, de Azurethe portal, direct beheer eindpunt en Git.
 
 ### <a name="access-on-default-host-names"></a>Toegang op standaard hostnamen
 Wanneer u een API Management-service, bijvoorbeeld de naam 'contoso' maakt worden standaard de volgende service-eindpunten geconfigureerd:
 
    * Gateway of proxy: contoso.azure api.net
 
-   * Publicatieportal en -portal voor ontwikkelaars: contoso.portal.azure api.net
+   * de Azure portal en de portal voor ontwikkelaars: contoso.portal.azure api.net
 
    * Direct beheer eindpunt: contoso.management.azure api.net
 
@@ -87,11 +87,11 @@ Wanneer u een API Management-service, bijvoorbeeld de naam 'contoso' maakt worde
 
 Voor toegang tot deze API Management-service-eindpunten, kunt u een virtuele machine in een subnet is verbonden met het virtuele netwerk waarin API Management wordt geïmplementeerd. Ervan uitgaande dat de interne virtuele IP-adres voor uw service 10.0.0.5 is, kunt u toewijzen het hosts-bestand % SystemDrive%\drivers\etc\hosts, als volgt:
 
-   * 10.0.0.5 contoso.azure-api.net
+   * 10.0.0.5     contoso.azure-api.net
 
-   * 10.0.0.5 contoso.portal.azure-api.net
+   * 10.0.0.5     contoso.portal.azure-api.net
 
-   * 10.0.0.5 contoso.management.azure-api.net
+   * 10.0.0.5     contoso.management.azure-api.net
 
    * 10.0.0.5 contoso.scm.azure-api.net
 

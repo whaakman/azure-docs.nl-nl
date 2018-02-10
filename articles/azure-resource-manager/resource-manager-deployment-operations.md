@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Bewerkingen van de implementatie weergeven met Azure Resource Manager
 
 
 U kunt de bewerkingen voor een implementatie via de Azure portal bekijken. Hebt u mogelijk de meest geïnteresseerd in de bewerkingen weer te geven wanneer u een fout opgetreden tijdens de implementatie ontvangen hebt zodat dit artikel is gericht op het weergeven van bewerkingen die zijn mislukt. De portal biedt een interface waarmee u eenvoudig zoeken van de fouten en mogelijke oplossingen te bepalen.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+U kunt uw implementatie oplossen door te kijken naar de controlelogboeken of de implementatiebewerkingen. Dit onderwerp leest beide methoden. Zie voor meer informatie over het oplossen van fouten voor bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources in Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
@@ -42,7 +42,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
     ![mislukte implementatie weergeven](./media/resource-manager-deployment-operations/view-error.png)
    
     Dit foutbericht moeten voldoende voor u om te beginnen met het oplossen van problemen. Als u meer informatie nodig over welke taken zijn voltooid, kunt u de bewerkingen weergeven zoals weergegeven in de volgende stappen uit.
-4. U ziet de implementatiebewerkingen in de **implementatie** blade. Selecteer een bewerking voor meer informatie.
+4. U kunt alle implementatiebewerkingen weergeven. Selecteer een bewerking voor meer informatie.
    
     ![bewerkingen weergeven](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 5. U kunt gebeurtenissen voor de implementatie weergeven door **gebeurtenissen**.
    
     ![gebeurtenissen weergeven](./media/resource-manager-deployment-operations/view-events.png)
-6. U selecteert een voor meer informatie en Zie de gebeurtenissen voor de implementatie. U ziet te de correlatie-id's. Deze waarde kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+6. U selecteert een voor meer informatie en Zie de gebeurtenissen voor de implementatie. U ziet de correlatie-id's. Deze waarde kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
    
     ![Zie gebeurtenissen](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -121,7 +121,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Elke implementatiebewerking in Azure bevat-aanvraag en antwoord-inhoud. Inhoud van de aanvraag is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld: Maak een VM besturingssysteemschijf en andere bronnen). De antwoordinhoud is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter worden om op te geven dat de aanvraag en/of antwoord in het logboek behouden blijven. 
+4. Elke implementatiebewerking in Azure bevat-aanvraag en antwoord-inhoud. Inhoud van de aanvraag is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld: Maak een VM besturingssysteemschijf en andere bronnen). De antwoordinhoud is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter om op te geven dat de aanvraag en/of antwoord in het logboek behouden blijven. 
 
   U die informatie ophalen van het logboek, en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
 
@@ -131,7 +131,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
 1. Ophalen van de algehele status van een implementatie met de **azure-groep implementatie weergeven** opdracht.
 
@@ -178,7 +178,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   }
   ```
 
-2. Informatie ophalen over de implementatiebewerkingen met de [lijst van alle implementatiebewerkingen voor sjabloon](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) bewerking. 
+2. Informatie over implementaties met [lijst van alle implementatiebewerkingen voor sjabloon](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

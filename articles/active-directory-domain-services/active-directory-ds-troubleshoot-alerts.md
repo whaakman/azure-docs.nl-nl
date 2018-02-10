@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/05/2018
 ms.author: ergreenl
-ms.openlocfilehash: b2e0edf3588f3b1db5f4b6641019be1ded9cb50e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat richtlijnen voor probleemoplossing voor de waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -75,6 +75,11 @@ Volg deze stappen voor het herstellen van uw service:
 
 Lees voordat u begint, de **persoonlijke IP v4-adresruimte** in sectie [in dit artikel](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
+In het virtuele netwerk mag machines aanvragen maken voor Azure-resources die zich in hetzelfde IP-adresbereik als die zijn geconfigureerd voor het subnet. Echter aangezien het virtuele netwerk is geconfigureerd voor dit bereik, deze aanvragen wordt gerouteerd binnen het virtuele netwerk en niet de beoogde webbronnen wordt bereikt. Dit kan leiden tot onverwachte fouten met Azure AD Domain Services.
+
+**Als u het IP-adresbereik op internet die in het virtuele netwerk is geconfigureerd, kunt u deze waarschuwing negeren. Echter, Azure AD Domain Services kunnen niet opslaan in de [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] met deze configuratie omdat dit tot onverwachte fouten leiden kan.**
+
+
 1. [Verwijderen van uw beheerde domein](active-directory-ds-disable-aadds.md) van uw directory.
 2. Corrigeer het IP-adresbereik voor het subnet
   1. Navigeer naar de [pagina van de virtuele netwerken op de Azure-portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
@@ -86,7 +91,7 @@ Lees voordat u begint, de **persoonlijke IP v4-adresruimte** in sectie [in dit a
   7. Werk het adresbereik en sla de wijzigingen.
 3. Ga als volgt [de handleiding voor ophalen is gestart met behulp van Azure AD Domain Services](active-directory-ds-getting-started.md) opnieuw maken van uw beheerde domein. Zorg ervoor dat u een virtueel netwerk met een particulier IP-adresbereik kiest.
 4. Lid van domein uw virtuele machines naar het nieuwe domein, gaat u als volgt [in deze handleiding](active-directory-ds-admin-guide-join-windows-vm-portal.md).
-8. Controleer de status van uw domein in twee uur om ervoor te zorgen dat u de stappen correct hebt voltooid.
+8. Controleer uw domein health in twee uur zodat de waarschuwing is opgelost.
 
 
 ## <a name="contact-us"></a>Contact opnemen

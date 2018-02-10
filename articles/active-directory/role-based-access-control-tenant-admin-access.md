@@ -3,7 +3,7 @@ title: Tenantbeheerder toegangsrechten - Azure AD uitbreiden | Microsoft Docs
 description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC).
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Toegangsrechten uitbreiden als een tenantbeheerder met toegangsbeheer op basis van rollen
 
@@ -28,7 +28,7 @@ Deze functie is belangrijk omdat hiermee de tenantbeheerder om te zien van de ab
 
 ## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>ElevateAccess gebruiken voor toegang van de tenant met Azure AD-beheercentrum
 
-1. Ga naar de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) en meld u aan met u referenties.
+1. Ga naar de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) en meld u aan met uw referenties.
 
 2. Kies **eigenschappen** links menu van Azure AD.
 
@@ -101,8 +101,8 @@ Het basisproces werkt met de volgende stappen uit:
 
 Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze bevoegdheden intrekken moet u de toewijzing verwijderen.
 
-1.  Aanroepen van GET-roldefinities waar roleName = beheerder voor gebruikerstoegang om te bepalen van de naam van de GUID van de rol beheerder voor gebruikerstoegang.
-    1.  OPHALEN van *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$ filter = roleName + eq +'+ + beheerder voor gebruikerstoegang*
+1.  Aanroepen van GET-roleDefinitions waar roleName = beheerder voor gebruikerstoegang om te bepalen van de naam van de GUID van de rol beheerder voor gebruikerstoegang.
+    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
         {"value":[{"properties":{
@@ -124,12 +124,12 @@ Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze 
         Sla de GUID van de *naam* parameter in dit geval **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
 2. U moet er ook voor het weergeven van de roltoewijzing voor tenantbeheerder binnen het bereik van de tenant. Lijst van alle toewijzingen in het bereik van de tenant voor de PrincipalId van de TenantAdmin die de uitbreiden toegang aanroepen. Hiermee wordt een lijst van alle toewijzingen in de tenant voor de object-id. 
-    1. OPHALEN van *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$ filter = principalId + eq + {objectid}*
+    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >Een tenantbeheerder mag geen veel toewijzingen hebben als de bovenstaande query te veel toewijzingen, u kunt ook een query retourneert voor alle toewijzingen van op scopeniveau tenant Just en vervolgens de resultaten filteren: ophalen *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+        >Een tenantbeheerder mag geen veel toewijzingen hebben als de vorige query te veel toewijzingen, u kunt ook een query retourneert voor alle toewijzingen van op scopeniveau tenant Just en vervolgens de resultaten filteren: ophalen *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
         
-    2. Het aanroepen van de bovenstaande retourneren een lijst met roltoewijzingen. De roltoewijzing vinden waar de scope is '/' en de RoleDefinitionId eindigt met de naam van de rol GUID die u in stap 1 hebt gevonden en PrincipalId overeenkomt met de object-id van de Tenant-beheerder. De roltoewijzing ziet er als volgt:
+    2. Het aanroepen van de vorige retourneren een lijst met roltoewijzingen. De roltoewijzing vinden waar de scope is '/' en de RoleDefinitionId eindigt met de naam van de rol GUID die u in stap 1 hebt gevonden en PrincipalId overeenkomt met de object-id van de Tenant-beheerder. De roltoewijzing ziet er als volgt:
 
         ```
         {"value":[{"properties":{
@@ -150,7 +150,7 @@ Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze 
 
     3. Gebruik tot slot de gemarkeerde **RoleAssignment ID** verwijderen van de toewijzing die door de bevoegdheden toegang toegevoegd:
 
-        Https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01 verwijderen
+        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
 ## <a name="next-steps"></a>Volgende stappen
 

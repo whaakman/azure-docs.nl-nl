@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 36fc33813595183856713f01b5a94f84e1f3db4e
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b1d2e5468aa5b6a10b93ea118969d66789a17f50
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Zelfstudie: Pingboard configureren voor het automatisch gebruikers inrichten
 
@@ -93,7 +93,7 @@ In deze sectie helpt u bij uw Azure AD verbinden met het inrichten van de API Pi
 
 12. Selecteer **opslaan** starten van de initiële synchronisatie van gebruikers die zijn toegewezen aan Pingboard.
 
-De initiële synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. Gebruik de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van rapporten van activiteiten. De rapporten worden alle acties die worden uitgevoerd door de inrichting service op uw app Pingboard beschreven.
+De initiële synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. Gebruik de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken. De logboeken worden alle acties die worden uitgevoerd door de inrichting service op uw app Pingboard beschreven.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van de acties op resources
 Via activiteitenlogboeken, kunt u bepalen:
@@ -29,7 +29,11 @@ Via activiteitenlogboeken, kunt u bepalen:
 * De status van de bewerking
 * De bewerking van de waarden van andere eigenschappen die u kunnen helpen onderzoek
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Het activiteitenlogboek bevat alle schrijfbewerkingen (PUT, POST, verwijderen) uitgevoerd op uw resources. Dit omvat geen leesbewerkingen (GET). Zie voor een lijst van acties van de resource [Resourceprovider van Azure Resource Manager operations](../active-directory/role-based-access-control-resource-provider-operations.md). Kunt u de controlelogboeken vinden van een fout opgetreden bij het oplossen van of om te controleren hoe een gebruiker in uw organisatie een resource gewijzigd.
+
+Activiteitenlogboeken worden bewaard gedurende 90 dagen. U kunt een query voor een reeks datums, zolang de begindatum niet meer dan 90 dagen in het verleden is.
+
+
 
 U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, PowerShell, Azure CLI, inzicht REST API of [Insights .NET-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -131,7 +135,7 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
         DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. 
 
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 * Voor het ophalen van logboekvermeldingen die u uitvoert het **azure-groep logboek weergeven** opdracht.
 
   ```azurecli
@@ -139,7 +143,7 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
   ```
 
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 De REST-bewerkingen voor het werken met het activiteitenlogboek deel uitmaken van de [Insights REST-API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Zie voor het ophalen van de activiteit logboekgebeurtenissen [lijst van de management-gebeurtenissen in een abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen

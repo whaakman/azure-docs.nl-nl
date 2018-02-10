@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met Twitter-accounts
-
-> [!NOTE]
-> Deze functie is in preview.
-> 
 
 ## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C Twitter gebruikt, moet u een Twitter-toepassing maken en geeft deze met de juiste parameters. U moet een Twitter-ontwikkelaarsaccount om dit te doen. Als u niet hebt, kunt u krijgen op het [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2
 6. Klik op **instellen van deze id-provider** en voer de Twitter **consumentsleutel** voor de **Client-id** en de Twitter **consumentgeheim** voor de **clientgeheim**.
 7. Klik op **OK**, en klik vervolgens op **maken** naar uw Twitter-configuratie op te slaan.
 
+## <a name="next-steps"></a>Volgende stappen
+
+Creëer of bewerk een [ingebouwde beleid](active-directory-b2c-reference-policies.md) en Twitter toevoegen als een id-provider.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Zelfstudie: Dropbox voor bedrijven configureren voor het automatisch gebruikers inrichten
 
@@ -88,13 +88,9 @@ Deze sectie helpt u bij het verbinden van uw Azure AD met Dropbox voor bedrijven
 
 14. Klik op **opslaan.**
 
-De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan Dropbox voor bedrijven in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw Dropbox voor bedrijven-app.
+De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan Dropbox voor bedrijven in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken waarin alle acties die worden uitgevoerd door de inrichting service op uw Dropbox voor bedrijven-app.
 
-U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met Dropbox voor bedrijven.
-
-Een is voltooid gebruikersaanvragen cyclus wordt aangegeven door de bijbehorende status.
-
-![Gebruikers toewijzen](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "gebruikers toewijzen")
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende resources

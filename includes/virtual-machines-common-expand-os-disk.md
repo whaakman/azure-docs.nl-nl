@@ -8,6 +8,9 @@ Wanneer u een nieuwe virtuele machine (VM) maakt in een resourcegroep met de imp
 > In Azure zijn twee verschillende implementatiemodellen beschikbaar voor het maken van en werken met resources: Resource Manager en het klassieke model. In dit artikel wordt het Resource Manager-model beschreven. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 > 
 > 
+> [!WARNING]
+> Formaat van de OS-schijf van een virtuele Machine van Azure, wordt deze opnieuw op te starten.
+>
 
 ## <a name="resize-the-os-drive"></a>Besturingssysteemschijf uitbreiden
 In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met behulp van Resource Manager-modules van [Azure Powershell](/powershell/azureps-cmdlets-docs). We tonen grootte wijzigen van het station OS voor zowel beheerde als Unamanged schijven omdat de aanpak voor het vergroten of verkleinen schijven verschilt voor beide schijftypen.

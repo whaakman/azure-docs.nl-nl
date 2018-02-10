@@ -16,11 +16,11 @@ ms.date: 01/23/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -64,7 +64,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **Gast uitnodiging antwoorden**: gebruikers met deze rol kunnen Azure Active Directory B2B Gast gebruiker uitnodigingen beheren wanneer de instelling 'Leden kunnen uitnodigen' gebruiker is ingesteld op Nee. Meer informatie over B2B-samenwerking op [over de Azure AD B2B-samenwerking preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Dit omvat geen andere machtigingen.
 
-* **Information Protection-beheerder**: gebruikers aan deze rol kunnen toegang krijgen tot Azure Information Protection in de Azure portal. Ze kunnen labels voor het Azure Information Protection-beleid configureren, beheren van sjablonen voor beveiliging en bescherming activeren.
+<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
 
 * **Intune-servicebeheerder**: gebruikers met deze rol globale machtigingen in Microsoft Intune Online zijn wanneer de service aanwezig is. Daarnaast bevat deze rol de mogelijkheid voor het beheren van gebruikers en apparaten om te koppelen van beleid, evenals groepen maken en beheren.
 
@@ -128,11 +128,11 @@ De volgende beheerdersrollen zijn beschikbaar:
 | --- | --- |
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers en andere Helpdesk-beheerders alleen wijzigen</p>|<p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Rapporten weergeven</p>|
 
-### <a name="information-protection-administrator"></a>Information Protection-beheerder 
-in | Kan doen
+<!--### Information Protection Administrator 
+In | Can do
 -------- | ---------
-Azure Information Protection | * Het configureren van beleid voor globale, bereik en labels<br>* Beheren, configureren en beveiliging sjablonen bijwerken<br>* Beveiliging activering voor gebruik inschakelen 
-Privileged Identity Management | * De machtiging lezen<br>* Azure AD-rollidmaatschappen en instellingen beheren niet.
+Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
+Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
  
 ### <a name="reports-reader"></a>Rapporten lezer 
 Kan doen | Is niet mogelijk

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installeren en configureren van Ansible voor het beheren van virtuele machines in Azure
 Dit artikel wordt uitgelegd hoe u Ansible en de vereiste modules voor de Azure Python SDK installeert voor enkele van de meest voorkomende Linux-distributies. U kunt Ansible installeren op andere distributies door de geïnstalleerde pakketten aanpassen aan uw bepaald platform aan te passen. Voor het maken van Azure-resources op een veilige manier, u ook informatie over het maken en definiëren van referenties voor Ansible te gebruiken. 
@@ -28,7 +28,7 @@ Zie voor meer informatie over opties voor de installatie en stappen voor extra p
 
 
 ## <a name="install-ansible"></a>Ansible installeren
-Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAnsible* in de *eastus* locatie:
+Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAnsible* in de *eastus* locatie:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -36,12 +36,12 @@ az group create --name myResourceGroupAnsible --location eastus
 
 Nu een virtuele machine maken en installeer Ansible voor een van de volgende distributies van uw keuze:
 
-- [Ubuntu 16.04 TNS](#ubuntu1604-lts)
-- [7.3 centOS](#centos-73)
+- [Ubuntu 16.04 LTS](#ubuntu1604-lts)
+- [CentOS 7.3](#centos-73)
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-Maak een VM met [az vm create](/cli/azure/vm#create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
+Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -71,8 +71,8 @@ pip install ansible[azure]
 Nu wordt verplaatst naar [maken Azure-referenties](#create-azure-credentials).
 
 
-### <a name="centos-73"></a>7.3 centOS
-Maak een VM met [az vm create](/cli/azure/vm#create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
+### <a name="centos-73"></a>CentOS 7.3
+Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ Nu wordt verplaatst naar [maken Azure-referenties](#create-azure-credentials).
 
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
-Maak een VM met [az vm create](/cli/azure/vm#create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
+Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -157,7 +157,7 @@ Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
 }
 ```
 
-Om te verifiëren naar Azure, moet u ook uw Azure-abonnement-id met [az account weergeven](/cli/azure/account#show):
+Om te verifiëren naar Azure, moet u ook uw Azure-abonnement-id met [az account weergeven](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"

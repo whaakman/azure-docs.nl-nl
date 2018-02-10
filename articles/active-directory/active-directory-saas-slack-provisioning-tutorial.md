@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Zelfstudie: Slack configureren voor het automatisch gebruikers inrichten
 
@@ -107,7 +107,9 @@ Desgewenst kunt u de inrichting van groepsobjecten van Azure AD met Slack inscha
 
 4) Klik op **Opslaan**.
 
-Deze leiden tot een groepsobjecten worden toegewezen aan de vertraging in de **gebruikers en groepen** sectie volledig van Azure AD worden gesynchroniseerd met vertraging. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw toegestane app te beschrijven.
+Deze leiden tot een groepsobjecten worden toegewezen aan de vertraging in de **gebruikers en groepen** sectie volledig van Azure AD worden gesynchroniseerd met vertraging. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken, die alle acties die worden uitgevoerd door de inrichting service op uw toegestane app te beschrijven.
+
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende resources

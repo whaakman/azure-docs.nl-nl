@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
 De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  Dit artikel bevat een overzicht en aanvullende informatie voor de stappen in de video. Deze 24 minuut video ziet u hoe aan:
@@ -33,7 +33,7 @@ De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen m
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Een Azure AD-directory maken
-Voor het beveiligen van uw Web-API ondersteund met Azure Active Directory moet u eerst hebben een AAD-tenant. In deze video met de naam van een tenant **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
+Voor het beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst hebben een AAD-tenant. In deze video met de naam van een tenant **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -192,7 +192,7 @@ API's worden geconfigureerd in de API-publicatieportal, die wordt geopend via de
 
 Bewerkingen kunnen worden [toegevoegd aan de API's handmatig](api-management-howto-add-operations.md), of ze kunnen worden geïmporteerd. In deze video worden bewerkingen in Swagger-indeling vanaf 6:40 geïmporteerd.
 
-Maak een bestand met de naam `calcapi.json` met de volgende inhoud en sla deze op uw computer. Zorg ervoor dat de `host` punten kenmerk back-end van uw Web-API. In dit voorbeeld `"host": "apimaaddemo.azurewebsites.net"` wordt gebruikt.
+Maak een bestand met de naam `calcapi.json` met de volgende inhoud en sla deze op uw computer. Zorg ervoor dat de `host` punten kenmerk back-end van uw Web-API. In dit voorbeeld wordt `"host": "apimaaddemo.azurewebsites.net"` gebruikt.
 
 ```json
 {
@@ -387,7 +387,7 @@ Kies **Web-toepassing en/of Web-API**, voer een naam in en klik op de pijl Volge
 
 ![Nieuwe toepassing][api-management-aad-new-application-devportal-1]
 
-Voor **aanmeldings-URL** Voer de URL van uw API Management-service en toevoeg- `/signin`. In dit voorbeeld `https://contoso5.portal.azure-api.net/signin` wordt gebruikt.
+Voor **aanmeldings-URL** Voer de URL van uw API Management-service en toevoeg- `/signin`. In dit voorbeeld wordt `https://contoso5.portal.azure-api.net/signin` gebruikt.
 
 Voor **App-Id-URL** Voer de URL van uw API Management-service en het toevoegen van enkele unieke tekens. Deze mag gewenste tekens lang zijn en in dit voorbeeld `https://contoso5.portal.azure-api.net/dp` wordt gebruikt. Wanneer de gewenste **App-eigenschappen** zijn geconfigureerd, klikt u op het vinkje om de toepassing te maken.
 

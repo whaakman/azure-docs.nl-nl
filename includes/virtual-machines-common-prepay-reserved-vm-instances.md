@@ -30,8 +30,15 @@ U kunt gereserveerde virtuele Machine-exemplaren kopen de [Azure-portal](https:/
 
     ![Schermopname vóór het verzenden van de reservering aankoop](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Volgende stappen na de aankoop van een reservering
+## <a name="next-steps"></a>Volgende stappen 
 De reservering korting wordt automatisch toegepast op het aantal virtuele machines die overeenkomen met het bereik van de reservering en de kenmerken die worden uitgevoerd. U kunt het bereik van de reservering via bijwerken [Azure-portal](https://portal.azure.com), PowerShell, CLI of via de API. 
 
 Zie voor meer informatie over het beheren van een reservering, [beheren Azure gereserveerde virtuele Machine-exemplaren](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.
+
+- [Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](../articles/billing/billing-reserved-instance-windows-software-costs.md)

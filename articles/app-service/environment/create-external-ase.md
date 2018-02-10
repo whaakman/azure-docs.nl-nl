@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken #
 
-Azure App Service-omgeving is een implementatie van Azure App Service in een subnet in een Azure-netwerk (VNet). Er zijn twee manieren voor het implementeren van een App Service-omgeving (as-omgeving):
+Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een AS-omgeving te implementeren:
 
-- Een VIP-adres op een externe IP-adres, vaak aangeduid als een externe as-omgeving.
+- Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
 - Met het VIP op een interne IP-adres, vaak genoemd, een ILB-as-omgeving omdat het interne eindpunt, een interne load balancer (ILB is).
 
 Dit artikel ziet u het maken van een externe as-omgeving. Zie voor een overzicht van de as-omgeving [een inleiding tot de App-serviceomgeving][Intro]. Zie voor meer informatie over het maken van een as-omgeving voor de ILB [maken en gebruiken een ILB-as-omgeving][MakeILBASE].
@@ -69,7 +69,7 @@ Een as-omgeving maken bij het maken van een App Service-abonnement:
 
 4. Selecteer de App Service-abonnement en selecteer vervolgens **nieuw**.
 
-    ![Nieuwe App Service-abonnement][2]
+    ![Nieuw App Service-plan][2]
 
 5. In de **locatie** vervolgkeuzelijst, selecteer de regio waar u wilt maken van de as-omgeving. Als u een bestaande as-omgeving selecteert, wordt een nieuwe as-omgeving is niet gemaakt. De App Service-abonnement wordt gemaakt in de as-omgeving die u hebt geselecteerd. 
 
@@ -87,7 +87,7 @@ Een as-omgeving maken bij het maken van een App Service-abonnement:
 
     b. Voer de subnetnaam van een nieuwe.
 
-    c. Selecteer de grootte van het subnet. *Vergeet niet te selecteren van een groot genoeg biedt bij toekomstige groei van uw as-omgeving.* Het is raadzaam `/25`, waardoor 128 adressen heeft en een maximale grootte as-omgeving kan verwerken. Wordt niet aanbevolen `/28`, bijvoorbeeld omdat alleen 16 adressen beschikbaar zijn. Infrastructuur ten minste vijf adressen worden gebruikt. In een `/28` subnet, bent u links met een maximale schaling van 11 exemplaren.
+    c. Selecteer de grootte van het subnet. *Vergeet niet te selecteren van een groot genoeg biedt bij toekomstige groei van uw as-omgeving.* Het is raadzaam `/25`, waardoor 128 adressen heeft en een maximale grootte as-omgeving kan verwerken. Wordt niet aanbevolen `/28`, bijvoorbeeld omdat alleen 16 adressen beschikbaar zijn. Infrastructuur ten minste zeven adressen worden gebruikt en een andere 5 Azure-netwerken gebruikt. In een `/28` subnet, bent u links met een maximale schaal van 4 plan van App Service-exemplaren voor een externe as-omgeving en slechts 3 App Service-abonnement instanties voor een as ILB-omgeving.
 
     d. Selecteer het bereik van de IP-subnet.
 

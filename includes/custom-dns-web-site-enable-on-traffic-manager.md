@@ -26,5 +26,5 @@ Als u uw web-app nog niet als een Traffic Manager-eindpunt hebt toegevoegd, moet
    
    Zodra de configuratie is voltooid, kunt u de aangepaste domeinnaam wordt weergegeven in de **domeinnamen** gedeelte van uw web-app.
 
-Op dit moment moet u kunnen de Traffic Manager-domeinnaam invoeren in uw browser en Zie dat het met succes u naar uw web-app gaat.
+Op dit moment moet u kunnen de Traffic Manager-domeinnaam opgeven in uw browser en Zie dat het met succes u naar uw web-app gaat.
 

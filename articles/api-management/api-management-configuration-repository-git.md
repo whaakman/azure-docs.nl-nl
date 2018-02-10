@@ -6,25 +6,22 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: mattfarm
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met Git
-> 
-> 
 
-Elk exemplaar van API Management-service houdt een configuratiedatabase die informatie over de configuratie en metagegevens voor het service-exemplaar bevat. Door een instelling in de publicatieportal te wijzigen, gebruikt een PowerShell-cmdlet of REST API-aanroep, kunnen u wijzigingen aangebracht in het service-exemplaar. Naast deze methoden kunt u ook de serviceconfiguratie-exemplaar met behulp van Git, zoals het inschakelen van scenario's voor het beheer van service beheren:
+Elk exemplaar van API Management-service houdt een configuratiedatabase die informatie over de configuratie en metagegevens voor het service-exemplaar bevat. Door een instelling in de Azure portal te wijzigen, gebruikt een PowerShell-cmdlet of REST API-aanroep, kunnen u wijzigingen aangebracht in het service-exemplaar. Naast deze methoden kunt u ook de serviceconfiguratie-exemplaar met behulp van Git, zoals het inschakelen van scenario's voor het beheer van service beheren:
 
 * Configuratie versioning - downloaden en opslaan van verschillende versies van de serviceconfiguratie
 * Bulksgewijs configuratiewijzigingen - wijzigingen aanbrengen in meerdere delen van uw serviceconfiguratie in uw lokale opslagplaats en de wijzigingen naar de server integreren met een enkele bewerking
@@ -34,7 +31,7 @@ Het volgende diagram toont een overzicht van de verschillende manieren voor het 
 
 ![GIT configureren][api-management-git-configure]
 
-Wanneer u wijzigingen aan uw service met behulp van de publicatieportal, PowerShell-cmdlets of de REST-API aanbrengt, u beheert uw service configuration database met de `https://{name}.management.azure-api.net` eindpunt, zoals wordt weergegeven aan de rechterkant van het diagram. Aan de linkerkant van het diagram ziet u hoe u de configuratie van uw service met Git kunt beheren en Git-opslagplaats voor uw service zich bevindt op `https://{name}.scm.azure-api.net`.
+Wanneer u wijzigingen aan uw service met de Azure-portal, PowerShell-cmdlets of de REST-API aanbrengt, u beheert uw service configuration database met de `https://{name}.management.azure-api.net` eindpunt, zoals wordt weergegeven aan de rechterkant van het diagram. Aan de linkerkant van het diagram ziet u hoe u de configuratie van uw service met Git kunt beheren en Git-opslagplaats voor uw service zich bevindt op `https://{name}.scm.azure-api.net`.
 
 De volgende stappen geven een overzicht van het beheer van uw API Management-service-exemplaar met Git.
 
@@ -47,11 +44,8 @@ De volgende stappen geven een overzicht van het beheer van uw API Management-ser
 Dit artikel wordt beschreven hoe u inschakelen en Git gebruiken voor het beheren van de serviceconfiguratie en bevat een verwijzing voor de bestanden en mappen in de Git-opslagplaats.
 
 ## <a name="access-git-configuration-in-your-service"></a>Toegang tot de configuratie van Git in uw service
-U kunt snel de status van de Git-configuratie weergeven door het bekijken van de Git-pictogram in de rechterbovenhoek van de publicatieportal. In dit voorbeeld geeft het statusbericht aan dat er niet-opgeslagen wijzigingen aan de opslagplaats. Dit komt doordat de configuratiedatabase van API Management-service is nog niet zijn opgeslagen in de opslagplaats.
 
-![GIT-status][api-management-git-icon-enable]
-
-Als u wilt weergeven en configureren van uw configuratie-instellingen voor Git, u kunt Klik op het pictogram Git, of klikt u op de **beveiliging** menu en navigeer naar de **configuratie opslagplaats** tabblad.
+Als u wilt weergeven en configureren van de Git-configuratie-instellingen, klikt u op de **beveiliging** menu en navigeer naar de **configuratie opslagplaats** tabblad.
 
 ![GIT inschakelen][api-management-enable-git]
 
@@ -63,43 +57,30 @@ Als u wilt weergeven en configureren van uw configuratie-instellingen voor Git, 
 Zie voor meer informatie over het inschakelen of uitschakelen via de REST-API toegang tot een Git [in- of uitschakelen via de REST-API toegang tot een Git](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Configuratie van de service om op te slaan de Git-opslagplaats
-De eerste stap voordat u de opslagplaats klonen is de huidige status van de serviceconfiguratie opslaan in de opslagplaats. Klik op **configuratie opslaan naar opslagplaats**.
 
-![Configuratie op te slaan][api-management-save-configuration]
+De eerste stap voordat u de opslagplaats klonen is de huidige status van de serviceconfiguratie opslaan in de opslagplaats. Klik op **opslaan in de opslagplaats**.
 
 Breng de gewenste wijzigingen in het bevestigingsvenster en klik op **Ok** om op te slaan.
 
-![Configuratie op te slaan][api-management-save-configuration-confirm]
-
 Na enkele ogenblikken de configuratie wordt opgeslagen en de status van de configuratie van de opslagplaats wordt weergegeven, inclusief de datum en tijd van de laatste wijziging in de configuratie en de laatste synchronisatie tussen de configuration-service en de opslagplaats.
-
-![Configuratiestatus][api-management-configuration-status]
 
 Zodra de configuratie is opgeslagen in de opslagplaats, kunnen worden gekloond.
 
 Zie voor informatie over het uitvoeren van deze bewerking met de REST API, [doorvoeren configuratie momentopname over met de REST-API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Voor het klonen van de opslagplaats op uw lokale computer
-Als u wilt een opslagplaats klonen, moet u de URL van uw opslagplaats, een gebruikersnaam en een wachtwoord. De gebruikersnaam en een URL worden weergegeven aan de bovenkant van de **configuratie opslagplaats** tabblad.
 
-![GIT kloon][api-management-configuration-git-clone]
-
-Het wachtwoord is gegenereerd aan de onderkant van de **configuratie opslagplaats** tabblad.
-
-![Wachtwoord genereren][api-management-generate-password]
-
-Als een wachtwoord worden gegenereerd, eerst voor zorgen dat de **verstrijken** is ingesteld op de gewenste vervaldatum en -tijd en klik vervolgens op **Token genereren**.
-
-![Wachtwoord][api-management-password]
+Als u wilt een opslagplaats klonen, moet u de URL van uw opslagplaats, een gebruikersnaam en een wachtwoord. Als u de gebruikersnaam en andere referenties, klikt u op **toegang tot de referenties** bovenaan op de pagina.  
+ 
+Als een wachtwoord worden gegenereerd, eerst voor zorgen dat de **verstrijken** is ingesteld op de gewenste vervaldatum en -tijd en klik vervolgens op **genereren**.
 
 > [!IMPORTANT]
 > Noteer dit wachtwoord. Zodra u deze pagina verlaat het wachtwoord niet opnieuw weergegeven.
 > 
-> 
 
 De volgende voorbeelden gebruikt het hulpprogramma Git Bash van [Git voor Windows](http://www.git-scm.com/downloads) , maar u kunt een Git-hulpmiddel dat u bekend met bent.
 
-Open uw Git-hulpprogramma in de gewenste map en voer de volgende opdracht voor het klonen van de git-opslagplaats op uw lokale computer, met de opdracht die is geleverd door de publicatieportal.
+Open uw Git-hulpprogramma in de gewenste map en voer de volgende opdracht voor het klonen van de git-opslagplaats op uw lokale computer, met de opdracht die is geleverd door de Azure-portal.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -116,7 +97,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 Als dit een fout biedt, kunt u URL-codering van het gedeelte van het wachtwoord van de opdracht. Een snelle manier om dit te doen is Visual Studio openen, en voert u de volgende opdracht in de **venster direct**. Openen van de **venster direct**, opent u een oplossing of project in Visual Studio (of maak een nieuwe lege console-toepassing), en kies **Windows**, **direct** van de **fouten opsporen in** menu.
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Gebruik het gecodeerde wachtwoord samen met de naam en opslagplaats locatie om samen te stellen de git-opdracht.
@@ -128,7 +109,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 Zodra de opslagplaats wordt gekloond kunt u deze kunt bekijken en bewerken in het lokale bestandssysteem. Zie voor meer informatie [structuur verwijzing van lokale Git-opslagplaats, bestanden en mappen](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Bijwerken van uw lokale opslagplaats met de meest recente configuratie van de service-exemplaar
-Als u wijzigingen in uw API Management-service-exemplaar in de publicatieportal aanbrengen of met de REST API, moet u deze wijzigingen opslaan in de opslagplaats voordat u uw lokale opslagplaats met de meest recente wijzigingen bijwerken kunt. Om dit te doen, klikt u op **configuratie opslaan naar opslagplaats** op de **configuratie opslagplaats** tabblad in de publicatieportal en voert u de volgende opdracht in uw lokale opslagplaats.
+
+Als u wijzigingen in uw API Management-service-exemplaar in de Azure portal of met de REST API aanbrengen, moet u deze wijzigingen opslaan in de opslagplaats voordat u uw lokale opslagplaats met de meest recente wijzigingen bijwerken kunt. Om dit te doen, klikt u op **configuratie opslaan naar opslagplaats** op de **configuratie opslagplaats** tabblad in de Azure portal en voert u de volgende opdracht in uw lokale opslagplaats.
 
 ```
 git pull
@@ -155,13 +137,13 @@ git push
 ```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Eventuele wijzigingen in de serviceconfiguratie implementeren op service-exemplaar van API Management
-Als uw lokale wijzigingen zijn doorgevoerd en naar de opslagplaats server gepusht, kunt u ze kunt implementeren in uw API Management-service-exemplaar.
 
-![Implementeren][api-management-configuration-deploy]
+Als uw lokale wijzigingen zijn doorgevoerd en naar de opslagplaats server gepusht, kunt u ze kunt implementeren in uw API Management-service-exemplaar.
 
 Zie voor informatie over het uitvoeren van deze bewerking met de REST API, [Git implementeren wijzigingen in de REST-API-configuratiedatabase](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Verwijzing in de bestanden en mappen de structuur van de lokale Git-opslagplaats
+
 De bestanden en mappen in de lokale git-opslagplaats bevatten de configuratie-informatie over het service-exemplaar.
 
 | Item | Beschrijving |
@@ -178,8 +160,8 @@ Elke map kan een of meer bestanden bevatten en in sommige gevallen een of meer m
 
 | Bestandstype | Doel |
 | --- | --- |
-| JSON |Configuratie-informatie over de respectieve entiteit |
-| HTML |Beschrijvingen van de entiteit, vaak worden weergegeven in de portal voor ontwikkelaars |
+| json |Configuratie-informatie over de respectieve entiteit |
+| html |Beschrijvingen van de entiteit, vaak worden weergegeven in de portal voor ontwikkelaars |
 | xml |Beleidsinstructies |
 | CSS |Opmaakmodellen voor developer portal aanpassen |
 
@@ -192,7 +174,6 @@ Deze bestanden kunnen worden gemaakt, verwijderd, bewerkt en beheerd op het loka
 > * Abonnementen
 > * Eigenschappen
 > * Developer portal entiteiten dan stijlen
-> 
 > 
 
 ### <a name="root-api-management-folder"></a>Hoofdmap voor de api-management
@@ -223,8 +204,6 @@ De eerste vier instellingen (`RegistrationEnabled`, `UserRegistrationTerms`, `Us
 | UserRegistrationTermsEnabled |**Gebruiksvoorwaarden weergeven op de aanmeldingspagina** selectievakje |
 | UserRegistrationTermsConsentRequired |**Toestemming vereist** selectievakje |
 
-![Instellingen van identiteit][api-management-identity-settings]
-
 De volgende vier instellingen (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, en `DelegationValidationKey`) toewijzen aan de volgende instellingen op de **delegering** tabblad de **beveiliging** sectie.
 
 | Delegatie-instelling | Toegewezen aan |
@@ -233,8 +212,6 @@ De volgende vier instellingen (`DelegationEnabled`, `DelegationUrl`, `DelegatedS
 | DelegationUrl |**De eindpunt-URL voor overdracht** tekstvak |
 | DelegatedSubscriptionEnabled |**Product abonnement delegeren** selectievakje |
 | DelegationValidationKey |**Validatiesleutel delegeren** tekstvak |
-
-![Delegatie-instellingen][api-management-delegation-settings]
 
 De laatste instelling `$ref-policy`, toegewezen aan het bestand globaal beleid instructies voor het service-exemplaar.
 
@@ -283,15 +260,9 @@ Zie voor informatie over andere manieren voor het beheren van uw service-exempla
 * Beheren van uw service-exemplaar met de volgende PowerShell-cmdlets
   * [Naslaginformatie over PowerShell-cmdlets voor service-implementatie](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Service management PowerShell-cmdlet-verwijzing](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Beheren van uw service-exemplaar in de publicatieportal
-  * [Uw eerste API beheren](import-and-publish.md)
 * Beheren van uw service-exemplaar met de REST API
   * [Naslaginformatie over API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>Bekijk een video-overzicht
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

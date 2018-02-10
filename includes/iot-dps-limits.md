@@ -9,7 +9,7 @@ De volgende tabel worden de beperkingen die van toepassing op IoT Hub apparaat-i
 | Maximum aantal CA 's | 10 |
 
 > [!NOTE]
-> Deze limieten zijn voor de openbare preview. Zodra de service in het algemeen beschikbaar is, u kunt contact met [Microsoft Support](https://azure.microsoft.com/support/options/) te verhogen van het aantal exemplaren in uw abonnement.
+> U kunt contact opnemen met [Microsoft Support](https://azure.microsoft.com/support/options/) te verhogen van het aantal exemplaren in uw abonnement.
 
 De Service voor het inrichten van apparaten beperkt aanvragen wanneer de volgende quota worden overschreden:
 

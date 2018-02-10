@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen
 
@@ -56,6 +56,16 @@ Filteren op aanvullende informatie en typt u in uw reservering-ID. De volgende s
 3. Reservering Base VM Meter subcategorie regel staat voor de regel van de kosten $0 in instructie sectie. Kosten van het uitvoeren van deze virtuele machine is al door de reservering betaald.
 4. Dit is de Id van de Meter voor reservering. De kosten van deze meter is $0. Een virtuele machine die in aanmerking voor gereserveerde exemplaar komt heeft deze MeterId in de csv voor het account voor de kosten. 
 5. Standard_DS1_v2 is één vCPU virtuele machine en de virtuele machine zonder Azure hybride voordeel is geïmplementeerd. Daarom deze meter bevat informatie over de extra kosten van Windows-software. Zie [kosten voor software van Windows Azure reserveren VM-exemplaren.](billing-reserved-instance-windows-software-costs.md) de meter die overeenkomt met de D-reeks 1 core VM vinden. Als Azure hybride voordeel wordt gebruikt, wordt deze extra kosten niet toegepast. 
+
+## <a name="next-steps"></a>Volgende stappen
+Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.
+
+- [Vooruitbetalen voor virtuele Machines met een gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Exemplaren van de gereserveerde virtuele Machine beheren](billing-manage-reserved-vm-instance.md)
+- [Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren](billing-save-compute-costs-reservations.md)
+- [Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
+- [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

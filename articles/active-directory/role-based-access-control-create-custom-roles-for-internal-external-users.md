@@ -3,7 +3,7 @@ title: Aangepaste op rollen gebaseerde toegang besturingselement functies maken 
 description: Aangepaste RBAC-rollen gemaakt met behulp van PowerShell en CLI voor interne en externe gebruikers toewijzen
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Inleiding op rollen gebaseerd toegangsbeheer
 
 Toegangsbeheer op basis van rollen is een Azure portal alleen functie waardoor de eigenaren van een abonnement gedetailleerde rollen toewijzen aan andere gebruikers die een specifieke bron scopes in hun omgeving kunnen beheren.
 
-RBAC kunt beter beveiligingsbeheer voor grote organisaties en voor midden-en kleinbedrijf werkt met externe deelnemers, leveranciers of freelancers die toegang tot specifieke bronnen in uw omgeving, maar niet per se aan de gehele infrastructuur of alle scopes facturering-gerelateerde nodig. RBAC kunt de flexibiliteit van die eigenaar is van één Azure-abonnement beheerd door de administrator-account (service-beheerdersrol op abonnementsniveau) en hebben meerdere gebruikers uitgenodigd onder hetzelfde abonnement, maar zonder Administrator-rechten voor het werken. Vanuit een management en facturering perspectief wordt de functie RBAC blijkt te zijn van een tijd- en efficiënte optie voor het gebruik van Azure in verschillende scenario's.
+RBAC kan beter beveiligingsbeheer voor grote organisaties en voor midden-en kleinbedrijf werkt met externe deelnemers, leveranciers of freelancers die toegang tot specifieke bronnen in uw omgeving, maar niet per se aan de gehele infrastructuur of een nodig Facturering-gerelateerde scopes. RBAC kunt de flexibiliteit van die eigenaar is van één Azure-abonnement beheerd door de administrator-account (service-beheerdersrol op abonnementsniveau) en hebben meerdere gebruikers uitgenodigd onder hetzelfde abonnement, maar zonder Administrator-rechten voor het werken. Vanuit een management en facturering perspectief wordt de functie RBAC blijkt te zijn van een tijd- en efficiënte optie voor het gebruik van Azure in verschillende scenario's.
 
 ## <a name="prerequisites"></a>Vereisten
 Het gebruik van RBAC in de Azure-omgeving vereist:
@@ -50,7 +50,7 @@ RBAC kan worden toegepast op drie verschillende bereiken in Azure. Van het hoogs
 Er zijn twee algemene voorbeelden wanneer RBAC is gebruikt (maar niet tot beperkt):
 
 * Externe gebruikers van de organisaties hebben (die geen deel uit van de gebruiker admin Azure Active Directory-tenant) uitgenodigd om bepaalde bronnen of het hele abonnement te beheren
-* Werken met gebruikers binnen de organisatie (ze zijn onderdeel van de gebruiker Azure Active Directory-tenant), maar deel uitmaken van verschillende teams of groepen die gedetailleerde toegang tot het hele abonnement of bepaalde resourcegroepen of resource-scopes in de omgeving nodig
+* Werken met gebruikers binnen de organisatie (ze zijn onderdeel van de gebruiker Azure Active Directory-tenant), maar deel uitmaken van verschillende teams of groepen die gedetailleerde toegang tot het hele abonnement of bepaalde resourcegroepen of resource-scopes in de omgeving nodig hebben
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Toegang verlenen op het abonnementsniveau van een voor een gebruiker buiten Azure Active Directory
 RBAC-rollen kunnen alleen worden toegekend **eigenaars** van het abonnement daarom de gebruiker met beheerdersrechten moet zijn aangemeld met een gebruikersnaam die heeft deze een vooraf toegewezen rol of het Azure-abonnement is gemaakt.
@@ -59,7 +59,7 @@ Nadat u aanmelden als beheerder, selecteert u vanuit de Azure-portal 'Abonnement
 ![abonnementsblade in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) standaard als het Azure-abonnement heeft aangeschaft door de gebruiker met beheerdersrechten de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt de rol van het abonnement. Zie voor meer informatie over de functies van Azure-abonnement, [toevoegen of wijzigen Azure-beheerdersrollen die het abonnement of de services beheren](/billing/billing-add-change-azure-subscription-administrator.md).
 
 In dit voorbeeld wordt de gebruiker "alflanigan@outlook.com' is de **eigenaar** van de 'gratis proefversie' abonnement in het AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker de maker van het Azure-abonnement met de eerste 'Outlook' van de Microsoft-Account (Microsoft-Account = Outlook, etc. Live) naam van het standaarddomein voor andere gebruikers die zijn toegevoegd aan deze tenant zijn **'@alflaniganuoutlook.onmicrosoft.com'**. Door het ontwerp van de syntaxis van het nieuwe domein wordt gevormd door het samenstellen van de naam van de gebruikersnaam en het domein van de gebruiker die de tenant wordt gemaakt en het toevoegen van de extensie **'. onmicrosoft.com '**.
-Bovendien gebruikers kunnen aanmelden met een aangepaste domeinnaam in de tenant na het toevoegen van en controle van de voor de nieuwe tenant. Zie voor meer informatie over het controleren van een aangepaste domeinnaam in een Azure Active Directory-tenant [een aangepaste domeinnaam toevoegen aan uw directory](/active-directory/active-directory-add-domain).
+Bovendien kunnen gebruikers zich aanmelden met een aangepaste domeinnaam in de tenant na het toevoegen van en controle van de voor de nieuwe tenant. Zie voor meer informatie over het controleren van een aangepaste domeinnaam in een Azure Active Directory-tenant [een aangepaste domeinnaam toevoegen aan uw directory](/active-directory/active-directory-add-domain).
 
 In dit voorbeeld bevat de "standaard Azure ' tenantmap alleen gebruikers met de naam van het domein '@alflanigan.onmicrosoft.com'.
 
@@ -77,9 +77,9 @@ Na het selecteren van het abonnement, de gebruiker met beheerdersrechten moet op
 
 ![nieuwe gebruiker toevoegen in het onderdeel voor toegangsbeheer IAM-functie in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-De volgende stap is het selecteren van de functie moet worden toegewezen en de gebruiker waaraan de RBAC-rol wordt toegewezen aan. In de **rol** het vervolgmenu van de gebruiker met beheerdersrechten ziet alleen de ingebouwde rollen RBAC die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer](role-based-access-built-in-roles.md).
+De volgende stap is het selecteren van de functie moet worden toegewezen en de gebruiker waaraan de RBAC-rol wordt toegewezen aan. In de **rol** vervolgkeuzemenu de gebruiker met beheerdersrechten ziet alleen de ingebouwde rollen RBAC die beschikbaar in Azure zijn. Zie voor meer uitleg van elke rol en hun toewijsbare bereiken gedetailleerde, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer](role-based-access-built-in-roles.md).
 
-De gebruiker met beheerdersrechten moet de e-mailadres van de externe gebruiker toevoegen. Het verwachte gedrag is voor de externe gebruiker worden niet weergegeven in de bestaande tenant. Nadat de externe gebruiker heeft uitgenodigd, hij zijn zichtbaar onder **abonnementen > Access Control (IAM)** met de huidige gebruikers dat momenteel een RBAC-rol op het bereik van het abonnement zijn toegewezen.
+De gebruiker met beheerdersrechten moet de e-mailadres van de externe gebruiker toevoegen. Het verwachte gedrag is voor de externe gebruiker worden niet weergegeven in de bestaande tenant. Nadat de externe gebruiker heeft uitgenodigd, hij zijn zichtbaar onder **abonnementen > Access Control (IAM)** met de huidige gebruikers die momenteel een RBAC-rol op het bereik van het abonnement zijn toegewezen.
 
 
 
@@ -96,7 +96,7 @@ De gebruiker met beheerdersrechten moet de e-mailadres van de externe gebruiker 
 De gebruiker "chessercarlton@gmail.com' heeft uitgenodigd om deel te worden een **eigenaar** voor het abonnement 'Gratis'. De externe gebruiker ontvangt een e-mailbevestiging met een activeringskoppeling, na het verzenden van de uitnodiging.
 ![e-uitnodiging voor RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Alleen buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken in de tenantmap 'Standaard Azure'. Ze worden gemaakt nadat de externe gebruiker toestemming heeft gegeven moeten worden vastgelegd in de map die is gekoppeld aan het abonnement dat hij een rol is toegewezen.
+Alleen buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken in de tenantmap 'Standaard Azure'. Ze worden gemaakt nadat de externe gebruiker toestemming heeft gegeven moeten worden vastgelegd in de map die is gekoppeld aan het abonnement hij een rol is toegewezen.
 
 
 
@@ -116,10 +116,10 @@ De externe gebruiker wordt weergegeven in de Azure Active Directory-tenant op al
 
 In de **gebruikers** weergave voor de externe gebruikers kunnen worden herkend door het type ander pictogram in de Azure-portal.
 
-Echter verlenen **eigenaar** of **Inzender** toegang tot een externe gebruiker op de **abonnement** bereik, staat niet toe dat de toegang tot de admin gebruikerslijst, tenzij de **globale beheerder** is toegestaan. In de eigenschappen van de gebruiker, de **gebruikerstype** die heeft twee algemene parameters, **lid** en **Gast** kunnen worden geïdentificeerd. Een lid is van een gebruiker die is geregistreerd in de map terwijl een gast een gebruiker uitgenodigd voor de map van een externe bron is. Zie voor meer informatie [hoe Azure Active Directory-beheerders Voeg B2B-samenwerking gebruikers](active-directory-b2b-admin-add-users.md).
+Echter verlenen **eigenaar** of **Inzender** toegang tot een externe gebruiker op de **abonnement** bereik, staat niet toe dat de toegang tot de admin gebruikerslijst, tenzij de **globale beheerder** is toegestaan. In de eigenschappen van de gebruiker, de **gebruikerstype**, die twee algemene parameters, heeft **lid** en **Gast** kunnen worden geïdentificeerd. Een lid is van een gebruiker die is geregistreerd in de map terwijl een gast een gebruiker uitgenodigd voor de map van een externe bron is. Zie voor meer informatie [hoe Azure Active Directory-beheerders Voeg B2B-samenwerking gebruikers](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
-> Zorg ervoor dat na het invoeren van de referenties in de portal, de externe gebruiker de juiste map aan te melden om te worden geselecteerd. Dezelfde gebruiker kan toegang hebben tot meerdere directory's en selecteer een van deze door te klikken op de gebruikersnaam in de rechterbovenhoek in de Azure portal en kies vervolgens de juiste map in de vervolgkeuzelijst.
+> Zorg ervoor dat na het invoeren van de referenties in de portal, selecteert u de juiste map aan te melden bij de externe gebruiker. Dezelfde gebruiker kan toegang hebben tot meerdere directory's en selecteer een van deze door te klikken op de gebruikersnaam in de rechterbovenhoek in de Azure portal en kies vervolgens de juiste map in de vervolgkeuzelijst.
 
 Terwijl een gast in de directory, de externe gebruiker alle resources voor het Azure-abonnement kunt beheren, maar heeft geen toegang tot de map.
 
@@ -163,7 +163,7 @@ Toewijzen van een RBAC-rol op een **resourcegroep** scope heeft een identieke pr
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>RBAC-rollen op het bereik van de resource toe te wijzen
 Toewijzen van een RBAC-rol op een scope resource in Azure heeft een identieke proces voor het toewijzen van de rol op het abonnementsniveau of op het niveau van de resourcegroep, dezelfde werkstroom voor beide scenario's te volgen. De gebruikers die de RBAC-rol is toegewezen Zie opnieuw kunnen alleen de items die ze toegang zijn toegewezen aan in de **alle Resources** tabblad of rechtstreeks in het dashboard.
 
-Er is een belangrijk aspect voor RBAC zowel op resource groepsbereik of resource-bereik voor de gebruikers om ervoor te zorgen voor aanmelden bij de juiste map.
+Er is een belangrijk aspect voor RBAC zowel op resource groepsbereik of resource-bereik voor de gebruikers om te controleren of aan te melden bij de juiste map.
 
 
 
@@ -172,7 +172,7 @@ Er is een belangrijk aspect voor RBAC zowel op resource groepsbereik of resource
 ![Directory-aanmelding in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>RBAC-rollen voor een Azure Active Directory-groep toewijzen
-Alle scenario's die gebruikmaken van RBAC op de drie verschillende bereiken in Azure bieden de bevoegdheid beheren, implementeren en beheren van verschillende bronnen als een toegewezen gebruiker zonder de noodzaak om een persoonlijke abonnement te beheren. Ongeacht is de RBAC-rol toegewezen voor een abonnement, resourcegroep of resource-bereik, alle zijn onder de één Azure-abonnement waar gebruikers toegang tot hebben de resources verder gemaakt door de toegewezen gebruikers kosten in rekening gebracht. Op deze manier de gebruikers die beschikken over beheerdersrechten voor die volledige Azure-abonnement facturering heeft een volledig overzicht over het verbruik ongeacht wie de resources wordt beheerd.
+Alle scenario's die gebruikmaken van RBAC op de drie verschillende bereiken in Azure bieden de bevoegdheid beheren, implementeren en beheren van verschillende bronnen als een toegewezen gebruiker zonder de noodzaak om een persoonlijke abonnement te beheren. Ongeacht de RBAC-rol is toegewezen voor een abonnement, resourcegroep of resource-scope, zijn onder de één Azure-abonnement waar gebruikers toegang tot hebben alle resources verder gemaakt door de toegewezen gebruikers kosten in rekening gebracht. Op deze manier de gebruikers die beschikken over beheerdersrechten voor die volledige Azure-abonnement facturering heeft een volledig overzicht over het verbruik ongeacht wie de resources wordt beheerd.
 
 Voor grotere organisaties, kunnen de RBAC-rollen worden toegepast op dezelfde manier voor het perspectief dat de gebruiker met beheerdersrechten toegang wil verlenen de gedetailleerde voor teams of volledige afdelingen, niet afzonderlijk voor elke gebruiker, overweegt het dus als een zeer tijd- en efficiënte optie overweegt Azure Active Directory-groepen. Ter illustratie van dit voorbeeld wordt de **Inzender** rol is toegevoegd aan een van de groepen in de tenant op het abonnementsniveau.
 
@@ -189,9 +189,9 @@ De ingebouwde RBAC-rollen die beschikbaar in Azure zijn ervoor zorgen dat bepaal
 
 Maken van aangepaste RBAC-rollen moet een ingebouwde functie, bewerken en vervolgens importeren in de omgeving. Het downloaden en het uploaden van de rol worden beheerd met PowerShell of CLI.
 
-Het is belangrijk om te begrijpen van de vereisten voor het maken van een aangepaste rol die u kunnen gedetailleerde toegang verlenen op het abonnementsniveau en kan de uitgenodigde gebruiker de flexibiliteit ondersteuningsaanvragen te openen.
+Het is belangrijk om te begrijpen van de vereisten voor het maken van een aangepaste rol die u kunnen gedetailleerde toegang verlenen op het abonnementsniveau en ook de uitgenodigde gebruikers de flexibiliteit ondersteuningsaanvragen te openen.
 
-In dit voorbeeld de ingebouwde functie **lezer** waarmee gebruikers toegang om alle scopes van de resource weer te geven, maar niet te bewerken of maakt u nieuwe is aangepast om de gebruiker de optie ondersteuningsaanvragen te openen.
+In dit voorbeeld de ingebouwde functie **lezer**, kunnen de gebruikers toegang tot alle bereiken in de resource weergeven maar niet te bewerken of nieuwe maken, is aangepast om de gebruiker de optie ondersteuningsaanvragen te openen.
 
 De eerste actie van het exporteren van de **lezer** rol moet worden uitgevoerd in PowerShell met verhoogde machtigingen worden uitgevoerd als administrator.
 
@@ -293,7 +293,7 @@ Azure CLI is uitgevoerd op een Mac en zonder dat toegang tot PowerShell, is de m
 
 De stappen voor het maken van een aangepaste beveiligingsrol zijn hetzelfde, met de enige uitzondering die met behulp van de rol CLI in een JSON-sjabloon kan niet worden gedownload, maar deze kan worden weergegeven in de CLI.
 
-Ik heb de ingebouwde rol van de gekozen voor dit voorbeeld **back-up lezer**.
+In dit voorbeeld hebt ik ervoor gekozen de ingebouwde rol van **back-up lezer**.
 
 ```
 

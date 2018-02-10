@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 728ffed27747cb298d5da312014a3c9e98b44f1e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce4421fc8276f215564cb7a171a215cc166c8517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Cloud-init gebruiken een gebruiker toevoegen aan een Linux VM in Azure
 Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) schaal wordt een gebruiker op een virtuele machine (VM) of de virtuele machine toevoegen (VMSS) ingesteld op de inrichting van de tijd in Azure. Dit script cloud init wordt uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init overzicht](using-cloud-init.md).
@@ -26,7 +26,7 @@ Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) schaa
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Een gebruiker toevoegen aan een virtuele machine met cloud-init
 Een van de eerste taken op een nieuwe Linux-VM is het toevoegen van een gebruiker met aanvullende voor uzelf om te voorkomen dat het gebruik van *hoofdmap*. SSH-sleutels zijn best practice voor beveiliging en gebruiksgemak. Sleutels worden toegevoegd aan de *~/.ssh/authorized_keys* bestand met dit script cloud init.
 
-Als u wilt een gebruiker toevoegt aan een Linux-VM, maakt u een bestand in uw huidige shell met de naam *cloud_init_add_user.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud_init_add_user.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  U moet uw eigen openbare sleutel opgeven (zoals de inhoud van *~/.ssh/id_rsa.pub*) voor de waarde van `ssh-authorized-keys:` -heeft hier om te vereenvoudigen in het voorbeeld is ingekort.
+Als u wilt een gebruiker toevoegt aan een Linux-VM, maakt u een bestand in uw huidige shell met de naam *cloud_init_add_user.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud_init_add_user.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  U moet uw eigen openbare sleutel opgeven (zoals de inhoud van *~/.ssh/id_rsa.pub*) voor de waarde van `ssh-authorized-keys:` -heeft hier om te vereenvoudigen in het voorbeeld is ingekort.
 
 ```yaml
 #cloud-config
@@ -42,13 +42,13 @@ users:
 > [!NOTE] 
 > Het #cloud-config-bestand bevat de `- default` parameter opgenomen. Hiermee wordt de gebruiker toevoegen aan de bestaande gebruiker met beheerdersrechten gemaakt tijdens het inrichten. Als u een gebruiker zonder maakt de `- default` parameter - de automatisch gegenereerde admin gebruiker gemaakt door de Azure-platform zou worden overschreven. 
 
-Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create) en geef het cloud-init-bestand met `--custom-data cloud_init_add_user.txt` als volgt:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create) en geef het cloud-init-bestand met `--custom-data cloud_init_add_user.txt` als volgt:
 
 ```azurecli-interactive 
 az vm create \

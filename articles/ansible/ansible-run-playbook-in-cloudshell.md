@@ -1,22 +1,22 @@
 ---
-title: Ansible worden uitgevoerd in de Azure-Cloud-Shell
-description: Meer informatie over het uitvoeren van verschillende Ansible taken in de Azure-Cloud-Shell
+title: Voer Ansible met Bash in de Azure-Cloud-Shell
+description: Meer informatie over het uitvoeren van verschillende Ansible taken met Bash in de Azure-Cloud-Shell
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Ansible worden uitgevoerd in de Azure-Cloud-Shell
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Voer Ansible met Bash in de Azure-Cloud-Shell
 
-In deze zelfstudie leert u hoe u verschillende Ansible taken uitvoert in de Azure-Cloud-Shell. Deze taken omvatten verbinding te maken met een virtuele machine en het maken van Ansible hulpmiddelen marketing en verkoop voor het maken en verwijderen van een Azure-resourcegroep.
+In deze zelfstudie leert u hoe u verschillende Ansible taken uitvoeren via Bash in de Cloud-Shell. Deze taken omvatten verbinding te maken met een virtuele machine en het maken van Ansible hulpmiddelen marketing en verkoop voor het maken en verwijderen van een Azure-resourcegroep.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -24,12 +24,14 @@ In deze zelfstudie leert u hoe u verschillende Ansible taken uitvoert in de Azur
 
 - **Azure-referenties** - [maken Azure-referenties en Ansible configureren](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configureren van Azure Cloud Shell** : als u niet bekend met Azure Cloud-Shell, het artikel bent [Quick Start voor Bash in de Azure-Cloud-Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ziet u hoe u starten en configureren van Cloud-Shell.
+- **Configureren van Azure Cloud Shell** : als u niet bekend met Azure Cloud-Shell, het artikel bent [Quick Start voor Bash in de Azure-Cloud-Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ziet u hoe u starten en configureren van Cloud-Shell. Een speciale website voor Cloud-Shell Hier starten:
+
+[![Cloud-Shell starten](https://shell.azure.com/images/launchcloudshell.png "Cloud Shell starten")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Ansible gebruiken voor verbinding met een virtuele machine
 Ansible heeft een pythonscript aangeroepen gemaakt [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) die een dynamische inventaris van uw Azure-resources wordt gegenereerd door het maken van API-aanvragen in de Azure Resource Manager. De volgende stappen maakt u met behulp van de `azure_rm.py` script verbinding maken met een virtuele machine van Azure:
 
-1. Open de Azure-Cloud-Shell.
+1. Open Bash in de Cloud-Shell. Shell-type wordt aangegeven aan de linkerkant van het Cloud-Shell-venster.
 
 1. Als u niet een virtuele machine te gebruiken, voert u de volgende opdrachten in de Cloud-Shell voor het maken van een virtuele machine waarmee u wilt testen:
 
@@ -78,7 +80,7 @@ Ansible heeft een pythonscript aangeroepen gemaakt [azure_rm.py](https://github.
   az group delete -n <resourceGroup>
   ```
 
-## <a name="run-a-playbook-in-cloud-shell"></a>Een playbook uitvoeren in de Cloud-Shell
+## <a name="run-a-playbook-in-cloud-shell"></a>Een playbook uitvoeren in Cloud Shell
 De [ansible playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) opdracht Ansible hulpmiddelen marketing en verkoop, de taken uitgevoerd op de betreffende host (s) wordt uitgevoerd. In deze sectie helpt u bij het gebruik van de Cloud-Shell kunnen maken en uitvoeren van de twee hulpmiddelen marketing en verkoop - Eén voor het maken van een resourcegroep en een tweede verwijderen van de resourcegroep. 
 
 1. Maak een bestand met de naam `rg.yml` als volgt:

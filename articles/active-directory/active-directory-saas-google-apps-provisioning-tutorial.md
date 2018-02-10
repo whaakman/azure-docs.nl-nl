@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Zelfstudie: Google Apps configureren voor het automatisch gebruikers inrichten
 
@@ -157,9 +157,9 @@ Deze sectie leidt u door het proces van het verbinden van uw Azure AD aan het ge
 
 20. Selecteer **Opslaan**.
 
-Dit proces wordt gestart voor de initiële synchronisatie van gebruikers of groepen die zijn toegewezen aan Google Apps in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten plaats terwijl de service wordt uitgevoerd. 
+Dit proces wordt gestart voor de initiële synchronisatie van gebruikers of groepen die zijn toegewezen aan Google Apps in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten plaats terwijl de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken. Deze logboeken worden alle acties die worden uitgevoerd door de inrichting-service op uw app in Google Apps beschreven.
 
-U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van rapporten van activiteiten. Deze rapporten worden alle acties die de worden uitgevoerd door de inrichting service op uw app in Google Apps beschreven.
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

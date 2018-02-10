@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 2bf65b7c5b0518da59e767db18fe6f4193e0ab6e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-diagnostic-logs"></a>Diagnostische logboeken van Service Bus
 
@@ -66,7 +66,7 @@ Operationeel logboek van JSON tekenreeksen bevatten elementen in de volgende tab
 Naam | Beschrijving
 ------- | -------
 ActivityId | Interne ID, die wordt gebruikt voor bijhouden
-EventName | De naam van bewerking           
+EventName | Bewerkingsnaam           
 resourceId | Azure Resource Manager-bron-ID
 SubscriptionId | Abonnements-id
 EventTimeString | Bewerkingstijd
@@ -93,7 +93,7 @@ Hier volgt een voorbeeld van een operationeel logboek van JSON-tekenreeks:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de volgende koppelingen voor meer informatie over Service Bus:
+Zie de volgende koppelingen voor meer informatie over Service Bus:
 
 * [Inleiding tot Servicebus](service-bus-messaging-overview.md)
 * [Aan de slag met Service Bus](service-bus-dotnet-get-started-with-queues.md)

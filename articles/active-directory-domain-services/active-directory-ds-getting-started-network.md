@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 680ffc41ab96d69153ef7039698bf9285ed6ce16
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inschakelen van Azure Active Directory Domain Services met Azure portal
 
@@ -46,6 +46,9 @@ De volgende configuratietaak is het maken van een virtuele Azure-netwerk en een 
 
     ![Virtueel netwerk kiezen](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
+  > [!WARNING]
+  > Zorg ervoor dat een adresruimte die binnen de privé IP-adresruimte te kiezen. IP-adressen die u niet de eigenaar die in de openbare adresruimte zijn er fouten optreden in Azure AD Domain Services.
+
 5. **Bestaand virtueel netwerk:** als u van plan bent om op te halen van een bestaand virtueel netwerk [een toegewezen subnet met de extensie van virtuele netwerken maken](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), en selecteer vervolgens dat subnet. Klik op **virtueel netwerk** selecteren van de bestaande virtuele netwerk. Klik op **Subnet** het toegewezen subnet kiest in uw bestaande virtuele netwerk te maken voor uw nieuwe beheerde domein. Klik op **OK** wanneer u klaar bent.
 
     ![Kies subnet binnen het virtuele netwerk](./media/getting-started/domain-services-blade-network-pick-subnet.png)
@@ -54,7 +57,7 @@ De volgende configuratietaak is het maken van een virtuele Azure-netwerk en een 
   > **Richtlijnen voor het selecteren van een subnet**
   > 1. Gebruik een toegewezen subnet voor Azure AD Domain Services. Implementeer geen eventuele andere virtuele machines met dit subnet. Deze configuratie kunt u netwerkbeveiligingsgroepen (nsg's) configureren voor uw werkbelastingen/virtuele machines zonder te verstoren uw beheerde domein. Zie voor meer informatie [networking overwegingen voor Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. Selecteer het gatewaysubnet voor het implementeren van Azure AD Domain Services niet omdat het is niet een ondersteunde configuratie.
-  3. Zorg ervoor dat het subnet dat u hebt geselecteerd voldoende beschikbare-adresruimte - ten minste 3-5 beschikbare IP-adressen.
+  3. Zorg ervoor dat het subnet dat u hebt geselecteerd voldoende beschikbare-adresruimte - ten minste 3-5 beschikbare IP-adressen en in de privé IP-adresruimte bestaat.
   >
 
 6. Wanneer u klaar bent, klikt u op **OK** om door te gaan naar de **beheerdersgroep** pagina van de wizard.

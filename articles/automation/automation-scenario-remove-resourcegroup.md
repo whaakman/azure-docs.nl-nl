@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation-scenario: de verwijdering van resourcegroepen automatiseren
 Veel klanten maken meer dan één resourcegroep. Sommige worden dan bijvoorbeeld gebruikt voor het beheer van productietoepassingen en andere als ontwikkelings-, test- en faseringsomgeving. Het automatiseren van de implementatie van deze resources is één ding, maar om een resourcegroep buiten gebruik te stellen met een enkele muisklik is heel wat anders. U kunt deze algemene beheertaak stroomlijnen met behulp van Azure Automation. Dit is handig als u werkt met een Azure-abonnement met een bestedingslimiet via een ledenaanbieding zoals MSDN of het programma Microsoft Partner Network Cloud Essentials.
@@ -37,7 +37,7 @@ De volgende invoerparameters zijn voor dit runbook gedefinieerd:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| NameFilter (vereist) |Hiermee geeft u een naamfilter op, zodat u de resourcegroepen die u van plan bent te verwijderen, kunt beperken. U kunt meerdere waarden doorgeven met behulp van een met komma's gescheiden lijst.<br>Het filter is niet hoofdlettergevoelig en komt overeen met elke resourcegroep die de tekenreeks bevat. |
+| NameFilter (vereist) |Hiermee geeft u een naamfilter op, zodat u de resourcegroepen die u van plan bent te verwijderen, kunt beperken. U kunt meerdere waarden doorgeven met behulp van een met komma's gescheiden lijst.<br>Het filter is niet hoofdlettergevoelig en overeenkomt met een resourcegroep die de tekenreeks. |
 | PreviewMode (optioneel) |Hiermee voert u het runbook uit om te zien welke resourcegroepen er worden verwijderd, maar er wordt geen actie ondernomen.<br>De standaard is **waar**. Zo voorkomt u dat u onbedoeld een of meer resourcegroepen verwijdert die aan het runbook zijn doorgegeven. |
 
 ## <a name="install-and-configure-this-scenario"></a>Dit scenario installeren en configureren
@@ -48,19 +48,19 @@ Dit runbook verifieert het gebruik van het [Azure Uitvoeren als-account](automat
 Nadat u het runbook hebt gedownload, kunt u dit importeren met behulp van de procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation) (Procedures voor het importeren van runbooks). Publiceer het runbook nadat dit is geïmporteerd in uw Automation-account.
 
 ## <a name="using-the-runbook"></a>Het runbook gebruiken
-De volgende stappen helpen u bij het uitvoeren van dit runbook. Zo raakt u vertrouwd met hoe het werkt. In dit voorbeeld wordt het runbook alleen getest. De resourcegroep wordt niet daadwerkelijk verwijderd.  
+De volgende stappen maakt u de uitvoering van dit runbook en de helpen die u meer vertrouwd raken met hoe het werkt. U wilt het runbook testen in dit voorbeeld wordt de resourcegroep niet werkelijk te verwijderen.  
 
 1. Open uw Automation-account via Azure Portal en klik op **Runbooks**.
 2. Selecteer het runbook **Remove-ResourceGroup** en klik op **Starten**.
-3. Wanneer u het runbook start, wordt de blade **Runbook starten** geopend en kunt u de parameters configureren. Voer de namen in van de resourcegroepen in uw abonnement waarmee u wilt testen en waarvan het niet erg is als deze per ongeluk worden verwijderd.<br> ![Remove-ResouceGroup-parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. Wanneer u het runbook start de **Runbook starten** pagina wordt geopend en u kunt de parameters configureren. Geef de namen van resourcegroepen in uw abonnement dat u voor het testen gebruiken kunt en zorgt ervoor geen kwaad dat als per ongeluk worden verwijderd.
 
    > [!NOTE]
-   > Zorg ervoor dat **Previewmode** is ingesteld op **true** om te voorkomen dat de geselecteerde resourcegroepen worden verwijderd.  **Opmerking:** Met dit runbook wordt de resourcegroep met het Automation-account dat dit runbook uitvoert, niet verwijderd.  
+   > Zorg ervoor dat **Previewmode** is ingesteld op **true** om te voorkomen dat de geselecteerde resourcegroepen worden verwijderd. Dit runbook wordt niet verwijderd van de resourcegroep die het Automation-account met dit runbook bevat.  
    >
    >
-4. Nadat u alle parameterwaarden hebt geconfigureerd, klikt u op **OK**. Het runbook wordt in de wachtrij geplaatst om te worden uitgevoerd.  
+1. Nadat u alle parameterwaarden hebt geconfigureerd, klikt u op **OK**. Het runbook wordt in de wachtrij geplaatst om te worden uitgevoerd.  
 
-Als u de details van de runbooktaak **Remove-ResourceGroup** in Azure Portal wilt weergeven, selecteert u **Taken** in het runbook. Het taakoverzicht geeft de invoerparameters en de uitvoerstroom weer, naast algemene informatie over de taak en eventuele uitzonderingen.<br> ![Taakstatus van het runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+De details van de **verwijderen ResourceGroup** runbook taak in de Azure-portal onder **Resource**, selecteer **taken** in het runbook. Selecteer, de taak die u wilt weergeven. Het taakoverzicht geeft de invoerparameters en de uitvoerstroom weer, naast algemene informatie over de taak en eventuele uitzonderingen.<br> ![Taakstatus van het runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
 Het **Taakoverzicht** bevat berichten van de uitvoer-, waarschuwings- en foutstromen. Selecteer **Uitvoer** om gedetailleerde resultaten van de uitvoering van het runbook weer te geven.<br> ![Uitvoerresultaten van het runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 

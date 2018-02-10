@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Besturingselementen in Azure Active Directory voorwaardelijke toegang 
 
-Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), u kunt beheren hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('dit doen') naar een bepaalde voorwaarde ('als dit gebeurt'). In de context van voorwaardelijke toegang 
+Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), u kunt beheren hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('dit doen") met de reden voor activering van uw beleid ('wanneer dit gebeurt'). 
 
-- "**Wanneer dit gebeurt**' heet **voorwaarde-instructie**
+![Besturingselement](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Voert u deze**' heet **besturingselementen**
 
-![Besturingselement](./media/active-directory-conditional-access-controls/11.png)
+In de context van voorwaardelijke toegang 
+
+- "**Wanneer dit gebeurt**' heet **voorwaarden**
+
+- "**Voert u deze**' heet **toegangscontroles**
+
 
 De combinatie van een voorwaardeninstructie met de besturingselementen vertegenwoordigt een beleid voor voorwaardelijke toegang.
 
-![Besturingselement](./media/active-directory-conditional-access-controls/12.png)
+![Besturingselement](./media/active-directory-conditional-access-controls/61.png)
 
 Elk besturingselement is een vereiste waaraan moet worden voldaan door de persoon die of systeem aanmelden of een beperking van wat de gebruiker kunt doen na het aanmelden. 
 

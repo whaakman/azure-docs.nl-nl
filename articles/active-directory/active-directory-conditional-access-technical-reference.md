@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
 
@@ -39,7 +39,7 @@ Als dit niet de informatie die u zoekt, laat u een opmerking aan het einde van d
 
 ## <a name="cloud-apps-assignments"></a>Toewijzingen voor cloud-apps
 
-Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](active-directory-conditional-access-azure-portal.md#who). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app selecteren. 
+Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](active-directory-conditional-access-conditions.md#cloud-apps). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app selecteren. 
 
 ![Selecteer de cloud-apps voor uw beleid](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -62,7 +62,7 @@ U kunt beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps 
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio teamservices
+- Microsoft Visual Studio Team Services
 
 - Microsoft Teams
 
@@ -105,7 +105,7 @@ U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het be
 
 ## <a name="client-apps-condition"></a>Voorwaarde voor client-apps 
 
-In uw beleid voor voorwaardelijke toegang configureert u de [client-apps](active-directory-conditional-access-azure-portal.md#client-apps) voorwaarde voor het koppelen van het beleid naar de clientapp die een toegangspoging heeft gestart. De client-apps probleem verlenen of toegang blokkeren als er een toegangspoging wordt uitgevoerd vanaf de volgende typen van de client-apps instellen:
+In uw beleid voor voorwaardelijke toegang configureert u de [client-apps](active-directory-conditional-access-conditions.md#client-apps) voorwaarde voor het koppelen van het beleid naar de clientapp die een toegangspoging heeft gestart. De client-apps probleem verlenen of toegang blokkeren als er een toegangspoging wordt uitgevoerd vanaf de volgende typen van de client-apps instellen:
 
 - Browser
 - Mobiele apps en bureaublad-apps
@@ -123,13 +123,13 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 
 | OS                     | Browsers                            | Ondersteuning     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, rand Chrome     | ![Selecteren][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Selecteren][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Selecteren][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Selecteren][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Selecteren][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
-| Windows Phone          | Internet Explorer rand             | ![Selecteren][1] |
-| Windows Server 2016    | Internet Explorer rand             | ![Selecteren][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Selecteren][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Selecteren][1] |
 | Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
@@ -169,10 +169,9 @@ Deze instelling heeft gevolgen op toegangspogingen tot van de volgende apps voor
 |Outlook 2016 (Office voor Mac OS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Mobiele app voor Outlook|Office 365 Exchange Online|Android, iOS|
-|Power BI-app. De Power BI-app voor Android biedt momenteel geen ondersteuning voor voorwaardelijke toegang op basis van apparaten.|Power BI-service|Windows 10, Windows 8.1, Windows 7 en iOS|
-|Skype voor bedrijven|Office 365 Exchange Online|Android-, IOS |
+|Power BI-app|Power BI-service|Windows 10, Windows 8.1, Windows 7 en iOS|
+|Skype voor Bedrijven|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services-app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS en Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Goedgekeurde app vereiste 
@@ -186,6 +185,7 @@ Deze instelling geldt voor de volgende ClientApps:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Deze instelling geldt voor de volgende ClientApps:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype voor bedrijven
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

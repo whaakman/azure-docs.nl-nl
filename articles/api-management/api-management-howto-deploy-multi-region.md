@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Een Azure API Management-service-exemplaar implementeren op meerdere Azure-regio 's
 API Management biedt ondersteuning voor meerdere landen/regio-implementatie waarmee de API-uitgevers voor een enkele API management-service verdelen over een willekeurig aantal gewenste Azure-regio's. Dit vermindert de latentie waargenomen door geografisch verspreid API consumenten en verbetert tevens de servicebeschikbaarheid als één regio offline gaat. 
@@ -52,13 +52,12 @@ Klik op **toevoegen** uw selectie in de tabel locaties plaatsen.
 Herhaal dit proces totdat u alle geconfigureerde locaties en klik op **opslaan** van de werkbalk om het implementatieproces start.
 
 ## <a name="remove-region"></a>Verwijderen van exemplaar van API Management-service van een locatie
+
 Navigeer in de Azure Portal naar de **schaal en prijzen** pagina voor uw API Management-service-exemplaar. 
 
 ![Tabblad schaal][api-management-scale-service]
 
 Voor de locatie die u wilt verwijderen open het context-menu met de **...**  knop aan de rechterkant van de tabel. Selecteer de **verwijderen** optie.
-
-![Regio verwijderen][api-management-remove-region]
 
 De verwijdering te bevestigen en klikt u op **opslaan** de wijzigingen toe te passen.
 

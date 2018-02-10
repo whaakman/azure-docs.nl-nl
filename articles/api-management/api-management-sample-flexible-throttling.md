@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Geavanceerde aanvraagbeperking met Azure API Management
 Om te beperken van binnenkomende aanvragen kunnen is een belangrijke functie van Azure API Management. Een door de snelheid van aanvragen of de totale aanvragen/gegevensoverdracht te beheren, kunt API Management API-providers voor hun-API's beveiligen tegen misbruik en waarde maken voor de verschillende lagen voor API-product.
 
 ## <a name="product-based-throttling"></a>Op basis van product-beperking
-Op dit moment, de frequentie waarmee beperking zijn mogelijkheden beperkt tot wordt binnen het bereik van een bepaald Product-abonnement (in wezen een sleutel), gedefinieerd in de publicatieportal van API Management. Dit is handig voor de API-provider beperkingen toepassen op de ontwikkelaars die zich hebben geregistreerd hun API gebruiken, echter dat niet helpt, bijvoorbeeld in een beperking van afzonderlijke eindgebruikers van de API. Het is mogelijk dat voor één gebruiker van de toepassing van de ontwikkelaar het hele quotum gebruiken en vervolgens te voorkomen dat andere klanten van de ontwikkelaar kan de toepassing gebruiken. Enkele klanten een groot aantal aanvragen genereren kunnen kunnen ook toegang tot incidentele gebruikers te beperken.
+Op dit moment, de frequentie waarmee beperking zijn mogelijkheden beperkt tot wordt binnen het bereik van een bepaald Product-abonnement (in wezen een sleutel), gedefinieerd in de Azure portal. Dit is handig voor de API-provider beperkingen toepassen op de ontwikkelaars die zich hebben geregistreerd hun API gebruiken, echter dat niet helpt, bijvoorbeeld in een beperking van afzonderlijke eindgebruikers van de API. Het is mogelijk dat voor één gebruiker van de toepassing van de ontwikkelaar het hele quotum gebruiken en vervolgens te voorkomen dat andere klanten van de ontwikkelaar kan de toepassing gebruiken. Enkele klanten een groot aantal aanvragen genereren kunnen kunnen ook toegang tot incidentele gebruikers te beperken.
 
 ## <a name="custom-key-based-throttling"></a>Aangepaste sleutel op basis van beperking
 De nieuwe [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) en [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) -beleid biedt u een aanzienlijk meer flexibele oplossing voor beheer van netwerkverkeer. Dit nieuwe beleid kunt u voor het definiëren van expressies voor het aanduiden van de sleutels die worden gebruikt voor het bijhouden van gebruik van verkeer. De manier waarop die dit werkt wordt easiest weergegeven met een voorbeeld. 

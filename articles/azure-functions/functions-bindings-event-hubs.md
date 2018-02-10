@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -220,7 +220,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `eventHubTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
-|**richting** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
+|**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
 |**pad** |**EventHubName** | De naam van de event hub. | 
 |**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die bepaalt de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
@@ -393,7 +393,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op 'eventHub'. |
-|**richting** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
+|**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
 |**naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode waarmee de gebeurtenis. | 
 |**pad** |**EventHubName** | De naam van de event hub. | 
 |**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.|
@@ -405,6 +405,12 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 In C# en C# script, kunt u berichten verzenden met behulp van een methodeparameter zoals `out string paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt gebruiken voor het schrijven van meerdere berichten `ICollector<string>` of `IAsyncCollector<string>` in plaats van `out string`.
 
 In JavaScript, opent u de uitvoergebeurtenis met behulp van `context.bindings.<name>`. `<name>`de waarde is opgegeven in de `name` eigenschap van *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Uitzonderingen en retourcodes
+
+| Binding | Referentie |
+|---|---|
+| Event Hub | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

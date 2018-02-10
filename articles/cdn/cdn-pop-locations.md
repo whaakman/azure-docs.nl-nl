@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Azure CDN POP-locaties
 In dit artikel worden de huidige point-of-presence (POP)-locaties voor **Azure CDN van Verizon** en **Azure CDN van Akamai**.
 
 > [!IMPORTANT]
-> **Azure CDN van Akamai** POP stad locaties worden niet afzonderlijk vermeld.  
+> POP stad locaties voor **Azure CDN van Akamai** niet afzonderlijk openbaar worden gemaakt.  
 > 
 > Beide providers zijn verschillende manieren van het bouwen van hun infrastructuur CDN.  We raden het gebruik van de POP-locaties om te bepalen welke Azure CDN-product te gebruiken en overweeg in plaats daarvan functies en prestaties van de eindgebruiker.  Test de prestaties met beide providers kiezen van het juiste Azure CDN-product voor uw gebruikers. 
 > 
@@ -32,9 +32,9 @@ In dit artikel worden de huidige point-of-presence (POP)-locaties voor **Azure C
 
 | Regio | Verizon | Akamai |
 | --- | --- | --- |
-| Noord-Amerika | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Utrecht<br />Amsterdam, AMS<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington, DC | Canada<br />Mexico<br />Verenigde Staten |
+| Noord-Amerika | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Utrecht<br />Amsterdam, AMS<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington, DC<br />Puebla, Mexico<br />Querétaro, Mexico | Canada<br />Mexico<br />Verenigde Staten |
 | Zuid-Amerika | Buenos Aires, Argentinië<br />Rio de Janeiro, Brazilië<br />Sao Paulo, Brazilië<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brazilië<br />Peru |
-| Noord- en Oost-Europa | Kopenhagen, Denemarken<br />Helsinki, Finland<br />Warschau, Polen<br />Stockholm, Zweden | Denemarken<br />Polen<br />Zweden<br /> |
+| Noord- en Oost-Europa | Kopenhagen, Denemarken<br />Helsinki, Finland<br />Riga, Letland<br />Warschau, Polen<br />Stockholm, Zweden | Denemarken<br />Polen<br />Zweden<br /> |
 | West-Europa | Wenen, Oostenrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Amsterdam, Nederland<br />Londen, UK | Oostenrijk<br />Frankrijk<br />Duitsland<br />Ierland<br />Nederland<br />Zwitserland<br />Verenigd Koninkrijk |
 | Zuid-Europa | Milaan, Italië<br />Madrid, Spanje | Italië<br />Spanje |
 | Afrika | Johannesburg, Zuid-Afrika | |

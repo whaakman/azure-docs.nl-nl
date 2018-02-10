@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -297,7 +297,7 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 
          * **Expressie** – kunt u een aangepaste waarde schrijven naar het kenmerk AD op basis van een of meer kenmerken van Workday. [Zie voor meer informatie in dit artikel op expressies](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Bronkenmerk** -gebruikerskenmerk uit Workday.
+      * **Bronkenmerk** -gebruikerskenmerk uit Workday. Als het kenmerk dat u zoekt niet aanwezig is, Zie [aanpassen van de lijst met gebruikerskenmerken Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Standaardwaarde** : optioneel. Als het bronkenmerk een lege waarde heeft, wordt de toewijzing in plaats daarvan deze waarde schrijven.
             De configuratie van de meest voorkomende is leeg laten.
@@ -549,7 +549,7 @@ In deze sectie configureert u hoe de gebruikersgegevens voor gebruikers alleen i
 
       * **Expressie** – kunt u een aangepaste waarde schrijven naar het kenmerk AD op basis van een of meer kenmerken van Workday. [Zie voor meer informatie in dit artikel op expressies](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Bronkenmerk** -gebruikerskenmerk uit Workday.
+   * **Bronkenmerk** -gebruikerskenmerk uit Workday. Als het kenmerk dat u zoekt niet aanwezig is, Zie [aanpassen van de lijst met gebruikerskenmerken Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Standaardwaarde** : optioneel. Als het bronkenmerk een lege waarde heeft, wordt de toewijzing in plaats daarvan deze waarde schrijven.
             De configuratie van de meest voorkomende is leeg laten.
@@ -646,7 +646,7 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de inrichting service starten.
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>De lijst met gebruikerskenmerken Workday aanpassen
 De inrichting van apps voor Active Directory en Azure AD zowel een standaardlijst met gebruikerskenmerken Workday opnemen werkdag u kunt kiezen uit. Deze lijsten zijn echter niet uitgebreid. Werkdag ondersteunt honderden mogelijke gebruikerskenmerken, die kunnen standaard of uniek is voor uw Workday-tenant zijn. 
 
-De Azure AD-service inricht ondersteunt de mogelijkheid voor het aanpassen van de lijst of Workday-kenmerk op alle kenmerken die worden weergegeven in de [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) bewerking van de API Human Resources.
+De Azure AD-service inricht ondersteunt de mogelijkheid voor het aanpassen van de lijst of Workday-kenmerk op alle kenmerken die worden weergegeven in de [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) bewerking van de API Human Resources.
 
 Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-download) uitpakken van de XPath-expressies die staan voor de kenmerken die u wilt gebruiken en deze vervolgens toevoegen aan uw provisioning-configuratie met behulp van de geavanceerde kenmerkeditor in de Azure portal.
 
@@ -654,7 +654,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 1. Download en installeer [Workday Studio](https://community.workday.com/studio-download). U moet een werkdag community-account voor toegang tot het installatieprogramma.
 
-2. Download het bestand Workday Human_Resources WDSL vanaf deze URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Download het bestand Workday Human_Resources WDSL vanaf deze URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Werkdag Studio starten.
 
@@ -680,12 +680,23 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>
