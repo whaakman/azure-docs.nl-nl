@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
@@ -52,14 +52,14 @@ Deze handleiding beschrijft het maken van de artefacten die zijn gekoppeld aan d
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
-Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/#login) opdracht in en volg de op het scherm richtingen, of klik op **Try it** Cloud Shell gebruiken.
+Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/#az_login) opdracht in en volg de op het scherm richtingen, of klik op **Try it** Cloud Shell gebruiken.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. U kunt een specifieke resourcegroep gebruiken voor het hosten van de sleutelkluis. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. U kunt een specifieke resourcegroep gebruiken voor het hosten van de sleutelkluis. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren. 
 
 Het volgende voorbeeld wordt een resourcegroep met de naam *keyvaultrg* in de *eastus* locatie:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
-Maken van een sleutelkluis voor het opslaan van de SSH-sleutels voor het cluster met de [az keyvault maken](/cli/azure/keyvault#create) opdracht. De naam van de sleutelkluis moet wereldwijd uniek zijn.
+Maken van een sleutelkluis voor het opslaan van de SSH-sleutels voor het cluster met de [az keyvault maken](/cli/azure/keyvault#az_keyvault_create) opdracht. De naam van de sleutelkluis moet wereldwijd uniek zijn.
 
 Het volgende voorbeeld wordt een sleutelkluis met de naam *keyvault* in de *keyvaultrg* resourcegroep:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Een service-principal maken 
 OpenShift communiceert met Azure met behulp van een gebruikersnaam en wachtwoord of een service-principal. Een Azure-service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's zoals OpenShift gebruiken kunt. U de machtigingen over welke bewerkingen door de service-principal in Azure uitvoeren kunt te definiëren en beheren. Voor een betere beveiliging dan gewoon een gebruikersnaam en wachtwoord voor het bieden dit voorbeeld wordt een basic service principal.
 
-Maken van een service principal met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac) en de uitvoer van de referenties die OpenShift nodig heeft.
+Maken van een service principal met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) en de uitvoer van de referenties die OpenShift nodig heeft.
 
 Het volgende voorbeeld maakt een service principal en Inzender-rechten toegewezen aan een resourcegroep met de naam myResourceGroup. Als u van Windows gebruikmaakt, uitvoermachtigingen ```az group show --name myResourceGroup --query id``` afzonderlijk en met de uitvoer van de feed de--optie scopes.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Gebeurtenis-aggregatie en verzameling op basis van EventFlow
 
@@ -43,6 +43,9 @@ Nadat alle pakketten zijn geïnstalleerd, wordt de volgende stap is het configur
 
 ## <a name="configure-and-enable-log-collection"></a>Configureren en inschakelen van verzamelen
 De pijplijn EventFlow verantwoordelijk voor het verzenden van de logboeken wordt gemaakt van een specificatie die is opgeslagen in een configuratiebestand. De `Microsoft.Diagnostics.EventFlow.ServiceFabric` pakket installeert u een eerste EventFlow configuratiebestand onder `PackageRoot\Config` oplossingenmap met de naam `eventFlowConfig.json`. Dit configuratiebestand moet worden gewijzigd voor het vastleggen van gegevens van de standaardservice `EventSource` klasse en alle andere invoer die u wilt configureren en gegevens verzenden naar de juiste plaats.
+
+>[!NOTE]
+>Als het projectbestand VisualStudio 2017 indeling heeft de `eventFlowConfig.json` bestand wordt niet automatisch worden toegevoegd. Om op te lossen dit maken van het bestand in de `Config` map en de build-actie ingesteld op `Copy if newer`. 
 
 Hier volgt een voorbeeld *eventFlowConfig.json* op basis van de hierboven genoemde NuGet-pakketten:
 ```json

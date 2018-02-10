@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/21/2017
+ms.date: 02/01/2018
 ms.author: chackdan
-ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Maken van een Service Fabric-cluster in Azure met Azure portal
 > [!div class="op_single_selector"]
@@ -27,10 +27,9 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-Dit is een stapsgewijze handleiding die u bij de stappen helpt voor het instellen van een beveiligde Service Fabric-cluster in Azure met behulp van de Azure-portal. Deze handleiding doorloopt u de volgende stappen uit:
+Dit is een stapsgewijze handleiding die u bij de stappen helpt voor het instellen van een Service Fabric-cluster (Linux of Windows) in Azure met behulp van de Azure-portal. Deze handleiding doorloopt u de volgende stappen uit:
 
-* Sleutelkluis instellen voor het beheren van sleutels voor de clusterbeveiliging.
-* Een beveiligde cluster in Azure maken via de Azure portal.
+* Een cluster in Azure maken via de Azure portal.
 * Beheerders met behulp van certificaten verifiëren.
 
 > [!NOTE]
@@ -38,103 +37,10 @@ Dit is een stapsgewijze handleiding die u bij de stappen helpt voor het instelle
 > 
 > 
 
-Een beveiligde cluster is een cluster dat voorkomt onbevoegde toegang tot beheertaken uit te voeren, waaronder implementeren, bijwerken en verwijderen van toepassingen, services en de gegevens die ze bevatten. Een niet-beveiligde cluster is een cluster iedereen kan verbinding maken met op elk gewenst moment en beheerbewerkingen uitvoeren. Hoewel het is mogelijk om een niet-beveiligde cluster te maken, is het **ten zeerste aangeraden om een beveiligde cluster te maken**. Een niet-beveiligde cluster **later niet kan worden beveiligd** -een nieuw cluster moet worden gemaakt.
-
-De concepten zijn hetzelfde voor het maken van beveiligde clusters, ongeacht of de clusters Linux-clusters of Windows-clusters. Zie voor meer informatie en helper scripts voor het maken van beveiligde Linux-clusters, [maken van beveiligde clusters](service-fabric-cluster-creation-via-arm.md). De parameters die zijn verkregen door het Help-script dat kunnen worden invoer rechtstreeks in de portal, zoals beschreven in de sectie [een cluster maken in de Azure portal](#create-cluster-portal).
-
-## <a name="configure-key-vault"></a>Key Vault configureren 
-### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Maakt gebruik van deze handleiding [Azure PowerShell][azure-powershell]. Bij het starten van een nieuwe PowerShell-sessie aanmelden bij uw Azure-account en selecteer uw abonnement voordat u Azure opdrachten uitvoert.
-
-Aanmelden bij uw azure-account:
-
-```powershell
-Login-AzureRmAccount
-```
-
-Selecteer uw abonnement:
-
-```powershell
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
-```
-
-### <a name="set-up-key-vault"></a>Key Vault instellen
-Dit deel van de handleiding helpt u bij het maken van een Sleutelkluis voor een Service Fabric-cluster in Azure en voor Service Fabric-toepassingen. Zie voor een volledige handleiding op Sleutelkluis de [Sleutelkluis instructiehandleiding][key-vault-get-started].
-
-Service Fabric gebruikt x.509-certificaten voor het beveiligen van een cluster. Azure Sleutelkluis wordt gebruikt voor het beheren van certificaten voor Service Fabric-clusters in Azure. Wanneer een cluster is geïmplementeerd in Azure, wordt de Azure-resourceprovider verantwoordelijk voor het maken van Service Fabric-clusters certificaten ophaalt uit Sleutelkluis en installeert ze op het cluster virtuele machines.
-
-Het volgende diagram illustreert de relatie tussen de Sleutelkluis, een Service Fabric-cluster en de Azure-resourceprovider die gebruikmaakt van certificaten die zijn opgeslagen in de Sleutelkluis bij het maken van een cluster:
-
-![Installatie van het certificaat][cluster-security-cert-installation]
-
-#### <a name="create-a-resource-group"></a>Een resourcegroep maken
-De eerste stap is het maken van een nieuwe resourcegroep specifiek voor Sleutelkluis. Sleutelkluis in een eigen resourcegroep stellen wordt aanbevolen, zodat u kunt resourcegroepen berekenings- en - zoals de resourcegroep die uw Service Fabric-cluster heeft - zonder verlies van uw sleutels en geheimen verwijderen. De resourcegroep met uw Sleutelkluis moet in dezelfde regio bevinden als het cluster dat wordt gebruikt.
-
-```powershell
-
-    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-    WARNING: The output object type of this cmdlet will be modified in a future release.
-
-    ResourceGroupName : mycluster-keyvault
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
-
-```
-
-#### <a name="create-key-vault"></a>Key Vault maken
-Een Sleutelkluis maken in de nieuwe resourcegroep. De Sleutelkluis **moet zijn ingeschakeld voor de implementatie van** om toe te staan van de Service Fabric-resourceprovider certificaten van het verkrijgen en installeren op clusterknooppunten:
-
-```powershell
-
-    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
-
-
-    Vault Name                       : myvault
-    Resource Group Name              : mycluster-keyvault
-    Location                         : West US
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-    Vault URI                        : https://myvault.vault.azure.net
-    Tenant ID                        : <guid>
-    SKU                              : Standard
-    Enabled For Deployment?          : False
-    Enabled For Template Deployment? : False
-    Enabled For Disk Encryption?     : False
-    Access Policies                  :
-                                       Tenant ID                :    <guid>
-                                       Object ID                :    <guid>
-                                       Application ID           :
-                                       Display Name             :    
-                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-                                       Permissions to Secrets   :    all
-
-
-    Tags                             :
-```
-
-Als u een bestaande Sleutelkluis hebt, kunt u dit inschakelen voor implementatie met een van de volgende manieren:
-
-##### <a name="azure-powershell"></a>Azure PowerShell
-
-```powershell
-PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
-```
-
-##### <a name="azure-cli"></a>Azure CLI:
-
-```cli
-> azure login
-> azure account set "your account"
-> azure config mode arm 
-> azure keyvault list
-> azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
-```
-
-
-### <a name="add-certificates-to-key-vault"></a>Voeg certificaten aan Sleutelkluis
+## <a name="cluster-security"></a>Clusterbeveiliging 
 Er worden in Service Fabric certificaten gebruikt voor verificatie en versleuteling om verschillende aspecten van een cluster en de bijbehorende toepassingen te beveiligen. Zie voor meer informatie over hoe de certificaten worden gebruikt in Service Fabric, [scenario's voor beveiliging van Service Fabric-cluster][service-fabric-cluster-security].
+
+Als dit de eerste keer dat u een service fabric-cluster maakt of een cluster voor testwerkbelastingen implementeert, kunt u doorgaan met de volgende sectie (**cluster maken in de Azure Portal**) en het genereren van certificaten die nodig zijn voor systeem clusters die testwerkbelastingen uitvoeren. Als u een cluster voor productieworkloads instelt, gaat u verder lezen.
 
 #### <a name="cluster-and-server-certificate-required"></a>Cluster en de server-certificaat (vereist)
 Dit certificaat is vereist voor het beveiligen van een cluster en onbevoegde toegang tot deze voorkomen. Biedt clusterbeveiliging in een aantal manieren:
@@ -146,7 +52,7 @@ Het certificaat moet voldoen aan de volgende vereisten voor deze doeleinden:
 
 * Het certificaat moet een persoonlijke sleutel bevatten.
 * Het certificaat moet worden gemaakt voor sleuteluitwisseling, geëxporteerd naar een bestand Personal Information Exchange (.pfx).
-* De onderwerpnaam van het certificaat moet overeenkomen met het domein dat wordt gebruikt voor toegang tot de Service Fabric-cluster. Dit is vereist voor SSL voor het HTTPS-eindpunten voor beheer en de Service Fabric Explorer van het cluster. U kunt een SSL-certificaat van een certificeringsinstantie (CA) kan niet ophalen voor de `.cloudapp.azure.com` domein. Verkrijgen van een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam voor uw cluster gebruikt.
+* Het certificaat **onderwerpnaam moet overeenkomen met het domein** gebruikt voor toegang tot de Service Fabric-cluster. Dit is vereist voor SSL voor het HTTPS-eindpunten voor beheer en de Service Fabric Explorer van het cluster. U kunt een SSL-certificaat van een certificeringsinstantie (CA) kan niet ophalen voor de `.cloudapp.azure.com` domein. Verkrijgen van een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam voor uw cluster gebruikt.
 
 #### <a name="client-authentication-certificates"></a>Certificaten voor clientverificatie
 Aanvullende clientcertificaten verifiëren van beheerders voor beheertaken cluster. Service Fabric heeft twee toegangsniveaus: **admin** en **alleen-lezengebruiker**. Ten minste moet één certificaat voor beheerderstoegang worden gebruikt. Voor extra beveiliging op gebruikersniveau toegang, moet u een afzonderlijk certificaat opgegeven. Zie voor meer informatie over toegang tot rollen [toegangsbeheer op basis van rollen voor Service Fabric-clients][service-fabric-cluster-security-roles].
@@ -166,51 +72,12 @@ Een willekeurig aantal extra certificaten kan worden geïnstalleerd op een clust
 
 Toepassingscertificaten kunnen niet worden geconfigureerd wanneer u een cluster via de Azure portal. Voor het configureren van toepassingscertificaten tijdens de installatie cluster, moet u [maken van een cluster met Azure Resource Manager][create-cluster-arm]. U kunt ook toepassingscertificaten toevoegen aan het cluster nadat deze is gemaakt.
 
-#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Certificaten voor Azure-resource provider opmaak
-Bestanden met persoonlijke sleutel (.pfx) kunnen worden toegevoegd en gebruikt rechtstreeks via de Sleutelkluis. De Azure-resourceprovider vereist echter sleutels worden opgeslagen in een speciale JSON-indeling met het .pfx als een Base64-gecodeerde tekenreeks en het wachtwoord van de persoonlijke sleutel. Om te voldoen deze vereisten, sleutels moeten worden geplaatst in een JSON-tekenreeks en vervolgens opgeslagen als *geheimen* in de Sleutelkluis.
-
-Om dit proces gemakkelijker te maken, een PowerShell-module is [beschikbaar op GitHub][service-fabric-rp-helpers]. Volg deze stappen voor het gebruik van de module:
-
-1. De volledige inhoud van de opslagplaats downloaden naar een lokale map. 
-2. Importeer de module in uw PowerShell-venster:
-
-```powershell
-  PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-```
-
-De `Invoke-AddCertToKeyVault` opdracht in deze PowerShell-module automatisch de persoonlijke sleutel van een certificaat in een JSON-tekenreeks indelingen en geüpload naar de Sleutelkluis. Gebruik dit voor het certificaat van het cluster en eventuele extra toepassingscertificaten toevoegen aan de Sleutelkluis. Herhaal deze stap voor elke extra certificaten die u wilt installeren in uw cluster.
-
-```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-
-    Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup mycluster-keyvault in West US
-    WARNING: The output object type of this cmdlet will be modified in a future release.
-    Using existing valut myvault in West US
-    Reading pfx file from C:\path\to\key.pfx
-    Writing secret to myvault in vault myvault
-
-
-Name  : CertificateThumbprint
-Value : <value>
-
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-
-Name  : CertificateURL
-Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-
-```
-
-Dit zijn de Sleutelkluis-vereisten voor het configureren van een Service Fabric-cluster Resource Manager-sjabloon die certificaten voor verificatie, eindpuntbeveiliging management en verificatie en eventuele aanvullende Toepassingsbeveiliging installeert functies die gebruikmaken van X.509-certificaten. Nu hebt u nu de volgende instellingen in Azure:
-
-* Sleutelkluis-resourcegroep
-  * Key Vault
-    * Certificaat voor serververificatie cluster
-
 < /a "maken-cluster-portal" ></a>
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Cluster maken in de Azure portal
+
+Maken van een productiecluster om te voldoen aan de behoeften van uw toepassing een planning om u te helpen bij die omvat, is het raadzaam dat u lees- en begrijpen [Service Fabric-Cluster planningsoverwegingen] [ service-fabric-cluster-capacity] document. 
+
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Zoeken naar de Service Fabric-cluster-bron
 ![zoeken naar Service Fabric-cluster sjabloon op de Azure-portal.][SearchforServiceFabricClusterTemplate]
 
@@ -218,7 +85,7 @@ Dit zijn de Sleutelkluis-vereisten voor het configureren van een Service Fabric-
 2. Klik op **nieuw** toevoegen van een nieuwe resource-sjabloon. Zoeken naar de sjabloon Service Fabric-Cluster in de **Marketplace** onder **Alles**.
 3. Selecteer **Service Fabric-Cluster** uit de lijst.
 4. Navigeer naar de **Service Fabric-Cluster** blade, klikt u op **maken**,
-5. De **maken Service Fabric-cluster** blade bevat de volgende vier stappen.
+5. De **maken Service Fabric-cluster** blade bevat de volgende vier stappen:
 
 #### <a name="1-basics"></a>1. Basisbeginselen
 ![Schermopname van het maken van een nieuwe resourcegroep.][CreateRG]
@@ -231,10 +98,10 @@ In de blade grondbeginselen moet u de algemene informatie opgeven voor uw cluste
 4. Maak een **nieuwe resourcegroep**. Het is raadzaam zodat deze dezelfde naam als het cluster, omdat het helpt bij het vinden ze later, vooral wanneer u probeert te wijzigingen aanbrengen in uw implementatie of verwijder uw cluster.
    
    > [!NOTE]
-   > Hoewel u een bestaande resourcegroep gebruiken kunt, is het raadzaam om een nieuwe resourcegroep te maken. Hierdoor kunt gemakkelijk clusters die u niet hoeft verwijderen.
+   > Hoewel u een bestaande resourcegroep gebruiken kunt, is het raadzaam om een nieuwe resourcegroep te maken. Hierdoor kunt gemakkelijk verwijderen clusters en alle resources die wordt gebruikt.
    > 
    > 
-5. Selecteer de **regio** in waarop u wilt maken van het cluster. U moet dezelfde regio als uw Sleutelkluis is in.
+5. Selecteer de **regio** in waarop u wilt maken van het cluster. Als u van plan bent een bestaand certificaat dat u al hebt geüpload naar een sleutelkluis te gebruiken, moet u dezelfde regio als uw sleutelkluis is in. 
 
 #### <a name="2-cluster-configuration"></a>2. Clusterconfiguratie
 ![Een knooppunttype maken][CreateNodeType]
@@ -242,49 +109,86 @@ In de blade grondbeginselen moet u de algemene informatie opgeven voor uw cluste
 Configureer de clusterknooppunten. Knooppunttypen definiëren de VM-grootten, het aantal virtuele machines en hun eigenschappen. Het cluster kan meer dan één knooppunttype hebben moet, maar het primaire knooppunttype (de eerste optie die u in de portal definieert) ten minste vijf virtuele machines, omdat dit het knooppunttype waar de Service Fabric-systeemservices worden geplaatst. Configureer geen **plaatsingseigenschappen** omdat een standaardeigenschap van de plaatsing van 'NodeTypeName' wordt automatisch toegevoegd.
 
 > [!NOTE]
-> Een veelvoorkomend scenario voor typen met meerdere knooppunten is een toepassing met een front-end-service en een back-endservice. U wilt de front-end-service plaatsen op kleinere virtuele machines (VM-grootten zoals D2) met poorten openen met het Internet, maar u wilt de back-endservice plaatsen op grotere virtuele machines (met VM-grootten zoals D4, D6 en D15) zonder internetverbinding poorten geopend.
+> Een veelvoorkomend scenario voor typen met meerdere knooppunten is een toepassing met een front-end-service en een back-endservice. U plaatst u de front-end-service op kleinere virtuele machines (VM-grootten zoals D2_V2) met poorten openen met het Internet, en de back-endservice op grotere virtuele machines (met VM-grootten zoals D3_V2, D6_V2 en D15_V2) zonder internetverbinding poorten geopend.
 > 
 > 
 
 1. Kies een naam voor uw knooppunttype (1-12 tekens die alleen letters en cijfers bevatten).
-2. De minimale **grootte** van virtuele machines voor het primaire knooppunt type wordt aangedreven door de **duurzaamheid** laag die u voor het cluster kiest. De standaardwaarde voor de laag duurzaamheid is Brons. Zie voor meer informatie over duurzaamheid [het kiezen van de Service Fabric-cluster betrouwbaarheid en duurzaamheid][service-fabric-cluster-capacity].
-3. Selecteer het VM-grootte en de prijscategorie. D-reeks VMs SSD-stations hebben en worden sterk aanbevolen voor stateful toepassingen. Geen gebruik van een VM SKU gedeeltelijke kernen heeft of kleiner zijn dan 7 GB aan beschikbare schijfruimte capaciteit. 
-4. De minimale **getal** van virtuele machines voor het primaire knooppunt type wordt aangedreven door de **betrouwbaarheid** laag die u kiest. De standaardwaarde voor de betrouwbaarheidslaag is Zilver. Zie voor meer informatie over de betrouwbaarheid, [het kiezen van de Service Fabric-cluster betrouwbaarheid en duurzaamheid][service-fabric-cluster-capacity].
-5. Het aantal virtuele machines voor het knooppunttype kiezen. U kunt omhoog of omlaag het aantal virtuele machines in een knooppunttype later op schalen, maar op het primaire knooppunttype minimaal wordt aangedreven door het niveau van betrouwbaarheid die u hebt gekozen. Andere knooppunttypen kunnen een minimum van 1 VM hebben.
+2. De minimale **grootte** van virtuele machines voor het primaire knooppunt type wordt aangedreven door de **duurzaamheid** laag die u voor het cluster kiest. De standaardwaarde voor de laag duurzaamheid is Brons. Zie voor meer informatie over duurzaamheid [het kiezen van de Service Fabric-cluster duurzaamheid][service-fabric-cluster-durability].
+3. Selecteer de VM-grootte. D-reeks VMs SSD-stations hebben en worden sterk aanbevolen voor stateful toepassingen. Geen gebruik van een VM SKU gedeeltelijke kernen heeft of minder dan 10 GB aan beschikbare schijfcapaciteit. Raadpleeg [service fabric-cluster overweging document planning] [ service-fabric-cluster-capacity] voor hulp bij het selecteren van de VM-grootte.
+4. Het aantal virtuele machines voor het knooppunttype kiezen. U kunt omhoog of omlaag het aantal virtuele machines in een knooppunttype later op schalen, maar op het primaire knooppunttype de minimumwaarde is 5 voor productieworkloads. Andere knooppunttypen kunnen minimaal één virtuele machine hebben. De minimale **getal** van virtuele machines voor het primaire knooppunt type stations de **betrouwbaarheid** van uw cluster.  
+5. **Enkele knooppunten en clusters met drie knooppunten** -deze zijn bedoeld voor gebruik door alleen test. Ze worden niet ondersteund voor alle actieve productieworkloads.
 6. Aangepaste eindpunten configureren. Dit veld kunt u een door komma's gescheiden lijst met poorten die u wilt weergeven via de Azure Load Balancer met het openbare Internet voor uw toepassingen invoeren. Bijvoorbeeld als u een webtoepassing met uw cluster implementeert wilt, voert u '80' hier voor verkeer op poort 80 in uw cluster. Zie voor meer informatie over eindpunten [communiceren met toepassingen][service-fabric-connect-and-communicate-with-services]
-7. Configureren van cluster **diagnostics**. Diagnostische gegevens zijn standaard ingeschakeld op het cluster om te helpen bij het oplossen van problemen. Als u wilt uitschakelen, wijziging van diagnostische gegevens van de **Status** in-of uitschakelen op **uit**. Het uitschakelen van diagnostische gegevens is **niet** aanbevolen.
-8. Selecteer de Fabric upgrade modus die u instellen van uw cluster wilt op. Selecteer **automatische**, als u wilt dat het systeem automatisch kunnen worden opgepikt de meest recente versie en probeer het bijwerken van uw cluster naar het. De modus instellen op **handmatige**, als u wilt kiezen van een ondersteunde versie.
+7. Configureren van cluster **diagnostics**. Diagnostische gegevens zijn standaard ingeschakeld op het cluster om te helpen bij het oplossen van problemen. Als u wilt uitschakelen, wijziging van diagnostische gegevens van de **Status** in-of uitschakelen op **uit**. Het uitschakelen van diagnostische gegevens is **niet** aanbevolen. Als u al Application Insights-project hebt gemaakt hebt en geeft u vervolgens de sleutel, zodat de toepassingstraceringen ernaar worden doorgestuurd.
+8. Selecteer de Fabric upgrade modus die u instellen van uw cluster wilt op. Selecteer **automatische**, als u wilt dat het systeem automatisch kunnen worden opgepikt de meest recente versie en probeer het bijwerken van uw cluster naar het. De modus instellen op **handmatige**, als u wilt kiezen van een ondersteunde versie. Voor meer informatie over de Fabric-modus Zie upgrade de [service fabric-cluster upgrade-document.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
-> Wij ondersteunen alleen clusters die met een ondersteunde versie van service Fabric. U selecteert de **handmatige** modus u onderneemt op de verantwoordelijkheid voor het upgraden van uw cluster naar een ondersteunde versie. Voor meer informatie over de Fabric-modus Zie upgrade de [service fabric-cluster upgrade-document.][service-fabric-cluster-upgrade]
-> 
+> Wij ondersteunen alleen clusters die met een ondersteunde versie van service Fabric. U selecteert de **handmatige** modus u onderneemt op de verantwoordelijkheid voor het upgraden van uw cluster naar een ondersteunde versie. > 
 > 
 
 #### <a name="3-security"></a>3. Beveiliging
-![Schermopname van beveiligingsconfiguraties op Azure-portal.][SecurityConfigs]
+![Schermopname van beveiligingsconfiguraties op Azure-portal.][BasicSecurityConfigs]
 
-De laatste stap is het certificaat informatie als u wilt beveiligen van het cluster met behulp van de Sleutelkluis en een certificaat informatie eerder hebt gemaakt.
+Instellen van een beveiligde testcluster om gemakkelijk te maken voor u, boden we de **Basic** optie. Als u al een certificaat hebben en deze geüpload naar uw keyvault (en de sleutelkluis voor implementatie is ingeschakeld), gebruikt u de **aangepaste** optie
 
-* Vul de velden van het primaire certificaat voor de uitvoer die is verkregen van het uploaden van de **cluster certificaat** Sleutelkluis via de `Invoke-AddCertToKeyVault` PowerShell-opdracht.
+#####<a name="basic-option"></a>Basic-optie
+Volg de schermen als u wilt toevoegen of een bestaande keyvault hergebruiken en een certificaat toevoegen. Het toevoegen van het certificaat is een synchrone proces en u moet dus wacht tot het certificaat moet worden gemaakt.
 
-```powershell
-Name  : CertificateThumbprint
-Value : <value>
+Bestand tegen de komen om navigeren weg van het scherm totdat de vorige proces is voltooid.
 
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
+![CreateKeyVault]
 
-Name  : CertificateURL
-Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-```
+Nu dat het certificaat wordt toegevoegd aan uw keyvault, ziet u mogelijk het volgende scherm weergegeven waarin u het toegangsbeleid bewerken voor uw Keyvault wordt gevraagd. Klik op de **bewerken toegangsbeleid voor.** .
 
-* Controleer de **geavanceerde instellingen configureren** vak in te voeren voor clientcertificaten voor **Beheerclient** en **alleen-lezen client**. Voer de vingerafdruk van het clientcertificaat admin en de vingerafdruk van het certificaat alleen-lezengebruiker in, indien van toepassing in deze velden. Wanneer beheerders probeert verbinding maken met het cluster, krijgen ze toegang alleen als ze beschikken over een certificaat met een vingerafdruk die overeenkomt met de vingerafdruk waarden die u hier opgeeft.  
+![CreateKeyVault2]
+
+Klik op het geavanceerde toegangsbeleid en toegang tot de virtuele Machines voor implementatie. Het verdient aanbeveling om de sjabloonimplementatie in te schakelen.
+
+![CreateKeyVault3]
+
+U bent nu klaar om door te gaan met de rest van het proces van de cluster maken.
+
+![CreateKeyVault4]
+
+#####<a name="custom-option"></a>Aangepaste optie
+Als u al hebt uitgevoerd de stappen in deze sectie overslaan de **Basic** optie.
+
+![SecurityCustomOption]
+
+U moet de CertificateThumbprint, SourceVault en de CertificateURL-informatie voor het voltooien van de beveiligingspagina. Als u deze kunt raadplegen geen hebt, opent u een ander browservenster en Ga als volgt
+
+
+1. Navigeer naar uw keyvault, selecteert u het certificaat. 
+2. Selecteer het tabblad 'Eigenschappen' en 'RESOURCE ID' naar 'Bron sleutelkluis' in het browservenster kopiëren 
+
+    ![CertInfo0]
+
+3. Nu, selecteer het tabblad 'Certificaten'.
+4. Klik op de certificaatvingerafdruk die u naar de pagina-versies gaat.
+5. Klik op de GUID's onder de huidige versie.
+
+    ![CertInfo1]
+
+6. Nu moet u op het scherm zoals hieronder. 'De vingerafdruk van het' naar 'De vingerafdruk van certificaat' in het browservenster kopiëren
+7. Kopieer de geheim-id-informatie voor de 'certificaat-URL' op andere browservenster.
+
+
+![CertInfo2]
+
+
+Controleer de **geavanceerde instellingen configureren** vak in te voeren voor clientcertificaten voor **Beheerclient** en **alleen-lezen client**. Voer de vingerafdruk van het clientcertificaat admin en de vingerafdruk van het certificaat alleen-lezengebruiker in, indien van toepassing in deze velden. Wanneer beheerders probeert verbinding maken met het cluster, krijgen ze toegang alleen als ze beschikken over een certificaat met een vingerafdruk die overeenkomt met de vingerafdruk waarden die u hier opgeeft.  
 
 #### <a name="4-summary"></a>4. Samenvatting
 
-Als u wilt maken van het cluster hebt voltooid, klikt u op **samenvatting** zien van de configuraties die u hebt opgegeven of download de Azure Resource Manager-sjabloon die die gebruikt voor het implementeren van uw cluster. Nadat u hebt opgegeven dat de instellingen verplicht de **OK** knop wordt groen en u kunt het proces voor het cluster maken starten door erop te klikken.
+U bent nu klaar voor het implementeren van het cluster. Voordat u dat doet, downloadt u het certificaat, zoekt u naar binnen het grote blauw informatief vak voor de koppeling. Zorg ervoor dat het certificaat op een veilige plaats bewaren. u moet verbinding maken met uw cluster. Omdat er momenteel geen een wachtwoord voor het certificaat dat u hebt gedownload, is het raadzaam dat u een categorie toevoegen.
 
-U kunt de voortgang van het maken in de meldingen bekijken. (Klik op het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u hebt geklikt **vastmaken aan Startboard** tijdens het maken van het cluster, ziet u **Service Fabric-Cluster implementeren** vastgemaakt aan de **Start** mededelingenbord.
+Als u wilt maken van het cluster hebt voltooid, klikt u op **maken**. Desgewenst kunt u de sjabloon downloaden. 
+
+![Samenvatting]
+
+U kunt de voortgang van het maken in de meldingen bekijken. (Klik op het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u tijdens het maken van het cluster op **Vastmaken aan Startboard** hebt geklikt, ziet u dat **Service Fabric-cluster implementeren** is vastgemaakt aan het **Startboard**.
+
+Beheerbewerkingen wilt uitvoeren op het cluster met Powershell of CLI, moet u verbinding maken met uw cluster, voor meer informatie over het op [verbinding maken met uw cluster](service-fabric-connect-to-secure-cluster.md).
 
 ### <a name="view-your-cluster-status"></a>De clusterstatus van uw bekijken
 ![Schermopname van het clusterdetails in het dashboard.][ClusterDashboard]
@@ -317,6 +221,7 @@ U hebt op dit moment een beveiligde cluster dat gebruik van certificaten voor be
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
@@ -328,6 +233,17 @@ U hebt op dit moment een beveiligde cluster dat gebruik van certificaten voor be
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
 [CreateRG]: ./media/service-fabric-cluster-creation-via-portal/CreateRG.png
 [CreateNodeType]: ./media/service-fabric-cluster-creation-via-portal/NodeType.png
+[BasicSecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/BasicSecurityConfigs.PNG
+[CreateKeyVault]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault.PNG
+[CreateKeyVault2]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault2.PNG
+[CreateKeyVault3]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault3.PNG
+[CreateKeyVault4]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault4.PNG
+[CertInfo0]: ./media/service-fabric-cluster-creation-via-portal/CertInfo0.PNG
+[CertInfo1]: ./media/service-fabric-cluster-creation-via-portal/CertInfo1.PNG
+[CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
+[SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
+[DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
+[Samenvatting]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

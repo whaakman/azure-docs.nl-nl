@@ -7,11 +7,11 @@ author: dcaro
 ms.author: dcaro
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 253e5d341f93e61d851893eb05832fbf35707cfc
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell-ontwikkeling 
 
@@ -36,7 +36,7 @@ provider "azurerm" {
 }
 ```
 
-De Cloud-Shell stuurt de vereiste waarden voor de `azurerm` provider via omgevingsvariabelen wanneer u een van de `terraform` CLI-opdrachten.
+De Cloud-Shell stuurt de vereiste waarden voor de `azurerm` provider door omgevingsvariabelen wanneer u een van de `terraform` CLI-opdrachten.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Andere hulpprogramma's voor ontwikkelaars van Cloud-Shell
 

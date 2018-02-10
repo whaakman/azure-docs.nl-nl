@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing voor System Center Operations Manager Health controleren (Preview)
 
@@ -216,8 +216,8 @@ Voordat u een oplossing voor het controleren van health in Log Analytics gebruik
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com). 
-2. Klik in de Azure-portal op **meer services** gevonden in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Meld Analytics**.
+1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **OMS-Portal** tegel.  
 4. Op de **overzicht** pagina, klikt u op de **System Center Operations Manager Health controleren** tegel.
 5. Op de **System Center Operations Manager Health controleren** pagina, Controleer de overzichtsgegevens in een van de focus gebied blades en klik op een om aanbevelingen voor het desbetreffende focusgebied weer te geven.
@@ -228,7 +228,7 @@ De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen
 
 Als u hebt de aanbevelingen die u wilt negeren, kunt u een tekstbestand dat Log Analytics gebruikt om te voorkomen dat de aanbevelingen worden weergegeven in de resultaten van uw beoordeling.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Voor het identificeren van de aanbevelingen die u wilt negeren
 1. Klik in de Azure-portal op de pagina van de werkruimte Log Analytics voor de geselecteerde werkruimte op het **logboek zoeken** tegel.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformeer gegevens door het U-SQL-scripts uitvoeren op Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de J
 
 ### <a name="service-principal-authentication"></a>Verificatie van service-principal
 De service Azure Data Lake Analytics gekoppeld vereist een service-principal-verificatie verbinding maken met de Azure Data Lake Analytics-service. Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) en het het toegang geven tot zowel de Data Lake Analytics en Data Lake Store wordt gebruikt voor het gebruik van verificatie van de service-principal. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
+
 * Toepassings-id
 * Sleutel van toepassing 
 * Tenant-id
+
+Toestemming service principal naar uw Azure Data Lake Anatlyics met de [Wizard gebruiker toevoegen](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Verificatie van de service-principal gebruiken door te geven van de volgende eigenschappen:
 

@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1fcc432e8437a7fd284a75aa40454848a2af3006
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 471749563fae5b5de6e98e22ebf2ec5cc9365368
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Cloud-init gebruiken een bash-script uitvoeren op een Linux-VM in Azure
 Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) om uit te voeren een bestaand script op basis van virtuele Linux-machine (VM) bash of virtuele-machineschaalset (VMSS) ingesteld op de inrichting van de tijd in Azure. Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init-overzicht](using-cloud-init.md)
@@ -28,20 +28,20 @@ Met cloud-init niet hoeft uw bestaande scripts converteren naar een cloud-config
 
 Als u de extensie van het Linux aangepast Script Azure hebt met uw scripts uitvoeren, kunt u ze voor het gebruik van cloud-init kunt migreren. Echter Azure Extensions rapporteren aan de waarschuwing op fouten van het script hebt geïntegreerd, de implementatie van een cloud-init-installatiekopie niet mislukken als het script is mislukt.
 
-Overzicht van deze functionaliteit in actie een eenvoudige bash-script voor het testen van te maken. De initialisatie van de cloud, zoals `#cloud-config` bestand, dit script moet lokaal op waarop u de AzureCLI-opdrachten voor het inrichten van de virtuele machine wordt uitgevoerd.  Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor simple_bash.sh` voor het maken van het bestand en een overzicht van beschikbare editors. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  
+Overzicht van deze functionaliteit in actie een eenvoudige bash-script voor het testen van te maken. De initialisatie van de cloud, zoals `#cloud-config` bestand, dit script moet lokaal op waarop u de AzureCLI-opdrachten voor het inrichten van de virtuele machine wordt uitgevoerd.  Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor simple_bash.sh` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  
 
 ```bash
 #!/bin/sh
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create) en geeft u het scriptbestand bash met `--custom-data simple_bash.sh` als volgt:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create) en geeft u het scriptbestand bash met `--custom-data simple_bash.sh` als volgt:
 
 ```azurecli-interactive 
 az vm create \

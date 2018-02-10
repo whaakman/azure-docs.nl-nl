@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Gegevens kopiëren van Impala met behulp van Azure Data Factory (bèta)
 
@@ -52,7 +52,7 @@ De volgende eigenschappen worden ondersteund voor Impala service gekoppelde.
 | poort | De TCP-poort die de Impala-server gebruikt om te luisteren naar verbindingen van clients. De standaardwaarde is 21050.  | Nee |
 | authenticationType | Het verificatietype dat moet worden gebruikt. <br/>Toegestane waarden zijn **anoniem**, **SASLUsername**, en **UsernameAndPassword**. | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor toegang tot de server Impala. De standaardwaarde is anonieme wanneer u SASLUsername gebruikt.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam wanneer u UsernameAndPassword gebruikt. U kunt dit veld markeren als SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook het wachtwoord opslaan in Azure Sleutelkluis en de kopie activiteit pull van daaruit laten bij het uitvoeren van de gegevens opnieuw te kopiëren. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Nee |
+| wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam wanneer u UsernameAndPassword gebruikt. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | enableSsl | Geeft aan of de verbindingen met de server zijn versleuteld met behulp van SSL. De standaardwaarde is **false**.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op Self-hosted integratie-Runtime gebruiken. De standaardwaarde is het cacerts.pem-bestand met de integratie-runtime is geïnstalleerd.  | Nee |
 | useSystemTrustStore | Hiermee geeft u op of u een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven PEM-bestand. De standaardwaarde is **false**.  | Nee |

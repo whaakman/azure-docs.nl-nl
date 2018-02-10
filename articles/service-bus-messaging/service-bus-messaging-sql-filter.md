@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 159bb0500dd98a428d60d6aeb78767a3460b40dc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: ec9d728eb31eb979e82bfb53cf619f823750e65c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter syntaxis
 
@@ -65,7 +65,7 @@ Een *SqlFilter* object is een exemplaar van de [SqlFilter klasse](/dotnet/api/mi
 
 Een poging tot toegang tot een niet-bestaande systeemeigenschap is een fout tijdens een poging tot toegang tot een niet-bestaande gebruikerseigenschap geen fout is. In plaats daarvan wordt de eigenschap van een niet-bestaande intern geëvalueerd als een onbekende waarde. Een onbekende waarde behandeld speciaal tijdens de evaluatie van de operator.  
   
-## <a name="propertyname"></a>kubuskenmerkbinding  
+## <a name="propertyname"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -192,7 +192,7 @@ Boole-constanten worden vertegenwoordigd door de trefwoorden **TRUE** of **FALSE
 
 Tekenreeksconstanten zijn ingesloten in enkele aanhalingstekens en geen geldige unicodetekens bevatten. Een enkel aanhalingsteken ingesloten in een tekenreeksconstante wordt vertegenwoordigd als twee enkele aanhalingstekens.  
   
-## <a name="function"></a>Functie  
+## <a name="function"></a>functie  
   
 ```  
 <function> :=  

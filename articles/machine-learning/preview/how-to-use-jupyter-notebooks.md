@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Het gebruik van Jupyter-notebook in Azure Machine Learning Workbench
 
@@ -42,15 +42,15 @@ U kunt toegang tot veel verschillende kernels in Azure ML-Workbench door te conf
 >Controleer de [uitvoering configureren](experimentation-service-configuration.md) voor meer informatie over configuraties uitgevoerd en doelen te berekenen.
 
 ### <a name="kernel-naming-convention"></a>De naamconventie kernel
-De kernels worden gewoonlijk aangeduid met de notatie '\<projectnaam > \<config naam uitvoeren > '. Bijvoorbeeld, als er een uitvoeren-configuratie met de naam _docker-python_ in een project met de naam _myIris_, vindt u een met de naam 'myIris docker-python' in de kernel-lijst bij het openen van een Jupyter-notebook kernel.
-
+Azure ML-Workbench aangepaste kernels voor Jupyter genereert.  Deze zijn met de naam '\<projectnaam > \<config naam uitvoeren > '. Bijvoorbeeld, als er een uitvoeren-configuratie met de naam _docker-python_ in een project met de naam _myIris_, Azure ML een met de naam 'myIris docker-python' kernel beschikbaar stelt.  U de actieve kernel instellen in de Jupyter-Notebook 'Kernel' menu in het submenu 'Wijziging kernel'. De naam van de actieve kernel weergegeven op de meest rechtse van de menubalk.
+ 
 Op dit moment ondersteunt de Workbench de volgende soorten kernels.
 
 ### <a name="local-python-kernel"></a>Lokale Python-kernel
 Deze kernel Python biedt ondersteuning voor uitvoering op de lokale computer. Het is geïntegreerd met ondersteuning voor Azure Machine Learning-geschiedenis uitvoeren. De naam van de kernel is meestal 'lokale my_project_name'.
 
 >[!NOTE]
->Gebruik niet de kernel 'Python 3'. Het is een zelfstandige kernel geleverd door Jupyter standaard. Het is niet geïntegreerd met Azure Machine Learning-mogelijkheden.
+>Gebruik niet de kernel 'Python 3'. Het is een zelfstandige kernel geleverd door Jupyter standaard. Het is niet geïntegreerd met Azure Machine Learning-mogelijkheden. Bijvoorbeeld, de _% azureml_ Jupyter magische functies 'niet gevonden'-fouten retourneren. 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python-Kernel in Docker (lokaal of extern)
 Deze kernel Python wordt uitgevoerd in een Docker-container op uw lokale computer of in een externe Linux-VM. De naam van de kernel is meestal 'my_project docker'. De bijbehorende `docker.runconfig` bestand heeft de `Framework` veld ingesteld op `Python`.

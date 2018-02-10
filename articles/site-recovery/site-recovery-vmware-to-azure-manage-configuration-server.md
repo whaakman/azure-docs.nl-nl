@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>De configuratieserver beheren
 
@@ -72,6 +72,22 @@ Als u wilt, kunt u de configuratieserver in dezelfde kluis opnieuw registreren. 
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Upgrade de configuratieserver
+
+Updatepakketten voor het bijwerken van de configuratieserver worden uitgevoerd. Updates kunnen worden toegepast voor maximaal N-4 versies. Bijvoorbeeld:
+
+- Als u werkt met 9.7, 9,8, 9,9 of 9.10 - kunt u rechtstreeks upgraden naar 9.11.
+- Als u 9,6 of eerder uitvoert en u wilt upgraden naar 9.11, moet u eerst bijwerken naar versie 9.7. voordat u 9.11.
+
+Koppelingen naar de updatepakketten voor het upgraden van alle versies van de configuratieserver zijn beschikbaar in de [wiki updates pagina](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+De server als volgt bijwerken:
+
+1. Download het installatiebestand van de update voor de configuratieserver.
+2. Dubbelklik erop om het installatieprogramma uitvoert.
+3. Het installatieprogramma detecteert de huidige versie op de machine.
+4. Klik op **OK** om te bevestigen en de upgrade uitvoert. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Verwijderen of de registratie van een configuratieserver
 

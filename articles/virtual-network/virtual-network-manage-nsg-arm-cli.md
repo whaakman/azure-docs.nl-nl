@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Met de Azure CLI beveiligingsgroepen beheren
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Vereiste
-Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login). 
+Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Bestaande nsg's weergeven
-Voor de lijst met nsg's in een specifieke resourcegroep, voer de [az netwerk nsg lijst](/cli/azure/network/nsg#list) opdracht met een `-o table` uitvoerindeling:
+Voor de lijst met nsg's in een specifieke resourcegroep, voer de [az netwerk nsg lijst](/cli/azure/network/nsg#az_network_nsg_list) opdracht met een `-o table` uitvoerindeling:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ Verwachte uitvoer:
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Lijst met alle regels voor een NSG
-Om weer te geven van de regels van een NSG met de naam **NSG-FrontEnd**, voert de [az netwerk nsg weergeven](/cli/azure/network/nsg#show) opdracht met behulp van een [JMESPATH queryfilter](/cli/azure/query-az-cli2) en de `-o table` uitvoerindeling:
+Om weer te geven van de regels van een NSG met de naam **NSG-FrontEnd**, voert de [az netwerk nsg weergeven](/cli/azure/network/nsg#az_network_nsg_show) opdracht met behulp van een [JMESPATH queryfilter](/cli/azure/query-az-cli2) en de `-o table` uitvoerindeling:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ Verwachte uitvoer:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> U kunt ook [az netwerk nsg Regellijst](/cli/azure/network/nsg/rule#list) voor een lijst met alleen de aangepaste regels uit een NSG.
+> U kunt ook [az netwerk nsg Regellijst](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) voor een lijst met alleen de aangepaste regels uit een NSG.
 >
 
 ## <a name="view-nsg-associations"></a>Weergave NSG koppelingen
@@ -151,7 +151,7 @@ Verwachte uitvoer:
 ```
 
 ## <a name="change-a-rule"></a>Een regel wijzigen
-Wijzigen van de regel die eerder hebt gemaakt, waarmee binnenkomend verkeer van de **Internet** alleen, voer de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#update) opdracht:
+Wijzigen van de regel die eerder hebt gemaakt, waarmee binnenkomend verkeer van de **Internet** alleen, voer de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) opdracht:
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Een NSG aan een NIC koppelt
-Om te koppelen de **NSG-FrontEnd** NSG aan de **TestNICWeb1** NIC, gebruik de [az netwerk nic update](/cli/azure/network/nic#update) opdracht:
+Om te koppelen de **NSG-FrontEnd** NSG aan de **TestNICWeb1** NIC, gebruik de [az netwerk nic update](/cli/azure/network/nic#az_network_nic_update) opdracht:
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ Verwachte uitvoer:
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Een NSG van een NIC ontkoppelen
 
-Ontkoppelen de **NSG-FrontEnd** NSG van de **TestNICWeb1** NIC, voer de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#update) opdracht opnieuw, maar vervang de `--network-security-group` argument met een lege tekenreeks (`""`).
+Ontkoppelen de **NSG-FrontEnd** NSG van de **TestNICWeb1** NIC, voer de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) opdracht opnieuw, maar vervang de `--network-security-group` argument met een lege tekenreeks (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 In de uitvoer is de `networkSecurityGroup` sleutel is ingesteld op null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Een NSG van een subnet ontkoppelen
-Ontkoppelen de **NSG-FrontEnd** NSG van de **FrontEnd** subnet, opnieuw uitvoeren de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#update) opdracht opnieuw, maar vervang de `--network-security-group` argument met een lege tekenreeks (`""`).
+Ontkoppelen de **NSG-FrontEnd** NSG van de **FrontEnd** subnet, opnieuw uitvoeren de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) opdracht opnieuw, maar vervang de `--network-security-group` argument met een lege tekenreeks (`""`).
 
 ```azurecli
 az network vnet subnet update \

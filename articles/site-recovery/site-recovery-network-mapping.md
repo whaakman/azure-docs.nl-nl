@@ -1,27 +1,20 @@
 ---
-title: Netwerktoewijzing voor virtuele machine van Hyper-V-replicatie met Site Recovery plannen | Microsoft Docs
+title: Over netwerktoewijzing voor virtuele machine van Hyper-V-replicatie met Site Recovery | Microsoft Docs
 description: Stel netwerktoewijzing voor Hyper-V-replicatie voor virtuele machines van een on-premises datacenter naar Azure of naar een secundaire site.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: tysonn
-ms.assetid: fcaa2f52-489d-4c1c-865f-9e78e000b351
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 91d6d0466789daa662162c60bc3c97ba6115e7eb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d56f8f5bfb40c1c43090f43e119bf9b98918d6e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Plan de netwerktoewijzing voor virtuele machine van Hyper-V-replicatie met Site Recovery
-
+# <a name="about-network-mapping-for-hyper-v-vm-replication"></a>Over netwerktoewijzing voor replicatie van Hyper-V-machine
 
 
 Dit artikel helpt u om te begrijpen en te plannen voor netwerk toewijzen tijdens de replicatie van Hyper-V-machines naar Azure of naar een secundaire site, met behulp van de [Azure Site Recovery-service](site-recovery-overview.md).
@@ -35,7 +28,7 @@ Netwerktoewijzing wordt gebruikt wanneer u Hyper-V-machines (beheerd in VMM) rep
 - **Netwerkverbinding**: zorgt ervoor dat de gerepliceerde virtuele machines van Azure met het toegewezen-netwerk verbonden bent. Alle machines die op hetzelfde netwerk failover kunnen verbinden met elkaar, zelfs als ze zich in verschillende herstelplannen failover.
 - **Netwerkgateway**— als een netwerkgateway is ingesteld op de doel-Azure-netwerk, virtuele machines verbinding kunnen maken met andere on-premises virtuele machines.
 
-Opmerking:
+Houd rekening met het volgende:
 
 - U een bron-VMM VM-netwerk worden toegewezen aan een virtuele Azure-netwerk.
 - Na een failover virtuele Azure-machines in de bron netwerk verbonden met het toegewezen virtuele netwerk.
@@ -52,7 +45,7 @@ Netwerktoewijzing wordt gebruikt bij het repliceren van Hyper-V-machines (beheer
 - **Optimale plaatsing**: optimaal plaatst de replica virtuele machines op Hyper-V-hostservers. Replica-VM's geplaatst op hosts die toegang heeft tot de toegewezen VM-netwerken.
 - **Er is geen netwerktoewijzing**— als u geen netwerktoewijzing configureert, replica VMs niet verbonden met een VM-netwerken na een failover.
 
-Opmerking:
+Houd rekening met het volgende:
 
 - Netwerktoewijzing kan worden geconfigureerd tussen VM-netwerken op twee VMM-servers of op één VMM-server als de twee sites op dezelfde server worden beheerd.
 - Wanneer toewijzing correct is geconfigureerd replicatie is ingeschakeld, wordt een virtuele machine op de primaire locatie worden verbonden met een netwerk en de replica op de doellocatie wordt verbonden met de toegewezen netwerkpad.
@@ -68,10 +61,10 @@ Hier volgt een voorbeeld ter illustratie van dit mechanisme. U gaat nu een organ
 
 **Locatie** | **VMM-server** | **VM-netwerken** | **Toegewezen aan**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1 NewYork | Toegewezen aan VMNetwork1 Chicago
- |  | VMNetwork2 NewYork | Niet toegewezen
-Chicago | VMM-Chicago| VMNetwork1 Chicago | Toegewezen aan VMNetwork1 NewYork
- | | VMNetwork1 Chicago | Niet toegewezen
+New York | VMM-NewYork| VMNetwork1-NewYork | Toegewezen aan VMNetwork1 Chicago
+ |  | VMNetwork2-NewYork | Niet toegewezen
+Chicago | VMM-Chicago| VMNetwork1-Chicago | Toegewezen aan VMNetwork1 NewYork
+ | | VMNetwork1-Chicago | Niet toegewezen
 
 In dit voorbeeld:
 
@@ -86,16 +79,16 @@ Hier volgt hoe VMM-clouds worden ingesteld in ons voorbeeldorganisatie en de log
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>N.v.t.</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
-SilverCloud2 | <p>N.v.t.</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
+GoldCloud2 | <p>N.v.t.</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>N.v.t.</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 #### <a name="logical-and-vm-network-settings"></a>Logische schijf als VM-netwerkinstellingen
 
 **Locatie** | **Logisch netwerk** | **Bijbehorende VM-netwerk**
 ---|---|---
-New York | LogicalNetwork1 NewYork | VMNetwork1 NewYork
-Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
- | LogicalNetwork2Chicago | VMNetwork2 Chicago
+New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
+ | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
 #### <a name="target-network-settings"></a>Doel-netwerkinstellingen
 
@@ -103,9 +96,9 @@ Op basis van deze instellingen wanneer u het doel VM-netwerk selecteert, ziet de
 
 **Selecteren** | **Beveiligde cloud** | **Beveiligen van de cloud** | **Doelnetwerk beschikbaar**
 ---|---|---|---
-VMNetwork1 Chicago | SilverCloud1 | SilverCloud2 | Beschikbaar
+VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Beschikbaar
  | GoldCloud1 | GoldCloud2 | Beschikbaar
-VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Niet beschikbaar
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Niet beschikbaar
  | GoldCloud1 | GoldCloud2 | Beschikbaar
 
 
@@ -119,8 +112,8 @@ Als u wilt zien wat er gebeurt in het geval van een failback (omgekeerde replica
 
 **Virtuele machine** | **Verbonden met het VM-netwerk**
 ---|---
-VM1 | VMNetwork1-netwerk
-VM2 (replica van VM1) | VMNetwork1 Chicago
+VM1 | VMNetwork1-Network
+VM2 (replica van VM1) | VMNetwork1-Chicago
 
 Met deze instellingen gaan we bekijken wat er gebeurt in een aantal mogelijke scenario's.
 

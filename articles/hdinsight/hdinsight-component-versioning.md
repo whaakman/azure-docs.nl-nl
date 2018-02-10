@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -37,7 +37,7 @@ De onderdeel-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 > [!NOTE]
 > De standaardversie voor het HDInsight-service kan zonder voorafgaande kennisgeving worden gewijzigd. Als u een afhankelijkheid versie, de HDInsight-versie opgeven wanneer u clusters met de .NET SDK met Azure PowerShell en Azure CLI maken.
 
-| Onderdeel | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 voor HDInsight | HDInsight 3.1 | HDInsight 3.0 |
+| Onderdeel | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop en YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -78,13 +78,13 @@ De volgende tabellen worden de versies van HDInsight. De HDP-versies die met elk
 
 ### <a name="available-versions"></a>Beschikbare versies
 
-De volgende tabel geeft de versies van HDInsight die beschikbaar in de Azure Portal, evenals andere deployement-methoden zoals PowerShell en .NET SDK zijn.
+De volgende tabel geeft de versies van HDInsight die beschikbaar in de Azure Portal, evenals andere implementatiemethoden zoals PowerShell en .NET SDK zijn.
 
-| HDInsight-versie | HDP versie | BESTURINGSSYSTEEM VAN VIRTUELE MACHINE | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
+| HDInsight-versie | HDP versie | VM OS | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 TNS |4 april 2017 | | |Ja |Ja |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 TNS |30 september 2016 |5 september 2017 |31 mei 2018 |Ja |Ja |
-| HDInsight 3.3 |2.3 HDP |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |31 mei 2018 |Ja |Ja |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
 
 > [!NOTE]
 > Na de ondersteuning voor een versie is verlopen, deze mogelijk niet beschikbaar is via de Microsoft Azure portal. Clusterversies blijven echter zijn beschikbaar via de `Version` parameter in de Windows PowerShell [nieuw AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) opdracht en de .NET SDK totdat de einddatum van de versie.
@@ -94,11 +94,11 @@ De volgende tabel geeft de versies van HDInsight die beschikbaar in de Azure Por
 
 De volgende tabel bevat de versies van HDInsight die zijn **niet** beschikbaar in de Azure-Portal.
 
-| HDInsight-versie | HDP versie | BESTURINGSSYSTEEM VAN VIRTUELE MACHINE | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
+| HDInsight-versie | HDP versie | VM OS | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.4 |2.4 HDP |Ubuntu 14.0.4 TNS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
-| HDInsight 3.3 |2.3 HDP |Ubuntu 14.0.4 TNS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nee |
-| 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |1 april 2017 |Ja |Nee |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nee |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |1 april 2017 |Ja |Nee |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 mei 2015 |30 juni 2016 |Ja |Nee |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nee |
 | HDInsight 2.1 |1.3 HDP |Windows Server 2012 R2 |28 oktober 2013 |12 mei 2014 |31 mei 2015 |Ja |Nee |
@@ -236,10 +236,10 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
 
   | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: standaard VM-grootte |D3 v2 |D3 v2 | D13 D14 |A3 |D12 v2 |D12 v2 |
-  | HEAD: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: standaard VM-grootte |D3 v2 |D3 v2  | D13 D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Werknemer: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | HEAD: standaard VM-grootte |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | HEAD: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Worker: standaard VM-grootte |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Werknemer: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
   | ZooKeeper: standaard VM-grootte | |A3 | |A2 | | |
   | ZooKeeper: aanbevolen VM-grootten | |A3, A4, A5 | | A2, A3, A4 | | |
   | Rand: standaard VM-grootte | | | | | |Windows: D12 v2; Linux: D4 v2 |
@@ -248,14 +248,14 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
 
   | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: standaard VM-grootte |D3 |D3  | D13 D14 |A3 |D12 |D12 |
-  | HEAD: aanbevolen VM-grootten |D3, D4 D12 |D3, D4 D12  | D13 D14 |A3, A4, A5 |D12, D13 D14 |D12, D13 D14 |
-  | Worker: standaard VM-grootte |D3 |D3  | D13 D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Werknemer: aanbevolen VM-grootten |D3, D4 D12 |D3, D4 D12  | D13 D14 |D3, D4 D12 |Windows: D12, D13 D14; Linux: D4, D12, D13 D14 |Windows: D12, D13 D14; Linux: D4, D12, D13 D14 |
+  | HEAD: standaard VM-grootte |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | HEAD: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Worker: standaard VM-grootte |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Werknemer: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
   | ZooKeeper: standaard VM-grootte | |A2 | | A2 | | |
   | ZooKeeper: aanbevolen VM-grootten | |A2, A3, A4 | |A2, A3, A4 | | |
   | Rand: standaard VM-grootten | | | | | |Windows: D12; Linux: D4 |
-  | Rand: aanbevolen VM-grootten | | | | | |Windows: D12, D13 D14; Linux: D4, D12, D13 D14 |
+  | Rand: aanbevolen VM-grootten | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
 > [!NOTE]
 > - HEAD staat bekend als *Nimbus* type voor de Storm-cluster.

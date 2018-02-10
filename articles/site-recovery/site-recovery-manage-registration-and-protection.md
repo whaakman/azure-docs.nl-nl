@@ -2,25 +2,20 @@
 title: Verwijderen van servers en schakel de beveiliging | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u servers vanaf een Site Recovery-kluis registratie en beveiliging voor virtuele machines en fysieke servers uit te schakelen.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/3/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 471d68742668e2b1b1c72579cee9dd493f1bd042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>Servers verwijderen en beveiliging uitschakelen
+
 Dit artikel wordt beschreven hoe registratie servers vanaf een Recovery Services-kluis en hoe de beveiliging voor computers die zijn beveiligd door Site Recovery uit te schakelen.
 
 
@@ -165,7 +160,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 
 
     
-    $vmName = 'SQLVM1' $vm = Get-WmiObject - Namespace 'root\virtualization\v2'-Query ' Selecteer * van Msvm_ComputerSystem waar ElementName = '$vmName' ' $replicationService 'root\virtualization\v2' Get-WmiObject - Namespace =-Query "Selecteer * van Msvm_ ReplicationService' $replicationService.RemoveReplicationRelationship($vm.__PATH)
+    $vmName = "SQLVM1"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  $replicationService.RemoveReplicationRelationship($vm.__PATH)
     
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Schakel de beveiliging voor een Hyper-V virtuele machine repliceren naar Azure met behulp van de System Center VMM voor Azure scenario
@@ -185,7 +180,7 @@ Hyper-V-hosts die niet worden beheerd door VMM worden verzameld in een Hyper-V-s
 4. De bovenstaande stappen schakelt u de replicatie-instellingen op de VMM-server. Om replicatie stoppen voor de virtuele machine op de Hyper-V-hostserver, moet u dit script uitvoert. SQLVM1 vervangen door de naam van uw virtuele machine en host01.contoso.com met de naam van de Hyper-V-hostserver.
 
     
-    $vmName = 'SQLVM1' $hostName 'host01.contoso.com' $vm = 'root\virtualization\v2' Get-WmiObject - Namespace =-Query ' Selecteer * van Msvm_ComputerSystem waar ElementName '$vmName' = ' - computername $hostName $replicationService = Get-WmiObject - Namespace "root\virtualization\v2"-'Selecteer * van Msvm_ReplicationService' - computername $hostName $replicationService.RemoveReplicationRelationship($vm.__PATH) Query
+    $vmName = "SQLVM1"  $hostName  = "host01.contoso.com"  $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName  $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName  $replicationService.RemoveReplicationRelationship($vm.__PATH)
     
        
  

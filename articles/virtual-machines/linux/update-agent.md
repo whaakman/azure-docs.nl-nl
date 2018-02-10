@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Het bijwerken van de Azure Linux Agent op een virtuele machine
 
@@ -29,6 +29,9 @@ Bijwerken van uw [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) op e
 - Een verbinding met die Linux VM via SSH.
 
 U moet altijd eerst in voor een pakket in de opslagplaats van Linux distro. Het is mogelijk dat het pakket beschikbaar zijn mogelijk niet de nieuwste versie, echter inschakelen autoupdate zorgt voor dat de Linux-Agent wordt altijd de nieuwste update downloaden. Hebt u problemen met het installeren van het pakket managers, moet u ondersteuning van de leverancier distro zoeken.
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Agent-ondersteuning voor minimale virtuele machine in Azure
+Controleer of de [minimaal versie-ondersteuning voor agents van de virtuele machine in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) voordat u doorgaat.
 
 ## <a name="updating-the-azure-linux-agent"></a>De Azure Linux-Agent bijwerken
 
@@ -158,7 +161,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>RedHat / CentOS
+## <a name="redhat--centos"></a>Redhat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 

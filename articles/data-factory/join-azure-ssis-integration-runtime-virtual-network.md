@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk (VNet) in de volgende scenario's: 
@@ -31,7 +31,13 @@ Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk (VNet
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Toegang tot on-premises gegevensopslag
-Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud tot, moet u geen Azure-SSIS-IR toevoegen aan een VNet. Als SSIS-pakketten toegang on-premises gegevensopslagexemplaren tot, moet u Azure SSIS-IR toevoegen aan een VNet dat is verbonden met de on-premises netwerk. Als de SSIS-catalogus wordt gehost in Azure SQL Database die zich niet in het VNet, moet u de juiste poorten open. Als de SSIS-catalogus wordt gehost in Azure SQL beheerd-exemplaar dat zich in een Azure Resource Manager VNet of een klassiek VNet, kunt u Azure SSIS-IR kan toevoegen aan hetzelfde VNet (of) een andere VNet met een VNet-naar-VNet-verbinding met de Azure SQL beheerd-exemplaar met. De volgende secties vindt u meer informatie.
+Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud tot, moet u geen Azure-SSIS-IR toevoegen aan een VNet. Als SSIS-pakketten toegang on-premises gegevensopslagexemplaren tot, moet u Azure SSIS-IR toevoegen aan een VNet dat is verbonden met de on-premises netwerk. 
+
+Als de SSIS-catalogus wordt gehost in Azure SQL Database die zich niet in het VNet, moet u de juiste poorten open. 
+
+Als de SSIS-catalogus wordt gehost in Azure SQL beheerd exemplaar (MI) die zich in een VNet, kunt u Azure SSIS-IR kan toevoegen aan hetzelfde VNet (of) een andere VNet met een VNet-naar-VNet-verbinding met de Azure SQL beheerd-exemplaar met. Het VNet is een klassiek VNet of een Azure Resource Management VNet. Als u van plan bent om te worden toegevoegd aan de Azure-SSIS-IR in de **hetzelfde VNet** met de SQL-MI, zorg ervoor dat de Azure-SSIS-IR een **ander subnet** uit met de SQL-MI.   
+
+De volgende secties vindt u meer informatie.
 
 Hier volgen enkele belangrijke punten met: 
 
@@ -58,10 +64,11 @@ In deze sectie wordt beschreven hoe u een bestaande Azure SSIS-runtime toevoegen
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Portal gebruiken voor het configureren van een klassiek VNet
 U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR naar het VNet.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken (klassiek)**.
-3. Filteren op en selecteer uw **virtueel netwerk** in de lijst. 
-4. Selecteer in de pagina virtuele netwerk (klassiek) **eigenschappen**. 
+1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+2. Meld u aan bij [Azure Portal](https://portal.azure.com).
+3. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken (klassiek)**.
+4. Filteren op en selecteer uw **virtueel netwerk** in de lijst. 
+5. Selecteer in de pagina virtuele netwerk (klassiek) **eigenschappen**. 
 
     ![klassieke VNet resource-ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Klik op de knop kopiëren voor de **RESOURCE-ID** de resource-ID voor het klassieke netwerk naar het Klembord kopiëren. Sla de ID van het Klembord in OneNote of een bestand.
@@ -93,13 +100,14 @@ U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR na
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Portal gebruiken voor het configureren van een Azure Resource Manager VNet
 U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR naar het VNet.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken**.
-3. Filteren op en selecteer uw **virtueel netwerk** in de lijst. 
-4. Selecteer in de pagina virtuele netwerk **eigenschappen**. 
-5. Klik op de knop kopiëren voor de **RESOURCE-ID** de resource-ID voor het virtuele netwerk naar het Klembord kopiëren. Sla de ID van het Klembord in OneNote of een bestand.
-6. Klik op **subnetten** in het menu links en zorg ervoor dat het aantal **beschikbare adressen** groter is dan de knooppunten in uw Azure-SSIS-integratie-runtime.
-5. Controleer of dat die Azure Batch-provider is geregistreerd in het Azure-abonnement met het VNet of de Azure Batch-provider geregistreerd. Als u al een Azure Batch-account in uw abonnement hebt, wordt uw abonnement geregistreerd voor Azure Batch.
+1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+2. Meld u aan bij [Azure Portal](https://portal.azure.com).
+3. Klik op **meer services**. Filteren op en selecteer **virtuele netwerken**.
+4. Filteren op en selecteer uw **virtueel netwerk** in de lijst. 
+5. Selecteer in de pagina virtuele netwerk **eigenschappen**. 
+6. Klik op de knop kopiëren voor de **RESOURCE-ID** de resource-ID voor het virtuele netwerk naar het Klembord kopiëren. Sla de ID van het Klembord in OneNote of een bestand.
+7. Klik op **subnetten** in het menu links en zorg ervoor dat het aantal **beschikbare adressen** groter is dan de knooppunten in uw Azure-SSIS-integratie-runtime.
+8. Controleer of dat die Azure Batch-provider is geregistreerd in het Azure-abonnement met het VNet of de Azure Batch-provider geregistreerd. Als u al een Azure Batch-account in uw abonnement hebt, wordt uw abonnement geregistreerd voor Azure Batch.
     1. Klik in de Azure-portal op **abonnementen** in het menu links. 
     2. Selecteer uw **abonnement**. 
     3. Klik op **resourceproviders** aan de linkerkant en Bevestig dat `Microsoft.Batch` is een geregistreerde provider. 
@@ -111,7 +119,8 @@ U moet eerst VNet configureren voordat u kunt deelnemen aan een Azure-SSIS-IR na
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>De Azure SSIS-IR toevoegen aan een VNet
 
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer **gegevensfactory** in het menu links. Als er geen **gegevensfactory** selecteren in het menu **meer services**, selecteer **gegevensfactory** in de **INTELLIGENCE en analyse** sectie. 
+1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+2. In de [Azure-portal](https://portal.azure.com), selecteer **gegevensfactory** in het menu links. Als er geen **gegevensfactory** selecteren in het menu **meer services**, selecteer **gegevensfactory** in de **INTELLIGENCE en analyse** sectie. 
     
     ![Lijst met Data Factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Selecteer uw gegevensfactory met Azure SSIS-integratie runtime in de lijst. U Zie de startpagina van uw gegevensfactory. Selecteer **auteur & implementeren** tegel. U ziet de Data Factory-gebruikersinterface (UI) op een afzonderlijke tabblad. 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -190,7 +190,7 @@ Media Services biedt nu de mogelijkheid om beide video op aanvraag en live strom
 
 Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-U kunt de [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (vanaf versie 3.5.1) of de REST-API AssetDeliveryConfiguration voor het gebruik van Widevine te configureren. 
+U kunt de [.NET SDK van Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (vanaf versie 3.5.1) of de REST API gebruiken om AssetDeliveryConfiguration voor het gebruik van Widevine te configureren. 
 * Media Services is ondersteuning toegevoegd voor Apple ProRes video's. U kunt nu uw QuickTime video's bronbestanden die gebruikmaken van Apple ProRes of andere codecs uploaden. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * U kunt nu gebruiken Media Encoder Standard subclipping en live archief extractie doen. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * De volgende filteren updates zijn aangebracht: 
@@ -307,7 +307,7 @@ De [Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaser
 ### <a id="new_encoder_release"></a>Media Services-Encoder release
  De nieuwe versie van de Media Services Azure Media Encoder is aangekondigd. Met de meest recente Media Encoder, u kunt alleen in rekening gebracht uitvoer in GB's. Anders wordt de nieuwe encoder functie compatibel met de vorige encoder. Zie voor meer informatie [Media Services pricing details].
 
-### <a id="oct_sdk"></a>Mediaservices .NET SDK
+### <a id="oct_sdk"></a>Media Services .NET SDK
 De Media Services SDK voor .NET-extensies is nu versie 2.0.0.3.
 
 De Media Services SDK voor .NET is nu versie 3.0.0.8. De volgende updates zijn aangebracht:
@@ -348,8 +348,8 @@ De Media Services SDK voor .NET is nu versie 3.0.0.7
 * Live streaming preview. Zie voor meer informatie [werken met Media Services live streaming](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Sleutellevering-service. Zie voor meer informatie [dynamisch gebruiken AES-128-versleuteling en de service sleutellevering](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Dynamische AES-versleuteling. Zie voor meer informatie [dynamisch gebruiken AES-128-versleuteling en de service sleutellevering](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* PlayReady-service voor het leveren van licenties. Zie voor meer informatie [dynamische versleuteling met PlayReady en de service voor het leveren van licenties](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* Dynamische PlayReady-versleuteling. Zie voor meer informatie [dynamische versleuteling met PlayReady en de service voor het leveren van licenties](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* PlayReady-service voor het leveren van licenties. 
+* Dynamische PlayReady-versleuteling. 
 * Media Services PlayReady licentie-sjabloon. Zie voor meer informatie de [Media Services PlayReady licentie sjabloon overzicht].
 * Stroom opslag versleuteld activa. Zie voor meer informatie [opslag versleutelde inhoud streamen](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
@@ -388,7 +388,7 @@ Zie voor meer informatie [Pogingslogica in de Media Services SDK voor .NET].
 * Een probleem is opgelost die is gerelateerd aan transcodering MP4s waar de audio is gecodeerd met MPEG-1 Audio Layer 3 (ook wel bekend als MP3).
 
 ## <a id="jan_feb_changes_14"></a>Releases van januari/februari 2014
-### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 en 3.0.0.3
+### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 and 3.0.0.3
 De wijzigingen in 3.0.0.1 en 3.0.0.2 omvatten:
 
 * Problemen met betrekking tot het gebruik van de LINQ-query's met OrderBy-instructies zijn opgelost.
@@ -402,7 +402,7 @@ De volgende wijzigingen zijn aangebracht in versie 3.0.0.3:
 * Een probleem met betrekking tot achterwaartse compatibiliteit is voor 3.0 opgelost. *.* versies.
 
 ## <a id="december_changes_13"></a>Versie van december 2013
-### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK 3.0.0.0-prestatiemeters
+### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK 3.0.0.0
 > [!NOTE]
 > De versies 3.0.x.x zijn niet achterwaarts compatibel met 2.4.x.x releases.
 > 
@@ -457,18 +457,18 @@ De volgende wijzigingen zijn opgenomen in de juni 2013 Media Services SDK worden
 * Vanaf versie 2.3.0.0, de Media Services SDK ondersteunt meerdere opslag koppelen gebruikersaccounts aan een Media Services-account. Deze functie wordt ondersteund door de volgende API's:
   
     * Type IStorageAccount
-    * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
     * StorageAccount-eigenschap
     * De eigenschap StorageAccountName
   
     Zie voor meer informatie [Media Services beheren activa tussen meerdere opslagaccounts](http://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Melding-gerelateerde API's. Vanaf versie 2.2.0.0, kunt u luistert naar Azure Queue storage meldingen. Zie voor meer informatie [verwerken Media Services taak meldingen](http://msdn.microsoft.com/library/azure/dn261241.aspx).
   
-    * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
-    * Type Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint
-    * Type Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription
-    * Type Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection
-    * Type Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType
+    * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
+    * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
+    * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type
 * Afhankelijkheid van de opslag client SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
 * Afhankelijkheid van OData 5.5 (Microsoft.Data.OData.dll)
 

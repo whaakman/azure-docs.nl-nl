@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Aantal exemplaren handmatig of automatisch schalen
 In de [Azure Portal](https://portal.azure.com/), kunt u het aantal exemplaren van de service handmatig instellen of, kunt u parameters instellen zodat deze automatisch schalen op basis van vraag. Dit wordt meestal aangeduid als *uitschalen* of *schalen*.
@@ -30,7 +30,7 @@ In de portal kunnen worden geschaald en u kunt ook de [REST-API](https://msdn.mi
 ## <a name="scaling-manually"></a>Handmatig schalen
 1. In de [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren**, navigeer naar de resource die u schalen wilt, zoals een **App Service-abonnement**.
 2. Klik op **instellingen > Scale-out (App Service-abonnement).**
-3. Aan de bovenkant van de **Scale** blade ziet u een geschiedenis van acties van de service automatisch schalen.
+3. Aan de bovenkant van de **Scale** blade in de **Uitvoeringsgeschiedenis** tabblad ziet u een geschiedenis van acties van de service automatisch schalen.
    
     ![Scale-blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ In de portal kunnen worden geschaald en u kunt ook de [REST-API](https://msdn.mi
    > Alleen de acties die worden uitgevoerd door automatisch schalen wordt in deze grafiek weergegeven. Als u het aantal exemplaren handmatig aanpast, wordt de wijziging niet weerspiegeld in deze grafiek.
    > 
    > 
-4. U kunt handmatig pas het aantal **exemplaren** met schuifregelaar.
+4. U kunt handmatig pas het aantal **exemplaren** in de **configureren** tabblad.
 5. Klik op de **opslaan** opdracht en u zult worden geschaald naar dat aantal exemplaren bijna onmiddellijk.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Schalen op basis van een vooraf ingestelde waarde
@@ -99,7 +99,7 @@ U kunt echter hebben agressievere schalen gedurende de dag of de week, dan op he
     ![Standaardterugkeerpatroon](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 4. Klik op **OK**.
 5. Vervolgens moet u het profiel dat u wilt toepassen op andere tijden toevoegen. Klik op de **profiel toevoegen** rij.
-    ![Werk](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+    ![Off Work](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 6. Naam van uw nieuwe, tweede, profiel, bijvoorbeeld u het kunt aanroepen **uitgeschakeld werk**.
 7. Selecteer vervolgens **terugkeerpatroon** opnieuw, en kies het gewenste gedurende deze tijd exemplaar count-bereik.
 8. Met het standaardprofiel kiezen de **dagen** u wilt dat dit profiel toe te passen, en de **begintijd** gedurende de dag.

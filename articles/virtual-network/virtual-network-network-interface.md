@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -68,8 +68,8 @@ De portal biedt niet de optie voor een openbaar IP-adres toewijzen aan de netwer
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ netwerk nic maken](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nieuwe AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[AZ netwerk nic maken](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-network-interface-settings"></a>Netwerkinterface-instellingen weergeven
 
@@ -94,7 +94,7 @@ Als een IPv6-adres is toegewezen aan een netwerkinterface, retourneert de PowerS
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[lijst met AZ netwerken nic](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) netwerkinterfaces weergeven in het abonnement; [az netwerk nic weergeven](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) voor een netwerkinterface-instellingen te bekijken|
+|CLI|[lijst met AZ netwerken nic](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_list) netwerkinterfaces weergeven in het abonnement; [az netwerk nic weergeven](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_show) voor een netwerkinterface-instellingen te bekijken|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) netwerkinterfaces weergeven in het abonnement of de weergave-instellingen voor een netwerkinterface|
 
 ## <a name="change-dns-servers"></a>DNS-servers wijzigen
@@ -114,7 +114,7 @@ De DNS-server wordt toegewezen door de Azure-DHCP-server aan de netwerkinterface
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ netwerk nic-update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[AZ netwerk nic-update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>In- of uitschakelen van doorsturen via IP
@@ -136,7 +136,7 @@ De instelling moet worden ingeschakeld voor elke netwerkinterface die is gekoppe
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ netwerk nic-update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[AZ netwerk nic-update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet-assignment"></a>Subnettoewijzing wijzigen
@@ -157,7 +157,7 @@ U kunt het subnet, maar niet het virtuele netwerk, dat een netwerkinterface is t
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ netwerk nic IP-configuratie bijwerken](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[AZ netwerk nic IP-configuratie bijwerken](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -176,8 +176,8 @@ Wanneer u een netwerkinterface verwijdert, worden alle MAC of IP-adressen zijn t
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[nic-AZ netwerk het verwijderen](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Verwijder AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[nic-AZ netwerk het verwijderen](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u een virtuele machine maken met meerdere netwerk interfaces of IP-adressen, leest u de volgende artikelen:

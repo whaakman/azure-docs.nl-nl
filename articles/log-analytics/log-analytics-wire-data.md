@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2ce9491f7c16baa7805bdb35defc57645b73d18f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kabel gegevens 2.0 (Preview)-oplossing in Log Analytics
 
@@ -387,7 +387,7 @@ Klik in de OMS-portal op de **kabel gegevens 2.0** tegel om de gegevens van de k
 | Lokale subnetten | Toont het aantal lokale subnetten die agents gedetecteerd.  Klik op het aantal om uit te voeren een zoekopdracht logboek voor <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> die een lijst met alle subnetten met het aantal bytes dat is verzonden via elke service. Klik op een subnet in de lijst om te retourneren van het totale aantal bytes dat is verzonden via het subnet logboek zoekopdracht uitvoert. |
 | Protocollen op toepassingsniveau | Toont het aantal protocollen op toepassingsniveau in gebruik is, zoals gedetecteerd door agents. Klik op het aantal om uit te voeren een zoekopdracht logboek voor <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Klik op een protocol om uit te voeren een zoekopdracht logboek is het totale aantal bytes dat is verzonden via het protocol retourneren. |
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Kabel gegevens dashboard](./media/log-analytics-wire-data/wire-data-dash.png)
 
@@ -413,7 +413,7 @@ Het is ook handig om te weten als protocolverkeer is verhogen of gedurende een b
 
 Kabel gegevens verzamelt metagegevens over het netwerkverkeer met behulp van de agents die u hebt ingeschakeld. Elke agent verzendt gegevens over elke 15 seconden.
 
-## <a name="output-data"></a>uitvoergegevens
+## <a name="output-data"></a>Uitvoergegevens
 
 Een record met een type _WireData_ is gemaakt voor elk type invoergegevens. WireData-records hebben eigenschappen die in de volgende tabel worden weergegeven:
 

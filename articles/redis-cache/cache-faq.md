@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache.
@@ -119,36 +119,36 @@ Hieronder vindt u overwegingen voor het kiezen van een Cache-aanbieding.
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Azure Redis-Cache-prestaties
-De volgende tabel bevat de waarden van de maximale bandbreedte van tijdens het testen van verschillende grootten van standaard en Premium in de cache opgeslagen met behulp van `redis-benchmark.exe` van een Iaas-VM voor het eindpunt van de Azure Redis-Cache. 
+De volgende tabel bevat de waarden van de maximale bandbreedte van tijdens het testen van verschillende grootten van standaard en Premium in de cache opgeslagen met behulp van `redis-benchmark.exe` van een Iaas-VM voor het eindpunt van de Azure Redis-Cache. Voor SSL-doorvoer redis-benchmark gebruikt met stunnel verbinding maken met de Azure Redis-Cache-eindpunt.
 
 >[!NOTE] 
 >Deze waarden niet worden gegarandeerd en er is geen SLA voor deze getallen, maar moet typische. U moet laden uw eigen toepassing om te bepalen van de grootte van de juiste cache voor uw toepassing testen.
->
+>Deze getallen kunnen worden gewijzigd als er nieuwere resultaten periodiek boeken.
 >
 
 We kunnen de volgende conclusie trekt tekenen uit deze tabel:
 
-* Doorvoer voor de caches die dezelfde grootte zijn is hoger in de laag Premium in vergelijking met de Standard-laag. Bijvoorbeeld, met een 6 GB-Cache is doorvoer van P1 180.000 RPS in vergelijking met 49,000 voor C3.
+* Doorvoer voor de caches die dezelfde grootte zijn is hoger in de laag Premium in vergelijking met de Standard-laag. Bijvoorbeeld, met een 6 GB-Cache is doorvoer van P1 180.000 RPS in vergelijking met 100.000 voor C3.
 * Met Redis clustering, duurt doorvoer lineair omdat u het aantal shards (knooppunten) in het cluster vergroten. Als u een cluster P4 van 10 shards maakt, vervolgens de beschikbare doorvoer is bijvoorbeeld 400.000 * 10 = 4 miljoen RPS.
 * Doorvoer voor grotere sleutel grootten is hoger in de laag Premium in vergelijking met de Standard-laag.
 
-| Prijscategorie | Grootte | CPU-kernen | Beschikbare bandbreedte | De grootte van 1 KB |
-| --- | --- | --- | --- | --- |
-| **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per seconde (RPS)** |
-| C0 |250 MB |Gedeeld |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Premium-cachegrootte** | |**CPU-kernen per shard** | **Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per seconde (RPS) per shard** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |
+| Prijscategorie | Grootte | CPU-kernen | Beschikbare bandbreedte | De grootte van 1 KB | De grootte van 1 KB |
+| --- | --- | --- | --- | --- | --- |
+| **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per tweede (RPS) niet-SSL** |**Aanvragen per tweede (RPS) SSL** |
+| C0 |250 MB |Gedeeld |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Premium-cachegrootte** | |**CPU-kernen per shard** | **Megabits per seconde (Mb/s) / Megabytes per seconde (MB/s)** |**Aanvragen per tweede (RPS) niet-SSL, per shard** |**Aanvragen per tweede (RPS) SSL, per shard** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-Voor instructies over het downloaden van de Redis-hulpprogramma's zoals `redis-benchmark.exe`, Zie de [hoe kan ik Redis-opdrachten uitvoeren?](#cache-commands) sectie.
+Voor instructies over het instellen van stunnel of het downloaden van de Redis-hulpprogramma's zoals `redis-benchmark.exe`, Zie de [hoe kan ik Redis-opdrachten uitvoeren?](#cache-commands) sectie.
 
 <a name="cache-region"></a>
 

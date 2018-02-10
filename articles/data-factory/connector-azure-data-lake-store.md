@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Store met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Als u verificatie van de service-principal, registreren van een Toepassingsentit
 
 >[!IMPORTANT]
 > Zorg ervoor dat u service principal juiste toestemming geven in Azure Data Lake Store:
->- **Als bron**, ten minste verlenen **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor account toegangsniveau control (IAM).
->- **Als sink**, ten minste verlenen **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store:
+>- **Als bron**, in Data explorer -> toegang, ten minste verlenen **lezen + Execute** machtiging voor het weergeven en kopieer de bestanden in de map/submappen, of **lezen** machtiging voor het kopiëren van een enkel bestand; en toevoegen als **een toegangsmachtiging en een standaard machtigingsvermelding**. Er is geen vereiste voor account toegangsniveau control (IAM).
+>- **Als sink**, in Data explorer -> toegang, ten minste verlenen **schrijven + uitvoeren** machtiging voor het maken van de onderliggende items in de map en wilt toevoegen als **een toegangsmachtiging en een machtigingsvermelding standaard**. Als u Azure IR om te kopiëren (bron- en sink zijn in de cloud), in de Access control (IAM), verleent aan ten minste **lezer** rol om te kunnen laten Data Factory Data Lake Store regio detecteren. Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
 
 De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | servicePrincipalId | Geef de toepassing client-ID. | Ja |
-| servicePrincipalKey | De sleutel van de toepassing opgeven. Dit veld markeren als een SecureString. | Ja |
+| servicePrincipalKey | De sleutel van de toepassing opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld:**
 
@@ -114,12 +114,12 @@ Een gegevensfactory kan worden gekoppeld aan een [beheerde service-identiteit](d
 Beheerde service identiteitsverificatie (MSI) gebruiken:
 
 1. [Ophalen van de data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van 'SERVICE identiteit TOEPASSINGS-ID gegenereerd samen met uw gegevensfactory.
-2. De service-identiteit toegang verlenen aan Data Lake Store dezelfde manier als u zou voor service-principal doen. Zie voor gedetailleerde stappen [authentication Service-naar-service - toewijzen de Azure AD-toepassing met het Azure Data Lake Store-accountbestand of map](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. De service identiteit toegang verlenen aan Data Lake Store de dezelfde manier als voor principal volgende hieronder opmerkingen bij de service.
 
 >[!IMPORTANT]
 > Zorg ervoor dat u data factory-service de identiteit juiste toestemming geven in Azure Data Lake Store:
->- **Als bron**, ten minste verlenen **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor account toegangsniveau control (IAM).
->- **Als sink**, ten minste verlenen **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store:
+>- **Als bron**, in Data explorer -> toegang, ten minste verlenen **lezen + Execute** machtiging voor het weergeven en kopieer de bestanden in de map/submappen, of **lezen** machtiging voor het kopiëren van een enkel bestand; en toevoegen als **een toegangsmachtiging en een standaard machtigingsvermelding**. Er is geen vereiste voor account toegangsniveau control (IAM).
+>- **Als sink**, in Data explorer -> toegang, ten minste verlenen **schrijven + uitvoeren** machtiging voor het maken van de onderliggende items in de map en wilt toevoegen als **een toegangsmachtiging en een machtigingsvermelding standaard**. Als u Azure IR om te kopiëren (bron- en sink zijn in de cloud), in de Access control (IAM), verleent aan ten minste **lezer** rol om te kunnen laten Data Factory Data Lake Store regio detecteren. Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
 
 In Azure Data Factory hoeft u niet naast de algemene gegevens voor de Data Lake Store-eigenschappen opgeven in de gekoppelde service.
 
@@ -186,7 +186,7 @@ Om gegevens te kopiëren naar/van Azure Data Lake Store, stel de eigenschap type
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure Data Lake-bron- en sink.
 

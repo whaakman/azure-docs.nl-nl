@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Gebruik de Azure Data Lake tools voor Visual Studio met de Hortonworks Sandbox
 
@@ -53,13 +53,13 @@ Zorg ervoor dat de Hortonworks Sandbox wordt uitgevoerd. Volg de stappen in de [
 
     ![Schermopname van dialoogvenster met wachtwoord tekstvak gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Selecteer **volgende** om door te gaan.
+    Selecteer **Volgende** om door te gaan.
 
 4. Gebruik de **wachtwoord** veld dat u het wachtwoord die u hebt geconfigureerd voor de `root` account. Laat de overige velden op de standaardwaarde.
 
     ![Schermopname van dialoogvenster met wachtwoord tekstvak gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Selecteer **volgende** om door te gaan.
+    Selecteer **Volgende** om door te gaan.
 
 5. Wacht op validatie van de services te voltooien. In sommige gevallen validatie mislukt en vraagt u de configuratie bijwerken. Als validatie mislukt, selecteert u **Update**, en wacht tot de configuratie en verificatie voor de service te voltooien.
 
@@ -84,7 +84,7 @@ Hive biedt een SQL-achtige query language (HiveQL) voor het werken met gestructu
 
     ![Schermopname van Server Explorer en schrijven naar een Hive-Query gemarkeerd](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    Een nieuwe queryvenster wordt weergegeven. Hier kunt u snel schrijven en verzenden van een query met het lokale cluster.
+    Er wordt een nieuw queryvenster geopend. Hier kunt u snel schrijven en verzenden van een query met het lokale cluster.
 
 2. Voer de volgende opdracht in het nieuwe queryvenster:
 

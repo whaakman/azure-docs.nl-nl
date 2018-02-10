@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Uw gegevens beschermen door het maken van momentopnamen van uw gegevens op de gedefinieerde intervallen. Deze momentopnamen worden aangeduid als herstelpunten en ze zijn opgeslagen in de Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -104,7 +104,7 @@ Nadat u het herstelpunt selecteert, kiest u de configuratie van een virtuele mac
 
    * **Herstellen van schijven**
 
-De portal biedt een **snelle invoer** optie voor een herstelde virtuele machine. Gebruik PowerShell of de portal om terug te zetten back-up-schijven voor het aanpassen van de VM-configuratie of de namen van de resources die zijn gemaakt als onderdeel van het maken van een nieuwe VM-keuze. PowerShell-opdrachten gebruiken voor deze koppelt aan uw keuze van VM-configuratie. Of u kunt de sjabloon die wordt geleverd met een herstelde schijven voor het aanpassen van de herstelde virtuele machine. Zie voor meer informatie over het herstellen van een virtuele machine die meerdere NIC's of onder een load balancer is [herstellen van een virtuele machine met speciale netwerkconfiguraties](#restore-a vm-with-special-network-configurations). Als uw virtuele machine van Windows gebruikt [HUB licentieverlening](../virtual-machines/windows/hybrid-use-benefit-licensing.md), het herstel van schijven en gebruik PowerShell/sjabloon zoals opgegeven in dit artikel te maken van de virtuele machine. Zorg ervoor dat u opgeeft de **licentietype** als 'Windows_Server' bij het maken van de virtuele machine als u wilt gebruikmaken van HUB voordelen op de herstelde virtuele machine. 
+De portal biedt een **snelle invoer** optie voor een herstelde virtuele machine. Gebruik PowerShell of de portal om terug te zetten back-up-schijven voor het aanpassen van de VM-configuratie of de namen van de resources die zijn gemaakt als onderdeel van het maken van een nieuwe VM-keuze. PowerShell-opdrachten gebruiken voor deze koppelt aan uw keuze van VM-configuratie. Of u kunt de sjabloon die wordt geleverd met een herstelde schijven voor het aanpassen van de herstelde virtuele machine. Zie voor meer informatie over het herstellen van een virtuele machine die meerdere NIC's of onder een load balancer is [herstellen van een virtuele machine met speciale netwerkconfiguraties](#restore-vms-with-special-network-configurations). Als uw virtuele machine van Windows gebruikt [HUB licentieverlening](../virtual-machines/windows/hybrid-use-benefit-licensing.md), het herstel van schijven en gebruik PowerShell/sjabloon zoals opgegeven in dit artikel te maken van de virtuele machine. Zorg ervoor dat u opgeeft de **licentietype** als 'Windows_Server' bij het maken van de virtuele machine als u wilt gebruikmaken van HUB voordelen op de herstelde virtuele machine. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Een nieuwe virtuele machine van een herstelpunt maken
 1. Als u niet al daar [Selecteer een herstelpunt](#restore-a vm-with-special-network-configurations) voordat u begint met een nieuwe virtuele machine van een herstelpunt maken. Nadat u een herstelpunt selecteert op de **configuratie terugzetten** blade invoeren of selecteren van waarden voor elk van de volgende velden:

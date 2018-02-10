@@ -16,26 +16,26 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23fc9f7f34732079682857d4ee685fe811751698
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa9861162e63714fc17d829816b25aa36e7df73b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Een virtuele Linux-machine met CLI 2.0 vergroten of verkleinen
 
 Nadat u een virtuele machine (VM) inricht, u kunt de virtuele machine omhoog of omlaag schalen door het wijzigen van de [VM-grootte][vm-sizes]. In sommige gevallen moet u eerst de VM ongedaan. U moet de VM ongedaan gemaakt als de gewenste grootte is niet beschikbaar op het cluster hardware die als host voor de virtuele machine fungeert. Dit artikel wordt uitgelegd hoe u dit moet een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="resize-a-vm"></a>De grootte van een virtuele machine wijzigen
-Als u een virtuele machine, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login).
+Als u een virtuele machine, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login).
 
-1. De lijst met beschikbare grootten voor virtuele machine weergeven op de hardware-cluster waarop de virtuele machine wordt gehost met [az vm-vm-formaat-opties voor](/cli/azure/vm#list-vm-resize-options). Het volgende voorbeeld worden VM-grootten voor de virtuele machine met de naam `myVM` in de resourcegroep `myResourceGroup` regio:
+1. De lijst met beschikbare grootten voor virtuele machine weergeven op de hardware-cluster waarop de virtuele machine wordt gehost met [az vm-vm-formaat-opties voor](/cli/azure/vm#az_vm_list_vm_resize_options). Het volgende voorbeeld worden VM-grootten voor de virtuele machine met de naam `myVM` in de resourcegroep `myResourceGroup` regio:
    
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
 
-2. Als de gewenste VM-grootte wordt weergegeven, de grootte van de virtuele machine met [az vm vergroten of verkleinen](/cli/azure/vm#resize). Hiermee het volgende voorbeeld wordt ingesteld voor de virtuele machine met de naam `myVM` naar de `Standard_DS3_v2` grootte:
+2. Als de gewenste VM-grootte wordt weergegeven, de grootte van de virtuele machine met [az vm vergroten of verkleinen](/cli/azure/vm#az_vm_resize). Hiermee het volgende voorbeeld wordt ingesteld voor de virtuele machine met de naam `myVM` naar de `Standard_DS3_v2` grootte:
    
     ```azurecli
     az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
@@ -43,7 +43,7 @@ Als u een virtuele machine, moet u de meest recente [Azure CLI 2.0](/cli/azure/i
    
     De virtuele machine opnieuw is opgestart tijdens dit proces. Na het opnieuw opstarten, worden uw bestaande OS en de gegevensschijven toegewezen. Alles op de tijdelijke schijf gaat verloren.
 
-3. Als de gewenste VM-grootte niet wordt weergegeven, moet u eerst de virtuele machine met de toewijzing [az vm ongedaan](/cli/azure/vm#deallocate). Dit proces kan de virtuele machine vervolgens worden aangepast aan de grootte die beschikbaar is dat de regio ondersteunt en vervolgens worden gestart. De volgende stappen ongedaan gemaakt, vergroten of verkleinen en start vervolgens de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
+3. Als de gewenste VM-grootte niet wordt weergegeven, moet u eerst de virtuele machine met de toewijzing [az vm ongedaan](/cli/azure/vm#az_vm_deallocate). Dit proces kan de virtuele machine vervolgens worden aangepast aan de grootte die beschikbaar is dat de regio ondersteunt en vervolgens worden gestart. De volgende stappen ongedaan gemaakt, vergroten of verkleinen en start vervolgens de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

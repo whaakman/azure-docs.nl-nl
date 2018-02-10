@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Gegevens kopiëren van de HTTP-eindpunt met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Stel de eigenschap 'authenticationType' op **Basic**, **Digest**, of **Windows**
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | userName | De naam van de gebruiker toegang tot het HTTP-eindpunt. | Ja |
-| wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als SecureString. | Ja |
+| wachtwoord | Wachtwoord voor de gebruiker (gebruikersnaam). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Voorbeeld**
 
@@ -100,7 +100,7 @@ ClientCertificate om verificatie te gebruiken, stelt u 'authenticationType'-eige
 |:--- |:--- |:--- |
 | embeddedCertData | Gegevens van Base64-gecodeerde certificaat. | Geef ofwel de `embeddedCertData` of `certThumbprint`. |
 | certThumbprint | De vingerafdruk van het certificaat dat is geïnstalleerd op uw Self-hosted integratie Runtime-machine-certificaatarchief. Geldt alleen als host zichzelf soort integratie Runtime is opgegeven in connectVia. | Geef ofwel de `embeddedCertData` of `certThumbprint`. |
-| wachtwoord | Het wachtwoord is gekoppeld aan het certificaat. Dit veld markeren als SecureString. | Nee |
+| wachtwoord | Het wachtwoord is gekoppeld aan het certificaat. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 
 Als u 'certThumbprint' voor verificatie gebruiken en het certificaat in het persoonlijke archief van de lokale computer is geïnstalleerd, moet u de leesmachtiging verlenen aan de integratie Self-hosted Runtime:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs' sinds de beheercategorie rapporten besturingselement vlak gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen leesbewerkingen (GET) en bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE' model.
@@ -29,18 +29,21 @@ Afbeelding 1: Activiteitenlogboeken tegenover andere typen logboeken
 
 Het activiteitenlogboek verschilt van [diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md). Activiteitenlogboeken bevatten gegevens over de bewerkingen van een resource van buitenaf (de ' besturingselement-vlak'). Logboeken met diagnostische gegevens worden gegenereerd door een resource en bieden informatie over de werking van de bron (de "data-vlak').
 
-U kunt gebeurtenissen ophalen uit uw activiteitenlogboek met de Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure-Monitor.
-
-
 > [!WARNING]
 > De Azure Activity Log is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager optreden. Resources met behulp van het klassieke/RDFE-model worden niet bijgehouden. Sommige klassieke resource-typen hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassieke via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het gebeurtenissenlogboek. Als u met een klassiek brontype buiten de Azure Resource Manager-proxy's communiceren, worden alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
 >
 >
 
+U kunt gebeurtenissen ophalen uit uw activiteitenlogboek met de Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure-Monitor.
+
+> [!NOTE]
+
+>  [Waarschuwingen (Preview)](monitoring-overview-unified-alerts.md) momenteel een verbeterde ervaring bij het maken en beheren van activiteit logboek waarschuwingsregels biedt.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
+
+
 Bekijk de volgende video introductie van het activiteitenlogboek.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Categorieën in het gebeurtenissenlogboek
 Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's uit deze categorieën [Raadpleeg dit artikel](monitoring-activity-log-schema.md). Deze omvatten:

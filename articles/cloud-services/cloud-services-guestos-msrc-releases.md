@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
@@ -26,8 +26,14 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 ## <a name="january-guest-os"></a>Het Gastbesturingssysteem januari
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| N/A | [4056898] |Windows-beveiliging |4.50 |3 januari 2018 |
-| N/A | [4056890] |Windows-beveiliging |5.15 |3 januari 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Windows-beveiliging |2.70, 3.57, 4.50 |3 januari 2018 |
+| Rel 18-01 | [4056890], [4056892] |Windows-beveiliging |5.15 |3 januari 2018 |
+| N/A | [4054518] |Updatepakket van december niet voor beveiliging |2,70 |12 december 2017 |
+| N/A | [4054520] |Updatepakket van december niet voor beveiliging |3.57 |12 december 2017 |
+| N/A | [4054519] |Updatepakket van december niet voor beveiliging |4.50 |12 december 2017 |
+| N/A | [4051956] |Update van januari tijdzone |2.70, 3.57, 4.50 |12 december 2017 |
+
+
 
 ## <a name="december-guest-os"></a>December Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -36,7 +42,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-12 | [4054521], [4054522], [4054523] |Windows-beveiliging |2.69, 3.56, 4.49 |12 december 2017 |
 | Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 december 2017 |
 | Rel 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 december 2017 |
-| N/A | [4048957] |Updatepakket van november niet voor beveiliging |2.67 |14 november 2017 |
+| N/A | [4048957] |Updatepakket van november niet voor beveiliging |2.69 |14 november 2017 |
 | N/A | [4048959] |Updatepakket van november niet voor beveiliging |3.56 |14 november 2017 |
 | N/A | [4048958] |Updatepakket van november niet voor beveiliging |4.49 |14 november 2017 |
 | N/A | [4049068] |Update van december tijdzone |2.69, 3.56, 4.49 |12 december 2017 |
@@ -48,7 +54,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-11 | [4048960], [4048962], [4048961] |Windows-beveiliging |2.68, 3.55, 4.48 |14 november 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 november 2017 |
 | Rel 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
-| N/A | [4041681] |Totalisering van de niet-beveiliging oktober |2.67 |10 oktober 2017 |
+| N/A | [4041681] |Totalisering van de niet-beveiliging oktober |2.68 |10 oktober 2017 |
 | N/A | [4041690] |Totalisering van de niet-beveiliging oktober |3.55 |10 oktober 2017 |
 | N/A | [4041693] |Totalisering van de niet-beveiliging oktober |4.48 |10 oktober 2017 |
 | N/A | [3191566] |Update voor Windows Management Framework 5.1  |2.68 |14 november 2017 |
@@ -507,32 +513,32 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS15 032 |[3038314] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.20, 3.27, 2.39 |17 april 2015 |
 | MS15 035 |[3046306] |Beveiligingslek in Microsoft grafische onderdeel kan de uitvoering van externe Code |4.20, 3.27, 2.39 |17 april 2015 |
 | MS15-037 |[3046269] |Beveiligingslek in Windows Taakplanner kan leiden tot uitbreiding van bevoegdheden |4.20, 3.27, 2.39 |17 april 2015 |
-| MS15 038 |[3049576] |Beveiligingsproblemen in Microsoft Windows kunnen leiden tot uitbreiding van bevoegdheden belangrijk |4.20, 3.27, 2.39 |17 april 2015 |
-| MS15 039 |[3046482] |Beveiligingslek in XML Core Services waardoor beveiliging functie overslaan |4.20, 3.27, 2.39 |17 april 2015 |
-| MS15 040 |[3045711] |Beveiligingslek in AD FS kan leiden tot vrijgeven van informatie |4.20, 3.27, 2.39 |17 april 2015 |
-| MS15 041 |[3048010] |Beveiligingslek in .NET Framework kan leiden tot vrijgeven van informatie |4.20, 3.27, 2.39 |17 april 2015 |
-| MS15 042 |[3047234] |Beveiligingslek in Windows Hyper-V kan denial of Service |4.20, 3.27, 2.39 |17 april 2015 |
+| MS15-038 |[3049576] |Beveiligingsproblemen in Microsoft Windows kunnen leiden tot uitbreiding van bevoegdheden belangrijk |4.20, 3.27, 2.39 |17 april 2015 |
+| MS15-039 |[3046482] |Beveiligingslek in XML Core Services waardoor beveiliging functie overslaan |4.20, 3.27, 2.39 |17 april 2015 |
+| MS15-040 |[3045711] |Beveiligingslek in AD FS kan leiden tot vrijgeven van informatie |4.20, 3.27, 2.39 |17 april 2015 |
+| MS15-041 |[3048010] |Beveiligingslek in .NET Framework kan leiden tot vrijgeven van informatie |4.20, 3.27, 2.39 |17 april 2015 |
+| MS15-042 |[3047234] |Beveiligingslek in Windows Hyper-V kan denial of Service |4.20, 3.27, 2.39 |17 april 2015 |
 | N.v.t. |[3045755] |Update voor het verbeteren van PKU2U verificatie |4.20, 3.27, 2.39 |17 april 2015 |
 
 ## <a name="april-guest-os"></a>April gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| [MS15 034] |[3042553] |Beveiligingsprobleem in HTTP.sys kan de uitvoering van externe code |4.19, 3.26, 2.38 |17 april 2015 |
+| [MS15-034] |[3042553] |Beveiligingsprobleem in HTTP.sys kan de uitvoering van externe code |4.19, 3.26, 2.38 |17 april 2015 |
 
 ## <a name="march-guest-os"></a>Gastbesturingssysteem maart
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| MS15 018 |[3032359] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.18, 3.25, 2.37 |N/A |
-| MS15 019 |[3040297] |Beveiligingsprobleem in VBScript scriptengine kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N/A |
+| MS15-018 |[3032359] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.18, 3.25, 2.37 |N/A |
+| MS15-019 |[3040297] |Beveiligingsprobleem in VBScript scriptengine kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N/A |
 | MS15-020 |[3041836] |Beveiligingsproblemen in Windows kunnen externe Code worden uitgevoerd |4.18, 3.25, 2.37 |N/A |
-| MS15 021 |[3032323] |Beveiligingsproblemen Adobe lettertype stuurprogramma kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N/A |
-| MS15 023 |[3034344] |Beveiligingsproblemen in stuurprogramma voor de kernelmodus kunnen leiden tot uitbreiding van bevoegdheden |4.18, 3.25, 2.37 |N/A |
-| MS15 024 |[3035132] |Beveiligingslek in PNG-verwerking kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N/A |
-| MS15 025 |[3038680] |Beveiligingsproblemen in Windows-Kernel kunnen leiden tot misbruik van bevoegdheden |4.18, 3.25, 2.37 |N/A |
-| MS15 027 |[3002657] |Beveiligingslek in NETLOGON kan leiden adresvervalsing (spoofing) |4.18, 3.25, 2.37 |N/A |
-| MS15 028 |[3030377] |Beveiligingslek in Windows Taakplanner kan leiden beveiliging functie overslaan |4.18, 3.25, 2.37 |N/A |
-| MS15 029 |[3035126] |Beveiligingslek in Windows Photo Decoder onderdeel kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N/A |
-| MS15 030 |[3039976] |Beveiligingslek in Remote Desktop Protocol kan denial of Service |4.18, 3.25, 2.37 |N/A |
+| MS15-021 |[3032323] |Beveiligingsproblemen Adobe lettertype stuurprogramma kan de uitvoering van externe Code |4.18, 3.25, 2.37 |N/A |
+| MS15-023 |[3034344] |Beveiligingsproblemen in stuurprogramma voor de kernelmodus kunnen leiden tot uitbreiding van bevoegdheden |4.18, 3.25, 2.37 |N/A |
+| MS15-024 |[3035132] |Beveiligingslek in PNG-verwerking kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N/A |
+| MS15-025 |[3038680] |Beveiligingsproblemen in Windows-Kernel kunnen leiden tot misbruik van bevoegdheden |4.18, 3.25, 2.37 |N/A |
+| MS15-027 |[3002657] |Beveiligingslek in NETLOGON kan leiden adresvervalsing (spoofing) |4.18, 3.25, 2.37 |N/A |
+| MS15-028 |[3030377] |Beveiligingslek in Windows Taakplanner kan leiden beveiliging functie overslaan |4.18, 3.25, 2.37 |N/A |
+| MS15-029 |[3035126] |Beveiligingslek in Windows Photo Decoder onderdeel kan leiden tot vrijgeven van informatie |4.18, 3.25, 2.37 |N/A |
+| MS15-030 |[3039976] |Beveiligingslek in Remote Desktop Protocol kan denial of Service |4.18, 3.25, 2.37 |N/A |
 
 > [!NOTE]
 > Beveiligingsbulletin MS15-031 lijkt niet geïnstalleerd. Dit geldt echter niet naar deze versie van het Gastbesturingssysteem.
@@ -542,28 +548,28 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 ## <a name="february-guest-os"></a>Februari Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| MS15 009 |[3034682] |Beveiligingsupdate voor Internet Explorer |4.17, 3.24, 2.36 |N/A |
-| MS15 010 |[3036220] |Beveiligingsproblemen in Windows Kernel-modus stuurprogramma's kunnen externe Code worden uitgevoerd |4.17, 3.24, 2.36 |N/A |
+| MS15-009 |[3034682] |Beveiligingsupdate voor Internet Explorer |4.17, 3.24, 2.36 |N/A |
+| MS15-010 |[3036220] |Beveiligingsproblemen in Windows Kernel-modus stuurprogramma's kunnen externe Code worden uitgevoerd |4.17, 3.24, 2.36 |N/A |
 | MS15-011 |[3000483] |Beveiligingsprobleem in Groepsbeleid kan de uitvoering van externe Code |4.17, 3.24, 2.36 |N/A |
-| MS15 014 |[3004361] |Beveiligingslek in SMB kan leiden beveiliging functie overslaan |4.17, 3.24, 2.36 |N/A |
-| MS15 015 |[3031432] |Beveiligingslek in Microsoft Windows kan leiden tot uitbreiding van bevoegdheden |4.17, 3.24, 2.36 |N/A |
-| MS15 016 |[3029944] |Beveiligingslek in Microsoft grafische onderdeel kan leiden tot vrijgeven van informatie |4.17, 3.24, 2.36 |N/A |
+| MS15-014 |[3004361] |Beveiligingslek in SMB kan leiden beveiliging functie overslaan |4.17, 3.24, 2.36 |N/A |
+| MS15-015 |[3031432] |Beveiligingslek in Microsoft Windows kan leiden tot uitbreiding van bevoegdheden |4.17, 3.24, 2.36 |N/A |
+| MS15-016 |[3029944] |Beveiligingslek in Microsoft grafische onderdeel kan leiden tot vrijgeven van informatie |4.17, 3.24, 2.36 |N/A |
 | N/A |[3004375] |Update van Windows te verbeteren Command Line-controle<p/>**Opmerking**: dit is geïnstalleerd, maar de registersleutel in te schakelen is uitgeschakeld |4.17, 3.24, 2.36 |N/A |
 
 ## <a name="january-guest-os"></a>Het Gastbesturingssysteem januari
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| MS15 001 |[3023266] |Beveiligingslek in Windows AppCompatCache kan leiden tot misbruik van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 002 |[3020393] |Beveiligingslek in Windows Telnet-Service kan ertoe leiden dat externe Code worden uitgevoerd |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 003 |[3021674] |Beveiligingslek in Windows User Profile-Service kan leiden tot misbruik van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 004 |[3019978] |Beveiligingslek in Windows-onderdelen kan leiden tot uitbreiding van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 005 |[3022777] |Beveiligingslek in NLA waardoor beveiliging functie overslaan |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-001 |[3023266] |Beveiligingslek in Windows AppCompatCache kan leiden tot misbruik van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-002 |[3020393] |Beveiligingslek in Windows Telnet-Service kan ertoe leiden dat externe Code worden uitgevoerd |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-003 |[3021674] |Beveiligingslek in Windows User Profile-Service kan leiden tot misbruik van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-004 |[3019978] |Beveiligingslek in Windows-onderdelen kan leiden tot uitbreiding van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-005 |[3022777] |Beveiligingslek in NLA waardoor beveiliging functie overslaan |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-006 |[3004365] |Beveiligingslek in Windows Foutrapportage kan toestaan beveiliging functie overslaan |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 007 |[3014029] |Beveiligingslek in Network Policy Server RADIUS kan leiden tot Denial of Service |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 008 |[3019215] |Beveiligingslek in Windows stuurprogramma voor de kernelmodus kan leiden tot uitbreiding van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-007 |[3014029] |Beveiligingslek in Network Policy Server RADIUS kan leiden tot Denial of Service |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-008 |[3019215] |Beveiligingslek in Windows stuurprogramma voor de kernelmodus kan leiden tot uitbreiding van bevoegdheden |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS14-080 |[3008923] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 002 |[3020393] |Beveiligingslek in Windows Telnet-Service kan ertoe leiden dat externe Code worden uitgevoerd |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 002 |[3020393] |Beveiligingslek in Windows Telnet-Service kan ertoe leiden dat externe Code worden uitgevoerd |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-002 |[3020393] |Beveiligingslek in Windows Telnet-Service kan ertoe leiden dat externe Code worden uitgevoerd |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-002 |[3020393] |Beveiligingslek in Windows Telnet-Service kan ertoe leiden dat externe Code worden uitgevoerd |4.16, 3.23, 2.35 |Jan 19 2015 |
 
 
 ## <a name="december-guest-os"></a>December Gastbesturingssysteem
@@ -582,7 +588,14 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | N/A |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 
@@ -994,7 +1007,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 [3077657]: http://support.microsoft.com/kb/3077657
 [3057154]: http://support.microsoft.com/kb/3057154
 
-[MS15 034]: https://technet.microsoft.com/library/security/MS15-034
+[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
 [3042553]: https://support.microsoft.com/en-us/kb/3042553/
 

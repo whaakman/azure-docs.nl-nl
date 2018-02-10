@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -61,7 +61,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
     U ziet nu een lijst met alle regio's waar uw API Management-service is ingericht. Selecteer een VNET en een subnet voor elke regio. De lijst is gevuld met zowel klassieke als Resource Manager virtuele netwerken die beschikbaar zijn in uw Azure-abonnementen die zijn ingesteld in de regio die u configureert.
     
     > [!NOTE]
-    > **Service-eindpunt** in het bovenstaande diagram bevat Gateway of Proxy, Publicatieportal, Developer-Portal, GIT en het eindpunt met Direct beheer.
+    > **Service-eindpunt** in het bovenstaande diagram bevat Gateway of Proxy, de Azure-portal, de portal voor ontwikkelaars, GIT en het eindpunt met Direct beheer.
     > **Eindpunt** in het bovenstaande diagram wordt het eindpunt dat wordt gehost op de service voor het beheren van configuratie van Azure-portal en Powershell.
     > Ook, houd er rekening mee dat, hoewel het diagram toont de IP-adressen voor de verschillende API Management-service-eindpunten **alleen** reageert op de geconfigureerde hostnamen.
     

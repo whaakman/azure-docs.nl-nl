@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -44,7 +44,7 @@ U kunt meerdere virtuele netwerken in elke Azure implementeren [abonnement](../a
 - Azure verschafte naamomzetting gebruiken of uw eigen DNS-server, voor gebruik door de bronnen in een virtueel netwerk opgeven. Zie voor meer informatie over naamomzetting in virtuele netwerken, [naamomzetting voor resources in virtuele netwerken](virtual-networks-name-resolution-for-vms-and-role-instances.md) artikel.
 
 ## <a name = "internet"></a>Internetcommunicatie
-Alle resources in een virtueel netwerk kunnen communiceren uitgaand naar het Internet. Het privé IP-adres van de resource is standaard Bronnetwerk adres vertaald (snat omzetten) naar een openbare IP-adres geselecteerd door de Azure-infrastructuur. Lees voor meer informatie over uitgaande internetverbinding, de [inzicht in uitgaande verbindingen in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) artikel. Om te voorkomen dat een uitgaande internetverbinding, kunt u aangepaste routes of filteren van verkeer te implementeren.
+Alle resources in een virtueel netwerk kunnen communiceren uitgaand naar het Internet. Het privé IP-adres van de resource is standaard Bronnetwerk adres vertaald (snat omzetten) naar een openbare IP-adres geselecteerd door de Azure-infrastructuur. Lees voor meer informatie over uitgaande internetverbinding, de [inzicht in uitgaande verbindingen in Azure](..\load-balancer\load-balancer-outbound-connections.md) artikel. Om te voorkomen dat een uitgaande internetverbinding, kunt u aangepaste routes of filteren van verkeer te implementeren.
 
 Inkomende communicatie voor Azure-resources van het Internet of om te communiceren met Internet, zonder snat omzetten uitgaand, moet een resource een openbaar IP-adres worden toegewezen. Lees voor meer informatie over openbare IP-adressen, de [openbare IP-adressen](virtual-network-public-ip-address.md) artikel.
 

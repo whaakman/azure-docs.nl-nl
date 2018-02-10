@@ -16,7 +16,7 @@ U kunt de telemetrie van uw apparaat op verzonden weergeven de **apparaten** pag
 
 ## <a name="act-on-your-device"></a>Reageren op uw apparaat
 
-Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **opnieuw opstarten** methode.
+Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **FirmwareUpdate** methode.
 
 1. Kies **apparaten** om te navigeren naar de **apparaten** pagina in de oplossing.
 
@@ -26,11 +26,15 @@ Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in 
 
 1. Voor een lijst van de methoden die u op uw apparaat aanroepen kunt, kies **planning**. Als u een methode uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten in de lijst. De **planning** deelvenster toont de typen van de methode algemene op alle apparaten die u hebt geselecteerd.
 
-1. Kies **opnieuw opstarten**, de taaknaam van de ingesteld op **RebootPhysicalChiller**, en kies **toepassen**:
+1. Kies **FirmwareUpdate**, de taaknaam van de ingesteld op **UpdatePhysicalChiller**. Ingesteld **firmwareversie** naar **2.0.0**stelt **Firmware URI** naar **http://contoso.com/updates/firmware.bin**, en kies vervolgens  **Van toepassing**:
 
-    ![Het opnieuw opstarten plannen](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![De firmware-update plannen](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. Er verschijnt een bericht in de console met de apparaatcode van uw wanneer het apparaat de methode verwerkt.
+1. Een reeks berichten weergegeven in de console die de apparaatcode van uw wordt uitgevoerd terwijl het gesimuleerde apparaat de methode verwerkt.
+
+1. Wanneer de update voltooid is, wordt de nieuwe firmwareversie weergegeven op de **apparaten** pagina:
+
+    ![Bijwerken voltooid](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > Om bij te houden de status van de taak in de oplossing, kies **weergave**.

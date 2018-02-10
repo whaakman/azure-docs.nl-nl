@@ -1,5 +1,5 @@
 ---
-title: Het gebruik van de servicebeheer-API (Python) - Functieoverzicht
+title: De Service Management API (Python) - productgids gebruiken
 description: Informatie over het programmatisch algemene service-beheertaken uitvoeren met Python.
 services: cloud-services
 documentationcenter: python
@@ -14,36 +14,36 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b89f1aad46621d35728934ea068a5893ba674094
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-use-service-management-from-python"></a>Het gebruik van Service Management met Python
-Deze handleiding wordt beschreven hoe u programmatisch algemene service-beheertaken uitvoeren met Python. De **ServiceManagementService** -klasse in de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service management-gerelateerde functionaliteit die beschikbaar is in de [Azure Portal] [ management-portal] (zoals **maken, bijwerken en verwijderen van cloud-services, implementaties, data management-services en virtuele machines**). Deze functie kan nuttig zijn bij het bouwen van toepassingen die programmatische toegang tot het servicebeheer van de moeten worden gemaakt.
+# <a name="use-service-management-from-python"></a>Servicebeheer gebruiken met Python
+Deze handleiding wordt beschreven hoe u programmatisch algemene service-beheertaken uitvoeren met Python. De **ServiceManagementService** -klasse in de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service management-gerelateerde functionaliteit die beschikbaar is in de [Azure Portal][management-portal]. U kunt deze functionaliteit gebruiken om te maken, bijwerken en verwijderen van cloud-services, implementaties, data management-services en virtuele machines. Deze functie kan nuttig zijn bij het bouwen van toepassingen die programmatische toegang tot het servicebeheer van de moeten worden gemaakt.
 
-## <a name="WhatIs"></a>Wat is Service Management
-De Service Management API biedt programmatisch toegang tot veel van de service management-functionaliteit beschikbaar via de [Azure-portal][management-portal]. De Azure SDK voor Python kunt u uw cloudservices en storage-accounts te beheren.
+## <a name="WhatIs"></a>Wat is service management?
+De Azure Service Management API biedt programmatisch toegang tot veel van de service management-functionaliteit beschikbaar via de [Azure-portal][management-portal]. U kunt de Azure SDK voor Python gebruiken voor het beheren van uw cloudservices- en storage-accounts.
 
 Voor het gebruik van de Service Management API, moet u [maken van een Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"></a>Concepten
-De Azure SDK voor Python loopt de [Azure Service Management API][svc-mgmt-rest-api], namelijk een REST-API. Alle API-bewerkingen worden uitgevoerd over SSL en wederzijds geverifieerd met X.509 v3-certificatien. De beheerservice is toegankelijk via een service die wordt uitgevoerd in Azure of rechtstreeks toegankelijk via internet, vanuit elke toepassing die een HTTPS-verzoek kan verzenden en een HTTPS-antwoord kan ontvangen.
+De Azure SDK voor Python loopt de [Service Management API][svc-mgmt-rest-api], namelijk een REST-API. Alle API-bewerkingen worden uitgevoerd via SSL en wederzijds geverifieerd door gebruikmaking van X.509 v3-certificaten. De management-service kan worden benaderd vanuit binnen een service in Azure wordt uitgevoerd. Ook kan worden aangesproken rechtstreeks via Internet vanuit elke toepassing die u kunt een HTTPS-aanvraag verzenden en ontvangen van een HTTPS-antwoord.
 
 ## <a name="Installation"></a>Installatie
-Alle functies die worden beschreven in dit artikel zijn beschikbaar in de `azure-servicemanagement-legacy` pakket, die u kunt installeren met behulp van pip. Zie voor meer informatie over installatie (bijvoorbeeld als u niet bekend bent met Python) in dit artikel: [Python installeren en de Azure SDK](../python-how-to-install.md)
+Alle functies die worden beschreven in dit artikel zijn beschikbaar in de `azure-servicemanagement-legacy` pakket dat u installeren kunt via pip. Zie voor meer informatie over installatie (bijvoorbeeld als u geen ervaring met Python) [Python installeren en de Azure SDK](../python-how-to-install.md).
 
-## <a name="Connect"></a>Hoe: verbinding maken met servicebeheer
-Voor verbinding met het beheer van Service-eindpunt, moet u uw Azure-abonnement-ID en een geldig beheercertificaat. Kunt u uw abonnements-ID via de [Azure-portal][management-portal].
+## <a name="Connect"></a>Verbinding maken met servicebeheer
+Voor verbinding met het service management-eindpunt, moet u uw Azure-abonnement-ID en een geldig beheercertificaat. Kunt u uw abonnements-ID via de [Azure-portal][management-portal].
 
 > [!NOTE]
-> Het is nu mogelijk gebruik van certificaten die zijn gemaakt met OpenSSL wanneer u gebruikmaakt van Windows.  Hiervoor Python punt 2.7.4 of hoger. U wordt aangeraden gebruikers OpenSSL gebruiken in plaats van pfx, aangezien de ondersteuning voor pfx-certificaten waarschijnlijk in de toekomst verwijderd.
+> Nu kunt u certificaten die zijn gemaakt met OpenSSL wanneer u gebruikmaakt van Windows. Python punt 2.7.4 of hoger is vereist. Het is raadzaam dat u OpenSSL in plaats van PFX gebruiken, omdat de ondersteuning voor pfx-certificaten is waarschijnlijk in de toekomst worden verwijderd.
 >
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificaten voor op Windows of Mac/Linux (OpenSSL)
-U kunt [OpenSSL](http://www.openssl.org/) voor het maken van uw beheercertificaat.  U moet eigenlijk twee certificaten, één voor de server maken (een `.cer` bestand) en één voor de client (een `.pem` bestand). Maken van de `.pem` bestand, uitvoeren:
+U kunt [OpenSSL](http://www.openssl.org/) voor het maken van uw beheercertificaat. U moet twee certificaten, één voor de server maken (een `.cer` bestand) en één voor de client (een `.pem` bestand). Maken van de `.pem` bestand, uitvoeren:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -53,9 +53,9 @@ Maken van de `.cer` certificaat, uitvoeren:
 
 Zie voor meer informatie over Azure certificaten [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md). Zie de documentatie op voor een volledige beschrijving van OpenSSL parameters [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Nadat u deze bestanden hebt gemaakt, moet u voor het uploaden van de `.cer` bestand naar Azure via de actie 'Uploaden' van het tabblad 'Instellingen' van de [Azure-portal][management-portal], en u moet een opslaglocatie Noteer de `.pem` bestand.
+Nadat u deze bestanden hebt gemaakt, uploadt u de `.cer` bestand naar Azure. In de [Azure-portal][management-portal]op de **instellingen** tabblad **uploaden**. Opmerking opslaglocatie de `.pem` bestand.
 
-Wanneer u uw abonnements-ID hebt ontvangen, een certificaat gemaakt en geüpload de `.cer` bestand Azure, u verbinding kunt maken met het eindpunt van de Azure management door het doorgeven van de abonnements-id en het pad naar de `.pem` van het bestand in  **ServiceManagementService**:
+Nadat u uw abonnements-ID hebt verkregen, maak een certificaat en upload de `.cer` van het bestand in Azure, verbinding maken met de Azure management-eindpunt. Verbinding maken met het doorgeven van de abonnements-ID en het pad naar de `.pem` van het bestand in **ServiceManagementService**.
 
     from azure import *
     from azure.servicemanagement import *
@@ -68,15 +68,15 @@ Wanneer u uw abonnements-ID hebt ontvangen, een certificaat gemaakt en geüpload
 In het voorgaande voorbeeld `sms` is een **ServiceManagementService** object. De **ServiceManagementService** klasse is de primaire klasse gebruikt voor het beheren van Azure-services.
 
 ### <a name="management-certificates-on-windows-makecert"></a>Certificaten beheren in Windows (MakeCert)
-U kunt een zelfondertekende beheercertificaat maken op uw machine met `makecert.exe`.  Open een **Visual Studio-opdrachtprompt** als een **beheerder** en gebruikt u de volgende opdracht, vervangen *AzureCertificate* met de naam van het certificaat dat u wilt gebruiken.
+U kunt een zelfondertekende beheercertificaat op uw machine maken met behulp van `makecert.exe`. Open een **Visual Studio-opdrachtprompt** als een **beheerder** en gebruikt u de volgende opdracht, vervangen *AzureCertificate* met de naam van het certificaat die u wilt gebruiken:
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-De opdracht maakt u de `.cer` -bestand en installeert deze in de **persoonlijke** certificaatarchief. Zie voor meer informatie [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md).
+De opdracht maakt u de `.cer` bestands- en installeert deze in de **persoonlijke** certificaatarchief. Zie voor meer informatie [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md).
 
-Nadat u het certificaat hebt gemaakt, moet u voor het uploaden van de `.cer` bestand naar Azure via de actie 'Uploaden' van het tabblad 'Instellingen' van de [Azure-portal][management-portal].
+Nadat u het certificaat hebt gemaakt, uploadt u de `.cer` bestand naar Azure. In de [Azure-portal][management-portal]op de **instellingen** tabblad **uploaden**.
 
-Wanneer u uw abonnements-ID hebt ontvangen, een certificaat gemaakt en geüpload de `.cer` bestand Azure, u verbinding kunt maken met het eindpunt van de Azure management door het doorgeven van de abonnements-id en de locatie van het certificaat in uw **persoonlijke**  certificaatarchief **ServiceManagementService** (opnieuw vervangen *AzureCertificate* met de naam van uw certificaat):
+Nadat u uw abonnements-ID hebt verkregen, maak een certificaat en upload de `.cer` van het bestand in Azure, verbinding maken met de Azure management-eindpunt. Verbinding maken met het doorgeven van de abonnements-ID en de locatie van het certificaat in uw **persoonlijke** certificaatarchief **ServiceManagementService** (opnieuw vervangen *AzureCertificate* met de naam van uw certificaat).
 
     from azure import *
     from azure.servicemanagement import *
@@ -88,8 +88,8 @@ Wanneer u uw abonnements-ID hebt ontvangen, een certificaat gemaakt en geüpload
 
 In het voorgaande voorbeeld `sms` is een **ServiceManagementService** object. De **ServiceManagementService** klasse is de primaire klasse gebruikt voor het beheren van Azure-services.
 
-## <a name="ListAvailableLocations"></a>Hoe: lijst met beschikbare locaties
-U kunt de locaties die beschikbaar zijn voor het hosten van de services gebruiken de **lijst\_locaties** methode:
+## <a name="ListAvailableLocations"></a>Lijst met beschikbare locaties
+U kunt de locaties die beschikbaar zijn voor het hosten van de services gebruiken de **lijst\_locaties** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -117,8 +117,8 @@ Wanneer u een cloudservice of storage-service maakt, moet u een geldige locatie 
 * Australië - oost
 * Australië - zuidoost
 
-## <a name="CreateCloudService"></a>Hoe: Maak een cloudservice
-Wanneer u een toepassing maakt en deze in Azure uitvoeren, de code en configuratie samen heten een Azure [cloudservice] [ cloud service] (ook wel een *gehoste service* in eerdere Azure versies). De **maken\_gehost\_service** methode kunt u een nieuwe gehoste service maken door de naam van een gehoste service (dit moet uniek zijn in Azure), een label (automatisch naar base64 gecodeerd), een beschrijving. en een locatie.
+## <a name="CreateCloudService"></a>Een cloudservice maken
+Wanneer u een toepassing maakt en deze in Azure uitvoeren, de code en configuratie samen heten een Azure [cloudservice][cloud service]. (Deze is wel een *gehoste service* in eerdere versies van Azure.) U kunt de **maken\_gehost\_service** methode voor het maken van een nieuwe gehoste service. De service maken met de naam van een gehoste service (dit moet uniek zijn in Azure), een label (automatisch naar base64 gecodeerd), een beschrijving en een locatie bieden.
 
     from azure import *
     from azure.servicemanagement import *
@@ -132,7 +132,7 @@ Wanneer u een toepassing maakt en deze in Azure uitvoeren, de code en configurat
 
     sms.create_hosted_service(name, label, desc, location)
 
-U kunt alle gehoste services voor uw abonnement met de lijst de **lijst\_gehost\_services** methode:
+U kunt alle gehoste services voor uw abonnement met de lijst de **lijst\_gehost\_services** methode.
 
     result = sms.list_hosted_services()
 
@@ -142,7 +142,7 @@ U kunt alle gehoste services voor uw abonnement met de lijst de **lijst\_gehost\
         print('Location: ' + hosted_service.hosted_service_properties.location)
         print('')
 
-Als u informatie ophalen over een bepaalde gehoste service wilt, kunt u doen door de naam van de gehoste service voor de **ophalen\_gehost\_service\_eigenschappen** methode:
+Voor informatie over een bepaalde gehoste service, geeft u de naam van de gehoste service voor de **ophalen\_gehost\_service\_eigenschappen** methode.
 
     hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -150,17 +150,17 @@ Als u informatie ophalen over een bepaalde gehoste service wilt, kunt u doen doo
     print('Management URL: ' + hosted_service.url)
     print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Nadat u een cloudservice hebt gemaakt, kunt u uw code implementeren naar de service met de **maken\_implementatie** methode.
+Nadat u een cloudservice hebt gemaakt, implementeert u uw code naar de service met de **maken\_implementatie** methode.
 
-## <a name="DeleteCloudService"></a>Hoe: verwijderen van een service in de cloud
-U kunt een cloudservice verwijderen door de naam van de service naar de **verwijderen\_gehost\_service** methode:
+## <a name="DeleteCloudService"></a>Verwijderen van een service in de cloud
+U kunt een cloudservice verwijderen door de naam van de service naar de **verwijderen\_gehost\_service** methode.
 
     sms.delete_hosted_service('myhostedservice')
 
-Voordat u een service verwijderen kunt, moeten alle implementaties voor de service worden verwijderd. (Zie [hoe: verwijderen van een implementatie](#DeleteDeployment) voor meer informatie.)
+Voordat u een service verwijderen kunt, moeten alle implementaties voor de service worden verwijderd. Zie voor meer informatie [verwijderen van een implementatie](#DeleteDeployment).
 
-## <a name="DeleteDeployment"></a>Hoe: verwijderen van een implementatie
-Voor het verwijderen van een implementatie, gebruiken de **verwijderen\_implementatie** methode. Het volgende voorbeeld ziet u het verwijderen van een implementatie met de naam `v1`.
+## <a name="DeleteDeployment"></a>Verwijderen van een implementatie
+Voor het verwijderen van een implementatie, gebruiken de **verwijderen\_implementatie** methode. Het volgende voorbeeld ziet u het verwijderen van een implementatie met de naam `v1`:
 
     from azure import *
     from azure.servicemanagement import *
@@ -169,8 +169,8 @@ Voor het verwijderen van een implementatie, gebruiken de **verwijderen\_implemen
 
     sms.delete_deployment('myhostedservice', 'v1')
 
-## <a name="CreateStorageService"></a>Hoe: storage-service maken
-Een [opslagservice](../storage/common/storage-create-storage-account.md) hebt u toegang tot Azure [Blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabellen](../cosmos-db/table-storage-how-to-use-python.md), en [wachtrijen](../storage/queues/storage-python-how-to-use-queue-storage.md). U moet een naam voor de service (tussen 3 en 24 tekens in kleine letters en uniek zijn binnen Azure), een beschrijving, een label (maximaal 100 tekens, automatisch naar base64 gecodeerde) en een locatie voor het maken van een storage-service. Het volgende voorbeeld laat zien hoe een opslagservice maken door een locatie te geven.
+## <a name="CreateStorageService"></a>Storage-service maken
+Een [opslagservice](../storage/common/storage-create-storage-account.md) hebt u toegang tot Azure [blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabellen](../cosmos-db/table-storage-how-to-use-python.md), en [wachtrijen](../storage/queues/storage-python-how-to-use-queue-storage.md). Voor het maken van een storage-service, moet u een naam voor de service (tussen 3 en 24 tekens in kleine letters en uniek zijn binnen Azure). U moet ook een beschrijving, een label (maximaal 100 tekens, automatisch naar base64 gecodeerde) en een locatie. Het volgende voorbeeld ziet u hoe een opslagservice maken door een locatie te geven:
 
     from azure import *
     from azure.servicemanagement import *
@@ -187,9 +187,9 @@ Een [opslagservice](../storage/common/storage-create-storage-account.md) hebt u 
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-Opmerking in het voorgaande voorbeeld die de status van de **maken\_opslag\_account** bewerking kan worden opgehaald door het doorgeven van het resultaat geretourneerd door **maken\_opslag\_account** naar de **ophalen\_bewerking\_status** methode.  
+In het voorgaande voorbeeld wordt de status van de **maken\_opslag\_account** bewerking kan worden opgehaald door het doorgeven van het resultaat geretourneerd door **maken\_opslag\_ account** naar de **ophalen\_bewerking\_status** methode. 
 
-Overzicht van uw storage-accounts en hun eigenschappen met de **lijst\_opslag\_accounts** methode:
+Overzicht van uw storage-accounts en hun eigenschappen met de **lijst\_opslag\_accounts** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -202,8 +202,8 @@ Overzicht van uw storage-accounts en hun eigenschappen met de **lijst\_opslag\_a
         print('Location: ' + account.storage_service_properties.location)
         print('')
 
-## <a name="DeleteStorageService"></a>Procedure: een opslagservice verwijderen
-U kunt storage-service verwijderen door de naam van de storage-service naar de **verwijderen\_opslag\_account** methode. Storage-service verwijdert, worden alle gegevens die zijn opgeslagen in de service (blobs, tabellen en wachtrijen).
+## <a name="DeleteStorageService"></a>Een opslagservice verwijderen
+Voor het verwijderen van een storage-service, geeft de naam van de storage-service naar de **verwijderen\_opslag\_account** methode. Storage-service verwijdert, worden alle gegevens die zijn opgeslagen in de service (blobs, tabellen en wachtrijen).
 
     from azure import *
     from azure.servicemanagement import *
@@ -212,8 +212,8 @@ U kunt storage-service verwijderen door de naam van de storage-service naar de *
 
     sms.delete_storage_account('mystorageaccount')
 
-## <a name="ListOperatingSystems"></a>Hoe: lijst van beschikbare besturingssystemen
-U kunt de besturingssystemen die beschikbaar zijn voor het hosten van de services gebruiken de **lijst\_besturingssysteem\_systemen** methode:
+## <a name="ListOperatingSystems"></a>Lijst van beschikbare besturingssystemen
+U kunt de besturingssystemen die beschikbaar zijn voor het hosten van de services gebruiken de **lijst\_besturingssysteem\_systemen** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -227,7 +227,7 @@ U kunt de besturingssystemen die beschikbaar zijn voor het hosten van de service
         print('Family: ' + os.family_label)
         print('Active: ' + str(os.is_active))
 
-U kunt ook de **lijst\_besturingssysteem\_system\_families** methode, waarmee de besturingssystemen die door familie groepen:
+U kunt ook de **lijst\_besturingssysteem\_system\_families** methode, waarmee groepen van de besturingssystemen die door familie.
 
     result = sms.list_operating_system_families()
 
@@ -239,8 +239,8 @@ U kunt ook de **lijst\_besturingssysteem\_system\_families** methode, waarmee de
                 print('Version: ' + os.version)
         print('')
 
-## <a name="CreateVMImage"></a>Hoe: maken van een installatiekopie van besturingssysteem
-Als een installatiekopie van besturingssysteem toevoegen aan de opslagplaats voor installatiekopieën, gebruiken de **toevoegen\_os\_installatiekopie** methode:
+## <a name="CreateVMImage"></a>Maken van een installatiekopie van besturingssysteem
+Als een installatiekopie van besturingssysteem toevoegen aan de opslagplaats voor installatiekopieën, gebruiken de **toevoegen\_os\_installatiekopie** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -257,7 +257,7 @@ Als een installatiekopie van besturingssysteem toevoegen aan de opslagplaats voo
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-U kunt de installatiekopieën van besturingssystemen die beschikbaar zijn, gebruiken de **lijst\_os\_installatiekopieën** methode. Het bevat alle installatiekopieën van het platform en installatiekopieën van de gebruiker:
+U kunt de installatiekopieën van besturingssystemen die beschikbaar zijn, gebruiken de **lijst\_os\_installatiekopieën** methode. Dit omvat alle installatiekopieën van het platform en installatiekopieën van de gebruiker.
 
     result = sms.list_os_images()
 
@@ -271,8 +271,8 @@ U kunt de installatiekopieën van besturingssystemen die beschikbaar zijn, gebru
         print('Media link: ' + image.media_link)
         print('')
 
-## <a name="DeleteVMImage"></a>Hoe: verwijderen van een installatiekopie van besturingssysteem
-Gebruik voor het verwijderen van de gebruikersinstallatiekopie van een de **verwijderen\_os\_installatiekopie** methode:
+## <a name="DeleteVMImage"></a>Verwijderen van een installatiekopie van besturingssysteem
+Gebruik voor het verwijderen van de gebruikersinstallatiekopie van een de **verwijderen\_os\_installatiekopie** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -284,8 +284,8 @@ Gebruik voor het verwijderen van de gebruikersinstallatiekopie van een de **verw
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-## <a name="CreateVM"></a>Procedure: een virtuele machine maken
-Voor het maken van een virtuele machine, moet u eerst maken een [cloudservice](#CreateCloudService).  Maak vervolgens de virtuele machine implementatie met de **maken\_virtuele\_machine\_implementatie** methode:
+## <a name="CreateVM"></a>Een virtuele machine maken
+Voor het maken van een virtuele machine, moet u eerst maken een [cloudservice](#CreateCloudService). Maak vervolgens de implementatie van de virtuele machine met behulp van de **maken\_virtuele\_machine\_implementatie** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -322,8 +322,8 @@ Voor het maken van een virtuele machine, moet u eerst maken een [cloudservice](#
         os_virtual_hard_disk=os_hd,
         role_size='Small')
 
-## <a name="DeleteVM"></a>Procedure: een virtuele machine verwijderen
-Als u wilt verwijderen van een virtuele machine, u eerst verwijderen de implementatie met behulp van de **verwijderen\_implementatie** methode:
+## <a name="DeleteVM"></a>Verwijderen van een virtuele machine
+Als u wilt verwijderen van een virtuele machine, u eerst verwijderen de implementatie met behulp van de **verwijderen\_implementatie** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -333,12 +333,12 @@ Als u wilt verwijderen van een virtuele machine, u eerst verwijderen de implemen
     sms.delete_deployment(service_name='myvm',
         deployment_name='myvm')
 
-De cloudservice kan vervolgens worden verwijderd met behulp van de **verwijderen\_gehost\_service** methode:
+De cloudservice kan vervolgens worden verwijderd met behulp van de **verwijderen\_gehost\_service** methode.
 
     sms.delete_hosted_service(service_name='myvm')
 
-## <a name="how-to-create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Procedure: Een virtuele Machine van de installatiekopie van een vastgelegde virtuele Machine maken
-Voor het vastleggen van een VM-installatiekopie, belt u eerst de **vastleggen\_vm\_installatiekopie** methode:
+## <a name="create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Een virtuele machine van de installatiekopie van een vastgelegde virtuele machine maken
+Voor het vastleggen van een VM-installatiekopie, belt u eerst de **vastleggen\_vm\_installatiekopie** methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -365,11 +365,11 @@ Voor het vastleggen van een VM-installatiekopie, belt u eerst de **vastleggen\_v
             image
         )
 
-Gebruik vervolgens om er zeker van te zijn dat u de installatiekopie hebt vastgelegd, de **lijst\_vm\_installatiekopieën** api, en zorg ervoor dat uw afbeelding wordt weergegeven in de resultaten:
+Om ervoor te zorgen dat u de installatiekopie is vastgelegd, gebruiken de **lijst\_vm\_installatiekopieën** API. Zorg ervoor dat uw afbeelding wordt weergegeven in de resultaten.
 
     images = sms.list_vm_images()
 
-Ten slotte de virtuele machine met de vastgelegde installatiekopie maakt, gebruikmaken van de **maken\_virtuele\_machine\_implementatie** methode zoals voordat, maar deze keer doorgegeven in de vm_image_name
+Ten slotte de virtuele machine maakt met behulp van de vastgelegde installatiekopie, gebruikmaken van de **maken\_virtuele\_machine\_implementatie** voordat, maar deze keer doorgegeven in de vm_image_name methode.
 
     from azure import *
     from azure.servicemanagement import *
@@ -394,33 +394,33 @@ Ten slotte de virtuele machine met de vastgelegde installatiekopie maakt, gebrui
         role_size='Small',
         vm_image_name = image_name)
 
-Zie voor meer informatie over het vastleggen van een virtuele Linux-Machine in het klassieke implementatiemodel, [virtuele Linux-Machine vastleggen.](../virtual-machines/linux/classic/capture-image-classic.md).
+Zie voor meer informatie over het vastleggen van een virtuele Linux-machine in het klassieke implementatiemodel, [Linux-machine vastleggen](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Zie voor meer informatie over het vastleggen van een virtuele Windows-computer in het klassieke implementatiemodel, [virtuele Windows-Machine vastleggen.](../virtual-machines/windows/classic/capture-image-classic.md).
+Zie voor meer informatie over het vastleggen van een virtuele Windows-computer in het klassieke implementatiemodel, [Windows-machine vastleggen](../virtual-machines/windows/classic/capture-image-classic.md).
 
-## <a name="What's Next"> </a>Volgende stappen
-Nu dat u de basisprincipes van beheer-service hebt geleerd, kunt u toegang tot de [voltooid API-naslagdocumentatie voor de Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) en complexe taken gemakkelijk voor het beheren van uw toepassing python uitvoeren.
+## <a name="What's Next"></a>Volgende stappen
+Nu dat u de basisprincipes van beheer-service hebt geleerd, kunt u toegang tot de [voltooid API-naslagdocumentatie voor de Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) en complexe taken gemakkelijk voor het beheren van uw toepassing Python uitvoeren.
 
 Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 
-[What is Service Management]: #WhatIs
+[What is service management?]: #WhatIs
 [Concepts]: #Concepts
-[How to: Connect to service management]: #Connect
-[How to: List available locations]: #ListAvailableLocations
-[How to: Create a cloud service]: #CreateCloudService
-[How to: Delete a cloud service]: #DeleteCloudService
-[How to: Create a deployment]: #CreateDeployment
-[How to: Update a deployment]: #UpdateDeployment
-[How to: Move deployments between staging and production]: #MoveDeployments
-[How to: Delete a deployment]: #DeleteDeployment
-[How to: Create a storage service]: #CreateStorageService
-[How to: Delete a storage service]: #DeleteStorageService
-[How to: List available operating systems]: #ListOperatingSystems
-[How to: Create an operating system image]: #CreateVMImage
-[How to: Delete an operating system image]: #DeleteVMImage
-[How to: Create a virtual machine]: #CreateVM
-[How to: Delete a virtual machine]: #DeleteVM
-[Next Steps]: #NextSteps
+[Connect to service management]: #Connect
+[List available locations]: #ListAvailableLocations
+[Create a cloud service]: #CreateCloudService
+[Delete a cloud service]: #DeleteCloudService
+[Create a deployment]: #CreateDeployment
+[Update a deployment]: #UpdateDeployment
+[Move deployments between staging and production]: #MoveDeployments
+[Delete a deployment]: #DeleteDeployment
+[Create a storage service]: #CreateStorageService
+[Delete a storage service]: #DeleteStorageService
+[List available operating systems]: #ListOperatingSystems
+[Create an operating system image]: #CreateVMImage
+[Delete an operating system image]: #DeleteVMImage
+[Create a virtual machine]: #CreateVM
+[Delete a virtual machine]: #DeleteVM
+[Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 

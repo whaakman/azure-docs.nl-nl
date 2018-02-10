@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/13/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Poorten die worden gebruikt door services Hadoop in HDInsight
 
@@ -60,7 +60,7 @@ De volgende zijn beschikbaar voor specifieke clustertypen:
 | Livy |443 |HTTPS |Spark |Spark REST-API. Zie [Spark verzenden van taken op afstand met behulp van Livy](spark/apache-spark-livy-rest-interface.md) |
 | Storm |443 |HTTPS |Storm |Storm-webgebruikersinterface. Zie [implementeren en beheren van Storm-topologieën op HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Alle services die openbaar worden weergegeven op het internet moeten worden geverifieerd:
 
@@ -75,7 +75,7 @@ Alle services die openbaar worden weergegeven op het internet moeten worden geve
 > Sommige services zijn alleen beschikbaar op specifieke clustertypen. Bijvoorbeeld: HBase is alleen beschikbaar op de HBase-clustertypen.
 
 > [!IMPORTANT]
-> Sommige services wordt alleen uitgevoerd op één headnode tegelijk. Als u probeert verbinding maken met de service op de primaire headnode en ontvangt een 404-fout, probeert u opnieuw met behulp van de secundaire headnode.
+> Sommige services wordt alleen uitgevoerd op één headnode tegelijk. Als u probeert verbinding maken met de service op de primaire headnode en een foutbericht ontvangt, probeert u opnieuw met behulp van de secundaire headnode.
 
 ### <a name="ambari"></a>Ambari
 
@@ -161,7 +161,7 @@ Voorbeelden:
 
 | Service | Knooppunten | Poort | Protocol | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Broker |Worker-knooppunten |9092 |[Protocol voor Kafka-kabel](http://kafka.apache.org/protocol.html) |Gebruikt voor communicatie van clients |
+| Broker |Worker-knooppunten |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Gebruikt voor communicatie van clients |
 | &nbsp; |Zookeeper-knooppunten |2181 |&nbsp; |De poort die clients gebruiken om te verbinden met Zookeeper |
 
 ### <a name="spark-ports"></a>Spark-poorten
@@ -170,6 +170,7 @@ Voorbeelden:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift-servers |HEAD-knooppunten |10002 |Thrift | &nbsp; | Service voor de verbinding met Spark SQL (Thrift/JDBC) |
 | Livy server | HEAD-knooppunten | 8998 | HTTP | &nbsp; | Service voor het uitvoeren van instructies, taken en toepassingen |
+| Jupyter-notebook | HEAD-knooppunten | 8001 | HTTP | &nbsp; | Jupyter-notebook website |
 
 Voorbeelden:
 

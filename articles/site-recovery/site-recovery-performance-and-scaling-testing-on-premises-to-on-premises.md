@@ -2,23 +2,17 @@
 title: Testresultaten voor Hyper-V-replicatie tussen sites met Azure Site Recovery | Microsoft Docs
 description: In dit artikel bevat informatie over de prestatietests voor on-premises lokale replicatie van Hyper-V-machines met Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: tysonn
-ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: c221fe94c5301b0a36882d5ae1c57e523002ecc4
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f25bbca86fdbb480a4db7623d4ee8d296415a4be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Testresultaten voor on-premises lokale Hyper-V-replicatie met Site Recovery
 
@@ -111,8 +105,8 @@ De resultaten duidelijk dat Azure Site Recovery, samen met Hyper-V Replica ook m
 
 | Server | RAM | Model | Processor | Aantal processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servers in het cluster: <br />ESTLAB HOST11<br />ESTLAB HOST12<br />ESTLAB HOST13<br />ESTLAB HOST14<br />ESTLAB HOST25 |128ESTLAB HOST25 is 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |Ik x 4 Gbps |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
-| VMM-Server |2 | | |2 |1 Gbps |Windows Server-Database 2012 R2 (x 64) + VMM 2012 R2 |
+| Hyper-V-servers in het cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 is 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
+| VMM Server |2 | | |2 |1 Gbps |Windows Server-Database 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>(Herstel) voor secundaire site
 
@@ -123,10 +117,10 @@ De resultaten duidelijk dat Azure Site Recovery, samen met Hyper-V Replica ook m
 
 | Server | RAM | Model | Processor | Aantal processors | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servers in het cluster: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |Ik x 4 Gbps |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
-| ESTLAB HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
-| ESTLAB HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
-| VMM-Server |2 | | |2 |1 Gbps |Windows Server-Database 2012 R2 (x 64) + VMM 2012 R2 |
+| Hyper-V-servers in het cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
+| ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
+| ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-functie |
+| VMM Server |2 | | |2 |1 Gbps |Windows Server-Database 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Server-werkbelastingen
 
@@ -148,7 +142,7 @@ De resultaten duidelijk dat Azure Site Recovery, samen met Hyper-V Replica ook m
 * Alle virtuele machines met VHDX-schijf.
 * Virtuele machines waarop werkbelastingen samengevat in de tabel worden uitgevoerd. Alle zijn gemaakt met de VMM-sjablonen.
 
-| Workload | # Virtuele machines | Minimale hoeveelheid RAM (GB) | Maximum-RAM (GB) | Grootte van logische schijf (GB) per VM | Maximale IOPS |
+| Workload | # Virtuele machines | Minimum RAM (GB) | Maximum-RAM (GB) | Grootte van logische schijf (GB) per VM | Maximale IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -164,20 +158,20 @@ De resultaten duidelijk dat Azure Site Recovery, samen met Hyper-V Replica ook m
 
 | Primaire VMM-cloud | Beveiligde virtuele machines in de cloud | Replicatiefrequentie | Extra herstelpunten |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 minuten |Geen |
-| PrimaryCloudRpo30s |47 |30 seconden |Geen |
+| PrimaryCloudRpo15m |142 |15 minuten |None |
+| PrimaryCloudRpo30s |47 |30 seconden |None |
 | PrimaryCloudRpo30sArp1 |47 |30 seconden |1 |
-| PrimaryCloudRpo5m |235 |5 minuten |Geen |
+| PrimaryCloudRpo5m |235 |5 minuten |None |
 
-### <a name="performance-metrics"></a>Maatstaven voor prestaties
+### <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
 De tabel ziet u de maatstaven voor prestaties en de items die zijn gemeten in de implementatie.
 
 | Gegevens | Prestatiemeteritems |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
-| Beschikbaar geheugen |\Memory\Available megabytes (MB) |
-| IOPS |\PhysicalDisk (_Totaal) \Disk Schijfoverdrachten per seconde |
+| Beschikbaar geheugen |\Memory\Available MBytes |
+| IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
 | Virtuele machine lezen (IOPS)-bewerkingen per seconde |\Hyper-V virtueel opslagapparaat (<VHD>) \Read bewerkingen per seconde |
 | VM geschreven (IOPS)-bewerkingen per seconde |\Hyper-V virtueel opslagapparaat (<VHD>) \Write Operations/S |
 | VM doorvoer lezen |\Hyper-V virtueel opslagapparaat (<VHD>) \Read Bytes per seconde |

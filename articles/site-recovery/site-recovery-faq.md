@@ -2,23 +2,17 @@
 title: 'Azure Site Recovery: Veelgestelde vragen | Microsoft Docs'
 description: Dit artikel wordt populaire vragen over Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -166,10 +160,10 @@ Als u wilt automatiseren u kunnen lokale Orchestrator of Operations Manager gebr
 * [Lees meer](site-recovery-failback-azure-to-vmware.md) over mislukte back-VMware-machines en fysieke servers
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Als mijn lokale host niet reageert of vastgelopen, kan ik failover naar een andere host?
-Ja, u kunt het herstel van alternatieve locatie failback naar een andere host van Azure. Meer informatie over de opties in de onderstaande koppelingen voor VMware en Hyper-v virtuele machines.
+Ja, u kunt het herstel van alternatieve locatie failback naar een andere host van Azure. Meer informatie over de opties in de onderstaande koppelingen voor VMware en Hyper-V virtuele machines.
 
-* [Voor virtuele VMware-machines](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Voor Hyper-v virtuele machines](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [Voor virtuele VMware-machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Voor Hyper-V virtuele machines](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## <a name="service-providers"></a>Serviceproviders
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Ik ben een serviceprovider. Werkt Site Recovery voor toegewezen als gedeelde infrastructuurmodellen?

@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -130,10 +130,14 @@ RDM gast of de server | Ja<br/><br/> Niet van toepassing op fysieke servers
 Gastbesturingssysteem of de server schijf > 1 TB | Ja<br/><br/>4095 GB 
 Gastbesturingssysteem of de server met een fysieke sectorgrootte van 4K logische en 4 k-schijf | Ja
 De schijf gast of de server met 4K logische en fysieke sectorgrootte van 512 bytes | Ja 
-Volume van de gast of de server met striped schijf > 1 TB<br/><br/> LVM logische volumebeheer Gast/server - opslagruimten | Er is geen schijf van gastbesturingssysteem of de server hot toevoegen of verwijderen | Er is geen Gast/server - schijf uitsluiten | Ja gast of de server met meerdere paden (MPIO) | N.V.T.
+Volume van de gast of de server met striped schijf > 4 TB <br><br/>LVM logische volumebeheer | Ja
+Gast/server - opslagruimten | Nee 
+Gast/serverschijf hot toevoegen of verwijderen | Nee 
+Gast/server - schijf uitsluiten | Ja 
+Gastbesturingssysteem of de server met meerdere paden (MPIO) | N/A
 
 > [!NOTE]
-> ** UEFI, opstarten virtuele VMware-machines of fysieke servers met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Volgende beperkingen worden toegepast.
+> ** UEFI ** opstart virtuele VMware-machines of fysieke servers met Windows Server 2012 of later, kunnen worden gemigreerd naar Azure. Volgende beperkingen worden toegepast.
 > - Alleen de migratie naar Azure wordt ondersteund. Failback naar on-premises VMware-site niet ondersteund.
 > - De server moet niet meer dan 4 partities hebben op de schijf met het besturingssysteem.
 > - Versie van Azure Site Recovery Mobility-service 9.13 of hoger vereist.

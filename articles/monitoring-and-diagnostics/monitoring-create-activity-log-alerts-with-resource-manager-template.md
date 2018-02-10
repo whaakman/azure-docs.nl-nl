@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Een activiteit logboek waarschuwing met Resource Manager-sjabloon maken
 Dit artikel laat zien hoe u een [Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) activiteit logboek waarschuwingen configureren. Met behulp van sjablonen, kunt u gemakkelijk veel waarschuwingen die worden geactiveerd op basis van specifieke activiteit logboek gebeurtenis voorwaarden als onderdeel van uw geautomatiseerde implementatie instellen.
@@ -82,10 +82,10 @@ Activiteit logboek waarschuwingen met een Resource Manager-sjabloon maken, die u
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -99,6 +99,10 @@ Activiteit logboek waarschuwingen met een Resource Manager-sjabloon maken, die u
 ```
 
 Ga naar onze [Azure snelstartgalerie](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) voor enkele voorbeelden van waarschuwing activiteitssjablonen logboek.
+
+> [!NOTE]
+
+> U kunt ook activiteit logboek waarschuwing regels maken met behulp van de verbeterde gebruikerservaring monitor > [waarschuwingen (Preview)](monitoring-overview-unified-alerts.md). Zie voor meer informatie over het maken van deze [in dit artikel](monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [waarschuwingen](monitoring-overview-alerts.md).

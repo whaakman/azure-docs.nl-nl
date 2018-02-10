@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
 
@@ -57,8 +57,11 @@ De volgende Azure-services bieden uitgebreide mogelijkheden voor het verzamelen 
 [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) verschaft inzicht in uw omgeving IaaS door virtuele machines met hun verschillende processen en afhankelijkheden van andere computers en externe processen analyseren.  Het is geïntegreerd gebeurtenissen, prestatiegegevens en oplossingen in logboekanalyse zodat u deze gegevens in de context van elke computer en de relatie ervan met de rest van uw omgeving bekijken kunt.  Serviceoverzicht is vergelijkbaar met de [toepassingstoewijzing in Application Insights](../application-insights/app-insights-app-map.md) maar is gericht op de onderdelen van de infrastructuur ondersteuning van uw toepassingen.
 
 ### <a name="network-watcher"></a>Network Watcher
-[Netwerk-Watcher](../network-watcher/network-watcher-monitoring-overview.md) biedt scenario's gebaseerde controle en diagnostische gegevens voor scenario's met verschillende netwerken in Azure.  Deze gegevens worden opgeslagen in Azure metrische gegevens en diagnostische gegevens voor verdere analyse en werkt met [beheeroplossingen in logboekanalyse](../log-analytics/log-analytics-azure-networking-analytics.md) voor volledige controle van uw netwerkbronnen.
-
+[Netwerk-Watcher](../network-watcher/network-watcher-monitoring-overview.md) biedt scenario's gebaseerde controle en diagnostische gegevens voor scenario's met verschillende netwerken in Azure.  Gegevens worden opgeslagen in Azure metrische gegevens en diagnostische gegevens voor verdere analyse en werkt met de volgende netwerkbewakingsgroep oplossingen voor het bewaken van verschillende aspecten van uw netwerk:
+* [Performance Monitor (NPM) netwerk](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) : een bewakingsoplossing die connectiviteit via openbare clouds, datacenters en on-premises omgevingen bewaakt in de cloud-netwerk
+* [ExpressRoute-Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) -NPM een functie die wordt bewaakt de end-to-end-connectiviteit en prestaties via ExpressRoute-circuits.
+* Verkeer Analytics - een cloudoplossing, waarmee u inzicht krijgen in gebruikers- en activiteit op uw netwerk.
+* [DNS-Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) -biedt beveiliging, prestaties en bewerkingen gerelateerde insights, op basis van uw DNS-servers.
 
 ### <a name="management-solutions"></a>Beheeroplossingen
 [Oplossingen voor](../log-analytics/log-analytics-add-solutions.md) verpakte sets van logica die inzicht voor een bepaalde toepassing of service bieden.  Ze afhankelijk van logboekanalyse opslaan en analyseren van de bewakingsgegevens die ze verzamelen.  Oplossingen voor het beheer zijn van Microsoft en partners die voorzien in bewaking voor verschillende Azure en derden services beschikbaar. Voorbeeld van de controle van oplossingen omvatten [Container bewaking](../log-analytics/log-analytics-containers.md) waarmee u weergeven en beheren van de container-hosts en [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md) die worden verzameld en visualiseren maatstaven voor prestaties voor SQL Azure-databases.

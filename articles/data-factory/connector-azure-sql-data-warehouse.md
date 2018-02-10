@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ De volgende eigenschappen worden ondersteund voor Azure SQL Data Warehouse gekop
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **AzureSqlDW** | Ja |
-| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Data Warehouse-exemplaar voor de eigenschap connectionString. Alleen basisverificatie wordt ondersteund. Dit veld markeren als een SecureString. |Ja |
+| connectionString |Geef informatie op die nodig zijn voor het verbinding maken met de Azure SQL Data Warehouse-exemplaar voor de eigenschap connectionString. Alleen basisverificatie wordt ondersteund. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 
@@ -110,7 +110,7 @@ Om gegevens te kopiëren van/naar Azure SQL Data Warehouse, stel de eigenschap t
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Azure SQL Data Warehouse-bron- en sink.
 
@@ -398,7 +398,7 @@ De volgende tabel bevat voorbeelden op het opgeven van de **tableName** eigensch
 | dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MijnTabel] |
 | dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MijnTabel] |
 | dbo |My.Table |[My.Table] of [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Als u de volgende fout ziet, is het mogelijk een probleem met de waarde die u hebt opgegeven voor de eigenschap tableName. Zie de tabel voor de juiste manier waarden opgeven voor de eigenschap tableName JSON.
 
@@ -423,17 +423,17 @@ Bij het kopiëren van gegevens van/naar Azure SQL Data Warehouse, worden de volg
 | Azure SQL Data Warehouse-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | bigint |Int64 |
-| Binaire |Byte] |
+| Binaire |Byte[] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
 | datum |Datum en tijd |
 | Datum en tijd |Datum en tijd |
 | datetime2 |Datum en tijd |
-| DateTimeOffset |DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimale |Decimale |
-| FILESTREAM-kenmerk (varbinary(max)) |Byte] |
-| Float |dubbele |
-| Afbeelding |Byte] |
+| FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
+| Float |Double |
+| Afbeelding |Byte[] |
 | int |Int32 |
 | Money |Decimale |
 | nchar |Tekenreeks, Char] |
@@ -441,19 +441,19 @@ Bij het kopiëren van gegevens van/naar Azure SQL Data Warehouse, worden de volg
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
 | echte |Single |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
 | Tekst |Tekenreeks, Char] |
 | tijd |TimeSpan |
-| tijdstempel |Byte] |
+| tijdstempel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
+| varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

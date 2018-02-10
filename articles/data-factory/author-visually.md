@@ -1,6 +1,6 @@
 ---
-title: Azure data factory's visueel ontwerpen | Microsoft Docs
-description: Meer informatie over het Azure Data Factory visueel ontwerpen
+title: Visual ontwerpen in Azure Data Factory | Microsoft Docs
+description: Informatie over het gebruik van visual ontwerpen in Azure Data Factory
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,98 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 3e67665facba78c4ca8e2317f0323b4c5c02a49c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="visually-author-data-factories"></a>Gegevensfactory's visueel auteur
-Gebruikers kunnen met de ervaring met Azure Data Factory UX visueel ontwerpen en implementeren van resources in de gegevensfactory zonder één regel code schrijven. Deze interface zonder code kunt u slepen en neerzetten van activiteiten op het canvas van een pijplijn, testruns uitvoeren, iteratief, foutopsporing en implementeren en bewaken van de pijplijn wordt uitgevoerd. U kunt het hulpprogramma ADF UX op twee manieren gebruiken:
+# <a name="visual-authoring-in-azure-data-factory"></a>Visual ontwerpen in Azure Data Factory
+De Azure Data Factory gebruikersinterface ervaring (UX) kunt u visueel ontwerpen en implementeren van resources voor uw data factory zonder code te schrijven. U kunt activiteiten naar een pipeline-canvas te slepen, testruns uitvoeren, iteratief, foutopsporing en implementeren en controleren de pijplijn wordt uitgevoerd. Er zijn twee methoden voor het gebruik van de UX voor het uitvoeren van de visual ontwerpen:
 
-1. Werk rechtstreeks met de Data Factory-service
-2. VSTS Git-integratie configureren voor samenwerking, broncodebeheer of versiebeheer
+- Auteur rechtstreeks met de Data Factory-service.
+- Auteur met Visual Studio Team Services (VSTS) Git-integratie voor samenwerking, broncodebeheer of versiebeheer.
 
-## <a name="authoring-with-data-factory"></a>Met Data Factory ontwerpen
-De eerste optie is authoring rechtstreeks met Gegevensfactory-modus. Deze benadering verschilt van authoring via VSTS Code opslagplaats in dat er is geen opslagplaats de JSON-entiteiten van de wijzigingen opslaan en is deze geoptimaliseerd voor samenwerking of versiebeheer niet.
+## <a name="author-directly-with-the-data-factory-service"></a>Auteur rechtstreeks met de Data Factory-service
+Visual ontwerpen met de Data Factory-service verschilt van het visual ontwerpen met VSTS op twee manieren:
 
-![Data Factory configureren](media/author-visually/configure-data-factory.png)
+- De Data Factory-service omvat een opslagplaats voor het opslaan van de JSON-entiteiten voor uw wijzigingen niet.
+- De Data Factory-service is niet geoptimaliseerd voor samenwerking of versiebeheer.
 
-In de Data Factory-modus, moet u er alleen de modus 'Publiceren' is. Eventuele wijzigingen worden gepubliceerd rechtstreeks op de Data Factory-service.
+![De Data Factory-service configureren ](media/author-visually/configure-data-factory.png)
 
-![Data Factory publiceren](media/author-visually/data-factory-publish.png)
+Wanneer u de UX gebruikt **Authoring canvas** schrijven rechtstreeks met de Data Factory-service, alleen de **publiceren** modus is beschikbaar. Alle wijzigingen die u aanbrengt, worden gepubliceerd rechtstreeks naar de Data Factory-service.
 
-## <a name="authoring-with-vsts-git-integration"></a>Authoring met VSTS Git-integratie
-Kan ontwerpen met VSTS Git-integratie voor broncodebeheer en samenwerking tijdens het ontwerpen van uw data factory-pijplijnen. Gebruikers hebben de optie om een gegevensfactory koppelen aan een VSTS Git Account opslagplaats voor broncodebeheer, samenwerking en versiebeheer enzovoort. Een enkel VSTS GIT-account kan meerdere opslagplaatsen hebben. Een VSTS Git-opslagplaats kan echter alleen worden gekoppeld met een enkele data factory. Als u nog geen een VSTS account en de opslagplaats hebt, maakt u een [hier](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
+![Modus publiceren](media/author-visually/data-factory-publish.png)
 
-### <a name="configure-vsts-git-repo-with-azure-data-factory"></a>VSTS Git-opslagplaats met Azure Data Factory configureren
-Gebruikers kunnen een VSTS GIT-opslagplaats met een data factory configureren via twee methoden.
+## <a name="author-with-vsts-git-integration"></a>Auteur met VSTS Git-integratie
+Visual ontwerpen met VSTS Git-integratie ondersteunt broncodebeheer en samenwerking voor de data factory-pijplijnen. U kunt een gegevensfactory koppelen aan een VSTS Git account-opslagplaats voor broncodebeheer, samenwerking en versiebeheer. Een enkel VSTS Git-account kan meerdere opslagplaatsen hebben, maar een VSTS Git-opslagplaats kan worden gekoppeld aan slechts één gegevensfactory. Als u geen een VSTS account of een opslagplaats, voert u de [deze instructies](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) om uw resources te maken.
 
-#### <a name="method-1-lets-get-started-page"></a>Methode 1: 'aan de slag' pagina
+### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configureer een VSTS Git-opslagplaats met Azure Data Factory
+U kunt een VSTS GIT-opslagplaats met een data factory configureren via twee methoden.
 
-Ga naar de pagina 'Aan de slag' en 'Code opslagplaats configureren' op
+<a name="method1"></a>
+#### <a name="configuration-method-1-lets-get-started-page"></a>Van configuratiemethode 1: gaan we aan de slag-pagina
+In Azure Data Factory, gaat u naar de **aan de slag** pagina. Selecteer **Code opslagplaats configureren**:
 
-![Code-opslagplaats configureren](media/author-visually/configure-repo.png)
+![Een code-opslagplaats VSTS configureren](media/author-visually/configure-repo.png)
 
-Van daaruit is een kant-paneel wordt weergegeven voor het configureren van de instellingen van de opslagplaats.
+De **opslagplaats instellingen** deelvenster configuratie wordt weergegeven:
 
-![Opslagplaats instellingen configureren](media/author-visually/repo-settings.png)
-* **Type van de opslagplaats**: Visual Studio Team Services Git (momenteel Github wordt niet ondersteund.)
-* **Visual Studio Team Services-Account**: de accountnaam vindt u uit de naam van de https://{account}. visualstudio.com. Aanmelden bij uw account VSTS [hier](https://www.visualstudio.com/team-services/git/) en toegang tot uw Visual Studio-profiel om uw opslagplaatsen en projecten te bekijken
-* **ProjectName:** de projectnaam vindt u uit de naam van de name}.visualstudio.com/{project https://{account}
-* **RepositoryName:** de naam van de opslagplaats. VSTS projecten bevatten Git-opslagplaatsen voor het beheren van uw broncode wanneer uw project groeit. Maak een nieuwe opslagplaats of een bestaande opslagplaats al in het project, gebruiken.
-* **Bestaande resources van de Data Factory naar bibliotheek importeren**: dit selectievakje inschakelt, kunt u uw huidige data factory-resources gemaakt op het canvas UX naar de bijbehorende VSTS GIT-opslagplaats in JSON-indeling importeren. Deze actie exporteert elke resource afzonderlijk (dat wil zeggen, gekoppelde services en gegevenssets worden geëxporteerd naar afzonderlijke JSONs).    Als u dit selectievakje uitschakelt, wordt de bestaande resources zijn niet geïmporteerd in de Git-opslagplaats.
+![Configureer de instellingen van de opslagplaats code](media/author-visually/repo-settings.png)
 
-#### <a name="method-2-from-authoring-canvas"></a>Methode 2: Van het Canvas ontwerpen
+Het deelvenster ziet u de volgende VSTS code opslagplaats instellingen:
 
-Klik op de vervolgkeuzelijst 'Data Factory' onder de naam van uw gegevensfactory in het 'Authoring canvas'. Klik vervolgens op 'Configureren Code opslagplaats.' Net als bij **methode 1**, een kant-paneel wordt weergegeven voor het configureren van de instellingen van de opslagplaats. Zie de vorige secties voor informatie over de instellingen.
+| Instelling | Beschrijving | Waarde |
+|:--- |:--- |:--- |
+| **Type van de opslagplaats** | Het type van de opslagplaats VSTS-code.<br/>**Opmerking**: GitHub wordt momenteel niet ondersteund. | Visual Studio Team Services Git |
+| **Visual Studio Team Services Account** | De naam van uw VSTS. U kunt vinden op de naam van uw VSTS `https://{account name}.visualstudio.com`. U kunt [aanmelden bij uw account VSTS](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en uw opslagplaatsen en projecten weergegeven. | \<de accountnaam van uw > |
+| **ProjectName** | De naam van uw VSTS-project. U vindt uw VSTS projectnaam `https://{account name}.visualstudio.com/{project name}`. | \<de naam van uw project VSTS > |
+| **RepositoryName** | De naam van uw VSTS code-opslagplaats. VSTS projecten bevatten Git-opslagplaatsen voor het beheren van uw broncode wanneer uw project groeit. U kunt een nieuwe opslagplaats maken of een bestaande opslagplaats die al in uw project, gebruiken. | \<de naam van uw VSTS code opslagplaats > |
+| **Bestaande resources van de Data Factory naar bibliotheek importeren** | Hiermee wordt aangegeven of bestaande data factory resources importeren vanuit de UX **Authoring canvas** in een VSTS Git-opslagplaats. Schakel het importeren van uw data factory-resources in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie exporteert elke resource afzonderlijk (dat wil zeggen, de gekoppelde services en gegevenssets worden geëxporteerd naar afzonderlijke JSONs). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
 
-![Code-opslagplaats 2 configureren](media/author-visually/configure-repo-2.png)
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Van configuratiemethode 2: UX canvas ontwerpen
+In de Azure Data Factory-UX **Authoring canvas**, zoek uw gegevensfactory. Selecteer de **Data Factory** vervolgkeuzelijst en selecteer vervolgens **Code opslagplaats configureren**.
 
-### <a name="version-control"></a>Versiebeheer
-Versiebeheer, ook wel aangeduid aan als broncodebeheer, systemen kunnen ontwikkelaars samenwerken aan code en bijhouden wijzigingen aangebracht in de code base. Verbinding met broncodebeheer is een belangrijk hulpprogramma voor meerdere developer-projecten.
+Een deelvenster configuratie wordt weergegeven. Voor meer informatie over de configuratie-instellingen, Zie de beschrijvingen in <a href="#method1">configuratiemethode 1</a>.
 
-Elke VSTS Git-opslagplaats die is gekoppeld aan een gegevensfactory heeft een hoofdvertakking. Van daaruit elke gebruiker die toegang tot de VSTS Git-opslagplaats heeft heeft twee opties wanneer u wijzigingen aanbrengt: synchroniseren en te publiceren.
+![Configureer de instellingen van de opslagplaats code voor het ontwerpen van UX](media/author-visually/configure-repo-2.png)
 
-![Synchronisatie publiceren](media/author-visually/sync-publish.png)
+### <a name="use-version-control"></a>Versiebeheer gebruiken
+Versie besturingssystemen (ook wel bekend als _bronbeheer_), kunnen ontwikkelaars samenwerken aan code en bijhouden van de wijzigingen die zijn aangebracht aan de code base. Verbinding met broncodebeheer is een belangrijk hulpprogramma voor meerdere developer-projecten.
 
-#### <a name="sync"></a>Sync
+Elke VSTS Git-opslagplaats die is gekoppeld aan een gegevensfactory heeft een hoofdvertakking. Wanneer u toegang tot een VSTS Git-opslagplaats hebt, kunt u de code wijzigen door te kiezen **Sync** of **publiceren**:
 
-Nadat u op 'sync', kunt u wijzigingen van de hoofdvertakking in uw lokale vertakking pull of pushen wijzigingen vanaf uw lokale vertakking naar de hoofdvertakking.
+![De code wijzigen door synchroniseren of publiceren](media/author-visually/sync-publish.png)
 
-![Wijzigingen worden gesynchroniseerd](media/author-visually/sync-change.png)
+#### <a name="sync-code-changes"></a>Synchronisatie codewijzigingen
+Nadat u hebt geselecteerd **Sync**, kunt u wijzigingen in de hoofdvertakking naar uw lokale vertakking pull of push wordt gewijzigd van uw lokale vertakking naar de hoofdvertakking.
 
-#### <a name="publish"></a>Publiceren
- Wijzigingen in de hoofdvertakking voor Data Factory-service gepubliceerd.
+![Synchronisatie codewijzigingen](media/author-visually/sync-change.png)
 
-> [!NOTE]
-> De **hoofdvertakking heeft geen betrekking op wat wordt geïmplementeerd in de Data Factory-service.** De hoofdvertakking *moet* handmatig naar de Data Factory-service worden uitgegeven.
+#### <a name="publish-code-changes"></a>Codewijzigingen publiceren
+Selecteer **publiceren** handmatig publiceren van de codewijzigingen in de hoofdvertakking naar de Data Factory-service.
 
+> [!IMPORTANT]
+> De hoofdvertakking heeft geen betrekking op wat wordt geïmplementeerd in de Data Factory-service. De hoofdvertakking *moet* handmatig naar de Data Factory-service worden uitgegeven.
 
+## <a name="use-the-expression-language"></a>De expressietaal gebruiken
+U kunt expressies voor eigenschapswaarden opgeven met behulp van de expressietaal die wordt ondersteund door Azure Data Factory. Zie voor meer informatie over de ondersteunde expressies [expressies en functies in Azure Data Factory](control-flow-expression-language-functions.md).
 
+Expressies voor eigenschapswaarden opgeven met behulp van de UX **canvas ontwerpen**:
 
-## <a name="expression-language"></a>Expressietaal
+![De expressietaal gebruiken](media/author-visually/expression-language.png)
 
-Gebruikers kunnen expressies opgeven in eigenschapswaarden definiëren met behulp van de expressietaal wordt ondersteund door Azure Data Factory. Zie [expressies en functies in Azure Data Factory](control-flow-expression-language-functions.md) voor meer expressies waarover worden ondersteund.
+## <a name="specify-parameters"></a>Geef parameters op
+U kunt de parameters voor pijplijnen en gegevenssets opgeven in de Azure Data Factory **Parameters** tabblad. U kunt eenvoudig de parameters in de eigenschappen van gebruiken door te selecteren **dynamische inhoud toevoegen**:
 
-Expressies in de eigenschapwaarden in de UX opgeven als volgt te werk.
+![Dynamische inhoud toevoegen](media/author-visually/dynamic-content.png)
 
-![Expressietaal](media/author-visually/expression-language.png)
+U kunt bestaande parameters gebruiken of nieuwe parameters opgeven voor de eigenschapswaarden:
 
-## <a name="parameters"></a>Parameters
-Gebruikers kunnen voor pijplijnen en gegevenssets heeft, op het tabblad 'Parameters' parameters opgeven. Bovendien gebruikmaken van parameters in de eigenschappen van eenvoudig door drukken 'Dynamische inhoud toevoegen'.
+![Geef parameters op voor waarden van eigenschappen](media/author-visually/parameters.png)
 
-![Dynamische inhoud](media/author-visually/dynamic-content.png)
-
-Daar kunt u gebruikmaken van een bestaande parameter of geef een nieuwe parameter in de waarde van de eigenschap.
-
-![Parameters](media/author-visually/parameters.png)
-
-## <a name="feedback"></a>Feedback
-Klik op het pictogram 'Feedback' om feedback te (Microsoft) op verschillende functies of eventuele problemen die kunnen worden aangesloten.
+## <a name="provide-feedback"></a>Feedback geven
+Selecteer **Feedback** opmerkingen hebt over functies of naar Microsoft sturen over problemen met het hulpprogramma:
 
 ![Feedback](media/monitor-visually/feedback.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Zie voor meer informatie over het controleren en beheren van pijplijnen, [bewaken en beheren van pijplijnen programmatisch](monitor-programmatically.md) artikel
+Zie voor meer informatie over het bewaken en beheren van pijplijnen [bewaken en beheren van pijplijnen programmatisch](monitor-programmatically.md).

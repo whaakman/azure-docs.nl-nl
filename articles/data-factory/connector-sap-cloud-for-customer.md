@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiëren van gegevens uit SAP Cloud voor klant (C4C) met behulp van Azure Data Factory
 
@@ -47,7 +47,7 @@ De volgende eigenschappen worden ondersteund voor SAP Cloud voor klant gekoppeld
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomer**. | Ja |
 | url | De URL van de SAP C4C OData-service. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met de SAP-C4C. | Ja |
-| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString. | Ja |
+| wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
 
 >[!IMPORTANT]
@@ -105,7 +105,7 @@ Om gegevens te kopiëren uit SAP Cloud voor de klant, stel de eigenschap type va
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen voor de gegevensbron van de klant door SAP Cloud wordt ondersteund.
 
@@ -159,7 +159,7 @@ Om gegevens te kopiëren naar Cloud SAP voor de klant, kunt u het sink-type inst
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapCloudForCustomerSink**  | Ja |
-| WriteBehavior | Het gedrag van het schrijven van de bewerking. Kan worden 'Insert', 'Update'. | Nee. Standaard 'Insert'. |
+| writeBehavior | Het gedrag van het schrijven van de bewerking. Kan worden 'Insert', 'Update'. | Nee. Standaard 'Insert'. |
 | writeBatchSize | De batchgrootte van schrijfbewerking. De batchgrootte voor optimale prestaties kan afwijken van de andere tabel of de server. | Nee. De standaardwaarde is 10. |
 
 **Voorbeeld:**
@@ -207,12 +207,12 @@ Bij het kopiëren van gegevens uit SAP Cloud voor de klant, worden de volgende t
 
 | SAP C4C OData-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | BOOL |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Booleaans |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Datum en tijd |
 | Edm.Decimal | Decimale |
-| Edm.Double | dubbele |
+| Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Quick Start voor PowerShell in de Azure-Cloud-Shell (Preview)
 
@@ -41,7 +41,7 @@ In dit document worden de PowerShell gebruiken in de Cloud-Shell in de [Azure-po
 
 Voer reguliere PowerShell-opdrachten in de Cloud-Shell, zoals:
 
-```Powershell
+```PowerShell
 PS Azure:\> Get-Date
 Monday, September 25, 2017 08:55:09 AM
 
@@ -58,13 +58,13 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  1. Lijst van uw abonnementen
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> dir
     ```
 
  2. `cd`aan uw voorkeur abonnement
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
@@ -184,20 +184,20 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Raadpleeg [probleemoplossing extern beheer van Azure Virtual machines](troubleshooting.md#powershell-resolutions).
 
-  Ervan uitgaande dat u een virtuele machine, MyVM1, hebben we gebruiken `Invoke-AzureRmVMCommand` aan te roepen, een PowerShell-scriptblock op de externe computer.
+  Ervan uitgaande dat u een virtuele machine, MyVM1, hebben we gebruiken `Invoke-AzureRmVMCommand` aan te roepen, een PowerShell-scriptblok op de externe computer.
 
   ``` Powershell
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
   U kunt ook eerst Navigeer naar de map van de virtuele machines en `Invoke-AzureRmVMCommand` als volgt.
 
-  ``` Powershell
+  ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
   U ziet de uitvoer ziet er als volgt:
 
-  ``` Powershell
+  ``` PowerShell
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -215,13 +215,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 U kunt `Enter-AzureRmVM` interactief aanmelden bij een virtuele machine in Azure wordt uitgevoerd.
 
-  ``` Powershell
+  ``` PowerShell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-U kunt ook navigeren naar de `virtualMachines` directory eerste en voer `Enter-AzureRmVM` als volgt
+U kunt ook navigeren naar de `VirtualMachines` directory eerste en voer `Enter-AzureRmVM` als volgt
 
-  ``` Powershell
+  ``` PowerShell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
@@ -266,20 +266,20 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is beschikbaar in PowerShell CloudShell.
-Het openbaar / persoonlijk sleutelpaar genereren in CloudShell voor verificatie op servers of virtuele machines met SSH, en de openbare sleutel te publiceren `authorized_keys` op de externe computer, zoals `/home/user/.ssh/authorized_keys`.
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is beschikbaar in de Cloud-Shell PowerShell.
+Voor verificatie op servers of virtuele machines met SSH, het openbaar / persoonlijk sleutelpaar genereren in de Cloud-Shell en publiceren van de openbare sleutel voor `authorized_keys` op de externe computer, zoals `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
-> U kunt SSH privé-openbare sleutels maken `ssh-keygen` en deze publiceren naar `$env:USERPROFILE\.ssh` in CloudShell.
+> U kunt SSH privé-openbare sleutels maken `ssh-keygen` en deze publiceren naar `$env:USERPROFILE\.ssh` in de Cloud-Shell.
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Met behulp van een aangepast profiel voor het persistent maken van GIT en SSH-instellingen
 
-Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map `CloudDrive` of maak een symlink wanneer CloudShell wordt gestart.
-Plaats de volgende code in uw profile.ps1 voor het maken van een symlink naar CloudDrive snipped.
+Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map `CloudDrive` of maak een symlink wanneer Cloud Shell wordt gestart.
+Plaats de volgende codefragment in uw profile.ps1 een symlink om CloudDrive te maken.
 
-``` Powershell
-# Check if the ssh folder exists
-if( -not (Test-Path $home\CloudDrive\.ssh){
+``` PowerShell
+# Check if the .ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
 
@@ -297,25 +297,25 @@ if(Test-Path $script:sshFolderPath){
 
 ### <a name="using-ssh"></a>Gebruik van SSH
 
-Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) voor het maken van een nieuwe VM-configuratie met AzureRM-Cmdlets.
-Vóór aanroep naar de `New-AzureRMVM` toevoegen voor het uitgangspunt voor de implementatie, openbare SSH-sleutel aan het VM-configuratie.
-De zojuist gemaakte virtuele machine bevat de openbare sleutel in de `~\.ssh\authorized_keys` locatie, waardoor u referentie gratis ssh-sessie op de virtuele machine.
+Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) voor het maken van een nieuwe VM-configuratie met AzureRM-cmdlets.
+Vóór aanroep naar de `New-AzureRmVM` toevoegen voor het uitgangspunt voor de implementatie, openbare SSH-sleutel aan het VM-configuratie.
+De zojuist gemaakte virtuele machine bevat de openbare sleutel in de `~\.ssh\authorized_keys` locatie, waardoor u SSH-sessie referentie vrij op de virtuele machine.
 
-``` Powershell
+``` PowerShell
 
 # Create VM config object - $vmConfig using instructions on linked page above
 
-# Generate SSH Keys in CloudShell
+# Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
-# Ensure VM config is updated with SSH Keys
+# Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
-# ssh to the VM
+# SSH to the VM
 ssh azureuser@MyVM.Domain.Com
 
 ```
@@ -335,13 +335,13 @@ U kunt uitvoeren `Install-Module` voor het installeren van modules van de [Power
 
 Type `Get-Help` voor informatie over PowerShell in Azure Cloud-Shell.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help
 ```
 
-U kunt nog steeds gevolgd door een cmdlet Get-Help voor een specifieke opdracht doen.
+Voor een specifieke opdracht u nog steeds kunt doen `Get-Help` gevolgd door een cmdlet.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
@@ -349,7 +349,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 Kunt u een script spreek `helloworld.ps1`, en sla deze op uw `CloudDrive` gebruiken over de shell-sessies.
 
-``` Powershell
+``` PowerShell
 cd C:\users\ContainerAdministrator\CloudDrive
 PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
@@ -367,7 +367,7 @@ Voor het maken van een profiel, verwijzen naar [over profielen][profile].
 
 ## <a name="use-git"></a>Git gebruiken
 
-Als u wilt een git-opslagplaats in de Cloud-Shell klonen, moet u maken een [persoonlijke toegangstoken] [ githubtoken] en deze gebruiken als de gebruikersnaam. Eenmaal hebt u uw token, kloon de opslagplaats als volgt:
+Als u wilt een Git-opslagplaats in de Cloud-Shell klonen, moet u maken een [persoonlijke toegangstoken] [ githubtoken] en deze gebruiken als de gebruikersnaam. Eenmaal hebt u uw token, kloon de opslagplaats als volgt:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
@@ -383,7 +383,7 @@ $script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
 # Create a symlink to .gitconfig in user's $home
 if(Test-Path $script:gitconfigPath){
 
-    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+    if(-not (Test-Path (Join-Path $home .gitconfig ))){
          New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
     }
 }

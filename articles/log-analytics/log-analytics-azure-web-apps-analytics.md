@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Analytische gegevens weergeven voor de metrische gegevens over alle resources in uw Azure-Web-App
 
@@ -58,7 +58,7 @@ Voer de volgende stappen uit voor het configureren van de Azure Web Apps Analyti
 De Azure Web Apps Analytics-oplossing worden verzameld van twee sets van metrische gegevens van Azure:
 
 - Azure Web Apps metrische gegevens
-  - Gemiddelde geheugen werkset
+  - Gemiddeld geheugenwerkset
   - Gemiddelde reactietijd
   - Ontvangen/verzonden bytes
   - CPU-tijd
@@ -68,8 +68,8 @@ De Azure Web Apps Analytics-oplossing worden verzameld van twee sets van metrisc
 - App Service-Plan metrische gegevens
   - Ontvangen/verzonden bytes
   - CPU-percentage
-  - Wachtrijlengte voor schijf
-  - HTTP-wachtrijlengte
+  - Lengte van de wachtrij voor de schijf
+  - Lengte van de HTTP-wachtrij
   - Geheugenpercentage
 
 App Service Plan metrische gegevens worden alleen verzameld als u van een specifieke service-abonnement gebruikmaakt. Dit geldt niet voor beschikbare of gedeelde App Service-abonnementen.
@@ -90,7 +90,7 @@ Wanneer u de Azure Web Apps Analytics-oplossing aan uw werkruimte toevoegt de **
 
 Klik op de **Azure Web Apps Analytics** tegel openen de **Azure Web Apps Analytics** dashboard. Het dashboard bevat de blades in de volgende tabel. Elke blade bevat maximaal tien items die overeenkomen met de criteria die blade voor het opgegeven bereik en tijdsbereik. U kunt een logboek-zoekquery waarmee alle records door te klikken op uitvoeren **alle** aan de onderkant van de blade of door te klikken op de blade-header.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Kolom | Beschrijving |
 | --- | --- |

@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
 Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
@@ -44,8 +44,9 @@ In deze sectie kunt u de volgende stappen uitvoeren:
 ### <a name="create-an-azure-automation-account"></a>Een Azure Automation-account maken
 Als u een Azure Automation-account niet hebt, maakt u een door de instructies in deze stap. Zie voor gedetailleerde stappen [maken van een Azure Automation-account](../automation/automation-quickstart-create-account.md). Als onderdeel van deze stap maakt u een **Azure uitvoeren als** account (een service-principal in uw Azure Active Directory) en toe te voegen aan de **Inzender** rol van uw Azure-abonnement. Zorg ervoor dat het is hetzelfde als het abonnement dat u de gegevensfactory met de Azure SSIS-IR bevat Azure Automation gebruikt deze account in Azure Resource Manager verifiëren en uw resources niet bewerken. 
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).    
-2. Selecteer **nieuw** Selecteer op het menu links **bewaking + Management**, en selecteer **Automation**. 
+1. Start **Microsoft Edge** of **Google Chrome** webbrowser. Op dit moment wordt Data Factory-gebruikersinterface alleen ondersteund in Microsoft Edge en Google Chrome webbrowsers.
+2. Meld u aan bij [Azure Portal](https://portal.azure.com/).    
+3. Selecteer **nieuw** Selecteer op het menu links **bewaking + Management**, en selecteer **Automation**. 
 
     ![Nieuw -> bewaking en beheer -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. In de **Automation-Account toevoegen** venster de volgende stappen uit: 

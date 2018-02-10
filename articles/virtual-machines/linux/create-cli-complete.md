@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige virtuele Linux-machine maken met de Azure CLI
 U maakt snel een virtuele machine (VM) in Azure, kunt u één Azure CLI opdracht dat standaardwaarden gebruikt voor het maken van alle vereiste ondersteunende resources. Resources, zoals een virtueel netwerk, openbare IP-adres en netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources tevoren maken en vervolgens uw VM's toe te voegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.
 
-Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en geregistreerd in een Azure-account met [az aanmelding](/cli/azure/#login).
+Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en geregistreerd in een Azure-account met [az aanmelding](/cli/azure/#az_login).
 
 In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myVnet*, en *myVM*.
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat een virtuele machine en de ondersteunende bronnen van het virtuele netwerk. Maken van de resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat een virtuele machine en de ondersteunende bronnen van het virtuele netwerk. Maken van de resourcegroep met [az groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Standaard is de uitvoer van de Azure CLI-opdrachten in JSON (JavaScript Object Notation). Als u de uitvoer naar een lijst of tabel standaard, bijvoorbeeld gebruiken [az configureren--uitvoer](/cli/azure/#configure). U kunt ook toevoegen `--output` elke opdracht voor een eenmalige wijzigen in de indeling van uitvoer. Het volgende voorbeeld ziet u de JSON-uitvoer van de `az group create` opdracht:
+Standaard is de uitvoer van de Azure CLI-opdrachten in JSON (JavaScript Object Notation). Als u de uitvoer naar een lijst of tabel standaard, bijvoorbeeld gebruiken [az configureren--uitvoer](/cli/azure/#az_configure). U kunt ook toevoegen `--output` elke opdracht voor een eenmalige wijzigen in de indeling van uitvoer. Het volgende voorbeeld ziet u de JSON-uitvoer van de `az group create` opdracht:
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Standaard is de uitvoer van de Azure CLI-opdrachten in JSON (JavaScript Object N
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en subnet maken
-Volgende die u een virtueel netwerk maken in Azure en een subnet in waarop u uw virtuele machines kunt maken. Gebruik [az network vnet maken](/cli/azure/network/vnet#create) voor het maken van een virtueel netwerk met de naam *myVnet* met de *192.168.0.0/16* adresvoorvoegsel. U ook een subnet met de naam toevoegen *mySubnet* met het adresvoorvoegsel van *192.168.1.0/24*:
+Volgende die u een virtueel netwerk maken in Azure en een subnet in waarop u uw virtuele machines kunt maken. Gebruik [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create) voor het maken van een virtueel netwerk met de naam *myVnet* met de *192.168.0.0/16* adresvoorvoegsel. U ook een subnet met de naam toevoegen *mySubnet* met het adresvoorvoegsel van *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -102,7 +102,7 @@ De uitvoer ziet u dat het subnet logisch binnen het virtuele netwerk is gemaakt:
 
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
-Nu gaan we maken een openbaar IP-adres met [az netwerk openbare ip-maken](/cli/azure/network/public-ip#create). Dit openbare IP-adres kunt u vanaf Internet verbinding maken met uw virtuele machines. Omdat het standaardadres dynamisch is, maakt u een benoemde DNS-vermelding met de `--domain-name-label` parameter. Het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* met de DNS-naam van *mypublicdns*. Omdat de DNS-naam moet uniek zijn, Geef uw eigen unieke DNS-naam:
+Nu gaan we maken een openbaar IP-adres met [az netwerk openbare ip-maken](/cli/azure/network/public-ip#az_network_public_ip_create). Dit openbare IP-adres kunt u vanaf Internet verbinding maken met uw virtuele machines. Omdat het standaardadres dynamisch is, maakt u een benoemde DNS-vermelding met de `--domain-name-label` parameter. Het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* met de DNS-naam van *mypublicdns*. Omdat de DNS-naam moet uniek zijn, Geef uw eigen unieke DNS-naam:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Uitvoer:
 
 
 ## <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
-Als de stroom van verkeer van en naar uw virtuele machines wilt aanpassen, kunt u een netwerkbeveiligingsgroep toepassen op een virtuele NIC of een subnet. Het volgende voorbeeld wordt [az netwerk nsg maken](/cli/azure/network/nsg#create) een netwerkbeveiligingsgroep maken met de naam *myNetworkSecurityGroup*:
+Als de stroom van verkeer van en naar uw virtuele machines wilt aanpassen, kunt u een netwerkbeveiligingsgroep toepassen op een virtuele NIC of een subnet. Het volgende voorbeeld wordt [az netwerk nsg maken](/cli/azure/network/nsg#az_network_nsg_create) een netwerkbeveiligingsgroep maken met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-U definieert de regels die specifiek verkeer toestaan of weigeren. Binnenkomende verbindingen op poort 22 (waarmee toegang wordt verleend SSH) wilt toestaan, maakt u een inkomende regel met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create). Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRuleSSH*:
+U definieert de regels die specifiek verkeer toestaan of weigeren. Binnenkomende verbindingen op poort 22 (waarmee toegang wordt verleend SSH) wilt toestaan, maakt u een inkomende regel met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Controleer de netwerkbeveiligingsgroep en de regels met [az netwerk nsg weergeven](/cli/azure/network/nsg#show):
+Controleer de netwerkbeveiligingsgroep en de regels met [az netwerk nsg weergeven](/cli/azure/network/nsg#az_network_nsg_show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Maken van een virtuele NIC
-Virtuele netwerkinterfacekaarten (NIC's) zijn programmatisch beschikbaar omdat u regels toepassen op het gebruik ervan kunt. Afhankelijk van de [VM-grootte](sizes.md), kunt u meerdere virtuele NIC's koppelen aan een virtuele machine. In de volgende [az netwerk nic maken](/cli/azure/network/nic#create) opdracht maken van een NIC met de naam *myNic* en deze koppelen aan de netwerkbeveiligingsgroep. Het openbare IP-adres *myPublicIP* is ook gekoppeld aan de virtuele netwerkadapter.
+Virtuele netwerkinterfacekaarten (NIC's) zijn programmatisch beschikbaar omdat u regels toepassen op het gebruik ervan kunt. Afhankelijk van de [VM-grootte](sizes.md), kunt u meerdere virtuele NIC's koppelen aan een virtuele machine. In de volgende [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) opdracht maken van een NIC met de naam *myNic* en deze koppelen aan de netwerkbeveiligingsgroep. Het openbare IP-adres *myPublicIP* is ook gekoppeld aan de virtuele netwerkadapter.
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ Update domeinen duiden op groepen van virtuele machines en de onderliggende fysi
 
 Virtuele machines distribueert Azure automatisch in domeinen met fouten en update domeinen wanneer ze worden geplaatst in een beschikbaarheidsset. Zie voor meer informatie [het beheren van de beschikbaarheid van virtuele machines](manage-availability.md).
 
-Maken van een beschikbaarheidsset voor uw virtuele machine met [az vm beschikbaarheidsset maken](/cli/azure/vm/availability-set#create). Het volgende voorbeeld wordt een benoemde beschikbaarheidsset *myAvailabilitySet*:
+Maken van een beschikbaarheidsset voor uw virtuele machine met [az vm beschikbaarheidsset maken](/cli/azure/vm/availability-set#az_vm_availability_set_create). Het volgende voorbeeld wordt een benoemde beschikbaarheidsset *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ De uitvoer opmerkingen bij de domeinen met fouten en domeinen van de update:
 
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
-U kunt de netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt gemaakt. Nu een virtuele machine maken en beveilig deze met een SSH-sleutel. In dit voorbeeld gaan we een Ubuntu VM op basis van de meest recente TNS maken. U vindt aanvullende afbeeldingen met [az vm afbeeldingenlijst](/cli/azure/vm/image#list), zoals beschreven in [Azure VM-installatiekopieën vinden](cli-ps-findimage.md).
+U kunt de netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt gemaakt. Nu een virtuele machine maken en beveilig deze met een SSH-sleutel. In dit voorbeeld gaan we een Ubuntu VM op basis van de meest recente TNS maken. U vindt aanvullende afbeeldingen met [az vm afbeeldingenlijst](/cli/azure/vm/image#az_vm_image_list), zoals beschreven in [Azure VM-installatiekopieën vinden](cli-ps-findimage.md).
 
 Geef een SSH-sleutel moet worden gebruikt voor verificatie. Als u een openbare SSH-sleutelpaar niet hebt, kunt u [maken ze](mac-create-ssh-keys.md) of gebruik de `--generate-ssh-keys` -parameter voor deze voor u gemaakt. Als er al een sleutelpaar, deze parameter wordt gebruikt voor bestaande sleutels in `~/.ssh`.
 
-De virtuele machine maken doordat de resources en informatie samen met de [az vm maken](/cli/azure/vm#create) opdracht. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
+De virtuele machine maken doordat de resources en informatie samen met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ Open uw webbrowser als u wilt de NGINX standaardsite in actie zien, en voert u d
 ![Standaard NGINX-site op de virtuele machine](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Als een sjabloon exporteren
-Wat gebeurt er als u nu wilt maken van een extra development environment met dezelfde parameters of een productie-omgeving die overeenkomt met het? Resource Manager gebruikt de JSON-sjablonen op dat de parameters voor uw omgeving definiëren. U maken uit de volledige omgeving door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of exporteren van een bestaande omgeving voor het maken van het JSON-sjabloon voor u. Gebruik [exporteren az](/cli/azure/group#export) exporteren van uw resourcegroep als volgt:
+Wat gebeurt er als u nu wilt maken van een extra development environment met dezelfde parameters of een productie-omgeving die overeenkomt met het? Resource Manager gebruikt de JSON-sjablonen op dat de parameters voor uw omgeving definiëren. U maken uit de volledige omgeving door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of exporteren van een bestaande omgeving voor het maken van het JSON-sjabloon voor u. Gebruik [exporteren az](/cli/azure/group#az_group_export) exporteren van uw resourcegroep als volgt:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Deze opdracht maakt u de `myResourceGroup.json` bestand in de huidige werkmap. Wanneer u een omgeving met deze sjabloon maakt, wordt u gevraagd de resourcenamen. U kunt deze namen in uw sjabloonbestand vullen door toe te voegen de `--include-parameter-default-value` -parameter voor de `az group export` opdracht. Bewerk uw JSON-sjabloon om op te geven van de resourcenamen van de of [maken van een bestand parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die Hiermee worden de resourcenamen.
 
-Gebruik voor het maken van een omgeving met de sjabloon [az implementatie maken](/cli/azure/group/deployment#create) als volgt:
+Gebruik voor het maken van een omgeving met de sjabloon [az implementatie maken](/cli/azure/group/deployment#az_group_deployment_create) als volgt:
 
 ```azurecli
 az group deployment create \

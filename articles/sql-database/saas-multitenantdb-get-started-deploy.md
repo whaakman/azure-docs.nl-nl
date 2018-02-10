@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een shard multitenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
-In deze zelfstudie maakt u implementeert en een SaaS multitenant database voorbeeldtoepassing met de naam Wingtip Tickets verkennen. De app Wingtip is ontworpen om hier functies van Azure SQL Database die de implementatie van de SaaS-scenario's vereenvoudigen.
+In deze zelfstudie implementeert en een voorbeeld multitenant SaaS-toepassing met de naam Wingtip Tickets verkennen. De app Wingtip Tickets is ontworpen om hier functies van Azure SQL Database die de implementatie van de SaaS-scenario's vereenvoudigen.
 
-Deze implementatie van Wingtips maakt gebruik van een patroon shard multitenant-database. De sharding is door de tenant-id. Gegevens van de tenant wordt gedistribueerd naar een bepaalde database volgens de tenant-id-waarden. Ongeacht hoeveel tenants een bepaalde database bevat, zijn alle databases die meerdere tenants in de zin dat het tabelschema een tenant-id bevatten. 
+Deze implementatie van de app Wingtip Tickets maakt gebruik van een patroon shard multitenant-database. De sharding is door de tenant-id. Gegevens van de tenant wordt gedistribueerd naar een bepaalde database volgens de tenant-id-waarden. 
 
 Dit patroon van een database kunt u een of meer tenants opslaan in elke shard of de database. U kunt voor de laagste kosten optimaliseren door elke database worden gedeeld door meerdere tenants. Of u kunt optimaliseren voor isolatie door elke tenant slechts één opslaan database. Uw keuze optimalisatie kan afzonderlijk worden gemaakt voor elke specifieke tenant. Uw keuze kan worden gemaakt wanneer de tenant voor het eerst wordt opgeslagen of kunt u later van gedachten verandert. De toepassing is ontworpen voor gebruik van goed in beide gevallen.
 
 #### <a name="app-deploys-quickly"></a>App snel worden geïmplementeerd
 
-De volgende Implementatiesectie biedt de blauwe **implementeren in Azure** knop. Wanneer de knop wordt ingedrukt, wordt de app Wingtip een vijf minuten later volledig geïmplementeerd. De app Wingtip wordt uitgevoerd in de Azure-cloud en Azure SQL Database gebruikt. Wingtip wordt geïmplementeerd in uw Azure-abonnement. U hebt volledige toegang tot het werken met de afzonderlijke toepassingsonderdelen.
+De app wordt uitgevoerd in de Azure-cloud en maakt gebruik van Azure SQL Database. De volgende Implementatiesectie biedt de blauwe **implementeren in Azure** knop. Wanneer de knop wordt ingedrukt, wordt de app volledig geïmplementeerd op uw Azure-abonnement binnen vijf minuten. U hebt volledige toegang tot het werken met de afzonderlijke toepassingsonderdelen.
 
 De toepassing wordt geïmplementeerd met gegevens voor drie voorbeeld tenants. De tenants worden samen in een multitenant-database opgeslagen.
 
@@ -40,7 +40,7 @@ Iedereen kan de broncode C# en PowerShell downloaden voor Wingtip Tickets van [d
 #### <a name="learn-in-this-tutorial"></a>In deze zelfstudie leert
 
 > [!div class="checklist"]
-> - Klik hier voor meer informatie over het implementeren van de Wingtip SaaS-toepassing.
+> - Klik hier voor meer informatie over het implementeren van de Wingtip Tickets SaaS-toepassing.
 > - Waar u de broncode van de toepassing en beheerscripts schrijven.
 > - Over de servers en databases die gezamenlijk de app.
 > - Hoe tenants zijn toegewezen aan hun gegevens met de *catalogus*.
@@ -139,7 +139,7 @@ Een centraal **gebeurtenissen Hub** webpagina bevat een lijst met koppelingen vo
 
 Voor het beheren van de distributie van binnenkomende aanvragen de Wingtip app gebruikmaakt van [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). De pagina gebeurtenissen voor elke tenant bevat de naam van de tenant in de URL. Elke URL bevat ook de waarde van uw specifieke gebruiker. Elke URL gehoorzaamt aan de indeling weergegeven met behulp van de volgende stappen uit:
 
-- http://events.Wingtip. &lt;Gebruiker&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. De app gebeurtenissen parseert de tenantnaam van de URL. De tenantnaam van de is *fabrikamjazzclub* in het voorgaande voorbeeld-URL.
 2. De app vervolgens de naam van de tenant te maken van een sleutel voor toegang tot een catalogus met hashes [shard kaart management](sql-database-elastic-scale-shard-map-management.md).

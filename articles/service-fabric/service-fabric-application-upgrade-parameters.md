@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parameters toepassingsupgrade
 In dit artikel beschrijft de verschillende parameters beschreven die van toepassing tijdens de upgrade van een Azure Service Fabric-toepassing. De parameters omvatten de naam en versie van de toepassing. Deze knoppen waarmee de time-outs en statuscontroles die worden toegepast tijdens de upgrade zijn en ze verwijzen naar de beleidsregels die moeten worden toegepast wanneer een upgrade mislukt.
@@ -52,7 +52,7 @@ De criteria voor evaluatie zijn optioneel. Als de criteria voor evaluatie niet z
 | MaxPercentUnhealthyServices |Standaard- en aanbevolen waarde is 0. Geef het maximum aantal services in het toepassingsexemplaar die niet in orde zijn mag voordat de toepassing is in orde beschouwd en de upgrade is mislukt. |
 | MaxPercentUnhealthyPartitionsPerService |Standaard- en aanbevolen waarde is 0. Geef het maximum aantal partities in een service die niet in orde zijn kan voordat de service wordt beschouwd als niet in orde. |
 | MaxPercentUnhealthyReplicasPerPartition |Standaard- en aanbevolen waarde is 0. Geef het maximum aantal replica's in de partitie die niet in orde zijn mag voordat de partitie is in orde beschouwd. |
-| UpgradeReplicaSetCheckTimeout |**Staatloze service**--binnen één upgradedomein Service Fabric probeert om ervoor te zorgen dat er extra exemplaren van de service beschikbaar zijn. Als de doel-exemplaren meer dan één is, wacht Service Fabric is meer dan één exemplaar beschikbaar tot een maximale time-outwaarde. De time-outwaarde is opgegeven door de eigenschap UpgradeReplicaSetCheckTimeout. Als de time-out is verlopen, wordt de Service Fabric voortgezet met de upgrade, ongeacht het aantal exemplaren van de service. Als de doel-exemplaren een is Service Fabric wacht niet en onmiddellijk wordt voortgezet met de upgrade. **Stateful service**--binnen één upgradedomein Service Fabric probeert om ervoor te zorgen dat de replicaset een quorum heeft. Service Fabric wacht tot een quorum beschikbaar tot een maximale time-outwaarde (opgegeven door de eigenschap UpgradeReplicaSetCheckTimeout). Als de time-out is verlopen, wordt de Service Fabric voortgezet met de upgrade, ongeacht het quorum. Deze instelling is ingesteld als nooit (oneindig) bij het implementeren van doorsturen en 900 seconden wanneer door terug te draaien. |
+| UpgradeReplicaSetCheckTimeout |<p>**Staatloze service**--binnen één upgradedomein Service Fabric probeert om ervoor te zorgen dat er extra exemplaren van de service beschikbaar zijn. Als de doel-exemplaren meer dan één is, wacht Service Fabric is meer dan één exemplaar beschikbaar tot een maximale time-outwaarde. De time-outwaarde is opgegeven door de eigenschap UpgradeReplicaSetCheckTimeout. Als de time-out is verlopen, wordt de Service Fabric voortgezet met de upgrade, ongeacht het aantal exemplaren van de service. Als de doel-exemplaren een is Service Fabric wacht niet en onmiddellijk wordt voortgezet met de upgrade.</p><p>**Stateful service**--binnen één upgradedomein Service Fabric probeert om ervoor te zorgen dat de replicaset een quorum heeft. Service Fabric wacht tot een quorum beschikbaar tot een maximale time-outwaarde (opgegeven door de eigenschap UpgradeReplicaSetCheckTimeout). Als de time-out is verlopen, wordt de Service Fabric voortgezet met de upgrade, ongeacht het quorum. Deze instelling is ingesteld als nooit (oneindig) bij het implementeren van doorsturen en 1200 seconden wanneer door terug te draaien.</p> |
 | ForceRestart |Als u een configuratie of een gegevenspakket zonder het bijwerken van de servicecode bijwerkt, de service is gestart alleen als de eigenschap ForceRestart is ingesteld op true. Wanneer de update voltooid is, waarschuwt Service Fabric de service dat een nieuwe configuratie of gegevenspakket beschikbaar is. De service is verantwoordelijk voor het toepassen van de wijzigingen. Indien nodig, kan de service zelf opnieuw. |
 
 <br>

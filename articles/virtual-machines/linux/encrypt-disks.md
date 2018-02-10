@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Het coderen van virtuele schijven op een Linux-VM
 Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. Virtuele machines zijn versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,16 +27,16 @@ Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtue
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie details snel de base-opdrachten voor het versleutelen van virtuele schijven op de virtuele machine. Meer gedetailleerde informatie en context voor elke stap u de rest van het document vindt [vanaf hier](#overview-of-disk-encryption).
 
-U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
+U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
 
-De provider voor Azure Sleutelkluis in uw Azure-abonnement met eerst inschakelen [az provider registreren](/cli/azure/provider#register) en maak een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de *eastus* locatie:
+De provider voor Azure Sleutelkluis in uw Azure-abonnement met eerst inschakelen [az provider registreren](/cli/azure/provider#az_provider_register) en maak een resourcegroep met [az groep maken](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de *eastus* locatie:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Maken van een Azure Key Vault met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyvault_name* als volgt:
+Maken van een Azure Key Vault met [az keyvault maken](/cli/azure/keyvault#az_keyvault_create) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyvault_name* als volgt:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -47,21 +47,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Maken van een cryptografische sleutel in uw Sleutelkluis met [az keyvault-sleutel maken](/cli/azure/keyvault/key#create). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
+Maken van een cryptografische sleutel in uw Sleutelkluis met [az keyvault-sleutel maken](/cli/azure/keyvault/key#az_keyvault_key_create). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Maken van een service-principal met Azure Active Directory met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac). De service-principal verwerkt de verificatie en de uitwisseling van de cryptografische sleutels uit Sleutelkluis. Het volgende voorbeeld wordt gelezen in de waarden voor de service-principal-ID en het wachtwoord voor gebruik in latere opdrachten:
+Maken van een service-principal met Azure Active Directory met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). De service-principal verwerkt de verificatie en de uitwisseling van de cryptografische sleutels uit Sleutelkluis. Het volgende voorbeeld wordt gelezen in de waarden voor de service-principal-ID en het wachtwoord voor gebruik in latere opdrachten:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Het wachtwoord wordt alleen uitgevoerd wanneer u de service-principal maken. Indien gewenst, weergeven en vastleggen van het wachtwoord (`echo $sp_password`). U kunt uw service-principals met lijst [az ad sp lijst](/cli/azure/ad/sp#list) en aanvullende informatie weergeven over een specifieke service-principal met [az ad sp weergeven](/cli/azure/ad/sp#show).
+Het wachtwoord wordt alleen uitgevoerd wanneer u de service-principal maken. Indien gewenst, weergeven en vastleggen van het wachtwoord (`echo $sp_password`). U kunt uw service-principals met lijst [az ad sp lijst](/cli/azure/ad/sp#az_ad_sp_list) en aanvullende informatie weergeven over een specifieke service-principal met [az ad sp weergeven](/cli/azure/ad/sp#az_ad_sp_show).
 
-Machtigingen instellen voor uw Sleutelkluis met [az keyvault-beleid instellen](/cli/azure/keyvault#set-policy). In het volgende voorbeeld wordt de service-principal-ID opgegeven in de voorgaande opdracht:
+Machtigingen instellen voor uw Sleutelkluis met [az keyvault-beleid instellen](/cli/azure/keyvault#az_keyvault_set_policy). In het volgende voorbeeld wordt de service-principal-ID opgegeven in de voorgaande opdracht:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Maak een VM met [az vm maken](/cli/azure/vm#create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *CentOS 7.2n* afbeelding:
+Maak een VM met [az vm maken](/cli/azure/vm#az_vm_create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *CentOS 7.2n* afbeelding:
 
 ```azurecli
 az vm create \
@@ -83,7 +83,7 @@ az vm create \
 
 SSH naar uw virtuele machine met de *publicIpAddress* wordt weergegeven in de uitvoer van de voorgaande opdracht. Maken van een partitie en het bestandssysteem en vervolgens de gegevensschijf koppelen. Zie voor meer informatie [verbinding maken met een Linux-VM te koppelen van de nieuwe schijf](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Sluit uw SSH-sessie.
 
-Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#enable). Het volgende voorbeeld wordt de *$sp_id* en *$sp_password* variabelen in de voorgaande `ad sp create-for-rbac` opdracht:
+Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#az_vm_encryption_enable). Het volgende voorbeeld wordt de *$sp_id* en *$sp_password* variabelen in de voorgaande `ad sp create-for-rbac` opdracht:
 
 ```azurecli
 az vm encryption enable \
@@ -96,19 +96,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Het duurt enige tijd voor het versleutelingsproces schijf om te voltooien. De status van het proces met [az vm versleuteling weergeven](/cli/azure/vm/encryption#show):
+Het duurt enige tijd voor het versleutelingsproces schijf om te voltooien. De status van het proces met [az vm versleuteling weergeven](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-De status ziet **EncryptionInProgress**. Wacht totdat de status van het besturingssysteem schijf rapporten **VMRestartPending**, start u uw virtuele machine met [az vm opnieuw](/cli/azure/vm#restart):
+De status ziet **EncryptionInProgress**. Wacht totdat de status van het besturingssysteem schijf rapporten **VMRestartPending**, start u uw virtuele machine met [az vm opnieuw](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Het versleutelingsproces schijf tijdens het opstarten is voltooid, dus wacht een paar minuten voordat u controleert de status van versleuteling opnieuw met [az vm versleuteling weergeven](/cli/azure/vm/encryption#show):
+Het versleutelingsproces schijf tijdens het opstarten is voltooid, dus wacht een paar minuten voordat u controleert de status van versleuteling opnieuw met [az vm versleuteling weergeven](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -158,18 +158,18 @@ Zie voor meer informatie over ondersteunde scenario's en beperkingen [Azure Disk
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure Sleutelkluis en de sleutels maken
-U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
+U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#az_login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
 
 De eerste stap is het maken van een Azure Key Vault voor het opslaan van uw cryptografische sleutels. Azure Sleutelkluis kunt opslaan sleutels, geheimen of wachtwoorden waarmee u kunt ze veilig implementeert in uw toepassingen en services. Voor versleuteling van de virtuele schijf, kunt u Sleutelkluis gebruiken voor het opslaan van een cryptografische sleutel die wordt gebruikt voor het versleutelen of ontsleutelen van de virtuele schijven.
 
-Inschakelen van de provider voor Azure Sleutelkluis in uw Azure-abonnement met [az provider registreren](/cli/azure/provider#register) en maak een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de `eastus` locatie:
+Inschakelen van de provider voor Azure Sleutelkluis in uw Azure-abonnement met [az provider registreren](/cli/azure/provider#az_provider_register) en maak een resourcegroep met [az groep maken](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een Resourcegroepnaam *myResourceGroup* in de `eastus` locatie:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-De Azure Sleutelkluis die de cryptografische sleutels en de bijbehorende compute-bronnen zoals opslag en de virtuele machine zelf moet zich bevinden in dezelfde regio. Maken van een Azure Key Vault met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyvault_name* als volgt:
+De Azure Sleutelkluis die de cryptografische sleutels en de bijbehorende compute-bronnen zoals opslag en de virtuele machine zelf moet zich bevinden in dezelfde regio. Maken van een Azure Key Vault met [az keyvault maken](/cli/azure/keyvault#az_keyvault_create) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyvault_name* als volgt:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -182,7 +182,7 @@ az keyvault create \
 
 U kunt met behulp van software of Hardware Security Model (HSM) protection cryptografiesleutels opslaan. Een HSM, moet een premium Sleutelkluis. Er is een extra kosten voor het maken van een premium Sleutelkluis in plaats van standaard Sleutelkluis waarmee softwarematige beveiligde sleutels worden opgeslagen. Voor het maken van een premium Sleutelkluis in de vorige stap toevoegen `--sku Premium` aan de opdracht. Het volgende voorbeeld wordt de softwarematige beveiligde sleutels nadat u een standaard Sleutelkluis hebt gemaakt.
 
-Voor beide beveiligingsmodellen moet het Azure-platform toegang om aan te vragen van de cryptografische sleutels wanneer de virtuele machine wordt opgestart voor het ontsleutelen van de virtuele schijven worden verleend. Maken van een cryptografische sleutel in uw Sleutelkluis met [az keyvault-sleutel maken](/cli/azure/keyvault/key#create). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
+Voor beide beveiligingsmodellen moet het Azure-platform toegang om aan te vragen van de cryptografische sleutels wanneer de virtuele machine wordt opgestart voor het ontsleutelen van de virtuele schijven worden verleend. Maken van een cryptografische sleutel in uw Sleutelkluis met [az keyvault-sleutel maken](/cli/azure/keyvault/key#az_keyvault_key_create). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -192,15 +192,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## <a name="create-the-azure-active-directory-service-principal"></a>De Azure Active Directory-service-principal maken
 Wanneer virtuele schijven worden versleuteld en ontsleuteld, kunt u een account voor het afhandelen van de verificatie- en uitwisselen van cryptografische sleutels uit Sleutelkluis opgeven. Dit account, een Azure Active Directory service-principal kunt de Azure-platform om aan te vragen van de juiste cryptografische sleutels namens de virtuele machine. Een standaardexemplaar van de Azure Active Directory is beschikbaar in uw abonnement, hoewel veel organisaties hebben speciale mappen van Azure Active Directory.
 
-Maken van een service-principal met Azure Active Directory met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac). Het volgende voorbeeld wordt gelezen in de waarden voor de service-principal-Id en wachtwoord voor gebruik in latere opdrachten:
+Maken van een service-principal met Azure Active Directory met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Het volgende voorbeeld wordt gelezen in de waarden voor de service-principal-Id en wachtwoord voor gebruik in latere opdrachten:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Het wachtwoord wordt alleen weergegeven wanneer u de service-principal maken. Indien gewenst, weergeven en vastleggen van het wachtwoord (`echo $sp_password`). U kunt uw service-principals met lijst [az ad sp lijst](/cli/azure/ad/sp#list) en aanvullende informatie weergeven over een specifieke service-principal met [az ad sp weergeven](/cli/azure/ad/sp#show).
+Het wachtwoord wordt alleen weergegeven wanneer u de service-principal maken. Indien gewenst, weergeven en vastleggen van het wachtwoord (`echo $sp_password`). U kunt uw service-principals met lijst [az ad sp lijst](/cli/azure/ad/sp#az_ad_sp_list) en aanvullende informatie weergeven over een specifieke service-principal met [az ad sp weergeven](/cli/azure/ad/sp#az_ad_sp_show).
 
-Om deel te versleutelen of ontsleutelen van virtuele schijven, moeten de machtigingen voor de cryptografische sleutel die is opgeslagen in de Sleutelkluis toe te staan van de Azure Active Directory-service-principal te lezen van de sleutels worden ingesteld. Machtigingen instellen voor uw Sleutelkluis met [az keyvault-beleid instellen](/cli/azure/keyvault#set-policy). In het volgende voorbeeld wordt de service-principal-ID opgegeven in de voorgaande opdracht:
+Om deel te versleutelen of ontsleutelen van virtuele schijven, moeten de machtigingen voor de cryptografische sleutel die is opgeslagen in de Sleutelkluis toe te staan van de Azure Active Directory-service-principal te lezen van de sleutels worden ingesteld. Machtigingen instellen voor uw Sleutelkluis met [az keyvault-beleid instellen](/cli/azure/keyvault#az_keyvault_set_policy). In het volgende voorbeeld wordt de service-principal-ID opgegeven in de voorgaande opdracht:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -210,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Maak een VM voor het versleutelen met [az vm maken](/cli/azure/vm#create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *CentOS 7.2n* afbeelding:
+Maak een VM voor het versleutelen met [az vm maken](/cli/azure/vm#az_vm_create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *CentOS 7.2n* afbeelding:
 
 ```azurecli
 az vm create \
@@ -233,7 +233,7 @@ Voor het versleutelen van de virtuele schijven, brengt u samen de eerdere onderd
 3. Geef de cryptografische sleutels moet worden gebruikt voor de daadwerkelijke versleuteling en ontsleuteling.
 4. Geef op of u wilt versleutelen schijf met het besturingssysteem, de gegevensschijven of alle.
 
-Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#enable). Het volgende voorbeeld wordt de *$sp_id* en *$sp_password* variabelen in de voorgaande [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac) opdracht:
+Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#az_vm_encryption_enable). Het volgende voorbeeld wordt de *$sp_id* en *$sp_password* variabelen in de voorgaande [az ad sp maken-voor-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) opdracht:
 
 ```azurecli
 az vm encryption enable \
@@ -246,7 +246,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Het duurt enige tijd voor het versleutelingsproces schijf om te voltooien. De status van het proces met [az vm versleuteling weergeven](/cli/azure/vm/encryption#show):
+Het duurt enige tijd voor het versleutelingsproces schijf om te voltooien. De status van het proces met [az vm versleuteling weergeven](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -261,7 +261,7 @@ De uitvoer is vergelijkbaar met het volgende voorbeeld ingekorte:
 ]
 ```
 
-Wacht totdat de status van het besturingssysteem schijf rapporten **VMRestartPending**, start u uw virtuele machine met [az vm opnieuw](/cli/azure/vm#restart):
+Wacht totdat de status van het besturingssysteem schijf rapporten **VMRestartPending**, start u uw virtuele machine met [az vm opnieuw](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

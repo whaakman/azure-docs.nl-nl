@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux-VM-installatiekopieën zoeken in Azure Marketplace met de Azure CLI
 Dit onderwerp wordt beschreven hoe u met de Azure CLI 2.0 VM-installatiekopieën vinden in Azure Marketplace. Deze informatie gebruiken om op te geven van een Marketplace-installatiekopie bij het maken van een Linux-VM.
@@ -41,7 +41,7 @@ Als u een Marketplace-installatiekopie, doorgaans gebruikt u de installatiekopie
 
 ## <a name="list-popular-images"></a>Lijst met populaire installatiekopieën
 
-Voer de [az vm afbeeldingenlijst](/cli/azure/vm/image#list) opdracht, zonder de `--all` optie voor een overzicht van populaire VM-installatiekopieën in Azure Marketplace. Voer bijvoorbeeld de volgende opdracht een lijst wilt weergeven in de cache van populaire afbeeldingen in tabelindeling:
+Voer de [az vm afbeeldingenlijst](/cli/azure/vm/image#az_vm_image_list) opdracht, zonder de `--all` optie voor een overzicht van populaire VM-installatiekopieën in Azure Marketplace. Voer bijvoorbeeld de volgende opdracht een lijst wilt weergeven in de cache van populaire afbeeldingen in tabelindeling:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Installatiekopieën van het navigeren 
-Een installatiekopie niet vinden in een locatie op een andere manier is om uit te voeren de [az vm image lijst-uitgevers](/cli/azure/vm/image#list-publishers), [az vm image lijst-aanbiedingen](/cli/azure/vm/image#list-offers), en [az vm image lijst-SKU's](/cli/azure/vm/image#list-skus) opdrachten in de reeks. Met deze opdrachten moet u deze waarden bepalen:
+Een installatiekopie niet vinden in een locatie op een andere manier is om uit te voeren de [az vm image lijst-uitgevers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image lijst-aanbiedingen](/cli/azure/vm/image#az_vm_image_list_offers), en [az vm image lijst-SKU's](/cli/azure/vm/image#az_vm_image_list_skus) opdrachten in de reeks. Met deze opdrachten moet u deze waarden bepalen:
 
 1. Geef de uitgevers van installatiekopieën weer.
 2. Geef de aanbiedingen voor een bepaalde uitgever weer.
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu nauwkeurig de installatiekopie die u gebruiken wilt door de URN-waarde. Deze waarde met de `--image` parameter bij het maken van een virtuele machine met de [az vm maken](/cli/azure/vm#create) opdracht. Houd er rekening mee dat u eventueel het versienummer in de URN door 'nieuwste vervangen kunt'. Deze versie is altijd de nieuwste versie van het distributiepunt. Om snel een virtuele machine maken met behulp van de URN informatie, Zie [maken en beheren van virtuele Linux-machines met de Azure CLI](tutorial-manage-vm.md).
+U kunt nu nauwkeurig de installatiekopie die u gebruiken wilt door de URN-waarde. Deze waarde met de `--image` parameter bij het maken van een virtuele machine met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. Houd er rekening mee dat u eventueel het versienummer in de URN door 'nieuwste vervangen kunt'. Deze versie is altijd de nieuwste versie van het distributiepunt. Om snel een virtuele machine maken met behulp van de URN informatie, Zie [maken en beheren van virtuele Linux-machines met de Azure CLI](tutorial-manage-vm.md).

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Maken van een virtuele Linux-machine in een zone beschikbaarheid met de Azure CLI
 
@@ -28,19 +28,19 @@ In dit artikel wordt stapsgewijs via de Azure CLI gebruiken voor het maken van e
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az aanmelding](/cli/azure/#login).
+Zorg ervoor dat de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az aanmelding](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Controleer de beschikbaarheid van de VM-SKU
-De beschikbaarheid van VM-grootten of SKU's, kan verschillen per regio en de zone. Om te helpen plannen voor het gebruik van de Zones van de beschikbaarheid, kunt u de beschikbare VM-SKU's door de Azure-regio en de zone aanbieden. Deze mogelijkheid zorgt ervoor dat u een correcte VM-grootte kiest en ophalen van de gewenste tolerantie in zones. Zie voor meer informatie over de verschillende typen van de virtuele machine en grootten [overzicht van de VM-grootten](sizes.md).
+## <a name="check-vm-sku-availability"></a>Beschikbaarheid van VM-SKU controleren
+De beschikbaarheid van VM-grootten, of SKU's, kan verschillen per regio en zone. Als hulp bij de planning voor het gebruik van de beschikbaarheidszones kunt u een overzicht maken van de beschikbare VM-SKU's per Azure-regio en zone. Hiermee zorgt u ervoor dat u een correcte VM-grootte kiest en de gewenste tolerantie in zones verkrijgt. Voor meer informatie over de verschillende VM-typen en -grootten raadpleegt u het [Overzicht van de VM-grootten](sizes.md).
 
-Vindt u de beschikbare SKU van de VM's met de [az vm lijst-SKU's](/cli/azure/vm#az_vm_list_skus) opdracht. Het volgende voorbeeld worden de beschikbare VM-SKU's in de *eastus2* regio:
+Vindt u de beschikbare SKU van de VM's met de [az vm lijst-SKU's](/cli/azure/vm#az_vm_list_skus) opdracht. Met het volgende voorbeeld wordt een lijst weergegeven van de beschikbare VM-SKU's in de regio *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-De uitvoer is vergelijkbaar met het volgende verkorte voorbeeld, waarin de beschikbaarheid van Zones waarin elke VM-grootte beschikbaar is:
+De uitvoer is vergelijkbaar met het volgende verkorte voorbeeld, waarin de beschikbaarheidszones worden weergegeven waarin elke VM-grootte beschikbaar is:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Logboek waarschuwingen in Azure Monitor - waarschuwingen (Preview)
 Dit artikel vindt u informatie over hoe waarschuwingsregels in Analytics query's voor werk in Azure waarschuwingen (Preview) en worden de verschillen tussen verschillende soorten logboek waarschuwingsregels beschreven.
-Momenteel Azure waarschuwingen (Preview), ondersteunt alleen melden waarschuwingen op query's van [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) geschreven in [querytaal van nieuwe Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md)
+
+Momenteel Azure waarschuwingen (Preview), ondersteunt Meld u waarschuwingen op query's van [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) en [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Waarschuwingen van Azure (Preview) - Log-meldingen op dit moment biedt geen ondersteuning voor cross-werkruimte of cross-app-query's. 
+
+> Logboek waarschuwingen in de Azure-waarschuwingen (Preview) ondersteunt momenteel geen cross-werkruimte of cross-app-query's.
 
 ## <a name="log-alert-rules"></a>Meld u regels voor waarschuwingen
 
@@ -70,7 +72,16 @@ In sommige gevallen wilt u mogelijk een waarschuwing in het ontbreken van een ge
 
 **Statistische functie**: bepaalt de berekening die wordt uitgevoerd en mogelijk een numeriek veld kunnen worden geaggregeerd.  Bijvoorbeeld: **count()** retourneert het aantal records in de query **avg(CounterValue)** retourneert het gemiddelde van het veld tegenwaarde over het interval.
 
+> [!NOTE]
+
+> Statistische functie in de query moet met de naam/aangeroepen: AggregatedValue en geef een numerieke waarde.
+
+
 **Veld groeperen**: een record met een cumulatieve waarde voor elk exemplaar van dit veld wordt gemaakt en een waarschuwing worden gegenereerd voor elk.  Bijvoorbeeld, als u wilt dat er waarschuwingen gegenereerd voor elke computer, gebruikt u **door Computer**   
+
+> [!NOTE]
+
+> Metrische meting regels voor waarschuwingen die zijn gebaseerd op de Application Insights, kunt u het veld voor het groeperen van de gegevens opgeven. Gebruik hiervoor de **cumulatieve op** optie in de definitie van de regel.   
 
 **Interval**: definieert de tijdsinterval waarover de gegevens worden samengevoegd.  Bijvoorbeeld, als u hebt opgegeven **vijf minuten**, een record voor elk exemplaar van het groepsveld om de 5 minuten gedurende de periode die is opgegeven voor de waarschuwing geaggregeerd zouden worden gemaakt.
 
@@ -93,6 +104,6 @@ In dit voorbeeld zou er afzonderlijke waarschuwingen voor srv02 en srv03 worden 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een overzicht van Azure-waarschuwingen (Preview)](monitoring-overview-unified-alerts.md) 
+* [Een overzicht van Azure-waarschuwingen (Preview)](monitoring-overview-unified-alerts.md)
 * Meer informatie over [met behulp van Azure waarschuwingen (preview)](monitor-alerts-unified-usage.md)
 * Meer informatie over [logboekanalyse](../log-analytics/log-analytics-overview.md).    

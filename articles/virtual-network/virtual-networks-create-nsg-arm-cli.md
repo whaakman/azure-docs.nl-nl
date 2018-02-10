@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Netwerk maken met de Azure CLI-beveiligingsgroepen
 
@@ -36,9 +36,9 @@ De volgende voorbeeldopdrachten van Azure CLI verwachten dat een bestaande eenvo
 
 Maken van een NSG met de naam *NSG-FrontEnd* op basis van het voorgaande scenario, volgt u de volgende stappen.
 
-1. Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login). 
+1. Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#az_login). 
 
-2. Maakt een NSG met behulp van de [az netwerk nsg maken](/cli/azure/network/nsg#create) opdracht. 
+2. Maakt een NSG met behulp van de [az netwerk nsg maken](/cli/azure/network/nsg#az_network_nsg_create) opdracht. 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ Maken van een NSG met de naam *NSG-FrontEnd* op basis van het voorgaande scenari
 
 
 
-3. Maak een regel waarmee toegang tot poort 3389 (RDP) van het Internet met de [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) opdracht.
+3. Maak een regel waarmee toegang tot poort 3389 (RDP) van het Internet met de [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) opdracht.
 
     > [!NOTE]
     > Afhankelijk van de shell u gebruikt, moet u mogelijk wijzigen de `*` teken in de volgende om het argument vóór uitvoering Vouw argumenten.
@@ -171,7 +171,7 @@ Maken van een NSG met de naam *NSG-FrontEnd* op basis van het voorgaande scenari
     }
     ```
 
-5. Bind het NSG aan de **FrontEnd** subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) opdracht.
+5. Bind het NSG aan de **FrontEnd** subnet met de [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) opdracht.
         
     ```azurecli
     az network vnet subnet update \

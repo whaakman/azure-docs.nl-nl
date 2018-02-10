@@ -1,32 +1,25 @@
 ---
-title: Testen van failover naar Azure in Site Recovery | Microsoft Docs
-description: Informatie over het uitvoeren van een testfailover van on-premises naar Azure
+title: Testen van failover naar Azure in Azure Site Recovery | Microsoft Docs
+description: Meer informatie over het uitvoeren van een testfailover van on-premises naar Azure, met de Azure Site Recovery-service.
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/16/2017
-ms.author: pratshar
-ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/08/2018
+ms.author: raynew
+ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="test--failover-to-azure-in-site-recovery"></a>Testen van Failover naar Azure in Site Recovery
-
+# <a name="test-failover-to-azure-in-site-recovery"></a>Testen van failover naar Azure in Site Recovery
 
 
 Dit artikel wordt beschreven hoe u een herstel na noodgevallen detailanalyse uitvoert naar Azure, met een testfailover van Site Recovery.  
 
-U uitvoeren een testfailover voor het valideren van de replicatie en de strategie voor noodherstel zonder verlies van gegevens of uitvaltijd. Heeft geen invloed op een testfailover lopende replicatie of uw productieomgeving. U kunt een testfailover uitvoeren op een specifieke virtuele machine (VM) of op een [herstelplan](site-recovery-create-recovery-plans.md) met meerdere virtuele machines. 
+U uitvoeren een testfailover voor het valideren van de replicatie en de strategie voor noodherstel, zonder verlies van gegevens of uitvaltijd. Heeft geen invloed op een testfailover lopende replicatie of uw productieomgeving. U kunt een testfailover uitvoeren op een specifieke virtuele machine (VM) of op een [herstelplan](site-recovery-create-recovery-plans.md) met meerdere virtuele machines. 
 
 
 ## <a name="run-a-test-failover"></a>Een testfailover uitvoeren
@@ -50,7 +43,7 @@ Deze procedure wordt beschreven hoe u een testfailover voor een herstelplan uitv
     - Als hetzelfde IP-adres niet beschikbaar in het subnet is, ontvangt de virtuele machine een ander beschikbaar IP-adres in het subnet. [Meer informatie](#creating-a-network-for-test-failover).
 4. Als u bent failover wordt uitgevoerd naar Azure en gegevensversleuteling is ingeschakeld, in **versleutelingssleutel**, selecteert u het certificaat dat was uitgegeven wanneer u tijdens de installatie van de Provider is ingeschakeld. U kunt deze stap overslaan versleuteling is niet ingeschakeld.
 5. Voortgang van de failover volgen op de **taken** tabblad. U moet mogelijk zijn om te zien van de test replica-machine in de Azure portal.
-6. Voor het initiëren van een RDP-verbinding met de Azure VM, moet u [toevoegen van een openbaar IP-adres](site-recovery-monitoring-and-troubleshooting.md) op de netwerkinterface failover VM. 
+6. Voor het initiëren van een RDP-verbinding met de Azure VM, moet u [toevoegen van een openbaar IP-adres](https://aka.ms/addpublicip) op de netwerkinterface failover VM. 
 7. Als alles werkt zoals verwacht, klikt u op **opschonen testfailover**. Hiermee verwijdert u de virtuele machines die zijn gemaakt tijdens de testfailover.
 8. In **notities**, vastleggen en opslaan van eventuele opmerkingen die zijn gekoppeld aan de testfailover. 
 
@@ -113,9 +106,9 @@ Als u verbinding maken met virtuele Azure-machines met RDP na een failover wilt,
 **Failover** | **Locatie** | **Acties**
 --- | --- | ---
 **Azure VM waarop Windows wordt uitgevoerd** | Lokale machine vóór de failover | Voor toegang tot de Azure VM via internet, schakelt u RDP en zorg ervoor dat TCP en UDP-regels worden toegevoegd voor **openbare**, en dat is toegestaan voor alle profielen in RDP **Windows Firewall**  >  **Apps toegestaan**.<br/><br/> Voor toegang tot de Azure VM via een site-naar-site-verbinding, schakelt u RDP in op de machine en zorg ervoor dat RDP is toegestaan in de **Windows Firewall** -> **toegestane apps en functies**, voor **Domein- en persoonlijke** netwerken.<br/><br/>  Zorg ervoor dat het besturingssysteem SAN-beleid is ingesteld op **OnlineAll**. [Meer informatie](https://support.microsoft.com/kb/3031135).<br/><br/> Zorg ervoor dat er zijn geen Windows-updates in behandeling op de virtuele machine wanneer u een failover activeren. Windows update mogelijk gestart wanneer u een failover, en u niet aanmelden bij de virtuele machine totdat de update is voltooid. 
-**Azure VM waarop Windows wordt uitgevoerd** | Azure virtuele machine na een failover |  [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md) voor de virtuele machine.<br/><br/> De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de RDP-poort.<br/><br/> Controleer **opstarten diagnostics** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding maken, controleert u dat de virtuele machine wordt uitgevoerd en deze [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure VM waarop Windows wordt uitgevoerd** | Azure virtuele machine na een failover |  [Een openbaar IP-adres toevoegen](https://aka.ms/addpublicip) voor de virtuele machine.<br/><br/> De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de RDP-poort.<br/><br/> Controleer **opstarten diagnostics** om te controleren of een schermopname van de virtuele machine.<br/><br/> Als u geen verbinding maken, controleert u dat de virtuele machine wordt uitgevoerd en deze [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Azure VM waarop Linux wordt uitgevoerd** | Lokale machine vóór de failover | Zorg ervoor dat de Secure Shell-service op de virtuele machine is ingesteld op automatisch starten op opstarten van het systeem.<br/><br/> Controleer of er in de firewallregels is ingesteld dat SSH-verbindingen zijn toegestaan.
-**Azure VM waarop Linux wordt uitgevoerd** | Azure virtuele machine na een failover | De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de SSH-poort.<br/><br/> [Een openbaar IP-adres toevoegen](site-recovery-monitoring-and-troubleshooting.md) voor de virtuele machine.<br/><br/> Controleer **opstarten diagnostics** voor een schermopname van de virtuele machine.<br/><br/>
+**Azure VM waarop Linux wordt uitgevoerd** | Azure virtuele machine na een failover | De netwerkbeveiligingsgroepen op failover VM (en de Azure-subnet waarmee deze is verbonden) moeten het toestaan van binnenkomende verbindingen voor de SSH-poort.<br/><br/> [Een openbaar IP-adres toevoegen](https://aka.ms/addpublicip) voor de virtuele machine.<br/><br/> Controleer **opstarten diagnostics** voor een schermopname van de virtuele machine.<br/><br/>
 
 
 

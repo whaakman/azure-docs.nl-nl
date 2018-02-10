@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1c2cd0cc648269c4e07d0f0fcd04a10cf7092432
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Gegevens uit Xero met behulp van Azure Data Factory (bèta) kopiëren
 
@@ -32,6 +32,8 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 U kunt gegevens uit Xero kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+
+Alle Xero tabellen (API-eindpunten) worden ondersteund, behalve 'Rapporten'. Tabellen met complexe items gesplitst met meerdere tabellen. Transacties heeft bijvoorbeeld een complexe gegevensstructuur 'LineItems', zodat de gegevens van de banktransactie is toegewezen aan de tabel Bank_Transaction en Bank_Transaction_Line_Items met Bank_Transaction_ID als refererende sleutel ze om elkaar te koppelen.
 
 Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, dus u hoeft niet te gebruik van deze connector stuurprogramma handmatig installeren.
 
@@ -48,8 +50,8 @@ De volgende eigenschappen worden ondersteund voor Xero gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Xero** | Ja |
-| host | Het eindpunt van de server Xero. (dat wil zeggen, api.xero.com)  | Ja |
-| consumerKey | De consumentsleutel die is gekoppeld aan de Xero. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in de Data Factory of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
+| host | Het eindpunt van de server Xero (`api.xero.com`).  | Ja |
+| consumerKey | De consumentsleutel die is gekoppeld aan de Xero. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | privateKey | De persoonlijke sleutel uit het .pem-bestand dat is gegenereerd voor uw persoonlijke Xero-toepassing. Alle tekst uit het .pem-bestand, met inbegrip van de regel Unix endings(\n) bevatten. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in de Data Factory of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam is vereist in het certificaat van de server overeenkomen met de hostnaam van de server om verbinding te maken via SSL. De standaardwaarde is true.  | Nee |
@@ -98,7 +100,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit Xero, **
 }
 ```
 
-## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
+## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Xero bron.
 

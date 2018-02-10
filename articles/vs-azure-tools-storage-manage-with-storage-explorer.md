@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
 ## <a name="overview"></a>Overzicht
@@ -239,6 +239,20 @@ Naast het beheer van Azure DB die Cosmos accounts via Azure-abonnement moet een 
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Verbinding maken met Azure Data Lake Store URI verwijst
+Als u toegang krijgen tot de resources die niet aanwezig in uw abonnement wilt. Maar anderen verleent u voor de Uri voor de bronnen. In dit geval kunt u naar Data Lake Store met de Uri nadat u bent aangemeld. Raadpleeg de volgende stappen.
+1. Open Opslagverkenner (Preview).
+2. Vouw in het linkerdeelvenster **Local en gekoppelde**.
+3. Met de rechtermuisknop op **Data Lake Store**, en selecteer in het contextmenu - **verbinding maken met Data Lake Store...** .
+
+    ![verbinding maken met Data Lake Store contextmenu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Voer de Uri en vervolgens het hulpprogramma gaat naar de locatie van de URL die u zojuist hebt ingevoerd.
+
+    ![verbinding maken met Data Lake Store context dialoogvenster](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![verbinding maken met Data Lake Store-resultaat](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Zoeken naar opslagaccounts
 Als u wilt zoeken naar een opslagresource en waar deze zich niet meer weet, kunt u het zoekvak boven aan het linkerdeelvenster om te zoeken naar de resource.
 
@@ -254,6 +268,7 @@ Terwijl u in het zoekvak typt, worden alle bronnen die overeenkomen met de zoekw
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Blob Storage-resources beheren met Opslagverkenner (Preview)](vs-azure-tools-storage-explorer-blobs.md)
 * [Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)](./cosmos-db/storage-explorer.md)
+* [Azure Data Lake Store-resources beheren met Opslagverkenner (preview)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

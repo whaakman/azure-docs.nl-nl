@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Dit artikel bevat informatie over de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U kunt explorer Time Series inzicht in uw webbrowser maken visualisaties van uw gegevens.
@@ -37,11 +37,11 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron op uw om
 
 2. Wanneer u een omgeving selecteert, gebruiken de **FROM** en **aan** configuraties aan de bovenkant of klik en sleep over de gewenste tijd in beslag neemt.  Klik op het Vergrootglas in de rechterbovenhoek of met de rechtermuisknop op via de geselecteerde timespan en selecteer **Search**.  
 
-3. U kunt ook beschikbaarheid automatisch vernieuwen elke minuut door de **automatisch op** knop.
+3. U kunt ook beschikbaarheid automatisch vernieuwen elke minuut door de **automatisch op** knop.  Let op de knop 'Automatisch aan' is alleen van toepassing op de grafiek beschikbaarheid, niet de inhoud van de belangrijkste visualisatie.
 
 4. Let op het pictogram van de Azure-cloud, gaat u naar uw omgeving in de Azure-portal.
 
-   ![Reeks Insights omgeving](media/time-series-insights-explorer/explorer1.png)
+   ![Time Series Insights-omgeving](media/time-series-insights-explorer/explorer1.png)
 
 5. Vervolgens ziet u een grafiek weergegeven waarin wordt een telling van alle gebeurtenissen tijdens de geselecteerde timespan weergegeven.  U hebt hier een aantal besturingselementen:
 
@@ -60,7 +60,7 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron op uw om
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, is NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, is NULL        |  Alle operanden moeten van hetzelfde type zijn of NULL-constante.        |
-         |HEEFT     | Reeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
+         |HAS     | Tekenreeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
 
       - **Voorbeelden van query 's**
       

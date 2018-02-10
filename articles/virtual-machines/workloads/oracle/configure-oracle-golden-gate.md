@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux VM 
 
@@ -44,13 +44,13 @@ Hier volgt een samenvatting van de configuratie van de omgeving:
 > | **Besturingssysteem** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle-SID** |CDB1 |CDB1 |
 > | **Schema voor replicatie** |TEST|TEST |
-> | **Golden Gate eigenaar/repliceren** |C ##GGADMIN |REPUSER |
+> | **Golden Gate eigenaar/repliceren** |C##GGADMIN |REPUSER |
 > | **Golden Gate-proces** |EXTORA |REPORA|
 
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
-Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/#login) opdracht. Volg de aanwijzingen op het scherm richtingen.
+Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/#az_login) opdracht. Volg de aanwijzingen op het scherm richtingen.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container in welke Azure-resources zijn geïmplementeerd en die ze kunnen worden beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container in welke Azure-resources zijn geïmplementeerd en die ze kunnen worden beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#create). 
+Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
 
 Het volgende voorbeeld maakt twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels maken als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
@@ -436,7 +436,7 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
 
   ![Schermopname van het installatieprogramma op de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Wijzig de locatie van de software. Selecteer vervolgens de **Manager Start** in en voert u de locatie van de database. Selecteer **volgende** om door te gaan.
+3. Wijzig de locatie van de software. Selecteer vervolgens de **Manager Start** in en voert u de locatie van de database. Selecteer **Volgende** om door te gaan.
 
   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_02.png)
 

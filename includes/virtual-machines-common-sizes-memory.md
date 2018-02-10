@@ -67,7 +67,7 @@ ACU: 160-180
 
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS-serie <sup>1</sup>
+## <a name="gs-series-sup1sup"></a>GS-series <sup>1</sup>
 
 ACU: 180 - 240
 
@@ -81,7 +81,7 @@ ACU: 180 - 240
 
 <sup>1</sup> de maximale schijf-doorvoer (IOP's of MBps) mogelijk een GS-serie VM kan worden beperkt door het aantal grootte en striping van de gekoppelde schijven. Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie. 
 
-<sup>2</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant.
+<sup>2</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant. 
 
 <sup>3</sup> beperkte core grootten beschikbaar 
 
@@ -103,7 +103,7 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2-serie <sup>1</sup>
+## <a name="dsv2-series-sup1sup"></a>DSv2-series <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -117,7 +117,7 @@ ACU: 210 - 250
 
 <sup>1</sup> de maximale schijf-doorvoer (IOP's of MBps) mogelijk met een reeks DSv2 VM kan worden beperkt door het aantal grootte en striping van de gekoppelde schijven.  Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie.
 
-<sup>2</sup> exemplaar is een geïsoleerde-knooppunt dat zorgt ervoor dat uw virtuele machine de enige virtuele machine op onze Intel Haswell-knooppunt is.
+<sup>2</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant. 
 
 <sup>3</sup> 25000 Mbps met versnelde netwerken.
 
@@ -132,16 +132,16 @@ ACU: 210 - 250
 | Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standard_D14_v2   | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
-| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60.000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
+| Standard_D14_v2   | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
+| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1000          | 60.000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> exemplaar is een geïsoleerde-knooppunt dat zorgt ervoor dat uw virtuele machine de enige virtuele machine op onze Intel Haswell-knooppunt is.
+<sup>1</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant. 
 
 <sup>2</sup> 25000 Mbps met versnelde netwerken.
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS-serie <sup>1</sup>
+## <a name="ds-series-sup1sup"></a>DS-series <sup>1</sup>
 
 ACU: 160
 
@@ -164,7 +164,7 @@ ACU: 160
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
 | Standard_D13 | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
-| Standard_D14 | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
+| Standard_D14 | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
 <br>
 

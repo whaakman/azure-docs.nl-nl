@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast
 Nadat u een gereserveerde VM-instantie hebt gekocht, wordt de reservering korting automatisch toegepast op virtuele machines die overeenkomt met de kenmerken en de hoeveelheid van de reservering. Een reservering bevat informatie over de kosten van de infrastructuur van uw virtuele machines. De volgende tabel ziet u de kosten voor uw virtuele machine na de aankoop van een reservering. In alle gevallen moet u in rekening worden gebracht voor opslag en netwerken op de normale tarieven.
@@ -31,7 +31,7 @@ Nadat u een gereserveerde VM-instantie hebt gekocht, wordt de reservering kortin
 |Windows-VM's met [Azure hybride Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reservering bevat informatie over de kosten van de infrastructuur. De kosten voor de Windows-software, het voordeel van de hybride Azure vallen. Geen extra software wordt afzonderlijk in rekening gebracht.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Toepassing van de reservering korting naar niet - Windows virtuele machines
- De reservering korting wordt toegepast op de VM-exemplaren op uurbasis uitgevoerd. De reserveringen die u hebt gekocht worden vergeleken met het gebruik door de actieve virtuele machines toe te passen de reservering korting verzonden. De volgende grafiek ziet u de toepassing van een reservering op factureerbare VM-gebruik. De afbeelding is gebaseerd op één reservering inkoop en twee overeenkomende VM-exemplaren.
+ De reservering korting wordt toegepast op de VM-exemplaren op uurbasis uitgevoerd. De reserveringen dat u hebt aangeschaft worden vergeleken met het gebruik door de actieve virtuele machines toe te passen de reservering korting verzonden. Voor virtuele machines die mogelijk niet het volledige uur uitgevoerd, wordt de reservering van andere VM's die niet met behulp van een reservering, met inbegrip van gelijktijdig uitgevoerde VM's worden gevuld. Aan het einde van het uur is de reservering-toepassing voor virtuele machines in het uur vergrendeld. In het geval van een virtuele machine kan niet worden uitgevoerd voor een uur of gelijktijdige virtuele machines binnen het uur vult u het uur van de reservering niet, wordt de reservering onderbenutte voor dat uur. De volgende grafiek ziet u de toepassing van een reservering op factureerbare VM-gebruik. De afbeelding is gebaseerd op één reservering inkoop en twee overeenkomende VM-exemplaren.
 
 ![Gereserveerde VM-instantie toepassing](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -44,6 +44,16 @@ Om te begrijpen en de toepassing van uw reserveringen in gebruiksrapporten factu
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Toepassing van de reservering korting op Windows-VM 's
 Wanneer u exemplaren van de virtuele machine van Windows uitvoert, wordt de reservering toegepast ten aanzien van de kosten van de infrastructuur. De toepassing van de reservering voor de kosten van de VM-infrastructuur voor VM's van Windows is hetzelfde als voor niet - Windows virtuele machines. U wordt afzonderlijk in rekening gebracht voor de per vCPU op basis van een Windows-software. Zie [kosten voor Windows-software met reserveringen](https://go.microsoft.com/fwlink/?linkid=862756). U kunt uw Windows-licentiekosten met [Azure hybride voordeel voor Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) uitgelegd.
+
+## <a name="next-steps"></a>Volgende stappen
+Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.
+
+- [Vooruitbetalen voor virtuele Machines met een gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Exemplaren van de gereserveerde virtuele Machine beheren](billing-manage-reserved-vm-instance.md)
+- [Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren](billing-save-compute-costs-reservations.md)
+- [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
+- [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
+- [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 

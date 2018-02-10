@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps en -configuratie
 
-Dit onderwerp beschrijft de huidige limieten en de configuratie-informatie voor Azure Logic Apps.
+In dit artikel beschrijft de huidige limieten en de configuratie-informatie voor Azure Logic Apps.
 
 ## <a name="limits"></a>Limieten
 
@@ -66,7 +66,7 @@ Deze beperkingen gelden voor een enkele logische-app uitvoeren.
 | Maximale terugkeerpatroon | 500 dagen | 
 ||| 
 
-Overschrijden voor uitvoering duur of handhaving van opslag in uw flow normale verwerking [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.
+Overschrijden voor uitvoering duur of handhaving van opslag in uw flow normale verwerking [Neem contact op met het productteam](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
 
 ### <a name="looping-and-debatching-limits"></a>Lussen en limieten debatching
 
@@ -82,18 +82,18 @@ Deze beperkingen gelden voor een enkele logische-app uitvoeren.
 
 ### <a name="throughput-limits"></a>Doorvoerlimieten
 
-Deze beperkingen gelden voor een enkele logic app-exemplaar.
+Deze beperkingen gelden voor een resource voor één logische app.
 
 | Naam | Limiet | Opmerkingen | 
 | ----- | ----- | ----- | 
-| Acties uitvoeringen per 5 minuten | 100,000 |<p>De limiet kan worden verhoogd tot 300.000 door een logische app in `High Througput` modus en dit kunnen worden gedaan door het instellen van de `operationOptions` eigenschap onder`runtimeConfiguration` van de werkstroom bron `OptimizedForHighThroughput`. <p>Houd er rekening mee dat hoge doorvoersnelheid-modus bevindt zich in preview. Een werklast kan ook worden gedistribueerd voor meerdere apps, indien nodig. | 
+| Acties uitvoeringen per 5 minuten | 100,000 |<p>De limiet aan 300.000 kan worden verhoogd door een logische app in `High Througput` modus. De modus hoge doorvoer kan worden geconfigureerd door in te stellen de `operationOptions` eigenschap onder`runtimeConfiguration` van de werkstroom bron `OptimizedForHighThroughput`. <p>Houd er rekening mee dat hoge doorvoersnelheid-modus bevindt zich in preview. Een werklast kan ook worden gedistribueerd voor meerdere apps, indien nodig. | 
 | Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: gelijktijdige binnenkomende oproepen |~1,000 | Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig. | 
 | Runtime-eindpunt: aanroepen per 5 minuten lezen  | 60,000 | Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
 | Runtime-eindpunt: aanroepen aanroepen per 5 minuten| 45,000 |Werkbelasting kan worden verdelen over meerdere apps naar behoefte. | 
 |||| 
 
-Aan deze beperkingen in de normale verwerking of voer load testen die mogelijk groter is dan deze limiet overschrijden [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.
+Aan deze beperkingen in de normale verwerking of voer load testen die mogelijk groter is dan deze limiet overschrijden [Neem contact op met het productteam](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
 
 ### <a name="logic-app-definition-limits"></a>Limieten voor Logic app-definitie
 

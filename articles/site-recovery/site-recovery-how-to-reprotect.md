@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Beveiligt van Azure naar een on-premises site
 
@@ -221,13 +221,7 @@ U kunt ook op het niveau van een herstelplan beveiligt. Een replicatiegroep kan 
 
 Nadat de beveiligingspoging is geslaagd, wordt de virtuele machine een beveiligde status invoeren.
 
-## <a name="next-steps"></a>Volgende stappen
-
-Nadat de virtuele machine heeft een beschermd zijn ingevoerd, kunt u [initiëren van een failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-De failback wordt de virtuele machine in Azure afsluiten en opstarten van de on-premises virtuele machine. Verwachten enige uitvaltijd voor de toepassing. Kies een tijd voor failback wanneer de toepassing uitvaltijd tolereren kan.
-
-## <a name="common-problems"></a>Algemene problemen
+## <a name="common-issues"></a>Algemene problemen
 
 * Als u een sjabloon voor het maken van uw virtuele machines, zorg ervoor dat elke virtuele machine heeft een eigen UUID voor de schijven gebruikt. Als de UUID van de lokale virtuele machine veroorzaakt een met die van het hoofddoel conflict omdat beide zijn gemaakt met dezelfde sjabloon, mislukt de beveiligingspoging. Een andere hoofddoelserver niet met dezelfde sjabloon gemaakt is implementeren.
 
@@ -245,38 +239,9 @@ De failback wordt de virtuele machine in Azure afsluiten en opstarten van de on-
 
 * Een Windows Server 2008 R2 SP1-server die is beveiligd, omdat het een fysieke on-premises-server kan niet worden kan failback vanuit Azure een on-premises site.
 
-### <a name="common-error-codes"></a>Algemene foutcodes
 
-#### <a name="error-code-95226"></a>Foutcode 95226
+## <a name="next-steps"></a>Volgende stappen
 
-*Beveiligt, is mislukt omdat de virtuele machine van Azure niet kunnen bereiken van de lokale configuratie-server.*
+Nadat de virtuele machine heeft een beschermd zijn ingevoerd, kunt u [initiëren van een failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Dit gebeurt wanneer 
-1. Virtuele machine van Azure kan de lokale configuratie-server kan niet worden bereikt en daarom niet worden gedetecteerd en geregistreerd voor de configuratieserver. 
-2. De InMage Scout Application service op de virtuele machine van Azure die moet worden uitgevoerd om te communiceren met de lokale configuratie-server mogelijk niet na failover worden uitgevoerd.
-
-Dit probleem op te lossen
-1. U moet ervoor zorgen dat het netwerk van virtuele machine van Azure is zodanig geconfigureerd dat de virtuele machine met de lokale configuratie-server communiceren kan. U doet dit door een Site naar Site VPN terug naar uw on-premises datacentrum instellen of configureren van een ExpressRoute-verbinding met de persoonlijke peering in het virtuele netwerk van virtuele machine van Azure. 
-2. Als u al een netwerk zodanig geconfigureerd dat de virtuele machine van Azure met de lokale configuratie-server communiceren kan hebt, meldt u zich vervolgens naar de virtuele machine en 'InMage Scout Application Service' controleren. Als u merkt dat de InMage Scout Application Service niet wordt uitgevoerd handmatig starten van de service en controleer of het starttype van de service is ingesteld op automatisch.
-
-### <a name="error-code-78052"></a>Foutcode 78052
-Beveiligt mislukt met het volgende foutbericht: *beveiliging voor de virtuele machine kan niet worden voltooid.*
-
-Dit kan gebeuren als gevolg van twee redenen
-1. De virtuele machine die u opnieuw uit te beveiligen is een Windows Server 2016. Momenteel dit besturingssysteem wordt niet ondersteund voor failback echter zo snel mogelijk worden ondersteund.
-2. Er bestaat al een virtuele machine met dezelfde naam op de Master-doelserver u terug naar mislukken.
-
-U kunt dit probleem oplossen door een andere hoofddoelserver op een andere host selecteren zodat de beveiligt de machine op een andere host maakt, waarbij de namen geen conflict veroorzaken. U kunt ook het hoofddoel naar een andere host waar het conflict naam niet gebeurt vMotion. Als de bestaande virtuele machine een losse machine is, kunt u deze alleen wijzigen zodat de nieuwe virtuele machine ophalen op dezelfde ESXi-host gemaakt kan.
-
-### <a name="error-code-78093"></a>Foutcode 78093
-
-*De virtuele machine wordt niet uitgevoerd in een toepassing is vastgelopen of niet toegankelijk.*
-
-Als u wilt een mislukte via de virtuele machine naar on-premises beveiligt, moet u de virtuele machine van Azure uitgevoerd. Dit is zodat de mobility-service met de configuratieserver registreert on-premises en kunt beginnen met het repliceren van door de communicatie met de processerver. Als de machine zich op een netwerk onjuist of wordt niet uitgevoerd (is vastgelopen of afsluiten), bereiken niet de mobility-service in de virtuele machine om te beginnen met het beveiligt door de configuratieserver. U kunt de virtuele machine opnieuw zodat deze communicatie back lokale kunt starten. De taak opnieuw beveiligen opnieuw starten na het starten van de virtuele machine van Azure
-
-### <a name="error-code-8061"></a>Foutcode 8061
-
-*Het gegevensarchief is niet toegankelijk is vanaf ESXi-host.*
-
-Raadpleeg de [de hoofdsleutel van de doel-vereisten](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) en de [datastores ondersteunen](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) voor failback
-
+De failback wordt de virtuele machine in Azure afsluiten en opstarten van de on-premises virtuele machine. Verwachten enige uitvaltijd voor de toepassing. Kies een tijd voor failback wanneer de toepassing uitvaltijd tolereren kan.

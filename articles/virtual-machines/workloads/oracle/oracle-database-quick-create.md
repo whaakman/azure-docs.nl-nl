@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f760165fa8a93bbb7646539af748b647fe63bba
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Maak een Oracle-Database in een Azure VM
 
@@ -33,7 +33,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Gebruik voor het maken van een virtuele machine (VM) de [az vm maken](/cli/azure/vm#create) opdracht. 
+Gebruik voor het maken van een virtuele machine (VM) de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. 
 
 In het volgende voorbeeld wordt een virtuele machine met de naam `myVM` gemaakt. SSH-sleutels wordt ook gemaakt als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
@@ -270,7 +270,7 @@ De Oracle-database standaard niet automatisch wordt gestart wanneer u de virtuel
 
 De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-netwerk-beveiligingsgroep die de virtuele machine beveiligt instelt, moet u eerst uw SSH-sessie in de virtuele machine (moet hebben is volledig buiten SSH wanneer opnieuw opstarten in de vorige stap) sluiten. 
 
-1.  Om te openen van het eindpunt waarmee u kunt extern toegang tot de Oracle-database, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) als volgt: 
+1.  Om te openen van het eindpunt waarmee u kunt extern toegang tot de Oracle-database, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) als volgt: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -282,7 +282,7 @@ De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-ne
         --destination-port-range 1521
     ```
 
-2.  Om te openen van het eindpunt dat u extern toegang tot Oracle EM Express gebruiken, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) als volgt:
+2.  Om te openen van het eindpunt dat u extern toegang tot Oracle EM Express gebruiken, maakt u een regel Netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) als volgt:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -294,7 +294,7 @@ De laatste taak is het aantal externe eindpunten configureren. Als u de Azure-ne
         --destination-port-range 5502
     ```
 
-3. Indien nodig, het openbare IP-adres van uw virtuele machine opnieuw met verkrijgen [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#show) als volgt:
+3. Indien nodig, het openbare IP-adres van uw virtuele machine opnieuw met verkrijgen [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show) als volgt:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -316,7 +316,7 @@ U kunt aanmelden met behulp van de **SYS** account en controleer de **als sysdba
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u klaar bent met het verkennen van uw eerste Oracle-database in Azure en de virtuele machine niet meer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#delete) opdracht voor het verwijderen van de resourcegroep, VM, en alle bijbehorende resources.
+Als u klaar bent met het verkennen van uw eerste Oracle-database in Azure en de virtuele machine niet meer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#az_group_delete) opdracht voor het verwijderen van de resourcegroep, VM, en alle bijbehorende resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

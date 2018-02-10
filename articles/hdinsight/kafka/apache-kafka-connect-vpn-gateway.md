@@ -13,13 +13,13 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Kafka in HDInsight via een virtuele Azure-netwerk
 
@@ -47,7 +47,7 @@ HDInsight kan geen directe verbinding met Kafka via het openbare internet. Kafka
 * Verbinding met het maken van afzonderlijke computers aan het virtuele netwerk via een VPN-gateway en de VPN-client. Om deze configuratie inschakelt, moet u de volgende taken uitvoeren:
 
     1. Maak een virtueel netwerk.
-    2. Maak een VPN-gateway die gebruikmaakt van een punt-naar-site-configuratie. Deze configuratie biedt een VPN-client die kan worden geïnstalleerd op Windows-clients.
+    2. Maak een VPN-gateway die gebruikmaakt van een punt-naar-site-configuratie. Deze configuratie kan worden gebruikt met Windows- en Mac OS-clients.
     3. Installeer Kafka op HDInsight in het virtuele netwerk.
     4. Kafka voor IP-reclame configureren. Deze configuratie kan de client verbinding maken via IP-adressen in plaats van domeinnamen.
     5. Download en gebruik van de VPN-client op het ontwikkelsysteem.
@@ -57,7 +57,7 @@ HDInsight kan geen directe verbinding met Kafka via het openbare internet. Kafka
     > [!WARNING]
     > Deze configuratie wordt alleen aanbevolen voor ontwikkelingsdoeleinden vanwege de volgende beperkingen:
     >
-    > * Elke client moet verbinding maken met behulp van een VPN-software-client. Azure biedt alleen een Windows-client.
+    > * Elke client moet verbinding maken met behulp van een VPN-software-client.
     > * De VPN-client geeft niet aanvragen voor naamomzetting aan het virtuele netwerk, zodat u IP-adressen om te communiceren met Kafka moet gebruiken. IP-communicatie is aanvullende configuratie van het cluster Kafka vereist.
 
 Zie voor meer informatie over het gebruik van HDInsight in een virtueel netwerk [HDInsight uitbreiden met behulp van Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
@@ -232,22 +232,13 @@ Gebruik de stappen in deze sectie voor het maken van de volgende configuratie:
         -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
+        -DisksPerWorkerNode 2 `
         -VirtualNetworkId $network.Id `
         -SubnetName $defaultSubnet.Id
     ```
 
   > [!WARNING]
   > Dit proces duurt ongeveer 15 minuten te voltooien.
-
-8. Gebruik de volgende cmdlet voor het ophalen van de URL voor de Windows VPN-client voor het virtuele netwerk:
-
-    ```powershell
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
-
-    Gebruik de geretourneerde URI in uw webbrowser voor het downloaden van de Windows VPN-client.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka configureren voor IP-advertenties
 
@@ -299,7 +290,7 @@ Standaard retourneert Zookeeper de domeinnaam van de beleggingsmakelaars Kafka a
 
 ### <a name="connect-to-the-vpn-gateway"></a>Verbinding maken met de VPN-gateway
 
-Verbinding maken met de VPN-gateway van een __Windows-client__, gebruiken de __verbinding maken met Azure__ sectie van de [een punt-naar-Site-verbinding configureren](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) document.
+Gebruiken voor verbinding met de VPN-gateway, de __verbinding maken met Azure__ sectie van de [een punt-naar-Site-verbinding configureren](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) document.
 
 ## <a id="python-client"></a>Voorbeeld:-Client voor Python
 

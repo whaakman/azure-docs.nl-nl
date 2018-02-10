@@ -12,40 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: mamit
 ms.custom: 
-ms.openlocfilehash: 5ded43548d9aea106c6e083476df4e735b8c00a6
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 316dcd53509897a6efc387749ca6f9ec268cb7ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="explore-the-new-alerts-preview-experience-in-azure-monitor"></a>De nieuwe waarschuwingen (Preview)-ervaring in Azure Monitor verkennen
 
 ## <a name="overview"></a>Overzicht
  Ervaring in Azure is een nieuwe waarschuwingen bekijken en bijgewerkte functionaliteit. Deze nieuwe ervaring is beschikbaar via de **waarschuwingen (Preview)** tabblad onder Azure bewaken. Hier volgen enkele van de voordelen van het gebruik van de nieuwe ervaring voor waarschuwingen (Preview):
 
- - **Scheiding van Fired waarschuwingen en waarschuwing regels** - waarschuwing In de ervaring Alerts(Preview) regels (de definitie van de voorwaarde die een waarschuwing activeert) en waarschuwingen deze gebeurtenis wordt gestart (een exemplaar van de waarschuwingsregel starten) van elkaar worden onderscheiden, zodat de operationele en configuratieweergaven worden gescheiden. 
- - **Een uniforme ontwerpmogelijkheden voor metrische gegevens en logboekbestanden waarschuwingen** : de nieuwe waarschuwingen (Preview) ontwerpen handleidingen ervaring van de gebruiker het configuratieproces van een waarschuwingsregel dit het eenvoudiger om de juiste objecten maakt voor het ophalen van waarschuwingen op te detecteren. 
+ - **Scheiding van Fired waarschuwingen en waarschuwing regels** - waarschuwing In de ervaring Alerts(Preview) regels (de definitie van de voorwaarde die een waarschuwing activeert) en waarschuwingen deze gebeurtenis wordt gestart (een exemplaar van de waarschuwingsregel starten) van elkaar worden onderscheiden, zodat de operationele en configuratieweergaven worden gescheiden.
+ - **Een uniforme ontwerpmogelijkheden voor metrische gegevens en logboekbestanden waarschuwingen** : de nieuwe waarschuwingen (Preview) ontwerpen handleidingen ervaring van de gebruiker het configuratieproces van een waarschuwingsregel dit het eenvoudiger om de juiste objecten maakt voor het ophalen van waarschuwingen op te detecteren.
  - **Weergave gestart logboekanalyse waarschuwingen in Azure portal** -ervaring In de waarschuwingen (Preview), kunt u nu ook Zie logboekanalyse waarschuwingen in uw abonnement gestart.  
+ - **Uniforme ervaring voor activiteit logboek waarschuwingen** -u kunt nu de activiteit logboek waarschuwingen rechtstreeks vanuit maken **Monitor** > **waarschuwingen (Preview)**. Eerder kunt u deze alleen via **Monitor** > **activiteitenlogboek**.
 
-De volgende secties wordt beschreven, in meer detail de werking van de nieuwe ervaring. 
+De volgende secties wordt beschreven, in meer detail de werking van de nieuwe ervaring.
 
 ## <a name="taxonomy"></a>Taxonomie
 De ervaring Alerts(preview) gebruikt volgende concepten voor het scheiden van de waarschuwingsregel en waarschuwing geactiveerd objecten tijdens de ontwerpmogelijkheden samen te voegen tussen de verschillende typen waarschuwingen.
 
-- **Doelresource** -doel is een Azure-resource. Doelbron definieert het bereik en signalen die beschikbaar zijn voor waarschuwingen. Voorbeeld van doelen: een virtuele machine, een opslagaccount, een virtuele-machineschaalset, een werkruimte voor logboekanalyse of oplossing. 
+- **Doelresource** -doel is een Azure-resource. Doelbron definieert het bereik en signalen die beschikbaar zijn voor waarschuwingen. Voorbeeld van doelen: een virtuele machine, een opslagaccount, een virtuele-machineschaalset, een werkruimte voor logboekanalyse of oplossing.
 
 - **Criteria** - Criteria is een combinatie van signaal en logica wordt toegepast op een doelbron. Voorbeelden: Percentage CPU > 70%, serverreactietijd > 4 ms, aantal resultaten van een logboek query > 100 enzovoort. 
 
-- **Signaal** - signalen worden gegenereerd door de doelbron en van verschillende typen kunnen zijn. Deze preview ondersteunt metrische gegevens en logboekbestanden signaaltypen.
+- **Signaal** - signalen worden gegenereerd door de doelbron en van verschillende typen kunnen zijn. Deze preview ondersteunt **metriek**, **activiteitenlogboek**, **Application Insights** en **logboek** als signaaltypen.
 
 - **Logica** -gebruiker gedefinieerde logica wilt controleren of het signaal binnen bereik en-waarden verwacht.  
  
 - **Actie** -specifieke gebeld verzonden naar een ontvanger van een melding (bijvoorbeeld e-mailen een adres of ze naar een webhook-URL). Meldingen kunnen meestal meerdere acties activeren. De Waarschuwingstypen in deze preview kunt ondersteuningsgroepen actie ondersteund.  
  
-- **Waarschuwingsregel** -de definitie van een voorwaarde die de waarschuwing wilt activeren. In dit voorbeeld bevat waarschuwingsregel het doel en de Criteria voor waarschuwingen. De waarschuwingsregel kan zich in een ingeschakeld of de status van een uitgeschakeld. 
+- **Waarschuwingsregel** -de definitie van een voorwaarde die de waarschuwing wilt activeren. In dit voorbeeld bevat waarschuwingsregel het doel en de Criteria voor waarschuwingen. De waarschuwingsregel kan zich in een ingeschakeld of de status van een uitgeschakeld.
  
 - **Deze gebeurtenis wordt gestart waarschuwing** -gemaakt wanneer er een ingeschakelde waarschuwingsregel is gestart. Het gestarte waarschuwing object mag Fired of niet-omgezette status heeft.
 
@@ -75,9 +76,12 @@ In de waarschuwingen (Preview)-ervaring, waarschuwingen worden geschreven in een
  
 Een taak drie stappen voor het ontwerpen van een waarschuwing is waar de gebruiker eerst een doel voor de waarschuwing kiest gevolgd door het juiste signaal selecteren en vervolgens de logica worden toegepast op het signaal als onderdeel van de waarschuwingsregel op te geven. Deze vereenvoudigde ontwerpproces vereist niet langer dat gebruikers weten de bewaking bron- of signalen ondersteund voordat u een Azure-resource. De algemene ontwerpmogelijkheden automatisch filtert de lijst met beschikbare signalen op basis van de doelbron geselecteerd en het maken van een waarschuwing logica leidt
 
-U kunt meer informatie over het maken van de volgende typen waarschuwingen [hier](monitor-alerts-unified-usage.md). 
+U kunt meer informatie over het maken van de volgende typen waarschuwingen [hier](monitor-alerts-unified-usage.md).
 - Metrische waarschuwingen (bijna de Real Time metriek waarschuwingen in de huidige ervaring genoemd)
 - Logboek waarschuwingen (Log Analytics)
+- Logboek waarschuwingen (activiteitenlogboeken)
+- Logboek waarschuwingen (Application Insights)
+
  
 
 ## <a name="alert-types-supported-in-this-preview"></a>Waarschuwingstypen die worden ondersteund in deze preview
@@ -87,8 +91,9 @@ U kunt meer informatie over het maken van de volgende typen waarschuwingen [hier
 |-------------|----------------|-------------|
 | Gegevens | Monitor voor Azure | Aangeroepen [ **bijna de Real Time metriek waarschuwingen** ](monitoring-near-real-time-metric-alerts.md) in de huidige gebruikerservaring deze metrische waarschuwingen ondersteunen metrische voorwaarden zo vaak als 1 min. evalueren en toestaan voor meerdere metrische regels. Er is een lijst met ondersteunde resourcetypen beschikbaar [hier](monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for). Andere metriek waarschuwingen gedefinieerd [hier](monitoring-overview-alerts.md#alerts-in-different-azure-services) worden niet ondersteund in de ervaring voor de waarschuwingen (Preview).|
 | Logboeken  | Log Analytics | Meldingen ontvangen of geautomatiseerde acties uitgevoerd wanneer een zoekquery logboek over metrische gegevens en/of gebeurtenis gegevens aan bepaalde criteria voldoet.|
-| Logboeken  | Activiteitenlogboeken | Niet ondersteund in de gebruikerservaring van waarschuwingen (Preview). |
-| Logboeken  | Application Insights | Niet ondersteund in de gebruikerservaring van waarschuwingen (Preview). |
+| Logboeken  | Activiteitenlogboeken | Deze categorie bevat de records van alle Create, Update, en acties die worden uitgevoerd via het geselecteerde doel (resource/resourcegroep groep /-abonnement) verwijderen. |
+| Logboeken  | Health service-Logboeken | Niet ondersteund in de gebruikerservaring van waarschuwingen (Preview).   |
+| Logboeken  | Application Insights | Deze rubriek bevat logboeken met de details van de prestaties van uw toepassing. Analytics-query kunt u de voorwaarden voor welke acties moeten worden genomen: op basis van de toepassingsgegevens definiëren. |
 | Gegevens | Application Insights | Niet ondersteund in de gebruikerservaring van waarschuwingen (Preview). |
 | Beschikbaarheidstests | Application Insights | Niet ondersteund in de gebruikerservaring van waarschuwingen (Preview). |
 
@@ -97,4 +102,4 @@ U kunt meer informatie over het maken van de volgende typen waarschuwingen [hier
 - [Informatie over het gebruik van de nieuwe ervaring voor waarschuwingen (Preview) te maken, weergeven en beheren van waarschuwingen](monitor-alerts-unified-usage.md)
 - [Meer informatie over logboek waarschuwingen in de gebruikerservaring van waarschuwingen (Preview)](monitor-alerts-unified-log.md)
 - [Meer informatie over metrische waarschuwingen in de gebruikerservaring van waarschuwingen (Preview)](monitoring-near-real-time-metric-alerts.md)
-
+- [Meer informatie over activiteit logboek waarschuwingen in de gebruikerservaring van waarschuwingen (Preview)](monitoring-activity-log-alerts-new-experience.md)

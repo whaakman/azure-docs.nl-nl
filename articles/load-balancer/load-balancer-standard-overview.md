@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Overzicht van Azure Load Balancer-standaard (preview)
 
 De Azure Load Balancer standaard SKU en openbare IP-standaard SKU kunt samen u voor het bouwen van uiterst schaalbare en betrouwbare architecturen. Toepassingen die gebruikmaken van Load Balancer Standard kunnen profiteren van nieuwe mogelijkheden. Lage latentie en hoge doorvoersnelheid schaal zijn beschikbaar voor miljoenen stromen voor alle TCP en UDP-toepassingen.
 
 >[!NOTE]
-> De Load Balancer standaard SKU is momenteel in preview. Tijdens de preview, de functie hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie. Gebruik de algemeen beschikbaar [Load Balancer basis-SKU](load-balancer-overview.md) voor uw productie-services. De functies die gekoppeld aan deze preview zijn [beschikbaarheid Zones](https://aka.ms/availabilityzones), en [HA poorten](https://aka.ms/haports), afzonderlijke aanmelding op dit moment vereisen. Volg de instructies respectieve voor registratie van deze functies, naast het aanmelden voor een Load Balancer [standaard preview](#preview-sign-up).
+> De Load Balancer standaard SKU is momenteel in preview. Tijdens de preview, de functie hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie. Gebruik de algemeen beschikbaar [Load Balancer basis-SKU](load-balancer-overview.md) voor uw productie-services. Om te gebruiken [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) met deze Preview vereist een [afzonderlijke aanmelding](https://aka.ms/availabilityzones), naast het aanmelden voor een Load Balancer [standaard preview](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Waarom gebruiken Load Balancer standaard?
 
@@ -325,13 +325,11 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie voor het verpla
 
 ## <a name="region-availability"></a>Beschikbaarheid in regio’s
 
-Load Balancer standaard is momenteel beschikbaar in deze regio's:
-- VS - oost 2
-- VS - midden
-- Noord-Europa
-- West-centraal VS
-- West-Europa
-- Zuidoost-Azië
+Load Balancer standaard is momenteel beschikbaar in alle openbare cloud-regio's.
+
+>[!IMPORTANT]
+> Voor een korte periode, toegang tot regio's buiten de eerste keer start regio's (VS-Oost 2, VS-midden, Noord-Europa, West-Centraal VS, West-Europa, Zuidoost-Azië) de registratie van het voor aanvullende Abonnementsfuncties vereist (AllowLBPreviewWave2 en AllowLBPreviewWave3).  [Volg de onderstaande stappen](#additionalpreviewregions). Voer deze zelfs als u hebt eerder hebt aangemeld voor AllowLBPreview al.
+> Deze vereiste wordt verwijderd in de komende weken.
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU-Servicelimieten en mogelijkheden
 
@@ -369,7 +367,12 @@ De volgende tabel vergelijkt de beperkingen en mogelijkheden van het openbare IP
 Als u wilt deelnemen aan de preview voor Load Balancer standaard SKU en de bijbehorende openbare IP-standaard SKU Registreer uw abonnement.  Uw abonnement biedt die u toegang via PowerShell of Azure CLI 2.0 tot wordt geregistreerd. Als u wilt registreren, moet u de volgende stappen uitvoeren:
 
 >[!NOTE]
->Registratie van de Load Balancer standaard functie kan een uur duren globally kracht worden. Als u wilt gebruiken Load Balancer Standard met [beschikbaarheid Zones](https://aka.ms/availabilityzones) en [HA poorten](https://aka.ms/haports), een afzonderlijke registratie is vereist voor deze voorbeelden. Volg de instructies respectieve voor registratie van deze functies.
+>Registratie van de Load Balancer standaard functie kan een uur duren globally kracht worden. Als u wilt gebruiken Load Balancer Standard met [beschikbaarheid Zones](https://aka.ms/availabilityzones), een [afzonderlijke aanmelding](https://aka.ms/availabilityzones) is vereist voor de Preview AZ.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Voor een korte periode, de toegang tot regio's buiten de eerste keer start regio's (VS-Oost 2, VS-midden, Noord-Europa, West-Centraal VS, West-Europa, Zuidoost-Azië) moet de registratie van aanvullende Abonnementsfuncties (AllowLBPreviewWave2 en AllowLBPreviewWave3).  De volgende stappen uit zijn om in te schakelen aanvullende Abonnementsfuncties gewijzigd. Voer deze zelfs als u hebt eerder hebt aangemeld voor AllowLBPreview al. Deze vereiste wordt verwijderd in de komende weken.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Aanmelden met behulp van Azure CLI 2.0
 
@@ -377,15 +380,19 @@ Als u wilt deelnemen aan de preview voor Load Balancer standaard SKU en de bijbe
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. De bewerking kan maximaal 10 minuten duren. U kunt de status van de bewerking met de volgende opdracht controleren:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Doorgaan met de volgende stap wanneer de status van het onderdeel registratie retourneert 'Geregistreerde':
+    Ga door met de volgende stap wanneer de status van het onderdeel registratie 'Geregistreerde' weer voor elk van de bovenstaande Abonnementsfuncties. Voorbeeld:
    
     ```json
     {
@@ -398,28 +405,33 @@ Als u wilt deelnemen aan de preview voor Load Balancer standaard SKU en de bijbe
     }
     ```
     
-3. Voer de registratie preview door uw abonnement met de resourceprovider opnieuw te registreren:
+4. Voer de registratie preview door uw abonnement met de resourceprovider opnieuw te registreren:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>Aanmelden met behulp van PowerShell
 
 1. Registreer het onderdeel met de provider:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. De bewerking kan maximaal 10 minuten duren. U kunt de status van de bewerking met de volgende opdracht controleren:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Doorgaan met de volgende stap wanneer de status van het onderdeel registratie retourneert 'Geregistreerde':
-   
+  Ga door met de volgende stap wanneer de status van het onderdeel registratie 'Geregistreerde' weer voor elk van de bovenstaande Abonnementsfuncties. Voorbeeld:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ De volgende beperkingen toepassen op het moment van preview en nog worden gewijz
 - IPv6 wordt niet ondersteund.
 - In de context van beschikbaarheid Zones is front-end niet van zonal veranderlijke naar zone-redundante of vice versa. Nadat een front-wordt gemaakt als zone-redundante, blijft deze zone-redundante. Nadat een front-wordt gemaakt als zonal, blijft het zonal.
 - In de context van beschikbaarheid Zones, kan niet een zonal openbare IP-adres van een zone worden verplaatst naar een andere.
+- [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
+- Portal biedt nog geen ondersteuning voor de uitgebreide preview regio's.  Gebruik clienthulpprogramma's, zoals sjablonen, Azure CLI 2.0 of PowerShell als tijdelijke oplossing.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Load Balancer Basic](load-balancer-overview.md).
 - Meer informatie over [beschikbaarheid Zones](../availability-zones/az-overview.md).
+- Meer informatie over [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden](../networking/networking-overview.md) in Azure.
-
+- Meer informatie over [metrische gegevens die zijn blootgesteld](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

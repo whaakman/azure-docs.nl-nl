@@ -1,6 +1,7 @@
 1. Het installatieprogramma kopiëren naar een lokale map (bijvoorbeeld map) op de server die u wilt beveiligen. Voer de volgende opdrachten in een terminal:
   ```
-  cd /tmp
+  cd /tmp ;
+
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
 2. Voer de volgende opdracht voor het installeren van de Mobility-Service:
@@ -14,7 +15,7 @@
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Mobility-Service installatieprogramma vanaf de opdrachtregel
+#### <a name="mobility-service-installer-command-line"></a>Mobility-Service installer-opdrachtregel
 
 ```
 Usage:
@@ -25,11 +26,11 @@ Usage:
 |-|-|-|-|
 |-r |Verplicht|Geeft aan of de Mobility-Service (MS) moet worden geïnstalleerd of MasterTarget(MT) moet worden geïnstalleerd.|MS </br> MT|
 |-d |Optioneel|Locatie waar de Mobility-Service moet worden geïnstalleerd|/usr/local/ASR|
-|-v|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is ophalen geïnstalleerd </br> </br>- **VMware** : deze waarde wordt gebruikt als u mobility-service op een virtuele machine uitgevoerd installeert op *VMware vSphere ESXi-Hosts*, *Hyper-V-Hosts* en *Phsyical Servers* </br> - **Azure** : deze waarde wordt gebruikt als u agent op een virtuele machine van Azure IaaS installeert| VMware </br> Azure|
-|-q|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in de stille modus| N.v.t.|
+|-v|Verplicht|Hiermee geeft u het platform waarop de Mobility-Service is ophalen geïnstalleerd </br> </br>-** VMware: deze waarde wordt gebruikt als u mobility-service op een virtuele machine uitgevoerd installeert op *VMware vSphere ESXi-Hosts*, * Hyper-V-Hosts en *fysieke Servers* </br> -** Azure: Gebruik deze waarde als u agent op een virtuele machine van Azure IaaS installeert| VMware </br> Azure|
+|-q|Optioneel|Hiermee geeft u het installatieprogramma uitvoeren in de stille modus| N/A|
 
 
-#### <a name="mobility-service-configuration-command-line"></a>Configuratie van Mobility-Service vanaf de opdrachtregel
+#### <a name="mobility-service-configuration-command-line"></a>Mobility-Service configuration vanaf de opdrachtregel
 
 ```
 Usage:

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Het maken van een installatiekopie van een virtuele machine of de VHD
 
@@ -37,7 +37,7 @@ Zorg ervoor dat u voldoet aan de volgende vereisten:
 
 * U moet een Azure VM gemaakt in het Resource Manager-implementatiemodel met beheerde schijven. Als u een Linux-VM nog niet hebt gemaakt, kunt u de [portal](quick-create-portal.md), wordt de [Azure CLI](quick-create-cli.md), of [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md). De virtuele machine naar wens configureren. Bijvoorbeeld: [gegevensschijven toevoegen](add-disk.md), toepassen van updates en toepassingen te installeren. 
 
-* U moet bovendien beschikken over de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met behulp van [az aanmelding](/cli/azure/#login).
+* U moet bovendien beschikken over de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met behulp van [az aanmelding](/cli/azure/#az_login).
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 
@@ -79,7 +79,7 @@ De Azure CLI 2.0 gebruiken voor de virtuele machine niet markeren als gegenerali
       --name myVM
     ```
 
-3. Maak nu een afbeelding van de VM-resource met [az installatiekopie maken](/cli//azure/image#create). Het volgende voorbeeld wordt een installatiekopie met de naam *myImage* in de resourcegroep met de naam *myResourceGroup* met behulp van de VM-resource met de naam *myVM*:
+3. Maak nu een afbeelding van de VM-resource met [az installatiekopie maken](/cli/azure/image#az_image_create). Het volgende voorbeeld wordt een installatiekopie met de naam *myImage* in de resourcegroep met de naam *myResourceGroup* met behulp van de VM-resource met de naam *myVM*:
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ De Azure CLI 2.0 gebruiken voor de virtuele machine niet markeren als gegenerali
    > De installatiekopie wordt gemaakt in dezelfde resourcegroep bevinden als de bron-VM. U kunt virtuele machines in elke willekeurige resourcegroep maken in uw abonnement vanuit deze installatiekopie. U kunt desgewenst een specifieke resourcegroep voor uw VM netwerkbronnen en installatiekopieën maken vanuit het oogpunt van beheer van.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine van de vastgelegde installatiekopie maken
-Een virtuele machine maken met de installatiekopie die u hebt gemaakt met [az vm maken](/cli/azure/vm#create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMDeployed* van de installatiekopie met de naam *myImage*:
+Een virtuele machine maken met de installatiekopie die u hebt gemaakt met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMDeployed* van de installatiekopie met de naam *myImage*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>De virtuele machine maken in een andere resourcegroep 
 
-U kunt virtuele machines maken van een installatiekopie in elke willekeurige resourcegroep binnen uw abonnement. Voor het maken van een virtuele machine in een andere resourcegroep dan de installatiekopie, geef de volledige resource-ID aan de installatiekopie. Gebruik [az afbeeldingenlijst](/cli/azure/image#list) om een lijst met afbeeldingen weer te geven. De uitvoer lijkt op die in het volgende voorbeeld:
+U kunt virtuele machines maken van een installatiekopie in elke willekeurige resourcegroep binnen uw abonnement. Voor het maken van een virtuele machine in een andere resourcegroep dan de installatiekopie, geef de volledige resource-ID aan de installatiekopie. Gebruik [az afbeeldingenlijst](/cli/azure/image#az_image_list) om een lijst met afbeeldingen weer te geven. De uitvoer lijkt op die in het volgende voorbeeld:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ U kunt virtuele machines maken van een installatiekopie in elke willekeurige res
    "name": "myImage",
 ```
 
-Het volgende voorbeeld wordt [az vm maken](/cli/azure/vm#create) maken van een virtuele machine in een andere resourcegroep dan de broninstallatiekopie door te geven van de Afbeeldingsbron-ID:
+Het volgende voorbeeld wordt [az vm maken](/cli/azure/vm#az_vm_create) maken van een virtuele machine in een andere resourcegroep dan de broninstallatiekopie door te geven van de Afbeeldingsbron-ID:
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Stap 4: De implementatie controleren
 
-Nu SSH aan de virtuele machine die u hebt gemaakt om te controleren of de implementatie en begin met behulp van de nieuwe virtuele machine. Als u wilt verbinding maken via SSH, vinden de IP-adres of FQDN van uw virtuele machine met [az vm weergeven](/cli/azure/vm#show):
+Nu SSH aan de virtuele machine die u hebt gemaakt om te controleren of de implementatie en begin met behulp van de nieuwe virtuele machine. Als u wilt verbinding maken via SSH, vinden de IP-adres of FQDN van uw virtuele machine met [az vm weergeven](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2018
+ms.date: 02/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en installeren van de configuratiebestanden voor VPN-clients voor systeemeigen Azure certificaat verificatie P2S-configuraties
 
@@ -72,8 +72,9 @@ Gebruik de volgende stappen uit om de systeemeigen Windows VPN-client voor verif
 1. Selecteer de configuratiebestanden voor VPN-client die met de architectuur van de Windows-computer overeenkomen. Kies het 'VpnClientSetupAmd64' installer-pakket voor een 64-bits processorarchitectuur. Kies het 'VpnClientSetupX86' installer-pakket voor een 32-bits processorarchitectuur. 
 2. Dubbelklik op het pakket om het te installeren. Als u een SmartScreen-melding ziet, klikt u op **Meer info** en vervolgens op **Toch uitvoeren**.
 3. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De VPN-verbinding bevat de naam van het virtuele netwerk waarmee verbinding wordt gemaakt. 
+4. Voordat u probeert om verbinding te controleren of kunt u een clientcertificaat hebt geïnstalleerd op de clientcomputer. Een clientcertificaat is vereist voor verificatie wanneer u het verificatietype systeemeigen Azure certificaat. Zie voor meer informatie over het genereren van certificaten [certificaten genereren](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Zie voor meer informatie over het installeren van een clientcertificaat [een clientcertificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>Configuratie van VPN-client op Macs (OSX)
+## <a name="installmac"></a>Configuratie van VPN-client op Macs (OS X)
 
 Azure biedt geen mobileconfig-bestand voor systeemeigen Azure certificaatverificatie. U moet de systeemeigen IKEv2 VPN-client handmatig te configureren op elke Mac die met Azure verbinden zullen. De **algemene** map bevat alle informatie die u moet deze configureren. Als u de algemene map in uw download niet ziet, is het waarschijnlijk dat IKEv2 niet is geselecteerd als een tunneltype. Nadat IKEv2 is geselecteerd, genereert het zip-bestand om opnieuw op te halen van de algemene map. De algemene map bevat de volgende bestanden:
 
@@ -90,27 +91,28 @@ Klik op **toevoegen** om te importeren.
     >[!NOTE]
     >Te dubbelklikken op het certificaat mogelijk niet weergegeven de **toevoegen** dialoogvenster, maar het certificaat is geïnstalleerd in de juiste opslag. U kunt controleren voor het certificaat in de sleutelketen aanmelding onder de categorie van certificaten.
   
-2. Open de **netwerk** dialoogvenster onder **Netwerkvoorkeuren** en klik op **'+'** voor het maken van een nieuwe VPN-client verbindingsprofiel voor P2S verbinding met het Azure VNet.
+2. Controleer of u een clientcertificaat dat is uitgegeven door het basiscertificaat dat u hebt geüpload naar Azure wanneer u u P2S-instellingen geconfigureerd hebt geïnstalleerd. Dit wijkt af van de VPNServerRoot die u in de vorige stap hebt geïnstalleerd. Het clientcertificaat wordt gebruikt voor verificatie en is vereist. Zie voor meer informatie over het genereren van certificaten [certificaten genereren](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Zie voor meer informatie over het installeren van een clientcertificaat [een clientcertificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Open de **netwerk** dialoogvenster onder **Netwerkvoorkeuren** en klik op **'+'** voor het maken van een nieuwe VPN-client verbindingsprofiel voor P2S verbinding met het Azure VNet.
 
   De **Interface** waarde is 'VPN' en **VPN-Type** waarde is 'IKEv2'. Geef een naam voor het profiel in de **servicenaam** veld en klik vervolgens op **maken** het profiel voor VPN-client verbinding maken.
 
   ![Netwerk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. In de **algemene** map van de **VpnSettings.xml** bestand, kopieert u de **VpnServer** tagwaarde. Plak deze waarde in de **serveradres** en **externe ID** velden van het profiel.
+4. In de **algemene** map van de **VpnSettings.xml** bestand, kopieert u de **VpnServer** tagwaarde. Plak deze waarde in de **serveradres** en **externe ID** velden van het profiel.
 
   ![Server-info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. Klik op **verificatie-instellingen** en selecteer **certificaat**. 
+5. Klik op **verificatie-instellingen** en selecteer **certificaat**. 
 
   ![verificatie-instellingen](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Klik op **selecteren...** om te kiezen in het clientcertificaat dat u wilt gebruiken voor verificatie. Een clientcertificaat al op de computer is geïnstalleerd (Zie stap #2 in de **P2S-werkstroom** sectie hierboven).
+6. Klik op **selecteren...** om te kiezen in het clientcertificaat dat u wilt gebruiken voor verificatie. Dit is het certificaat dat u in stap 2 hebt geïnstalleerd.
 
   ![certificaat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. **Kies een identiteit** geeft een lijst met certificaten die u kunt kiezen uit. Het juiste certificaat selecteren en klik vervolgens op **doorgaan**.
+7. **Kies een identiteit** geeft een lijst met certificaten die u kunt kiezen uit. Het juiste certificaat selecteren en klik vervolgens op **doorgaan**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. In de **lokale ID** veld, geef de naam van het certificaat (uit stap 6). In dit voorbeeld is het 'ikev2Client.com'. Klik vervolgens op **toepassen** knop de wijzigingen wilt opslaan.
+8. In de **lokale ID** veld, geef de naam van het certificaat (uit stap 6). In dit voorbeeld is het 'ikev2Client.com'. Klik vervolgens op **toepassen** knop de wijzigingen wilt opslaan.
 
   ![toepassen](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. Op de **netwerk** dialoogvenster, klikt u op **toepassen** alle wijzigingen op te slaan. Klik vervolgens op **Connect** starten van de P2S-verbinding met het Azure VNet.
+9. Op de **netwerk** dialoogvenster, klikt u op **toepassen** alle wijzigingen op te slaan. Klik vervolgens op **Connect** starten van de P2S-verbinding met het Azure VNet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco maakt gebruik van Azure SQL Database met snel inrichten en de schaal services voor duizenden tenants in de cloud
 ![Umbraco-Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -63,7 +63,7 @@ Met Azure SQL Database en andere Azure-services, Umbraco klanten kunnen zelf hun
    Afbeelding 2. Umbraco-as-a-Service (UaaS) klant website met overzicht van project en details
    
    Azure SQL Database gebruikt's (Database Transaction Units) om de relatieve kracht vereist is voor databasetransacties echte vertegenwoordigen. Voor klanten UaaS, databases doorgaans op ongeveer 10 dtu's werken, maar elk heeft de elasticiteit voor schalen op aanvraag. Dit betekent dat UaaS kunt ervoor zorgen dat gebruikers altijd benodigde resources zelfs tijdens piektijden hebben. Bijvoorbeeld: tijdens een recente zondag Sport-gebeurtenis wordt één UaaS ervaren klantendatabase waar de pieken maximaal 100 dtu's voor de duur van het spel. Azure elastische pools gesteld Umbraco ter ondersteuning van die grote vraag zonder verminderde prestaties.
-3. Bewaken
+3. Controleren
    
    Umbraco monitors database activiteit met dashboards binnen de Azure-portal, samen met aangepaste e-mailwaarschuwingen.
 4. Herstel na noodgeval
@@ -124,7 +124,6 @@ Omdat Azure als de partner van de cloud kiezen, is Umbraco kunnen UaaS klanten g
 ## <a name="more-information"></a>Meer informatie
 * Zie voor meer informatie over Azure elastische pools, [elastische pools](sql-database-elastic-pool.md).
 * Zie voor meer informatie over Azure Service Bus, [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* Zie voor meer informatie over webrollen en werkrollen, [werkrollen](../fundamentals-introduction-to-azure.md#compute).    
 * Zie voor meer informatie over virtuele netwerken, [virtuele netwerken](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Zie voor meer informatie over back-up en herstel, [bedrijfscontinuïteit](sql-database-business-continuity.md).    
 * Zie voor meer informatie over het bewaken van ppols, [bewaking van groepen](sql-database-elastic-pool-manage-portal.md).    

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: aef623f047bd7e14cb5bd17fb2a2c18e3c5d42b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Azure Security gegevens exporteren naar SIEM - Pipeline Configuration [Preview]
 
@@ -61,7 +61,7 @@ Hier volgt een aantal Splunk-query's die u kunt gebruiken voor het ophalen van w
 | **Beschrijving van de Query**                                | **Query**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Alle waarschuwingen                                              | index belangrijkste Microsoft.Security/locations/alerts =                                                                                         |
-| Het aantal bewerkingen door hun naam samenvatten             | **Waarschuwingen** index belangrijkste sourcetype = = "amal: beveiliging ' \| tabel operationName \| operationName stat tellen                                |
+| Het aantal bewerkingen door hun naam samenvatten             | index belangrijkste sourcetype = = "amal: beveiliging ' \| tabel operationName \| operationName stat tellen                                |
 | Waarschuwingen info ophalen: tijd, naam, status, -ID en -abonnement | index belangrijkste Microsoft.Security/locations/alerts = \| tabel \_time, properties.eventName, status, properties.operationId, am_subscriptionId |
 
 

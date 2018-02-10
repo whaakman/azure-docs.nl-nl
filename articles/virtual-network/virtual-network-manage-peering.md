@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e4f1d24da2a775007bf9172bc9267952d0a9bf48
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -110,7 +110,7 @@ Peering in virtuele netwerken kan tot stand worden gebracht tussen virtuele netw
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ vnet peering lijst met netwerken](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) naar lijst peerings voor een virtueel netwerk [az network vnet-peering weergeven](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) om weer te geven van instellingen voor een specifieke peering en [az netwerk vnet-peering update](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) peering instellingen te wijzigen.|
+|CLI|[AZ vnet peering lijst met netwerken](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_list) naar lijst peerings voor een virtueel netwerk [az network vnet-peering weergeven](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_show) om weer te geven van instellingen voor een specifieke peering en [az netwerk vnet-peering update](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_update) peering instellingen te wijzigen.|
 |PowerShell|[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) peering weergave-instellingen op te halen en [Set AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) om instellingen te wijzigen.|
 
 ## <a name="delete-a-peering"></a>Een peering verwijderen
@@ -129,7 +129,7 @@ Als u wilt dat virtuele netwerken om te communiceren soms, maar niet altijd, in 
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network vnet peering verwijderen](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[AZ network vnet peering verwijderen](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen 

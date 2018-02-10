@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd
 Er zijn diverse redenen dat u op problemen Secure Shell (SSH), SSH verbindingsfouten stuit, of SSH wordt geweigerd wanneer u probeert verbinding maken met virtuele Linux-machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt de Azure-portal, Azure CLI of uitbreiding van de VM-toegang voor Linux kunt oplossen van problemen met de verbinding.
@@ -70,20 +70,20 @@ Als u de referenties van een bestaande gebruiker herstellen, selecteert u `Reset
 U kunt ook een gebruiker met sudo-machtigingen op de virtuele machine vanaf dit menu maken. Voer een nieuwe gebruikersnaam en het bijbehorende wachtwoord of de SSH-sleutel en klik vervolgens op de **opnieuw** knop.
 
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
-Als u nog niet gedaan hebt, installeert u de nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login).
+Als u nog niet gedaan hebt, installeert u de nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#az_login).
 
 Als u hebt gemaakt en de installatiekopie van een aangepaste Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versie 2.0.5 of hoger is geïnstalleerd. VM's zijn gemaakt met behulp van afbeeldingen, is deze uitbreiding voor toegang tot al geïnstalleerd en geconfigureerd voor u.
 
 ### <a name="reset-ssh-configuration"></a>SSH-configuratie opnieuw instellen
 U kunt in eerste instantie voor het instellen van de SSH-configuratie op de standaardwaarden en de SSH-server op de virtuele machine opnieuw opstarten. Houd er rekening mee dat dit niet de gebruikersnaam, wachtwoord of SSH-sleutels wijzigt.
-Het volgende voorbeeld wordt [az vm gebruiker opnieuw instellen-ssh](/cli/azure/vm/user#reset-ssh) opnieuw instellen van de SSH-configuratie op de virtuele machine met de naam `myVM` in `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
+Het volgende voorbeeld wordt [az vm gebruiker opnieuw instellen-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) opnieuw instellen van de SSH-configuratie op de virtuele machine met de naam `myVM` in `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>SSH-referenties voor een gebruiker opnieuw instellen
-Het volgende voorbeeld wordt [az vm gebruikersupdate](/cli/azure/vm/user#update) opnieuw instellen van de referenties voor `myUsername` op de waarde die is opgegeven in `myPassword`, op de virtuele machine met de naam `myVM` in `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
+Het volgende voorbeeld wordt [az vm gebruikersupdate](/cli/azure/vm/user#az_vm_user_update) opnieuw instellen van de referenties voor `myUsername` op de waarde die is opgegeven in `myPassword`, op de virtuele machine met de naam `myVM` in `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -109,7 +109,7 @@ Maak een bestand met de naam `settings.json` met de volgende inhoud:
 }
 ```
 
-De Azure CLI, u vervolgens aanroepen de `VMAccessForLinux` uitbreiding opnieuw instellen van uw SSHD-verbinding door te geven van uw json-bestand. Het volgende voorbeeld wordt [az vm-extensie set](/cli/azure/vm/extension#set) opnieuw in te stellen SSHD op de virtuele machine met de naam `myVM` in `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
+De Azure CLI, u vervolgens aanroepen de `VMAccessForLinux` uitbreiding opnieuw instellen van uw SSHD-verbinding door te geven van uw json-bestand. Het volgende voorbeeld wordt [az vm-extensie set](/cli/azure/vm/extension#az_vm_extension_set) opnieuw in te stellen SSHD op de virtuele machine met de naam `myVM` in `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Het volgende voorbeeld wordt [az vm opnieuw](/cli/azure/vm#restart) opnieuw opstarten van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
+Het volgende voorbeeld wordt [az vm opnieuw](/cli/azure/vm#az_vm_restart) opnieuw opstarten van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -219,7 +219,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Het volgende Voorbeeldgebruik [az vm opnieuw distribueren](/cli/azure/vm#redeploy) te implementeren van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
+Het volgende Voorbeeldgebruik [az vm opnieuw distribueren](/cli/azure/vm#az_vm_redeploy) te implementeren van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Uw eigen waarden als volgt gebruiken:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

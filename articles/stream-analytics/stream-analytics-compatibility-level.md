@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Het compatibiliteitsniveau voor Azure Stream Analytics-taken
  
@@ -57,7 +57,10 @@ De volgende belangrijke wijzigingen worden in compatibiliteitsniveau 1.1 geïntr
   * **vorige versies:** veldnamen zijn gewijzigd in kleine letters wanneer door de Azure Stream Analytics-engine verwerkt. 
 
   * **huidige versie:** hoofdlettergevoeligheid voor de veldnamen worden bewaard wanneer ze worden verwerkt door de Azure Stream Analytics-engine. 
- 
+
+  > [!NOTE] 
+  > Persisting hoofdlettergevoeligheid is nog niet beschikbaar voor stroom analytische taken die worden gehost met behulp van de omgeving zijde. Hierdoor worden alle veldnamen worden geconverteerd naar kleine letters als uw werk op de rand wordt gehost. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **vorige versies:** CREATE TABLE-opdracht is geen filter voor gebeurtenissen met NaN (Not a Number. Bijvoorbeeld oneindig, -oneindig) in een FLOAT-kolom typen omdat ze buiten het gedocumenteerde bereik voor deze getallen zijn.

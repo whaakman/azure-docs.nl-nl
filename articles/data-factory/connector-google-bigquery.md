@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory (bèta)
 
@@ -52,7 +52,7 @@ De volgende eigenschappen worden ondersteund voor de Google BigQuery service gek
 | additionalProjects | Een door komma's gescheiden lijst met project-id van de openbare BigQuery projecteert om toegang te hebben.  | Nee |
 | requestGoogleDriveScope | Of u wilt toegang vragen tot Google Drive. Google Drive toegang toe te staan, schakelt u ondersteuning voor federatieve tabellen die gegevens met gegevens uit de Google Drive BigQuery combineren. De standaardwaarde is **false**.  | Nee |
 | authenticationType | Het OAuth 2.0-verificatiemechanisme gebruikt voor verificatie. ServiceAuthentication kan alleen worden gebruikt voor Self-hosted integratie Runtime. <br/>Toegestane waarden zijn **ServiceAuthentication** en **UserAuthentication**. | Ja |
-| refreshToken | Het vernieuwingstoken dat is verkregen van Google toegang verlenen aan BigQuery voor UserAuthentication gebruikt. U kunt dit veld markeren als SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook het wachtwoord opslaan in Azure Sleutelkluis en de kopie activiteit pull van daaruit laten bij het uitvoeren van de gegevens opnieuw te kopiëren. Zie voor meer informatie, [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Nee |
+| refreshToken | Het vernieuwingstoken dat is verkregen van Google toegang verlenen aan BigQuery voor UserAuthentication gebruikt. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
 | keyFilePath | Het volledige pad naar het sleutelbestand .p12 die wordt gebruikt voor verificatie van het e-mailadres van de service-account. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
 | trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op Self-hosted integratie-Runtime gebruiken. De standaardwaarde is het cacerts.pem-bestand met de integratie-runtime is geïnstalleerd.  | Nee |

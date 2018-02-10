@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Koppelpunt Azure File storage in virtuele Linux-machines met SMB
 
@@ -67,7 +67,7 @@ Verplaatsen van bestanden van een virtuele machine naar een SMB-koppelpunt die w
 
 Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor het eerst de bestandsshare voor opslag maken en vervolgens via SMB koppelen op een Linux-VM.
 
-1. Maak een resourcegroep met [az groep maken](/cli/azure/group#create) voor het opslaan van de bestandsshare.
+1. Maak een resourcegroep met [az groep maken](/cli/azure/group#az_group_create) voor het opslaan van de bestandsshare.
 
     Maken van een resourcegroep met de naam `myResourceGroup` op de locatie 'VS-West', gebruikt u het volgende voorbeeld:
 
@@ -75,7 +75,7 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     az group create --name myResourceGroup --location westus
     ```
 
-2. Maken van een Azure storage-account met [az storage-account maken](/cli/azure/storage/account#create) voor het opslaan van de bestanden.
+2. Maken van een Azure storage-account met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create) voor het opslaan van de bestanden.
 
     Voor het maken van een opslagaccount met de naam mystorageaccount met behulp van de opslag Standard_LRS SKU, gebruikt u het volgende voorbeeld:
 
@@ -90,7 +90,7 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
 
     Wanneer u een opslagaccount maakt, worden de sleutels in paren worden gemaakt zodat ze kunnen worden gedraaid zonder onderbreking van de service. Wanneer u naar de tweede sleutel in het paar overschakelt, maakt u een nieuw sleutelpaar. Nieuwe toegangscodes voor opslag worden altijd gemaakt in paren, hebt u altijd ten minste één niet-gebruikte opslagaccountsleutel gereed om te activeren.
 
-    Weergeven van de sleutels van opslagaccount met de [lijst met opslagaccounts die sleutels az](/cli/azure/storage/account/keys#list). Het opslagaccount sleutels voor de benoemde `mystorageaccount` worden vermeld in het volgende voorbeeld:
+    Weergeven van de sleutels van opslagaccount met de [lijst met opslagaccounts die sleutels az](/cli/azure/storage/account/keys#az_storage_account_keys_list). Het opslagaccount sleutels voor de benoemde `mystorageaccount` worden vermeld in het volgende voorbeeld:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
 
 4. De bestandsshare voor opslag maken.
 
-    De File storage-share bevat de SMB-share met [az storage-share maken](/cli/azure/storage/share#create). Het quotum wordt altijd weergegeven in GB (Gigabyte). Geeft u een van de sleutels van de voorgaande `az storage account keys list` opdracht. Maak een share met de naam mystorageshare met een target 10 GB met behulp van het volgende voorbeeld:
+    De File storage-share bevat de SMB-share met [az storage-share maken](/cli/azure/storage/share#az_storage_share_create). Het quotum wordt altijd weergegeven in GB (Gigabyte). Geeft u een van de sleutels van de voorgaande `az storage account keys list` opdracht. Maak een share met de naam mystorageshare met een target 10 GB met behulp van het volgende voorbeeld:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     Wanneer u de Linux-VM opnieuw opstart, wordt tijdens het afsluiten van de gekoppelde SMB-share ontkoppeld. Als u wilt opnieuw koppelen van de SMB-share op opstarten, moet u een regel toegevoegd aan de /etc/fstab Linux. Linux gebruikt het fstab-bestand voor een lijst met de bestandssystemen die nodig is om te koppelen tijdens het opstarten. Het toevoegen van de SMB-share zorgt ervoor dat de File storage-share een permanent gekoppelde bestandssysteem voor de Linux-VM. De File storage SMB-share toe te voegen aan een nieuwe virtuele machine is mogelijk wanneer u cloud-init gebruiken.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Volgende stappen

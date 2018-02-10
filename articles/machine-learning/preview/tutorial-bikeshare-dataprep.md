@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Zelfstudie BikeShare: Geavanceerde gegevensvoorbereiding met Azure Machine Learning Workbench
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -27,15 +27,17 @@ In deze zelfstudie wordt uitgelegd hoe u Azure Machine Learning-services (previe
 > * Een gegevensvoorbereidingspakket genereren
 > * Het gegevensvoorbereidingspakket uitvoeren met behulp van Python
 > * Een trainingsgegevensset genereren door het gegevensvoorbereidingspakket opnieuw te gebruiken voor aanvullende invoerbestanden
+> * Scripts uit te voeren in een lokaal Azure CLI-venster.
+> * Scripts uit te voeren in een HDInsight-cloudomgeving.
 
-> [!IMPORTANT]
-> In deze zelfstudie worden alleen de gegevens voorbereid, er wordt geen voorspellingsmodel gemaakt.
->
-> U kunt de voorbereide gegevens gebruiken om uw eigen voorspellingsmodellen te trainen. U kunt bijvoorbeeld een model maken om de vraag naar fietsen gedurende twee uur te voorspellen.
 
 ## <a name="prerequisites"></a>Vereisten
 * Azure Machine Learning Workbench moet lokaal worden geïnstalleerd. Volg voor meer informatie de [snelstartgids voor installatie](quickstart-installation.md).
+* Als u de Azure CLI geïnstalleerd hebt, volg de instructies voor het [installeren van de meest recente versie van Azure CLI]. (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Een [HDInsights Spark-cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) moet worden gemaakt in Azure.
+* Een Azure Storage-Account.
 * Kennis van het maken van een nieuw project in Workbench.
+* Hoewel dit niet vereist is, is het handig om [Azure Opslagverkenner](https://azure.microsoft.com/features/storage-explorer/) geïnstalleerd zodat u kunt uploaden, downloaden en bekijken van de blobs in uw opslagaccount. 
 
 ## <a name="data-acquisition"></a>Gegevens ophalen
 In deze zelfstudie wordt gebruikgemaakt van de [Boston Hubway-gegevensset](https://s3.amazonaws.com/hubway-data/index.html) en de Boston-weergegevens van [NOAA](http://www.noaa.gov/).
@@ -53,6 +55,22 @@ In deze zelfstudie wordt gebruikgemaakt van de [Boston Hubway-gegevensset](https
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. Pak de ZIP-bestanden na het downloaden uit.
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>Gegevensbestanden uploaden naar Azure Blob-opslag
+U kunt blob storage gebruiken voor het hosten van uw gegevensbestanden.
+
+1. Gebruik de Azure Storage-account dat wordt gebruikt voor het HDInsight-cluster dat u gebruikt.
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. Maak een nieuwe container met de naam '**-gegevensbestanden**' voor het opslaan van de gegevensbestanden BikeShare.
+
+3. De gegevensbestanden uploaden. Upload de `BostonWeather.csv` naar een map met de naam `weather`, en de gegevensbestanden reis naar een map met de naam `tripdata`.
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> U kunt ook **Azure Opslagverkenner** voor het uploaden van BLOB's. Dit hulpprogramma kan worden gebruikt wanneer u wilt weergeven van de inhoud van een van de bestanden in de zelfstudie ook gegenereerd.
 
 ## <a name="learn-about-the-datasets"></a>Informatie over de gegevenssets
 1. Het bestand __Boston weather__ bevat de volgende weergerelateerde velden die op uurbasis zijn gerapporteerd:
@@ -78,7 +96,7 @@ In deze zelfstudie wordt gebruikgemaakt van de [Boston Hubway-gegevensset](https
 1. Start de **Azure Machine Learning Workbench** vanuit het menu Start of het startprogramma.
 
 2. Maak een nieuw Azure Machine Learning-project.  Klik op de knop **+** op de pagina **Projecten** of klik op **Bestand** > **Nieuw**.
-   - Gebruik de sjabloon **Leeg project**.
+   - Gebruik de **fiets Share** sjabloon.
    - Geef uw project de naam **BikeShare**. 
 
 ## <a id="newdatasource"></a>Een nieuwe gegevensbron maken
@@ -97,9 +115,9 @@ In deze zelfstudie wordt gebruikgemaakt van de [Boston Hubway-gegevensset](https
 
    ![Afbeelding van Bestand(en)/Directory](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Bestandsselectie**: voeg de weergegevens toe. Blader en selecteer het bestand `BostonWeather.csv` dat u eerder hebt gedownload. Klik op **Volgende**.
+2. **Bestandsselectie**: voeg de weergegevens toe. Bladeren en selecteer de `BostonWeather.csv` -bestand dat u hebt geüpload naar __Azure Blob Storage__ eerder. Klik op **Volgende**.
 
-   ![Afbeelding van de bestandsselectie waarbij BostonWeater.csv is geselecteerd](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![Afbeelding van de bestandsselectie waarbij BostonWeater.csv is geselecteerd](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **Bestandsgegevens**: controleer het bestandsschema dat wordt gedetecteerd. Azure Machine Learning Workbench analyseert de gegevens in het bestand en bepaalt welk schema moet worden gebruikt.
 
@@ -136,9 +154,9 @@ In deze zelfstudie wordt gebruikgemaakt van de [Boston Hubway-gegevensset](https
 
    Selecteer __Volgende__ om door te gaan. 
 
-5. **Sampling**: voor het maken van een schema voor sampling selecteert u de knop **+ Nieuw**. Selecteer de nieuwe rij __Top 10000__ die is toegevoegd en selecteer vervolgens __Bewerken__. Stel __Sample Strategy__ (Samplingstrategie) in op **Volledig bestand** en selecteer vervolgens **Toepassen**.
+5. **Steekproef nemen**: voor het maken van een schema steekproeven selecteert de **bewerken** knop. Selecteer de nieuwe rij __Top 10000__ die is toegevoegd en selecteer vervolgens __Bewerken__. Stel __Sample Strategy__ (Samplingstrategie) in op **Volledig bestand** en selecteer vervolgens **Toepassen**.
 
-   ![Afbeelding van het toevoegen van een nieuwe samplingstrategie](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![Afbeelding van het toevoegen van een nieuwe samplingstrategie](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    Als u de strategie __Volledig bestand__ wilt gebruiken, selecteert u __Volledig bestand__ en selecteert u vervolgens __Instellen als actief__. Er wordt een ster weergegeven naast __Volledig bestand__ om aan te geven dat dit de actieve strategie is.
 
@@ -223,6 +241,8 @@ U hebt de kolom __REPORTTYPE__ niet meer nodig. Klik met de rechtermuisknop op d
 
    Als u de rijen wilt verwijderen die fouten bevatten, klikt u met de rechtermuisknop op de kolomkop **HOURLYDRYBULBTEMPF**. Selecteer **Kolom filteren**. Gebruik de standaardinstelling **Ik wil** voor **Keep Rows** (Rijen behouden). Wijzig de vervolgkeuzelijst **Voorwaarden** om **is not error** (is geen fout) te selecteren. Selecteer **OK** om het filter toe te passen.
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. Herhaal dit filterproces voor de kolommen **HOURLYRelativeHumidity** en **HOURLYWindSpeed** om de resterende foute rijen in de andere kolommen te verwijderen.
 
 ## <a name="use-by-example-transformations"></a>Voorbeeldtransformaties gebruiken
@@ -261,7 +281,10 @@ Als u de gegevens in een voorspelling voor tijdblokken van twee uur wilt gebruik
 
    > [!NOTE]
    > Azure ML Workbench synthetiseert een programma op basis van de voorbeelden die u hebt opgegeven en past hetzelfde programma toe op de overige rijen. De overige rijen worden automatisch ingevuld op basis van het voorbeeld dat u hebt opgegeven. Workbench analyseert ook uw gegevens en probeert randgevallen te identificeren. 
-  
+
+   > [!IMPORTANT]
+   > Identificatie van de rand gevallen werken wellicht niet op Mac in de huidige versie van de Workbench. Overslaan de __stap 3__ en __stap 4__ hieronder op Mac. In plaats daarvan, drukt u op __OK__ nadat alle rijen ophalen gevuld met de afgeleide waarden.
+   
 3. De tekst **Gegevens analyseren** boven het raster geeft aan dat Workbench randgevallen probeert te identificeren. Zodra dit is voltooid, wordt de status gewijzigd in **Review next suggested row** (Volgende voorgestelde rij controleren) of **No suggestions** (Geen suggesties). In dit voorbeeld wordt **Review next suggested row** (Volgende voorgestelde rij controleren) geretourneerd.
 
 4. Om de voorgestelde wijzigingen te bekijken selecteert u **Review next suggested row** (Volgende voorgestelde rij controleren). De cel die u moet controleren en corrigeren (indien nodig) wordt gemarkeerd.
@@ -287,10 +310,15 @@ Als u de gegevens in een voorspelling voor tijdblokken van twee uur wilt gebruik
 
    Typ `Jan 01, 2015 12AM-2AM` als het voorbeeld op basis van de eerste rij en druk op **Enter**.
 
-   Workbench bepaalt de transformatie op basis van het voorbeeld dat u opgeeft. In dit voorbeeld is de datumnotatie gewijzigd en samengevoegd met het tijdsbestek van twee uur.
+   Workbench bepaalt de transformatie op basis van het voorbeeld dat u opgeeft. In dit voorbeeld wordt is het resultaat dat de datum-indeling is gewijzigd en samengevoegd met het venster twee uur.
 
    ![Afbeelding van het voorbeeld Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > Voer de volgende stap in plaats van op Mac __stap 8__ hieronder.
+   >
+   > * Ga naar de eerste cel met `Feb 01, 2015 12AM-2AM`. Deze moet de __15 rij__. Corrigeer de waarde voor `Jan 02, 2015 12AM-2AM`, en druk op __Enter__. 
+   
 
 8. Wacht totdat de status is gewijzigd van **Gegevens analyseren** naar **Review next suggested row** (Volgende voorgestelde rij controleren). Dit kan enkele seconden duren. Selecteer de statuskoppeling om te navigeren naar de voorgestelde rij. 
 
@@ -306,6 +334,7 @@ Als u de gegevens in een voorspelling voor tijdblokken van twee uur wilt gebruik
 
    > [!TIP]
    > U kunt de geavanceerde modus van **Kolom afleiden per voorbeeld** voor deze stap gebruiken door te klikken op de pijl omlaag in het deelvenster **Stappen**. In het gegevensraster staan selectievakjes naast de kolomnamen **DATE\_1** en **Hour Range**. Schakel het selectievakje uit naast de kolom **Hour Range** om te zien hoe de uitvoer verandert. Als de kolom **Hour Range** niet is gebruikt als invoer, wordt **12: 12AM-2AM** beschouwd als een constante en toegevoegd aan de afgeleide waarden. Selecteer **Annuleren** om terug te gaan naar het hoofdraster zonder de wijzigingen toe te passen.
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. Om de naam van de kolom te wijzigen, dubbelklikt u op de koptekst. Wijzig de naam in **Date Hour Range** en druk vervolgens op **Enter**.
 
@@ -331,7 +360,7 @@ De volgende stap is om de weersomstandigheden samen te vatten door het gemiddeld
 
 Als u de gegevens in de numerieke kolommen wijzigt in een bereik van 0-1, kunnen sommige modellen snel worden geconvergeerd. Er is momenteel geen ingebouwde transformatie om deze transformatie generiek uit te voeren. U kunt hiervoor echter een Python-script gebruiken.
 
-1. Selecteer **Gegevensstroom transformeren**in het menu **Transformatie**.
+1. Van de **transformeren** selecteert u **transformeren gegevensstroom (Script)**.
 
 2. Voer de volgende code in het tekstvak dat wordt weergegeven. Als u de kolomnamen hebt gebruikt, werkt de code zonder dat u deze hoeft aan te passen. U schrijft een eenvoudige logica voor min-max in Python.
 
@@ -372,6 +401,7 @@ U bent nu klaar met het voorbereiden van de weergegevens. Vervolgens bereidt u d
 
 1. Voor het importeren van het bestand `201701-hubway-tripdata.csv` gebruikt u de stappen in het gedeelte [Een nieuwe gegevensbron maken](#newdatasource). Gebruik de volgende opties tijdens het importeren:
 
+    * __Selectie van het bestand__: Selecteer **Azure Blob** bij het bladeren naar het bestand.
     * __Sampling scheme__ (Samplingschema): **Volledig bestand**, maak de sample actief en 
     * __Gegevenstype__: accepteer de standaardwaarden.
 
@@ -505,7 +535,12 @@ Om de vraag naar fietsen gedurende een periode van twee uur samen te vatten, kun
     > U kunt een voorbeeld van een van deze rijen opgeven. In dit voorbeeld is de waarde van `Jan 01, 2017 12AM-2AM` geldig voor de eerste rij gegevens.
 
     ![Afbeelding van de voorbeeldgegevens](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > Voer de volgende stap in plaats van op Mac __stap 3__ hieronder.
+   >
+   > * Ga naar de eerste cel met `Jan 01, 2017 1AM-2AM`. Deze moet de __rij 14__. Corrigeer de waarde voor `Jan 01, 2017 12AM-2AM`, en druk op __Enter__. 
+
 3. Wacht totdat de waarden worden berekend op basis van alle rijen. Dit kan enkele seconden duren. Als de analyse is voltooid, gebruikt u de koppeling __Review next suggested row__ (Volgende voorgestelde rij controleren) om de gegevens te controleren.
 
    ![Afbeelding van de voltooide analyse met de controlekoppeling](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ Voor deze zelfstudie is de naam van het bestand `BikeShare Data Prep.py`. Dit be
 
 ## <a name="save-test-data-as-a-csv-file"></a>Testgegevens opslaan als een CSV-bestand
 
-Om de gegevensstroom **Resultaat van de koppeling** op te slaan als een CSV-bestand, moet u het script `BikeShare Data Prep.py` wijzigen. Werk het Python-script bij met de volgende code:
+Om de gegevensstroom **Resultaat van de koppeling** op te slaan als een CSV-bestand, moet u het script `BikeShare Data Prep.py` wijzigen. 
 
-```python
-from azureml.dataprep.package import run
+1. Open het project voor het bewerken van in VSCode.
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. Bijwerken van het Python-script in de `BikeShare Data Prep.py` bestand met de volgende code:
 
-Selecteer **Uitvoeren** boven in het scherm. Het script wordt verzonden als een **taak** op de lokale computer. Zodra de status van de taak verandert in __Voltooid__, is het bestand geschreven naar de opgegeven locatie.
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. Vervang `Your Azure Storage blob path` met het pad naar het uitvoerbestand dat wordt gemaakt. Vervang voor zowel de `blobfolder` en `csvfiles` variabelen.
+
+## <a name="create-hdinsight-run-configuration"></a>Uitvoeren van de HDInsight-configuratie maken
+
+1. Open het opdrachtregelvenster in Azure Machine Learning Workbench, selecteer het menu **File** en selecteer vervolgens **Open Command Prompt**. De opdrachtprompt wordt gestart in de projectmap met de prompt `C:\Projects\BikeShare>`.
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >U moet het opdrachtregelvenster (geopend vanuit Workbench) gebruiken om de volgende stappen uit te voeren.
+
+2. Gebruik de opdrachtprompt om u aan te melden bij Azure. 
+
+   De Workbench-app en de CLI gebruiken onafhankelijk referentiecaches voor verificatie bij Azure-resources. U hoeft dit slechts één keer te doen, totdat het token in de cache verloopt. De `az account list` opdracht retourneert de lijst met beschikbare abonnementen aan uw aanmelding. Als er meer dan één abonnement is, gebruikt u de id-waarde van het gewenste abonnement. Instellen dat abonnement als het standaardaccount voor gebruik met de `az account set -s` opdracht en geef vervolgens de waarde van de abonnement-ID. Bevestig de instelling met het account `show` opdracht.
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. Maak de HDInsight configuratie uitvoeren. U moet de naam van het cluster en het wachtwoord sshuser.
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> Wanneer een leeg project is gemaakt, de run standaardconfiguraties zijn **lokale** en **docker**. Deze stap maakt u een nieuwe uitvoeren configuratie die beschikbaar is in de **Azure Machine Learning Workbench** bij het uitvoeren van scripts. 
+
+## <a name="run-in-hdinsight-cluster"></a>Uitvoeren in HDInsight-Cluster
+
+Ga terug naar de **Azure Machine Learning Workbench** toepassing voor uitvoering van uw script met het HDInsight-cluster.
+
+1. Terug naar het startscherm van uw project door te klikken op de **thuis** pictogram aan de linkerkant.
+
+2. Selecteer **hdinsight** uit de vervolgkeuzelijst uw script uitvoeren in het HDInsight-cluster.
+
+3. Selecteer **Uitvoeren** boven in het scherm. Het script wordt verzonden als een **taak**. Zodra de taak de status verandert in __voltooid__, het bestand is geschreven naar de opgegeven locatie in uw **Azure Storage-Container**.
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>Gegevensbronnen vervangen
 
@@ -608,7 +719,7 @@ In de vorige stappen hebt u de gegevensbronnen `201701-hubway-tripdata.csv` en `
 
     * __Bestandsselectie__: als u een bestand selecteert, selecteert u de zes overige CSV-bestanden met de gegevens van de fietstocht.
 
-        ![De zes overige bestanden laden](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![De zes overige bestanden laden](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > __+ 5__ geeft aan dat er vijf extra bestanden staan onder het vermelde bestand.
@@ -619,11 +730,13 @@ In de vorige stappen hebt u de gegevensbronnen `201701-hubway-tripdata.csv` en `
 
    Sla de naam van deze gegevensbron op. Deze wordt namelijk later gebruikt.
 
-2. Selecteer het pictogram van de map om de bestanden in uw project weer te geven. Vouw de map __aml\_config__ uit en selecteer vervolgens het bestand `local.runconfig`.
+2. Selecteer het pictogram van de map om de bestanden in uw project weer te geven. Vouw de map __aml\_config__ uit en selecteer vervolgens het bestand `hdinsight.runconfig`.
 
-    ![Afbeelding van de locatie van local.runconfig](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![Afbeelding van de locatie van hdinsight.runconfig](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. Voeg de volgende regels aan het einde van het bestand `local.runconfig` toe en selecteer vervolgens het schijfpictogram om het bestand op te slaan.
+3. Klik op de knop bewerken om het bestand openen in VSCode.
+
+4. Voeg de volgende regels aan het einde van het bestand `hdinsight.runconfig` toe en selecteer vervolgens het schijfpictogram om het bestand op te slaan.
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ In de vorige stappen hebt u de gegevensbronnen `201701-hubway-tripdata.csv` en `
 Ga naar het Python-bestand `BikeShare Data Prep.py` dat u eerder hebt bewerkt en geef een ander bestandspad op om de trainingsgegevens op te slaan.
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-Om een nieuwe taak te verzenden, gebruikt u het pictogram **Uitvoeren** boven in de pagina. Er wordt een **taak** verzonden met de nieuwe configuratie. De uitvoer van deze taak is de trainingsgegevens. Deze gegevens worden gemaakt met dezelfde stappen voor gegevensvoorbereiding die u eerder hebt gemaakt. Het duurt enkele minuten om de taak te voltooien.
+1. De mapnaam gebruiken `traindata` voor de trainingsgegevensuitvoer.
+
+2. Om een nieuwe taak te verzenden, gebruikt u het pictogram **Uitvoeren** boven in de pagina. Zorg ervoor dat **hdinsight** is geselecteerd. Er wordt een **taak** verzonden met de nieuwe configuratie. De uitvoer van deze taak is de trainingsgegevens. Deze gegevens worden gemaakt met dezelfde stappen voor gegevensvoorbereiding die u eerder hebt gemaakt. Het duurt enkele minuten om de taak te voltooien.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt de zelfstudie Gegevensvoorbereiding voor BikeShare voltooid. In deze zelfstudie hebt u Azure Machine Learning-services (preview) gebruikt om de volgende bewerkingen uit te voeren:

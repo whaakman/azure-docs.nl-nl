@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 4b677a4063ebef84dbd2fa476b5f633b859f90ed
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Een sleutelpaar met een openbare en persoonlijke SSH-sleutel voor virtuele Linux-machines maken en gebruiken
 Met een SSH-sleutelpaar (secure shell) kunt u virtuele machines (VM's) in Azure maken die voor verificatie gebruikmaken van SSH-sleutels, waardoor aanmelding met een wachtwoord niet meer nodig is. In dit artikel wordt beschreven hoe u snel een sleutelpaar met een openbare en een persoonlijke sleutel met SSH-protocol versie 2 RSA maakt en gebruikt voor virtuele Linux-machines. U kunt deze stappen voltooien met de Azure Cloud Shell, een macOS- of Linux-host of het Windows-subsysteem voor Linux. Zie voor meer stappen en extra voorbeelden [Gedetailleerde stappen voor het maken van SSH-sleutelparen en certificaten](create-ssh-keys-detailed.md).
@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 2048
 ```
 
 ## <a name="use-the-ssh-key-pair"></a>Het SSH-sleutelpaar gebruiken
-De openbare sleutel die u op de virtuele Linux-machine in Azure plaatst, wordt standaard opgeslagen in `~/.ssh/id_rsa.pub`, tenzij u de locatie hebt gewijzigd toen u ze maakte. Als u de [Azure CLI 2.0](/cli/azure) gebruikt om uw virtuele machine te maken, geeft u de locatie van deze openbare sleutel op wanneer u [az vm create](/cli/azure/vm#create) gebruikt met de optie `--ssh-key-path`. Als u de inhoud van het te gebruiken openbare-sleutelbestand kopieert en plakt in Azure Portal of een Resource Manager-sjabloon, moet u ervoor zorgen dat u geen extra witruimte kopieert. Als u OS X gebruikt, kunt u bijvoorbeeld een bestand met de openbare sleutel doorgeven (standaard **~/.ssh/id_rsa.pub**) naar **pbcopy** om de inhoud te kopiëren (er zijn andere Linux-programma's die hetzelfde doen, zoals `xclip`).
+De openbare sleutel die u op de virtuele Linux-machine in Azure plaatst, wordt standaard opgeslagen in `~/.ssh/id_rsa.pub`, tenzij u de locatie hebt gewijzigd toen u ze maakte. Als u de [Azure CLI 2.0](/cli/azure) gebruikt om uw virtuele machine te maken, geeft u de locatie van deze openbare sleutel op wanneer u [az vm create](/cli/azure/vm#az_vm_create) gebruikt met de optie `--ssh-key-path`. Als u de inhoud van het te gebruiken openbare-sleutelbestand kopieert en plakt in Azure Portal of een Resource Manager-sjabloon, moet u ervoor zorgen dat u geen extra witruimte kopieert. Als u OS X gebruikt, kunt u bijvoorbeeld een bestand met de openbare sleutel doorgeven (standaard **~/.ssh/id_rsa.pub**) naar **pbcopy** om de inhoud te kopiëren (er zijn andere Linux-programma's die hetzelfde doen, zoals `xclip`).
 
 Als u niet vertrouwd bent met openbare SSH-sleutels, kunt u de openbare sleutel bekijken door `cat` als volgt uit te voeren. Vervang `~/.ssh/id_rsa.pub` door de locatie van uw eigen openbare-sleutelbestand:
 

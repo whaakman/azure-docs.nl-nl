@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Virtuele machine van Azure-schaalset automatische upgrades voor het besturingssysteem
 
@@ -40,9 +40,7 @@ Automatisch bijwerken van het besturingssysteem heeft de volgende kenmerken:
 In de preview van toepassen de volgende beperkingen en -beperkingen:
 
 - Automatische OS alleen ondersteuning voor upgrades [vier OS-SKU's](#supported-os-images). Er is geen SLA of garanties. U wordt aangeraden dat u gebruik geen automatische upgrades voor productie kritieke werkbelastingen tijdens de preview.
-- Ondersteuning voor scale sets in een Service Fabric-clusters is binnenkort beschikbaar.
 - De schijf van Azure-versleuteling (momenteel in preview) is **niet** momenteel ondersteund bij virtuele machine scale set automatisch bijwerken van het besturingssysteem.
-- Een ervaring portal is binnenkort beschikbaar.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registreren voor het gebruik van automatische OS Upgrade
@@ -58,17 +56,23 @@ Duurt ongeveer 10 minuten zodat registratiestatus rapport als *geregistreerde*. 
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Het wordt aangeraden om uw toepassingen statuscontroles gebruiken. Gebruik voor het registreren van de provider-functie voor statuscontroles [registreren AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) als volgt:
+> [!NOTE]
+> Service Fabric-clusters hebben hun eigen begrip van de toepassingsstatus, maar zonder Service Fabric-schaalsets de load balancer-test health gebruiken voor het bewaken van de toepassingsstatus. Gebruik voor het registreren van de provider-functie voor statuscontroles [registreren AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) als volgt:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Opnieuw, duurt het ongeveer 10 minuten zodat registratiestatus om te rapporteren als *geregistreerde*. U kunt de huidige registratiestatus met controleren [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Eenmaal geregistreerd ervoor te zorgen dat de *Microsoft.Network* provider is geregistreerd bij [registreren AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) als volgt:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Portalervaring
+Zodra u de registratie van bovenstaande stappen volgt, gaat u naar [de Azure-portal](https://aka.ms/managed-compute) automatische upgrades voor het besturingssysteem op uw schaalsets inschakelen en de voortgang van upgrades bekijken:
 
-Opnieuw, duurt het ongeveer 10 minuten zodat registratiestatus om te rapporteren als *geregistreerde*. U kunt de huidige registratiestatus met controleren [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Eenmaal geregistreerd ervoor te zorgen dat de *Microsoft.Network* provider is geregistreerd bij [registreren AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) als volgt:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Ondersteunde installatiekopieën van het besturingssysteem
@@ -78,14 +82,17 @@ De volgende SKU's die momenteel worden ondersteund (meer worden toegevoegd):
     
 | Uitgever               | Aanbieding         |  Sku               | Versie  |
 |-------------------------|---------------|--------------------|----------|
-| Canonical               | UbuntuServer  | 16.04 TNS          | meest recente   |
+| Canonical               | UbuntuServer  | 16.04-LTS          | meest recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | meest recente   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | meest recente   |
-| MicrosoftWindowsServer  | WindowsServer | Datacenter-2016-Smalldisk | meest recente   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | meest recente   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | meest recente   |
 
 
 
-## <a name="application-health"></a>Toepassingsstatus
+## <a name="application-health-without-service-fabric"></a>Toepassingsstatus zonder Service Fabric
+> [!NOTE]
+> Deze sectie geldt alleen voor zonder Service Fabric-schaalsets. Service Fabric heeft een eigen begrip van de toepassingsstatus. Als u automatische Upgrades voor het besturingssysteem met Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem uitgerold Updatedomein door Updatedomein hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric onderhouden. Zie voor meer informatie over de kenmerken duurzaamheid van Service Fabric-clusters [deze documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Tijdens een OS Upgrade VM-exemplaren in een schaalset zijn bijgewerkt één batch tegelijk. De upgrade moet alleen doorgaan als de Klanttoepassing op de bijgewerkte VM-exemplaren in orde is. We raden aan dat de toepassing health signalen met de scale set OS Upgrade-engine biedt. Standaard tijdens Upgrades voor het besturingssysteem acht het platform VM energiestatus en extensie Inrichtingsstatus om te bepalen of een VM-exemplaar in orde na een upgrade. Tijdens het bijwerken van het besturingssysteem van een VM-instantie, is schijf met het besturingssysteem op een VM-exemplaar vervangen door een nieuwe schijf op basis van de meest recente versie van de installatiekopie. Nadat het bijwerken van het besturingssysteem is voltooid, wordt de geconfigureerde extensies worden uitgevoerd op deze virtuele machines. Alleen wanneer de extensies op een virtuele machine met succes zijn ingericht, wordt de toepassing beschouwd als in orde. 
 
 Een schaalset kan eventueel worden geconfigureerd met de toepassing statuscontroles om te voorzien van het platform nauwkeurige informatie over de actieve status van de toepassing. Statuscontroles van toepassing zijn aangepast Load Balancer-tests die worden gebruikt als een signaal health. De toepassing die wordt uitgevoerd op een scale set VM-instantie kan reageren op de externe HTTP of TCP-aanvragen die aangeeft of het goed is. Zie voor meer informatie over de werking aangepaste voor Load Balancer-tests [Understand load balancer tests](../load-balancer/load-balancer-custom-probe-overview.md). Een toepassing Health test is niet vereist voor automatische upgrades voor het besturingssysteem, maar er wordt sterk aanbevolen.

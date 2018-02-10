@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Schalen van Azure Redis-Cache
-Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. In dit artikel leest u hoe schalen van uw cache in de Azure portal en gebruik van hulpprogramma's zoals Azure PowerShell en Azure CLI.
+Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van de cachegrootte en -functies bieden. Nadat een cache is gemaakt, kunt u de grootte en de prijscategorie van de cache schalen als de vereisten van uw toepassing veranderen. In dit artikel leest u hoe de cache met behulp van de Azure-portal en hulpprogramma's zoals Azure PowerShell en Azure CLI schalen.
 
 ## <a name="when-to-scale"></a>Wanneer schalen
 U kunt de [bewaking](cache-how-to-monitor.md) functies van Azure Redis-Cache om te controleren van de status en prestaties van de cache en te bepalen wanneer schalen van de cache. 
@@ -51,7 +51,7 @@ U kunt schalen naar een andere prijscategorie met de volgende beperkingen:
   * U kunt geen schalen van een **Premium** omlaag naar de cache een **standaard** of een **Basic** cache.
   * U kunt geen schalen van een **standaard** omlaag naar de cache een **Basic** cache.
 * U kunt opschalen van een **Basic** in de cache op een **standaard** cache, maar de grootte niet wijzigen op hetzelfde moment. Als u een ander formaat nodig hebt, kunt u de volgende vergroten/verkleinen bewerking naar de gewenste grootte kunt doen.
-* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Moet u de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een latere bewerking voor vergroten/verkleinen.
+* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Eerst schalen van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** bij een volgende schaal de bewerking.
 * Kan niet worden geschaald uit een groter formaat omlaag naar de **C0 (250 MB)** grootte.
  
 Terwijl de cache wordt geschaald naar de nieuwe prijscategorie een **schaal** status wordt weergegeven in de **Redis-Cache** blade.
@@ -118,7 +118,7 @@ De volgende lijst bevat antwoorden op veelgestelde vragen over het schalen van A
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Kan ik worden geschaald naar, uit of binnen een Premium-cache?
 * U kunt geen schalen van een **Premium** omlaag naar de cache een **Basic** of **standaard** prijscategorie.
 * U kunt opschalen van een **Premium** cache prijscategorie naar een andere.
-* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. U moet eerst de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een toekomstige de bewerking is vergroten/verkleinen.
+* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Eerst schalen van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** bij een volgende schaal de bewerking.
 * Als u de clustering ingeschakeld tijdens het maken van uw **Premium** cache, kunt u [wijzigen van de clustergrootte](cache-how-to-premium-clustering.md#cluster-size). Als uw cache is gemaakt zonder clustering is ingeschakeld, kunt u op een later tijdstip clustering niet configureren.
   
   Zie [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md) (Clustering voor een Premium Azure Redis Cache configureren) voor meer informatie.
@@ -129,7 +129,7 @@ Nee, uw Cachenaam en sleutels zijn niet gewijzigd tijdens een bewerking voor ver
 ### <a name="how-does-scaling-work"></a>Hoe schalen werkt?
 * Wanneer een **Basic** cache is geschaald naar een andere grootte, deze wordt afgesloten en een nieuwe cache is ingericht met behulp van de nieuwe grootte. Gedurende deze tijd de cache is niet beschikbaar en de gegevens in de cache worden verwijderd.
 * Wanneer een **Basic** cache is geschaald naar een **standaard** cache, een replica-cache is ingericht en de gegevens uit de primaire cache wordt gekopieerd naar de replica-cache. De cache blijft beschikbaar tijdens het vergroten/verkleinen.
-* Wanneer een **standaard** cache wordt aangepast aan een andere grootte of aan een **Premium** cache, op een van de replica's wordt afgesloten en opnieuw wordt ingericht voor de nieuwe grootte en de overgedragen gegevens en de andere replica voert een failover voordat deze opnieuw worden ingericht, vergelijkbaar met het proces dat bij uitval van een van de cache-knooppunten plaatsvindt.
+* Wanneer een **standaard** cache wordt aangepast aan een andere grootte of aan een **Premium** cache, op een van de replica's wordt afgesloten en ingericht voor de nieuwe grootte en de overgedragen gegevens en de andere replica voert een failover voordat deze wordt ingericht, vergelijkbaar met het proces dat bij uitval van een van de cache-knooppunten plaatsvindt.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Ik verliest gegevens uit de cache tijdens schalen?
 * Wanneer een **Basic** cache is geschaald naar een nieuwe grootte, alle gegevens verloren en wordt de cache is niet beschikbaar tijdens de bewerking uit te schalen.
@@ -137,29 +137,29 @@ Nee, uw Cachenaam en sleutels zijn niet gewijzigd tijdens een bewerking voor ver
 * Wanneer een **standaard** cache is geschaald naar een grotere grootte of laag, of een **Premium** cache is geschaald naar een groter, blijven doorgaans alle gegevens behouden. Wanneer een **standaard** of **Premium** cache naar beneden op een kleinere, gegevens zijn mogelijk verloren gegaan, afhankelijk van hoeveel gegevens zich in de cache die betrekking hebben op de nieuwe grootte wanneer deze wordt geschaald. Als gegevens verloren gaan tijdens het omlaag schalen, sleutels zijn verwijderd met behulp van de [allkeys lru](http://redis.io/topics/lru-cache) taakverwijdering beleid. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Mijn aangepaste databases configureert betrokken tijdens schalen?
-Sommige Prijscategorieën hebben verschillende [databases limieten](cache-configure.md#databases), dus er enkele overwegingen zijn wanneer het verkleinen van als u een aangepaste waarde voor geconfigureerd de `databases` instellen tijdens het maken van de cache.
+Als u een aangepaste waarde voor geconfigureerd de `databases` instellen tijdens het maken van de cache, houd er rekening mee dat sommige prijzen lagen hebben verschillende [databases limieten](cache-configure.md#databases). Hier volgen enkele overwegingen bij het schalen in dit scenario:
 
 * Tijdens het schalen naar een prijscategorie met een lagere `databases` limiet dan de huidige tier:
-  * Als u het standaardaantal `databases` waarmee 16 voor alle Prijscategorieën is, gegevens niet verloren.
+  * Als u het standaardaantal `databases`, namelijk 16 voor alle Prijscategorieën, gegevens niet verloren.
   * Als u een aangepaste aantal `databases` die valt binnen de grenzen voor de laag waarop u hebben, dit `databases` instelling blijft behouden en gegevens niet verloren.
   * Als u een aangepaste aantal `databases` die overschrijdt de grenzen van de nieuwe laag, de `databases` instelling is verlaagd tot de grenzen van de nieuwe laag en alle gegevens in de verwijderde databases wordt verbroken.
 * Wanneer een de dezelfde of een hogere prijscategorie schalen `databases` limiet dan de huidige tier uw `databases` instelling blijft behouden en gegevens niet verloren.
 
-Houd er rekening mee dat Standard en Premium-caches hebben een SLA met 99,9% voor beschikbaarheid, maar er geen SLA gegevens verloren zijn gegaan is.
+Standaard- en Premium-caches hebben een SLA met 99,9% voor beschikbaarheid, maar er is geen SLA gegevens verloren zijn gegaan.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>Mijn cache is beschikbaar tijdens het schalen?
-* **Standaard** en **Premium** caches beschikbaar blijven tijdens de bewerking uit te schalen.
-* **Basic** caches zijn offline tijdens het schalen van bewerkingen die een ander formaat, maar beschikbaar blijven tijdens het schalen van **Basic** naar **standaard**.
+* **Standaard** en **Premium** caches beschikbaar blijven tijdens de bewerking uit te schalen. Verbinding blips kunnen echter optreden tijdens het schalen van Standard en Premium-caches en tijdens het schalen van Basic naar Standard caches. Deze verbinding blips zijn bedoeld voor kleine en redis-clients moeten mogelijk opnieuw verbinding tot stand brengen hun onmiddellijk.
+* **Basic** caches zijn offline tijdens het schalen van bewerkingen die een verschillende grootte. Basic caches beschikbaar blijven tijdens het schalen van **Basic** naar **standaard** maar een kleine verbinding blip kunnen optreden. Als er een verbinding blip optreedt, kunnen redis-clients opnieuw verbinding tot stand brengen hun onmiddellijk moeten mogelijk.
 
 ### <a name="operations-that-are-not-supported"></a>Bewerkingen die worden niet ondersteund
 * U kan niet uit een hogere prijscategorie schalen naar een lagere prijscategorie.
   * U kunt geen schalen van een **Premium** omlaag naar de cache een **standaard** of een **Basic** cache.
   * U kunt geen schalen van een **standaard** omlaag naar de cache een **Basic** cache.
 * U kunt opschalen van een **Basic** in de cache op een **standaard** cache, maar de grootte niet wijzigen op hetzelfde moment. Als u een ander formaat nodig hebt, kunt u de volgende vergroten/verkleinen bewerking naar de gewenste grootte kunt doen.
-* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. U moet eerst de schaal van **Basic** naar **standaard** in één bewerking van de schaal en vervolgens van **standaard** naar **Premium** in een toekomstige de bewerking is vergroten/verkleinen.
+* U kunt geen schalen van een **Basic** rechtstreeks naar de cache een **Premium** cache. Eerst schalen van **Basic** naar **standaard** in één bewerking van de schaal en schaal van **standaard** naar **Premium** in een toekomstige de bewerking.
 * Kan niet worden geschaald uit een groter formaat omlaag naar de **C0 (250 MB)** grootte.
 
-Als een vergroten/verkleinen mislukt, wordt geprobeerd om de bewerking terug te zetten van de service en de cache wordt teruggezet naar de oorspronkelijke grootte.
+Als een vergroten/verkleinen mislukt de service probeert om de bewerking terug te zetten en de cache wordt teruggezet naar de oorspronkelijke grootte.
 
 ### <a name="how-long-does-scaling-take"></a>Hoe lang duurt schalen voordat?
 Schalen duurt ongeveer 20 minuten, afhankelijk van hoeveel gegevens zich in de cache.

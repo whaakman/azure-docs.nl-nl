@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configureer persoonlijke IP-adressen voor een virtuele machine met de Azure CLI
 
@@ -41,9 +41,9 @@ Dit artikel is van toepassing op het Resource Manager-implementatiemodel. U kunt
 
 Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van een VNet met de naam *TestVNet* met een statisch privé IP-adres van *192.168.1.101*, voltooid de volgende stappen uit:
 
-1. Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login). 
+1. Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#az_login). 
 
-2. Maken van een openbaar IP-adres voor de virtuele machine met de [az netwerk openbare ip-maken](/cli/azure/network/public-ip#create) opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+2. Maken van een openbaar IP-adres voor de virtuele machine met de [az netwerk openbare ip-maken](/cli/azure/network/public-ip#az_network_public_ip_create) opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 
     > [!NOTE]
     > Mogelijk moet of wilt u met verschillende waarden voor de argumenten in deze en daaropvolgende stappen, afhankelijk van uw omgeving.
@@ -74,7 +74,7 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
    * `--name`: De naam van het openbare IP-adres.
    * `--location`: De azure-regio waarin u het openbare IP-adres maken.
 
-3. Voer de [az netwerk nic maken](/cli/azure/network/nic#create) opdracht voor het maken van een NIC met een statisch privé IP-adres. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. 
+3. Voer de [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) opdracht voor het maken van een NIC met een statisch privé IP-adres. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     * `--vnet-name`: De naam van de VNet in te maken van de NIC.
     * `--subnet`: De naam van het subnet in te maken van de NIC.
 
-4. Voer de [azure vm maken](/cli/azure/vm/nic#create) opdracht voor de virtuele machine maken met het openbare IP- en NIC eerder hebt gemaakt. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+4. Voer de [azure vm maken](/cli/azure/vm/nic#az_vm_nic_create) opdracht voor de virtuele machine maken met het openbare IP- en NIC eerder hebt gemaakt. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     }
     ```
    
-   Andere parameters dan het basic [az vm maken](/cli/azure/vm#create) parameters.
+   Andere parameters dan het basic [az vm maken](/cli/azure/vm#az_vm_create) parameters.
 
    * `--nics`: De naam van de NIC waaraan de virtuele machine is gekoppeld.
    

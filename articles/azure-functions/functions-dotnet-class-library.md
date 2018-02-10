@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -40,6 +40,9 @@ In Visual Studio de **Azure Functions** projectsjabloon maakt u een C# class lib
 
 * [host.JSON](functions-host-json.md) -configuratie-instellingen die van invloed zijn op alle functies in het project bij het uitvoeren van lokaal of in Azure worden opgeslagen.
 * [Local.Settings.JSON](functions-run-local.md#local-settings-file) -app-instellingen en verbindingsreeksen die worden gebruikt bij het uitvoeren van lokaal worden opgeslagen.
+
+> [!IMPORTANT]
+> De buildproces maakt een *function.json* -bestand voor elke functie. Dit *function.json* bestand is niet bedoeld om rechtstreeks worden bewerkt. Bindingconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. U kunt een functie uitschakelen met de [uitschakelen](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) kenmerk. Bijvoorbeeld, een Boole-app instellen MY_TIMER_DISABLED toevoegen en toepassen `[Disable("MY_TIMER_DISABLED")]` aan de functie. U kunt inschakelen en uitschakelen door de appinstelling te wijzigen.
 
 ### <a name="functionname-and-trigger-attributes"></a>Functienaam en trigger kenmerken
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Conversie naar function.json
 
-De buildproces maakt een *function.json* bestand in de map van een functie in de build-map. Dit bestand is niet bedoeld om rechtstreeks worden bewerkt. Bindingconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. 
+De buildproces maakt een *function.json* bestand in de map van een functie in de build-map. Zoals eerder opgemerkt, wordt dit bestand niet bedoeld om rechtstreeks worden bewerkt. Bindingconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. 
 
 Het doel van dit bestand informatie wordt verstrekt aan de controller schaal moet worden gebruikt voor [schalen beslissingen te nemen aan het plan verbruik](functions-scale.md#how-the-consumption-plan-works). Daarom heeft het bestand alleen trigger info, geen invoer of uitvoer bindingen.
 

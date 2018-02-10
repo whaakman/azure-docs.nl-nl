@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster uit de verpakking. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook ordent ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -638,6 +638,21 @@ Andere API-aanroepen die hangen kunnen zijn op de **IReplicator** interface. Bij
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: deze waarschuwing wijst op een probleem in de buildproces. Zie voor meer informatie [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). Het is misschien vanwege een onjuiste configuratie van het adres replicator. Zie voor meer informatie [stateful Reliable Services configureren](service-fabric-reliable-services-configuration.md) en [bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md). Het kan ook een probleem op het externe knooppunt zijn.
 
+### <a name="replicator-system-health-reports"></a>Systeemstatusrapporten Replicator
+**Volledige replicatiewachtrij:**
+**System.Replicator** rapporten van een waarschuwing wanneer de replicatiewachtrij vol is. Op de primaire raakt de wachtrij voor replicatie staan doorgaans vol omdat een of meer secundaire replica's langzaam zijn bevestiging operations. Op de secundaire, dit gebeurt meestal wanneer de service langzaam is worden de bewerkingen toepassen. De waarschuwing wordt gewist wanneer de wachtrij vol is.
+
+* **SourceId**: System.Replicator
+* **De eigenschap**: **PrimaryReplicationQueueStatus** of **SecondaryReplicationQueueStatus**, afhankelijk van de replicarol.
+* **Volgende stappen**: als het rapport op de primaire, controleert u de verbinding tussen de knooppunten in het cluster. Als alle verbindingen zijn in orde, kan er ten minste één trage secundaire met een hoge latentie bewerkingen toepassen. Als het rapport op de secundaire server, controleert de schijfgebruik en de prestaties op het knooppunt en vervolgens de uitgaande verbinding van het trage knooppunt naar de primaire.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** rapporten op de primaire replica een waarschuwing als de verbinding met een secundaire (extern) replicator niet goed. Externe replicator adres wordt weergegeven in het rapport bericht, waardoor het gemakkelijker om te detecteren als een verkeerde configuratie is doorgegeven, of er netwerkproblemen tussen de replicaties zijn.
+
+* **SourceId**: System.Replicator
+* **De eigenschap**: **RemoteReplicatorConnectionStatus**
+* **Volgende stappen**: Controleer het foutbericht en zorg ervoor dat het adres van de externe replicator correct is geconfigureerd (bijvoorbeeld als externe replicator wordt geopend met 'localhost' luister-adres, het is niet bereikbaar is vanaf de buitenkant). Als het adres correct lijkt, controleert u de verbinding tussen het primaire knooppunt en het externe adres vinden eventuele mogelijke netwerkproblemen.
+
 ### <a name="replication-queue-full"></a>Volledige replicatiewachtrij
 **System.Replicator** rapporten van een waarschuwing wanneer de replicatiewachtrij vol is. Op de primaire raakt de wachtrij voor replicatie staan doorgaans vol omdat een of meer secundaire replica's langzaam zijn bevestiging operations. Op de secundaire, dit gebeurt meestal wanneer de service langzaam is worden de bewerkingen toepassen. De waarschuwing wordt gewist wanneer de wachtrij vol is.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting meldt een fout als het pakket downloaden van de toepassing is mislukt.
 
 * **SourceId**: System.Hosting
-* **De eigenschap**: **downloaden:***RolloutVersion*.
+* **De eigenschap**: **downloaden: *** RolloutVersion*.
 * **Volgende stappen**: onderzoeken waarom het downloaden is mislukt op het knooppunt.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Systeemstatusrapporten DeployedServicePackage
@@ -764,7 +779,7 @@ System.Hosting rapporten als OK als de activering van de service-pakket op het k
 System.Hosting rapporten als OK voor elk codepakket als de activering geslaagd is. Als de activering mislukt, wordt een waarschuwing weergegeven zoals geconfigureerd. Als **CodePackage** niet kan activeren of eindigt met een groter is dan de geconfigureerde fout **CodePackageHealthErrorThreshold**, die als host fungeert een fout gemeld. Als een servicepakket meerdere code pakketten bevat, wordt een rapport activering gegenereerd voor elk criterium.
 
 * **SourceId**: System.Hosting
-* **De eigenschap**: maakt gebruik van het voorvoegsel **CodePackageActivation** en bevat de naam van het codepakket en het toegangspunt dat als **CodePackageActivation:***CodePackageName* :*Entrypoint/EntryPoint*. Bijvoorbeeld: **CodePackageActivation:Code:SetupEntryPoint**.
+* **De eigenschap**: maakt gebruik van het voorvoegsel **CodePackageActivation** en bevat de naam van het codepakket en het toegangspunt dat als **CodePackageActivation: *** CodePackageName*: *Entrypoint/EntryPoint*. Bijvoorbeeld: **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Service type is geregistreerd
 System.Hosting rapporteert als OK als het servicetype is geregistreerd. Een fout gerapporteerd als de registratie is niet uitgevoerd in de tijd, zoals deze is geconfigureerd met behulp van **ServiceTypeRegistrationTimeout**. Als de runtime is gesloten, wordt het servicetype is niet geregistreerd in het knooppunt en wordt een waarschuwing die als host fungeert rapporteert.
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting meldt een fout als het downloaden van het service-pakket mislukt.
 
 * **SourceId**: System.Hosting
-* **De eigenschap**: **downloaden:***RolloutVersion*.
+* **De eigenschap**: **downloaden: *** RolloutVersion*.
 * **Volgende stappen**: onderzoeken waarom het downloaden is mislukt op het knooppunt.
 
 ### <a name="upgrade-validation"></a>Validatie van upgrade

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Het gebruik van verpakker voor het maken van installatiekopieën van Linux virtuele machines in Azure
 Elke virtuele machine (VM) in Azure wordt gemaakt van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace bevat veel installatiekopieën van het eerste en derde partij voor het meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
@@ -28,7 +28,7 @@ Elke virtuele machine (VM) in Azure wordt gemaakt van een installatiekopie die u
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
 Tijdens het maken maakt verpakker tijdelijke Azure-resources als de bron-VM-builds. Als u wilt vastleggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het buildproces verpakker wordt opgeslagen in deze resourcegroep.
 
-Maak een resourcegroep maken met [az group create](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -54,7 +54,7 @@ Een voorbeeld van de uitvoer van de bovenstaande opdrachten is als volgt:
 }
 ```
 
-Om te verifiëren naar Azure, moet u ook uw Azure-abonnement-id met [az account weergeven](/cli/azure/account#show):
+Om te verifiëren naar Azure, moet u ook uw Azure-abonnement-id met [az account weergeven](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -200,7 +200,7 @@ Het duurt enkele minuten duren voordat verpakker bouwen van de virtuele machine,
 
 
 ## <a name="create-vm-from-azure-image"></a>Virtuele machine van de afbeelding voor Azure maken
-U kunt nu een virtuele machine maken van de installatiekopie met [az vm maken](/cli/azure/vm#create). Geef de afbeelding die u hebt gemaakt met de `--image` parameter. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage* en SSH-sleutels genereert als deze niet al bestaan:
+U kunt nu een virtuele machine maken van de installatiekopie met [az vm maken](/cli/azure/vm#az_vm_create). Geef de afbeelding die u hebt gemaakt met de `--image` parameter. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage* en SSH-sleutels genereert als deze niet al bestaan:
 
 ```azurecli
 az vm create \
@@ -223,7 +223,7 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Virtuele machine en NGINX testen
-Nu kunt u een webbrowser openen en voer `http://publicIpAddress` in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. De standaard NGINX-pagina wordt weergegeven zoals in het volgende voorbeeld:
+Nu kunt u een webbrowser openen en voer `http://publicIpAddress` in de adresbalk. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. De standaard NGINX-pagina wordt weergegeven zoals in het volgende voorbeeld:
 
 ![Standaardsite van NGINX](./media/build-image-with-packer/nginx.png) 
 

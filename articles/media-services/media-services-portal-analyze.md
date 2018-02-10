@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Uw media analyseren met de Azure-portal
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Overzicht
 Azure Media Services Analytics is een verzameling spraakonderdelen en visuele onderdelen (op enterprise schaal, naleving, beveiliging en globale bereiken) die het eenvoudiger voor organisaties en bedrijven worden afgeleid van bruikbare inzichten aan hun video's. Zie voor meer overzicht van Azure Media Services Analytics [dit](media-services-analytics-overview.md) onderwerp. 
 
-In dit onderwerp wordt beschreven hoe u uw media met Media Analytics-mediaprocessoren (Management Packs) met de Azure portal te verwerken. Media Analytics Management Packs produceren MP4-bestanden of JSON-bestanden. Als een Mediaprocessor een MP4-bestand produceert, kunt u het bestand progressief downloaden. Als een mediaprocessor een JSON-bestand produceert, kunt u het bestand downloaden via Azure Blob Storage. 
+In dit onderwerp wordt beschreven hoe u uw media met Media Analytics-mediaprocessoren (Management Packs) met de Azure portal te verwerken. Media Analytics Management Packs produceren MP4-bestanden of JSON-bestanden. Als een Mediaprocessor een MP4-bestand, wordt het bestand progressief downloaden. Als een Mediaprocessor een JSON-bestand, kunt u het bestand downloaden van Azure blob storage. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Kies een asset die u wilt analyseren
 1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
@@ -45,7 +45,7 @@ In dit onderwerp wordt beschreven hoe u uw media met Media Analytics-mediaproces
 5. Druk op **maken** toe aan het begin een taak.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-De **Azure Media Indexer** Mediaprocessor kunt u doorzoekbaar maken van media-bestanden en inhoud, evenals gesloten closed captioning houdt genereren. In deze sectie biedt een aantal details van de opties die u voor deze MP opgeven kunt.
+De **Azure Media Indexer** Mediaprocessor kunt u doorzoekbaar maken van media-bestanden en inhoud, evenals gesloten closed captioning houdt genereren. Deze sectie biedt een aantal details van de opties die u voor deze MP opgeeft.
 
 ![Video's analyseren](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -70,11 +70,11 @@ Selecteer deze optie als u wilt een trefwoorden XML-bestand genereren. Dit besta
 ### <a name="job-name"></a>Taaknaam
 Een beschrijvende naam waarmee u de taak te identificeren. [Dit](media-services-portal-check-job-progress.md) artikel wordt beschreven hoe u kunt de voortgang van een taak. 
 
-### <a name="output-file"></a>Bestand voor uitvoer
+### <a name="output-file"></a>Uitvoerbestand
 Een beschrijvende naam waarmee u de uitvoer-inhoud identificeren. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse is een Management Pack dat smooth video's verstreken tijd van eerste persoon of actie camera inhoud maakt.  Raadpleeg [dit](media-services-hyperlapse-content.md) onderwerp voor meer informatie. In deze sectie biedt een aantal details van de opties die u voor deze MP opgeven kunt.
+Azure Media Hyperlapse is een Management Pack dat smooth video's verstreken tijd van eerste persoon of actie camera inhoud maakt.  Raadpleeg [dit](media-services-hyperlapse-content.md) onderwerp voor meer informatie. Deze sectie biedt een aantal details van de opties die u voor deze MP opgeeft.
 
 ![Video's analyseren](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -84,7 +84,7 @@ Geef de snelheid waarmee de invoer video versnellen. De uitvoer is een weergave 
 ### <a name="job-name"></a>Taaknaam
 Een beschrijvende naam waarmee u de taak te identificeren. [Dit](media-services-portal-check-job-progress.md) artikel wordt beschreven hoe u kunt de voortgang van een taak. 
 
-### <a name="output-file"></a>Bestand voor uitvoer
+### <a name="output-file"></a>Uitvoerbestand
 Een beschrijvende naam waarmee u de uitvoer-inhoud identificeren. 
 
 ## <a name="azure-media-face-detector"></a>Azure Media Face Detector
@@ -114,7 +114,7 @@ Een van de volgende modi kan worden gebruikt door de processor:
 ### <a name="job-name"></a>Taaknaam
 Een beschrijvende naam waarmee u de taak te identificeren. [Dit](media-services-portal-check-job-progress.md) artikel wordt beschreven hoe u kunt de voortgang van een taak. 
 
-### <a name="output-file"></a>Bestand voor uitvoer
+### <a name="output-file"></a>Uitvoerbestand
 Een beschrijvende naam waarmee u de uitvoer-inhoud identificeren. 
 
 ## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
@@ -132,8 +132,19 @@ Deze processor kunt u bij het maken van samenvattingen van lange video's door in
 ### <a name="job-name"></a>Taaknaam
 Een beschrijvende naam waarmee u de taak te identificeren. [Dit](media-services-portal-check-job-progress.md) artikel wordt beschreven hoe u kunt de voortgang van een taak. 
 
-### <a name="output-file"></a>Bestand voor uitvoer
+### <a name="output-file"></a>Uitvoerbestand
 Een beschrijvende naam waarmee u de uitvoer-inhoud identificeren. 
+
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Deze processor helpt u bij het detecteren van mogelijke inhoud voor volwassenen en mooie in video's. De processor detecteert automatisch schermafbeeldingen en keyframes in de video. Deze de keyframes voor mogelijke inhoud voor volwassenen of mooie scores en wordt voorgesteld beoordelingen op basis van de standaarddrempelwaarden. Zie voor gedetailleerde informatie en voorbeelden [gebruik Azure Media-inhoud beheerder op normaal video's](media-services-content-moderation.md)
+
+![Gemiddeld video 's](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Versie 
+Gebruik '2.0'.
+
+### <a name="mode"></a>Modus
+Versie 2.0 negeren de `Mode` instelling.
 
 ## <a name="next-steps"></a>Volgende stappen
 Weergave Media Services-leertrajecten.
@@ -142,4 +153,3 @@ Weergave Media Services-leertrajecten.
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

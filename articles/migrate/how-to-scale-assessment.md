@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detecteren en beoordelen van een grote VMware-omgeving
 
@@ -38,7 +38,7 @@ Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 - Als u 1,001-1500 machines hebt, moet u een project met twee detecties erin.
 - Als u meer dan 1500 machines hebt, moet u meerdere projecten maken en uitvoeren van meerdere detecties volgens uw vereisten. Bijvoorbeeld:
     - Als u 3000 machines hebt, kunt u twee projecten met detecties van twee of drie projecten met een enkele detectie instellen.
-    - Als u 5000 machines hebt, kunt u vier projecten instellen: twee met een detectie van 1500 machines en één met een detectie van 500 machines. U kunt ook vijf projecten met een enkele detectie in elk criterium instellen. 
+    - Als u 5000 machines hebt, kunt u vier projecten instellen: drie met een detectie van 1500 machines en één met een detectie van 500 machines. U kunt ook vijf projecten met een enkele detectie in elk criterium instellen. 
 
 ## <a name="plan-multiple-discoveries"></a>Meerdere detecties plannen
 
@@ -86,15 +86,15 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
  
     Voor eicellen versie 1.0.8.49
 
-    **Algoritme** | **Hash-waarde**
+    **Algorithm** | **Hash-waarde**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     Voor de versie van de eicellen 1.0.8.40:
 
-    **Algoritme** | **Hash-waarde**
+    **Algorithm** | **Hash-waarde**
     --- | ---
     MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
@@ -133,13 +133,13 @@ De volgende tabel bevat ook de resultaten van de beoordeling die worden beïnvlo
 
 |Prestatiemeteritems                                  |Niveau    |Per apparaat niveau  |Evaluatie-impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
+|cpu.usage.average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
 |Mem.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
 |virtualDisk.read.average                 | 2       |2                 |Schijfgrootte opslagkosten en VM-grootte         |
 |virtualDisk.write.average                | 2       |2                 |Schijfgrootte opslagkosten en VM-grootte         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Schijfgrootte opslagkosten en VM-grootte         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Schijfgrootte opslagkosten en VM-grootte         |
-|NET.Received.Average                     | 2       |3                 |VM-grootte en het netwerk kosten                        |
+|net.received.average                     | 2       |3                 |VM-grootte en het netwerk kosten                        |
 |NET.transmitted.Average                  | 2       |3                 |VM-grootte en het netwerk kosten                        |
 
 > [!WARNING]

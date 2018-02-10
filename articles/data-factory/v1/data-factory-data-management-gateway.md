@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [zelf gehost integratie runtime in versie 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Data Management Gateway is nu is rebranded als Self-hosted integratie Runtime.  
 
 Data management gateway is een clientagent waarmee u in uw on-premises omgeving installeren moet kopiëren van gegevens tussen cloud en on-premises gegevensopslagexemplaren. De on-premises gegevens opslaat die worden ondersteund door Data Factory worden vermeld in de [ondersteunde gegevensbronnen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) sectie.
 
@@ -188,7 +191,7 @@ Data management gateway Host Service wordt automatisch opnieuw opgestart nadat u
 Nadat de gateway is geregistreerd, als u wilt weergeven of bijwerken van proxy-instellingen, gebruikt u Data Management Gateway Configuration Manager.
 
 1. Start **Data Management Gateway Configuration Manager**.
-2. Overschakelen naar de **instellingen** tabblad.
+2. Schakel over naar het tabblad **Instellingen**.
 3. Klik op **wijziging** koppelen **HTTP-Proxy** sectie starten de **Set HTTP-Proxy** dialoogvenster.  
 4. Nadat u op de **volgende** knop klikt, ziet u een waarschuwingsdialoogvenster waarin wordt gevraagd uw toestemming voor het opslaan van de proxy-instelling en start de Gateway-hostservice opnieuw op.
 

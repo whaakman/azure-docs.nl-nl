@@ -1,6 +1,6 @@
 ---
-title: Het installeren van een Linux-hoofddoelserver voor failover van Azure met on-premises | Microsoft Docs
-description: Voordat een virtuele Linux-machine opnieuw te beveiligen, moet u een Linux-hoofddoelserver. Informatie over het installeren van een.
+title: Het installeren van een server voor Linux-hoofddoel voor failover van Azure met on-premises | Microsoft Docs
+description: Voordat een virtuele Linux-machine opnieuw te beveiligen, moet u een Linux-hoofddoel-server. Informatie over het installeren van een.
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/22/2017
 ms.author: rajanaki
-ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoel-server installeren
-Nadat u uw virtuele machines failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u de doelserver van een lokale voor het ontvangen van het verkeer. 
+# <a name="install-a-linux-master-target-server"></a>Een server voor Linux-hoofddoel installeren
+Nadat u uw virtuele machines in Azure een failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u een lokale hoofddoelserver voor het ontvangen van het verkeer. 
 
 Als de beveiligde virtuele machine een virtuele Windows-computer is, moet u een Windows-hoofddoel. Voor een virtuele Linux-machine moet u een Linux-hoofddoel. Lees de volgende stappen uit voor informatie over het maken en een Linux-hoofddoel te installeren.
 
 > [!IMPORTANT]
-> Vanaf versie van de 9.10.0 hoofddoelserver, de meest recente hoofddoelserver kan alleen worden geïnstalleerd op een 16.04 Ubuntu server. Nieuwe installaties zijn niet toegestaan voor CentOS6.6 servers. U kunt echter doorgaan naar de oude hoofdsleutel doelservers upgraden met behulp van de 9.10.0 versie.
+> Vanaf versie van de 9.10.0 hoofddoelserver, kan de meest recente hoofddoelserver worden alleen geïnstalleerd op een server Ubuntu 16.04. Nieuwe installaties zijn niet toegestaan voor CentOS6.6 servers. U kunt echter doorgaan naar uw oude hoofddoel servers upgraden met behulp van de 9.10.0 versie.
 
 ## <a name="overview"></a>Overzicht
 In dit artikel bevat instructies voor het installeren van een Linux-hoofddoel.
@@ -37,12 +37,12 @@ Opmerkingen of vragen plaatsen aan het einde van dit artikel of op de [Azure Rec
 
 * Als u de host waarop voor het implementeren van het hoofddoel, bepalen als de failback is het verstandig om een bestaande on-premises virtuele machine of een nieuwe virtuele machine. 
     * Voor een bestaande virtuele machine, moet de host van het hoofddoel toegang hebben tot de gegevensarchieven van de virtuele machine.
-    * Als de on-premises virtuele machine niet bestaat, wordt de failback van virtuele machine gemaakt op dezelfde host als het hoofddoel. U kunt een willekeurige host ESXi voor het installeren van het hoofddoel.
+    * Als de on-premises virtuele machine (in geval van een alternatieve locatie Recovery) niet bestaat, wordt de failback van virtuele machine gemaakt op dezelfde host als het hoofddoel. U kunt een willekeurige host ESXi voor het installeren van het hoofddoel.
 * Het hoofddoel moet zich op een netwerk dat met de processerver en de configuratieserver communiceren kan.
-* De versie van het hoofddoel moet gelijk zijn aan of ouder is dan de versies van de processerver en de configuratieserver. Bijvoorbeeld, als de versie van de configuratieserver 9.4, kan de versie van het hoofddoel worden 9.4 of 9.3 maar niet 9.5.
-* Het hoofddoel mag alleen een virtuele VMware-machine en niet op een fysieke server.
+* De versie van het hoofddoel moet gelijk zijn aan of ouder is dan de versies van de processerver en de configuratieserver. Bijvoorbeeld, als de versie van de configuratieserver 9.4, kan de versie van de Hoofddoelserver worden 9.4 of 9.3 maar niet 9.5.
+* De Hoofddoelserver kan alleen worden een virtuele VMware-machine en niet op een fysieke server.
 
-## <a name="create-the-master-target-according-to-the-sizing-guidelines"></a>Het hoofddoel overeenkomstig de richtlijnen van het formaat maken
+## <a name="sizing-guidelines-for-creating-master-target-server"></a>Richtlijnen voor het maken van de hoofddoelserver formaat
 
 Het hoofddoel in overeenstemming met de volgende richtlijnen voor schaling maken:
 - **RAM-geheugen**: 6 GB of meer
@@ -55,9 +55,9 @@ De volgende ondersteunde Ubuntu kernels worden ondersteund.
 
 |Kernel-reeks  |Ondersteuning voor maximaal  |
 |---------|---------|
-|4.4      |4.4.0-81-Generic         |
-|4.8      |4.8.0-56-Generic         |
-|4.10     |4.10.0-24-Generic        |
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>De hoofddoelserver implementeren
@@ -66,119 +66,90 @@ De volgende ondersteunde Ubuntu kernels worden ondersteund.
 
 Met het volgende de stappen voor het installeren van de Ubuntu 16.04.2 64-bits besturingssysteem.
 
-**Stap 1:** gaat u naar de [downloadkoppeling](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64) en kies de dichtstbijzijnde spiegelen uit welke downloaden Ubuntu 16.04.2 minimaal 64-bits ISO.
-
+1.   Ga naar de [downloadkoppeling](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), kies de dichtstbijzijnde mirror anddownload Ubuntu 16.04.2 minimaal 64-bits ISO.
 Ubuntu 16.04.2 minimaal 64-bits ISO houden in het DVD-station en start het systeem.
 
-**Stap 2:** Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
+1.  Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
+    
+    ![Een taal selecteren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+1. Selecteer **Ubuntu Server installeren**, en selecteer vervolgens **Enter**.
 
-![Een taal selecteren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+    ![Selecteer installeren Ubuntu Server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
-**Stap 3:** Selecteer **Ubuntu Server installeren**, en selecteer vervolgens **Enter**.
+1.  Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
 
-![Selecteer installeren Ubuntu Server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
+    ![Engels als uw voorkeurstaal selecteren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
-**Stap 4:** Selecteer **Engels** als uw voorkeurstaal en selecteer vervolgens **Enter**.
+1. Selecteer de relevante optie van de **tijdzone** optielijst en selecteer vervolgens **Enter**.
 
-![Engels als uw voorkeurstaal selecteren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
+    ![Selecteer de juiste tijdzone](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
-**Stap 5:** Selecteer de relevante optie van de **tijdzone** optielijst en selecteer vervolgens **Enter**.
+1. Selecteer **Nee** (de standaardoptie) en selecteer vervolgens **Enter**.
 
-![Selecteer de juiste tijdzone](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
+     ![Het toetsenbord configureren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+1. Selecteer **Engels (V.S.)** als het land van oorsprong voor het toetsenbord en selecteer vervolgens **Enter**.
 
-**Stap 6:** Selecteer **Nee** (de standaardoptie) en selecteer vervolgens **Enter**.
+1. Selecteer **Engels (V.S.)** als de toetsenbordindeling en selecteer vervolgens **Enter**.
 
+1. Geef de hostnaam op voor uw server in de **hostnaam** vak en selecteer vervolgens **doorgaan**.
 
-![Het toetsenbord configureren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+1. Geef de gebruikersnaam op voor het maken van een gebruikersaccount en selecteer vervolgens **doorgaan**.
 
-**Stap 7:** Selecteer **Engels (V.S.)** als het land van oorsprong voor het toetsenbord en selecteer vervolgens **Enter**.
+      ![Een gebruikersaccount maken](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
-![VS selecteren als het land van oorsprong](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
+1. Voer het wachtwoord voor het nieuwe gebruikersaccount en selecteer vervolgens **doorgaan**.
 
-**Stap 8:** Selecteer **Engels (V.S.)** als de toetsenbordindeling en selecteer vervolgens **Enter**.
+1.  Bevestig het wachtwoord voor de nieuwe gebruiker en selecteer vervolgens **doorgaan**.
 
-![Als de toetsenbordindeling Amerikaans Engels selecteren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
+    ![De wachtwoorden bevestigen](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
-**Stap 9:** Geef de hostnaam op voor uw server in de **hostnaam** vak en selecteer vervolgens **doorgaan**.
+1.  Selecteer in de volgende selectie voor het versleutelen van de basismap **Nee** (de standaardoptie) en selecteer vervolgens **Enter**.
 
-![Geef de hostnaam op voor uw server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
+1. Als de tijdzone die wordt weergegeven correct is, selecteert u **Ja** (de standaardoptie) en selecteer vervolgens **Enter**. Selecteer om opnieuw te uw tijdzone, **Nee**.
 
-**Stap 10:** voor het maken van een gebruikersaccount, voer de gebruikersnaam en selecteer vervolgens **doorgaan**.
+1. Selecteer in de partitionering opties van de methode **begeleide - volledige schijf gebruiken**, en selecteer vervolgens **Enter**.
 
-![Een gebruikersaccount maken](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
+     ![Selecteer de partitionering methode-optie](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
-**Stap 11:** Voer het wachtwoord voor het nieuwe gebruikersaccount en selecteer vervolgens **doorgaan**.
+1.  Selecteer de gewenste virtuele schijf van de **Select disk aan partitie** opties en selecteer vervolgens **Enter**.
 
-![Voer het wachtwoord](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
+    ![Selecteer de schijf](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
-**Stap 12:** Bevestig het wachtwoord voor de nieuwe gebruiker en selecteer vervolgens **doorgaan**.
+1.  Selecteer **Ja** schrijven van de wijzigingen naar schijf en selecteer vervolgens **Enter**.
 
-![De wachtwoorden bevestigen](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
+1.  Selecteer de standaardoptie in de selectie van de proxy configureren, selecteert u **doorgaan**, en selecteer vervolgens **Enter**.
 
-**Stap 13:** Selecteer **Nee** (de standaardoptie) en selecteer vervolgens **Enter**.
+     ![Selecteer de standaardoptie](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
-![Gebruikers en wachtwoorden instellen](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
+1.  Selecteer **geen automatische updates** optie in de selectie voor het beheren van upgrades op uw systeem en selecteer vervolgens **Enter**.
 
-**Step 14:** als de tijdzone die wordt weergegeven correct is, selecteert u **Ja** (de standaardoptie) en selecteer vervolgens **Enter**.
+     ![Selecteer het beheren van upgrades](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
 
-Selecteer om opnieuw te uw tijdzone, **Nee**.
+    > [!WARNING]
+    > Omdat de Azure Site Recovery hoofddoelserver een specifieke versie van de Ubuntu vereist, moet u ervoor te zorgen dat de kernel upgrades zijn uitgeschakeld voor de virtuele machine. Als ze zijn ingeschakeld, dan eventuele upgrades voor reguliere voor zorgen dat de hoofddoelserver is niet goed. Zorg ervoor dat u selecteert de **geen automatische updates** optie.
 
-![Configureer de klok](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
+1.  Selecteer de standaardopties te gebruiken. Als u openSSH wilt voor SSH-verbinding maken, selecteer de **OpenSSH server** optie en selecteer vervolgens **doorgaan**.
 
-**Stap 15:** uit de partitionering opties van de methode selecteren **begeleide - volledige schijf gebruiken**, en selecteer vervolgens **Enter**.
+    ![Selecteer de software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
-![Selecteer de partitionering methode-optie](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
+1. Selecteer in de selction voor het installeren van het opstartlaadprogramma GRUB **Ja**, en selecteer vervolgens **Enter**.
 
-**Stap 16:** selecteert u de juiste virtuele schijf van de **Select disk aan partitie** opties en selecteer vervolgens **Enter**.
+1. Selecteer het juiste apparaat voor de installatie van het laadprogramma voor opstarten (bij voorkeur **/dev/sda**), en selecteer vervolgens **Enter**.
 
+1. Selecteer **doorgaan**, en selecteer vervolgens **Enter** om de installatie te voltooien.
 
-![Selecteer de schijf](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
+    ![De installatie voltooien](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
 
-**Stap 17:** Selecteer **Ja** schrijven van de wijzigingen naar schijf en selecteer vervolgens **Enter**.
+1. Nadat de installatie is voltooid, moet u zich aanmelden bij de virtuele machine met de nieuwe gebruikersgegevens. (Raadpleeg **stap 10** voor meer informatie.)
 
-![De wijzigingen naar de schijf te schrijven](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
+1. Gebruik de stappen die worden beschreven in de volgende schermafbeelding de hoofdmap gebruikerswachtwoord instellen. Meld u vervolgens aan als hoofdgebruiker.
 
-**Stap 18:** selecteert u de standaardoptie **doorgaan**, en selecteer vervolgens **Enter**.
-
-![Selecteer de standaardoptie](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
-
-**Stap 19:** Selecteer de relevante optie voor het beheren van upgrades op uw systeem en selecteer vervolgens **Enter**.
-
-![Selecteer het beheren van upgrades](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
-
-> [!WARNING]
-> Omdat de Azure Site Recovery hoofddoelserver een specifieke versie van de Ubuntu vereist, moet u ervoor te zorgen dat de kernel upgrades zijn uitgeschakeld voor de virtuele machine. Als ze zijn ingeschakeld, dan eventuele reguliere upgrades voor zorgen dat de hoofddoelserver is niet goed. Zorg ervoor dat u selecteert de **geen automatische updates** optie.
+    ![De hoofdmap gebruikerswachtwoord instellen](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
-**Stap 20:** standaardopties selecteren. Als u openSSH wilt voor SSH-verbinding maken, selecteer de **OpenSSH server** optie en selecteer vervolgens **doorgaan**.
+### <a name="configure-the-machine-as-a-master-target-server"></a>Configureer de machine als een hoofddoelserver
 
-![Selecteer de software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
-
-**Stap 21:** Selecteer **Ja**, en selecteer vervolgens **Enter**.
-
-![Het opstartlaadprogramma WORMGATEN doelsessie](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
-
-**Stap 22:** selecteert u het juiste apparaat voor de installatie van het laadprogramma voor opstarten (bij voorkeur **/dev/sda**), en selecteer vervolgens **Enter**.
-
-![Selecteer een apparaat voor opstarten laadprogramma installeren](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
-
-**Stap 23:** Selecteer **doorgaan**, en selecteer vervolgens **Enter** om de installatie te voltooien.
-
-![De installatie voltooien](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
-
-Nadat de installatie is voltooid, moet u zich aanmelden bij de virtuele machine met de nieuwe gebruikersgegevens. (Raadpleeg **stap 10** voor meer informatie.)
-
-Voer de stappen die worden beschreven in de volgende schermafbeelding om in te stellen het hoofdwachtwoord van de gebruiker. Meld u vervolgens aan als hoofdgebruiker.
-
-![De hoofdmap gebruikerswachtwoord instellen](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
-
-
-### <a name="prepare-the-machine-for-configuration-as-a-master-target-server"></a>Voorbereiden van de machine voor configuratie als een hoofddoelserver
-Bereid de machine voor de configuratie vervolgens als een hoofddoelserver.
-
-Als u de ID voor elke harde SCSI-schijf in een virtuele Linux-machine, schakel de **schijf. EnableUUID = TRUE** parameter.
-
-Voor deze parameter inschakelt, moet u de volgende stappen uitvoeren:
+De ID ophalen voor elke harde SCSI-schijf in een virtuele Linux-machine, de **schijf. EnableUUID = TRUE** parameter moet worden ingeschakeld. Voor deze parameter inschakelt, moet u de volgende stappen uitvoeren:
 
 1. De virtuele machine afgesloten.
 
@@ -206,18 +177,14 @@ Voor deze parameter inschakelt, moet u de volgende stappen uitvoeren:
 
 #### <a name="disable-kernel-upgrades"></a>Kernel-upgrades uitschakelen
 
-Azure Site Recovery-hoofddoelserver vereist een specifieke versie van de Ubuntu, zorg ervoor dat de kernel-upgrades voor de virtuele machine zijn uitgeschakeld.
-
-Als upgrades van de kernel zijn ingeschakeld, dan eventuele upgrades voor reguliere voor zorgen dat de hoofddoelserver is niet goed.
+Azure Site Recovery hoofddoelserver vereist een specifieke versie van de Ubuntu, zorg ervoor dat de kernel-upgrades voor de virtuele machine zijn uitgeschakeld. Als upgrades van de kernel zijn ingeschakeld, kan dit ertoe leiden dat de hoofddoelserver is niet goed.
 
 #### <a name="download-and-install-additional-packages"></a>Extra pakketten downloaden en installeren
 
 > [!NOTE]
 > Zorg ervoor dat er verbinding met Internet te downloaden en installeren van extra pakketten. Als u geen verbinding met Internet, moet u handmatig deze RPM-pakketten zoeken en te installeren.
 
-```
-apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
-```
+ `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
 ### <a name="get-the-installer-for-setup"></a>Ophalen van het installatieprogramma voor installatie
 
@@ -225,15 +192,14 @@ Als uw hoofddoel verbinding met Internet heeft, kunt u de volgende stappen uit v
 
 #### <a name="download-the-master-target-installation-packages"></a>De installatiepakketten hoofddoel downloaden
 
-[Download de meest recente Linux-hoofddoel installatie bits](https://aka.ms/latestlinuxmobsvc).
+[Download de meest recente installatie bits voor Linux-hoofddoel](https://aka.ms/latestlinuxmobsvc).
 
 Als u wilt downloaden met behulp van Linux, typt u:
 
-```
-wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
-```
+`wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
-Zorg ervoor dat u downloaden en uitpakken van het installatieprogramma in de basismap. Als u naar uitpakken **/usr/Local**, zal de installatie mislukken.
+> [!WARNING]
+> Zorg ervoor dat u downloaden en uitpakken van het installatieprogramma in de basismap. Als u naar uitpakken **/usr/Local**, zal de installatie mislukken.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Toegang tot het installatieprogramma vanaf de processerver
@@ -249,44 +215,44 @@ Aangepaste configuratiewijzigingen wilt toepassen, gebruikt u de volgende stappe
 
 
 1. Voer de volgende opdracht om het binaire bestand untar.
-    ```
-    tar -zxvf latestlinuxmobsvc.tar.gz
-    ```
+
+    `tar -zxvf latestlinuxmobsvc.tar.gz`
+
     ![Schermafbeelding van de opdracht uitvoeren](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
 2. Voer de volgende opdracht om toestemming te geven.
-    ```
-    chmod 755 ./ApplyCustomChanges.sh
-    ```
+
+    `chmod 755 ./ApplyCustomChanges.sh`
+
 
 3. Voer de volgende opdracht het script uit te voeren.
-    ```
-    ./ApplyCustomChanges.sh
-    ```
+    
+    `./ApplyCustomChanges.sh`
+
 > [!NOTE]
-> Voer het script slechts eenmaal op de server. De server afsluiten. De server opnieuw opstarten nadat u een schijf toevoegen zoals beschreven in de volgende sectie.
+> Voer het script slechts eenmaal op de server. Schakel vervolgens de server. De server opnieuw opstarten nadat u een schijf toevoegen zoals beschreven in de volgende sectie.
 
 ### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Een bewaarperiode schijf toevoegen aan de Linux-hoofddoel virtuele machine
 
 Gebruik de volgende stappen voor het maken van een schijf bewaren:
 
-1. Koppelen van een nieuwe schijf van 1 TB aan de Linux-hoofddoel virtuele machine en de machine start.
+1. Een nieuwe schijf van 1 TB aan de virtuele machine van Linux-hoofddoel koppelen en start de computer.
 
 2. Gebruik de **multipath -lle** opdracht voor meer informatie over de multipath-ID van de schijf bewaren.
+    
+     `multipath -ll`
 
-    ```
-    multipath -ll
-    ```
-    ![De multipath-ID van de retentie-schijf](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+        ![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
 3. Formatteren van de schijf en maak vervolgens een bestandssysteem op het nieuwe station.
 
-    ```
-    mkfs.ext4 /dev/mapper/<Retention disk's multipath id>
-    ```
+    
+    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
+    
     ![Een bestandssysteem maken op het station](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
 4. Nadat u het bestandssysteem gemaakt, moet u de bewaarperiode schijf koppelen.
+
     ```
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
@@ -294,9 +260,9 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
     ![De retentie-schijf koppelen](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
 5. Maak de **fstab** vermelding koppelen van het bewaarstation telkens wanneer het systeem wordt gestart.
-    ```
-    vi /etc/fstab
-    ```
+    
+    `vi /etc/fstab`
+    
     Selecteer **invoegen** om te beginnen met het bewerken van het bestand. Maak een nieuwe regel en voeg vervolgens de volgende tekst. De schijf multipath-ID op basis van de gemarkeerde multipath-ID van de vorige opdracht bewerken.
 
     **/dev/mapper/ <Retention disks multipath id> /mnt/bewaren ext4 rw 0 0**
@@ -314,18 +280,14 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
 
 1. Kopieer de wachtwoordzin van **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** op de configuratieserver. Sla het als **passphrase.txt** in dezelfde lokale map met de volgende opdracht:
 
-    ```
-    echo <passphrase> >passphrase.txt
-    ```
+    `echo <passphrase> >passphrase.txt`
+
     Voorbeeld: 
+
+       `echo itUx70I47uxDuUVY >passphrase.txt`
     
-    ```
-    echo itUx70I47uxDuUVY >passphrase.txt
-    ```
 
-2. Noteer de configuratieserver IP-adres. U moet deze in de volgende stap.
-
-3. Voer de volgende opdracht voor het installeren van de hoofddoelserver en de server geregistreerd met de configuratieserver.
+2. Noteer de configuratieserver IP-adres. Voer de volgende opdracht voor het installeren van de hoofddoelserver en de server geregistreerd met de configuratieserver.
 
     ```
     ./install -q -d /usr/local/ASR -r MT -v VmWare
@@ -338,7 +300,7 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-    Wacht totdat het script is voltooid. Als het hoofddoel wordt geregistreerd is, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
+Wacht totdat het script is voltooid. Als de Hoofddoelserver registreert, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
 
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>Het hoofddoel installeren met behulp van interactieve installatie
@@ -369,27 +331,21 @@ Nadat de installatie is voltooid, moet u de configuratieserver registreren met b
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Wacht totdat het script is voltooid. Als het hoofddoel met succes is geregistreerd, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
+     Wacht totdat het script is voltooid. Als de Hoofddoelserver met succes is geregistreerd, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
 
-
-### <a name="upgrade-the-master-target"></a>Het hoofddoel upgraden
-
-Het installatieprogramma uitvoert. Automatisch wordt gedetecteerd dat de agent is geïnstalleerd op het hoofddoel. Als u wilt bijwerken, selecteert u **Y**.  Nadat de installatie is voltooid, controleert u de versie van het hoofddoel geïnstalleerd met behulp van de volgende opdracht:
-
-    ```
-    cat /usr/local/.vx_version
-    ```
-
-Kunt u zien dat de **versie** veld kunt u het versienummer van het hoofddoel.
 
 ### <a name="install-vmware-tools-on-the-master-target-server"></a>Installeer VMware tools op de hoofddoelserver
 
-U moet VMware tools installeren op het hoofddoel zodat deze de gegevensarchieven kan detecteren. Als de hulpprogramma's zijn niet geïnstalleerd, wordt het scherm beveiligt niet vermeld in de gegevensarchieven. Na installatie van de VMware-hulpprogramma's moet u opnieuw opstarten.
+U moet VMware tools installeren op de Hoofddoelserver zodat deze de gegevensarchieven kan detecteren. Als de hulpprogramma's zijn niet geïnstalleerd, wordt het scherm beveiligt niet vermeld in de gegevensarchieven. Na installatie van de VMware-hulpprogramma's moet u opnieuw opstarten.
 
-## <a name="next-steps"></a>Volgende stappen
-Nadat de installatie en registratie van het hoofddoel is voltooid, ziet u het hoofddoel worden weergegeven op de **hoofddoel** in sectie **Site Recovery-infrastructuur**, onder de configuratie overzicht van de server.
+### <a name="upgrade-the-master-target-server"></a>Upgrade de hoofddoelserver
 
-U kunt nu doorgaan met [beveiligingspoging](site-recovery-how-to-reprotect.md), gevolgd door de failback.
+Het installatieprogramma uitvoert. Automatisch wordt gedetecteerd dat de agent is geïnstalleerd op het hoofddoel. Als u wilt bijwerken, selecteert u **Y**.  Nadat de installatie is voltooid, controleert u de versie van het hoofddoel geïnstalleerd met behulp van de volgende opdracht:
+
+`cat /usr/local/.vx_version`
+
+
+U ziet dat de **versie** veld kunt u het versienummer van het hoofddoel.
 
 ## <a name="common-issues"></a>Algemene problemen
 
@@ -397,6 +353,13 @@ U kunt nu doorgaan met [beveiligingspoging](site-recovery-how-to-reprotect.md), 
 
 * Het hoofddoel mag geen eventuele momentopnamen op de virtuele machine. Als momentopnamen bevat, mislukt de failback.
 
-* De netwerkinterface tijdens het opstarten is uitgeschakeld als gevolg van een aantal aangepaste configuraties voor NIC op sommige klanten en de hoofddoelserver-agent kan niet worden geïnitialiseerd. Zorg ervoor dat de volgende eigenschappen correct zijn ingesteld. Controleer deze eigenschappen in de Ethernet-kaart van het bestand /etc/sysconfig/network-scripts/ifcfg-eth *.
-    * BOOTPROTO = dhcp
+* Als gevolg van bepaalde aangepaste configuraties NIC de netwerkinterface is uitgeschakeld tijdens het opstarten en de Hoofddoelserver-agent kan niet worden geïnitialiseerd. Zorg ervoor dat de volgende eigenschappen correct zijn ingesteld. Controleer deze eigenschappen in de Ethernet-kaart van het bestand /etc/sysconfig/network-scripts/ifcfg-eth *.
+    * BOOTPROTO=dhcp
     * ONBOOT = yes
+
+
+## <a name="next-steps"></a>Volgende stappen
+Nadat de installatie en registratie van de Hoofddoelserver is voltooid, ziet u het hoofddoel worden weergegeven op de **hoofddoel** in sectie **Site Recovery-infrastructuur**, onder de configuratie overzicht van de server.
+
+U kunt nu doorgaan met [beveiligingspoging](site-recovery-how-to-reprotect.md), gevolgd door de failback.
+

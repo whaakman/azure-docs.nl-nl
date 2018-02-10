@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Capaciteitsplanning voor HDInsight-clusters
 
@@ -89,8 +89,7 @@ Schaal van een cluster wordt bepaald door het aantal van de VM-knooppunten. Voor
 
 Afhankelijk van het clustertype van uw, waardoor het aantal worker-knooppunten voegt extra rekenkundige capaciteit (zoals meer cores), maar mogelijk ook toevoegen aan de totale hoeveelheid geheugen die nodig zijn voor het hele cluster ter ondersteuning van de opslag van gegevens wordt verwerkt in het geheugen. Net als bij de keuze van VM-grootte en het type, is de juiste cluster schaal selecteren doorgaans bereikt langs, met gesimuleerde werkbelastingen of kokospalm query's.
 
-U kunt schalen uit het cluster om te voldoen aan de eisen van piek laden en vervolgens weer omlaag schalen, wanneer die extra knooppunten zijn niet meer nodig.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+U kunt schalen uit het cluster om te voldoen aan de eisen van piek laden en vervolgens weer omlaag schalen, wanneer die extra knooppunten zijn niet meer nodig. Zie voor meer informatie [Scale HDInsight-clusters](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>De levenscyclus van het cluster
 

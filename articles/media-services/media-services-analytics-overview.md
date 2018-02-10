@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics op het Media Services-platform
 ## <a name="overview"></a>Overzicht
@@ -50,6 +50,8 @@ Samenvatting van de video kan helpen u bij het maken van samenvattingen van lang
 Met Azure Media OCR (OCR), kunt u tekstinhoud in videobestanden converteren naar een bewerkbare, doorzoekbaar digitale tekst. U kunt vervolgens de extractie van zinvolle metagegevens van de video signaal van uw media automatiseren.
 ### <a name="scalable-face-redaction"></a>Schaalbare face redactie
 Azure Media Redactor is een Mediaprocessor Media Analytics schaalbare face redactie in de cloud biedt. Face redactie gebruikt, kunt u uw video om te vervagen vlakken van geselecteerde gebruikers wijzigen. Het is raadzaam de service wilt gebruiken face redactie nieuws media of wanneer de openbare veiligheid is betrokken. Kunnen een paar minuten beeldmateriaal waarin meerdere vlakken uren handmatig Redigeren duren, maar met deze service face redactie duurt een paar eenvoudige stappen. Zie voor meer informatie de [Redigeren vlakken met Azure Media Analytics](media-services-face-redaction.md) artikel.
+### <a name="content-moderation"></a>Content Moderation
+Azure Content beheerder kunt u met toezicht machine ondersteund voor uw video's. U wilt bijvoorbeeld mogelijk inhoud voor volwassenen en mooie detecteren in video's en controleer de gemarkeerde inhoud van uw menselijke toezicht. Video's voor ongewenste inhoud handmatig toezicht te houden, is een taak tijdrovend en kostbaar. Met deze service en de bijbehorende programma's combineren u toezicht machine ondersteund met mogelijkheden voor de beste resultaten human in de lus efficiënte en voordelige wijze kunt. Zie voor meer informatie, de [uw video's verwerken met Azure inhoud beheerder](media-services-content-moderation.md) artikel.
 
 ## <a name="common-scenarios"></a>Algemene scenario's
 Organisaties kunnen helpen bij Media Analytics en ondernemingen verzamelen inzichten van video en meer effectief beheer van grote hoeveelheden video-inhoud. Hier volgen enkele scenario's:
@@ -69,6 +71,7 @@ Deze sectie geeft een lijst van de Media Analytics-mediaprocessoren en laat zien
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 De volgende functie heeft een van de opgegeven MP-namen en een MP-object geretourneerd.
@@ -123,11 +126,6 @@ Antwoord:
 ## <a name="demos"></a>Demo 's
 Zie [Azure Media Analytics demo's](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Volgende stappen
-Media Services-leertrajecten bekijken.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Zie [Media Services Analytics aankondiging](https://azure.microsoft.com/blog/int
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Volgende stappen
+Media Services-leertrajecten bekijken.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

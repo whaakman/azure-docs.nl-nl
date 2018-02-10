@@ -12,50 +12,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/5/2018
 ms.author: subramar;chackdan
-ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b0ca553fb96b0a54f3b76d306ed98d95026dcd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Upgrade van de service Fabric-toepassing: geavanceerde onderwerpen
-## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Het toevoegen of verwijderen van services tijdens een upgrade van de toepassing
-Als een nieuwe service wordt toegevoegd aan een toepassing die wordt al geïmplementeerd en gepubliceerd als een upgrade, wordt de nieuwe service toegevoegd aan de gedistribueerde toepassing.  Een dergelijke upgrade heeft geen invloed op een van de services die al deel van de toepassing uitmaakten. Een exemplaar van de service die is toegevoegd moet echter worden gestart voor de nieuwe service actief zijn (met behulp van de `New-ServiceFabricService` cmdlet).
+## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Het toevoegen of verwijderen van servicetypen tijdens een upgrade van de toepassing
+Als een nieuwe servicetype is toegevoegd aan een gepubliceerde toepassing als onderdeel van een upgrade, vervolgens het type van de nieuwe service toegevoegd aan de gedistribueerde toepassing. Een dergelijke upgrade heeft geen invloed op een van de service-exemplaren die al deel van de toepassing uitmaakten, maar een exemplaar van het type van de service die is toegevoegd, moet worden gemaakt voor het type van de nieuwe service actief zijn (Zie [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-Services kunnen ook worden verwijderd uit een toepassing als onderdeel van een upgrade. Echter alle huidige exemplaren van de service naar-worden verwijderd voordat u doorgaat met de upgrade moeten worden gestopt (met behulp van de `Remove-ServiceFabricService` cmdlet).
+Op deze manier kunnen servicetypen worden verwijderd uit een toepassing als onderdeel van een upgrade. Echter, alle exemplaren van de service van het servicetype naar-worden verwijderd voordat u doorgaat met de upgrade moeten worden verwijderd (Zie [verwijderen ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="manual-upgrade-mode"></a>Handmatige upgrademodus
 > [!NOTE]
-> De niet-bewaakte handmatige modus gelden alleen voor de upgrade van een mislukte of onderbroken. De bewaakte modus is de aanbevolen upgrademodus voor Service Fabric-toepassingen.
+> De *bewaakte* upgrademodus wordt aanbevolen voor alle Service Fabric-upgrades.
+> De *UnmonitoredManual* upgrademodus moet alleen worden beschouwd voor upgrades van de mislukte of onderbroken. 
 >
 >
 
-Azure Service Fabric bevat meerdere upgrade modi ter ondersteuning van ontwikkeling en productie-clusters. Implementatieopties gekozen kunnen afwijken voor verschillende omgevingen.
+In *bewaakte* Service Fabric-modus is van toepassing statusbeleid om ervoor te zorgen dat de toepassing tijdens de voortgang van de upgrade in orde is. Als statusbeleid zijn geschonden, wordt de upgrade is onderbroken of is automatisch teruggedraaid, afhankelijk van de opgegeven *FailureAction*.
 
-De bewaakte rolling upgrade van de toepassing is de meest voorkomende upgrade moet worden gebruikt in de productieomgeving. Wanneer het Upgradebeleid is opgegeven, Service Fabric zorgt ervoor dat de toepassing goed is voordat de upgrade wordt uitgevoerd.
+In *UnmonitoredManual* modus kan de beheerder van de toepassing heeft volledige controle over de voortgang van de upgrade. Deze modus is nuttig wanneer aangepaste evaluatie van het statusbeleid toe te passen of uitvoeren van niet-conventionele upgrades om over te slaan voor health monitoring volledig (bijvoorbeeld de toepassing is al in het verlies van gegevens). Een upgrade die in deze modus wordt opgeschort na het voltooien van elke UD en expliciet moet hervat met behulp van [hervatten ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Wanneer een upgrade is onderbroken en gereed is voor het door de gebruiker worden hervat, de upgradestatus weergeven *RollforwardPending* (Zie [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
- De beheerder van de toepassing kunt de handmatige rolling upgrade toepassingsmodus volledige controle over de voortgang van de upgrade via de verschillende upgradedomeinen hebt. Deze modus is handig wanneer een aangepaste of complexe evaluatie statusbeleid vereist is, of een upgrade van een ongebruikelijke activiteiten (bijvoorbeeld de toepassing is al in het verlies van gegevens).
-
-Ten slotte is de geautomatiseerde rolling upgrade van de toepassing nuttig voor ontwikkeling of testomgevingen om een cyclus snelle herhaling tijdens het ontwikkelen van de service.
-
-## <a name="change-to-manual-upgrade-mode"></a>Wijzig in de handmatige upgrademodus
-**Handmatige**--stoppen van de upgrade van de toepassing op de huidige UD en de upgrademodus op niet-bewaakte handmatig wijzigen. De beheerder moet handmatig aanroepen **MoveNextApplicationUpgradeDomainAsync** te gaan met de upgrade terugdraaien activeren door een nieuwe upgrade initiëren. Zodra de upgrade in de handmatige modus invoert, blijft in de handmatige modus totdat een nieuwe upgrade wordt gestart. De **GetApplicationUpgradeProgressAsync** opdracht retourneert FABRIC\_toepassing\_UPGRADE\_status\_rollend\_doorsturen\_in behandeling.
+Ten slotte de *UnmonitoredAuto* modus is nuttig voor het uitvoeren van snel upgrade iteraties tijdens serviceontwikkeling of tests, omdat er geen gebruikersinvoer is vereist en er is geen toepassingsbeleid health worden geëvalueerd.
 
 ## <a name="upgrade-with-a-diff-package"></a>Een upgrade uitvoert op een diff-pakket
-Een Service Fabric-toepassing kan worden bijgewerkt door de inrichting met een volledige en zelfstandige toepassingspakket. Een toepassing kan ook worden bijgewerkt met behulp van een diff-pakket met de bijgewerkte toepassingsbestanden, het bijgewerkte toepassingsmanifest en de service manifest-bestanden.
+In plaats van een volledige toepassing inrichtingspakket worden upgrades ook uitgevoerd door provisioning diff-pakketten die bevatten alleen de bijgewerkte configuratie-code-gegevens pakketten samen met het manifest van de volledige toepassing en service manifesten te voltooien. Volledige toepassingspakketten zijn alleen vereist voor de initiële installatie van een toepassing in het cluster. Toekomstige upgrades kunnen zijn van de volledige toepassingspakketten of diff-pakketten.  
 
-Een volledige toepassingspakket bevat alle bestanden die nodig zijn om te starten en uitvoeren van een Service Fabric-toepassing. Een diff-pakket bevat alleen de bestanden die tussen de laatste inrichten en de huidige upgrade gewijzigd, plus manifest voor de volledige toepassing en de service manifest bestanden. Elke vermelding in het manifest van de toepassing of servicemanifest dat niet is gevonden in de indeling van de build wordt gezocht in de image store.
+Elke vermelding in het manifest van de toepassing of service manifesten van een diff-pakket dat niet is gevonden in het toepassingspakket automatisch wordt vervangen door de versie die momenteel wordt ingericht.
 
-Volledige toepassingspakketten zijn vereist voor de eerste installatie van een toepassing in het cluster. Daaropvolgende updates kunnen zijn voor een volledige toepassingspakket of een diff-pakket.
+Scenario's voor het gebruik van een pakket diff zijn:
 
-Gevallen terwijl een goede keuze met behulp van een pakket diff zou zijn:
+* Wanneer u een groot pakket hebt dat verwijst naar verschillende service manifest-bestanden en/of verschillende pakketten code, config pakketten of gegevenspakketten.
+* Wanneer u een implementatiesysteem dat de indeling van de build rechtstreeks vanuit uw toepassing genereert buildproces. Hoewel de code nog niet is gewijzigd, ophalen nieuw gebouwde assembly's in dit geval een andere controlesom. Met behulp van een volledige toepassingspakket, moet u de versie op alle code pakketten bijwerken. Met een diff-pakket bieden u alleen de bestanden die gewijzigd en de manifest-bestanden waarbij de versie is gewijzigd.
 
-* Een diff-pakket verdient de voorkeur wanneer u een groot pakket die verwijst naar verschillende service manifest-bestanden en/of verschillende pakketten code, config pakketten of gegevenspakketten hebt.
-* Een diff-pakket verdient de voorkeur wanneer u een implementatiesysteem dat de indeling van de build rechtstreeks vanuit uw buildproces toepassing genereert. Hoewel de code nog niet is gewijzigd, ophalen nieuw gebouwde assembly's in dit geval een andere controlesom. Met behulp van een volledige toepassingspakket, moet u de versie op alle code pakketten bijwerken. Met een diff-pakket bieden u alleen de bestanden die gewijzigd en de manifest-bestanden waarbij de versie is gewijzigd.
-
-Wanneer een toepassing wordt bijgewerkt met behulp van Visual Studio, wordt het diff-pakket wordt automatisch gepubliceerd. Een pakket diff als handmatig wilt maken, het toepassingsmanifest en de service-manifesten moeten worden bijgewerkt, maar alleen de gewijzigde pakketten moeten worden opgenomen in het laatste toepassingspakket.
+Wanneer een toepassing wordt bijgewerkt met behulp van Visual Studio, wordt een diff-pakket wordt automatisch gepubliceerd. Een pakket diff als handmatig wilt maken, het toepassingsmanifest en de service-manifesten moeten worden bijgewerkt, maar alleen de gewijzigde pakketten moeten worden opgenomen in het laatste toepassingspakket.
 
 Bijvoorbeeld, laten we beginnen met de volgende toepassing (versienummers opgegeven voor het gemak van wat):
 
@@ -69,7 +63,7 @@ app1           1.0.0
     config     1.0.0
 ```
 
-Nu gaan we wordt ervan uitgegaan dat u wilt bijwerken, alleen het codepakket van service1 met een diff-pakket met behulp van PowerShell. Uw bijgewerkte toepassing heeft nu de volgende mapstructuur:
+Stel de gewenste updatepakket alleen de code van service1 met een diff-pakket. Uw bijgewerkte toepassing heeft wijzigingen in de volgende versie:
 
 ```text
 app1           2.0.0      <-- new version
@@ -88,6 +82,16 @@ app1/
   service1/
     code/
 ```
+
+Met andere woorden, een volledige toepassingspakket normaal maken en verwijder vervolgens de config-code-gegevens pakketmappen waarvoor de versie niet is gewijzigd.
+
+## <a name="rolling-back-application-upgrades"></a>Toepassingsupgrades terugdraaien
+
+Tijdens upgrades kunnen worden doorgevoerd in een van drie beschikbare modi (*bewaakte*, *UnmonitoredAuto*, of *UnmonitoredManual*), ze kunnen alleen worden teruggezet in beide *UnmonitoredAuto* of *UnmonitoredManual* modus. Rolling terug in de *UnmonitoredAuto* modus werkt op dezelfde manier als rolling doorsturen met de uitzondering die de standaardwaarde van *UpgradeReplicaSetCheckTimeout* verschilt - Zie [toepassing Upgrade van de Parameters](service-fabric-application-upgrade-parameters.md). Rolling terug in de *UnmonitoredManual* modus werkt op dezelfde manier als doorsturen rolling - de terugdraaiactie wordt opgeschort na het voltooien van elke UD en expliciet moet hervat met behulp van [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) om door te gaan met het terugdraaien.
+
+Rollback kunnen automatisch worden geactiveerd wanneer het statusbeleid van een upgrade in *bewaakte* modus met een *FailureAction* van *terugdraaien* zijn geschonden (Zie [Upgrade toepassingsparameters](service-fabric-application-upgrade-parameters.md)) of expliciet gebruik [Start ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+
+Tijdens het terugdraaien is de waarde van *UpgradeReplicaSetCheckTimeout* en de modus kan nog worden gewijzigd op elke keer die [Update ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een upgrade van uw toepassing met behulp van Visual Studio](service-fabric-application-upgrade-tutorial.md) begeleidt u bij een upgrade van de toepassing met Visual Studio.

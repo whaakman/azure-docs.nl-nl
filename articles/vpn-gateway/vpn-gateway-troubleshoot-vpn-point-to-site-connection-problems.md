@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Voor probleemoplossing: Problemen met de Azure-punt-naar-site-verbinding
 
@@ -30,7 +30,7 @@ Dit artikel worden veelvoorkomende problemen met de punt-naar-site-verbinding di
 
 Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-client, wordt het volgende foutbericht weergegeven:
 
-**Een certificaat kan niet worden gevonden die kan worden gebruikt met dit Extensible Authentication Protocol. (Fout 798)**
+**Een certificaat kan niet worden gevonden die kan worden gebruikt met dit Extensible Authentication Protocol. (Error 798)**
 
 ### <a name="cause"></a>Oorzaak
 
@@ -45,7 +45,7 @@ U lost dit probleem, de volgende stappen uit:
     | Certificaat | Locatie |
     | ------------- | ------------- |
     | AzureClient.pfx  | Huidige gebruiker\Persoonlijk\Certificaten |
-    | Azuregateway -*GUID*. cloudapp.net  | Huidige User\Trusted basiscertificeringsinstanties|
+    | Azuregateway-*GUID*.cloudapp.net  | Huidige User\Trusted basiscertificeringsinstanties|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
 
 2. Ga naar gebruikers\<UserName > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, handmatig het certificaat (*.cer-bestand) op de gebruiker en archief van de computer installeren.
@@ -65,11 +65,18 @@ Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-
 
 ### <a name="cause"></a>Oorzaak
 
-Dit probleem treedt op als de openbare sleutel van het root-certificaat is niet geüpload naar de Azure VPN-gateway. Het kan ook optreden als de sleutel is beschadigd of verlopen.
+Dit probleem treedt op als een van de volgende voorwaarden voldaan wordt:
+
+- De gebruik gebruiker gedefinieerde routes (UDR) met standaardroute op het Gatewaysubnet is onjuist ingesteld.
+- De openbare sleutel van het root-certificaat is niet geüpload naar de Azure VPN-gateway. 
+- De sleutel is beschadigd of verlopen.
 
 ### <a name="solution"></a>Oplossing
 
-U lost dit probleem, Controleer de status van het basiscertificaat in de Azure portal om te zien of deze is ingetrokken. Als deze niet is ingetrokken, kunt u proberen te verwijderen van het basiscertificaat en reupload. Zie voor meer informatie [certificaten maken](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+U lost dit probleem, de volgende stappen uit:
+
+1. Verwijder UDR op het Gatewaysubnet. Zorg ervoor dat UDR alle verkeer juist wordt doorgestuurd.
+2. Controleer de status van het basiscertificaat in de Azure portal om te zien of deze is ingetrokken. Als deze niet is ingetrokken, kunt u proberen te verwijderen van het basiscertificaat en reupload. Zie voor meer informatie [certificaten maken](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN-Clientfout: een certificaatketen verwerkt, maar is beëindigd 
 
@@ -86,10 +93,10 @@ Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-
     | Certificaat | Locatie |
     | ------------- | ------------- |
     | AzureClient.pfx  | Huidige gebruiker\Persoonlijk\Certificaten |
-    | Azuregateway -*GUID*. cloudapp.net  | Huidige User\Trusted basiscertificeringsinstanties|
+    | Azuregateway-*GUID*.cloudapp.net  | Huidige User\Trusted basiscertificeringsinstanties|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
 
-2. Als de certificaten al op de locatie zijn, kunt u de certificaten verwijderen en installeert u deze opnieuw. De  **azuregateway -*GUID*. cloudapp.net** certificaat bevindt zich in het configuratiepakket voor VPN-client die u hebt gedownload van de Azure-portal. Bestand archivers kunt u de bestanden extraheren uit het pakket.
+2. Als de certificaten al op de locatie zijn, kunt u de certificaten verwijderen en installeert u deze opnieuw. De **azuregateway -*GUID*. cloudapp.net** certificaat bevindt zich in het configuratiepakket voor VPN-client die u hebt gedownload van de Azure-portal. Bestand archivers kunt u de bestanden extraheren uit het pakket.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Fout bij het downloaden bestand: doel-URI is niet opgegeven.
 
@@ -113,7 +120,7 @@ Het type VPN-gateway moet **VPN**, en het VPN-type moet **RouteBased**.
 
 Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-client, wordt het volgende foutbericht weergegeven:
 
-**Aangepast script (om bij te werken uw routeringstabel) is mislukt. (Fout 8007026f)**
+**Aangepast script (om bij te werken uw routeringstabel) is mislukt. (Error 8007026f)**
 
 ### <a name="cause"></a>Oorzaak
 
@@ -146,7 +153,7 @@ Pak het configuratiepakket voor VPN-client en het .cer-bestand niet vinden. Volg
 
 Wanneer u probeert de wijzigingen wilt opslaan voor de VPN-gateway in de Azure portal, wordt het volgende foutbericht weergegeven:
 
-**Virtuele netwerkgateway opslaan is mislukt &lt;* gatewaynaam*&gt;. Gegevens voor certificaat &lt; *-certificaat-ID* &gt; is invalid.* *
+**Virtuele netwerkgateway opslaan is mislukt &lt; *gatewaynaam*&gt;. Gegevens voor certificaat &lt; *-certificaat-ID* &gt; is ongeldig.**
 
 ### <a name="cause"></a>Oorzaak 
 
@@ -181,7 +188,7 @@ Zorg ervoor dat de gegevens in het certificaat bevat geen ongeldige tekens, zoal
 
 Wanneer u probeert de wijzigingen wilt opslaan voor de VPN-gateway in de Azure portal, wordt het volgende foutbericht weergegeven: 
 
-**Virtuele netwerkgateway opslaan is mislukt &lt;* gatewaynaam*&gt;. Resourcenaam &lt; *certificaatnaam die u probeert te uploaden* &gt; is ongeldig **.
+**Virtuele netwerkgateway opslaan is mislukt &lt; *gatewaynaam*&gt;. Resourcenaam &lt; *certificaatnaam die u probeert te uploaden* &gt; is ongeldig**.
 
 ### <a name="cause"></a>Oorzaak
 
@@ -199,7 +206,7 @@ Wanneer u de configuratie van VPN-clientpakket downloaden, wordt het volgende fo
 
 Deze fout kan worden veroorzaakt door een tijdelijk netwerkprobleem. Probeer de VPN-pakket te downloaden na een paar minuten opnieuw.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Upgrade uitvoeren voor Azure VPN-Gateway: alle P2S-clients kunnen geen verbinding maken
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Upgrade uitvoeren voor Azure VPN-Gateway: alle punt aan Site-clients kunnen geen verbinding maken
 
 ### <a name="cause"></a>Oorzaak
 
@@ -207,7 +214,7 @@ Als het certificaat meer dan 50 procent is via hun levensduur, het certificaat w
 
 ### <a name="solution"></a>Oplossing
 
-U lost dit probleem, maken en distribueren van nieuwe certificaten aan de VPN-clients. 
+U lost dit probleem, het punt aan Site-pakket op alle clients te implementeren.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Te veel VPN-clients tegelijk verbonden
 
@@ -234,6 +241,10 @@ Als het adres behoort tot klasse A-->/8 die van toepassing
 Als het adres behoort tot klasse B--> /16 toepassen
 
 Als het adres behoort tot klasse C--> /24 toepassen
+
+### <a name="solution"></a>Oplossing
+
+Routes voor andere netwerken worden ingevoegd in de routeringstabel met de langste voorvoegsel match of lagere metric (daarom hogere prioriteit) dan de punt aan Site hebben. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN-client heeft geen toegang tot netwerkbestandsshares
 
@@ -262,7 +273,7 @@ U verwijdert de punt-naar-site VPN-verbinding en de VPN-client opnieuw installer
 
 ### <a name="solution"></a>Oplossing
 
-Los het probleem op door de oude VPN-client configuratiebestanden verwijderen van **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, en voer het installatieprogramma van de VPN-client vervolgens opnieuw.
+Los het probleem op door de oude VPN-client configuratiebestanden verwijderen van **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >**, en voer het installatieprogramma van de VPN-client vervolgens opnieuw.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punt-naar-site VPN-client de FQDN-naam van de resources in het lokale domein kan niet worden omgezet
 
@@ -301,7 +312,7 @@ Controleer de instellingen van de proxyserver, zorg ervoor dat de client toegang
 
 ### <a name="cause"></a>Oorzaak
 
-Deze fout treedt op als de RADIUS-server die u hebt gebruikt voor het verifiëren van de VPN-client heeft de verkeerde instellingen. 
+Deze fout treedt op als de RADIUS-server die u hebt gebruikt voor het verifiëren van de VPN-client heeft de verkeerde instellingen of Azure-Gateway kan de Radius-server niet bereiken.
 
 ### <a name="solution"></a>Oplossing
 
@@ -312,3 +323,45 @@ Zorg ervoor dat de RADIUS-server correct is geconfigureerd. Zie voor meer inform
 ### <a name="cause"></a>Oorzaak
 
 Basiscertificaat is niet geïnstalleerd. Het basiscertificaat is geïnstalleerd in de client **certificaten van vertrouwde** opslaan.
+
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>VPN-Clientfout: De externe verbinding is niet gemaakt omdat de poging tot VPN-tunnels is mislukt. (Fout 800) 
+
+### <a name="cause"></a>Oorzaak
+
+Het NIC-stuurprogramma is verouderd.
+
+### <a name="solution"></a>Oplossing
+
+Het NIC-stuurprogramma-update:
+
+1. Klik op **Start**, type **Apparaatbeheer**, en selecteer het in de lijst met resultaten. Als u wordt gevraagd om een beheerderswachtwoord of een bevestiging, typt u het wachtwoord of geeft u de bevestiging.
+2. In de ** netwerkadapters ** categorieën, vinden de NIC die u wilt bijwerken.  
+3. Dubbelklik op de naam van het apparaat, selecteert u **stuurprogramma bijwerken**, selecteer **zoeken voor bijgewerkte stuurprogramma's automatisch**.
+4. Als u een nieuw stuurprogramma kan niet door Windows wordt gedetecteerd, kunt u kijkt u voor één op de website van de fabrikant en volg de instructies.
+5. Start de computer opnieuw op en probeer opnieuw verbinding te maken.
+
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Fout: "Fout bij het downloaden die doel-URI is niet opgegeven bestand'
+
+### <a name="cause"></a>Oorzaak
+
+Dit wordt veroorzaakt door een onjuiste gateway is geconfigureerd.
+
+### <a name="solution"></a>Oplossing
+
+Het type van de Azure VPN-gateway moet VPN en het VPN-type moet **RouteBased**.
+
+## <a name="vpn-package-installer-doesnt-complete"></a>Het installatieprogramma voor VPN-pakket voltooien niet
+
+### <a name="cause"></a>Oorzaak
+
+Dit probleem kan worden veroorzaakt door de eerdere installatie van de VPN-clients. 
+
+### <a name="solution"></a>Oplossing
+
+De oude VPN-client configuratiebestanden verwijderen van **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >** en voer het installatieprogramma van de VPN-client opnieuw. 
+
+## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>De VPN-client in de slaapstand of slaapstand na enige tijd
+
+### <a name="solution"></a>Oplossing
+
+Controleer de slaapstand en stand-bymodus instellingen in de computer die de VPN-client wordt uitgevoerd op.

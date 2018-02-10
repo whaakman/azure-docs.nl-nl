@@ -1,5 +1,5 @@
 ---
-title: De oplossing voor updatebeheer in OMS | Microsoft Docs
+title: Bijwerken van de beheeroplossing in Azure | Microsoft Docs
 description: Dit artikel is bedoeld om u te leren begrijpen hoe u deze oplossing kunt gebruiken voor het beheren van updates voor uw Windows- en Linux-computers.
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5156beb82e1ca8aeb9817badc4fcb38971143d4f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="update-management-solution-in-oms"></a>De oplossing voor updatebeheer in OMS
+# <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
 ![Symbool voor updatebeheer](./media/oms-solution-update-management/update-management-symbol.png)
 
-Met de oplossing Updatebeheer in OMS kunt u beveiligingsupdates voor uw Windows- en Linux-computers in Azure, in on-premises omgevingen en bij andere cloudproviders beheren.  U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
+De oplossing updatebeheer in Azure kunt u beveiligingsupdates besturingssysteem voor uw Windows- en Linux-computers geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders beheren.  U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
 ## <a name="update-management-in-azure-automation"></a>Updatebeheer in Azure Automation
 
@@ -48,13 +48,13 @@ In de volgende diagrammen ziet u een conceptueel overzicht van het gedrag en de 
 #### <a name="linux"></a>Linux
 ![Processtroom voor het beheren van Linux-updates](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-Wanneer op de computer is onderzocht of wordt voldaan aan de updatevereisten, stuurt de OMS-agent de informatie in bulk door naar OMS. Op Windows-computers wordt de nalevingsscan standaard elke twaalf uur uitgevoerd.  Naast de reguliere ingeplande scans wordt de updatenalevingsscan altijd binnen vijftien minuten gestart nadat de Microsoft Monitoring Agent (MMA) opnieuw is opgestart. De scan wordt ook vóór het installeren van updates en ná het installeren van updates uitgevoerd.  Op Linux-computers wordt de nalevingsscan standaard elke drie uur uitgevoerd. Wanneer de MMA-agent opnieuw is opgestart, wordt er altijd binnen vijftien minuten een aanvullende nalevingsscan gestart.  
+Nadat de computer een scan voor compatibiliteit van updates voert, stuurt de OMS-agent de gegevens bulksgewijs met logboekanalyse. Op Windows-computers wordt de nalevingsscan standaard elke twaalf uur uitgevoerd.  Naast de reguliere ingeplande scans wordt de updatenalevingsscan altijd binnen vijftien minuten gestart nadat de Microsoft Monitoring Agent (MMA) opnieuw is opgestart. De scan wordt ook vóór het installeren van updates en ná het installeren van updates uitgevoerd.  Op Linux-computers wordt de nalevingsscan standaard elke drie uur uitgevoerd. Wanneer de MMA-agent opnieuw is opgestart, wordt er altijd binnen vijftien minuten een aanvullende nalevingsscan gestart.  
 
 De nalevingsinformatie wordt dan verwerkt en u krijgt er een overzicht van te zien in de dashboards van de oplossing. U kunt de informatie ook doorzoeken met door de gebruiker gedefinieerde of vooraf gedefinieerde query's.  De oplossing rapporteert hoe up-to-date de computer is op basis van de bron waarmee u in de huidige configuratie synchroniseert.  Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, kunnen de resultaten afwijken van wat er wordt weergegeven in Microsoft Update, afhankelijk van wanneer WSUS voor het laatst is gesynchroniseerd met Microsoft Update.  Ditzelfde geldt voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale in plaats van een openbare opslagplaats.   
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen.  Updates die zijn geclassificeerd als *optioneel*, worden niet opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates worden uitgevoerd.  In de implementatieplanning staat op welke doelcomputers de updates worden geïmplementeerd, ofwel door specifieke computers op te geven of door een [computergroep](../log-analytics/log-analytics-computer-groups.md) te selecteren die is gebaseerd op logboekzoekopdrachten binnen een bepaalde set computers.  U geeft ook een planning op voor het goedkeuren en toekennen van een bepaalde tijdsperiode waarin updates mogen worden geïnstalleerd.  Updates worden geïnstalleerd door runbooks in Azure Automation.  U kunt deze runbooks niet weergeven en ze vereisen geen configuratie.  Wanneer een update-implementatie wordt gemaakt, wordt er een planning opgesteld waarmee een masterupdate-runbook voor de in de planning opgenomen computers start op het opgegeven tijdstip.  Dit master-runbook start een onderliggend runbook op elke agent die installatie van de vereiste updates uitvoert.       
 
-Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de datum en tijd die zijn opgegeven in de update-implementatie.  Er wordt eerst een scan uitgevoerd om te controleren of de updates nog steeds vereist zijn. Vervolgens worden ze geïnstalleerd.  Houd voor ogen dat de update-implementatie voor WSUS-clientcomputers mislukt als de updates niet zijn goedgekeurd in WSUS.  De resultaten van de toegepaste updates worden doorgestuurd naar OMS. Hier worden ze verwerkt en vervolgens wordt er een overzicht van weergegeven in de dashboards. U kunt er ook meer informatie over raadplegen door de gebeurtenissen te doorzoeken.     
+Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de datum en tijd die zijn opgegeven in de update-implementatie.  Er wordt eerst een scan uitgevoerd om te controleren of de updates nog steeds vereist zijn. Vervolgens worden ze geïnstalleerd.  Houd voor ogen dat de update-implementatie voor WSUS-clientcomputers mislukt als de updates niet zijn goedgekeurd in WSUS.  De resultaten van de toegepaste updates worden doorgestuurd naar logboekanalyse moet worden verwerkt en worden samengevat in de dashboards of door te zoeken naar de gebeurtenissen.     
 
 ## <a name="prerequisites"></a>Vereisten
 * De oplossing biedt ondersteuning voor updatebeoordelingen op Windows Server 2008 en hoger en update-implementaties op Windows Server 2008 R2 SP1 en hoger.  Nano Server wordt niet ondersteund.
@@ -78,7 +78,7 @@ Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de dat
 * Linux-agents moeten toegang hebben tot een opslagplaats voor updates.  
 
     > [!NOTE]
-    > OMS-agents voor Linux die zijn geconfigureerd om te rapporteren aan meerdere OMS-werkruimten, worden niet ondersteund in deze oplossing.  
+    > Een OMS-Agent voor Linux geconfigureerd voor rapportage aan meerdere Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.  
     >
 
 Raadpleeg [Operations Management Suite-agent voor Linux](https://github.com/microsoft/oms-agent-for-linux) voor meer informatie over het installeren van de OMS-agent voor Linux en om de nieuwste versie te downloaden.  Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agent.md) voor meer informatie over het installeren van de OMS-agent voor Windows.  
@@ -90,7 +90,7 @@ Als u update-implementaties wilt maken, moet de rol Bijdrager aan u worden toege
 Deze oplossing bestaat uit de volgende resources die zijn toegevoegd aan uw Automation-account en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
 
 ### <a name="management-packs"></a>Management packs
-Als de beheergroep van uw System Center Operations Manager is verbonden met een OMS-werkruimte, worden de volgende management packs geïnstalleerd in Operations Manager.  Deze management packs worden na het toevoegen van deze oplossing ook op rechtstreeks verbonden Windows-computers geïnstalleerd. Met deze management packs hoeft u niets te configureren of te beheren.
+Als uw System Center Operations Manager-beheergroep met een werkruimte voor logboekanalyse is verbonden, worden de volgende management packs geïnstalleerd in Operations Manager.  Deze management packs worden na het toevoegen van deze oplossing ook op rechtstreeks verbonden Windows-computers geïnstalleerd. Met deze management packs hoeft u niets te configureren of te beheren.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -99,34 +99,31 @@ Als de beheergroep van uw System Center Operations Manager is verbonden met een 
 Zie [Operations Manager koppelen aan Log Analytics](../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ### <a name="hybrid-worker-groups"></a>Hybrid Worker-groepen
-Als u deze oplossing inschakelt, wordt elke Windows-computer die rechtstreeks is verbonden met uw OMS-werkruimte, automatisch geconfigureerd als Hybrid Runbook Worker, zodat de runbooks die in deze oplossing zijn opgenomen, worden ondersteund.  Voor elke Windows-computer die door de oplossing wordt beheerd, wordt deze vermeld op de blade Hybrid Runbook Worker-groepen van het Automation-account, met de naamconventie *Hostname FQDN_GUID*.  U kunt deze groepen niet targeten met runbooks uit uw account. De bewerking mislukt dan. Deze groepen zijn alleen bedoeld ter ondersteuning van de beheeroplossing.   
+Nadat u deze oplossing hebt ingeschakeld, wordt elke Windows-computer die rechtstreeks zijn verbonden met uw werkruimte voor logboekanalyse automatisch geconfigureerd als een hybride Runbook Worker ter ondersteuning van de runbooks die zijn opgenomen in deze oplossing.  Voor elke Windows-computer die door de oplossing wordt beheerd, wordt deze vermeld op de blade Hybrid Runbook Worker-groepen van het Automation-account, met de naamconventie *Hostname FQDN_GUID*.  U kunt deze groepen niet targeten met runbooks uit uw account. De bewerking mislukt dan. Deze groepen zijn alleen bedoeld ter ondersteuning van de beheeroplossing.   
 
 U kunt de Windows-computers echter wel toevoegen aan een Hybrid Runbook Worker-groep in uw Automation-account voor ondersteuning van Automation-runbooks, mits u hetzelfde account gebruikt voor zowel de oplossing als het lidmaatschap van de Hybrid Runbook Worker-groep.  Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Configuratie
-Voer de volgende stappen uit om de oplossing Update Management toe te voegen aan uw OMS-werkruimte en om te controleren of agents wel rapporteren. Windows-agents die al met uw werkruimte zijn verbonden, worden automatisch toegevoegd zonder extra configuratie.
+Voer de volgende stappen voor het beheersysteem voor Update toevoegen aan uw werkruimte voor logboekanalyse en Bevestig het melden van agents. Windows-agents die al met uw werkruimte zijn verbonden, worden automatisch toegevoegd zonder extra configuratie.
 
-U kunt de oplossing implementeren met behulp van de volgende methoden:
+U kunt de oplossing uit Azure Marketplace in de Azure portal implementeren door de Automation en Control aanbieding of een oplossing voor het beheer van de Update te selecteren
 
-* Vanuit de Azure Marketplace in Azure Portal door de aanbieding Automation en besturing of de oplossing Updates beheren te selecteren
-* Vanuit de galerie OMS-oplossingen in uw OMS-werkruimte
+Als u al een Automation-account en de werkruimte voor logboekanalyse aan elkaar gekoppeld in dezelfde resourcegroep en regio, wordt Automation & besturingselement selecteren Controleer de configuratie en alleen installeren van de oplossing en dit configureren op beide services.  Als u de Update Management-oplossing selecteert in Azure Marketplace, ontstaat hetzelfde gedrag.  Als u in uw abonnement geen van beide services hebt geïmplementeerd, volgt u de stappen op de blade **Nieuwe oplossing maken** en bevestigt u dat u de andere vooraf geselecteerde aanbevolen oplossingen wilt installeren.  Desgewenst kunt u de oplossing updatebeheer toevoegen aan uw werkruimte voor logboekanalyse volgens de stappen in [toevoegen OMS oplossingen](../log-analytics/log-analytics-add-solutions.md).  
 
-Als u al een Automation-account hebt en de OMS-werkruimte is gekoppeld aan dezelfde resourcegroep en regio, kunt u Automation en besturing selecteren om de configuratie te verifiëren. U installeert dan alleen de oplossing en deze wordt vervolgens in beide services geconfigureerd.  Als u de Update Management-oplossing selecteert in Azure Marketplace, ontstaat hetzelfde gedrag.  Als u in uw abonnement geen van beide services hebt geïmplementeerd, volgt u de stappen op de blade **Nieuwe oplossing maken** en bevestigt u dat u de andere vooraf geselecteerde aanbevolen oplossingen wilt installeren.  Optioneel kunt u ook de oplossing Update Management toevoegen aan uw OMS-werkruimte volgens de procedure die is beschreven in [OMS-oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md). Dit kan via de Oplossingengalerie.  
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-log-analytics"></a>Bevestig de OMS-agents en Operations Manager-beheergroep verbonden met logboekanalyse
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Controleren of OMS-agents en Operations Manager-beheergroepen zijn verbonden met OMS
-
-Als u wilt controleren of rechtstreeks verbonden OMS-agents voor Linux en Windows communiceren met OMS, voert u na enkele minuten de volgende logboekzoekopdracht uit:
+Om te bevestigen rechtstreeks verbonden OMS-Agent voor Linux en Windows communiceert Log Analytics na een paar minuten kunt uitvoeren van de volgende logboek zoekactie:
 
 * Linux - `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows - `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-Op Windows-computers kunt u het volgende controleren om te bekijken of agents verbonden zijn met OMS:
+Op een Windows-computer, kunt u het volgende om te controleren of de verbinding van de agent met logboekanalyse bekijken:
 
 1.  Open Microsoft Monitoring Agent in het Configuratiescherm en ga naar het tabblad **Azure-logboekanalyse (OMS)**. Het volgende bericht wordt weergegeven voor de agent: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
-2.  Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector.  Deze gebeurtenissen geven aan of de computer is geregistreerd bij de OMS-werkruimte en of deze configuratie ontvangt.  
+2.  Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector.  Deze gebeurtenissen geven aan de computer met de werkruimte voor logboekanalyse is geregistreerd en configuratie ontvangt.  
 
-Als de agent niet kan communiceren met de OMS-service en is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of de firewall of proxyserver correct is geconfigureerd: [informatie over de netwerkconfiguratie voor de Windows-agent](../log-analytics/log-analytics-windows-agent.md) en [informatie over de netwerkconfiguratie voor de Linux-agent](../log-analytics/log-analytics-agent-linux.md) (beide onderwerpen zijn in het Engels overigens).
+Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd om te communiceren met internet via een firewall of proxyserver, controleert u de firewall of proxy-server correct is geconfigureerd aan de hand van [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-windows-agent.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of OMS-gateway en u deze oplossing wilt onboarden, moet de *proxy.conf*-machtigingen bijwerken om de groep omiuser leesmachtigingen te geven voor het bestand. Dit kan door de volgende opdrachten uit te voeren:  
@@ -136,7 +133,7 @@ Als de agent niet kan communiceren met de OMS-service en is geconfigureerd voor 
 
 Bij pas toegevoegde Linux-agents staat de status **Bijgewerkt** na het uitvoeren van een beoordeling.  Dit proces kan maximaal zes uur duren.
 
-Als u wilt controleren of een Operations Manager-beheergroep communiceert met OMS, raadpleegt u [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms) (Operations Manager-integratie met OMS controleren).
+Om te controleren op een Operations Manager-beheergroep communiceert met Log Analytics, Zie [Operations Manager-integratie valideren met OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
@@ -146,7 +143,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | --- | --- | --- |
 | Windows-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Windows-agents en start de installatie van de vereiste updates. |
 | Linux-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Linux-agents en start de installatie van de vereiste updates op ondersteunde besturingssysteemversies. |
-| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br>Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens worden doorgestuurd van de beheergroep naar de OMS-opslag. |
+| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br>Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse. |
 | Azure Storage-account |Nee |Azure Storage bevat geen informatie over systeemupdates. |
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
@@ -155,7 +152,7 @@ Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd.
 Het kan dertig minuten tot zes uur duren voordat er in het dashboard bijgewerkte gegevens worden weergegeven van de beheerder computers.   
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u de oplossing Updatebeheer toevoegt aan uw OMS-werkruimte wordt de tegel **Updatebeheer** toegevoegd aan uw OMS-dashboard. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
+Wanneer u de oplossing voor beheer van updates aan uw werkruimte voor logboekanalyse toevoegt de **updatebeheer** tegel wordt toegevoegd aan uw dashboard logboekanalyse. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
 ![Tegel overzicht Updatebeheer](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
@@ -220,7 +217,7 @@ Het bereik van de gegevens die worden geanalyseerd in de Updatebeheeroplossing i
 Om het tijdbereik van de gegevens te wijzigen, selecteert u **Gegevens op basis van** bovenaan op het dashboard. U kunt records selecteren die de afgelopen 7 dagen, 1 dag of 6 uur zijn gemaakt of bijgewerkt. U kunt ook **Aangepast** selecteren en een aangepast datumbereik opgeven.
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
-Met de oplossing Updatebeheer worden twee typen records gemaakt in de OMS-opslagplaats.
+De oplossing voor beheer van de Update maakt twee soorten records in de werkruimte voor logboekanalyse.
 
 ### <a name="update-records"></a>Records bijwerken
 Een record met het type **Bijwerken** wordt gemaakt voor elke update die is geïnstalleerd of vereist is op elke computer. Updaterecords hebben de eigenschappen in de volgende tabel.
@@ -317,7 +314,7 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, zijn ook afhankelijk van de kracht en looptijd ervan bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.
 
-Zie [Integratie van System Center Configuration Manager met OMS-updatebeheer [Preview]](../automation/oms-solution-updatemgmt-sccmintegration.md) voor informatie over het integreren van de OMS-updatebeheeroplossing met Sytem Center Configuration Manager.
+Zie voor meer informatie over de OMS-updatebeheer-oplossing integreren met System Center Configuration Manager, [integreren van System Center Configuration Manager met OMS updatebeheer](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -335,7 +332,7 @@ Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuel
 | Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Maken van een zelfondertekend certificaat is mislukt. ---><br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount<br>leestoegang heeft tot de map:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Hoe kan ik problemen met update-implementaties oplossen?
-U kunt de resultaten bekijken van het runbook dat verantwoordelijk is voor het implementeren van de updates uit de geplande update-implementatie. Ga daarvoor naar de blade Taken van uw Automation-account dat is gekoppeld aan de OMS-werkruimte die deze oplossing ondersteunt.  Het runbook **Patch-MicrosoftOMSComputer** is een onderliggend runbook dat is gericht op een specifieke beheerde computer. Als u de gedetailleerde stroom bekijkt, komt u meer te weten over die implementatie.  In de uitvoer staat welke vereiste updates van toepassing zijn, wat de downloadstatus is en wat de installatiestatus is. Ook wordt er aanvullende informatie geboden.<br><br> ![De taakstatus van de update-implementatie](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+U kunt de resultaten van het runbook die verantwoordelijk is voor het implementeren van de updates die zijn opgenomen in de implementatie van de geplande update van de blade taken van uw Automation-account dat is gekoppeld aan de werkruimte voor logboekanalyse ondersteuning van deze oplossing weergeven.  Het runbook **Patch-MicrosoftOMSComputer** is een onderliggend runbook dat is gericht op een specifieke beheerde computer. Als u de gedetailleerde stroom bekijkt, komt u meer te weten over die implementatie.  In de uitvoer staat welke vereiste updates van toepassing zijn, wat de downloadstatus is en wat de installatiestatus is. Ook wordt er aanvullende informatie geboden.<br><br> ![De taakstatus van de update-implementatie](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Zie [Automation-runbookuitvoer en -berichten](../automation/automation-runbook-output-and-messages.md) voor meer informatie.   
 

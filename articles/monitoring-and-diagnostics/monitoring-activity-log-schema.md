@@ -12,100 +12,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Activity Log gebeurtenis schema
 De **Azure Activity Log** is een logboek die biedt inzicht in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel wordt het schema van de gebeurtenis per categorie van gegevens.
 
-## <a name="administrative"></a>Beheerdersrechten
+## <a name="administrative"></a>Administratief
 Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van welke typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of toepassing die met Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van die bewerking vastgelegd in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen aan rollen gebaseerd toegangsbeheer in een abonnement.
 
 ### <a name="sample-event"></a>Voorbeeld van de gebeurtenis
 ```json
 {
-  "authorization": {
-    "action": "microsoft.support/supporttickets/write",
-    "role": "Subscription Admin",
-    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-  },
-  "caller": "admin@contoso.com",
-  "channels": "Operation",
-  "claims": {
-    "aud": "https://management.core.windows.net/",
-    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-    "iat": "1421876371",
-    "nbf": "1421876371",
-    "exp": "1421880271",
-    "ver": "1.0",
-    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-    "puid": "20030000801A118C",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-    "name": "John Smith",
-    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-    "appidacr": "2",
-    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-  },
-  "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "description": "",
-  "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-  "eventName": {
-    "value": "EndRequest",
-    "localizedValue": "End request"
-  },
-  "httpRequest": {
-    "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-    "clientIpAddress": "192.168.35.115",
-    "method": "PUT"
-  },
-  "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-  "level": "Informational",
-  "resourceGroupName": "MSSupportGroup",
-  "resourceProviderName": {
-    "value": "microsoft.support",
-    "localizedValue": "microsoft.support"
-  },
-  "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-  "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "operationName": {
-    "value": "microsoft.support/supporttickets/write",
-    "localizedValue": "microsoft.support/supporttickets/write"
-  },
-  "properties": {
-    "statusCode": "Created"
-  },
-  "status": {
-    "value": "Succeeded",
-    "localizedValue": "Succeeded"
-  },
-  "subStatus": {
-    "value": "Created",
-    "localizedValue": "Created (HTTP Status Code: 201)"
-  },
-  "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-  "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-  "subscriptionId": "s1"
+    "authorization": {
+        "action": "Microsoft.Network/networkSecurityGroups/write",
+        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+    },
+    "caller": "rob@contoso.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "_claim_names": "{\"groups\":\"src1\"}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+        "appid": "355249ed-15d9-460d-8481-84026b065942",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "10845a4d-ffa4-4b61-a3b4-e57b9b31cdb5",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Robertson",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Rob",
+        "ipaddr": "111.111.1.111",
+        "name": "Rob Robertson",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "onprem_sid": "S-1-5-21-4837261184-168309720-1886587427-18514304",
+        "puid": "18247BBD84827C6D",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "rob@contoso.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "rob@contoso.com",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
+    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "level": "Informational",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Network/networkSecurityGroups/write",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups/write"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkSecurityGroups",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups"
+    },
+    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
+    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "properties": {
+        "statusCode": "Created",
+        "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
+        "responseBody": "",
+        "requestbody": ""
+    },
+    "relatedEvents": []
 }
+
 ```
 
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | Elementnaam | Beschrijving |
 | --- | --- |
 | Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk het eigenschappen "action", 'rol' en 'bereik'. |
-| aanroeper |E-mailadres van de gebruiker die is uitgevoerd. de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid. |
+| oproepende functie |E-mailadres van de gebruiker die is uitgevoerd. de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid. |
 | kanalen |Een van de volgende waarden: 'Admin', 'Operation' |
-| Claims |De JWT-token gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing naar deze bewerking niet uitvoeren in het resourcemanager. |
+| claims |De JWT-token gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing naar deze bewerking niet uitvoeren in het resourcemanager. |
 | correlationId |Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die een correlationId share deel uitmaken van dezelfde uber actie. |
 | description |De beschrijving van de statische tekst van een gebeurtenis. |
 | eventDataId |De unieke id van een gebeurtenis. |
@@ -189,7 +202,7 @@ kanalen | Is een van de volgende waarden: 'Admin', 'Operation'
 correlationId | Is meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen met die deel uitmaken van dezelfde uber actie meestal delen de dezelfde correlationId.
 description | Beschrijving van de gebeurtenis.
 eventDataId | De unieke id van een gebeurtenis.
-EventName | De titel van de gebeurtenis.
+eventName | De titel van de gebeurtenis.
 niveau | Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en 'Verbose'
 resourceProviderName | De naam van de resourceprovider voor de betrokken resource. Als u niet bekend is, wordt dit niet null zijn.
 resourceType| Het type resource van de betrokken resource. Als u niet bekend is, wordt dit niet null zijn.
@@ -198,8 +211,8 @@ eventTimestamp | Tijdstempel wanneer het gebeurtenislogboek is gegenereerd en na
 submissionTimestamp |   Tijdstempel wanneer de gebeurtenis is beschikbaar in het activiteitenlogboek geworden.
 subscriptionId | De Azure-abonnement in waarmee deze gebeurtenis is vastgelegd.
 status | De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: actief, opgelost.
-operationName | De naam van de bewerking. Meestal Microsoft.ServiceHealth/incident/action.
-category | 'ServiceHealth'
+operationName | De naam van de bewerking. Usually Microsoft.ServiceHealth/incident/action.
+category | "ServiceHealth"
 resourceId | Bron-id van de betrokken resource, indien bekend. Abonnements-ID is anders opgegeven.
 Properties.title | De gelokaliseerde titel voor deze communicatie. Engels is de standaardtaal.
 Properties.Communication | De gelokaliseerde details van de communicatie met de HTML-opmaak. Engels is de standaardinstelling.
@@ -278,9 +291,9 @@ Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure.
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | Elementnaam | Beschrijving |
 | --- | --- |
-| aanroeper | Altijd Microsoft.Insights/alertRules |
+| oproepende functie | Altijd Microsoft.Insights/alertRules |
 | kanalen | Altijd 'Admin, bewerking' |
-| Claims | JSON-blob met het type SPN (service principal name) of de bron van de waarschuwings-engine. |
+| claims | JSON-blob met het type SPN (service principal name) of de bron van de waarschuwings-engine. |
 | correlationId | Een GUID in de indeling van de tekenreeks. |
 | description |De beschrijving van de statische tekst van de waarschuwing gebeurtenis. |
 | eventDataId |De unieke id van de waarschuwing gebeurtenis. |
@@ -309,20 +322,20 @@ Het eigenschappenveld bevat verschillende waarden, afhankelijk van de bron van d
 | properties.resourceId | De resource-ID van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd. |
 | properties.eventTimestamp | De gebeurtenis tijdstempel van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd. |
 | properties.operationName | De naam van de bewerking van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd. |
-| Properties.status | De status van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd.|
+| properties.status | De status van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd.|
 
 #### <a name="properties-for-metric-alerts"></a>Eigenschappen van metrische waarschuwingen
 | Elementnaam | Beschrijving |
 | --- | --- |
-| Eigenschappen. RuleUri | Bron-ID van de metrische waarschuwingsregel zelf. |
-| Eigenschappen. RuleName | De naam van de metrische waarschuwingsregel. |
+| properties.RuleUri | Bron-ID van de metrische waarschuwingsregel zelf. |
+| properties.RuleName | De naam van de metrische waarschuwingsregel. |
 | Eigenschappen. RuleDescription | De beschrijving van de metrische waarschuwingsregel (zoals gedefinieerd in de waarschuwingsregel). |
 | Eigenschappen. Drempelwaarde | De drempelwaarde die wordt gebruikt in de evaluatie van de metrische waarschuwingsregel. |
-| Eigenschappen. WindowSizeInMinutes | De grootte die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
-| Eigenschappen. Aggregatie | Het samenvoegingstype in de metrische waarschuwingsregel gedefinieerd. |
-| Eigenschappen. Operator | De voorwaardelijke operator die wordt gebruikt in de evaluatie van de metrische waarschuwingsregel. |
-| Eigenschappen. MetricName | De metrische naam van de metrische gegevens die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
-| Eigenschappen. MetricUnit | De metrische eenheid voor de metriek gebruikt in de evaluatie van de metrische waarschuwingsregel. |
+| properties.WindowSizeInMinutes | De grootte die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
+| properties.Aggregation | Het samenvoegingstype in de metrische waarschuwingsregel gedefinieerd. |
+| properties.Operator | De voorwaardelijke operator die wordt gebruikt in de evaluatie van de metrische waarschuwingsregel. |
+| properties.MetricName | De metrische naam van de metrische gegevens die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
+| properties.MetricUnit | De metrische eenheid voor de metriek gebruikt in de evaluatie van de metrische waarschuwingsregel. |
 
 ## <a name="autoscale"></a>Automatisch schalen
 Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werking van de engine voor het automatisch schalen op basis van de instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Automatisch schalen opschaling van de actie is mislukt." Met automatisch schalen, kunt u automatisch geschaald uitbreiden of schalen op basis van tijd van de dag en/of laden (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde brontype. Wanneer de voorwaarden worden voldaan op schaal omhoog of omlaag is gestart en is geslaagd of mislukt gebeurtenissen worden vastgelegd in deze categorie.
@@ -387,9 +400,9 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | Elementnaam | Beschrijving |
 | --- | --- |
-| aanroeper | Altijd Microsoft.Insights/autoscaleSettings |
+| oproepende functie | Altijd Microsoft.Insights/autoscaleSettings |
 | kanalen | Altijd 'Admin, bewerking' |
-| Claims | JSON-blob met het type SPN (service principal name) of de bron van de engine voor automatisch schalen. |
+| claims | JSON-blob met het type SPN (service principal name) of de bron van de engine voor automatisch schalen. |
 | correlationId | Een GUID in de indeling van de tekenreeks. |
 | description |De beschrijving van de statische tekst van de gebeurtenis met automatisch schalen. |
 | eventDataId |De unieke id van de gebeurtenis met automatisch schalen. |
@@ -401,10 +414,10 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
 | operationName |De naam van de bewerking. |
 | properties |Een set `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis. |
 | Eigenschappen. Beschrijving | Gedetailleerde beschrijving van wat de engine voor het automatisch schalen die werd uitgevoerd. |
-| Eigenschappen. ResourceName | Bron-ID van de betrokken resource (de resource waarop de schaalactie werd uitgevoerd) |
-| Eigenschappen. OldInstancesCount | Het aantal exemplaren voordat de actie voor automatisch schalen van kracht. |
-| Eigenschappen. NewInstancesCount | Het aantal exemplaren nadat de actie voor automatisch schalen van kracht. |
-| Eigenschappen. LastScaleActionTime | De tijdstempel van wanneer de actie voor automatisch schalen is opgetreden. |
+| properties.ResourceName | Bron-ID van de betrokken resource (de resource waarop de schaalactie werd uitgevoerd) |
+| properties.OldInstancesCount | Het aantal exemplaren voordat de actie voor automatisch schalen van kracht. |
+| properties.NewInstancesCount | Het aantal exemplaren nadat de actie voor automatisch schalen van kracht. |
+| properties.LastScaleActionTime | De tijdstempel van wanneer de actie voor automatisch schalen is opgetreden. |
 | status |De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: In voortgang, geslaagd, mislukt, actief, opgelost gestart. |
 | subStatus | Meestal null voor automatisch schalen. |
 | eventTimestamp |Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt. |
@@ -481,17 +494,17 @@ Deze rubriek bevat de record geen waarschuwingen gegenereerd door Azure Security
 | correlationId | Een GUID in de indeling van de tekenreeks. |
 | description |De beschrijving van de statische tekst van de beveiligingsgebeurtenis. |
 | eventDataId |De unieke id van de beveiligingsgebeurtenis. |
-| EventName |Beschrijvende naam van de beveiligingsgebeurtenis. |
+| eventName |Beschrijvende naam van de beveiligingsgebeurtenis. |
 | id |Unieke resource-id van de beveiligingsgebeurtenis. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' of 'Uitgebreid' |
 | resourceGroupName |De naam van de resourcegroep voor de resource. |
-| resourceProviderName |Naam van de resourceprovider voor Azure Security Center. Altijd 'Microsoft.Security'. |
+| resourceProviderName |Naam van de resourceprovider voor Azure Security Center. Always "Microsoft.Security". |
 | resourceType |Het type resource dat de beveiligingsgebeurtenis, zoals 'Microsoft.Security/locations/alerts' gegenereerd |
 | resourceId |Bron-id van de beveiligingswaarschuwing. |
 | operationId |Een GUID die wordt gedeeld door de gebeurtenissen die met één bewerking overeenkomen. |
 | operationName |De naam van de bewerking. |
 | properties |Een set `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis. Deze eigenschappen varieert afhankelijk van het type beveiligingswaarschuwing. Zie [deze pagina](../security-center/security-center-alerts-type.md) voor een beschrijving van de typen waarschuwingen die afkomstig van Security Center zijn. |
-| Eigenschappen. Ernst |De ernst op. Mogelijke waarden zijn 'Hoog', 'Gemiddeld' of 'Laag'. |
+| properties.Severity |De ernst op. Mogelijke waarden zijn 'Hoog', 'Gemiddeld' of 'Laag'. |
 | status |De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: In voortgang, geslaagd, mislukt, actief, opgelost gestart. |
 | subStatus | Meestal null voor beveiligingsgebeurtenissen. |
 | eventTimestamp |Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt. |

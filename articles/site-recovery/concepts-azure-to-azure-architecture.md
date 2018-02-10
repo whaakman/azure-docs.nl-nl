@@ -1,16 +1,19 @@
 ---
 title: Replicatie van Azure naar Azure-architectuur in Azure Site Recovery | Microsoft Docs
 description: Dit artikel bevat een overzicht van de onderdelen en de architectuur die wordt gebruikt voor het virtuele Azure-machines repliceren tussen Azure-regio's met de Azure Site Recovery-service.
+services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architectuur van de replicatie van Azure naar Azure
 

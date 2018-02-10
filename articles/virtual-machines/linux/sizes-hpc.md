@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: a235261dc477ab29dc17fe1e680e4e91ae2f4ede
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Hoge prestaties compute grootten van virtuele machines
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="rdma-capable-instances"></a>RDMA-compatibele exemplaren
-Een netwerkinterface voor remote direct memory access (RDMA) connectiviteit zijn uitgerust met een subset van de exemplaren rekenintensieve (H16mr H16r A8 en A9). Deze interface is naast de standaard Azure netwerkinterface beschikbaar voor andere VM-groottes. 
+Een netwerkinterface voor remote direct memory access (RDMA) connectiviteit zijn uitgerust met een subset van de exemplaren rekenintensieve (H16r, H16mr NC24r, A8 en A9). Deze interface is naast de standaard Azure netwerkinterface beschikbaar voor andere VM-groottes. 
   
-Deze interface kunt de RDMA-compatibele exemplaren om te communiceren via een InfiniBand-netwerk op FDR tarieven voor H16r en H16mr virtuele machines en QDR tarieven voor A8 en A9 virtuele machines. Deze RDMA-mogelijkheden kunnen verbeteren de schaalbaarheid en prestaties van Message Passing Interface (MPI) toepassingen die worden uitgevoerd onder Intel MPI 5.x of een latere versie.
+Deze interface kunt de RDMA-compatibele exemplaren om te communiceren via een InfiniBand-netwerk op FDR tarieven voor H16r H16mr en NC24r virtuele machines en QDR tarieven voor A8 en A9 virtuele machines. Deze RDMA-mogelijkheden kunnen verbeteren de schaalbaarheid en prestaties van Message Passing Interface (MPI) toepassingen die worden uitgevoerd onder Intel MPI 5.x alleen. Latere versies (2017, 2018) van Intel MPI-runtime-bibliotheek zijn niet compatibel met de Azure-RDMA-stuurprogramma's.
 
 Implementeer de RDMA-compatibele virtuele machines in dezelfde beschikbaarheidsset (bij gebruik van het Azure Resource Manager-implementatiemodel) of in dezelfde cloudservice (bij gebruik van het klassieke implementatiemodel). Aanvullende vereisten voor RDMA-compatibele Linux VM's toegang tot het netwerk van Azure RDMA volgen.
 
@@ -56,7 +56,7 @@ Een rekenintensieve VM implementeren vanaf een van de afbeeldingen in de Azure M
   > Op de installatiekopieën op basis van CentOS HPC kernel-updates zijn uitgeschakeld in de **yum** configuratiebestand. Dit is omdat de Linux RDMA-stuurprogramma's zijn gedistribueerd als een RPM-pakket en updates voor stuurprogramma's niet werken mogelijk als de kernel wordt bijgewerkt.
   > 
  
-### <a name="cluster-configuration"></a>Configuratie van het cluster 
+### <a name="cluster-configuration"></a>Clusterconfiguratie 
     
 MPI-taken uitvoeren op geclusterde virtuele machines is aanvullende configuratie vereist. Op een cluster van virtuele machines moet u bijvoorbeeld een vertrouwensrelatie tussen de rekenknooppunten. Zie voor de gebruikelijke instellingen [instellen van een cluster Linux RDMA MPI-toepassingen uitvoeren](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

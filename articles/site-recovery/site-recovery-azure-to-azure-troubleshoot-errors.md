@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/05/2017
 ms.author: sujayt
-ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8f9ff8332f33972489721e0d16717d1d6fe15fcd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Oplossen van problemen met de replicatie van de virtuele machine van Azure naar Azure
 
@@ -61,34 +61,93 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
 
 1.  Aanmelden als een hoofdgebruiker.
 
-2.  Voer deze opdracht uit:
+2.  Voer deze opdracht om te wijzigen van de map.
 
       ``# cd /etc/ssl/certs``
 
-3.  Om te zien of het basis-CA-certificaat van Symantec aanwezig is, moet u deze opdracht uitvoeren:
+3. Controleer of de basis-CA-certificaat van Symantec aanwezig is.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.  Als het bestand niet wordt gevonden, kunt u deze opdrachten uitvoeren:
+4. Als de basis-CA-certificaat van Symantec niet wordt gevonden, voer de volgende opdracht om het bestand te downloaden. Controleer op fouten en volg de aanbevolen actie voor netwerkfouten.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Controleer of het Baltimore basis-CA-certificaat aanwezig is.
 
-5.  Maken van een symlink met b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem, voert u deze opdracht:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. Als het Baltimore basis-CA-certificaat niet is gevonden, downloadt u het certificaat.  
 
-6.  Controleer of deze opdracht de volgende uitvoer heeft. Als dat niet het geval is, u moet een symlink maken:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. Controleer of het certificaat DigiCert_Global_Root_CA aanwezig is.
 
-7. Als symlink 653b494a.0 niet aanwezig is, gebruikt u deze opdracht voor het maken van een symlink:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. Als de DigiCert_Global_Root_CA niet wordt gevonden, voer de volgende opdrachten om het certificaat te downloaden.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Voer rehash script bijwerken van het certificaat onderwerp hashes voor de zojuist gedownloade certificaten.
+
+    ``# c_rehash``
+
+10. Controleer of het onderwerp hashes als symlinks zijn gemaakt voor de certificaten.
+
+    - Opdracht
+
+      ``# ls -l | grep Baltimore``
+
+    - Uitvoer
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Opdracht
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Uitvoer
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Opdracht
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Uitvoer
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Maak een kopie van het bestand VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem met filename b204d74a.0
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Maak een kopie van het bestand Baltimore_CyberTrust_Root.pem met filename 653b494a.0
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Maak een kopie van het bestand DigiCert_Global_Root_CA.pem met filename 3513523f.0
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Controleer of de bestanden aanwezig zijn.  
+
+    - Opdracht
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Uitvoer
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Uitgaande verbinding voor de Site Recovery-URL's of het IP-adresbereiken (foutcode 151037 of 151072)
@@ -131,6 +190,20 @@ U ziet mogelijk niet uw Azure-VM voor selectie in [replicatie inschakelen: stap 
 
 U kunt [verwijderen van verouderde ASR configuratiescript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) en verwijdert u de verouderde Site Recovery-configuratie op de virtuele machine in Azure. U ziet dat de virtuele machine in [replicatie inschakelen: stap 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) na het verwijderen van verouderde configuratie.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>De Inrichtingsstatus van de virtuele machine is niet geldig (foutcode 150019)
+
+Schakel replicatie op de virtuele machine door de Inrichtingsstatus moet **geslaagd**. U kunt de VM-status controleren door de onderstaande stappen te volgen.
+
+1.  Selecteer de **Resource Explorer** van **alle Services** in Azure-portal.
+2.  Vouw de **abonnementen** lijst en uw abonnement te selecteren.
+3.  Vouw de **ResourceGroups** lijst en selecteert u de resourcegroep van de virtuele machine.
+4.  Vouw de **Resources** lijst en selecteer de virtuele machine
+5.  Controleer de **provisioningState** veld in de weergave op de rechterzijde exemplaar.
+
+### <a name="fix-the-problem"></a>Los het probleem
+
+- Als **provisioningState** is **mislukt**, contact op met de ondersteuning met details om op te lossen.
+- Als **provisioningState** is **Updating**, kan ophalen van een andere extensie geïmplementeerd. Controleer of er zijn geen actieve bewerkingen op de virtuele machine, wachten totdat ze zijn voltooid en probeer opnieuw het herstel van de mislukte Site **replicatie inschakelen** taak.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Virtuele Azure-machines repliceren](site-recovery-replicate-azure-to-azure.md)

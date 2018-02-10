@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Nieuwe Azure knooppunt virtuele Linux-machine implementeren
 Als u problemen bij het oplossen van SSH wordt geconfronteerd of toegang tot de toepassing naar een Linux virtuele machine (VM) in Azure, opnieuw distribueren van de virtuele machine kan helpen. Wanneer u een virtuele machine opnieuw implementeert, wordt de virtuele machine verplaatst naar een nieuw knooppunt in de Azure-infrastructuur en wordt deze vervolgens weer ingeschakeld. Alle configuratie-opties en bijbehorende bronnen worden bewaard. In dit artikel leest u hoe een virtuele machine met behulp van Azure CLI of Azure portal opnieuw implementeren.
@@ -33,9 +33,9 @@ U kunt een virtuele machine met een van de volgende opties opnieuw implementeren
 - [Azure Portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en zich aanmelden bij uw Azure-account met [az aanmelding](/cli/azure/#login).
+Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en zich aanmelden bij uw Azure-account met [az aanmelding](/cli/azure/#az_login).
 
-Implementeren van uw virtuele machine met [az vm opnieuw distribueren](/cli/azure/vm#redeploy). Het volgende voorbeeld de virtuele machine met de naam redeploys *myVM* in de resourcegroep met de naam *myResourceGroup*:
+Implementeren van uw virtuele machine met [az vm opnieuw distribueren](/cli/azure/vm#az_vm_redeploy). Het volgende voorbeeld de virtuele machine met de naam redeploys *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 
