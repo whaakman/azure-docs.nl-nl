@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Blob Storage gebruiken met Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Dit artikel laat zien hoe u veelvoorkomende scenario's met behulp van Blob-opsla
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
-Zie voor instructies over het maken van een Node.js-toepassing [Maak een Node.js-web-app in Azure App Service] [bouwen en implementeren van een Node.js-toepassing naar een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) --met Windows PowerShell of [bouwen en een Node.js-web-app implementeren naar Azure met behulp van Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Zie voor instructies over het maken van een Node.js-toepassing [een Node.js-web-app maken in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [bouwen en implementeren van een Node.js-toepassing naar een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) --met Windows PowerShell of [bouwen en implementeren van een Node.js-web-app in Azure met behulp van Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Uw toepassing configureren voor toegang tot opslag
 Voor het gebruik van Azure-opslag, moet u de Azure-opslag-SDK voor Node.js, waaronder een set van gemak bibliotheken die met de storage REST-services communiceren.
@@ -423,6 +423,6 @@ Zie de volgende bronnen voor meer informatie.
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
-[Bouw en implementeer een Node.js-toepassing naar een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Een Node.js-toepassing maken en implementeren in een Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog van azure Storage-Team]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Azure-opslag-SDK voor knooppunt API-referentiemateriaal]: http://dl.windowsazure.com/nodestoragedocs/index.html  
