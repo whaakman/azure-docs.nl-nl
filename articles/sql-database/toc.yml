@@ -359,6 +359,8 @@
           items:
             - name: Een voorbeeld-app implementeren
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Tenants inrichten
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Database per tenant
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

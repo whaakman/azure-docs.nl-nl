@@ -2,7 +2,7 @@
 ## [Wat is Relay?](relay-what-is-it.md)
 ## [Veelgestelde vragen](relay-faq.md)
 
-# Aan de slag
+# Snelstartgidsen
 ## [Een naamruimte maken](relay-create-namespace-portal.md)
 ## [Een hybride on-premises/cloudtoepassing maken](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybride verbindingen

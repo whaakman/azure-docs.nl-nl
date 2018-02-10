@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: Streamen met Kafka en Spark in HDInsight
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Een website implementeren met Azure App Service
           href: create-website.md
         - name: Toepassingslogboeken bijhouden met Logische apps

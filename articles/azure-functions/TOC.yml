@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Ontwikkelen in Visual Studio
           href: functions-develop-vs.md
+        - name: Foutafhandeling
+          href: functions-bindings-error-pages.md
     - name: Implementeren
       items:
         - name: Doorlopende implementatie

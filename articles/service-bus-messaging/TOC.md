@@ -4,7 +4,7 @@
 ## [Service Bus-architectuur](service-bus-architecture.md)
 ## [Veelgestelde vragen](service-bus-faq.md)
 
-# Aan de slag
+# Snelstartgidsen
 ## [Een naamruimte maken](service-bus-create-namespace-portal.md)
 ## Wachtrijen gebruiken
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

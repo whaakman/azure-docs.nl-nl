@@ -3,7 +3,7 @@
 ## [Functies van Event Hubs](event-hubs-features.md)
 ## [Veelgestelde vragen](event-hubs-faq.md)
 
-# Aan de slag
+# Snelstartgidsen
 ## [Een Event Hub maken](event-hubs-create.md)
 ## Gebeurtenissen verzenden
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
