@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - identificatie en verificatie
-description: Webtoepassingen voor FedRAMP - identificatie en verificatie
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - identificatie en verificatie
+description: FedRAMP Web Applications Automation - identificatie en verificatie
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificatie en verificatie (IA)
 
-## <a name="nist-800-53-control-ia-1"></a>NIST 800 53 besturingselement IA-1
+## <a name="nist-800-53-control-ia-1"></a>NIST 800-53 Control IA-1
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-2"></a>NIST 800 53 besturingselement IA-2
+ ## <a name="nist-800-53-control-ia-2"></a>NIST 800-53 Control IA-2
 
 #### <a name="identification-and-authentication-organizational-users"></a>Identificatie en verificatie (organisatie gebruikers)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Accounts die zijn gemaakt door deze Azure blauwdruk hebben unieke id's. Ingebouwde accounts met niet-unieke id's worden uitgeschakeld of verwijderd. |
+| **De klant** | Accounts die zijn gemaakt door deze blauwdruk hebben unieke id's. Ingebouwde accounts met niet-unieke id's worden uitgeschakeld of verwijderd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-2"></a>NIST 800 53 besturingselement IA-2 (2)
+ ### <a name="nist-800-53-control-ia-2-2"></a>NIST 800-53 Control IA-2 (2)
 
 #### <a name="identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>Identificatie en verificatie (organisatie gebruikers) | Toegang tot het netwerk naar niet-gemachtigde Accounts
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk Azure. |
+| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -133,11 +133,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Toegang tot resources die zijn geïmplementeerd door deze blauwdruk Azure is beveiligd tegen replay-aanvallen door de ingebouwde Kerberos-functionaliteit van Azure Active Directory, Active Directory en de Windows-besturingssysteem. In Kerberos-verificatie bevat de verificator verzonden door de client bijkomende gegevens, zoals een lijst met versleutelde IP-, client tijdstempels en ticket levensduur. Als een pakket opnieuw en nu afgespeeld, wordt de tijdstempel gecontroleerd. Als de tijdstempel lager dan is of gelijk zijn aan een eerdere verificator, het pakket is afgewezen. |
+| **De klant** | Toegang tot resources die zijn geïmplementeerd door deze blauwdruk is beveiligd tegen replay-aanvallen door de ingebouwde Kerberos-functionaliteit van Azure Active Directory, Active Directory en de Windows-besturingssysteem. In Kerberos-verificatie bevat de verificator verzonden door de client bijkomende gegevens, zoals een lijst met versleutelde IP-, client tijdstempels en ticket levensduur. Als een pakket opnieuw en nu afgespeeld, wordt de tijdstempel gecontroleerd. Als de tijdstempel lager dan is of gelijk zijn aan een eerdere verificator, het pakket is afgewezen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-9"></a>NIST 800 53 besturingselement IA-2 (9)
+ ### <a name="nist-800-53-control-ia-2-9"></a>NIST 800-53 Control IA-2 (9)
 
 #### <a name="identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts---replay-resistant"></a>Identificatie en verificatie (organisatie gebruikers) | Netwerktoegang tot onbevoegde-Accounts: mailbeveiliging opnieuw afspelen
 
@@ -147,11 +147,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Toegang tot resources die zijn geïmplementeerd door deze blauwdruk Azure is beveiligd tegen replay-aanvallen door de ingebouwde Kerberos-functionaliteit van Azure Active Directory, Active Directory en de Windows-besturingssysteem. In Kerberos-verificatie bevat de verificator verzonden door de client bijkomende gegevens, zoals een lijst met versleutelde IP-, client tijdstempels en ticket levensduur. Als een pakket opnieuw en nu afgespeeld, wordt de tijdstempel gecontroleerd. Als de tijdstempel lager dan is of gelijk zijn aan een eerdere verificator, het pakket is afgewezen. |
+| **De klant** | Toegang tot resources die zijn geïmplementeerd door deze blauwdruk is beveiligd tegen replay-aanvallen door de ingebouwde Kerberos-functionaliteit van Azure Active Directory, Active Directory en de Windows-besturingssysteem. In Kerberos-verificatie bevat de verificator verzonden door de client bijkomende gegevens, zoals een lijst met versleutelde IP-, client tijdstempels en ticket levensduur. Als een pakket opnieuw en nu afgespeeld, wordt de tijdstempel gecontroleerd. Als de tijdstempel lager dan is of gelijk zijn aan een eerdere verificator, het pakket is afgewezen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-11"></a>NIST 800 53 besturingselement IA-2 (11)
+ ### <a name="nist-800-53-control-ia-2-11"></a>NIST 800-53 Control IA-2 (11)
 
 #### <a name="identification-and-authentication-organizational-users--remote-access----separate-device"></a>Identificatie en verificatie (organisatie gebruikers) | Externe toegang - afzonderlijk apparaat
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-12"></a>NIST 800 53 besturingselement IA-2 (12)
+ ### <a name="nist-800-53-control-ia-2-12"></a>NIST 800-53 Control IA-2 (12)
 
 #### <a name="identification-and-authentication-organizational-users--acceptance-of-piv-credentials"></a>Identificatie en verificatie (organisatie gebruikers) | Acceptatie van Piv referenties
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-3"></a>NIST 800 53 besturingselement IA-3
+ ## <a name="nist-800-53-control-ia-3"></a>NIST 800-53 Control IA-3
 
 #### <a name="device-identification-and-authentication"></a>Apparaat-identificatie en verificatie
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk wordt gevraagd tijdens de implementatie voor de klant opgegeven id's voor individuele accounts.  |
+| **De klant** | Deze blauwdruk wordt gevraagd tijdens de implementatie voor de klant opgegeven id's voor individuele accounts.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert een geplande taak voor Active Directory accounts automatisch uitschakelen na 35 dagen inactief. |
+| **De klant** | Deze blauwdruk implementeert een geplande taak voor Active Directory accounts automatisch uitschakelen na 35 dagen inactief. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle inhoud van de eerste verificator voor accounts die zijn gemaakt door deze blauwdruk Azure voldoen aan de vereisten vermeld in de IA-5 (1) geverifieerd wanneer opgegeven door de klant tijdens de implementatie.  |
+| **De klant** | Alle inhoud van de eerste verificator voor accounts die zijn gemaakt door deze blauwdruk voldoen aan de vereisten vermeld in de IA-5 (1) geverifieerd wanneer opgegeven door de klant tijdens de implementatie.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Verificators gebruikt door deze voldoen aan vereisten voor Azure blauwdruk voor sterkte door FedRAMP vereist. |
+| **De klant** | Verificators gebruikt door deze blauwdruk voldoen aan vereisten voor sterkte door FedRAMP vereist. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-5e"></a>NIST 800 53 besturingselement IA-5.e
+ ## <a name="nist-800-53-control-ia-5e"></a>NIST 800-53 Control IA-5.e
 
 #### <a name="authenticator-management"></a>Verificator Management
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle verificators voor de onderdelen van deze Azure blauwdruk zijn standaardwaarden gewijzigd. Verificators zijn klant opgegeven tijdens de implementatie van deze oplossing. |
+| **De klant** | Alle verificators voor de onderdelen van deze blauwdruk zijn standaardwaarden gewijzigd. Verificators zijn klant opgegeven tijdens de implementatie van deze oplossing. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is ingesteld en geconfigureerd voor het implementeren van de beperkingen van de levensduur wachtwoord (60 dagen). |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is ingesteld en geconfigureerd voor het implementeren van de beperkingen van de levensduur wachtwoord (60 dagen). |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -385,11 +385,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Key Vault authenticator om inhoud te beveiligen tegen ongeautoriseerde bekendmaking en wijziging. De volgende verificators worden opgeslagen in de Sleutelkluis: Azure-wachtwoord voor account implementeren, administrator-wachtwoord voor virtuele machine, het wachtwoord van SQL Server-serviceaccount. |
+| **De klant** | Deze blauwdruk implementeert Sleutelkluis authenticator om inhoud te beveiligen tegen ongeautoriseerde bekendmaking en aanpassen. De volgende verificators worden opgeslagen in de Sleutelkluis: Azure-wachtwoord voor account implementeren, administrator-wachtwoord voor virtuele machine, het wachtwoord van SQL Server-serviceaccount. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-5i"></a>NIST 800 53 besturingselement IA-5.i
+ ## <a name="nist-800-53-control-ia-5i"></a>NIST 800-53 Control IA-5.i
 
 #### <a name="authenticator-management"></a>Verificator Management
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Key Vault authenticator om inhoud te beveiligen tegen ongeautoriseerde bekendmaking en wijziging. De volgende verificators worden opgeslagen in de Sleutelkluis: Azure-wachtwoord voor account implementeren, administrator-wachtwoord voor virtuele machine, het wachtwoord van SQL Server-serviceaccount. Sleutelkluis versleutelt sleutels en geheimen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels en wachtwoorden) met behulp van de sleutels die worden beveiligd door hardware security modules (HSM's). |
+| **De klant** | Deze blauwdruk implementeert Sleutelkluis authenticator om inhoud te beveiligen tegen ongeautoriseerde bekendmaking en aanpassen. De volgende verificators worden opgeslagen in de Sleutelkluis: Azure-wachtwoord voor account implementeren, administrator-wachtwoord voor virtuele machine, het wachtwoord van SQL Server-serviceaccount. Sleutelkluis versleutelt sleutels en geheimen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels en wachtwoorden) met behulp van de sleutels die worden beveiligd door hardware security modules (HSM's). |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -413,11 +413,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk Azure. |
+| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-1a"></a>NIST 800 53 besturingselement IA-5 (1) een
+ ### <a name="nist-800-53-control-ia-5-1a"></a>NIST 800-53 Control IA-5 (1).a
 
 #### <a name="authenticator-management--password-based-authentication"></a>Verificator Management | Verificatie op basis van wachtwoorden
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is ingesteld en geconfigureerd voor het afdwingen van de vereisten voor wachtwoordcomplexiteit voor lokale accounts van virtuele machine en de AD-accounts.  |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is ingesteld en geconfigureerd voor het afdwingen van de vereisten voor wachtwoordcomplexiteit voor lokale accounts van virtuele machine en de AD-accounts.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -469,25 +469,25 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is gemaakt en geconfigureerd voor het afdwingen van beperkingen voor wachtwoorden die (1 dag) een minimale maximale (60 dagen) levensduur en beperkingen voor lokale accounts en AD-accounts. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is gemaakt en geconfigureerd voor het afdwingen van beperkingen voor wachtwoorden die (1 dag) een minimale maximale (60 dagen) levensduur en beperkingen voor lokale accounts en AD-accounts. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-1e"></a>CF,o.e van NIST 800 53 besturingselement IA-5 (1)
+ ### <a name="nist-800-53-control-ia-5-1e"></a>NIST 800-53 Control IA-5 (1).e
 
 #### <a name="authenticator-management--password-based-authentication"></a>Verificator Management | Verificatie op basis van wachtwoorden
 
-**CF,o.e IA-5 (1)** Het informatiesysteem voor verificatie op basis van wachtwoorden verbiedt het wachtwoord opnieuw kunnen worden gebruikt voor [toewijzing: nummer organisatie gedefinieerd] generaties.
+**IA-5 (1).e** Het informatiesysteem voor verificatie op basis van wachtwoorden verbiedt het wachtwoord opnieuw kunnen worden gebruikt voor [toewijzing: nummer organisatie gedefinieerd] generaties.
 
 **Verantwoordelijkheden:**`Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is ingesteld en geconfigureerd voor het afdwingen van beperkingen voor hergebruik voorwaarden (24 wachtwoorden) voor lokale accounts en AD-accounts. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Groepsbeleid is ingesteld en geconfigureerd voor het afdwingen van beperkingen voor hergebruik voorwaarden (24 wachtwoorden) voor lokale accounts en AD-accounts. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-1f"></a>.F van NIST 800 53 besturingselement IA-5 (1)
+ ### <a name="nist-800-53-control-ia-5-1f"></a>NIST 800-53 Control IA-5 (1).f
 
 #### <a name="authenticator-management--password-based-authentication"></a>Verificator Management | Verificatie op basis van wachtwoorden
 
@@ -501,7 +501,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800 53 besturingselement IA-5 (2) een
+ ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800-53 Control IA-5 (2).a
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Verificator Management | Verificatie op basis van PKI
 
@@ -515,7 +515,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-2b"></a>NIST 800 53 besturingselement IA-5 (2) .b
+ ### <a name="nist-800-53-control-ia-5-2b"></a>NIST 800-53 Control IA-5 (2).b
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Verificator Management | Verificatie op basis van PKI
 
@@ -529,7 +529,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-2c"></a>NIST 800 53 besturingselement IA-5 (2) .c
+ ### <a name="nist-800-53-control-ia-5-2c"></a>NIST 800-53 Control IA-5 (2).c
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Verificator Management | Verificatie op basis van PKI
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Gebruikersaccounts die zijn geïmplementeerd met deze blauwdruk Azure opnemen AD en lokale gebruikersaccounts. Deze biedt methoden die naleving tot stand gebrachte wachtwoordvereisten om te kunnen maken van een eerste wachtwoord en tijdens het wijzigen van wachtwoorden forceren. Azure Active Directory is het geautomatiseerde hulpprogramma ingezet om te bepalen of wachtwoord verificators voldoende sterk om te voldoen aan de wachtwoordlengte, complexiteit, draaiing en beperkingen van de levensduur van tot stand gebracht in IA-5 (1). Azure Active Directory zorgt ervoor dat de verificator Wachtwoordsterkte bij het maken van voldoet aan deze normen wordt voldaan. De klant gespecificeerde wachtwoorden gebruikt voor het implementeren van deze oplossing worden gecontroleerd om te voldoen aan vereisten voor Wachtwoordsterkte. |
+| **De klant** | Gebruikersaccounts die zijn geïmplementeerd met deze blauwdruk omvatten AD en lokale gebruikersaccounts. Deze biedt methoden die naleving tot stand gebrachte wachtwoordvereisten om te kunnen maken van een eerste wachtwoord en tijdens het wijzigen van wachtwoorden forceren. Azure Active Directory is het geautomatiseerde hulpprogramma ingezet om te bepalen of wachtwoord verificators voldoende sterk om te voldoen aan de wachtwoordlengte, complexiteit, draaiing en beperkingen van de levensduur van tot stand gebracht in IA-5 (1). Azure Active Directory zorgt ervoor dat de verificator Wachtwoordsterkte bij het maken van voldoet aan deze normen wordt voldaan. De klant gespecificeerde wachtwoorden gebruikt voor het implementeren van deze oplossing worden gecontroleerd om te voldoen aan vereisten voor Wachtwoordsterkte. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er is geen gebruik van niet-versleutelde statische verificators ingesloten in toepassingen, scripts openen of functietoetsen geïmplementeerd door deze blauwdruk Azure. Een script of een toepassing die gebruikmaakt van een verificator wordt een aanroep van een Azure Sleutelkluis-container vóór elk gebruik. Toegang tot Azure Key Vault containers wordt gecontroleerd, kunnen de detectie van schending van deze verboden als een service-account wordt gebruikt voor toegang tot een systeem zonder een bijbehorende aanroep naar de Azure Sleutelkluis-container. |
+| **De klant** | Er is geen gebruik van niet-versleutelde statische verificators ingesloten in toepassingen, scripts openen of functietoetsen geïmplementeerd door deze blauwdruk. Een script of een toepassing die gebruikmaakt van een verificator wordt een aanroep van een Azure Sleutelkluis-container vóór elk gebruik. Toegang tot Azure Key Vault containers wordt gecontroleerd, kunnen de detectie van schending van deze verboden als een service-account wordt gebruikt voor toegang tot een systeem zonder een bijbehorende aanroep naar de Azure Sleutelkluis-container. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -627,7 +627,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-11"></a>NIST 800 53 besturingselement IA-5 (11)
+ ### <a name="nist-800-53-control-ia-5-11"></a>NIST 800-53 Control IA-5 (11)
 
 #### <a name="authenticator-management--hardware-token-based-authentication"></a>Verificator Management | Hardware op tokens gebaseerde verificatie
 
@@ -641,7 +641,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-13"></a>NIST 800 53 besturingselement IA-5 (13)
+ ### <a name="nist-800-53-control-ia-5-13"></a>NIST 800-53 Control IA-5 (13)
 
 #### <a name="authenticator-management--expiration-of-cached-authenticators"></a>Verificator Management | Vervaldatum van verificaties in cache
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen resources geïmplementeerd door deze blauwdruk Azure zijn geconfigureerd voor het gebruik van cache verificators toestaan. Verificatie van de geïmplementeerde virtuele machines is vereist dat een verificator wordt ingevoerd op het moment van verificatie. |
+| **De klant** | Er zijn geen resources geïmplementeerd door deze blauwdruk zijn geconfigureerd voor het gebruik van cache verificators toestaan. Verificatie van de geïmplementeerde virtuele machines is vereist dat een verificator wordt ingevoerd op het moment van verificatie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -665,11 +665,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Toegang tot resources die zijn geïmplementeerd door deze blauwdruk Azure via Extern bureaublad is en is afhankelijk van de Windows-verificatie. Het standaardgedrag van Windows-verificatie-sessies maskeert wachtwoorden wanneer invoer tijdens een verificatiesessie van.  |
+| **De klant** | Toegang tot resources die zijn geïmplementeerd door deze blauwdruk via Extern bureaublad is en is afhankelijk van de Windows-verificatie. Het standaardgedrag van Windows-verificatie-sessies maskeert wachtwoorden wanneer invoer tijdens een verificatiesessie van.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-7"></a>NIST 800 53 besturingselement IA-7
+ ## <a name="nist-800-53-control-ia-7"></a>NIST 800-53 Control IA-7
 
 #### <a name="cryptographic-module-authentication"></a>Verificatie van de cryptografische Module
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Windows-verificatie, extern bureaublad en BitLocker worden gebruikt door deze blauwdruk Azure. Deze onderdelen kunnen zijn afhankelijk van FIPS 140 gevalideerd cryptografiemodules worden geconfigureerd. |
+| **De klant** | Windows-verificatie, extern bureaublad en BitLocker worden gebruikt door deze blauwdruk. Deze onderdelen kunnen zijn afhankelijk van FIPS 140 gevalideerd cryptografiemodules worden geconfigureerd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 

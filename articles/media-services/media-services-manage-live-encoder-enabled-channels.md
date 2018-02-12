@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 ## <a name="overview"></a>Overzicht
@@ -65,7 +65,7 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 | Kanaalstatus | Portal UI-indicatoren | Is het facturering? |
 | --- | --- | --- |
 | Starting |Starting |Nee (overgangsstatus) |
-| Running |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
+| Wordt uitgevoerd |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |JA |
 | Stopping |Stopping |Nee (overgangsstatus) |
 | Stopped |Stopped |Nee |
 
@@ -83,7 +83,7 @@ Het onderstaande diagram ziet u een live streaming-werkstroom waarbij een kanaal
 Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassingen voor live streamen.
 
 > [!NOTE]
-> De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u moet een kanaal voor langere tijd wilt uitvoeren. Let erop dat er een facturering invloed voor live codering en u rekening mee houden moet dat als u een kanaal voor live codering in de status 'Actief' wordt elk uur facturering worden kosten in rekening.  Het is raadzaam om uw actieve kanalen onmiddellijk te beëindigen nadat uw live-streaming gebeurtenis is voltooid om extra per uur kosten te voorkomen. 
+> De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u moet een kanaal voor langere tijd wilt uitvoeren. Let erop dat er een facturering invloed voor live codering en u rekening mee houden moet dat als u een kanaal voor live codering in de status 'Actief' wordt elk uur facturering worden kosten in rekening.  Het is raadzaam om uw actieve kanalen onmiddellijk te beëindigen nadat uw live-streaming gebeurtenis is voltooid om extra per uur kosten te voorkomen. 
 > 
 > 
 
@@ -208,7 +208,7 @@ U kunt de IP-adressen die zijn toegestaan voor het publiceren van video naar dit
 
 Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
 
-## <a name="channel-preview"></a>Kanaal preview
+## <a name="channel-preview"></a>Kanaalvoorbeeld
 ### <a name="preview-urls"></a>Voorbeeld-URL 's
 Kanalen bieden een preview-eindpunt (preview URL) die u gebruikt om te bekijken en valideren van uw stream voor verdere verwerking en levering.
 
@@ -240,7 +240,7 @@ De geldige optie is **Scte35** (alleen toegestaan als het streaming opnemen-prot
 ### <a name="cea-708-closed-captions"></a>CEA 708 bijschriften gesloten
 Een optionele vlag Dit geeft aan het live coderingsprogramma voor het negeren van alle gegevens van de bijschriften CEA 708 ingesloten in de binnenkomende video. Wanneer de vlag is ingesteld op false (standaard), het coderingsprogramma detecteert en opnieuw CEA 708 gegevens invoegen in de video uitvoerstromen.
 
-### <a name="video-stream"></a>Video-Stream
+### <a name="video-stream"></a>Video Stream
 Optioneel. Beschrijft de invoerstroom video. Als dit veld niet is opgegeven, wordt de standaardwaarde wordt gebruikt. Deze instelling is alleen toegestaan als de invoer streaming-protocol is ingesteld op RTP (MPEG-TS).
 
 #### <a name="index"></a>Index
@@ -248,7 +248,7 @@ Een op nul gebaseerde index die aangeeft welke video invoerstroom moet worden ve
 
 Standaardwaarde is nul. Het verdient aanbeveling om in een bepaald programma transportstroom (SharePoint Team Services) te verzenden. Als de invoerstroom meerdere programma's bevat, het live coderingsprogramma parseert programma kaart tabel (bet) in de invoer, identificeert de invoer met een naam van het type stream van MPEG-2-Video of H.264 en gerangschikt in de volgorde die is opgegeven in de BET. De op nul gebaseerde index wordt vervolgens gebruikt om op te halen de n-de vermelding in de overeenkomst.
 
-### <a name="audio-stream"></a>Audio-Stream
+### <a name="audio-stream"></a>Audio Stream
 Optioneel. Hierin wordt beschreven in de invoer audio stromen. Als dit veld niet is opgegeven, wordt de standaardwaarden opgegeven toepassing. Deze instelling is alleen toegestaan als de invoer streaming-protocol is ingesteld op RTP (MPEG-TS).
 
 #### <a name="index"></a>Index
@@ -262,7 +262,7 @@ Er mag maximaal 8 audiostroom sets opgegeven als invoer voor het kanaal MPEG-2 T
 ### <a id="preset"></a>Systeem-definitie
 Hiermee geeft u de vooraf ingestelde moet worden gebruikt door het live coderingsprogramma binnen dit kanaal. De enige toegestane waarde is momenteel **Default720p** (standaard).
 
-Houd er rekening mee dat als u aangepaste standaardinstellingen moet, u neemt contact op met amslived op Microsoft.com.
+Houd er rekening mee dat als u aangepaste standaardinstellingen moet, moet u contact opnemen amslived@microsoft.com.
 
 **Default720p** wordt de video coderen in de volgende 7 lagen.
 
@@ -270,12 +270,12 @@ Houd er rekening mee dat als u aangepaste standaardinstellingen moet, u neemt co
 | BitRate | Breedte | Hoogte | MaxFPS | Profiel | Naam voor uitvoer van stroom |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hoog |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Main |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Main |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Main |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Main |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Basislijn |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Basislijn |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Algemeen |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Algemeen |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Algemeen |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Algemeen |Video_384x216_550kbps |
+| 350 |340 |192 |30 |Baseline |Video_340x192_350kbps |
+| 200 |340 |192 |30 |Baseline |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Audio-uitvoerstroom
 Audio is naar stereo AAC Kredietbrief op 64 kbps, samplefrequentie van 44,1 kHz gecodeerd.
@@ -364,7 +364,7 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 | Kanaalstatus | Portal UI-indicatoren | In rekening gebracht? |
 | --- | --- | --- |
 | Starting |Starting |Nee (overgangsstatus) |
-| Running |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |Ja |
+| Wordt uitgevoerd |Ready (er worden geen programma's uitgevoerd)<br/>of<br/>Streaming (er wordt ten minste een programma uitgevoerd) |Ja |
 | Stopping |Stopping |Nee (overgangsstatus) |
 | Stopped |Stopped |Nee |
 
@@ -381,7 +381,7 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 * Standaard kunt u alleen 5 kanalen toevoegen aan uw Media Services-account. Dit is een dynamische quota voor alle nieuwe accounts. Zie voor meer informatie [quota's en beperkingen](media-services-quotas-and-limitations.md).
 * U kunt het invoerprotocol niet wijzigen terwijl het kanaal of de gekoppelde programma's worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke kanalen voor elk invoerprotocol.
 * U wordt alleen gefactureerd als het kanaal in de **met** status. Raadpleeg voor meer informatie [dit](media-services-manage-live-encoder-enabled-channels.md#states) sectie.
-* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived op Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
+* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u moet een kanaal voor langere tijd wilt uitvoeren.
 * Zorg ervoor dat u hebt het streaming-eindpunt van waaruit u inhoud wilt streamen in de **met** status.
 * Wanneer meerdere taal nummers invoeren en tijdens het doorzoeken van live codering met Azure, alleen RTP voor invoer van meerdere talen wordt ondersteund. U kunt maximaal 8 audio-stromen met MPEG-2 TS via RTP definiëren. Meerdere audio houdt met RTMP of Smooth streaming opnemen wordt momenteel niet ondersteund. Bij het uitvoeren van live codering met [lokale live coderen](media-services-live-streaming-with-onprem-encoders.md), geldt er geen dergelijke beperking, omdat een kanaal wat wordt verzonden naar AMS passeren zonder verdere verwerking.
 * De codering voorinstelling maakt gebruik van het principe van 'max framesnelheid' van 30 fps. Als de invoer is 60fps / 59.97i, de ingevoerde frames zijn verwijderd/de-interlaced op 30/29,97 fps. Als de invoer 50fps/50i is, zijn de ingevoerde frames verwijderd/de-interlaced op 25 fps. Als de invoer 25 fps is, wordt de uitvoer blijft bij 25 fps.
@@ -410,7 +410,7 @@ Media Services-leertrajecten bekijken.
 
 [Kanalen met REST API beheren](https://docs.microsoft.com/rest/api/media/operations/channel)
  
-[Media Services-concepten](media-services-concepts.md)
+[Media Services Concepts](media-services-concepts.md)
 
 [Azure mediaservices gefragmenteerde MP4 Live opnemen specificatie](media-services-fmp4-live-ingest-overview.md)
 

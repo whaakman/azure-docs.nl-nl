@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - Media-beveiliging
-description: Webtoepassingen voor FedRAMP - Media-beveiliging
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - Media-beveiliging
+description: FedRAMP Web Applications Automation - Media-beveiliging
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9cb33abc7ab88aaa54a77308c7863f8128f2e6c7
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-protection-mp"></a>Media-beveiliging (MP)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-mp-1"></a>NIST 800 53 besturingselement MP-1
+## <a name="nist-800-53-control-mp-1"></a>NIST 800-53 Control MP-1
 
 #### <a name="media-protection-policy-and-procedures"></a>Media-beveiligingsbeleid en -Procedures
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-mp-2"></a>NIST 800 53 besturingselement MP-2
+ ## <a name="nist-800-53-control-mp-2"></a>NIST 800-53 Control MP-2
 
 #### <a name="media-access"></a>Media-toegang
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-4a"></a>NIST 800 53 besturingselement MP-4.
 
-#### <a name="media-storage"></a>Mediaopslag
+#### <a name="media-storage"></a>Media Storage
 
 **MP 4.** fysiek bepaalt en veilig opgeslagen in de organisatie [toewijzing: organisatie gedefinieerde typen digitale en/of niet-digitale media] in [toewijzing: gebieden organisatie gedefinieerd beheerd].
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-4b"></a>NIST 800 53 besturingselement MP-4.b
 
-#### <a name="media-storage"></a>Mediaopslag
+#### <a name="media-storage"></a>Media Storage
 
 **MP-4.b** informatie Systeemmedia in de organisatie worden beveiligd totdat de media worden vernietigd of met behulp van opgeschoonde goedgekeurd apparatuur, technieken en procedures.
 

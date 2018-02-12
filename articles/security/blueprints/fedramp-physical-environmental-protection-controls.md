@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - beveiliging voor fysieke en omgevingsbeveiliging
-description: Webtoepassingen voor FedRAMP - fysieke en omgevingsbeveiliging beveiliging
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - fysieke en omgevingsbeveiliging beveiliging
+description: FedRAMP Web Applications Automation - beveiliging voor fysieke en omgevingsbeveiliging
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Fysieke en omgevingsbeveiliging beveiliging (PE)
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure onderhoudt datacenter toegangsrecords in DCAT in de vorm van goedgekeurde DCAT aanvragen. DCAT aanvragen kunnen alleen worden goedgekeurd door het DCM-team. Toegangsniveaus in het datacenter zijn toegewezen en vanuit DCAT beheerd. Datacenter toegang wordt elk kwartaal gecontroleerd. Alle toegang tot Azure-datacenters wordt vastgelegd in DCAT en is beschikbaar voor toekomstige mogelijke onderzoeken. Bezoekers zijn vereist om te allen tijde worden escorted. Toegang tot de begeleiding binnen het datacenter wordt geregistreerd binnen het alarm bewaking van systeem en indien nodig kan worden gecorreleerd met de bezoeker voor toekomstige revisie. Bezoekerstoegang wordt altijd geëvalueerd door de toegewezen begeleiding en door het besturingselement ruimte supervisor via CCTV en het alarm bewakingssysteem. Bezoekers worden niet geleverd met toegang en moeten vergezeld gaan van hun escorts te allen tijde. |
 
 
- ## <a name="nist-800-53-control-pe-9"></a>NIST 800 53 besturingselement PE-9
+ ## <a name="nist-800-53-control-pe-9"></a>NIST 800-53 Control PE-9
 
 #### <a name="power-equipment-and-cabling"></a>Power apparatuur en bekabeling
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Microsoft Azure biedt beschermende spaties en de juiste labels voor kabels. Microsoft Azure-infrastructuur apparatuur, bijvoorbeeld, kabels, elektrische regels en genereren van de back-up moet worden geplaatst in omgevingen die speciaal ontwikkeld om te worden beschermd tegen milieu risico's zoals diefstal, fire, explosieven, rook, water, stof trillingen, aardbeving, schadelijke chemicaliën, elektrische storing, stroomuitval elektrische storingen (pieken). Alle draagbare onlineservices activa (bijvoorbeeld rekken, servers, netwerkapparaten) moeten worden vergrendeld of vastgemaakt plaats om te kunnen bieden bescherming tegen diefstal of verplaatsing schade. Power en informatie system-kabels in een Microsoft Azure-omgeving zijn met het label op de juiste wijze en beveiligd tegen onderschepping of beschadiging. Power en informatie system kabels worden gescheiden van elkaar op alle punten in een omgeving om te voorkomen dat de storing. |
 
 
- ## <a name="nist-800-53-control-pe-10a"></a>NIST 800 53 besturingselement PE-10.a
+ ## <a name="nist-800-53-control-pe-10a"></a>NIST 800-53 Control PE-10.a
 
 #### <a name="emergency-shutoff"></a>Noodgevallen signalen
 
@@ -375,7 +375,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Microsoft Azure is knoppen Emergency Power uitschakelen (EPO) geïnstalleerd op locaties binnen het datacenter op lokale fire-code vereist. In sommige datacenters van Microsoft Azure beheerd moet het ontwerp datacenter niet meer EPO knoppen. |
 
 
- ## <a name="nist-800-53-control-pe-10b"></a>NIST 800 53 besturingselement PE-10.b
+ ## <a name="nist-800-53-control-pe-10b"></a>NIST 800-53 Control PE-10.b
 
 #### <a name="emergency-shutoff"></a>Noodgevallen signalen
 
@@ -403,7 +403,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Om te voorkomen dat per ongeluk activering, mogelijk EPO knoppen hebben een beschermende behuizing, dual-activering vereist is of een akoestisch alarm gebruiken als een waarschuwing voor activering. Bovendien zijn EPO knoppen onder Videobewaking. |
 
 
- ## <a name="nist-800-53-control-pe-11"></a>NIST 800 53 besturingselement PE-11
+ ## <a name="nist-800-53-control-pe-11"></a>NIST 800-53 Control PE-11
 
 #### <a name="emergency-power"></a>Noodgevallen Power
 
@@ -428,10 +428,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **De klant** | Klanten hoeft geen fysieke toegang tot alle systeemresources in Azure-datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure is een langdurige alternatieve voeding voor het informatiesysteem die geschikt is voor het onderhouden van dat een minimaal vereiste operationele mogelijkheid wanneer een uitgebreide verlies van de primaire stroombron optreedt geïmplementeerd. Als power uitvalt of onder het niveau van een onaanvaardbaar spanning komt, wordt ononderbroken (UPS) systemen onmiddellijk starten en de power belasting overnemen. Dit biedt voldoende stroom voor het uitvoeren van de servers totdat het genereren kunnen overnemen. Noodgevallen genereren van een back-up processorvermogen voor uitgebreide onderbrekingen en voor gepland onderhoud en het datacenter met ter plaatse brandstof reserves in het geval van een natuurramp kunnen werken. Azure onderhoudt diesel generator op veel van de datacenters. Genereren van de back-up worden gebruikt wanneer dat nodig is om te raster stabiele of in buitengewone herstellen en onderhoud situaties waarvoor ons te laten de datacenters het raster power uit. |
+| **Provider (Microsoft Azure)** | Microsoft Azure is een langdurige alternatieve voeding voor het informatiesysteem die geschikt is voor het onderhouden van dat een minimaal vereiste operationele mogelijkheid wanneer een uitgebreide verlies van de primaire stroombron optreedt geïmplementeerd. Als power uitvalt of onder het niveau van een onaanvaardbaar spanning komt, wordt noodvoeding (UPS) systemen onmiddellijk starten en de power belasting overnemen. Dit biedt voldoende stroom voor het uitvoeren van de servers totdat het genereren kunnen overnemen. Noodgevallen genereren van een back-up processorvermogen voor uitgebreide onderbrekingen en voor gepland onderhoud en het datacenter met ter plaatse brandstof reserves in het geval van een natuurramp kunnen werken. Azure onderhoudt diesel generator op veel van de datacenters. Genereren van de back-up worden gebruikt wanneer dat nodig is om te raster stabiele of in buitengewone herstellen en onderhoud situaties waarvoor ons te laten de datacenters het raster power uit. |
 
 
- ## <a name="nist-800-53-control-pe-12"></a>NIST 800 53 besturingselement PE-12
+ ## <a name="nist-800-53-control-pe-12"></a>NIST 800-53 Control PE-12
 
 #### <a name="emergency-lighting"></a>Noodgevallen licht
 
@@ -445,7 +445,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Noodgevallen licht implementeren datacenters van Microsoft Azure (geleasete en volledig beheerd) in de vorm van overhead noodgevallen licht op specifieke circuits back-up gemaakt door UPS en generator-systemen (Zie PE-11). Automatische noodgevallen licht is geïmplementeerd langs alle verplaatsing routes, noodgevallen uitgangen en binnen de colocations in overeenstemming met de nationale brand en beveiliging koppeling (NFPA) levensduur veiligheid Code. In het geval dat een stroomstoring wordt verbroken, wordt automatisch het noodgevallen licht overschakelen naar power geleverd door de UPS en generator-systemen. De systemen noodgevallen licht in datacenters van Microsoft Azure ondergaan routineonderhoud om ervoor te zorgen dat ze in goede staat blijven. |
 
 
- ## <a name="nist-800-53-control-pe-13"></a>NIST 800 53 besturingselement PE-13
+ ## <a name="nist-800-53-control-pe-13"></a>NIST 800-53 Control PE-13
 
 #### <a name="fire-protection"></a>Beveiliging geactiveerd
 

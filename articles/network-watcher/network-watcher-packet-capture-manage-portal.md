@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Pakket opnamen beheren met Azure met behulp van de portal netwerk-Watcher
 
@@ -61,7 +61,10 @@ Navigeer naar de [Azure-portal](https://portal.azure.com) en klik op **Networkin
 De overzichtspagina ziet u een lijst met alle pakketten die bestaan ongeacht de status vastlegt.
 
 > [!NOTE]
-> Pakketopname vereist connectiviteit met de storage-account via poort 443.
+> Pakketopname vereist na connectiviteit.
+> * Uitgaande verbinding met de storage-account via poort 443.
+> * Binnenkomende en uitgaande verbindingen met 169.254.169.254
+> * Binnenkomende en uitgaande verbindingen met 168.63.129.16
 
 ![scherm overzicht van pakket vastleggen][1]
 

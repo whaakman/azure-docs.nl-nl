@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>HDInsight-clusters maken met Data Lake Store via de Azure-portal
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ In deze sectie maakt u een HDInsight-cluster met Data Lake Store-accounts als de
 
     ![Service-principal met HDInsight-cluster toevoegen](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "service-principal met HDInsight-cluster toevoegen")
 
-    - **Selecteer Data Lake Store-account**: Selecteer een bestaande Data Lake Store-account. Er is een bestaande Data Lake Store-account vereist.  Zie [vereisten](#prereuisites).
+    - **Selecteer Data Lake Store-account**: Selecteer een bestaande Data Lake Store-account. Er is een bestaande Data Lake Store-account vereist.  Zie [vereisten](#prerequisites).
     - **Hoofdpad naar**: Geef een pad op de cluster-specifieke-bestanden die moeten worden opgeslagen. Op de schermafbeelding is __/clusters/myhdiadlcluster/__, waarin de __/clusters__ map moet bestaan en de Portal maakt *myhdicluster* map.  De *myhdicluster* is de naam van het cluster.
     - **Data Lake Store toegang**: toegang tussen de Data Lake Store-account en een HDInsight-cluster configureren. Zie voor instructies [Configure Data Lake Store toegang](#configure-data-lake-store-access).
     - **Extra opslagaccounts**: Azure Storage-Accounts toevoegen als extra opslagruimte accounts voor het cluster. Als u wilt toevoegen als u meer Lake gegevensarchieven gebeurt door de cluster-machtigingen van de gegevens in Data Lake Store-accounts meer tijdens het configureren van een Data Lake Store-account als het primaire type. Zie [Toegang tot Data Lake Store configureren](#configure-data-lake-store-access).

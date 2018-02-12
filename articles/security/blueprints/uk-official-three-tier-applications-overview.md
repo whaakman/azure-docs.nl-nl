@@ -1,6 +1,6 @@
 ---
-title: "Blauwdruk Azure Automation - webtoepassingen met drie lagen voor VK officiële"
-description: "Azure blauwdruk Automation & -webtoepassingen met drie lagen voor VK officiële"
+title: "Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation"
+description: "Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Blauwdruk Azure Automation: Drie lagen webtoepassingen voor VK officiële
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation
 
 ## <a name="overview"></a>Overzicht
 
  Dit artikel bevat richtlijnen en automatisering scripts voor het leveren van een geschikt is voor het verwerken van veel werkbelastingen die zijn geclassificeerd als officiële in het Verenigd Koninkrijk voor architectuur van Microsoft Azure drie lagen op het web gebaseerd.
 
- Met behulp van een infrastructuur als Code benadert, de reeks [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen (ARM) implementeert een omgeving die wordt uitgelijnd naar het Verenigd Koninkrijk nationale Cyberbeveiliging beveiliging centrum (NCSC) 14 [Cloud beveiligingsprincipes](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)en Center voor de beveiliging van Internet (CIS) [kritieke beveiligingsmechanismen](https://www.cisecurity.org/critical-controls.cfm).
+ Met behulp van een infrastructuur als Code benadert, de reeks [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen implementeren een omgeving die wordt uitgelijnd naar het Verenigd Koninkrijk nationale Cyberbeveiliging beveiliging centrum (NCSC) 14 [Cloud beveiligingsprincipes](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) en het Center voor de beveiliging van Internet (CIS) [kritieke beveiligingsmechanismen](https://www.cisecurity.org/critical-controls.cfm).
 
  De NCSC raden aan hun Cloud-beveiligingsprincipes door klanten worden gebruikt om te evalueren van de eigenschappen voor de beveiliging van de service, en voor meer informatie over de deling van verantwoordelijkheid tussen de klant en de leverancier. We bieden informatie met betrekking tot elk van deze principes om te begrijpen van de splitsing van verantwoordelijkheden.
 
- Deze architectuur en de bijbehorende ARM-sjablonen worden ondersteund door de whitepaper Microsoft [Azure blauwdruk voor de overheid VK](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Dit artikel catalogi hoe Azure-services zijn afgestemd op de VK NCSC 14 Cloud beveiligings-principals, waardoor u organisaties voor fast track-hun mogelijkheid om te voldoen aan hun verplichtingen met behulp van cloud-gebaseerde services globaal en in het Verenigd Koninkrijk in de Microsoft Azure cloud.
+ Deze architectuur en bijbehorende Azure Resource Manager-sjablonen worden ondersteund door de Microsoft-whitepaper [14 Cloud beveiligingsmechanismen voor Verenigd Koninkrijk met behulp van Microsoft Azure cloud](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Dit artikel catalogi hoe Azure-services zijn afgestemd op de VK NCSC 14 Cloud beveiligings-principals, waardoor u organisaties voor fast track-hun mogelijkheid om te voldoen aan hun verplichtingen met behulp van cloud-gebaseerde services globaal en in het Verenigd Koninkrijk in de Microsoft Azure cloud.
 
  Deze sjabloon wordt geïmplementeerd voor de infrastructuur voor de werkbelasting. Toepassingscode en de ondersteunende bedrijfslaag en software van de gegevens van laag moeten worden geïnstalleerd en geconfigureerd. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukwebappblueprintrepo).
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/16/2017
 
 (((1) /16 virtual Network - operationele VNet
 - (3) /24 subnetten - 3-laagse (Web, Biz, gegevens)
-- (1) /27 subnet - wordt toegevoegd
+- (1) /27 subnet - ADDS
 - (((1) /27 subnet - Gateway-Subnet
 - (((1) slechts/29-subnet - Subnet toepassingsgateway
 - Gebruikt standaard (Azure) DNS-
@@ -150,7 +150,7 @@ Storage
 
 **Management VNet**: dit [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) bevat resources die beheer en controle van de mogelijkheden voor de werkbelastingen die worden uitgevoerd in de productie VNet te implementeren.
 
-**Jumpbox**: ook wel een [bastion host](https://en.wikipedia.org/wiki/Bastion_host), dit is een beveiligde virtuele machine op het netwerk die beheerders gebruiken voor verbinding met virtuele machines in de productie VNet. De jumpbox heeft een NSG waarmee het externe verkeer alleen vanaf openbare IP-adressen op een veilige lijst. De bron van het verkeer moet worden gedefinieerd in de NSG zodat extern bureaublad (RDP)-verkeer. Beheer van productiebronnen is via RDP met behulp van een beveiligde Jumpbox VM.
+**Jumpbox**: ook wel een [bastion host](https://en.wikipedia.org/wiki/Bastion_host), dit is een beveiligde virtuele machine op het netwerk die beheerders gebruiken voor verbinding met virtuele machines in de productie VNet. De jumpbox heeft een netwerkbeveiligingsgroep die alleen extern verkeer vanaf openbare IP-adressen op een lijst met veilige adressen toelaat. De bron van het verkeer moet worden gedefinieerd in de NSG zodat extern bureaublad (RDP)-verkeer. Beheer van productiebronnen is via RDP met behulp van een beveiligde Jumpbox VM.
 
 **Gebruiker gedefinieerde Routes**: [de gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) worden gebruikt voor het definiëren van de stroom van IP-verkeer binnen Azure VNets.
 
@@ -195,17 +195,17 @@ Deze VNets nog steeds als afzonderlijke resources worden beheerd, maar als een v
 
 ### <a name="security"></a>Beveiliging
 
-**Beveiliging Management**: deze Azure blauwdruk kunnen beheerders verbinding maken met het beheer VNet en Jumpbox met RDP van een vertrouwde bron. Het netwerkverkeer voor de VNet wordt beheerd met behulp van NSGs management. Toegang tot poort 3389 is beperkt tot verkeer van een vertrouwde IP-adresbereik dat toegang heeft tot het subnet met de Jumpbox.
+**Beveiliging Management**: deze blauwdruk kan beheerders verbinding maken met het beheer VNet en Jumpbox met RDP van een vertrouwde bron. Het netwerkverkeer voor de VNet wordt beheerd met behulp van NSGs management. Toegang tot poort 3389 is beperkt tot verkeer van een vertrouwde IP-adresbereik dat toegang heeft tot het subnet met de Jumpbox.
 
 Klanten kunnen ook kunt u overwegen een [verbeterde beveiliging beheermodel](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) voor het beveiligen van de omgeving bij het verbinden met de management VNet en Jumpbox. Het wordt aangeraden voor een betere beveiliging klanten gebruiken een [bevoorrechte toegang werkstation](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) en RDGateway-configuratie. Het gebruik van virtuele netwerkapparaten en openbare en persoonlijke DMZ's bieden verdere verbeteringen in de beveiliging.
 
-**Beveiligen van het netwerk**: [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (nsg's) worden aanbevolen voor elk subnet naar een tweede niveau van bescherming tegen binnenkomend verkeer omzeilen van de gateway van een onjuist geconfigureerde of uitgeschakeld. Voorbeeld: [ARM-sjabloon voor het implementeren van een NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Beveiligen van het netwerk**: [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (nsg's) worden aanbevolen voor elk subnet naar een tweede niveau van bescherming tegen binnenkomend verkeer omzeilen van de gateway van een onjuist geconfigureerde of uitgeschakeld. Voorbeeld: [Resource Manager-sjabloon voor het implementeren van een NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Openbare eindpunten beveiligen**: de internet-gateway beschrijft toepassingsservices voor gebruikers via het internet. Toegang tot deze services verkeer is beveiligd met een [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), waarmee u een Web Application Firewall- en HTTPS-protocol-beheer.
 
 **IP-adresbereiken**: het IP-adresbereiken in de architectuur zijn voorgestelde bereiken. Klanten wordt aangeraden rekening houden met hun eigen omgeving en de juiste bereiken gebruiken.
 
-**Hybride verbindingen**: de werkbelastingen in de cloud zijn verbonden met het lokale datacentrum via IPSEC-VPN met behulp van de Azure VPN-Gateway. Klanten moeten ervoor zorgen dat ze een juiste VPN-Gateway gebruiken verbinding maken met Azure. Voorbeeld: [ARM-sjabloon voor VPN-Gateway](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Klanten met grootschalige bedrijfskritieke taken met big data-vereisten mogelijk wilt overwegen om een hybride netwerk architectuur [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) particulier netwerkverbinding met Microsoft-cloudservices.
+**Hybride verbindingen**: de werkbelastingen in de cloud zijn verbonden met de on-premises datacentrum via IPSEC-VPN met behulp van de Azure VPN-Gateway. Klanten moeten ervoor zorgen dat ze een juiste VPN-Gateway gebruiken verbinding maken met Azure. Voorbeeld: [VPN-Gateway Resource Manager-sjabloon](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Klanten met grootschalige bedrijfskritieke taken met big data-vereisten mogelijk wilt overwegen om een hybride netwerk architectuur [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) particulier netwerkverbinding met Microsoft-cloudservices.
 
 **Scheiding van zorgen**: deze verwijzende architectuur scheidt de VNets voor beheertaken uit te voeren en zakelijke activiteiten. Afzonderlijke vnet's en subnetten toestaan van beheer van verkeer, verkeer inkomende en uitgaande beperkingen, waaronder met behulp van NSGs tussen netwerksegmenten na [Microsoft cloud services en network security](https://docs.microsoft.com/azure/best-practices-network-security) aanbevolen procedures.
 
@@ -221,17 +221,17 @@ Klanten kunnen ook kunt u overwegen een [verbeterde beveiliging beheermodel](htt
 
 De domeinen commerciële-Service (een instantie werkt ter verbetering van de activiteit voor commerciële en aankopen door de overheid) vernieuwd de classificatie van Microsoft in bereik enterprise cloud-services voor v6 G-Cloud, die betrekking hebben op de offerings op het niveau van de officiële. Details van Azure en G-Cloud vindt u in de [Azure VK G-Cloud security assessment samenvatting](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Deze oplossing VK officiële Azure blauwdruk wordt uitgelijnd naar de cloud 14 beveiligings-principals die zijn beschreven in de NCSC [beveiligingsprincipes Cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) om te zorgen voor een omgeving die werkbelastingen die zijn geclassificeerd als VK officiële ondersteunt.
+Deze blauwdruk wordt uitgelijnd naar de cloud 14 beveiligings-principals die zijn beschreven in de NCSC [beveiligingsprincipes Cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) om te zorgen voor een omgeving die werkbelastingen die zijn geclassificeerd als VK officiële ondersteunt.
 
 De [klant verantwoordelijkheid Matrix](https://aka.ms/blueprintuk-gcrm) (Excel-werkmap) ziet u alle 14 cloud-beveiligingsprincipes en de matrix geeft, voor elke principe (of principe subdeel), of de methode-implementatie de verantwoordelijkheid van is Microsoft, de klant of gedeeld tussen de twee.
 
-De [principe implementatie Matrix](https://aka.ms/ukwebappblueprintpim) (Excel-werkmap) een lijst met alle 14 cloud-beveiligingsprincipes en de matrix geeft, voor elke principe (of principe subdeel) die de verantwoordelijkheid voor een klant in de klant wordt gebruikt De verantwoordelijkheden van Matrix (1) als de blauwdruk Azure Automation implementeert het principe en 2) een beschrijving van hoe de uitvoering wordt uitgelijnd met de vereisten van het principe. Deze inhoud is ook beschikbaar [hier](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+De [principe implementatie Matrix](https://aka.ms/ukwebappblueprintpim) (Excel-werkmap) een lijst met alle 14 cloud-beveiligingsprincipes en de matrix geeft, voor elke principe (of principe subdeel) die de verantwoordelijkheid voor een klant in de klant wordt gebruikt De verantwoordelijkheden van Matrix (1) als de automatisering blauwdruk implementeert het principe en 2) een beschrijving van hoe de uitvoering wordt uitgelijnd met de vereisten van het principe. Deze inhoud is ook beschikbaar [hier](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Bovendien Cloud Security Alliance (CSA) gepubliceerd voor de Cloud besturingselement Matrix ter ondersteuning van klanten in de evaluatie van cloudproviders en om te vragen die moeten worden beantwoord voordat u doorgaat met cloudservices te identificeren. In het antwoord, Microsoft Azure beantwoord de CSA Consensus Assessment initiatief vragenlijst ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), waarin wordt beschreven hoe Microsoft de voorgestelde principes adressen.
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-Er zijn twee methoden die gebruikers van de implementatie gebruiken kunnen om deze oplossing Azure blauwdruk implementeren. De eerste methode maakt gebruik van een PowerShell-script dat de tweede methode maakt gebruik van Azure-Portal voor het implementeren van de referentiearchitectuur. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukwebappblueprintrepo).
+Er zijn twee methoden die gebruikers van de implementatie gebruiken kunnen om deze automatisering blauwdruk implementeren. De eerste methode maakt gebruik van een PowerShell-script dat de tweede methode maakt gebruik van Azure-portal voor het implementeren van de referentiearchitectuur. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Vrijwaring
 

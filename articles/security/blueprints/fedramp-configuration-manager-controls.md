@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - Configuratiebeheer
-description: Webtoepassingen voor FedRAMP - Configuratiebeheer
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - Configuratiebeheer
+description: FedRAMP Web Applications Automation - Configuratiebeheer
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Configuratiebeheer (CM)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Azure Resource Manager-sjablonen en de bijbehorende bronnen waaruit deze Azure blauwdruk vertegenwoordigen een basislijn '-configuratie als code' voor de geïmplementeerde architectuur. De oplossing is via GitHub, die kan worden gebruikt voor configuratie-besturingselement opgegeven. De oplossing omvat een basislijn Desired State Configuration (DSC) voor elke geïmplementeerde virtuele machine. |
+| **De klant** | De Azure Resource Manager-sjablonen en de bijbehorende bronnen waaruit deze blauwdruk vertegenwoordigen een basislijn '-configuratie als code' voor de geïmplementeerde architectuur. De oplossing is via GitHub, die kan worden gebruikt voor configuratie-besturingselement opgegeven. De oplossing omvat een basislijn Desired State Configuration (DSC) voor elke geïmplementeerde virtuele machine. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Azure Resource Manager-sjablonen en de bijbehorende bronnen waaruit deze Azure blauwdruk vertegenwoordigen een basislijn '-configuratie als code' voor de geïmplementeerde architectuur. De oplossing is via GitHub, die kan worden gebruikt voor configuratie-besturingselement opgegeven. In de Azure portal een automatiseringsscript is beschikbaar voor alle geïmplementeerde resources en biedt een altijd actuele weergave van deze bronnen.  |
+| **De klant** | De Azure Resource Manager-sjablonen en de bijbehorende bronnen waaruit deze blauwdruk vertegenwoordigen een basislijn '-configuratie als code' voor de geïmplementeerde architectuur. De oplossing is via GitHub, die kan worden gebruikt voor configuratie-besturingselement opgegeven. In de Azure portal een automatiseringsscript is beschikbaar voor alle geïmplementeerde resources en biedt een altijd actuele weergave van deze bronnen.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="configuration-change-control"></a>Configuratie-wijzigingsbeheer
 
-**CM 3.e** De organisatie behoudt records gecontroleerd door configuratie wijzigingen van het systeem voor [toewijzing: organisatie gedefinieerde periode].
+**CM-3.e** De organisatie behoudt records gecontroleerd door configuratie wijzigingen van het systeem voor [toewijzing: organisatie gedefinieerde periode].
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -305,11 +305,11 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cm-3-1e"></a>NIST 800 53 besturingselement CM-3 (1) CF,o.e
+ ### <a name="nist-800-53-control-cm-3-1e"></a>NIST 800-53 Control CM-3 (1).e
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Beheer van configuratie wijzigen | Automatische Document / melding / verbieden van wijzigingen
 
-**CF,o.e CM-3 (1)** De organisatie de veiligheidsmaatregelen voor geautomatiseerde mechanismen om vast te leggen van alle wijzigingen in het informatiesysteem.
+**CM-3 (1).e** De organisatie de veiligheidsmaatregelen voor geautomatiseerde mechanismen om vast te leggen van alle wijzigingen in het informatiesysteem.
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Virtuele machines die zijn geïmplementeerd door deze blauwdruk Azure implementeren Windows AppLocker om op te geven welke gebruikers kunnen installeren en/of specifieke toepassingen worden uitgevoerd. Verder, alle Windows-besturingssysteemupdates worden digitale handtekening. |
+| **De klant** | Virtuele machines die zijn geïmplementeerd door deze blauwdruk implementeren Windows AppLocker om op te geven welke gebruikers kunnen installeren en/of specifieke toepassingen worden uitgevoerd. Verder, alle Windows-besturingssysteemupdates worden digitale handtekening. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat een basislijn Desired State Configuration (DSC) voor elke geïmplementeerde virtuele machine. Deze declaratieve PowerShell-scripts definiëren en configureer de bronnen waarop ze worden toegepast. De basislijn DSC opgenomen voor resources die zijn geïmplementeerd met deze oplossing kan worden uitgebreid door de klant om missie behoeften te voldoen. |
+| **De klant** | Deze blauwdruk bevat een basislijn Desired State Configuration (DSC) voor elke geïmplementeerde virtuele machine. Deze declaratieve PowerShell-scripts definiëren en configureer de bronnen waarop ze worden toegepast. De basislijn DSC opgenomen voor resources die zijn geïmplementeerd met deze oplossing kan worden uitgebreid door de klant om missie behoeften te voldoen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat een basislijn Desired State Configuration (DSC) voor elke geïmplementeerde virtuele machine. De basislijnen wordt automatisch toegepast op virtuele machines tijdens de implementatie van de virtuele machine-extensie voor aangepaste scripts gebruiken. |
+| **De klant** | Deze blauwdruk bevat een basislijn Desired State Configuration (DSC) voor elke geïmplementeerde virtuele machine. De basislijnen wordt automatisch toegepast op virtuele machines tijdens de implementatie van de virtuele machine-extensie voor aangepaste scripts gebruiken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Automation DSC. Automation DSC-machineconfiguraties met een specifieke organisatie gedefinieerde configuratie uitgelijnd. |
+| **De klant** | Deze blauwdruk implementeert de Automation DSC. Automation DSC-machineconfiguraties met een specifieke organisatie gedefinieerde configuratie uitgelijnd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Azure Automation DSC. Automation DSC worden uitgelijnd met een specifieke organisatie gedefinieerde configuratie-machineconfiguraties en voortdurend wordt gecontroleerd op wijzigingen. |
+| **De klant** | Deze blauwdruk implementeert Azure Automation DSC. Automation DSC worden uitgelijnd met een specifieke organisatie gedefinieerde configuratie-machineconfiguraties en voortdurend wordt gecontroleerd op wijzigingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Azure Automation DSC. Onderdeel van Azure van Operations Management Suite (OMS), Automation DSC kan worden geconfigureerd voor het genereren van een waarschuwing of te verhelpen door middel van configuratiefouten wanneer gedetecteerd. |
+| **De klant** | Deze blauwdruk implementeert Azure Automation DSC. Onderdeel van Azure van Operations Management Suite (OMS), Automation DSC kan worden geconfigureerd voor het genereren van een waarschuwing of te verhelpen door middel van configuratiefouten wanneer gedetecteerd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De resources die zijn geïmplementeerd door deze blauwdruk Azure zijn geconfigureerd voor de minimale functionaliteit biedt voor het beoogde doel. Een basislijn Desired State Configuration (DSC) is opgenomen voor elke geïmplementeerde virtuele machine. Deze declaratieve PowerShell-scripts definiëren en configureer de bronnen waarop ze worden toegepast. De basislijn DSC opgenomen voor resources die zijn geïmplementeerd met deze oplossing kan worden uitgebreid door de klant functionaliteit missie behoeften verder te beperken. |
+| **De klant** | De resources die zijn geïmplementeerd door deze blauwdruk zijn geconfigureerd voor de minimale functionaliteit biedt voor het beoogde doel. Een basislijn Desired State Configuration (DSC) is opgenomen voor elke geïmplementeerde virtuele machine. Deze declaratieve PowerShell-scripts definiëren en configureer de bronnen waarop ze worden toegepast. De basislijn DSC opgenomen voor resources die zijn geïmplementeerd met deze oplossing kan worden uitgebreid door de klant functionaliteit missie behoeften verder te beperken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Azure Application Gateway en netwerk-beveiligingsgroepen voor het gebruik van poorten en protocollen beperken tot alleen die nodig zijn. Toepassingsgateway netwerkbeveiligingsgroepen en DSC-basislijnen voor virtuele machines kunnen verder zijn geconfigureerd door de klant het gebruik van functies, -poorten, protocollen en -services om alleen de benodigde functionaliteit bedoeld beperken. |
+| **De klant** | Deze blauwdruk implementeert Azure Application Gateway en netwerk-beveiligingsgroepen voor het gebruik van poorten en protocollen beperken tot alleen die nodig zijn. Toepassingsgateway netwerkbeveiligingsgroepen en DSC-basislijnen voor virtuele machines kunnen verder zijn geconfigureerd door de klant het gebruik van functies, -poorten, protocollen en -services om alleen de benodigde functionaliteit bedoeld beperken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure Resource Manager biedt een altijd actuele lijst met geïmplementeerde resources en kan worden aangepast aan het label en groep resources voor voorraadbeheer. Resources die zijn geïmplementeerd met deze oplossing krijgen een specifieke bron-code die gekoppeld aan de systeemgrens worden kan. |
+| **De klant** | Deze blauwdruk implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure Resource Manager biedt een altijd actuele lijst met geïmplementeerde resources en kan worden aangepast aan het label en groep resources voor voorraadbeheer. Resources die zijn geïmplementeerd met deze oplossing krijgen een specifieke bron-code die gekoppeld aan de systeemgrens worden kan. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure Resource Manager biedt een altijd actuele lijst met geïmplementeerde resources die beschikbaar is voor controle in de Azure portal. |
+| **De klant** | Deze blauwdruk implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure Resource Manager biedt een altijd actuele lijst met geïmplementeerde resources die beschikbaar is voor controle in de Azure portal. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert alle resources in een Azure Resource Manager-resourcegroep. De blade resources in de Azure portal geeft een lijst met alle geïmplementeerde resources een altijd actuele inventaris verstrekken die resources worden geïmplementeerd en wordt verwijderd. |
+| **De klant** | Deze blauwdruk implementeert alle resources in een Azure Resource Manager-resourcegroep. De blade resources in de Azure portal geeft een lijst met alle geïmplementeerde resources een altijd actuele inventaris verstrekken die resources worden geïmplementeerd en wordt verwijderd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert alle resources in een Azure Resource Manager-resourcegroep. De blade resources in de Azure portal geeft een lijst met alle geïmplementeerde resources een altijd actuele inventaris verstrekken die resources worden geïmplementeerd en wordt verwijderd. |
+| **De klant** | Deze blauwdruk implementeert alle resources in een Azure Resource Manager-resourcegroep. De blade resources in de Azure portal geeft een lijst met alle geïmplementeerde resources een altijd actuele inventaris verstrekken die resources worden geïmplementeerd en wordt verwijderd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure-resourcetags zijn sleutel / waarde-paren die kunnen worden ingezet om bronnen voor accountability en/of management-toepassing te categoriseren. |
+| **De klant** | Deze blauwdruk implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure-resourcetags zijn sleutel / waarde-paren die kunnen worden ingezet om bronnen voor accountability en/of management-toepassing te categoriseren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure Resource Manager biedt een altijd actuele lijst met geïmplementeerde resources. Resources die zijn geïmplementeerd met deze oplossing krijgen een specifieke bron-code die gekoppeld aan de systeemgrens worden kan. |
+| **De klant** | Deze blauwdruk implementeert alle resources in een Azure Resource Manager-resourcegroep. Azure Resource Manager biedt een altijd actuele lijst met geïmplementeerde resources. Resources die zijn geïmplementeerd met deze oplossing krijgen een specifieke bron-code die gekoppeld aan de systeemgrens worden kan. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Windows en SQL Server-licenties worden vermeld voor de resources die door deze blauwdruk Azure is geïmplementeerd. Dit is een ingebouwde functie van Azure. Organisaties met bestaande softwarelicentieovereenkomsten overwegen alternatieve licentiemodellen. |
+| **De klant** | Windows- en SQL Server-licenties worden vermeld voor de resources die door deze blauwdruk geïmplementeerd. Dit is een ingebouwde functie van Azure. Organisaties met bestaande softwarelicentieovereenkomsten overwegen alternatieve licentiemodellen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Windows en SQL Server-licenties worden vermeld voor de resources die door deze blauwdruk Azure is geïmplementeerd. De gebruiker is niet vereist voor het gebruik van de licenties afzonderlijk bijhouden. |
+| **De klant** | Windows- en SQL Server-licenties worden vermeld voor de resources die door deze blauwdruk geïmplementeerd. De gebruiker is niet vereist voor het gebruik van de licenties afzonderlijk bijhouden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er is geen peer-to-peer-bestand delen mogelijkheid geïmplementeerd door deze blauwdruk Azure. |
+| **De klant** | Er is geen peer-to-peer-bestand dat is geïmplementeerd door deze blauwdruk mogelijkheid delen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 

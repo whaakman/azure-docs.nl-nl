@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - onderhoud
-description: Webtoepassingen voor FedRAMP - onderhoud
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - onderhoud
+description: FedRAMP Web Applications Automation - onderhoud
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Onderhoud (MA)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-ma-1"></a>NIST 800 53 besturingselement MA-1
+## <a name="nist-800-53-control-ma-1"></a>NIST 800-53 Control MA-1
 
 #### <a name="system-maintenance-policy-and-procedures"></a>Onderhoud systeembeleid en Procedures
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure Asset beveiliging standaard definieert de verwerking vereist voor de overdracht van activa offsite voorzorgsmaatregelen asset. De standaard Asset-beveiliging vereist dat gegevensassets opslag gewist/opgeschoond in samenhang met de NIST SP 800-88, richtlijnen voor opschoning van de Media, vóór het verlaten van het datacenter. |
 
 
- ## <a name="nist-800-53-control-ma-2e"></a>NIST 800 53 besturingselement MA-2.e
+ ## <a name="nist-800-53-control-ma-2e"></a>NIST 800-53 Control MA-2.e
 
 #### <a name="controlled-maintenance"></a>Gecontroleerde onderhoud
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800 53 besturingselement MA 2 (2) een
+ ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800-53 Control MA-2 (2).a
 
 #### <a name="controlled-maintenance--automated-maintenance-activities"></a>Beheerd onderhoud | Van geautomatiseerde onderhoudsactiviteiten
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ma-3"></a>NIST 800 53 besturingselement MA-3
+ ## <a name="nist-800-53-control-ma-3"></a>NIST 800-53 Control MA-3
 
 #### <a name="maintenance-tools"></a>Hulpprogramma's voor onderhoud
 
@@ -263,7 +263,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ma-4e"></a>NIST 800 53 besturingselement MA-4.e
+ ## <a name="nist-800-53-control-ma-4e"></a>NIST 800-53 Control MA-4.e
 
 #### <a name="nonlocal-maintenance"></a>Niet-lokale onderhoud
 

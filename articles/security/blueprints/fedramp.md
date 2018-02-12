@@ -1,6 +1,6 @@
 ---
-title: Blauwdruk Azure Automation - webtoepassingen voor FedRAMP
-description: Blauwdruk Azure Automation - webtoepassingen voor FedRAMP
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation
+description: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Blauwdruk Azure Automation - webtoepassingen voor FedRAMP
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation
 
 ## <a name="overview"></a>Overzicht
 
-De [Federal risico en autorisatie Management-programma (FedRAMP)](https://www.fedramp.gov), is een US government hele-programma dat biedt een gestandaardiseerde aanpak voor beoordeling van de veiligheid, autorisatie en doorlopende bewaking voor cloud-producten en Services. Deze Azure blauwdruk Automation - webtoepassingen voor FedRAMP biedt richtlijnen voor de implementatie van een FedRAMP-compatibele infrastructuur als een geschikt is voor een eenvoudige webtoepassing voor internetgerichte Service (IaaS)-omgeving. Deze oplossing automatiseert implementatie en configuratie van Azure-resources voor een algemene referentiearchitectuur demonstreren van de manieren waarop klanten kunnen voldoen aan specifieke vereisten voor beveiliging en naleving en fungeert als basis voor klanten om op te bouwen en oplossingen voor hun eigen configureren in Azure. De oplossing implementeert een subset van besturingselementen van de basislijn FedRAMP hoge, op basis van NIST SP 800 53. Zie voor meer informatie over deze oplossing en FedRAMP hoge [FedRAMP hoge eisen - High-Level overzicht](fedramp-controls-overview.md). ***Opmerking: Deze oplossing worden geïmplementeerd op Azure Government.***
+De [Federal risico en autorisatie Management-programma (FedRAMP)](https://www.fedramp.gov), is een US government hele-programma dat biedt een gestandaardiseerde aanpak voor beoordeling van de veiligheid, autorisatie en doorlopende bewaking voor cloud-producten en Services. Deze Azure-beveiliging en naleving blauwdruk Automation biedt richtlijnen voor de implementatie van een FedRAMP-compatibele infrastructuur als een geschikt is voor een eenvoudige webtoepassing voor internetgerichte Service (IaaS)-omgeving. Deze oplossing automatiseert implementatie en configuratie van Azure-resources voor een algemene referentiearchitectuur demonstreren van de manieren waarop klanten kunnen voldoen aan specifieke vereisten voor beveiliging en naleving en fungeert als basis voor klanten om op te bouwen en oplossingen voor hun eigen configureren in Azure. De oplossing implementeert een subset van besturingselementen van de basislijn FedRAMP hoge, op basis van NIST SP 800 53. Zie voor meer informatie over deze oplossing en FedRAMP hoge [FedRAMP hoge eisen - High-Level overzicht](fedramp-controls-overview.md). ***Opmerking: Deze oplossing worden geïmplementeerd op Azure Government.***
 
 Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan te passen aan hun specifieke vereisten en mag niet worden gebruikt als-is in een productieomgeving. Implementeren van een toepassing in deze omgeving zonder aanpassing is niet voldoende volledig voldoen aan de vereisten van de basislijn FedRAMP hoog. Houd rekening met het volgende:
 - Deze architectuur biedt een basis zodat klanten Azure in een FedRAMP-compatibele manier gebruiken.
@@ -36,17 +36,17 @@ Klik op [hier](https://aka.ms/fedrampblueprintrepo) voor implementatie-instructi
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
-Deze blauwdruk Azure Automation wordt automatisch een referentiearchitectuur IaaS web application met vooraf geconfigureerde beveiligingsmechanismen klanten helpen de naleving van voorschriften FedRAMP implementeert. De oplossing bestaat uit Azure Resource Manager-sjablonen en PowerShell-scripts die resource implementatie en configuratie leiden. Bij Azure blauwdruk [naleving documentatie](#compliance-documentation) wordt geleverd, die aangeeft beveiliging besturingselement overname van Azure en de geïmplementeerde resources en configuraties die zijn afgestemd op NIST SP 800 53 beveiligingsmechanismen, waardoor waarmee organisaties fast track verplichtingen.
+Deze Azure-beveiliging en naleving blauwdruk Automation automatisch wordt geïmplementeerd met een referentiearchitectuur IaaS web application met vooraf geconfigureerde beveiligingsmechanismen klanten helpen de naleving van voorschriften FedRAMP. De oplossing bestaat uit Azure Resource Manager-sjablonen en PowerShell-scripts die resource implementatie en configuratie leiden. Bijbehorende [naleving documentatie](#compliance-documentation) is opgegeven, de overname van beveiliging beheer van Azure en de geïmplementeerde resources en configuraties die zijn afgestemd op NIST SP 800 53 beveiligingsmechanismen die aangeeft, waardoor u organisaties fast track verplichtingen.
 
 ## <a name="architecture-diagram"></a>Architectuurdiagram
 
 Deze oplossing implementeert een referentiearchitectuur voor een IaaS-webtoepassing met een back-end voor de database. De architectuur bevat een weblaag, gegevens servicetier, Active Directory-infrastructuur, toepassingsgateway, en de load balancer. Virtuele machines die zijn geïmplementeerd op de web- en lagen zijn geconfigureerd in een beschikbaarheidsset en SQL Server-exemplaren zijn geconfigureerd in een AlwaysOn-beschikbaarheidsgroep voor hoge beschikbaarheid. Virtuele machines zijn lid van een domein en Active Directory-groepsbeleid worden gebruikt voor het afdwingen van beveiliging en naleving configuraties op het niveau van het besturingssysteem. Een management jumpbox (bastion host) biedt een beveiligde verbinding voor beheerders voor geïmplementeerd toegang tot bronnen.
 
-![alternatieve tekst](images/fedramp-architectural-diagram.png?raw=true "IaaS web application blauwdruk automation voor FedRAMP-compatibele omgevingen")
+![alternatieve tekst](images/fedramp-architectural-diagram.png?raw=true "Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation")
 
 Deze oplossing gebruikt de volgende Azure-services. Details van de architectuur voor implementatie bevinden zich in de [architectuur voor implementatie](#deployment-architecture) sectie.
 
-* **Virtuele Machines in Azure**
+* **Azure Virtual Machines**
     - (1) management/bastion (Windows Server 2016 Datacenter)
     - (2) active Directory-domeincontroller (Windows Server 2016 Datacenter)
     - (2) de SQL Server-clusterknooppunt (SQL Server 2016 op Windows Server 2012 R2)
@@ -91,7 +91,7 @@ De volgende sectie wordt de ontwikkeling en implementatie-elementen.
 
 De architectuur vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met web application firewall (WAF) en de ruleset OWASP is ingeschakeld. Aanvullende mogelijkheden zijn:
 
-- [Einde End SSL-](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Schakel [SSL-Offload](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Schakel [TLS v1.0 en v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (WAF modus)
@@ -118,7 +118,7 @@ Elk van de subnetten heeft een speciale netwerkbeveiligingsgroep (NSG):
 
 Elk subnet is gekoppeld aan de bijbehorende NSG.
 
-### <a name="data-at-rest"></a>Gegevens in rust
+### <a name="data-at-rest"></a>Data-at-rest
 
 De architectuur beveiligt de gegevens in rust met behulp van verschillende versleuteling metingen.
 
@@ -138,8 +138,8 @@ Azure Disk Encryption wordt gebruikt om versleutelde Windows IaaS-schijven voor 
 
 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboekregistratie van systeem- en gebruikersactiviteit evenals systeemstatus. 
 
-- **Activiteitenlogboeken:**[activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.  
-- **Diagnostische logboeken:**[diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource.   Deze logboeken bevatten Windows-gebeurtenislogboeken system, Azure-opslag logboeken Sleutelkluis controlelogboeken en Application Gateway toegang en firewall-Logboeken.
+- **Activiteitenlogboeken:**[activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
+- **Diagnostische logboeken:**[diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken bevatten Windows-gebeurtenislogboeken system, Azure-opslag logboeken Sleutelkluis controlelogboeken en Application Gateway toegang en firewall-Logboeken.
 - **Logboek archiveren:** Azure activiteitenlogboeken en logboeken met diagnostische gegevens kunnen worden verbonden met Azure Log Analytics voor verwerking, opslaan en dashboarding. Bewaartermijn is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker configureerbare up 730 dag.
 
 ### <a name="secrets-management"></a>Geheimen management
@@ -157,7 +157,7 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 - [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot abonnementsbeheerder en toegang tot bronnen worden beperkt op basis van gebruikersrol.
 - Een geïmplementeerd exemplaar van Active Directory IaaS biedt identiteitsbeheer op de OS-niveau voor geïmplementeerde IaaS virtuele machines.
    
-### <a name="compute-resources"></a>Bronnen berekenen
+### <a name="compute-resources"></a>Rekenresources
 
 #### <a name="web-tier"></a>Weblaag
 
@@ -182,7 +182,7 @@ Een management jumpbox (bastion host) biedt een beveiligde verbinding voor behee
 
 ### <a name="patch-management"></a>Patch management
 
-Windows virtuele machines zijn geïmplementeerd door deze automatisering blauwdruk zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de OMS Azure Automation-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is.
+Windows virtuele machines zijn geïmplementeerd door deze Azure-beveiliging en naleving blauwdruk automatisering zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de OMS Azure Automation-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is.
 
 ### <a name="operations-management"></a>Operationeel beheer
 
@@ -211,11 +211,11 @@ De [klant verantwoordelijkheden matrix](https://aka.ms/blueprinthighcrm) (Excel-
 
 ### <a name="control-implementation-matrix"></a>Besturingselement implementatie matrix
 
-De [besturingselement implementatie matrix](https://aka.ms/blueprintwacim) (Excel-werkmap) een lijst met alle beveiligingsmechanismen zijn vereist voor de basislijn FedRAMP hoog. De matrix geeft, voor elk besturingselement (of het besturingselement subdeel) die is aangewezen een klant verantwoorde in de klant verantwoordelijkheden matrix (1) als de blauwdruk automatisering wordt geïmplementeerd voor het besturingselement en 2) een beschrijving van hoe de uitvoering wordt uitgelijnd met de controle van vereisten. Deze inhoud is ook beschikbaar [hier](fedramp-controls-overview.md).
+De [besturingselement implementatie matrix](https://aka.ms/blueprintwacim) (Excel-werkmap) een lijst met alle beveiligingsmechanismen zijn vereist voor de basislijn FedRAMP hoog. De matrix geeft, voor elk besturingselement (of het besturingselement subdeel) die is aangewezen een klant verantwoorde in de matrix van de verantwoordelijkheden van de klant 1) als de automatisering blauwdruk implementeert het besturingselement en 2) een beschrijving van hoe de uitvoering wordt uitgelijnd met de controle van vereisten. Deze inhoud is ook beschikbaar [hier](fedramp-controls-overview.md).
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-Deze oplossing Azure blauwdruk bestaat uit JSON-configuratiebestanden en PowerShell-scripts die worden verwerkt door Azure Resource Manager-API-service voor het implementeren van resources in Azure. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/fedrampblueprintrepo). ***Opmerking: Deze oplossing worden geïmplementeerd op Azure Government.***
+Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configuratiebestanden en PowerShell-scripts die worden verwerkt door Azure Resource Manager-API-service voor het implementeren van resources in Azure. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/fedrampblueprintrepo). ***Opmerking: Deze oplossing worden geïmplementeerd op Azure Government.***
 
 #### <a name="quickstart"></a>Snelstartgids
 1. Klonen of downloaden [dit](https://aka.ms/fedrampblueprintrepo) GitHub-opslagplaats naar uw lokale werkstation.

@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - controle en verantwoordelijkheid
-description: Webtoepassingen voor FedRAMP - controle en verantwoordelijkheid
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - controle en verantwoordelijkheid
+description: FedRAMP Web Applications Automation - controle en verantwoordelijkheid
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Controle en verantwoordelijkheid (AU)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Audit mogelijkheid voor deze Azure blauwdruk wordt verstrekt door Azure bewaken en de Log Analytics-service in OMS. Azure biedt een gedetailleerde controlelogboeken over activiteit die is gekoppeld aan het geïmplementeerde resources. Deze en logboeken voor OS-niveau worden verzameld door Log Analytics en opgeslagen in de OMS-opslagplaats. Log Analytics correleert controlegegevens op de resources die zijn geïmplementeerd met deze oplossing en kan worden uitgebreid naar de webtoepassing die door de klant is geïmplementeerd. |
+| **De klant** | Mogelijkheid tot controle voor deze blauwdruk wordt verstrekt door Azure bewaken en de Log Analytics-service in OMS. Azure biedt een gedetailleerde controlelogboeken over activiteit die is gekoppeld aan het geïmplementeerde resources. Deze en logboeken voor OS-niveau worden verzameld door Log Analytics en opgeslagen in de OMS-opslagplaats. Log Analytics correleert controlegegevens op de resources die zijn geïmplementeerd met deze oplossing en kan worden uitgebreid naar de webtoepassing die door de klant is geïmplementeerd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk Azure bevatten informatie die voldoende zijn om te bepalen wanneer gebeurtenissen plaatsvinden, de bron van de gebeurtenis, het resultaat van de gebeurtenis en andere gedetailleerde informatie die ondersteuning biedt voor onderzoek beveiligingsincidenten. |
+| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk bevatten informatie die voldoende zijn om te bepalen wanneer gebeurtenissen plaatsvinden, de bron van de gebeurtenis, het resultaat van de gebeurtenis en andere gedetailleerde informatie die ondersteuning biedt voor onderzoek beveiligingsincidenten. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk Azure bevatten die worden gecontroleerd door Azure activiteitenlogboeken voor geïmplementeerde resources, OS-niveau Logboeken, Active Directory-logboeken en logboeken van de SQL Server. Klanten kunnen aanvullende gebeurtenissen moeten worden gecontroleerd om te voldoen aan de behoeften van de missie selecteren. |
+| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk opnemen die worden gecontroleerd door Azure activiteitenlogboeken voor geïmplementeerde resources, OS-niveau Logboeken, Active Directory-logboeken en logboeken van de SQL Server. Klanten kunnen aanvullende gebeurtenissen moeten worden gecontroleerd om te voldoen aan de behoeften van de missie selecteren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk afhankelijk van de ingebouwde audit-mogelijkheden van Azure, Windows Server en SQL Server. Deze controle oplossingen vastleggen controlerecords met voldoende details om te voldoen aan de vereisten van dit besturingselement. |
+| **De klant** | Deze blauwdruk afhankelijk van de ingebouwde audit-mogelijkheden van Azure, Windows Server en SQL Server. Deze controle oplossingen vastleggen controlerecords met voldoende details om te voldoen aan de vereisten van dit besturingselement. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Een gedetailleerde schema met velden voor meer dan 20 soorten controle-informatie wordt gebruikt door Azure Activity Log-gebeurtenissen. Naast het activiteitenlogboek implementeert u deze blauwdruk Azure de Log Analytics-oplossing in OMS die ondersteuning biedt voor een grote verscheidenheid aan gegevensbronnen, met inbegrip van Logboeken van Windows, Linux-Logboeken, Azure Diagnostics-logboeken en logboeken van de klant.  |
+| **De klant** | Een gedetailleerde schema met velden voor meer dan 20 soorten controle-informatie wordt gebruikt door Azure Activity Log-gebeurtenissen. Naast het activiteitenlogboek implementeert u deze blauwdruk de Log Analytics-oplossing in OMS die ondersteuning biedt voor een grote verscheidenheid aan gegevensbronnen, met inbegrip van Logboeken van Windows, Linux-Logboeken, Azure Diagnostics-logboeken en logboeken van de klant.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle virtuele machines die zijn geïmplementeerd door deze blauwdruk Azure zijn toegevoegd aan het geïmplementeerde Active Directory-domein. Alle domein-virtuele machines implementeren van een Groepsbeleid die kan worden geconfigureerd voor de systeemconfiguratie van de OS-niveau audit centraal te beheren. |
+| **De klant** | Alle virtuele machines die zijn geïmplementeerd door deze blauwdruk zijn gekoppeld aan het geïmplementeerde Active Directory-domein. Alle domein-virtuele machines implementeren van een Groepsbeleid die kan worden geconfigureerd voor de systeemconfiguratie van de OS-niveau audit centraal te beheren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk wijst voldoende opslagcapaciteit voor het bewaren van AuditRecords gedurende een periode van één jaar. Alle controlerecords worden verzameld door logboekanalyse die is geconfigureerd voor het bewaren van één jaar. |
+| **De klant** | Deze blauwdruk wijst voldoende opslagcapaciteit voor het bewaren van AuditRecords gedurende een periode van één jaar. Alle controlerecords worden verzameld door logboekanalyse die is geconfigureerd voor het bewaren van één jaar. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle controlerecords gegenereerd door de bronnen die zijn geïmplementeerd door deze blauwdruk Azure worden verzameld door Log Analytics en bewaard gedurende een periode van één jaar. De opslagtoewijzing voor deze record audit-opslag wordt dynamisch toegewezen gezorgd voldoende capaciteit is beschikbaar. |
+| **De klant** | Alle controlerecords die zijn gegenereerd door de bronnen die zijn geïmplementeerd door deze blauwdruk worden verzameld door Log Analytics en bewaard gedurende een periode van één jaar. De opslagtoewijzing voor deze record audit-opslag wordt dynamisch toegewezen gezorgd voldoende capaciteit is beschikbaar. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle controlerecords gegenereerd door de bronnen die zijn geïmplementeerd door deze blauwdruk Azure worden verzameld door Log Analytics en bewaard gedurende een periode van één jaar. De opslagtoewijzing voor deze record audit-opslag wordt dynamisch toegewezen gezorgd voldoende capaciteit is beschikbaar. |
+| **De klant** | Alle controlerecords die zijn gegenereerd door de bronnen die zijn geïmplementeerd door deze blauwdruk worden verzameld door Log Analytics en bewaard gedurende een periode van één jaar. De opslagtoewijzing voor deze record audit-opslag wordt dynamisch toegewezen gezorgd voldoende capaciteit is beschikbaar. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-oplossing in OMS te centraliseren controlegegevens op de geïmplementeerde resources binnen de gehele organisatie situationeel bewustzijn ondersteunen. Klanten kunnen worden gekozen om logboekanalyse verder te integreren met andere systemen. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-oplossing in OMS te centraliseren controlegegevens verschillende geïmplementeerde resources binnen de gehele organisatie situationeel bewustzijn ondersteunen. Klanten kunnen worden gekozen om logboekanalyse verder te integreren met andere systemen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-oplossing in OMS te centraliseren controlegegevens over geïmplementeerde resources, ondersteunende gecentraliseerde controle, analyse en rapportage. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-oplossing in OMS te centraliseren controlegegevens over geïmplementeerde resources, ondersteunende gecentraliseerde controle, analyse en rapportage. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen integreren logboekgegevens en beveiligingslek gegevens uit de basislijn en patch-evaluatie. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen integreren logboekgegevens en beveiligingslek gegevens uit de basislijn en patch-evaluatie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Windows virtuele machines zijn geïmplementeerd door deze blauwdruk Azure implementeren de acties die een gebruiker uitvoeren met de controlegegevens ten opzichte van kunt machtigingen voor OS-niveau. In Azure, gebruikers of groepen van gebruikers te beperken welke acties beschikbaar met betrekking tot alle resources kunnen worden toegewezen aan functies (bijvoorbeeld eigenaar, bijdrager, lezer of een aangepaste beveiligingsrol) of oplossingen, inclusief Log Analytics geïmplementeerd.  |
+| **De klant** | Windows virtuele machines zijn geïmplementeerd door deze blauwdruk implementeren de acties die een gebruiker uitvoeren met de controlegegevens ten opzichte van kunt machtigingen voor OS-niveau. In Azure, gebruikers of groepen van gebruikers te beperken welke acties beschikbaar met betrekking tot alle resources kunnen worden toegewezen aan functies (bijvoorbeeld eigenaar, bijdrager, lezer of een aangepaste beveiligingsrol) of oplossingen, inclusief Log Analytics geïmplementeerd.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-oplossing in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-oplossing in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-oplossing in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. De inhoud en de tijd ordening van AuditRecords niet worden gewijzigd wanneer verzameld door logboekanalyse. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-oplossing in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. De inhoud en de tijd ordening van AuditRecords niet worden gewijzigd wanneer verzameld door logboekanalyse. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-oplossing in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Log Analytics bevat een krachtige querytaal om gegevens te extraheren die zijn opgeslagen in de opslagplaats. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-oplossing in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Log Analytics bevat een krachtige querytaal om gegevens te extraheren die zijn opgeslagen in de opslagplaats. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk Azure gebruiken voor het genereren van tijdstempels voor AuditRecords. |
+| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk gebruiken voor het genereren van tijdstempels voor AuditRecords. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -413,11 +413,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk Azure gebruiken voor het genereren van tijdstempels voor AuditRecords. Tijdstempels worden geregistreerd in UTC. |
+| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk gebruiken voor het genereren van tijdstempels voor AuditRecords. Tijdstempels worden geregistreerd in UTC. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-au-8-1a"></a>(((1) een van NIST 800 53 besturingselement Australië-8
+ ### <a name="nist-800-53-control-au-8-1a"></a>NIST 800-53 Control AU-8 (1).a
 
 #### <a name="time-stamps--synchronization-with-authoritative-time-source"></a>Tijdstempels | Synchronisatie met tijdsbron
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk Azure gebruiken voor het genereren van tijdstempels voor AuditRecords. Interne systeemklokken zijn geconfigureerd om te synchroniseren met een bindende tijdsbron. |
+| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk gebruiken voor het genereren van tijdstempels voor AuditRecords. Interne systeemklokken zijn geconfigureerd om te synchroniseren met een bindende tijdsbron. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -441,11 +441,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk Azure gebruiken voor het genereren van tijdstempels voor AuditRecords. Interne systeemklokken zijn geconfigureerd om te synchroniseren met een bindende tijdsbron. |
+| **De klant** | Interne systeemklokken resources die zijn geïmplementeerd door deze blauwdruk gebruiken voor het genereren van tijdstempels voor AuditRecords. Interne systeemklokken zijn geconfigureerd om te synchroniseren met een bindende tijdsbron. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-au-9"></a>NIST 800 53 besturingselement Australië-9
+ ## <a name="nist-800-53-control-au-9"></a>NIST 800-53 Control AU-9
 
 #### <a name="protection-of-audit-information"></a>Beveiliging van controle-informatie
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Logische toegang besturingselementen worden gebruikt controle-informatie en hulpmiddelen binnen deze blauwdruk Azure te beschermen tegen onbevoegde toegang, aanpassen en verwijderen. Azure Active Directory wordt afgedwongen goedgekeurde logische toegang met behulp van op rollen gebaseerde groepslidmaatschappen. De mogelijkheid controle-informatie weergeven en gebruiken van controleprogramma's worden beperkt tot gebruikers die deze machtigingen zijn vereist. |
+| **De klant** | Logische toegang besturingselementen worden gebruikt controle-informatie en hulpmiddelen binnen deze blauwdruk te beschermen tegen onbevoegde toegang, aanpassen en verwijderen. Azure Active Directory wordt afgedwongen goedgekeurde logische toegang met behulp van op rollen gebaseerde groepslidmaatschappen. De mogelijkheid controle-informatie weergeven en gebruiken van controleprogramma's worden beperkt tot gebruikers die deze machtigingen zijn vereist. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-service in OMS. Geïmplementeerde virtuele machines en Azure storage-accounts voor diagnostische gegevens zijn verbonden bronnen met logboekanalyse en behouden afzonderlijk van de oorsprong. Gegevens worden verzameld door OMS in bijna realtime. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-service in OMS. Geïmplementeerde virtuele machines en Azure storage-accounts voor diagnostische gegevens zijn verbonden bronnen met logboekanalyse en behouden afzonderlijk van de oorsprong. Gegevens worden verzameld door OMS in bijna realtime. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-service in OMS. Log Analytics zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-service in OMS. Log Analytics zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Logische toegang besturingselementen worden gebruikt controle-informatie en hulpmiddelen binnen deze blauwdruk Azure te beschermen tegen onbevoegde toegang, aanpassen en verwijderen. Azure Active Directory wordt afgedwongen goedgekeurde logische toegang met behulp van op rollen gebaseerde groepslidmaatschappen. De mogelijkheid controle-informatie weergeven en gebruiken van controleprogramma's worden beperkt tot gebruikers die deze machtigingen zijn vereist.
+| **De klant** | Logische toegang besturingselementen worden gebruikt controle-informatie en hulpmiddelen binnen deze blauwdruk te beschermen tegen onbevoegde toegang, aanpassen en verwijderen. Azure Active Directory wordt afgedwongen goedgekeurde logische toegang met behulp van op rollen gebaseerde groepslidmaatschappen. De mogelijkheid controle-informatie weergeven en gebruiken van controleprogramma's worden beperkt tot gebruikers die deze machtigingen zijn vereist.
  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Audit mogelijkheid voor deze Azure blauwdruk wordt verstrekt door Azure bewaken en de Log Analytics-service in OMS. Azure biedt een gedetailleerde controlelogboeken over activiteit die is gekoppeld aan het geïmplementeerde resources. Deze en logboeken voor OS-niveau worden verzameld door Log Analytics en opgeslagen in de OMS-opslagplaats. Deze logboeken bevat gedetailleerde records van systeemgebeurtenissen informatie en kunnen helpen beschermen tegen niet-afwijzing. Verder kan is om gegevens te registreren beperkt met toegangsbeheer op basis van rollen om te voorkomen dat unauthored wijziging en verwijdering van logboekgegevens. |
+| **De klant** | Mogelijkheid tot controle voor deze blauwdruk wordt verstrekt door Azure bewaken en de Log Analytics-service in OMS. Azure biedt een gedetailleerde controlelogboeken over activiteit die is gekoppeld aan het geïmplementeerde resources. Deze en logboeken voor OS-niveau worden verzameld door Log Analytics en opgeslagen in de OMS-opslagplaats. Deze logboeken bevat gedetailleerde records van systeemgebeurtenissen informatie en kunnen helpen beschermen tegen niet-afwijzing. Verder kan is om gegevens te registreren beperkt met toegangsbeheer op basis van rollen om te voorkomen dat unauthored wijziging en verwijdering van logboekgegevens. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-service in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Zodra verzameld, blijven de gegevens bewaard één jaar per Log Analytics-configuratie. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-service in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Zodra verzameld, blijven de gegevens bewaard één jaar per Log Analytics-configuratie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk Azure bevatten die worden gecontroleerd door Azure activiteitenlogboeken voor geïmplementeerde resources, OS-niveau Logboeken, Active Directory-logboeken en logboeken van de SQL Server. Klanten kunnen aanvullende gebeurtenissen moeten worden gecontroleerd om te voldoen aan de behoeften van de missie selecteren. |
+| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk opnemen die worden gecontroleerd door Azure activiteitenlogboeken voor geïmplementeerde resources, OS-niveau Logboeken, Active Directory-logboeken en logboeken van de SQL Server. Klanten kunnen aanvullende gebeurtenissen moeten worden gecontroleerd om te voldoen aan de behoeften van de missie selecteren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Toegang tot de functies van de audit is beperkt met behulp van op rollen gebaseerde toegangsbeheer in Azure en op de virtuele machine OS-niveau. De configuratie van gebeurtenissen die zijn geselecteerd om te worden gecontroleerd door de bronnen die zijn geïmplementeerd door deze blauwdruk Azure kan worden geconfigureerd door gebruikers met de juiste autorisatie op basis van rollen. |
+| **De klant** | Toegang tot de functies van de audit is beperkt met behulp van op rollen gebaseerde toegangsbeheer in Azure en op de virtuele machine OS-niveau. De configuratie van gebeurtenissen die zijn geselecteerd om te worden gecontroleerd door de bronnen die zijn geïmplementeerd door deze blauwdruk kan worden geconfigureerd door gebruikers met de juiste autorisatie op basis van rollen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk Azure bevatten die worden gecontroleerd door Azure activiteitenlogboeken voor geïmplementeerde resources, OS-niveau Logboeken, Active Directory-logboeken en logboeken van de SQL Server. Klanten kunnen aanvullende gebeurtenissen moeten worden gecontroleerd om te voldoen aan de behoeften van de missie selecteren. |
+| **De klant** | Gebeurtenissen die worden gecontroleerd door deze blauwdruk opnemen die worden gecontroleerd door Azure activiteitenlogboeken voor geïmplementeerde resources, OS-niveau Logboeken, Active Directory-logboeken en logboeken van de SQL Server. Klanten kunnen aanvullende gebeurtenissen moeten worden gecontroleerd om te voldoen aan de behoeften van de missie selecteren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-service in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Audit record tijdstempels zijn niet gewijzigd, daarom is de audittrail tijd gecorreleerde. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-service in OMS. Log Analytics biedt bewakingsservices voor OMS door het verzamelen van gegevens van beheerde bronnen in een centrale opslagplaats. Audit record tijdstempels zijn niet gewijzigd, daarom is de audittrail tijd gecorreleerde. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Toegang tot de functies van de audit is beperkt met behulp van op rollen gebaseerde toegangsbeheer in Azure en op de virtuele machine OS-niveau. De configuratie van gebeurtenissen die zijn geselecteerd om te worden gecontroleerd door de bronnen die zijn geïmplementeerd door deze blauwdruk Azure kan worden geconfigureerd door gebruikers met de juiste autorisatie op basis van rollen. |
+| **De klant** | Toegang tot de functies van de audit is beperkt met behulp van op rollen gebaseerde toegangsbeheer in Azure en op de virtuele machine OS-niveau. De configuratie van gebeurtenissen die zijn geselecteerd om te worden gecontroleerd door de bronnen die zijn geïmplementeerd door deze blauwdruk kan worden geconfigureerd door gebruikers met de juiste autorisatie op basis van rollen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |

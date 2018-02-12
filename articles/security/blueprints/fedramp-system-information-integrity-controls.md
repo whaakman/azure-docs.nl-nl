@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - systeem en de integriteit van de gegevens
-description: Webtoepassingen voor FedRAMP - systeem en de integriteit van de gegevens
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - systeem en integriteit van de gegevens
+description: FedRAMP Web Applications Automation - systeem en de integriteit van de gegevens
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Systeem- en integriteit van de gegevens (SI)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-si-1"></a>NIST 800 53 besturingselement SI-1
+## <a name="nist-800-53-control-si-1"></a>NIST 800-53 Control SI-1
 
 #### <a name="system-and-information-integrity-policy-and-procedures"></a>Systeem en integriteitsbeleid informatie en Procedures
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard OMS de tegel updatebeheer beveiligingsfout herstel wordt status weergegeven voor alle geïmplementeerde Windows-servers. |
+| **De klant** | Deze blauwdruk implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard OMS de tegel updatebeheer beveiligingsfout herstel wordt status weergegeven voor alle geïmplementeerde Windows-servers. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Windows virtuele machines zijn geïmplementeerd door deze blauwdruk Azure zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de OMS Automation & Control-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
+| **De klant** | Windows virtuele machines zijn geïmplementeerd door deze blauwdruk zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de OMS Automation & Control-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -105,11 +105,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard OMS de tegel updatebeheer beveiligingsfout herstel wordt status weergegeven voor alle geïmplementeerde Windows-servers. Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
+| **De klant** | Deze blauwdruk implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard OMS de tegel updatebeheer beveiligingsfout herstel wordt status weergegeven voor alle geïmplementeerde Windows-servers. Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-2-2"></a>NIST 800 53 besturingselement SI-2 (2)
+ ### <a name="nist-800-53-control-si-2-2"></a>NIST 800-53 Control SI-2 (2)
 
 #### <a name="flaw-remediation--automated-flaw-remediation-status"></a>Herstel fout | Herstelstatus van geautomatiseerde fout
 
@@ -119,11 +119,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd. Om de vijftien minuten wordt de Windows-API aangeroepen voor de laatste updatetijd om op die manier te bepalen of de status is gewijzigd. Als dat het geval is, wordt er een nalevingsscan gestart. |
+| **De klant** | Deze blauwdruk implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd. Om de vijftien minuten wordt de Windows-API aangeroepen voor de laatste updatetijd om op die manier te bepalen of de status is gewijzigd. Als dat het geval is, wordt er een nalevingsscan gestart. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-2-3a"></a>NIST 800 53 SI-2 (3) een beheren
+ ### <a name="nist-800-53-control-si-2-3a"></a>NIST 800-53 Control SI-2 (3).a
 
 #### <a name="flaw-remediation--time-to-remediate-flaws--benchmarks-for-corrective-actions"></a>Herstel fout | Tijd voor het herstellen van fouten / Benchmarks voor corrigerende maatregelen
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd op basis van een host antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd op basis van een host antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor automatisch bijwerken van zowel de antimalware-engine en beveiliging de handtekeningen als release beschikbaar. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor automatisch bijwerken van zowel de antimalware-engine en beveiliging de handtekeningen als release beschikbaar. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd op basis van een host antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor de real-time en periodieke scans (wekelijks) uitvoeren, automatisch bijwerken van zowel de antimalware-engine en beveiliging de handtekeningen en automatische herstelacties uitvoeren. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor de real-time en periodieke scans (wekelijks) uitvoeren, automatisch bijwerken van zowel de antimalware-engine en beveiliging de handtekeningen en automatische herstelacties uitvoeren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd op basis van een host antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Azure OMS biedt een gecentraliseerde mogelijkheid om te controleren van de huidige status van de antimalwareoplossing. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Azure OMS biedt een gecentraliseerde mogelijkheid om te controleren van de huidige status van de antimalwareoplossing. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd op basis van een host antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor automatisch bijwerken van zowel de antimalware-engine en beveiliging de handtekeningen als release beschikbaar. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor automatisch bijwerken van zowel de antimalware-engine en beveiliging de handtekeningen als release beschikbaar. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd op basis van een host antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor het uitvoeren van heuristische detectie. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Deze uitbreiding is geconfigureerd voor het uitvoeren van heuristische detectie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd voor de logboekanalyse en de oplossing OMS beveiligings- en controlebeleid. Deze oplossing biedt een uitgebreid overzicht van beveiligingspostuur, aanvallen en indicatoren van mogelijke aanvallen. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en de oplossing OMS beveiligings- en controlebeleid. Deze oplossing biedt een uitgebreid overzicht van beveiligingspostuur, aanvallen en indicatoren van mogelijke aanvallen. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Het domein identificeren en toegang biedt een dashboard met een overzicht van de informatie identiteit systeemstatus, met inbegrip van aantal mislukte pogingen om aan te melden en het huidige aantal accounts die zijn aangemeld. De informatie in dit dashboard kan helpen bij de identificatie van mogelijke verdachte activiteit. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Het domein identificeren en toegang biedt een dashboard met een overzicht van de informatie identiteit systeemstatus, met inbegrip van aantal mislukte pogingen om aan te melden en het huidige aantal accounts die zijn aangemeld. De informatie in dit dashboard kan helpen bij de identificatie van mogelijke verdachte activiteit. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd voor de logboekanalyse en de oplossing OMS beveiligings- en controlebeleid. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen, inclusief inzicht in de VM-besturingssysteem bewaken van gegevens. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en de oplossing OMS beveiligings- en controlebeleid. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen, inclusief inzicht in de VM-besturingssysteem bewaken van gegevens. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Logische toegang besturingselementen worden gebruikt om de controlegegevens binnen deze blauwdruk Azure beveiligen tegen onbevoegde toegang, aanpassen en verwijderen. Azure Active Directory wordt afgedwongen goedgekeurde logische toegang met behulp van op rollen gebaseerde groepslidmaatschappen. De mogelijkheid controlegegevens weergeven en gebruiken van controleprogramma's worden beperkt tot gebruikers die deze machtigingen zijn vereist. |
+| **De klant** | Logische toegang besturingselementen worden gebruikt om de controlegegevens binnen deze blauwdruk beschermen tegen onbevoegde toegang, aanpassen en verwijderen. Azure Active Directory wordt afgedwongen goedgekeurde logische toegang met behulp van op rollen gebaseerde groepslidmaatschappen. De mogelijkheid controlegegevens weergeven en gebruiken van controleprogramma's worden beperkt tot gebruikers die deze machtigingen zijn vereist. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-system-monitoring"></a>Informatie systeemcontrole
 
-**SI 4.e** De organisatie kunnen het niveau van het informatiesysteem activiteit controleren wanneer er een indicatie van toegenomen risico voor de organisatie-bewerkingen en activa, personen, andere organisaties of het land op basis van wet afdwinging informatie we veel beter intelligence-informatie, of andere geloofwaardige informatiebronnen.
+**SI-4.e** De organisatie kunnen het niveau van het informatiesysteem activiteit controleren wanneer er een indicatie van toegenomen risico voor de organisatie-bewerkingen en activa, personen, andere organisaties of het land op basis van wet afdwinging informatie we veel beter intelligence-informatie, of andere geloofwaardige informatiebronnen.
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd voor de logboekanalyse en verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit-oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. OMS solutions biedt een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. OMS verschaft inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. OMS kunnen worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit-oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. OMS solutions biedt een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. OMS verschaft inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. OMS kunnen worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -399,11 +399,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk implementeert verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. OMS solutions biedt een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. OMS kunnen worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
+| **De klant** | Deze blauwdruk implementeert verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. OMS solutions biedt een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. OMS kunnen worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-11"></a>NIST 800 53 besturingselement SI-4 (11)
+ ### <a name="nist-800-53-control-si-4-11"></a>NIST 800-53 Control SI-4 (11)
 
 #### <a name="information-system-monitoring--analyze-communications-traffic-anomalies"></a>Informatie systeemcontrole | Communicatie-verkeer afwijkingen analyseren
 
@@ -417,7 +417,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-14"></a>NIST 800 53 besturingselement SI-4 (14)
+ ### <a name="nist-800-53-control-si-4-14"></a>NIST 800-53 Control SI-4 (14)
 
 #### <a name="information-system-monitoring--wireless-intrusion-detection"></a>Informatie systeemcontrole | Draadloze inbraakdetectie
 
@@ -431,7 +431,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure controleert regelmatig voor draadloze signalen rogue kwartaal zoals beschreven in de AC-18. <br /> Microsoft Azure implementeert dit besturingselement namens PaaS- en IaaS-klanten. |
 
 
- ### <a name="nist-800-53-control-si-4-16"></a>NIST 800 53 besturingselement SI-4 (16)
+ ### <a name="nist-800-53-control-si-4-16"></a>NIST 800-53 Control SI-4 (16)
 
 #### <a name="information-system-monitoring--correlate-monitoring-information"></a>Informatie systeemcontrole | Controlegegevens correleren
 
@@ -441,11 +441,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure worden geïmplementeerd voor de logboekanalyse en verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit-oplossing. OMS verschaft inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit-oplossing. OMS verschaft inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-18"></a>NIST 800 53 besturingselement SI-4 (18)
+ ### <a name="nist-800-53-control-si-4-18"></a>NIST 800-53 Control SI-4 (18)
 
 #### <a name="information-system-monitoring--analyze-traffic--covert-exfiltration"></a>Informatie systeemcontrole | Analyseer verkeer / converteren Exfiltration
 
@@ -459,7 +459,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-19"></a>NIST 800 53 besturingselement SI-4 (19)
+ ### <a name="nist-800-53-control-si-4-19"></a>NIST 800-53 Control SI-4 (19)
 
 #### <a name="information-system-monitoring--individuals-posing-greater-risk"></a>Informatie systeemcontrole | Personen die groter risico vormen
 
@@ -473,7 +473,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-20"></a>NIST 800 53 besturingselement SI-4 (20)
+ ### <a name="nist-800-53-control-si-4-20"></a>NIST 800-53 Control SI-4 (20)
 
 #### <a name="information-system-monitoring--privileged-users"></a>Informatie systeemcontrole | Bevoegde gebruikers
 
@@ -487,7 +487,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-22"></a>NIST 800 53 besturingselement SI-4 (22)
+ ### <a name="nist-800-53-control-si-4-22"></a>NIST 800-53 Control SI-4 (22)
 
 #### <a name="information-system-monitoring--unauthorized-network-services"></a>Informatie systeemcontrole | Niet-geautoriseerde netwerkservices
 
@@ -501,7 +501,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-23"></a>NIST 800 53 besturingselement SI-4 (23)
+ ### <a name="nist-800-53-control-si-4-23"></a>NIST 800-53 Control SI-4 (23)
 
 #### <a name="information-system-monitoring--host-based-devices"></a>Informatie systeemcontrole | Host-apparaten
 
@@ -511,11 +511,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk verzamelt bewakingsgegevens van geïmplementeerde bronnen, met inbegrip van gegevens van de mogelijkheden voor bewaking op basis van een host. Microsoft Monitoring Agent is geïnstalleerd op alle Windows virtuele machines voor het verzamelen van controlegegevens die wordt gebruikt door Log Analytics en andere OMS-oplossingen. |
+| **De klant** | Deze blauwdruk verzamelt bewakingsgegevens van geïmplementeerde bronnen, met inbegrip van gegevens van de mogelijkheden voor bewaking op basis van een host. Microsoft Monitoring Agent is geïnstalleerd op alle Windows virtuele machines voor het verzamelen van controlegegevens die wordt gebruikt door Log Analytics en andere OMS-oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-24"></a>NIST 800 53 besturingselement SI-4 (24)
+ ### <a name="nist-800-53-control-si-4-24"></a>NIST 800-53 Control SI-4 (24)
 
 #### <a name="information-system-monitoring--indicators-of-compromise"></a>Informatie systeemcontrole | Indicatoren van inbreuk
 
@@ -665,11 +665,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De virtuele machines geïmplementeerd door deze Azure blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows biedt realtime-integriteit bestandsverificatie, beveiliging en herstel van essentiële systeembestanden die zijn geïnstalleerd als onderdeel van Windows of updates van Windows geautoriseerde via de Windows Resource Protection (WRP)-mogelijkheden. |
+| **De klant** | De virtuele machines geïmplementeerd door deze blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows biedt realtime-integriteit bestandsverificatie, beveiliging en herstel van essentiële systeembestanden die zijn geïnstalleerd als onderdeel van Windows of updates van Windows geautoriseerde via de Windows Resource Protection (WRP)-mogelijkheden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-7-1"></a>NIST 800 53 besturingselement SI-7 (1)
+ ### <a name="nist-800-53-control-si-7-1"></a>NIST 800-53 Control SI-7 (1)
 
 #### <a name="software-firmware-and-information-integrity--integrity-checks"></a>Software, Firmware en integriteit van de gegevens | Integriteitscontroles
 
@@ -679,11 +679,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De virtuele machines geïmplementeerd door deze Azure blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows biedt realtime-integriteit bestandsverificatie, beveiliging en herstel van essentiële systeembestanden die zijn geïnstalleerd als onderdeel van Windows of updates van Windows geautoriseerde via de Windows Resource Protection (WRP)-mogelijkheden. WRP kunt realtime integriteitscontrole. |
+| **De klant** | De virtuele machines geïmplementeerd door deze blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows biedt realtime-integriteit bestandsverificatie, beveiliging en herstel van essentiële systeembestanden die zijn geïnstalleerd als onderdeel van Windows of updates van Windows geautoriseerde via de Windows Resource Protection (WRP)-mogelijkheden. WRP kunt realtime integriteitscontrole. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-7-2"></a>NIST 800 53 besturingselement SI-7 (2)
+ ### <a name="nist-800-53-control-si-7-2"></a>NIST 800-53 Control SI-7 (2)
 
 #### <a name="software-firmware-and-information-integrity--automated-notifications-of-integrity-violations"></a>Software, Firmware en integriteit van de gegevens | Geautomatiseerde meldingen integriteit schendingen van
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De virtuele machines geïmplementeerd door deze Azure blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows biedt realtime-integriteit bestandsverificatie, beveiliging en herstel van essentiële systeembestanden die zijn geïnstalleerd als onderdeel van Windows of updates van Windows geautoriseerde via de Windows Resource Protection (WRP)-mogelijkheden.  |
+| **De klant** | De virtuele machines geïmplementeerd door deze blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows biedt realtime-integriteit bestandsverificatie, beveiliging en herstel van essentiële systeembestanden die zijn geïnstalleerd als onderdeel van Windows of updates van Windows geautoriseerde via de Windows Resource Protection (WRP)-mogelijkheden.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -725,7 +725,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-7-14"></a>NIST 800 53 besturingselement SI-7 (14)
+ ### <a name="nist-800-53-control-si-7-14"></a>NIST 800-53 Control SI-7 (14)
 
 #### <a name="software-firmware-and-information-integrity--binary-or-machine-executable-code"></a>Software, Firmware en integriteit van de gegevens | Binair of machines uitvoerbare Code
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk Azure. |
+| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk Azure. |
+| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -777,11 +777,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk Azure. |
+| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-8-2"></a>NIST 800 53 besturingselement SI-8 (2)
+ ### <a name="nist-800-53-control-si-8-2"></a>NIST 800-53 Control SI-8 (2)
 
 #### <a name="spam-protection--automatic-updates"></a>Beveiliging tegen spam | Automatische Updates
 
@@ -791,11 +791,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk Azure. |
+| **De klant** | Er zijn geen e-servers geïmplementeerd als onderdeel van deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-10"></a>NIST 800 53 besturingselement SI-10
+ ## <a name="nist-800-53-control-si-10"></a>NIST 800-53 Control SI-10
 
 #### <a name="information-input-validation"></a>Informatie-validatie voor invoer
 
@@ -809,7 +809,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-11a"></a>NIST 800 53 besturingselement SI-11.a
+ ## <a name="nist-800-53-control-si-11a"></a>NIST 800-53 Control SI-11.a
 
 #### <a name="error-handling"></a>Foutafhandeling
 
@@ -819,7 +819,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De resources die zijn geïmplementeerd door deze blauwdruk Azure gebruikmaken van commerciële besturingssystemen en toepassingen. Deze software maakt gebruik van beste praktijken, zodat gevoelige informatie wordt niet getoond in foutberichten. |
+| **De klant** | De resources die zijn geïmplementeerd door deze blauwdruk gebruikmaken van commerciële besturingssystemen en toepassingen. Deze software maakt gebruik van beste praktijken, zodat gevoelige informatie wordt niet getoond in foutberichten. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -833,11 +833,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De resources die zijn geïmplementeerd door deze blauwdruk Azure gebruikmaken van commerciële besturingssystemen en toepassingen. Deze software wordt beste praktijken gebruikt voor foutberichten die in de context van de toepassingen die het bericht ontvangen. |
+| **De klant** | De resources die zijn geïmplementeerd door deze blauwdruk gebruikmaken van commerciële besturingssystemen en toepassingen. Deze software wordt beste praktijken gebruikt voor foutberichten die in de context van de toepassingen die het bericht ontvangen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-12"></a>NIST 800 53 besturingselement SI-12
+ ## <a name="nist-800-53-control-si-12"></a>NIST 800-53 Control SI-12
 
 #### <a name="information-handling-and-retention"></a>De informatieverwerking van de en retentie
 
@@ -851,7 +851,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-16"></a>NIST 800 53 besturingselement SI-16
+ ## <a name="nist-800-53-control-si-16"></a>NIST 800-53 Control SI-16
 
 #### <a name="memory-protection"></a>Geheugenbeveiliging
 
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De virtuele machines geïmplementeerd door deze Azure blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows beschikt over bescherming om te voorkomen dat code wordt uitgevoerd in de beperkte geheugenlocaties: Er is geen uitvoeren (NX), adres ruimte indeling willekeurige (ASLR) en preventie van gegevensuitvoering (DEP). |
+| **De klant** | De virtuele machines geïmplementeerd door deze blauwdruk Windows-besturingssystemen worden uitgevoerd. Windows beschikt over bescherming om te voorkomen dat code wordt uitgevoerd in de beperkte geheugenlocaties: Er is geen uitvoeren (NX), adres ruimte indeling willekeurige (ASLR) en preventie van gegevensuitvoering (DEP). |
 | **Provider (Microsoft Azure)** | Niet van toepassing |

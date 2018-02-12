@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -66,14 +66,11 @@ Alle Azure-beleid sjabloon voorbeelden zijn op [sjablonen voor Azure beleid](jso
 
 ## <a name="mode"></a>Modus
 
-We raden u aan `mode` naar `all` om een beleid evalueren toewijzing alle resourcegroepen en typen. U ziet een voorbeeld van een beleidsdefinitie die wordt afgedwongen labels voor een resourcegroep op [toestaan aangepaste VM-installatiekopie van een resourcegroep](scripts/allow-custom-vm-image.md).
+De **modus** bepaalt welke resourcetypen wordt geëvalueerd voor een beleid. De ondersteunde modi zijn:
+* `all`: resourcegroepen en alle brontypen evalueren 
+* `indexed`: alleen evalueren brontypen die ondersteuning bieden voor labels en locatie
 
-Als u deze instelt op **alle**, resourcegroepen en alle brontypen worden geëvalueerd voor het beleid. De portal maakt gebruik van **alle** voor elk beleid. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de `mode` parameter en wordt ingesteld op **alle**.
-
-Alle beleidsregels die zijn gemaakt met behulp van de portal gebruiken een `all` modus, maar als u gebruiken van PowerShell of Azure CLI wilt, moet u opgeven de `mode` parameter en wordt ingesteld op `all`.
-
-Als u de modus instelt op `indexed`, de toewijzing van beleid wordt geëvalueerd alleen brontypen die ondersteuning bieden voor labels en locatie.
-
+We raden u aan **modus** naar `all`. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de **modus** parameter en wordt ingesteld op `all`. 
 
 ## <a name="parameters"></a>Parameters
 

@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure virtuele machine activation problemen oplossen
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Als u problemen hebt bij het activeren van Windows Azure virtuele machine (VM) die van een aangepaste installatiekopie wordt gemaakt, kunt u de informatie in dit document op te lossen. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Wat is Azure KMS-eindpunten voor Windows-productactivering van Azure Virtual Machines?
+Azure maakt gebruik van verschillende eindpunten voor KMS-activering, afhankelijk van de cloud-regio waar de VM zich bevindt. Wanneer u deze handleiding voor probleemoplossing, gebruikt u de juiste KMS-eindpunt dat van toepassing op uw regio.
+
+* Openbare Azure-cloud-regio's: kms.core.windows.net:1688
+* Azure China nationale cloud-regio's: kms.core.chinacloudapi.cn:1688
+* Azure Duitsland nationale cloud-regio's: kms.core.cloudapi.de:1688
+* Azure Gov ons nationale cloud-regio's: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Symptoom
 

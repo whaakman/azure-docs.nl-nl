@@ -90,7 +90,6 @@
 ### [Inleiding tot Azure-logboekintegratie](security-azure-log-integration-overview.md)
 #### [Aan de slag met Azure-logboekintegratie](security-azure-log-integration-get-started.md)
 #### [Controlelogboeken van Azure Active Directory integreren](security-azure-log-integration-ad.md)
-#### [Waarschuwingen van Beveiligingscentrum integreren](security-azure-log-integration-security-center.md)
 #### [Logboeken van Key Vault integreren met Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Veelgestelde vragen](security-azure-log-integration-faq.md)
 

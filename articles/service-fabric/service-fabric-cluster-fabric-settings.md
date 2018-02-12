@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
@@ -482,17 +482,32 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ### <a name="section-name-securityclientx509names"></a>De naam van de sectie: Beveiliging/ClientX509Names
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
+|PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 
 ### <a name="section-name-securityclusterx509names"></a>De naam van de sectie: Beveiliging/ClusterX509Names
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
+|PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 
 ### <a name="section-name-securityserverx509names"></a>De naam van de sectie: Beveiliging/ServerX509Names
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
+|PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>De naam van de sectie: Beveiliging/ClientCertificateIssuerStores
+| **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, standaardwaarde is geen |Dynamisch|X509 verlener certificaatarchieven voor clientcertificaten; Naam = clientIssuerCN; Waarde = door komma's gescheiden lijst van archieven |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>De naam van de sectie: Beveiliging/ClusterCertificateIssuerStores
+| **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, standaardwaarde is geen |Dynamisch|X509 verlener certificaatarchieven voor clustercertificaten; Naam = clusterIssuerCN; Waarde = door komma's gescheiden lijst van archieven |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>De naam van de sectie: Beveiliging/ServerCertificateIssuerStores
+| **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, standaardwaarde is geen |Dynamisch|X509 verlener certificaatarchieven voor servercertificaten; Naam = serverIssuerCN; Waarde = door komma's gescheiden lijst van archieven |
 
 ### <a name="section-name-securityclientaccess"></a>De naam van de sectie: Beveiliging/ClientAccess
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
@@ -555,35 +570,35 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 | StartClusterConfigurationUpgrade |tekenreeks, default is 'Admin' |Dynamisch| Induceert StartClusterConfigurationUpgrade op een partitie. |
 | GetUpgradesPendingApproval |tekenreeks, default is 'Admin' |Dynamisch| Induceert GetUpgradesPendingApproval op een partitie. |
 | StartApprovedUpgrades |tekenreeks, default is 'Admin' |Dynamisch| Induceert StartApprovedUpgrades op een partitie. |
-| Ping |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor client-pings. |
-| Query’s uitvoeren |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor query's. |
-| NameExists |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Beveiligingsconfiguratie voor naamgevings-URI bestaan controleert. |
-| EnumerateSubnames |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor naamgevings-URI-opsomming. |
-| EnumerateProperties |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Beveiligingsconfiguratie voor de naamgeving van de eigenschap opsomming. |
-| PropertyReadBatch |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor de eigenschap Naming leesbewerkingen. |
-| GetServiceDescription |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor de lange polling servicemeldingen en servicebeschrijvingen te lezen. |
-| ResolveService |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor de omzetting van de service op basis van een compatibel is. |
-| ResolveNameOwner |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Beveiligingsconfiguratie voor het oplossen van de eigenaar van de naamgevings-URI. |
-| ResolvePartition |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Beveiligingsconfiguratie voor het oplossen van systeemservices. |
-| ServiceNotifications |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor servicemeldingen op basis van gebeurtenissen. |
-| PrefixResolveService |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor de omzetting van de service op basis van een compatibele voorvoegsel. |
-| GetUpgradeStatus |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor polling upgradestatus van toepassing. |
-| GetFabricUpgradeStatus |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor polling upgradestatus van het cluster. |
-| InvokeInfrastructureQuery |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Beveiligingsconfiguratie voor het uitvoeren van query's infrastructuurtaken. |
-| Lijst |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Beveiligingsconfiguratie voor de installatiekopie opslaan clientbewerking bestand lijst. |
-| ResetPartitionLoad |tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor de werklast opnieuw instellen voor een failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor uitgebreide ServicePlacement HealthReporting schakelen. |
-| GetPartitionDataLossProgress | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Haalt de voortgang van een api-aanroep van invoke gegevens verloren gaan. |
-| GetPartitionQuorumLossProgress | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Haalt de voortgang van een api-aanroep van invoke quorum verloren gaan. |
-| GetPartitionRestartProgress | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Haalt de voortgang voor de api-aanroep voor een opnieuw opstarten. |
-| GetChaosReport | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Haalt de status dank binnen een bepaald tijdsbereik. |
-| GetNodeTransitionProgress | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Beveiligingsconfiguratie voor het ophalen van de voortgang van een knooppunt overgang-opdracht. |
-| GetClusterConfigurationUpgradeStatus | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' |Dynamisch| Induceert GetClusterConfigurationUpgradeStatus op een partitie. |
-| GetClusterConfiguration | tekenreeks, de standaardwaarde is "Admin\|\|Gebruiker' | Dynamisch|Induceert GetClusterConfiguration op een partitie. |
+| Ping |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor client-pings. |
+| Query’s uitvoeren |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor query's. |
+| NameExists |tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor naamgevings-URI bestaan controleert. |
+| EnumerateSubnames |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor naamgevings-URI-opsomming. |
+| EnumerateProperties |tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor de naamgeving van de eigenschap opsomming. |
+| PropertyReadBatch |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor de eigenschap Naming leesbewerkingen. |
+| GetServiceDescription |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor de lange polling servicemeldingen en servicebeschrijvingen te lezen. |
+| ResolveService |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor de omzetting van de service op basis van een compatibel is. |
+| ResolveNameOwner |tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor het oplossen van de eigenaar van de naamgevings-URI. |
+| ResolvePartition |tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor het oplossen van systeemservices. |
+| ServiceNotifications |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor servicemeldingen op basis van gebeurtenissen. |
+| PrefixResolveService |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor de omzetting van de service op basis van een compatibele voorvoegsel. |
+| GetUpgradeStatus |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor polling upgradestatus van toepassing. |
+| GetFabricUpgradeStatus |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor polling upgradestatus van het cluster. |
+| InvokeInfrastructureQuery |tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor het uitvoeren van query's infrastructuurtaken. |
+| Lijst |tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Beveiligingsconfiguratie voor de installatiekopie opslaan clientbewerking bestand lijst. |
+| ResetPartitionLoad |tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor de werklast opnieuw instellen voor een failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor uitgebreide ServicePlacement HealthReporting schakelen. |
+| GetPartitionDataLossProgress | tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Haalt de voortgang van een api-aanroep van invoke gegevens verloren gaan. |
+| GetPartitionQuorumLossProgress | tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Haalt de voortgang van een api-aanroep van invoke quorum verloren gaan. |
+| GetPartitionRestartProgress | tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Haalt de voortgang voor de api-aanroep voor een opnieuw opstarten. |
+| GetChaosReport | tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Haalt de status dank binnen een bepaald tijdsbereik. |
+| GetNodeTransitionProgress | tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Beveiligingsconfiguratie voor het ophalen van de voortgang van een knooppunt overgang-opdracht. |
+| GetClusterConfigurationUpgradeStatus | tekenreeks, standaard-is ' Admin\|\|gebruiker " |Dynamisch| Induceert GetClusterConfigurationUpgradeStatus op een partitie. |
+| GetClusterConfiguration | tekenreeks, standaard-is ' Admin\|\|gebruiker " | Dynamisch|Induceert GetClusterConfiguration op een partitie. |
 |CreateComposeDeployment|tekenreeks, default is 'Admin' L| Dynamisch|Maakt een implementatie compose is beschreven door opstellen bestanden |
 |DeleteComposeDeployment|tekenreeks, default is 'Admin' L| Dynamisch|Hiermee verwijdert u de implementatie opstellen |
 |UpgradeComposeDeployment|tekenreeks, default is 'Admin' L| Dynamisch|Upgrades van de implementatie opstellen |
-|ResolveSystemService|tekenreeks, default is L "Admin\|\|Gebruiker'|Dynamisch| Beveiligingsconfiguratie voor het oplossen van systeemservices |
+|ResolveSystemService|tekenreeks, default L is ' Admin\|\|gebruiker "|Dynamisch| Beveiligingsconfiguratie voor het oplossen van systeemservices |
 |GetUpgradeOrchestrationServiceState|tekenreeks, default is 'Admin' L| Dynamisch|GetUpgradeOrchestrationServiceState induceert op een andere partitie |
 |SetUpgradeOrchestrationServiceState|tekenreeks, default is 'Admin' L| Dynamisch|SetUpgradeOrchestrationServiceState induceert op een andere partitie |
 
@@ -721,8 +736,6 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 |MaxDataMigrationTimeout |Tijd in seconden, de standaardwaarde is 600 |Dynamisch|Geef de interval in seconden. De maximale time-out voor data recovery migratiebewerkingen nadat een Fabric-upgrade heeft plaatsgevonden. |
 |MaxOperationRetryDelay |Tijd in seconden, de standaardwaarde is 5|Dynamisch| Geef de interval in seconden. De maximale wachttijd voor interne pogingen wanneer er fouten zijn opgetreden. |
 |ReplicaSetCheckTimeoutRollbackOverride |Tijd in seconden, is standaard 1200 |Dynamisch| Geef de interval in seconden. Als ReplicaSetCheckTimeout is ingesteld op de maximumwaarde van DWORD; Deze wordt vervolgens overschreven met de waarde van deze configuratie voor de doeleinden van terugdraaien. De waarde gebruikt voor doorvoeren wordt nooit overschreven. |
-|ImageBuilderJobQueueThrottle |Int, de standaardwaarde is 10 |Dynamisch|Aantal versnelling voor Image Builder proxy taakwachtrij van toepassingsaanvragen thread. |
-|MaxExponentialOperationRetryDelay|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Dynamisch|Geef de interval in seconden. De maximale exponentiële vertraging voor interne pogingen wanneer er fouten zijn opgetreden, herhaaldelijk |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>Sectienaam: DefragmentationEmptyNodeDistributionPolicy
 | **Parameter** | **Toegestane waarden** |**Beleid voor upgrade**| **Hulp of korte beschrijving** |
@@ -734,7 +747,7 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, standaardwaarde is geen|Dynamisch|Bepaalt de set met metrische gegevens die moeten worden gebruikt voor defragmentatie en niet voor taakverdeling. |
 
-### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Sectienaam: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
+### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Section Name: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
 | **Parameter** | **Toegestane waarden** |**Beleid voor upgrade**| **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standaardwaarde is geen|Dynamisch|Bepaalt het aantal beschikbare knooppunten die nodig zijn om het cluster gedefragmenteerd door te geven van beide procent in bereik Overweeg [0.0-1.0) of het aantal lege knooppunten as-nummer > = 1.0 |

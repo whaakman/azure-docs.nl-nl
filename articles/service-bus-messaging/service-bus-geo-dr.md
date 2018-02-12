@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-noodherstel
 
@@ -99,7 +99,7 @@ Houd rekening met de volgende overwegingen rekening houden met deze versie:
 
 1. Overweeg ook de tijd factor in de planning van failover. Als u connectiviteit langer dan 15-20 minuten verliest, wilt u mogelijk start de failover. 
  
-2. Het feit dat er geen gegevens worden gerepliceerd betekent dat momenteel actieve sessies worden niet gerepliceerd. Bovendien detectie van duplicaten en geplande berichten werkt mogelijk niet. Nieuwe sessies, geplande berichten en nieuwe duplicaten werkt. 
+2. Het feit dat er geen gegevens worden gerepliceerd betekent dat momenteel actieve sessies worden niet gerepliceerd. Bovendien detectie van duplicaten en geplande berichten werkt mogelijk niet. Nieuwe sessies, nieuwe geplande berichten en nieuwe duplicaten werkt. 
 
 3. Mislukte via een complexe gedistribueerde infrastructuur moet [uitgetest](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) ten minste één keer. 
 

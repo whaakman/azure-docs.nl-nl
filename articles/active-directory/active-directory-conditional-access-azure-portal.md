@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 156ec054c36e6ad5bd9011954e96fe1d4afa05aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3c5e893508126c87f6e4371918d33d3d040a5894
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -45,13 +45,13 @@ Hieronder vindt u enkele algemene toegang problemen die het voorwaardelijke toeg
 
 
 
-- **Aanmelden risico**: Azure AD Identity Protection detecteert aanmelden risico's. Hoe u de toegang beperken als een risico voor gedetecteerde aanmelden wordt aangegeven een onjuiste actor dat? Wat gebeurt er als u wilt ophalen van een sterkere bewijs dat een aanmeldingspagina is echt uitgevoerd door de geldige gebruiker of uw twijfel sterk genoeg is zijn om bepaalde gebruikers toegang krijgen tot een app kunt zelfs blokkeren?
+- **[Aanmelden risico](active-directory-conditional-access-conditions.md#sign-in-risk)**: Azure AD Identity Protection detecteert aanmelden risico's. Hoe u de toegang beperken als een risico voor gedetecteerde aanmelden wordt aangegeven een onjuiste actor dat? Wat gebeurt er als u wilt ophalen van een sterkere bewijs dat een aanmeldingspagina is echt uitgevoerd door de geldige gebruiker of uw twijfel sterk genoeg is zijn om bepaalde gebruikers toegang krijgen tot een app kunt zelfs blokkeren?
 
-- **Netwerklocatie**: Azure AD is toegankelijk vanaf elke locatie. Wat gebeurt er als een toegangspoging wordt uitgevoerd vanaf een netwerklocatie die niet onder het beheer van uw IT-afdeling? Een combinatie van gebruikersnaam en het wachtwoord mogelijk voldoende als bewijs van identiteit voor toegang tot uw resources wil vanuit uw bedrijfsnetwerk. Wat gebeurt er als u vraag een sterkere bewijs van identiteit voor toegang probeert die geïnitieerd worden vanuit andere onverwachte landen of regio's van de wereld? Wat gebeurt er als u zelfs toegang wilt blokkeren probeert van bepaalde locaties?  
+- **[Netwerklocatie](active-directory-conditional-access-locations.md)**: Azure AD is toegankelijk vanaf elke locatie. Wat gebeurt er als een toegangspoging wordt uitgevoerd vanaf een netwerklocatie die niet onder het beheer van uw IT-afdeling? Een combinatie van gebruikersnaam en het wachtwoord mogelijk voldoende als bewijs van identiteit voor toegang tot uw resources wil vanuit uw bedrijfsnetwerk. Wat gebeurt er als u vraag een sterkere bewijs van identiteit voor toegang probeert die geïnitieerd worden vanuit andere onverwachte landen of regio's van de wereld? Wat gebeurt er als u zelfs toegang wilt blokkeren probeert van bepaalde locaties?  
 
-- **Apparaatbeheer**: In Azure AD gebruikers hebben toegang tot cloud-apps van een breed scala aan apparaten, zoals mobiele en ook op persoonlijke apparaten. Wat gebeurt er als u een toegangspoging vereisen, moet u alleen uitgevoerd gebruiker met behulp van apparaten die worden beheerd door uw IT-afdeling? Wat gebeurt er als u zelfs toegang wilt blokkeren bepaalde apparaat typen formulier in de cloud-apps in uw omgeving? 
+- **[Apparaatbeheer](active-directory-conditional-access-conditions.md#device-platforms)**: In Azure AD gebruikers hebben toegang tot cloud-apps van een breed scala aan apparaten, zoals mobiele en ook op persoonlijke apparaten. Wat gebeurt er als u een toegangspoging vereisen, moet u alleen uitgevoerd gebruiker met behulp van apparaten die worden beheerd door uw IT-afdeling? Wat gebeurt er als u zelfs toegang wilt blokkeren bepaalde apparaat typen formulier in de cloud-apps in uw omgeving? 
 
-- **Clienttoepassing**: vandaag de dag u toegang hebt tot veel cloud-apps met behulp van verschillende typen Apps die zoals web gebaseerde apps, mobiele apps of desktop-apps. Wat gebeurt er als een toegangspoging wordt uitgevoerd met behulp van een client-app-type dat ervoor zorgt bekende problemen dat? Wat gebeurt er als u een apparaat dat wordt beheerd door uw IT-afdeling voor bepaalde typen app nodig? 
+- **[Clienttoepassing](active-directory-conditional-access-conditions.md#client-apps)**: vandaag de dag u toegang hebt tot veel cloud-apps met behulp van verschillende typen Apps die zoals web gebaseerde apps, mobiele apps of desktop-apps. Wat gebeurt er als een toegangspoging wordt uitgevoerd met behulp van een client-app-type dat ervoor zorgt bekende problemen dat? Wat gebeurt er als u een apparaat dat wordt beheerd door uw IT-afdeling voor bepaalde typen app nodig? 
 
 Deze vragen en de bijbehorende antwoorden vertegenwoordigen gangbare scenario's voor voorwaardelijke toegang van Azure AD. Voorwaardelijke toegang is een functie van Azure Active Directory waarmee u voor het afhandelen van scenario's met een benadering op basis van beleid.
 
@@ -67,9 +67,9 @@ Beleid voor voorwaardelijke toegang is de definitie van een access-scenario met 
 
 **Wanneer dit gebeurt** definieert de reden voor het activeren van uw beleid. Deze reden wordt gekenmerkt door een groep van de bestaande voorwaarden is voldaan. In de voorwaardelijke toegang van Azure AD heeft de toewijzing van twee voorwaarden een speciale rol spelen:
 
-- **Gebruikers**: de gebruikers voor het uitvoeren van een toegangspoging (**die**). 
+- **[Gebruikers](active-directory-conditional-access-conditions.md#users-and-groups)**: de gebruikers voor het uitvoeren van een toegangspoging (**die**). 
 
-- **Cloud-apps**: de doelen van een toegangspoging (**wat**).    
+- **[Cloud-apps](active-directory-conditional-access-conditions.md#cloud-apps)**: de doelen van een toegangspoging (**wat**).    
 
 Deze twee voorwaarden zijn verplicht in een beleid voor voorwaardelijke toegang. Naast de verplichte twee voorwaarden, kunt u ook aanvullende voorwaarden waarin wordt beschreven hoe de toegangspoging wordt uitgevoerd. Algemene voorbeelden gebruiken mobiele apparaten of de locaties die zich buiten uw bedrijfsnetwerk. Zie voor meer informatie [voorwaarden in voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-conditions.md).   
 
@@ -85,9 +85,10 @@ Een voordeel van het gebruik van een benadering op basis van beleid voor het bev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u meer weten over de voorwaarden wilt, Zie [voorwaarden in voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-conditions.md).
+- Als u meer weten wilt over:
+    - Voorwaarden, Zie [voorwaarden in voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-conditions.md).
 
-- Als u meer weten over toegangsbeheer wilt, Zie [toegangscontroles van voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-controls.md).
+    - Toegang tot besturingselementen, Zie [toegangscontroles van voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-controls.md).
 
 - Als u wilt ophalen enige ervaring met het beleid voor voorwaardelijke toegang configureren, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

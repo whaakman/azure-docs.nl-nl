@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - risico-evaluatie
-description: Webtoepassingen voor FedRAMP - risico-evaluatie
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - risico-evaluatie
+description: FedRAMP Web Applications Automation - risico-evaluatie
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Risicoanalyse (RA)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Basislijn Assessment beoordeelt een set van registersleutels, instellingen voor het controlebeleid en instellingen voor beveiligingsbeleid samen met de aanbevolen waarden voor deze instellingen van Microsoft. Update-evaluatie beoordeelt de status van de beschikbare updates op alle geïmplementeerde virtuele machines. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Basislijn Assessment beoordeelt een set van registersleutels, instellingen voor het controlebeleid en instellingen voor beveiligingsbeleid samen met de aanbevolen waarden voor deze instellingen van Microsoft. Update-evaluatie beoordeelt de status van de beschikbare updates op alle geïmplementeerde virtuele machines. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Geïdentificeerde problemen zijn het prioriteitsniveau toegewezen. Common Configuration Enumeration (CCE)-id's zijn beschikbaar voor beoordeling van de basislijn-regels.  |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Geïdentificeerde problemen zijn het prioriteitsniveau toegewezen. Common Configuration Enumeration (CCE)-id's zijn beschikbaar voor beoordeling van de basislijn-regels.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Update-evaluatie voert assessment tegen Windows- en Linux virtuele machines. Basislijn assessment voert assessment tegen Windows virtuele machines met behulp van een basislijn Microsoft heeft is gebaseerd op best practices. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Update-evaluatie voert assessment tegen Windows- en Linux virtuele machines. Basislijn assessment voert assessment tegen Windows virtuele machines met behulp van een basislijn Microsoft heeft is gebaseerd op best practices. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Microsoft Monitoring Agent-service, die is geconfigureerd op de virtuele machines die door deze blauwdruk Azure is geïmplementeerd, is geconfigureerd als een automatische service met de juiste rechten heeft voor beoordelingsactiviteiten. |
+| **De klant** | De Microsoft Monitoring Agent-service, die is geconfigureerd op de virtuele machines die door deze blauwdruk is geïmplementeerd, is geconfigureerd als een automatische service met de juiste rechten heeft voor beoordelingsactiviteiten. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |

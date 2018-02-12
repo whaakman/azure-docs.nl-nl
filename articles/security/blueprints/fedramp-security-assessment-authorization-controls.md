@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation--Beoordeling van de veiligheid en autorisatie
-description: Webtoepassingen voor FedRAMP - beoordeling van de veiligheid en autorisatie
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation--Security Assessment en autorisatie
+description: FedRAMP Web Applications Automation - beoordeling van de veiligheid en autorisatie
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Beoordeling van de veiligheid en autorisatie (CA)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Azure Application Gateway en netwerk-beveiligingsgroepen worden geïmplementeerd voor externe verbinding wordt beperkt tot bronnen die zijn geïmplementeerd door deze blauwdruk Azure. RuleSets toegepast op netwerkbeveiligingsgroepen worden geconfigureerd met behulp van een schema weigeren standaard. |
+| **De klant** | Azure Application Gateway en netwerk-beveiligingsgroepen worden geïmplementeerd voor externe verbinding naar bronnen die zijn geïmplementeerd door deze blauwdruk beperken. RuleSets toegepast op netwerkbeveiligingsgroepen worden geconfigureerd met behulp van een schema weigeren standaard. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -431,7 +431,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ca-9a"></a>NIST 800 53 besturingselement CA-9.a
+ ## <a name="nist-800-53-control-ca-9a"></a>NIST 800-53 Control CA-9.a
 
 #### <a name="internal-system-connections"></a>Interne systeem-verbindingen
 

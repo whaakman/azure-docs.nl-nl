@@ -1,6 +1,6 @@
 ---
-title: Webtoepassingen voor FedRAMP - respons op incidenten
-description: Webtoepassingen voor FedRAMP - respons op incidenten
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - respons op incidenten
+description: FedRAMP Web Applications Automation - respons op incidenten
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Respons op incidenten (IR)
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-ir-4a"></a>NIST 800 53 besturingselement IR-4.
 
-#### <a name="incident-handling"></a>Afhandelen van incidenten
+#### <a name="incident-handling"></a>Incident Handling
 
 **IR 4.** de organisatie implementeert een incident mogelijkheid voor beveiligingsincidenten met voorbereiding, detectie en analyse, containment, uitroeiing en herstel voor het verwerken.
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-ir-4b"></a>NIST 800 53 besturingselement IR-4.b
 
-#### <a name="incident-handling"></a>Afhandelen van incidenten
+#### <a name="incident-handling"></a>Incident Handling
 
 **IR 4.b** de organisatie coördinaten afhandelen van incidenten die activiteiten met het geval van nood planningsactiviteiten.
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-ir-4c"></a>NIST 800 53 besturingselement IR-4.c
 
-#### <a name="incident-handling"></a>Afhandelen van incidenten
+#### <a name="incident-handling"></a>Incident Handling
 
 **IR 4.c** is uitgerust met de organisatie de uitkomsten van afhandelen van incidenten die lopende activiteiten in de respons op incidenten procedures, training en testen, en implementeert de resulterende gewijzigd.
 
@@ -362,7 +362,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800 53 beheren (2) een IR-7
+ ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800-53 Control IR-7 (2).a
 
 #### <a name="incident-response-assistance--coordination-with-external-providers"></a>Hulp voor respons op incidenten | Coördinatie met externe Providers
 
@@ -376,7 +376,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ir-7-2b"></a>NIST 800 53 IR-7 (2) .b beheren
+ ### <a name="nist-800-53-control-ir-7-2b"></a>NIST 800-53 Control IR-7 (2).b
 
 #### <a name="incident-response-assistance--coordination-with-external-providers"></a>Hulp voor respons op incidenten | Coördinatie met externe Providers
 
@@ -450,7 +450,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="incident-response-plan"></a>Plan voor respons op incidenten
 
-**IR 8.e** De organisatie communiceert respons op incidenten plan wijzigingen in [toewijzing: respons op incidenten organisatie gedefinieerd personeel (aangeduid met de naam en/of door de rol) en organisatie-elementen].
+**IR-8.e** De organisatie communiceert respons op incidenten plan wijzigingen in [toewijzing: respons op incidenten organisatie gedefinieerd personeel (aangeduid met de naam en/of door de rol) en organisatie-elementen].
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -534,7 +534,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="information-spillage-response"></a>Informatie morsen antwoord
 
-**IR 9.e** De organisatie reageert op gegevens morsen door andere informatiesystemen of onderdelen van het systeem die zijn vervolgens verontreinigd te identificeren.
+**IR-9.e** De organisatie reageert op gegevens morsen door andere informatiesystemen of onderdelen van het systeem die zijn vervolgens verontreinigd te identificeren.
 
 **Verantwoordelijkheden:**`Customer Only`
 

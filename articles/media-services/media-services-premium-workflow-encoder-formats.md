@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Werkstroom voor Media Encoder Premium indelingen en codecs
 > [!NOTE]
-> Premium-encoder vragen, e-mepd op Microsoft.com.
+> Premium-encoder vragen, e- mepd@microsoft.com.
 > 
 > Media Encoder Premium media werkstroomverwerking beschreven in dit onderwerp is niet beschikbaar in China. 
 > 
@@ -46,7 +46,7 @@ De volgende sectie worden de codecs en bestandsindelingen die ondersteuning bied
 * Streams MPEG-2-Transport
 * Streams MPEG-2-programma
 * MPEG-4/MP4
-* Windows Media/AVP
+* Windows Media/ASF
 * AVI (niet-gecomprimeerde 8-bits/10 bits)
 
 ### <a name="input-video-codecs"></a>Video-Codecs invoer
@@ -66,7 +66,7 @@ De volgende sectie worden de codecs en bestandsindelingen die ondersteuning bied
 * MPEG-laag 2
 * MP3 (MPEG-1 Audio laag 3)
 * Windows Media Audio
-* WAV PCM /
+* WAV/PCM
 
 ## <a id="output_format"></a>Werkstroom uitvoerindelingen voor Media Encoder Premium en Codecs
 Het volgende gedeelte bevat de codecs en bestandsindelingen die worden ondersteund als uitvoer van deze Mediaprocessor.
@@ -77,7 +77,7 @@ Het volgende gedeelte bevat de codecs en bestandsindelingen die worden ondersteu
 * DPP (inclusief AS11)
 * GXF
 * MPEG-4/MP4
-* Windows Media/AVP
+* Windows Media/ASF
 * AVI (niet-gecomprimeerde 8-bits/10 bits)
 * Smooth Streaming-bestandsindeling (PIFF 1.3)
 * MPEG-TS 

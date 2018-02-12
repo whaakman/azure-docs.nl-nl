@@ -1,6 +1,6 @@
 ---
-title: Besturingselementen in voorwaardelijke toegang van Azure Active Directory | Microsoft Docs
-description: Meer informatie over de werking van besturingselementen in voorwaardelijke toegang van Azure Active Directory.
+title: Toegang tot besturingselementen in voorwaardelijke toegang van Azure Active Directory | Microsoft Docs
+description: Meer informatie over hoe de toegang beheert in Azure Active Directory voorwaardelijke toegang voor werk.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Besturingselementen in Azure Active Directory voorwaardelijke toegang 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Toegangsbeheer in Azure Active Directory voorwaardelijke toegang 
 
 Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), u kunt beheren hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('dit doen") met de reden voor activering van uw beleid ('wanneer dit gebeurt'). 
 

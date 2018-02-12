@@ -3,6 +3,7 @@
 > * [Apparaat: Node.js-Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Apparaat: C#-Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Apparaat: Java-Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Apparaat: Python-Service: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Back-end apps kunnen gebruiken Azure IoT Hub primitieven, zoals [apparaat twin] [ lnk-devtwin] en [methoden directe][lnk-c2dmethod], op afstand starten en bewaken van apparaat acties op apparaten. Deze zelfstudie laat zien hoe een back-end-app en een apparaat-app samenwerken kunnen om te starten en te bewaken van externe apparaten opnieuw worden opgestart met IoT Hub.
 

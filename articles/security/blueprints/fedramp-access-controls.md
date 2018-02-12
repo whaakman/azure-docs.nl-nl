@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - toegangsbeheer
-description: Webtoepassingen voor FedRAMP - toegangsbeheer
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - toegang beheren
+description: FedRAMP Web Applications Automation - toegangsbeheer
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Toegangsbeheer (AC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk is afhankelijk van en implementeert u de volgende typen van de systeem-account: Azure Active Directory-gebruikers (gebruikt de oplossing implementeren en beheren van toegang tot Azure-resources), Windows-besturingssysteem gebruikers (beheerd door Active Directory), SQL Server-serviceaccount. |
+| **De klant** | Deze blauwdruk is afhankelijk van en implementeert u de volgende typen van de systeem-account: Azure Active Directory-gebruikers (gebruikt de oplossing implementeren en beheren van toegang tot Azure-resources), Windows-besturingssysteem gebruikers (beheerd door Active Directory), SQL Server-serviceaccount. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="account-management"></a>Accountbeheer
 
-**AC 2.e** De organisatie vereist goedkeuringen door [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] voor aanvragen voor gegevens systeemaccounts maken.
+**AC-2.e** De organisatie vereist goedkeuringen door [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] voor aanvragen voor gegevens systeemaccounts maken.
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk implementeert OMS beveiligings- en controle van de oplossing identiteits- en toegangsbeheer dashboard. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk implementeert OMS beveiligings- en controle van de oplossing identiteits- en toegangsbeheer dashboard. Dit dashboard inschakelen accountmanagers voor het gebruik van informatie systeemaccounts bewaken. OMS kunnen worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. OMS kunnen worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert geen tijdelijke of noodgevallen accounts. Als u niet handmatig is uitgeschakeld, wordt alle inactieve accounts automatisch uitgeschakeld met de geïmplementeerde domeincontroller na 35 dagen. |
+| **De klant** | Deze blauwdruk implementeert geen tijdelijke of noodgevallen accounts. Als u niet handmatig is uitgeschakeld, wordt alle inactieve accounts automatisch uitgeschakeld met de geïmplementeerde domeincontroller na 35 dagen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De domeincontroller die is geïmplementeerd door deze blauwdruk Azure is geconfigureerd voor het uitschakelen van alle gebruikersaccounts na 35 dagen inactief. |
+| **De klant** | De domeincontroller die is geïmplementeerd door deze blauwdruk is geconfigureerd voor het uitschakelen van alle gebruikersaccounts na 35 dagen inactief. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de volgende typen van de systeem-account: Azure Active Directory-gebruikers, gebruikers van Windows-besturingssysteem, SQL Server-serviceaccount. Azure Active Directory-account acties genereren van een gebeurtenis in het Azure activiteitenlogboek; Acties voor OS-niveau account genereren een gebeurtenis in het systeemlogboek. Deze logboeken die door logboekanalyse verzameld en opgeslagen in de OMS-opslagplaats. OMS kunnen worden geconfigureerd voor het verzenden van meldingen wanneer vooraf gedefinieerde gebeurtenissen plaatsvinden.  |
+| **De klant** | Deze blauwdruk implementeert de volgende typen van de systeem-account: Azure Active Directory-gebruikers, gebruikers van Windows-besturingssysteem, SQL Server-serviceaccount. Azure Active Directory-account acties genereren van een gebeurtenis in het Azure activiteitenlogboek; Acties voor OS-niveau account genereren een gebeurtenis in het systeemlogboek. Deze logboeken die door logboekanalyse verzameld en opgeslagen in de OMS-opslagplaats. OMS kunnen worden geconfigureerd voor het verzenden van meldingen wanneer vooraf gedefinieerde gebeurtenissen plaatsvinden.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de volgende typen van de systeem-account: Azure Active Directory-gebruikers, gebruikers van Windows-besturingssysteem, SQL Server-serviceaccount. Azure Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer door gebruikers toewijzen aan rollen; Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer gebruikers toe te wijzen aan beveiligingsgroepen. Deze regelingen op basis van rollen kunnen worden uitgebreid door de klant om missie behoeften te voldoen. |
+| **De klant** | Deze blauwdruk implementeert de volgende typen van de systeem-account: Azure Active Directory-gebruikers, gebruikers van Windows-besturingssysteem, SQL Server-serviceaccount. Azure Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer door gebruikers toewijzen aan rollen; Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer gebruikers toe te wijzen aan beveiligingsgroepen. Deze regelingen op basis van rollen kunnen worden uitgebreid door de klant om missie behoeften te voldoen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de OMS-beveiliging en de identiteit en toegang Dashboard Audit-oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. Deze oplossing kan worden opgezocht toewijzingen van bevoorrechte rol rapporteren. |
+| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing identiteit en toegang Dashboard. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. Deze oplossing kan worden opgezocht toewijzingen van bevoorrechte rol rapporteren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk Azure. |
+| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk Azure. |
+| **De klant** | Er zijn geen gedeelde of groep accounts zijn ingeschakeld op de resources die zijn geïmplementeerd door deze blauwdruk. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een Groepsbeleid kan worden ingesteld in Active Directory en geconfigureerd voor het implementeren van de dag-beperkingen of andere voorwaarden van de informatie over het gebruik account. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een Groepsbeleid kan worden ingesteld in Active Directory en geconfigureerd voor het implementeren van de dag-beperkingen of andere voorwaarden van de informatie over het gebruik account. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk implementeert OMS beveiligings- en controle van de oplossing identiteits- en toegangsbeheer dashboard. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk implementeert OMS beveiligings- en controle van de oplossing identiteits- en toegangsbeheer dashboard. Dit dashboard inschakelen accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. Deze oplossing kan worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. Deze oplossing kan worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk dwingt autorisaties van logische toegang met behulp van op rollen gebaseerde toegangsbeheer afgedwongen door Azure Active Directory door gebruikers toewijzen aan rollen, Active Directory gebruikers toe te wijzen aan beveiligingsgroepen, en bepaalt Windows OS-niveau. Azure Active Directory-functies die zijn toegewezen aan gebruikers of groepen logische toegang tot bronnen in Azure op het niveau, groep of een abonnement beheren. Active Directory-beveiligingsgroepen beheren logische toegang tot bronnen van de OS-niveau en functies. |
+| **De klant** | Deze blauwdruk dwingt autorisaties van logische toegang met behulp van op rollen gebaseerde toegangsbeheer afgedwongen door Azure Active Directory door gebruikers toewijzen aan rollen, Active Directory gebruikers toe te wijzen aan beveiligingsgroepen, en bepaalt Windows OS-niveau. Azure Active Directory-functies die zijn toegewezen aan gebruikers of groepen logische toegang tot bronnen in Azure op het niveau, groep of een abonnement beheren. Active Directory-beveiligingsgroepen beheren logische toegang tot bronnen van de OS-niveau en functies. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk informatie stroom beperkingen met behulp van netwerkbeveiligingsgroepen die zijn toegepast op de subnetten waarin resources worden geïmplementeerd, Application Gateway wordt afgedwongen en de load balancer. Netwerkbeveiligingsgroepen Zorg ervoor dat de informatiestroom tussen resources op basis van goedgekeurde regels wordt beheerd. Application Gateway en de load balancer dynamisch verkeer leiden tot specifieke bronnen op basis van goedgekeurde rollen. |
+| **De klant** | Deze blauwdruk informatie stroom beperkingen met behulp van netwerkbeveiligingsgroepen die zijn toegepast op de subnetten waarin resources worden geïmplementeerd, Application Gateway wordt afgedwongen en de load balancer. Netwerkbeveiligingsgroepen Zorg ervoor dat de informatiestroom tussen resources op basis van goedgekeurde regels wordt beheerd. Application Gateway en de load balancer dynamisch verkeer leiden tot specifieke bronnen op basis van goedgekeurde rollen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert op rollen gebaseerde toegangsbeheer die kan worden geconfigureerd voor het scheiden van taken volgens de organisatievereisten van de. Azure Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer door gebruikers toewijzen aan rollen; Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer gebruikers toe te wijzen aan beveiligingsgroepen. |
+| **De klant** | Deze blauwdruk implementeert op rollen gebaseerde toegangsbeheer die kunnen worden geconfigureerd voor het scheiden van taken volgens de organisatievereisten van de. Azure Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer door gebruikers toewijzen aan rollen; Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer gebruikers toe te wijzen aan beveiligingsgroepen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert toegangsbeheer op basis van rollen om gebruikers te beperken tot alleen de bevoegdheden die expliciet zijn toegewezen. Azure Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer door gebruikers toewijzen aan rollen; Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer gebruikers toe te wijzen aan beveiligingsgroepen.  |
+| **De klant** | Deze blauwdruk implementeert toegangsbeheer op basis van rollen om gebruikers te beperken tot alleen de bevoegdheden die expliciet zijn toegewezen. Azure Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer door gebruikers toewijzen aan rollen; Active Directory-account rechten zijn geïmplementeerd met behulp van op rollen gebaseerde toegangsbeheer gebruikers toe te wijzen aan beveiligingsgroepen.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert toegangsbeheer op basis van rollen om gebruikers te beperken tot alleen de bevoegdheden die expliciet zijn toegewezen. Virtuele machine OS-niveau beveiligingen toegestaan software uit te voeren op een hoger machtigingsniveau dan gebruikers uitvoeren van de software niet. |
+| **De klant** | Deze blauwdruk implementeert toegangsbeheer op basis van rollen om gebruikers te beperken tot alleen de bevoegdheden die expliciet zijn toegewezen. Virtuele machine OS-niveau beveiligingen toegestaan software uit te voeren op een hoger machtigingsniveau dan gebruikers uitvoeren van de software niet. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert de Log Analytics-service in OMS. Geïmplementeerde virtuele machines en Azure storage-accounts voor diagnostische gegevens zijn verbonden bronnen voor logboekanalyse ervoor te zorgen dat de uitvoering van bevoegde functies wordt gecontroleerd. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-service in OMS. Geïmplementeerde virtuele machines en Azure storage-accounts voor diagnostische gegevens zijn verbonden bronnen voor logboekanalyse ervoor te zorgen dat de uitvoering van bevoegde functies wordt gecontroleerd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert toegangsbeheer op basis van rollen om gebruikers te beperken tot alleen de bevoegdheden die expliciet zijn toegewezen.  |
+| **De klant** | Deze blauwdruk implementeert toegangsbeheer op basis van rollen om gebruikers te beperken tot alleen de bevoegdheden die expliciet zijn toegewezen.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Azure portal limieten opeenvolgende ongeldige aanmeldingspogingen door gebruikers. Groepsbeleid wordt toegepast op het niveau van het besturingssysteem voor alle virtuele machines die zijn geïmplementeerd door deze blauwdruk Azure. Het beleid beperkt opeenvolgende mislukte aanmeldpogingen door gebruikers niet meer dan drie binnen een periode van 15 minuten. |
+| **De klant** | De Azure portal limieten opeenvolgende ongeldige aanmeldingspogingen door gebruikers. Groepsbeleid wordt toegepast op het niveau van het besturingssysteem voor alle virtuele machines die zijn geïmplementeerd door deze blauwdruk. Het beleid beperkt opeenvolgende mislukte aanmeldpogingen door gebruikers niet meer dan drie binnen een periode van 15 minuten. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Azure-portal vergrendelt accounts nadat opeenvolgende ongeldige door gebruikers aanmeldingspogingen. Groepsbeleid wordt toegepast op het niveau van het besturingssysteem voor alle virtuele machines die zijn geïmplementeerd door deze blauwdruk Azure. Het beleid wordt vergrendeld accounts gedurende drie uur na drie opeenvolgende mislukte aanmeldpogingen door gebruikers. |
+| **De klant** | De Azure-portal vergrendelt accounts nadat opeenvolgende ongeldige door gebruikers aanmeldingspogingen. Groepsbeleid wordt toegepast op het niveau van het besturingssysteem voor alle virtuele machines die zijn geïmplementeerd door deze blauwdruk. Het beleid wordt vergrendeld accounts gedurende drie uur na drie opeenvolgende mislukte aanmeldpogingen door gebruikers. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een melding voor het gebruik van systeem die wordt weergegeven aan gebruikers voordat de aanmelding. Opmerking: De Azure-blauwdruk implementeert een voorbeeld Systeemmelding voor het gebruik. De klant moet deze tekst om te voldoen aan de organisatie en/of regelgeving hoofdtekst vereisten bewerken. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een melding voor het gebruik van systeem die wordt weergegeven aan gebruikers voordat de aanmelding. Opmerking: Deze blauwdruk implementeert een voorbeeld Systeemmelding voor het gebruik. De klant moet deze tekst om te voldoen aan de organisatie en/of regelgeving hoofdtekst vereisten bewerken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een melding voor het gebruik van systeem die wordt weergegeven aan gebruikers voordat de aanmelding. De gebruiker moet de melding om u te melden bevestigen. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een melding voor het gebruik van systeem die wordt weergegeven aan gebruikers voordat de aanmelding. De gebruiker moet de melding om u te melden bevestigen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Een beleid voor het besturingssysteem is geïmplementeerd voor virtuele machines die door deze blauwdruk Azure is geïmplementeerd. Het beleid implementeert gelijktijdige sessies beperkingen (twee sessies). |
+| **De klant** | Een beleid voor het besturingssysteem is geïmplementeerd voor virtuele machines die door deze blauwdruk is geïmplementeerd. Het beleid implementeert gelijktijdige sessies beperkingen (twee sessies). |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een vergrendeling inactiviteit voor RDP-sessies. Gebruikers kunnen handmatig starten van de vergrendeling. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een vergrendeling inactiviteit voor RDP-sessies. Gebruikers kunnen handmatig starten van de vergrendeling. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een vergrendeling inactiviteit voor RDP-sessies. Gebruikers moeten opnieuw als u wilt ontgrendelen van de sessie.  |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een vergrendeling inactiviteit voor RDP-sessies. Gebruikers moeten opnieuw als u wilt ontgrendelen van de sessie.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een vergrendeling inactiviteit voor RDP-sessies. De sessievergrendeling verbergt informatie die eerder zichtbaar is. |
+| **De klant** | Deze blauwdruk implementeert u een domeincontroller waarop alle geïmplementeerde virtuele machines zijn gekoppeld. Een groepsbeleid implementeert een vergrendeling inactiviteit voor RDP-sessies. De sessievergrendeling verbergt informatie die eerder zichtbaar is. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De configuratie van extern bureaublad-sessie-host voor de Windows virtuele machines geïmplementeerd door deze blauwdruk Azure kan worden geconfigureerd om te voldoen aan vereisten voor de afsluiting van organisatie-sessie. |
+| **De klant** | De configuratie van extern bureaublad-sessie-host voor de Windows virtuele machines geïmplementeerd door deze blauwdruk kan worden geconfigureerd om te voldoen aan vereisten voor de afsluiting van organisatie-sessie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Azure portal en de virtuele machine besturingssystemen geïmplementeerd door deze blauwdruk Azure inschakelen gebruikt voor het initiëren van een afmelding. |
+| **De klant** | De Azure portal en de virtuele machine besturingssystemen geïmplementeerd door deze blauwdruk inschakelen gebruikt voor het initiëren van een afmelding. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | De Azure portal en de virtuele machine besturingssystemen geïmplementeerd door deze blauwdruk Azure inschakelen gebruikt voor het initiëren van een afmelding. Het proces afmelding geeft indicatie voor de gebruikers dat de sessie is beëindigd. |
+| **De klant** | De Azure portal en de virtuele machine besturingssystemen geïmplementeerd door deze blauwdruk inschakelen gebruikt voor het initiëren van een afmelding. Het proces afmelding geeft indicatie voor de gebruikers dat de sessie is beëindigd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure biedt externe toegang tot het informatiesysteem via de Azure-portal via Extern bureaublad-verbinding via een jumpbox en via een webtoepassing die door de klant is geïmplementeerd. Toegang via de Azure-portal en extern bureaublad-sessies worden gecontroleerd en kunnen worden gecontroleerd met OMS. De klant moet de RAS-besturingselementen, indien nodig, naar de webtoepassing implementeren. |
+| **De klant** | Deze blauwdruk biedt externe toegang tot het informatiesysteem via de Azure-portal via Extern bureaublad-verbinding via een jumpbox en via een webtoepassing die door de klant is geïmplementeerd. Toegang via de Azure-portal en extern bureaublad-sessies worden gecontroleerd en kunnen worden gecontroleerd met OMS. De klant moet de RAS-besturingselementen, indien nodig, naar de webtoepassing implementeren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Externe toegang tot bronnen die zijn geïmplementeerd door deze Blueprint Azure, met inbegrip van de Azure-portal, de verbinding met extern bureaublad en de web application gateway, zijn beveiligd via TLS. |
+| **De klant** | Externe toegang tot bronnen die zijn geïmplementeerd door deze blueprint, met inbegrip van de Azure-portal, de verbinding met extern bureaublad en de web application gateway, zijn beveiligd via TLS. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -903,11 +903,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Externe toegang tot de fictieve webtoepassing geïmplementeerd door deze blauwdruk Azure is via een toepassingsgateway. Externe toegang tot alle andere resources, is via een jumpbox. Er zijn geen andere openbaar toegankelijke eindpunten. |
+| **De klant** | Externe toegang tot de fictieve webtoepassing geïmplementeerd door deze blauwdruk is via een toepassingsgateway. Externe toegang tot alle andere resources, is via een jumpbox. Er zijn geen andere openbaar toegankelijke eindpunten. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ac-17-4a"></a>NIST 800 53 AC-17 (4) een beheren
+ ### <a name="nist-800-53-control-ac-17-4a"></a>NIST 800-53 Control AC-17 (4).a
 
 #### <a name="remote-access--privileged-commands--access"></a>Externe toegang | Beschermde opdrachten / toegang
 
@@ -945,7 +945,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure biedt externe toegang tot het informatiesysteem via de Azure portal, via Extern bureaublad-verbinding via een jumpbox en via een webtoepassing. Als een Azure Active Directory-account is uitgeschakeld of verwijderd, wordt toegang tot de Azure portal onmiddellijk beëindigd. Op dezelfde manier als een virtuele machine OS-level-account is uitgeschakeld of verwijderd, is de toegang tot extern bureaublad via de jumpbox ontkoppeld onmiddellijk. Externe toegang moeten worden geïmplementeerd door klanten verbreken voor de webtoepassing. |
+| **De klant** | Deze blauwdruk biedt externe toegang tot het informatiesysteem via de Azure portal, via Extern bureaublad-verbinding via een jumpbox en via een webtoepassing. Als een Azure Active Directory-account is uitgeschakeld of verwijderd, wordt toegang tot de Azure portal onmiddellijk beëindigd. Op dezelfde manier als een virtuele machine OS-level-account is uitgeschakeld of verwijderd, is de toegang tot extern bureaublad via de jumpbox ontkoppeld onmiddellijk. Externe toegang moeten worden geïmplementeerd door klanten verbreken voor de webtoepassing. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 

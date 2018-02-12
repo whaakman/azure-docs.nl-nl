@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName populatie
 
@@ -67,9 +67,10 @@ Omdat de waarde van het kenmerk UserPrincipalName van Azure AD kan worden ingest
 Wanneer een gebruikersobject is gesynchroniseerd met een Azure AD-Tenant voor de eerste keer, wordt Azure AD controleert het volgende in de gegeven volgorde en stelt u de MailNickName kenmerk-waarde naar de eerste bestaande:
 
 - Kenmerk van lokale mailNickName
-- Het voorvoegsel van de lokale e-mailkenmerk
 - Het voorvoegsel van het primaire SMTP-adres
+- Het voorvoegsel van de lokale e-mailkenmerk
 - Het voorvoegsel van de lokale userPrincipalName kenmerk/alternatieve aanmeldings-ID
+- Het voorvoegsel van de secundaire SMTP-adres
 
 Wanneer de updates van een gebruikersobject worden gesynchroniseerd met de Azure AD-Tenant, Azure AD de kenmerkwaarde MailNickName werkt alleen als er een update voor de waarde van het lokale mailNickName-kenmerk.
 
@@ -85,26 +86,26 @@ Hieronder vindt u een voorbeeldscenario's van hoe de UPN wordt berekend op basis
 
 On-Premises user-object:
 - mailNickName: &lt;niet ingesteld&gt;
-- e-mail:us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- e-mail:us2@contoso.com
 - userPrincipalName: us3@contoso.com'
 
 Het gebruikersobject in Azure AD-Tenant voor de eerste keer is gesynchroniseerd
-- Azure AD MailNickName kenmerk instellen op on-premises e-mail kenmerk voorvoegsel.
+- Azure AD MailNickName kenmerk instellen op voorvoegsel van het primaire SMTP-adres.
 - MOERA ingesteld op &lt;MailNickName&gt;&#64;&lt; eerste domein&gt;.
 - Azure AD UserPrincipalName kenmerk instellen op MOERA.
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us1           
-- UserPrincipalName:us1@contoso.onmicrosoft.com
+- userPrincipalName:us1@contoso.onmicrosoft.com
 
 
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenario 2: Niet-geverifieerd UPN-achtervoegsel – set lokale kenmerk mailNickName
 
 On-Premises user-object:
 - mailNickName: us4
-- e-mail:us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- e-mail:us2@contoso.com
 - userPrincipalName:us3@contoso.com
 
 Update op de lokale mailNickName kenmerk met Azure AD-Tenant synchroniseren
@@ -113,14 +114,14 @@ Update op de lokale mailNickName kenmerk met Azure AD-Tenant synchroniseren
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4
-- UserPrincipalName:us1@contoso.onmicrosoft.com
+- userPrincipalName:us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: Niet-geverifieerd UPN-achtervoegsel: update lokale kenmerk userPrincipalName
 
 On-Premises user-object:
 - mailNickName: us4
-- e-mail:us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- e-mail:us2@contoso.com
 - userPrincipalName:us5@contoso.com
 
 Update op de lokale userPrincipalName kenmerk met Azure AD-Tenant synchroniseren
@@ -130,29 +131,29 @@ Update op de lokale userPrincipalName kenmerk met Azure AD-Tenant synchroniseren
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4
-- UserPrincipalName:us4@contoso.onmicrosoft.com
+- userPrincipalName:us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Scenario 4: Niet-geverifieerd UPN-achtervoegsel: update on-premises e-mailkenmerk en het primaire SMTP-adres
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Niet-geverifieerd UPN-achtervoegsel: het primaire SMTP-adres bijwerken en on-premises e-kenmerk
 
 On-Premises user-object:
 - mailNickName: us4
-- e-mail:us6@contoso.com
-- proxyAddresses: {SMTP:us7@contoso.com}
+- proxyAddresses: {SMTP:us6@contoso.com}
+- e-mail:us7@contoso.com
 - userPrincipalName:us5@contoso.com
 
 Update op de lokale e-mailkenmerk en het primaire SMTP-adres met Azure AD-Tenant synchroniseren
-- Na de initiële synchronisatie van het gebruikersobject-updates naar de on-premises e-kenmerk en het primaire SMTP-adres heeft geen invloed op de Azure AD MailNickName noch de UserPrincipalName kenmerk.
+- Na de initiële synchronisatie van het gebruikersobject-updates naar de on-premises e-kenmerk en het primaire SMTP-adres heeft geen invloed op de Azure AD MailNickName, noch UserPrincipalName kenmerk.
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4
-- UserPrincipalName:us4@contoso.onmicrosoft.com
+- userPrincipalName:us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenario 5: Geverifieerde UPN-achtervoegsel: update lokale userPrincipalName kenmerk achtervoegsel
 
 On-Premises user-object:
 - mailNickName: us4
-- e-mail:us6@contoso.com
-- proxyAddresses: {SMTP:us7@contoso.com}
+- proxyAddresses: {SMTP:us6@contoso.com}
+- e-mail:us7@contoso.com
 - serPrincipalName:us5@verified.contoso.com
 
 Update op de lokale userPrincipalName kenmerk met de Azure AD-Tenant synchroniseren
@@ -161,7 +162,7 @@ Update op de lokale userPrincipalName kenmerk met de Azure AD-Tenant synchronise
 
 Azure AD-Tenant gebruikersobject:
 - MailNickName: us4     
-- UserPrincipalName:us5@verified.contoso.com
+- userPrincipalName:us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Uw on-premises directory's integreren met Azure Active Directory](active-directory-aadconnect.md)

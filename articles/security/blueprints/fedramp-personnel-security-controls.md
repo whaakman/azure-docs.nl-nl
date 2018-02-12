@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - Personeelsbeveiliging
-description: Webtoepassingen voor FedRAMP - Personeelsbeveiliging
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - Personeelsbeveiliging
+description: FedRAMP Web Applications Automation - Personeelsbeveiliging
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>Personeelsbeveiliging (PS)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-ps-1"></a>NIST 800 53 besturingselement PS-1
+## <a name="nist-800-53-control-ps-1"></a>NIST 800-53 Control PS-1
 
 #### <a name="personnel-security-policy-and-procedures"></a>Beveiligingsbeleid voor medewerkers en Procedures
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ps-3-3a"></a>NIST 800 53 PS-3 (3) een beheren
+ ### <a name="nist-800-53-control-ps-3-3a"></a>NIST 800-53 Control PS-3 (3).a
 
 #### <a name="personnel-screening--information-with-special-protection-measures"></a>Personeel gescreend | Gegevens met speciale beschermingsmaatregelen
 
@@ -389,7 +389,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ps-7e"></a>NIST 800 53 besturingselement PS-7.e
+ ## <a name="nist-800-53-control-ps-7e"></a>NIST 800-53 Control PS-7.e
 
 #### <a name="third-party-personnel-security"></a>Personeelsbeveiliging van derden
 

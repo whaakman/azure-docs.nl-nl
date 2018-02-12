@@ -1,6 +1,6 @@
 ---
 title: 'Genereren en exporteren van certificaten voor punt-naar-Site: PowerShell: Azure | Microsoft Docs'
-description: In dit artikel bevat stappen om een zelfondertekend basiscertificaat maken, de openbare sleutel niet exporteren en clientcertificaten op Windows 10 met behulp van PowerShell te genereren.
+description: In dit artikel bevat stappen om een zelfondertekend basiscertificaat maken, exporteer de openbare sleutel en met behulp van PowerShell op Windows 10 of Windows Server 2016 clientcertificaten te genereren.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Genereren en exporteren van certificaten voor punt-naar-Site-verbindingen op Windows 10 met behulp van PowerShell
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Genereren en exporteren van certificaten voor punt-naar-Site-verbindingen met PowerShell op Windows 10 of Windows Server 2016
 
-Punt-naar-Site-verbindingen kunt u certificaten voor verificatie gebruiken. In dit artikel laat zien hoe een zelfondertekend basiscertificaat maken en clientcertificaten op Windows 10 met behulp van PowerShell te genereren. Als u zoekt de configuratiestappen punt-naar-Site, zoals het uploaden van basiscertificaten, selecteert u een van de artikelen ' configureren punt-naar-Site' in de volgende lijst:
+Punt-naar-Site-verbindingen kunt u certificaten voor verificatie gebruiken. In dit artikel laat zien hoe een zelfondertekend basiscertificaat maken en met behulp van PowerShell op Windows 10 of Windows Server 2016 clientcertificaten te genereren. Als u zoekt de configuratiestappen punt-naar-Site, zoals het uploaden van basiscertificaten, selecteert u een van de artikelen ' configureren punt-naar-Site' in de volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Zelfondertekende certificaten - PowerShell maken](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Punt-naar-Site-verbindingen kunt u certificaten voor verificatie gebruiken. In d
 > 
 
 
-In dit artikel op een computer met Windows 10, moet u de stappen uitvoeren. De PowerShell-cmdlets die u gebruikt voor het genereren van certificaten deel uitmaken van het besturingssysteem Windows 10 en werken niet op andere versies van Windows. De Windows 10-computer is alleen nodig voor het genereren van de certificaten. Zodra de certificaten zijn gegenereerd, kunt u deze uploaden of installeren op een ondersteunde client-besturingssysteem. 
+In dit artikel op een computer met Windows 10 of Windows Server 2016, moet u de stappen uitvoeren. De PowerShell-cmdlets die u gebruikt voor het genereren van certificaten deel uitmaken van het besturingssysteem en werken niet op andere versies van Windows. De computer met Windows 10 of Windows Server 2016 is alleen nodig voor het genereren van de certificaten. Zodra de certificaten zijn gegenereerd, kunt u deze uploaden of installeren op een ondersteunde client-besturingssysteem. 
 
-Als u geen toegang tot een Windows 10-computer, kunt u [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) voor het genereren van certificaten. De certificaten die u genereren met behulp van beide methoden kunnen worden geïnstalleerd op een [ondersteund](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) clientbesturingssysteem.
+Als u geen toegang tot een computer met Windows 10 of Windows Server 2016, kunt u [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) voor het genereren van certificaten. De certificaten die u genereren met behulp van beide methoden kunnen worden geïnstalleerd op een [ondersteund](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) clientbesturingssysteem.
 
 ## <a name="rootcert"></a>Een zelfondertekend basiscertificaat maken
 
 Gebruik de cmdlet New-SelfSignedCertificate voor het maken van een zelfondertekend basiscertificaat. Zie voor informatie over de extra parameters, [nieuw SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Open vanaf een computer met Windows 10, Windows PowerShell-console met verhoogde bevoegdheden.
+1. Open vanaf een computer met Windows 10 of Windows Server 2016, een Windows PowerShell-console met verhoogde bevoegdheden.
 2. Gebruik het volgende voorbeeld voor het maken van het zelfondertekende basiscertificaat. Het volgende voorbeeld maakt een zelfondertekend basiscertificaat met de naam 'P2SRootCert', die automatisch wordt geïnstalleerd in 'Certificaten-Huidige gebruiker\Persoonlijk\Certificaten'. U kunt het certificaat weergeven door het openen van *certmgr.msc*, of *Gebruikerscertificaten beheren*.
 
   ```powershell

@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - systeem en Services overname
-description: Webtoepassingen voor FedRAMP - systeem en Services overname
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - systeem en Services overname
+description: FedRAMP Web Applications Automation - systeem en Services overname
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Systeem- en Services overname (SA)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-sa-1"></a>NIST 800 53 besturingselement SA-1
+## <a name="nist-800-53-control-sa-1"></a>NIST 800-53 Control SA-1
 
 #### <a name="system-and-services-acquisition-policy-and-procedures"></a>Systeem en beleid voor aanschaf van Services en -Procedures
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-4"></a>NIST 800 53 besturingselement SA-4
+ ## <a name="nist-800-53-control-sa-4"></a>NIST 800-53 Control SA-4
 
 #### <a name="acquisition-process"></a>Ophalen
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-4-2"></a>NIST 800 53 besturingselement SA-4 (2)
+ ### <a name="nist-800-53-control-sa-4-2"></a>NIST 800-53 Control SA-4 (2)
 
 #### <a name="acquisition-process--design--implementation-information-for-security-controls"></a>Overname proces | Ontwerp / controleert de implementatie-informatie voor beveiliging
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-4-8"></a>NIST 800 53 besturingselement SA-4 (8)
+ ### <a name="nist-800-53-control-sa-4-8"></a>NIST 800-53 Control SA-4 (8)
 
 #### <a name="acquisition-process--continuous-monitoring-plan"></a>Overname proces | Continue bewaking plannen
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-4-9"></a>NIST 800 53 besturingselement SA-4 (9)
+ ### <a name="nist-800-53-control-sa-4-9"></a>NIST 800-53 Control SA-4 (9)
 
 #### <a name="acquisition-process--functions--ports--protocols--services-in-use"></a>Overname proces | Functies / poorten / protocollen / Services in gebruik
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-4-10"></a>NIST 800 53 besturingselement SA-4 (10)
+ ### <a name="nist-800-53-control-sa-4-10"></a>NIST 800-53 Control SA-4 (10)
 
 #### <a name="acquisition-process--use-of-approved-piv-products"></a>Overname proces | Gebruik van goedgekeurde Piv producten
 
@@ -277,11 +277,11 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-5e"></a>NIST 800 53 besturingselement SA-5.e
+ ## <a name="nist-800-53-control-sa-5e"></a>NIST 800-53 Control SA-5.e
 
 #### <a name="information-system-documentation"></a>Systeemdocumentatie voor informatie
 
-**SA 5.e** De organisatie distribueert de documentatie voor [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
+**SA-5.e** De organisatie distribueert de documentatie voor [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-8"></a>NIST 800 53 besturingselement SA-8
+ ## <a name="nist-800-53-control-sa-8"></a>NIST 800-53 Control SA-8
 
 #### <a name="security-engineering-principles"></a>Engineering beveiligingsprincipes
 
@@ -305,7 +305,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-9a"></a>NIST 800 53 besturingselement SA-9.a
+ ## <a name="nist-800-53-control-sa-9a"></a>NIST 800-53 Control SA-9.a
 
 #### <a name="external-information-system-services"></a>Externe gegevens systeemservices
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-9-1a"></a>NIST 800 53 besturingselement SA-9 (1) een
+ ### <a name="nist-800-53-control-sa-9-1a"></a>NIST 800-53 Control SA-9 (1).a
 
 #### <a name="external-information-system-services--risk-assessments--organizational-approvals"></a>Externe gegevens systeemservices | Beoordelingen risico / organisatie-goedkeuringen
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-9-1b"></a>NIST 800 53 besturingselement SA-9 (1) .b
+ ### <a name="nist-800-53-control-sa-9-1b"></a>NIST 800-53 Control SA-9 (1).b
 
 #### <a name="external-information-system-services--risk-assessments--organizational-approvals"></a>Externe gegevens systeemservices | Beoordelingen risico / organisatie-goedkeuringen
 
@@ -375,7 +375,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-9-2"></a>NIST 800 53 besturingselement SA-9 (2)
+ ### <a name="nist-800-53-control-sa-9-2"></a>NIST 800-53 Control SA-9 (2)
 
 #### <a name="external-information-system-services--identification-of-functions--ports--protocols--services"></a>Externe gegevens systeemservices | Identificatie van functies / poorten / protocollen / Services
 
@@ -417,7 +417,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-10a"></a>NIST 800 53 besturingselement SA-10.a
+ ## <a name="nist-800-53-control-sa-10a"></a>NIST 800-53 Control SA-10.a
 
 #### <a name="developer-configuration-management"></a>Developer-Configuratiebeheer
 
@@ -431,7 +431,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-10b"></a>NIST 800 53 besturingselement SA-10.b
+ ## <a name="nist-800-53-control-sa-10b"></a>NIST 800-53 Control SA-10.b
 
 #### <a name="developer-configuration-management"></a>Developer-Configuratiebeheer
 
@@ -445,7 +445,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-10c"></a>NIST 800 53 besturingselement SA-10.c
+ ## <a name="nist-800-53-control-sa-10c"></a>NIST 800-53 Control SA-10.c
 
 #### <a name="developer-configuration-management"></a>Developer-Configuratiebeheer
 
@@ -459,7 +459,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-10d"></a>NIST 800 53 besturingselement SA-10.d
+ ## <a name="nist-800-53-control-sa-10d"></a>NIST 800-53 Control SA-10.d
 
 #### <a name="developer-configuration-management"></a>Developer-Configuratiebeheer
 
@@ -473,11 +473,11 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-10e"></a>NIST 800 53 besturingselement SA-10.e
+ ## <a name="nist-800-53-control-sa-10e"></a>NIST 800-53 Control SA-10.e
 
 #### <a name="developer-configuration-management"></a>Developer-Configuratiebeheer
 
-**SA 10.e** De organisatie vereist dat de ontwikkelaar van het informatiesysteem, systeemonderdeel of informatie systeemservice bijhouden beveiligingsfouten en omzetten van de fout in het systeem, een onderdeel of een service en het rapport bevindingen [toewijzing: organisatie gedefinieerd het personeel].
+**SA-10.e** De organisatie vereist dat de ontwikkelaar van het informatiesysteem, systeemonderdeel of informatie systeemservice bijhouden beveiligingsfouten en omzetten van de fout in het systeem, een onderdeel of een service en het rapport bevindingen [toewijzing: organisatie gedefinieerd het personeel].
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -501,7 +501,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-11a"></a>NIST 800 53 besturingselement SA-11.a
+ ## <a name="nist-800-53-control-sa-11a"></a>NIST 800-53 Control SA-11.a
 
 #### <a name="developer-security-testing-and-evaluation"></a>Ontwikkelaars beveiliging testen en evalueren
 
@@ -515,7 +515,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-11b"></a>NIST 800 53 besturingselement SA-11.b
+ ## <a name="nist-800-53-control-sa-11b"></a>NIST 800-53 Control SA-11.b
 
 #### <a name="developer-security-testing-and-evaluation"></a>Ontwikkelaars beveiliging testen en evalueren
 
@@ -529,7 +529,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-11c"></a>NIST 800 53 besturingselement SA-11.c
+ ## <a name="nist-800-53-control-sa-11c"></a>NIST 800-53 Control SA-11.c
 
 #### <a name="developer-security-testing-and-evaluation"></a>Ontwikkelaars beveiliging testen en evalueren
 
@@ -543,7 +543,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-11d"></a>NIST 800 53 besturingselement SA-11.d
+ ## <a name="nist-800-53-control-sa-11d"></a>NIST 800-53 Control SA-11.d
 
 #### <a name="developer-security-testing-and-evaluation"></a>Ontwikkelaars beveiliging testen en evalueren
 
@@ -557,11 +557,11 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-11e"></a>NIST 800 53 besturingselement SA-11.e
+ ## <a name="nist-800-53-control-sa-11e"></a>NIST 800-53 Control SA-11.e
 
 #### <a name="developer-security-testing-and-evaluation"></a>Ontwikkelaars beveiliging testen en evalueren
 
-**SA 11.e** De organisatie moet de ontwikkelaar van het informatiesysteem, systeemonderdeel of systeemservice informatie, corrigeer de fouten die tijdens het testen van beveiliging/evaluatie.
+**SA-11.e** De organisatie moet de ontwikkelaar van het informatiesysteem, systeemonderdeel of systeemservice informatie, corrigeer de fouten die tijdens het testen van beveiliging/evaluatie.
 
 **Verantwoordelijkheden:**`Customer Only`
 
@@ -571,7 +571,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-11-1"></a>NIST 800 53 besturingselement SA-11 (1)
+ ### <a name="nist-800-53-control-sa-11-1"></a>NIST 800-53 Control SA-11 (1)
 
 #### <a name="developer-security-testing-and-evaluation--static-code-analysis"></a>Ontwikkelaars beveiliging testen en evalueren | Statische Code analyse
 
@@ -585,7 +585,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-11-2"></a>NIST 800 53 besturingselement SA-11 (2)
+ ### <a name="nist-800-53-control-sa-11-2"></a>NIST 800-53 Control SA-11 (2)
 
 #### <a name="developer-security-testing-and-evaluation--threat-and-vulnerability-analyses"></a>Ontwikkelaars beveiliging testen en evalueren | Dreiging en Analyses van kwetsbaarheid
 
@@ -599,7 +599,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-sa-11-8"></a>NIST 800 53 besturingselement SA-11 (8)
+ ### <a name="nist-800-53-control-sa-11-8"></a>NIST 800-53 Control SA-11 (8)
 
 #### <a name="developer-security-testing-and-evaluation--dynamic-code-analysis"></a>Ontwikkelaars beveiliging testen en evalueren | Code van de dynamische-analyse
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-12"></a>NIST 800 53 besturingselement SA-12
+ ## <a name="nist-800-53-control-sa-12"></a>NIST 800-53 Control SA-12
 
 #### <a name="supply-chain-protection"></a>Keten beveiliging opgeven
 
@@ -627,7 +627,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-15a"></a>NIST 800 53 besturingselement SA-15.a
+ ## <a name="nist-800-53-control-sa-15a"></a>NIST 800-53 Control SA-15.a
 
 #### <a name="development-process-standards-and-tools"></a>Ontwikkelingsproces, standaarden en hulpprogramma 's
 
@@ -641,7 +641,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-15b"></a>NIST 800 53 besturingselement SA-15.b
+ ## <a name="nist-800-53-control-sa-15b"></a>NIST 800-53 Control SA-15.b
 
 #### <a name="development-process-standards-and-tools"></a>Ontwikkelingsproces, standaarden en hulpprogramma 's
 
@@ -655,7 +655,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-16"></a>NIST 800 53 besturingselement SA-16
+ ## <a name="nist-800-53-control-sa-16"></a>NIST 800-53 Control SA-16
 
 #### <a name="developer-provided-training"></a>Geleverde ontwikkelaar Training
 
@@ -669,7 +669,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-17a"></a>NIST 800 53 besturingselement SA-17.a
+ ## <a name="nist-800-53-control-sa-17a"></a>NIST 800-53 Control SA-17.a
 
 #### <a name="developer-security-architecture-and-design"></a>Developer-beveiligingsarchitectuur en ontwerpen
 
@@ -683,7 +683,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-17b"></a>NIST 800 53 besturingselement SA-17.b
+ ## <a name="nist-800-53-control-sa-17b"></a>NIST 800-53 Control SA-17.b
 
 #### <a name="developer-security-architecture-and-design"></a>Developer-beveiligingsarchitectuur en ontwerpen
 
@@ -697,7 +697,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-sa-17c"></a>NIST 800 53 besturingselement SA-17.c
+ ## <a name="nist-800-53-control-sa-17c"></a>NIST 800-53 Control SA-17.c
 
 #### <a name="developer-security-architecture-and-design"></a>Developer-beveiligingsarchitectuur en ontwerpen
 

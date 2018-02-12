@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - onvoorziene plannen
-description: Webtoepassingen voor FedRAMP - onvoorziene plannen
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - onvoorziene plannen
+description: FedRAMP Web Applications Automation - onvoorziene plannen
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Geval van nood plannen (CP)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-cp-1"></a>NIST 800 53 besturingselement CP-1
+## <a name="nist-800-53-control-cp-1"></a>NIST 800-53 Control CP-1
 
 #### <a name="contingency-planning-policy-and-procedures"></a>Onvoorziene Policy Planning and Procedures
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-2e"></a>NIST 800 53 besturingselement CP-2.e
+ ## <a name="nist-800-53-control-cp-2e"></a>NIST 800-53 Control CP-2.e
 
 #### <a name="contingency-plan"></a>Plan voor onvoorziene gebeurtenissen
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-2g"></a>NIST 800 53 besturingselement CP-2.g
+ ## <a name="nist-800-53-control-cp-2g"></a>NIST 800-53 Control CP-2.g
 
 #### <a name="contingency-plan"></a>Plan voor onvoorziene gebeurtenissen
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800 53 besturingselement CP-2 (2)
+ ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800-53 Control CP-2 (2)
 
 #### <a name="contingency-plan--capacity-planning"></a>Plan voor onvoorziene gebeurtenissen | Capaciteitsplanning
 
@@ -333,7 +333,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800 53 CP-4 (2) een beheren
+ ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 Control CP-4 (2).a
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Plan voor onvoorziene gebeurtenissen testen | Verwerking van de andere Site
 
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800 53 CP-4 (2) .b beheren
+ ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 Control CP-4 (2).b
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Plan voor onvoorziene gebeurtenissen testen | Verwerking van de andere Site
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk Azure zijn gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). GRS zorgt ervoor dat gegevens worden gerepliceerd naar een secundaire regio; zes kopieën van alle gegevens worden op afzonderlijke knooppunten die wordt onderhouden tussen twee datacentra. |
+| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk worden gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). GRS zorgt ervoor dat gegevens worden gerepliceerd naar een secundaire regio; zes kopieën van alle gegevens worden op afzonderlijke knooppunten die wordt onderhouden tussen twee datacentra. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk Azure zijn gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). Fysieke beveiligingsmaatregelen geïmplementeerd gelijkmatig over Azure-datacenters. |
+| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk worden gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). Fysieke beveiligingsmaatregelen geïmplementeerd gelijkmatig over Azure-datacenters. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk Azure zijn gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). GRS zorgt ervoor dat gegevens naar een secundaire regio worden gerepliceerd. Primaire en secundaire regio's zijn gekoppeld om ervoor te zorgen nodig afstand tussen datacenters om beschikbaarheid in het geval van een heel onderbreking of noodgeval te garanderen. |
+| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk worden gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). GRS zorgt ervoor dat gegevens naar een secundaire regio worden gerepliceerd. Primaire en secundaire regio's zijn gekoppeld om ervoor te zorgen nodig afstand tussen datacenters om beschikbaarheid in het geval van een heel onderbreking of noodgeval te garanderen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk Azure zijn gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). GRS zorgt ervoor dat gegevens naar een secundaire regio worden gerepliceerd. Klanten Zorg ervoor dat het Azure replicatie gegevensmodel is compatibel met onvoorziene doelstellingen. |
+| **De klant** | Alle opslagaccounts die zijn geïmplementeerd door deze blauwdruk worden gerepliceerd voor hoge beschikbaarheid met geografisch redundante opslag (GRS). GRS zorgt ervoor dat gegevens naar een secundaire regio worden gerepliceerd. Klanten Zorg ervoor dat het Azure replicatie gegevensmodel is compatibel met onvoorziene doelstellingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. |
+| **De klant** | Deze blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Bij het implementeren van een andere Azure-regio, wordt apparatuur inrichting transparant beheerd door Azure. |
+| **De klant** | Deze blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Bij het implementeren van een andere Azure-regio, wordt apparatuur inrichting transparant beheerd door Azure. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -469,11 +469,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Beveiligingsmaatregelen worden uniforme wijze geïmplementeerd op Azure-datacenters. |
+| **De klant** | Deze blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Beveiligingsmaatregelen worden uniforme wijze geïmplementeerd op Azure-datacenters. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-7-1"></a>NIST 800 53 besturingselement CP-7 (1)
+ ### <a name="nist-800-53-control-cp-7-1"></a>NIST 800-53 Control CP-7 (1)
 
 #### <a name="alternate-processing-site--separation-from-primary-site"></a>Alternatieve verwerking Site | Scheiding van primaire Site
 
@@ -483,11 +483,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Azure-datacenters geografisch gescheiden. |
+| **De klant** | Deze blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Azure-datacenters geografisch gescheiden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-7-2"></a>NIST 800 53 besturingselement CP-7 (2)
+ ### <a name="nist-800-53-control-cp-7-2"></a>NIST 800-53 Control CP-7 (2)
 
 #### <a name="alternate-processing-site--accessibility"></a>Alternatieve verwerking Site | Toegankelijkheid
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Bij het implementeren van een andere Azure-regio, wordt de beschikbaarheid van resources transparant beheerd door Azure. |
+| **De klant** | Deze blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Bij het implementeren van een andere Azure-regio, wordt de beschikbaarheid van resources transparant beheerd door Azure. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -525,11 +525,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze Azure blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Bij het implementeren van een andere Azure-regio, wordt voorbereiding van de fysieke bron transparant beheerd door Azure. |
+| **De klant** | Deze blauwdruk bevat instructies over hoe deze oplossing kan tegelijk worden geïmplementeerd in meerdere regio's en geconfigureerd voor het volledige redundantie op een site alternatieve verwerking. Bij het implementeren van een andere Azure-regio, wordt voorbereiding van de fysieke bron transparant beheerd door Azure. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-8"></a>NIST 800 53 besturingselement CP-8
+ ## <a name="nist-800-53-control-cp-8"></a>NIST 800-53 Control CP-8
 
 #### <a name="telecommunications-services"></a>Telecommunicatieservices
 
@@ -543,7 +543,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure bevindt zich in datacenters van Microsoft Azure. Microsoft Azure is verantwoordelijk voor de continuïteit van de services telecommunicatie door het proces van het gebruik van diverse fiber routes en redundante hardware voor maximale beschikbaarheid. Elk van de datacentra weergegeven als onderdeel van de Microsoft Azure-grens actieve, onafhankelijk van elkaar en volledig operationeel is de mogelijkheid om services te leveren op elk gewenst moment zijn. Naast de configuratie van de actieve datacenter vermindert Microsoft Azure ook het risico van potentiële fouten met telecommunicatie koppelingen doordat elk datacenter te hebben van ten minste twee verschillende fiber paden. Microsoft eigendom van en onderhoudt een eigen fiber-netwerk met als doel voor de ondersteuning van uitsluitend eigenschappen van Microsoft die fungeert als een globale fiber-backbone die vergelijkbaar is met meerdere ISP's. Microsoft contracten met niveau 3 communicatie voor service-onderhoud veld in het geval van fouten, fouten of fouten. De serviceniveaudoelstelling voor onderhoud op aanvraag en kritieke tijd om te herstellen is 4 uur. Kritieke problemen worden gedefinieerd als incidenten of stroomonderbrekingen, uitzondering veroorzaakt door een met geldige reden, waardoor een Equipment Microsoft storing, als gevolg van die gegevens kan niet van Microsoft ontvangen. |
 
 
- ### <a name="nist-800-53-control-cp-8-1a"></a>(((1) een van NIST 800 53 besturingselement CP-8
+ ### <a name="nist-800-53-control-cp-8-1a"></a>NIST 800-53 Control CP-8 (1).a
 
 #### <a name="telecommunications-services--priority-of-service-provisions"></a>Telecommunicatie | Prioriteit van de bepalingen van de Service
 
@@ -557,7 +557,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure bevindt zich in datacenters van Microsoft Azure. Microsoft Azure bepaalt de eigen netwerkroutering en prioriteit van de Service-instelling voor noodgevallen is daarom niet vereist. Microsoft Azure is verantwoordelijk voor het definiëren van een eigen routering prioriteit op basis van de eigenschap availability vereisten en noodgevallen. In de cloudomgeving is er geen prioriteitsvolgorde omdat er verschillende teams elk specifiek onderdeel weer online brengen in de RTO's gedefinieerd voor elk onderdeel. Alle onderdelen zijn daarom een prioriteit in een scenario storing. |
 
 
- ### <a name="nist-800-53-control-cp-8-1b"></a>(((1) .b van NIST 800 53 besturingselement CP-8
+ ### <a name="nist-800-53-control-cp-8-1b"></a>NIST 800-53 Control CP-8 (1).b
 
 #### <a name="telecommunications-services--priority-of-service-provisions"></a>Telecommunicatie | Prioriteit van de bepalingen van de Service
 
@@ -571,7 +571,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure bevindt zich in datacenters van Microsoft Azure. Microsoft Azure bepaalt de eigen netwerkroutering en prioriteit van de Service-instelling voor noodgevallen is daarom niet vereist. |
 
 
- ### <a name="nist-800-53-control-cp-8-2"></a>NIST 800 53 besturingselement CP-8 (2)
+ ### <a name="nist-800-53-control-cp-8-2"></a>NIST 800-53 Control CP-8 (2)
 
 #### <a name="telecommunications-services--single-points-of-failure"></a>Telecommunicatie | Enkele Storingspunten
 
@@ -599,7 +599,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure vermindert het risico van potentiële fouten met telecommunicatie koppelingen door elke Azure-datacenter te hebben van ten minste twee verschillende fiber paden vereisen. De koppelingen redundante communicatie zijn tot stand gebrachte volgende ongelijksoortige paden via het netwerk van Microsoft fiber. Dit is een continu operationele oplossing beheerd met Azure. |
 
 
- ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800 53 beheren (4) een CP-8
+ ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800-53 Control CP-8 (4).a
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunicatie | Plan voor provider onvoorziene gebeurtenissen
 
@@ -613,7 +613,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Microsoft Azure is het geval van nood planning beleid via de publicatie van het beveiligingsbeleid van Microsoft, beheerd door de Azure-beveiliging worden geïmplementeerd. Het doel van Azure continuïteit management-beleid is het beschermen van externe klanten en de interne Microsoft business door te geven van een service- en functionele tolerantie samen met een herstelmogelijkheid geabonneerde services en zakelijke core herstellen bevoegdheden in een vooraf bepaalde tijdsbestek tijdens een aanzienlijke storing. |
 
 
- ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800 53 CP-8 (4) .b beheren
+ ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800-53 Control CP-8 (4).b
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunicatie | Plan voor provider onvoorziene gebeurtenissen
 
@@ -627,7 +627,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Het beveiligingsbeleid van Microsoft Azure wordt gecontroleerd en jaarlijks goedgekeurd door Azure Management-beveiliging en bijgehouden in het hulpprogramma GRC. Het beveiligingsbeleid van Microsoft in de hele organisatie is van toepassing op alle gegevens en processen die worden gebruikt bij de uitvoering van Microsoft business. Alle Microsoft-werknemers en tijdelijk personeel zijn verantwoordelijk zijn en die verantwoordelijk is voor het voldoen aan deze richtsnoer binnen hun toegewezen rollen. |
 
 
- ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800 53 CP-8 (4) .c beheren
+ ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800-53 Control CP-8 (4).c
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunicatie | Plan voor provider onvoorziene gebeurtenissen
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Recovery Services-kluis. Beveiliging op gebruikersniveau informatie in de geïmplementeerde SQL-database wordt geïmplementeerd met behulp van de SQL VM IaaS-extensie. |
+| **De klant** | Deze blauwdruk implementeert een Recovery Services-kluis. Beveiliging op gebruikersniveau informatie in de geïmplementeerde SQL-database wordt geïmplementeerd met behulp van de SQL VM IaaS-extensie. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert Recovery Services-kluis. Een Azure Backup-beleid voor alle virtuele machines implementeren van een bewaarperiode voor dagelijkse, wekelijkse, maandelijkse en jaarlijkse back-up tot stand is gebracht.  |
+| **De klant** | Deze blauwdruk implementeert een Recovery Services-kluis. Een Azure Backup-beleid voor alle virtuele machines implementeren van een bewaarperiode voor dagelijkse, wekelijkse, maandelijkse en jaarlijkse back-up tot stand is gebracht.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Vertrouwelijkheid en integriteit van alle geïmplementeerd door deze blauwdruk Azure storage-blobs zijn beveiligd door het gebruik van Azure SSE 256-bits AES-versleuteling gebruikt voor alle gegevens in rust. |
+| **De klant** | Vertrouwelijkheid en integriteit van alle opslag-blobs geïmplementeerd door deze blauwdruk worden beveiligd door het gebruik van Azure SSE 256-bits AES-versleuteling gebruikt voor alle gegevens in rust. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -749,11 +749,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Alle geïmplementeerde opslagaccounts binnen deze Blueprint Azure, met inbegrip van deze gebruikt voor back-up, geografisch redundante opslag implementeren, zodat zes kopieën van alle gegevens worden bewaard op afzonderlijke knooppunten via twee datacenters. |
+| **De klant** | Alle geïmplementeerde opslagaccounts binnen deze blueprint, met inbegrip van deze gebruikt voor back-up, geografisch redundante opslag implementeren, zodat zes kopieën van alle gegevens worden bewaard op afzonderlijke knooppunten via twee datacenters. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-10"></a>NIST 800 53 besturingselement CP-10
+ ## <a name="nist-800-53-control-cp-10"></a>NIST 800-53 Control CP-10
 
 #### <a name="information-system-recovery-and-reconstitution"></a>Herstel van het systeem en het opnieuw opbouwen
 
@@ -767,7 +767,7 @@ ms.lasthandoff: 11/23/2017
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-10-2"></a>NIST 800 53 besturingselement CP-10 (2)
+ ### <a name="nist-800-53-control-cp-10-2"></a>NIST 800-53 Control CP-10 (2)
 
 #### <a name="information-system-recovery-and-reconstitution--transaction-recovery"></a>Herstel van het systeem en het opnieuw opbouwen | Herstel van transacties
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk Azure implementeert SQL-Server in een AlwaysOn-beschikbaarheidsgroep. SQL-Server onderhoudt een transactielogboek die ondersteuning biedt voor herstel van transacties in het geval van een systeemfout is opgetreden. |
+| **De klant** | Deze blauwdruk implementeert SQL-Server in een AlwaysOn-beschikbaarheidsgroep. SQL-Server onderhoudt een transactielogboek die ondersteuning biedt voor herstel van transacties in het geval van een systeemfout is opgetreden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 

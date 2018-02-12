@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 441bb0a269de400c82abc083118f5e0642523640
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 901bacd450561ee5eb4811320626d6ecbcc8c916
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel netwerk peering - verschillend implementatiemodellen en -abonnementen
 
@@ -30,25 +30,23 @@ De stappen voor het maken van een virtueel netwerk peering verschillen, afhankel
 |Azure-implementatiemodel  | Azure-abonnement  |
 |--------- |---------|
 |[Beide Resource Manager](virtual-network-create-peering.md) |Dezelfde|
-|[Beide Resource Manager](create-peering-different-subscriptions.md) |Andere|
+|[Beide Resource Manager](create-peering-different-subscriptions.md) |Verschil|
 |[Een Resource Manager, een klassiek](create-peering-different-deployment-models.md) |Dezelfde|
 
-Een virtueel netwerk peering kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Kunnen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen die bestaan uit verschillende abonnementen op hetzelfde niveau is momenteel in preview. Voor deze zelfstudie hebt voltooid, moet u eerst [registreren](#register) de mogelijkheid te gebruiken. Deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. Kunnen virtuele netwerken in verschillende regio's op hetzelfde niveau is ook in preview. Als u wilt gebruiken die mogelijkheid, moet u ook [registreren](#register) voor. De twee mogelijkheden zijn onafhankelijk. Voor deze zelfstudie hebt voltooid, moet u alleen registreren voor de mogelijkheid als peer virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen die bestaan uit verschillende abonnementen. 
+Een virtueel netwerk peering kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. De mogelijkheid als peer virtuele netwerken in verschillende regio's is in preview. Als u wilt gebruiken die mogelijkheid, moet u [registreren](#register). 
 
-Bij het maken van een virtueel netwerk peering tussen virtuele netwerken die bestaan uit verschillende abonnementen moeten de abonnementen beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Als u een Azure Active Directory-tenant nog geen hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). 
-
-De mogelijkheid voor verbinden van virtuele netwerken die zijn gemaakt via implementatiemodel, verschillende implementatiemodellen, verschillende regio's of abonnementen die zijn gekoppeld aan dezelfde of verschillende Azure Active Directory-tenants met behulp van een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bevindt zich in de preview-versie en vereist geen registratie.
+Bij het maken van een virtueel netwerk peering tussen virtuele netwerken die bestaan uit verschillende abonnementen moeten de abonnementen beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Als u een Azure Active Directory-tenant nog geen hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). U kunt verbinding maken met virtuele netwerken tot verschillende abonnementen behoren en andere Azure Active Directory-tenants met behulp van een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 U kunt de [Azure-portal](#portal), de Azure [opdrachtregelinterface](#cli) (CLI) of Azure [PowerShell](#powershell) peering van een virtueel netwerk maken. Klik op een van de vorige hulpprogramma koppelingen om rechtstreeks naar de stappen voor het maken van een virtueel netwerk peering met behulp van het hulpprogramma naar keuze te gaan.
 
 ## <a name="portal"></a>Maken van de peering - Azure-portal
 
-Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met machtigingen voor beide abonnementen, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor logboekregistratie buiten de portal en slaat u de stappen voor het toewijzen van een andere gebruikersmachtigingen aan de virtuele netwerken. Voordat u kunt een van de volgende stappen uitvoert, moet u registreren voor de preview. Als u wilt registreren, voer de stappen in de [registreren voor de preview](#register) sectie van dit artikel. De resterende stappen mislukken als u niet beide abonnementen voor de preview registreert.
- 
+Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met machtigingen voor beide abonnementen, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor logboekregistratie buiten de portal en slaat u de stappen voor het toewijzen van een andere gebruikersmachtigingen aan de virtuele netwerken.
+
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als GebruikerA. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie de [machtigingen](#permissions) sectie van dit artikel voor meer informatie.
 2. Klik op **+ nieuw**, klikt u op **Networking**, klikt u vervolgens op **virtueel netwerk**.
 3. In de **virtueel netwerk maken** blade invoert, of Selecteer waarden voor de volgende instellingen en klik vervolgens op **maken**:
-    - **Naam**: *myVnetA*
+    - **Name**: *myVnetA*
     - **Adresruimte**: *10.0.0.0/16*
     - **Subnetnaam**: *standaard*
     - **Subnet-adresbereik**: *10.0.0.0/24*
@@ -66,7 +64,7 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
 12. In de **virtueel netwerk** blade die wordt weergegeven, selecteer **klassieke** in de **een implementatiemodel selecteren** vak en klik vervolgens op **maken**.
 13.   Voer de volgende waarden in het virtuele netwerk (klassiek) vak maken die wordt weergegeven:
 
-    - **Naam**: *myVnetB*
+    - **Name**: *myVnetB*
     - **Adresruimte**: *10.1.0.0/16*
     - **Subnetnaam**: *standaard*
     - **Subnet-adresbereik**: *10.1.0.0/24*
@@ -83,7 +81,7 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
 20. In de **myVnetA** blade die wordt weergegeven, klikt u op **Peerings** uit de verticale lijst met opties aan de linkerkant van de blade.
 21. In de **myVnetA - Peerings** blade die werden weergegeven, klikt u op **+ toevoegen**
 22. In de **toevoegen peering** blade die wordt weergegeven, invoeren, of de volgende opties selecteren en klik vervolgens op **OK**:
-     - **Naam**: *myVnetAToMyVnetB*
+     - **Name**: *myVnetAToMyVnetB*
      - **Virtueel netwerk implementatiemodel**: Selecteer **klassieke**.
      - **Ik weet mijn resource-ID**: Schakel dit selectievakje in.
      - **De resource-ID**: Geef de bron-ID van myVnetB uit stap 15.
@@ -99,8 +97,6 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
 ## <a name="cli"></a>Peering - maken Azure CLI
 
 Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met machtigingen voor beide abonnementen, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor logboekregistratie buiten Azure en de regels van het script die gebruiker roltoewijzingen maakt verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u voor GebruikerA en verleent. 
-
-Voordat u kunt een van de volgende stappen uitvoert, moet u registreren voor de preview. Als u wilt registreren, voer de stappen in de [registreren voor de preview](#register) sectie van dit artikel. De resterende stappen mislukken als u niet beide abonnementen voor de preview registreert.
 
 1. [Installeer](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure CLI 1.0 voor het maken van het virtuele netwerk (klassiek).
 2. Open een CLI-sessie en meld u aan bij Azure als het gebruik van de gebruiker b het `azure login` opdracht.
@@ -186,8 +182,6 @@ Voordat u kunt een van de volgende stappen uitvoert, moet u registreren voor de 
 ## <a name="powershell"></a>Maken van de peering - PowerShell
 
 Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met machtigingen voor beide abonnementen, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor logboekregistratie buiten Azure en de regels van het script die gebruiker roltoewijzingen maakt verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u voor GebruikerA en verleent. 
-
-Voordat u kunt een van de volgende stappen uitvoert, moet u registreren voor de preview. Als u wilt registreren, voer de stappen in de [registreren voor de preview](#register) sectie van dit artikel. De resterende stappen mislukken als u niet beide abonnementen voor de preview registreert.
 
 1. Installeer de nieuwste versie van de PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) en [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
 2. Een PowerShell-sessie starten.
@@ -282,7 +276,7 @@ De accounts die u gebruikt voor het maken van een virtueel netwerk peering moete
 |Virtueel netwerk|Implementatiemodel|Rol|Machtigingen|
 |---|---|---|---|
 |myVnetA|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N.v.t.|
+| |Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |myVnetB|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
@@ -341,62 +335,6 @@ Wanneer u deze zelfstudie hebt voltooid, kunt u mogelijk wilt verwijderen van de
 
     > [!WARNING]
     > Een configuratiebestand gewijzigde netwerk importeren kan leiden tot wijzigingen in bestaande virtuele netwerken (klassiek) in uw abonnement. Zorg ervoor dat u alleen het vorige virtuele netwerk verwijderen en u niet wijzigen of andere bestaande virtuele netwerken uit uw abonnement verwijderen. 
-
-## <a name="register"></a>Registreren voor de Preview-versie
-
-Kunnen virtuele netwerken die zijn gemaakt via andere Azure-implementatiemodellen die bestaan uit verschillende abonnementen op hetzelfde niveau is momenteel in preview. Preview-functies mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als functies in het algemeen release. Voor de meest recente meldingen van beschikbaarheid en status van de preview-functies, Controleer de [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) pagina. 
-
-U moet eerst registreren voor de functie abonnementoverschrijdende, cross-deployment model voordat u deze kunt gebruiken. Voer de volgende stappen uit in het abonnement dat elke virtuele netwerk dat u wilt peer in, met Azure PowerShell of Azure CLI:
-
-### <a name="powershell"></a>PowerShell
-
-1. Installeer de meest recente versie van de PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/)-module. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
-2. Start een PowerShell-sessie en meld u aan met behulp van Azure bij de `Login-AzureRmAccount` opdracht.
-3. Registreer het abonnement dat elke virtuele netwerk dat u wilt peer in voor de preview hiertoe de volgende opdrachten:
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-4. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    De stappen in de Portal, Azure CLI, PowerShell of Resource Manager template-secties van dit artikel tot kan niet worden voltooid. de **RegistrationState** uitvoer wordt weergegeven nadat het invoeren van de vorige opdrachten is  **Geregistreerd** voor beide abonnementen.
-
-> [!NOTE]
-> Deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. Kunnen virtuele netwerken in verschillende regio's op hetzelfde niveau is ook in preview. Als u wilt registreren voor de regio-overschrijdende of globale-peering, Voer stappen 1-4 opnieuw via `-FeatureName AllowGlobalVnetPeering` in plaats van `-FeatureName AllowClassicCrossSubscriptionPeering`. De twee mogelijkheden zijn onafhankelijk van elkaar. U hoeft niet te registreren voor beide, tenzij u beide wilt gebruiken. De mogelijkheid is beschikbaar in een beperkt aantal regio's (in eerste instantie US West-Centraal, Canada centraal en ons West 2).
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. [Installeren en configureren van de Azure CLI](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. Verzeker u ervan dat u versie 2.0.18 of hoger van de Azure CLI door te voeren de `az --version` opdracht. Als u niet het geval is, installeert u de meest recente versie.
-3. Aanmelden bij Azure met de `az login` opdracht.
-4. Registreren voor de preview hiertoe de volgende opdrachten:
-
-   ```azurecli-interactive
-   az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-   az provider register --name Microsoft.Network
-   ```
-
-5. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
-
-    ```azurecli-interactive
-    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    ```
-
-    De stappen in de Portal, Azure CLI, PowerShell of Resource Manager template-secties van dit artikel tot kan niet worden voltooid. de **RegistrationState** uitvoer wordt weergegeven nadat het invoeren van de vorige opdracht is **geregistreerd**  voor beide abonnementen.
-
-> [!NOTE]
-> Deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. Kunnen virtuele netwerken in verschillende regio's op hetzelfde niveau is ook in preview. Als u wilt registreren voor de regio-overschrijdende of globale-peering, Voer stappen 1-5 opnieuw via `--name AllowGlobalVnetPeering` in plaats van `--name AllowClassicCrossSubscriptionPeering`. De twee mogelijkheden zijn onafhankelijk van elkaar. U hoeft niet te registreren voor beide, tenzij u beide wilt gebruiken. De mogelijkheid is beschikbaar in een beperkt aantal regio's (in eerste instantie US West-Centraal, Canada centraal en ons West 2).
 
 ## <a name="next-steps"></a>Volgende stappen
 

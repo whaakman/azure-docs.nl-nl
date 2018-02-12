@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Streaming-eindpunten-overzicht 
 
@@ -86,16 +86,16 @@ Dynamische verpakking|Ja|Ja
 Schalen|Automatisch kan worden geschaald tot de betreffende doorvoer.|Aanvullende streaming-eenheden
 IP-filtering/G20/aangepast host|Ja|Ja
 Progressief downloaden|Ja|Ja
-Aanbevolen gebruik |Aanbevolen voor de meeste scenario's voor streamen.|Het gebruik van Professional.<br/>Als u denkt dat wellicht u behoeften buiten standaard. Contact met ons opnemen (amsstreaming op microsoft.com) als u verwacht de grootte van een gelijktijdige doelgroep groter is dan 50.000 viewers dat.
+Aanbevolen gebruik |Aanbevolen voor de meeste scenario's voor streamen.|Het gebruik van Professional.<br/>Als u denkt dat wellicht u behoeften buiten standaard. Contact met ons opnemen (amsstreaming@microsoft.com) als u verwacht de grootte van een gelijktijdige doelgroep groter is dan 50.000 viewers dat.
 
 
 ## <a name="migration-between-types"></a>Migratie tussen typen
 
-Van | Handeling | Actie
+Vanaf | Handeling | Bewerking
 ---|---|---
 Klassiek|Standard|Moeten zich aanmelden
 Klassiek|Premium| Schaal (extra streaming-eenheden)
-Standaard/Premium|Klassiek|Niet beschikbaar (als streaming endpoint versie 1.0 is. Het is toegestaan te wijzigen naar de klassieke bij het instellen van scaleunits op '0')
+Standard/Premium|Klassiek|Niet beschikbaar (als streaming endpoint versie 1.0 is. Het is toegestaan te wijzigen naar de klassieke bij het instellen van scaleunits op '0')
 Standard (met/zonder CDN)|Premium met dezelfde configuratie|Toegestaan in de **gestart** status. (via Azure portal)
 Premium (met/zonder CDN)|Standard met dezelfde configuratie|Toegestaan in de **gestart** status (via Azure portal)
 Standard (met/zonder CDN)|Premium met andere configuratie|Toegestaan in de **gestopt** status (via Azure portal). Niet toegestaan in de actieve status.

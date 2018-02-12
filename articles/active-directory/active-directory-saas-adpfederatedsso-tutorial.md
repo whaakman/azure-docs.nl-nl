@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 9ffac9ea033c1df462297fdb134bf0ead185b09f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Zelfstudie: Azure Active Directory-integratie met ADP federatieve SSO
 
@@ -196,9 +196,10 @@ Bij ontvangst van de bevestiging van uw vertegenwoordiger ADP uw ADP (s) en het 
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-7. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **gekoppelde aanmelding**. koppelen van uw toepassing **ADP federatieve SSO**.
+7. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **gekoppelde aanmelding** te koppelen van uw toepassing **ADP federatieve SSO**.
+<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Eenmalige aanmelding gekoppeld](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Navigeer naar de **configureren aanmeldings-URL** sectie, voert u de volgende stappen uit:
 
