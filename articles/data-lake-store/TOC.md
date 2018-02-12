@@ -6,6 +6,7 @@
 
 # Aan de slag
 ## [Portal gebruiken](data-lake-store-get-started-portal.md)
+## [Data Lake Store gebruiken in Storage Explorer](data-lake-store-in-storage-explorer.md)
 ## [PowerShell gebruiken](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 gebruiken](data-lake-store-get-started-cli-2.0.md)
 
@@ -13,6 +14,7 @@
 # Procedures
 ## Gegevens laden en verplaatsen
 ### [Azure Data Factory gebruiken](../data-factory/load-azure-data-lake-store.md)
+### [Data Lake Store gebruiken in Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [AdlCopy gebruiken](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)

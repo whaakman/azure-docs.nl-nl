@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Gegevens met Azure Data Factory kopiëren van Azure Blob Storage naar SQL Database
 In deze zelfstudie maakt u een data factory met behulp van de Azure Data Factory-gebruikersinterface. Met de pijplijn in deze data factory worden gegevens gekopieerd van Azure Blob Storage naar Azure SQL Database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
@@ -144,10 +144,7 @@ In deze zelfstudie begint u met het maken van de pijplijn en gekoppelde services
 9. Geef in het tabblad **Algemeen** in het venster **Eigenschappen** onderaan **SourceBlobDataset** op als **naam**.
 
     ![Naam van de gegevensset](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Ga naar het tabblad **Verbinding** in het venster Eigenschappen.   
-
-    ![Het tabblad Verbinding](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Klik op **+ Nieuw** naast het tekstvak **Gekoppelde service**. Een gekoppelde service verbindt een gegevensopslag of een rekenservice aan de data factory. In dit geval maakt u een Azure Storage-gekoppelde service om uw Azure Storage-account te koppelen aan de data factory. De gekoppelde service beschikt over de verbindingsgegevens die de Data Factory-services gebruikt om tijdens runtime een verbinding met uw blobopslag tot stand te brengen. De gegevensset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
+10. Ga naar het tabblad **Verbinding** in het venster Eigenschappen. Klik op **+ Nieuw** naast het tekstvak **Gekoppelde service**. Een gekoppelde service verbindt een gegevensopslag of een rekenservice aan de data factory. In dit geval maakt u een Azure Storage-gekoppelde service om uw Azure Storage-account te koppelen aan de data factory. De gekoppelde service beschikt over de verbindingsgegevens die de Data Factory-services gebruikt om tijdens runtime een verbinding met uw blobopslag tot stand te brengen. De gegevensset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
@@ -283,7 +280,7 @@ U kunt het uitvoeren van een pijplijn testen voordat u artefacten (gekoppelde se
 2. Controleer of de gegevens uit het bronbestand zijn ingevoegd in de doel-SQL-database. 
 
     ![SQL-uitvoer verifiëren](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Klik hiervoor in het linkerdeelvenster op **Publiceren**. In deze stap publiceert u entiteiten (gekoppelde services, gegevenssets en pijplijn) die u eerder hebt gemaakt met Azure Data Factory.
+3. Klik op **Alles publiceren** in het linkerdeelvenster. In deze stap publiceert u entiteiten (gekoppelde services, gegevenssets en pijplijn) die u eerder hebt gemaakt met Azure Data Factory.
 
     ![De knop Publiceren](./media/tutorial-copy-data-portal/publish-button.png)
 4. Wacht tot u het bericht **Gepubliceerd** ziet. Om meldingsberichten te zien, klikt u op het tabblad **Meldingen weergeven** op de linkerzijbalk. Sluit het meldingenvenster door op **X** te klikken.
@@ -343,7 +340,7 @@ Als u niet wilt werken met de VSTS-codeopslagplaats, kunt u deze stap overslaan 
 ## <a name="trigger-the-pipeline-manually"></a>De pijplijn handmatig activeren
 In deze stap moet u handmatig de pijplijn activeren, die u in de vorige stap heeft gepubliceerd. 
 
-1. Klik in de werkbalk op **Activeren** en klik op **Nu activeren**. 
+1. Klik in de werkbalk op **Activeren** en klik op **Nu activeren**. Klik op de pagina **Pijplijn uitvoeren** op **Voltooien**.  
 
     ![Menu Nu activeren](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet een pijplijn die wordt geactiveerd door een handmatige trigger. U kunt de koppelingen in de Acties-kolom gebruiken om details van de activiteiten te bekijken en de pijplijn opnieuw uit te voeren.
@@ -386,10 +383,10 @@ In dit schema maakt u een planning-trigger voor de pijplijn. De trigger voert de
 6. Lees de waarschuwing op de pagina **Triggeruitvoeringsparameters** en klik op **Voltooien**. De pijplijn in dit voorbeeld gebruikt geen parameters. 
 
     ![Pijplijnparameters](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Klik op **Publiceren** voor het publiceren van de wijzigingen naar de opslagplaats. De trigger wordt niet daadwerkelijk geactiveerd totdat de publicatie is uitgevoerd. 
+7. Klik op **Synchroniseren** om wijzigingen in uw vertakking te synchroniseren met de hoofdvertakking. Standaard is **Wijzigingen publiceren na synchronisatie** geselecteerd. Wanneer u **Synchroniseren** selecteert, worden ook de bijgewerkte entiteiten gepubliceerd naar de Azure Data Factory-service vanuit de hoofdvertakking. De trigger wordt niet daadwerkelijk geactiveerd totdat de publicatie is uitgevoerd.
 
-    ![Trigger publiceren](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Schakel over naar het tabblad **Controleren** aan de linkerkant om de geactiveerde pijplijnuitvoeringen te zien. 
+    ![Trigger publiceren](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Schakel over naar het tabblad **Controleren** aan de linkerkant om de geactiveerde pijplijnuitvoeringen te zien. 
 
     ![Geactiveerde pijplijnuitvoeringen](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Als u wilt overschakelen van de weergave van pijplijnuitvoeringen naar de weergave van triggeruitvoeringen, klik dan op Pijplijnuitvoeringen en selecteer Triggeruitvoeringen.

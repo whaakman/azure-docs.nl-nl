@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Aan de slag met Azure CDN
-In dit artikel wordt beschreven hoe u Azure Content Delivery Network (CDN) inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
-
-> [!IMPORTANT]
-> Zie [Overzicht van CDN](cdn-overview.md) voor een inleiding tot CDN en een lijst met functies.
-> 
-> 
+In dit artikel wordt beschreven hoe u Azure [Content Delivery Network (CDN)](cdn-overview.md) inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
 
 ## <a name="create-a-new-cdn-profile"></a>Nieuwe CDN-profielen maken
 Een CDN-profiel is een verzameling van CDN-eindpunten. Elk profiel kan een of meer CDN-eindpunten bevaten. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria.

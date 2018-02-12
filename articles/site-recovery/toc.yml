@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: Ondersteuningsmatrix voor on-premises naar secundaire site
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: Typen failback
+      href: concepts-types-of-failback.md
     - name: Herstel na noodgeval voor workloads
       href: site-recovery-workload.md
     - name: Migratie naar Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Netwerktoewijzing instellen voor herstel na noodgevallen voor Azure-VM (preview)
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Een IP-adres behouden bij herstel na noodgevallen voor Azure-VM (preview)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
           href: site-recovery-network-mapping.md
         - name: IP-adressering instellen voor toegang tot Azure na een failover
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemen met failover naar Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Problemen met opnieuw beveiligen en failback
+          href: troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery bewaken
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Naslaginformatie

@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Fouten opsporen in Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Gegevens opslaan aan de rand
+      href: sql-storage.md
     - name: Problemen oplossen
       href: troubleshoot.md
 - name: Concepten

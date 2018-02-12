@@ -28,6 +28,7 @@
 ## Een beheerd domein beheren
 ### [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)
 ### [DNS beheren in een beheerd domein](active-directory-ds-admin-guide-administer-dns.md)
+### [De status van uw domein controleren](active-directory-ds-check-health.md)
 ### Secure LDAP configureren voor een beheerd domein
 #### [Taak 1: Een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

@@ -64,13 +64,13 @@
 
 ## Controleren
 ### [Cloud Services controleren](cloud-services-how-to-monitor.md)
+### [Prestatiemeteritems gebruiken](diagnostics-performance-counters.md)
 ### [Prestaties testen](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testen met Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Diagnostische gegevens inschakelen
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Prestatiemeteritems gebruiken in Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Diagnostische gegevens opslaan en weergeven in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Een cloudservice volgen met de diagnosefunctie](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Diagnostische gegevens verzenden naar App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)

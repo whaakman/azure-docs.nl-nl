@@ -83,6 +83,7 @@
 #### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Gebruikers tussen productlicenties migreren](active-directory-licensing-group-product-migration.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 #### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Beveiliging](application-proxy-security-considerations.md)
 ##### [Netwerken](application-proxy-network-topology-considerations.md)
-
-
 ##### [Upgraden van TMG of UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Geavanceerd configuratie
@@ -212,6 +211,8 @@
 ##### [Stille installatie](active-directory-application-proxy-silent-installation.md)
 ##### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
 ##### [Inlinelinks vertalen](application-proxy-link-translation.md)
+##### [Wildcard-toepassingen](active-directory-application-proxy-wildcard.md)
+
 #### Publicatie-overzicht
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
-#### [Besturingselementen](active-directory-conditional-access-controls.md)
+#### [Voorwaarden](active-directory-conditional-access-conditions.md)
 #### [Locatievoorwaarde](active-directory-conditional-access-locations.md)
+#### [Besturingselementen](active-directory-conditional-access-controls.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)

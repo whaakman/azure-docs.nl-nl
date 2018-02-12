@@ -58,7 +58,9 @@
 ### [Regels gebruik voor het detecteren van problemen](iot-suite-remote-monitoring-automate.md)
 ### [Uw apparaten beheren](iot-suite-remote-monitoring-manage.md)
 ### [Problemen met een apparaat oplossen](iot-suite-remote-monitoring-maintain.md)
-### [Gesimuleerde apparaten gebruiken](iot-suite-remote-monitoring-test.md)
+### [Het schema van het apparaatmodel begrijpen](iot-suite-remote-monitoring-device-schema.md)
+### [Het gedrag van het apparaatmodel begrijpen](iot-suite-remote-monitoring-device-behavior.md)
+### [Een nieuw gesimuleerd apparaat maken](iot-suite-remote-monitoring-test.md)
 ### [De oplossing aanpassen](iot-suite-remote-monitoring-customize.md)
 ### [Implementeren met behulp van de CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Een fysiek apparaat verbinden

@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Geüpload ZIP-bestand implementeren
+---
+title: bestand opnemen
+description: bestand opnemen
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>Het ZIP-bestand implementeren
 
-Implementeer in Cloud Shell het geüploade ZIP-bestand naar de web-app met de opdracht [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Vergeet niet *\<app_name>* te vervangen door de naam van uw web-app.
+Ga in de browser naar `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+Upload het ZIP-bestand dat u hebt gemaakt in [Een ZIP-bestand van het project maken](#create-a-project-zip-file) door het bestand naar het gebied van de bestandsverkenner in de webpagina te slepen.
 
-Met deze opdracht worden de bestanden en mappen uit het ZIP-bestand geïmplementeerd in de standaardmap voor de App Service-toepassing (`\home\site\wwwroot`) en wordt de app opnieuw opgestart. Als er een aanvullend aangepast opbouwproces is geconfigureerd, wordt dit ook uitgevoerd.
+Wanneer de implementatie wordt uitgevoerd, toont een pictogram rechtsboven in de hoek de voortgang in procenten. De pagina toont ook uitgebreide berichten voor de bewerking onder het gedeelte van de verkenner. Wanneer de implementatie voltooid is, zou het laatste implementatiebericht `Deployment successful` moeten weergeven.

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Service-eindpunten voor virtuele netwerken configureren
 
@@ -56,7 +56,7 @@ Tijdens de previewperiode worden service-eindpunten voor vnets voor bepaalde reg
    >[!NOTE]
    Effectieve routes kunnen alleen worden weergegeven als u een of meer netwerkinterfaces (NIC's) hebt geconfigureerd en gekoppeld aan een actieve virtuele machine in het subnet.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portal
 
 ### <a name="setting-up-service-endpoint-on-a-subnet-during-vnet-create"></a>Service-eindpunten in een subnet instellen tijdens VNet Create
 
@@ -67,7 +67,7 @@ Meld u aan bij Azure met uw Azure-account. Als u nog geen Azure-account hebt, ku
 
 Instelling | Waarde
 ------- | -----
-Naam    | myVnet
+Name    | myVnet
 Adresruimte | 10.0.0.0/16
 Subnetnaam|mySubnet
 Subnetadresbereik|10.0.0.0/24
@@ -75,7 +75,7 @@ Resourcegroep|Zorg dat het vakje Nieuwe maken geselecteerd is en voer een naam i
 Locatie|Elke ondersteunde regio, bijvoorbeeld Australië - oost
 Abonnement|Selecteer uw abonnement.
 __ServiceEndpoints__|Ingeschakeld
-__Services__ | Selecteer een of alle beschikbare services. In de previewperiode zijn dit de ondersteunde services: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Services__ | Selecteer een of alle beschikbare services. Ondersteunde services: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Selecteer services voor eindpunten: ![Services voor service-eindpunt selecteren](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Uitvoer: 
-Naam | Id | Type
+Name | Id | Type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -227,7 +227,7 @@ Succeeded         Microsoft.Sql     {eastus}
 Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet"  -AddressPrefix "10.0.1.0/24" -ServiceEndpoint $null | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
 Vereisten voor de installatie:
 - Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volg de instructies op het scherm. Zie [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) voor meer informatie over aanmelden.
@@ -387,7 +387,7 @@ Als u Azure-serviceresources naar een VNet wilt beveiligen, moet u machtigingen 
 
 Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-VNets en Azure-serviceresources kunnen in hetzelfde of in verschillend abonnementen zitten. Als ze in verschillende abonnementen zitten, moeten de resources tijdens deze previewperiode onder dezelfde Active Directory-tenant (AD) zitten.
+VNets en Azure-serviceresources kunnen in hetzelfde abonnement of in verschillende abonnementen zitten. Als ze in verschillende abonnementen zitten, moeten de resources onder dezelfde Active Directory-tenant (AD) zitten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

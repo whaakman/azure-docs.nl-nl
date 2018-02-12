@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Een Docker Python- en PostgreSQL-web-app in Azure maken
 
@@ -28,12 +28,12 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een PostgreSQL-database in Azure maken
-> * Een Python-app voor MySQL maken
+> * Een Python-app verbinden met MySQL
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * De app in Azure Portal beheren
 
-Volg de onderstaande stappen op MacOS. De instructies voor Windows en Linux zijn meestal gelijk, maar de verschillen worden in deze zelfstudie niet uitgewerkt.
+U kunt de stappen in dit artikel volgen op macOS. De instructies voor Windows en Linux zijn meestal gelijk, maar de verschillen worden in deze zelfstudie niet uitgewerkt.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,7 +54,7 @@ Open het terminalvenster en voer `psql` uit om verbinding te maken met de lokale
 sudo -u postgres psql
 ```
 
-Als de verbinding is geslaagd, wordt de PostgreSQL-database uitgevoerd. Zo niet, controleer of de lokale PostgreSQL-database wordt gestart door de stappen te volgen op [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+Als de verbinding is geslaagd, wordt de PostgreSQL-database uitgevoerd. Zo niet, controleer dan of de lokale PostgreSQL-database wordt gestart door de stappen te volgen op [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
 Maak een database met de naam *eventregistration* en stel een afzonderlijke databasegebruiker in met de naam *manager* en wachtwoord *supersecretpass*.
 
@@ -102,7 +102,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Als de app is geladen, ziet u een bericht zoals dit:
+Wanneer de app volledig is geladen, ziet u een bericht zoals dit:
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -112,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Ga naar `http://localhost:5000` in een browser. Klik op **Registreren!** en maak een testgebruiker aan.
+Ga naar `http://localhost:5000` in een browser. Klik op **Registreren!** en maak een testgebruiker.
 
 ![Lokaal uitgevoerde Python Flask-toepassing](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -222,7 +222,7 @@ FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="
 FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Als de app is geladen, ziet u een bericht zoals dit:
+Wanneer de app volledig is geladen, ziet u een bericht zoals dit:
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -343,7 +343,7 @@ U ziet twee wachtwoorden. Noteer de gebruikersnaam en het eerste wachtwoord.
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Docker-container uploaden naar Azure Container Registry
 
-Meld u aan bij het register. Als u daarom wordt gevraagd, voert u het wachtwoord in dat u zojuist hebt opgehaald.
+Meld u aan bij het register. Als u daarom wordt gevraagd, voert u het wachtwoord in dat u hebt opgehaald.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

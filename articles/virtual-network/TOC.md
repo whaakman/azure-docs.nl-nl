@@ -157,6 +157,7 @@
 #### [Azure-CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logboeken](virtual-network-nsg-manage-log.md)
+### [Routetabellen](manage-route-table.md)
 ### Netwerkinterfaces (NIC's)
 #### [NIC's maken, wijzigen of verwijderen](virtual-network-network-interface.md)
 #### [IP-adressen toevoegen, wijzigen of verwijderen](virtual-network-network-interface-addresses.md)
@@ -177,6 +178,7 @@
 ### [Doorvoer testen](virtual-network-bandwidth-testing.md)
 ### [Kan virtuele netwerken niet detecteren](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problemen met connectiviteit van VM naar VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [PTR configureren voor controle van de SMTP-koptekst ](create-ptr-for-smtp-service.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

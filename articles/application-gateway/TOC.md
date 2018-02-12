@@ -40,11 +40,19 @@
 ## Hosting van meerdere sites configureren
 ### [Azure Portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Omleiding configureren
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure-CLI](tutorial-multisite-cli.md)
 ## Externe omleiding configureren
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure-CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure-CLI](tutorial-external-site-redirect-cli.md)
+## Interne omleiding configureren
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure-CLI](tutorial-internal-site-redirect-cli.md)
+## Omleiding van HTTP naar HTTPS configureren
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure-CLI](tutorial-http-redirect-cli.md)
+## URL-omleiding configureren
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure-CLI](tutorial-url-redirect-cli.md)
 ## Web-apps als leden van back-end-pools configureren
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Statuscontroles configureren

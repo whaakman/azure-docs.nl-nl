@@ -35,28 +35,38 @@
       href: container-service-quotas.md
 - name: Handleidingen
   items:
-    - name: De schaal van een AKS-cluster aanpassen
-      href: scale-cluster.md
-    - name: Een AKS-cluster upgraden
-      href: upgrade-cluster.md
-    - name: Verifiëren met ACR
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Toepassingen uitvoeren met Helm
-      href: kubernetes-helm.md
-    - name: Toepassingen ontwikkelen met Draft
-      href: kubernetes-draft.md
-    - name: Integreren met Azure met behulp van OSBA
-      href: integrate-azure.md
-    - name: Kubernetes-dashboard gebruiken
-      href: kubernetes-dashboard.md
-    - name: Een service-principal maken
-      href: kubernetes-service-principal.md
+    - name: Clusterbewerkingen
+      items:
+        - name: De schaal van een AKS-cluster aanpassen
+          href: scale-cluster.md
+        - name: Een AKS-cluster upgraden
+          href: upgrade-cluster.md
+        - name: Een AKS-cluster verwijderen
+          href: delete-cluster.md
     - name: Gegevensvolumes configureren
       items:
         - name: Azure Disks - permanent volume
           href: azure-disks-dynamic-pv.md
         - name: Azure Files - permanent volume
           href: azure-files-dynamic-pv.md
+    - name: Verificatie en beveiliging
+      items:
+        - name: Een service-principal maken
+          href: kubernetes-service-principal.md
+        - name: Verifiëren met ACR
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Toepassingen ontwikkelen en uitvoeren
+      items:
+        - name: Toepassingen uitvoeren met Helm
+          href: kubernetes-helm.md
+        - name: Toepassingen ontwikkelen met Draft
+          href: kubernetes-draft.md
+        - name: Integreren met Azure met behulp van OSBA
+          href: integrate-azure.md
+    - name: Basisbeginselen voor Kubernetes
+      items:
+        - name: Kubernetes-dashboard gebruiken
+          href: kubernetes-dashboard.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

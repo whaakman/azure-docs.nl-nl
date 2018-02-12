@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: c53c4eba6d46c03bbfc6bb316ae4e505abb7b781
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 369d4444e52083c689441548dcfab70fe49ab346
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-azure-hdinsight-and-the-hadoop-and-spark-technology-stack"></a>Inleiding tot Azure HDInsight en de Hadoop- en Spark-technologiestack
 Dit artikel biedt een inleiding tot Azure HDInsight. Azure HDInsight is een volledig beheerde, zeer uitgebreide open-source analyseservice voor bedrijven. U kunt populaire opensourcekaders zoals Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, etc. gebruiken. 
@@ -89,7 +89,7 @@ Met HDInsight kunt u uw bestaande on-premises big data-infrastructuur uitbreiden
 
 ![HDInsight-architectuur: hybride](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
 
-## <a name="overview"></a>Clustertypen in HDInsight
+## <a name="cluster-types-in-hdinsight"></a>Clustertypen in HDInsight
 HDInsight omvat specifieke clustertypen en opties voor clusteraanpassing, zoals de mogelijkheid om onderdelen, hulpprogramma's en talen toe te voegen.
 
 ### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Clusters van Apache Spark, Kafka, Interactive Query en HBase, aangepaste clusters en andere clustertypen

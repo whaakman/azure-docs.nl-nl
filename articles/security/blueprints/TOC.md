@@ -17,8 +17,8 @@
 ### [Technische mogelijkheden voor beveiliging](../azure-security-technical-capabilities.md)
 ### [Governance in Azure](../governance-in-azure.md)
 ### [Versleuteling van inactieve gegevens](../azure-security-encryption-atrest.md)
-### Architectuurblauwdrukken
-#### Naleving - PCI DSS
+### Blauwdrukken voor Azure-beveiliging en naleving
+#### PCI DSS
 ##### [Betalingsverwerking voor PCI DSS-conforme omgevingen](payment-processing-blueprint.md)
 ##### [Overzicht van vereisten](pci-dss-requirements-overview.md)
 ##### [Vereiste 1 - firewalls](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Vereiste 10 - bewaking](pci-dss-requirement-10-monitoring.md)
 ##### [Vereiste 11 - testen](pci-dss-requirement-11-testing.md)
 ##### [Vereiste 12 - beleid](pci-dss-requirement-12-policy.md)
-#### Naleving - FedRAMP
-##### [Webtoepassingen voor FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automatisering van webtoepassingen](fedramp.md)
 ##### [Overzicht van beveiligingsbesturingselementen](fedramp-controls-overview.md)
 ##### [Toegangsbeheer](fedramp-access-controls.md)
 ##### [Controle en verantwoordelijkheid](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Systeem- en communicatiebeveiliging](fedramp-system-communications-protection-controls.md)
 ##### [Systeem- en gegevensintegriteit](fedramp-system-information-integrity-controls.md)
 ##### [Systeem- en servicesovername](fedramp-system-services-acquisition-controls.md)
-#### Naleving - UK-OFFICIAL
-##### [Webtoepassingen met drie lagen voor UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automatisering van webtoepassingen met drie lagen](uk-official-three-tier-applications-overview.md)
 ##### [Overzicht](uk-official-three-tier-applications-overview.md)
 ##### [Overzicht van de principes](uk-official-three-tier-applications-principles-overview.md)
-#### Naleving - financiële services
+#### Financiële dienstverlening
 ##### [Financiële diensten voor gereguleerde workloads](financial-services-regulated-workloads.md)
 
 # Aan de slag
@@ -93,7 +93,6 @@
 ### [Inleiding tot Azure-logboekintegratie](../security-azure-log-integration-overview.md)
 #### [Aan de slag met Azure-logboekintegratie](../security-azure-log-integration-get-started.md)
 #### [Controlelogboeken van Azure Active Directory integreren](../security-azure-log-integration-ad.md)
-#### [Waarschuwingen van Beveiligingscentrum integreren](../security-azure-log-integration-security-center.md)
 #### [Logboeken van Key Vault integreren met Event Hubs](../security-azure-log-integration-keyvault-eventhub.md)
 #### [Veelgestelde vragen](../security-azure-log-integration-faq.md)
 

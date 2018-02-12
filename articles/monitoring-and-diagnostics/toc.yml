@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Activiteitenlogboek
           href: monitoring-overview-activity-logs.md
+        - name: Waarschuwingen voor activiteitenlogboeken (preview)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Actiegroepen
           href: monitoring-action-groups.md
         - name: Diagnostische logboeken
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Waarschuwingen configureren met Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Een metrische waarschuwing een webhook laten aanroepen
-          href: insights-webhooks-alerts.md
+        - name: Webhookacties voor logboekwaarschuwingen
+          href: monitor-alerts-unified-log-webhook.md
         - name: Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-enable-alerts-using-template.md
     - name: Automatisch schalen gebruiken

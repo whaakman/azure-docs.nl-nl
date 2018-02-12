@@ -171,6 +171,7 @@
 #### [Walkthrough Face Redactor](media-services-redactor-walkthrough.md)
 ### [Verwerken met videominiaturen](media-services-video-summarization.md)
 ### [Verwerken met OCR](media-services-video-optical-character-recognition.md)
+### [Verwerken met Content Moderator](media-services-content-moderation.md)
 
 ## [Telemetrie configureren](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

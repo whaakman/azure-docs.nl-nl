@@ -5,11 +5,11 @@ title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ SQL-hulpprogramma's </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Een set van aanbevolen architecturen voor cloud-toepassingen. Elke architectuur bevat aanbevolen procedures, prescriptieve stappen en een uitvoerbare onderdeel waarin de aanbevelingen in acht zijn genomen.
+Het Azure Architecture Center bevat richtlijnen voor het maken van end-to-end-oplossingen in Microsoft Azure. Hier vindt u referentiemateriaal voor architecturen, best practices, ontwerppatronen, scenario-handleidingen en voorbeeldimplementaties.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ Een set van aanbevolen architecturen voor cloud-toepassingen. Elke architectuur 
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Architecture Center</h3>
+                                                    <p>Hulp bij het maken van end-to-end-oplossingen in Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Gids voor de toepassingsarchitectuur in Azure</h3>
-                                                    <p>Fundamentele kennis om succesvol te kunnen werken in de cloud. Als u geen ervaring hebt met de cloud of voor het eerst met Azure werkt, begint u hier.</p>
+                                                    <p>Deze handleiding biedt een gestructureerde benadering voor het ontwerpen van toepassingen in Azure die schaalbaar, robuust en maximaal beschikbaar zijn. De handleiding is gebaseerd op bewezen praktijken die we van interactie met klanten hebben geleerd.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ Een set van aanbevolen architecturen voor cloud-toepassingen. Elke architectuur 
                                                 <div class="cardText">
                                                     <h3>Cloudontwerppatronen</h3>
                                                     <p>Ontwerppatronen voor de cloud. Elk patroon beschrijft een probleem, een patroon om het probleem op te lossen, en een voorbeeld op basis van Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Aanbevolen procedures voor cloudtoepassingen</h3>
-                                                    <p>
-Dit is een verzameling aanbevolen procedures voor cloudtoepassingen waarin diverse aspecten aan de orde komen, zoals automatisch schalen, het opslaan van gegevens in de cache, het partitioneren van gegevens, het ontwerpen van een API en de bewaking van gegevens.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

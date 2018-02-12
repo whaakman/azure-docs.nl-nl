@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Geneste virtualisatie gebruiken
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: De VM-agent installeren in de offlinemodus
+          href: install-vm-agent-offline.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

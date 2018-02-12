@@ -86,13 +86,16 @@
           href: apache-spark-use-with-data-lake-store.md
         - name: Verbinding maken met Azure SQL Database
           href: apache-spark-connect-to-sql-database.md
+        - name: Een lambda-architectuur implementeren met Spark en Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Spark-streaming
       items:
         - name: Overzicht
           href: apache-spark-streaming-overview.md
         - name: Maximaal beschikbare Spark-streamingtaken in YARN maken
           href: apache-spark-streaming-high-availability.md
-        - name: Streaminggebeurtenissen verwerken
+        - name: Streaming-gebeurtenissen verwerken
           href: apache-spark-eventhub-streaming.md
         - name: Gestructureerd streamen met Event Hubs
           href: apache-spark-eventhub-structured-streaming.md
