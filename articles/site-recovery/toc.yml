@@ -54,35 +54,37 @@
         - name: AWS-exemplaren migreren naar Azure
           href: tutorial-migrate-aws-to-azure.md
         - name: Virtuele Azure-machines migreren naar een andere regio
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Concepten
   items:
-    - name: Azure naar Azure-architectuur
-      href: concepts-azure-to-azure-architecture.md
-    - name: VMware naar Azure-architectuur
-      href: concepts-vmware-to-azure-architecture.md
-    - name: Hyper-V naar Azure-architectuur
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: Fysieke naar Azure-architectuur
-      href: concepts-physical-to-azure-architecture.md
-    - name: Hyper-V naar secundaire site-architectuur
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Ondersteuningsmatrix voor Azure naar Azure
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Ondersteuningsmatrix voor VMware naar Azure
-      href: support-matrix-vmware-to-azure.md
-    - name: Ondersteuningsmatrix voor Hyper-V naar Azure
-      href: support-matrix-hyper-v-to-azure.md
-    - name: Ondersteuningsmatrix voor on-premises naar Azure
-      href: site-recovery-support-matrix-to-azure.md
-    - name: Ondersteuningsmatrix voor on-premises naar secundaire site
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: Typen failback
-      href: concepts-types-of-failback.md
-    - name: Herstel na noodgeval voor workloads
-      href: site-recovery-workload.md
-    - name: Migratie naar Azure
-      href: site-recovery-migrate-to-azure.md
+    - name: Architectuur
+      items:
+        - name: Azure naar Azure-architectuur
+          href: azure-to-azure-architecture.md
+        - name: VMware naar Azure-architectuur
+          href: concepts-vmware-to-azure-architecture.md
+        - name: Hyper-V naar Azure-architectuur
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: Fysieke naar Azure-architectuur
+          href: concepts-physical-to-azure-architecture.md
+        - name: Hyper-V naar secundaire site-architectuur
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Ondersteuningsmatrix voor vereisten
+      items:
+        - name: Ondersteuningsmatrix voor Azure naar Azure
+          href: azure-to-azure-support-matrix.md
+        - name: Ondersteuningsmatrix voor VMware naar Azure
+          href: support-matrix-vmware-to-azure.md
+        - name: Ondersteuningsmatrix voor Hyper-V naar Azure
+          href: support-matrix-hyper-v-to-azure.md
+        - name: Ondersteuningsmatrix voor on-premises naar Azure
+          href: site-recovery-support-matrix-to-azure.md
+        - name: Ondersteuningsmatrix voor on-premises naar secundaire site
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: Herstel na noodgeval voor workloads
+          href: site-recovery-workload.md
+        - name: Migratie naar Azure
+          href: site-recovery-migrate-to-azure.md
     - name: Op rollen gebaseerde machtigingen
       href: site-recovery-role-based-linked-access-control.md
     - name: Veelgestelde vragen
@@ -92,9 +94,9 @@
     - name: Netwerken
       items:
         - name: Netwerken instellen voor herstel na noodgevallen voor Azure-VM (preview)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Netwerktoewijzing instellen voor herstel na noodgevallen voor Azure-VM (preview)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
         - name: Een IP-adres behouden bij herstel na noodgevallen voor Azure-VM (preview)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
@@ -108,7 +110,7 @@
     - name: Herstel na noodgeval
       items:
         - name: Herstel na noodgeval voor virtuele Azure-machines na migratie naar Azure
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Herstel na noodgeval voor fysieke servers naar Azure
           href: tutorial-physical-to-azure.md
         - name: Virtuele Hyper-V-machines repliceren naar een secundaire site
@@ -142,7 +144,7 @@
         - name: Machines opnieuw beveiligen na een failover
           items:
             - name: Opnieuw beveiligen van een secundaire Azure-regio naar een primaire regio
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: Opnieuw beveiligen van Azure naar on-premises
               href: site-recovery-how-to-reprotect.md
         - name: Failback van Azure
@@ -153,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Een Linux-hoofddoelserver voor failback instellen
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Migreren
+      items:
+        - name: Info over migratie
+          href: site-recovery-migrate-to-azure.md
+        - name: Virtuele Azure-machines repliceren na migratie naar een andere regio
+          href: azure-to-azure-replicate-after-migration.md
     - name: Capaciteit en schalen
       items:
         - name: Capaciteitsplanning voor VMware-replicatie naar Azure
@@ -210,7 +218,7 @@
         - name: Replicatie inschakelen
           items:
             - name: Azure naar Azure-replicatie inschakelen
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: VMware naar Azure-replicatie inschakelen
               href: site-recovery-replicate-vmware-to-azure.md
         - name: De Mobility-service voor VMware implementeren
@@ -272,7 +280,7 @@
     - name: Bewaken en problemen oplossen
       items:
         - name: Problemen met Azure naar Azure-replicatie
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Problemen met on-premises naar Azure-replicatie
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Problemen met de Mobility-service

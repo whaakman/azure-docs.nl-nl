@@ -1,0 +1,96 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Machine Learning
+metadata:
+  title: Documentatie voor Azure Machine Learning - Zelfstudies, API-verwijzing
+  description: Documentatie, video's en voorbeeldmodellen voor Machine Learning, een cloudservice voor data scientists en ontwikkelaars die predictive analytics gebruiken in toepassingen.
+  services: machine-learning
+  author: garyericson
+  manager: jhubbard
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/01/2018
+  ms.author: garye
+  ms.openlocfilehash: 3303174486e9fd7a5b0f6dfe713be93e569a80a7
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: Leer Azure Machine Learning te gebruiken, met zijn volledig beheerde services voor het bouwen, implementeren en beheren van machine learning- en AI-modellen in de cloud. Dankzij zelfstudies, snelstartgidsen, naslaginformatie en voorbeelden ziet u hoe u modellen voor uw toepassingen kunt bouwen en implementeren.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/azure/machine-learning/preview/"> <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview) <br><b>Azure Machine Learning-services</b></a> <p>Informatie over de manier waarop deze services gegevenswetenschappers helpen om AI-oplossingen te ontwikkelen met behulp van Python-tools en -bibliotheken met een breed scala aan gegevens en rekenservices van Azure.</p>
+    - html: <a href="/azure/machine-learning/studio/"> <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio"> <br><b>Azure Machine Learning Studio</b></a> <p>Informatie over het gebruik van dit hulpprogramma met functionaliteit op basis van slepen en neerzetten, om in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens te ontwikkelen, testen en implementeren.</p>
+    - html: "<a href=\"/azure/machine-learning/data-science-virtual-machine/index\"> <img height=\"48\" width=\"48\" src=\"/azure/machine-learning/media/index/virtualmachine.svg\" alt=\"Data Science Virtual Machine\"> <br><b>Data Science Virtual Machine</b></a> <p>Informatie over het gebruik van VM’s voor Data Science en Deep Learning, aangepaste VM-installatiekopieën in Azure, vol met hulpprogramma’s voor data science, die worden gebruikt om intelligente toepassingen voor geavanceerde analyse te bouwen.</p>"
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Informatie over het snel instellen en gebruiken van Azure Machine Learning-services (preview), Studio en de Data Science Virtual Machine:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/i_machine-learning.svg
+    - image:
+        src: media/index/machine-learning-studio.svg
+    - image:
+        src: media/index/virtualmachine.svg
+    rows:
+    - title: Instellen
+      values:
+      - href: /azure/machine-learning/preview/quickstart-installation
+      - href: /azure/machine-learning/studio/create-workspace
+      - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
+    - title: Een model bouwen
+      values:
+      - href: /azure/machine-learning/preview/quickstart-installation
+      - href: /azure/machine-learning/studio/create-experiment
+      - href: 
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Informatie over het bouwen, implementeren en gebruiken van modellen met behulp van Azure Machine Learning-services (preview) en Studio:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/i_machine-learning.svg
+    - image:
+        src: media/index/machine-learning-studio.svg
+    rows:
+    - title: Gegevens voorbereiden
+      values:
+      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-1
+      - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+    - title: Een model bouwen
+      values:
+      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-2
+      - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
+    - title: Een model operationeel maken
+      values:
+      - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-3
+      - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
+    - title: Een model gebruiken
+      values:
+      - href: /azure/machine-learning/preview/model-management-consumption
+      - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
+- title: "Meer Microsoft Machine Learning-technologieën"
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: "<a href=\"/azure/machine-learning/team-data-science-process\"> <img src=\"media/index/tdsp.png\" alt=\"Team Data Science Process\" height=\"32\" width=\"32\"> <p><b>Team Data Science Process</b></p> </a> Een data science-methodologie waarmee teams in samenwerkingsverband op een efficiënte manier predictive analytics-oplossingen en intelligente toepassingen kunnen leveren."
+    - html: <a href="/sql/advanced-analytics/r/r-services"> <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services" height="32" width="32"> <p><b>SQL Server Machine Learning-services</b></p> </a> Analyses in databases met ondersteuning voor zowel R als Python.
+    - html: <a href="/machine-learning-server/"> <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server" height="32" width="32"> <p><b>Microsoft Machine Learning Server</b></p> </a> Flexibel machine learning-platform voor bedrijven, met ondersteuning voor R- en Python-implementaties in Windows, Linux, en HDInsight Spark en Hadoop-clusters.
+    - html: <a href="/azure/batch-ai/"> <img src="media/index/batch.png" alt="Batch AI Training" height="32" width="32"> <p><b>Batch AI Training</b></p> </a>Een beheerde service die u helpt met het parallel experimenteren met uw AI-modellen binnen van elk gewenst framework, en die ze vervolgens op grote schaal over geclusterde GPU's traint.
+    - html: <a href="/azure/#pivot=products&panel=cognitive"> <img src="media/index/cognitive-services.png" alt="Cognitive Services" height="32" width="32"> <p><b>Cognitive Services</b></p> </a> API's die intelligente algoritmen voor uw apps, websites en bots leveren.
+    - html: <a href="/cognitive-toolkit/"> <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit" height="32" width="32"> <p><b>Microsoft Cognitive Toolkit</b></p> </a> Een gratis, open-sourcetoolkit om deep learning-algoritmen mee te trainen.

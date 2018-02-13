@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over Azure Data Science Virtual Machine
+metadata:
+  title: Documentatie over Azure Data Science Virtual Machine
+  description: Informatie over het gebruik van de Data Science Virtual Machine.
+  services: machine-learning
+  author: bradsev
+  manager: cgronlun
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: bradsev
+  ms.openlocfilehash: 291d38522adfa780629892ea6d7f7a17a82a0e39
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: "De Data Science en Deep Learning Virtual Machines zijn aangepaste VM-installatiekopieën in Azure, vol met hulpprogramma’s voor data science, die worden gebruikt om intelligente toepassingen voor geavanceerde analyse te bouwen."
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Informatie over het instellen van een op Windows of Linux gebaseerde Data Science-VM:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="provision-vm.md">Windows</a>
+    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: "Informatie over het inrichten en gebruiken van Data Science-VM’s:"
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="provision-vm">Een Windows-DSVM inrichten</a>
+    - html: <a href="vm-do-ten-thing">Een Windows-DSVM gebruiken</a>
+    - html: <a href:"linux-dsvm-intro">Een Linux CentOS-DSVM inrichten</a>
+    - html: <a href="dsvm-ubuntu-intro">Een Linux Ubuntu-DSVM inrichten</a>
+    - html: <a href="linux-dsvm-walkthrough">Een Linux-DSVM gebruiken</a>
+- title: "Meer Azure Machine Learning-technologieën"
+  items:
+  - type: paragraph
+    text: "Andere technologieën in Azure Machine Learning:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Machine Learning-services (preview)
+      href: /azure/machine-learning/preview/
+      image:
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/preview/
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image:
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/

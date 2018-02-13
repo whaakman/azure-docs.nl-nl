@@ -37,6 +37,8 @@
   items:
     - name: Clusterbewerkingen
       items:
+        - name: Een AKS-cluster maken
+          href: create-cluster.md
         - name: De schaal van een AKS-cluster aanpassen
           href: scale-cluster.md
         - name: Een AKS-cluster upgraden
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Gegevensvolumes configureren
       items:
-        - name: Azure Disks - permanent volume
+        - name: Azure-schijven
           href: azure-disks-dynamic-pv.md
-        - name: Azure Files - permanent volume
+        - name: Azure Files
           href: azure-files-dynamic-pv.md
+    - name: Netwerk configureren
+      items:
+        - name: Statisch IP-adres
+          href: static-ip.md
     - name: Verificatie en beveiliging
       items:
         - name: Een service-principal maken

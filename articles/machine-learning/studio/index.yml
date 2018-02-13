@@ -1,0 +1,73 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Machine Learning Studio
+metadata:
+  title: Documentatie voor Azure Machine Learning Studio
+  description: Informatie over het gebruik van Azure Machine Learning Studio.
+  services: machine-learning
+  author: carolz
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: carolz
+  ms.openlocfilehash: dd55c06d62f7678a5b5e721be80f3483c96be0f0
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: Azure Machine Learning Studio is een hulpprogramma met functionaliteit op basis van slepen en neerzetten, waarmee u in samenwerkingsverband predictive analytics-oplossingen voor uw gegevens kunt ontwikkelen, testen en implementeren. Zelfstudies, video's en voorbeeldmodellen laten zien hoe u Machine Learning-modellen kunt maken en implementeren met behulp van Studio.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Informatie voor het beginnen met het gebruik van Machine Learning Studio:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="create-experiment">Uw eerste experiment opzetten</a>
+    - html: <a href="algorithm-choice">Het beste algoritme kiezen</a>
+    - html: <a href="deploy-consume-web-service-guide">Uw model operationeel maken</a>
+    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Informatie over Data Science</a>
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Volg uitgebreide zelfstudies die u stap voor stap helpen bij het maken en implementeren van modellen:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="walkthrough-develop-predictive-solution">Een voorspellende oplossing maken en implementeren</a>
+    - html: <a href="azure-ml-customer-churn-scenario">Voorbeeld van klantverloop</a>
+- title: "Meer Azure Machine Learning-technologieën"
+  items:
+  - type: paragraph
+    text: "Andere technologieën in Azure Machine Learning:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Machine Learning-services (preview)
+      href: /azure/machine-learning/preview/
+      image:
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/preview/
+    - title: Data Science Virtual Machine
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image:
+        src: media/index/virtual-machines.svg
+        href: /azure/machine-learning/data-science-virtual-machine/
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Opdrachtregel
+      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell-module (nieuw)</a></p><p><a href="powershell-module">PowerShell-module (klassiek)</a></p>
+    - title: Modules
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Naslaginformatie over algoritmen en modules</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/machinelearning">API's voor REST-beheer</a></p><p><a href="web-service-error-codes">Foutcodes voor webservices</a></p>
