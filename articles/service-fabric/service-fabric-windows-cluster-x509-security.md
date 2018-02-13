@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Een zelfstandige cluster op Windows beveiligen met behulp van X.509-certificaten
 In dit artikel wordt beschreven hoe een beveiligde communicatie tussen de verschillende knooppunten van uw zelfstandige Windows-cluster. Ook wordt beschreven hoe u verificatie van clients die verbinding met dit cluster maken met behulp van X.509-certificaten. Verificatie zorgt ervoor dat alleen geautoriseerde gebruikers kunnen toegang krijgen het cluster en de geïmplementeerde toepassingen tot en beheertaken uitvoeren. Certificaatbeveiliging moet worden ingeschakeld op het cluster als het cluster is gemaakt.  
@@ -48,6 +48,12 @@ Beginnen met, [download het pakket van de Service Fabric voor Windows Server](se
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Beginnen met, [download het pakket van de Service Fabric voor Windows Server](se
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Beginnen met, [download het pakket van de Service Fabric voor Windows Server](se
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ De volgende tabel vindt u de certificaten die u nodig hebt van uw cluster-instel
 | --- | --- |
 | ClusterCertificate |Aanbevolen voor een testomgeving. Dit certificaat is vereist om de communicatie tussen de knooppunten op een cluster te beveiligen. U kunt twee verschillende certificaten, een primaire en een secundaire voor een upgrade. Stel de vingerafdruk van het primaire certificaat in de sectie vingerafdruk en die van de secundaire in de ThumbprintSecondary-variabelen. |
 | ClusterCertificateCommonNames |Aanbevolen voor een productie-omgeving. Dit certificaat is vereist om de communicatie tussen de knooppunten op een cluster te beveiligen. U kunt één of twee cluster certificaat algemene namen gebruiken. De CertificateIssuerThumbprint overeenkomt met de vingerafdruk van de verlener van dit certificaat. Als meer dan één certificaat met dezelfde algemene naam wordt gebruikt, kunt u meerdere verlener vingerafdrukken opgeven.|
+| ClusterCertificateIssuerStores |Aanbevolen voor een productie-omgeving. Dit certificaat dat overeenkomt met de verlener van het certificaat van het cluster. Algemene naam en de naam van het bijbehorende store in deze sectie in plaats van de vingerafdruk van de uitgever onder ClusterCertificateCommonNames geven, kunt u de uitgever opgeven.  Hierdoor kunt gemakkelijk rollover cluster verleende certificaten. Meerdere uitgevers van certificaten kunnen worden opgegeven als meer dan één cluster certificaat wordt gebruikt. Een leeg IssuerCommonName whitelists alle certificaten in de bijbehorende opgeslagen opgegeven onder X509StoreNames.|
 | ServerCertificate |Aanbevolen voor een testomgeving. Dit certificaat wordt geverifieerd op de client als er wordt geprobeerd verbinding maken met dit cluster. Voor het gemak kunt u hetzelfde certificaat gebruiken voor ClusterCertificate en ServerCertificate. U kunt twee verschillende servercertificaten, een primaire en een secundaire voor een upgrade. Stel de vingerafdruk van het primaire certificaat in de sectie vingerafdruk en die van de secundaire in de ThumbprintSecondary-variabelen. |
 | ServerCertificateCommonNames |Aanbevolen voor een productie-omgeving. Dit certificaat wordt geverifieerd op de client als er wordt geprobeerd verbinding maken met dit cluster. De CertificateIssuerThumbprint overeenkomt met de vingerafdruk van de verlener van dit certificaat. Als meer dan één certificaat met dezelfde algemene naam wordt gebruikt, kunt u meerdere verlener vingerafdrukken opgeven. Voor het gemak kunt u hetzelfde certificaat gebruiken voor ClusterCertificateCommonNames en ServerCertificateCommonNames. U kunt één of twee algemene servercertificaatnamen gebruiken. |
+| ServerCertificateIssuerStores |Aanbevolen voor een productie-omgeving. Dit certificaat dat overeenkomt met de verlener van het servercertificaat. Algemene naam en de naam van het bijbehorende store in deze sectie in plaats van de vingerafdruk van de uitgever onder ServerCertificateCommonNames geven, kunt u de uitgever opgeven.  Hierdoor kunt gemakkelijk overschakeling van de server verleende certificaten. Meerdere uitgevers van certificaten kunnen worden opgegeven als meer dan één servercertificaat wordt gebruikt. Een leeg IssuerCommonName whitelists alle certificaten in de bijbehorende opgeslagen opgegeven onder X509StoreNames.|
 | ClientCertificateThumbprints |Deze verzameling certificaten installeren op de geverifieerde clients. U kunt een aantal andere client-certificaten die zijn geïnstalleerd op de computers die u wilt toestaan toegang tot het cluster hebben. De vingerafdruk van elk certificaat in de variabele CertificateThumbprint instellen. Als u IsAdmin ingesteld op *true*, de client met dit certificaat geïnstalleerd op deze beheerder kan doen beheeractiviteiten op het cluster. Als IsAdmin *false*, de client met dit certificaat de acties die zijn alleen toegestaan voor de toegangsrechten voor gebruikers, meestal het kenmerk alleen-lezen kan uitvoeren. Zie voor meer informatie over functies [op rollen gebaseerde toegangsbeheer (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |De algemene naam van het certificaat van de eerste client ingesteld voor de CertificateCommonName. De CertificateIssuerThumbprint is de vingerafdruk voor de verlener van dit certificaat. Zie voor meer informatie over algemene namen en de verlener, [werken met certificaten](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Aanbevolen voor een productie-omgeving. Dit certificaat dat overeenkomt met de verlener van het clientcertificaat (zowel admin en niet-beheerders rollen). Algemene naam en de naam van het bijbehorende store in deze sectie in plaats van de vingerafdruk van de uitgever onder ClientCertificateCommonNames geven, kunt u de uitgever opgeven.  Hierdoor kunt gemakkelijk overschakeling van de client verleende certificaten. Meerdere uitgevers van certificaten kunnen worden opgegeven als meer dan één clientcertificaat wordt gebruikt. Een leeg IssuerCommonName whitelists alle certificaten in de bijbehorende opgeslagen opgegeven onder X509StoreNames.|
 | ReverseProxyCertificate |Aanbevolen voor een testomgeving. Dit optioneel certificaat kan worden opgegeven als u wilt beveiligen uw [omgekeerde proxy](service-fabric-reverseproxy.md). Zorg ervoor dat reverseProxyEndpointPort is ingesteld in nodeTypes als u dit certificaat gebruiken. |
 | ReverseProxyCertificateCommonNames |Aanbevolen voor een productie-omgeving. Dit optioneel certificaat kan worden opgegeven als u wilt beveiligen uw [omgekeerde proxy](service-fabric-reverseproxy.md). Zorg ervoor dat reverseProxyEndpointPort is ingesteld in nodeTypes als u dit certificaat gebruiken. |
 
@@ -123,7 +144,7 @@ Hier volgt een voorbeeld van de configuratie van het cluster waar het cluster, s
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Hier volgt een voorbeeld van de configuratie van het cluster waar het cluster, s
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Hier volgt een voorbeeld van de configuratie van het cluster waar het cluster, s
 
 ## <a name="certificate-rollover"></a>Overschakeling van certificaat
 Wanneer u de algemene naam van een certificaat in plaats van een vingerafdruk gebruikt, vereist geen certificaat rollover de upgrade van een cluster configuratie. Zorg ervoor dat de nieuwe vingerafdruk lijst met de oude lijst in de polygoonring verlener vingerafdruk upgrades. U moet eerst een upgrade van een configuratie met de nieuwe verlener vingerafdrukken doen en installeer vervolgens de nieuwe certificaten (certificaat van de cluster of de server en verleende certificaten) in het archief. Houd het oude certificaat van de verlener in het certificaatarchief voor ten minste twee uur na de installatie van het nieuwe certificaat van de verlener.
+Als u van verlener winkels gebruikmaakt, klikt u vervolgens moet geen upgrade van de configuratie worden uitgevoerd voor de overschakeling van de certificaatverlener. Het nieuwe certificaat van de verlener installeren met een laatste vervaldatum in het certificaatarchief van de bijbehorende en verwijder de oude uitgeverscertificaat na enkele uren.
 
 ## <a name="acquire-the-x509-certificates"></a>De X.509-certificaten verkrijgen
 Als u wilt beveiligen van communicatie binnen het cluster, moet u eerst x.509-certificaten verkrijgen voor de clusterknooppunten. Als u wilt beperken verbinding met dit cluster gemachtigde machines/gebruikers, moet u bovendien verkrijgen en installeren van certificaten voor de clientcomputers.

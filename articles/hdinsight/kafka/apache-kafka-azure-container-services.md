@@ -14,35 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 8074797e2d37f98cc3b219dbf3e51f558bbee8c7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Azure-Containerservices gebruiken met Kafka in HDInsight
 
-Informatie over het gebruik van Azure Container Service (AKS) met Kafka op HDInsight-cluster.
+Informatie over het gebruik van Azure Container Services (AKS) met Kafka op HDInsight-cluster. De stappen in dit document gebruiken een Node.js-toepassing die wordt gehost in AKS om te controleren of de verbinding met Kafka. Deze toepassing gebruikt de [kafka-knooppunt](https://www.npmjs.com/package/kafka-node) pakket om te communiceren met Kafka. Hierbij [Socket.io](https://socket.io/) voor gebeurtenis gebaseerde uitwisseling van berichten tussen de browserclient en de back-end gehost in AKS.
 
 [Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Azure Container Service beheert uw gehoste Kubernetes-omgeving en kunt u snel en eenvoudig om beperkte toepassingen te implementeren. Met behulp van een Azure-netwerk, kunt u de twee services.
 
-> [!IMPORTANT]
-> Dit document wordt ervan uitgegaan dat u bekend bent met het maken en gebruiken van de volgende Azure-services:
->
-> * Kafka op HDInsight
-> * Azure Container Service
-> * Virtuele netwerken van Azure
->
-> Dit document wordt ervan uitgegaan dat u hebt doorlopen de [Azure Container Services zelfstudie](../../aks/tutorial-kubernetes-prepare-app.md). In deze zelfstudie maakt u een containerservice, maakt u een cluster Kubernetes, een register container en configureert u de `kubectl` hulpprogramma.
-
 > [!NOTE]
-> De stappen in dit document gebruiken een Node.js-toepassing die wordt gehost in AKS om te controleren of de verbinding met Kafka. Deze toepassing gebruikt de [kafka-knooppunt](https://www.npmjs.com/package/kafka-node) pakket om te communiceren met Kafka. Hierbij [Socket.io](https://socket.io/) voor gebeurtenis gebaseerde uitwisseling van berichten tussen de browserclient en de back-end gehost in AKS.
+> De focus van dit document is op de stappen die zijn vereist voor het inschakelen van Azure Container Services om te communiceren met Kafka op HDInsight. Het voorbeeld zelf is alleen een eenvoudige Kafka client om aan te tonen dat de configuratie werkt.
+
+## <a name="prerequisites"></a>Vereisten
+
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Een Azure-abonnement
+
+Dit document wordt ervan uitgegaan dat u bekend bent met het maken en gebruiken van de volgende Azure-services:
+
+* Kafka op HDInsight
+* Azure Container Service
+* Virtuele netwerken van Azure
+
+Dit document wordt ervan uitgegaan dat u hebt doorlopen de [Azure Container Services zelfstudie](../../aks/tutorial-kubernetes-prepare-app.md). In deze zelfstudie maakt u een containerservice, maakt u een cluster Kubernetes, een register container en configureert u de `kubectl` hulpprogramma.
 
 ## <a name="architecture"></a>Architectuur
 
 ### <a name="network-topology"></a>Netwerktopologie
 
-Gebruik een virtueel netwerk van Azure HDInsight zowel AKS als een container rekenresources. Om de communicatie tussen HDInsight en AKS inschakelt, moet u communicatie tussen hun netwerken inschakelen. De stappen in dit document gebruikt Peering van virtueel netwerk met de netwerken. Zie voor meer informatie over het peering de [virtuele netwerk peering](../../virtual-network/virtual-network-peering-overview.md) document.
+Gebruik een virtueel netwerk van Azure HDInsight zowel AKS als een container rekenresources. Om de communicatie tussen HDInsight en AKS inschakelt, moet u communicatie tussen hun netwerken inschakelen. De stappen in dit document gebruikt Peering van virtueel netwerk met de netwerken. Andere verbindingen, zoals VPN, werken doorgaans ook. Zie voor meer informatie over het peering de [virtuele netwerk peering](../../virtual-network/virtual-network-peering-overview.md) document.
+
 
 Het volgende diagram illustreert de netwerktopologie in dit document gebruikt:
 
@@ -51,11 +56,6 @@ Het volgende diagram illustreert de netwerktopologie in dit document gebruikt:
 > [!IMPORTANT]
 > Naamomzetting is niet ingeschakeld tussen de peered netwerken, zodat het IP-adressering wordt gebruikt. Kafka op HDInsight is standaard geconfigureerd om terug te keren hostnamen in plaats van IP-adressen wanneer clients verbinding maken. De stappen in dit document Kafka voor het gebruik van IP wijzigen in plaats daarvan wordt geadverteerd.
 
-## <a name="prerequisites"></a>Vereisten
-
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Een Azure-abonnement
-
 ## <a name="create-an-azure-container-service-aks"></a>Maak een Azure Containerservice (AKS)
 
 Als u nog geen een AKS-cluster, kunt u een van de volgende documenten voor meer informatie over het maken van een gebruiken:
@@ -63,7 +63,10 @@ Als u nog geen een AKS-cluster, kunt u een van de volgende documenten voor meer 
 * [Een Azure Container Service (AKS)-cluster - Portal implementeren](../../aks/kubernetes-walkthrough-portal.md)
 * [Een Azure Container Service (AKS)-cluster - CLI implementeren](../../aks/kubernetes-walkthrough.md)
 
-## <a name="configure-the-virtual-networks"></a>De virtuele netwerken configureren
+> [!NOTE]
+> Een virtueel netwerk maakt AKS tijdens de installatie. Dit netwerk is ingesteld als peer met de gemaakt voor HDInsight in de volgende sectie.
+
+## <a name="configure-virtual-network-peering"></a>Configureer virtuele netwerk-peering
 
 1. Van de [Azure-portal](https://portal.azure.com), selecteer __resourcegroepen__, en gaat u naar de resourcegroep die het virtuele netwerk voor uw cluster AKS bevat. Naam van de resourcegroep is `MC_<resourcegroup>_<akscluster>_<location>`. De `resourcegroup` en `akscluster` vermeldingen zijn de naam van de resourcegroep waarin u het cluster hebt gemaakt en de naam van het cluster. De `location` is de locatie die in het cluster is gemaakt.
 

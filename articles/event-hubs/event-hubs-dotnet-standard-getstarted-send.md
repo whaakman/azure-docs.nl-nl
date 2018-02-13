@@ -1,6 +1,6 @@
 ---
-title: Gebeurtenissen verzenden naar Azure Event Hubs met behulp van standaard .NET | Microsoft Docs
-description: Gebeurtenissen verzenden naar Event Hubs in .NET standaard aan de slag
+title: Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Standard | Microsoft Docs
+description: Aan de slag met het verzenden van gebeurtenissen naar Event Hubs in .NET Standard
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -9,53 +9,53 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: MT
+ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Verzenden van berichten naar Azure Event Hubs in .NET standaard aan de slag
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Aan de slag met het verzenden van berichten naar Azure Event Hubs in .NET Standard
 
 > [!NOTE]
 > Dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-Deze zelfstudie laat zien hoe u schrijft een consoletoepassing .NET Core dat een set berichten naar een event hub verzendt. U kunt uitvoeren de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) oplossing-, vervangt de `EhConnectionString` en `EhEntityPath` tekenreeksen met de waarden van uw event hub. Of u kunt de stappen in deze zelfstudie voor het maken van uw eigen.
+Deze zelfstudie laat zien hoe u een .NET Core-consoletoepassing schrijft die een set berichten naar een event hub verzendt. U kunt de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)-oplossing ongewijzigd uitvoeren en de tekenreeksen `EhConnectionString` en `EhEntityPath` vervangen door uw event hubwaarden. Of u kunt de stappen in deze zelfstudie volgen om uw eigen oplossing te maken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Microsoft Visual Studio 2015 of 2017](http://www.visualstudio.com). De voorbeelden in deze zelfstudie Gebruik Visual Studio 2017, maar de Visual Studio 2015 wordt ook ondersteund.
-* [.NET core Visual Studio 2015 of hulpprogramma's voor 2017](http://www.microsoft.com/net/core).
+* [Microsoft Visual Studio 2015 of 2017](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt gebruikgemaakt van Visual Studio 2017, maar Visual Studio 2015 wordt ook ondersteund.
+* [.NET core Visual Studio 2015- of 2017-hulpprogramma's](http://www.microsoft.com/net/core).
 * Een Azure-abonnement.
-* Een event hub-naamruimte.
+* Een Event Hub-naamruimte.
 
-Om berichten te verzenden naar een event hub, zullen Visual Studio gebruikt voor het schrijven van een C#-consoletoepassing.
+In deze zelfstudie wordt Visual Studio gebruikt voor het schrijven van een C#-consoletoepassing om berichten naar een event hub te verzenden.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
-De eerste stap is het gebruik van de [Azure-portal](https://portal.azure.com) voor het maken van een naamruimte voor het gebeurtenistype hub en beheerreferenties die uw toepassing moet communiceren met de event hub. Volg de procedure in voor het maken van een naamruimte en een event hub, [in dit artikel](event-hubs-create.md), en vervolgens doorgaan met de volgende stappen uit.
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte oor het type event hub te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de event hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en een event hub te maken en ga daarna verder met de volgende stappen.
 
 ## <a name="create-a-console-application"></a>Een consoletoepassing maken
 
-Start Visual Studio. Klik in het menu **File** op **New** en klik vervolgens op **Project**. Maak een consoletoepassing .NET Core.
+Start Visual Studio. Klik in het menu **File** op **New** en klik vervolgens op **Project**. Maak een .NET Core-consoletoepassing.
 
 ![Nieuw project][1]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Toevoegen van het Event Hubs NuGet-pakket
+## <a name="add-the-event-hubs-nuget-package"></a>Het Event Hubs NuGet-pakket toevoegen
 
-Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) standaard .NET-bibliotheek NuGet-pakket aan uw project met de volgende stappen: 
+Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard-bibliotheek NuGet-pakket toe aan uw project via de volgende stappen: 
 
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
-2. Klik op de **Bladeren** tabblad, zoekt u naar 'Microsoft.Azure.EventHubs' en selecteer de **Microsoft.Azure.EventHubs** pakket. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
+2. Klik op het tabblad **Bladeren**, zoek naar Microsoft.Azure.EventHubs en selecteer het pakket **Microsoft.Azure.EventHubs**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
 
 ## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Code schrijven om berichten te verzenden naar de event hub
 
-1. Voeg aan het begin van het bestand Program.cs de volgende `using`-instructies toe.
+1. Voeg aan het begin van het bestand Program.cs de volgende `using`-instructies toe:
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -63,7 +63,7 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     using System.Threading.Tasks;
     ```
 
-2. Constanten toevoegen de `Program` klasse voor het Event Hubs tekenreeks en entiteit verbindingspad (afzonderlijke event hub-naam). Vervang de tijdelijke aanduidingen haakjes met de juiste waarden die zijn verkregen tijdens het maken van de event hub. Zorg ervoor dat de `{Event Hubs connection string}` is de verbindingsreeks op naamruimteniveau en niet de event hub-tekenreeks. 
+2. Voeg constanten toe aan de `Program`-klasse voor de Event Hubs-verbindingsreeks en entiteitspad (afzonderlijke event hub-naam). Vervang de tijdelijke aanduidingen tussen punthaken door de juiste waarden die zijn verkregen bij het maken van de event hub. Zorg ervoor dat `{Event Hubs connection string}` de verbindingsreeks op naamruimteniveau is en niet de event hub-tekenreeks. 
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -71,14 +71,14 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Voeg een nieuwe methode met de naam `MainAsync` naar de `Program` klasse als volgt:
+3. Voeg als volgt een nieuwe methode met de naam `MainAsync` toe aan de klasse `Program`:
 
     ```csharp
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -95,7 +95,7 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     }
     ```
 
-4. Voeg een nieuwe methode met de naam `SendMessagesToEventHub` naar de `Program` klasse als volgt:
+4. Voeg als volgt een nieuwe methode met de naam `SendMessagesToEventHub` toe aan de klasse `Program`:
 
     ```csharp
     // Creates an event hub client and sends 100 messages to the event hub.
@@ -121,7 +121,7 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
     }
     ```
 
-5. Voeg de volgende code naar de `Main` methode in de `Program` klasse.
+5. Voeg de volgende code toe aan de methode `Main` in de klasse `Program`:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -151,8 +151,8 @@ Voeg de [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -200,7 +200,7 @@ Gefeliciteerd. U hebt nu berichten verzonden naar een Event Hub.
 ## <a name="next-steps"></a>Volgende stappen
 U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
-* [Ontvangen van gebeurtenissen van Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+* [Gebeurtenissen ontvangen van Event Hubs](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
 * [Een Event Hub maken](event-hubs-create.md)
 * [Veelgestelde vragen over Event Hubs](event-hubs-faq.md)

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Beheer en onderhoud van de agent Log Analytics voor Windows en Linux
 
-Na de eerste implementatie van de Windows- of Linux-agent voor logboekanalyse is het wellicht opnieuw configureren van de agent, afhankelijk van de situatie of verwijderen van de computer, als de fase buiten gebruik stellen in de levenscyclus is bereikt.  U kunt deze taken routineonderhoud eenvoudig beheren handmatig of door middel van automatisering, waardoor zowel operationele problemen als dalen.
+Na de eerste implementatie van de Windows- of Linux-agent voor logboekanalyse moet u de agent opnieuw te configureren, of verwijderen van de computer als de fase buiten gebruik stellen in de levenscyclus is bereikt.  U kunt deze taken routineonderhoud eenvoudig beheren handmatig of door middel van automatisering, waardoor zowel operationele problemen als dalen.
 
 ## <a name="adding-or-removing-a-workspace"></a>Het toevoegen of verwijderen van een werkruimte 
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux-agent
-De volgende stappen uitvoeren als uw Linux-computers moeten communiceren via een proxy of Gateway met logboekanalyse OMS.  De waarde voor de proxyconfiguratie heeft de volgende syntaxis `[protocol://][user:password@]proxyhost[:port]`.  De *proxyhost* eigenschap accepteert een FQDN-naam of IP-adres van de proxyserver.
+De volgende stappen uitvoeren als uw Linux-computers moeten communiceren via een proxy of Gateway met logboekanalyse OMS.  De waarde voor de proxyconfiguratie heeft de volgende syntaxis `[protocol://][user:password@]proxyhost[:port]`.  De eigenschap *proxyhost* accepteert een volledig gekwalificeerde domeinnaam of het IP-adres van de proxyserver.
 
 1. Bewerk het bestand `/etc/opt/microsoft/omsagent/proxy.conf` door de volgende opdrachten uit te voeren en de waarden aan te passen aan uw specifieke instellingen.
 
@@ -148,12 +148,9 @@ Het gedownloade bestand voor de agent is een zelfstandig installatiepakket dat i
 3. Typ bij de opdrachtprompt `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux-agent
-Voer de volgende stappen uit om de agent te verwijderen.
+Voer de volgende opdracht op de Linux-computer voor het verwijderen van de agent.  De *--opschonen* argument haalt de agent en de configuratie.
 
-1. Download de Linux-agent [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) naar de computer.
-2. Voer het gebundelde .sh-bestand met het *--purge* argument uit op de computer, waardoor de agent en de configuratie daarvan volledig worden verwijderd.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Om te rapporteren aan een beheergroep van Operations Manager-agent configureren
 
@@ -174,9 +171,9 @@ Voer de volgende stappen uit voor het configureren van de OMS-Agent voor Windows
 ### <a name="linux-agent"></a>Linux-agent
 De volgende stappen uitvoeren om te configureren van de OMS-Agent voor Linux om te rapporteren aan een beheergroep van System Center Operations Manager. 
 
-1. Bewerk het bestand`/etc/opt/omi/conf/omiserver.conf`
-2. Zorg ervoor dat de regels die beginnen met `httpsport=` definieert de poort 1270. Zoals:`httpsport=1270`
-3. Start de OMI-server:`sudo /opt/omi/bin/service_control restart`
+1. Bewerk het bestand `/etc/opt/omi/conf/omiserver.conf`
+2. Zorg ervoor dat de regels die beginnen met `httpsport=` definieert de poort 1270. Zoals: `httpsport=1270`
+3. Start de OMI-server: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Volgende stappen
 

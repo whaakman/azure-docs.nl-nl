@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Gebruik van Azure HDInsight Tools voor Visual Studio Code
 
@@ -101,6 +101,26 @@ Voordat u scripts naar HDInsight-clusters van de Code van de VS indienen kunt, m
     - Interactieve PySpark-query's verzenden
     - PySpark batchscripts te verzenden
     - Set-configuraties
+
+**Koppelen van een cluster**
+
+U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
+1. Het palet opdracht openen door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: een cluster koppelen**.
+
+   ![de opdracht cluster koppeling](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Voer HDInsight cluster-URL-invoer Username -> > invoer wachtwoord -> Selecteer clustertype -> deze toont geslaagd info als verificatie doorgegeven.
+   
+   ![koppeling cluster dialoogvenster](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > We gebruiken de gekoppelde gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld. 
+   
+3. U ziet een gekoppelde cluster met behulp van de opdracht **lijst cluster**. U kunt nu een script voor deze gekoppelde cluster verzenden.
+
+   ![gekoppelde cluster](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. U kunt een cluster door inputing ook ontkoppelen **HDInsight: ontkoppelen van een cluster** in opdracht palet.
 
 ## <a name="list-hdinsight-clusters"></a>Lijst met HDInsight-clusters
 
@@ -258,6 +278,9 @@ HDInsight Tools voor VS-Code kunt u indienen interactieve PySpark-query's met Sp
 Nadat u een Python-taak hebt ingediend, verzending van Logboeken worden weergegeven in de **uitvoer** venster in VS-Code. De **Spark UI URL** en **Yarn UI URL** ook worden weergegeven. U kunt de URL in een webbrowser om bij te houden van de status van de taak openen.
 
 
+   
+
+
 ## <a name="additional-features"></a>Aanvullende functies
 
 HDInsight voor VS Code ondersteunt de volgende functies:
@@ -288,7 +311,7 @@ HDInsight voor VS Code ondersteunt de volgende functies:
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Interactieve Hive-Query-gegevens visualiseren met Power BI in Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [PySpark interactieve omgeving instellen voor Visual Studio Code](set-up-pyspark-interactive-environment.md)
-* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
+* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scenario's
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](spark/apache-spark-use-bi-tools.md)

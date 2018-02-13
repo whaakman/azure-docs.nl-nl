@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Het implementeren van een Windows hybride Runbook Worker
 
@@ -50,14 +50,14 @@ Controleer de volgende informatie met betrekking tot de [hardware- en softwareve
 
 Voer de volgende stappen uit voor het automatiseren van de installatie en configuratie van de Windows Hybrid Worker-rol.  
 
-1. Download de *nieuw OnPremiseHybridWorker.ps1* script van de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) rechtstreeks van de computer waarop de hybride Runbook Worker-rol of vanaf een andere computer in uw omgeving en Kopieer het naar de werknemer.  
+1. Download de *nieuw OnPremiseHybridWorker.ps1* script van de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) rechtstreeks van de computer waarop de hybride Runbook Worker-rol of vanaf een andere computer in uw omgeving en Kopieer het naar de werknemer.  
 
     De *nieuw OnPremiseHybridWorker.ps1* vereist dat de volgende parameters tijdens het uitvoeren van script:
 
   * *AutomationAccountName* (verplicht) - de naam van uw Automation-account.  
   * *ResourceGroupName* (verplicht) - de naam van de resourcegroep die zijn gekoppeld aan uw Automation-account.  
   * *HybridGroupName* (verplicht) - de naam van een hybride Runbook Worker-groep die u opgeeft als doel voor de runbooks die dit scenario te ondersteunen. 
-  *  *SubscriptionID* (verplicht) - de Azure-abonnements-Id die uw Automation-account in.
+  *  *SubscriptionID* (verplicht) - de Azure-abonnements-ID die uw Automation-account in.
   *  *WorkspaceName* (optioneel): de naam van de OMS-werkruimte.  Als u een OMS-werkruimte niet hebt, wordt het script maakt en configureert u een.  
 
      > [!NOTE]
@@ -76,7 +76,7 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
 
 4. U wordt gevraagd om akkoord te installeren te **NuGet** en wordt u gevraagd om te verifiëren met uw Azure-referenties.<br><br> ![Uitvoering van script New-OnPremiseHybridWorker](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Nadat het script voltooid is, ziet de Hybrid Worker-groepen blade de nieuwe groep en het aantal leden of als een bestaande groep, het aantal leden wordt verhoogd.  U kunt de groep in de lijst selecteren op de **Hybrid Worker-groepen** blade en selecteer de **Hybrid Workers** tegel.  Op de **Hybrid Workers** blade ziet u elk lid van de groep die wordt vermeld.  
+5. Nadat het script voltooid is, ziet de Hybrid Worker-groepen pagina de nieuwe groep en het aantal leden of als een bestaande groep, het aantal leden wordt verhoogd.  U kunt de groep in de lijst selecteren op de **Hybrid Worker-groepen** pagina en selecteer de **Hybrid Workers** tegel.  Op de **Hybrid Workers** pagina ziet u elk lid van de groep die wordt vermeld.  
 
 ### <a name="manual-deployment"></a>Handmatige implementatie 
 
@@ -113,13 +113,13 @@ Voer vervolgens de **Add-HybridRunbookWorker** cmdlet met de volgende syntaxis:
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-U kunt de vereiste informatie voor deze cmdlet uit de **sleutels beheren** blade in de Azure portal.  Deze blade openen door te selecteren de **sleutels** optie van de **instellingen** blade in uw Automation-account.
+U kunt de vereiste informatie voor deze cmdlet uit de **sleutels beheren** pagina in de Azure-portal.  Deze pagina openen door te selecteren de **sleutels** optie van de **instellingen** pagina in uw Automation-account.
 
 ![Overzicht van hybride Runbook Worker](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** is de naam van de Hybrid Runbook Worker-groep. Als deze groep al in het automation-account bestaat, is klikt u vervolgens de huidige computer toegevoegd.  Als deze niet bestaat nog, wordt deze toegevoegd.
-* **Eindpunt** is de **URL** veld in de **sleutels beheren** blade.
-* **Token** is de **primaire toegangssleutel** in de **sleutels beheren** blade.  
+* **Eindpunt** is de **URL** veld in de **sleutels beheren** pagina.
+* **Token** is de **primaire toegangssleutel** in de **sleutels beheren** pagina.  
 
 Gebruik de **-uitgebreide** overschakelen met **Add-HybridRunbookWorker** voor het ontvangen van gedetailleerde informatie over de installatie.
 
@@ -143,8 +143,8 @@ De hybride Runbook Worker is afhankelijk van de Microsoft Monitoring Agent te co
 3. De service Microsoft Monitoring Agent wordt niet uitgevoerd.  
     Als de Microsoft Monitoring Agent Windows-service niet wordt uitgevoerd, dit voorkomt dat de hybride Runbook Worker communicatie met Azure Automation.  Controleer of de agent wordt uitgevoerd met de volgende opdracht in PowerShell: `get-service healthservice`.  Als de service wordt gestopt, voert u de volgende opdracht in PowerShell om de service te starten: `start-service healthservice`.  
 
-4. In de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek, ziet u gebeurtenis 4502 en EventMessage met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**met de volgende beschrijving: *het certificaat dat is doorgegeven door de service <wsid>. oms.opinsights.azure.com is niet uitgegeven door een certificeringsinstantie die wordt gebruikt voor Microsoft-services. Neem contact op met de netwerkbeheerder om te controleren of er een proxy die TLS/SSL-communicatie wordt onderschept worden uitgevoerd. Artikel KB3126513 bevat extra informatie over probleemoplossing voor problemen met de netwerkverbinding.*
-    Dit kan worden veroorzaakt door uw proxy- of firewall blockking communicatie met Microsoft Azure.  Controleer of dat de computer heeft uitgaande toegang tot de *.azure automation.net op poort 443.
+4. In de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek, ziet u gebeurtenis 4502 en EventMessage met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**met de volgende beschrijving: *het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com is niet uitgegeven door een certificeringsinstantie die wordt gebruikt voor Microsoft-services. Neem contact op met de netwerkbeheerder om te controleren of er een proxy die TLS/SSL-communicatie wordt onderschept worden uitgevoerd. Artikel KB3126513 bevat extra informatie over probleemoplossing voor problemen met de netwerkverbinding.*
+    Dit kan worden veroorzaakt door uw proxy- of -firewall blokkeert communicatie met Microsoft Azure.  Controleer of dat de computer heeft uitgaande toegang tot de *.azure automation.net op poort 443.
 
 Logboeken worden lokaal opgeslagen op elke worker hybride op C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  U kunt controleren of er zijn waarschuwingen of fouten die zijn geschreven naar de **toepassingen en Services Logs\Microsoft-SMA\Operations** en **toepassingen en Services Logs\Operations Manager** in het gebeurtenislogboek die duidt dit op een verbindings- of andere probleem met betrekking tot de voorbereiding van de rol aan Azure Automation of probleem tijdens het normale bewerkingen uitvoeren.  
 

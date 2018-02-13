@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ea1094d0ce858cd7df9c49f18fb81b07e31fca53
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 568c18fb0591284995f5986f98b3762a9d19b056
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-with-power-bi"></a>Verbinding maken met Power BI
 
@@ -38,7 +38,9 @@ Zodra u hebt een server in Azure gemaakt en geïmplementeerd een model in tabelv
 
 3. In **Database**, als u weet dat de naam van de tabellaire modeldatabase of perspectief die u verbinding maken met wilt, plakt u deze hier. Anders kunt u dit veld leeg laten en later een database of perspectief selecteren.
 
-4. Laat de standaardwaarde **Connect live** optie en druk vervolgens **Connect**. Importeren verbindingen worden momenteel niet ondersteund.
+4. Selecteer een verbindingsoptie voor de en druk vervolgens op **Connect**. 
+
+    Beide **Connect live** en **importeren** opties worden ondersteund. Echter, raden we dat u live-verbindingen gebruiken omdat de modus Import heeft enkele beperkingen; met name, kan prestaties van de server worden beïnvloed tijdens het importeren. Ook als het model is worden vernieuwd in de Power BI-service, de **toegang toestaan vanuit Power BI** instelling geldt alleen wanneer u ervoor kiest **Connect live**.
 
 5. Als u wordt gevraagd, voert u de aanmeldingsreferenties. 
 

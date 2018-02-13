@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Veelgestelde vragen over Azure Container Service (AKS)
 
@@ -50,7 +50,15 @@ Knooppunt automatisch schalen wordt niet ondersteund, maar is in het overzicht. 
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Waarom worden twee resourcegroepen met AKS gemaakt? 
 
-De tweede resourcegroep is automatisch gemaakt voor het eenvoudig verwijderen van alle resources die zijn gekoppeld aan de implementatie van een AKS.
+Elk cluster Azure Container Service (AKS) bevindt zich in twee resourcegroepen. De eerste door u is gemaakt en alleen de bron AKS bevat. De tweede resourcegroep wordt automatisch gemaakt tijdens de implementatie en bevat alle infrastructurele clusterbronnen zoals virtuele machines, netwerken en opslagbronnen. Deze resourcegroep wordt gemaakt voor het opruimen van de eenvoudige resource. 
+
+De automatisch gemaakte resourcegroep heeft een naam die lijkt op:
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+Wanneer u Azure-resources moet worden gebruikt met het cluster Kubernetes zoals storage-accounts of gereserveerde openbare IP-adres toevoegt, moeten deze resources worden gemaakt in de automatische resourcegroep gemaakt.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Is Azure Sleutelkluis geïntegreerd met AKS? 
 

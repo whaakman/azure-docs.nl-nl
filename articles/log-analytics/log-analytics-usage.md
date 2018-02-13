@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 02/01/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
-Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, welke computers de gegevens hebben verzonden en de verschillende typen gegevens die zijn verzonden.  Gebruik het dashboard **Gebruik van Log Analytics** om de hoeveelheid gegevens te zien die wordt verzonden naar de Log Analytics-service. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
+Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, welke systemen de gegevens hebben verzonden en de verschillende typen gegevens die zijn verzonden.  Gebruik het dashboard **Gebruik van Log Analytics** om de hoeveelheid gegevens te zien die wordt verzonden naar de Log Analytics-service. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
 
 ## <a name="understand-the-usage-dashboard"></a>Inzicht in het dashboard met gebruiksgegevens
 Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
@@ -37,24 +37,18 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
     - Knooppunten voor Insight en Analytics
     - Knooppunten voor automatisering en beheer
     - Knooppunten voor beveiliging
-- Prestaties
-    - Benodigde tijd voor het verzamelen en indexeren van gegevens
 - Lijst met query's
 
 ![gebruiksdashboard](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Werken met gebruiksgegevens
-1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
-2. Klik in het menu **Hub** op **Meer services** en typ in de lijst met resources op **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
-    ![Azure-hub](./media/log-analytics-usage/hub.png)
-3. Op het **Log Analytics**-dashboard wordt een lijst met uw werkruimten weergegeven. Selecteer een werkruimte.
-4. Klik op het dashboard *Werkruimte* op **Log Analytics-gebruik**.
-5. Klik op het **Log Analytics-gebruiksdashboard** op **Tijd: afgelopen 24 uur** om het tijdsinterval te wijzigen.  
-    ![tijdsinterval](./media/log-analytics-usage/time.png)
-6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-searches.md).  
-    ![voorbeeld van blade voor gegevensgebruik](./media/log-analytics-usage/blade.png)
-7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.  
-    ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search.png)
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Selecteer een werkruimte in de lijst met Log Analytics-werkruimten.
+4. Selecteer **Gebruik van Logboekanalyse** in de lijst in het linkerdeelvenster.
+5. Klik op het **Log Analytics-gebruiksdashboard** op **Tijd: afgelopen 24 uur** om het tijdsinterval te wijzigen.<br><br> ![tijdsinterval](./media/log-analytics-usage/time.png)<br><br>
+6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-searches.md).<br><br> ![voorbeeld van blade voor gegevensgebruik](./media/log-analytics-usage/blade.png)<br><br>
+7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.<br><br> ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
 In deze sectie wordt beschreven hoe u een waarschuwing instelt als:
@@ -63,20 +57,20 @@ In deze sectie wordt beschreven hoe u een waarschuwing instelt als:
 
 [Waarschuwingen](log-analytics-alerts-creating.md) van Log Analytics maken gebruik van zoekquery’s. De volgende query geeft een resultaat wanneer er meer dan 100 GB aan gegevens in de afgelopen 24 uur is verzameld:
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
 De volgende query gebruikt een eenvoudige formule om te voorspellen wanneer meer dan 100 GB aan gegevens op een dag wordt verzonden: 
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 
 Als u een waarschuwing wilt instellen bij een ander gegevensvolume, wijzigt u 100 in de query's in het aantal GB waarbij u een waarschuwing wilt.
 
 Gebruik de stappen in [Een waarschuwingsregel maken](log-analytics-alerts-creating.md#create-an-alert-rule) om een melding te krijgen als de hoeveelheid verzamelde gegevens groter is dan verwacht.
 
-Bij het instellen van de waarschuwing voor de eerste query - wanneer er meer dan 100 GB aan gegevens in 24 uur, stelt u het volgende in:
-- **Naam** op *Gegevensvolume groter dan 100 GB in 24 uur*
-- **Ernst** op *Waarschuwing*
-- **Zoekquery** op `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+Bij het instellen van de waarschuwing voor de eerste query - wanneer er meer dan 100 GB aan gegevens in 24 uur, stelt u het volgende in:  
+- **Naam** op *Gegevensvolume groter dan 100 GB in 24 uur*  
+- **Ernst** op *Waarschuwing*  
+- **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
 - **Tijdvenster** op *24 uur*.
 - **Waarschuwingsfrequentie** op één uur omdat de gebruiksgegevens slechts één keer per uur worden bijgewerkt.
 - **Waarschuwingen genereren op basis van** op het *aantal resultaten*
@@ -87,7 +81,7 @@ Gebruik de stappen in [Acties toevoegen aan waarschuwingsregels](log-analytics-a
 Bij het maken van de waarschuwing voor de tweede query - wanneer wordt voorspeld dat er meer dan 100 GB aan gegevens in 24 uur zal zijn, stelt u het volgende in:
 - **Naam** op *Gegevensvolume naar verwachting groter dan 100 GB in 24 uur*
 - **Ernst** op *Waarschuwing*
-- **Zoekquery** op `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- **Zoekquery** op `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 - **Tijdvenster** op *3 uur*.
 - **Waarschuwingsfrequentie** op één uur omdat de gebruiksgegevens slechts één keer per uur worden bijgewerkt.
 - **Waarschuwingen genereren op basis van** op het *aantal resultaten*
@@ -115,33 +109,29 @@ Deze twee grafieken geven alle gegevens weer. Sommige gegevens zijn betaald, and
 
 Bekijk het diagram *Gegevensvolume in een langere periode*. Klik op de naam van de computer om de oplossingen en gegevenstypen te bekijken die de meeste gegevens verzenden voor een specifieke computer. Klik op de naam van de eerste computer in de lijst.
 
-Op de volgende schermafbeelding verzendt het gegevenstype *Log Management / Perf* de meeste gegevens voor de computer. 
-
-![gegevensvolume voor een computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+Op de volgende schermafbeelding verzendt het gegevenstype *Log Management / Perf* de meeste gegevens voor de computer.<br><br> ![gegevensvolume voor een computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Ga vervolgens terug naar het dashboard *Gebruik* en bekijk het diagram *Gegevensvolume per oplossing*. Klik op de naam van de oplossing in de lijst voor een overzicht van de computers die de meeste gegevens voor een oplossing verzenden. Klik op de naam van de eerste oplossing in de lijst. 
 
-Op de volgende schermafbeelding is te zien dat de computer *acmetomcat* de meeste gegevens verzendt voor het beheersysteem voor de oplossing Log Management.
-
-![gegevensvolume voor een oplossing](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+Op de volgende schermafbeelding is te zien dat de computer *acmetomcat* de meeste gegevens verzendt voor het beheersysteem voor de oplossing Log Management.<br><br> ![gegevensvolume voor een oplossing](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Voer indien nodig extra analyses uit om grote volumes binnen een oplossing of gegevenstype te identificeren. Voorbeelden van query's zijn:
 
 + **Beveiligingsoplossing**
-  - `Type=SecurityEvent | measure count() by EventID`
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Logboekbeheeroplossing**
-  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
 + **Perf-gegevenstype**
-  - `Type=Perf | measure count() by CounterPath`
-  - `Type=Perf | measure count() by CounterName`
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
 + **Gebeurtenisgegevenstype**
-  - `Type=Event | measure count() by EventID`
-  - `Type=Event | measure count() by EventLog, EventLevelName`
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
 + **Syslog-gegevenstype**
-  - `Type=Syslog | measure count() by Facility, SeverityLevel`
-  - `Type=Syslog | measure count() by ProcessName`
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + **AzureDiagnostics**-gegevenstype
-  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
 Gebruik de volgende stappen om het volume van de logboeken die worden verzameld te beperken:
 
@@ -155,20 +145,31 @@ Gebruik de volgende stappen om het volume van de logboeken die worden verzameld 
 | Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Controleren of er meer knooppunten zijn dan verwacht
-Als u gebruikmaakt van de prijscategorie *per knooppunt (OMS)*, worden de kosten berekend op basis van het aantal knooppunten en oplossingen die u gebruikt. In de sectie *Aanbiedingen* van het dashboard met gebruiksgegevens kunt u zien hoeveel knooppunten van elke aanbieding er worden gebruikt.
-
-![gebruiksdashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+Als u gebruikmaakt van de prijscategorie *per knooppunt (OMS)*, worden de kosten berekend op basis van het aantal knooppunten en oplossingen die u gebruikt. In de sectie *Aanbiedingen* van het dashboard met gebruiksgegevens kunt u zien hoeveel knooppunten van elke aanbieding er worden gebruikt.<br><br> ![gebruiksdashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Klik op **Alles weergeven...**  om de volledige lijst met computers die gegevens verzenden voor het geselecteerde pakket weer te geven.
 
 Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 
+## <a name="check-if-there-is-ingestion-latency"></a>Controleren of er sprake is van opnamelatentie
+Met Log Analytics is een verwachte latentie bij de opname van de verzamelde gegevens.  De absolute tijd tussen het indexeren van gegevens en wanneer deze beschikbaar zijn voor de zoekopdracht kan onvoorspelbaar zijn. Eerder hebben we een prestatiegrafiek toegevoegd aan het dashboard die de tijd voor het verzamelen en indexeren liet zien. Met de introductie van de nieuwe querytaal hebben we deze grafiek tijdelijk verwijderd.  Als een tijdelijke oplossing totdat we bijgewerkte metrieken voor latentie bij gegevensopname uitbrengen, kan de volgende query worden gebruikt om de latentie voor elk gegevenstype te schatten.  
+
+    search *
+    | where TimeGenerated > ago(8h)
+    | summarize max(TimeGenerated) by Type
+    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
+    | project Type, LatencyInMinutes
+    | sort by LatencyInMinutes desc
+
+> [!NOTE]
+> De query voor opnamelatentie toont geen historische latentie en is beperkt tot alleen het retourneren van resultaten voor het huidige tijdstip.  De waarde voor *TimeGenerated* wordt ingevuld bij de agent voor algemene schemalogboeken en ingevuld op het verzamelingseindpunt voor aangepaste logboeken.  
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-log-searches.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
 * Gebruik de stappen in [Een waarschuwingsregel maken](log-analytics-alerts-creating.md#create-an-alert-rule) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan
 * Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om alleen van de vereiste groepen computers gegevens te verzamelen
-* Selecteer [normale of minimale beveiligingsgebeurtenissen](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)
+* Lees [Filterbeleid van Azure Security Center](../security-center/security-center-enable-data-collection.md) om een effectief beleid voor het verzamelen van beveiligingsgebeurtenissen te configureren.
 * Wijzig de [prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md)
-* Wijzig de [gebeurtenislogboekconfiguratie](log-analytics-data-sources-windows-events.md)
-* Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md)
+* Lees [Gebeurtenislogboekconfiguratie](log-analytics-data-sources-windows-events.md) om uw instellingen voor het verzamelen van gebeurtenissen te wijzigen.
+* Lees [syslog-configuratie](log-analytics-data-sources-syslog.md) om uw instellingen voor het verzamelen van gebeurtenissen te wijzigen.

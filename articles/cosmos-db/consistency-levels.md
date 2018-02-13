@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Gegevens instelbare consistentieniveaus in Azure Cosmos-DB
 Azure Cosmos DB is compleet met globale verdeling in gedachten voor elke gegevensmodel ontworpen. Het is ontworpen om voorspelbare lage latentie garanties en meerdere goed gedefinieerde beperkte consistentie modellen bieden. Op dit moment Azure Cosmos DB bevat vijf consistentieniveaus: sterk, gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijk. Gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijke worden aangeduid als 'beperkte consistentie modellen' als ze bieden minder consistentie dan sterk, die de meeste maximaal consistent model beschikbaar is. 
@@ -114,26 +114,30 @@ Voor de gebruiker gedefinieerde resources, is het consistentieniveau van de voor
 | --- | --- | --- |
 | Consistente (standaard) |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Selecteer een van de sterk, gebonden-verouderd, sessie of uiteindelijke |
 | Vertraagde |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Mogelijk |
-| Geen |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Niet van toepassing |
+| None |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Niet van toepassing |
 
 Als met leesaanvragen, kunt u het consistentieniveau van de aanvraag van een specifieke query in elke API verlagen.
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>Consistentieniveaus voor de MongoDB-API
+
+Azure Cosmos DB implementeert momenteel MongoDB twee consistentie instellingen sterke en de uiteindelijke heeft versie 3.4. Omdat Azure Cosmos DB multi-api, de instellingen van de consistentie van toepassing zijn op het niveau van het account en afdwingen van de consistentie wordt beheerd door elke API.  Pas 3.6 MongoDB, er is geen concept van een sessieconsistentie, dus als u een MongoDB-API-account moet worden gebruikt met sessieconsistentie instelt, de consistentiecontrole is verlaagd tot de uiteindelijke bij gebruik van MongoDB APIs. Als u een garantie-your-eigenaar-lezen voor een account met MongoDB-API moet, wordt het standaardniveau voor consistentie voor het account moet worden ingesteld op strong of gebonden veroudering.
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u dit doen meer lezen over consistentieniveaus en -en nadelen wilt, raden we de volgende bronnen:
 
 * Doug Terry. Consistentie van de gerepliceerde gegevens toegelicht door middel van baseball (video).   
-  [https://www.YouTube.com/Watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 * Doug Terry. Consistentie van de gerepliceerde gegevens worden via baseball beschreven.   
-  [http://Research.Microsoft.com/pubs/157411/ConsistencyAndBaseballReport.PDF](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * Doug Terry. Sessie garanties met betrekking tot zwak consistente gerepliceerde gegevens.   
-  [http://DL.ACM.org/Citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 * Daniel Abadi. Consistentiecontrole voor-en nadelen in moderne gedistribueerde Database systemen ontwerp: KAPJE wordt slechts een deel van het artikel '.   
-  [http://computer.org/CSDL/mags/CO/2012/02/mco2012020037-ABS.HTML](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph Dhr Hellerstein, bewaartermijn Stoica. Probabilistische begrensd veroudering (PBS) voor praktische gedeeltelijke quorum.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.PDF](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * Werner Vogels. Uiteindelijke Consistent - herzien.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.HTML](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Monitoring Naor, Avishai wol, de belasting, capaciteit en beschikbaarheid van systemen Quorum, SIAM journaal op Computing, v.27 n.2, p.423-447, April 1998.
-  [http://epubs.siam.org/DOI/ABS/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
 * Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, de configuratie: een volledige en automatische linearizability checker, verslag van de 2010 ACM SIGPLAN Conferentie over het programmeren van taal ontwerpen en implementeren, juni 05 10 2010 Toronto, Ontario, Canada [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
 * Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, bewaartermijn Stoica, Probabilistically gebonden veroudering voor praktische gedeeltelijke quorum procedures van de eigen VLDB, v.5 n.8, April 2012 met p.776 787 [http:// DL.ACM.org/Citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)

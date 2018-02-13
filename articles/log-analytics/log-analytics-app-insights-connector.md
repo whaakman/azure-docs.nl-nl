@@ -3,7 +3,7 @@ title: Azure Application Insights-app-gegevens weergeven | Microsoft Docs
 description: De oplossing Application Insights-Connector kunt u vaststellen van prestatieproblemen en u begrijpt wat gebruikers doen met uw app wanneer bewaakt met Application Insights.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: banders
-ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: magoedte
+ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview) 
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights-Connector-beheeroplossing (Preview)
 
 ![Application Insights symbool](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
@@ -88,9 +88,9 @@ Het dashboard bevat de blades weergegeven in de tabel. Elke blade bevat maximaal
 
 | **Kolom** | **Beschrijving** |
 | --- | --- |
-| Toepassingen - aantal toepassingen | Geeft het aantal toepassingen in de toepassingsbronnen. Een lijst met toepassingsnamen en voor elk, het aantal records van de toepassing. Klik op het uitvoeren van een logboek zoekt<code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Klik op de naam van een toepassing om uit te voeren een zoekopdracht logboek voor de toepassing waarin de records van de toepassing per host, records op type Telemetrie en alle gegevens op type (op basis van de laatste dag). |
-| Gegevensvolume – als host fungeert voor verzenden van gegevens | Toont het aantal computer fungeert als host die van gegevens verzenden. Een lijst met computer fungeert als host en het aantal records voor elke host. Klik op het uitvoeren van een logboek zoekt<code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Klik op de naam van een computer om uit te voeren een zoekopdracht logboek voor de host die records van de toepassing per host, records op type Telemetrie en alle gegevens op type (op basis van de laatste dag) worden weergegeven. |
-| Beschikbaarheid – Webtest resultaten | Toont een ringdiagram voor web-testresultaten, waarmee wordt aangegeven op te geven of mislukken. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor<code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Het aantal fasen en fouten voor alle tests weergeven resultaten Deze bevat alle Web-Apps met verkeer voor de laatste minuut. Klik op een toepassingsnaam in een logboek zoekopdracht met details van de mislukte webtests weergeven. |
+| Toepassingen - aantal toepassingen | Geeft het aantal toepassingen in de toepassingsbronnen. Een lijst met toepassingsnamen en voor elk, het aantal records van de toepassing. Klik op het uitvoeren van een logboek zoekt <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Klik op de naam van een toepassing om uit te voeren een zoekopdracht logboek voor de toepassing waarin de records van de toepassing per host, records op type Telemetrie en alle gegevens op type (op basis van de laatste dag). |
+| Gegevensvolume – als host fungeert voor verzenden van gegevens | Toont het aantal computer fungeert als host die van gegevens verzenden. Een lijst met computer fungeert als host en het aantal records voor elke host. Klik op het uitvoeren van een logboek zoekt <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Klik op de naam van een computer om uit te voeren een zoekopdracht logboek voor de host die records van de toepassing per host, records op type Telemetrie en alle gegevens op type (op basis van de laatste dag) worden weergegeven. |
+| Beschikbaarheid – Webtest resultaten | Toont een ringdiagram voor web-testresultaten, waarmee wordt aangegeven op te geven of mislukken. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Het aantal fasen en fouten voor alle tests weergeven resultaten Deze bevat alle Web-Apps met verkeer voor de laatste minuut. Klik op een toepassingsnaam in een logboek zoekopdracht met details van de mislukte webtests weergeven. |
 | Serveraanvragen – aanvragen per uur | Toont een lijndiagram van de serveraanvragen per uur voor verschillende toepassingen. Beweeg de muisaanwijzer over een regel in de grafiek voor de ontvangst van aanvragen voor een punt in tijd top-3-toepassingen. Ook wordt een lijst van de toepassingen die zijn ontvangen van aanvragen en het aantal aanvragen voor de geselecteerde periode. <br><br>Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> die ziet u een meer gedetailleerde lijndiagram van de serveraanvragen per uur voor verschillende toepassingen. <br><br> Klik op een toepassing in de lijst om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> die bevat een overzicht van aanvragen, grafieken voor aanvragen gedurende de duur van de tijd en de aanvraag en een lijst van aanvraag responscodes.   |
 | Fouten – mislukte aanvragen per uur | Toont een lijndiagram van mislukte aanvragen per uur. Beweeg de muisaanwijzer over de grafiek voor de eerste 3 toepassingen met mislukte aanvragen voor een punt in tijd. Ook wordt een lijst van toepassingen met het aantal mislukte aanvragen voor elk weergegeven. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> die ziet u een meer gedetailleerde lijndiagram van mislukte aanvragen. <br><br>Klik op een item in de lijst om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> dat toont mislukte aanvragen, grafieken voor mislukte aanvragen via de duur van de tijd en de aanvraag en een lijst met reactiecodes van mislukte aanvragen. |
 | Uitzonderingen – uitzonderingen per uur | Toont een lijndiagram van uitzonderingen per uur. Beweeg de muisaanwijzer over de grafiek voor de eerste 3 toepassingen met uitzonderingen voor een punt in tijd. Ook wordt een lijst van toepassingen met het aantal uitzonderingen voor elk weergegeven. Klik op de grafiek om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> die bevat een meer gedetailleerde koppeling-grafiek met uitzonderingen. <br><br>Klik op een item in de lijst om uit te voeren een zoekopdracht logboek voor <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> die wordt een lijst met uitzonderingen, diagrammen voor uitzonderingen via tijd en mislukte aanvragen en een lijst met typen.  |

@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: ce37cfdd70f95822a912f6ea71b9e4a3f9a30a14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Permanente volumes met Azure files - dynamische inrichten
+# <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
 Een permanente volume vertegenwoordigt een onderdeel van de opslag die is ingericht voor gebruik in een cluster Kubernetes. Een permanente volume kan worden gebruikt door een of meer gehele product en worden dynamisch of statisch ingericht. In dit document worden dynamisch inrichten van een Azure-bestandsshare als een permanente volume Kubernetes in een cluster AKS. 
 
@@ -125,10 +125,10 @@ Standaardwaarden fileMode en dirMode verschillen tussen versies Kubernetes zoals
 
 | versie | waarde |
 | ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
-| V1.8.0 v1.8.5 | 0700 |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 of hoger | 0755 |
-| V1.9.0 | 0700 |
+| v1.9.0 | 0700 |
 | V1.9.1 of hoger | 0755 |
 
 Als u een cluster van versie 1.8.5 of hoger, koppelpunt opties kunnen worden opgegeven op het opslagobject klasse. Het volgende voorbeeld wordt `0777`. 

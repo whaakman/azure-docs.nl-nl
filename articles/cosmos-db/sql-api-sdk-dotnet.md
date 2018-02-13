@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Voorbeelden**</td><td>[.NET-codevoorbeelden](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Aan de slag**</td><td>[Aan de slag met Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
+<tr><td>Aan de slag</td><td>[Aan de slag met Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Zelfstudie voor web-app**</td><td>[Ontwikkeling van webtoepassing met Azure Cosmos-DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Regressie vast waar FeedOptions.MaxItemCount = -1 heeft een System.ArithmeticException: paginaformaat negatief is.
+* Een nieuwe functie ToString() aan QueryMetrics toegevoegd.
+* Blootgesteld partitiestatistieken bij het lezen van verzamelingen.
+* Toegevoegde PartitionKey eigenschap ChangeFeedOptions.
+* Kleine oplossingen voor problemen.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Hiermee voegt de mogelijkheid om op te geven unieke indexen voor de documenten met behulp van de eigenschap UniqueKeyPolicy op de documentcollection maakt.
@@ -277,6 +285,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |05 februari 2018 |--- |
 | [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |
 | [1.18.1](#1.18.1) |07 november 2017 |--- |

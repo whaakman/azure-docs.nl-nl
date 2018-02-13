@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden in Azure Active Directory voorwaardelijke toegang 
 
@@ -51,7 +51,7 @@ Wanneer u selecteert:
 
 - **Alle gebruikers**, het beleid wordt toegepast op alle gebruikers met in de map. Dit omvat gastgebruikers.
 
-- **Selecteer gebruikers en groepen**, kunt u bepaalde groepen gebruikers, bijvoorbeeld alle leden van de afdeling Personeelszaken richten wanneer ze zich in een HR-app. 
+- **Selecteer gebruikers en groepen**, kunt u bepaalde groepen gebruikers richt. Selecteer bijvoorbeeld een groep met alle leden van de afdeling Personeelszaken wanneer er een HR-app als een cloud-app geselecteerd. 
 
 - Een groep kan het zijn een type groep in Azure AD, met inbegrip van dynamische of toegewezen beveiligings- en -groepen.
 
@@ -89,8 +89,8 @@ Voor het gebruik van deze voorwaarde hoeft te hebben [Azure Active Directory: Id
  
 Algemene gebruiksvoorbeelden voor deze voorwaarde zijn beleidsregels die:
 
-- Een gebruikers met een hoge aanmelden risico wilt voorkomen dat gebruikers mogelijk niet-rechtmatige toegang tot uw cloud-apps blokkeren. 
-- Multi-factor authentication voor de gebruikers met een gemiddeld risico aanmelden vereist. Door het afdwingen van multi-factor authentication-server, kunt u meer vertrouwen dat de aanmeldingspagina wordt uitgevoerd door de legitieme eigenaar van een account opgeven.
+- Gebruikers met een risico hoge aanmelden om te voorkomen dat gebruikers mogelijk niet-rechtmatige toegang tot uw cloud-apps blokkeren. 
+- Meervoudige verificatie vereisen voor gebruikers met een gemiddeld risico aanmelden. Door het afdwingen van multi-factor authentication-server, kunt u meer vertrouwen dat de aanmeldingspagina wordt uitgevoerd door de legitieme eigenaar van een account opgeven.
 
 Zie [Riskante aanmeldingen](active-directory-identityprotection.md#risky-sign-ins) voor meer informatie.  
 
@@ -99,7 +99,7 @@ Zie [Riskante aanmeldingen](active-directory-identityprotection.md#risky-sign-in
 Platform van het apparaat wordt gekenmerkt door het besturingssysteem dat wordt uitgevoerd op uw apparaat. Azure AD identificeert het platform met behulp van informatie die door het apparaat, zoals gebruikersagent. Omdat deze informatie niet geverifieerd is, is het raadzaam dat alle platforms een beleid is toegepast, door de toegang blokkeert, vereisen van naleving van de Intune-beleid of het vereisen van dat het apparaat zijn verbonden met het domein hebben. De standaardwaarde is beleid toepassen op alle platforms. 
 
 
-![Voorwaarden](./media/active-directory-conditional-access-conditions/02.png)
+![Voorwaarden](./media/active-directory-conditional-access-conditions/24.png)
 
 Zie voor een volledige lijst met de ondersteunde apparaatplatforms [apparaat platform voorwaarde](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -111,7 +111,7 @@ Een algemeen gebruiksvoorbeeld voor deze voorwaarde is een beleid dat de toegang
 
 Met locaties hebt u de optie voor het definiëren van de voorwaarden die zijn gebaseerd op waar een verbindingspoging van is gestart. 
      
-![Voorwaarden](./media/active-directory-conditional-access-conditions/03.png)
+![Voorwaarden](./media/active-directory-conditional-access-conditions/25.png)
 
 Algemene gebruiksvoorbeelden voor deze voorwaarde zijn beleidsregels die:
 

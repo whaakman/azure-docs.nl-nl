@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Voorbeelden**</td><td>[.NET-codevoorbeelden](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Aan de slag**</td><td>[Aan de slag met Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>Aan de slag</td><td>[Aan de slag met Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Zelfstudie voor web-app**</td><td>[Ontwikkeling van webtoepassing met Azure Cosmos-DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -58,6 +58,14 @@ De Azure Cosmos DB .NET Core SDK heeft functie pariteit met de nieuwste versie v
 
 > [!NOTE] 
 > De Azure Cosmos DB .NET Core SDK is nog niet compatibel met Universal Windows Platform (UWP)-apps. Als u geïnteresseerd in de .NET Core-SDK die ondersteuning biedt voor UWP-apps bent, e-mailbericht verzendt [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Regressie vast waar FeedOptions.MaxItemCount = -1 heeft een System.ArithmeticException: paginaformaat negatief is.
+* Een nieuwe functie ToString() aan QueryMetrics toegevoegd.
+* Blootgesteld partitiestatistieken bij het lezen van verzamelingen.
+* Toegevoegde PartitionKey eigenschap ChangeFeedOptions.
+* Kleine oplossingen voor problemen.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -141,7 +149,7 @@ De Azure Cosmos DB .NET Core SDK heeft functie pariteit met de nieuwste versie v
 
 De Azure Cosmos DB .NET Core SDK kunt u snel, platformoverschrijdende bouwen [ASP.NET Core](https://www.asp.net/core) en [.NET Core](https://www.microsoft.com/net/core#windows) apps uit te voeren op Windows, Mac en Linux. De nieuwste versie van de Azure Cosmos DB .NET Core SDK is volledig [Xamarin](https://www.xamarin.com) compatibel en worden gebruikt voor het ontwikkelen van toepassingen die zijn gericht op iOS-, Android- en Mono (Linux).  
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
 De Azure Cosmos DB .NET Core Preview SDK kunt u snel, platformoverschrijdende bouwen [ASP.NET Core](https://www.asp.net/core) en [.NET Core](https://www.microsoft.com/net/core#windows) apps uit te voeren op Windows, Mac en Linux.
 
@@ -157,6 +165,7 @@ Als u vragen met betrekking tot deze SDK hebt, posten naar [StackOverflow](http:
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 februari 2018 |--- |
 | [1.7.1](#1.7.1) |16 november 2017 |--- |
 | [1.7.0](#1.7.0) |10 november 2017 |--- |
 | [1.6.0](#1.6.0) |17 oktober 2017 |--- |
@@ -174,7 +183,7 @@ Als u vragen met betrekking tot deze SDK hebt, posten naar [StackOverflow](http:
 | [1.1.1](#1.1.1) |14 maart 2017 |--- |
 | [1.1.0](#1.1.0) |16 februari 2017 |--- |
 | [1.0.0](#1.0.0) |21 december 2016 |--- |
-| [0.1.0-Preview](#0.1.0-preview) |15 november 2016 |31 december 2016 |
+| [0.1.0-preview](#0.1.0-preview) |15 november 2016 |31 december 2016 |
 
 ## <a name="see-also"></a>Zie ook
 Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) pagina van de service. 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor Eclipse Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -69,6 +69,26 @@ Wanneer u Eclipse opent, detecteert HDInsight-hulpprogramma automatisch of u de 
    
    ![De clusternaam van een om te zien van resources uitbreiden](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Koppelen van een cluster
+U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
+1. Klik op **koppelen van een cluster** van **Azure Explorer**.
+
+   ![koppeling cluster contextmenu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Voer **clusternaam**, **Opslagaccount**, **opslagsleutel**, selecteer vervolgens een container van **Opslagcontainer**, ten minste invoer gebruikersnaam en het wachtwoord. Klik op OK om te koppelen van de cluster.
+   
+   ![koppeling cluster dialoogvenster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld.
+
+3. U ziet een gekoppelde cluster in **HDInsight** knooppunt na het klikken op de knop OK, als de ingevoerde gegevens correct zijn. U kunt nu een toepassing met deze gekoppelde cluster verzenden.
+
+   ![gekoppelde cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. U kunt een cluster met ook ontkoppelen **Azure Explorer**.
+   
+   ![niet-gekoppelde cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Een Spark Scala-project voor een HDInsight Spark-cluster instellen
@@ -130,6 +150,7 @@ Wanneer u Eclipse opent, detecteert HDInsight-hulpprogramma automatisch of u de 
 6. De **Spark verzending** tabblad moet worden gestart om de voortgang weer te geven. U kunt de toepassing stoppen door het selecteren van de rode knop in de **Spark verzending** venster. U kunt ook de logboeken voor deze specifieke toepassing die wordt uitgevoerd door het selecteren van het pictogram van globe (aangeduid met het blauw in de afbeelding) weergeven.
       
    ![Verzending van Spark-venster](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Toegang tot en HDInsight Spark-clusters beheren met behulp van HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse
 U kunt verschillende bewerkingen kunt uitvoeren met behulp van HDInsight-hulpprogramma's, waaronder toegang tot de taakuitvoer van de.

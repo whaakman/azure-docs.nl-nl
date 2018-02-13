@@ -3,7 +3,7 @@ title: Optimalisatie van uw SQL Server-omgeving met Azure Log Analytics | Micros
 description: Met Azure Log Analytics kunt u de SQL-Serverstatus controleren oplossing voor het evalueren van de risico's en de status van uw omgevingen op een vast interval.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalisatie van uw SQL-omgeving met de oplossing voor SQL Server-Serverstatus controleren in Log Analytics
 
@@ -43,7 +43,7 @@ Nadat u de oplossing hebt toegevoegd en een beoordeling voltooid, samenvattende 
 
 * De SQL-Serverstatus controleren oplossing vereist een ondersteunde versie van .NET Framework 4 is geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De agent MMA wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en de Log Analytics-service.  
 * De oplossing biedt ondersteuning voor SQL Server versie 2012, 2014 en 2016.
-* Een werkruimte voor logboekanalyse toevoegen van de oplossing SQL-Serverstatus controleren vanuit Azure marketplace in de Azure portal.  Om de oplossing hebt geïnstalleerd, moet u een beheerder of bijdrager in de Azure-abonnement. 
+* Een werkruimte voor logboekanalyse toevoegen van de oplossing SQL-Serverstatus controleren vanuit Azure marketplace in de Azure portal.  Om de oplossing hebt geïnstalleerd, moet u een beheerder of bijdrager in de Azure-abonnement.
 
   > [!NOTE]
   > Nadat u de oplossing hebt toegevoegd, wordt het bestand AdvisorAssessment.exe toegevoegd aan servers met agents. Configuratiegegevens is gelezen en vervolgens doorgestuurd naar het Log Analytics-service in de cloud voor verwerking. Logica wordt toegepast op de ontvangen gegevens en registreert de gegevens van de cloudservice.
@@ -61,12 +61,12 @@ De agent op de SQL Server welke rapporten aan een beheergroep van Operations Man
 Als de SQL Server wordt bewaakt door Operations Manager, moet u een Operations Manager Run As-account voor configureren. Zie [Operations Manager run as-accounts voor logboekanalyse](#operations-manager-run-as-accounts-for-log-analytics) hieronder voor meer informatie.
 
 ## <a name="sql-health-check-data-collection-details"></a>Gegevensdetails verzameling SQL-Serverstatus controleren
-SQL-Serverstatus controleren verzamelt gegevens uit de volgende bronnen met behulp van de agent die u hebt ingeschakeld: 
+SQL-Serverstatus controleren verzamelt gegevens uit de volgende bronnen met behulp van de agent die u hebt ingeschakeld:
 
-* Windows Management Instrumentation (WMI) 
-* Register 
+* Windows Management Instrumentation (WMI)
+* Register
 * Prestatiemeteritems
-* Resultaten van SQL Server dynamische Beheerweergave weergeven 
+* Resultaten van SQL Server dynamische Beheerweergave weergeven
 
 Gegevens worden verzameld op de SQL Server en doorgestuurd naar Log Analytics elke zeven dagen.
 
@@ -144,7 +144,7 @@ Waarden voor elke aanbeveling wordt uitgedrukt als percentage van de totale scor
 
 **Beschikbaarheid en zakelijke continuïteit** -focus ziet u hier aanbevelingen voor de beschikbaarheid van de service, de tolerantie van uw infrastructuur en de bescherming van zakelijke.
 
-**Prestaties en schaalbaarheid** -focus ziet u hier aanbevelingen om u te helpen uw organisatie IT-infrastructuur toenemen, zorg ervoor dat uw IT-omgeving voldoet aan de huidige prestatievereisten en kunnen reageren op veranderende behoeften van de infrastructuur.
+**Prestaties en schaalbaarheid** -focus ziet u hier aanbevelingen om u te helpen uw organisatie IT-infrastructuur toenemen, zorg ervoor dat uw IT-omgeving voldoet aan de huidige prestatievereisten en kunnen reageren op het wijzigen van de infrastructuur behoeften.
 
 **Een upgrade uitvoert, migratie en implementatie van** -focus ziet u hier aanbevelingen voor het upgraden, migreren en implementeren van SQL Server op uw bestaande infrastructuur.
 
@@ -163,10 +163,10 @@ Voordat u een oplossing voor evaluatie in Log Analytics gebruiken kunt, moet u d
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **overzicht** tegel.  
-4. Op de **overzicht** pagina, klikt u op de **SQL-Serverstatus controleren** tegel. 
+4. Op de **overzicht** pagina, klikt u op de **SQL-Serverstatus controleren** tegel.
 5. Op de **Health Check** pagina, Controleer de overzichtsgegevens in een van de focus gebied blades en klik op een om aanbevelingen voor het desbetreffende focusgebied weer te geven.
 6. Op een van de focus gebiedspagina's, kunt u de prioriteit aanbevelingen voor uw omgeving weergeven. Klik op een aanbeveling onder **objecten van invloed op een** voor meer informatie over waarom de aanbeveling is gemaakt.<br><br> ![afbeelding van aanbevelingen voor SQL-Serverstatus controleren](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, record hoger beoordelingen die aanbevolen acties zijn uitgevoerd en de naleving-score wordt verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.

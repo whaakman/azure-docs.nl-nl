@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 6baa680a83f381daeb8a31014f276a1d52ffa07a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d6961eb760544ac078fdd6ed0d7c0c4d750a8b9f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloudlock"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Cloudlock
 
@@ -106,9 +106,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Cisco Cloudlock domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL:`https://platform.cloudlock.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL:
+    | |
+    |--|
+    | `https://platform.cloudlock.com` |
+    | `https://app.cloudlock.com` |
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://platform.cloudlock.com/gate/saml/sso/<subdomain>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: 
+    | |
+    |--|
+    | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
+    | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
     > [!NOTE] 
     > De id-waarde is geen echte. Werk de waarde met de werkelijke identificatie. Neem contact op met [Cisco Cloudlock Client ondersteuningsteam](mailto:support@cloudlock.com) de waarde op te halen. 

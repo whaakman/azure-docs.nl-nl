@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure-Monitor
 Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline.
@@ -395,7 +395,7 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |DCIProfilesCount|Aantal exemplaren op profiel|Count|Laatste||Er zijn geen dimensies|
 |DCIInteractionsPerMonthCount|Interacties aantal per maand|Count|Laatste||Er zijn geen dimensies|
 |DCIKpisCount|Aantal van de KPI|Count|Laatste||Er zijn geen dimensies|
-|DCISegmentsCount|Aantal segmenten|Count|Laatste||Er zijn geen dimensies|
+|DCISegmentsCount|Aantal eenheden|Count|Laatste||Er zijn geen dimensies|
 |DCIPredictiveMatchPoliciesCount|Aantal voorspellende overeenkomsten|Count|Laatste||Er zijn geen dimensies|
 |DCIPredictionsCount|Aantal voorspelling|Count|Laatste||Er zijn geen dimensies|
 
@@ -861,7 +861,7 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|QueryDuration|Duur van de query|Count|Gemiddeld|Duur van een DAX-Query in de laatste interval|Er zijn geen dimensies|
+|QueryDuration|Duur van de query|Milliseconden|Gemiddeld|Duur van een DAX-Query in de laatste interval|Er zijn geen dimensies|
 |QueryPoolJobQueueLength|Threads: Wachtrijlengte taak query uitvoeren|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep query.|Er zijn geen dimensies|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

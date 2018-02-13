@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Met Spark gegevens verkennen en modelleren
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -635,7 +635,7 @@ De code in deze sectie ziet u hoe te trainen, evalueren en opslaan van een regre
 
 **UITVOER:** 
 
-Coëfficiënten: [0.0082065285375,-0.0223675576104,-0.0183812028036, -3.48124578069e-05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
+Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercept:-0.0111216486893
 
@@ -699,7 +699,7 @@ Precisie 0.984304060189 =
 
 Intrekken 0.984304060189 =
 
-F1 Score 0.984304060189 =
+F1 Score = 0.984304060189
 
 Tijd uitvoering boven cel: 57.61 seconden
 
@@ -904,11 +904,11 @@ De code in deze sectie leest hoe u geschaalde functies voor het trainen van een 
 
 **UITVOER:**
 
-Coëfficiënten: [0.00457675809917,-0.0226314167349,-0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981,-0.000987181489428,-0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995,- 0.00990211159703,-0.00637410344522, 0.545083566179,-0.536756072402, 0.0105762393099,-0.0130117577055, 0.0129304737772,-0.00171065945959]
+Coefficients: [0.00457675809917, -0.0226314167349, -0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981, -0.000987181489428, -0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995, -0.00990211159703, -0.00637410344522, 0.545083566179, -0.536756072402, 0.0105762393099, -0.0130117577055, 0.0129304737772, -0.00171065945959]
 
 Intercept: 0.853872718283
 
-RMSE 1.24190115863 =
+RMSE = 1.24190115863
 
 R sqr 0.608017146081 =
 
@@ -960,16 +960,16 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en een willekeuri
 
 **UITVOER:**
 
-RMSE 0.891209218139 =
+RMSE = 0.891209218139
 
-R sqr 0.759661334921 =
+R-sqr = 0.759661334921
 
 Tijd uitvoering boven cel: 49.21 seconden
 
 ### <a name="gradient-boosting-trees-regression"></a>Kleurovergang prestatieverbetering structuren regressie
 De code in deze sectie wordt beschreven hoe trainen, evalueren en een kleurovergang prestatieverbetering structuren model die tip bedrag van de NYC taxi reis gegevens voorspelt opslaat.
 
-** Trainen en evalueren **
+**Trainen en evalueren**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1011,13 +1011,13 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en een kleuroverg
 
 **UITVOER:**
 
-RMSE 0.908473148639 =
+RMSE = 0.908473148639
 
-R sqr 0.753835096681 =
+R-sqr = 0.753835096681
 
 Tijd uitvoering boven cel: 34.52 seconden
 
-**Tekenen**
+**Plot**
 
 *tmp_results* is geregistreerd als een Hive-tabel in de vorige cel. Resultaten van de tabel worden uitgevoerd in de *sqlResults* tijdskader voor het uitzetten van gegevens. Dit is de code
 
@@ -1085,7 +1085,7 @@ Om te gebruiken en beoordelen van een onafhankelijke gegevensset wordt beschreve
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**UITVOER**
+**OUTPUT**
 
 logisticRegFileLoc = modelDir + 'LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568'
 

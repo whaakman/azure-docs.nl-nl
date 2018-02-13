@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Inleiding tot Azure Cosmos DB: API voor MongoDB
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Azure Cosmos DB biedt [gebruiksklare wereldwijde distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md), latentie die wereldwijd in het 99e percentiel onder de 10 milliseconden blijft, [vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) en een gegarandeerd hoge beschikbaarheid, allemaal op basis van [toonaangevende serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Biedt Azure Cosmos DB [directe globale distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md) overal ter wereld, één cijfer milliseconde latenties bij de 99th percentiel en gegarandeerde hoog beschikbaarheid van alle back-ups door [toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
 
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -39,7 +39,12 @@ Azure DB Cosmos-databases kunnen worden gebruikt als gegevensopslag voor apps di
 
 **Er is geen Serverbeheer**: U hoeft te beheren en schalen van uw MongoDB-databases. Azure Cosmos-database is een volledig beheerde service, waardoor u niet beschikt over een infrastructuur of virtuele Machines om zelf te beheren. Azure Cosmos DB is beschikbaar in 30 + [Azure-gebieden](https://azure.microsoft.com/regions/services/).
 
-**Instelbare consistentieniveaus:** selecteer een van de vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
+**Instelbare consistentieniveaus:** Azure Cosmos DB momenteel MongoDB versie 3.4 die twee consistentie instellingen sterk en uiteindelijk heeft wordt geïmplementeerd. Omdat Azure Cosmos DB multi-api, de instellingen van de consistentie van toepassing zijn op het niveau van het account en afdwingen van de consistentie wordt beheerd door elke API. Pas 3.6 MongoDB, er is geen concept van een sessieconsistentie, dus als u een MongoDB-API-account moet worden gebruikt met sessieconsistentie instelt, de consistentiecontrole is verlaagd tot de uiteindelijke bij gebruik van MongoDB APIs. Als u een garantie-your-eigenaar-lezen voor een account met MongoDB-API moet, wordt het standaardniveau voor consistentie voor het account moet worden ingesteld op strong of gebonden veroudering. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
+
+| Azure Cosmos DB standaardniveau consistentie |   Mongo-API (3.4) |
+|---|---|
+|Sessie| Mogelijk |
+| Sterk | Sterk |
 
 **Automatische indexering**: standaard Azure Cosmos DB indexeert automatisch alle de documenten in uw MongoDB-eigenschappen van de database en niet verwacht of vereist een schema of het maken van secundaire indexen. De unieke index mogelijkheid kunt bovendien een UNIQUE-beperking voor alle documentvelden die al automatisch geïndexeerd in Azure Cosmos DB zijn.
 

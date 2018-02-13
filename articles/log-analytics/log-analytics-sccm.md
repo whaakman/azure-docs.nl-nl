@@ -3,7 +3,7 @@ title: Maak verbinding met Configuration Manager met Log Analytics | Microsoft D
 description: In dit artikel bevat de stappen voor het verbinden van Configuration Manager met logboekanalyse en analyseren van gegevens te starten.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
-ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.author: magoedte
+ms.openlocfilehash: 5acf2ad27a55684a8cb42ed646c54d1ec91a5625
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Maak verbinding met Configuration Manager met Log Analytics
 U kunt System Center Configuration Manager verbinden met logboekanalyse in OMS sync verzameling apparaatgegevens. Dit zijn de gegevens van uw Configuration Manager-hiërarchie beschikbaar in OMS.
@@ -73,12 +73,12 @@ De volgende procedure bevat de Azure-portal met machtigingen voor toegang tot OM
 8. In **toegang toevoegen**, klikt u op **Selecteer een rol**, en selecteer vervolgens de **Inzender** rol.  
    ![Selecteer een rol](./media/log-analytics-sccm/sccm-azure05.png)  
 9. Klik op **gebruikers toevoegen**, selecteert u de Configuration Manager-gebruiker, klik op **Selecteer**, en klik vervolgens op **OK**.  
-   ![gebruikers toevoegen](./media/log-analytics-sccm/sccm-azure06.png)  
+   ![Gebruikers toevoegen](./media/log-analytics-sccm/sccm-azure06.png)  
 
 ## <a name="add-an-oms-connection-to-configuration-manager"></a>Een OMS-verbinding toevoegen aan Configuration Manager
 Als u wilt een OMS-verbinding toevoegen, uw Configuration Manager-omgeving moet hebben een [serviceaansluitpunt](https://technet.microsoft.com/library/mt627781.aspx) geconfigureerd voor de onlinemodus bevindt.
 
-1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS Connector**. Hiermee opent u de **OMS verbinding Wizard toevoegen**. Selecteer **volgende**.
+1. In de **beheer** werkruimte van Configuration Manager, selecteer **OMS Connector**. Hiermee opent u de **OMS verbinding Wizard toevoegen**. Selecteer **Volgende**.
 2. Op de **algemene** scherm, bevestig dat u de volgende acties hebt gedaan en dat u hebt de details voor elk item, en selecteer **volgende**.
 
    1. In de Azure portal hebt u Configuration Manager geregistreerd als een webtoepassing en/of Web-API-app en die u hebt de [client-ID van de registratie](../active-directory/active-directory-integrating-applications.md).

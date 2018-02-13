@@ -3,7 +3,7 @@ title: Uw System Center Operations Manager-omgeving met een Azure-logboekanalyse
 description: De System Center Operations Manager Health Check-oplossing kunt u de risico's en de status van uw omgevingen te beoordelen op een vast interval.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimalisatie van uw omgeving met de oplossing voor System Center Operations Manager Health controleren (Preview)
 
@@ -60,7 +60,7 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager assessment Gegevensdetails-verzameling
 
-De evaluatie van System Center Operations Manager verzamelt gegevens uit de volgende bronnen: 
+De evaluatie van System Center Operations Manager verzamelt gegevens uit de volgende bronnen:
 
 * Register
 * Windows Management Instrumentation (WMI)
@@ -72,7 +72,7 @@ Gegevens worden verzameld op de beheerserver en doorgestuurd naar Log Analytics 
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Operations Manager run as-accounts voor logboekanalyse
 
-Log Analytics bouwt voort op de management packs voor werkbelastingen voor toevoegen waarde-services. Elke werkbelasting vereist werklastspecifiek bevoegdheden voor het uitvoeren van management packs in een andere beveiligingscontext, zoals een domeingebruikersaccount. Configureer een Manager Operations die Run As-account met beschermde referenties. Zie voor meer informatie, [het maken van een Run As-account](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) in de Operations Manager-documentatie. 
+Log Analytics bouwt voort op de management packs voor werkbelastingen voor toevoegen waarde-services. Elke werkbelasting vereist werklastspecifiek bevoegdheden voor het uitvoeren van management packs in een andere beveiligingscontext, zoals een domeingebruikersaccount. Configureer een Manager Operations die Run As-account met beschermde referenties. Zie voor meer informatie, [het maken van een Run As-account](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) in de Operations Manager-documentatie.
 
 Gebruik de volgende informatie in te stellen van de Operations Manager Run As-account voor voor System Center Operations Manager Health controleren.
 
@@ -82,13 +82,13 @@ De Run As-account moet voldoen aan de volgende vereisten voordat u verdergaat:
 
 * Een domeingebruikersaccount die lid is van de lokale groep Administrators op alle servers ondersteunen alle functies van Operations Manager - beheerserver, de SQL-Server met de operationele, de datawarehouse en de ACS-database, rapportage, Web-console en de gatewayserver.
 * Bewerking Manager beheerdersrol voor de beheergroep wordt beoordeeld
-* Als het account geen sysadmin-rechten voor SQL heeft, wordt uitgevoerd de [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) gedetailleerde machtigen om het account op elk exemplaar van SQL Server die als host fungeert voor een of meer van de Operations Manager-databases. 
+* Als het account geen sysadmin-rechten voor SQL heeft, wordt uitgevoerd de [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) gedetailleerde machtigen om het account op elk exemplaar van SQL Server die als host fungeert voor een of meer van de Operations Manager-databases.
 
 1. Selecteer in de Operations Manager-Console de **beheer** navigatieknop klikt.
 2. Onder **Run As-configuratie**, klikt u op **Accounts**.
 3. In de **uitvoeren als-Account** Wizard op de **inleiding** pagina op **volgende**.
 4. Op de **algemene eigenschappen** pagina **Windows** in de **Run As-Account-type:** lijst.
-5. Typ een weergavenaam in de **weergavenaam** tekst en typt u desgewenst een beschrijving in de **beschrijving** vak en klik vervolgens op **volgende**. 
+5. Typ een weergavenaam in de **weergavenaam** tekst en typt u desgewenst een beschrijving in de **beschrijving** vak en klik vervolgens op **volgende**.
 6. Op de **Distributiebeveiliging** pagina **veiliger**.
 7. Klik op **Create**.  
 
@@ -96,7 +96,7 @@ Nu dat de Run As-account is gemaakt, moet de doel-management-servers in de behee
 
 1. Onder **Run As-configuratie**, **Accounts**, dubbelklik in het deelvenster met resultaten op het account dat u eerder hebt gemaakt.
 2. Op de **distributie** tabblad **toevoegen** voor de **selecteerde computers** en toe te voegen van de beheerserver om het account te distribueren.  Klik op **OK** tweemaal de wijzigingen wilt opslaan.
-3. Onder **Run As-configuratie**, klikt u op **profielen**. 
+3. Onder **Run As-configuratie**, klikt u op **profielen**.
 4. Zoeken naar de *SCOM Assessment profiel*.
 5. Naam van het profiel moet: *Microsoft System Center Advisor SCOM Assessment Run As-profiel*.
 6. Met de rechtermuisknop op en de eigenschappen ervan bijwerken en toevoegen van de laatst gemaakte Run As-Account u eerder hebt gemaakt.
@@ -197,7 +197,7 @@ Waarden voor elke aanbeveling wordt uitgedrukt als percentage van de totale scor
 
 **Beschikbaarheid en zakelijke continuïteit** -focus ziet u hier aanbevelingen voor de beschikbaarheid van de service, de tolerantie van uw infrastructuur en de bescherming van zakelijke.
 
-**Prestaties en schaalbaarheid** -focus ziet u hier aanbevelingen om u te helpen uw organisatie IT-infrastructuur toenemen, zorg ervoor dat uw IT-omgeving voldoet aan de huidige prestatievereisten en kunnen reageren op veranderende behoeften van de infrastructuur.
+**Prestaties en schaalbaarheid** -focus ziet u hier aanbevelingen om u te helpen uw organisatie IT-infrastructuur toenemen, zorg ervoor dat uw IT-omgeving voldoet aan de huidige prestatievereisten en kunnen reageren op het wijzigen van de infrastructuur behoeften.
 
 **Upgrade-, migratie- en implementatie** -focus ziet u hier aanbevelingen voor het upgraden, migreren en implementeren van SQL Server op uw bestaande infrastructuur.
 
@@ -216,7 +216,7 @@ Voordat u een oplossing voor het controleren van health in Log Analytics gebruik
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **OMS-Portal** tegel.  
 4. Op de **overzicht** pagina, klikt u op de **System Center Operations Manager Health controleren** tegel.

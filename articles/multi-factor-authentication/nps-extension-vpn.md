@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -146,7 +146,7 @@ Deze sectie wordt ervan uitgegaan dat u de functie Network Policy and Access Ser
 ### <a name="register-server-in-active-directory"></a>Server registreren in Active Directory
 De NPS-server een correcte werking in dit scenario moet worden geregistreerd in Active Directory.
 
-1. Open Serverbeheer.
+1. Open Server Manager.
 
 2. Selecteer in Serverbeheer **extra**, en selecteer vervolgens **Network Policy Server**. 
 
@@ -186,7 +186,7 @@ U kunt een standaard (door de wizard gebaseerd) of geavanceerde configuratieopti
 
     ![Het venster gebruikersgroepen opgeven](./media/nps-extension-vpn/image7.png)
 
-9. Selecteer **volgende**.
+9. Selecteer **Volgende**.
 
 10. In de **IP-Filters opgeven** Selecteer **volgende**.
 
@@ -376,7 +376,7 @@ Voor het gebruik van het script bieden u de uitbreiding met uw beheerdersreferen
 
 1. Voer Windows PowerShell als beheerder.
 
-2. Voer de PowerShell-opdrachtprompt **cd c:\Program Files\Microsoft\AzureMfa\Config**, en selecteer vervolgens op Enter.
+2. Voer de PowerShell-opdrachtprompt **cd 'c:\Program Files\Microsoft\AzureMfa\Config'**, en selecteer vervolgens op Enter.
 
 3. Voer op de volgende opdrachtregel **.\AzureMfsNpsExtnConfigSetup.ps1**, en selecteer vervolgens op Enter. Het script wordt gecontroleerd of de Azure AD PowerShell-module is geïnstalleerd. Als dit niet is geïnstalleerd, installeert u de module met het script voor u.
  
@@ -458,5 +458,5 @@ Zie voor meer informatie [uw bestaande NPS-infrastructuur integreren met Azure m
 
 [Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
-[Uw on-premises adreslijsten integreren met Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
+[Uw on-premises directory's integreren met Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
 

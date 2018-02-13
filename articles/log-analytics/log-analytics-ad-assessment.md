@@ -3,7 +3,7 @@ title: Optimalisatie van uw Active Directory-omgeving met Azure Log Analytics | 
 description: U kunt de oplossing voor Active Directory-Serverstatus controleren gebruiken voor het evalueren van de risico's en de status van uw omgevingen op een vast interval.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing voor Active Directory-Serverstatus controleren in Log Analytics
 
@@ -41,7 +41,7 @@ Nadat u de oplossing hebt toegevoegd en een controle voltooid, samenvatting is-i
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De oplossing voor Active Directory-Serverstatus controleren vereist een ondersteunde versie van .NET Framework 4.5.2 of hoger geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De agent MMA wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en de Log Analytics-service. 
+* De oplossing voor Active Directory-Serverstatus controleren vereist een ondersteunde versie van .NET Framework 4.5.2 of hoger geïnstalleerd op elke computer die de Microsoft Monitoring Agent (MMA) geïnstalleerd is.  De agent MMA wordt gebruikt door System Center 2016 - Operations Manager en Operations Manager 2012 R2 en de Log Analytics-service.
 * De oplossing biedt ondersteuning voor domeincontrollers met Windows Server 2008 en 2008 R2, Windows Server 2012 en 2012 R2 en Windows Server 2016.
 * Een werkruimte voor logboekanalyse toevoegen van de oplossing voor Active Directory-Serverstatus controleren vanuit Azure marketplace in de Azure portal.  Er is geen verdere configuratie nodig.
 
@@ -62,13 +62,13 @@ De agent op uw domeincontroller welke rapporten aan een beheergroep van Operatio
 
 Active Directory-Serverstatus controleren verzamelt gegevens uit de volgende bronnen met behulp van de agent die u hebt ingeschakeld:
 
-- Register 
-- LDAP 
+- Register
+- LDAP
 - .NET Framework
-- Gebeurtenislogboek 
+- Gebeurtenislogboek
 - Active Directory Service interfaces (ADSI)
 - Windows Powershell
-- Bestandsgegevens 
+- Bestandsgegevens
 - Windows Management Instrumentation (WMI)
 - DCDIAG hulpprogramma API
 - API voor File Replication Service (NTFRS)
@@ -93,7 +93,7 @@ Waarden voor elke aanbeveling wordt uitgedrukt als percentage van de totale scor
 
 **Beschikbaarheid en zakelijke continuïteit** -focus ziet u hier aanbevelingen voor de beschikbaarheid van de service, de tolerantie van uw infrastructuur en de bescherming van zakelijke.
 
-**Prestaties en schaalbaarheid** -focus ziet u hier aanbevelingen om u te helpen uw organisatie IT-infrastructuur toenemen, zorg ervoor dat uw IT-omgeving voldoet aan de huidige prestatievereisten en kunnen reageren op veranderende behoeften van de infrastructuur.
+**Prestaties en schaalbaarheid** -focus ziet u hier aanbevelingen om u te helpen uw organisatie IT-infrastructuur toenemen, zorg ervoor dat uw IT-omgeving voldoet aan de huidige prestatievereisten en kunnen reageren op het wijzigen van de infrastructuur behoeften.
 
 **Een upgrade uitvoert, migratie en implementatie van** -focus ziet u hier aanbevelingen voor het upgraden, migreren en implementeren van Active Directory voor uw bestaande infrastructuur.
 
@@ -109,7 +109,7 @@ De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
 3. Klik op de **overzicht** tegel voor uw werkruimte voor logboekanalyse in de Azure portal.
-4. Op de **overzicht** pagina, klikt u op de **Active Directory-Serverstatus controleren** tegel. 
+4. Op de **overzicht** pagina, klikt u op de **Active Directory-Serverstatus controleren** tegel.
 5. Op de **Health Check** pagina, Controleer de overzichtsgegevens in een van de focus gebied blades en klik op een om aanbevelingen voor het desbetreffende focusgebied weer te geven.
 6. Op een van de focus gebiedspagina's, kunt u de prioriteit aanbevelingen voor uw omgeving weergeven. Klik op een aanbeveling onder **objecten van invloed op een** voor meer informatie over waarom de aanbeveling is gemaakt.<br><br> ![afbeelding van aanbevelingen Serverstatus controleren](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. U kunt ondernemen corrigerende maatregelen voorgesteld in **voorgestelde acties**. Wanneer het item is opgelost, hoger beoordelingen records die acties aanbevolen zijn uitgevoerd en de naleving-score wordt verhoogd. Gecorrigeerde items worden weergegeven als **doorgegeven objecten**.
@@ -133,7 +133,7 @@ Als u hebt de aanbevelingen die u wilt negeren, kunt u een tekstbestand dat Log 
 2. Plakken of typ elke RecommendationId voor elke aanbeveling dat u wilt dat Log Analytics negeren op een afzonderlijke regel en vervolgens opslaan en sluit het bestand.
 3. Plaats het bestand in de volgende map op elke computer waarop u logboekanalyse voor het negeren van aanbevelingen.
    * Op computers met Microsoft Monitoring Agent (rechtstreeks of via de Operations Manager verbonden) - *SystemDrive*: \Program Files\Microsoft Agent\Agent bewaking
-   * Op de beheerserver van Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * Op de beheerserver van Operations Manager 2012 R2 - *SystemDrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Op de beheerserver van Operations Manager 2016 - *SystemDrive*: \Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Om te controleren dat de aanbevelingen worden genegeerd

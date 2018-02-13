@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessies bericht: first in eerst uit FIFO-principe () 
 
@@ -72,6 +72,8 @@ De sessie status faciliteit kan een aantekening toepassingsspecifieke van een se
 Vanuit het perspectief van Service Bus is de sessiestatus bericht een ondoorzichtige binaire object waarin gegevens van de grootte van een bericht dat 256 KB voor Service Bus Standard en 1 MB voor Service Bus Premium is. De verwerkingsstatus ten opzichte van een sessie kan plaatsvinden binnen de sessiestatus of de sessiestatus kan verwijzen naar een enkele locatie voor de opslag of databaserecord dat dergelijke informatie bevat.
 
 De API's voor het beheren van de sessiestatus, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) en [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), kunt u vinden op de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object in de C# en Java-API's. Een sessie die eerder geen session state was ingesteld retourneert een **null** referentiemateriaal **GetState**. Wissen van de eerder ingestelde sessiestatus is klaar met [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Houd er rekening mee dat de sessiestatus zolang het is niet gewist van blijft (retourneren **null**), zelfs als alle berichten in een sessie worden verbruikt.
 
 Alle bestaande sessies in een wachtrij of -abonnement kunnen worden geïnventariseerd met de **SessionBrowser** methode in de Java-API en met [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) op de [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) en [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) in de .NET-client.
 

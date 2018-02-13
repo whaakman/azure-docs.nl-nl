@@ -1,4 +1,5 @@
 - name: Documentatie over Data Science Virtual Machine
+  href: index.yml
   items: null
 - name: Overzicht
   expanded: true

@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure blauwdruk Automation - overzicht
-description: FedRAMP-overzicht
+title: Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation - overzicht
+description: FedRAMP Web Applications Automation - overzicht
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 505a2fdc90abfcdd269b5e30537ea338b8c3774b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 968f9013dcf438ccb3a97f0bbc291b1c58a392ea
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="fedramp-overview"></a>FedRAMP-overzicht
 
-De [Federal risico en autorisatie Management-programma (FedRAMP)](https://www.fedramp.gov), is een US government hele-programma dat biedt een gestandaardiseerde aanpak voor beoordeling van de veiligheid, autorisatie en doorlopende bewaking voor cloud-producten en Services. FedRAMP definieert een beoordeling beveiligingsproces op basis van een gestandaardiseerde verzameling vereiste afgeleid van [National Institute of Standards en SP van Technology (NIST) speciale publicatie 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) beveiliging besturingselementen.
+De [Federal risico en autorisatie Management-programma (FedRAMP)](https://www.fedramp.gov), is een US government hele-programma dat biedt een gestandaardiseerde aanpak voor beoordeling van de veiligheid, autorisatie en doorlopende bewaking voor cloud-producten en Services. FedRAMP definieert een beoordeling beveiligingsproces op basis van een gestandaardiseerde verzameling vereiste afgeleid van [National Institute of Standards en SP van Technology (NIST) speciale publicatie 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final) beveiligingsmechanismen.
 
-Blader op de families besturingselement hieronder om te zien hoe deze automatisering blauwdruk wordt uitgelijnd met de vereisten voor toegangsbeheer.
+Blader op de families besturingselement hieronder om te zien hoe deze Azure-beveiliging en naleving blauwdruk automatisering wordt uitgelijnd met de vereisten voor toegangsbeheer.
 
 | | |
 |---|---|
 | [AC](fedramp-access-controls.md ) | Access Control |
-| [AUSTRALIË](fedramp-audit-accountability-controls.md ) | Controle en verantwoordelijkheid |
+| [AU](fedramp-audit-accountability-controls.md ) | Controle en verantwoordelijkheid |
 | [AT](fedramp-awareness-training-controls.md ) | Inzicht en Training |
 | [CM](fedramp-configuration-manager-controls.md ) | Configuration Management |
 | [CP](fedramp-contingency-planning-controls.md ) | Onvoorziene plannen |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Aanbevolen procedures voor verbeterde prestaties met behulp van Service Bus-berichtenservice
 
@@ -111,7 +111,12 @@ Batchverwerking heeft geen invloed op het aantal factureerbare messaging bewerki
 
 ## <a name="batching-store-access"></a>Toegang tot store batchverwerking
 
-Service Bus batches meerdere berichten voor een verhoging van de doorvoer van een wachtrij, onderwerp of abonnement wanneer deze naar de opslag van de interne schrijft. Als ingeschakeld op een wachtrij of onderwerp, berichten schrijven naar het archief wordt in batch worden opgenomen. Als ingeschakeld op een wachtrij of een abonnement, het verwijderen van berichten uit de store wordt in batch worden opgenomen. Als toegang tot batch store is ingeschakeld voor een entiteit, een Service Bus een schrijfbewerking van het archief met betrekking tot die entiteit door maximaal 20 MS vertraging. Aanvullende store bewerkingen die zich tijdens dit interval voordoen worden toegevoegd aan de batch. Batch verwerkt store toegang alleen van invloed op **verzenden** en **Complete** operations; ontvangen bewerkingen worden niet beïnvloed. Toegang tot batch store is een eigenschap van een entiteit. Batchverwerking vindt plaats via alle entiteiten waarmee toegang tot batch store.
+Service Bus batches meerdere berichten voor een verhoging van de doorvoer van een wachtrij, onderwerp of abonnement wanneer deze naar de opslag van de interne schrijft. Als ingeschakeld op een wachtrij of onderwerp, berichten schrijven naar het archief wordt in batch worden opgenomen. Als ingeschakeld op een wachtrij of een abonnement, het verwijderen van berichten uit de store wordt in batch worden opgenomen. Als toegang tot batch store is ingeschakeld voor een entiteit, een Service Bus een schrijfbewerking van het archief met betrekking tot die entiteit door maximaal 20 MS vertraging. 
+
+> [!NOTE]
+> Er is geen risico van het verlies van berichten met batches, zelfs als er een Service Bus-fout aan het einde van een 20ms batchen interval. 
+
+Aanvullende store bewerkingen die zich tijdens dit interval voordoen worden toegevoegd aan de batch. Batch verwerkt store toegang alleen van invloed op **verzenden** en **Complete** operations; ontvangen bewerkingen worden niet beïnvloed. Toegang tot batch store is een eigenschap van een entiteit. Batchverwerking vindt plaats via alle entiteiten waarmee toegang tot batch store.
 
 Wanneer u een nieuwe wachtrij, onderwerp of abonnement maakt, wordt toegang tot batch store standaard ingeschakeld. Om te schakelen toegang tot batch store, stelt de [EnableBatchedOperations] [ EnableBatchedOperations] eigenschap **false** voordat u de entiteit. Bijvoorbeeld:
 

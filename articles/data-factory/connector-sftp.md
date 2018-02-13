@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 1d90bafebcd942454b31d0f62b0daf3f01ad6926
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 55379add493224770ca7e0e26fd607cd0a2cf892
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Gegevens kopiëren van de SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -108,7 +108,7 @@ Voor het gebruik van SSH-verificatie voor openbare sleutel, stelt u de eigenscha
 | passPhrase | Geef de pass woordgroep en het wachtwoord voor het ontsleutelen van de persoonlijke sleutel als het sleutelbestand is beveiligd met een wachtwoordzin. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja als u een bestand met de persoonlijke sleutel wordt beveiligd door een wachtwoordzin. |
 
 > [!NOTE]
-> SFTP-connector ondersteunt alleen OpenSSH-sleutel. Zorg ervoor dat uw sleutelbestand in de juiste indeling. U kunt Putty hulpprogramma ppk converteren naar OpenSSH-indeling.
+> SFTP-connector ondersteunt RSA/DSA OpenSSH-sleutel. Zorg ervoor dat de inhoud van uw sleutelbestand begint met '---BEGIN [RSA/DSA] PRIVÉSLEUTEL---'. Als het persoonlijke sleutelbestand een ppk-format-bestand is, gebruikt u de Putty hulpprogramma ppk converteren naar OpenSSH-indeling. 
 
 **Voorbeeld 1: SshPublicKey verificatie met behulp van persoonlijke sleutels filePath**
 
@@ -182,7 +182,7 @@ Om gegevens te kopiëren van SFTP, stel de eigenschap type van de gegevensset **
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **bestandsshare** |Ja |
 | folderPath | Pad naar de map. Bijvoorbeeld: map/submap / |Ja |
 | fileName | Geef de naam van het bestand in de **folderPath** als u wilt kopiëren uit een specifiek bestand. Als u geen waarde voor deze eigenschap niet opgeeft, wordt de status van de gegevensset verwijst naar alle bestanden in de map als bron. |Nee |
-| fileFilter | Hiermee geeft u een filter moet worden gebruikt om een subset van de bestanden in het mappad in plaats van alle bestanden te selecteren. Geldt alleen als fileName is niet opgegeven. <br/><br/>Jokertekens zijn toegestaan: `*` (meerdere tekens) en `?` (willekeurig teken).<br/>-Voorbeeld 1:`"fileFilter": "*.log"`<br/>-Voorbeeld 2:`"fileFilter": 2017-09-??.txt"` |Nee |
+| fileFilter | Hiermee geeft u een filter moet worden gebruikt om een subset van de bestanden in het mappad in plaats van alle bestanden te selecteren. Geldt alleen als fileName is niet opgegeven. <br/><br/>Jokertekens zijn toegestaan: `*` (meerdere tekens) en `?` (willekeurig teken).<br/>-Voorbeeld 1: `"fileFilter": "*.log"`<br/>-Voorbeeld 2: `"fileFilter": 2017-09-??.txt"` |Nee |
 | Indeling | Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de sectie indeling in de definities van beide invoer en uitvoer gegevensset.<br/><br/>Als u wilt parseren van bestanden met een specifieke indeling, de volgende indeling bestandstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie [tekstindeling](supported-file-formats-and-compression-codecs.md#text-format), [Json-indeling](supported-file-formats-and-compression-codecs.md#json-format), [Avro-indeling](supported-file-formats-and-compression-codecs.md#avro-format), [Orc indeling](supported-file-formats-and-compression-codecs.md#orc-format), en [parketvloeren indeling](supported-file-formats-and-compression-codecs.md#parquet-format) secties. |Nee (alleen voor scenario binaire kopiëren) |
 | Compressie | Geef het type en de compressie van de gegevens. Zie voor meer informatie [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**.<br/>Ondersteunde niveaus: **optimale** en **snelst**. |Nee |
 

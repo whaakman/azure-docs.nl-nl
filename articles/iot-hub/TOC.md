@@ -107,6 +107,7 @@
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java-back-end/Java-apparaat](iot-hub-java-java-device-management-getstarted.md)
+#### [Python-back-end/Python-apparaat](iot-hub-python-python-device-management-get-started.md)
 ### Dubbeleigenschappen gebruiken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-how-to-configure.md)

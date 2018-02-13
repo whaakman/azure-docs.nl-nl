@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 67456fa865a7bc1057194d577cd79ce6378a7ac9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
 
@@ -38,7 +38,7 @@ De volgende tabel beschrijft de verschillen tussen de drie versies van multi-fac
 | Versie | Beschrijving |
 | --- | --- |
 | Multi-factor Authentication voor Office 365 |Deze versie werkt alleen met Office 365-toepassingen en wordt beheerd via de Office 365-portal. Beheerders kunnen [Office 365-resources met verificatie in twee stappen beveiligen](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Deze versie is onderdeel van een Office 365-abonnement. |
-| Multi-factor Authentication voor Azure AD-beheerders | De rol globale beheerder in Azure AD-tenants toegewezen gebruikers kunnen inschakelen verificatie in twee stappen voor de accounts van de globale beheerder Azure AD zonder extra kosten.|
+| Multi-factor Authentication voor Azure AD-beheerders | De rol globale beheerder in Azure AD-tenants toegewezen gebruikers kunnen inschakelen verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten.|
 | Azure Multi-Factor Authentication | Azure multi-factor Authentication is vaak de 'volledige' versie genoemd, biedt de allerbeste set mogelijkheden. Biedt extra configuratieopties via de [Azure-portal](https://portal.azure.com)geavanceerde rapportage en ondersteuning voor een bereik van lokale en cloudtoepassingen. Azure multi-factor Authentication is opgenomen in [Azure Active Directory Premium-abonnementen](https://www.microsoft.com/cloud-platform/azure-active-directory-features) en [Enterprise Mobility + Beveiligingsplannen](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), en kan worden geïmplementeerd in de cloud of on-premises. |
 
 ## <a name="feature-comparison-of-versions"></a>Vergelijking van functies van versies
@@ -67,6 +67,9 @@ De volgende tabel bevat een lijst van de functies die beschikbaar in de verschil
 | MFA herinneren voor vertrouwde apparaten |● |● |● |
 | MFA SDK | | |● (afgeschaft) | 
 | MFA voor on-premises toepassingen | | |● |
+
+## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Het inschakelen van Azure multi-factor Authentication voor Azure AD-beheerders
+De rol globale beheerder in Azure AD-tenants toegewezen gebruikers kunnen inschakelen verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten. Als u een Microsoft-Account gebruikt, kunt u registreren voor meervoudige verificatie [hier](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Als u een Microsoft-Account niet gebruikt, schakelt u multi-factor authentication voor globale beheerders [hier](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
 Als u de volledige functionaliteit van Azure multi-factor Authentication dat wilt, zijn er verschillende opties:

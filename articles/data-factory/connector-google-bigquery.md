@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Gegevens kopiëren van Google BigQuery met behulp van Azure Data Factory (bèta)
 
@@ -51,12 +51,17 @@ De volgende eigenschappen worden ondersteund voor de Google BigQuery service gek
 | project | De project-ID van het standaard BigQuery project aan de query op.  | Ja |
 | additionalProjects | Een door komma's gescheiden lijst met project-id van de openbare BigQuery projecteert om toegang te hebben.  | Nee |
 | requestGoogleDriveScope | Of u wilt toegang vragen tot Google Drive. Google Drive toegang toe te staan, schakelt u ondersteuning voor federatieve tabellen die gegevens met gegevens uit de Google Drive BigQuery combineren. De standaardwaarde is **false**.  | Nee |
-| authenticationType | Het OAuth 2.0-verificatiemechanisme gebruikt voor verificatie. ServiceAuthentication kan alleen worden gebruikt voor Self-hosted integratie Runtime. <br/>Toegestane waarden zijn **ServiceAuthentication** en **UserAuthentication**. | Ja |
-| refreshToken | Het vernieuwingstoken dat is verkregen van Google toegang verlenen aan BigQuery voor UserAuthentication gebruikt. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
-| e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
-| keyFilePath | Het volledige pad naar het sleutelbestand .p12 die wordt gebruikt voor verificatie van het e-mailadres van de service-account. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
-| trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op Self-hosted integratie-Runtime gebruiken. De standaardwaarde is het cacerts.pem-bestand met de integratie-runtime is geïnstalleerd.  | Nee |
-| useSystemTrustStore | Hiermee bepaalt u of een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven .pem-bestand. De standaardwaarde is **false**.  | Nee |
+| authenticationType | Het OAuth 2.0-verificatiemechanisme gebruikt voor verificatie. ServiceAuthentication kan alleen worden gebruikt voor Self-hosted integratie Runtime. <br/>Toegestane waarden zijn **UserAuthentication** en **ServiceAuthentication**. Raadpleeg de secties onder deze tabel over meer eigenschappen en voorbeelden voor deze verificatietypen JSON respectievelijk. | Ja |
+
+### <a name="using-user-authentication"></a>Met behulp van verificatie van gebruiker
+
+Stel de eigenschap 'authenticationType' op **UserAuthentication**, en geef de volgende eigenschappen samen met de algemene eigenschappen die in de vorige sectie beschreven:
+
+| Eigenschap | Beschrijving | Vereist |
+|:--- |:--- |:--- |
+| clientId | ID van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. | Nee |
+| clientSecret | Geheim van de toepassing die wordt gebruikt voor het genereren van het vernieuwingstoken. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| refreshToken | Het vernieuwingstoken dat is verkregen van Google toegang verlenen aan BigQuery gebruikt. Meer informatie over het ophalen van [verkrijgen van OAuth 2.0-toegangstokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 
 **Voorbeeld:**
 
@@ -70,6 +75,11 @@ De volgende eigenschappen worden ondersteund voor de Google BigQuery service gek
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ De volgende eigenschappen worden ondersteund voor de Google BigQuery service gek
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>Service-verificatie
+
+Stel de eigenschap 'authenticationType' op **ServiceAuthentication**, en geef de volgende eigenschappen samen met de algemene eigenschappen die in de vorige sectie beschreven. Dit verificatietype kan alleen op Self-hosted integratie Runtime worden gebruikt.
+
+| Eigenschap | Beschrijving | Vereist |
+|:--- |:--- |:--- |
+| e-mail | De service-account e-mail-ID die wordt gebruikt voor ServiceAuthentication. Deze kan alleen worden gebruikt voor Self-hosted integratie Runtime.  | Nee |
+| keyFilePath | Het volledige pad naar het sleutelbestand .p12 die wordt gebruikt voor verificatie van het e-mailadres van de service-account. | Nee |
+| trustedCertPath | Het volledige pad van het .pem-bestand met vertrouwde CA-certificaten gebruikt om te controleren of de server wanneer u verbinding via SSL maakt. Deze eigenschap kan alleen worden ingesteld als u SSL op Self-hosted integratie-Runtime gebruiken. De standaardwaarde is het cacerts.pem-bestand met de integratie-runtime is geïnstalleerd.  | Nee |
+| useSystemTrustStore | Hiermee bepaalt u of een CA-certificaat uit het archief van de vertrouwensrelatie system of vanuit een opgegeven .pem-bestand. De standaardwaarde is **false**.  | Nee |
+
+**Voorbeeld:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset

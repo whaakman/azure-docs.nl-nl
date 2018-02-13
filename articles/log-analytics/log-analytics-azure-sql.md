@@ -3,7 +3,7 @@ title: Azure SQL Analytics-oplossing in Log Analytics | Microsoft Docs
 description: De Azure SQL Analytics-oplossing kunt u uw Azure SQL-databases beheren.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
 
@@ -31,7 +31,7 @@ Deze preview-oplossing ondersteunt momenteel maximaal 150.000 Azure SQL-Database
 De Azure SQL Analytics-oplossing, net zoals andere beschikbaar voor logboekanalyse, kunt u controleren en meldingen ontvangen over de status van uw Azure-resources: in dit geval, Azure SQL Database. Microsoft Azure SQL Database is een schaalbare relationele database-service die bekende SQL-Server-achtige mogelijkheden voor toepassingen die worden uitgevoerd in de Azure-cloud biedt. Log Analytics, helpt u bij het verzamelen, correleren en gestructureerde en ongestructureerde gegevens visualiseren.
 
 Zie voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplossing en typische gebruiksscenario's de ingesloten video:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -63,11 +63,11 @@ Voer de volgende stappen uit om toe te voegen van de Azure SQL Analytics-oplossi
 2. Klik in de Azure-portal op **nieuw** (het symbool +), selecteer vervolgens in de lijst met resources **bewaking + Management**.  
     ![Controle en beheer](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In de **bewaking + Management** Klik **alle**.
-4. In de **aanbevolen** lijst, klikt u op **meer** , en klik vervolgens in de nieuwe lijst vinden **Azure SQL Analytics (Preview)** en selecteert u vervolgens.  
+4. In de **aanbevolen** lijst, klikt u op **meer**, en klik vervolgens in de nieuwe lijst vinden **Azure SQL Analytics (Preview)** en selecteert u vervolgens.  
     ![Azure SQL Analytics-oplossing](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. In de **Azure SQL Analytics (Preview)** blade, klikt u op **maken**.  
+5. In de **Azure SQL Analytics (Preview)** gebied, klikt u op **maken**.  
     ![Maken](./media/log-analytics-azure-sql/portal-create.png)
-6. In de **nieuwe oplossing maken** blade, selecteer de werkruimte die u wilt toevoegen, de oplossing en klik vervolgens op **maken**.  
+6. In de **nieuwe oplossing maken** gebied, selecteer de werkruimte die u wilt toevoegen, de oplossing en klik vervolgens op **maken**.  
     ![toevoegen aan werkruimte](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,15 +97,15 @@ Wanneer u de oplossing voor uw werkruimte toevoegt, is de tegel Azure SQL Analyt
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Azure SQL analytische gegevens weergeven
 
-Klik op de **Azure SQL Analytics** tegel om de Azure SQL Analytics dashboard te openen. Het dashboard bevat het overzicht van alle databases die worden bewaakt via verschillende perspectieven. Voor verschillende perspectieven werken, moet u Logboeken of de juiste metrische gegevens op uw SQL-bronnen kunnen worden gestreamd naar Azure Log Analytics-werkruimte inschakelen. 
+Klik op de **Azure SQL Analytics** tegel om de Azure SQL Analytics dashboard te openen. Het dashboard bevat het overzicht van alle databases die worden bewaakt via verschillende perspectieven. Voor verschillende perspectieven werken, moet u Logboeken of de juiste metrische gegevens op uw SQL-bronnen kunnen worden gestreamd naar Azure Log Analytics-werkruimte inschakelen.
 
 ![Overzicht van Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Als u een van de tegels selecteert, wordt een rapport zoomen geopend in de specifieke perspectief. Nadat het perspectief is geselecteerd, wordt Inzoomen op het rapport geopend.
+Als u een van de tegels selecteert, wordt een rapport zoomen geopend in de specifieke perspectief. Zodra het perspectief is geselecteerd, wordt het rapport zoomen geopend.
 
 ![Azure SQL Analytics time-outs](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Elk perspectief biedt samenvattingen op abonnement, server elastische pool en databaseniveau. Bovendien elk perspectief perspectief specifieke rapport aan de rechterkant wordt weergegeven. Abonnement, server, groep of database selecteren in de lijst blijft van de analyse omlaag.
+Elk perspectief biedt samenvattingen op abonnement, server elastische pool en databaseniveau. Bovendien ziet elk perspectief u een perspectief specifiek zijn voor het rapport aan de rechterkant. Abonnement, server, groep of database selecteren in de lijst, blijft de inzoomen.
 
 | Perspectief | Beschrijving |
 | --- | --- |
@@ -134,7 +134,7 @@ Zowel elastische Pools en Databases hebben hun eigen specifieke rapporten waarin
 
 ### <a name="query-reports"></a>Query-rapporten
 
-Via de duur van de Query en query wacht perspectief, kunt u de prestaties van een query door het queryrapport correleren. Dit rapport vergelijkt de prestaties van query's over verschillende databases en kunt u gemakkelijk op de speldenpunt van databases waarmee de geselecteerde query ook versus die langzaam worden uitgevoerd.
+U kunt de prestaties van een query door het queryrapport correleren via de duur van de Query en query wacht perspectieven. Dit rapport vergelijkt de prestaties van query's over verschillende databases en kunt u gemakkelijk op de speldenpunt van databases waarmee de geselecteerde query ook versus die langzaam worden uitgevoerd.
 
 ![Azure SQL analysequery 's](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 

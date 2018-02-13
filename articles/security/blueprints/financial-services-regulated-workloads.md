@@ -1,6 +1,6 @@
 ---
-title: "Blauwdruk Azure Automation - financiële diensten voor gereglementeerde werkbelastingen"
-description: "In financiële diensten blauwdruk voor gereglementeerde werkbelastingen"
+title: "Azure-beveiliging en naleving blauwdruk - FFIEC financiële diensten gereglementeerde werkbelastingen"
+description: "Azure-beveiliging en naleving blauwdruk - FFIEC financiële diensten gereglementeerde werkbelastingen"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Blauwdruk Azure Automation: Financiële diensten blauwdruk voor gereglementeerde werkbelastingen
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure-beveiliging en naleving blauwdruk - FFIEC financiële diensten gereglementeerde werkbelastingen
 
 ## <a name="overview"></a>Overzicht
 
-Financiële diensten blauwdruk voor geregeld werkbelastingen kunt u een beveiligd en compatibel platform implementeren als een service (PaaS)-webtoepassing die is ontworpen voor het verwerken van gevoelige gegevens in de cloud. De blauwdruk bestaat uit geautomatiseerde scripts en richtlijnen over een eenvoudige referentiearchitectuur en een ontwerp dat helpt te vereenvoudigen, de acceptatie van Microsoft Azure-oplossingen. Deze blauwdruk ziet u een end-to-end-oplossing om te voldoen aan de behoeften van organisaties zoek naar manieren om de belasting en de kosten voor het implementeren van in de cloud te verminderen.
+Azure-beveiliging en naleving blauwdruk - helpt FFIEC financiële diensten Regulated werkbelastingen implementeren van een beveiligd en compatibel platform als een service (PaaS)-webtoepassing die is ontworpen voor het verwerken van gevoelige gegevens in de cloud. De blauwdruk bestaat uit geautomatiseerde scripts en richtlijnen over een eenvoudige referentiearchitectuur en een ontwerp dat helpt te vereenvoudigen, de acceptatie van Microsoft Azure-oplossingen. Deze blauwdruk ziet u een end-to-end-oplossing om te voldoen aan de behoeften van organisaties zoek naar manieren om de belasting en de kosten voor het implementeren van in de cloud te verminderen.
 
 Deze blauwdruk is ontworpen om te voldoen aan de vereisten van strenge compatibele normen die zijn ingesteld door de Amerikaanse Institute van gecertificeerd openbare Accountants zoals - SOC 1 SOC 2, de Payment Card Industry Data Security Standards-Raad DSS 3.2 en FFIEC voor de verzamelen, opslaan en ophalen van gevoelige financiële gegevens. Laat de juiste verwerking van dergelijke gegevens door het implementeren van een oplossing voor beheer van financiële gegevens in een omgeving met veilige, voldoen aan het beleid, meerdere lagen. De oplossing is geïmplementeerd als een end-to-end PaaS Azure gebaseerde oplossing. 
 
@@ -52,7 +52,7 @@ De architectuur bestaat uit de volgende onderdelen en de implementatiemogelijkhe
 
 De blauwdruk adressen van de volgende het onderstaande gebruiksvoorbeeld.
 
-> Dit scenario ziet u hoe een fictieve webarchief verplaatst gevoelige gegevens in een PaaS-cloud op basis van een Azure-oplossing. De Voorbeeldoplossing ziet u de verwerking en het verzamelen van informatie basisgebruiker en geselecteerde gevoelige gegevens. Dit werk voortbouwt op de blauwdruk Azure Automation: betaling verwerken voor PCI DSS-compatibele omgevingen voor de verwerking van de kaart betaling. Voor meer informatie uit te breiden aan dit werk ["Bekijken en richtlijnen voor implementatie"](https://aka.ms/pciblueprintprocessingoverview) artikel biedt een overzicht van de PCI-DSS-compatibele omgevingen.
+> Dit scenario ziet u hoe een fictieve webarchief verplaatst gevoelige gegevens in een PaaS-cloud op basis van een Azure-oplossing. De Voorbeeldoplossing ziet u de verwerking en het verzamelen van informatie basisgebruiker en geselecteerde gevoelige gegevens. Dit werk voortbouwt op de Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken. Voor meer informatie uit te breiden aan dit werk ["Bekijken en richtlijnen voor implementatie"](https://aka.ms/pciblueprintprocessingoverview) artikel biedt een overzicht van de PCI-DSS-compatibele omgevingen.
 
 ### <a name="use-case"></a>Gebruiksvoorbeeld
 Een kleine webarchief aangeroepen *Contoso Webstore* is gereed om financiële gegevens met informatie van de klant betaling naar de cloud te verplaatsen. 
@@ -65,7 +65,7 @@ De beheerder van Contoso Webstore zoekt een oplossing die snel kan worden geïmp
 
 De fundamentele architectuur is ontworpen met de volgende fictieve elementen:
 
-Domein-site`contosowebstore.com`
+Domein-site `contosowebstore.com`
 
 Gebruikersrollen ingezet illustreren het gebruiksvoorbeeld en bieden inzicht in de gebruikersinterface.
 
@@ -111,7 +111,7 @@ Edna Benson is de manager receptionist en bedrijven. Ze is verantwoordelijk voor
 - Erna kunt financiële gegevens te overschrijven.
 - Erna account weergeven niet ongefilterde financiële gegevens.
 
-> In de Contoso Webstore, wordt de gebruiker automatisch de **erna** gebruiker voor het testen van de mogelijkheden van de geïmplementeerde omgeving.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - geschatte prijzen
 
@@ -151,7 +151,7 @@ De volgende sectie wordt de ontwikkeling en implementatie-elementen.
 
 De fundamentele architectuur vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met een web application firewall (WAF) en de ruleset OWASP is ingeschakeld. Aanvullende mogelijkheden zijn:
 
-- [Einde End SSL-](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [SSL-Offload](/azure/application-gateway/application-gateway-ssl-portal) ingeschakeld
 - [TLS v1.0 en v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) uitgeschakeld
 - [Web application firewall](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF modus)
@@ -172,7 +172,7 @@ Elk van de netwerk-lagen is een speciale netwerkbeveiligingsgroep (NSG):
 - Een NSG voor beheer jumpbox (bastion host)
 - Een NSG voor de app-serviceomgeving
 
-Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de veilige en de juiste werking van de oplossing. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](#network-security-groups).
+Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de veilige en de juiste werking van de oplossing. 
 
 Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
 
@@ -186,7 +186,7 @@ Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
 #### <a name="custom-domain-ssl-certificates"></a>Aangepast domein SSL-certificaten
  HTTPS-verkeer is ingeschakeld met behulp van een aangepast domein SSL-certificaat.
 
-### <a name="data-at-rest"></a>Gegevens in rust
+### <a name="data-at-rest"></a>Data-at-rest
 
 De architectuur beveiligt de gegevens in rust met behulp van versleuteling, Databasecontrole en andere maatregelen.
 
@@ -249,7 +249,7 @@ Gebruik van ASEs voor deze architectuur die is toegestaan voor de volgende bestu
 - Hosten in een beveiligde virtuele netwerk en netwerk-beveiligingsregels voor verbindingen
 - As-omgeving geconfigureerd met een zelf-ondertekend certificaat van de ILB voor HTTPS-communicatie
 - [Interne Load Balancing modus](/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modus 3)
-- [TLS 1.0](/azure/app-service-web/app-service-app-service-environment-custom-settings) uitgeschakeld
+- [TLS 1.0](/azure/app-service-web/app-service-app-service-environment-custom-settings) disabled
 - [TLS-codering](/azure/app-service-web/app-service-app-service-environment-custom-settings) gewijzigd
 - Besturingselement [binnenkomende verkeer N/W poorten](/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic) 
 - [WAF - gegevens beperken](/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -305,7 +305,7 @@ Standaardimplementatie is bedoeld om een basislijn met Security Center aanbeveli
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-De onderdelen voor implementatie van deze oplossing zijn beschikbaar in de [betaling verwerken blauwdruk code opslagplaats][code-repo]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
+De onderdelen voor implementatie van deze oplossing zijn beschikbaar in de [blauwdruk code opslagplaats][code-repo]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
 
 De scripts toevoegen domeingebruikers aan de Azure AD-tenant die u opgeeft. Microsoft adviseert het maken van een nieuwe Azure AD-tenant als een test wilt gebruiken.
 
@@ -361,7 +361,7 @@ Microsoft raadt ten zeerste aan dat een schone installatie van PowerShell worden
     
 ## <a name="threat-model"></a>Risicomodel
 
-Een gegevensstroom-diagram (GSD) en een risicomodel voorbeeld voor het Contoso Webstore [risicomodel betaling verwerken blauwdruk](https://aka.ms/pciblueprintthreatmodel).
+Een gegevensstroom-diagram (GSD) en een risicomodel voorbeeld voor het Contoso Webstore [blauwdruk risicomodel](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 68a19bd20cd068a1388c806d30c1bdb2d7575682
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Gegevens kopiëren van ServiceNow met behulp van Azure Data Factory (bèta)
 
@@ -51,7 +51,7 @@ De volgende eigenschappen worden ondersteund voor ServiceNow gekoppelde service:
 | endpoint | Het eindpunt van de server ServiceNow (`http://ServiceNowData.com`).  | Ja |
 | authenticationType | Het verificatietype dat moet worden gebruikt. <br/>Toegestane waarden zijn: **Basic**, **OAuth2** | Ja |
 | gebruikersnaam | De gebruikersnaam voor verbinding met de server ServiceNow voor Basic en OAuth2-verificatie gebruikt.  | Nee |
-| wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam voor de verificatie Basic en OAuth2. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Nee |
+| wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam voor de verificatie Basic en OAuth2. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | clientId | De client-ID voor OAuth2-verificatie.  | Nee |
 | clientSecret | Het clientgeheim voor OAuth2-verificatie. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
@@ -103,14 +103,22 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van ServiceN
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door ServiceNow-bron.
 
-### <a name="servicenowsource-as-source"></a>ServiceNowSource als bron
+### <a name="servicenow-as-source"></a>ServiceNow als bron
 
 Om gegevens te kopiëren van ServiceNow, stelt u het brontype in de kopieerbewerking naar **ServiceNowSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **ServiceNowSource** | Ja |
-| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM alm.asset"`. | Ja |
+| query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM Actual.alm_asset"`. | Ja |
+
+Let op het volgende bij het opgeven van het schema en de kolom voor ServiceNow in query:
+
+- **Schema:** query voor het ServiceNow moet worden opgegeven van het schema als `Actual` of `Display` die kunt u dit beschouwen als de parameter van `sysparm_display_value` als waar of onwaar bij het aanroepen van [ServiceNow restful-API's](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolom:** is de naam van de kolom voor de werkelijke waarde `[columne name]_value` terwijl de weergegeven waarde is `[columne name]_display_value`.
+
+**Voorbeeldquery:** 
+ `SELECT distinct col_value, col_display_value FROM Actual.alm_asset` of `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **Voorbeeld:**
 
@@ -134,7 +142,7 @@ Om gegevens te kopiëren van ServiceNow, stelt u het brontype in de kopieerbewer
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

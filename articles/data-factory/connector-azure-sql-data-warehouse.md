@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,14 +269,14 @@ SQL Data Warehouse PolyBase ondersteuning rechtstreeks voor Azure-Blob en Azure 
 
 Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de instellingen en automatisch terugvalt op het BULKINSERT mechanisme voor de verplaatsing van gegevens.
 
-1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore**.
+1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore** met verificatie van de service-principal.
 2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStoreFile**, en de indeling Typ onder `type` eigenschappen is **OrcFormat** , **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
-   1. `rowDelimiter`moet  **\n** .
-   2. `nullValue`is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
-   3. `encodingName`is ingesteld op **utf-8**, namelijk **standaard** waarde.
+   1. `rowDelimiter` moet  **\n** .
+   2. `nullValue` is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
+   3. `encodingName` is ingesteld op **utf-8**, namelijk **standaard** waarde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, en `skipLineCount` zijn niet opgegeven.
-   5. `compression`kan **geen compressie**, **GZip**, of **Deflate**.
+   5. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
     ```json
     "typeProperties": {

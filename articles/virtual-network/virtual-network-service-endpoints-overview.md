@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Virtual Network Service Endpoints (preview)
+# <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
 Met service-eindpunten van Virtual Network (VNet) kunt u de privé-adresruimte van uw virtuele netwerk en de identiteit van uw VNet uitbreiden naar Azure-services, via een directe verbinding. Met eindpunten kunt u uw kritieke Azure-serviceresources alleen beveiligen naar uw virtuele netwerken. Verkeer van uw VNet naar de Azure-service blijft altijd in het Microsoft Azure-backbonenetwerk.
 
-Deze functie is beschikbaar als preview voor de volgende Azure-services en regio's:
+Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 
-- **Azure Storage**: alle regio's in de openbare cloud van Azure.
-- **Azure SQL**: alle regio's in de openbare cloud van Azure.
+- **Azure Storage**: algemeen verkrijgbaar. Alle regio's in de openbare cloud van Azure en Azure Government.
+- **Azure SQL**: preview. Alle regio's in de openbare cloud van Azure.
 
 Voor recente updates over de preview kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 
@@ -66,7 +66,7 @@ Service-eindpunten bieden de volgende voordelen:
 ### <a name="configuration"></a>Configuratie
 
 - Service-eindpunten worden geconfigureerd in een subnet van een virtueel netwerk. Eindpunten werken met alle soorten rekenprocessen die worden uitgevoerd in dat subnet.
-- Slechts één service-eindpunt kan worden ingeschakeld voor een bepaalde service van een subnet. U kunt meerdere service-eindpunten voor alle ondersteunde Azure-services (bijvoorbeeld Azure Storage of Azure SQL Database) in een subnet configureren.
+- U kunt meerdere service-eindpunten voor alle ondersteunde Azure-services (bijvoorbeeld Azure Storage of Azure SQL Database) in een subnet configureren.
 - Virtuele netwerken moeten zich in dezelfde regio bevinden als de Azure-serviceresource. Als u Azure Storage-accounts voor GRS en RA-GRS gebruikt, moet het hoofdaccount zich in dezelfde regio bevinden als het virtuele netwerk.
 - Het virtuele netwerk waar het eindpunt is geconfigureerd, kan zich in hetzelfde abonnement bevinden als de Azure-serviceresource, maar ook in een ander abonnement. Zie [Inrichten](#Provisioning) voor meer informatie over de benodigde machtigingen voor het instellen van eindpunten en het koppelen van Azure-services.
 - Voor ondersteunde services kunt u nieuwe of bestaande resources koppelen aan virtuele netwerken met behulp van service-eindpunten.
@@ -106,7 +106,7 @@ Service-eindpunten kunnen afzonderlijk op virtuele netwerken worden geconfiguree
 
 Meer informatie over [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Virtuele netwerken en Azure-serviceresources kunnen binnen hetzelfde abonnement of in verschillende abonnementen aanwezig zijn. Als de virtuele netwerken en Azure-serviceresources in verschillende abonnementen aanwezig zijn, moeten de resources tijdens de previewperiode onder dezelfde Active Directory-tenant (AD) vallen. 
+Virtuele netwerken en Azure-serviceresources kunnen binnen hetzelfde abonnement of in verschillende abonnementen aanwezig zijn. Als de virtuele netwerken en Azure-serviceresources in verschillende abonnementen aanwezig zijn, moeten de resources onder dezelfde Active Directory-tenant (AD) vallen. 
 
 ## <a name="pricing-and-limits"></a>Prijzen en beperkingen
 

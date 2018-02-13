@@ -1,4 +1,5 @@
 - name: Documentatie voor Team Data Science Process
+  href: index.yml
 - name: Overzicht
   href: overview.md
 - name: Levenscyclus

@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 02/12/2018
 ms.author: genli
-ms.openlocfilehash: 0754c6cab9de2f93e9a57e202227a81c51bedf4c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 371e65dd1d80ed24046f3da5c588c21a1958c2e4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integratie van Azure VPN-gateway RADIUS-verificatie met NPS-server voor multi-factor Authentication 
 
-Het artikel wordt beschreven hoe Network Policy Server (NPS) server integreren met Azure VPN-gateway RADIUS-verificatie voor het leveren van multi-factor Authentication (MFA) voor punt-naar-site VPN-verbindingen. 
+Het artikel wordt beschreven hoe Network Policy Server (NPS) integreren met Azure VPN-gateway RADIUS-verificatie voor het leveren van multi-factor Authentication (MFA) voor punt-naar-site VPN-verbindingen. 
 
 ## <a name="prerequisite"></a>Vereiste
 
-Schakel MFA in door de gebruikers moeten zich in Azure Active Directory (gesynchroniseerde van on-premises of cloud alleen) en de gebruiker moet al het bewijs van proces voltooien voor MFA.  Gebruikers kunnen het bewijs van proces uitvoeren met behulp van https://myapps.microsoft.com.
+De gebruikers moeten zich voor het inschakelen van MFA in Azure Active Directory (Azure AD), die moet worden gesynchroniseerd vanuit de on-premises of cloud-omgeving. Ook moet de gebruiker al hebt voltooid het proces voor automatische inschrijving voor MFA.  Zie voor meer informatie [Mijn account voor verificatie in twee stappen instellen](../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
 
-### <a name="step-1-create-virtual-network-gateway"></a>Stap 1 maken virtuele netwerkgateway
+### <a name="step-1-create-a-virtual-network-gateway"></a>Stap 1: Een virtuele netwerkgateway maken
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer in het virtuele netwerk die als host voor de virtuele netwerkgateway fungeert, **subnetten**, en selecteer vervolgens **gatewaysubnet** om een subnet te maken. 
 
     ![De afbeelding over het toevoegen van gatewaysubnet](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
-3. De gateway van een virtueel netwerk maken met de volgende instellingen:
+3. Maak een virtuele netwerkgateway door te geven van de volgende instellingen:
 
-    - **Gatewaytype**: Selecteer **VPN**.
+    - **Gatewaytype**: selecteer **VPN**.
     - **VPN-type**: Selecteer **op Route gebaseerde**.
     - **SKU**: Selecteer een SKU-type op basis van uw vereisten.
-    - **Virtueel netwerk**: Selecteer het virtuele netwerk dat u het gatewaysubnet gemaakt.
+    - **Virtueel netwerk**: Selecteer het virtuele netwerk waarin u het gatewaysubnet gemaakt.
 
         ![De afbeelding over gateway-instellingen voor virtueel netwerk](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -51,16 +51,16 @@ Schakel MFA in door de gebruikers moeten zich in Azure Active Directory (gesynch
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Stap 2 de NPS configureren voor Azure MFA
 
 1. Op de NPS-server [installeren van de NPS-extensie voor Azure MFA](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
-2. Open de console van NSP, met de rechtermuisknop op **RADUIS Clients**, selecteer **nieuw**. Een client RADUIS maken met de volgende instellingen:
+2. Open de console NSP, met de rechtermuisknop op **RADUIS Clients**, en selecteer vervolgens **nieuw**. De client RADUIS maken door op te geven van de volgende instellingen:
 
     - **Beschrijvende naam**: Typ een naam.
-    - **Adres (IP of DNS)**: Typ het gatewaysubnet dat u in de stap 1 hebt gemaakt.
-    - **Gedeeld geheim**: Typ een geheim en onthoudt. We gebruiken deze later.
+    - **Adres (IP of DNS)**: Typ het gatewaysubnet dat u in stap 1 hebt gemaakt.
+    - **Gedeeld geheim**: Typ een geheime sleutel en onthouden voor later gebruik.
 
     ![De afbeelding over RADUIS clientinstellingen](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
-3.  In de **Geavanceerd** tabblad, stelt u de naam van de leverancier op **RADIUS-standaard** en zorg ervoor dat de **extra opties** niet zijn geselecteerd.
+3.  Op de **Geavanceerd** tabblad, stelt u de naam van de leverancier op **RADIUS-standaard** en zorg ervoor dat de **extra opties** selectievakje niet is ingeschakeld.
 
     ![De afbeelding over geavanceerde clientinstellingen RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
@@ -68,9 +68,9 @@ Schakel MFA in door de gebruikers moeten zich in Azure Active Directory (gesynch
 
 ### <a name="step-3-configure-the-virtual-network-gateway"></a>Stap 3-Configureer de virtuele netwerkgateway
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Open de virtuele netwerkgateway die u hebt gemaakt, zorg ervoor dat het Gatewaytype **VPN** en het VPN-type is **op route gebaseerde**.
-3. Klik op **wijs siteconfiguratie** > **nu configureren**, en voeg vervolgens de volgende instellingen:
+1. Meld u aan bij [Azure-portal](https://portal.azure.com).
+2. Open de virtuele netwerkgateway die u hebt gemaakt. Zorg ervoor dat het Gatewaytype is ingesteld op **VPN** is en dat het VPN-type **op route gebaseerde**.
+3. Klik op **wijs siteconfiguratie** > **nu configureren**, en geef vervolgens de volgende instellingen:
 
     - **-Adresgroep**: Typ het gatewaysubnet dat u in de stap 1 hebt gemaakt.
     - **Verificatietype**: Selecteer **RADIUS-verificatie**.

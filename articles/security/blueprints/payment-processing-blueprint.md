@@ -1,6 +1,6 @@
 ---
-title: Betaling verwerken blauwdruk voor PCI DSS-compatibele omgevingen
-description: PCI-DSS vereiste
+title: Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
+description: Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Automation blauwdruk: Betaling verwerken voor PCI DSS-compatibele omgevingen
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 
 ## <a name="overview"></a>Overzicht
 
@@ -43,7 +43,7 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 - **Implementatiesjablonen**. In deze implementatie [Azure Resource Manager-sjablonen](/azure/azure-resource-manager/resource-group-overview#template-deployment) worden gebruikt voor de onderdelen van de architectuur automatisch implementeren in Microsoft Azure door te geven configuratieparameters tijdens de installatie.
 - **Geautomatiseerde implementatiescripts**. Deze scripts helpen bij het implementeren van de end-to-end-oplossing. De scripts bestaan uit:
     - Een installatie van de module en [hoofdbeheerder](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installatiescript wordt gebruikt om te installeren en te controleren of vereiste PowerShell-modules en -rollen van de globale beheerder correct zijn geconfigureerd.
-    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing beschikbaar is voor controle is [betaling verwerken blauwdruk code opslagplaats][code-repo]. 
+    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing beschikbaar is voor controle is [ blauwdruk code opslagplaats][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Architectuurdiagram
 
@@ -66,7 +66,7 @@ De beheerder is op zoek naar een oplossing die snel kan worden geïmplementeerd 
 
 De fundamentele architectuur is ontworpen met de volgende fictieve elementen:
 
-Domein-site`contosowebstore.com`
+Domein-site `contosowebstore.com`
 
 Gebruikersrollen gebruikt voor het gebruiksvoorbeeld illustreren en bieden inzicht in de gebruikersinterface.
 
@@ -111,8 +111,6 @@ Edna Benson is de manager receptionist en bedrijven. Ze is verantwoordelijk voor
 - Erna kunt klantgegevens wijzigen.
 - Erna kan overschrijven of vervangen creditcardnummer, verlopen en CVW-informatie.
 
-> In de Contoso Webstore de gebruiker wordt automatisch als de **erna** gebruiker voor het testen van de mogelijkheden van de geïmplementeerde omgeving.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - geschatte prijzen
 
 Deze fundamentele architectuur en voorbeeld-webtoepassing hebben een maandelijkse kostenstructuur en gebruikskosten per uur dat bij het formaat van de oplossing moet worden beschouwd. Deze kosten worden geschat met behulp van de [Azure goedkoper Rekenmachine](https://azure.microsoft.com/pricing/calculator/). Vanaf September 2017 de geschatte maandelijkse kosten voor deze oplossing is ~ $2500 hierbij $1000 per maand gebruik kosten met zich mee voor v2 as-omgeving. Deze kosten variëren, afhankelijk van de hoeveelheid en nog worden gewijzigd. Het is aan de klant voor het berekenen van de geschatte kosten van het maandelijkse op het moment van implementatie voor een meer nauwkeurige schatting. 
@@ -151,7 +149,7 @@ De volgende sectie wordt de ontwikkeling en implementatie-elementen.
 
 De fundamentele architectuur vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met web application firewall (WAF) en de ruleset OWASP is ingeschakeld. Aanvullende mogelijkheden zijn:
 
-- [Einde End SSL-](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Schakel [SSL-Offload](/azure/application-gateway/application-gateway-ssl-portal)
 - Schakel [TLS v1.0 en v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web application firewall](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF modus)
@@ -183,7 +181,7 @@ Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de ve
 #### <a name="custom-domain-ssl-certificates"></a>Aangepast domein SSL-certificaten
  HTTPS-verkeer is ingeschakeld met behulp van een aangepast domein SSL-certificaat.
 
-### <a name="data-at-rest"></a>Gegevens in rust
+### <a name="data-at-rest"></a>Data-at-rest
 
 De architectuur beveiligt de gegevens in rust met behulp van versleuteling, Databasecontrole en andere maatregelen.
 
@@ -207,8 +205,8 @@ Het exemplaar van Azure SQL Database maakt gebruik van de volgende veiligheidsma
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) kan de Contoso Webstore voorzien van uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit, kaarthouder gegevensregistratie bevatten. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. 
 
-- **Activiteitenlogboeken:**[activiteitenlogboeken](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
-- **Diagnostische logboeken:**[diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken zijn Windows-gebeurtenislogboeken system Azure Blob storage, tabellen en logboeken van de wachtrij.
+- **Activiteitenlogboeken:**[activiteitenlogboeken](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.  
+- **Diagnostische logboeken:**[diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource.   Deze logboeken zijn Windows-gebeurtenislogboeken system Azure Blob storage, tabellen en logboeken van de wachtrij.
 - **Firewall-logboeken:** de toepassingsgateway biedt volledige diagnostische en toegang tot logboeken. Firewall logboeken zijn beschikbaar voor Application Gateway-resources met WAF ingeschakeld een.
 - **Logboek archiveren:** alle diagnostische logboeken zijn geconfigureerd om te schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering met een gedefinieerde bewaarperiode (2 dagen). Logboeken zijn verbonden met Azure Log Analytics voor verwerken, opslaan en dashboarding. [Meld u Analytics](https://azure.microsoft.com/services/log-analytics) is een OMS-service waarmee verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen.
 
@@ -357,7 +355,7 @@ Het is raadzaam dat een schone installatie van PowerShell worden gebruikt voor h
     
 ## <a name="threat-model"></a>Risicomodel
 
-Een gegevensstroom-diagram (GSD) en een risicomodel voorbeeld voor het Contoso Webstore [risicomodel betaling verwerken blauwdruk](https://aka.ms/pciblueprintthreatmodel).
+Een gegevensstroom-diagram (GSD) en een risicomodel voorbeeld voor het Contoso Webstore [blauwdruk risicomodel](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
@@ -390,7 +388,7 @@ De oplossing is gelezen door Coalfire systems, Inc. (PCI-DSS gekwalificeerde bev
 ### <a name="document-authors"></a>Auteurs van documenten
 
 - *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan advies)*
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code-opslagplaats"

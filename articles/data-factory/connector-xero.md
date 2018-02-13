@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c2cd0cc648269c4e07d0f0fcd04a10cf7092432
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 458ad702b510c0fd01ab63541b2026b8a9a06e91
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Gegevens uit Xero met behulp van Azure Data Factory (bèta) kopiëren
 
@@ -33,7 +33,10 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 
 U kunt gegevens uit Xero kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Alle Xero tabellen (API-eindpunten) worden ondersteund, behalve 'Rapporten'. Tabellen met complexe items gesplitst met meerdere tabellen. Transacties heeft bijvoorbeeld een complexe gegevensstructuur 'LineItems', zodat de gegevens van de banktransactie is toegewezen aan de tabel Bank_Transaction en Bank_Transaction_Line_Items met Bank_Transaction_ID als refererende sleutel ze om elkaar te koppelen.
+In het bijzonder ondersteunt deze connector Xero:
+
+- Xero [persoonlijke toepassing](https://developer.xero.com/documentation/getting-started/api-application-types) maar niet openbaar toepassing.
+- Alle Xero tabellen (API-eindpunten) behalve 'Rapporten'. 
 
 Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, dus u hoeft niet te gebruik van deze connector stuurprogramma handmatig installeren.
 
@@ -52,7 +55,7 @@ De volgende eigenschappen worden ondersteund voor Xero gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Xero** | Ja |
 | host | Het eindpunt van de server Xero (`api.xero.com`).  | Ja |
 | consumerKey | De consumentsleutel die is gekoppeld aan de Xero. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| privateKey | De persoonlijke sleutel uit het .pem-bestand dat is gegenereerd voor uw persoonlijke Xero-toepassing. Alle tekst uit het .pem-bestand, met inbegrip van de regel Unix endings(\n) bevatten. U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in de Data Factory of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopieeractiviteit pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). | Ja |
+| privateKey | De persoonlijke sleutel uit het .pem-bestand dat is gegenereerd voor uw persoonlijke toepassing Xero Raadpleeg [maken van een openbaar/persoonlijk sleutelpaar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). De tekst van het .pem-bestand met inbegrip van de regel Unix endings(\n) omvatten, zie onderstaand voorbeeld.<br/>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam is vereist in het certificaat van de server overeenkomen met de hostnaam van de server om verbinding te maken via SSL. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Geeft aan of de identiteit van de server te verifiëren wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
@@ -77,6 +80,14 @@ De volgende eigenschappen worden ondersteund voor Xero gekoppelde service:
         }
     }
 }
+```
+
+**Persoonlijke sleutel Voorbeeldwaarde:**
+
+Alle tekst uit het .pem-bestand met inbegrip van de regel Unix endings(\n) bevatten.
+
+```
+"-----BEGIN RSA PRIVATE KEY-----\nMII***************************************************P\nbu****************************************************s\nU/****************************************************B\nA*****************************************************W\njH****************************************************e\nsx*****************************************************l\nq******************************************************X\nh*****************************************************i\nd*****************************************************s\nA*****************************************************dsfb\nN*****************************************************M\np*****************************************************Ly\nK*****************************************************Y=\n-----END RSA PRIVATE KEY-----"
 ```
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
@@ -104,7 +115,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit Xero, **
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Xero bron.
 
-### <a name="xerosource-as-source"></a>XeroSource als bron
+### <a name="xero-as-source"></a>Xero als bron
 
 Om gegevens te kopiëren uit Xero, stelt u het brontype in de kopieerbewerking naar **XeroSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
 
@@ -144,6 +155,60 @@ Om gegevens te kopiëren uit Xero, stelt u het brontype in de kopieerbewerking n
     }
 ]
 ```
+
+Let op het volgende bij het opgeven van de query Xero:
+
+- Tabellen met complexe items gesplitst met meerdere tabellen. Transacties heeft bijvoorbeeld een complexe gegevensstructuur 'LineItems', zodat de gegevens van de banktransactie is toegewezen aan tabel `Bank_Transaction` en `Bank_Transaction_Line_Items`, met `Bank_Transaction_ID` als refererende sleutel ze om elkaar te koppelen.
+
+- Xero gegevens is beschikbaar via twee schema's: `Minimal` (standaard) en `Complete`. Het volledige schema bevat een aanroep van de vereiste tabellen waarvoor extra gegevens (zoals kolom-ID) voordat u de gewenste query.
+
+De volgende tabellen hebben dezelfde informatie in het schema van de minimale en voltooid. Als u het aantal API-aanroepen, minimale schema (standaard) te gebruiken.
+
+- Bank_Transactions
+- Contact_Groups 
+- Contactpersonen 
+- Contacts_Sales_Tracking_Categories 
+- Contacts_Phones 
+- Contacts_Addresses 
+- Contacts_Purchases_Tracking_Categories 
+- Credit_Notes 
+- Credit_Notes_Allocations 
+- Expense_Claims 
+- Expense_Claim_Validation_Errors
+- Facturen 
+- Invoices_Credit_Notes
+- Invoices_ vooruitbetalingen 
+- Invoices_Overpayments 
+- Manual_Journals 
+- Te veel 
+- Overpayments_Allocations 
+- Vooruitbetalingen 
+- Prepayments_Allocations 
+- Ontvangstbevestigingen 
+- Receipt_Validation_Errors 
+- Tracking_Categories
+
+De volgende tabellen kunnen alleen worden opgevraagd met volledige schema:
+
+- Complete.Bank_Transaction_Line_Items 
+- Complete.Bank_Transaction_Line_Item_Tracking 
+- Complete.Contact_Group_Contacts 
+- Complete.Contacts_Contact_ personen 
+- Complete.Credit_Note_Line_Items 
+- Complete.Credit_Notes_Line_Items_Tracking 
+- Complete.Expense_Claim_ Payments 
+- Complete.Expense_Claim_Receipts 
+- Complete.Invoice_Line_Items 
+- Complete.Invoices_Line_Items_Tracking
+- Complete.Manual_Journal_Lines 
+- Complete.Manual_Journal_Line_Tracking 
+- Complete.Overpayment_Line_Items 
+- Complete.Overpayment_Line_Items_Tracking 
+- Complete.Prepayment_Line_Items 
+- Complete.Prepayment_Line_Item_Tracking 
+- Complete.Receipt_Line_Items 
+- Complete.Receipt_Line_Item_Tracking 
+- Complete.Tracking_Category_Options
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst van ondersteunde gegevensarchieven door met de kopieerbewerking [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Analytics
 
@@ -149,9 +149,9 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 | HttpMethod |Tekenreeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
 | Pad |Tekenreeks |Het pad van de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| clientRequestId |Tekenreeks |De id die is uniek voor deze aanvraag |
+| ClientRequestId |Tekenreeks |De id die is uniek voor deze aanvraag |
 | StartTime |Tekenreeks |Het tijdstip waarop de server de aanvraag ontvangen |
-| Eindtijd |Tekenreeks |Het tijdstip waarop de server een antwoord verzonden |
+| EndTime |Tekenreeks |Het tijdstip waarop de server een antwoord verzonden |
 
 ### <a name="audit-logs"></a>Controlelogboeken
 
@@ -203,11 +203,11 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 | Naam | Type | Beschrijving |
 | --- | --- | --- |
 | JobId |Tekenreeks |De ID die is toegewezen aan het project |
-| Taaknaam |Tekenreeks |De naam die is opgegeven voor de taak |
+| JobName |Tekenreeks |De naam die is opgegeven voor de taak |
 | JobRunTime |Tekenreeks |De runtime gebruikt voor het verwerken van de taak |
 | SubmitTime |Tekenreeks |De tijd (in UTC) dat de taak is verzonden |
 | StartTime |Tekenreeks |De tijd dat de taak is gestart na het indienen (in UTC) |
-| Eindtijd |Tekenreeks |De tijd dat de taak is beëindigd |
+| EndTime |Tekenreeks |De tijd dat de taak is beëindigd |
 | Parallelle uitvoering |Tekenreeks |Het aantal aangevraagde voor deze taak tijdens het indienen van Data Lake Analytics-eenheden |
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: Wijzigingen bijhouden met Azure Log Analytics | Microsoft Docs
 description: De oplossing voor wijzigingen bijhouden in Log Analytics kunt u identificeren van software- en Windows-Service-wijzigingen die in uw omgeving plaatsvinden.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in de software in uw omgeving met de oplossing voor wijzigingen bijhouden
 
@@ -105,14 +105,14 @@ Bijhouden van wijzigingen worden verzameld voor software-inventaris en metagegev
 
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld voor het bijhouden.
 
-| Platform | Directe Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| platform | Directe Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows- en Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | vijf minuten 50 minuten, afhankelijk van het wijzigingstype. Weergeven in de volgende tabel voor meer informatie. |
+| Windows en Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | vijf minuten 50 minuten, afhankelijk van het wijzigingstype. Weergeven in de volgende tabel voor meer informatie. |
 
 
 De volgende tabel toont de frequentie van de verzameling gegevens voor de soorten wijzigingen.
 
-| **type wijzigen** | **frequentie** | **Biedt****agent****verschillen wanneer gevonden verzenden?**  |
+| **Type wijzigen** | **frequency** | **Biedt****agent****verschillen wanneer gevonden verzenden?**  |
 | --- | --- | --- |
 | Windows-register | 50 minuten | Nee |
 | Windows-bestand | 30 minuten | Ja. Als er geen wijziging in 24 uur, wordt een momentopname wordt verzonden. |
@@ -126,23 +126,23 @@ De volgende tabel toont de frequentie van de verzameling gegevens voor de soorte
 
 Log Analytics voert Windows-register bewaken en bijhouden van de oplossing voor wijzigingen bijhouden. Het doel van het controleren van wijzigingen registersleutels is op de speldenpunt Uitbreidingspunten waar de code van derden en schadelijke software kunnen activeren. De volgende lijst ziet u de registersleutels die worden bijgehouden door de oplossing en waarom elk wordt bijgehouden.
 
-- HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
     - Monitors scripts die worden uitgevoerd bij het opstarten.
-- HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Monitors scripts die worden uitgevoerd bij het afsluiten.
-- HKEY\_lokale\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
     - Sleutels die worden geladen voordat de gebruiker zich aanmeldt bij hun Windows-account worden gecontroleerd. De sleutel wordt gebruikt voor 32-bits programma's uitgevoerd op 64-bits computers.
 - HKEY\_lokale\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed onderdelen
     - Gecontroleerd op wijzigingen toepassingsinstellingen.
-- HKEY\_lokale\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
     - Monitors algemene autostart vermeldingen die rechtstreeks in Windows Verkenner en meestal uitvoeren in-process met Explorer.exe koppelen.
-- HKEY\_lokale\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
     - Monitors algemene autostart vermeldingen die rechtstreeks in Windows Verkenner en meestal uitvoeren in-process met Explorer.exe koppelen.
-- HKEY\_lokale\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
     - Monitors algemene autostart vermeldingen die rechtstreeks in Windows Verkenner en meestal uitvoeren in-process met Explorer.exe koppelen.
-- HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitors voor pictogram overlay handler registratie.
-- HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitors voor pictogram overlay handler-registratie voor 32-bits programma's uitgevoerd op 64-bits computers.
 - HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objecten
     - De monitoren voor nieuwe browser helper object invoegtoepassingen voor Internet Explorer. Gebruikt voor toegang tot het Document Object Model (DOM) van de huidige pagina te bepalen en navigatie.
@@ -150,13 +150,13 @@ Log Analytics voert Windows-register bewaken en bijhouden van de oplossing voor 
     - De monitoren voor nieuwe browser helper object invoegtoepassingen voor Internet Explorer. Gebruikt voor toegang tot het Document Object Model (DOM) van de huidige pagina te bepalen en navigatie voor 32-bits programma's uitgevoerd op 64-bits computers.
 - HKEY\_lokale\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - De monitoren voor nieuwe Internet Explorer-uitbreidingen, zoals aangepaste hulpprogramma's en aangepaste werkbalkknoppen.
-- HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
     - De monitoren voor nieuwe Internet Explorer-uitbreidingen, zoals aangepaste hulpprogramma's en aangepaste werkbalkknoppen voor 32-bits programma's uitgevoerd op 64-bits computers.
 - HKEY\_lokale\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     - De 32-bits stuurprogramma's die zijn gekoppeld aan wavemapper, wave1 en wave2 msacm.imaadpcm, .msadpcm, .msgsm610 en vidc bewaakt. Vergelijkbaar met de sectie [drivers] in het systeem. INI-bestand.
 - HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     - Monitors de 32-bits stuurprogramma's die zijn gekoppeld aan wavemapper, wave1 en wave2 msacm.imaadpcm, .msadpcm, .msgsm610 en vidc voor 32-bits programma's uitgevoerd op 64-bits computers. Vergelijkbaar met de sectie [drivers] in het systeem. INI-bestand.
-- HKEY\_lokale\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
+- HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
     - Bewaakt de lijst met bekende of veelgebruikte systeem-dll's; Dit systeem wordt voorkomen dat mensen misbruik van zwakke toepassing mapmachtigingen door slepen en neerzetten in Trojaanse paard versies van systeem-dll's.
 - HKEY\_lokale\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
     - De lijst met pakketten kunnen ontvangen van meldingen van gebeurtenissen van Winlogon, het model van de interactieve aanmelding ondersteuning voor het besturingssysteem Windows controleert.

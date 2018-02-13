@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor IntelliJ Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -69,6 +69,27 @@ Zie voor installatie-instructies [Azure Toolkit installeren voor IntelliJ](https
    
     ![Een uitgebreide naam van de cluster-knooppunt](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Koppelen van een cluster
+U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com). 
+1. Klik op **koppelen van een cluster** van **Azure Explorer**.
+
+   ![koppeling cluster contextmenu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Voer **clusternaam**, **Opslagaccount**, **opslagsleutel**, selecteer vervolgens een container van **Opslagcontainer**, ten minste invoer gebruikersnaam en het wachtwoord. U moet de gebruikersnaam en wachtwoord controleren als u de verificatie is mislukt.
+   
+   ![koppeling cluster dialoogvenster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld. 
+   
+3. U ziet een gekoppelde cluster in **HDInsight** knooppunt als de ingevoerde gegevens correct zijn. U kunt nu een toepassing met deze gekoppelde cluster verzenden.
+
+   ![gekoppelde cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. U kunt een cluster met ook ontkoppelen **Azure Explorer**.
+   
+   ![niet-gekoppelde cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Een Spark Scala-toepassing uitvoeren op een HDInsight Spark-cluster
 
 1. Start IntelliJ IDEA en maak vervolgens een project. In de **nieuw Project** dialoogvenster de volgende handelingen uit: 
@@ -82,7 +103,7 @@ Zie voor installatie-instructies [Azure Toolkit installeren voor IntelliJ](https
 
     ![Het dialoogvenster Nieuw Project](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Selecteer **volgende**.
+2. Selecteer **Volgende**.
 
 3. Het maken van het project Scala wizard detecteert automatisch of u de invoegtoepassing Scala hebt geïnstalleerd. Selecteer **installeren**.
 
@@ -164,12 +185,14 @@ Zie voor installatie-instructies [Azure Toolkit installeren voor IntelliJ](https
 
    c. De **Spark verzending** tabblad aan de onderkant van het venster moet worden gestart om de voortgang weer te geven. U kunt ook de toepassing stoppen door het selecteren van de rode knop in de **Spark verzending** venster.
       
-      ![Het venster Spark verzending](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Het venster Spark verzending](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       Zie voor meer informatie over het openen van de taakuitvoer van de, het ' toegang en HDInsight Spark-clusters beheren met behulp van Azure Toolkit voor IntelliJ ' verderop in dit artikel.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster 
-Aangeraden wordt ook een andere manier om de Spark-toepassing aan het cluster in te dienen. U kunt ook doen door het instellen van de parameters in de **uitvoeren/Debug configuraties** IDE. Zie voor meer informatie [fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Aangeraden wordt ook een andere manier om de Spark-toepassing aan het cluster in te dienen. U kunt dit doen door het instellen van de parameters in de **uitvoeren/Debug configuraties** IDE. Zie voor meer informatie [fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Toegang tot en HDInsight Spark-clusters beheren met behulp van Azure Toolkit voor IntelliJ
 U kunt verschillende bewerkingen kunt uitvoeren met behulp van Azure Toolkit voor IntelliJ.
@@ -182,6 +205,8 @@ U kunt verschillende bewerkingen kunt uitvoeren met behulp van Azure Toolkit voo
 2. In het rechterdeelvenster de **Spark taakweergave** tabblad geeft alle toepassingen die op het cluster worden uitgevoerd. Selecteer de naam van de toepassing waarvoor u wilt voor meer informatie.
 
     ![Toepassingsgegevens](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Opmerking
+    >
 
 3. Als u wilt weergeven basisinformatie actieve taak, de muisaanwijzer op de taakgrafiek. Als u wilt weergeven in de grafiek fasen en informatie die elke taak genereert, selecteer een knooppunt in de taakgrafiek.
 

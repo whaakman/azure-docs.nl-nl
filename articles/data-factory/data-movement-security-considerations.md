@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: abnarain
-ms.openlocfilehash: 7bd08a838bef504e41f7aa63516a1b54ba497441
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor gegevensverplaatsing
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,9 +56,6 @@ In dit artikel controleert u beveiligingsoverwegingen in de volgende twee data m
 - Referenties opslaan in Azure Key Vault 
 
    U kunt nu kiezen voor het opslaan van de referentie van de gegevensopslag in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), laat u Azure Data Factory om op te halen tijdens het uitvoeren van een activiteit. Zie voor meer informatie [Store referentie in Azure Key Vault](store-credentials-in-key-vault.md).
-
-   > [!NOTE]
-   > Op dit moment alleen [Dynamics connector](connector-dynamics-crm-office-365.md) deze functie wordt ondersteund. 
 
 ### <a name="data-encryption-in-transit"></a>Gegevensversleuteling onderweg
 Als de gegevensopslag van de cloud HTTPS of TLS ondersteunt, alle gegevens worden overgedragen tussen services voor gegevensverplaatsing in Data Factory en een gegevensarchief cloud zijn via een beveiligde HTTPS- of TLS-kanaal.

@@ -3,7 +3,7 @@ title: Bewaking van de VMware-oplossing in Log Analytics | Microsoft Docs
 description: Meer informatie over hoe de oplossing VMware bewaking kunt logboeken beheren en controleren van ESXi-hosts.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 4af3651ce3d45837166248684d78ab4df95f524c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview)-oplossing in Log Analytics
 
@@ -44,8 +44,8 @@ Maak een Linux-besturingssysteem VM alle syslog-gegevens ontvangen van de ESXi-h
 ### <a name="configure-syslog-collection"></a>Syslog verzamelen configureren
 1. Syslog-doorsturen voor VSphere instellen. Zie voor gedetailleerde informatie om u te helpen bij het opstellen van syslog doorsturen [syslog configureren op ESXi 5.x en 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Ga naar **ESXi-hostconfiguratie** > **Software** > **geavanceerde instellingen** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. In de *Syslog.global.logHost* veld, het toevoegen van de Linux-server en het poortnummer *1514*. Bijvoorbeeld, `tcp://hostname:1514` of`tcp://123.456.789.101:1514`
-3. Open de hostfirewall ESXi voor syslog. **De hostconfiguratie ESXi** > **Software** > **beveiligingsprofiel** > **Firewall** en openen **Eigenschappen**.  
+2. In de *Syslog.global.logHost* veld, het toevoegen van de Linux-server en het poortnummer *1514*. Bijvoorbeeld, `tcp://hostname:1514` of `tcp://123.456.789.101:1514`
+3. Open de hostfirewall ESXi voor syslog. **De hostconfiguratie ESXi** > **Software** > **beveiligingsprofiel** > **Firewall** en open **Eigenschappen**.  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
@@ -183,20 +183,20 @@ Er zijn meerdere redenen:
 
 * De ESXi-host is niet correct gegevens worden gepusht naar de virtuele machine omsagent uitgevoerd. Als u wilt testen, moet u de volgende stappen uitvoeren:
 
-  1. Om te bevestigen, meld u aan bij de ESXi-host met behulp van ssh en voer de volgende opdracht:`nc -z ipaddressofVM 1514`
+  1. Om te bevestigen, meld u aan bij de ESXi-host met behulp van ssh en voer de volgende opdracht: `nc -z ipaddressofVM 1514`
 
       Als dit niet lukt, vSphere-instellingen in de geavanceerde configuratie zijn waarschijnlijk niet worden hersteld. Zie [syslog verzamelen configureren](#configure-syslog-collection) voor meer informatie over het instellen van de ESXi-host voor het doorsturen van syslog.
-  2. Als syslog-poort verbinding geslaagd is, maar u geen gegevens nog steeds niet ziet, klikt u vervolgens opnieuw laden de syslog op de host ESXi met ssh de volgende opdracht uitvoeren:` esxcli system syslog reload`
+  2. Als syslog-poort verbinding geslaagd is, maar u geen gegevens nog steeds niet ziet, klikt u vervolgens opnieuw laden de syslog op de host ESXi met ssh de volgende opdracht uitvoeren: ` esxcli system syslog reload`
 * De virtuele machine met OMS-Agent is niet juist ingesteld. U kunt dit testen, moet u de volgende stappen uitvoeren:
 
-  1. Log Analytics luistert op poort 1514. Om te controleren of dit geopend is, moet u de volgende opdracht uitvoeren:`netstat -a | grep 1514`
+  1. Log Analytics luistert op poort 1514. Om te controleren of dit geopend is, moet u de volgende opdracht uitvoeren: `netstat -a | grep 1514`
   2. U ziet poort `1514/tcp` openen. Als u dit niet doet, moet u controleren of de omsagent correct is geïnstalleerd. Als u de poortinformatie niet ziet, klikt u vervolgens is de syslog-poort niet geopend op de virtuele machine.
 
-    a. Controleren of de OMS-Agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Controleren of de OMS-Agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. Open het `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`-bestand.
 
-    c. Controleer of de juiste gebruiker en groepsinstelling is geldig, vergelijkbaar met:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    c. Controleer of de juiste gebruiker en groepsinstelling is geldig, vergelijkbaar met: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
     d. Als het bestand bestaat niet of de gebruiker en groepsinstelling is onjuist, los problemen door [voorbereiden van een Linux-server](#prepare-a-linux-server).
 

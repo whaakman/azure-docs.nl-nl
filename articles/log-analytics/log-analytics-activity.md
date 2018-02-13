@@ -3,7 +3,7 @@ title: Verzamelen en analyseren van Azure activiteitenlogboeken in Log Analytics
 description: Om te analyseren en het activiteitenlogboek Azure zoeken in alle Azure-abonnement kunt u de Azure-activiteitenlogboeken-oplossing.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
-ms.author: banders
-ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: magoedte
+ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Verzamelen en analyseren van Azure activiteitenlogboeken in Log Analytics
 
@@ -71,7 +71,7 @@ Voer de volgende stappen uit voor het configureren van de activiteit Log Analyti
     2. Klik op de naam van het abonnement voor elk abonnement.  
         ![Abonnement toevoegen](./media/log-analytics-activity/add-subscription.png)
     3. In de *SubscriptionName* blade, klikt u op **Connect**.  
-        ![verbinding maken met abonnement](./media/log-analytics-activity/subscription-connect.png)
+        ![Verbinding maken met abonnement](./media/log-analytics-activity/subscription-connect.png)
 
 Als u de oplossing met behulp van de OMS-portal toevoegt, ziet u de volgende tegel. Meld u aan bij de Azure portal verbinding maken met een Azure-abonnement van uw werkruimte.  
 ![beoordeling uitvoeren](./media/log-analytics-activity/tile-performing-assessment.png)
