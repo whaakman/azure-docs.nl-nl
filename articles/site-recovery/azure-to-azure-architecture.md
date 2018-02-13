@@ -1,0 +1,89 @@
+---
+title: Replicatie van Azure naar Azure-architectuur in Azure Site Recovery | Microsoft Docs
+description: Dit artikel bevat een overzicht van de onderdelen en de architectuur die wordt gebruikt voor het virtuele Azure-machines repliceren tussen Azure-regio's met de Azure Site Recovery-service.
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: article
+ms.date: 02/07/2018
+ms.author: raynew
+ms.custom: mvc
+ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/09/2018
+---
+# <a name="azure-to-azure-replication-architecture"></a>Architectuur van de replicatie van Azure naar Azure
+
+
+In dit artikel beschrijft de architectuur die wordt gebruikt wanneer u replicatie, failover en Azure virtuele machines (VM's) tussen Azure-regio's herstellen, met behulp van de [Azure Site Recovery](site-recovery-overview.md) service.
+
+>[!NOTE]
+>Azure VM-replicatie met Site Recovery-service is momenteel in preview.
+
+
+
+## <a name="architectural-components"></a>Architectuuronderdelen
+
+De volgende afbeelding toont een globaal overzicht van een virtuele machine van Azure-omgeving in een specifieke regio (in dit voorbeeld is de locatie VS-Oost). In een virtuele machine van Azure-omgeving:
+- Apps kunnen worden uitgevoerd op virtuele machines met schijven die zijn verdeeld over de storage-accounts.
+- De virtuele machines kunnen worden opgenomen in een of meer subnetten binnen een virtueel netwerk.
+
+
+**Replicatie van Azure naar Azure**
+
+![klant-omgeving](./media/concepts-azure-to-azure-architecture/source-environment.png)
+
+## <a name="replication-process"></a>Replicatieproces
+
+### <a name="step-1"></a>Stap 1
+
+Wanneer u replicatie voor virtuele machine van Azure inschakelt, worden de volgende bronnen automatisch gemaakt in de doelregio, op basis van de instellingen voor de regio. U kunt resources doelinstellingen zo nodig kunt aanpassen.
+
+![Stap 1 replicatieproces inschakelen](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+
+**Resource** | **Details**
+--- | ---
+**Doelresourcegroep** | De resourcegroep waartoe gerepliceerde virtuele machines na een failover behoren.
+**Doel virtueel netwerk** | Het virtuele netwerk waarin gerepliceerde virtuele machines zich bevinden na een failover. Een netwerktoewijzing wordt gemaakt tussen bron- en virtuele netwerken, en vice versa.
+**Cache-opslagaccounts** | Voordat u wijzigingen in gegevensbron VM worden gerepliceerd naar een doelopslagaccount, zijn ze bijgehouden en verzonden naar de storage-account van de cache in de bronlocatie. Deze stap zorgt ervoor dat minimale gevolgen voor de productietoepassingen die worden uitgevoerd op de virtuele machine.
+**Doel storage-accounts**  | Storage-accounts in de doellocatie waarnaar de gegevens worden gerepliceerd.
+**Doel-beschikbaarheidssets**  | Beschikbaarheidssets in die de gerepliceerde virtuele machines zich na een failover.
+
+### <a name="step-2"></a>Stap 2
+
+Als replicatie is ingeschakeld, wordt de Site Recovery-extensie Mobility-service automatisch geïnstalleerd op de virtuele machine:
+
+1. De virtuele machine is geregistreerd met Site Recovery.
+
+2. Continue replicatie is geconfigureerd voor de virtuele machine. Gegevens schrijfbewerkingen op de VM-schijven worden continu overgebracht naar het opslagaccount van de cache op de bronlocatie.
+
+   ![Stap 2 replicatieproces inschakelen](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+
+
+ Site Recovery moet nooit binnenkomende verbinding hebben met de virtuele machine. Alleen uitgaande verbinding nodig is voor het volgende.
+
+ - Site Recovery-service-URL's of het IP-adressen
+ - Authenticatie van Office 365-URL's of het IP-adressen
+ - Cache storage account IP-adressen
+
+Als u de consistentie tussen meerdere VM's inschakelt, wordt de machines in de replicatiegroep met elkaar communiceren via poort 20004. Zorg ervoor dat er geen firewall-apparaat de interne communicatie tussen de VM's via poort 20004 te blokkeren.
+
+> [!IMPORTANT]
+Als u virtuele Linux-machines deel uitmaken van een replicatiegroep wilt, zorg ervoor dat het uitgaande verkeer op poort 20004 handmatig aan de hand van de richtlijnen van de specifieke versie van Linux wordt geopend.
+
+### <a name="step-3"></a>Stap 3
+
+Nadat u continue replicatie wordt uitgevoerd, worden schrijfbewerkingen onmiddellijk overgebracht naar het opslagaccount van de cache. Site Recovery de gegevens worden verwerkt en verzonden naar de doel-opslagaccount. Nadat de gegevens zijn verwerkt, worden herstelpunten gegenereerd in de doel-storage-account om de paar minuten.
+
+## <a name="failover-process"></a>Failover-proces
+
+Wanneer u een failover initieert, worden de virtuele machines maken in de doelresourcegroep, virtuele doelnetwerk, Doelsubnet en in de doel-beschikbaarheid instellen. U kunt een willekeurig herstelpunt gebruiken tijdens een failover.
+
+![Failover-proces](./media/concepts-azure-to-azure-architecture/failover.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+[Snel repliceren](azure-to-azure-quickstart.md) een Azure-VM met een secundaire regio.
