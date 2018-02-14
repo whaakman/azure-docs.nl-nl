@@ -4,9 +4,7 @@
 
 * N-serie VM's kunnen alleen worden geïmplementeerd in het Resource Manager-implementatiemodel.
 
-* Bij het maken van een virtuele machine in N-reeks met de Azure-portal op de **basisbeginselen** blade, selecteer een **VM schijftype** van **HDD**. Een formaat N-serie, kiezen op de **grootte** blade, klikt u op **weergeven van alle**.
-
-* NC en NV VM's bieden geen ondersteuning voor VM-schijven die worden ondersteund door Azure Premium-opslag.
+* N-serie VMs verschillen in het type van Azure Storage ze voor hun schijven ondersteunen. NC en NV virtuele machines alleen ondersteuning voor VM-schijven die worden ondersteund door standaard schijf opslag (HDD). NCv2 ND en NCv3 preview () virtuele machines alleen ondersteuning voor VM schijven die worden ondersteund door Premium schijf opslag (SSD).
 
 * Als u wilt meer dan een paar N-reeks virtuele machines te implementeren, kunt u een abonnement op gebruiksbasis of andere Aankoopopties. Als u een [gratis account van Azure](https://azure.microsoft.com/free/) gebruikt, kunt u slechts een paar Azure Compute-resources van Azure gebruiken.
 
