@@ -3,7 +3,7 @@ title: Netwerk-Prestatiemeter-oplossing in Azure Log Analytics | Microsoft Docs
 description: De Prestatiemeter netwerk in Azure Log Analytics, helpt u bij het controleren van de prestaties van uw netwerken in bijna de real-eenmalig aan detecteren en zoek netwerk knelpunten.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
-ms.author: banders
-ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 5fc2477e566fdea76294b62a738c0e18facbe629
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Netwerk-Prestatiemeter-oplossing in Log Analytics
 
 ![Netwerk Prestatiemeter symbool](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
-Dit document wordt beschreven hoe wilt instellen en gebruiken de netwerk-Prestatiemeter-oplossing in Log Analytics, die helpt u bij het controleren van de prestaties van uw netwerken in bijna de real-eenmalig aan detecteren en zoek prestatieknelpunten netwerk. U kunt controleren en de netwerklatentie tussen twee netwerken, subnetten of servers met de netwerk-Prestatiemeter-oplossing. Prestatiemeter netwerk detecteert netwerkproblemen zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet detecteren. Netwerk Performance Monitor genereert waarschuwingen en ontvangt een melding als en wanneer een drempelwaarde voor een netwerkverbinding is geschonden. Deze drempels automatisch kunnen worden geleerd door het systeem of kunt u ze voor het gebruik van aangepaste regels voor waarschuwingen configureren. Prestatiemeter-netwerk wordt gewaarborgd tijdige detectie van problemen met de netwerkprestaties en de bron van het probleem met een bepaald netwerksegment of het apparaat is vertaald.
+Dit document beschrijft het instellen en gebruiken van de prestaties Netwerkcontrole detecteren van de oplossing in Log Analytics, waardoor u de prestaties van uw netwerken in bijna de real-eenmalig-om te controleren en knelpunten in de prestaties te vinden. U kunt controleren en de netwerklatentie tussen twee netwerken, subnetten of servers met de netwerk-Prestatiemeter-oplossing. Prestatiemeter netwerk detecteert netwerkproblemen zoals verkeer blackholing, routering fouten en problemen die controlemethoden conventionele netwerk niet detecteren. Netwerk Performance Monitor genereert waarschuwingen en ontvangt een melding als en wanneer een drempelwaarde voor een netwerkverbinding is geschonden. Deze drempels automatisch kunnen worden geleerd door het systeem of kunt u ze voor het gebruik van aangepaste regels voor waarschuwingen configureren. Prestatiemeter-netwerk wordt gewaarborgd tijdige detectie van problemen met de netwerkprestaties en de bron van het probleem met een bepaald netwerksegment of het apparaat is vertaald.
 
-Netwerkproblemen met het dashboard van de oplossing die samengevatte geeft informatie weer over uw netwerk waaronder recente netwerk health gebeurtenissen, slechte netwerkkoppelingen en subnetwerkkoppelingen die met hoge pakketverlies en latentie kampen, kunt u detecteren. U kunt inzoomen in een netwerkkoppeling om de huidige status van subnetwerkkoppelingen alsook knooppunt naar links weer te geven. U kunt ook de historische trend van en netwerklatentie op het netwerk, subnetwerk en knooppunt naar niveau weergeven. U kunt tijdelijke netwerkproblemen detecteren door het bekijken van historische trendgrafieken voor pakketverlies en latentie en zoek netwerkknelpunten op een topologiekaart. De grafiek interactieve topologie kunt u de netwerkroutes hop door hop visualiseren en de bron van het probleem te bepalen. Net als andere oplossingen, kunt u logboek zoeken naar verschillende analytics-vereisten voor het maken van aangepaste rapporten op basis van de gegevens die worden verzameld door Netwerkcontrole prestaties.
+Netwerkproblemen met het dashboard van de oplossing, kunt u detecteren. Samenvatting van de gegevens over uw netwerk waaronder recente netwerk health gebeurtenissen, slechte netwerkkoppelingen en subnetwerkkoppelingen die met hoge pakketverlies en latentie kampen wordt weergegeven. U kunt inzoomen op een netwerkkoppeling om de huidige status van subnetwerkkoppelingen alsook knooppunt naar links weer te geven. U kunt ook de historische trend van en netwerklatentie op het netwerk, subnetwerk en knooppunt naar niveau weergeven. U kunt tijdelijke netwerkproblemen detecteren door het bekijken van historische trendgrafieken voor pakketverlies en latentie en zoek netwerkknelpunten op een topologiekaart. De grafiek interactieve topologie kunt u de netwerkroutes hop door hop visualiseren en de bron van het probleem te bepalen. Net als andere oplossingen, kunt u logboek zoeken naar verschillende analytics-vereisten voor het maken van aangepaste rapporten op basis van de gegevens die worden verzameld door Netwerkcontrole prestaties.
 
 De oplossing maakt gebruik van synthetische transacties als een primaire methode voor het detecteren van netwerkfouten. U kunt het geval is, gebruiken zonder rekening wordt gehouden met de leverancier van een bepaald netwerkapparaat of het model. Voor on-premises, cloud (IaaS) en hybride omgevingen werkt. De oplossing detecteert automatisch de netwerktopologie en verschillende routes in uw netwerk.
 
@@ -60,7 +60,7 @@ Als u over de topologie van uw netwerk weet, moet u de agents installeren op ser
 
 Agents bewaken netwerkverbinding (koppelingen) tussen hosts--niet de hosts zelf. Dus als u wilt bewaken van een netwerkverbinding, u agents op beide eindpunten van die koppeling installeren moet.
 
-### <a name="configure-agents"></a>Agents configureren
+### <a name="configure-agents"></a>Agenten configureren
 
 Als u van plan bent met het ICMP-protocol voor synthetische transacties, moet u de volgende firewallregels voor ICMP betrouwbare manier gebruik inschakelen:
 
@@ -74,7 +74,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 ```
 
 
-Als u wilt gebruiken het TCP-protocol moet u open firewallpoorten voor computers om ervoor te zorgen dat de agents kunnen communiceren. U moet downloaden en voer vervolgens de [EnableRules.ps1 PowerShell-script](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) zonder parameters in een PowerShell-venster met beheerdersbevoegdheden.
+Als u van plan bent de TCP-protocol te gebruiken, moet u open firewallpoorten voor computers om ervoor te zorgen dat de agents kunnen communiceren. Download en voer de [EnableRules.ps1 PowerShell-script](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) zonder parameters in een PowerShell-venster met beheerdersbevoegdheden.
 
 Het script maakt de netwerk-Prestatiemeter vereiste registersleutels en Windows firewall-regels zodat agents TCP-verbindingen maken met elkaar wordt gemaakt. De registersleutels gemaakt door het script ook opgeven of om de logboeken voor foutopsporing en het pad voor het bestand logboeken te leggen. Het definieert ook de agent TCP-poort gebruikt voor communicatie. De waarden voor deze sleutels worden automatisch ingesteld door het script, zodat deze sleutels niet handmatig te wijzigen.
 
@@ -95,13 +95,13 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
 2. De netwerk-Prestatiemeter-oplossing toevoegen aan uw werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).<br><br> ![Netwerk Prestatiemeter symbool](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
 3. In de OMS-portal, ziet u een nieuwe tegel met de titel **netwerk Prestatiemeter** met het bericht *oplossing is aanvullende configuratie vereist*. Klik op de tegel om te navigeren naar de **implementatie** tabblad en selecteer het protocol moet worden gebruikt voor het maken van de synthetische transacties voor het bewaken van uw netwerk.  Bekijk [kiest u het juiste protocol-ICMP- of TCP](#choose-the-right-protocol-icmp-or-tcp) bij het kiezen van het juiste protocol geschikt zijn voor uw netwerk.<br><br> ![oplossing vereist Protocolselectie](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-4. Nadat u hebt gekozen het protocol wordt u omgeleid naar de **OMS overzicht** pagina. Terwijl de oplossing maakt een aggregatie van gegevens van uw netwerk, de Prestatiemeter netwerk overzicht-tegel wordt weergegeven de met de melding *gegevens worden verzameld*.<br><br> ![oplossing aggregeren van gegevens](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
-5. Nadat de gegevens worden verzameld en worden geïndexeerd, wordt de overzichttegel wijzigen en geven moet u een aanvullende configuratie uitvoeren.<br><br> ![tegel oplossing is aanvullende configuratie vereist.](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
-6. Klik op de tegel en beginnen met de configuratie van de oplossing voor de onderstaande stappen te volgen.
+4. Nadat u hebt gekozen het protocol, wordt u omgeleid naar de **OMS overzicht** pagina. Terwijl de oplossing maakt een aggregatie van gegevens van uw netwerk, de Prestatiemeter netwerk overzichttegel geeft de met de melding *gegevens worden verzameld*.<br><br> ![oplossing aggregeren van gegevens](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Nadat de gegevens worden verzameld en worden geïndexeerd, de wijzigingen van de tegel overzicht om aan te geven moet u een aanvullende configuratie uitvoeren.<br><br> ![tegel oplossing is aanvullende configuratie vereist.](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Klik op de tegel en beginnen met de configuratie van de oplossing met behulp van de volgende stappen uit.
 
 ### <a name="create-new-networks"></a>Nieuwe netwerken maken
 Een netwerk in Prestatiemeter netwerk is een logische container voor subnetten. U kunt een netwerk maken met een beschrijvende naam en subnetten volgens uw bedrijfslogica aan toe te voegen. U kunt bijvoorbeeld een netwerk met de naam maken *Londen* en voegt alle subnetten in uw datacenter Londen of een netwerk met de naam *ContosoFrontEnd* en alle subnetten voor de front-end van uw app met de naam Contoso toevoegen met dit netwerk.
-Op de configuratiepagina ziet u een netwerk met de naam **standaard** in het tabblad netwerken. Als u geen netwerken hebt gemaakt, worden alle subnetten automatisch worden gedetecteerd in het netwerk standaard geplaatst.
+Op de configuratiepagina die u ziet een netwerk met de naam **standaard** in het tabblad netwerken. Als u geen netwerken hebt gemaakt, worden alle subnetten automatisch worden gedetecteerd in het netwerk standaard geplaatst.
 Wanneer u een netwerk maakt, toevoegen van een subnet met en dat subnet uit de standaardnetwerk is verwijderd. Als u een netwerk verwijdert, worden automatisch alle bijbehorende subnetten geretourneerd met het standaard-netwerk.
 Dus fungeert het standaardnetwerk als een container voor alle subnetten die niet zijn opgenomen in een door de gebruiker gedefinieerde netwerk. U niet kunt bewerken of verwijderen van het standaard-netwerk. Het blijft altijd in het systeem. U kunt echter zo veel aangepaste netwerken behoefte maken.
 In de meeste gevallen de subnetten in uw organisatie worden gerangschikt in meer dan één netwerk en moet u een of meer netwerken om uw subnetten volgens uw bedrijfslogica groep maken
@@ -116,7 +116,7 @@ Nadat u de configuratie voor de eerste keer hebt opgeslagen, begint de oplossing
 
 ![de gegevens worden verzameld](./media/log-analytics-network-performance-monitor/npm-aggregation.png)
 
-Wanneer de gegevens zijn geüpload, ziet u de gegevens van de Prestatiemeter netwerk tegel bijgewerkt weergeeft.
+Wanneer de gegevens zijn geüpload, kan de netwerk-Prestatiemeter-tegel wordt bijgewerkt met gegevens.
 
 ![Netwerk Prestatiemeter tegel](./media/log-analytics-network-performance-monitor/npm-tile.png)
 
@@ -128,9 +128,9 @@ Klik op de tegel om de netwerk-Prestatiemeter-dashboard weer te geven.
 Alle subnetten waarin ten minste één agent is geïnstalleerd, worden vermeld op de **subnetwerken** tabblad in de configuratiepagina.
 
 #### <a name="to-enable-or-disable-monitoring-for-particular-subnetworks"></a>In-of schakel bewaking voor bepaalde subnetwerken
-1. Selecteren of schakel het selectievakje naast de **subnetwerk ID** en zorg ervoor dat **gebruiken voor bewaking** is ingeschakeld of uitgeschakeld, indien nodig. U kunt selecteren of wissen van meerdere subnetten. Wanneer deze is uitgeschakeld, worden de subnetwerken niet bewaakt als de agents worden bijgewerkt om te stoppen met het pingen van andere agents.
+1. Selecteren of schakel het selectievakje naast de **subnetwerk ID** en zorg ervoor dat **gebruiken voor bewaking** is ingeschakeld of uitgeschakeld, indien nodig. U kunt selecteren of wissen van meerdere subnetten. Wanneer deze is uitgeschakeld, worden de subnetwerken niet bewaakt de agents zijn bijgewerkt om te stoppen met het pingen van andere agents.
 2. Kies de knooppunten die u voor een bepaalde subnetwerk door het subnetwerk selecteren in de lijst en de vereiste knooppunten verplaatsen tussen de lijsten met niet-beheerd en gecontroleerd knooppunten wilt bewaken.
-   U kunt een aangepaste toevoegen **beschrijving** naar het subnetwerk, als u tevreden bent.
+   U kunt een aangepaste toevoegen **beschrijving** naar het subnetwerk.
 3. Klik op **opslaan** aan de configuratie op te slaan.<br><br> ![bewerken van het subnet](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Kies knooppunten om te controleren
@@ -142,13 +142,14 @@ Alle knooppunten die een agent is geïnstalleerd op deze worden vermeld in de **
 3. Klik op **Opslaan**.<br><br> ![Schakel de bewaking van knooppunt](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Set regels controleren
-Netwerk Performance Monitor genereert health gebeurtenissen als de drempelwaarde van de prestaties van netwerkverbindingen tussen 2 subnetwerken of tussen 2 netwerken is geschonden. Deze drempels automatisch kunnen worden geleerd door het systeem of u kunt aangepaste drempelwaarden.
-Het systeem maakt automatisch een standaardregel waarmee een statusgebeurtenis wanneer schendingen verlies of latentie tussen elk paar netwerk/subnetwerk koppelingen genereert de drempelwaarde system geleerd. Dit helpt de oplossing voor uw netwerkinfrastructuur bewaken totdat u alle bewakingsregels expliciet dat nog niet hebt gemaakt. Als de standaardregel is ingeschakeld, verzenden alle knooppunten synthetische transacties voor alle andere knooppunten die u hebt ingeschakeld voor bewaking. De standaardregel is handig in geval van een kleine netwerken, bijvoorbeeld in een scenario waarbij u een klein aantal servers met een microservice hebt en u wilt ervoor zorgen dat alle o de servers verbonden met zijn elkaar.
+Netwerk Performance Monitor genereert health gebeurtenissen als de drempelwaarde van de prestaties van netwerkverbindingen tussen twee subnetwerken of tussen twee netwerken is geschonden. Deze drempels automatisch kunnen worden geleerd door het systeem of u kunt aangepaste drempelwaarden.
+
+Een standaardregel wordt automatisch gemaakt door het systeem. De regel genereert een statusgebeurtenis wanneer verlies of latentie tussen elk paar netwerk/subnetwerkkoppelingen kiezen de drempelwaarde system geleerd oplossingen. Dit helpt de oplossing voor uw netwerkinfrastructuur bewaken totdat u alle bewakingsregels expliciet dat nog niet hebt gemaakt. Als de standaardregel is ingeschakeld, verzenden alle knooppunten synthetische transacties voor alle andere knooppunten die u hebt ingeschakeld voor bewaking. De standaardregel is handig voor kleine netwerken. Bijvoorbeeld in een scenario waarbij u een klein aantal servers met een microservice hebt en u wilt ervoor zorgen dat alle servers verbonden met elkaar zijn.
 
 >[!NOTE]
->Het is raadzaam dat u de standaardregel uitschakelen en aangepaste regels voor controle, vooral bij grote netwerken als u gebruikmaakt van een groot aantal knooppunten voor het bewaken van maken. Zo beperkt u het verkeer dat is gegenereerd door de oplossing en help ordenen van de bewaking van uw netwerk.
+>Het is raadzaam dat u de standaardregel uitschakelen en aangepaste regels voor controle, vooral bij grote netwerken als u gebruikmaakt van een groot aantal knooppunten voor het bewaken van maken. Dit vermindert het verkeer dat is gegenereerd door de oplossing en help ordenen van de bewaking van uw netwerk.
 
-Aangepaste bewaking regels volgens uw bedrijfslogica maken. Bijvoorbeeld, als u bewaken van de prestaties van de netwerkverbinding 2 office sites headquarter wilt, vervolgens groep alle subnetten in office site1 in netwerk O1, alle subnetten in office site2 in netwerk O2 en alle subnetten in de headquarter in netwerk H. maken bewaking van regels-een tussen O1 en H en de andere tussen O2 en H. 2
+Aangepaste bewaking regels volgens uw bedrijfslogica maken. Bijvoorbeeld, als u bewaken van de prestaties van de netwerkverbinding van twee office-sites met hoofdkantoor wilt, vervolgens groep alle subnetten in office site1 in netwerk O1, alle subnetten in office site2 in netwerk O2 en alle subnetten in de headquarter in netwerk H. Maak twee regels-een tussen O1 en H en de andere tussen O2 en H. bewaking
 
 
 #### <a name="to-create-custom-monitoring-rules"></a>Aangepaste bewaking regels maken
@@ -190,8 +191,9 @@ PowerShell-scripts kunt u firewallregels configureren op uw computers met Window
 ICMP werkt echter niet met behulp van poort. ICMP-verkeer is in de meeste zakelijke scenario's, kunt u gebruikmaken van netwerk diagnostische hulpprogramma's zoals het hulpprogramma Ping toegestaan via de firewalls. Dus als u één machine van een andere pingen kunt, u het ICMP-protocol gebruiken kunt zonder het handmatig configureren van firewalls.
 
 > [!NOTE]
-> Sommige firewalls blokkeren ICMP, wat tot herverzending leiden kan, wat resulteert in een groot aantal gebeurtenissen in uw systeem security information en event management. Zorg ervoor dat het protocol dat u kiest niet wordt geblokkeerd door een firewall/NSG, anders NPM kan niet worden voor het bewaken van het netwerksegment.  Daarom raden wij u TCP gebruiken voor bewaking. U moet ICMP gebruiken in scenario's waarin u ze niet om TCP te gebruiken, zoals wanneer:
-> * U gebruikt Windows-client op basis van knooppunten, omdat de onbewerkte sockets TCP zijn niet toegestaan in Windows-client
+> Sommige firewalls blokkeren ICMP, wat tot herverzending leiden kan, wat resulteert in een groot aantal gebeurtenissen in uw systeem security information en event management. Zorg ervoor dat het protocol dat u kiest niet wordt geblokkeerd door een firewall/NSG, anders NPM kan niet worden voor het bewaken van het netwerksegment.  Daarom raden wij u TCP gebruiken voor bewaking.
+> U moet ICMP gebruiken in scenario's waarin u ze niet om TCP te gebruiken, zoals wanneer:
+> * U gebruikt Windows client-knooppunten, omdat de onbewerkte sockets TCP zijn niet toegestaan in Windows-client
 > * Uw netwerk firewall/NSG blokken TCP
 
 
@@ -208,15 +210,15 @@ Zelfs als de standaardregel voor een specifieke protocol wordt gebruikt, kunt u 
 
 
 ## <a name="data-collection-details"></a>Details van de verzameling gegevens
-Prestaties Netwerkcontrole gebruikt TCP SYN-SYNACK-ACK handshake pakketten wanneer TCP wordt gekozen en ICMP ECHO ICMP-ECHOANTWOORD wanneer ICMP is gekozen als het protocol en netwerklatentie informatie te verzamelen. Traceroute wordt ook gebruikt voor het ophalen van gegevens over de topologie.
+Prestaties Netwerkcontrole gebruikt TCP SYN-SYNACK-ACK handshake pakketten wanneer TCP wordt gekozen en ICMP-ECHOANTWOORD wanneer ICMP is gekozen als het protocol en netwerklatentie informatie te verzamelen. Traceroute wordt ook gebruikt voor het ophalen van gegevens over de topologie.
 
 De volgende tabel bevat gegevens verzameling methoden en andere informatie over hoe gegevens worden verzameld voor netwerk-Prestatiemeter.
 
-| Platform | Directe Agent | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
+| platform | Directe Agent | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |TCP-handshakes/ICMP-echoberichten om de vijf seconden gegevens verzonden om de 3 minuten |
 
-De oplossing maakt gebruik van synthetische transacties om de status van het netwerk te beoordelen. OMS-agents die zijn geïnstalleerd op verschillende punt in de TCP-netwerkpakketten exchange of ICMP Echo (afhankelijk van het protocol geselecteerd voor bewaking) met elkaar. In het proces agents meer informatie over de round trip time en pakket verloren zijn gegaan, indien van toepassing. Elke agent voert regelmatig ook een opdracht Traceroute naar andere agents vinden van de verschillende routes in het netwerk dat moet worden getest. Met deze gegevens kunnen de agents deduceren de netwerklatentie en pakket verliescijfers. De tests worden herhaald op elke vijf seconden en de gegevens worden samengevoegd voor een periode van drie minuten door de agents voordat u dit uploadt naar de Log Analytics-service.
+De oplossing maakt gebruik van synthetische transacties om de status van het netwerk te beoordelen. OMS-agents die zijn geïnstalleerd op verschillende momenten in de TCP-netwerkpakketten exchange of ICMP Echo (afhankelijk van het protocol geselecteerd voor bewaking) met elkaar. In het proces agents meer informatie over de round trip time en pakket verloren zijn gegaan, indien van toepassing. Elke agent voert regelmatig ook een opdracht Traceroute naar andere agents vinden van de verschillende routes in het netwerk dat moet worden getest. Met deze gegevens kunnen de agents deduceren de netwerklatentie en pakket verliescijfers. De tests worden herhaald op elke vijf seconden en de gegevens worden samengevoegd voor een periode van drie minuten door de agents voordat u dit uploadt naar de Log Analytics-service.
 
 > [!NOTE]
 > Hoewel vaak agents met elkaar communiceren, ze tijdens de uitvoering van de test geen veel netwerkverkeer genereren. Agents afhankelijk zijn van alleen TCP SYN-SYNACK-ACK handshake pakketten om te bepalen en de netwerklatentie--er worden geen gegevens pakketten worden uitgewisseld. Tijdens dit proces agents met elkaar communiceren alleen wanneer deze nodig is en de agent communicatie-topologie wordt geoptimaliseerd om het netwerkverkeer te verminderen.
@@ -232,24 +234,24 @@ Nadat u de netwerk-Prestatiemeter-oplossing hebt ingeschakeld, biedt de tegel op
 ![Netwerk Prestatiemeter tegel](./media/log-analytics-network-performance-monitor/npm-tile.png)
 
 ### <a name="network-performance-monitor-solution-dashboard"></a>Dashboard van de oplossing netwerk Prestatiemeter
-De **netwerk samenvatting** blade bevat een overzicht van de netwerken samen met de relatieve grootte. Dit wordt gevolgd door tegels totaal aantal netwerkkoppelingen, subnet koppelingen en paden worden weergegeven in het systeem (een pad bestaat uit de IP-adressen van de twee hosts met agents en alle hops tussen deze twee).
+De **netwerk samenvatting** gebied geeft een samenvatting weer van de netwerken samen met de relatieve grootte. Dit wordt gevolgd door tegels totaal aantal netwerkkoppelingen, subnet koppelingen en paden worden weergegeven in het systeem (een pad bestaat uit de IP-adressen van de twee hosts met agents en alle hops tussen deze twee).
 
-De **boven netwerk Health gebeurtenissen** blade bevat een lijst van de meest recente status gebeurtenissen en waarschuwingen in het systeem en de tijd sinds de gebeurtenis actief is geweest. Een statusgebeurtenis of een waarschuwing wordt gegenereerd wanneer de pakketten verloren gaan of de latentie van een koppeling met het netwerk of subnetwerk een drempelwaarde overschrijdt.
+De **boven netwerk Health gebeurtenissen** gebied geeft een lijst van de meest recente status gebeurtenissen en waarschuwingen in het systeem en de tijd sinds de gebeurtenis actief is geweest. Een statusgebeurtenis of een waarschuwing wordt gegenereerd wanneer de pakketten verloren gaan of de latentie van een koppeling met het netwerk of subnetwerk een drempelwaarde overschrijdt.
 
-De **boven slechte netwerkkoppelingen** blade ziet u een lijst met slechte netwerkkoppelingen. Dit zijn de netwerkkoppelingen met een of meer nadelige statusgebeurtenis voor ze op dit moment.
+De **boven slechte netwerkkoppelingen** ziet u hier een lijst met slechte netwerkkoppelingen. Dit zijn de netwerkkoppelingen met een of meer nadelige health-gebeurtenissen voor ze op dit moment.
 
-De **boven Subnetwerkkoppelingen met het meeste verlies** en **Subnetwerkkoppelingen met de meeste latentie** blades de bovenste subnetwerkkoppelingen pakketverlies weergeven en subnetwerkkoppelingen respectievelijk top door latentie. Hoge latentie of een bepaalde hoeveelheid pakketverlies mogelijk op bepaalde netwerkkoppelingen worden verwacht. Deze koppelingen worden weergegeven in de top tien-lijsten, maar zijn niet gemarkeerd als beschadigd.
+De **boven Subnetwerkkoppelingen met het meeste verlies** en **Subnetwerkkoppelingen met de meeste latentie** gebieden de bovenste subnetwerkkoppelingen pakketverlies weergeven en subnetwerkkoppelingen respectievelijk top door latentie. Hoge latentie of een bepaalde hoeveelheid pakketverlies mogelijk op bepaalde netwerkkoppelingen worden verwacht. Deze koppelingen worden weergegeven in de top tien-lijsten, maar zijn niet gemarkeerd als beschadigd.
 
-De **algemene query's** blade bevat een reeks zoekquery's ophalen van onbewerkte netwerk rechtstreeks met het bewaken van gegevens. U kunt deze query's als uitgangspunt gebruiken voor het maken van uw eigen query's voor aangepaste rapportage.
+De **algemene query's** gebied bevat een reeks zoekquery's ophalen van onbewerkte netwerk rechtstreeks met het bewaken van gegevens. U kunt deze query's als uitgangspunt gebruiken voor het maken van uw eigen query's voor aangepaste rapportage.
 
 ![Netwerk Prestatiemeter-dashboard](./media/log-analytics-network-performance-monitor/npm-dash01.png)
 
 ### <a name="drill-down-for-depth"></a>Inzoomen voor diepte
-U kunt klikken op verschillende koppelingen op de oplossing dashboard om inzoomen dieper in de gedeelten van belang. Bijvoorbeeld, wanneer er een waarschuwing of een onjuiste netwerkkoppeling worden weergegeven op het dashboard, kunt u deze verder onderzoeken. U geleid tot een pagina met een lijst met alle subnetwerkkoppelingen voor de koppeling bepaald netwerk. U wordt mogelijk de status van het gegevensverlies, latentie en de gezondheid van elke koppeling subnetwerk zien en snel uitzoeken wat subnetwerkkoppelingen het probleem worden veroorzaakt. U kunt vervolgens klikken op **knooppuntkoppelingen weergeven** voor een overzicht van alle knooppuntkoppelingen voor de koppeling slecht subnet. Vervolgens kunt u afzonderlijke knooppunt naar koppelingen weergeven en de slechte knooppuntkoppelingen vinden.
+U kunt op verschillende koppelingen klikken op het dashboard van de oplossing om in te zoomen dieper omlaag in de gedeelten van belang. Bijvoorbeeld, wanneer er een waarschuwing of een onjuiste netwerkkoppeling worden weergegeven op het dashboard, kunt u deze verder onderzoeken. Gaat u naar een pagina met een lijst met alle subnetwerkkoppelingen voor de koppeling bepaald netwerk. U bent kunnen de status van het gegevensverlies, latentie en de gezondheid van elke koppeling subnetwerk zien en snel uitzoeken wat subnetwerkkoppelingen het probleem veroorzaken. U kunt vervolgens klikken op **knooppuntkoppelingen weergeven** voor een overzicht van alle knooppuntkoppelingen voor de koppeling slecht subnet. Vervolgens kunt u afzonderlijke knooppunt naar koppelingen weergeven en de slechte knooppuntkoppelingen vinden.
 
 U kunt klikken op **weergave topologie** om weer te geven van de topologie hop door hop van de routes tussen de bron- en doelserver knooppunten. De slechte routes of hops zijn in rood weergegeven zodat u snel het probleem naar een bepaald deel van het netwerk kunt identificeren.
 
-![Inzoomen-gegevens](./media/log-analytics-network-performance-monitor/npm-drill.png)
+![Inzoomen op gegevens](./media/log-analytics-network-performance-monitor/npm-drill.png)
 
 ### <a name="network-state-recorder"></a>Netwerk status doos
 
@@ -258,7 +260,7 @@ Elke weergave toont een momentopname van de status van uw netwerk op een bepaald
 ![de status van het netwerk](./media/log-analytics-network-performance-monitor/network-state.png)
 
 #### <a name="trend-charts"></a>Van trendgrafieken
-Op elk niveau dat u inzoomen, ziet u de trend van en netwerklatentie voor een netwerkverbinding. Van trendgrafieken zijn ook beschikbaar voor knooppunt en subnetwerk koppelingen. U kunt het interval voor de grafiek moet worden getekend met behulp van het besturingselement tijd aan het begin van de grafiek wijzigen.
+Op elk niveau die u kunt inzoomen, ziet u de trend van en netwerklatentie voor een netwerkverbinding. Van trendgrafieken zijn ook beschikbaar voor knooppunt en subnetwerk koppelingen. U kunt het interval voor de grafiek moet worden getekend met behulp van het besturingselement tijd aan het begin van de grafiek wijzigen.
 
 Van trendgrafieken tonen een historisch perspectief van de prestaties van een netwerkverbinding. Sommige netwerkproblemen tijdelijke aard zijn en zijn moeilijk te vangen alleen door te kijken naar de huidige status van het netwerk. Dit is omdat problemen kunnen snel surface en verdwijnen voordat iedereen meldingen, alleen op een later tijdstip in de tijd weer. Dergelijke problemen van voorbijgaande aard kunnen ook lastig voor toepassingsbeheerders die vaak oppervlak als Onverklaarbaar toename in de reactietijd van toepassing, zelfs als alle toepassingsonderdelen weergegeven probleemloos uitgeeft.
 
@@ -267,11 +269,11 @@ Eenvoudig kunt u dit soort problemen detecteren door te kijken op een trend graf
 ![trendgrafiek](./media/log-analytics-network-performance-monitor/npm-trend.png)
 
 #### <a name="hop-by-hop-topology-map"></a>hop door hop topologiekaart
-Netwerk Prestatiemeter toont de topologie hop door hop van routes tussen twee knooppunten op een topologiekaart interactieve. U kunt de topologiekaart bekijken door een koppeling knooppunt selecteren en vervolgens te klikken op **weergave topologie**. U kunt ook de topologiekaart weergeven door te klikken op **paden** tegel op het dashboard. Wanneer u klikt op **paden** op het dashboard, hebt u de bron- en doelserver knooppunten in het Configuratiescherm van de linkerkant en klik vervolgens op **tekent** uitzetten van de routes tussen de twee knooppunten.
+Netwerk Prestatiemeter toont de topologie hop door hop van routes tussen twee knooppunten op een topologiekaart interactieve. U kunt de topologiekaart bekijken door een koppeling knooppunt selecteren en vervolgens te klikken op **weergave topologie**. U kunt ook de topologiekaart weergeven door te klikken op **paden** tegel op het dashboard. Wanneer u klikt op **paden** op het dashboard, hebt u selecteert u de bron- en doelserver knooppunten in het linkerdeelvenster en klik vervolgens op **tekent** uitzetten van de routes tussen de twee knooppunten.
 
 De topologiekaart toont het aantal routes tussen de twee knooppunten en wat zijn de gegevenspakketten nemen paden. Knelpunten in de prestaties zijn rood gemarkeerd in op de topologiekaart. U kunt een defecte netwerkverbinding of een defecte netwerkapparaat vinden door te kijken rode gekleurde elementen op de topologiekaart.
 
-Wanneer u een knooppunt of aanwijzen eroverheen op de topologiekaart klikt, ziet u de eigenschappen van het knooppunt als FQDN-naam en IP-adres. Klik op een hop om te zien dat het IP-adres. U kunt bepaalde routes filteren met behulp van de filters in het deelvenster samenvouwbare actie. En kunt u ook de netwerktopologieën vereenvoudigen door het verbergen van de tussenliggende hops met behulp van de schuifregelaar in het actiedeelvenster. U kunt inzoomen in of buiten de topologiekaart met behulp van het muiswiel.
+Als u een knooppunt of aanwijzen eroverheen op de topologiekaart klikt, ziet u de eigenschappen van het knooppunt als FQDN-naam en IP-adres. Klik op een hop om te zien van het IP-adres. U kunt bepaalde routes filteren met behulp van de filters in het deelvenster samenvouwbare actie. En kunt u ook de netwerktopologieën vereenvoudigen door het verbergen van de tussenliggende hops met behulp van de schuifregelaar in het actiedeelvenster. U kunt inzoomen in of buiten de topologiekaart met behulp van het muiswiel.
 
 Houd er rekening mee dat de topologie die wordt weergegeven in de kaart laag 3-topologie is en bevat geen laag 2-apparaten en verbindingen.
 
@@ -283,17 +285,17 @@ Prestatiemeter-netwerk kan de netwerkknelpunten vinden zonder verbinding met de 
 Deze methode is handig voor het bepalen van de netwerkknelpunten wanneer toegang tot het aantal hops is niet beschikbaar omdat er geen gegevens worden verzameld van de netwerkapparaten zoals routers of switches niet nodig. Dit is ook handig wanneer de hops tussen twee knooppunten zich niet in uw beheer. Het aantal hops is bijvoorbeeld mogelijk ISP-routers.
 
 ### <a name="log-analytics-search"></a>Log Analytics zoeken
-Alle gegevens die pagina's grafisch weergegeven via het netwerk-Prestatiemeter-dashboard en inzoomen is ook beschikbaar systeemeigen in logboekanalyse zoeken. U kunt met behulp van de zoekopdracht querytaal gegevens opvragen en aangepaste rapporten maken door de gegevens exporteren naar Excel of Power BI. De **algemene query's** blade in het dashboard bevat enkele handige query's die u als startpunt gebruiken kunt voor het maken van uw eigen query's en rapporten.
+Alle gegevens die grafisch is toegankelijk via het netwerk Prestatiemeter dashboard en inzoomen op pagina's is ook beschikbaar systeemeigen in logboekanalyse zoeken. U kunt met behulp van de zoekopdracht querytaal gegevens opvragen en aangepaste rapporten maken door de gegevens exporteren naar Excel of Power BI. De **algemene query's** gebied in het dashboard heeft enkele nuttig query's die u als startpunt gebruiken kunt voor het maken van uw eigen query's en rapporten.
 
 ![zoekopdrachten](./media/log-analytics-network-performance-monitor/npm-queries.png)
 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>De hoofdoorzaak van een health-waarschuwing onderzoeken
 Nu dat u hebt gelezen over prestaties Netwerkcontrole, bekijken we een eenvoudige onderzoek naar de hoofdoorzaak van een health-gebeurtenis.
 
-1. Op de pagina overzicht krijgt u een snelle momentopname van de status van uw netwerk met inachtneming van de **netwerk Prestatiemeter** tegel. U ziet dat buiten de 6 subnetwerken koppelingen worden bewaakt, 2 zijn slecht. Dit garandeert onderzoek. Klik op de tegel om het dashboard van de oplossing weer te geven.<br><br> ![Netwerk Prestatiemeter tegel](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
-2. In de onderstaande voorbeeldafbeelding ziet u dat er is een statusgebeurtenis een netwerkkoppeling die niet in orde is. U wilt het probleem te onderzoeken en klik op de **DMZ2 DMZ1** netwerkkoppeling om erachter te komen de hoofdmap van het probleem.<br><br> ![Voorbeeld van een slecht netwerk](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
-3. De pagina inzoomen toont alle subnetwerkkoppelingen **DMZ2 DMZ1** netwerkkoppeling. U zult zien dat voor beide de subnetwerkkoppelingen de latentie is gepasseerd de drempelwaarde voor de netwerkkoppeling slecht maken. U ziet ook de subnetwerkkoppelingen trends latentie. U kunt de Tijdselectie besturingselement in de grafiek te concentreren op de vereiste periode. Hier ziet u de tijd van de dag wanneer latentie de piek heeft bereikt. De logboeken voor deze periode voor het onderzoeken van het probleem kunt u later zoeken. Klik op **knooppuntkoppelingen weergeven** naar inzoomen verder.<br><br> ![Voorbeeld van slecht subnet koppelingen](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
-4. Net als bij de vorige pagina, Inzoomen voor de koppeling bepaalde subnetwerk worden op deze pagina omlaag bijbehorende knooppuntkoppelingen samenstellende. U kunt vergelijkbare bewerkingen uitvoeren hier net als bij de vorige stap. Klik op **weergave topologie** om weer te geven van de topologie tussen de 2 knooppunten.<br><br> ![Voorbeeld van slecht knooppunten koppelingen](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+1. Op de pagina overzicht u een snelle momentopname van de status van uw netwerk krijgen door observeren de **netwerk Prestatiemeter** tegel. U ziet dat buiten de 6 subnetwerkkoppelingen bewaakt, 2 slecht zijn. Dit garandeert onderzoek. Klik op de tegel om het dashboard van de oplossing weer te geven.<br><br> ![Netwerk Prestatiemeter tegel](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. In de volgende afbeelding ziet u dat er is een statusgebeurtenis een netwerkkoppeling die niet in orde is. U wilt het probleem te onderzoeken en klik op de **DMZ2 DMZ1** netwerkkoppeling om erachter te komen de hoofdmap van het probleem.<br><br> ![Voorbeeld van een slecht netwerk](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. De Inzoomen op pagina ziet u alle subnetwerkkoppelingen **DMZ2 DMZ1** netwerkkoppeling. U merkt dat voor beide de subnetwerkkoppelingen de latentie is gepasseerd de drempelwaarde voor de netwerkkoppeling slecht maken. U ziet ook de subnetwerkkoppelingen trends latentie. U kunt de Tijdselectie besturingselement in de grafiek te concentreren op de vereiste periode. Hier ziet u de tijd van de dag wanneer latentie de piek heeft bereikt. De logboeken voor deze periode voor het onderzoeken van het probleem kunt u later zoeken. Klik op **knooppuntkoppelingen weergeven** verdere detailanalyse.<br><br> ![Voorbeeld van slecht subnet koppelingen](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
+4. Net als bij de vorige pagina, de Inzoomen op de pagina voor de koppeling bepaalde subnetwerk bevat omlaag bijbehorende knooppuntkoppelingen samenstellende. U kunt vergelijkbare bewerkingen uitvoeren hier net als bij de vorige stap. Klik op **weergave topologie** om weer te geven van de topologie tussen de 2 knooppunten.<br><br> ![Voorbeeld van slecht knooppunten koppelingen](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
 5. Alle paden tussen de 2 geselecteerde knooppunten worden getekend in de topologiekaart. U kunt de topologie hop door hop van routes tussen twee knooppunten op de topologiekaart visualiseren. Dit biedt u een duidelijk beeld van hoeveel routes bestaan tussen de twee knooppunten en wat de gegevenspakketten duurt paden. Knelpunten in de prestaties zijn in rood gemarkeerd. U kunt een defecte netwerkverbinding of een defecte netwerkapparaat vinden door te kijken rode gekleurde elementen op de topologiekaart.<br><br> ![Voorbeeld van slecht topologie weergeven](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. Het verlies, latentie en het aantal hops in elk pad kunnen worden gecontroleerd de **actie** deelvenster. Gebruik de schuifbalk om de details van die niet in orde paden weer te geven.  De filters gebruiken om de paden met de slechte hop selecteren zodat de topologie voor alleen de geselecteerde paden wordt getekend. Het muiswiel kunt u de topologiekaart in- of uitzoomen.
 
@@ -302,7 +304,7 @@ Nu dat u hebt gelezen over prestaties Netwerkcontrole, bekijken we een eenvoudig
 ## <a name="provide-feedback"></a>Feedback geven
 
 - **UserVoice** -kunt u uw ideeën voor netwerk-Prestatiemeter-functies die u laten werken wilt op boeken. Ga naar onze [UserVoice pagina](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
-- **Deelnemen aan onze cohort** -we altijd geïnteresseerd in nieuwe klanten ons cohort join hebben. Als onderdeel van het, past u vroege toegang krijgen tot nieuwe functies en helpt ons Netwerkcontrole prestaties te verbeteren. Als u geïnteresseerd in lid te worden bent, invullen van dit [Snelle enquête](https://aka.ms/npmcohort).
+- **Deelnemen aan onze cohort** -we altijd geïnteresseerd in nieuwe klanten ons cohort join hebben. Als onderdeel van het vroege toegang krijgen tot nieuwe functies en helpt ons Netwerkcontrole prestaties te verbeteren. Als u geïnteresseerd in lid te worden bent, invullen van dit [Snelle enquête](https://aka.ms/npmcohort).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Zoeken in een logboek](log-analytics-log-searches.md) om gedetailleerde netwerk prestaties gegevensrecords weer te geven.

@@ -1,9 +1,9 @@
 ---
 title: Computers verbinden met OMS met behulp van de OMS-Gateway | Microsoft Docs
-description: Verbinding maken met uw OMS-beheerde apparaten en computers Operations Manager bewaakt met de Gateway OMS gegevens verzenden naar de OMS-service wanneer ze geen toegang tot Internet hebben.
+description: Verbinding maken met uw apparaten en computers Operations Manager bewaakt met de OMS-Gateway om gegevens te verzenden naar de Azure Automation en Log Analytics-service wanneer ze geen toegang tot Internet hebben.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/10/2018
+ms.author: magoedte
+ms.openlocfilehash: 7ada626adc33e2689a3ba807aabb16ba56194243
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Computers zonder toegang tot het Internet verbinden met OMS met behulp van de OMS-Gateway
 
-Dit document wordt beschreven hoe uw OMS beheerd en System Center Operations Manager bewaakt computers gegevens naar de OMS-service verzenden kunnen wanneer ze geen toegang tot Internet hebben. De OMS-Gateway een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding is, kunnen gegevens verzamelen en deze verzenden naar de OMS-service.  
+Dit document wordt beschreven hoe uw door agents beheerde systemen en System Center Operations Manager bewaakt computers gegevens naar de OMS-service verzenden kunnen wanneer ze geen toegang tot Internet hebben. De OMS-Gateway een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding is, kunnen gegevens verzamelen en deze verzenden naar de OMS-service.  
 
 De OMS-Gateway ondersteunt:
 
 * Azure Automation Hybrid Runbook Workers  
-* Windows-computers met Microsoft Monitoring Agent rechtstreeks verbonden met een OMS-werkruimte
-* Linux-computers met de OMS-Agent voor Linux die rechtstreeks zijn verbonden met een OMS-werkruimte  
-* System Center Operations Manager 2012 SP1 met UR7, Operations Manager 2012 R2 UR3 of Operations Manager 2016-beheergroep geïntegreerd met OMS.  
+* Windows-computers met Microsoft Monitoring Agent rechtstreeks verbonden met een werkruimte voor logboekanalyse
+* Linux-computers met de OMS-Agent voor Linux rechtstreeks verbonden met een werkruimte voor logboekanalyse  
+* System Center Operations Manager 2012 SP1 met UR7 of Operations Manager 2012 R2 UR3 Operations Manager 2016 en beheergroep van Operations Manager versie 1801 geïntegreerd met OMS.  
 
 Als de beleidsregels van uw IT-beveiliging niet toestaan dat computers in uw netwerk verbinding maken met Internet, zoals de punt van apparaten verkooppunten (POS) of de servers die ondersteuning bieden IT-services, maar moet u ze verbindt met OMS om te beheren en ze te controleren, kan het worden geconfigureerd om te communiceren rechtstreeks met de OMS-Gateway voor het ontvangen van configuratie en het doorsturen van gegevens in hun naam.  Als deze computers zijn geconfigureerd met de OMS-agent rechtstreeks verbinding maken met een OMS-werkruimte, communiceert alle computers in plaats daarvan met de OMS-Gateway.  De gateway worden de gegevens van de agents naar OMS rechtstreeks, analyseert de gegevens onderweg niet.
 
@@ -54,9 +54,9 @@ Het volgende diagram toont de gegevensstroom uit een beheergroep van Operations 
 Wanneer het toewijzen van een computer worden uitgevoerd van de OMS-Gateway, moet deze computer hebben het volgende:
 
 * Windows 10, Windows 8.1, Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, WindowsServer 2008
-* .NET framework 4.5
-* Minimum van een 4-core-processor en 8 GB geheugen 
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
+* .Net Framework 4.5
+* Minimum van een 4-core-processor en 8 GB geheugen
 
 ### <a name="language-availability"></a>Beschikbare talen
 
@@ -82,6 +82,14 @@ De OMS-Gateway is beschikbaar in de volgende talen:
 ### <a name="supported-encryption-protocols"></a>Versleuteling van ondersteunde protocollen
 De OMS-Gateway ondersteunt alleen Transport Layer Security (TLS) 1.0, 1.1 en 1.2.  Secure Sockets Layer (SSL) worden niet ondersteund.
 
+### <a name="supported-number-of-agent-connections"></a>Aantal ondersteunde agent-verbindingen
+De volgende tabel licht de het ondersteunde aantal agents een gatewayserver communiceert.  Deze ondersteuning is gebaseerd op agents ~ 200KB aan gegevens uploaden elke 6 seconden. Het gegevensvolume per agent getest is ongeveer 2.7GB per dag.
+
+|Gateway |Ongeveer aantal agents die worden ondersteund|  
+|--------|----------------------------------|  
+|- CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 Cores<br> -Geheugen: 4 GB<br> -Netwerkbandbreedte: 1 Gbps| 600|  
+|-CPU: Intel XEON CPU E5 2660 v3 @ 2.6GHz 4 Cores<br> -Geheugen: 8 GB<br> -Netwerkbandbreedte: 1 Gbps| 1000|  
+
 ## <a name="download-the-oms-gateway"></a>Download de OMS-Gateway
 
 Er zijn drie manieren om de meest recente versie van het installatiebestand van OMS-Gateway.
@@ -104,7 +112,7 @@ Er zijn drie manieren om de meest recente versie van het installatiebestand van 
 Als u wilt een gateway installeren, moet u de volgende stappen uitvoeren.  Als u een eerdere versie geïnstalleerd, voorheen *Log Analytics doorstuurserver*, wordt dit bijgewerkt naar deze versie.  
 
 1. Dubbelklik in de doelmap op **OMS Gateway.msi**.
-2. Op de **Welkom** pagina, klikt u op **volgende**.<br><br> ![Gateway-installatiewizard](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+2. Klik op de pagina **Welkom** op **Volgende**.<br><br> ![Gateway-installatiewizard](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
 3. Op de **License Agreement** pagina **ik ga akkoord met de voorwaarden in deze gebruiksrechtovereenkomst** gaat akkoord met de gebruiksrechtovereenkomst en klik vervolgens op **volgende**.
 4. Op de **poort en proxy-adres** pagina:
    1. Typ het nummer van de TCP-poort moet worden gebruikt voor de gateway. Setup configureert een inkomende regel met dit poortnummer op Windows firewall.  De standaardwaarde is 8080.
@@ -116,20 +124,20 @@ Als u wilt een gateway installeren, moet u de volgende stappen uitvoeren.  Als u
 7. Op de **gereed voor installatie** pagina, klikt u op **installeren**. Gebruikersaccountbeheer lijken aanvragende machtiging om te installeren. Als dit het geval is, klikt u op **Ja**.
 8. Nadat Setup is voltooid, klikt u op **voltooien**. U kunt controleren of de service wordt uitgevoerd door het openen van de module services.msc en Controleer **OMS Gateway** wordt weergegeven in de lijst met services en deze status is **met**.<br><br> ![Services – OMS-Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="configure-network-load-balancing"></a>Netwerktaakverdeling configureren 
+## <a name="configure-network-load-balancing"></a>Netwerktaakverdeling configureren
 U kunt de gateway voor hoge beschikbaarheid met netwerktaakverdeling (NLB) met behulp van Microsoft Network Load Balancing (NLB) of op basis van hardware load balancers kunt configureren.  De load balancer beheert verkeer door te leiden van de aangevraagde verbindingen van de OMS-Agents of Operations Manager-beheerservers over de knooppunten. Als een Gateway-server uitvalt, wordt het verkeer wordt omgeleid naar andere knooppunten.
 
 Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2016 network load balancing-cluster, [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  De volgende stappen beschrijven het configureren van een Microsoft network load balancing-cluster.  
 
 1.  Meld u aan bij de Windows-server die lid is van het NLB-cluster met een Administrator-account.  
 2.  Beheer van netwerktaakverdeling in Serverbeheer te openen, klikt u op **extra**, en klik vervolgens op **beheer van netwerktaakverdeling**.
-3. Met de rechtermuisknop op het cluster-IP-adres voor een OMS-gatewayserver verbinding met de Microsoft Monitoring Agent is geïnstalleerd, en klik vervolgens op **Host aan Cluster toevoegen**.<br><br> ![Netwerk Load Balancing Manager – toevoegen Host aan Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
-4. Geef het IP-adres van de gatewayserver waarmee u verbinding wilt maken.<br><br> ![Network Load Balancing Manager – Host aan Cluster toevoegen: verbinding maken](./media/log-analytics-oms-gateway/nlb03.png) 
-    
+3. Met de rechtermuisknop op het cluster-IP-adres voor een OMS-gatewayserver verbinding met de Microsoft Monitoring Agent is geïnstalleerd, en klik vervolgens op **Host aan Cluster toevoegen**.<br><br> ![Netwerk Load Balancing Manager – toevoegen Host aan Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br>
+4. Geef het IP-adres van de gatewayserver waarmee u verbinding wilt maken.<br><br> ![Network Load Balancing Manager – Host aan Cluster toevoegen: verbinding maken](./media/log-analytics-oms-gateway/nlb03.png)
+
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS-agent en Operations Manager-beheergroep configureren
 De volgende sectie bevat stapsgewijze instructies voor het rechtstreeks verbonden zijn met OMS-agents, een Operations Manager-beheergroep of Azure Automation Hybrid Runbook Workers configureren met de OMS-Gateway om te communiceren met OMS.  
 
-Zie vereisten en stappen voor het installeren van de OMS-agent op Windows-computers rechtstreeks verbinden met OMS inzicht [verbinding maken met Windows-computers met OMS](log-analytics-windows-agent.md) of voor Linux-computers Zie [verbinding maken met Linux-computers met OMS](log-analytics-linux-agents.md). 
+Zie vereisten en stappen voor het installeren van de OMS-agent op Windows-computers rechtstreeks verbinden met OMS inzicht [verbinding maken met Windows-computers met OMS](log-analytics-windows-agents.md) of voor Linux-computers Zie [verbinding maken met Linux-computers met OMS](log-analytics-linux-agents.md).
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>De OMS-agent en de Operations Manager om de OMS-Gateway gebruiken als een proxyserver configureren
 
@@ -148,26 +156,26 @@ Voor het gebruik van de Gateway voor de ondersteuning van Operations Manager, mo
 > Als u een waarde op voor de gateway niet opgeeft, worden de lege waarden geduwd naar alle agents.
 
 
-1. Open de Operations Manager-console en klikt u onder **Operations Management Suite**, klikt u op **verbinding** en klik vervolgens op **proxyserver configureren**.<br><br> ![Operations Manager – proxyserver configureren](./media/log-analytics-oms-gateway/scom01.png)<br> 
-2. Selecteer **een proxyserver gebruiken voor toegang tot de Operations Management Suite** en typt u het IP-adres van de OMS-gatewayserver of virtueel IP-adres van de NLB. Zorg ervoor dat u met begint de `http://` voorvoegsel.<br><br> ![Operations Manager – proxyserveradres](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. Open de Operations Manager-console en klikt u onder **Operations Management Suite**, klikt u op **verbinding** en klik vervolgens op **proxyserver configureren**.<br><br> ![Operations Manager – proxyserver configureren](./media/log-analytics-oms-gateway/scom01.png)<br>
+2. Selecteer **een proxyserver gebruiken voor toegang tot de Operations Management Suite** en typt u het IP-adres van de OMS-gatewayserver of virtueel IP-adres van de NLB. Zorg ervoor dat u met begint de `http://` voorvoegsel.<br><br> ![Operations Manager – proxyserveradres](./media/log-analytics-oms-gateway/scom02.png)<br>
 3. Klik op **Voltooien**. Operations Manager-server is verbonden met de OMS-werkruimte.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Configureren van Operations Manager - specifieke agents proxyserver gebruiken
 Voor grote of complexe omgevingen, alleen kunt u specifieke servers (of groepen) de OMS-Gateway-server te gebruiken.  Voor deze servers u Operations Manager-agent niet bijwerken rechtstreeks met deze waarde wordt overschreven door de globale waarde voor de beheergroep.  In plaats daarvan moet u de regel die wordt gebruikt om deze waarden uiterste onderdrukken.
 
-> [!NOTE] 
+> [!NOTE]
 > Deze techniek configuratie kan worden gebruikt om toe te staan het gebruik van meerdere OMS-gatewayservers in uw omgeving.  Specifieke OMS gatewayservers worden opgegeven op basis van de regio-mogelijk nodig.
 
 1. Open de Operations Manager-console en selecteer de **ontwerpen** werkruimte.  
-2. Selecteer in de werkruimte ontwerpen **regels** en klik op de **bereik** op de werkbalk Operations Manager. Als deze knop niet beschikbaar is, controleert u om ervoor te zorgen dat u een object, geen map, dat is geselecteerd in het deelvenster bewaking hebt. De **bereik Management Pack-objecten** in het dialoogvenster geeft een lijst met algemene bepaalde klassen, groepen of objecten. 
+2. Selecteer in de werkruimte ontwerpen **regels** en klik op de **bereik** op de werkbalk Operations Manager. Als deze knop niet beschikbaar is, controleert u om ervoor te zorgen dat u een object, geen map, dat is geselecteerd in het deelvenster bewaking hebt. De **bereik Management Pack-objecten** in het dialoogvenster geeft een lijst met algemene bepaalde klassen, groepen of objecten.
 3. Type **Health-Service** in de **zoekt** veld en selecteert u deze in de lijst.  Klik op **OK**.  
 4. Zoeken naar de regel **Advisor Proxy-instelling regel** en klik op de werkbalk Operations-console op **overschrijft** en wijs vervolgens **overschrijven de Rule\For een specifiek object van klasse: Health-Service** en selecteert u een specifiek object in de lijst.  Desgewenst kunt u een aangepaste groep met het object health-service van de servers die u wilt toepassen met deze overschrijving aan en vervolgens de onderdrukking toepassen op die groep.
 5. In de **Onderdrukkingseigenschappen** in het dialoogvenster, klikt u op om een vinkje in de **overschrijven** kolom naast de **WebProxyAddress** parameter.  In de **Onderdrukkingswaarde** en voer de URL van de OMS-Gateway server ervoor te zorgen dat u met begint de `http://` voorvoegsel.
    >[!NOTE]
    > U hoeft geen regel inschakelen als deze is al automatisch beheerd met een overschrijving die is opgenomen in Microsoft System Center Advisor beveiligde verwijzing Override management pack die gericht is op de Microsoft System Center Advisor Monitoring Server-groep.
-   > 
-6. Selecteer een management pack uit de **selecteert bestemmingsmanagement pack** lijst of maak een nieuw niet-verzegeld management pack door te klikken **nieuw**. 
-7. Wanneer u uw wijzigingen hebt voltooid, klikt u op **OK**. 
+   >
+6. Selecteer een management pack uit de **selecteert bestemmingsmanagement pack** lijst of maak een nieuw niet-verzegeld management pack door te klikken **nieuw**.
+7. Wanneer u uw wijzigingen hebt voltooid, klikt u op **OK**.
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Voor automation hybrid workers configureren
 Als u Automation Hybrid Runbook Workers in uw omgeving hebt, u volgt de handmatige, tijdelijke oplossingen voor het configureren van de Gateway om te ondersteunen.
@@ -201,20 +209,20 @@ Gebruik de volgende tabellen in de URL voor elke locatie te identificeren:
 | **location** | **URL** |
 | --- | --- |
 | Noord-centraal VS |ncus-agentservice-prod-1.azure-automation.net |
-| West-Europa |We-agentservice-prod-1.azure-automation.net |
+| West-Europa |we-agentservice-prod-1.azure-automation.net |
 | Zuid-centraal VS |scus-agentservice-prod-1.azure-automation.net |
 | VS - oost 2 |eus2-agentservice-prod-1.azure-automation.net |
-| Canada Central |CC-agentservice-prod-1.azure-automation.net |
+| Canada Central |cc-agentservice-prod-1.azure-automation.net |
 | Noord-Europa |ne-agentservice-prod-1.azure-automation.net |
-| Zuidoost-Azië |SEA-agentservice-prod-1.azure-automation.net |
-| Centraal-India |CID-agentservice-prod-1.azure-automation.net |
+| Zuidoost-Azië |sea-agentservice-prod-1.azure-automation.net |
+| Centraal-India |cid-agentservice-prod-1.azure-automation.net |
 | Japan |jpe-agentservice-prod-1.azure-automation.net |
-| Australië |as-omgeving-agentservice-prod-1.azure-automation.net |
+| Australië |ase-agentservice-prod-1.azure-automation.net |
 
 Als uw computer is geregistreerd als een hybride Runbook Worker die automatisch voor het gebruik van de Update-beheeroplossing patchen, volg deze stappen:
 
 1. De taakgegevens Runtime service-URL's toevoegen aan de lijst met toegestane Host op de OMS-Gateway. Bijvoorbeeld: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. De OMS-Gateway-service opnieuw starten met de volgende PowerShell-cmdlet:`Restart-Service OMSGatewayService`
+2. De OMS-Gateway-service opnieuw starten met de volgende PowerShell-cmdlet: `Restart-Service OMSGatewayService`
 
 Als uw computer geïntegreerde voor Azure Automation via de cmdlet Hybrid Runbook Worker-registratie, volg deze stappen:
 
@@ -228,8 +236,8 @@ Cmdlets kunt u taken uitvoeren die nodig zijn om bij te werken van configuratie-
 
 1. Installeer de OMS-Gateway (MSI).
 2. Open een PowerShell-consolevenster.
-3. U kunt de module importeren door deze opdracht te typen:`Import-Module OMSGateway`
-4. Als er is geen fout in de vorige stap opgetreden, de module is geïmporteerd en de cmdlets kunnen worden gebruikt. Type`Get-Module OMSGateway`
+3. U kunt de module importeren door deze opdracht te typen: `Import-Module OMSGateway`
+4. Als er is geen fout in de vorige stap opgetreden, de module is geïmporteerd en de cmdlets kunnen worden gebruikt. type`Get-Module OMSGateway`
 5. Nadat u wijzigingen aanbrengt met behulp van de cmdlets, zorg ervoor dat u de Gateway-service opnieuw opstarten.
 
 Als u een fout in stap 3 krijgt, wordt de module is niet geïmporteerd. De fout kan optreden wanneer PowerShell is niet gevonden van de module. U kunt deze vinden in de Gateway-installatiepad: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
@@ -239,8 +247,8 @@ Als u een fout in stap 3 krijgt, wordt de module is niet geïmporteerd. De fout 
 | `Get-OMSGatewayConfig` |Sleutel |De configuratie van de service opgehaald |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Sleutel (vereist) <br> Waarde |De configuratie van de service wordt gewijzigd |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Het adres van de relay (upstream) proxy opgehaald |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adres<br> Gebruikersnaam<br> Wachtwoord |Hiermee stelt u adres (en referentie) van de relay (upstream) proxy |1. Stel een relay-proxy en referentie:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Stel een relay-proxy waarvoor geen verificatie nodig:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Schakel de relay proxy-instellingen:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |Opgehaald van de momenteel toegestane host (alleen de lokaal geconfigureerde toegestane host, omvat geen automatisch gedownloade toegestane hosts) |`Get-OMSGatewayAllowedHost` | 
+| `Set-OMSGatewayRelayProxy` |Adres<br> Gebruikersnaam<br> Wachtwoord |Hiermee stelt u adres (en referentie) van de relay (upstream) proxy |1. Stel een relay-proxy en referentie:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Stel een relay-proxy waarvoor geen verificatie nodig: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Schakel de relay proxy-instellingen:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Opgehaald van de momenteel toegestane host (alleen de lokaal geconfigureerde toegestane host, omvat geen automatisch gedownloade toegestane hosts) |`Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedHost` |Host (vereist) |Voegt de host aan de lijst met toegestane |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (vereist) |Hiermee verwijdert u de host uit de lijst met toegestane |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Onderwerpnaam (vereist) |Het clientcertificaat onderworpen aan de lijst met toegestane toegevoegd |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
@@ -289,7 +297,5 @@ Om hulp vragen, klikt u op het vraagteken symbool in de rechterbovenhoek van de 
 
 ![Nieuw ondersteuningsverzoek](./media/log-analytics-oms-gateway/support.png)
 
-U kunt ook feedback over OMS of logboekanalyse op de [forum met feedback van Microsoft Azure](https://feedback.azure.com/forums/267889).
-
 ## <a name="next-steps"></a>Volgende stappen
-* [Voeg gegevensbronnen toe](log-analytics-data-sources.md) voor het verzamelen van gegevens van de verbonden bronnen in uw werkruimte voor logboekanalyse en opslaan in de opslagplaats logboekanalyse.
+[Voeg gegevensbronnen toe](log-analytics-data-sources.md) voor het verzamelen van gegevens uit uw verbonden bronnen en opslaan in de werkruimte voor logboekanalyse.

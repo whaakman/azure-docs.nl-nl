@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure SQL Database-functies | Microsoft Docs
-description: Deze pagina biedt een overzicht van de logische servers en databases van Azure SQL Database en omvat een functieondersteuningsmatrix met een koppeling naar elke ondersteunde functie.
+title: Vergelijking van de functie Azure SQL Database | Microsoft Docs
+description: Dit artikel worden de functies van SQL Server en Azure SQL Database vergeleken en ziet u de verschillen.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Azure SQL Database-functies
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
 Azure SQL Database deelt een algemene codebasis met SQL Server en ondersteunt de meeste functies van de op het databaseniveau van de. De belangrijke functionele verschillen tussen Azure SQL Database en SQL Server zijn op het niveau van het exemplaar. 
 
@@ -75,7 +75,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Gebeurtenismeldingen](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Niet - Zie [waarschuwingen](sql-database-insights-alerts-portal.md) |
 | [Expressies](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja |
 | [Uitgebreide gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Sommige - [uitgebreide gebeurtenissen in SQL-Database](sql-database-xevent-db-diff-from-svr.md) |
-| [Uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee |
+| [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee |
 | [Bestanden en bestandsgroepen](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primaire bestandsgroep |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nee |
 | [Zoekopdracht in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Woordafbreking van derden worden niet ondersteund. |

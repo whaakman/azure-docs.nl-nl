@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Gegevens met behulp van logboek zoekopdrachten in logboekanalyse zoeken
 
@@ -39,7 +39,7 @@ We beginnen met eenvoudige, praktische voorbeelden en vervolgens op deze maken z
 Nadat u nagegaan wat de zoektechnieken hebt, kunt u controleren de [logboekanalyse Meld zoeken verwijzing](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Basic-filters gebruiken
-Het eerste wat u moet weten is dat het eerste deel van een zoekopdracht query voordat een ' | ' verticale pipe-teken is altijd een *filter*. U kunt dit beschouwen als een WHERE-component in TSQL--bepaalt *wat* subset van gegevens voor het ophalen van buiten de oeren werkruimte. Zoeken in het gegevensarchief is grotendeels over het opgeven van de kenmerken van de gegevens die u ophalen, wilt dus is het natuurlijke dat een query met de component WHERE beginnen wilt.
+Het eerste wat u moet weten is dat het eerste deel van een zoekopdracht query voordat een ' | ' verticale pipe-teken is altijd een *filter*. U kunt dit beschouwen als een WHERE-component in TSQL--bepaalt *wat* subset van gegevens voor het ophalen van buiten de werkruimte voor logboekanalyse. Zoeken in het gegevensarchief is grotendeels over het opgeven van de kenmerken van de gegevens die u ophalen, wilt dus is het natuurlijke dat een query met de component WHERE beginnen wilt.
 
 De meest eenvoudige filters kunt u zijn *trefwoorden*, zoals 'fout' of 'out' of een computernaam op. Deze typen van eenvoudige query's worden meestal diverse vormen van gegevens binnen de dezelfde resultatenset retourneren. Dit komt doordat Log Analytics uit verschillende *typen* van gegevens in het systeem.
 
@@ -62,13 +62,13 @@ Ja, als het Type = Perf records hebben een veld met de naam 'CounterName' en ver
 Hiermee krijgt u alleen de prestatiegegevens als de prestatiemeternaam is '% processortijd'.
 
 ### <a name="to-search-for-processor-time-performance-data"></a>Om te zoeken naar de processor tijd prestatiegegevens
-* Typ in het veld van de query zoeken`Type=Perf CounterName="% Processor Time"`
+* Typ in het veld van de query zoeken `Type=Perf CounterName="% Processor Time"`
 
 U kunt ook niet meer specifiek en **InstanceName = _ 'Totaal'** in de query die een Windows-prestatiemeteritem is. U kunt ook een facet en een andere selecteren **veldwaarde:**. Het filter wordt automatisch toegevoegd aan het filter op de balk query. U kunt dit zien in de volgende afbeelding. Er wordt aangegeven waar u moet klikken om toe te voegen **InstanceName: '_Totaal'** aan de query zonder iets te typen.
 
 ![facet zoeken](./media/log-analytics-log-searches/oms-search-facet.png)
 
-Er wordt nu uw query`Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
+Er wordt nu uw query `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 In dit voorbeeld hebt u niet opgeven **Type = Perf** om dit te bereiken. Omdat de velden CounterName en InstanceName bestaan alleen voor records van het Type = prestaties, de query is dit specifiek genoeg om terug te keren hetzelfde resultaat als de vorige langer een:
 
@@ -82,7 +82,7 @@ Bijvoorbeeld: de query `Type=Event EventLog="Windows PowerShell"` is identiek aa
 
 U kunt eenvoudig de impliciete operator en met behulp van een niet-operator expliciet omkeren. Bijvoorbeeld:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")`of de bijbehorende equivalent `Type=Event EventLog!="Windows PowerShell"` retourneren van alle gebeurtenissen van andere logboeken die niet het logboek voor Windows PowerShell.
+`Type:Event NOT(EventLog:"Windows PowerShell")` of de bijbehorende equivalent `Type=Event EventLog!="Windows PowerShell"` retourneren van alle gebeurtenissen van andere logboeken die niet het logboek voor Windows PowerShell.
 
 Of u kunt andere Booleaanse operator gebruikt, zoals 'Of'. De volgende query retourneert records die het gebeurtenislogboek een toepassing of het systeem is.
 
@@ -168,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Om te zoeken met behulp van een Booleaanse operator
-* Typ in het veld van de query zoeken`EventLog=System TimeGenerated>NOW-24HOURS`  
+* Typ in het veld van de query zoeken `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![zoeken met Booleaanse waarde](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Hoewel u het tijdsinterval grafisch beheren kunt en meestal kunt u dat doet, moet u er voordelen van een tijdfilter inclusief rechtstreeks in de query zijn. Bijvoorbeeld, dit goed werkt met dashboards waar u de tijd voor elke tegel ongeacht negeren kunt de *globale* selector tijd op de dashboardpagina. Zie voor meer informatie [tijd belangrijk is in het Dashboard](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -254,7 +254,7 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Om te zoeken met boven
-* Typ in het veld van de query zoeken`Type=Event EventID=600 | Top 1`   
+* Typ in het veld van de query zoeken `Type=Event EventID=600 | Top 1`   
     ![Zoek boven](./media/log-analytics-log-searches/oms-search-top.png)
 
 In de afbeelding hierboven, zijn er 358 duizend records met EventID = 600. De velden, facetten en filters aan de linkerkant altijd tonen informatie over de resultaten *door het filter gedeelte* van de query, het gedeelte voordat een pipe-teken is. De **resultaten** deelvenster retourneert alleen de meest recente 1 resultaat, omdat de opdracht in de vorm en de resultaten getransformeerd.
@@ -309,7 +309,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Om te zoeken met behulp van de maateenheid count
-* Typ in het veld van de query zoeken`Type=Event | Measure count() by EventID`
+* Typ in het veld van de query zoeken `Type=Event | Measure count() by EventID`
 * Append `| Select EventID` aan het einde van de query.
 * Ten slotte toevoegen `| Sort EventID asc` aan het einde van de query.
 

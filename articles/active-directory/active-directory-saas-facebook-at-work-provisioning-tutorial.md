@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2fc2b07189994206c8465ed24374489eefd45966
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor het automatisch gebruikers inrichten
 
 Deze zelfstudie ziet u de stappen nodig zijn voor automatisch leveren en intrekken gebruikersaccounts van Azure Active Directory (Azure AD) aan een werkplek met Facebook.
+
+>[!NOTE]
+>Deze zelfstudie wordt een connector die is ingebouwd in de Azure AD-gebruiker inrichtingsservice beschreven. Raadpleeg voor belangrijke informatie over wat deze service doet, hoe het werkt en veelgestelde vragen [gebruikers inrichten en opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren](active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Vereisten
 

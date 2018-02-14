@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -39,8 +39,10 @@ U kunt gebruiken om SQL-database in op:
 
 Configureer controle voor verschillende soorten gebeurteniscategorieën, zoals wordt beschreven in de [controle instelt voor uw database](#subheading-2) sectie.
 
-Controlelogboeken worden geschreven naar Azure Blob-opslag op uw Azure-abonnement.
-
+> [!IMPORTANT]
+> Controlelogboeken worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag voor uw Azure-abonnement.
+>
+> **Opslag in VNet** is momenteel **niet ondersteund**.
 
 ## <a id="subheading-8"></a>Serverniveau versus databaseniveau controlebeleid definiëren
 
@@ -80,7 +82,7 @@ De volgende sectie beschrijft de configuratie van controlebeleid met de Azure po
    >Als u de meest buiten de controle rapporten sjablonen, gebruikt u hetzelfde opslagaccount voor alle gecontroleerde databases.
 
     <a id="storage-screenshot"></a>![Navigatiedeelvenster][4]
-6. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, kunt u dit doen via PowerShell of de REST-API. 
+6. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, kunt u dit doen via PowerShell of de REST-API.
 7. Nadat u de controle-instellingen hebt geconfigureerd, kunt u de mogelijkheid voor het detecteren van nieuwe threat inschakelen en configureren van e-mailberichten voor het ontvangen van beveiligingsberichten. Wanneer u detectie van dreigingen gebruikt, ontvangt u proactieve waarschuwingen voor afwijkende databaseactiviteiten die kunnen duiden op beveiligingsdreigingen. Zie voor meer informatie [aan de slag met detectie van dreigingen](sql-database-threat-detection-get-started.md).
 8. Klik op **Opslaan**.
 

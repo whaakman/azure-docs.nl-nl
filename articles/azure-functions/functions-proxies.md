@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -50,13 +50,13 @@ U kunt met Azure Functions-proxy's, aanvragen en antwoorden van de back-end wijz
 
 Standaard wordt de back-end-aanvraag geïnitialiseerd als een kopie van de oorspronkelijke aanvraag. Naast het instellen van de back-end-URL, kunt u wijzigingen aanbrengt aan de HTTP-methode, kopteksten en queryreeksparameters. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen] en [parameters van de aanvraag van de oorspronkelijke client].
 
-Er is momenteel geen portal ervaring voor het wijzigen van de back-end-aanvragen. Voor informatie over het toepassen van deze mogelijkheid van *proxies.json*, Zie [definiëren van een object requestOverrides].
+Back-end-aanvragen kunnen worden gewijzigd in de portal door expading de *aanvragen onderdrukking* sectie van de detailpagina proxy. 
 
 ### <a name="modify-response"></a>Het antwoord worden gewijzigd
 
 Het antwoord van de client wordt standaard geïnitialiseerd als een kopie van het back-end-antwoord. U kunt wijzigingen aanbrengen statuscode, reden, kopteksten en hoofdtekst van het antwoord. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen], [parameters van de aanvraag van de oorspronkelijke client], en [parameters uit het antwoord van de back-end].
 
-Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. Voor informatie over het toepassen van deze mogelijkheid van *proxies.json*, Zie [definiëren van een object responseOverrides].
+Back-end-aanvragen kunnen worden gewijzigd in de portal door expading de *antwoord onderdrukking* sectie van de detailpagina proxy. 
 
 ## <a name="using-variables"></a>Variabelen gebruiken
 
@@ -65,7 +65,11 @@ De configuratie voor een proxy hoeft niet statisch. U kunt het gebruik van varia
 ### <a name="reference-localhost"></a>Verwijzing naar lokale functies
 U kunt `localhost` verwijst rechtstreeks naar van een functie binnen dezelfde functie app zonder een proxy RTT aanvraag.
 
-`"backendurl": "localhost/api/httptriggerC#1"`verwijst naar een lokale geactiveerd HTTP-functie op de route`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` verwijst naar een lokale geactiveerd HTTP-functie op de route `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>Als de functie maakt gebruik van *function-, beheer- of sys* machtigingsniveaus, moet u de code en clientId, aan de hand van de oorspronkelijke functie-URL opgeven. In dit geval eruit de verwijzing als: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Aanvraagparameters verwijzing
 
@@ -114,7 +118,7 @@ Traceringen helemaal uitschakelen door toe te voegen `"debug":false` naar een be
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
-De proxy's die u configureert, worden opgeslagen in een *proxies.json* bestand, dat in de hoofdmap van een functie app-map bevindt zich. U kunt handmatig bewerken van dit bestand en implementeren als onderdeel van uw app als u een van de [implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) die functies worden ondersteund. De functie Azure Functions-proxy's moet [ingeschakeld](#enable) het bestand moet worden verwerkt. 
+De proxy's die u configureert, worden opgeslagen in een *proxies.json* bestand, dat in de hoofdmap van een functie app-map bevindt zich. U kunt handmatig bewerken van dit bestand en implementeren als onderdeel van uw app als u een van de [implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) die functies worden ondersteund. 
 
 > [!TIP] 
 > Als u geen hebt ingesteld een van de methoden voor het implementeren, kunt u ook werken met de *proxies.json* bestand in de portal. Ga naar de functie-app, selecteer **platformfuncties**, en selecteer vervolgens **App Service-Editor**. Door dit te doen, kunt u de volledige structuur van uw app functie weergeven en brengt wijzigingen.
@@ -229,16 +233,6 @@ Een voorbeeldconfiguratie kan er als volgt uitzien:
 ```
 > [!NOTE] 
 > In dit voorbeeld wordt de antwoordtekst is ingesteld rechtstreeks, dus er is geen `backendUri` eigenschap nodig is. Het voorbeeld ziet hoe u Azure Functions-proxy's kunt gebruiken voor mocking API's.
-
-## <a name="enable"></a>Azure Functions-proxy's inschakelen
-
-Proxy's worden nu standaard ingeschakeld. Als u een oudere versie van de preview proxy's gebruikt en proxy's uitgeschakeld, moet u handmatig inschakelen proxy's eenmaal in de volgorde voor proxy's uit te voeren.
-
-1. Open de [Azure-portal], en gaat u naar de functie-app.
-2. Selecteer **werken app-instellingen**.
-3. Switch **inschakelen Azure Functions-proxy's (preview)** naar **op**.
-
-U kunt ook hier retourneren voor het bijwerken van de proxy-runtime, nieuwe functies beschikbaar komen.
 
 [Azure-portal]: https://portal.azure.com
 [HTTP-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

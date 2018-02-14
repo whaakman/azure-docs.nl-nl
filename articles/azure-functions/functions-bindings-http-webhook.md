@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -385,9 +385,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 | **type** | N.v.t.| Vereist - moet worden ingesteld op `httpTrigger`. |
 | **direction** | N.v.t.| Vereist - moet worden ingesteld op `in`. |
-| **naam** | N.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
+| Naam | N.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het machtigingsniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er is geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een specifieke functies API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [autorisatie sleutels](#authorization-keys). |
-| **methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Als niet wordt opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#trigger---customize-the-http-endpoint). |
+| **Methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Als niet wordt opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Definieert het Routesjabloon aanvragen waarmee uw functie reageert URL's beheren. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Hiermee wordt de HTTP-trigger om te fungeren als een [webhook](https://en.wikipedia.org/wiki/Webhook) ontvanger voor de opgegeven provider. Stelt niet de `methods` eigenschap als u deze eigenschap instellen. Het type webhook kan een van de volgende waarden zijn:<ul><li><code>genericJson</code>&mdash;Een eindpunt voor algemene doeleinden webhook zonder logica voor een specifieke provider. Deze instelling voorkomt dat aanvragen met alleen die via HTTP POST en met de `application/json` inhoudstype.</li><li><code>github</code>&mdash;De functie reageert op [GitHub webhooks](https://developer.github.com/webhooks/). Gebruik niet de _authLevel_ eigenschap met de GitHub-webhooks. Zie de sectie van de webhooks GitHub verderop in dit artikel voor meer informatie.</li><li><code>slack</code>&mdash;De functie reageert op [webhooks vertraging](https://api.slack.com/outgoing-webhooks). Gebruik niet de _authLevel_ eigenschap met de toegestane webhooks. Zie de sectie toegestane webhooks verderop in dit artikel voor meer informatie.</li></ul>|
 
@@ -494,6 +494,9 @@ Standaard worden alle routes van de functie voorafgegaan door *api*. U kunt ook 
 
 HTTP-triggers kunnen u sleutels gebruiken voor extra beveiliging. Een standaard HTTP-trigger kunt gebruiken dat deze als een API-sleutel, vereisen de sleutel moet aanwezig zijn op de aanvraag. Webhooks kunt sleutels gebruiken voor het toestaan van aanvragen in verschillende manieren, afhankelijk van wat de provider ondersteunt.
 
+> [!NOTE]
+> Wanneer de functies die lokaal wordt uitgevoerd, de autorisatie is uitgeschakeld ongeacht de `authLevel` ingesteld in `function.json`. Zodra u naar Azure Functions publiceren, de `authLevel` onmiddellijk van kracht.
+
 Sleutels worden opgeslagen als onderdeel van de functie-app in Azure en zijn versleuteld in rust. Als u wilt uw sleutels weergeven, nieuwe te maken of sleutels rouleert met nieuwe waarden, navigeer naar een van uw functies in de portal en selecteer 'Beheren'. 
 
 Er zijn twee soorten sleutels:
@@ -561,7 +564,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|
 | **type** |moet worden ingesteld op `http`. |
 | **direction** | moet worden ingesteld op `out`. |
-|**naam** | De naam van de variabele in functiecode gebruikt voor het antwoord. |
+|Naam | De naam van de variabele in functiecode gebruikt voor het antwoord. |
 
 ## <a name="output---usage"></a>Output - gebruik
 

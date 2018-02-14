@@ -3,7 +3,7 @@ title: Container bewaking oplossing in Azure Log Analytics | Microsoft Docs
 description: "De oplossing Container bewaking in Log Analytics kunt u weergeven en beheren van uw Docker- en Windows container hosts op één locatie."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -356,7 +356,7 @@ U kunt omsagent DaemonSets maken met of zonder geheimen.
         KEY:    88 bytes
         ```
 
-    5. Maken van uw omsagent daemon-set door te voeren``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Maken van uw omsagent daemon-set door te voeren ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
 
 2. Controleren of de DaemonSet OMS-Agent wordt uitgevoerd, vergelijkbaar met het volgende:
 
@@ -400,10 +400,10 @@ Voor Windows Kubernetes gebruikt u een script om de geheimen yaml-bestand voor u
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Maken van uw omsagent daemon-set door te voeren``` kubectl create -f omsagentsecret.yaml ```
+    3. Maken van uw omsagent daemon-set door te voeren ``` kubectl create -f omsagentsecret.yaml ```
     4. Als u wilt controleren, voert u de volgende:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,16 +418,16 @@ Voor Windows Kubernetes gebruikt u een script om de geheimen yaml-bestand voor u
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
-    5. Maken van uw omsagent daemon-set door te voeren```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Maken van uw omsagent daemon-set door te voeren ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Controleren of de DaemonSet OMS-Agent wordt uitgevoerd, vergelijkbaar met het volgende:
 
@@ -437,12 +437,12 @@ Voor Windows Kubernetes gebruikt u een script om de geheimen yaml-bestand voor u
     omsagent   1         1         <none>          1h
     ```
 
-3. Volg de stappen in de sectie voor de installatie van de agent op het Werkrolknooppunt die Windows uitvoert, [installeren en configureren van Windows-container hosts](#install-and-configure-windows-container-hosts). 
+3. Volg de stappen in de sectie voor de installatie van de agent op het Werkrolknooppunt die Windows uitvoert, [installeren en configureren van Windows-container hosts](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Gebruik Helm OMS-Agent op Linux Kubernetes implementeren 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Gebruik Helm OMS-Agent op Linux Kubernetes implementeren
 Als u wilt gebruiken helm OMS-Agent op uw omgeving Linux Kubernetes implementeren, moet u de volgende stappen uitvoeren.
 
-1. Maken van uw omsagent daemon-set door te voeren```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Maken van uw omsagent daemon-set door te voeren ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. De resultaten ziet er ongeveer als volgt:
 
     ```
@@ -602,12 +602,12 @@ Log Analytics markeert een container als **mislukt** als is afgesloten met een a
 
 ### <a name="to-find-failed-containers"></a>Mislukte containers vinden
 1. Klik op de **Container Status** gebied.  
-   ![status van de containers](./media/log-analytics-containers/containers-status.png)
+   ![Status van de containers](./media/log-analytics-containers/containers-status.png)
 2. Logboek zoekopdracht wordt geopend en wordt de status van uw containers, de volgende strekking weergegeven.  
    ![status van de containers](./media/log-analytics-containers/containers-log-search.png)
 3. Klik vervolgens op de toegevoegde waarde van mislukte containers naar aanvullende informatie weergeven. Vouw **meer** om weer te geven van de installatiekopie-ID.  
    ![mislukte containers](./media/log-analytics-containers/containers-state-failed.png)  
-4. Typ vervolgens het volgende in de zoekopdracht. `Type=ContainerInventory <ImageID>`voor informatie over de installatiekopie zoals afbeeldingsgrootte en aantal gestopt en mislukte afbeeldingen.  
+4. Typ vervolgens het volgende in de zoekopdracht. `Type=ContainerInventory <ImageID>` voor informatie over de installatiekopie zoals afbeeldingsgrootte en aantal gestopt en mislukte afbeeldingen.  
    ![mislukte containers](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Zoeken in Logboeken voor containergegevens
@@ -625,7 +625,7 @@ Wanneer u een specifieke fout oplossen bent, kunt u zien waar het optreedt in uw
 
 
 ### <a name="to-search-logs-for-container-data"></a>Logboeken voor de containergegevens zoeken
-* Kies een installatiekopie die u kent onlangs is mislukt en de foutenlogboeken voor het vinden. Starten door te zoeken naar een containernaam die wordt uitgevoerd die afbeelding met een **ContainerInventory** zoeken. Bijvoorbeeld zoeken naar`Type=ContainerInventory ubuntu Failed`  
+* Kies een installatiekopie die u kent onlangs is mislukt en de foutenlogboeken voor het vinden. Starten door te zoeken naar een containernaam die wordt uitgevoerd die afbeelding met een **ContainerInventory** zoeken. Bijvoorbeeld zoeken naar `Type=ContainerInventory ubuntu Failed`  
     ![Zoeken naar Ubuntu-containers](./media/log-analytics-containers/search-ubuntu.png)
 
   De naam van de container naast **naam**, en zoek naar deze logboeken. In dit voorbeeld is het `Type=ContainerLog cranky_stonebreaker`.
