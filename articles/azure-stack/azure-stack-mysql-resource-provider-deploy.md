@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -88,7 +88,7 @@ Het systeem-account moet hebben de volgende bevoegdheden:
 
     - Een enkele certificaatbestand bestaat in de DependencyFilesLocalPath.
     
-    - De bestandsnaam moet de speciale tekens niet bevatten.
+    - De bestandsnaam mag geen eventuele speciale tekens of spaties bevatten.
 
 
 5. Open een **nieuwe** (beheerdersrechten) PowerShell-console met verhoogde bevoegdheid. Wijzig in de map waar u de bestanden hebt uitgepakt. Een nieuw venster gebruiken om problemen die mogelijk worden veroorzaakt door onjuiste PowerShell-modules die al zijn geladen in het systeem te voorkomen.

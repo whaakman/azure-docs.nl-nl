@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdeec60b4935fda58e2657a215826d8355c81664
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -81,7 +81,7 @@ Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Geb
 
 Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met twee-onderwerp. Dit kan een certificaat hebben betrekking op het standaarddomein en het SCM-eindpunt voor de bron-en beheerbewerkingen.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | \*.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
@@ -90,7 +90,7 @@ Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met 
 
 De API-certificaat is op de rol geplaatst. De resourceprovider gebruikt om u te helpen beveiligen API-aanroepen. Het certificaat voor de publicatie moet een onderwerpnaam die overeenkomt met de API-DNS-vermelding bevatten.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -98,7 +98,7 @@ De API-certificaat is op de rol geplaatst. De resourceprovider gebruikt om u te 
 
 Het certificaat voor de rol Publisher beveiligt het verkeer FTPS voor eigenaren van toepassing wanneer ze inhoud uploaden. Het certificaat voor de publicatie moet een onderwerpnaam die overeenkomt met de FTPS DNS-vermelding bevatten.
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -110,7 +110,7 @@ Maakt gebruik van het certificaat voor de identiteit van toepassing:
 
 Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten:
 
-| Indeling | Voorbeeld |
+| Notatie | Voorbeeld |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
@@ -156,22 +156,22 @@ Voor Azure Stack Development Kit implementaties, kunt u de [voorbeeld Azure Reso
 Wanneer u de Azure Resource Manager-sjabloon gebruikt, worden de gebruikers zijn al gemaakt.
 
 1. Voer de volgende opdrachten voor het maken van de accounts FileShareOwner en FileShareUser. Vervang `<password>` met uw eigen waarden.
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+    ``` DOS
+    net user FileShareOwner <password> /add /expires:never /passwordchg:no
+    net user FileShareUser <password> /add /expires:never /passwordchg:no
+    ```
 2. Stel de wachtwoorden voor de accounts nooit verloopt met de volgende WMIC-opdrachten:
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+    ``` DOS
+    WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+    WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+    ```
 3. Maken van de lokale groepen FileShareUsers en FileShareOwners en aan de accounts in de eerste stap toevoegen:
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+    ``` DOS
+    net localgroup FileShareUsers /add
+    net localgroup FileShareUsers FileShareUser /add
+    net localgroup FileShareOwners /add
+    net localgroup FileShareOwners FileShareOwner /add
+    ```
 
 ### <a name="provision-the-content-share"></a>De inhoudsshare inrichten
 

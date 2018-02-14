@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: 859d31b554fcd1936ce555f6afb0f4631a3af7aa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 141641b01b338e3426861dad7424a1de1bd2c63c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Herstellen van onherstelbaar gegevensverlies
 
@@ -44,7 +44,7 @@ In slechtste case scenario's waarin alle gegevens gaan verloren, met de Azure-St
 
 ![Azure Stack implementeren](media\azure-stack-backup\azure-stack-backup-workflow2.png)
 
-## <a name="restore"></a>Herstellen
+## <a name="restore"></a>Terugzetten
 
 Als onherstelbaar gegevensverlies maar de hardware kan nog steeds gebruikt worden, is opnieuw distribueren van Azure-Stack is vereist. Tijdens het opnieuw implementeren, kunt u de locatie voor de opslag en de referenties die zijn vereist voor toegang tot de back-ups. In deze modus zijn is er niet nodig om op te geven van de services die moeten worden teruggezet. Back-up infrastructuurbeheerder injects vlak status als onderdeel van de werkstroom voor de implementatie.
 
