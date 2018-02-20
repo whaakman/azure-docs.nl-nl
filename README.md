@@ -4,27 +4,26 @@ Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.
 Zie voor meer informatie de [Code van Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [ opencode@microsoft.com ](mailto:opencode@microsoft.com) met aanvullende vragen of opmerkingen.
 
 ## <a name="contribute-to-azure-technical-documentation"></a>Bijdragen aan technische documentatie voor Azure
-Bijdragen vanuit de community (gebruikers, klanten, partners, MSFT werknemers buiten core Azure producteenheden, enz.) en vanuit werknemers in core Azure producteenheden zijn van harte welkom. Op welke manier u kunt bijdragen hangt af van wie u bent:
+Bijdragen vanuit de community (gebruikers, klanten, partners, MSFT-werknemers buiten core Azure-producteenheden, enz.) en vanuit werknemers in core Azure-producteenheden zijn van harte welkom. Op welke manier u kunt bijdragen, hangt af van wie u bent:
 
-* **Community - minder ingrijpende updates**: Als u kleine wijzigingen wilt toepassen kunt u het artikel vinden in deze repository of bezoek het artikel op [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) en klik op de **Bewerken** koppeling in het artikel welke u naar de GitHub-bron voor het artikel zal brengen. Vervolgens kunt u aan de hand van de GitHub UI uw updates toepassen. U bent ook van harte welkom om de repository te forken en via uw fork de updates te verzenden.
+* **Community - minder ingrijpende updates**: Als u kleine wijzigingen wilt toepassen, kunt u het artikel vinden in deze opslagplaats of het artikel bezoeken op [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure). Als u klikt op de koppeling **Bewerken** in het artikel, wordt u naar de GitHub-bron van het artikel geleid. Vervolgens kunt u aan de hand van de GitHub-UI uw updates toepassen. U bent ook van harte welkom om de opslagplaats te forken en via uw fork de updates te verzenden.
 
-* **Community - nieuwe artikelen**: Als u deel uitmaakt van de Azure-community en u wilt een nieuw artikel maken, moet u werken met een werknemer zodat het nieuwe artikel via een combinatie van private en publieke repositories kan worden aangemaakt.
+* **Community - nieuwe artikelen**: Als u deel uitmaakt van de Azure-community en u wilt een nieuw artikel maken, moet u werken met een werknemer zodat het nieuwe artikel via een combinatie van privéopslagplaatsen en openbare opslagplaatsen kan worden aangemaakt.
 
-* **Werknemers**: Wanneer u een technical writer, programmanager bent of ontwikkelaar van het productteam voor een Azure-service en het is uw taak om bij te dragen aan of het schrijven van technische artikelen, moet u de private repository gebruiken op (https://github.com/MicrosoftDocs/azure-docs-pr). Als u grotere veranderingen toepast aan een bestaand artikel, afbeeldingen toevoegt of wijzigt of een nieuwe artikel aanlevert, zult u de repository moeten forken, Git Bash installeren, een Markdown editor installeren en Git commando's moeten kennen. Bekijk de [handleiding voor de interne bijdragers](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) voor meer informatie.
-
+* **Werknemers**: Wanneer u een technisch schrijver, programmamanager of ontwikkelaar van het productteam voor een Azure-service bent en het is uw taak om bij te dragen aan technische artikelen of deze te schrijven, moet u de privéopslagplaats gebruiken op (...). Als u grotere veranderingen aanbrengt aan een bestaand artikel, afbeeldingen toevoegt of wijzigt of een nieuw artikel aanlevert, zult u de opslagplaats moeten forken, Git Bash installeren, een Markdown-editor installeren en Git--opdrachten moeten kennen.
 
 ## <a name="about-your-contributions-to-azure-content"></a>Over uw bijdragen aan Azure-content
 ### <a name="minor-corrections"></a>Kleine correcties
-Kleine correcties of verduidelijkingen die u indient voor documentatie en codevoorbeelden in deze repository vallen onder de [docs.microsoft.com-gebruiksvoorwaarden](https://docs.microsoft.com/legal/termsofuse).
+Kleine correcties of verduidelijkingen die u indient voor documentatie en codevoorbeelden in deze opslagplaats vallen onder de [docs.microsoft.com-gebruiksvoorwaarden](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Grotere wijzigingen
-Als u een nieuwe of belangrijke wijziging in de documentatie of aan de code-voorbeelden en een pull-request indient, sturen we u een opmerking in GitHub waarin u een Contribution bijdrage License Agreement (CLA) wordt gevraagd in te dienen als u geen medewerker van Microsoft bent. U moet het online formulier invullen voordat we uw pull-aanvraag kunnen accepteren.
+Als u een nieuwe of belangrijke wijziging in de documentatie of aan de code-voorbeelden en een pull-aanvraag indient, sturen we u een opmerking in GitHub waarin we u vragen een CLA (Contribution License Agreement) in te dienen als u geen medewerker van Microsoft bent. U moet het online-formulier invullen voordat we uw pull-aanvraag kunnen accepteren.
 
 ## <a name="tools-and-setup"></a>Hulpprogramma's en installatie
 Community-gebruikers kunnen de GitHub UI of de repository forken om bij te dragen. Werknemers zullen de [handleiding voor de interne bijdragers](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) moeten bezoeken voor meer informatie over hoe u kunt bijdragen aan de technische documentatie.
 
 ## <a name="repository-organization"></a>Organisatie van de repository
-De inhoud in de repository azure-docs volgt de documentatiestructuur op https://docs.microsoft.com/azure. Deze bibliotheek bevat twee hoofdmappen:
+De inhoud in de opslagplaats azure-docs volgt de documentatiestructuur op https://docs.microsoft.com/azure. Deze bibliotheek bevat twee hoofdmappen:
 
 ### <a name="articles"></a>\articles
 De map *\articles* bevat de documentatieartikelen die zijn opgemaakt als Markdown-bestanden met de indeling *.md*. Artikelen zijn doorgaans gegroepeerd op Azure-service.
@@ -46,9 +45,9 @@ In de publieke azure-docs repository worden automatisch labels toegevoegd aan pu
 
 * Contribution License Agreement related
   * cla-not-required: De wijziging is relatief klein en vereist geen CLA.
-  * cla-required: De scope van de verandering is relatief groot en vereist dat een CLA wordt ondertekend.
-  * cla-signed: De bijdrager heeft de CLA ondertekend, de pull request kan worden doorgezet voor een review.
-* Change sent to author: De auteur is ingelicht over de openstaande pull request.
-* ready-to-merge: Klaar om te worden bekeken door ons pull request review team
+  * cla-required: Het bereik van de verandering is relatief groot en vereist dat een CLA wordt ondertekend.
+  * cla-signed: De bijdrager heeft de CLA ondertekend, zodat de pull-aanvraag kan worden doorgezet voor een review.
+* Change sent to author: De auteur is ingelicht over de openstaande pull-aanvraag.
+* ready-to-merge: Klaar om te worden bekeken door ons beoordelingsteam voor pull-aanvragen.
 
 
