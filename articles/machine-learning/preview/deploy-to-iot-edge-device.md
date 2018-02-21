@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Een Azure Machine Learning-model implementeren op een Azure-IoT-randapparaat
 
 Alle Azure Machine Learning-modellen als webservices op basis van Docker beperkte kunnen ook uitvoeren op Azure IoT Edge-apparaten. Extra scripts en instructies vindt u in de [AI Toolkit voor Azure IoT rand](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Het model operationeel maken
-Het model operationeel door de instructies in [Azure Machine Learning-Model Management Web Service-implementatie](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) een Docker-installatiekopie maken met het model.
+Het model operationeel door de instructies in [Azure Machine Learning-Model Management Web Service-implementatie](model-management-service-deploy.md) een Docker-installatiekopie maken met het model.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Implementeren naar Azure IoT-rand
 Azure IoT-rand wordt verplaatst van cloud analytics en aangepaste bedrijfsregels naar apparaten. Alle Machine Learning-modellen kunnen uitvoeren op de IoT Edge-apparaten. De documentatie van een IoT-randapparaat instellen en maakt u een implementatie kan worden gevonden op [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc).

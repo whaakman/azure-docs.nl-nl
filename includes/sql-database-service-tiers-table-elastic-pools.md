@@ -84,26 +84,10 @@ sql-database-elastic-pool.md
 | Maximale opslag per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Limieten voor Premium RS elastische pools
-
-| eDTU's per groep | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Opgenomen opslag per groep van toepassingen (GB) | 250 | 500 | 750 | 750 |
-| Maximum aantal opslagopties per groep (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | 1 | 2 | 4 | 10 |
-| Maximaal aantal databases per pool | 50 | 100 | 100 | 100 |
-| Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 200 | 400 | 800 | 1600 |
-| Maximaal aantal gelijktijdige aanmeldingen per pool | 200 | 400 | 800 | 1600 |
-| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 |
-| Opties voor min-edtu's per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Opties van de Max edtu's per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Maximale opslag per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/). Opslag groter zijn dan de hoeveelheid opslagruimte die opgenomen zijn in preview en extra kosten gelden. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \*In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Canada centraal, Canada Oost, Frankrijk centraal, Duitsland centraal, Japan-Oost, centraal Korea Zuid-centraal VS Zuid-Oost-Azië, ons East2 , VS-west, VS Gov Virginia en West-Europa. 
+> \* In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Canada centraal, Canada Oost, Frankrijk centraal, Duitsland centraal, Japan-Oost, centraal Korea Zuid-centraal VS Zuid-Oost-Azië, ons East2 , VS-west, VS Gov Virginia en West-Europa. 
 >
->\*\*Min/max edtu's per database vanaf op 200 edtu's en hoger **standaard** pools zijn Preview-versie.
+>\*\* Min/max edtu's per database vanaf op 200 edtu's en hoger **standaard** pools zijn Preview-versie.
 >

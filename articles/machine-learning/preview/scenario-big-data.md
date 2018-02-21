@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -51,7 +51,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 * Windows 10 (de instructies in dit voorbeeld zijn in het algemeen hetzelfde voor Mac OS-systemen).
 * Een Data wetenschappelijke virtuele Machine (DSVM) voor Linux (Ubuntu), bij voorkeur in VS-Oost-regio waar de gegevens zoekt. U kunt een Ubuntu DSVM inrichten door [deze instructies](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). U ziet ook [deze snelstartgids](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). U wordt aangeraden een virtuele machine gebruiken met ten minste 8 kernen en 32 GB geheugen. 
 
-Ga als volgt de [instructie](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) wachtwoordloze sudoer toegang op de virtuele machine inschakelen voor AML Workbench.  U kunt gebruiken [SSH verificatie op basis van een sleutel voor het maken en het gebruik van de virtuele machine in de Workbench AML](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de DSVM-gegevens voor de volgende stappen:
+Ga als volgt de [instructie](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) wachtwoordloze sudoer toegang op de virtuele machine inschakelen voor AML Workbench.  U kunt gebruiken [SSH verificatie op basis van een sleutel voor het maken en het gebruik van de virtuele machine in de Workbench AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de DSVM-gegevens voor de volgende stappen:
 
  Veldnaam| Waarde |  
  |------------|------|
@@ -104,18 +104,18 @@ Kolomnummer | Veldnaam| Type | Beschrijving |
 1  | `SessionStart` | Datum en tijd |    Begintijd sessie
 2  |`SessionEnd`    | Datum en tijd | Eindtijd van sessie
 3 |`ConcurrentConnectionCounts` | Geheel getal | Aantal gelijktijdige verbindingen
-4 | `MbytesTransferred` | dubbele | Genormaliseerde gegevens overgebracht in MB
+4 | `MbytesTransferred` | Double | Genormaliseerde gegevens overgebracht in MB
 5 | `ServiceGrade` | Geheel getal |  Klasse van de service voor de sessie
 6 | `HTTP1` | Geheel getal|  Sessie gebruikt HTTP1 of HTTP2
 7 |`ServerType` | Geheel getal   |Servertype
-8 |`SubService_1_Load` | dubbele |   Subservice 1 laden
-9 | `SubService_2_Load` | dubbele |  Subservice 2 laden
-10 | `SubService_3_Load` | dubbele |     Subservice 3 laden
-11 |`SubService_4_Load` | dubbele |  Subservice 4 laden
-12 | `SubService_5_Load`| dubbele |      Subservice 5 laden
-13 |`SecureBytes_Load`  | dubbele | Beveiligde bytes laden
-14 |`TotalLoad` | dubbele | Totale belasting van server
-15 |`ClientIP` | Tekenreeks|    IP-clientadres
+8 |`SubService_1_Load` | Double |   Subservice 1 laden
+9 | `SubService_2_Load` | Double |  Subservice 2 laden
+10 | `SubService_3_Load` | Double |     Subservice 3 laden
+11 |`SubService_4_Load` | Double |  Subservice 4 laden
+12 | `SubService_5_Load`| Double |      Subservice 5 laden
+13 |`SecureBytes_Load`  | Double | Beveiligde bytes laden
+14 |`TotalLoad` | Double | Totale belasting van server
+15 |`ClientIP` | Tekenreeks|    IP-adres van client
 16 |`ServerIP` | Tekenreeks|    Het IP-adres
 
 
@@ -160,11 +160,11 @@ U moet een container voor experimenteren op de gegevensset één maand en een an
 
 | BLOB-voorvoegsel | Type | Beschrijving |
 |-----------|------|-------------|
-| featureScaleModel | Parketvloeren | Standaard scaler model voor numerieke onderdelen. |
-| stringIndexModel | Parketvloeren | Model van de indexeerfunctie voor niet-numerieke onderdelen een tekenreeks.|
-| oneHotEncoderModel|Parketvloeren | Een hot encoder model voor categorische functies. |
-| mlModel | Parketvloeren | Getrainde machine learning-model. |
-| Info| Python pickle-bestand | Informatie over de getransformeerde gegevens, inclusief training start, einde van de training, duur, het tijdstempel voor train-test splitsen en kolommen voor indexering en één hot codering.
+| featureScaleModel | Parquet | Standaard scaler model voor numerieke onderdelen. |
+| stringIndexModel | Parquet | Model van de indexeerfunctie voor niet-numerieke onderdelen een tekenreeks.|
+| oneHotEncoderModel|Parquet | Een hot encoder model voor categorische functies. |
+| mlModel | Parquet | Getrainde machine learning-model. |
+| info| Python pickle-bestand | Informatie over de getransformeerde gegevens, inclusief training start, einde van de training, duur, het tijdstempel voor train-test splitsen en kolommen voor indexering en één hot codering.
 
 Alle bestanden en blobs in de voorgaande tabel worden gebruikt voor uitoefening.
 
@@ -186,7 +186,7 @@ Het eerste argument `configFilename`, is een lokale configuratiebestand waar u d
 
 | Veld | Type | Beschrijving |
 |-----------|------|-------------|
-| StorageAccount | Tekenreeks | Naam van een Azure Storage-account |
+| storageAccount | Tekenreeks | Naam van een Azure Storage-account |
 | storageContainer | Tekenreeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
 | storageKey | Tekenreeks |Azure toegangssleutel voor Opslagaccount |
 | DataFile|Tekenreeks | Gegevensbronbestanden  |
@@ -225,7 +225,7 @@ De project-omgeving voorbereiden door te voeren:
 ```az ml experiment prepare -c dockerdsvm```
 
 
-Met `PrepareEnvironment` ingesteld op true, Machine Learning Workbench de runtime-omgeving wordt gemaakt wanneer het verzenden van een taak. `Config/conda_dependencies.yml`en `Config/dsvm_spark_dependencies.yml` bevatten de aanpassing van de runtime-omgeving. U kunt de Conda afhankelijkheden, Spark-configuratie en Spark afhankelijkheden altijd aanpassen door deze twee YMAL-bestanden te bewerken. In dit voorbeeld hebben we toegevoegd `azure-storage` en `azure-ml-api-sdk` als extra Python-pakketten in `Config/conda_dependencies.yml`. We hebben ook toegevoegd `spark.default.parallelism`, `spark.executor.instances`, en `spark.executor.cores` in `Config/dsvm_spark_dependencies.yml`. 
+Met `PrepareEnvironment` ingesteld op true, Machine Learning Workbench de runtime-omgeving wordt gemaakt wanneer het verzenden van een taak. `Config/conda_dependencies.yml` en `Config/dsvm_spark_dependencies.yml` bevatten de aanpassing van de runtime-omgeving. U kunt de Conda afhankelijkheden, Spark-configuratie en Spark afhankelijkheden altijd aanpassen door deze twee YMAL-bestanden te bewerken. In dit voorbeeld hebben we toegevoegd `azure-storage` en `azure-ml-api-sdk` als extra Python-pakketten in `Config/conda_dependencies.yml`. We hebben ook toegevoegd `spark.default.parallelism`, `spark.executor.instances`, en `spark.executor.cores` in `Config/dsvm_spark_dependencies.yml`. 
 
 #####  <a name="2-data-preparation-and-feature-engineering-on-dsvm-docker"></a>2. Voorbereiden van gegevens en functie-engineering op DSVM Docker
 
@@ -330,7 +330,7 @@ Blader op de juiste zijbalk van de Workbench naar **wordt uitgevoerd** om te zie
 
 In deze sectie maakt operationeel u het model dat u in de vorige stappen hebt gemaakt als een webservice. U leert ook hoe u met de webservice werkbelasting voorspellen. Gebruik Machine Language uitoefening opdrachtregelinterfaces (CLIs) aan het pakket van de code en de afhankelijkheden als Docker-installatiekopieën en voor het publiceren van het model als een beperkte webservice.
 
-U kunt de opdrachtprompt in Machine Learning-Workbench om uit te voeren van de CLIs gebruiken.  U kunt ook de CLIs op Ubuntu Linux uitvoeren door de [installatiehandleiding](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+U kunt de opdrachtprompt in Machine Learning-Workbench om uit te voeren van de CLIs gebruiken.  U kunt ook de CLIs op Ubuntu Linux uitvoeren door de [installatiehandleiding](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > In de volgende opdrachten, kunt u een variabele argument vervangen door de werkelijke waarde. Het duurt ongeveer 40 minuten voor het voltooien van deze sectie.
@@ -416,7 +416,7 @@ Kies een unieke tekenreeks als de omgeving voor uitoefening. We gebruiken hier d
 
 8. De webservice worden geschaald. 
 
-   Zie voor meer informatie [uitoefening op uw Azure Container Service-cluster schalen](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Zie voor meer informatie [uitoefening op uw Azure Container Service-cluster schalen](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Volgende stappen

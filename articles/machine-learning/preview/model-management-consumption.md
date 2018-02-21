@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Webservices verbruiken
-Wanneer u een model als een realtime-webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen vanaf verschillende platforms en toepassingen. De realtime-webservice wordt een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling van één of meerdere rij ophalen van een of meer voorspellingen op tegelijk.
+Wanneer u een model als een realtime-webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen vanaf verschillende platforms en toepassingen. De realtime-webservice wordt een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling van één of meerdere rij ophalen van een of meer voorspellingen tegelijk.
 
-Met de [Azure Machine Learning-webservice](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), een externe toepassing communiceert synchroon met een Voorspellend model door het maken van HTTP POST-aanroep naar de service-URL. Als u een webservice aanroepen, moet de clienttoepassing specificeren van de API-sleutel die wordt gemaakt wanneer u een voorspelling te implementeren en de gegevens van aanvragen in de aanvraagtekst POST geplaatst.
+Met de [Azure Machine Learning-webservice](model-management-service-deploy.md), een externe toepassing communiceert synchroon met een Voorspellend model door het maken van HTTP POST-aanroep naar de service-URL. Als u een webservice aanroepen, moet de clienttoepassing specificeren van de API-sleutel die wordt gemaakt wanneer u een voorspelling te implementeren en de gegevens van aanvragen in de aanvraagtekst POST geplaatst.
 
 Houd er rekening mee API-sleutels zijn alleen beschikbaar in de cluster-implementatie-modus. Lokale webservices hoeft geen sleutels.
 
 ## <a name="service-deployment-options"></a>Opties voor service-implementatie
-Azure Machine Learning-webservices kunnen worden geïmplementeerd in de cloud clusters voor zowel productie- en Testscenario's en lokale werkstations met behulp van docker-engine. De functionaliteit van het voorspellende model in beide gevallen blijft hetzelfde. Implementatie van het cluster op basis van schaalbare biedt en zodat oplossing op basis van Azure Container Services, terwijl de lokale implementatie kan worden gebruikt voor foutopsporing. 
+Azure Machine Learning-webservices kunnen worden geïmplementeerd voor de cloud-gebaseerde clusters voor zowel productie- en Testscenario's en voor het lokale werkstations met behulp van docker-engine. De functionaliteit van het voorspellende model in beide gevallen blijft hetzelfde. Implementatie op basis van een cluster biedt schaalbare en zodat oplossing op basis van Azure Container Services, terwijl de lokale implementatie kan worden gebruikt voor foutopsporing. 
 
 De Azure Machine Learning CLI en API biedt een handige opdrachten voor het maken en beheren van compute omgevingen voor service-implementaties met behulp van de ```az ml env``` optie. 
 
 ## <a name="list-deployed-services-and-images"></a>Lijst met geïmplementeerde services en installatiekopieën
-U kunt weergeven van de momenteel geïmplementeerde services en de Docker-installatiekopieën met CLI opdracht ```az ml service list realtime -o table```. Houd er rekening mee dat deze opdracht altijd in de context van de huidige compute-omgeving werkt en zou worden services die zijn geïmplementeerd in een omgeving die niet is ingesteld op de huidige worden niet weergegeven. Het gebruik van de omgeving instellen ```az ml env set```. 
+U kunt weergeven van de momenteel geïmplementeerde services en de Docker-installatiekopieën met CLI opdracht ```az ml service list realtime -o table```. Houd er rekening mee dat deze opdracht altijd in de context van de huidige compute-omgeving werkt. Het zou niet services die zijn geïmplementeerd in een omgeving die niet is ingesteld op de huidige worden weergegeven. Het gebruik van de omgeving instellen ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Service-informatie ophalen
 Nadat de web-service is geïmplementeerd, moet u de volgende opdracht gebruiken om op te halen van de service-URL en andere details voor het aanroepen van het service-eindpunt. 
@@ -40,7 +40,7 @@ az ml service usage realtime -i <service name>
 
 Met deze opdracht wordt de service-URL, vereist aanvraagheaders, swagger-URL en voorbeeldgegevens om de service aan te roepen als de service API-schema is opgegeven op het moment van implementatie afgedrukt.
 
-U kunt de service rechtstreeks vanuit de CLI testen zonder het samenstellen van een HTTP-verzoek met de opdracht van de CLI voorbeeld met de invoergegevens:
+U kunt de service rechtstreeks vanuit de CLI testen zonder het samenstellen van een HTTP-aanvraag met de opdracht van de CLI voorbeeld met de invoergegevens:
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"
@@ -55,13 +55,13 @@ az ml service keys realtime -i <web service id>
 Gebruik de sleutel bij het maken van HTTP-aanvraag in de autorisatie-header: "Autorisatie": "Bearer <key>'
 
 ## <a name="get-the-service-swagger-description"></a>De beschrijving van de service Swagger ophalen
-Als de service API-schema is opgegeven voor het service-eindpunt zou een Swagger-document op blootstellen ```http://<ip>/api/v1/service/<service name>/swagger.json```. Het Swagger-document kan worden gebruikt om automatisch te genereren van de client-service en Verken de verwachte invoergegevens en andere details over de service.
+Als de service API-schema is opgegeven, het service-eindpunt een Swagger-document op zou zichtbaar ```http://<ip>/api/v1/service/<service name>/swagger.json```. Het Swagger-document kan worden gebruikt om automatisch te genereren van de client-service en Verken de verwachte invoergegevens en andere details over de service.
 
 ## <a name="get-service-logs"></a>Servicelogboeken ophalen
 Als u wilt meer inzicht in het servicegedrag en analyseren van problemen, zijn er verschillende manieren voor het ophalen van de servicelogboeken:
 - CLI-opdracht ```az ml service logs realtime -i <service id>```. Met deze opdracht werkt in zowel als lokale modi.
 - Als de service logboekregistratie op de implementatie is ingeschakeld, wordt de service worden ook worden verzonden naar AppInsight. De opdracht CLI ```az ml service usage realtime -i <service id>``` ziet u de URL AppInsight. Houd er rekening mee dat de logboeken AppInsight mogelijk een vertraging door 2-5 minuten.
-- Cluster-logboeken kunnen worden bekeken via Kubernetes-console die verbonden is bij het instellen van de huidige clusteromgeving met```az ml env set```
+- Cluster-logboeken kunnen worden bekeken via Kubernetes-console die verbonden is bij het instellen van de huidige clusteromgeving met ```az ml env set```
 - Lokale docker-logboeken zijn beschikbaar via de docker-enginelogboeken wanneer de service lokaal wordt uitgevoerd.
 
 ## <a name="call-the-service-using-c"></a>De service met C# aanroepen

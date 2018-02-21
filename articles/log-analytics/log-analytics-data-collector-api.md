@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)
 In dit artikel laat zien hoe de HTTP-gegevens Collector API gebruiken om gegevens te verzenden met logboekanalyse van een REST-API-client.  Dit wordt beschreven hoe gegevens die door het script of een toepassing verzameld opmaken, opnemen in een aanvraag en die aanvraag geautoriseerd door logboekanalyse hebben.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -49,7 +49,7 @@ Voor het gebruik van de API van HTTP-Data Collector, moet u een POST-aanvraag me
 ### <a name="request-uri-parameters"></a>De parameters van de aanvraag-URI
 | Parameter | Beschrijving |
 |:--- |:--- |
-| Klant-id |De unieke id voor de Microsoft Operations Management Suite-werkruimte. |
+| Klant-id |De unieke id voor de werkruimte voor logboekanalyse. |
 | Resource |De naam van de API-resource: / api/Logboeken. |
 | API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel 2016-04-01. |
 
@@ -70,7 +70,7 @@ Dit is de indeling voor de autorisatie-header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is de unieke id voor de Operations Management Suite-werkruimte. *Handtekening* is een [HMAC Hash-based Message Authentication Code ()](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) die is gemaakt op basis van de aanvraag en vervolgens wordt berekend met behulp van de [algoritme SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Vervolgens coderen u deze met behulp van Base64-codering.
+*WorkspaceID* is de unieke id voor de werkruimte voor logboekanalyse. *Handtekening* is een [HMAC Hash-based Message Authentication Code ()](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) die is gemaakt op basis van de aanvraag en vervolgens wordt berekend met behulp van de [algoritme SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Vervolgens coderen u deze met behulp van Base64-codering.
 
 Gebruik deze notatie voor het coderen van de **SharedKey** handtekening tekenreeks:
 
@@ -204,7 +204,8 @@ In de volgende secties vindt u voorbeelden van hoe u gegevens verzenden naar de 
 
 Voer deze stappen om de variabelen voor de autorisatie-header voor elk voorbeeld:
 
-1. Selecteer in de Operations Management Suite-portal, de **instellingen** tegel en selecteer vervolgens de **verbonden bronnen** tabblad.
+1. Zoek in de Azure-portal uw werkruimte voor logboekanalyse.
+2. Selecteer **geavanceerde instellingen** en vervolgens **verbonden gegevensbronnen**.
 2. Aan de rechterkant van **werkruimte-ID**, selecteer het pictogram kopiëren en plak de-ID als de waarde van de **klant-ID** variabele.
 3. Aan de rechterkant van **primaire sleutel**, selecteer het pictogram kopiëren en plak de-ID als de waarde van de **gedeelde sleutel** variabele.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

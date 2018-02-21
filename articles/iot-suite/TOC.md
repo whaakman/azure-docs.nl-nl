@@ -17,6 +17,7 @@
 #### [Machtigingen op azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Kennismaken met de oplossing voor controle op afstand](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Verbinding maken met uw Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Verbinding maken met uw MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### C gebruiken
 ###### [Gesimuleerde gegevens](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Echte sensoren gebruiken](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## Verbonden factory
 ### [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
 ### [Een verbonden factory aanpassen](iot-suite-connected-factory-customize.md)
-### [De OPC-uitgever voor een verbonden factory gebruiken](iot-suite-connected-factory-publisher.md)
+### [De OPC-uitgever voor een verbonden factory gebruiken](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Een verbonden factory configureren](iot-suite-connected-factory-configure.md)
 ## [Machtigingen op azureiotsuite.com](iot-suite-permissions.md)
 

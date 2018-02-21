@@ -11,15 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Een aangepaste domeinnaam configureren 
 
 Wanneer u een exemplaar van API Management (APIM) maakt, Azure toegewezen aan een subdomein van azure api.net (bijvoorbeeld `apim-service-name.azure-api.net`). Echter uw APIM eindpunten met uw eigen domeinnaam als kan worden blootgesteld **contoso.com**. Deze zelfstudie laat zien hoe u een bestaande aangepaste DNS-naam toewijzen aan eindpunten die worden weergegeven door een exemplaar van Azure API Management.
+
+> [!WARNING]
+> Klanten die gebruikt vastmaken certificaat willen voor het verbeteren van de beveiliging van hun toepassingen moeten gebruiken een aangepaste domeinnaam > en het certificaat die ze beheren, niet de standaardcertificaat. Klanten die het standaardcertificaat vastmaken in plaats daarvan worden > duurt een harde afhankelijkheid van de eigenschappen van het certificaat dat ze niet worden beheerd, dit is geen aanbevolen.
 
 ## <a name="prerequisites"></a>Vereisten
 

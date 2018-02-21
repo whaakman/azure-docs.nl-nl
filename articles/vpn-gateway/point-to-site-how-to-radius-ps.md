@@ -1,10 +1,10 @@
 ---
 title: 'Een computer verbinden met een virtueel netwerk met punt-naar-Site en de RADIUS-verificatie: PowerShell | Azure'
-description: Veilig een computer verbinden met uw Azure Virtual Network door het maken van een punt-naar-Site VPN-gateway-verbinding die gebruikmaakt van RADIUS-verificatie.
+description: Windows- en Mac OS X-clients veilige verbinding met een virtueel netwerk met behulp van P2S en RADIUS-verificatie.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 13ae129eefb717f22db25ab29232fe1efe69a8ce
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
@@ -235,6 +235,8 @@ Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken en kli
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
   ```
+
+Zie voor het oplossen van een verbinding P2S [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 
 ## <a name="connectVM"></a>Verbinding maken met een virtuele machine
 

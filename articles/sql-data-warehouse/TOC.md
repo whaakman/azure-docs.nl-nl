@@ -117,12 +117,11 @@
 ### [Uw werkbelasting analyseren](analyze-your-workload.md)
 
 ## Uitschalen
-### [Compute beheren - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Rekenniveaus automatiseren](manage-compute-with-azure-functions.md)
 
 
 # Naslaginformatie
-
 
 ## T-SQL
 ### [Volledige naslaginformatie](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [SQL DW-instructies](sql-data-warehouse-reference-tsql-statements.md)
 ## [Systeemweergaven](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell-cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST API's](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=databases)

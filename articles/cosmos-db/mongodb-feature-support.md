@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB-API-ondersteuning voor MongoDB-functies en syntaxis
 
-Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde database voor meerdere model. U kunt communiceren met de MongoDB-API van de database via een van de open-source MongoDB-client [stuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van de bestaande client-stuurprogramma's door aan de MongoDB [wire-protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt communiceren met de MongoDB-API van de database via een van de open-source MongoDB-client [stuurprogramma's](https://docs.mongodb.org/ecosystem/drivers). De MongoDB-API maakt het gebruik van de bestaande client-stuurprogramma's door aan de MongoDB [wire-protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Met behulp van de Azure-API voor MongoDB Cosmos DB, kunt u profiteren van de voordelen van de MongoDB-APIs bent u gewend om, met alle mogelijkheden van Azure Cosmos DB enterprise: [globale distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), beschikbaarheid en latentie garanties, automatische indexering van elk veld, versleuteling bij rust, back-ups en nog veel meer.
 
@@ -59,7 +59,7 @@ Azure Cosmos DB ondersteunt de volgende databaseopdrachten op alle MongoDB-API-a
 - listIndexes
 - dropIndexes
 - ConnectionStatus
-- REINDEX (Engelstalig)
+- reIndex
 
 ### <a name="diagnostics-commands"></a>Opdrachten van diagnostische gegevens
 - buildInfo
@@ -76,7 +76,7 @@ Azure Cosmos DB ondersteunt de volgende databaseopdrachten op alle MongoDB-API-a
 Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azure blog](https://aka.ms/mongodb-aggregation) voor instructies over het voorbereiden voor de openbare preview.
 
 ### <a name="aggregation-commands"></a>Aggregatie van opdrachten
-- statistische functie
+- aggregate
 - aantal
 - Afzonderlijke
 
@@ -237,6 +237,33 @@ In $regex query's kunnen expressies links verankerd search index. Echter met beh
 Wanneer er een nodig om '$' of ' |', het is raadzaam om twee (of meer) regex-query's maken. Bijvoorbeeld, krijgt de volgende query in de oorspronkelijke: ```find({x:{$regex: /^abc$/})```, er als volgt worden gewijzigd: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 Het eerste deel wordt de index met de zoekopdracht beperken tot deze documenten vanaf ^ abc en het tweede gedeelte komt overeen met de exacte vermeldingen. De balk operator ' |' fungeert als een functie 'of' - de query ```find({x:{$regex: /^abc|^def/})``` overeenkomt met de documenten whin welk veld 'x' heeft de waarde die met "abc" of "def begint". Als u wilt gebruikmaken van de index, verdient het aanbeveling om de query in twee verschillende query's die worden toegevoegd door de $of operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Update-operators
+
+#### <a name="field-update-operators"></a>Veld update operators
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $uitschakelen
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Matrix-update-operators
+- $addToSet
+- $pop
+- $pullAll
+- $pull (Opmerking: $pull met voorwaarde wordt niet ondersteund)
+- $pushAll
+- $push
+- elke $
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Bitsgewijze update operator
+- $bit
 
 ### <a name="geospatial-operators"></a>Georuimtelijke operators
 
@@ -262,7 +289,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Niet ondersteund. Gebruik in plaats daarvan $regex 
+$text |  | Wordt niet ondersteund. Gebruik in plaats daarvan $regex 
 
 ### <a name="methods"></a>Methoden
 

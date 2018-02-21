@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -262,6 +262,7 @@ U eigenschap aliassen gebruiken voor toegang tot specifieke eigenschappen voor e
 | Microsoft.Compute/virtualMachines/imageVersion | Stel de versie van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Stel de vhd-URI. |
 | Microsoft.Compute/virtualMachines/sku.name | Stel de grootte van de virtuele machine. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Stelt de beschikbaarheidsset-id voor de virtuele machine. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -287,7 +288,7 @@ U eigenschap aliassen gebruiken voor toegang tot specifieke eigenschappen voor e
 | Microsoft.Compute/VirtualMachineScaleSets/sku.name | De grootte van virtuele machines in een scale-set instellen. |
 | Microsoft.Compute/VirtualMachineScaleSets/sku.tier | De laag van virtuele machines in een scale-set instellen. |
 
-**Microsoft.Network/applicationGateways**
+Microsoft.Network/applicationGateways
 
 | Alias | Beschrijving |
 | ----- | ----------- |
@@ -332,6 +333,7 @@ U eigenschap aliassen gebruiken voor toegang tot specifieke eigenschappen voor e
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Instellen of de service de gegevens versleutelt die in de storage-service van het bestand wordt opgeslagen. |
 | Microsoft.Storage/storageAccounts/sku.name | De SKU-naam instellen. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Stel in dat alleen https-verkeer met storage-service. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Controleer of het virtuele netwerk Service-eindpunt is ingeschakeld. |
 
 ## <a name="initiatives"></a>Initiatieven
 

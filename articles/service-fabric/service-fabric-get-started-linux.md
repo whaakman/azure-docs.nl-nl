@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -143,10 +143,12 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit een terminal Service Fabri
 
 1. nodejs en NPM installeren op uw computer
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. [Yeoman](http://yeoman.io/)-sjabloongenerator installeren op uw computer vanuit NPM
 
   ```bash
@@ -169,7 +171,7 @@ Installeer de [.NET Core 2.0 SDK voor Ubuntu](https://www.microsoft.com/net/core
 
 Als u Service Fabric-services wilt bouwen met Java, installeert u JDK 1.8 en Gradle om bouwtaken uit te voeren. Met het volgende fragment wordt Open JDK 1.8 samen geïnstalleerd met Gradle. De Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
 
-  ```bash
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```

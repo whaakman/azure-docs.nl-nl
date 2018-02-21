@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, welke systemen de gegevens hebben verzonden en de verschillende typen gegevens die zijn verzonden.  Gebruik het dashboard **Gebruik van Log Analytics** om de hoeveelheid gegevens te zien die wordt verzonden naar de Log Analytics-service. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
@@ -36,7 +36,9 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
 - Aanbiedingen
     - Knooppunten voor Insight en Analytics
     - Knooppunten voor automatisering en beheer
-    - Knooppunten voor beveiliging
+    - Knooppunten voor beveiliging  
+- Prestaties
+    - Benodigde tijd voor het verzamelen en indexeren van gegevens  
 - Lijst met query's
 
 ![gebruiksdashboard](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Klik op **Alles weergeven...**  om de volledige lijst met computers die gegevens
 
 Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Controleren of er sprake is van opnamelatentie
-Met Log Analytics is een verwachte latentie bij de opname van de verzamelde gegevens.  De absolute tijd tussen het indexeren van gegevens en wanneer deze beschikbaar zijn voor de zoekopdracht kan onvoorspelbaar zijn. Eerder hebben we een prestatiegrafiek toegevoegd aan het dashboard die de tijd voor het verzamelen en indexeren liet zien. Met de introductie van de nieuwe querytaal hebben we deze grafiek tijdelijk verwijderd.  Als een tijdelijke oplossing totdat we bijgewerkte metrieken voor latentie bij gegevensopname uitbrengen, kan de volgende query worden gebruikt om de latentie voor elk gegevenstype te schatten.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> De query voor opnamelatentie toont geen historische latentie en is beperkt tot alleen het retourneren van resultaten voor het huidige tijdstip.  De waarde voor *TimeGenerated* wordt ingevuld bij de agent voor algemene schemalogboeken en ingevuld op het verzamelingseindpunt voor aangepaste logboeken.  
->
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-log-searches.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.

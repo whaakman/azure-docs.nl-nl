@@ -1,6 +1,6 @@
 ---
-title: Een webhook aanroepen in Azure Activity Log waarschuwingen | Microsoft Docs
-description: Activiteit logboekgebeurtenissen naar andere services voor aangepaste acties worden doorgestuurd. Bijvoorbeeld SMS-bericht verzenden, meld bugs of hoogte van een team via chat/messaging-service.
+title: Een webhook niet aanroepen voor een Azure-activiteit logboek waarschuwing | Microsoft Docs
+description: Informatie over het logboek activiteitsgebeurtenissen doorsturen naar andere services voor aangepaste acties. U kunt bijvoorbeeld SMS-berichten verzenden, meld bugs of hoogte van een team via een chat of messaging-service.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Een webhook aanroepen in Azure Activity Log waarschuwingen
-Webhooks kunt u een Azure waarschuwingsmeldingen versturen met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar de services die de SMS-bericht verzenden, meld bugs, een team via chat/berichtenservices melden of komen een aantal andere acties. Dit artikel wordt beschreven hoe u een webhook moet worden aangeroepen wanneer een waarschuwing wordt geactiveerd voor een Azure Activity Log instelt. Ook ziet u hoe de nettolading voor de HTTP POST naar een webhook eruit ziet. Voor informatie over de installatie en het schema voor een Azure metrische waarschuwing [deze pagina vindt u in plaats daarvan](insights-webhooks-alerts.md). U kunt ook een waarschuwing activiteitenlogboek instellen voor het verzenden van e-mailbericht wanneer geactiveerd.
+# <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Een webhook niet aanroepen voor een Azure-activiteit logboek-waarschuwing
+U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmeldingen met andere systemen voor naverwerking of voor aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar de services die de SMS-berichten aan te melden bugs, om de hoogte van een team via chat of messaging-services, of voor verschillende andere acties te verzenden. U kunt ook een logboek activiteit waarschuwing instellen om e-mail te verzenden wanneer een waarschuwing is geactiveerd.
+
+Dit artikel wordt beschreven hoe u een webhook moet worden aangeroepen wanneer een activiteit Azure log waarschuwing wordt geactiveerd. Ook ziet u hoe de nettolading voor de HTTP POST naar een webhook eruit ziet. Zie voor meer informatie over de installatie en het schema van een Azure metrische waarschuwing [een webhook configureren op een Azure metrische waarschuwing](insights-webhooks-alerts.md). 
 
 > [!NOTE]
-> Deze functie is momenteel in preview en wordt verwijderd op een bepaald moment in de toekomst.
+> De functie die ondersteuning biedt voor het aanroepen van een webhook met een Azure-activiteit logboek waarschuwing is momenteel in preview.
 >
 >
 
-U kunt instellen dat een activiteitenlogboek waarschuwing met de [Azure PowerShell-Cmdlets](insights-powershell-samples.md#create-metric-alerts), [platformoverschrijdende CLI](insights-cli-samples.md#work-with-alerts), of [REST-API van Azure-Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). U instellen niet op dit moment een met behulp van de Azure-portal.
+U kunt een activiteit logboek waarschuwing instellen met behulp van [Azure PowerShell-cmdlets](insights-powershell-samples.md#create-metric-alerts), een [platformoverschrijdende CLI](insights-cli-samples.md#work-with-alerts), of [Monitor REST-API's van Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx). U kunt de Azure-portal op dit moment niet gebruiken voor het instellen van een activiteit logboek-waarschuwing.
 
-## <a name="authenticating-the-webhook"></a>Verifiëren van de webhook
-De webhook kunt verifiëren met behulp van deze methoden:
+## <a name="authenticate-the-webhook"></a>De webhook verifiëren
+De webhook kan verifiëren met behulp van deze methoden:
 
-1. **Op basis van tokens autorisatie** -de webhook URI wordt opgeslagen met een token ID, bijvoorbeeld:`https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Basisverificatie** -de webhook URI wordt opgeslagen met een gebruikersnaam en wachtwoord, bijvoorbeeld:`https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+* **Op basis van tokens autorisatie**. De webhook URI wordt opgeslagen met een token ID. Bijvoorbeeld: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+* **Basisverificatie**. De webhook URI wordt opgeslagen met een gebruikersnaam en wachtwoord. Bijvoorbeeld:`https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>De nettolading van schema
-De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waarschuwingen op basis van het activiteitenlogboek. Dit schema is vergelijkbaar met op waarschuwingen op basis van metrische gegevens.
+De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle activiteiten op basis van het logboek waarschuwingen. Dit schema is vergelijkbaar met die van waarschuwingen op basis van metrische gegevens.
 
 ```json
 {
@@ -104,36 +106,36 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 
 | Elementnaam | Beschrijving |
 | --- | --- |
-| status |Gebruikt voor metrische waarschuwingen. Altijd ingesteld op 'geactiveerd' voor activiteitenlogboek van waarschuwingen. |
+| status |Gebruikt voor metrische waarschuwingen. Voor de activiteit logboek waarschuwingen, altijd ingesteld op geactiveerd.|
 | Context |De context van de gebeurtenis. |
 | activityLog | De logboekeigenschappen van de gebeurtenis.|
-| Autorisatie |De RBAC-eigenschappen van de gebeurtenis. Deze omvatten doorgaans de "action", 'rol' en het 'bereik'. |
-| actie | De actie opgenomen door de waarschuwing. |
-| Bereik | Bereik van de waarschuwing (eenledige resource).|
-| kanalen | Bewerking |
-| claims | Een verzameling gegevens is op is gekoppeld aan de claims. |
-| oproepende functie |GUID of de gebruikersnaam van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen zijn. |
-| correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
-| description |Beschrijving van de waarschuwing als set tijdens het maken van de waarschuwing. |
-| eventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
-| eventTimestamp |Tijdstip waarop die de gebeurtenis heeft plaatsgevonden. |
-| eventDataId |De unieke id voor de gebeurtenis. |
-| niveau |Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en "Verbose." |
+| Autorisatie |De eigenschappen van de op rollen gebaseerde toegangsbeheer (RBAC) van de gebeurtenis. Deze eigenschappen zijn meestal **actie**, **rol**, en **bereik**. |
+| actie | De actie die wordt vastgelegd door de waarschuwing. |
+| Bereik | Het bereik van de waarschuwing (dat wil zeggen, de bron).|
+| kanalen | De bewerking. |
+| claims | Er is een verzameling van gegevens die zij gekoppeld aan de claims. |
+| oproepende functie |De GUID of de gebruikersnaam van de gebruiker die heeft de bewerking, de UPN-claim of de SPN-claim op basis van beschikbaarheid uitgevoerd. Een null-waarde voor bepaalde systeemaanroepen kan zijn. |
+| correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met de **correlationId** deel uitmaken van dezelfde groter actie. Ze hebben meestal hetzelfde **correlationId** waarde. |
+| description |De beschrijving van waarschuwing die is ingesteld wanneer de waarschuwing is gemaakt. |
+| eventSource |De naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
+| eventTimestamp |Het tijdstip waarop dat de gebeurtenis heeft plaatsgevonden. |
+| eventDataId |De unieke id van de gebeurtenis. |
+| niveau |Een van de volgende waarden: kritiek, fout, waarschuwing, informatief of uitgebreid. |
 | operationName |De naam van de bewerking. |
-| operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |
-| resourceId |Bron-ID van de betrokken resource. |
-| resourceGroupName |Naam van de resourcegroep voor de betrokken resource |
-| resourceProviderName |De resourceprovider van de betrokken resource. |
-| status |De tekenreeks. De status van de bewerking. Algemene waarden zijn: 'Gestart', 'Wordt uitgevoerd', 'Geslaagd', 'Is mislukt', 'Active', 'Opgelost'. |
-| subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Het kan ook andere tekenreeksen met een beschrijving van een substatus omvatten. Algemene substatus waarden zijn: OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), time-out van Gateway (HTTP-statuscode: 504) |
-| subscriptionId |Azure-abonnement-ID. |
-| submissionTimestamp |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die de aanvraag verwerkt. |
+| operationId |Meestal een GUID die wordt gedeeld door de gebeurtenissen. De GUID is meestal komt overeen met één bewerking. |
+| resourceId |De resource-ID van de betreffende resource. |
+| resourceGroupName |De naam van de resourcegroep voor de betreffende resource. |
+| resourceProviderName |De resourceprovider van de betreffende resource. |
+| status |Een string-waarde die aangeeft van de status van de bewerking. Algemene waarden zijn gestart, wordt uitgevoerd, geslaagd, mislukt, actief en opgelost. |
+| subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Het kan ook andere tekenreeksen die een substatus beschrijven omvatten. Algemene substatus waarden zijn OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode : 504). |
+| subscriptionId |De Azure-abonnement-ID. |
+| submissionTimestamp |De tijd waarop de gebeurtenis is gegenereerd door de Azure-service die de aanvraag verwerkt. |
 | resourceType | Het type resource die de gebeurtenis heeft gegenereerd.|
-| properties |Een set `<Key, Value>` paren (dat wil zeggen `Dictionary<String, String>`) die bevat details over de gebeurtenis. |
+| properties |Een set van sleutel-waardeparen die informatie over de gebeurtenis heeft. Bijvoorbeeld `Dictionary<String, String>`. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over het activiteitenlogboek](monitoring-overview-activity-logs.md)
-* [Azure Automation-scripts (Runbooks) op waarschuwingen van Azure uitvoeren](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Logische Apps gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar kan worden gewijzigd om te werken met een waarschuwing activiteitenlogboek.
-* [Logische App gebruiken voor het verzenden van een toegestane bericht door een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar kan worden gewijzigd om te werken met een waarschuwing activiteitenlogboek.
-* [Logische App gebruiken voor het verzenden van een bericht naar een Azure-wachtrij door een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar kan worden gewijzigd om te werken met een waarschuwing activiteitenlogboek.
+* Meer informatie over de [activiteitenlogboek](monitoring-overview-activity-logs.md).
+* Meer informatie over hoe [Azure Automation-scripts (runbooks) uitvoeren op Azure waarschuwingen](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Meer informatie over hoe [een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar u kunt deze werkt met een activiteit logboek waarschuwing wijzigen.
+* Meer informatie over hoe [gebruik van een logische app een toegestane bericht verzenden vanuit een Azure waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar u kunt deze werkt met een activiteit logboek waarschuwing wijzigen.
+* Meer informatie over hoe [gebruik van een logische app een bericht verzenden naar een Azure-wachtrij door een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar u kunt deze werkt met een activiteit logboek waarschuwing wijzigen.

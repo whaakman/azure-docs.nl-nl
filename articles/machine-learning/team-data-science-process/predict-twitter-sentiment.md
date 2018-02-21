@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Twitter-gevoel met word insluitingen voorspellen met behulp van het Team gegevens wetenschap proces
 
@@ -129,9 +129,9 @@ Het model kleurovergang versterking met de functie SSWE biedt de beste prestatie
 
 De laatste stap is implementatie van het model van de voorspelling getraind gevoel met een webservice op een cluster in Azure Container Service. Het voorbeeld maakt gebruik van de kleurovergang versterking met het algoritme voor het insluiten van SSWE als het getrainde model. De omgeving uitoefening bepalingen Docker en Kubernetes in het cluster voor het beheren van de web-service-implementatie, zoals wordt weergegeven in de volgende afbeelding: 
 
-![Kubernetes-dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Kubernetes dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Zie voor meer informatie over het proces uitoefening [implementeren van een Azure Machine Learning-model als een webservice](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Zie voor meer informatie over het proces uitoefening [implementeren van een Azure Machine Learning-model als een webservice](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusie
 
@@ -140,11 +140,11 @@ In dit artikel hebt u geleerd hoe u een word-insluiting model trainen met behulp
 
 ## <a name="references"></a>Verwijzingen
 
-* [Team gegevens wetenschappelijke processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Het gebruik van Team gegevens wetenschap proces (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [De projectsjablonen TDSP voor Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [VS inkomsten gegevensset uit UCI ML-opslagplaats](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Herkenning met behulp van sjablonen TDSP biomedische entiteit](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Herkenning met behulp van sjablonen TDSP biomedische entiteit](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. 'Representaties van woorden en woordgroepen en hun Compositionality gedistribueerd. Verplaatst in neural informatie verwerkingssystemen." 2013.](https://arxiv.org/abs/1310.4546)
 * [Mat, Duyu, et al. 'Learning gevoel-specifieke Word insluiten voor Twitter-gevoel classificatie'. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

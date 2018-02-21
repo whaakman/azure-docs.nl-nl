@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Aanvraagbeperkingen minimaliseren
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Inzicht in gegevensretentie
+      href: time-series-insights-concepts-retention.md
     - name: Problemen vaststellen en oplossen
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Ontwikkelen
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Verbinding maken met IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Gegevensretentie configureren
+      href: time-series-insights-how-to-configure-retention.md
     - name: Een referentiegegevensset maken
       href: time-series-insights-add-reference-data-set.md
     - name: Gebeurtenissen verzenden

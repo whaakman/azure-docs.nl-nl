@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
-ms.openlocfilehash: 4e18a413a0559b1ddebecf1b29722d21ef35c337
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/01/2018
+ms.openlocfilehash: caafc626d42ea3f1514c36be04507adf31bbc5c9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Het configureren van Azure Machine Learning-Workbench om te werken met een IDE 
 
@@ -30,15 +30,15 @@ Azure Machine Learning Workbench kan worden geconfigureerd om te werken met popu
 
 ### <a name="default-install-path-for-visual-studio-code"></a>Standaard installatiepad voor Visual Studio Code  
 
-* Windows 32-bits-`C:\Program Files (x86)\Microsoft VS Code\Code.exe`
-* Windows 64-bits-`C:\Program Files\Microsoft VS Code\Code.exe`
-* Mac OS - selecteert u het pad .app bijvoorbeeld `/Applications/Visual Studio Code.app`, en de app wordt toegevoegd voor de rest van het pad voor u. Het volledige pad naar het uitvoerbare bestand standaard `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`. Als u uitvoert, hebben de `Shell Command: Install 'code' command in PATH` opdracht in VS-Code, en vervolgens kunt u ook verwijzen naar de Code van de VS-script op`/usr/local/bin/code`
+* Windows 32-bits- `C:\Program Files (x86)\Microsoft VS Code\Code.exe`
+* Windows 64-bit - `C:\Program Files\Microsoft VS Code\Code.exe`
+* Mac OS - selecteert u het pad .app bijvoorbeeld `/Applications/Visual Studio Code.app`, en de app wordt toegevoegd voor de rest van het pad voor u. Het volledige pad naar het uitvoerbare bestand standaard `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`. Als u uitvoert, hebben de `Shell Command: Install 'code' command in PATH` opdracht in VS-Code, en vervolgens kunt u ook verwijzen naar de Code van de VS-script op `/usr/local/bin/code`
 
 ### <a name="default-install-path-for-pycharm"></a>Standaard installatiepad voor PyCharm 
 
 * Windows 32-bits - `C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm.exe`. 
-* Windows 64-bits - `C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm64.exe`.
-* Mac OS - Selecteer het pad .app, bijvoorbeeld '/ Applications/PyCharm CE.app' en de app voegt de rest van het pad voor u. Het volledige pad naar het uitvoerbare bestand standaard `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. Wellicht vindt u ook PyCharm op de bin-map`/usr/local/bin/charm`
+* Windows 64-bit - `C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm64.exe`.
+* Mac OS - Selecteer het pad .app, bijvoorbeeld '/ Applications/PyCharm CE.app' en de app voegt de rest van het pad voor u. Het volledige pad naar het uitvoerbare bestand standaard `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. Wellicht vindt u ook PyCharm op de bin-map `/usr/local/bin/charm`
 
 ## <a name="open-project-in-ide"></a>Project openen in IDE 
 Zodra de configuratie voltooid is, kunt u een Azure Machine Learning-project openen door het openen van de **bestand** menu in Azure Machine Learning Workbench, klikt u vervolgens op **Project openen (< IDE_Name >)**. Deze actie wordt het huidige actieve project in de geconfigureerde IDE geopend. _Opmerking: Als u niet in een project de **Project openen (< IDE_Name >)** wordt uitgeschakeld._
@@ -53,4 +53,4 @@ _Sta shell: `C:\windows\System32\cmd.exe` (gedefinieerd als een instelling van d
 Antwoord `yes` om toe te staan voor het configureren van de shell naadloos werken met Azure ML-Workbench opdrachtregel-interface.
 
 ### <a name="mac"></a>Mac
-Om uit te voeren een `az` opdracht met behulp van Visual Studio-Code geïntegreerd terminal op Mac, moet u handmatig in te stellen de `PATH` moet dezelfde waarde als `PATH` in het project `.vscode/settings.json` bestand onder de sleutel `terminal.integrated.env.osx`. U kunt dit doen door met de volgende opdracht in de terminal:`PATH=<PATH in .vscode/settings>`
+Om uit te voeren een `az` opdracht met behulp van Visual Studio-Code geïntegreerd terminal op Mac, moet u handmatig in te stellen de `PATH` moet dezelfde waarde als `PATH` in het project `.vscode/settings.json` bestand onder de sleutel `terminal.integrated.env.osx`. U kunt dit doen door met de volgende opdracht in de terminal: `PATH=<PATH in .vscode/settings>`

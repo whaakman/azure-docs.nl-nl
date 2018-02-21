@@ -52,22 +52,10 @@ sql-database-single-database-resources.md
 | Maximaal aantal gelijktijdige sessies | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
 |||||||
 
-### <a name="premium-rs-service-tier"></a>Premium-RS servicelaag 
-| **Prestatieniveau** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
-| :--- |---:|---:|---:|---:|---:|---:|
-| Maximaal aantal DTU's | 125 | 250 | 500 | 1000 |
-| Opgenomen opslag (GB) | 500 | 500 | 500 | 500 |
-| Maximum aantal opslagopties (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Maximale OLTP-opslag in het geheugen (GB) | 1 | 2 | 4 | 8 |
-| Maximum aantal gelijktijdige werknemers (aanvragen)| 200 | 400 | 800 | 1600 |
-| Maximaal aantal gelijktijdige aanmeldingen | 200 | 400 | 800 | 1600 |
-| Maximaal aantal gelijktijdige sessies | 30.000 | 30.000 | 30.000 | 30.000 |
-|||||||
-
 > [!IMPORTANT]
 > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
 >
->\*In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, Canada centraal, Canada Oost, VS-midden, Frankrijk centraal, Duitsland centraal, Japan-Oost, Japan-West, Korea Central, Noord-centraal VS, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, VK Zuid, VK West, VS East2, VS-West, VS Gov Virginia en West-Europa. Zie [P11-P15: huidige beperkingen](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\*Maximale aantal dtu's per database starten op 200 dtu's en hoger in de standaardmodus zijn Preview-versie.
+>\*\* Maximale aantal dtu's per database starten op 200 dtu's en hoger in de standaardmodus zijn Preview-versie.
 >

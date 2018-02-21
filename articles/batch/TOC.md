@@ -41,11 +41,12 @@
 ## [Toepassingspakketten maken](batch-application-packages.md)
 
 ## Pools maken en beheren
-### [Compute-knooppunten automatisch schalen](batch-automatic-scaling.md)
-### [Rekenintensieve VM’s](batch-pool-compute-intensive-sizes.md)
+### [Rekenknooppunten automatisch schalen](batch-automatic-scaling.md)
+### [Rekenintensieve VM's](batch-pool-compute-intensive-sizes.md)
+### [Toegang tot rekenknooppunten configureren](pool-endpoint-configuration.md)
 ### [Een pool maken met een aangepaste installatiekopie](batch-custom-images.md)
 ### [Een pool in een virtueel netwerk maken](batch-virtual-network.md)
-### [Compute-knooppunten in Linux](batch-linux-nodes.md)
+### [Rekenknooppunten in Linux](batch-linux-nodes.md)
 ### [Virtuele machines met lage prioriteit](batch-low-pri-vms.md)
 
 ## Taken beheren

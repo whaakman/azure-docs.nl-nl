@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Inleiding tot Azure Cosmos DB: API voor MongoDB
 
@@ -43,7 +43,10 @@ Azure DB Cosmos-databases kunnen worden gebruikt als gegevensopslag voor apps di
 
 | Azure Cosmos DB standaardniveau consistentie |   Mongo-API (3.4) |
 |---|---|
-|Sessie| Mogelijk |
+|Mogelijk| Mogelijk |
+|Consistent prefix| Uiteindelijke met consistente volgorde |
+|Sessie| Uiteindelijke met consistente volgorde |
+|Gebonden veroudering| Sterk |
 | Sterk | Sterk |
 
 **Automatische indexering**: standaard Azure Cosmos DB indexeert automatisch alle de documenten in uw MongoDB-eigenschappen van de database en niet verwacht of vereist een schema of het maken van secundaire indexen. De unieke index mogelijkheid kunt bovendien een UNIQUE-beperking voor alle documentvelden die al automatisch geïndexeerd in Azure Cosmos DB zijn.

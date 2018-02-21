@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limieten voor Azure SQL Database
 
@@ -53,7 +53,7 @@ De duur van het volledige proces voor omhoog schalen is afhankelijk van de groot
 
 * Als u een naar een hogere laag of prestaties serviceniveau upgrade, wordt de maximale grootte van de database niet verhogen tenzij u expliciet een groter formaat (maxsize) opgeeft.
 * Om het downgraden van een database, moet de ruimte van de database die wordt gebruikt kleiner zijn dan de maximaal toegestane grootte van het doel prijscategorie en prestatieniveau serviceniveau. 
-* Wanneer het downgraden van **Premium** of **Premium RS** naar de **standaard** laag, een extra opslagkosten van toepassing als beide (1) de maximale grootte van de database wordt ondersteund in het doel prestatieniveau en (2) de maximale grootte overschrijdt de opgenomen opslaghoeveelheid van het prestatieniveau doel. Bijvoorbeeld, als een database P1 met een maximale grootte van 500 GB wordt verkleind aan S3, is een extra opslagkosten van toepassing omdat S3 een maximale grootte van 500 GB ondersteunt en de opgenomen opslaghoeveelheid slechts 250 GB is. De extra opslagruimte is dus 500 GB – 250 GB = 250 GB. Zie voor de prijzen van extra opslagruimte [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Als de werkelijke hoeveelheid schijfruimte minder dan de opgenomen opslaghoeveelheid is, kan klikt u vervolgens dit extra kosten verbonden worden vermeden door de maximale grootte van de database voor het bedrag opgenomen te beperken. 
+* Wanneer het downgraden van **Premium** naar de **standaard** laag, een extra opslagkosten van toepassing als zowel (1) de maximale grootte van de database wordt ondersteund in de doel-prestatieniveau en (2) de maximale grootte overschrijdt de opgenomen opslagruimte van het prestatieniveau doel. Bijvoorbeeld, als een database P1 met een maximale grootte van 500 GB wordt verkleind aan S3, is een extra opslagkosten van toepassing omdat S3 een maximale grootte van 500 GB ondersteunt en de opgenomen opslaghoeveelheid slechts 250 GB is. De extra opslagruimte is dus 500 GB – 250 GB = 250 GB. Zie voor de prijzen van extra opslagruimte [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Als de werkelijke hoeveelheid schijfruimte minder dan de opgenomen opslaghoeveelheid is, kan klikt u vervolgens dit extra kosten verbonden worden vermeden door de maximale grootte van de database voor het bedrag opgenomen te beperken. 
 * Bij een upgrade van een database met [geo-replicatie](sql-database-geo-replication-portal.md) ingeschakeld, de secundaire databases upgraden naar de gewenste prestatielaag vóór de upgrade van de primaire database (algemene richtlijnen). Bij een upgrade naar een andere, is upgraden van de secundaire database eerst vereist.
 * Wanneer een database met downgraden [geo-replicatie](sql-database-geo-replication-portal.md) ingeschakeld, de primaire databases naar de gewenste prestatielaag downgraden voordat het downgraden van de secundaire database (algemene richtlijnen). Wanneer het downgraden naar een andere editie, is de primaire database downgraden eerst vereist.
 * De mogelijkheden om de service te herstellen verschillen voor de verschillende servicelagen. Als u uw abonnement tot beperkt de **Basic** laag, er is een lagere back-up bewaarperiode - Zie [back-ups van Azure SQL Database](sql-database-automated-backups.md).
@@ -111,6 +111,10 @@ U kunt vergroten of verkleinen van de beschikbare bronnen voor een elastische po
 - De duur voor het wijzigen van de edtu min's per database of max edtu's per database is in het algemeen vijf minuten of minder.
 - Wanneer downsizing groepen met edtu's, moet de toepassingen die wordt gebruikt-ruimte kleiner zijn dan de maximaal toegestane grootte van de doel-service tier en de pool edtu's.
 - Wanneer schaling groepen met edtu's aanpassen, wordt een extra opslagkosten geldt als (1) de maximale opslaggrootte van de groep wordt ondersteund door de doelgroep en (2) de maximale opslaggrootte de opgenomen opslaghoeveelheid van de doelgroep overschrijdt. Bijvoorbeeld, als een 100 eDTU Standard-pool met een maximale grootte van 100 GB aan een 50 eDTU Standard-pool wordt verkleind, is een extra opslagkosten van toepassing omdat doelgroep een maximale grootte van 100 GB ondersteunt en de opgenomen opslaghoeveelheid slechts 50 GB is. De extra opslagruimte is dus 100 – 50 GB = 50 GB. Zie voor de prijzen van extra opslagruimte [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Als de werkelijke hoeveelheid schijfruimte minder dan de opgenomen opslaghoeveelheid is, kan klikt u vervolgens dit extra kosten verbonden worden vermeden door de maximale grootte van de database voor het bedrag opgenomen te beperken. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Wat is het maximum aantal servers en databases?
+
+Het maximum aantal servers per abonnement per regio is 21. Het maximale aantal databases per server is 5000. Dit zijn dynamische limieten tot stand gebrachte experimenteel op basis van de nettolading van de grootte van analyse, logische master telemetrie verzameling analyse en enkele andere aspecten. U kunt aanvragen zijn dan deze limieten opgegeven u binnen de DTU-quotum blijven. Als het aantal databases en servers erg groot wordt, is het probleem dat u bereikt statistieken resourceverzameling in logische master en conflicten op beheertaken uit te voeren. Deze problemen zijn niet-fatale; ze worden latentie verbeteren.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Wat gebeurt er wanneer de database en limieten elastische pool wordt bereikt?
 

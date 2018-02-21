@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Een app in Azure opschalen
 
 > [!NOTE]
-> De nieuwe **PremiumV2** laag kunt u snellere CPU's, SSD-opslag, en de verhouding tussen het geheugen-core-dubbelklik dan de bestaande prijzen lagen. Maximaal schalen **PremiumV2** categorie [PremiumV2 configureren-laag voor App Service](app-service-configure-premium-tier.md).
+> De nieuwe **PremiumV2** laag krijgt u snellere CPU's, SSD-opslag, en wordt de geheugen-core-verhouding van de bestaande Prijscategorieën verdubbeld. Met het voordeel prestaties kan u geld besparen door te voeren van uw apps op minder exemplaren. Maximaal schalen **PremiumV2** categorie [PremiumV2 configureren-laag voor App Service](app-service-configure-premium-tier.md).
 >
 
 In dit artikel laat zien hoe uw app schalen in Azure App Service. Er zijn twee werkstromen voor vergroten/verkleinen, scale-en scale-out en in dit artikel wordt uitgelegd de schaal van een workflow.
 
 * [Omhoog schalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): ophalen van meer CPU, geheugen, schijfruimte en extra functies, zoals toegewezen virtuele machines (VM's), aangepaste domeinen en certificaten, sleuven, automatisch schalen en meer. U opschalen door het wijzigen van de prijscategorie van de App Service-plan waartoe uw app behoort.
 * [Uitschalen](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): verhoog het aantal VM-exemplaren die uw app uitvoeren.
-  U kunt uitschalen naar maximaal 20 instanties, afhankelijk van uw prijscategorie. [App Service-omgevingen](environment/intro.md) in **geïsoleerd** laag verdere verhoogt uw aantal scale-out op 100 exemplaren. Zie voor meer informatie over het uitbreiden van [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md). Er informatie u over het gebruik van automatisch schalen, die is het aantal exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's.
+  U kunt uitschalen naar maximaal 20 instanties, afhankelijk van uw prijscategorie. [App Service-omgevingen](environment/intro.md) in **geïsoleerd** laag verdere verhoogt uw aantal scale-out op 100 exemplaren. Zie voor meer informatie over het uitbreiden van [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md). U informatie over het gebruik van automatisch schalen, die is het aantal exemplaren automatisch op basis van vooraf gedefinieerde regels en schema's.
 
 De scale-instellingen worden alleen seconden toe te passen en gelden voor alle apps in uw [App Service-abonnement](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-Ze hoeft u uw code wijzigen of uw toepassing opnieuw distribueren.
+Ze nodig niet dat u uw code wijzigen of uw toepassing opnieuw distribueren.
 
 Zie voor meer informatie over de prijzen en -functies van afzonderlijke App Service-abonnementen [App Service-prijsinformatie](https://azure.microsoft.com/pricing/details/web-sites/).  
 
@@ -57,7 +57,7 @@ Zie voor meer informatie over de prijzen en -functies van afzonderlijke App Serv
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>Verwante bronnen schalen
-Als uw app, is afhankelijk van andere services, zoals Azure SQL Database- of Azure Storage, kunt u deze resources afzonderlijk opschalen. Deze resources niet worden beheerd door de App Service-abonnement.
+Als uw app, is afhankelijk van andere services, zoals Azure SQL Database- of Azure Storage, kunt u deze resources afzonderlijk opschalen. Deze resources worden niet beheerd door de App Service-abonnement.
 
 1. In **Essentials**, klikt u op de **resourcegroep** koppeling.
    
@@ -81,11 +81,6 @@ Als uw app, is afhankelijk van andere services, zoals Azure SQL Database- of Azu
 ## <a name="compare-pricing-tiers"></a>Prijscategorieën vergelijken
 Zie voor gedetailleerde informatie, zoals VM-grootten voor elke prijscategorie [App Service-prijsinformatie](https://azure.microsoft.com/pricing/details/web-sites/).
 Zie voor een tabel van de Servicelimieten, quota's en -beperkingen en ondersteunde functies in elke laag [App Service-beperkingen](../azure-subscription-service-limits.md#app-service-limits).
-
-> [!NOTE]
-> Als u aan de slag met Azure App Service wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/) waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. U hebt geen creditcard vereist en er bent nergens toe verplicht.
-> 
-> 
 
 <a name="Next Steps"></a>
 

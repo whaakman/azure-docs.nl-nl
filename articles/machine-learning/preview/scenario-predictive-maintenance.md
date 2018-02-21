@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Real-world scenario voor voorspeld onderhoud.
 
-De impact van apparatuur ongeplande uitvaltijd kan schadelijk zijn voor elk bedrijf zijn. Het is essentieel met daarom behouden veld-apparatuur uitgevoerd, kunnen gebruik en prestaties te maximaliseren en door de dure, niet-geplande uitvaltijd te minimaliseren. Vroege identificatie van problemen kunt u beperkte onderhoud bronnen toewijzen op een rendabele manier en verbeteren van de kwaliteit en processen van de keten. 
+De impact van apparatuur ongeplande uitvaltijd kan schadelijk zijn voor elk bedrijf zijn. Het is essentieel dat veld apparatuur die worden uitgevoerd-gebruik en prestaties te maximaliseren en door te minimaliseren dure, ongeplande downtime. Vroege identificatie van problemen kunt u beperkte onderhoud bronnen toewijzen op een rendabele manier en verbeteren van de kwaliteit en processen van de keten. 
 
 Dit scenario wordt verkend een relatief [grootschalige gesimuleerde gegevensset](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) om een project voorspeld onderhoud gegevens wetenschappelijke doorlopen van gegevensopname, functie-engineering, modelopbouw en model uitoefening en de implementatie. De code voor het hele proces is geschreven in Jupyter-notebooks met PySpark binnen Azure ML-Workbench. Het laatste model wordt geïmplementeerd met behulp van Azure Machine Learning-Model Management voor voorspellingen realtime apparatuur is mislukt.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Koppeling naar de galerie GitHub-opslagplaats
 
-Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats voor probleem-rapporten en bijdragen: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Gebruik van de case-overzicht
@@ -40,9 +40,9 @@ Het zakelijke probleem voor deze gesimuleerde gegevens is om te voorspellen prob
 
 * Een [Azure-account](https://azure.microsoft.com/en-us/free/) (gratis proefversies beschikbaar zijn).
 * Een geïnstalleerde kopie van [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) volgende de [Quick Start-installatiehandleiding](./quickstart-installation.md) het programma te installeren en het maken van een werkruimte.
-* Azure Machine Learning uitoefening vereist een lokale implementatieomgeving en een [model-account van beheerserver](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning uitoefening vereist een lokale implementatieomgeving en een [model-account van beheerserver](model-management-overview.md)
 
-In dit voorbeeld kan worden uitgevoerd op elke AML Workbench compute-context. Het wordt echter aanbevolen uit te voeren met ten minste 16 GB geheugen. Dit scenario is gebouwd en getest op een Windows 10-computer met een externe DS4_V2 standaard [gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+In dit voorbeeld kunt uitvoeren op elke AML Workbench compute-context. Het wordt echter aanbevolen uit te voeren met ten minste 16 GB geheugen. Dit scenario is gebouwd en getest op een Windows 10-computer met een externe DS4_V2 standaard [gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model uitoefening is uitgevoerd met behulp van de 0.1.0a22 versie van Azure ML CLI.
 
@@ -52,8 +52,8 @@ Maak een nieuw project in dit voorbeeld als sjabloon gebruiken:
 1.  Open Azure Machine Learning Workbench
 2.  Op de **projecten** pagina, klikt u op de  **+**  en selecteer **nieuw Project**
 3.  In de **nieuw Project maken** deelvenster Vul de informatie voor het nieuwe project
-4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Voorspeld onderhoud' en selecteer de sjabloon
-5.  Klik op **Maken**.
+4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Voorspeld onderhoud' en selecteer de **voorspeld onderhoud** sjabloon
+5.  Klik op de **maken** knop
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>De notebook server berekening doel voorbereiden
 
@@ -113,9 +113,9 @@ De [Leesmij](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenan
 
 [`Code\4_operationalization.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): Met behulp van het laatste model opgeslagen op lokale schijf van (Jupyter-notebook kernel), deze notebook bouwt de onderdelen voor het implementeren van het model in een Azure-web-service. De volledige operationele activa zijn gecomprimeerd als de `o16n.zip` bestand is opgeslagen in een andere Azure blob-container. Het ZIP-bestand bevat:
 
-* `service_schema.json`Het schema-definitiebestand voor de implementatie. 
-* `pdmscore.py`De functies voor init() en run() die vereist zijn voor de Azure-web-service
-* `pdmrfull.model`De model-definitie-map.
+* `service_schema.json` Het schema-definitiebestand voor de implementatie. 
+* `pdmscore.py` De functies voor init() en run() die vereist zijn voor de Azure-web-service
+* `pdmrfull.model` De model-definitie-map.
     
  De notebook test de functies met de modeldefinitie van het voordat het verpakken van de activa uitoefening voor implementatie. Instructies voor implementatie zijn opgenomen aan het einde van de notebook.
 
@@ -125,13 +125,15 @@ Dit scenario overzicht de lezer een van het bouwen van een oplossing voor voorsp
 
 ## <a name="references"></a>Verwijzingen
 
-Deze gebruiksvoorbeeld is eerder ontwikkeld op meerdere platforms:
+Er zijn andere voorspeld onderhoud gebruiken case voorbeelden beschikbaar op verschillende platforms:
 
 * [Oplossingssjabloon voorspeld onderhoud](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Handleiding voor het modelleren van voorspeld onderhoud](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Voorspeld onderhoud Modeling Guide met SQL-R-Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Voorspeld onderhoud Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Met behulp van de PySpark voor voorspeld onderhoud](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Deep learning voor voorspeld onderhoud](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van Azure-netwerk-beveiliging
 Microsoft Azure omvat een robuuste netwerkinfrastructuur ter ondersteuning van uw toepassing en de vereisten voor service-connectiviteit. Verbinding met het netwerk mogelijk is tussen bronnen in Azure, tussen on-premises en Azure gehoste bronnen, en naar en van het Internet en Azure.
@@ -37,7 +37,7 @@ In dit artikel beveiligingsoverzicht van Azure-netwerk is gericht op de volgende
 
 
 ## <a name="azure-networking"></a>Azure-netwerken
-Verbinding met het netwerk, moeten virtuele machines. Azure vereist ter ondersteuning van dit vereiste, virtuele machines worden verbonden met een virtueel netwerk van Azure. Een Azure-netwerk is een logische constructie die is gebouwd op de fysieke netwerk van Azure-infrastructuur. Elke logische Azure Virtual Network is geïsoleerd van alle andere virtuele netwerken van Azure. Dit helpt ervoor zorgen dat netwerkverkeer in uw implementaties niet toegankelijk voor andere Microsoft Azure-klanten is.
+Verbinding met het netwerk, moeten virtuele machines. Azure vereist ter ondersteuning van dit vereiste, virtuele machines worden verbonden met een virtueel netwerk van Azure. Een Azure-netwerk is een logische constructie die is gebouwd op de fysieke netwerk van Azure-infrastructuur. Elke logische Azure Virtual Network is geïsoleerd van alle andere virtuele netwerken van Azure. Dit zorgt ervoor dat netwerkverkeer in uw implementaties niet toegankelijk voor andere Microsoft Azure-klanten is.
 
 Meer informatie:
 

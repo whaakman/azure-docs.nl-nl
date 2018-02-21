@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Beveiligingsplaybook in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u beveiligingsplaybooks gebruikt in Azure Security Center voor het reageren op beveiligingsproblemen.
@@ -35,7 +35,7 @@ Volg deze stappen om een nieuwe beveiligingsplaybook te maken vanuit Security Ce
 1.  Open het dashboard **Security Center**.
 2.  Ga in het linkerdeelvenster naar **Automation & Orchestration** en klik op **Playbooks (Preview)**.
 
-    ![Logische apps](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![Logische apps](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. Klik op de pagina **Security Center - Playbooks (Preview)** op de knop **Toevoegen**.
 
@@ -96,7 +96,7 @@ U kunt een bestaande playbook in Security Center wijzigen om een actie of voorwa
 
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u kunnen lezen hoe u playbooks gebruikt in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
+In dit document hebt u kunnen lezen hoe u playbooks gebruikt in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.

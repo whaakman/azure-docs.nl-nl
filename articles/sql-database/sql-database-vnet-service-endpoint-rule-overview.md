@@ -4,7 +4,7 @@ description: Een subnet markeren als een service-eindpunt van het virtuele netwe
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/05/2018
+ms.date: 02/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -144,6 +144,12 @@ De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de
     - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Overwegingen bij het gebruik van de Service-eindpunten
+Wanneer u service-eindpunten voor Azure SQL Database, bekijk de volgende punten:
+
+- **Uitgaand naar Azure SQL Database openbare IP-adressen is vereist**: Netwerkbeveiligingsgroepen (nsg's) naar Azure SQL Database IPs waarmee verbinding moet worden geopend. U kunt dit doen met behulp van de NSG [Service-Tags](../virtual-network/security-overview.md#service-tags) voor Azure SQL Database.
+- **Azure voor PostgreSQL en MySQL-Database worden niet ondersteund**: Service-eindpunten worden niet ondersteund voor Azure-Database voor PostgreSQL of MySQL. Inschakelen van de service-eindpunten met SQL Database verbreekt de connectiviteit met deze services. We hebben een beperking voor dit; Neem contact op met  *dmalik@microsoft.com* .
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Als uw netwerk is verbonden met het Azure-netwerk door het gebruik van [ExpressRoute][expressroute-indexmd-744v], elk circuit is geconfigureerd met twee openbare IP-adressen op de Microsoft Edge. De twee IP-adressen worden gebruikt om verbinding met Microsoft-Services, zoals naar Azure Storage via openbare Azure-Peering.
@@ -171,6 +177,8 @@ De Query-Editor van Azure SQL Database wordt geïmplementeerd op virtuele machin
 #### <a name="table-auditing"></a>Controle van de tabel
 Op dit moment zijn er twee manieren inschakelen van controle op de SQL-Database. Tabel controle mislukt nadat u service-eindpunten hebt ingeschakeld op uw Azure SQL-Server. Risicobeperking hier is te verplaatsen naar Auditingfunctie voor blobs.
 
+#### <a name="impact-on-data-sync"></a>Gevolgen voor het synchroniseren van gegevens
+Azure SQLDB heeft de functie voor het synchroniseren van gegevens die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten, is het waarschijnlijk dat u uitgeschakeld **alle Azure-Services toestaan** toegang tot uw logische server. Dit verbreekt de functie voor het synchroniseren van gegevens.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Gevolgen van het Service-eindpunten VNet gebruiken met Azure storage
 
@@ -178,7 +186,7 @@ Azure-opslag is geïmplementeerd de dezelfde functie waarmee u verbinding met uw
 Als u deze functie wilt gebruiken met een opslagaccount die wordt gebruikt door een Azure SQL Server kiest, kunt u uitvoeren in de problemen. Vervolgens vindt u een beschrijving van de Azure-SQLDB-functies die worden beïnvloed door dit.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQLDW van Storage-accounts. Als het opslagaccount dat u bij het laden van gegevens van alleen toegang tot een set VNet-subnetten limieten, verbreekt de verbinding tussen PolyBase en het Account.
+PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQLDW van Storage-accounts. Als het opslagaccount dat u bij het laden van gegevens van alleen toegang tot een set VNet-subnetten limieten, verbreekt de verbinding tussen PolyBase en het Account. Er is een beperking voor dit; Neem contact op met  *dmalik@microsoft.com*  voor meer informatie.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob controle
 Controlelogboeken auditingfunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Verbinding tussen Azure SQLDB en het opslagaccount worden verbroken als dit opslagaccount gebruikmaakt van de functie VENTILATOR Service-eindpunten.

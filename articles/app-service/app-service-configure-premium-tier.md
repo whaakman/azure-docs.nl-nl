@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>PremiumV2 laag configureren voor Azure App Service
 
-De nieuwe **PremiumV2** prijscategorie biedt [Dv2-serie VMs](../virtual-machines/windows/sizes-general.md#dv2-series) met snellere processors, SSD-opslag en dubbele geheugen-core-verhouding vergeleken met **standaard** laag. In dit artikel leert u informatie over het maken van een app in **PremiumV2** servicetier of een app opschalen **PremiumV2** laag.
+De nieuwe **PremiumV2** geeft u prijscategorie snellere processors, SSD-opslag en verdubbelt geheugen-naar-core ratio van de bestaande Prijscategorieën. Met het voordeel prestaties kan u geld besparen door te voeren van uw apps op minder exemplaren. In dit artikel leert u informatie over het maken van een app in **PremiumV2** servicetier of een app opschalen **PremiumV2** laag.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Scale-up van een web-app naar **PremiumV2**, moet u beschikken over een Web-App 
 
 ## <a name="premiumv2-availability"></a>PremiumV2 beschikbaarheid
 
-De laag PremiumV2 is momenteel beschikbaar voor App-Service op _Windows_ alleen. Linux-containers zijn nog niet ondersteund.
+De laag PremiumV2 is momenteel beschikbaar voor App-Service op _Windows_ alleen. Linux-containers worden niet nog ondersteund.
 
 PremiumV2 is al beschikbaar in de meeste Azure-regio's en groeiende. Om te zien of deze beschikbaar in uw regio is, kunt u de volgende Azure CLI-opdracht uitvoert in de [Azure Cloud Shell](../cloud-shell/overview.md):
 
@@ -82,13 +82,13 @@ Als de bewerking voltooid wordt, ziet u de pagina overzicht van uw app dat het i
 
 Sommige App Service-abonnementen kunnen niet omhoog schalen aan de laag PremiumV2. Als uw bewerking scale-up u een fout biedt, moet u een nieuw App Service-plan voor uw app.
 
-Maak een _Windows_ App Service-abonnement in dezelfde regio en resourcegroep bevinden als uw bestaande App Service-app. Volg de stappen in [een app maken in de laag PremiumV2](#create) worden ingesteld op **PremiumV2** laag. Indien gewenst, kunt u dezelfde scale-out configuratie gebruiken als uw App Service-abonnement (aantal exemplaren, automatisch schalen, enzovoort).
+Maak een _Windows_ App Service-abonnement in dezelfde regio en resourcegroep bevinden als uw bestaande App Service-app. Volg de stappen in [een app maken in de laag PremiumV2](#create) worden ingesteld op **PremiumV2** laag. Als u wilt, moet u dezelfde scale-out-configuratie gebruiken als uw App Service-abonnement (aantal exemplaren, automatisch schalen, enzovoort).
 
 Open de pagina van uw App Service-app opnieuw. Selecteer in het linkernavigatievenster van uw App Service **wijziging App Service-abonnement**.
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Selecteer de App Service-abonnement dat u zojuist hebt gemaakt.
+Selecteer de App Service-abonnement dat u hebt gemaakt.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -98,20 +98,20 @@ Nadat de wijzigingsbewerking is voltooid, uw app wordt uitgevoerd **PremiumV2** 
 
 ## <a name="scale-up-from-an-unsupported-region"></a>Omhoog schalen van een niet-ondersteunde regio
 
-Als uw app wordt uitgevoerd in een regio waar **PremiumV2** is nog niet beschikbaar, kunt u uw app verplaatsen naar een andere regio om te profiteren van **PremiumV2**. U hebt hiervoor twee opties:
+Als uw app wordt uitgevoerd in een regio waar **PremiumV2** is niet beschikbaar terwijl u uw app naar een andere regio verplaatsen kunt om te profiteren van **PremiumV2**. U hebt hiervoor twee opties:
 
 - Maken van een app in nieuwe **PremiumV2** plannen en implementeren van uw toepassingscode. Volg de stappen in [een app maken in de laag PremiumV2](#create) worden ingesteld op **PremiumV2** laag. Indien gewenst, kunt u dezelfde scale-out configuratie gebruiken als uw App Service-abonnement (aantal exemplaren, automatisch schalen, enzovoort).
 - Als uw app wordt al uitgevoerd in een bestaand **Premium** servicetier, en vervolgens u uw app met alle app-instellingen, verbindingsreeksen en implementatieconfiguratie klonen kunt.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    In de **kloon app** pagina kunt u een nieuw App Service-plan maken in de regio die u wilt en geef de instellingen die u wilt klonen.
+    In de **kloon app** pagina kunt u een App Service-abonnement maken in de regio die u wilt en geef de instellingen die u wilt klonen.
 
-## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
+## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
 U kunt automatiseren app maken in de **PremiumV2** laag met scripts, met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 
 De volgende opdracht maakt u een App Service-abonnement in _P1V2_. U kunt deze uitvoeren in de Cloud-Shell. De opties voor `--sku` P1V2, zijn _P2V2_, en _P3V2_.
 

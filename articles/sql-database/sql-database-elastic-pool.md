@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools helpen u te beheren en schalen van meerdere Azure SQL-databases
 
@@ -171,7 +170,7 @@ De SQL Database-service beoordeelt de gebruiksgeschiedenis en beveelt een of mee
 
 De aanbevelingen voor de groep bestaan uit:
 
-- Een prijscategorie voor de pool (Basic, Standard, Premium of RS Premium)
+- Een prijscategorie voor de groep (Basic, Standard en Premium)
 - De juiste **eDTU’s voor de groep** (ook wel Max eDTU's per groep)
 - De **eDTU MAX** en **eDTU Min** per database
 - De lijst met aanbevolen databases voor de groep
@@ -201,7 +200,7 @@ De volgende afbeelding toont een voorbeeld van de elastische groep. De weergave 
 
 U kunt gaan naar een bepaalde groep om te zien van de bronnen beter worden benut. Standaard worden de toepassingen is geconfigureerd voor het weergeven van opslag en het eDTU-gebruik voor het afgelopen uur. De grafiek kan worden geconfigureerd voor andere metrische gegevens weergeven over verschillende tijdvensters. Klik op de **Resourcegebruik** grafiek onder **elastische pool bewaking** wilt weergeven, een gedetailleerde weergave van de opgegeven metrische gegevens op de opgegeven periode.
 
-![Bewaking van de elastische groep](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
+![Elastische groep controleren](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 ![Metrische pagina](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
@@ -223,7 +222,7 @@ Op de **grafiek bewerken** formulier, selecteert u een tijdsbereik (voorbij vand
 
 Afzonderlijke databases kunnen ook worden gecontroleerd voor potentiële problemen. Onder **elastische Database bewaken**, er is een diagram waarin metrische gegevens voor vijf databases. Standaard het diagram toont de bovenste 5 databases in de groep door gemiddeld eDTU-gebruik in het afgelopen uur. 
 
-![Bewaking van de elastische groep](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+![Elastische groep controleren](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 Klik op de **eDTU-gebruik voor de databases voor het afgelopen uur** onder **elastische database bewaken**. Hiermee opent u **Database Resourcegebruik** en biedt een gedetailleerde weergave van het Databasegebruik in de groep. Het raster in het onderste gedeelte van de pagina kunt u geen databases selecteren in de groep om het gebruik ervan in de grafiek (maximaal 5 databases) weer te geven. U kunt ook de metrische gegevens en het tijdstip venster wordt weergegeven in de grafiek door te klikken op **grafiek bewerken**.
 
@@ -274,7 +273,7 @@ U kunt toevoegen of verwijderen van databases uit een bestaande groep. De databa
 
 ![Klik op toevoegen aan groep](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-![Selecteer de databases toevoegen](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+![Database selecteren die moeten worden toegevoegd](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
 ![In behandeling pool-toevoegingen](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
@@ -302,7 +301,7 @@ Als u wilt maken en beheren van elastische pools van de SQL-Database met Azure P
 
 | Cmdlet | Beschrijving |
 | --- | --- |
-|[Nieuwe AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Een pool voor elastische database maakt op een logische SQL-server.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Een pool voor elastische database maakt op een logische SQL-server.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Elastische pools en hun eigenschapswaarden op een logische SQL-server opgehaald.|
 |[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Hiermee wijzigt u de eigenschappen van een pool voor elastische database op een logische SQL-server. Gebruik bijvoorbeeld de **StorageMB** eigenschap te wijzigen van de maximale opslag van een elastische pool.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Hiermee verwijdert u een pool voor elastische database op een logische SQL-server.|
@@ -310,7 +309,7 @@ Als u wilt maken en beheren van elastische pools van de SQL-Database met Azure P
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Maakt een nieuwe database in een bestaande pool of als een individuele database. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hiermee haalt u een of meer databases.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Stelt eigenschappen van een database of een bestaande database verplaatst naar buiten of tussen elastische pools.|
-|[Verwijder AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Hiermee verwijdert u een database.|
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Hiermee verwijdert u een database.|
 
 
 > [!TIP]
@@ -328,9 +327,9 @@ Maken en beheren van elastische pools van de SQL-Database met de [Azure CLI](/cl
 | Cmdlet | Beschrijving |
 | --- | --- |
 |[elastische sql-AZ-groep maken](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Maakt een elastische pool.|
-|[lijst met AZ sql elastische pool](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retourneert een lijst met elastische pools in een server.|
-|[AZ sql elastische pool lijst-databases](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retourneert een lijst met databases in een elastische pool.|
-|[AZ sql elastische pool-edities](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Omvat ook beschikbaar DTU groepsinstellingen, opslaglimieten, en per database-instellingen. Om te reduceren uitgebreidheid aanvullende opslaglimieten en per database instellingen standaard zijn verborgen.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retourneert een lijst met elastische pools in een server.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retourneert een lijst met databases in een elastische pool.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Omvat ook beschikbaar DTU groepsinstellingen, opslaglimieten, en per database-instellingen. Om te reduceren uitgebreidheid aanvullende opslaglimieten en per database instellingen standaard zijn verborgen.|
 |[update van de elastische pool AZ sql](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Een elastische pool-updates.|
 |[AZ sql elastische groep verwijderen](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Hiermee wordt de elastische groep verwijderd.|
 
@@ -344,9 +343,9 @@ Maken en het verplaatsen van databases binnen bestaande elastische pools of om i
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Maakt een nieuwe database in een bestaande pool of als een individuele database. U moet verbonden zijn met de database master om een nieuwe database te maken.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Maakt een nieuwe database in een bestaande pool of als een individuele database. U moet verbonden zijn met de database master om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Een database verplaatsen naar, uit of tussen elastische pools.|
-|[DATABASE (Transact-SQL) verwijderen](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retourneert de gebruiksstatistieken resource voor alle pools voor elastische databases in een logische server. Voor elke elastische databasegroep moet er één rij voor elke 15 seconden reporting venster (vier rijen per minuut). Dit omvat CPU, IO, logboek, opslagverbruik en gelijktijdige aanvraag/sessie gebruik door alle databases in de groep.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retourneert de edition (servicelaag), de servicedoelstelling (prijscategorie) en de naam van de elastische groep, indien aanwezig, voor een Azure SQL database of een Azure SQL Data Warehouse. Als u aangemeld bent op de database master in een Azure SQL Database-server, retourneert de informatie voor alle databases. Voor Azure SQL Data Warehouse, moet u verbonden zijn met de database master.|
 
