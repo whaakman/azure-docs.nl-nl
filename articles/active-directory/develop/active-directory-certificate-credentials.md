@@ -41,7 +41,7 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 
 | Parameter |  Opmerking |
 | --- | --- | --- |
-| `aud` | : Doelgroep  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
+| `aud` | Doelgroep: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token ** |
 | `exp` | Vervaldatum: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
 | `iss` | Uitgever: moet de client_id (toepassings-Id van de client-service) |
 | `jti` | GUID: de JWT-ID |

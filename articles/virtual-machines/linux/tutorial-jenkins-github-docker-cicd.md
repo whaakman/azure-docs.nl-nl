@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Een infrastructuur voor ontwikkeling maken op een Linux-VM in Azure met Jenkins, GitHub en Docker
 U kunt een CI/CD-pijplijn (continue integratie en implementatie) gebruiken voor het automatiseren van de compilatie- en testfase van de app-ontwikkeling. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
@@ -68,13 +68,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Voordat u een virtuele machine kunt maken, moet u eerst een resourcegroep maken met [az-groep maken](/cli/azure/group#create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupJenkins* gemaakt op de locatie *eastus*:
+Voordat u een virtuele machine kunt maken, moet u eerst een resourcegroep maken met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupJenkins* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Maak een virtuele machine met [az vm create](/cli/azure/vm#create). Gebruik de `--custom-data`-parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar *cloud-init-jenkins.txt* op als u het bestand buiten uw werkmap hebt opgeslagen.
+Maak een virtuele machine met [az vm create](/cli/azure/vm#az_vm_create). Gebruik de `--custom-data`-parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar *cloud-init-jenkins.txt* op als u het bestand buiten uw werkmap hebt opgeslagen.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Het duurt enkele minuten voordat de virtuele machine wordt gemaakt en geconfigureerd.
 
-Zorg ervoor dat webverkeer uw virtuele machine kan bereiken kan door [az vm open-port](/cli/azure/vm#open-port) te gebruiken om poort *8080* te openen voor Jenkins-verkeer en poort *1337* voor de Node.js-app die wordt gebruikt voor het uitvoeren van een voorbeeld-app:
+Zorg ervoor dat webverkeer uw virtuele machine kan bereiken kan door [az vm open-port](/cli/azure/vm#az_vm_open_port) te gebruiken om poort *8080* te openen voor Jenkins-verkeer en poort *1337* voor de Node.js-app die wordt gebruikt voor het uitvoeren van een voorbeeld-app:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
