@@ -1,3 +1,26 @@
+---
+title: 'Stream Analytics: Realtime-fraudedetectie | Microsoft Docs'
+description: Informatie over het maken van een oplossing voor het detecteren van realtime fraude met Stream Analytics. Gebruik een event hub voor realtime-gebeurtenissen verwerken.
+keywords: afwijkingsdetectie, fraude te detecteren, realtime afwijkingsdetectie
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: realtime-fraudedetectie
 
 Deze zelfstudie biedt een end-to-end-afbeelding van het gebruik van Azure Stream Analytics. Procedures voor: 
@@ -126,7 +149,7 @@ Voordat u de app TelcoGenerator, configureren u deze zo dat deze aanroep records
 
 Enkele van de sleutelvelden die u in deze toepassing realtime fraude-detectie gebruiken wilt zijn de volgende:
 
-|**Record**|**Definitie**|
+|**Record**|Definitie|
 |----------|--------------|
 |`CallrecTime`|Het tijdstempel voor de aanroep van de begintijd. |
 |`SwitchNum`|De telefoon switch waarmee verbinding wordt gemaakt de aanroep. In dit voorbeeld zijn de switches tekenreeksen die staan voor het land van oorsprong (VS, China, UK, Duitsland of Australië). |

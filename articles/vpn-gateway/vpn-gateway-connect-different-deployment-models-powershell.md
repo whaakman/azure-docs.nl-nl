@@ -1,10 +1,10 @@
 ---
 title: 'Klassieke virtuele netwerken verbinden met Azure Resource Manager VNets: PowerShell | Microsoft Docs'
-description: Informatie over het maken van een VPN-verbinding tussen het klassieke vnet's en Resource Manager-VNets met VPN-Gateway en PowerShell
+description: Maak een VPN-verbinding tussen het klassieke vnet's en Resource Manager-VNets met VPN-Gateway en PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Virtuele netwerken van verschillende implementatiemodellen verbinden met PowerShell
 
-
-
-In dit artikel leest u hoe klassieke VNets op Resource Manager VNets om toe te staan van de resources die zich in de afzonderlijke implementatiemodellen om te communiceren met elkaar verbinden. De stappen in dit artikel PowerShell gebruiken, maar u kunt ook maken met deze configuratie met de Azure portal door te selecteren van het artikel in deze lijst.
+In dit artikel helpt u bij klassieke VNets op Resource Manager VNets om toe te staan van de resources die zich in de afzonderlijke implementatiemodellen om te communiceren met elkaar verbinden. De stappen in dit artikel PowerShell gebruiken, maar u kunt ook maken met deze configuratie met de Azure portal door te selecteren van het artikel in deze lijst.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -35,7 +33,7 @@ In dit artikel leest u hoe klassieke VNets op Resource Manager VNets om toe te s
 
 Een klassiek VNet verbinding te maken met een Resource Manager VNet is vergelijkbaar met het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. U kunt een verbinding tussen VNets die tot verschillende abonnementen behoren en in verschillende regio's maken. U kunt ook VNets die u al verbindingen met on-premises netwerken hebt verbinden, zolang de gateway die is geconfigureerd met dynamische of op basis van route. Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen over VNet-naar-VNet](#faq) aan het einde van dit artikel. 
 
-Als uw vnet's zich in dezelfde regio, mogelijk wilt u in plaats daarvan deze met behulp van VNet-Peering te verbinden. Bij VNet-peering wordt geen VPN-gateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie. 
+Als u nog geen een virtuele netwerkgateway en niet wilt maken, mogelijk wilt u in plaats daarvan verbinding maken met uw vnet's met behulp van VNet-Peering. Bij VNet-peering wordt geen VPN-gateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
 
 ## <a name="before"></a>Voordat u begint
 
@@ -57,7 +55,7 @@ VNet-naam = ClassicVNet <br>
 Locatie VS-West = <br>
 Adresruimten voor virtueel netwerk 10.0.0.0/24 = <br>
 Subnet-1 = 10.0.0.0/27 <br>
-GatewaySubnet 10.0.0.32/29 = <br>
+GatewaySubnet = 10.0.0.32/29 <br>
 De naam van het lokale netwerk RMVNetLocal = <br>
 GatewayType DynamicRouting =
 
@@ -67,7 +65,7 @@ VNet-naam = RMVNet <br>
 Resourcegroep RG1 = <br>
 Virtueel netwerk-IP-adresruimten 192.168.0.0/16 = <br>
 Subnet-1 = 192.168.1.0/24 <br>
-GatewaySubnet 192.168.0.0/26 = <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Locatie VS-Oost = <br>
 Het openbare IP-gatewaynaam gwpip = <br>
 Lokale netwerkgateway ClassicVNetLocal = <br>
@@ -76,10 +74,22 @@ Gateway-IP-adresconfiguratie gwipconfig =
 
 ## <a name="createsmgw"></a>Sectie 1: de klassieke VNet configureren
 ### <a name="1-download-your-network-configuration-file"></a>1. Het configuratiebestand van het netwerk downloaden
-1. Aanmelden bij uw Azure-account in de PowerShell-console met verhoogde rechten. De volgende cmdlet vraagt u om uw Azure-Account voor de aanmeldingsreferenties. Na het aanmelden, worden de instellingen van uw account gedownload zodat ze beschikbaar zijn voor Azure PowerShell. De SM PowerShell-cmdlets kunt u dit deel van de configuratie te voltooien.
+1. Aanmelden bij uw Azure-account in de PowerShell-console met verhoogde rechten. De volgende cmdlet vraagt u om uw Azure-Account voor de aanmeldingsreferenties. Na het aanmelden, worden de instellingen van uw account gedownload zodat ze beschikbaar zijn voor Azure PowerShell. De klassieke Service Management (SM) Azure PowerShell-cmdlets worden gebruikt in deze sectie.
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  Uw Azure-abonnement ophalen.
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. Uw Azure-netwerk-configuratiebestand exporteren door de volgende opdracht uit te voeren. U kunt de locatie van het bestand om te exporteren naar een andere locatie indien nodig wijzigen.
 
@@ -169,13 +179,13 @@ Volg de volgende instructies voor het maken van een VPN-gateway voor het VNet RM
   Login-AzureRmAccount
   ``` 
    
-  Een lijst met uw Azure-abonnementen ophalen als u meer dan één abonnement hebt.
+  Haal een lijst met uw Azure-abonnementen op.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  Geef het abonnement op dat u wilt gebruiken.
+  Als u meer dan één abonnement hebt, geeft u het abonnement dat u wilt gebruiken.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -308,4 +318,3 @@ Maken van een verbinding tussen de gateways is PowerShell vereist. Mogelijk moet
 ## <a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

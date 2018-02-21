@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Gegevens wetenschappelijke taken uitvoeren: exploratie modelleren en implementatie
 
@@ -25,10 +25,10 @@ Typische gegevens wetenschappelijke taken omvatten gegevensverkenning, modelleri
 
 - [Azure Machine Learning](../preview/index.yml)
 - [SQL-Server met ML-services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Microsoft Machine Learning-Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a>Exploratie 
+## 1. <a name='DataQualityReportUtility-1'></a> Exploratie 
 
 Een wetenschappelijk gegevens verkennen en rapportage in tal van manieren uitvoeren: met behulp van bibliotheken en pakketten beschikbaar voor Python (matplotlib bijvoorbeeld) of met R (ggplot of andere bijvoorbeeld). Gegevenswetenschappers kunnen deze code aanpassen aan de behoeften van gegevensverkenning voor specifieke scenario's aanpassen. De behoeften voor het omgaan met gestructureerde gegevens zijn verschillend voor ongestructureerde gegevens, zoals tekst of afbeeldingen. 
 
@@ -43,7 +43,7 @@ Deze R op basis van markdown of Python-notebook gebaseerde hulpprogramma voorzie
 Op dit moment werkt het hulpprogramma alleen op gegevensframes in het geheugen. Een YAML-bestand is nodig om op te geven van de parameters van de gegevensset worden onderzocht. Zie voor meer informatie [IDEAR in hulpprogramma's TDSP gegevens wetenschappelijke](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modeling
+## 2. <a name='ModelingUtility-2'></a> Modeling
 
 Er zijn talrijke toolkits en pakketten voor training modellen in verschillende talen. Gegevenswetenschappers moeten gerust gebruik die uitgevoerde die ze vertrouwd met, bent zolang de prestatie-overwegingen met betrekking tot de nauwkeurigheid en latentie is voldaan voor het relevante bedrijf use cases en productiescenario's.
 
@@ -78,9 +78,9 @@ Nadat u meerdere modellen zijn gebouwd, moet u meestal een systeem voor het regi
 1. [Azure Machine Learning - model-management-service](../preview/index.yml)
 2. [ModelDB van MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver als een model-management-systeem](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a>Implementatie
+## 3. <a name='Deployment-3'></a> Implementatie
 
 Productie-implementatie kunt een model voor een actieve rol spelen in een onderneming. Voorspellingen op basis van een geïmplementeerde model kunnen worden gebruikt voor zakelijke beslissingen te nemen.
 
@@ -88,9 +88,9 @@ Productie-implementatie kunt een model voor een actieve rol spelen in een ondern
 Er zijn verschillende benaderingen en platforms modellen in productie te plaatsen. Hier volgen een aantal opties:
 
 
-- [Implementatie van het model in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Implementatie van het model in Azure Machine Learning](../preview/model-management-overview.md)
 - [Implementatie van een model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >

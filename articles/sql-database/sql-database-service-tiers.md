@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen
+# <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen?
 
-[Azure SQL Database](sql-database-technical-overview.md) biedt **Basic**, **standaard**, **Premium**, en **Premium RS** Servicelagen voor beide [databases eenmalige](sql-database-single-database-resources.md) en [elastische pools](sql-database-elastic-pool.md). Servicelagen worden voornamelijk onderscheiden door een bereik van het prestatieniveau en opties voor opslag en prijs.  Alle Servicelagen bieden flexibiliteit bij het wijzigen van de prestaties niveau en opslaggrootte.  Individuele databases en elastische pools wordt gefactureerd per uur op basis van de servicelaag, prestatieniveau en maximale grootte.   
+[Azure SQL Database](sql-database-technical-overview.md) biedt **Basic**, **standaard**, en **Premium** Servicelagen voor beide [databases eenmalige](sql-database-single-database-resources.md) en [elastische pools](sql-database-elastic-pool.md). Servicelagen worden voornamelijk onderscheiden door een bereik van het prestatieniveau en opties voor opslag en prijs.  Alle Servicelagen bieden flexibiliteit bij het wijzigen van de prestaties niveau en opslaggrootte.  Individuele databases en elastische pools wordt gefactureerd per uur op basis van de servicelaag, prestatieniveau en maximale grootte.   
 
 ## <a name="choosing-a-service-tier"></a>Het kiezen van een servicelaag
 
 Het kiezen van een servicelaag is vooral afhankelijk van zakelijke continuïteit-, opslag- en prestatie-eisen.
-| | **Basic** | **Standard** |**Premium** |**Premium RS** |
+| | **Basic** | **Standard** |**Premium**  |
 | :-- | --: |--:| --:| --:| 
-|Doel werkbelasting|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie|Werkbelasting die gegevensverlies tot 5 minuten vanwege servicefouten tolereert|
+|Doel werkbelasting|Ontwikkeling en productie|Ontwikkeling en productie|Ontwikkeling en productie||
 |SLA voor actieve tijdsduur|99,99%|99,99%|99,99%|N.V.T. in preview|
-|Retentie van back-ups|7 dagen|35 dagen|35 dagen|35 dagen|
-|CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|Middelgroot|
-|I/o-doorvoer|Laag  | Middelgroot | Orde van grootte hoger is dan de standaard|Zelfde als Premium|
-|I/o-latentie|Hoger is dan Premium|Hoger is dan Premium|Lager is dan Basic en Standard|Zelfde als Premium|
-|Columnstore indexeren en in het geheugen OLTP|N/A|N/A|Ondersteund|Ondersteund|
+|Retentie van back-ups|7 dagen|35 dagen|35 dagen|
+|CPU|Laag|Laag, Gemiddeld, hoog|Gemiddeld, hoog|
+|I/o-doorvoer|Laag  | Middelgroot | Orde van grootte hoger is dan de standaard|
+|I/o-latentie|Hoger is dan Premium|Hoger is dan Premium|Lager is dan Basic en Standard|
+|Columnstore indexeren en in het geheugen OLTP|N/A|N/A|Ondersteund|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Maximale grootte van prestaties en de opslag
 
-Prestatieniveaus worden uitgedrukt in termen van de Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat zijn dtu's en edtu's?](sql-database-what-is-a-dtu.md).
+Prestatieniveaus worden uitgedrukt in termen van de Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat zijn dtu's en edtu's?](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>Individuele databases
 
-|  | **Basic** | **Standard** | **Premium** | **Premium RS**|
+|  | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Maximale grootte * | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| Maximale aantal dtu 's | 5 | 3000 | 4000 | 1000 |
+| Maximale grootte * | 2 GB | 1 TB | 4 TB  | 
+| Maximale aantal dtu 's | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>Pools voor Elastic Database
 
-| | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Maximum opslagruimte per database *  | 2 GB | 1 TB | 1 TB | 1 TB |
-| Maximum opslagruimte per groep * | 156 GB | 4 TB | 4 TB | 1 TB |
-| Maximum aantal edtu's per database | 5 | 3000 | 4000 | 1000 |
-| Maximum aantal edtu's per groep | 1600 | 3000 | 4000 | 1000 |
-| Maximum aantal databases per groep | 500  | 500 | 100 | 100 |
+| Maximum opslagruimte per database *  | 2 GB | 1 TB | 1 TB | 
+| Maximum opslagruimte per groep * | 156 GB | 4 TB | 4 TB | 
+| Maximum aantal edtu's per database | 5 | 3000 | 4000 | 
+| Maximum aantal edtu's per groep | 1600 | 3000 | 4000 | 
+| Maximum aantal databases per groep | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]
 > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
 >
-> \*In de laag Premium meer dan 1 TB aan opslag is momenteel beschikbaar in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, Canada centraal, Canada Oost, VS-midden, Frankrijk centraal, Duitsland centraal, Japan-Oost, Japan-West, Korea Central, Noord-centraal VS, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, VK Zuid, VK West, VS East2, VS-West, VS Gov Virginia en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 Zie voor meer informatie over specifieke prestatieniveaus en opslag beschikbare keuzen [limieten voor SQL-Database](sql-database-resource-limits.md).

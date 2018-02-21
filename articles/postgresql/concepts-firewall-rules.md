@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 7fec71f621ffeff2fc42a5a9464ae9011b2e2fee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 2/12/2018
+ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure voor firewallregels voor PostgreSQL Server-Database
 Azure-Database voor de firewall PostgreSQL-Server voorkomt alle toegang tot uw database-server, totdat u opgeven welke computers over machtigingen beschikken. De firewall verleent toegang tot de server op basis van het oorspronkelijke IP-adres van elke aanvraag.
@@ -32,6 +32,15 @@ Firewallregels op serverniveau gelden voor alle databases op dezelfde Azure-Data
 Als het IP-adres van de aanvraag niet binnen de bereiken die in de firewallregels op serverniveau zijn opgegeven is, wordt de verbindingsaanvraag mislukt.
 Bijvoorbeeld, als uw toepassing verbinding met JDBC-stuurprogramma voor PostgreSQL maakt, u deze fout kan optreden wanneer de verbinding wordt geblokkeerd door de firewall verbinding proberen te maken.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATALE: Er is geen pg\_hba.conf-vermelding voor de host ": 123.45.67.890", gebruiker 'adminuser', database 'postgresql', SSL
+
+## <a name="connecting-from-azure"></a>Verbinding maken vanuit Azure
+Zodat toepassingen van Azure te verbinden met uw Azure-Database voor PostgreSQL-server moeten de Azure-verbindingen zijn ingeschakeld. Bijvoorbeeld als host voor een Web-Apps van Azure-toepassing of een toepassing die wordt uitgevoerd in een Azure VM of verbinding te maken uit een Azure Data Factory data management gateway. De resources hoeft niet te worden in het hetzelfde virtuele netwerk (VNet) of de resourcegroep voor de firewallregel inschakelen van deze verbindingen. Wanneer een toepassing vanuit Azure probeert verbinding te maken met uw databaseserver, verifieert de firewall of Azure-verbindingen zijn toegestaan. Er zijn een aantal methoden aan de hand van deze typen verbindingen. Een firewallinstelling waarvan het begin- en eindadres gelijk zijn aan 0.0.0.0 geeft aan dat deze verbindingen zijn toegestaan. U kunt ook instellen de **toegang tot Azure-services toestaan** optie naar **ON** in de portal van de **verbindingsbeveiliging** deelvenster en drukt **Opslaan**. Als de verbindingspoging is niet toegestaan, wordt in de aanvraag de Azure-Database voor PostgreSQL-server niet bereiken.
+
+> [!IMPORTANT]
+> Met deze optie configureert u de firewall zo dat alle verbindingen vanuit Azure zijn toegestaan, inclusief verbindingen vanuit de abonnementen van andere klanten. Wanneer u deze optie selecteert, zorg dan dat uw aanmeldings- en gebruikersmachtigingen de toegang beperken tot alleen geautoriseerde gebruikers.
+> 
+
+![Toegang tot Azure-services in de portal configureren](media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Firewallregels programmatisch beheren
 Naast de Azure portal firewallregels, worden beheerd via een programma met Azure CLI.
@@ -54,6 +63,6 @@ Bijvoorbeeld met behulp van een JDBC-client de volgende fout kan worden weergege
 * Statische IP-adressen in plaats daarvan voor uw clientcomputers ophalen en voeg vervolgens het statische IP-adres als een firewallregel.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor artikelen over het maken van de firewallregels op serverniveau:
-* [Maken en beheren van Azure-Database voor firewallregels PostgreSQL met de Azure portal](howto-manage-firewall-using-portal.md).
-* [Maken en beheren van Azure-Database voor firewallregels PostgreSQL met Azure CLI](howto-manage-firewall-using-cli.md).
+Zie voor artikelen over het maken van server- en databaseniveau firewall-regels:
+* [Maken en beheren van Azure-Database voor firewallregels PostgreSQL met de Azure portal](howto-manage-firewall-using-portal.md)
+* [Maken en beheren van Azure-Database voor firewallregels PostgreSQL met Azure CLI](howto-manage-firewall-using-cli.md)

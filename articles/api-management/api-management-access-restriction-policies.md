@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Beperking van API Management toegangsbeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="AccessRestrictionPolicies"></a>Softwarerestrictiebeleid toegang  
+##  <a name="AccessRestrictionPolicies"></a> Softwarerestrictiebeleid toegang  
   
 -   [Controle van HTTP-header](api-management-access-restriction-policies.md#CheckHTTPHeader) -afdwingt bestaan en/of de waarde van een HTTP-Header.  
 -   [Aanroepfrequentie per abonnement](api-management-access-restriction-policies.md#LimitCallRate) -API wordt voorkomen dat gebruik wordt bereikt door het beperken van de aanroepfrequentie per abonnement op basis van een.  
@@ -33,7 +33,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 -   [Gebruiksquotum instellen door sleutel](#SetUsageQuotaByKey) -Hiermee kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van de sleutel per afdwingen.  
 -   [Valideren van JWT](api-management-access-restriction-policies.md#ValidateJWT) -afdwingt bestaan en de geldigheid van een JWT opgehaald uit een opgegeven HTTP-koptekst of een opgegeven queryparameter.  
   
-##  <a name="CheckHTTPHeader"></a>Controleer de HTTP-header  
+##  <a name="CheckHTTPHeader"></a> Controleer de HTTP-header  
  Gebruik de `check-header` beleid af te dwingen dat een aanvraag een opgegeven HTTP-header heeft. U kunt eventueel controleren of de header is een specifieke waarde of het selectievakje voor een bereik van toegestane waarden. Als de controle mislukt, wordt het beleid wordt beëindigd aanvraagverwerking en retourneert het HTTP-status code en de fout bericht opgegeven door het beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
@@ -76,7 +76,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
-##  <a name="LimitCallRate"></a>Aanroepfrequentie per abonnement  
+##  <a name="LimitCallRate"></a> Aanroepfrequentie per abonnement  
  De `rate-limit` API gebruikspieken op basis van per abonnement wordt verhinderd door het beperken van de aanroepfrequentie met een opgegeven aantal gedurende een opgegeven periode. Wanneer dit beleid wordt geactiveerd. de aanroeper ontvangt een `429 Too Many Requests` statuscode van antwoord.  
   
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 -   **Beleid scopes:** product  
   
-##  <a name="LimitCallRateByKey"></a>Aanroepfrequentie per sleutel  
+##  <a name="LimitCallRateByKey"></a> Aanroepfrequentie per sleutel  
  De `rate-limit-by-key` API gebruikspieken op basis van de sleutel per wordt verhinderd door het beperken van de aanroepfrequentie met een opgegeven aantal gedurende een opgegeven periode. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen naar de limiet moeten worden geteld. Wanneer dit beleid wordt geactiveerd. de aanroeper ontvangt een `429 Too Many Requests` statuscode van antwoord.  
   
  Zie voor meer informatie over en voorbeelden van dit beleid, [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -189,7 +189,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
-##  <a name="RestrictCallerIPs"></a>Aanroeper IP-adressen beperken  
+##  <a name="RestrictCallerIPs"></a> Aanroeper IP-adressen beperken  
  De `ip-filter` beleid filtert (kunt/weigert) aanroepen van bepaalde IP-adressen en/of -adresbereiken.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
@@ -231,7 +231,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 -   **Beleid secties:** inkomende  
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
-##  <a name="SetUsageQuota"></a>Gebruiksquotum per abonnement instellen  
+##  <a name="SetUsageQuota"></a> Gebruiksquotum per abonnement instellen  
  De `quota` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per abonnement.  
   
 > [!IMPORTANT]
@@ -286,7 +286,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 -   **Beleid secties:** inkomende  
 -   **Beleid scopes:** product  
   
-##  <a name="SetUsageQuotaByKey"></a>Gebruiksquotum instellen door sleutel  
+##  <a name="SetUsageQuotaByKey"></a> Gebruiksquotum instellen door sleutel  
  De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van de per-sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen naar het quotum moeten worden geteld.  
   
  Zie voor meer informatie over en voorbeelden van dit beleid, [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -346,11 +346,11 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 -   **Beleid secties:** inkomende  
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
-##  <a name="ValidateJWT"></a>JWT valideren  
+##  <a name="ValidateJWT"></a> JWT valideren  
  De `validate-jwt` beleid zorgt ervoor dat bestaan en de geldigheid van een JWT opgehaald uit beide een opgegeven HTTP-Header of een opgegeven queryparameter.  
   
 > [!IMPORTANT]
->  De `validate-jwt` beleid vereist dat de `exp` geregistreerde claim inlcuded in de JWT-token is tenzij `require-expiration-time` kenmerk is opgegeven en ingesteld op `false`.  
+>  De `validate-jwt` beleid vereist dat de `exp` geregistreerde claim is opgenomen in de JWT-token, tenzij `require-expiration-time` kenmerk is opgegeven en ingesteld op `false`.  
 > De `validate-jwt` beleid ondersteunt HS256 en RS256 ondertekenen algoritmen. HS256 moet de sleutel worden opgegeven voor inline in het beleid in het formulier base64-gecodeerd. De sleutel heeft voor RS256 om via een Open ID configuratie-eindpunt.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
@@ -502,7 +502,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |kan geen validatie httpcode|HTTP-statuscode te retourneren als de JWT niet gevalideerd worden.|Nee|401|  
 |header-naam|De naam van de HTTP-header van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |id|De `id` -kenmerk uit voor de `key` element kunt u opgeven van de tekenreeks die wordt vergeleken met `kid` claim in het token (indien aanwezig) om erachter te komen met de juiste sleutel moet worden gebruikt voor validatie van handtekening.|Nee|N/A|  
-|Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all`-de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any`-ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
+|Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
 |query-paremeter-naam|De naam van de de queryparameter van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|waar|
 |vereisen schema|De naam van het token schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N/A|

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stroom Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma
 
@@ -93,7 +93,9 @@ Toepassing bewakingsgegevens is vereist dat uw code is uitgerust met een SDK, zo
 De controlegegevens routering naar een event hub met Azure-bewaking, kunt u eenvoudig kunt integreren met partners SIEM en hulpmiddelen voor Netwerkcontrole. De meeste hulpprogramma's moeten de verbindingsreeks van de event hub en bepaalde machtigingen voor uw Azure-abonnement om gegevens te lezen van de event hub. Dit is een niet-uitputtende lijst met hulpprogramma's met Azure Monitor-integratie:
 
 * **IBM QRadar** -DSM van de Microsoft Azure en Microsoft Azure Event Hub-Protocol zijn beschikbaar voor downloaden van [de ondersteuningswebsite IBM](http://www.ibm.com/support). U kunt [meer informatie over de integratie met Azure hier](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** - [de Monitor van Azure-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/) is beschikbaar in Splunkbase en een open source-project. [Documentatie is hier](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **Splunk** -afhankelijk van uw instellingen Splunk zijn twee benaderingen mogelijk:
+    1. [De Azure-Monitor-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/) is beschikbaar in Splunkbase en een open source-project. [Documentatie is hier](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. Als u niet een invoegtoepassing in uw exemplaar van Splunk (bv installeren. Als met een proxy of uitgevoerd op Splunk Cloud), kunt u deze gebeurtenissen met de Splunk HTTP Event Collector via doorsturen [deze functie die wordt geactiveerd door nieuwe berichten in de event hub](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** -instructies voor het instellen van SumoLogic gebruiken voor gegevens van een event hub zijn [beschikbaar hier](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Volgende stappen

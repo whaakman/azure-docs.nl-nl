@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 248bd491bf688ff9b3ef4252c295989dc340b79c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/12/2018
+ms.openlocfilehash: 137d3f7f45a1865cc7eb76ef3b066960f61d6b2f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Maken en beheren van Azure-Database voor firewallregels PostgreSQL met de Azure portal
 Firewallregels op serverniveau kunnen beheerders toegang krijgen tot een Azure-Database voor PostgreSQL-Server uit een opgegeven IP-adres of een bereik van IP-adressen. 
@@ -27,12 +27,12 @@ Stap in deze handleiding instructies, wilt u het volgende nodig:
 
   ![Azure-portal - Klik op de beveiliging van de verbinding](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Selecteer **Mijn IP toevoegen** op de werkbalk. Een firewallregel deze actie automatisch gemaakt met het openbare IP-adres van uw computer, zoals waargenomen door het Azure-systeem.
+2. Klik op **Mijn IP toevoegen** op de werkbalk. Dit maakt automatisch een firewallregel met het openbare IP-adres van uw computer als waargenomen door het Azure-systeem.
 
   ![Azure-portal - Klik op toevoegen Mijn IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
 3. Controleer of uw IP-adres voor het opslaan van de configuratie. In sommige gevallen is verschilt het IP-adres dat door de Azure-portal waargenomen van het IP-adres gebruikt bij het openen van het internet en de Azure-servers. Daarom moet u mogelijk het eerste IP- en eind-IP-ervoor zorgen dat de regel werkt zoals verwacht wijzigen.
-Gebruik een zoekmachine of andere online hulpprogramma om te controleren van uw eigen IP-adres (bijvoorbeeld Bing zoeken 'Wat is Mijn IP').
+Gebruik een zoekmachine of andere online hulpprogramma om te controleren van uw eigen IP-adres. Bijvoorbeeld, zoek naar 'Wat is Mijn IP'.
 
   ![Bing zoeken naar wat Mijn IP is](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
@@ -44,6 +44,12 @@ Gebruik een zoekmachine of andere online hulpprogramma om te controleren van uw 
 
   ![Azure-portal - Klik op Opslaan](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
 
+## <a name="connecting-from-azure"></a>Verbinding maken vanuit Azure
+Zodat toepassingen van Azure te verbinden met uw Azure-Database voor PostgreSQL-server moeten de Azure-verbindingen zijn ingeschakeld. Bijvoorbeeld als host voor een Web-Apps van Azure-toepassing of een toepassing die wordt uitgevoerd in een Azure VM of verbinding te maken uit een Azure Data Factory data management gateway. De resources hoeft niet te worden in het hetzelfde virtuele netwerk (VNet) of de resourcegroep voor de firewallregel inschakelen van deze verbindingen. Wanneer een toepassing vanuit Azure probeert verbinding te maken met uw databaseserver, verifieert de firewall of Azure-verbindingen zijn toegestaan. Er zijn een aantal methoden aan de hand van deze typen verbindingen. Een firewallinstelling waarvan het begin- en eindadres gelijk zijn aan 0.0.0.0 geeft aan dat deze verbindingen zijn toegestaan. U kunt ook instellen de **toegang tot Azure-services toestaan** optie naar **ON** in de portal van de **verbindingsbeveiliging** deelvenster en drukt **Opslaan**. Als de verbindingspoging is niet toegestaan, wordt in de aanvraag de Azure-Database voor PostgreSQL-server niet bereiken.
+
+> [!IMPORTANT]
+> Met deze optie configureert u de firewall zo dat alle verbindingen vanuit Azure zijn toegestaan, inclusief verbindingen vanuit de abonnementen van andere klanten. Wanneer u deze optie selecteert, zorg dan dat uw aanmeldings- en gebruikersmachtigingen de toegang beperken tot alleen geautoriseerde gebruikers.
+> 
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Bestaande firewallregels op serverniveau beheren via Azure Portal
 Herhaal de stappen voor het beheren van de firewall-regels.

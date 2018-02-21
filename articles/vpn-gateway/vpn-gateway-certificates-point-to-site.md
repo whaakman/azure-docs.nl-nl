@@ -1,10 +1,10 @@
 ---
 title: 'Genereren en exporteren van certificaten voor punt-naar-Site: PowerShell: Azure | Microsoft Docs'
-description: In dit artikel bevat stappen om een zelfondertekend basiscertificaat maken, exporteer de openbare sleutel en met behulp van PowerShell op Windows 10 of Windows Server 2016 clientcertificaten te genereren.
+description: Maakt u een zelfondertekend basiscertificaat en exporteer de openbare sleutel genereren met behulp van PowerShell op Windows 10 of Windows Server 2016 clientcertificaten.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Genereren en exporteren van certificaten voor punt-naar-Site-verbindingen met PowerShell op Windows 10 of Windows Server 2016
 
@@ -137,3 +137,5 @@ Ga door met de punt-naar-Site-configuratie.
 
 * Voor **Resource Manager** model implementatiestappen Zie [P2S configureren met behulp van systeemeigen Azure certificaatverificatie](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * Voor **klassieke** model implementatiestappen Zie [punt-naar-Site VPN-verbinding geconfigureerd met een VNet (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+Voor P2S probleemoplossingsinformatie, Zie [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -1,10 +1,10 @@
 ---
 title: 'Maken en installeren van de configuratiebestanden voor VPN-clients voor RADIUS-P2S-verbindingen: PowerShell: Azure | Microsoft Docs'
-description: In dit artikel helpt u bij het maken van VPN-client-configuratiebestand voor punt-naar-Site-verbindingen die gebruikmaken van RADIUS-verificatie.
+description: Configuratiebestanden voor verbindingen die gebruikmaken van RADIUS-verificatie voor Windows-, Mac OS X- en Linux VPN-client maken.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fb83bda50535dc002120ee4621cd4c8df71c141c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en configuratiebestanden van de VPN-clients voor P2S RADIUS-verificatie installeren
 
-Als u wilt verbinden met een virtueel netwerk via de punt-naar-Site, moet u configureren van het clientapparaat van waaruit u verbinding wilt maken. De RADIUS-server biedt verschillende opties voor verificatie: verificatie van de gebruikersnaam en wachtwoord, verificatie via certificaat, evenals andere verificatietypen. De configuratie van de VPN-client verschilt voor elk type verificatie. Voor het configureren van de VPN-client u configuratiebestanden voor clients die de vereiste instellingen bevatten. In dit artikel helpt u bij het maken en installeren van de configuratie van de VPN-client voor het RADIUS-verificatie-type dat u wilt gebruiken.
+Als u wilt verbinden met een virtueel netwerk via de punt-naar-Site, moet u configureren van het clientapparaat van waaruit u verbinding wilt maken. U kunt P2S-VPN-verbindingen maken in Windows-, Mac OS x- en Linux-clientapparaten. Wanneer u de RADIUS-verificatie, er zijn meerdere opties voor verificatie: verificatie van de gebruikersnaam en wachtwoord, verificatie via certificaat, evenals andere verificatietypen. De configuratie van de VPN-client verschilt voor elk type verificatie. Voor het configureren van de VPN-client u configuratiebestanden voor clients die de vereiste instellingen bevatten. In dit artikel helpt u bij het maken en installeren van de configuratie van de VPN-client voor het RADIUS-verificatie-type dat u wilt gebruiken.
 
-### <a name="workflow"></a>Werkstroom
+De configuratiewerkstroom voor P2S RADIUS-verificatie is als volgt:
 
 1. [Instellen van de Azure VPN-gateway voor P2S-connectiviteit](point-to-site-how-to-radius-ps.md).
 2. [Stel uw RADIUS-server voor verificatie](point-to-site-how-to-radius-ps.md#radius). 
@@ -36,6 +36,8 @@ Als u wilt verbinden met een virtueel netwerk via de punt-naar-Site, moet u conf
 >Als er wijzigingen in de punt-naar-Site VPN-configuratie na het genereren van het VPN-client configuratieprofiel, zoals het VPN-protocoltype of verificatie, moet u genereren en de configuratie van een nieuwe VPN-client installeren op uw apparaten van gebruikers.
 >
 >
+
+Als u wilt gebruiken in de secties in dit artikel, eerst bepalen welk type verificatie u wilt gebruiken: gebruikersnaam en wachtwoord, certificaat of andere soorten authenticatie. Er zijn in elke sectie stappen voor Windows, Mac OS X- en Linux (beschikbaar op dit moment beperkt stappen).
 
 ## <a name="adeap"></a>Verificatie van de gebruikersnaam en wachtwoord
 
@@ -121,7 +123,7 @@ Gebruik de volgende stappen uit om de systeemeigen Windows VPN-client voor verif
 
 De volgende instructies zijn gemaakt met behulp van strongSwan 5.5.1 op Ubuntu 17.0.4. Werkelijke schermen kunnen afwijken, afhankelijk van uw versie van Linux- en strongSwan.
 
-1. Open de **Terminal** installeren **strongSwan** en de netwerkbeheerder door de volgende opdracht uit te voeren. Als er een fout met betrekking tot de 'libcharon-extra-invoegtoepassingen', vervangen door deze 'strongswan-invoegtoepassing-eap-mschapv2'.
+1. Open de **Terminal** installeren **strongSwan** en de netwerkbeheerder met de opdracht in het voorbeeld. Als er een fout met betrekking tot de 'libcharon-extra-invoegtoepassingen', vervangen door deze 'strongswan-invoegtoepassing-eap-mschapv2'.
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -251,3 +253,5 @@ Verschillende verificatietype (bijvoorbeeld OTP), en geen gebruikersnaam en wach
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga terug naar het artikel [uw P2S-configuratie voltooien](point-to-site-how-to-radius-ps.md).
+
+Voor P2S informatie over probleemoplossing, [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Levenscyclus van replica's en instanties
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Levenscyclus van Reliable Services - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Levenscyclus van Reliable Services - Java
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Beschikbaarheid van services
           href: service-fabric-availability-services.md
-        - name: Levenscyclus van replica's en instanties
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Herconfiguratie
           href: service-fabric-concepts-reconfiguration.md
         - name: Servicecommunicatie

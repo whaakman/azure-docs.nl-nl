@@ -17,8 +17,9 @@
 ### [Technische mogelijkheden voor beveiliging](azure-security-technical-capabilities.md)
 ### [Governance in Azure](governance-in-azure.md)
 ### [Versleuteling van inactieve gegevens](azure-security-encryption-atrest.md)
-### Architectuurblauwdrukken
-#### [Naleving - PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Blauwdrukken voor Azure-beveiliging en naleving
+#### PCI DSS
+##### [Betalingsverwerking voor PCI DSS-conforme omgevingen](./blueprints/payment-processing-blueprint.md)
 ##### [Overzicht van vereisten](./blueprints/pci-dss-requirements-overview.md)
 ##### [Vereiste 1 - firewalls](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Vereiste 2 - wachtwoorden](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Vereiste 10 - bewaking](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Vereiste 11 - testen](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Vereiste 12 - beleid](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Naleving - FedRAMP ](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Automatisering van webtoepassingen](./blueprints/fedramp.md)
 ##### [Overzicht van beveiligingsbesturingselementen](./blueprints/fedramp-controls-overview.md)
 ##### [Toegangsbeheer](./blueprints/fedramp-access-controls.md)
 ##### [Controle en verantwoordelijkheid](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Systeem- en communicatiebeveiliging](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [Systeem- en gegevensintegriteit](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Systeem- en servicesovername](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Naleving - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automatisering van webtoepassingen met drie lagen](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Overzicht](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Overzicht van de principes](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Naleving - financiële services
+#### Financiële dienstverlening
 ##### [Financiële diensten voor gereguleerde workloads](./blueprints/financial-services-regulated-workloads.md)
 
 # Aan de slag

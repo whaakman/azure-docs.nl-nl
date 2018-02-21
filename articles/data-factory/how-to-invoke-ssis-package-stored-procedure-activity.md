@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
 In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen procedure aanroepen. 
@@ -76,7 +76,7 @@ In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van e
 1. Klik in de pagina aan de slag, **maken pijplijn**: 
 
     ![Pagina Aan de slag](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. In de **activiteiten** werkset Vouw **SQL-Database**, en slepen en neerzetten **opgeslagen Procedure** activiteit naar het ontwerpoppervlak pijplijn. 
+2. In de **activiteiten** werkset Vouw **algemene**, en slepen en neerzetten **opgeslagen Procedure** activiteit naar het ontwerpoppervlak pijplijn. 
 
     ![De activiteit opgeslagen procedure slepen en neerzetten](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. In het eigenschappenvenster voor de activiteit opgeslagen procedure overschakelen naar de **-Account voor SQL** tabblad en klik op **+ nieuw**. U maken een verbinding met de Azure SQL database die als host fungeert voor de catalogus SSIS (SSIDB database). 
@@ -95,11 +95,12 @@ In deze stap gebruikt u de Data Factory-gebruikersinterface voor het maken van e
         ![Een gekoppelde Azure SQL Database-service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In het eigenschappenvenster overschakelen naar de **opgeslagen Procedure** TAB-toets van de **-Account voor SQL** tabblad en voer de volgende stappen uit: 
 
-    1. Voor de **opgeslagen procedurenaam** veld Enter `sp_executesql`. 
-    2. Klik op **+ nieuw** in de **opgeslagen procedureparameters** sectie. 
-    3. Voor **naam** invoeren van de parameter **instructie INSERT**. 
-    4. Voor **type** invoeren van de parameter **tekenreeks**. 
-    5. Voor **waarde** van de parameter, voert u de volgende SQL-query:
+    1. Selecteer **Bewerken**. 
+    2. Voor de **opgeslagen procedurenaam** veld Enter `sp_executesql`. 
+    3. Klik op **+ nieuw** in de **opgeslagen procedureparameters** sectie. 
+    4. Voor **naam** invoeren van de parameter **instructie INSERT**. 
+    5. Voor **type** invoeren van de parameter **tekenreeks**. 
+    6. Voor **waarde** van de parameter, voert u de volgende SQL-query:
 
         Geef in de SQL-query de juiste waarden voor de **mapnaam**, **projectnaam**, en **naam_van_pakket** parameters. 
 
@@ -121,7 +122,8 @@ In deze sectie een pijplijn run activeren en deze vervolgens te controleren.
 1. Als u wilt activeren van een pijplijn die worden uitgevoerd, klikt u op **Trigger** op de werkbalk en klikt u op **nu starten**. 
 
     ![Nu activeren](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet de pijplijn uitvoeren en de status ervan samen met andere informatie (zoals tijd uitvoeren starten). Als u de lijst wilt vernieuwen, klikt u op **Vernieuwen**.
+2. In de **pijplijn uitvoeren** Selecteer **voltooien**. 
+3. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet de pijplijn uitvoeren en de status ervan samen met andere informatie (zoals tijd uitvoeren starten). Als u de lijst wilt vernieuwen, klikt u op **Vernieuwen**.
 
     ![Pijplijnuitvoeringen](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. Er is slechts één activiteit die wordt uitgevoerd als de pijplijn slechts één activiteit (opgeslagen procedure heeft).

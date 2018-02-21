@@ -1,10 +1,10 @@
 ---
 title: 'Maken en installeren van de configuratiebestanden voor P2S-VPN-clients voor verificatie van Azure: PowerShell: Azure | Microsoft Docs'
-description: In dit artikel helpt u bij het maken en configuratiebestanden van de VPN-clients voor punt-naar-Site-verbindingen die gebruikmaken van verificatie via certificaat te installeren.
+description: Maken en installeren van Windows en Mac OS X-VPN-client configuratiebestanden voor verificatie via certificaat P2S.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en installeren van de configuratiebestanden voor VPN-clients voor systeemeigen Azure certificaat verificatie P2S-configuraties
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Maken en installeer VPN client configuratiebestanden voor systeemeigen Azure authentication punt-naar-Site-configuraties van het certificaat
 
 Configuratiebestanden voor VPN-clients bevinden zich in een zip-bestand. Configuratiebestanden bevatten de instellingen die vereist zijn voor een native client voor Windows of Mac IKEv2 VPN-verbinding maken met een VNet via punt-naar-Site-verbindingen die gebruikmaken van systeemeigen Azure certificaatverificatie.
 
@@ -117,3 +117,5 @@ Klik op **toevoegen** om te importeren.
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga terug naar het artikel [uw P2S-configuratie voltooien](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+Voor P2S informatie over probleemoplossing, [punt-naar-site-verbindingen voor probleemoplossing voor Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

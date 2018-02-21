@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemming van de prestaties in Azure SQL Database
 
@@ -34,7 +34,7 @@ Dit zijn handmatige methodes omdat u nodig hebt om te bepalen wat [Servicelagen]
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Laag van de toenemende prestaties van uw database
 
-Azure SQL Database biedt vier [Servicelagen](sql-database-service-tiers.md) die u kunt kiezen uit: Basic, Standard, Premium en Premium RS (prestaties wordt gemeten in database-eenheden voor doorvoer, of [dtu's](sql-database-what-is-a-dtu.md). Elke servicelaag isoleert uitsluitend de resources in uw SQL-database kunt gebruiken, en wordt gegarandeerd dat voorspelbare prestaties voor dit serviceniveau. In dit artikel bieden we hulp kunt u de servicetier voor uw toepassing kiezen. Dat kunt u uw toepassing Haal het meeste uit Azure SQL Database afstemmen manieren ook besproken.
+Azure SQL Database biedt vier [Servicelagen](sql-database-service-tiers.md) die u kunt kiezen uit: Basic, Standard en Premium (prestaties wordt gemeten in database-eenheden voor doorvoer, of [dtu's](sql-database-what-is-a-dtu.md). Elke servicelaag isoleert uitsluitend de resources in uw SQL-database kunt gebruiken, en wordt gegarandeerd dat voorspelbare prestaties voor dit serviceniveau. In dit artikel bieden we hulp kunt u de servicetier voor uw toepassing kiezen. Dat kunt u uw toepassing Haal het meeste uit Azure SQL Database afstemmen manieren ook besproken.
 
 > [!NOTE]
 > Dit artikel is gericht op prestaties richtlijnen voor individuele databases in Azure SQL Database. Zie voor instructies prestaties gerelateerd aan elastische pools [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md). Merk echter op dat u kunt veel afstemmen aanbevelingen in dit artikel van toepassing op databases in een elastische pool en vergelijkbare prestatievoordelen ophalen.
@@ -49,7 +49,6 @@ Azure SQL Database biedt vier [Servicelagen](sql-database-service-tiers.md) die 
   * **Hoge piekbelasting**. Een speciale, hoge prestaties verificatieniveau is vereist door een toepassing die is vereist aanzienlijk CPU, geheugen of input/output (I/O) om de bewerkingen te voltooien. Een databasebewerking bekend is dat het aantal CPU-kernen gebruiken voor een langere periode is bijvoorbeeld geschikt is voor de Premium servicecategorie.
   * **Veel gelijktijdige aanvragen**. Sommige databasetoepassingen-service is veel gelijktijdige aanvragen, bijvoorbeeld wanneer voor een website die een intensief verkeer. Basis en standaard Servicelagen beperkt het aantal gelijktijdige aanvragen per database. Toepassingen waarvoor meer verbindingen moet om een juiste reserveringsgrootte voor het afhandelen van het maximum aantal benodigde aanvragen te kiezen.
   * **Lage latentie**. Sommige toepassingen moeten een reactie van de database in de minimale tijd te garanderen. Als een specifieke opgeslagen procedure als onderdeel van een bredere klant-bewerking wordt aangeroepen, is u wellicht een vereiste om een return-aanroep die in 99 procent van de tijd niet meer dan 20 milliseconden. Dit type toepassing profiteert van de Premium servicecategorie om ervoor te zorgen dat de vereiste rekenkracht beschikbaar is.
-* **Premium-RS**: de Premium-RS laag is ontworpen voor i/o-intensieve werkbelastingen die niet wordt gegarandeerd dat de hoogste beschikbaarheid nodig hebt. Voorbeelden omvatten het testen van werklasten met hoge prestaties of een analytische werkbelasting de database is waar geen opslagsysteem.
 
 Het serviceniveau dat u nodig hebt voor de SQL-database, is afhankelijk van de vereisten voor het laden van piek voor elke resourcedimensie. Sommige toepassingen een trivial bedrag van één resource gebruiken, maar belangrijke vereisten voor andere bronnen.
 

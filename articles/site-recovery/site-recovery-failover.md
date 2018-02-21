@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Dit artikel wordt beschreven hoe met failover-virtuele machines en fysieke servers beveiligd door Site Recovery.
@@ -31,7 +31,7 @@ Gebruik de volgende tabel om te weten over de beschikbare opties failover door A
 
 | Scenario | Vereisten voor toepassingsimplementatie herstel | Werkstroom voor Hyper-V | Werkstroom voor VMware
 |---|--|--|--|
-|Geplande failover vanwege een toekomstige datacenter uitvaltijd| Geen gegevensverlies voor de toepassing als een geplande activiteit wordt uitgevoerd| Voor Hyper-V repliceert ASR gegevens met een kopieerfrequentie is opgegeven door de gebruiker. Geplande Failover wordt gebruikt voor het overschrijven van de frequentie en het definitieve wijzigingen worden gerepliceerd voordat een failover wordt gestart. <br/> <br/> 1.    Een onderhoudsvenster aan de hand van uw bedrijf wijzigingsbeheerproces plan. <br/><br/> 2. Waarschuw gebruikers toekomstige uitvaltijd. <br/><br/> 3. De gebruiker gerichte toepassing offline halen.<br/><br/>4. Klik start een geplande Failover via de portal ASR. De on-premises virtuele machine wordt automatisch afgesloten.<br/><br/>Verlies van toepassingsgegevens effectieve = 0 <br/><br/>Logboek van herstelpunten is ook beschikbaar in een bewaarperiode voor een gebruiker die wil gebruiken van een oudere herstelpunt. (24 uur bewaren voor Hyper-V).| Voor VMware repliceert ASR gegevens voortdurend met behulp van CDP. Failover geeft de gebruiker de optie voor failover naar de meest recente gegevens (inclusief post toepassing afsluiten)<br/><br/> 1. Een onderhoudsvenster aan de hand van het wijzigingsbeheerproces plannen <br/><br/>2. Waarschuw gebruikers geplande uitvaltijd <br/><br/>3.  De gebruiker gerichte toepassing offline halen. <br/><br/>4.  Start een geplande Failover met ASR portal het laatste herstelpunt nadat de toepassing offline is. Gebruik de optie 'Niet-geplande Failover' op de portal en selecteert u het laatste herstelpunt failover. De on-premises virtuele machine wordt automatisch afgesloten.<br/><br/>Verlies van toepassingsgegevens effectieve = 0 <br/><br/>Logboek van herstelpunten in een bewaarperiode is opgegeven voor een klant die wil gebruiken van een oudere herstelpunt. (72 uur retentieperiode voor VMware).
+|Geplande failover vanwege een toekomstige datacenter uitvaltijd| Geen gegevensverlies voor de toepassing als een geplande activiteit wordt uitgevoerd| Voor Hyper-V repliceert ASR gegevens met een kopieerfrequentie die is opgegeven door de gebruiker. Geplande Failover wordt gebruikt voor het overschrijven van de frequentie en het definitieve wijzigingen worden gerepliceerd voordat een failover wordt gestart. <br/> <br/> 1.    Een onderhoudsvenster aan de hand van uw bedrijf wijzigingsbeheerproces plan. <br/><br/> 2. Waarschuw gebruikers toekomstige uitvaltijd. <br/><br/> 3. De gebruiker gerichte toepassing offline halen.<br/><br/>4. Klik start een geplande Failover via de portal ASR. De on-premises virtuele machine wordt automatisch afgesloten.<br/><br/>Verlies van toepassingsgegevens effectieve = 0 <br/><br/>Logboek van herstelpunten is ook beschikbaar in een bewaarperiode voor een gebruiker die wil gebruiken van een oudere herstelpunt. (24 uur bewaren voor Hyper-V).| Voor VMware repliceert ASR gegevens voortdurend met behulp van CDP. Failover geeft de gebruiker de optie voor failover naar de meest recente gegevens (inclusief post toepassing afsluiten)<br/><br/> 1. Een onderhoudsvenster aan de hand van het wijzigingsbeheerproces plannen <br/><br/>2. Waarschuw gebruikers geplande uitvaltijd <br/><br/>3.    De gebruiker gerichte toepassing offline halen. <br/><br/>4.  Start een geplande Failover met ASR portal het laatste herstelpunt nadat de toepassing offline is. Gebruik de optie 'Niet-geplande Failover' op de portal en selecteert u het laatste herstelpunt failover. De on-premises virtuele machine wordt automatisch afgesloten.<br/><br/>Verlies van toepassingsgegevens effectieve = 0 <br/><br/>Logboek van herstelpunten in een bewaarperiode is opgegeven voor een klant die wil gebruiken van een oudere herstelpunt. (72 uur retentieperiode voor VMware).
 |Failover vanwege een niet-geplande datacenter uitvaltijd (natuurlijke of IT-noodherstel) | Minimaal gegevensverlies voor de toepassing | 1. starten van de organisatie BCP plannen <br/><br/>2. Niet-geplande Failover met ASR portal naar de meest recente of een punt in het venster bewaren (journaal) starten.| 1. Starten van de organisatie BCP plan. <br/><br/>2.  Niet-geplande Failover met ASR portal naar de meest recente of een punt in het venster bewaren (journaal) starten.
 
 
@@ -66,17 +66,16 @@ Deze procedure wordt beschreven hoe u een failover voor een [herstelplan](site-r
     >
 
 1. U kunt de voortgang van de failover volgen op de **taken** pagina. Zelfs als er fouten optreden tijdens een niet-geplande failover het herstelplan wordt uitgevoerd totdat deze voltooid is.
-1. Na de failover valideren op de virtuele machine aanmelden bij deze. Als u wilt gaan, een ander herstelpunt voor de virtuele machine, dan kunt u **herstelpunt wijzigen** optie.
-1. Wanneer u tevreden met de mislukte bent via de virtuele machine, kunt u **doorvoeren** de failover. Commit verwijdert alle herstelpunten die beschikbaar zijn met de service en **herstelpunt wijzigen** optie niet langer beschikbaar.
+1. Valideer de virtuele machine door logboekregistratie in voor deze na de failover. Als u wilt overschakelen naar een ander herstelpunt van de virtuele machine, dan kunt u **herstelpunt wijzigen** optie.
+1. Wanneer u tevreden met de mislukte bent via de virtuele machine, kunt u **doorvoeren** de failover. **Commit verwijdert alle herstelpunten die beschikbaar zijn met de service** en **herstelpunt wijzigen** optie is niet meer beschikbaar.
 
 ## <a name="planned-failover"></a>Geplande failover
-Virtuele machines of fysieke servers die zijn beveiligd met Site Recovery ook ondersteuning **geplande failover**. Geplande failover is een nul gegevens verloren gaan failover-optie. Wanneer een geplande failover wordt geactiveerd, eerst de virtuele bronmachines afgesloten, de meest recente gegevens worden gesynchroniseerd en vervolgens een failover wordt geactiveerd.
+Virtuele machines of fysieke servers die zijn beveiligd met Site Recovery ook ondersteuning **geplande failover**. Geplande failover is een nul gegevens verloren gaan failover-optie. Wanneer een geplande failover wordt geactiveerd, eerst de bron virtuele machines afsluiten zijn de meest recente gegevens worden gesynchroniseerd en vervolgens een failover wordt geactiveerd.
 
 > [!NOTE]
-> Wanneer u een failover-Hyper-v virtuele machines van een on-premises site naar een andere lokale site naar keert u terug naar de primaire lokale site hebt u in eerste **omgekeerd repliceren** de virtuele machine weer naar primaire site en vervolgens Hiermee activeert u een failover. Als de primaire virtuele machine niet beschikbaar is, voordat begint met het **omgekeerd repliceren** hebt u de virtuele machine uit een back-up hersteld.   
+> Tijdens de failover van Hyper-v virtuele machines van een lokale site naar een andere lokale site, keert u terug naar de primaire lokale site u hebt in eerste **reverse repliceren** de virtuele machine weer naar primaire site en vervolgens Hiermee activeert u een failover. Als de primaire virtuele machine niet beschikbaar is, voordat begint met het **reverse repliceren** hebt u de virtuele machine uit een back-up hersteld.   
 >
 >
-
 ## <a name="failover-job"></a>Failover-taak
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
@@ -102,13 +101,13 @@ Failover van virtuele machines vereist in bepaalde gevallen, een extra tussensta
 * Hyper-V virtuele machines die beveiligd als de fysieke servers
 * Waar volgende stuurprogramma's niet aanwezig als opstartstuurprogramma zijn virtuele VMware-machines 
     * storvsc 
-    * VMBus 
+    * vmbus 
     * storflt 
     * Intelide 
-    * ATAPI
+    * atapi
 * Virtuele VMware-machines waarvoor geen DHCP-service is ingeschakeld ongeacht of ze zijn geïnstalleerd via DHCP of statische IP-adressen
 
-In alle andere gevallen deze tussenstap is niet vereist en de tijd voor de failover is aanzienlijk minder. 
+In alle andere gevallen is dit tussenstap is niet vereist en de tijd voor de failover is lager. 
 
 
 
@@ -117,8 +116,10 @@ In alle andere gevallen deze tussenstap is niet vereist en de tijd voor de failo
 ## <a name="using-scripts-in-failover"></a>Met behulp van scripts in Failover
 Mogelijk wilt bepaalde acties automatiseren, terwijl u een failover uitvoert. U kunt scripts gebruiken of [Azure automation-runbooks](site-recovery-runbook-automation.md) in [herstelplannen](site-recovery-create-recovery-plans.md) dat doet.
 
-## <a name="other-considerations"></a>Andere overwegingen
-* **Stationsletter** : voor het bewaren van de stationsletter op virtuele machines na een failover kunt u instellen de **SAN-beleid** voor de virtuele machine **OnlineAll**. [Meer informatie](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+## <a name="post-failover-considerations"></a>Na de failover-overwegingen
+Na de failover die mogelijk wilt u de volgende aanbevelingen:
+### <a name="retaining-drive-letter-after-failover"></a>Stationsletter behouden na een failover 
+Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt u instellen de **SAN-beleid** voor de virtuele machine **OnlineAll**. [Meer informatie](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 

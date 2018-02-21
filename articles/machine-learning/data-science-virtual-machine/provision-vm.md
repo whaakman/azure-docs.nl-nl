@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van Windows gegevens wetenschappelijke virtuele Machine in Azure
 De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtuele machine (VM) vooraf is geïnstalleerd en geconfigureerd met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevensanalyse en machine learning. De hulpprogramma's zijn:
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) Workbench
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) ontwikkelaarsversie
+* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Microsoft-Machine Learning-Server](https://docs.microsoft.com/machine-learning-server/index) ontwikkelaarsversie
 * Anaconda Python-distributie
 * Jupyter-notebook (met R, Python, PySpark kernels)
 * Visual Studio Community Edition
@@ -35,12 +35,12 @@ De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtue
   * Grondige Learning Frameworks: een uitgebreide reeks frameworks, met inbegrip AI [Microsoft cognitieve Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras zijn opgenomen op de virtuele machine.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): een snel machine learning-technieken zoals online, hash, allreduce, kortingen, learning2search, actief, ondersteunende system en interactieve daarvan te leren.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): een hulpprogramma dat snelle en nauwkeurige gestimuleerd structuur-implementatie.
-  * [Rattle](http://rattle.togaware.com/) (de R analytische hulpprogramma voor meer informatie over eenvoudig): een hulpprogramma dat aan de slag met data analytics en machine learning in R eenvoudig met een GUI-gebaseerde gegevensverkenning en modellering met automatische R codegeneratie maakt.
+  * [Rattle](http://rattle.togaware.com/) (de R analytische hulpprogramma voor meer informatie over eenvoudig): een hulpprogramma dat aan de slag met data analytics en machine learning-R eenvoudig maakt. Dit omvat GUI gebaseerde gegevensverkenning en modellering met automatische R codegeneratie.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : een visual gegevensanalyse en machine learning-software in Java.
-  * [Apache inzoomen](https://drill.apache.org/): een schemavrije SQL Query-Engine voor Hadoop, NoSQL- en Cloud-opslag.  Biedt ondersteuning voor ODBC- en JDBC-interfaces om in te schakelen query NoSQL- en bestanden van de standaard BI-tools zoals Power BI, Excel, Tableau.
+  * [Apache inzoomen](https://drill.apache.org/): een schemavrije SQL Query-Engine voor Hadoop, NoSQL en Cloud-opslag.  Biedt ondersteuning voor ODBC- en JDBC-interfaces om in te schakelen query NoSQL- en bestanden van de standaard BI-tools zoals Power BI, Excel, Tableau.
 * Bibliotheken in R- en Python voor gebruik in Azure Machine Learning en andere Azure-services
 * GIT, met inbegrip van Git Bash werken met broncodeopslagplaatsen, met inbegrip van GitHub, Visual Studio Team Services
-* Windows-poorten van verschillende populaire Linux opdrachtregelprogramma's (inclusief awk, ype, perl, grep, zoeken, wget, curl enzovoort) toegankelijk zijn via de opdrachtprompt. 
+* Windows-poorten van verschillende populaire Linux opdrachtregelprogramma's (inclusief awk, ype, perl, grep, zoeken, wget, curl, enz.) toegankelijk zijn via de opdrachtprompt. 
 
 Tijdens het doorzoeken van wetenschappelijke gegevens omvat sequentieel op een reeks taken:
 
@@ -64,7 +64,7 @@ Voordat u een Microsoft Data wetenschappelijke virtuele Machine maken kunt, moet
 
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Uw Microsoft Data wetenschappelijke virtuele Machine maken
-Hier volgen de stappen voor het maken van een exemplaar van de Microsoft wetenschappelijke virtuele Machine gegevens:
+Volg deze stappen voor het maken van een exemplaar van de Microsoft wetenschappelijke virtuele Machine gegevens:
 
 1. Navigeer naar de virtuele machine op aanbieding [Azure-portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Selecteer de **maken** knop onderaan in een wizard moeten worden genomen.![ Configureer-gegevens-wetenschappelijke-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -82,9 +82,9 @@ Hier volgen de stappen voor het maken van een exemplaar van de Microsoft wetensc
    2. **De grootte van**: Selecteer een van de servertypen die voldoet aan uw functionele vereisten en kostenbeperkingen. U kunt meer mogelijkheden van VM-formaten ophalen door 'Alles weergeven' selecteren.
    3. **Instellingen**:
       
-      1. **Schijven beheerd**: Kies beheerd als u wilt dat Azure voor het beheren van de schijven voor de virtuele machine.  Anders moet u een nieuwe of exitsting storage-account opgeven. 
-      2. **Andere parameters**: meestal zojuist hebt u de standaardwaarden. U kunt de muisaanwijzer op de informatief koppeling voor meer informatie over de specifieke velden voor het geval wilt u het gebruik van niet-standaard waarden.
-   4. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is en klik op **maken**. **Opmerking**: de VM beschikt niet over eventuele extra kosten afgezien van de berekening die voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
+      1. **Schijven beheerd**: Kies beheerd als u wilt dat Azure voor het beheren van de schijven voor de virtuele machine.  Anders moet u een nieuwe of bestaande opslagaccount opgeven. 
+      2. **Andere parameters**: meestal zojuist hebt u de standaardwaarden. Als u Overweeg het gebruik van niet-standaard waarden wilt, Beweeg de muisaanwijzer over de informatief koppeling voor meer informatie over de specifieke velden.
+    a. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is en klik op **maken**. **Opmerking**: de VM beschikt niet over eventuele extra kosten afgezien van de berekening die voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
 
 > [!NOTE]
 > De inrichting duren ongeveer 10-20 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
@@ -101,7 +101,7 @@ Als uw virtuele machine is gemaakt en ingericht, bent u klaar om te beginnen met
 
 ### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning-Workbench is een bureaubladtoepassing en opdrachtregelinterface. De Workbench heeft ingebouwde gegevens voorbereiden die uw gegevens voorbereidende stappen leert u om ze uit te voeren. Het bevat ook projectbeheer, geschiedenis en laptop-integratie met uw productiviteit vergroot uitvoeren. U kunt profiteren van de beste open-source frameworks, met inbegrip van TensorFlow, cognitieve Toolkit, Spark ML en scikit-informatie over het ontwikkelen van uw modellen. Op de DSVM bieden we een bureaubladpictogram (InstallAMLFromLocal) uitpakken van de Azure Machine Learning-workbench lokaal in de map voor elke gebruiker % LOCALAPPDATA %. Elke gebruiker die moet worden gebruikt de Workbench moet doen een actie van dubbelklikken op het bureaubladpictogram InstallAMLFromLocal voor het installeren van hun exemplaar van de Workbench tijd. Azure Machine Learning ook maakt en gebruikt een per gebruiker Python-omgeving die in de map % LOCALAPPDATA%\amlworkbench\python wordt opgehaald.
+Azure Machine Learning-Workbench is een bureaubladtoepassing en opdrachtregelinterface. De Workbench heeft ingebouwde gegevens voorbereiden die uw gegevens voorbereidende stappen leert u om ze uit te voeren. Het bevat ook projectbeheer, geschiedenis en laptop-integratie met uw productiviteit vergroot uitvoeren. U kunt profiteren van de beste open source-frameworks, met inbegrip van TensorFlow, cognitieve Toolkit, Spark ML en scikit-informatie over het ontwikkelen van uw modellen. Op de DSVM bieden we een bureaubladpictogram (InstallAMLFromLocal) uitpakken van de Azure Machine Learning-workbench lokaal in de map voor elke gebruiker % LOCALAPPDATA %. Elke gebruiker die moet worden gebruikt de Workbench moet doen een actie van het te dubbelklikken op het bureaubladpictogram InstallAMLFromLocal voor het installeren van hun exemplaar van de Workbench tijd. Azure Machine Learning ook maakt en gebruikt een per gebruiker Python-omgeving die in de map % LOCALAPPDATA%\amlworkbench\python wordt opgehaald.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Als u gebruiken van Microsoft enterprise-bibliotheken voor schaalbare R- of Python voor uw analyses wilt, heeft de virtuele machine Microsoft ML Server Developer edition (voorheen bekend als Microsoft R Server) geïnstalleerd. Microsoft ML Server is een grotendeels implementeerbare bedrijfsniveau analytics platform beschikbaar voor R- en Python en schaalbare, commercieel ondersteunde en veilig is. Ondersteuning biedt voor tal van big data-statistieken, voorspellende modellen en machine learning-mogelijkheden, ondersteunt ML-Server het volledige bereik van analytics – exploratie, analyse, visualisatie en modellering. Door en uitbreiden van de open source R- en Python, Microsoft ML Server is volledig compatibel met R / Python-scripts, functies en CRAN / pip / Conda-pakketten voor het analyseren van gegevens op enterprise schalen. Biedt ook een oplossing de beperkingen in het geheugen van de Open Source R door parallelle en gesegmenteerde verwerking van gegevens toe te voegen. Hiermee kunt u analyses uitvoeren op gegevens veel groter dan wat in het hoofdgeheugen past.  Visual Studio Community Edition opgenomen op de virtuele machine bevat de R-Tools voor Visual Studio en Python-tools voor Visual Studio-extensie die een volledige IDE biedt voor het werken met R- of Python. We bieden ook andere IDE ook zoals [RStudio](http://www.rstudio.com) en [PyCharm Community edition](https://www.jetbrains.com/pycharm/) op de virtuele machine. 
@@ -114,7 +114,7 @@ Voor de ontwikkeling met behulp van Python, is distributie Anaconda Python 2.7 e
 > 
 > 
 
-Anaconda Python 2.7 onder C:\Anaconda is geïnstalleerd en Anaconda Python 3.5 onder c:\Anaconda\envs\py35 is geïnstalleerd. Zie [documentatie bij PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) voor gedetailleerde stappen. 
+Anaconda Python 2.7 onder C:\Anaconda is geïnstalleerd en Anaconda Python 3.5 onder c:\Anaconda\envs\py35 is geïnstalleerd. Zie [documentatie bij PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) voor gedetailleerde stappen. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda-verdeling wordt ook geleverd met een Jupyter-notebook een omgeving voor het delen van code en -analyse. Een Jupyter-notebook-server is vooraf geconfigureerd met Python 2.7, Python 3.5, PySpark, Julia en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' om te starten van de Jupyter-server en start de browser voor toegang tot de Notebook-server. 
@@ -134,7 +134,7 @@ Visual Studio Community edition is geïnstalleerd op de virtuele machine. Het is
 > 
 > 
 
-### <a name="sql-server-2017-developer-edition"></a>2017 ontwikkelaarsversie van SQL Server
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
 Een developer-versie van SQL Server 2017 met ML-Services worden uitgevoerd in de database analytics is beschikbaar op de virtuele machine in R- of Python. ML-Services bieden een platform voor het ontwikkelen en implementeren van intelligent toepassingen. U kunt uitgebreide en krachtige deze talen en de veel pakketten van de community modellen maken en het genereren van voorspellingen voor uw SQL Server-gegevens. Omdat ML-Services (In database) het R- en Python taal in de SQL-Server integreert, kunt u analytics dicht bij de gegevens behouden. Hierdoor is de kosten en beveiligingsrisico's met de verplaatsing van gegevens.
 
 > [!NOTE]
@@ -183,7 +183,7 @@ De [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downlo
 | Anaconda 3.5 Python-omgeving |c:\Anaconda\envs\py35 |
 | Microsoft ML Server zelfstandige Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Standaard-R-sessie (ML Server zelfstandig) |C:\Program Files\Microsoft\ML Server\R_SERVER |
-| ML-Services voor SQL-database-exemplaar directory |C:\Program Files\Microsoft SQL Server\MSSQL14. MSSQLSERVER |
+| ML-Services voor SQL-database-exemplaar directory |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
 | Azure Machine Learning-Workbench (per gebruiker) | %localappdata%\amlworkbench | 
 | Diverse hulpprogramma 's |c:\dsvm\tools |
 
@@ -196,9 +196,9 @@ De [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downlo
 Hier volgen enkele volgende stappen om door te gaan uw leren en te verkennen. 
 
 * Verken de verschillende beschikbare hulpprogramma wetenschappelijke gegevens op de virtuele machine voor gegevenswetenschap door te klikken op het startmenu en controleren van de hulpprogramma's die worden vermeld in het menu.
-* Meer informatie over Azure Machine Learning-Services en -Workbench door naar het product te [pagina Quick Start- en zelfstudies](https://docs.microsoft.com/azure/machine-learning/preview/). 
+* Meer informatie over Azure Machine Learning-Services en -Workbench door naar het product te [pagina Quick Start- en zelfstudies](../preview/index.yml). 
 * Navigeer naar **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** voor voorbeelden weergegeven met behulp van de bibliotheek RevoScaleR in R die ondersteuning biedt voor gegevensanalyse die op grote schaal enterprise.  
 * Lees het artikel: [10 dingen die u op de virtuele Machine voor gegevenswetenschap doen kunt](http://aka.ms/dsvmtenthings)
-* Informatie over het bouwen van end-to-end analyseoplossingen systematischer met behulp van de [Team gegevens wetenschap proces](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Informatie over het bouwen van end-to-end analyseoplossingen systematischer met behulp van de [Team gegevens wetenschap proces](../team-data-science-process/index.yml).
 * Ga naar de [AI-galerie van Azure](http://gallery.cortanaintelligence.com) voor machine learning en analytics voorbeelden die gebruikmaken van Azure Machine learning en verwante services in Azure. We hebben ook een pictogram opgegeven op de **Start** menu en op het bureaublad van de virtuele machine aan deze galerie.
 

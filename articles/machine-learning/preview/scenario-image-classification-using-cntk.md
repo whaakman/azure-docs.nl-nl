@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
 
@@ -54,7 +54,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 4. Een speciale GPU is niet vereist voor het uitvoeren van de training SVM in deel 1, maar dit is nodig voor het verfijnen van de DNN beschreven in deel 2. Als u niet over een sterke GPU, wilt trainen op meerdere GPU's of hebben geen Windows-computer, klikt u vervolgens Overweeg het gebruik van Azure grondige Learning virtuele Machine met Windows-besturingssysteem. Zie [hier](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) voor een 1 Klik-Implementatiehandleiding. Zodra geïmplementeerd, verbinding maken met de virtuele machine via een verbinding met extern bureaublad, Workbench er installeren en de code lokaal uitvoeren van de virtuele machine.
 5. Verschillende Python-bibliotheken zoals OpenCV moeten worden geïnstalleerd. Klik op *opdrachtprompt openen* van de *bestand* menu in de Workbench en voer de volgende opdrachten voor het installeren van deze afhankelijkheden:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`na het downloaden van het muiswiel OpenCV van http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en de versie kunnen wijzigen)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` na het downloaden van het muiswiel OpenCV van http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en de versie kunnen wijzigen)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -81,9 +81,9 @@ Deze stappen uitvoert, maakt de projectstructuur die hieronder wordt weergegeven
 
   Map| Beschrijving
   ---|---
-  aml_config /|                           Map met de Azure Machine Learning Workbench configuratiebestanden
+  aml_config/|                           Map met de Azure Machine Learning Workbench configuratiebestanden
   bibliotheken /|                              Map met alle Python en Jupyter hulpfuncties
-  laptops /|                              Map met alle notitieblokken
+  notebooks/|                              Map met alle notitieblokken
   resources /|                              Map met alle resources (voor de voorbeeld-url van wijze installatiekopieën)
   scripts /|                              Map met alle scripts uitvoeren
   PARAMETERS.py|                       Python-script op alle parameters opgeven
@@ -193,7 +193,7 @@ Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën
 ### <a name="step-6-deployment"></a>Stap 6: implementatie
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench (Vergeet niet in te stellen als kernel de kernel lokaal project met de naam 'local PROJECTNAME'). Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) voor de implementatie van meer gerelateerde informatie.
+Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench (Vergeet niet in te stellen als kernel de kernel lokaal project met de naam 'local PROJECTNAME'). Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](tutorial-classifying-iris-part-3.md) voor de implementatie van meer gerelateerde informatie.
 
 Zodra geïmplementeerd, de webservice kan worden aangeroepen met het script `6_callWebservice.py`. Houd er rekening mee dat het IP-adres (lokaal of in de cloud) van de webservice moet eerst worden ingesteld in het script. De notebook `deploy.ipynb` wordt uitgelegd hoe u deze IP-adres vinden.
 
@@ -228,7 +228,7 @@ Zoals u kunt zien in de onderstaande tekent, is de nauwkeurigheid DNN verfijning
 
 ### <a name="run-history-tracking"></a>Bijhouden van de geschiedenis uitvoeren
 
-De Azure Machine Learning-Workbench worden de geschiedenis van elke uitvoeren op Azure opdat vergelijking van twee of meer wordt uitgevoerd die zijn opgeslagen, zelfs weken elkaar. Dit wordt gedetailleerd uitgelegd in de [Iris zelfstudie](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Dit wordt ook weergegeven in de volgende schermafbeeldingen waar we twee wordt uitgevoerd van het script vergelijken `5_evaluate.py`, met behulp van beide verfijning DNN dat wil zeggen, `classifier = "dnn"`(volgnummer 148) of SVM opleiding, dat wil zeggen, `classifier = "svm"` (volgnummer 150).
+De Azure Machine Learning-Workbench worden de geschiedenis van elke uitvoeren op Azure opdat vergelijking van twee of meer wordt uitgevoerd die zijn opgeslagen, zelfs weken elkaar. Dit wordt gedetailleerd uitgelegd in de [Iris zelfstudie](tutorial-classifying-iris-part-2.md). Dit wordt ook weergegeven in de volgende schermafbeeldingen waar we twee wordt uitgevoerd van het script vergelijken `5_evaluate.py`, met behulp van beide verfijning DNN dat wil zeggen, `classifier = "dnn"`(volgnummer 148) of SVM opleiding, dat wil zeggen, `classifier = "svm"` (volgnummer 150).
 
 In de eerste schermafbeelding leidt DNN verfijning tot betere accuratesse dan SVM training voor alle klassen. De tweede schermafbeelding ziet u alle metrische gegevens die worden bijgehouden, inclusief wat de classificatie is. Deze bijhouden wordt uitgevoerd in het script `5_evaluate.py` door het aanroepen van het logboek Azure Machine Learning-Workbench. Het script opslaat bovendien ook de ROC-curve en verwarring matrix aan de *levert* map. Dit *levert* map is speciaal in dat de inhoud ervan ook wordt gevolgd door de geschiedenisfunctie Workbench en daarom de uitvoerbestanden toegankelijk zijn op elk gewenst moment, ongeacht of lokale kopieën zijn overschreven.
 

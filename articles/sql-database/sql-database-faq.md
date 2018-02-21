@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 02/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -30,7 +30,7 @@ De huidige versie van SQL Database is V12. Versie V11 buiten gebruik gesteld.
 We garanderen dat klanten ten minste 99,99% van de tijd kunnen gebruikmaken van de verbinding tussen hun enkele of elastische Basic, Standard of Premium Microsoft Azure SQL Database en onze internetgateway. Zie voor meer informatie [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Hoe stel ik het wachtwoord voor de serverbeheerder
-In de [Azure-portal](https://portal.azure.com) klikt u op **SQL-Servers**, selecteert u de server uit de lijst en klik vervolgens op **wachtwoord opnieuw instellen**.
+In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-Servers**, selecteert u de server uit de lijst en klik vervolgens op **wachtwoord opnieuw instellen**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Hoe kan ik databases en aanmeldingen beheren?
 Zie [databases en aanmeldingen beheren](sql-database-manage-logins.md).
@@ -44,7 +44,7 @@ Facturen SQL-Database op een voorspelbare per uur tarief op basis van de service
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Wat gebeurt er als een individuele database minder dan een uur actief is of gebruikmaakt van een hogere servicelaag minder dan een uur?
 U wordt gefactureerd voor elk uur een database bestaat met de hoogste servicelaag + prestatieniveau die toegepast tijdens dat uur, ongeacht de informatie over het gebruik of of de database minder dan een uur actief was. Als u een individuele database maken en verwijderen van vijf minuten later duidt uw factuur kosten met zich mee voor één database uur. 
 
-Voorbeelden
+Voorbeelden:
 
 * Als u een Basic-database maken en vervolgens onmiddellijk naar de Standard-S1 upgraden, u in rekening worden gebracht met de Standard-S1-frequentie voor het eerste uur.
 * Als u een database vanuit Basic naar Premium om 10:00 uur bijwerkt en de upgrade is voltooid om 1:35 uur op de volgende dag u in rekening worden gebracht met de Premium-snelheid begint bij 1:00 uur 
@@ -53,7 +53,7 @@ Voorbeelden
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Hoe wordt gebruik elastische groep van toepassingen weergegeven op mijn factuur- en wat gebeurt er wanneer ik wijzigen edtu's per groep?
 Elastische pool kosten weergeven van op uw factuur als elastische dtu's (edtu's) in de stappen die wordt weergegeven onder Edtu per pool op [de pagina met prijzen](https://azure.microsoft.com/pricing/details/sql-database/). Er zijn geen kosten per database voor elastische pools. U wordt gefactureerd voor elk uur die een adresgroep bestaat op het hoogste aantal edtu's, ongeacht de informatie over het gebruik of of de groep voor minder dan een uur actief was. 
 
-Voorbeelden
+Voorbeelden:
 
 * Als u een Standard elastische pool met 200 edtu's om 11:18 uur maken, vijf databases toevoegen aan de groep, u in rekening worden gebracht 200 edtu's voor het hele uur beginnen bij 11: 00 in de rest van de dag.
 * Op dag 2, 5:05 uur Database 1 begint verbruikt 50 edtu's en constante via de dag bevat. Databases 2-5 fluctueren tussen 0 en 80 edtu's. Tijdens de dag, kunt u vijf andere databases die verschillende edtu's gedurende de dag verbruiken toevoegen. Dag 2 is een volledige dag tegen 200 eDTU in rekening gebracht. 
@@ -76,17 +76,17 @@ Zie voor informatie over de lagen edtu's en -service, [SQL Database-opties en pr
 In tegenstelling tot individuele databases, met behulp van [actieve geo-replicatie](sql-database-geo-replication-overview.md) met elastische databases niet direct facturering gevolgen hebben.  U alleen worden in rekening gebracht voor de edtu's ingericht voor elk van de groepen (groep primaire en secundaire groep)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Hoe is de auditingfunctie van invloed op mijn factuur?
-Controle is ingebouwd in de service SQL Database zonder extra kosten en is beschikbaar voor Basic, Standard, Premium en RS Premium-databases. Echter, voor het opslaan van de controlelogboeken controle functie gebruikt die een Azure Storage-account en de tarieven voor tabellen en wachtrijen in Azure Storage-toepassing op basis van de grootte van het controlelogboek.
+Controle is ingebouwd in de service SQL Database zonder extra kosten en is beschikbaar voor Basic, Standard en Premium-databases. Echter, voor het opslaan van de controlelogboeken controle functie gebruikt die een Azure Storage-account en de tarieven voor tabellen en wachtrijen in Azure Storage-toepassing op basis van de grootte van het controlelogboek.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Hoe vind ik het juiste prijscategorie en prestatieniveau serviceniveau voor individuele databases en elastische pools
-Er zijn een aantal hulpprogramma's voor u beschikbaar. 
+Er zijn een aantal hulpprogramma's voor u beschikbaar: 
 
 * Lokale-database, gebruikt u de [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) te raden de databases en het aantal dtu's vereist, en te evalueren meerdere databases voor elastische pools.
 * Als een individuele database zou als voordeel dat in een pool, raadt intelligent engine van Azure een elastische pool als er een historisch gebruikspatroon dat ontstane. Zie [bewaken en beheren van een elastische groep met de Azure-portal](sql-database-elastic-pool-manage-portal.md). Zie voor meer informatie over hoe u de berekening zelf doet [prijs- en Prestatieoverwegingen voor een elastische pool](sql-database-elastic-pool.md)
 * Zie voor of u moet een individuele database kiezen omhoog of omlaag [prestaties richtlijnen voor individuele databases](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Hoe vaak kan ik het serviceniveau voor laag of de prestaties van één database wijzigen?
-U kunt de servicetier (tussen Basic, Standard, Premium en Premium RS) of het prestatieniveau binnen een service tier (bijvoorbeeld S1 aan S2) zo vaak als u wilt wijzigen. Voor de databases uit eerdere versies, kunt u het niveau van tier of prestaties service een totaal van vier keer in een periode van 24 uur.
+U kunt de servicetier (tussen Basic, Standard en Premium) of het prestatieniveau binnen een service tier (bijvoorbeeld S1 aan S2) zo vaak als u wilt wijzigen. Voor de databases uit eerdere versies, kunt u het niveau van tier of prestaties service een totaal van vier keer in een periode van 24 uur.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Hoe vaak kan ik de edtu's per groep aanpassen?
 Zo vaak als u wilt.
@@ -101,7 +101,7 @@ In het algemeen elastische pools zijn ontworpen voor een typische [patroon softw
 Back-upopslag is de opslag die is gekoppeld aan uw geautomatiseerde database back-ups die worden gebruikt voor [Point-In-Time-herstel](sql-database-recovery-using-backups.md#point-in-time-restore) en [geo-restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database biedt maximaal 200% van uw maximale ingerichte databaseopslag of back-upopslag zonder extra kosten. Bijvoorbeeld, als er een Standard database-exemplaar met een ingerichte DB-grootte van 250 GB, worden u voorzien van 500 GB aan back-upopslag zonder extra kosten. Als uw database groter is dan de opgegeven back-upopslag, kunt u de bewaarperiode contact opnemen met de ondersteuning van Azure te verkleinen of betalen voor de aanvullende back-upopslag op standaard-geografisch redundante opslag met leestoegang (RA-GRS) tarief gefactureerd. Zie voor meer informatie over de facturering RA-GRS prijsinformatie voor opslag.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Ik ben van Web/Business verplaatst naar de nieuwe Servicelagen, wat moet ik te weten?
-Azure SQL-Web- en zakelijke databases zijn nu buiten gebruik gesteld. De lagen Basic, Standard, Premium, Premium RS en elastische vervangen de retiring Web en Business-databases. 
+Azure SQL-Web- en zakelijke databases zijn nu buiten gebruik gesteld. De lagen Basic, Standard, en Premium en elastische vervangen de retiring Web en Business-databases. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Wat is er een vertraging van het verwachte replicatie geo-replicatie een database tussen twee regio's binnen de dezelfde Azure Geografie?
 Er zijn momenteel ondersteunt een RPO van vijf seconden en de vertraging van replicatie is kleiner dan dat wanneer de secundaire geo-database wordt gehost in Azure gekoppelde regio aanbevolen en op de dezelfde servicelaag.
@@ -119,7 +119,7 @@ De geo-secundaire is een replica async en we niet proberen om het volledige sync
 We tonen de vertraging realtime replicatie tussen de primaire database en de geo-secundaire via een DMV. Zie voor meer informatie [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Een database verplaatsen naar een andere server in hetzelfde abonnement
-* In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, selecteert u een database in de lijst en klik vervolgens op **kopie**. Zie [kopiëren van een Azure SQL database](sql-database-copy.md) voor meer informatie.
+In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-databases**, selecteert u een database in de lijst en klik vervolgens op **kopie**. Zie [kopiëren van een Azure SQL database](sql-database-copy.md) voor meer informatie.
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Een database verplaatsen tussen abonnementen
-* In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-servers** en selecteer vervolgens de server die als host fungeert voor uw database in de lijst. Klik op **verplaatsen**, en selecteer vervolgens de resources te verplaatsen en het abonnement om naar te verplaatsen.
+In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-servers** en selecteer vervolgens de server die als host fungeert voor uw database in de lijst. Klik op **verplaatsen**, en selecteer vervolgens de resources te verplaatsen en het abonnement om naar te verplaatsen.

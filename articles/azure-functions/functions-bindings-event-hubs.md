@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -49,7 +49,7 @@ Wanneer de functie voor het eerst wordt ingeschakeld, is er slechts 1 exemplaar 
 
 * **1 meer functie exemplaar toevoegen** -'Azure Functions schalen logica bepaalt dat Function_0 meer berichten dan kunnen worden verwerkt, heeft zodat een nieuw exemplaar Function_1, wordt gemaakt. Event Hubs detecteert dat een nieuw exemplaar van de EPH probeert berichten lezen. Event Hubs de partities voor taakverdeling over de exemplaren EPH wordt gestart, bijv, 0-4 partities zijn toegewezen aan Function_0 en partities 5-9 zijn toegewezen aan Function_1. 
 
-* **Voeg N werken meer exemplaren** -'Azure Functions schalen logica bepaalt dat zowel Function_0 als Function_1 geen berichten meer hebben dan ze kunnen verwerken. Dit wordt opnieuw schalen voor Function_2... N, waarbij N groter dan de paritions Event Hub is. Event Hubs wordt geladen verdeeld de partities Function_0... 9 exemplaren.
+* **Voeg N werken meer exemplaren** -'Azure Functions schalen logica bepaalt dat zowel Function_0 als Function_1 geen berichten meer hebben dan ze kunnen verwerken. Dit wordt opnieuw schalen voor Function_2... N, waarbij N groter dan de Event Hub-partities is. Event Hubs wordt geladen verdeeld de partities Function_0... 9 exemplaren.
 
 Uniek is voor de huidige Azure-Functions schalen logica is het feit dat N groter dan het aantal partities is. Dit wordt gedaan om ervoor te zorgen dat er altijd exemplaren van EPH beschikken snel een vergrendeling krijgen voor de partities zodra deze beschikbaar zijn van andere exemplaren. Gebruikers worden alleen kosten in rekening gebracht voor de bronnen die worden gebruikt wanneer het exemplaar van de functie wordt uitgevoerd, en worden niet in rekening gebracht voor deze overprovisioning.
 
@@ -221,10 +221,10 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `eventHubTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
-|**pad** |**EventHubName** | De naam van de event hub. | 
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
+|**Pad** |**EventHubName** | De naam van de event hub. | 
 |**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die bepaalt de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
-|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.|
+|**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -394,9 +394,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | Moet worden ingesteld op 'eventHub'. |
 |**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
-|**naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode waarmee de gebeurtenis. | 
-|**pad** |**EventHubName** | De naam van de event hub. | 
-|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.|
+|**Naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode waarmee de gebeurtenis. | 
+|**Pad** |**EventHubName** | De naam van de event hub. | 
+|**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -404,7 +404,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 In C# en C# script, kunt u berichten verzenden met behulp van een methodeparameter zoals `out string paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt gebruiken voor het schrijven van meerdere berichten `ICollector<string>` of `IAsyncCollector<string>` in plaats van `out string`.
 
-In JavaScript, opent u de uitvoergebeurtenis met behulp van `context.bindings.<name>`. `<name>`de waarde is opgegeven in de `name` eigenschap van *function.json*.
+In JavaScript, opent u de uitvoergebeurtenis met behulp van `context.bindings.<name>`. `<name>` de waarde is opgegeven in de `name` eigenschap van *function.json*.
 
 ## <a name="exceptions-and-return-codes"></a>Uitzonderingen en retourcodes
 
