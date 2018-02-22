@@ -1,4 +1,4 @@
-Als u een cache wilt maken, meldt u zich eerst aan bij [Azure Portal](https://portal.azure.com) en klikt u vervolgens op **Nieuw** > **Databases** > **Redis-cache**.
+Voor het maken van een cache eerst aanmelden bij de [Azure-portal](https://portal.azure.com), en klik op **maken van een resource** > **Databases** > **Redis-Cache** .
 
 > [!NOTE]
 > Als u geen Azure-account hebt, kunt u binnen een paar minuten [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
@@ -16,12 +16,12 @@ Als u een cache wilt maken, meldt u zich eerst aan bij [Azure Portal](https://po
 > 
 > 
 
-Geef in de blade **Nieuwe Redis-cache** de gewenste configuratie voor de cache op.
+In **nieuwe Redis-Cache**, geef de gewenste configuratie voor de cache.
 
 ![Cache maken](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * Voer in **DNS-naam** een unieke cachenaam in die u voor het eindpunt van de cache wilt gebruiken. De cachenaam is een tekenreeks van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De cachenaam mag niet beginnen of eindigen met het teken `-`, en opeenvolgende `-`-tekens zijn niet toegestaan.
-* Selecteer bij **Abonnement** het Azure-abonnement dat u voor de cache wilt gebruiken. Als uw account maar één abonnement heeft, wordt dit automatisch geselecteerd en wordt de vervolgkeuzelijst **Abonnement** niet weergegeven.
+* Selecteer bij **Abonnement** het Azure-abonnement dat u voor de cache wilt gebruiken. Als uw account slechts één abonnement heeft, wordt deze automatisch geselecteerd en de **abonnement** vervolgkeuzelijst wordt niet weergegeven.
 * In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw cache. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-overview.md) voor meer informatie. 
 * Gebruik **Locatie** om de geografische locatie op te geven waar uw cache wordt gehost. Voor de beste prestaties wordt aangeraden de cache te maken in dezelfde regio als de cacheclienttoepassing.
 * Gebruik **Prijscategorie** om de gewenste cachegrootte en -functies te selecteren.

@@ -1,8 +1,8 @@
-Caches kunnen worden geopend in de [Azure-portal](https://portal.azure.com) met behulp van de blade **Bladeren**.
+Caches kunnen worden geopend de [Azure-portal](https://portal.azure.com) van **alle services**.
 
 ![Blade Bladeren in Azure Redis-cache](media/redis-cache-browse/redis-cache-browse.png)
 
-Klik op **Meer services > Redis-caches** om uw caches weer te geven. Als u onlangs naar een Redis-cache hebt gebladerd, kunt u in de lijst direct op **Redis-caches** klikken, zonder eerst op **Meer services** te klikken.
+Klik op om uw caches **alle services** en zoek naar **Redis-Caches**. 
 
 Selecteer de gewenste cache om de instellingen voor die cache weer te geven en te configureren.
 

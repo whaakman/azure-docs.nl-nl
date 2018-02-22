@@ -1,8 +1,8 @@
 | Resource | Standaardlimiet |
 | --- | :--- |
-| Maximum aantal knooppunten per cluster | 250 |
+| Maximum aantal knooppunten per cluster | 100 |
 | Maximale gehele product per knooppunt | 110 |
-| Maximale cluster per abonnement | 5<sup>1</sup> |
+| Maximale cluster per abonnement | 20<sup>1</sup> |
 
 <sup>1</sup> maken een [Azure ondersteuningsaanvraag] [ azure-support] om aan te vragen van een hogere limiet.<br />
 

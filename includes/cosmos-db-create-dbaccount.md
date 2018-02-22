@@ -1,5 +1,5 @@
 1. In een nieuw browservenster, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/).
-2. Klik op **nieuwe** > **Databases** > **Azure Cosmos DB**.
+2. Klik op **maken van een resource** > **Databases** > **Azure Cosmos DB**.
    
    ![Het deelvenster Databases in Azure Portal](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
