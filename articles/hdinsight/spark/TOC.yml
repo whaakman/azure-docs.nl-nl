@@ -95,8 +95,6 @@
           href: apache-spark-streaming-overview.md
         - name: Maximaal beschikbare Spark-streamingtaken in YARN maken
           href: apache-spark-streaming-high-availability.md
-        - name: Streaming-gebeurtenissen verwerken
-          href: apache-spark-eventhub-streaming.md
         - name: Gestructureerd streamen met Event Hubs
           href: apache-spark-eventhub-structured-streaming.md
         - name: Gestructureerd streamen met Kafka
