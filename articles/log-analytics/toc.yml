@@ -39,6 +39,8 @@
       href: log-analytics-faq.md
     - name: Gegevensverbruik
       href: log-analytics-usage.md
+    - name: Gegevensbeveiliging
+      href: log-analytics-data-security.md
     - name: Toegang beheren
       href: log-analytics-manage-access.md
     - name: Hybride omgevingen bewaken

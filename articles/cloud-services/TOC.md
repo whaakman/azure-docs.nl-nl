@@ -20,13 +20,10 @@
 #### [Blob Storage en verbonden services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Queue Storage en verbonden services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage en verbonden services](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Pakketten configureren voor doorlopend bouwen en implementeren
-#### [TFS en Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Verkeersregels voor een rol configureren](cloud-services-enable-communication-role-instances.md)
 ### [Levenscyclusgebeurtenissen van cloudservices verwerken](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Bellen met behulp van Twilio (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Opstarttaken configureren
 #### [Opstarttaken maken](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Diagnostische gegevens opslaan en weergeven in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Een cloudservice volgen met de diagnosefunctie](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Diagnostische gegevens verzenden naar App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Problemen oplossen
 ### Fouten opsporen 
-#### [Fouten opsporen op afstand inschakelen met continue levering](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opties voor een cloudservice](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Lokale cloudservice met Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Gepubliceerde cloudservice met Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
