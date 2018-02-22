@@ -3,8 +3,8 @@ title: Maken en publiceren van een Marketplace-item in Azure-Stack | Microsoft D
 description: Maken en publiceren van een Marketplace-item in Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Een Marketplace-item maken en publiceren
 
@@ -102,14 +103,14 @@ ms.lasthandoff: 10/11/2017
 ### <a name="identity-information"></a>Gegevens van identiteit
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Naam |X |Tekenreeks |[A-Za-z0-9] + | |
-| Uitgever |X |Tekenreeks |[A-Za-z0-9] + | |
+| Naam |X |Tekenreeks |[A-Za-z0-9]+ | |
+| Uitgever |X |Tekenreeks |[A-Za-z0-9]+ | |
 | Versie |X |Tekenreeks |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metagegevens
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Weergavenaam |X |Tekenreeks |Aanbeveling 80 tekens |De portal mogelijk de itemnaam van uw niet probleemloos weergegeven als het is langer dan 80 tekens. |
+| DisplayName |X |Tekenreeks |Aanbeveling 80 tekens |De portal mogelijk de itemnaam van uw niet probleemloos weergegeven als het is langer dan 80 tekens. |
 | PublisherDisplayName |X |Tekenreeks |Aanbeveling 30 tekens |De portal mogelijk de naam van de uitgever niet probleemloos weergegeven als het is langer dan 30 tekens. |
 | PublisherLegalName |X |Tekenreeks |Maximaal 256 tekens | |
 | Samenvatting |X |Tekenreeks |60 en 100 tekens | |
@@ -125,7 +126,7 @@ De Marketplace maakt gebruik van de volgende pictogrammen:
 | Groot |115 px |115 px |Altijd vereist |
 | Middelgroot |90 px |90 px |Altijd vereist |
 | Klein |40 px |40 px |Altijd vereist |
-| schermopname |533 px |32 px |Optioneel |
+| Schermopname |533 px |32 px |Optioneel |
 
 ### <a name="categories"></a>Categorieën
 Elke Marketplace-item moet worden gemarkeerd met een categorie die aangeeft waar het item wordt weergegeven in de gebruikersinterface van de portal. U kunt een van de bestaande categorieën in Azure-Stack (Compute, gegevens en opslag, enz.) of een nieuw wachtwoord kiezen.
@@ -135,7 +136,7 @@ Elk item Marketplace kan verschillende koppelingen naar aanvullende inhoud bevat
 
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Weergavenaam |X |Tekenreeks |Maximaal 64 tekens | |
+| DisplayName |X |Tekenreeks |Maximaal 64 tekens | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Aanvullende eigenschappen
@@ -143,7 +144,7 @@ Naast de voorgaande metagegevens kunnen Marketplace schrijvers aangepaste sleute
 
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Weergavenaam |X |Tekenreeks |Maximaal 25 tekens | |
+| DisplayName |X |Tekenreeks |Maximaal 25 tekens | |
 | Waarde |X |Tekenreeks |Maximaal 30 tekens | |
 
 ### <a name="html-sanitization"></a>HTML-opschoning

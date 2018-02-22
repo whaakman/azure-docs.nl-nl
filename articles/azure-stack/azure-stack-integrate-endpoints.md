@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure datacenter integratie Stack - eindpunten publiceren
-
-*Van toepassing op: Azure Stack geïntegreerd systemen*
-
-Azure Stack stelt u verschillende eindpunten (VIP's - virtuele IP-adressen) voor de functies van de infrastructuur. Deze VIP's worden toegewezen vanuit de openbare IP-adresgroep. Elke VIP is beveiligd met een toegangsbeheerlijst (ACL) in de software gedefinieerde netwerklaag. ACL's worden ook gebruikt voor de fysieke switches (blijven en BMC) voor het verder beperken van de oplossing. Een DNS-vermelding wordt voor elk eindpunt dat in de externe DNS-zone die is opgegeven tijdens de implementatie gemaakt.
+Azure Stack stelt u meerdere virtuele IP-adressen (VIP's) voor de functies van de infrastructuur. Deze VIP's worden toegewezen vanuit de openbare IP-adresgroep. Elke VIP is beveiligd met een toegangsbeheerlijst (ACL) in de software gedefinieerde netwerklaag. ACL's worden ook gebruikt voor de fysieke switches (blijven en BMC) voor het verder beperken van de oplossing. Een DNS-vermelding wordt voor elk eindpunt dat in de externe DNS-zone die is opgegeven tijdens de implementatie gemaakt.
 
 
 Het volgende architecturaal diagram toont de verschillende lagen en ACL's:
@@ -28,7 +25,7 @@ Het volgende architecturaal diagram toont de verschillende lagen en ACL's:
 
 ## <a name="ports-and-protocols-inbound"></a>Poorten en protocollen (inkomend)
 
-De infrastructuur VIP's die vereist voor publicatie Stack Azure-eindpunten met externe netwerken zijn worden vermeld in de volgende tabel. De lijst ziet u alle eindpunt, de vereiste poort en protocol. Eindpunten die vereist zijn voor de extra resourceproviders, zoals de resourceprovider voor SQL en andere, vallen in de documentatie van bepaalde resource provider-implementatie.
+Hieronder vindt u de infrastructuur VIP's die vereist voor publicatie Stack Azure-eindpunten met externe netwerken zijn. De lijst ziet u alle eindpunt, de vereiste poort en protocol. Eindpunten die vereist zijn voor de extra resourceproviders, zoals de resourceprovider voor SQL en andere, vallen in de documentatie van bepaalde resource provider-implementatie.
 
 Interne infrastructuur VIP's worden niet weergegeven omdat ze niet vereist voor publishing Azure-Stack.
 
@@ -52,7 +49,11 @@ Interne infrastructuur VIP's worden niet weergegeven omdat ze niet vereist voor 
 |Table Storage|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL-Resourceprovider|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL Resource Provider|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|MySQL Resource Provider|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure Resource Manager)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>Poorten en URL's (uitgaand)
 

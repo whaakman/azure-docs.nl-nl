@@ -1,18 +1,22 @@
 ---
-title: Virtuele-machineschaalsets beschikbaar maken in Azure-Stack
-description: Meer informatie over hoe een cloudbeheerder virtuele-machineschaalset kunt toevoegen aan de Stack Azure Marketplace
+title: Zorg virtuele-machineschaalsets beschikbaar zijn in Azure-Stack | Microsoft Docs
+description: Meer informatie over hoe een cloud-operator virtuele-machineschaalset kunt toevoegen aan de Stack Azure Marketplace
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtuele-machineschaalsets beschikbaar maken in Azure-Stack
 
@@ -47,7 +51,7 @@ Virtuele-Machineschaalsets ondersteunen op Azure-Stack niet automatisch schalen.
 
 De volgende PowerShell-script voor uw omgeving bewerken en voer vervolgens het toevoegen van een virtuele-machineschaalset ingesteld op de Stack Azure Marketplace. 
 
-``$User``is het account waarmee u verbinding maken met de beheerdersportal. Bijvoorbeeld serviceadmin@contoso.onmicrosoft.com.
+``$User`` is het account waarmee u verbinding maken met de beheerdersportal. Bijvoorbeeld serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"

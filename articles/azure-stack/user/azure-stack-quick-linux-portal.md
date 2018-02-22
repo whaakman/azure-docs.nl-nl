@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Een virtuele Linux-machine maken met de Stack van Azure-portal
 
@@ -59,7 +59,7 @@ Meld u aan de Stack van Azure-portal. Het adres van de Stack van Azure-portal is
 
 ## <a name="create-the-virtual-machine"></a>De virtuele machine maken
 
-1. Klik op de **nieuw** knop gevonden in de linkerbovenhoek van de Stack van Azure-portal.
+1. Klik op **maken van een resource** in de linkerbovenhoek van de Stack van Azure-portal.
 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
 3. Klik op **Create**.

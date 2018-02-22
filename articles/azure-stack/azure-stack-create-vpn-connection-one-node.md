@@ -3,8 +3,8 @@ title: Een site-naar-site VPN-verbinding maken tussen twee virtuele netwerken in
 description: "Stapsgewijze instructies die de beheerder van een cloud gebruikt voor het maken van een site-naar-site VPN-verbinding tussen twee Azure Stack Development Kit omgevingen met één knooppunt."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Een site-naar-site VPN-verbinding maken tussen twee virtuele netwerken in verschillende Azure-Stack Development Kit omgevingen
 ## <a name="overview"></a>Overzicht
@@ -365,4 +366,4 @@ Als u wilt weten op hoeveel gegevens worden doorgegeven via de site-naar-site-ve
 2. Ga naar **alle resources**, en selecteer vervolgens de **POC2 POC1** verbinding. **Verbindingen** wordt weergegeven.
 4. Op de **verbinding** blade, de statistieken voor **gegevens in** en **gegevensuitvoer** worden weergegeven. In de volgende schermafbeelding worden grote aantallen toegeschreven aan extra bestandsoverdracht. U ziet er sommige andere waarden.
    
-    ![Gegevens in en uit](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Inkomende/uitgaande gegevens](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

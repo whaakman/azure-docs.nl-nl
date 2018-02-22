@@ -45,10 +45,10 @@ Alle artikelen in deze bibliotheek gebruiken GitHub-Markdown.  Hier volgt een li
 In de openbare opslagplaats azure-docs worden automatisch labels toegevoegd aan pull-aanvragen om ons te helpen de workflows voor pull-aanvragen te beheren en u te laten weten wat de status is van uw pull-aanvraag:
 
 * Met betrekking tot de CLA
-  * CLA niet is vereist: de wijziging is relatief klein en vereist niet dat u zich een CLA aanmeldt.
-  * CLA vereist: het bereik van de wijziging is relatief groot en vereist dat u zich een CLA aanmeldt.
-  * CLA ondertekend: de inzender de CLA ondertekend, zodat de pull-aanvraag kunt nu verdergaan voor revisie.
-* Wijzigen is verzonden naar de auteur: de auteur van de in behandeling zijnde pull-aanvraag is gewaarschuwd.
-* gereed voor samenvoegen: gereed voor controle door ons team pull-aanvraag controleren.
+  * cla-not-required: De wijziging is relatief klein en vereist geen CLA.
+  * cla-required: Het bereik van de verandering is relatief groot en vereist dat een CLA wordt ondertekend.
+  * cla-signed: De bijdrager heeft de CLA ondertekend, zodat de pull-aanvraag kan worden doorgezet voor een review.
+* Change sent to author: De auteur is ingelicht over de openstaande pull-aanvraag.
+* ready-to-merge: Klaar om te worden bekeken door ons beoordelingsteam voor pull-aanvragen.
 
 

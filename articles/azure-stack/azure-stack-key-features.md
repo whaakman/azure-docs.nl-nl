@@ -3,8 +3,8 @@ title: Belangrijke functies en -concepten in Azure-Stack | Microsoft Docs
 description: Meer informatie over de belangrijkste functies en -concepten in Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: fd16748e1369b8abcab38ce1945f72c681c344b8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: b252d3d52c9bf3825ae2b443065e007dda141b24
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Belangrijke functies en -concepten in Azure-Stack
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 
 Als u geen ervaring met Microsoft Azure-Stack, zijn deze voorwaarden en beschrijvingen van functies handig zijn.
 
-## <a name="personas"></a>Persona 's
+## <a name="personas"></a>Personas
 Er zijn twee varianten van gebruikers voor Microsoft Azure-Stack, de operator cloud (provider) en de tenant (consument).
 
 * Een **cloud operator** kunt Stack Azure configureren en beheren van aanbiedingen, plannen, services, quota en prijzen om bronnen voor hun tenants.  Cloudoperators ook capaciteit beheren en reageren op waarschuwingen.  
@@ -43,7 +44,7 @@ Azure Stack maakt gebruik van Azure Active Directory (AAD) of Active Directory F
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Azure Active Directory is een Microsoft cloud-gebaseerde, multitenant-id-provider.  De meeste hybride scenario's gebruiken Azure Active Directory als de identity-store.
 
-### <a name="active-directory-federation-services"></a>Active Directory Federatieservices
+### <a name="active-directory-federation-services"></a>Active Directory Federation Services
 U kunt Active Directory Federation Services (AD FS) voor niet-verbonden implementaties van Azure-Stack gebruiken.  Azure Stack, resourceproviders en andere toepassingen het ongeveer dezelfde manier als met AD FS werken als met Azure Active Directory. Azure Stack bevat een eigen exemplaar van AD FS en Active Directory en een Active Directory Graph API. Azure-Stack Development Kit ondersteunt de volgende AD FS-scenario's:
 
 - Meld u aan de implementatie met AD FS.
@@ -104,13 +105,13 @@ Resourceproviders zijn webservices die de basis van alle op basis van Azure IaaS
 
 Er zijn vier fundamentele RPs: netwerk, opslag, rekencapaciteit en KeyVault. Elk van deze RPs helpt u bij het configureren en beheren van de respectieve bronnen. Servicebeheerders kunnen ook nieuwe aangepaste resourceproviders toevoegen.
 
-### <a name="compute-rp"></a>COMPUTE RP
+### <a name="compute-rp"></a>Compute RP
 Compute Resource Provider (CRP) kunt Azure-Stack tenants hun eigen virtuele machines maken. De CRP omvat de mogelijkheid voor het maken van virtuele machines, evenals de uitbreidingen van de virtuele Machine. De virtuele Machine-extensie-service helpt bij het leveren van IaaS-mogelijkheden voor Windows en Linux virtuele machines.  Als u bijvoorbeeld kunt u de CRP een Linux-machine inrichten en Bash-scripts uitvoeren tijdens de implementatie van de virtuele machine te configureren.
 
-### <a name="network-rp"></a>Netwerk RP
+### <a name="network-rp"></a>Network RP
 Het netwerk Resource Provider (NRP) biedt een serie van Software gedefinieerde netwerkvoorzieningen (SDN) en netwerk functie virtualisatie (NFV) functies voor de privécloud.  U kunt de NRP gebruiken om resources, zoals software load balancers, openbare IP-adressen, netwerkbeveiligingsgroepen, virtuele netwerken te maken.
 
-### <a name="storage-rp"></a>Opslag RP
+### <a name="storage-rp"></a>Storage RP
 Het RP-opslag biedt vier consistent zijn met Azure storage-services: blob, table, wachtrij en accountbeheer. Biedt ook een opslagservice voor het beheer van cloud vergemakkelijkt serviceprovider beheer van consistent zijn met Azure Storage-services. Azure Storage biedt de flexibiliteit voor het opslaan en ophalen van grote hoeveelheden ongestructureerde gegevens, zoals documenten en mediabestanden met Azure Blobs en gestructureerde NoSQL op basis van gegevens met Azure-tabellen. Zie voor meer informatie over Azure Storage [Inleiding tot Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### <a name="blob-storage"></a>Blob Storage
