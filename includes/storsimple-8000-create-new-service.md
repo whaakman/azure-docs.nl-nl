@@ -5,7 +5,7 @@
 
 1. Gebruik de referenties van uw Microsoft-account om u aan te melden bij [Azure Portal](https://portal.azure.com/).
 
-2. Klik in Azure Portal op **+** en klik vervolgens in de Marketplace op **Alles weergeven**.
+2. Klik in de Azure-portal op **maken van een resource** en klikt u in de marketplace **alle**.
 
     ![StorSimple-apparaatbeheerfunctie maken](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
