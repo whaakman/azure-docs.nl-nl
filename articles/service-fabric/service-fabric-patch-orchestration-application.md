@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 De patch orchestration-toepassing is een Azure Service Fabric-toepassing die op een Service Fabric-cluster zonder uitvaltijd patchen besturingssysteem automatiseert.
 
-De patch orchestration-app biedt het volgende:
+De patch orchestration-app biedt de volgende functies:
 
 - **Automatische update besturingssysteeminstallatie**. Besturingssysteem-updates automatisch gedownload en geïnstalleerd. Clusterknooppunten worden opgestart naar behoefte zonder uitvaltijd van de cluster.
 
@@ -61,15 +67,15 @@ De patch orchestration-app is vereist voor de service manager herstellen moet zi
 Azure clusters in de laag zilver duurzaamheid hebben de herstel-service manager standaard ingeschakeld. Azure-clusters in de laag goud duurzaamheid mogelijk of beschikt niet over de reparatie manager-service is ingeschakeld, afhankelijk van wanneer deze clusters zijn gemaakt. Azure-clusters in de laag Brons duurzaamheid standaard beschikt niet over de reparatie manager service is ingeschakeld. Als de service al is ingeschakeld, ziet u in het gedeelte van de services system op de Service Fabric Explorer draait.
 
 ##### <a name="azure-portal"></a>Azure Portal
-U kunt herstel manager vanuit Azure-portal inschakelen op het moment van het instellen van het cluster. Selecteer **omvatten herstel Manager** onder de optie **toevoegen van functies** op het moment van de configuratie van het cluster.
+U kunt herstel manager vanuit Azure-portal inschakelen op het moment van het instellen van het cluster. Selecteer **omvatten herstel Manager** onder de optie **extra functies** op het moment van de configuratie van het cluster.
 ![Afbeelding van inschakelen van herstel-Manager vanuit Azure-portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
-U kunt ook de [Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) zodat de manager-service voor herstel op nieuwe en bestaande Service Fabric-cluster. Haal de sjabloon voor het cluster dat u wilt implementeren. U kunt de voorbeeldsjablonen gebruiken of een aangepaste Resource Manager-sjabloon maken. 
+##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager-implementatiemodel
+U kunt ook de [Azure Resource Manager-implementatiemodel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) zodat de manager-service voor herstel op nieuwe en bestaande Service Fabric-cluster. Haal de sjabloon voor het cluster dat u wilt implementeren. U kunt de voorbeeldsjablonen gebruiken of een aangepaste sjabloon van Azure Resource Manager deployment model maken. 
 
-Om in te schakelen reparatie manager service gebruikmaakt [Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Om in te schakelen reparatie manager service gebruikmaakt [Azure Resource Manager deployment model sjabloon](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. Controleer eerst of de `apiversion` is ingesteld op `2017-07-01-preview` voor de `Microsoft.ServiceFabric/clusters` resource, zoals wordt weergegeven in het volgende fragment. Als dit afwijkt, moet u bijwerken de `apiVersion` op de waarde `2017-07-01-preview`:
+1. Controleer eerst of de `apiversion` is ingesteld op `2017-07-01-preview` voor de `Microsoft.ServiceFabric/clusters` resource. Als dit afwijkt, moet u bijwerken de `apiVersion` op de waarde `2017-07-01-preview` of hoger:
 
     ```json
     {
@@ -141,13 +147,13 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |MaxResultsToCache    |Lang                              | Maximum aantal resultaten van de Windows Update, die in de cache moet worden opgeslagen. <br>Standaardwaarde is 3000 ervan uitgaande dat de: <br> -Het aantal knooppunten is 20. <br> -Het aantal updates dat op een knooppunt per maand gebeurt is vijf. <br> -Het aantal resultaten per bewerking is 10. <br> -Resultaten voor de afgelopen drie maanden moeten worden opgeslagen. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan het beleid dat moet worden gebruikt door de coördinator-Service voor het installeren van Windows-updates over de clusterknooppunten Service Fabric.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd, één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd, één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten van een upgradedomein gaan voor Windows Update.)
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal op knooppunten worden gehandhaafd.
-| WUQuery               | Tekenreeks<br>(Standaard: ' IsInstalled = 0 ")                | De query voor het ophalen van Windows-updates. Zie voor meer informatie [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | BOOL <br> (standaard: True)                 | Deze vlag kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
-| WUOperationTimeOutInMinutes | int <br>(Standaard: 90).                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
-| WURescheduleCount     | int <br> (Standaard: 5).                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
-| WURescheduleTimeInMinutes | int <br>(Standaard: 30). | Het interval waarmee de service wordt automatisch opnieuw gepland Windows update als de fout zich blijft voordoen. |
-| WUFrequency           | Door komma's gescheiden tekenreeks (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maandelijks, DD: mm: ss, bijvoorbeeld, maandelijks, 5, 12: 22:32. <br> -Per week, dag,: mm: ss, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks: mm: ss, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat de Windows Update mag niet worden uitgevoerd.  <br><br> Houd er rekening mee dat alle tijden in UTC zijn.|
-| AcceptWindowsUpdateEula | BOOL <br>(Standaard: true) | Deze vlag instelt, wordt in de toepassing de eindgebruiker-licentie voor Windows Update accepteert namens de eigenaar van de machine.              |
+| WUQuery               | tekenreeks<br>(Standaard: ' IsInstalled = 0 ")                | De query voor het ophalen van Windows-updates. Zie voor meer informatie [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Boole-waarde <br> (standaard: True)                 | Deze vlag kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
+| WUOperationTimeOutInMinutes | Int <br>(Standaard: 90).                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
+| WURescheduleCount     | Int <br> (Standaard: 5).                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
+| WURescheduleTimeInMinutes | Int <br>(Standaard: 30). | Het interval waarmee de service wordt automatisch opnieuw gepland Windows update als de fout zich blijft voordoen. |
+| WUFrequency           | Door komma's gescheiden tekenreeks (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maandelijks, DD: mm: ss, bijvoorbeeld, maandelijks, 5, 12: 22:32. <br> -Per week, dag,: mm: ss, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks: mm: ss, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat de Windows Update mag niet worden uitgevoerd.  <br><br> Houd er rekening mee dat de tijden in UTC zijn.|
+| AcceptWindowsUpdateEula | Boole-waarde <br>(Standaard: true) | Deze vlag instelt, wordt in de toepassing de eindgebruiker-licentie voor Windows Update accepteert namens de eigenaar van de machine.              |
 
 > [!TIP]
 > Als u Windows Update gebeurt onmiddellijk wilt, stelt `WUFrequency` ten opzichte van de tijd van de implementatie van toepassing. Stel bijvoorbeeld dat u hebt een testcluster met vijf knooppunten en plan de implementatie van de app op ongeveer 5:00 uur UTC. Als u wordt ervan uitgegaan dat de upgrade van de toepassing of implementatie 30 minuten maximaal duurt, ingesteld op de WUFrequency "Dagelijks, 17:30:00."
@@ -217,7 +223,7 @@ Hieronder vindt u de velden van de JSON.
 Veld | Waarden | Details
 -- | -- | --
 OperationResult | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft het resultaat van de algehele bewerking (meestal met betrekking tot installatie van een of meer updates).
-resultCode | Zelfde als OperationResult | Dit veld wordt het resultaat van de installatiebewerking voor individuele update aangegeven.
+ResultCode | Zelfde als OperationResult | Dit veld wordt het resultaat van de installatiebewerking voor individuele update aangegeven.
 OperationType | 1 - installatie<br> 0 - te zoeken en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 WindowsUpdateQuery | Standaardwaarde is "IsInstalled = 0 ' |Windows update-query die is gebruikt om te zoeken naar updates. Zie voor meer informatie [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | waar - is opnieuw opstarten vereist<br> ONWAAR - is opnieuw opstarten niet vereist | Hiermee wordt aangegeven of opnieuw opstarten vereist voor volledige installatie van updates is.
@@ -246,7 +252,7 @@ Volg de stappen in zodat de omgekeerde proxy op het cluster [omgekeerde proxy in
 
 Patch orchestration app logboeken worden bijgehouden als onderdeel van Service Fabric-runtime-Logboeken.
 
-Als u vastleggen logboeken via diagnostische hulpprogramma/pipeline van uw keuze wilt. Patch orchestration toepassing gebruikt hieronder vaste provider-id's voor logboekregistratie van gebeurtenissen via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Als u vastleggen logboeken via diagnostische hulpprogramma/pipeline van uw keuze wilt. Patch orchestration toepassing gebruikt hieronder vaste provider id's gebeurtenissen via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -300,14 +306,14 @@ Q. **Waarom patchen tussen verschillende clusters duurt te lang om uit te voeren
 A. De tijd die nodig is door de patch orchestration-app is voornamelijk afhankelijk van de volgende factoren:
 
 - Het beleid van de coördinator-Service. 
-  - Het standaardbeleid `NodeWise`, resulteert in het patchen slechts één knooppunt tegelijk. Met name in het geval van grotere clusters, wordt aangeraden dat u de `UpgradeDomainWise` beleid sneller patchen tussen verschillende clusters.
+  - Het standaardbeleid `NodeWise`, resulteert in het patchen slechts één knooppunt tegelijk. Met name als er een groter cluster, het is raadzaam dat u de `UpgradeDomainWise` beleid sneller patchen tussen verschillende clusters.
 - Het aantal beschikbare updates voor het downloaden en installeren. 
 - De gemiddelde tijd die nodig zijn voor een update downloaden en installeren die mag niet meer dan een paar uur.
 - De prestaties van de virtuele machine en de netwerkbandbreedte.
 
 Q. **Waarom zie ik bepaalde updates in de Windows Update-resultaten die zijn verkregen via de REST-API, maar niet onder de geschiedenis van Windows Update op de machine?**
 
-A. Sommige productupdates moeten worden gecontroleerd in de geschiedenis van hun respectieve update/patch. Bijvoorbeeld worden updates voor Windows Defender niet weergegeven in de geschiedenis van Windows Update op Windows Server 2016.
+A. Sommige productupdates wordt alleen weergegeven in de geschiedenis van hun respectieve update/patch. Bijvoorbeeld worden updates voor Windows Defender niet weergegeven in de geschiedenis van Windows Update op Windows Server 2016.
 
 ## <a name="disclaimers"></a>Disclaimers
 

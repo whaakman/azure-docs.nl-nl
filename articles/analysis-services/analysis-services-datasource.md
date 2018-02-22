@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Gegevensbronnen die worden ondersteund in Azure Analysis Services
 Azure Analysis Services-servers ondersteunen verbinding te maken met gegevensbronnen in de cloud en on-premises in uw organisatie. Extra ondersteunde gegevensbronnen worden altijd toegevoegd. Terugkomen vaak. 
@@ -28,22 +28,22 @@ De volgende gegevensbronnen worden momenteel ondersteund:
 
 | Cloud  |
 |---|
-| Azure Blob Storage *  |
+| Azure Blob Storage*  |
 | Azure SQL Database  |
-| Azure datawarehouse |
+| Azure Data Warehouse |
 
 
 | On-premises  |   |   |   |
 |---|---|---|---|
 | Access-Database  | Map * | Oracle Database  | Teradata Database |
-| Active Directory *  | JSON-document *  | Postgre SQL Database *  |XML-tabel * |
-| Analysis Services  | Regels uit binair *  | SAP HANA *  |
+| Active Directory*  | JSON-document *  | Postgre SQL Database *  |XML-tabel * |
+| Analysis Services  | Regels uit binair *  | SAP HANA*  |
 | Analytics Platform System  | MySQL-database  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | OData-Feed *  | SharePoint *  |
+| Dynamics CRM *  | OData-Feed *  | SharePoint*  |
 | Excel-werkmap  | ODBC-query  | SQL Database  |
-| Exchange *  | OLE DB  | Sybase-Database  |
+| Exchange*  | OLE DB  | Sybase-database  |
 
-\*1400-modellen in tabelvorm alleen. 
+\* 1400-modellen in tabelvorm alleen. 
 
 > [!IMPORTANT]
 > Verbinding maken met on-premises gegevensbronnen vereisen een [On-premises gegevensgateway](analysis-services-gateway.md) geïnstalleerd op een computer in uw omgeving.
@@ -57,13 +57,13 @@ Gegevensbron voor gegevensmodellen die verbinding met een cloudgegevens maken zo
 De volgende datasource-providers worden ondersteund voor in het geheugen of de DirectQuery-modellen voor gegevens bij het verbinden met gegevensbronnen in de cloud of on-premises:
 
 ### <a name="cloud"></a>Cloud
-| **Gegevensbron** | **In het geheugen** | **DirectQuery** |
+| **Datasource** | **In het geheugen** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL Data Warehouse |.NET framework Data Provider voor SQL Server |.NET framework Data Provider voor SQL Server |
 | Azure SQL Database |.NET framework Data Provider voor SQL Server |.NET framework Data Provider voor SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>On-premises (via de Gateway)
-|**Gegevensbron** | **In het geheugen** | **DirectQuery** |
+|**Datasource** | **In het geheugen** | **DirectQuery** |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0 |.NET framework Data Provider voor SQL Server |
 | SQL Server |Microsoft OLE DB-Provider voor SQL Server |.NET framework Data Provider voor SQL Server | |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van de logboekgegevens van uw Azure-resources
 
@@ -163,7 +163,7 @@ Zorg ervoor dat alle resources met diagnostische instellingen zijn ingesteld. Na
 
 ![Diagnostische logboeken blade in de portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Wellicht hebt u klikken op 'Meer services' vinden van de Monitor-sectie.
+Wellicht hebt u klikken op 'Alle services' vinden van de Monitor-sectie.
 
 Hier kunt u bekijken en alle resources die ondersteuning bieden voor diagnostische instellingen om te zien als ze ingeschakeld diagnostische gegevens hebben filteren. U kunt ook inzoomen om te controleren als er meerdere instellingen zijn ingesteld op een resource en welke storage-account, de Event Hubs-naamruimte en/of de werkruimte voor logboekanalyse die gegevens om te stromen controleren.
 

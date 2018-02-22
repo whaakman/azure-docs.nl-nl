@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Begrijpen en oplossen van fouten die zijn ontvangen van WebHCat in HDInsight
 
@@ -48,9 +48,9 @@ Als de volgende standaardwaarden zijn overschreden, kan de WebHCat prestaties ve
 
 | Instelling | Wat het doet | Standaardwaarde |
 | --- | --- | --- |
-| [yarn.scheduler.Capacity.maximum-toepassingen][maximum-applications] |Het maximum aantal taken dat gelijktijdig actief kunnen zijn (in behandeling of wordt uitgevoerd) |10.000 |
-| [templeton.Exec.Max-processor][max-procs] |Het maximum aantal aanvragen dat gelijktijdig kunnen worden geleverd |20 |
-| [mapreduce.jobhistory.Max-leeftijd-ms][max-age-ms] |Het aantal dagen dat de taakgeschiedenis worden bewaard. |7 dagen |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Het maximum aantal taken dat gelijktijdig actief kunnen zijn (in behandeling of wordt uitgevoerd) |10.000 |
+| [templeton.exec.max-procs][max-procs] |Het maximum aantal aanvragen dat gelijktijdig kunnen worden geleverd |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Het aantal dagen dat de taakgeschiedenis worden bewaard. |7 dagen |
 
 ## <a name="too-many-requests"></a>Te veel aanvragen
 
@@ -60,7 +60,7 @@ Als de volgende standaardwaarden zijn overschreden, kan de WebHCat prestaties ve
 | --- | --- |
 | U hebt het maximum aantal gelijktijdige aanvragen afgehandeld door WebHCat per minuut (standaard 20) overschreden |Verminder de werkbelasting om ervoor te zorgen dat u niet verzenden van meer dan het maximum aantal gelijktijdige aanvragen of verhoog de limiet voor gelijktijdige aanvragen door het wijzigen van `templeton.exec.max-procs`. Zie voor meer informatie [configuratie wijzigen](#modifying-configuration) |
 
-## <a name="server-unavailable"></a>Server niet beschikbaar
+## <a name="server-unavailable"></a>De server is niet beschikbaar
 
 **HTTP-statuscode**: 503
 
@@ -86,7 +86,7 @@ Als de volgende standaardwaarden zijn overschreden, kan de WebHCat prestaties ve
 | --- | --- |
 | Interne garbagecollection plaatsvindt in het proces van WebHCat |Wachten op garbagecollection voltooid of de WebHCat-service opnieuw starten |
 | Time-out opgetreden bij het wachten op een reactie van de ResourceManager-service. Deze fout kan optreden wanneer het aantal actieve toepassingen het geconfigureerde maximum (standaard 10.000 gaat) |Wachten op de momenteel actieve taken om te voltooien of de gelijktijdige taaklimiet verhogen door het wijzigen van `yarn.scheduler.capacity.maximum-applications`. Zie voor meer informatie de [wijzigen configuratie](#modifying-configuration) sectie. |
-| Het ophalen van alle taken via de [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) aanroep bij `Fields` is ingesteld op`*` |Geen opgehaald *alle* taakgegevens. Gebruik in plaats daarvan `jobid` details voor taken alleen groter is dan een bepaalde taak-id ophalen. Of gebruik geen`Fields` |
+| Het ophalen van alle taken via de [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) aanroep bij `Fields` is ingesteld op `*` |Geen opgehaald *alle* taakgegevens. Gebruik in plaats daarvan `jobid` details voor taken alleen groter is dan een bepaalde taak-id ophalen. Of gebruik geen `Fields` |
 | De WebHCat-service is niet actief tijdens de failover HeadNode |Wacht twee minuten en probeer het opnieuw |
 | Er zijn meer dan 500 in behandeling zijnde taken die worden verzonden via WebHCat |Wacht totdat het momenteel in behandeling zijnde taken vóór het verzenden van meer taken zijn voltooid |
 

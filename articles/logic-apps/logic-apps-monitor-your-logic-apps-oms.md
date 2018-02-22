@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Controleren en verkrijgen van inzicht in logic app wordt uitgevoerd met Operations Management Suite (OMS) en Log Analytics
 
@@ -35,7 +35,7 @@ Voordat u begint, moet u een OMS-werkruimte hebt. Meer informatie over [het make
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Logboekregistratie van diagnostische gegevens inschakelen bij het maken van logische apps
 
-1. In [Azure-portal](https://portal.azure.com), een logische app maken. Kies **nieuwe** > **Enterprise Integration** > **logische App** > **maken**.
+1. In [Azure-portal](https://portal.azure.com), een logische app maken. Kies **maken van een resource** > **Enterprise Integration** > **logische App**.
 
    ![Een logische app maken](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 

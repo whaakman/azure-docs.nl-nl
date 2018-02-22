@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB bewaken
+# <a name="monitor-azure-cosmos-db"></a>Monitor Azure Cosmos DB
 U kunt uw Azure DB die Cosmos-accounts in bewaken de [Azure-portal](https://portal.azure.com/). Voor elk Azure DB die Cosmos-account is een volledige reeks metrische gegevens beschikbaar zijn voor het bewaken van doorvoer, opslag, beschikbaarheid, latentie en consistentie.
 
 Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor de nieuwe pagina van de metrische gegevens of in de Azure-Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Weergave maatstaven voor prestaties op de pagina metrische gegevens
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **meer Services**, schuif naar **Databases**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure DB die Cosmos-account waarvan u wilt weergeven van maatstaven voor prestaties.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **alle services**, schuif naar **Databases**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure DB cosmos-account waarvan u wilt weergeven van maatstaven voor prestaties.
 2. Wanneer de nieuwe pagina wordt geladen, in het menu resource onder **bewaking**, klikt u op **metrische gegevens**.
 3. Als de metrische gegevens pagina wordt geopend, selecteert u de verzameling om te controleren van de **verzameling(en)** vervolgkeuzelijst.
 
@@ -42,7 +42,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
 5. In de lijst met **beschikbare metrische gegevens**, selecteert u de metrische gegevens om weer te geven. Gebruik de knop CTRL voor meervoudige selectie. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Weergave maatstaven voor prestaties op de accountpagina
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **meer Services**, schuif naar **Databases**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure DB die Cosmos-account waarvan u wilt weergeven van maatstaven voor prestaties.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **alle services**, schuif naar **Databases**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure DB cosmos-account waarvan u wilt weergeven van maatstaven voor prestaties.
 2. De **bewaking** lens wordt standaard de volgende tegels weergegeven:
    
    * Totaal aantal aanvragen voor de huidige dag.
@@ -53,7 +53,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
 4. De **metriek** pagina ziet u details over het totaal aantal aanvragen. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Stel waarschuwingen in de portal
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **meer Services**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure DB die Cosmos-account waarvan u wilt instellen op prestaties metrische waarschuwingen.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **alle services**, klikt u op **Azure Cosmos DB**, en klik vervolgens op de naam van de Azure DB die Cosmos-account waarvan u wilt instellen op prestaties metrische waarschuwingen.
 2. Klik in het menu resource **waarschuwingsregels** om de pagina met regels voor waarschuwingen te openen.  
    ![Schermopname van de waarschuwing regels geselecteerd](./media/monitor-accounts/madocdb10.5.png)
 3. In de **waarschuwing regels** pagina, klikt u op **waarschuwing toevoegen**.  

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
-ms.openlocfilehash: a3b52bb8db0bcd46badb15d4bc65b85977faaadc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f7c9be115b27d6033429c1224fa15fd7b844c1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configureren van instellingen voor Azure Marketplace-installatiekopie in Azure DevTest Labs
 DevTest Labs ondersteunt maken VMs op basis van Azure Marketplace-installatiekopieën, afhankelijk van hoe u Azure Marketplace-installatiekopieën hebt geconfigureerd in uw testomgeving. Dit artikel laat zien hoe u kunt opgeven die, indien aanwezig, Azure Marketplace-installatiekopieën kunnen worden gebruikt bij het maken van virtuele machines in een testomgeving. Dit zorgt ervoor dat uw team alleen toegang heeft tot de Marketplace-installatiekopieën die ze nodig hebben. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Selecteer welke Azure Marketplace-installatiekopieën zijn toegestaan bij het maken van een virtuele machine
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 3. Selecteer de gewenste testomgeving uit de lijst van labs. 
 4. Selecteer op de labblade **configuratie en het beleid**.
 5. Op het lab **configuratie en het beleid** blade onder **basissen voor virtuele Machine**, selecteer **Marketplace-installatiekopieën**.

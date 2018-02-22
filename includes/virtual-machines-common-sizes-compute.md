@@ -24,11 +24,13 @@ ACU: 195 - 210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Hoog                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Zeer hoge                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Zeer hoge                                 |
-| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Zeer hoge                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Zeer hoge                                 |
 
-<sup>1</sup>Fsv2-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
+<sup>1</sup> Fsv2-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
 <sup>2</sup> meer dan 64 vCPU vereisen een van deze ondersteunde gastbesturingssystemen: Windows Server 2016, Ubuntu 16.04 TNS, SLES 12 SP2, en Red Hat Enterprise Linux, CentOS 7.3 of Oracle Linux 7.3 met LIS 4.2.1
+
+<sup>3</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant.
 
 ## <a name="fs-series-sup1sup"></a>Fs-series <sup>1</sup>
 

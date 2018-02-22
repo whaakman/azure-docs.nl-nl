@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Resourceproviders en typen
 
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Een resourceprovider registreren, configureert u uw abonnement werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Veel resourceproviders worden standaard automatisch geregistreerd. Mogelijk moet u echter handmatig registreren sommige resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de Inzender en de eigenaar van rollen.
+Een resourceprovider registreren, configureert u uw abonnement werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Veel resourceproviders worden standaard automatisch geregistreerd. Mogelijk moet u echter handmatig registreren sommige resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -138,7 +138,7 @@ West US
 ...
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 Als alle resourceproviders in Azure en de registratiestatus voor uw abonnement wilt weergeven, gebruikt u het:
 
 ```azurecli
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Een resourceprovider registreren, configureert u uw abonnement werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Veel resourceproviders worden standaard automatisch geregistreerd. Mogelijk moet u echter handmatig registreren sommige resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de Inzender en de eigenaar van rollen.
+Een resourceprovider registreren, configureert u uw abonnement werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Veel resourceproviders worden standaard automatisch geregistreerd. Mogelijk moet u echter handmatig registreren sommige resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -257,15 +257,15 @@ Selecteer **resourceproviders** en bekijk de lijst met beschikbare resourceprovi
 
 ![resourceproviders weergeven](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Een resourceprovider registreren, configureert u uw abonnement werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Veel resourceproviders worden standaard automatisch geregistreerd. Mogelijk moet u echter handmatig registreren sommige resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de Inzender en de eigenaar van rollen. Selecteer voor het registreren van een resourceprovider **registreren**.
+Een resourceprovider registreren, configureert u uw abonnement werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Veel resourceproviders worden standaard automatisch geregistreerd. Mogelijk moet u echter handmatig registreren sommige resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Selecteer voor het registreren van een resourceprovider **registreren**.
 
 ![de registerbronprovider](./media/resource-manager-supported-services/register-provider.png)
 
 U kunt de registratie ongedaan een resourceprovider kan niet maken wanneer u nog steeds brontypen van die resourceprovider in uw abonnement hebt.
 
-Als u informatie voor een bepaalde bron-provider, selecteer **meer services**.
+Als u informatie voor een bepaalde bron-provider, selecteer **alle services**.
 
-![meer services selecteren](./media/resource-manager-supported-services/more-services.png)
+![Selecteer alle services](./media/resource-manager-supported-services/more-services.png)
 
 Zoeken naar **Resource Explorer** en selecteer het uit de beschikbare opties.
 

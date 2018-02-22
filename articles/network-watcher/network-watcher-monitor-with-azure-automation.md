@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>VPN-gateways bij het oplossen van netwerk-Watcher bewaken
 
@@ -51,7 +51,7 @@ Voordat u dit scenario begint, hebt u de volgende vereisten:
 
 ### <a name="create-the-runbook"></a>Het runbook te maken
 
-De eerste stap bij het configureren van het voorbeeld is het maken van het runbook. In dit voorbeeld wordt een run as-account. Ga voor meer informatie over run as-accounts naar [Runbooks verifiëren met Azure uitvoeren als-account](../automation/automation-sec-configure-azure-runas-account.md)
+De eerste stap bij het configureren van het voorbeeld is het maken van het runbook. In dit voorbeeld wordt een run as-account. Ga voor meer informatie over run as-accounts naar [Runbooks verifiëren met Azure uitvoeren als-account](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Stap 1
 

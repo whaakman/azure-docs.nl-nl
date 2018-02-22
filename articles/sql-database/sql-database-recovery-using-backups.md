@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -34,7 +34,7 @@ SQL Database biedt deze opties voor het gebruik van de database recovery [automa
 
 Een herstelde database maakt de kosten van een extra opslagruimte in de volgende omstandigheden: 
 - Terugzetten van P11 – P15 S4 S12 of P1 – P6 als de maximale databasegrootte groter dan 500 GB is.
-- Herstellen van P1 – P6 of PRS1 – PRS6 naar S4 S12 als de maximale databasegrootte groter dan 250 GB is.
+- Terugzetten van P1 – P6 naar S4 S12 als de maximale databasegrootte groter dan 250 GB is.
 
 De extra overhead is omdat de maximale grootte van de herstelde database groter dan de hoeveelheid opslagruimte opgenomen voor het prestatieniveau is en eventuele extra opslagruimte ingericht boven het inbegrepen bedrag is extra kosten verbonden.  Zie voor prijsinformatie van extra opslagruimte, het [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).  Als de werkelijke hoeveelheid schijfruimte minder dan de hoeveelheid opslagruimte die zijn opgenomen is, kan klikt u vervolgens dit extra kosten verbonden worden vermeden door de maximale grootte van de database voor het bedrag opgenomen te beperken. Zie voor meer informatie over opslaggrootte van de database en het wijzigen van de maximale grootte van de database [één database limieten](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

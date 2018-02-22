@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Upgrade van Service Fabric-toepassing uitvoeren
 Een Azure Service Fabric-toepassing is een verzameling van services. Tijdens een upgrade Service Fabric vergelijkt de nieuwe [toepassingsmanifest](service-fabric-application-and-service-manifests.md) met de vorige versie en bepaalt welke services in de toepassing-updates vereisen. Service Fabric vergelijkt de getallen in de service zich voordoet wanneer het versienummer in de vorige versie versie. Als een service niet is gewijzigd, wordt deze service is niet bijgewerkt.
@@ -47,16 +47,16 @@ De modus die wij voor de upgrade van de toepassing aanraden is de bewaakte modus
 Niet-bewaakte handmatige modus moet handmatige interventie na elke upgrade op een updatedomein, ere van de upgrade op de volgende updatedomein. Er is geen health Service Fabric controles worden uitgevoerd. De beheerder voert de status of health controles voordat u de upgrade start in de volgende updatedomein.
 
 ## <a name="upgrade-default-services"></a>Standaard-services upgraden
-Standaardservices in Service Fabric-toepassing kunnen worden bijgewerkt tijdens de upgrade van een toepassing. Standaard-services worden gedefinieerd in de [toepassingsmanifest](service-fabric-application-and-service-manifests.md). De standaard regels van de upgrade van de services die standaard zijn:
+Sommige standaard service gedefinieerde parameters in de [toepassingsmanifest](service-fabric-application-and-service-manifests.md) kan ook worden bijgewerkt als onderdeel van een upgrade van de toepassing. De serviceparameters die ondersteuning bieden voor wordt gewijzigd via [Update ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) als onderdeel van een upgrade kan worden gewijzigd. Het gedrag van het standaard-services wijzigen tijdens de upgrade van de toepassing is als volgt:
 
-1. Services in de nieuwe standaard [toepassingsmanifest](service-fabric-application-and-service-manifests.md) die niet zijn opgenomen in het cluster zijn gemaakt.
+1. Standaard-services in het manifest van de nieuwe toepassing die niet al bestaan in het cluster worden gemaakt.
+2. Standaard-services die zijn opgenomen in de vorige en nieuwe Toepassingsmanifesten worden bijgewerkt. De parameters van de standaardservice in het manifest van de nieuwe toepassing overschrijven de parameters van de bestaande service. De upgrade van de toepassing wordt automatisch terugdraaien als een standaardservice bijwerken mislukt.
+3. Standaardservices die niet zijn opgenomen in het manifest van de nieuwe toepassing worden verwijderd als deze bestaan in het cluster. **Opmerking dat het verwijderen van een standaardservice in het verwijderen van alle service resulteren zal de status en kan niet ongedaan worden gemaakt.**
+
+Wanneer een upgrade van de toepassing wordt teruggedraaid, worden de standaardparameters voor service teruggezet naar hun oude waarden voordat de upgrade gestart maar verwijderde services kan niet opnieuw gemaakt met hun oude status worden.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) moet worden ingesteld op true voor de volgende regels inschakelen. Deze functie wordt ondersteund door de v5.5.
-
-2. In beide vorige bestaande services standaard [toepassingsmanifest](service-fabric-application-and-service-manifests.md) en nieuwe versie worden bijgewerkt. Beschrijvingen van de service in de nieuwe versie overschrijft die al in het cluster. Upgrade van de toepassing wilt terugdraaien automatisch tijdens het bijwerken van de standaard-fout-service.
-3. Standaard services in de vorige [toepassingsmanifest](service-fabric-application-and-service-manifests.md) , maar niet in de nieuwe versie worden verwijderd. **Houd er rekening mee dat deze verwijderen standaardservices niet kunnen worden teruggezet.**
-
-In geval van een toepassing een is upgrade teruggedraaid, standaard services worden hersteld naar de status van voordat de upgrade wordt gestart. Maar verwijderde services kunnen nooit worden gemaakt.
+> De [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) cluster configuratie-instelling moet *true* regels 2 inschakelen) en 3) hierboven (standaard service-update en verwijderen). Deze functie wordt ondersteund in Service Fabric versie 5.5 wordt gestart.
 
 ## <a name="application-upgrade-flowchart"></a>Toepassing bijwerken stroomdiagram
 Het stroomdiagram hieronder vindt u informatie over het upgradeproces van een Service Fabric-toepassing. In het bijzonder de stroom wordt beschreven hoe de time-outs, met inbegrip van *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, en *UpgradeHealthCheckInterval*, help bepalen wanneer de upgrade in één updatedomein wordt beschouwd als een geslaagd of mislukt.

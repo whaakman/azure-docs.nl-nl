@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [gegevens wetenschappelijke virtuele Machine](http://aka.ms/dsvm) (DSVM) en de [grondige Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal grondige learning frameworks om u te helpen bij het ontwikkelen van toepassingen met predictive analytics kunstmatige intelligentie (AI) en cognitieve mogelijkheden, zoals de installatiekopie en language understanding. 
@@ -67,7 +67,7 @@ Hier volgen de details op alle frameworks die beschikbaar is op de DSVM learning
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Grondige learning framework      |
-| Ondersteunde DSVM edities      | Linux     |
+| Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Caffe is geïnstalleerd in `/opt/caffe`.    |
 | Koppelingen naar voorbeelden      | Voorbeelden zijn opgenomen in `/opt/caffe/examples`.      |
 | Bijbehorende hulpprogramma's op de DSVM      | Caffe2      |
@@ -87,7 +87,7 @@ Een nieuw browservenster geopend met voorbeeldquery notitieblokken.
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Grondige learning framework      |
-| Ondersteunde DSVM edities      | Linux     |
+| Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Caffe2 is geïnstalleerd in `/opt/caffe2`. Het is ook beschikbaar voor Python 2.7 (_hoofdmap_) conda omgeving.     |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks zijn opgenomen     |
 | Bijbehorende hulpprogramma's op de DSVM      | Caffe      |
@@ -114,7 +114,7 @@ Op een terminal activeren de gewenste versie van Python (_hoofdmap_ of _py35_), 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Grondige learning framework voor H2O      |
-| Ondersteunde DSVM edities      | Linux     |
+| Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Grondige Water is geïnstalleerd in `/dsvm/tools/deep_water`.   |
 | Koppelingen naar voorbeelden      | Voorbeelden zijn beschikbaar via de grondige Water-server.      |
 | Bijbehorende hulpprogramma's op de DSVM      | H2O, mineraalwater      |
@@ -145,7 +145,7 @@ Open een browser vervolgens en verbinding maken met `http://localhost:54321`.
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Deep learning-systeem van NVIDIA snel grondige learning-modellen trainen      |
-| Ondersteunde DSVM edities      | Linux     |
+| Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | CIJFERS is geïnstalleerd in `/dsvm/tools/DIGITS` en beschikbaar is aangeroepen voor een service _cijfers_.   |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?  
 
@@ -173,7 +173,7 @@ De service duurt ongeveer een minuut om te starten. Start een webbrowser en navi
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Grondige learning framework      |
-| Ondersteunde DSVM edities      | Linux     |
+| Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Theano is geïnstalleerd in Python 2.7 (_hoofdmap_), evenals Python 3.5 (_py35_) omgeving.   |
 | Bijbehorende hulpprogramma's op de DSVM      | Keras      |
 | Hoe gebruik / uitvoeren?    | Op een terminal activeren de versie van Python wilt (basis of py35), uitvoeren van python en theano importeren. Selecteer de Python 2.7 of 3.5 kernel in Jupyter, en klik theano importeren.  |
@@ -185,7 +185,42 @@ De service duurt ongeveer een minuut om te starten. Start een webbrowser en navi
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Grondige learning framework      |
-| Ondersteunde DSVM edities      | Linux     |
+| Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Torch is geïnstalleerd in `/dsvm/tools/torch`. PyTorch is geïnstalleerd in Python 2.7 (_hoofdmap_), evenals Python 3.5 (_py35_) omgeving.   |
 | Koppelingen naar voorbeelden      | Voorbeelden van torch bevinden zich op `/dsvm/samples/torch`. Voorbeelden van PyTorch bevinden zich op `/dsvm/samples/pytorch`.      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| Wat is het?   | Grondige learning framework      |
+| Ondersteunde DSVM edities      | Linux     |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | PyTorch is geïnstalleerd in de Python 3.5 (_py35_) omgeving.   |
+| Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks zijn opgenomen en voorbeelden kunnen worden gevonden in /dsvm/samples/pytorch.      |
+| Bijbehorende hulpprogramma's op de DSVM      | Torch      |
+
+### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?  
+
+Voer vanaf een terminal _python_, torch vervolgens te importeren. In Jupyter, selecteert u de kernel Python 3.5 en torch importeren.
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Wat is het?   | Een server voor het maken van HTTP-eindpunten voor MXNet en ONNX modellen      |
+| Ondersteunde DSVM edities      | Linux     |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | _mxnet-model-server_ is beschikbaar op op de terminal.   |
+| Koppelingen naar voorbeelden      | Up-to-date voorbeelden zoeken op de [MXNet Model serverpagina](https://github.com/awslabs/mxnet-model-server).    |
+| Bijbehorende hulpprogramma's op de DSVM      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow levering
+
+|    |           |
+| ------------- | ------------- |
+| Wat is het?   | Een server uit te voeren inferencing op een model TensorFlow      |
+| Ondersteunde DSVM edities      | Linux     |
+| Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | _tensorflow_model_server_ is beschikbaar op de terminal.   |
+| Koppelingen naar voorbeelden      | Voorbeelden zijn beschikbaar [online](https://www.tensorflow.org/serving/).      |
+| Bijbehorende hulpprogramma's op de DSVM      | TensorFlow      |

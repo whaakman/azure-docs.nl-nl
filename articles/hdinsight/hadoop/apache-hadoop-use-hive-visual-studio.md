@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f374e846dd0f67627c3caaa5b29e8bfb258f470
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uitvoeren van Hive-query's met de Data Lake tools voor Visual Studio
 
@@ -43,7 +43,7 @@ Informatie over het gebruik van het Data Lake tools voor Visual Studio op Apache
 
 * HDInsight tools voor Visual Studio of Azure Data Lake tools voor Visual Studio. Zie [aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](apache-hadoop-visual-studio-tools-get-started.md) voor informatie over het installeren en configureren van de hulpprogramma's.
 
-## <a id="run"></a>Uitvoeren van Hive-query's met de Visual Studio
+## <a id="run"></a> Uitvoeren van Hive-query's met de Visual Studio
 
 1. Open **Visual Studio** en selecteer **nieuw** > **Project** > **Azure Data Lake** > **HIVE** > **Hive-toepassing**. Geef een naam voor dit project.
 
@@ -75,7 +75,7 @@ Informatie over het gebruik van het Data Lake tools voor Visual Studio op Apache
 
    * `SELECT`: Selecteer een telling van alle rijen waarin kolom `t4` bevat de waarde `[ERROR]`. Deze instructie retourneert een waarde van `3` omdat er drie rijen met deze waarde.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log. Deze component, de zoekopdracht beperkt tot het sample.log-bestand dat de gegevens bevat.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log. Deze component, de zoekopdracht beperkt tot het sample.log-bestand dat de gegevens bevat.
 
 3. Selecteer op de werkbalk van de **HDInsight-Cluster** die u wilt gebruiken voor deze query. Selecteer **indienen** uit te voeren van de instructies als een Hive-taak.
 

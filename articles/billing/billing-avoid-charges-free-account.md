@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 0efea55d0e1329ddf4ada35aa0dd6164f0951a70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 527e77d7ab8c67ea538d2452357f31a698b2b6ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vermijd ophalen in rekening gebracht voor uw gratis Azure-account
 
@@ -48,7 +48,7 @@ Uw gratis services en hoeveelheden verloopt aan het einde van twaalf maanden. U 
 
 1.  Meld u aan bij [Azure Portal](http://portal.azure.com).
 
-2.  Selecteer in de onderkant van de navigatiebalk aan de linkerkant, **meer services**.
+2.  Selecteer in het linkernavigatievenster gebied **alle services**.
 
 3.  Selecteer **abonnementen**.
 

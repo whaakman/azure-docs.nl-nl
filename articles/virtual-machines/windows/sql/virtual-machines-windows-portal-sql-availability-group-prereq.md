@@ -4,7 +4,7 @@ description: Deze zelfstudie laat zien hoe u de vereisten voor het maken van een
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op virtuele machines in Azure
 
@@ -84,7 +84,7 @@ Het virtuele netwerk maken:
    | --- | --- |
    | **Naam** |autoHAVNET |
    | **Adresruimte** |10.33.0.0/24 |
-   | **Subnetnaam** |Beheerder |
+   | **Subnetnaam** |Beheer |
    | **Subnetadresbereik** |10.33.0.0/29 |
    | **Abonnement** |Geef het abonnement dat u wilt gebruiken. **Abonnement** is leeg als u slechts één abonnement hebt. |
    | **Resourcegroep** |Kies **gebruik bestaande** en kies de naam van de resourcegroep. |
@@ -124,7 +124,7 @@ De volgende tabel geeft een overzicht van de configuratie-instellingen van het n
 | --- | --- |
 | **Naam** |**autoHAVNET** |
 | **Adresruimte** |Deze waarde is afhankelijk van de beschikbare adresruimten in uw abonnement. Een typische waarde is 10.0.0.0/16. |
-| **Subnetnaam** |**beheerder** |
+| **Subnetnaam** |**admin** |
 | **Subnetadresbereik** |Deze waarde is afhankelijk van de beschikbare adresbereiken in uw abonnement. Een typische waarde is 10.0.0.0/24. |
 | **Subnetnaam** |**sqlsubnet** |
 | **Subnetadresbereik** |Deze waarde is afhankelijk van de beschikbare adresbereiken in uw abonnement. Een typische waarde is 10.0.1.0/24. |
@@ -163,8 +163,8 @@ Als u wilt maken en configureren van de domeincontrollers, terug naar de **SQL-H
 
 Herhaal de voorgaande stappen voor het maken van twee virtuele machines. Naam van de twee virtuele machines:
 
-* AD-primaire-dc
-* AD-secundaire-dc
+* ad-primary-dc
+* ad-secondary-dc
 
   > [!NOTE]
   > De **ad-secundaire-dc** virtuele machine is optioneel, voor hoge beschikbaarheid bieden voor Active Directory Domain Services.
@@ -178,14 +178,14 @@ De volgende tabel ziet u de instellingen voor deze twee machines:
 | **Naam** |Eerste domeincontroller: *ad-primaire-dc*.</br>Tweede domeincontroller *ad-secundaire-dc*. |
 | **Type VM-schijf** |SSD |
 | **Gebruikersnaam** |DomainAdmin |
-| **Wachtwoord** |Contoso! 0000 |
+| **Wachtwoord** |Contoso!0000 |
 | **Abonnement** |*Uw abonnement* |
 | **Resourcegroep** |SQL-HA-RG |
 | **Locatie** |*Uw locatie* |
 | **Grootte** |DS1_V2 |
 | **Storage** | **Gebruik de schijven van de beheerde** - **Ja** |
 | **Virtueel netwerk** |autoHAVNET |
-| **Subnet** |Beheerder |
+| **Subnet** |beheerder |
 | **Openbaar IP-adres** |*Dezelfde naam als de virtuele machine* |
 | **Netwerkbeveiligingsgroep** |*Dezelfde naam als de virtuele machine* |
 | **Beschikbaarheidsset** |adavailabilityset </br>**Fault-domeinen**: 2</br>**Bijwerken van domeinen**: 2|
@@ -307,13 +307,13 @@ Nadat de server klaar is voor wijzigingen in de configuratie, moet u de server o
 
 Wijzig de DNS-Server zodanig dat het IP-adres van de secundaire domeincontroller in de Azure-portal onder virtuele netwerk. Hierdoor kan de DNS-service redundantie.
 
-### <a name=DomainAccounts></a>Configureer de domeinaccounts
+### <a name=DomainAccounts></a> Configureer de domeinaccounts
 
 In de volgende stappen configureert u de Active Directory-accounts. De volgende tabel toont de accounts:
 
-| |Installatie-account<br/> |SQL Server-0 <br/>SQL Server en SQL Agent-Service-account |SQL Server-1<br/>SQL Server en SQL Agent-Service-account
+| |Installatie-account<br/> |sqlserver-0 <br/>SQL Server en SQL Agent-Service-account |sqlserver-1<br/>SQL Server en SQL Agent-Service-account
 | --- | --- | --- | ---
-|**Voornaam** |Installeren |SQLSvc1 | SQLSvc2
+|Voornaam |Installeren |SQLSvc1 | SQLSvc2
 |**SamAccountName van gebruiker** |Installeren |SQLSvc1 | SQLSvc2
 
 Gebruik de volgende stappen om elk account te maken.
@@ -462,11 +462,11 @@ Om toe te voegen functies voor failoverclustering, doe het volgende op beide VM'
 
 Herhaal de stappen op de andere SQL Server-VM.
 
-## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall">De firewall configureren op elke SQL Server-VM
+## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> De firewall configureren op elke SQL Server-VM
 
 De oplossing is vereist voor de volgende TCP-poorten open zijn in de firewall:
 
-- **SQL Server-machine**:<br/>
+- **SQL Server VM**:<br/>
    Poort 1433 voor een standaardexemplaar van SQL Server.
 - **Azure load balancer-test:**<br/>
    Een beschikbare poort. De voorbeelden gebruiken vaak 59999.

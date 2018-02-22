@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph .NET API: Downloaden en release-opmerkingen
 
@@ -32,7 +32,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
+U wordt aangeraden met behulp van het stuurprogramma voor open-source Gremlin voor .NET, Gremlin.Net. Meer informatie over het aan de slag in [Azure Cosmos DB: Maak een graph-app met behulp van .NET- en de Graph API](create-graph-dotnet.md).
+
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
 
 #### <a name="bug-fixes"></a>Oplossingen voor problemen
 * Los eventueel laden `appsettings.json` (`netstandard1.6`)
@@ -41,11 +43,11 @@ ms.lasthandoff: 12/11/2017
 * Microsoft.Azure.Graphs doelplatform AnyCPU activeren.
 * Mono assembly van verwijderen `net461` pakket manifest.
 
-### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
+### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
 
 #### <a name="whats-new"></a>Nieuwe functies
-* Ondersteuning toegevoegd voor`.netstandard 1.6`
-  * Vereist`Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Ondersteuning toegevoegd voor `.netstandard 1.6`
+  * Vereist `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
 * Een nieuwe toegevoegd `gremlin-groovy` parser ter vervanging van bestaande parser. Deze parser ondersteunt een subset van de Tinkerpop `gremlin-groovy` syntaxis en omvat:
   * Verbeterde prestaties bij het parseren met 2 x.
   * Een aantal problemen die zijn gerelateerd aan teken aanhalingstekens in tekenreeksen, onjuist afgehandelde letterlijke waarden en andere onregelmatigheden in de oude parser is opgelost.
@@ -57,8 +59,8 @@ ms.lasthandoff: 12/11/2017
 * Verwijderde ondersteuning voor .NET Framework 4.5.1
 
 * De nieuwe parser wordt uitgelijnd met `gremlin-groovy` grammatica. Als gevolg hiervan zijn aantal expressies die u eerder hebt gewerkt voor de nieuwe parser dubbelzinnig. Een voorbeeld van Opmerking:
-  * `in`en `as` zijn gereserveerde woorden in `gremlin-groovy`, zodat deze stappen moeten worden gekwalificeerd met `.in()` of `.as()` om te voorkomen dat syntaxisfouten. Bijvoorbeeld: `g.V().repeat(in()).times(2)`  ->  _genereert een syntaxisfout_  
- `g.V().repeat(__.in()).times(2)` -> _is geslaagd_
+  * `in` en `as` zijn gereserveerde woorden in `gremlin-groovy`, zodat deze stappen moeten worden gekwalificeerd met `.in()` of `.as()` om te voorkomen dat syntaxisfouten. Bijvoorbeeld: `g.V().repeat(in()).times(2)`  ->  _genereert een syntaxisfout_  
+ `g.V().repeat(__.in()).times(2)` -> _succeeds_
 
 ### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview
 
@@ -66,9 +68,9 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-Preview
 
-### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-Preview
+### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-preview
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 * Initiële preview-versie.
 
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
@@ -82,13 +84,13 @@ Elk verzoek aan de Azure Cosmos-database met behulp van een buiten gebruik geste
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| [0.3.1-Preview](#0.3.1-preview) |17 oktober 2017 |--- |
-| [0.3.0-Preview](#0.3.0-preview) |2 oktober 2017 |--- |
-| [0.2.4-Preview](#0.2.4-preview) |4 augustus 2017 |--- |
-| [0.2.2-Preview](#0.2.2-preview) |23 juni 2017 |--- |
-| [0.2.1-Preview](#0.2.2-preview) |8 juni 2017 |--- |
-| [0.2.0-Preview](#0.2.2-preview) |10 mei 2017 |--- |
-| [0.1.0-Preview](#0.1.0-preview) |8 mei 2017 |--- |
+| [0.3.1-preview](#0.3.1-preview) |17 oktober 2017 |--- |
+| [0.3.0-preview](#0.3.0-preview) |2 oktober 2017 |--- |
+| [0.2.4-preview](#0.2.4-preview) |4 augustus 2017 |--- |
+| [0.2.2-preview](#0.2.2-preview) |23 juni 2017 |--- |
+| [0.2.1-preview](#0.2.2-preview) |8 juni 2017 |--- |
+| [0.2.0-preview](#0.2.2-preview) |10 mei 2017 |--- |
+| [0.1.0-preview](#0.1.0-preview) |8 mei 2017 |--- |
 
 ## <a name="see-also"></a>Zie ook
 Zie voor meer informatie over Azure Cosmos DB Graph API, [Inleiding tot Azure Cosmos DB: Graph API](graph-introduction.md). 

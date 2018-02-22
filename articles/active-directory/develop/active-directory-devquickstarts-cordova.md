@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD-Cordova aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +88,7 @@ Azure AD geeft tokens alleen bekende toepassingen. Voordat u van uw app kunt u A
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. In de **Directory** kiest u de Azure AD-tenant waar u uw toepassing registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Volg de aanwijzingen en maak een **systeemeigen clienttoepassing**. (Hoewel de Cordova-apps zijn op basis van HTML, we creëren een native client-toepassing. De **systeemeigen clienttoepassing** optie moet zijn geselecteerd of de toepassing werkt niet.)
   * **Naam** beschrijving van uw toepassing voor gebruikers.
@@ -121,8 +121,8 @@ Er zijn meerdere manieren om Cordova-toepassingen te maken. In deze zelfstudie g
 
 3. Kopieer de inhoud van het starter-project in de submap www met behulp van de manager van een bestand of de volgende opdracht in uw shell:
 
-  * Windows:`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
-  * Mac:`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
+  * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
+  * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
 4. De invoegtoepassing goedgekeurde toevoegen. Dit is nodig om de Graph API aan te roepen.
 
@@ -244,9 +244,9 @@ Latere uitvoeringen zal de zoekopdracht uitvoeren zonder dat een prompt dankzij 
 De concrete stappen voor het uitvoeren van de app, varieert per platform.
 
 ### <a name="windows-10"></a>Windows 10
-   Tablet PC:`cordova run windows --archs=x64 -- --appx=uap`
+   Tablet PC: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Mobile (vereist een Windows 10 Mobile-apparaat dat is verbonden met een PC):`cordova run windows --archs=arm -- --appx=uap --phone`
+   Mobile (vereist een Windows 10 Mobile-apparaat dat is verbonden met een PC): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
    > Tijdens de eerste keer uitvoert, wordt u mogelijk gevraagd aan te melden voor een ontwikkelaarslicentie. Zie voor meer informatie [ontwikkelaarslicentie](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
@@ -258,25 +258,25 @@ De concrete stappen voor het uitvoeren van de app, varieert per platform.
    > Tijdens de eerste keer uitvoert, wordt u mogelijk gevraagd aan te melden voor een ontwikkelaarslicentie. Zie voor meer informatie [ontwikkelaarslicentie](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   Uitvoeren op een verbonden apparaat:`cordova run windows --device -- --phone`
+   Uitvoeren op een verbonden apparaat: `cordova run windows --device -- --phone`
 
-   Uitvoeren op de standaardemulator:`cordova emulate windows -- --phone`
+   Uitvoeren op de standaardemulator: `cordova emulate windows -- --phone`
 
    Gebruik `cordova run windows --list -- --phone` voor een overzicht van alle beschikbare doelen en `cordova run windows --target=<target_name> -- --phone` voor het uitvoeren van de toepassing op een specifiek apparaat of emulator (bijvoorbeeld `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
 ### <a name="android"></a>Android
-   Uitvoeren op een verbonden apparaat:`cordova run android --device`
+   Uitvoeren op een verbonden apparaat: `cordova run android --device`
 
-   Uitvoeren op de standaardemulator:`cordova emulate android`
+   Uitvoeren op de standaardemulator: `cordova emulate android`
 
    Zorg ervoor dat u hebt een exemplaar van de emulator gemaakt met behulp van AVD Manager, zoals eerder beschreven in de sectie 'Vereisten'.
 
    Gebruik `cordova run android --list` voor een overzicht van alle beschikbare doelen en `cordova run android --target=<target_name>` voor het uitvoeren van de toepassing op een specifiek apparaat of emulator (bijvoorbeeld `cordova run android --target="Nexus4_emulator"`).
 
 ### <a name="ios"></a>iOS
-   Uitvoeren op een verbonden apparaat:`cordova run ios --device`
+   Uitvoeren op een verbonden apparaat: `cordova run ios --device`
 
-   Uitvoeren op de standaardemulator:`cordova emulate ios`
+   Uitvoeren op de standaardemulator: `cordova emulate ios`
 
    > [!NOTE]
    > Zorg ervoor dat u hebt de `ios-sim` pakket geïnstalleerd voor uitvoering van de emulator. Zie de sectie 'Vereisten' voor meer informatie.

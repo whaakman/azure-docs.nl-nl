@@ -4,7 +4,7 @@ description: Informatie over het automatiseren van de configuratie van SQL Serve
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configureren van Azure Sleutelkluis-integratie voor SQL Server op virtuele Machines in Azure (klassiek)
 > [!div class="op_single_selector"]
@@ -52,12 +52,12 @@ De volgende tabel bevat de vereiste parameters voor de PowerShell-script uitvoer
 
 | Parameter | Beschrijving | Voorbeeld |
 | --- | --- | --- |
-| **$akvURL** |**De sleutelkluis-URL** |'https://contosokeyvault.vault.azure.net/' |
-| **$spName** |**Service-Principal-naam** |'fde2b411 - 33d 5-4e11-af04eb07b669ccf2' |
-| **$spSecret** |**Service-Principal-geheim** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
+| **$akvURL** |**De sleutelkluis-URL** |"https://contosokeyvault.vault.azure.net/" |
+| **$spName** |**Service-Principal-naam** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spSecret** |**Service-Principal-geheim** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Referentienaam**: de Azure Sleutelkluis-integratie maakt een referentie in SQL Server, zodat de virtuele machine toegang heeft tot de sleutelkluis. Kies een naam voor deze referentie. |'mycred1' |
-| **$vmName** |**Naam van virtuele machine**: de naam van een eerder gemaakte SQL-VM. |'myvmname' |
-| **$serviceName** |**Servicenaam**: naam van de Cloudservice die is gekoppeld aan de SQL VM. |'mycloudservicename' |
+| **$vmName** |**Naam van virtuele machine**: de naam van een eerder gemaakte SQL-VM. |"myvmname" |
+| **$serviceName** |**Servicenaam**: naam van de Cloudservice die is gekoppeld aan de SQL VM. |"mycloudservicename" |
 
 ### <a name="enable-akv-integration-with-powershell"></a>Inschakelen van Azure Sleutelkluis-integratie met PowerShell
 De **nieuw AzureVMSqlServerKeyVaultCredentialConfig** cmdlet maakt een configuratieobject voor de functie Azure Sleutelkluis-integratie. De **Set AzureVMSqlServerExtension** configureert u deze integratie met de **KeyVaultCredentialSettings** parameter. De volgende stappen laten zien hoe deze opdrachten gebruiken.

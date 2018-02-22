@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 6e9c541aac1241b6af0e4a58f5591d46f9a98c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b73fe2214a165d7c02c0a58551d8b84bee39f919
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Maken en beheren van Azure-Database voor de MySQL-server met Azure portal
 Dit onderwerp wordt beschreven hoe u snel een nieuwe Azure-Database voor de MySQL-server kunt maken. Het bevat ook informatie over het beheren van de server met behulp van de Azure-portal. Serverbeheer omvat server-gegevens en het wachtwoord opnieuw instellen en het verwijderen van de server-databases weer te geven.
@@ -24,7 +24,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 ## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
 Volg deze stappen voor het maken van een Azure-Database voor de MySQL-server met de naam 'mysqlserver4demo'.
 
-1. Klik op de **nieuw** knop zich in de linkerbovenhoek van de Azure portal.
+1. Klik op de **maken van een resource** knop zich in de linkerbovenhoek van de Azure portal.
 
 2. Selecteer op de pagina nieuwe **Databases**, en selecteer vervolgens op de pagina Databases **Azure Database voor MySQL**.
 
@@ -63,7 +63,7 @@ Nadat de nieuwe server is ingericht, de gebruiker heeft twee opties voor het bew
 
 2. Nieuw wachtwoord invoeren en Bevestig het wachtwoord in het venster zoals wordt weergegeven:
 
-   ![Wachtwoord opnieuw instellen](./media/howto-create-manage-server-portal/reset-password.png)
+   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Klik op **OK** om op te slaan van het nieuwe wachtwoord.
 

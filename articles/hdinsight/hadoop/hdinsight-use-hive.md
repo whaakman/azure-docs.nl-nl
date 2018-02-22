@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL in Azure HDInsight?
 
@@ -41,20 +41,19 @@ HDInsight biedt verschillende clustertypen die zijn afgestemd op specifieke werk
 
 ## <a name="how-to-use-hive"></a>Het gebruik van Hive
 
-Gebruik de volgende tabel voor het detecteren van het gebruik van Hive met HDInsight:
+Gebruik de volgende tabel voor het detecteren van de verschillende manieren voor het gebruik van Hive met HDInsight:
 
-| **Gebruik deze methode** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
+| **Gebruik deze methode** als u wilt dat... | ... **interactieve** query's | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive-weergave](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |(Browser gebaseerd) |
 | [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux- of Windows * |Linux, Unix, Mac OS X of Windows |
+| [HDInsight tools voor Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X of Windows |
 | [HDInsight tools voor Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux- of Windows * |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux- of Windows * |Windows |
 
 > [!IMPORTANT]
-> \*Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
->
-> Als u een cluster met HDInsight op basis van Windows gebruikt, kunt u de [Query console](../hadoop/apache-hadoop-use-hive-query-console.md) vanuit de browser of [extern bureaublad](../hadoop/apache-hadoop-use-hive-remote-desktop.md) Hive-query's uitvoeren.
+> \* Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a name="hiveql-language-reference"></a>HiveQL-taalreferentie
 
@@ -65,7 +64,14 @@ Taalreferentie HiveQL is beschikbaar in de [taal handmatig (https://cwiki.apache
 Hive begrijpt het werken met gestructureerde en semi-gestructureerde gegevens. Bijvoorbeeld: tekstbestanden waarin de velden worden gescheiden door specifieke tekens. De volgende instructie van HiveQL maakt een tabel door spaties gescheiden gegevens:
 
 ```hiveql
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
@@ -74,20 +80,20 @@ Hive biedt ook ondersteuning voor aangepaste **serialisatiefunctie/deserializers
 
 Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [taal handmatig (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
-## <a name="hive-internal-tables-vs-external-tables"></a>Interne tabellen tegenover externe tabellen hive
+### <a name="hive-internal-tables-vs-external-tables"></a>Interne tabellen tegenover externe tabellen hive
 
 Er zijn twee soorten tabellen die u met Hive maken kunt:
 
 * __Interne__: gegevens worden opgeslagen in het datawarehouse Hive. Het datawarehouse bevindt zich op `/hive/warehouse/` op de standaard-opslag voor het cluster.
 
-    Gebruik interne tabellen wanneer:
+    Interne tabellen gebruiken wanneer een van de volgende voorwaarden van toepassing:
 
     * Gegevens is tijdelijk.
     * Wilt u Hive voor het beheren van de levenscyclus van de tabel en de gegevens.
 
 * __Externe__: gegevens worden opgeslagen buiten het datawarehouse. De gegevens kunnen worden opgeslagen op opslag die toegankelijk is door het cluster.
 
-    Gebruik externe tabellen wanneer:
+    Externe tabellen gebruiken wanneer een van de volgende voorwaarden van toepassing:
 
     * De gegevens worden ook gebruikt buiten Hive. Bijvoorbeeld, worden de gegevensbestanden bijgewerkt door een ander proces (die wordt niet vergrendeld de bestanden.)
     * Gegevens moeten blijven in de onderliggende locatie, zelfs na het verwijderen van de tabel.
@@ -102,9 +108,9 @@ Hive kan verder worden uitgebreid via **gebruiker gedefinieerde functies (UDF)**
 
 * [Een Java door de gebruiker gedefinieerde functie gebruiken met Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Een Python door de gebruiker gedefinieerde functie gebruiken met Hive en Pig](../hadoop/python-udf-hdinsight.md)
+* [Een Python door de gebruiker gedefinieerde functie gebruiken met Hive](../hadoop/python-udf-hdinsight.md)
 
-* [Een C# gebruiker gedefinieerde functie gebruiken met Hive en Pig](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Een C# gebruiker gedefinieerde functie gebruiken met Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Het toevoegen van een aangepaste Hive gebruiker gedefinieerde functie aan HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -118,16 +124,27 @@ Hive in HDInsight wordt vooraf geladen geleverd met een interne tabel met de naa
 
 De volgende HiveQL-instructies project kolommen naar de `/example/data/sample.log` bestand:
 
-    set hive.execution.engine=tez;
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+```hiveql
+set hive.execution.engine=tez;
+DROP TABLE log4jLogs;
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE LOCATION '/example/data/';
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    GROUP BY t4;
+```
 
 In het vorige voorbeeld uitvoeren de HiveQL-instructies de volgende acties:
 
-* `set hive.execution.engine=tez;`: Hiermee stelt u de engine voor het uitvoeren Tez gebruiken. Tez gebruik in plaats van MapReduce krijgt u een toename van de prestaties van query's. Zie voor meer informatie over Tez de [Apache Tez gebruiken voor betere prestaties](#usetez) sectie.
+* `set hive.execution.engine=tez;`: Hiermee stelt u de engine voor het uitvoeren Tez gebruiken. Met behulp van Tez krijgt u een toename van de prestaties van query's. Zie voor meer informatie over Tez de [Apache Tez gebruiken voor betere prestaties](#usetez) sectie.
 
     > [!NOTE]
     > Deze instructie is alleen vereist wanneer u een HDInsight op basis van Windows-cluster. Tez is de engine voor het uitvoeren van standaard voor HDInsight op basis van Linux.
@@ -142,7 +159,7 @@ In het vorige voorbeeld uitvoeren de HiveQL-instructies de volgende acties:
 
 * `SELECT`: Hiermee selecteert u een telling van alle rijen waarin de kolom **t4** bevat de waarde **[fout]**. Deze instructie retourneert een waarde van **3** omdat er drie rijen met deze waarde.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
+* `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
 
 > [!NOTE]
 > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens wordt bijgewerkt door een externe bron verwacht. Bijvoorbeeld, een geautomatiseerd proces of MapReduce-bewerking uploaden.
@@ -151,11 +168,21 @@ In het vorige voorbeeld uitvoeren de HiveQL-instructies de volgende acties:
 
 Maken van een **interne** in plaats van de externe tabel, gebruikt u de volgende HiveQL:
 
-    set hive.execution.engine=tez;
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs
-    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+```hiveql
+set hive.execution.engine=tez;
+CREATE TABLE IF NOT EXISTS errorLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+STORED AS ORC;
+INSERT OVERWRITE TABLE errorLogs
+SELECT t1, t2, t3, t4, t5, t6, t7 
+    FROM log4jLogs WHERE t4 = '[ERROR]';
+```
 
 Deze instructies uitvoeren de volgende acties:
 
@@ -195,7 +222,15 @@ Om u te helpen bij foutopsporing taken uitgevoerd met Tez, HDInsight biedt de vo
 
 HDInsight biedt LLAP in het type van het cluster interactieve Query. Zie voor meer informatie de [beginnen met een interactieve Query](../interactive-query/apache-interactive-query-get-started.md) document.
 
-## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive-taken en SQL Server Integration Services
+## <a name="scheduling-hive-queries"></a>Hive-query's plannen
+
+Er zijn diverse services die kunnen worden gebruikt voor het uitvoeren van Hive-query's als onderdeel van een werkstroom geplande of op aanvraag.
+
+### <a name="azure-data-factory"></a>Azure Data Factory
+
+Azure Data Factory kunt u HDInsight gebruiken als onderdeel van een Data Factory-pijplijn. Zie voor meer informatie over het gebruik van Hive vanuit een pipeline, de [transformeer gegevens met Hive-activiteit in Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) document.
+
+### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive-taken en SQL Server Integration Services
 
 SQL Server Integration Services (SSIS) kunt u een Hive-taak uitvoert. Het Azure-functiepakket voor SSIS biedt de volgende onderdelen die met Hive-taken in HDInsight werken.
 
@@ -203,7 +238,11 @@ SQL Server Integration Services (SSIS) kunt u een Hive-taak uitvoert. Het Azure-
 
 * [Azure Subscription Connection Manager][connectionmanager]
 
-Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
+Zie voor meer informatie de [Azure Feature Pack] [ ssispack] documentatie.
+
+### <a name="apache-oozie"></a>Apache Oozie
+
+Apache Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Zie voor meer informatie over het gebruik van Oozie met Hive de [Oozie gebruiken om te definiëren en uitvoeren van een werkstroom](../hdinsight-use-oozie-linux-mac.md) document.
 
 ## <a id="nextsteps"></a>Volgende stappen
 

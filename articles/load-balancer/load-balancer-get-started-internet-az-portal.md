@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Maak een openbare Load Balancer Standard met zone-redundante openbare IP-adres frontend met Azure portal
 
@@ -39,12 +39,12 @@ Voordat u selecteert een zone of zone-redundante optie voor de frontend openbaar
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
-Aanmelden bij de Azure portal op https://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Een zone redundant load balancer maken
 
 1. Navigeer via een browser naar Azure Portal: [http://portal.azure.com](http://portal.azure.com). Meld u vervolgens aan met uw Azure-account.
-2. Selecteer op de bovenste linkerkant van het scherm en **nieuw** > **Networking** > **Load Balancer.**
+2. Selecteer op de bovenste linkerkant van het scherm en **maken van een resource** > **Networking** > **Load Balancer.**
 3. In de ** maken de load balancer, onder **naam** type **myPublicLB**.
 4. Selecteer onder **Type** de optie **Openbaar**.
 5. Selecteer onder SKU, **Standard (Preview)**.

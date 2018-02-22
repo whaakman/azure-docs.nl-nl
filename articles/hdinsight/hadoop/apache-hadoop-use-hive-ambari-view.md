@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Ambari Hive-weergave gebruiken met Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Informatie over het uitvoeren van Hive-query's met behulp van de Ambari Hive-weergave. Ambari is een beheer en controle hulpprogramma met HDInsight op basis van Linux-clusters. Een van de functies die worden geleverd via Ambari is een Web-UI die kan worden gebruikt voor het uitvoeren van Hive-query's.
-
-> [!NOTE]
-> Ambari heeft veel mogelijkheden die niet in dit document worden besproken. Zie voor meer informatie [HDInsight-clusters beheren met behulp van de Ambari-Webgebruikersinterface](../hdinsight-hadoop-manage-ambari.md).
+Informatie over het uitvoeren van Hive-query's met behulp van de Ambari Hive-weergave. Het Hive-weergave kunt u ontwerpen, optimaliseren en Hive-query's uitvoeren vanuit de webbrowser.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie over het maken van clusters [aan de slag met Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* Een op Linux gebaseerde Hadoop op HDInsight-cluster versie 3.4 of hoger.
 
-> [!IMPORTANT]
-> De stappen in dit document moet een Azure HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+  > [!IMPORTANT]
+  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-## <a name="open-the-hive-view"></a>Open de Hive-weergave
+* Een webbrowser
 
-U kunt de Ambari-weergaven openen vanuit de Azure-portal. Selecteer uw HDInsight-cluster, en selecteer vervolgens **Ambari-weergaven** van de **snelkoppelingen** sectie.
+## <a name="run-a-hive-query"></a>Een Hive-query uitvoeren
 
-![Snelle koppelingen sectie van de portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. Open de [Azure Portal](https://portal.azure.com).
 
-Selecteer in de lijst met weergaven __Hive-weergave__.
+2. Selecteer uw HDInsight-cluster, en selecteer vervolgens **Ambari-weergaven** van de **snelkoppelingen** sectie.
 
-![De Hive-weergave geselecteerd](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Snelle koppelingen sectie van de portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> Wanneer u Ambari gebruiken bent, wordt u gevraagd om de site te verifiëren. Voer de beheerder (standaard `admin`)-account en wachtwoord die u hebt gebruikt toen u het cluster hebt gemaakt.
+    Wanneer u wordt gevraagd om te verifiëren, gebruikt u de cluster-aanmelding (standaard `admin`)-account en wachtwoord die u hebt opgegeven toen u het cluster hebt gemaakt.
 
-Hier ziet u een pagina zoals in de volgende afbeelding:
+3. Selecteer in de lijst met weergaven __Hive-weergave__.
 
-![Afbeelding van het werkblad query voor de Hive-weergave](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![De Hive-weergave geselecteerd](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>Een query uitvoeren
+    De pagina voor Hive-weergave is vergelijkbaar met de volgende afbeelding:
 
-Als u wilt een Hive-query uitvoert, gebruik de volgende stappen uit de Hive-weergave.
+    ![Afbeelding van het werkblad query voor de Hive-weergave](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. Van de __Query__ tabblad, plak de volgende HiveQL-instructies in het werkblad:
+4. Van de __Query__ tabblad, plak de volgende HiveQL-instructies in het werkblad:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     Deze instructies uitvoeren de volgende acties:
@@ -82,42 +87,20 @@ Als u wilt een Hive-query uitvoert, gebruik de volgende stappen uit de Hive-weer
 
    * `SELECT`: Een telling van alle rijen waarin t4 kolom de waarde [fout bevat] selecteert.
 
-     > [!NOTE]
-     > Externe tabellen gebruiken wanneer u verwacht dat de onderliggende gegevens wordt bijgewerkt door een externe bron, zoals een geautomatiseerde gegevens uploaden bewerking of een andere MapReduce. Verwijderen van een externe tabel komt *niet* de gegevens, de definitie van de tabel verwijderen.
-
     > [!IMPORTANT]
     > Laat de __Database__ selectie __standaard__. De voorbeelden in dit document gebruikt de standaarddatabase die is opgenomen in HDInsight.
 
-2. Voor het starten van de query gebruikt de **Execute** knop onder het werkblad. Hiermee schakelt u de knop oranje en verandert de tekst in **stoppen**.
+5. Voor het starten van de query gebruikt de **Execute** knop onder het werkblad. Hiermee schakelt u de knop oranje en verandert de tekst in **stoppen**.
 
-3. Nadat de query is voltooid, de **resultaten** tabblad geeft de resultaten van de bewerking. De volgende tekst is het resultaat van de query:
+6. Nadat de query is voltooid, de **resultaten** tabblad geeft de resultaten van de bewerking. De volgende tekst is het resultaat van de query:
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     U kunt de **logboeken** tabblad om de gegevens in het logboek dat de taak gemaakt.
 
    > [!TIP]
    > Downloaden of opslaan van resultaten van de **resultaten opslaan** vervolgkeuzelijst dialoogvenster in het bovenste links van de **resultaten queryproces** sectie.
-
-4. Selecteer de eerste vier regels van deze query en selecteer vervolgens **Execute**. U ziet dat er geen resultaten zijn wanneer de taak is voltooid. Met behulp van de **Execute** knop als deel van de query is geselecteerd. alleen de geselecteerde instructies wordt uitgevoerd. De selectie bevatten niet in dit geval wordt de laatste instructie die rijen opgehaald uit de tabel. Als u alleen die regel selecteren en gebruik **Execute**, ziet u de verwachte resultaten.
-
-5. U kunt een werkblad toevoegen met de **nieuw werkblad** knop aan de onderkant van de **Query-Editor**. Voer de volgende HiveQL-instructies in het nieuwe werkblad:
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  Deze instructies uitvoeren de volgende acties:
-
-   * **MAKEN van tabel als niet bestaat**: maakt een tabel als deze niet al bestaat. Omdat de **externe** trefwoord wordt niet gebruikt, een interne tabel is gemaakt. Een interne tabel wordt opgeslagen in het datawarehouse Hive en volledig wordt beheerd door Hive. In tegenstelling tot met externe tabellen voor het verwijderen van een interne tabel worden verwijderd en de onderliggende gegevens.
-
-   * **OPGESLAGEN AS ORC**: de gegevens opslaat in geoptimaliseerd rij kolommen (ORC)-indeling. ORC is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
-
-   * **INSERT OVERSCHRIJVEN... Selecteer**: selecteert rijen uit de **log4jLogs** tabel met `[ERROR]`, en vervolgens voegt u de gegevens in de **foutenlogboeken** tabel.
-
-Gebruik de **Execute** knop deze query uit te voeren. De **resultaten** tabblad bevat geen gegevens wanneer de query nul rijen retourneert. De status moet worden weergegeven als **geslaagd** nadat de query is voltooid.
 
 ### <a name="visual-explain"></a>Visual wordt uitgelegd
 
@@ -152,9 +135,14 @@ Van de **Query** tabblad kunt u eventueel query's opslaan. Nadat u een query heb
 
 ![Afbeelding van tabblad opgeslagen query 's](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> Opgeslagen query's worden opgeslagen in de clusteropslag standaard. U vindt de opgeslagen query's onder het pad `/user/<username>/hive/scripts`. Deze worden opgeslagen als tekst zonder opmaak `.hql` bestanden.
+>
+> Als u het cluster verwijdert, maar u voorkomen dat de opslag, kunt u een hulpprogramma zoals [Azure Opslagverkenner](https://azure.microsoft.com/features/storage-explorer/) of Data Lake Storage Explorer (van de [Azure Portal](https://portal.azure.com)) voor het ophalen van de query's.
+
 ## <a name="user-defined-functions"></a>Gebruiker gedefinieerde functies
 
-U kunt ook Hive uitbreiden door gebruiker gedefinieerde functies (UDF). Gebruik een UDF functionaliteit of logica die eenvoudig niet is gemodelleerd in HiveQL implementeren.
+U kunt Hive uitbreiden door gebruiker gedefinieerde functies (UDF). Gebruik een UDF functionaliteit of logica die eenvoudig niet is gemodelleerd in HiveQL implementeren.
 
 Declareren en een set UDF's opslaan met behulp van de **UDF** boven op het tabblad van de Hive-weergave. Deze UDF's kunnen worden gebruikt met de **Query-Editor**.
 

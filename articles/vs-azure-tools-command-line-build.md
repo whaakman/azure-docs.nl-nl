@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Het bouwen van Azure projecten vanaf de opdrachtregel
 Met de Engine van Microsoft bouwen (MSBuild), kunt u producten in de build-omgevingen waarin Visual Studio niet is geïnstalleerd. MSBuild maakt gebruik van een XML-indeling voor bestanden in dat de uitbreidbare en volledig wordt ondersteund door Microsoft. Met de MSBuild-bestandsindeling, kunt u aangeven welke items moeten worden gebouwd voor een of meer platforms en configuraties.
@@ -36,5 +36,4 @@ Elke Azure-project bevat standaard één service-configuratiebestand voor de lok
 Als u gebruiken van een alternatieve map voor het pakket opgeslagen en configuratiebestanden wilt, het pad worden ingesteld met behulp van de `/p:PublishDir=Directory\` optie, met inbegrip van het afsluitende backslash scheidingsteken.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat het pakket is gebouwd, kunt u deze kunt implementeren naar Azure. Zie voor een zelfstudie die u laat zien hoe u kunt dit proces te automatiseren, [continue leveringsmethode voor Cloud-Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+Nadat het pakket is gebouwd, kunt u deze kunt implementeren naar Azure.

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur - voorbeeld
 
@@ -35,7 +35,7 @@ De verantwoordelijkheden van de rand van de IoT-runtime is onderverdeeld in twee
 
 Zowel de Edge-agent en de Edge-hub zijn modules, net als elke andere module uitgevoerd op een Edge van de IoT-apparaat. Zie voor meer informatie over de werking van modules [lnk-modules]. 
 
-## <a name="iot-edge-hub"></a>Rand van de IoT hub
+## <a name="iot-edge-hub"></a>IoT Edge hub
 
 De Edge-hub is een van twee modules die gezamenlijk de rand van Azure IoT-runtime. Het fungeert als een lokale proxyserver voor IoT Hub bij het blootstellen van de dezelfde protocoleindpunten als IoT Hub. Deze consistentie betekent dat clients (of apparaten of modules) kunnen verbinding maken met de rand van de IoT-runtime, net als met IoT Hub. 
 
@@ -64,14 +64,18 @@ Rand Hub vergemakkelijkt de communicatie van de module-module. Rand Hub gebruikt
 
 Om gegevens te verzenden naar de rand hub, wordt in een module de SendEventAsync-methode aanroept. Het eerste argument geeft op welke uitvoer om het bericht te verzenden. De volgende pseudocode verzendt een bericht op output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Registreren voor het ontvangen van een bericht een callback die binnenkort in op een specifieke invoer berichten worden verwerkt. De volgende pseudocode registreert de functie messageProcessor moet worden gebruikt voor het verwerken van alle berichten ontvangen op input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 De ontwikkelaar van de oplossing is verantwoordelijk voor het opgeven van de regels die bepalen hoe de rand hub berichten tussen modules doorstuurt. Routeringsregels zijn gedefinieerd in de cloud en omlaag naar het Edge-hub in de twin apparaat gepusht. Dezelfde syntaxis voor IoT Hub routes wordt gebruikt voor het definiëren van routes tussen modules in Azure IoT rand. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -86,11 +90,11 @@ Om te beginnen met het uitvoeren van de Edge-agent, voer de azure-iot-edge-runti
 
 Elk item in de woordenlijst modules bevat specifieke informatie over een module en door de agent rand wordt gebruikt voor het beheren van de levenscyclus van de module. Enkele van de interessanter eigenschappen zijn: 
 
-* **Settings.Image** – de container-installatiekopie die gebruikmaakt van de Edge-agent starten van de module. De Edge-agent moet worden geconfigureerd met de referenties voor het register van de container als de installatiekopie is beveiligd met een wachtwoord. Gebruik de volgende opdracht voor het configureren van de Edge-agent:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – de container-installatiekopie die gebruikmaakt van de Edge-agent starten van de module. De Edge-agent moet worden geconfigureerd met de referenties voor het register van de container als de installatiekopie is beveiligd met een wachtwoord. Gebruik de volgende opdracht voor het configureren van de Edge-agent: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** : een tekenreeks die rechtstreeks aan de Docker-daemon wordt doorgegeven bij het starten van een module-container. Toevoegen van Docker-opties in deze eigenschap kunt u geavanceerde opties zoals poort doorsturen of koppelen van volumes in een module-container.  
 * **status** – de status waarin de Edge-agent de module plaatst. Deze waarde wordt meestal ingesteld op *met* zoals de meeste mensen wilt gebruiken voor de agent van de rand om direct te starten alle modules op het apparaat. U kan echter opgeven dat de oorspronkelijke status van een module die u wilt stoppen en wachten op een later tijdstip aan de rand agent starten van een module. De agent rand meldt de status van elke module terug naar de cloud in de eigenschappen van gemeld. Een verschil tussen de gewenste eigenschappen en de gerapporteerde is een indicator of een apparaat zorgt. De ondersteunde statussen zijn:
    * Downloaden
-   * Actief
+   * Wordt uitgevoerd
    * Niet in orde
    * Mislukt
    * Stopped

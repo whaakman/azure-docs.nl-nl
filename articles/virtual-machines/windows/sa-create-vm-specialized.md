@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine vanaf een speciale VHD in een opslagaccount maken
 
@@ -118,7 +118,7 @@ U kunt een VHD kopiëren naar een ander opslagaccount te gebruiken bij het maken
 ### <a name="before-you-begin"></a>Voordat u begint
 Zorg ervoor dat u:
 
-* Hebt u informatie over de **bron- en storage-accounts**. Voor de bron-VM moet u de namen van de storage-account en container hebt. Normaal gesproken de containernaam is **VHD's**. U moet ook een doelopslagaccount hebben. Als u dit niet al hebt, kunt u een met ofwel de portal (**meer Services** > opslagaccounts > toevoegen) of met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
+* Hebt u informatie over de **bron- en storage-accounts**. Voor de bron-VM moet u de namen van de storage-account en container hebt. Normaal gesproken de containernaam is **VHD's**. U moet ook een doelopslagaccount hebben. Als u dit niet al hebt, kunt u een met ofwel de portal (**alle Services** > opslagaccounts > toevoegen) of met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
 * Hebt gedownload en geïnstalleerd de [AzCopy hulpprogramma](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>De virtuele machine ongedaan
@@ -138,7 +138,7 @@ U moet de URL's van de bron- en storage-accounts. De URL's eruit: `https://<stor
 
 U kunt de Azure portal of Azure Powershell gebruiken om de URL te krijgen:
 
-* **Portal**: klik op de  **>**  voor **meer services** > **opslagaccounts**  >   *Storage-account* > **Blobs** en de bron-VHD-bestand is waarschijnlijk in de **VHD's** container. Klik op **eigenschappen** voor de container en kopieer de tekst met het label **URL**. U moet de URL's van de bron- en doelserver containers. 
+* **Portal**: klik op de  **>**  voor **alle services** > **opslagaccounts** > *opslag account* > **Blobs** en de bron-VHD-bestand is waarschijnlijk in de **VHD's** container. Klik op **eigenschappen** voor de container en kopieer de tekst met het label **URL**. U moet de URL's van de bron- en doelserver containers. 
 * **PowerShell**: Gebruik [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) ophalen van de gegevens voor de virtuele machine met de naam **myVM** in de resourcegroep **myResourceGroup**. Zoeken in de resultaten in de **archiefprofiel** sectie voor de **Vhd-Uri**. Het eerste deel van de Uri is de URL van de container en het laatste deel is de naam van de OS-VHD voor de virtuele machine.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Ophalen van de toegangssleutels voor opslag
 De sneltoetsen voor de bron- en storage-accounts vinden. Zie voor meer informatie over toegangstoetsen [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: klik op **meer services** > **opslagaccounts** > *opslagaccount*  >  **Toegangssleutels**. Kopieer de sleutel met het label **key1**.
+* **Portal**: klik op **alle services** > **opslagaccounts** > *opslagaccount*  >   **Toegangssleutels**. Kopieer de sleutel met het label **key1**.
 * **PowerShell**: Gebruik [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ophalen van de opslagsleutel voor het opslagaccount **mystorageaccount** in de resourcegroep **myResourceGroup**. Kopieer de sleutel met het label **key1**.
 
 ```powershell
@@ -312,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Controleren of de virtuele machine is gemaakt
-U ziet de zojuist gemaakte virtuele machine ofwel in de [Azure-portal](https://portal.azure.com)onder **Bladeren** > **virtuele machines**, of met behulp van de volgende PowerShell-opdrachten:
+U ziet de zojuist gemaakte virtuele machine ofwel in de [Azure-portal](https://portal.azure.com)onder **alle services** > **virtuele machines**, of met behulp van de volgende PowerShell opdrachten:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

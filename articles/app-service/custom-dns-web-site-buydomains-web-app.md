@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure-Web-Apps kopen
 
@@ -30,7 +30,7 @@ Dit artikel is voor Azure App Service (Web-Apps, API-Apps, Mobile Apps, Logic Ap
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* [Een App Service-app maken](/azure/app-service/), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
+* [Maak een App Service-app](/azure/app-service/), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
 * [Verwijder de bestedingslimiet voor uw abonnement](../billing/billing-spending-limit.md#remove). U kunt App Service-domeinen met een gratis abonnement tegoed kan niet kopen.
 
 ## <a name="prepare-the-app"></a>De app voorbereiden
@@ -45,7 +45,7 @@ Open de [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-acco
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigeer naar de app in de Azure portal
 
-Selecteer in het menu links **App Services**, en selecteer vervolgens de naam van de app.
+Selecteer in het linkermenu **App Services** en selecteer de naam van uw app.
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -53,27 +53,27 @@ U ziet de beheerpagina van de App Service-app.
 
 ### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
 
-Schuif in de navigatiebalk links van de app-pagina naar de **instellingen** sectie en selecteer **opschalen (App Service-abonnement)**.
+Schuif in de navigatiebalk links van de app-pagina naar de sectie **Instellingen** en selecteer **Opschalen (App Service-plan)**.
 
-![Omhoog schalen-menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Menu Opschalen](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-De huidige tier van de app wordt gemarkeerd door een rand. Controleer of de app is niet in de **vrije** laag. Aangepaste DNS wordt niet ondersteund in de **vrije** laag. 
+De huidige laag van de app wordt gemarkeerd door een blauwe rand. Controleer of de app zich niet in de **Gratis**-categorie bevindt. Aangepaste DNS wordt niet ondersteund in de **Gratis**-categorie. 
 
-![Controleer de prijscategorie](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Controleer prijscategorie](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Als de App Service-abonnement niet **vrije**, sluit de **Kies uw prijscategorie** pagina en doorgaan met [kopen van het domein](#buy-the-domain).
 
-### <a name="scale-up-the-app-service-plan"></a>De App Service-abonnement opschalen
+### <a name="scale-up-the-app-service-plan"></a>Het App Service-plan opschalen
 
-Selecteer een van de lagen niet vrij (**gedeelde**, **Basic**, **standaard**, of **Premium**). 
+Selecteer een van de betaalde categorieën (**Shared**, **Basic**, **Standard**, of **Premium**). 
 
 Klik op **Selecteren**.
 
-![Controleer de prijscategorie](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Controleer prijscategorie](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Wanneer u de volgende melding ziet, is de schaalbewerking is voltooid.
+Wanneer u de volgende melding ziet, is de schaalbewerking voltooid.
 
-![Schaal bewerking bevestigen](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+![Schaalbewerking bevestigen](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Het domein kopen
 
@@ -114,7 +114,7 @@ Selecteer vervolgens de gewenste opties voor uw domein. Zie de volgende tabel vo
 | Instelling | Voorgestelde waarde | Beschrijving |
 |-|-|-|
 |Privacybescherming | Inschakelen | U meldt zich aan 'Privacy protection', dat van het aankoopbedrag uitmaakt deel _gratis_. Sommige domeinen op het hoogste niveau worden beheerd door registrars die privacybescherming niet ondersteunen, en ze worden weergegeven op de **privacybescherming** pagina. |
-| Standaard hostnamen toewijzen | **www** en**@** | Selecteer de gewenste hostnaambindings indien gewenst. Wanneer de aankoop domein voltooid is, kan uw web-app op de geselecteerde hostnamen worden benaderd. Als de web-app zich achter [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), de optie voor het toewijzen van het hoofddomein niet wordt weergegeven (@), omdat het Traffic Manager biedt geen ondersteuning voor A-records. Nadat de aankoop van het domein is voltooid, kunt u wijzigingen in de toewijzingen van de hostnaam. |
+| Standaard hostnamen toewijzen | **www** en **@** | Selecteer de gewenste hostnaambindings indien gewenst. Wanneer de aankoop domein voltooid is, kan uw web-app op de geselecteerde hostnamen worden benaderd. Als de web-app zich achter [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), de optie voor het toewijzen van het hoofddomein niet wordt weergegeven (@), omdat het Traffic Manager biedt geen ondersteuning voor A-records. Nadat de aankoop van het domein is voltooid, kunt u wijzigingen in de toewijzingen van de hostnaam. |
 
 ### <a name="accept-terms-and-purchase"></a>Voorwaarden accepteren en kopen
 
@@ -166,7 +166,7 @@ Controleer of uw aangeschafte domein wordt vermeld de **Service AppDomains** sec
 >
 >
 
-Selecteer **hostnaam toevoegen**.
+Selecteer **Hostnaam toevoegen**.
 
 ### <a name="configure-hostname"></a>Hostname configureren
 In de **hostnaam toevoegen** dialoogvenster, typt u de volledig gekwalificeerde domeinnaam van uw App Service-domein of een subdomein. Bijvoorbeeld:
@@ -177,7 +177,7 @@ In de **hostnaam toevoegen** dialoogvenster, typt u de volledig gekwalificeerde 
 
 Wanneer u klaar bent, selecteert u **valideren**. Het recordtype hostnaam wordt automatisch geselecteerd voor u.
 
-Selecteer **hostnaam toevoegen**.
+Selecteer **Hostnaam toevoegen**.
 
 Als de bewerking voltooid is, ziet u een melding geslaagd voor de hostnaam van de toegewezen.  
 
@@ -220,7 +220,7 @@ In Azure, DNS-records voor een App-domein worden beheerd met [Azure DNS](https:/
 
 ### <a name="open-app-service-domain"></a>Open-App Service-domein
 
-Selecteer in de Azure-portal in het menu links **meer Services** > **Service AppDomains**.
+Selecteer in de Azure-portal in het menu links **alle services** > **Service AppDomains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ U hebt vijf dagen om te annuleren van uw aankoop voor een volledige terugbetalin
 
 ### <a name="open-app-service-domain"></a>Open-App Service-domein
 
-Selecteer in de Azure-portal in het menu links **meer Services** > **Service AppDomains**.
+Selecteer in de Azure-portal in het menu links **alle services** > **Service AppDomains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

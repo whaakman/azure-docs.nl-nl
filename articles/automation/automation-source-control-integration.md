@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 Integratie van broncodebeheer kunt u runbooks in uw Automation-account aan een GitHub-resourcebeheerbibliotheek koppelen. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en terugkeren naar eerdere versies van uw runbooks. Broncodebeheer kunt u verschillende filialen in besturingselement voor de ontwikkeling, testen of productie Automation-accounts, zodat u eenvoudig ter bevordering van de code die in uw ontwikkelomgeving, zodat uw productie Automation-account is getest synchroniseren.
@@ -30,16 +30,15 @@ Broncodebeheer kunt u code pushen van Azure Automation met resourcebeheer of uw 
 > 
 > 
 
-Er zijn twee eenvoudige stappen die nodig zijn voor uw Automation-account en slechts één verbinding met broncodebeheer configureren als u al een GitHub-account. Ze zijn:
+Er zijn twee eenvoudige stappen die nodig zijn voor uw Automation-account en slechts één verbinding met broncodebeheer configureren als u al een GitHub-account. Dit zijn:
 
 ## <a name="step-1--create-a-github-repository"></a>Stap 1: Maak een GitHub-opslagplaats
 Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automation, meldt u zich bij uw bestaande account en beginnen bij stap 2 hieronder. Anders gaat u naar [GitHub](https://github.com/), zich aanmelden voor een nieuw account en [maken van een nieuwe opslagplaats](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Stap 2: broncodebeheer in Azure Automation instellen
-1. Klik op de pagina Automation-Account in de Azure portal **broncodebeheer instellen.** 
+1. Van het Automation-Account pagina in de Azure-portal onder **Accountinstellingen**, klikt u op **broncodebeheer.** 
    
-    ![Resourcebeheer instellen](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. De **broncodebeheer** pagina wordt geopend, waar u de gegevens van uw GitHub-account kunt configureren. Hieronder volgt de lijst met te configureren parameters:  
+1. De **broncodebeheer** pagina wordt geopend, waar u de gegevens van uw GitHub-account kunt configureren. Hieronder volgt de lijst met te configureren parameters:  
    
    | **Parameter** | **Beschrijving** |
    |:--- |:--- |
@@ -50,7 +49,7 @@ Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automat
    | Pad naar de Runbookmap |Het pad naar de runbookmap geeft het pad in de GitHub-opslagplaats van waaruit u wilt push of pull uw code. Dit moet worden ingevoerd in de indeling **/mapnaam/submapnaam**. Alleen runbooks in het pad naar de runbookmap worden met uw Automation-account gesynchroniseerd. Runbooks in submappen van het pad naar de runbookmap wordt **niet** worden gesynchroniseerd. Gebruik  **/**  om alle runbooks in de opslagplaats te synchroniseren. |
 3. Bijvoorbeeld, als er een opslagplaats met de naam **PowerShellScripts** die een map met de naam bevat **RootFolder**, die een map met de naam bevat **submap**. U kunt de volgende tekenreeksen elke mapniveau synchroniseren:
    
-   1. Voor synchronisatie runbooks van **opslagplaats**, pad naar de runbookmap is*/*
+   1. Voor synchronisatie runbooks van **opslagplaats**, pad naar de runbookmap is */*
    2. Voor synchronisatie runbooks van **RootFolder**, pad naar de runbookmap is */RootFolder*
    3. Voor synchronisatie runbooks van **submap**, pad naar de runbookmap is */RootFolder/submap*.
 4. Nadat u de parameters hebt geconfigureerd, worden weergegeven op de **broncodebeheer instellen** pagina.  
@@ -67,7 +66,7 @@ Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automat
      | **Parameter** | **Waarde** |
      |:--- |:--- |
      | Naam |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |Reeks |
+     | Type |Tekenreeks |
      | Waarde |{{'Vertakking':\<*de naam van uw vertakking*>, 'RunbookFolderPath':\<*pad naar de Runbookmap*>, 'ProviderType':\<*heeft de waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
 
     * De variabele **Microsoft.Azure.Automation.SourceControl.OAuthToken**, bevat de veilig versleutelde waarde van uw OAuthToken.  

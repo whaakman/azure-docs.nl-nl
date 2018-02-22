@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Reageren op gebeurtenissen van de IoT Hub met behulp van de gebeurtenis raster acties starten - Preview
 
@@ -107,7 +107,7 @@ Zie voor een gedetailleerde beschrijving van elke eigenschap [Azure gebeurtenis 
 
 ## <a name="filter-events"></a>Filtergebeurtenissen
 
-IoT Hub gebeurtenisabonnementen kunnen gebeurtenissen op basis van het type en apparaat gebeurtenisnaam filteren. Onderwerp-filters in gebeurtenis raster werk op basis van **voorvoegsel** en **achtervoegsel** overeenkomt, zodat de gebeurtenissen met een overeenkomende onderwerp worden geleverd op de abonnee. 
+IoT Hub gebeurtenisabonnementen kunnen gebeurtenissen op basis van het type en apparaat gebeurtenisnaam filteren. Onderwerp-filters in gebeurtenis raster werk op basis van **voorvoegsel** en **achtervoegsel** overeenkomt met. Het filter wordt gebruikt een `AND` operator om gebeurtenissen met een onderwerpnaam die overeenkomt met het voorvoegsel- en het achtervoegsel aan de abonnee worden geleverd. 
 
 Het onderwerp van de IoT-gebeurtenissen heeft de indeling:
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samenwerking API en de aanpassing
 
-We hebben veel klanten laat ons weten dat ze willen aanpassen van het proces uitnodiging op een manier die het meest geschikt is voor hun organisatie gehad. Met onze API kunt u dat doen. [https://Developer.Microsoft.com/Graph/Docs/API-Reference/V1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+We hebben veel klanten laat ons weten dat ze willen aanpassen van het proces uitnodiging op een manier die het meest geschikt is voor hun organisatie gehad. Met onze API kunt u dat doen. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Mogelijkheden van de uitnodiging API
 De API biedt de volgende mogelijkheden:
@@ -77,7 +77,7 @@ De API kan worden uitgevoerd in de volgende autorisatie-modi:
 In deze modus is degene die de machtigingen om te worden uitnodigingen voor B2B met behulp van de behoeften van de API.
 
 ### <a name="app-only-mode"></a>App alleen de modus
-In de app alleen context moet de app de User.ReadWrite.All of Directory.ReadWrite.All bereiken voor de uitnodiging te kunnen uitvoeren.
+De app moet in de app alleen context, het bereik User.Invite.All voor de uitnodiging te kunnen uitvoeren.
 
 Raadpleeg voor meer informatie: https://graph.microsoft.io/docs/authorization/permission_scopes
 

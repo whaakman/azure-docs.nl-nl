@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
 De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  Dit artikel bevat een overzicht en aanvullende informatie voor de stappen in de video. Deze 24 minuut video ziet u hoe aan:
@@ -33,24 +33,24 @@ De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen m
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Een Azure AD-directory maken
-Voor het beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst hebben een AAD-tenant. In deze video met de naam van een tenant **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
+Voor het beveiligen van uw Web-API back-end met Azure Active Directory moet u eerst hebben een AAD-tenant. In deze video van een tenant met de naam **APIMDemo** wordt gebruikt. Voor het maken van een AAD-tenant, aanmelding bij de [klassieke Azure-Portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Active Directory**  -> **Directory**->**aangepast maken**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In dit voorbeeld van een map met de naam **APIMDemo** wordt gemaakt met een standaarddomein met de naam **DemoAPIM.onmicrosoft.com**. Deze map wordt gebruikt in de video.
+In dit voorbeeld wordt een map met de naam **APIMDemo** wordt gemaakt met een standaarddomein met de naam **DemoAPIM.onmicrosoft.com**. Deze map wordt gebruikt in de video.
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Een Web-API-service worden beveiligd door Azure Active Directory maken
-In deze stap wordt een Web-API-back-end gemaakt met behulp van Visual Studio 2013. In deze stap van de video begint bij 1:30. Voor het maken van back-end-Web API-project in Visual Studio klikt u op **bestand**->**nieuw**->**Project**, en kies **ASP.NET-webtoepassing Toepassing** van de **Web** lijst met sjablonen. In deze video van het project de naam **APIMAADDemo**. Klik op **OK** om het project aan te maken. 
+In deze stap wordt een Web-API-back-end gemaakt met behulp van Visual Studio 2013. In deze stap van de video begint bij 1:30. Voor het maken van back-end-Web API-project in Visual Studio klikt u op **bestand**->**nieuw**->**Project**, en kies **ASP.NET-webtoepassing Toepassing** van de **Web** lijst met sjablonen. In deze video het project de naam **APIMAADDemo**. Klik op **OK** om het project aan te maken. 
 
 ![Visual Studio][api-management-new-web-app]
 
-Klik op **Web API** van de **selecteert u een lijst met sjablonen** een Web-API-project maken. Klik op Azure Directory-verificatie configureren **verificatie wijzigen**.
+Klik op **Web API** van de **selecteert u een lijst met sjablonen** een Web-API-project maken. Voor het configureren van Azure Directory-verificatie, klikt u op **verificatie wijzigen**.
 
 ![Nieuw project][api-management-new-project]
 
-Klik op **Organisatieaccounts**, en geef de **domein** van uw AAD-tenant. In dit voorbeeld voor het domein is **DemoAPIM.onmicrosoft.com**. Het domein van uw directory kan worden verkregen van de **domeinen** tabblad van uw directory.
+Klik op **Organisatieaccounts**, en geef de **domein** van uw AAD-tenant. In dit voorbeeld wordt het domein is **DemoAPIM.onmicrosoft.com**. Het domein van uw directory kan worden verkregen van de **domeinen** tabblad van uw directory.
 
 ![Domeinen][api-management-aad-domains]
 
@@ -70,7 +70,7 @@ U wordt mogelijk gevraagd om aan te melden bij Azure en vervolgens kunt u de Web
 
 ![Configureren][api-management-configure-web-app]
 
-In dit voorbeeld is een nieuwe **App Service-abonnement** met de naam **APIMAADDemo** is opgegeven.
+In dit voorbeeld wordt een nieuwe **App Service-abonnement** met de naam **APIMAADDemo** is opgegeven.
 
 Klik op **OK** voor het configureren van de Web-App en het project maken.
 
@@ -192,7 +192,7 @@ API's worden geconfigureerd in de API-publicatieportal, die wordt geopend via de
 
 Bewerkingen kunnen worden [toegevoegd aan de API's handmatig](api-management-howto-add-operations.md), of ze kunnen worden geïmporteerd. In deze video worden bewerkingen in Swagger-indeling vanaf 6:40 geïmporteerd.
 
-Maak een bestand met de naam `calcapi.json` met de volgende inhoud en sla deze op uw computer. Zorg ervoor dat de `host` punten kenmerk back-end van uw Web-API. In dit voorbeeld wordt `"host": "apimaaddemo.azurewebsites.net"` gebruikt.
+Maak een bestand met de naam `calcapi.json` met de volgende inhoud en sla deze op uw computer. Zorg ervoor dat de `host` punten kenmerk back-end van uw Web-API. In dit voorbeeld `"host": "apimaaddemo.azurewebsites.net"` wordt gebruikt.
 
 ```json
 {
@@ -375,7 +375,7 @@ De aanvraag is niet geautoriseerd, omdat de back-end API is beveiligd door Azure
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>De portal voor ontwikkelaars registreren als een AAD-toepassing
 De eerste stap bij het configureren van de portal voor ontwikkelaars om te verifiëren met behulp van OAuth 2.0 ontwikkelaars is de portal voor ontwikkelaars registreren als een AAD-toepassing. Dit wordt geïllustreerd 8:27 in de video wordt gestart.
 
-Navigeer naar de Azure AD-tenant van de eerste stap in deze video in dit voorbeeld **APIMDemo** en navigeer naar de **toepassingen** tabblad.
+Navigeer naar de Azure AD-tenant van de eerste stap in deze video In dit voorbeeld **APIMDemo** en navigeer naar de **toepassingen** tabblad.
 
 ![Nieuwe toepassing][api-management-aad-new-application-devportal]
 
@@ -387,9 +387,9 @@ Kies **Web-toepassing en/of Web-API**, voer een naam in en klik op de pijl Volge
 
 ![Nieuwe toepassing][api-management-aad-new-application-devportal-1]
 
-Voor **aanmeldings-URL** Voer de URL van uw API Management-service en toevoeg- `/signin`. In dit voorbeeld wordt `https://contoso5.portal.azure-api.net/signin` gebruikt.
+Voor **aanmeldings-URL** Voer de URL van uw API Management-service en toevoeg- `/signin`. In dit voorbeeld `https://contoso5.portal.azure-api.net/signin` wordt gebruikt.
 
-Voor **App-Id-URL** Voer de URL van uw API Management-service en het toevoegen van enkele unieke tekens. Deze mag gewenste tekens lang zijn en in dit voorbeeld `https://contoso5.portal.azure-api.net/dp` wordt gebruikt. Wanneer de gewenste **App-eigenschappen** zijn geconfigureerd, klikt u op het vinkje om de toepassing te maken.
+Voor **App-Id-URL** Voer de URL van uw API Management-service en het toevoegen van enkele unieke tekens. Deze mag gewenste tekens lang zijn en In dit voorbeeld `https://contoso5.portal.azure-api.net/dp` wordt gebruikt. Wanneer de gewenste **App-eigenschappen** zijn geconfigureerd, klikt u op het vinkje om de toepassing te maken.
 
 ![Nieuwe toepassing][api-management-aad-new-application-devportal-2]
 
@@ -410,7 +410,7 @@ Geef vervolgens **autorisatie eindpunt-URL** en **Token eindpunt-URL**.
 
 ![Autorisatie-server][api-management-add-authorization-server-1a]
 
-Deze waarden kunnen worden opgehaald uit de **App eindpunten** pagina van de AAD-toepassing die u hebt gemaakt voor de portal voor ontwikkelaars. Voor toegang tot de eindpunten, navigeer naar de **configureren** tabblad voor de AAD-toepassing en klik op **eindpunten weergeven**.
+Deze waarden kunnen worden opgehaald uit de **App eindpunten** pagina van de AAD-toepassing die u hebt gemaakt voor de portal voor ontwikkelaars. Voor toegang tot de eindpunten, gaat u naar de **configureren** tabblad voor de AAD-toepassing en klik op **eindpunten weergeven**.
 
 ![Toepassing][api-management-aad-devportal-application]
 
@@ -495,7 +495,7 @@ Klik op **verzenden** en noteer de **antwoordstatus** van **200 OK** en de resul
 De volgende procedure in de video begint bij 16:30 en configureert u een eenvoudige bureaubladtoepassing de API aan te roepen. De eerste stap is het registreren van de bureaubladtoepassing in Azure AD en toegang geven tot de map en de back-endservice. 18:25 is er een demonstratie van de bureaubladtoepassing een bewerking op de Rekenmachine-API aanroepen.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configureer een beleid voor de validatie van JWT vooraf om aanvragen te verifiëren
-De laatste procedure in de video begint bij 20:48 en leest u hoe u de [JWT valideren](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) beleid voor het autoriseren vooraf aanvragen door het valideren van de toegangstokens voor elke inkomende aanvraag. Als de aanvraag is niet gevalideerd door het valideren van JWT-beleid, wordt de aanvraag wordt geblokkeerd door de API Management en niet wordt doorgestuurd naar de back-end.
+De laatste procedure in de video begint bij 20:48 en leest u hoe u de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid voor het autoriseren vooraf aanvragen door het valideren van de toegangstokens voor elke inkomende aanvraag. Als de aanvraag is niet gevalideerd door het valideren van JWT-beleid, wordt de aanvraag wordt geblokkeerd door de API Management en niet wordt doorgestuurd naar de back-end.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Modelgegevens verzamelen met behulp van gegevensverzameling
 
@@ -88,7 +88,7 @@ Als u wilt gebruiken om het model gegevens verzamelen, moet u de volgende wijzig
 De verzamelde gegevens weergeven in de blob-opslag:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **meer Services**.
+2. Selecteer **alle Services**.
 3. Typ in het zoekvak **opslagaccounts** en selecteer de Enter-toets.
 4. Van de **opslagaccounts** search-blade, selecteer de **opslagaccount** resource. Om te bepalen van uw opslagaccount, gebruikt u de volgende stappen uit:
 

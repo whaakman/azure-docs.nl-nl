@@ -16,27 +16,27 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: d31aa3b1399bab2b1dcfdb2eb6ece393610c769f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e044d32406236aacaf7fffa2b4b19dadd96a7d5d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Gebruikersaanmeldingen een enterprise-App in Azure Active Directory uitschakelen
 Het is gemakkelijk een zakelijke toepassing uitschakelen zodat er geen gebruikers bij deze in Azure Active Directory (Azure AD aanmelden kunnen). U moet de juiste machtigingen voor het beheren van de app voor de onderneming hebben en u moet een globale beheerder voor de map.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Hoe schakel ik gebruikersaanmelding
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
-3. Op de **Azure Active Directory** -  ***directoryname*** blade (dat wil zeggen, de Azure AD blade voor de map die u beheert), selecteer **bedrijfstoepassingen**.
+2. Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+3. Op de **Azure Active Directory** -  ***directoryname*** deelvenster (dat wil zeggen, de Azure AD voor de map die u beheert), selecteer **bedrijfstoepassingen**.
 
     ![Openen zakelijke apps](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
-4. Op de **bedrijfstoepassingen** blade Selecteer **alle toepassingen**. U ziet een lijst met de apps die u kunt beheren.
-5. Op de **bedrijfstoepassingen - alle toepassingen** blade, selecteert u een app.
-6. Op de ***appname*** blade (dat wil zeggen, de blade met de naam van de geselecteerde app in de titel), selecteer **eigenschappen**.
+4. Op de **bedrijfstoepassingen** deelvenster **alle toepassingen**. U ziet een lijst met de apps die u kunt beheren.
+5. Op de **bedrijfstoepassingen - alle toepassingen** deelvenster, selecteert u een app.
+6. Op de ***appname*** deelvenster (dat wil zeggen, het deelvenster met de naam van de geselecteerde app in de titel), selecteer **eigenschappen**.
 
     ![De opdracht Alles toepassingen selecteren](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)
-7. Op de ***appname*** - **eigenschappen** blade Selecteer **Nee** voor **ingeschakeld voor gebruikers om aan te melden?**.
+7. Op de ***appname*** - **eigenschappen** deelvenster **Nee** voor **ingeschakeld voor gebruikers om aan te melden?**.
 8. Selecteer de **opslaan** opdracht.
 
 ## <a name="next-steps"></a>Volgende stappen

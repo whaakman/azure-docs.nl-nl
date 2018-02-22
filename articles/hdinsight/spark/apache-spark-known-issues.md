@@ -16,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Bekende problemen van Apache Spark-cluster in HDInsight
 
 Dit document houdt van alle bekende problemen voor de openbare preview van HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy lekt interactieve sessies
-Wanneer Livy opnieuw wordt gestart (van Ambari of vanwege headnode 0 virtuele machine opnieuw opstarten) met een interactieve sessie nog steeds actief is, wordt er een sessie interactieve taak gelekt. Als gevolg hiervan worden nieuwe taken kunnen vastgelopen in de status goedgekeurd en kunnen niet worden gestart.
+Wanneer Livy opnieuw wordt gestart (van Ambari of vanwege headnode 0 virtuele machine opnieuw opstarten) met een interactieve sessie nog steeds actief is, wordt een sessie interactieve taak gelekt. Als gevolg hiervan worden nieuwe taken kunnen blijven steken bij de status goedgekeurd en kunnen niet worden gestart.
 
 **Risicobeperking:**
 
-Gebruik de volgende procedure het probleem oplossen:
+Gebruik de volgende procedure om het probleem te omzeilen:
 
 1. SSH in headnode. Zie [SSH-sleutels gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
@@ -39,12 +39,12 @@ Gebruik de volgende procedure het probleem oplossen:
    
         yarn application –list
    
-    De standaard-taak namen Livy worden als de taken zijn gestart met een interactieve sessie Livy met geen expliciete namen opgegeven voor de Livy-sessie gestart met Jupyter-notebook, de taaknaam van de zal starten met remotesparkmagics_ *. 
+    De namen van de taak standaard is Livy als de taken zijn gestart met een interactieve sessie Livy met geen expliciete namen opgegeven. Voor de Livy-sessie gestart door de Jupyter-notebook, begint de taaknaam met remotesparkmagics_ *. 
 3. Voer de volgende opdracht om deze taken af te sluiten. 
    
         yarn application –kill <Application ID>
 
-Nieuwe taken worden gestart met. 
+Nieuwe taken zijn gestart. 
 
 ## <a name="spark-history-server-not-started"></a>Spark geschiedenis Server is niet gestart
 Spark geschiedenis Server is niet automatisch gestart nadat een cluster is gemaakt.  
@@ -75,7 +75,7 @@ In plaats daarvan moet u de Spark-HBase-connector gebruiken. Zie voor instructie
 Hier volgen enkele bekende problemen die betrekking hebben op Jupyter-notebooks.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Laptops met niet-ASCII-tekens in bestandsnamen
-Jupyter-notebooks die kunnen worden gebruikt in HDInsight Spark-clusters mag geen niet-ASCII-tekens in bestandsnamen. Als u probeert een bestand via de UI Jupyter een niet-ASCII-bestandsnaam heeft te uploaden, zal mislukken achtergrond (dat wil zeggen, Jupyter kunt u het bestand uploadt, maar deze won't ofwel een zichtbaar fout genereert). 
+Jupyter-notebooks die kunnen worden gebruikt in HDInsight Spark-clusters mag geen niet-ASCII-tekens in bestandsnamen. Als u probeert te uploaden van een bestand via de UI Jupyter een niet-ASCII-bestandsnaam heeft, mislukt de bewerking achtergrond (dat wil zeggen, Jupyter kunt u niet het bestand uploadt, maar een zichtbaar fout niet ofwel worden Veroorzaak). 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fout tijdens het laden van notitieblokken van grotere
 U ziet mogelijk een fout  **`Error loading notebook`**  wanneer het laden van laptops die groter zijn.  
@@ -84,7 +84,7 @@ U ziet mogelijk een fout  **`Error loading notebook`**  wanneer het laden van la
 
 Als u deze fout krijgt, betekent niet dat uw gegevens is beschadigd of verloren.  Uw laptops zich nog steeds op schijf in `/var/lib/jupyter`, en u kunt SSH in het cluster toegang toe hebben. Zie [SSH-sleutels gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-Wanneer u verbinding hebt gemaakt met het cluster via SSH, kunt u uw notitieblokken kopiëren van het cluster op uw lokale computer (via SCP of WinSCP) als een back-up van alle belangrijke gegevens in de notebook gegevensverlies te voorkomen. U kunt vervolgens SSH-tunnel in uw headnode op poort 8001 voor toegang tot Jupyter zonder tussenkomst van de gateway.  U kunt daar schakelt u de uitvoer van uw laptop en sla opnieuw op om de grootte van de notebook te minimaliseren.
+Wanneer u verbinding hebt gemaakt met het cluster via SSH, kunt u uw notitieblokken kopiëren van het cluster op uw lokale computer (via SCP of WinSCP) als een back-up van alle belangrijke gegevens in de notebook gegevensverlies te voorkomen. U kunt vervolgens SSH-tunnel in uw headnode op poort 8001 voor toegang tot Jupyter zonder tussenkomst van de gateway.  U kunt daar, schakelt u de uitvoer van uw laptop en sla opnieuw op om te minimaliseren, de grootte van de notebook.
 
 Om te voorkomen dat deze fout in de toekomst, moet u enkele aanbevolen procedures volgen:
 
@@ -99,7 +99,7 @@ Eerste code-instructie in Jupyter-notebook met behulp van Spark magic kan meer d
 Dit gebeurt omdat wanneer de eerste codecel wordt uitgevoerd. Op de achtergrond Hiermee initieert u sessieconfiguratie en Spark, SQL en Hive-contexten worden ingesteld. Nadat deze contexten zijn ingesteld, wordt de eerste instructie is uitgevoerd en dit de indruk dat geeft duurde de instructie lang om te voltooien.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter-notebook time-out bij het maken van de sessie
-Wanneer het Spark-cluster heeft onvoldoende resources, wordt de Spark en Pyspark kernels in de Jupyter-notebook time-out bij het maken van de sessie. 
+Wanneer het Spark-cluster heeft onvoldoende resources, wordt de Spark en PySpark kernels in de Jupyter-notebook time-out bij het maken van de sessie. 
 
 **Oplossingen:** 
 
@@ -116,7 +116,6 @@ Wanneer het Spark-cluster heeft onvoldoende resources, wordt de Spark en Pyspark
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

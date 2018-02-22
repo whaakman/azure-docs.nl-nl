@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD-Android aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,7 +52,7 @@ We ervan uit dat u bent u registreert de waarnaar wordt verwezen eerder TODO RES
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. In de **Directory** kiest u de Azure AD-tenant waar u uw toepassing registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Een beschrijvende naam voor de toepassing (bijvoorbeeld **TodoListService**), selecteer **webtoepassing en/of Web-API**, en klik op **volgende**.
 6. Voer de basis-URL voor het voorbeeld voor de URL eenmalige aanmelding. Dit is standaard `https://localhost:8080`.
@@ -70,7 +70,7 @@ We ervan uit dat u bent u registreert de voorbeeldtoepassing waarnaar wordt verw
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op uw account op de bovenste balk. In de **Directory** kiest u de Azure AD-tenant waar u uw toepassing registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+3. Klik op **alle services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
 5. Een beschrijvende naam voor de toepassing (bijvoorbeeld **TodoListClient Android**), selecteer **systeemeigen clienttoepassing**, en klik op **volgende**.
 6. Voer voor de omleidings-URI `http://TodoListClient`. Klik op **Voltooien**.
@@ -85,9 +85,9 @@ Als u wilt maken met Maven, kunt u pom.xml op het hoogste niveau:
 2. Volg de stappen in de [vereisten voor het instellen van uw omgeving Maven voor Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
 3. Instellen van de SDK-19-emulator.
 4. Ga naar de hoofdmap waar u de opslagplaats.
-5. Deze opdracht uitvoeren:`mvn clean install`
-6. Wijzig de directory in het voorbeeld snel starten:`cd samples\hello`
-7. Deze opdracht uitvoeren:`mvn android:deploy android:run`
+5. Deze opdracht uitvoeren: `mvn clean install`
+6. Wijzig de directory in het voorbeeld snel starten: `cd samples\hello`
+7. Deze opdracht uitvoeren: `mvn android:deploy android:run`
 
    U ziet dat de app wordt gestart.
 8. Voer de referenties van gebruiker testen om te proberen.

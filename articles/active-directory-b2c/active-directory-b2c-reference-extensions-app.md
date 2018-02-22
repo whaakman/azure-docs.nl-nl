@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: parja
-ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Extensies app
 
@@ -31,7 +31,7 @@ Als een Azure AD B2C-directory is gemaakt, wordt aangeroepen door een app `b2c-e
 
 Controleer of de b2c-uitbreidingen-app aanwezig is:
 
-1. Binnen uw Azure AD B2C-tenant, klikt u op **meer services** in het navigatiemenu links.
+1. Binnen uw Azure AD B2C-tenant, klikt u op **alle services** in het navigatiemenu links.
 1. Zoeken en openen **App registraties**.
 1. Een app die met begint zoeken **b2c-uitbreidingen-app**
 

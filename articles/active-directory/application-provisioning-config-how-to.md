@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Het configureren van gebruikers inrichten tot een toepassing die Azure AD-galerie
 
@@ -31,7 +31,7 @@ In de Azure portal, de **inrichten** tabblad in het navigatiedeelvenster links v
 
 Als u handmatig is alleen de modus voor een bepaalde toepassing weergegeven, betekent dit dat er geen automatische Azure AD connector inrichting is gemaakt voor de app nog. Of betekent dit dat de vereiste gebruiker management API waarop voor het bouwen van een geautomatiseerde inrichting connector biedt geen ondersteuning voor de app.
 
-Als u ondersteuning voor automatische inrichting voor een bepaalde app aanvragen wilt, kunt u een van de aanvraag op invullen <http://aka.ms/aadapprequest>.
+Als u vraag ondersteuning wilt voor automatische inrichting voor een bepaalde app u vult een aanvraag met de [Azure Active Directory-toepassingsaanvragen](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Een toepassing configureren voor automatische inrichting
 

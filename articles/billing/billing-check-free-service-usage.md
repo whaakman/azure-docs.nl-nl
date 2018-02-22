@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controleer gebruik van de beschikbare services in uw gratis Azure-account 
 
@@ -28,7 +28,7 @@ Er zijn niet in rekening gebracht voor services voor het vrije in gratis Azure-a
 
 1.  Meld u aan bij [Azure Portal]( http://portal.azure.com).
 
-2.  Selecteer in de onderkant van de navigatiebalk aan de linkerkant, **meer services**.
+2.  Selecteer in het linkernavigatievenster gebied **alle services**.
 
 3.  Selecteer **abonnementen**.
 
@@ -63,7 +63,7 @@ Er zijn niet in rekening gebracht voor services voor het vrije in gratis Azure-a
 
 Uw gebruik-bestand bevat gedetailleerde informatie voor uw Azure-abonnement. U kunt uw maandelijkse en dagelijks gebruik bestand downloaden van Azure-Accountcentrum. Zie voor meer informatie over het gebruik van bestand downloaden en begrijpen van de toegang is vereist, [factuur ophalen en gebruik](billing-download-azure-invoice-daily-usage-date.md). Zie voor meer informatie over kolommen in het bestand gebruik, [begrijpen van de voorwaarden van uw gebruik](billing-understand-your-usage.md). 
 
-Het gebruik van-bestand bevat informatie over het gebruik voor gratis en betaalde services. Gratis service meters zou hebben **vrije** toegevoegd aan het einde van de naam van de meter. Gratis meters, open het bestand in excel en filter vinden de **kolom Meter categorie** voor cellen met tekst **- vrij** (Filters gebruiken om tekst &rarr; filter Contains)&nbsp;
+Het gebruik van-bestand bevat informatie over het gebruik voor gratis en betaalde services. Gratis service meters zou hebben **vrije** toegevoegd aan het einde van de naam van de meter. Gratis meters, open het bestand in excel en filter vinden de **kolom Meter categorie** voor cellen met tekst **- vrij** (Filters gebruiken om tekst &rarr; filter Contains) &nbsp;
 
 ![Schermafbeelding van informatie over het gebruik van gratis services](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ Als u wilt inschakelen voor uw app tokens krijgen, moet u eerst registreren in u
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
-3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
+3. Klik op **alle services** in de nav linkerkant en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **toevoegen**.
 5. Volg de aanwijzingen en maak een nieuwe **systeemeigen clienttoepassing**.
   * De **naam** van de toepassing bevat een beschrijving van uw toepassing aan eindgebruikers

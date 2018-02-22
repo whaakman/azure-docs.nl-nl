@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Een klassieke virtuele Linux-machine vastleggen als installatiekopie
 > [!IMPORTANT]
@@ -76,7 +76,7 @@ Deze stappen wordt ervan uitgegaan dat u hebt al een virtuele machine in Azure m
     ```azurecli
     azure vm shutdown myVM
     ```
-   Indien nodig, kunt u een lijst van alle VM's in uw abonnement is gemaakt met behulp van weergeven`azure vm list`
+   Indien nodig, kunt u een lijst van alle VM's in uw abonnement is gemaakt met behulp van weergeven `azure vm list`
 
    > [!NOTE]
    > Als u de Azure-portal, selecteert u de virtuele machine en klik op **stoppen** afsluiten van de virtuele machine.
@@ -98,7 +98,7 @@ Deze stappen wordt ervan uitgegaan dat u hebt al een virtuele machine in Azure m
    azure vm image list
    ```
 
-   Op de [Azure-portal](http://portal.azure.com), de nieuwe installatiekopie wordt weergegeven in de **VM-installatiekopieën (klassiek)** die hoort bij de **Compute** services. U hebt toegang tot **VM-installatiekopieën (klassiek)** door te klikken op _meer services_ lijst aan de onderkant van de Azure-service en bekijkt u de **Compute** services.   
+   Op de [Azure-portal](http://portal.azure.com), de nieuwe installatiekopie wordt weergegeven in de **VM-installatiekopieën (klassiek)** die hoort bij de **Compute** services. U hebt toegang tot **VM-installatiekopieën (klassiek)** door te klikken op **alle services** lijst aan de bovenkant van de Azure-service en bekijkt u de **Compute** services.   
 
    ![De installatiekopie is geslaagd](./media/capture-image/VMCapturedImageAvailable.png)
 

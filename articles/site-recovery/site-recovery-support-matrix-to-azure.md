@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van on-premises naar Azure
 
@@ -72,17 +72,17 @@ De volgende tabel geeft een overzicht van ondersteuning voor gerepliceerde bestu
 
 >[!NOTE]
 >
-> \*Windows Server 2016 Nano Server wordt niet ondersteund.
+> \* Windows Server 2016 Nano Server wordt niet ondersteund.
 >
 > Op Linux-distributies, worden alleen de vooraf gedefinieerde kernels die deel van de secundaire versie release/bijwerken van de verdeling uitmaken ondersteund.
 >
 > Upgrades tussen primaire versies van een Linux-distributie op een Azure Site Recovery beveiligde virtuele VMware-machine of fysieke server wordt niet ondersteund. Tijdens het upgraden van het besturingssysteem op de primaire versies (bijvoorbeeld CentOS 6.* naar CentOS 7.*), schakelt u replicatie voor de machine uit, werk het besturingssysteem op de machine en vervolgens replicatie opnieuw inschakelen.
-> 
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ondersteunde versies van Ubuntu kernel voor VMware/fysieke servers
 
-**Release** | **De versie van de Mobility-service** | **Kernelversie** |
+**Release** | **De versie van de Mobility-service** | Kernelversie |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic naar 3.13.0-121-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic naar 3.13.0-128-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-91-generic |
@@ -134,7 +134,7 @@ Multi-NIC | Ja | Ja
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuratie van failover Azure VM-netwerken
 
-**Azure-netwerken** | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
+Azure-netwerken | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
 --- | --- | ---
 ExpressRoute | Ja | Ja
 ILB | Ja | Ja
@@ -166,7 +166,7 @@ Multipath (MPIO)<br></br>Getest met de: Microsoft DSM, EMC PowerPath 5.7 SP4, EM
 VMDK | Ja | N/A
 VHD/VHDX | N/A | Ja
 Generatie 2 VM | N/A | Ja
-EFI/UEFI| Migratie naar Azure voor WindowsServer 2012 en nieuwere versies. </br></br> ** Opmerking aan het einde van de tabel zien.  | Ja
+EFI/UEFI| Migratie naar Azure voor Windows Server 2012 en hoger virtuele VMware-machines alleen. </br></br> ** Opmerking aan het einde van de tabel zien.  | Ja
 Clusterschijf gedeeld | Nee | Nee
 Versleutelde schijf | Nee | Nee
 NFS | Nee | N/A
@@ -182,10 +182,11 @@ Schijf uitsluiten | Ja | Ja
 Multipath (MPIO) | N/A | Ja
 
 > [!NOTE]
-> ** UEFI, opstarten virtuele VMware-machines of fysieke servers met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Volgende beperkingen worden toegepast.
+> ** UEFI opstart met Windows Server 2012 virtuele VMware-machines of hoger, kunnen worden gemigreerd naar Azure. Volgende beperkingen worden toegepast.
 > - Alleen migratie naar Azure. Failback naar on-premises VMware-site niet ondersteund.
 > - Niet meer dan 4 partities worden op schijf met het besturingssysteem van de server ondersteund.
 > - Versie van Azure Site Recovery Mobility-service 9.13 of hoger vereist.
+> - Niet ondersteund voor fysieke servers.
 
 **Azure Storage** | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
 --- | --- | ---
@@ -240,7 +241,7 @@ Verplaats de opslag, netwerk, Azure VM's via resourcegroepen<br/><br/> Binnen en
 
 ## <a name="support-for-provider-and-agent"></a>Ondersteuning voor de Provider en Agent
 
-**Naam** | **Beschrijving** | **Meest recente versie** | **Details**
+**Naam** | **Beschrijving** | **meest recente versie** | **Details**
 --- | --- | --- | --- | ---
 **Azure Site Recovery Provider** | Coördineert de communicatie tussen de on-premises servers en Azure <br/><br/> Op de on-premises Virtual Machine Manager-servers of op de Hyper-V-servers worden geïnstalleerd als er geen Virtual Machine Manager-server | 5.1.2700.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
 **Azure Site Recovery Unified Setup (VMware naar Azure)** | Coördineert de communicatie tussen de on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)

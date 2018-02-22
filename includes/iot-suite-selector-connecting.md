@@ -23,28 +23,28 @@ U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u gee
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u code voor het apparaat gaat schrijven, moet u de vooraf geconfigureerde oplossing voor externe controle inrichten en een nieuw aangepast apparaat in die oplossing inrichten.
+Voordat u code voor uw apparaat schrijven, wordt uw vooraf geconfigureerde oplossing voor externe controle implementeert en een nieuwe fysieke apparaat toevoegt aan de oplossing.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle inrichten
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Implementeer uw vooraf geconfigureerde oplossing voor externe controle
 
 De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) vooraf geconfigureerde oplossing. Als u dit nog niet hebt in uw Azure-account al en de vooraf geconfigureerde oplossing voor externe controle ingericht, Zie [implementeren van de vooraf geconfigureerde oplossing voor externe controle](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Wanneer het inrichtingsproces voor de oplossing voor externe controle is voltooid, klikt u op **Starten** om het dashboard van de oplossing in uw browser te openen.
+Wanneer het implementatieproces voor de oplossing voor externe controle is voltooid, klikt u op **starten** dashboard van de oplossing in uw browser te openen.
 
 ![Dashboard van de oplossing](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Het apparaat inrichten in de oplossing voor externe controle
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Uw apparaat toevoegt aan de oplossing voor externe controle
 
 > [!NOTE]
-> Als u al een apparaat in uw oplossing hebt ingericht, kunt u deze stap overslaan. U moet de verbindingsreeks apparaat, kunt u bij het maken van de clienttoepassing ophalen uit de Azure-portal.
+> Als u al een apparaat in uw oplossing hebt toegevoegd, kunt u deze stap overslaan. De volgende stap vereist echter de verbindingsreeks van uw apparaat. U kunt ophalen van een apparaat-verbindingsreeks uit de [Azure-portal](https://portal.azure.com) of met behulp van de [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-hulpprogramma.
 
-Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U hebt de mogelijkheid om op te slaan apparaat verbindingsreeks de referenties bevat bij het toevoegen van het apparaat de oplossing. De verbindingsreeks van het apparaat in uw clienttoepassing verderop in deze zelfstudie te nemen.
+Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U hebt de mogelijkheid om op te slaan de apparaat-verbindingsreeks met deze referenties wanneer u het apparaat toevoegen de oplossing. De verbindingsreeks van het apparaat in uw clienttoepassing verderop in deze zelfstudie te nemen.
 
 Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u de volgende stappen uitvoeren op de **apparaten** pagina in de oplossing:
 
 1. Kies **+ nieuw apparaat**, en kies vervolgens **fysieke** als de **apparaattype**:
 
-    ![Een fysiek apparaat inrichten](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Een fysiek apparaat toevoegen](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Voer **fysiek Koelunit** als de apparaat-ID. Kies de **symmetrische sleutel** en **automatisch genereren van sleutels** opties:
 
@@ -54,9 +54,7 @@ Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u 
 
     ![Referenties ophalen](media/iot-suite-selector-connecting/credentials.png)
 
-Als u wilt de referenties op die het apparaat gebruiken moet voor verbinding met de vooraf geconfigureerde oplossing hebt gevonden, gaat u naar de Azure-portal in uw browser. Meld u aan uw abonnement.
-
-U hebt nu een fysiek apparaat in de externe controle ingericht vooraf geconfigureerde oplossing. In de volgende secties vindt implementeren u de clienttoepassing die de referenties van het apparaat verbinding maakt met uw oplossing.
+U hebt nu een fysiek apparaat toegevoegd aan de vooraf geconfigureerde oplossing voor externe controle en de verbindingsreeks van het apparaat hebt genoteerd. In de volgende secties vindt implementeren u de clienttoepassing die de verbindingsreeks van het apparaat verbinding maakt met uw oplossing.
 
 De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een model van de vooraf geconfigureerde oplossing apparaat Hiermee geeft u de volgende met betrekking tot een apparaat:
 

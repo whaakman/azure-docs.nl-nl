@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Resources implementeren met Resource Manager-sjablonen en Azure Portal
 
@@ -47,9 +47,9 @@ Dit onderwerp wordt beschreven hoe u de [Azure-portal](https://portal.azure.com)
 
 Nadat u een resourcegroep hebt gemaakt, kunt u kunt resources van de Marketplace implementeren. De Marketplace biedt vooraf gedefinieerde oplossingen voor algemene scenario's.
 
-1. Selecteer voor het starten van een implementatie **nieuw**.
+1. Selecteer voor het starten van een implementatie **maken van een resource**.
 
-   ![Nieuwe bron](./media/resource-group-template-deploy-portal/new-resources.png)
+   ![Nieuwe resource](./media/resource-group-template-deploy-portal/new-resources.png)
 
 1. Vinden van het type resource dat u wilt implementeren.
 
@@ -79,7 +79,7 @@ Nadat u een resourcegroep hebt gemaakt, kunt u kunt resources van de Marketplace
 
 Als u wilt uitvoeren van een implementatie, maar geen gebruik van de sjablonen in de Marketplace, kunt u een aangepaste sjabloon die de infrastructuur voor uw oplossing definieert. Zie voor meer informatie over het maken van sjablonen, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 
-1. Voor het implementeren van een aangepaste sjabloon via de portal, selecteer **nieuw**, en zoek naar **sjabloonimplementatie** totdat u deze in de opties kunt selecteren.
+1. Voor het implementeren van een aangepaste sjabloon via de portal, selecteer **maken van een resource**, en zoek naar **sjabloonimplementatie** totdat u deze in de opties kunt selecteren.
 
    ![de sjabloonimplementatie zoeken](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -97,7 +97,7 @@ Als u wilt uitvoeren van een implementatie, maar geen gebruik van de sjablonen i
 
 1. U kunt de syntaxis van de JSON handmatig bewerken of Selecteer een vooraf gemaakte sjabloon van de [sjabloon snelstartgalerie](https://azure.microsoft.com/resources/templates/). Voor dit artikel hebt u echter gebruiken de **resource toevoegen** optie.
 
-   ![sjabloon bewerken](./media/resource-group-template-deploy-portal/select-add-resource.png)
+   ![Sjabloon bewerken](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
 1. Selecteer **opslagaccount** en geef een naam. Als u klaar bent waarden selecteren **OK**.
 
@@ -105,7 +105,7 @@ Als u wilt uitvoeren van een implementatie, maar geen gebruik van de sjablonen i
 
 1. De editor wordt automatisch toegevoegd voor JSON voor het brontype. U ziet dat deze een parameter voor het definiëren van het type van het opslagaccount bevat. Selecteer **Opslaan**.
 
-   ![sjabloon weergeven](./media/resource-group-template-deploy-portal/show-json.png)
+   ![Sjabloon weergeven](./media/resource-group-template-deploy-portal/show-json.png)
 
 1. U hebt nu de optie voor het implementeren van de resources die zijn gedefinieerd in de sjabloon. Te implementeren, ga akkoord met de voorwaarden en selecteer **aankoop**.
 

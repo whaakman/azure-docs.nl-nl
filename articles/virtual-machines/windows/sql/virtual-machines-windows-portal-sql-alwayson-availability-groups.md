@@ -4,7 +4,7 @@ description: Deze zelfstudie laat zien hoe u een AlwaysOn-beschikbaarheidsgroep 
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Altijd op beschikbaarheidsgroepen automatisch in Azure Virtual Machines configureren: Resource Manager
 
@@ -63,8 +63,8 @@ In deze zelfstudie gebruikt u de Azure-portal:
 Azure biedt een afbeelding voor de hele oplossing. De sjabloon zoeken:
 
 1. Meld u aan bij de Azure portal met behulp van uw account.
-2. Klik in de Azure-portal op **+ nieuw** openen de **nieuw** blade.
-3. Op de **nieuw** blade, zoekt u **AlwaysOn**.
+2. Klik in de Azure-portal op **maken van een resource** openen de **nieuw** deelvenster.
+3. Op de **nieuw** deelvenster, zoek naar **AlwaysOn**.
    ![AlwaysOn-sjabloon zoeken](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Zoek in de lijst met zoekresultaten **SQL Server AlwaysOn-Cluster**.
    ![AlwaysOn-sjabloon](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -195,7 +195,7 @@ De Azure-portal maakt de resourcegroep en alle resources.
 ## <a name="monitor-deployment"></a>Monitor voor implementatie
 De implementatie voortgang van de Azure-portal. Een pictogram dat staat voor de implementatie is automatisch vastgemaakt aan de Azure-portaldashboard.
 
-![Azure-Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
+![Azure Dashboard](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
 ## <a name="connect-to-sql-server"></a>Verbinding maken met SQL Server
 De nieuwe exemplaren van SQL Server worden uitgevoerd op virtuele machines met internet verbonden IP-adressen. U kunt Extern bureaublad (RDP) rechtstreeks aan elke virtuele machine van SQL Server.

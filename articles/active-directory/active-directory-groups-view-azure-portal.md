@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Weergave of zoeken naar uw gebruikersgroepen in Azure Active Directory
 In dit artikel wordt uitgelegd hoe het weergeven van alle groepen in Azure Active Directory (Azure AD). Een van de functies van Azure AD-Gebruikersbeheer is dat u groepen beheertaken uitvoert kunt zoals het toewijzen van licenties of machtigingen aan een aantal gebruikers tegelijk.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Hoe kan ik alle groepen zien?
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+2. Selecteer **alle services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
 
    ![Openen gebruikers en groepen](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Op de **gebruikers en groepen** blade Selecteer **alle groepen**.

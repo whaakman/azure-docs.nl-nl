@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd603f07c20811543e07b21683b065bc873786a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-source-wizard"></a>Wizard gegevensbron #
 
-De Wizard gegevensbron is een snelle en gemakkelijke manier om te zorgen dat een gegevensset in Azure ML-Workbench zonder code. Het is waar u ook een voorbeeld-strategie voor de gegevensset kunt selecteren. 
+De Wizard gegevensbron is een snelle en gemakkelijke manier om te zorgen dat een gegevensset in Azure ML-Workbench zonder code. Het is waar u ook een voorbeeld-strategie voor de gegevensset en gegevenstypen voor elke kolom kunt selecteren. 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>Stap 1: De Wizard gegevensbron activeren ## 
 
@@ -27,7 +27,7 @@ Om gegevens in een project met de wizard gegevensbron. Selecteer de  **+**  knop
 ![Gegevensbron toevoegen](media/data-source-wizard/add-data-source.png)
 
 ## <a name="step-2-select-where-data-is-stored"></a>Stap 2: Selecteer waar gegevens worden opgeslagen ##
-Eerst opgeven hoe uw gegevens in. Het kan worden opgeslagen in een plat bestand of een map, een parketvloeren-bestand, een Excel-bestand of een database. Zie [gegevensbronnen ondersteund](data-prep-appendix2-supported-data-sources.md) voor meer informatie.
+Eerst opgeven hoe uw gegevens in. Het kan worden opgeslagen in een plat bestand of een map, een parketvloeren-bestand, een Excel-bestand of een database. Zie voor meer informatie [gegevensbronnen ondersteund](data-prep-appendix2-supported-data-sources.md).
 
 ![Stap 1](media/data-source-wizard/step1.png)
 
@@ -51,11 +51,13 @@ Het bestand automatisch kan worden vastgesteld door de Wizard gegevensbron type,
 
 De Wizard gegevensbron detecteert automatisch de gegevenstypen van de gegevensset kolommen. Als het een Cachemissers of als u wilt afdwingen van een gegevenstype, kunt u handmatig het gegevenstype wijzigen. De **uitvoer VOORBEELDGEGEVENS** kolom ziet u voorbeelden van hoe de gegevens eruit.
 
+Voor kolommen met gegevens Prep afleidt datums bevat, u gevraagd om te selecteren van de volgorde van de maand en dag in de datumnotatie. 2/1/2013 kan vertegenwoordigen bijvoorbeeld januari 2e (Selecteer voor dit *dag-maand*) of Feburary 1e (Selecteer *maand dag*).
+
 ![Stap 6](media/data-source-wizard/step4.png)
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>Stap 6: Kies steekproeven strategie voor gegevens ##
 
-U kunt opgeven van een of meer steekproeven strategieën voor de gegevensset en kies een als de actieve strategie. De standaardwaarde is de hoogste 10000 rijen laden. U kunt dit voorbeeld bewerken door te klikken op de **bewerken** knop op de werkbalk of Voeg een nieuwe strategie toe door te klikken op + Nieuw. De strategieën die wordt ondersteund worden
+U kunt opgeven van een of meer steekproeven strategieën voor de gegevensset en kies een als de actieve strategie. De standaardwaarde is de hoogste 10000 rijen laden. U kunt dit voorbeeld bewerken door te klikken op de **bewerken** knop op de werkbalk of Voeg een nieuwe strategie toe door te klikken op + Nieuw. De strategieën die momenteel worden ondersteund zijn
 
 -     Bovenste aantal rijen
 -     Willekeurig aantal rijen
@@ -64,14 +66,14 @@ U kunt opgeven van een of meer steekproeven strategieën voor de gegevensset en 
 
 U kunt zoveel steekproeven strategieën die u wilt, maar er slechts één kunnen worden ingesteld op actief is bij het voorbereiden van uw gegevens kunt opgeven. U kunt een strategie voor de actieve worden door het selecteren van de strategie en klik vervolgens op instellen als actief is op de werkbalk.
 
-Afhankelijk van waar de gegevens vandaan, is het mogelijk dat een aantal strategieën voorbeeld niet wordt ondersteund. Voor meer informatie over steekproef nemen, de sectie steekproeven in [dit document](data-prep-user-guide.md) 
+Afhankelijk van waar de gegevens vandaan, is het mogelijk dat een aantal strategieën voorbeeld niet wordt ondersteund. Voor meer informatie over steekproeven kijken naar de sectie steekproeven in [dit document](data-prep-user-guide.md) 
 
 ![Stap 6](media/data-source-wizard/step5.png)
 
 ## <a name="step-7-path-column-handling"></a>Stap 7: Pad kolom verwerking ##
 
-Als het bestandspad belangrijke gegevens bevat, kunt u deze als de eerste kolom in de gegevensset opnemen. Dit is handig als u in meerdere bestanden meebrengen. U kunt anders niet is opgenomen.
+Als het bestandspad belangrijke gegevens bevat, kunt u deze als de eerste kolom in de gegevensset opnemen. Deze optie is handig als u in meerdere bestanden meebrengen. U kunt anders niet is opgenomen.
 
 ![Stap 7](media/data-source-wizard/step6.png)
 
-Nadat u op Voltooien klikt, wordt een nieuwe gegevensbron worden toegevoegd aan het project. U vindt deze onder de groep gegevensbronnen in de weergave of als een bestand .dsource in de **bestandsweergave**.
+Nadat u op Voltooien klikt, wordt een nieuwe gegevensbron worden toegevoegd aan het project. U vindt deze onder de groep gegevensbronnen in de weergave of als een bestand dsource in de **bestandsweergave**.

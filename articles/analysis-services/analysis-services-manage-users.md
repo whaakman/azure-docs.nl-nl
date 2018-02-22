@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Verificatie en gebruikersmachtigingen
 Azure Analysis Services gebruikt Azure Active Directory (Azure AD) voor identity management- en gebruikersverificatie. Een willekeurige gebruiker maken, beheren of verbinding maken met een Azure Analysis Services server moet een geldige gebruikers-id een [Azure AD-tenant](../active-directory/active-directory-administer.md) in hetzelfde abonnement.
@@ -28,7 +28,7 @@ Azure Analysis Services ondersteunt [Azure AD B2B-samenwerking](../active-direct
 
 ![Authenticatie-architectuur van Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Alle client-toepassingen en hulpprogramma's gebruiken een of meer van de Analysis Services [clientbibliotheken](analysis-services-data-providers.md) (AMO MSOLAP, ADOMD) verbinding maken met een server. 
 
 Alle drie clientbibliotheken ondersteuning voor Azure AD interactieve stroom en niet-interactieve verificatiemethoden. De Active Directory Integrated Authentication methoden van twee methoden voor niet-interactieve, Active Directory-wachtwoord en kunnen worden gebruikt in toepassingen die gebruikmaken van AMOMD en MSOLAP. Deze twee methoden worden nooit leiden tot pop-dialoogvensters.

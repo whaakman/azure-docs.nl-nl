@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 berichten voor enterprise-integratie met logic apps
 
@@ -39,12 +39,12 @@ Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-i
 
 ## <a name="create-an-x12-agreement"></a>Maken van een X12 overeenkomst
 
-1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). Selecteer in het menu links **meer services**. 
+1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal"). Selecteer in het menu links **alle services**. 
 
     > [!TIP]
-    > Als er geen **meer services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
+    > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
 
-    ![Selecteer op de linkermenu 'Meer services'](./media/logic-apps-enterprise-integration-x12/account-1.png)
+    ![Selecteer op het menu links, 'Alle services'](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
 2.  Typ in het zoekvak "-integratie" als filter. Selecteer in de lijst met resultaten **Integratieaccounts**.  
 
@@ -71,12 +71,12 @@ Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/lo
     | --- | --- |
     | Naam |Naam van de overeenkomst |
     | Type licentieovereenkomst | Moet X12 |
-    | Host-Partner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
-    | Identiteit van de host |Een id voor de host-partner |
-    | Gast Partner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
-    | Identiteit van de Gast |Een id voor de Gast-partner |
-    | Instellingen te ontvangen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
-    | Instellingen verzenden |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |  
+    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
+    | Hostidentiteit |Een id voor de host-partner |
+    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
+    | Gastidentiteit |Een id voor de Gast-partner |
+    | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
+    | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |  
 
   > [!NOTE]
   > De resolutie van X12 overeenkomst is afhankelijk van die overeenkomt met de kwalificatie afzender en -id en de ontvanger kwalificatie en gedefinieerd in de partner en het binnenkomende bericht-id. Als deze waarden voor uw partner wijzigen, kunt u de overeenkomst bijwerken.
@@ -94,15 +94,15 @@ Configureer deze eigenschappen op basis van uw overeenkomst met de partner die u
 
 Uw overeenkomst is nu gereed voor het verwerken van inkomende berichten die aan de geselecteerde instellingen voldoen.
 
-### <a name="identifiers"></a>Id 's
+### <a name="identifiers"></a>Id's
 
 ![Id-eigenschappen instellen](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| ISA1 (autorisatie kwalificatie) |Selecteer de waarde van de kwalificatie autorisatie in de vervolgkeuzelijst. |
+| ISA1 (autorisatiekwalificatie) |Selecteer de waarde van de kwalificatie autorisatie in de vervolgkeuzelijst. |
 | ISA2 |Optioneel. Geef autorisatie-informatie-waarde. Als de waarde die u hebt opgegeven voor ISA1 dan 00 is, voert u een minimum van een alfanumeriek teken en maximaal 10. |
-| ISA3 (beveiliging kwalificatie) |Selecteer de waarde voor de kwalificatie in de vervolgkeuzelijst. |
+| ISA3 (beveiligingskwalificatie) |Selecteer de waarde voor de kwalificatie in de vervolgkeuzelijst. |
 | ISA4 |Optioneel. Voer de waarde voor informatie. Als de waarde die u hebt opgegeven voor ISA3 dan 00 is, voert u een minimum van een alfanumeriek teken en maximaal 10. |
 
 ### <a name="acknowledgment"></a>Bevestiging
@@ -125,7 +125,7 @@ Selecteer een schema voor elke transactietype (ST1) en de afzender-toepassing (G
 | --- | --- |
 | Versie |Selecteer de X12 versie |
 | Transactietype (ST01) |Selecteer het transactietype |
-| Afzender-toepassing (GS02) |De afzender-toepassing selecteren |
+| Zendtoepassing (GS02) |De afzender-toepassing selecteren |
 | Schema |Selecteer het schema dat u wilt gebruiken. Schema's worden toegevoegd aan uw account integratie. |
 
 > [!NOTE]
@@ -137,17 +137,17 @@ Selecteer een schema voor elke transactietype (ST1) en de afzender-toepassing (G
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Gebruik ISA11 |Hiermee geeft u het scheidingsteken moet worden gebruikt in een set met transactie: <p>Selecteer **standaard identifier** ontvangen voor het gebruik van een punt (.) voor de decimale notatie, in plaats van de notatie van het binnenkomende document in de EDI pijplijn. <p>Selecteer **herhaling scheidingsteken** om op te geven van het scheidingsteken voor herhaalde exemplaren van een eenvoudige gegevenselement of een herhaalde gegevensstructuur. Bijvoorbeeld, wordt meestal de karaat (^) als scheidingsteken gebruikt de herhaling. U kunt alleen de karaat HIPAA schema's gebruiken. |
+| ISA11-gebruik |Hiermee geeft u het scheidingsteken moet worden gebruikt in een set met transactie: <p>Selecteer **standaard identifier** ontvangen voor het gebruik van een punt (.) voor de decimale notatie, in plaats van de notatie van het binnenkomende document in de EDI pijplijn. <p>Selecteer **herhaling scheidingsteken** om op te geven van het scheidingsteken voor herhaalde exemplaren van een eenvoudige gegevenselement of een herhaalde gegevensstructuur. Bijvoorbeeld, wordt meestal de karaat (^) als scheidingsteken gebruikt de herhaling. U kunt alleen de karaat HIPAA schema's gebruiken. |
 
-### <a name="control-numbers"></a>Besturingselement cijfers
+### <a name="control-numbers"></a>Controlenummers
 
 ![Selecteer hoe nummer duplicaten besturingselement verwerkt](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Controle-aantal Interchange duplicaten weigeren |Dubbele uitgewisseld blokkeren. Controleert de DIF-controle-aantal (ISA13) voor het aantal ontvangen DIF-besturingselement. Als een overeenkomst wordt gedetecteerd, verwerken niet de pijplijn ontvangen de DIF. U kunt opgeven dat het aantal dagen voor het uitvoeren van de controle door middel van een waarde voor *controleren op dubbele ISA13 elke (dagen)*. |
-| Groep besturingselement nummer duplicaten weigeren |Blok uitwisselingen met dubbele groep besturingselement nummers. |
-| Transactie set besturingselement nummer duplicaten weigeren |Blok uitwisselingen met dubbele transactie set besturingselement nummers. |
+| Dubbele groepscontrolenummers niet toestaan |Blok uitwisselingen met dubbele groep besturingselement nummers. |
+| Dubbele transactiereekscontrolenummers niet toestaan |Blok uitwisselingen met dubbele transactie set besturingselement nummers. |
 
 ### <a name="validations"></a>Validaties
 
@@ -160,9 +160,9 @@ Wanneer elke rij van de validatie is voltooid, wordt automatisch een andere toeg
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie wordt uitgevoerd op gegevenstypen zoals gedefinieerd door het schema EDI-eigenschappen, beperkingen voor de lengte, leeg gegevenselementen en afsluitende scheidingstekens. |
 | Uitgebreide validatie |Als het gegevenstype niet EDI, validatie is op de gegevensvereiste-element en herhaling, opsommingen en element lengte gegevensvalidatie (min/max) toegestaan. |
-| Voorloop-/ Volg nullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Verwijder niet deze tekens bevatten. |
-| Trim voorloop-/ Volg nullen |Voorloop- of volgspaties nul en spaties verwijderen. |
-| Afsluitende scheidingsteken beleid |Afsluitende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt afsluitende scheidingstekens en scheidingstekens in het knooppunt ontvangen. Als de uitwisseling afsluitende scheidingstekens en scheidingstekens heeft, is het knooppunt gedeclareerd niet geldig. <p>Selecteer **optioneel** uitgewisseld met of zonder een afsluitende scheidingstekens en scheidingstekens accepteren. <p>Selecteer **verplichte** wanneer het knooppunt moet hebben afsluitende scheidingstekens en scheidingstekens. |
+| Voorloop-/volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Verwijder niet deze tekens bevatten. |
+| Voorloop-/volgnullen knippen |Voorloop- of volgspaties nul en spaties verwijderen. |
+| Beleid voor volgscheidingstekens |Afsluitende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt afsluitende scheidingstekens en scheidingstekens in het knooppunt ontvangen. Als de uitwisseling afsluitende scheidingstekens en scheidingstekens heeft, is het knooppunt gedeclareerd niet geldig. <p>Selecteer **optioneel** uitgewisseld met of zonder een afsluitende scheidingstekens en scheidingstekens accepteren. <p>Selecteer **verplichte** wanneer het knooppunt moet hebben afsluitende scheidingstekens en scheidingstekens. |
 
 ### <a name="internal-settings"></a>Interne instellingen
 
@@ -171,11 +171,11 @@ Wanneer elke rij van de validatie is voltooid, wordt automatisch een andere toeg
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Impliciete decimale notatie 'Mm' converteren naar een numerieke waarde met grondtal 10 |Converteert een getal EDI die is opgegeven met de notatie 'Mm' in een numerieke waarde grondtal 10 |
-| Lege XML-labels maken als afsluitende scheidingstekens zijn toegestaan. |Schakel dit selectievakje in om de DIF-afzender lege XML-codes voor afsluitende scheidingstekens bevatten. |
-| Gesplitste Interchange als transaction sets - onderbreken transactie sets bij fout|Analyseert elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toepassen op de set transactie. Alleen de transacties onderbreekt waarbij de validatie is mislukt. |
-| Gesplitste Interchange als transaction sets - onderbreken uitwisseling bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met het toepassen van de juiste envelop parseert. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. | 
+| Lege XML-tags maken als volgscheidingstekens zijn toegestaan |Schakel dit selectievakje in om de DIF-afzender lege XML-codes voor afsluitende scheidingstekens bevatten. |
+| Uitwisseling splitsen in transactiereeksen - transactiereeksen onderbreken bij fout|Analyseert elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toepassen op de set transactie. Alleen de transacties onderbreekt waarbij de validatie is mislukt. |
+| Uitwisseling splitsen in transactiereeksen - uitwisseling onderbreken bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met het toepassen van de juiste envelop parseert. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. | 
 | Behouden DIF - transactie sets onderbreken bij fout |Laat de DIF intact, maakt een XML-document voor de hele batch uitwisseling. Onderbreekt de transactie-sets die niet voldoen aan validatie, terwijl alle andere sets transactie verwerken. |
-| Behouden DIF - uitwisseling onderbreken bij fout |Laat de DIF intact, maakt een XML-document voor de hele batch uitwisseling. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. |
+| Uitwisseling bewaren - uitwisseling onderbreken bij fout |Laat de DIF intact, maakt een XML-document voor de hele batch uitwisseling. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe uw overeenkomst verzendt berichten
 
@@ -190,7 +190,7 @@ Deze eigenschappen op basis van uw overeenkomst met uw partner die berichten wor
 
 Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan de geselecteerde instellingen voldoen.
 
-### <a name="identifiers"></a>Id 's
+### <a name="identifiers"></a>Id's
 
 ![Id-eigenschappen instellen](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
@@ -209,7 +209,7 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 | --- | --- |
 | TA1 verwacht |Een technische bevestiging (TA1) terug naar de DIF-afzender. Deze instelling geeft aan dat de host-partner die het bericht verzendt aanvragen van een bevestiging van de Gast partner in de overeenkomst. Deze bevestigingen worden verwacht door de partner-host op basis van de instellingen voor het ontvangen van de overeenkomst. |
 | VA verwacht |Een functionele bevestiging (VA) terug naar de DIF-afzender. Kies of u de 997 of 999 bevestigingen wilt, op basis van de schema-versies die u met werkt. Deze bevestigingen worden verwacht door de partner-host op basis van de instellingen voor het ontvangen van de overeenkomst. |
-| VA-versie |Selecteer de VA-versie |
+| FA-versie |Selecteer de VA-versie |
 
 ### <a name="schemas"></a>Schema 's
 
@@ -230,9 +230,9 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Gebruik ISA11 |Hiermee geeft u het scheidingsteken moet worden gebruikt in een set met transactie: <p>Selecteer **standaard identifier** ontvangen voor het gebruik van een punt (.) voor de decimale notatie, in plaats van de notatie van het binnenkomende document in de EDI pijplijn. <p>Selecteer **herhaling scheidingsteken** om op te geven van het scheidingsteken voor herhaalde exemplaren van een eenvoudige gegevenselement of een herhaalde gegevensstructuur. Bijvoorbeeld, wordt meestal de karaat (^) als scheidingsteken gebruikt de herhaling. U kunt alleen de karaat HIPAA schema's gebruiken. |
+| ISA11-gebruik |Hiermee geeft u het scheidingsteken moet worden gebruikt in een set met transactie: <p>Selecteer **standaard identifier** ontvangen voor het gebruik van een punt (.) voor de decimale notatie, in plaats van de notatie van het binnenkomende document in de EDI pijplijn. <p>Selecteer **herhaling scheidingsteken** om op te geven van het scheidingsteken voor herhaalde exemplaren van een eenvoudige gegevenselement of een herhaalde gegevensstructuur. Bijvoorbeeld, wordt meestal de karaat (^) als scheidingsteken gebruikt de herhaling. U kunt alleen de karaat HIPAA schema's gebruiken. |
 
-### <a name="control-numbers"></a>Besturingselement cijfers
+### <a name="control-numbers"></a>Controlenummers
 
 ![Controle-aantal eigenschappen opgeven](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
@@ -254,7 +254,7 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 | Voorvoegsel |Optionele, toegewezen voor het bereik van transactie set besturingselement getallen in de bevestiging gebruikt. Voer een numerieke waarde voor de middelste twee velden en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en de minimale en maximale waarden voor het besturingselement bevatten |
 | Achtervoegsel |Optioneel, voor het bereik van de transactie set besturingselement getallen gebruikt in een bevestiging is aangewezen. Voer een numerieke waarde voor de middelste twee velden en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en de minimale en maximale waarden voor het besturingselement bevatten |
 
-### <a name="character-sets-and-separators"></a>Teken Sets en scheidingstekens
+### <a name="character-sets-and-separators"></a>Tekensets en scheidingstekens
 
 Andere dan de tekenset, kunt u een andere set scheidingstekens voor elk berichttype. Als een tekenset voor een opgegeven bericht-schema niet is opgegeven, wordt de standaardtekenset gebruikt.
 
@@ -265,10 +265,10 @@ Andere dan de tekenset, kunt u een andere set scheidingstekens voor elk berichtt
 | Tekenset moet worden gebruikt |Valideren van de eigenschappen, selecteer de X12 tekenset. De opties zijn Basic, uitgebreid en UTF8. |
 | Schema |Selecteer een schema in de vervolgkeuzelijst. Nadat u elke rij hebt voltooid, wordt er automatisch een nieuwe rij toegevoegd. Voor het geselecteerde schema, de scheidingstekens set selecteren die u gebruiken wilt, op basis van de volgende beschrijvingen van het scheidingsteken. |
 | Invoertype |Selecteer een type invoer in de vervolgkeuzelijst. |
-| Onderdeel scheidingselement |Afzonderlijke elementen van de samengestelde gegevensbron, voert u één teken. |
-| Gegevens Element scheidingselement |Afzonderlijke eenvoudige gegevenselementen in de elementen van de samengestelde gegevensbron, voert u één teken. |
+| Scheidingsteken voor onderdelen |Afzonderlijke elementen van de samengestelde gegevensbron, voert u één teken. |
+| Scheidingsteken voor gegevenselementen |Afzonderlijke eenvoudige gegevenselementen in de elementen van de samengestelde gegevensbron, voert u één teken. |
 | Vervangend teken |Voer een vervangend teken dat wordt gebruikt voor het vervangen van alle scheidingstekens in de nettolading van gegevens bij het genereren van de uitgaande X12 bericht. |
-| Segment eindteken |Geeft een enkel teken aan het einde van een EDI-segment. |
+| Segmenteindteken |Geeft een enkel teken aan het einde van een EDI-segment. |
 | Achtervoegsel |Selecteer het teken dat wordt gebruikt met de segment-id. Als u een achtervoegsel opgeeft, kan het gegevenselement voor segment eindteken leeg zijn. Als de segment-terminator leeg wordt gelaten, moet u een achtervoegsel toewijzen. |
 
 > [!TIP]
@@ -285,9 +285,9 @@ Wanneer elke rij van de validatie is voltooid, wordt automatisch een andere toeg
 | Berichttype |Selecteer het type EDI-bericht. |
 | EDI-validatie |EDI-validatie wordt uitgevoerd op gegevenstypen zoals gedefinieerd door het schema EDI-eigenschappen, beperkingen voor de lengte, leeg gegevenselementen en afsluitende scheidingstekens. |
 | Uitgebreide validatie |Als het gegevenstype niet EDI, validatie is op de gegevensvereiste-element en herhaling, opsommingen en element lengte gegevensvalidatie (min/max) toegestaan. |
-| Voorloop-/ Volg nullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Verwijder niet deze tekens bevatten. |
-| Trim voorloop-/ Volg nullen |Voorloop- of afsluitende nul tekens verwijderen. |
-| Afsluitende scheidingsteken beleid |Afsluitende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt afsluitende scheidingstekens en scheidingstekens in het knooppunt verzonden. Als de uitwisseling afsluitende scheidingstekens en scheidingstekens heeft, is het knooppunt gedeclareerd niet geldig. <p>Selecteer **optioneel** uitgewisseld met of zonder een afsluitende scheidingstekens en scheidingstekens verzenden. <p>Selecteer **verplichte** als de verzonden uitwisseling afsluitende scheidingstekens en scheidingstekens nodig hebt. |
+| Voorloop-/volgnullen toestaan |Alle aanvullende voorloop- of afsluitende nul behouden en ruimte tekens. Verwijder niet deze tekens bevatten. |
+| Voorloop-/volgnullen knippen |Voorloop- of afsluitende nul tekens verwijderen. |
+| Beleid voor volgscheidingstekens |Afsluitende scheidingstekens genereren. <p>Selecteer **niet toegestaan** verbiedt afsluitende scheidingstekens en scheidingstekens in het knooppunt verzonden. Als de uitwisseling afsluitende scheidingstekens en scheidingstekens heeft, is het knooppunt gedeclareerd niet geldig. <p>Selecteer **optioneel** uitgewisseld met of zonder een afsluitende scheidingstekens en scheidingstekens verzenden. <p>Selecteer **verplichte** als de verzonden uitwisseling afsluitende scheidingstekens en scheidingstekens nodig hebt. |
 
 ## <a name="find-your-created-agreement"></a>De overeenkomst zoeken
 

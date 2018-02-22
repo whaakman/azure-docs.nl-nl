@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Functies en hulpprogramma's voor Bash in de Azure-Cloud-Shell
 
@@ -37,7 +37,7 @@ Bash in de Cloud-Shell verifieert veilig en automatisch accounttoegang voor Azur
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH in Linux Azure virtuele machines
 
-Maken van een Linux-VM van Azure CLI 2.0 kunt maken van een standaard SSH-sleutel en plaats deze in uw `$Home` directory. Brengen van SSH-sleutels `$Home` kunnen rechtstreeks SSH-verbindingen naar Azure Linux VM's rechtstreeks vanuit de Cloud-Shell. Sleutels zijn ondergebracht in acc_<user>.img in uw bestandsshare gebruik aanbevolen procedures wanneer met behulp van of toegang tot de bestandsshare of sleutels delen.
+Maken van een Linux-VM van Azure CLI 2.0 kunt maken van een standaard SSH-sleutel en plaats deze in uw `$Home` directory. Brengen van SSH-sleutels `$Home` SSH-verbindingen naar Azure Linux virtuele machines kunnen rechtstreeks vanuit de Cloud-Shell. Sleutels zijn ondergebracht in acc_<user>.img in uw bestandsshare gebruik aanbevolen procedures wanneer met behulp van of toegang tot de bestandsshare of sleutels delen.
 
 ### <a name="home-persistence-across-sessions"></a>$Home persistentie over de sessies
 
@@ -47,6 +47,10 @@ Bovendien in Bash in de Cloud-Shell uw `$Home` directory wordt bewaard als een .
 Bestanden buiten `$Home` en status van de machine blijven niet bestaan tussen sessies.
 
 [Meer informatie over persistent maken van de bestanden in Bash in de Cloud-Shell.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Nauwe integratie met open source tooling
+
+Bash in de Cloud-Shell bevat vooraf geconfigureerde verificatie voor open-source hulpprogramma's zoals Terraform en Ansible. Probeer deze uit van de voorbeeld-scenario.
 
 ## <a name="tools"></a>Hulpprogramma's
 

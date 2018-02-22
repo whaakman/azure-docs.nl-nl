@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -206,9 +206,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `blobTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. Uitzonderingen worden vermeld de [gebruik](#trigger---usage) sectie. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode. | 
-|**pad** | **BlobPath** |De container om te controleren.  Kan een [blob naampatroon](#trigger-blob-name-patterns). | 
-|**verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode. | 
+|**Pad** | **BlobPath** |De container om te controleren.  Kan een [blob naampatroon](#trigger-blob-name-patterns). | 
+|**Verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -220,20 +220,29 @@ In C# en C# script, toegang heeft tot de blob-gegevens met behulp van een method
 * `TextReader`
 * `Byte[]`
 * `string`
-* `ICloudBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudBlockBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudPageBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudAppendBlob`(in de richting 'inout' binding vereist *function.json*)
+* `ICloudBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudBlockBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudPageBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudAppendBlob` (in de richting 'inout' binding vereist *function.json*)
 
 Zoals vermeld, voor sommige van deze typen moet een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor in Azure portal, zodat u de geavanceerde editor moet gebruiken.
 
-Als tekst blobs worden verwacht, kunt u binden aan de `string` type. Dit wordt alleen aanbevolen als de Blobgrootte van de klein is als de volledige blobinhoud in het geheugen geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type.
+Als tekst blobs worden verwacht, kunt u binden aan de `string` type. Dit wordt alleen aanbevolen als de Blobgrootte van de klein is als de volledige blobinhoud in het geheugen geladen. In het algemeen is het raadzaam om het gebruik van een `Stream` of `CloudBlockBlob` type. Zie voor meer informatie [gelijktijdigheid van taken en geheugengebruik](#trigger---concurrency-and-memory-usage) verderop in dit artikel.
 
 Toegang tot de blob-invoerbron gegevens in JavaScript, `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Trigger - patronen voor blob-naam
 
-U kunt opgeven dat een naampatroon blob in de `path` eigenschap in *function.json* of in de `BlobTrigger` kenmerkconstructor. Het naampatroon mag een [filter of binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns).
+U kunt opgeven dat een naampatroon blob in de `path` eigenschap in *function.json* of in de `BlobTrigger` kenmerkconstructor. Het naampatroon mag een [filter of binding expressie](functions-triggers-bindings.md#binding-expressions-and-patterns). De volgende secties bevatten voorbeelden.
+
+### <a name="get-file-name-and-extension"></a>Get-bestandsnaam en extensie
+
+Het volgende voorbeeld ziet u hoe u verbinding maken met de blob-bestandsnaam en de extensie afzonderlijk:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Als de naam van de blob *oorspronkelijke Blob1.txt*, de waarde van de `blobname` en `blobextension` variabelen in de functiecode zijn *oorspronkelijke Blob1* en *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filter op de blob-naam
 
@@ -262,15 +271,6 @@ Accolades in bestandsnamen zoekt, escape voor de accolades met behulp van twee a
 ```
 
 Als de naam van de blob *{20140101}-soundfile.mp3*, wordt de `name` variabele waarde in de functiecode *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Get-bestandsnaam en extensie
-
-Het volgende voorbeeld ziet u hoe u verbinding maken met de blob-bestandsnaam en de extensie afzonderlijk:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Als de naam van de blob *oorspronkelijke Blob1.txt*, de waarde van de `blobname` en `blobextension` variabelen in de functiecode zijn *oorspronkelijke Blob1* en *txt*.
 
 ## <a name="trigger---metadata"></a>Trigger - metadata
 
@@ -309,6 +309,14 @@ Als alle 5 pogingen mislukken, wordt een bericht met Azure Functions toegevoegd 
 * ContainerName
 * BlobName
 * ETag (een blob-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Trigger - gelijktijdigheid van taken en geheugengebruik
+
+De blob-trigger een wachtrij wordt intern gebruikt, dus het maximum aantal gelijktijdige functie aanroepen wordt bepaald door de [wachtrijen configuratie in host.json](functions-host-json.md#queues). De standaardinstellingen beperken gelijktijdigheid van 24 aanroepen. Deze beperking geldt afzonderlijk voor elke functie die gebruikmaakt van een blob-trigger.
+
+[Het plan verbruik](functions-scale.md#how-the-consumption-plan-works) een functie-app op een virtuele machine (VM) 1,5 GB geheugen beperkt. Geheugen wordt gebruikt door elk gelijktijdig worden uitgevoerd exemplaar van de functie en door de runtime van Functions zelf. Als een functie blob geactiveerd wordt de hele blob in het geheugen geladen, is de maximale hoeveelheid geheugen die wordt gebruikt door deze functie voor blobs 24 * maximale blob-grootte. Voor een functie-app met drie blob-geactiveerde functies en de standaardinstellingen zou bijvoorbeeld een maximum aantal VM-gelijktijdigheid van 3 * 24 = 72 functie aanroepen.
+
+JavaScript-functies de hele blob in het geheugen geladen en C#-functies doen als u verbinding met maken `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Trigger - polling voor grote containers
 
@@ -481,9 +489,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `blob`. |
 |**direction** | N.v.t. | moet worden ingesteld op `in`. Uitzonderingen worden vermeld de [gebruik](#input---usage) sectie. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode.|
-|**pad** |**BlobPath** | Het pad naar de blob. | 
-|**verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode.|
+|**Pad** |**BlobPath** | Het pad naar de blob. | 
+|**Verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -498,10 +506,10 @@ In C#-klassenbibliotheken en C# script, toegang krijgen tot de blob met een meth
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudBlockBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudPageBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudAppendBlob`(in de richting 'inout' binding vereist *function.json*)
+* `ICloudBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudBlockBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudPageBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudAppendBlob` (in de richting 'inout' binding vereist *function.json*)
 
 Zoals vermeld, voor sommige van deze typen moet een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor in Azure portal, zodat u de geavanceerde editor moet gebruiken.
 
@@ -692,9 +700,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |---------|---------|----------------------|
 |**type** | N.v.t. | moet worden ingesteld op `blob`. |
 |**direction** | N.v.t. | Moet worden ingesteld op `out` voor een binding van de uitvoer. Uitzonderingen worden vermeld de [gebruik](#output---usage) sectie. |
-|**naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode.  Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.|
-|**pad** |**BlobPath** | Het pad naar de blob. | 
-|**verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode.  Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.|
+|**Pad** |**BlobPath** | Het pad naar de blob. | 
+|**Verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -710,10 +718,10 @@ In C#-klassenbibliotheken en C# script, toegang krijgen tot de blob met een meth
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudBlockBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudPageBlob`(in de richting 'inout' binding vereist *function.json*)
-* `CloudAppendBlob`(in de richting 'inout' binding vereist *function.json*)
+* `ICloudBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudBlockBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudPageBlob` (in de richting 'inout' binding vereist *function.json*)
+* `CloudAppendBlob` (in de richting 'inout' binding vereist *function.json*)
 
 Zoals vermeld, voor sommige van deze typen moet een `inout` richting in binding *function.json*. Deze richting wordt niet ondersteund door de standard-editor in Azure portal, zodat u de geavanceerde editor moet gebruiken.
 

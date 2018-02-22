@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Apache Spark machine learning-toepassingen in Azure HDInsight bouwen
 
@@ -28,9 +28,9 @@ Informatie over het bouwen van een Apache Spark-machine learning-toepassing met 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is die bestaat uit algemene learning-algoritmen en hulpprogramma's, met inbegrip van classificatie, regressie, clustering, samenwerking filteren, dimensionaliteit vermindering, evenals de onderliggende van Spark van schaalbare machine learning-bibliotheek optimalisatie van primitieven.
 
-**Vereisten:**
+## <a name="prerequisites"></a>Vereisten:
 
-U hebt het volgende:
+U hebt het volgende item:
 
 * Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,8 +181,8 @@ In deze toepassing, gebruikt u een Spark [ML pijplijn](https://spark.apache.org/
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   In de eerste rij in de voorspelling, kunt u zien dat voor een HVAC-systeem met ID 20 en system leeftijd van 25 jaar, het gebouw zal hot (**voorspelling = 1.0**). De eerste waarde voor DenseVector (0.49999) komt overeen met de voorspelling 0,0 en de tweede waarde (0.5001) komt overeen met de voorspelling 1.0. In de uitvoer, ondanks dat de tweede waarde alleen marginaal hoger is, wordt het model bevat **voorspelling = 1.0**.
-10. De notebook afsluiten om de resources vrij te geven. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**. Hiermee wordt de notebook afgesloten.
+   In de eerste rij in de voorspelling kunt u zien dat voor een HVAC-systeem met ID 20 en system leeftijd van 25 jaar, het gebouw hot is (**voorspelling = 1.0**). De eerste waarde voor DenseVector (0.49999) komt overeen met de voorspelling 0,0 en de tweede waarde (0.5001) komt overeen met de voorspelling 1.0. In de uitvoer, ondanks dat de tweede waarde alleen marginaal hoger is, wordt het model bevat **voorspelling = 1.0**.
+10. Sluit de notebook om resources vrij te geven. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**. Dit wordt afgesloten en sluit de notebook.
 
 ## <a name="anaconda"></a>Gebruik scikit Anaconda-bibliotheek voor Spark machine learning meer
 Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken. Dit omvat ook de **scikit-meer** -bibliotheek voor machine learning. De bibliotheek bevat ook verschillende gegevenssets die u voor het bouwen van de voorbeeldtoepassingen rechtstreeks vanuit een Jupyter-notebook kunt gebruiken. Voor voorbeelden van het gebruik van de scikit-bibliotheek Lees [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -193,7 +193,6 @@ Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken. Dit omvat ook
 ### <a name="scenarios"></a>Scenario's
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Toepassingen maken en uitvoeren

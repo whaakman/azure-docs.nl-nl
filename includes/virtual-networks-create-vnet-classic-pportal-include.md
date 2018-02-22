@@ -1,28 +1,28 @@
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Het maken van een klassiek VNet en in de Azure portal
-Volg de onderstaande stappen voor het maken van een klassiek VNet en op basis van de bovenstaande scenario.
+Volg deze stappen voor het maken van een klassiek die vnet op basis van het voorgaande scenario.
 
 1. Navigeer via een browser naar http://portal.azure.com en log, indien nodig, in met uw Azure-account.
-2. Klik op **nieuw** > **Networking** > **virtueel netwerk**, zoals u ziet de **een implementatiemodel selecteren** lijst al staat **klassieke**, en klik vervolgens op **maken**, zoals in de afbeelding hieronder.
+2. Klik op **maken van een resource** > **Networking** > **virtueel netwerk**. U ziet dat de **een implementatiemodel selecteren** lijst al staat **klassieke**. 3. Klik op **maken** zoals weergegeven in de volgende afbeelding.
    
     ![VNet aanmaken in Azure-portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
-3. Op de **virtueel netwerk** blade, typ de **naam** van het VNet en klik op **adresruimte**. Uw adresruimte instellingen configureren voor het VNet en het eerste subnet en klik vervolgens op **OK**. De onderstaande afbeelding ziet u de CIDR-blok-instellingen voor ons scenario.
+4. Op de **virtueel netwerk** deelvenster, typ de **naam** van het VNet en klik op **adresruimte**. Uw adresruimte instellingen configureren voor het VNet en het eerste subnet en klik vervolgens op **OK**. De volgende afbeelding toont de CIDR-blok-instellingen voor ons scenario.
    
-    ![Blade adresruimte](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-4. Klik op **resourcegroep** en selecteer een resourcegroep om toe te voegen van het VNet of klik op **nieuwe resourcegroep maken** het VNet toevoegen aan een nieuwe resourcegroep. In de onderstaande afbeelding worden de instellingen voor de resourcegroep genaamd **TestRG** weergegeven. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+    ![Adresruimte deelvenster](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
+5. Klik op **resourcegroep** en selecteer een resourcegroep om toe te voegen van het VNet of klik op **nieuwe resourcegroep maken** het VNet toevoegen aan een nieuwe resourcegroep. De volgende afbeelding ziet u de resource groepsinstellingen voor een nieuwe resourcegroep aangeroepen **TestRG**. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
    
-    ![Resourcegroepblade maken](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
-5. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet. 
-6. Als u VNet niet als tegel wilt laten weergeven in het **Startboard** schakelt u **Vastmaken aan Startboard** uit. 
-7. Klik op **Aanmaken** en let op de tegel met de naam **Virtueel netwerk aanmaken** die in de onderstaande afbeelding wordt weergegeven.
+    ![Deelvenster resource maken](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
+6. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet. 
+7. Als u VNet niet als tegel wilt laten weergeven in het **Startboard** schakelt u **Vastmaken aan Startboard** uit. 
+8. Klik op **maken** en Let op de tegel met de naam **virtueel netwerk aanmaken** zoals weergegeven in de volgende afbeelding.
    
     ![VNet aanmaken in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
-8. Wacht tot het VNet worden gemaakt en wanneer u de tegel hieronder ziet, klikt u op om toe te voegen meer subnetten.
+9. Wacht tot het VNet worden gemaakt en wanneer u de tegel ziet, klikt u op om toe te voegen meer subnetten.
    
     ![VNet aanmaken in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
-9. U ziet de **configuratie** voor uw VNet zoals hieronder wordt weergegeven. 
+10. U ziet de **configuratie** voor uw VNet, zoals wordt weergegeven. 
    
     ![VNet aanmaken in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
-10. Klik op **subnetten** > **toevoegen**, typ een **naam** en geef een **-adresbereik (CIDR-blok)** voor uw subnet, en vervolgens Klik op **OK**. De afbeelding hieronder ziet de instellingen voor onze huidige scenario.
+11. Klik op **subnetten** > **toevoegen**, typ een **naam** en geef een **-adresbereik (CIDR-blok)** voor uw subnet, en vervolgens Klik op **OK**. De volgende afbeelding ziet de instellingen voor onze huidige scenario.
     
     ![VNet aanmaken in Azure-portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 

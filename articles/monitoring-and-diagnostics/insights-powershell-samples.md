@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure PowerShell Monitor snel starten-voorbeelden
-In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u automatisch schalen Cloudservices, virtuele Machines en Web-Apps. Ook kunt u meldingen van waarschuwingen verzenden of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
+In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies.
 
 > [!NOTE]
 > Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter, de naamruimten, en daarom de volgende opdrachten nog steeds de het woord 'insights'.
@@ -93,10 +93,10 @@ De volgende opdracht haalt de laatste 1000 gebeurtenissen uit het activiteitenlo
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog`biedt ondersteuning voor veel andere parameters. Zie de `Get-AzureRmLog` documentatie voor meer informatie.
+`Get-AzureRmLog` biedt ondersteuning voor veel andere parameters. Zie de `Get-AzureRmLog` documentatie voor meer informatie.
 
 > [!NOTE]
-> `Get-AzureRmLog`biedt alleen 15 dagen van de geschiedenis. Met behulp van de **- MaxEvents** parameter kunt u de laatste N-gebeurtenissen na 15 dagen een query. Gebruik de REST-API of de SDK (C# voorbeeld met de SDK) op toegangsgebeurtenissen die ouder zijn dan 15 dagen. Als u geen **StartTime**, dan is de standaardwaarde **EndTime** min één uur. Als u geen **EndTime**, en vervolgens de standaardwaarde is de huidige tijd. Alle tijden zijn in UTC.
+> `Get-AzureRmLog` biedt alleen 15 dagen van de geschiedenis. Met behulp van de **- MaxEvents** parameter kunt u de laatste N-gebeurtenissen na 15 dagen een query. Gebruik de REST-API of de SDK (C# voorbeeld met de SDK) op toegangsgebeurtenissen die ouder zijn dan 15 dagen. Als u geen **StartTime**, dan is de standaardwaarde **EndTime** min één uur. Als u geen **EndTime**, en vervolgens de standaardwaarde is de huidige tijd. Alle tijden zijn in UTC.
 > 
 > 
 
@@ -136,7 +136,7 @@ Alle regels voor waarschuwingen instellen voor een doelresource worden opgehaald
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule`biedt ondersteuning voor andere parameters. Zie [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) voor meer informatie.
+`Get-AzureRmAlertRule` biedt ondersteuning voor andere parameters. Zie [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) voor meer informatie.
 
 ## <a name="create-metric-alerts"></a>Metrische waarschuwingen maken
 U kunt de `Add-AlertRule` cmdlet maken, bijwerken of een waarschuwingsregel uitschakelen.
@@ -150,9 +150,9 @@ De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor h
 | Naam |simpletestdiskwrite |
 | Locatie van deze waarschuwingsregel |VS - oost |
 | ResourceGroup |montest |
-| TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName van de waarschuwing die wordt gemaakt |\Disk \PhysicalDisk (_Totaal) per seconde. Zie de `Get-MetricDefinitions` cmdlet over het ophalen van de exacte metrische namen |
-| Operator |GreaterThan |
+| operator |GreaterThan |
 | Drempelwaarde (aantal per seconde in voor deze metrische gegevens) |1 |
 | Venstergrootte (indeling: mm: SS) |00:05:00 |
 | aggregator (statistiek van de metrische gegevens die in dit geval gemiddeld aantal gebruikt) |Gemiddeld |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Een volledige lijst met beschikbare opties voor `Get-AzureRmMetricDefinition` is beschikbaar op [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Activiteitenlogboek waarschuwingen maken en beheren
+U kunt de `Set-AzureRmActivityLogAlert` cmdlet een waarschuwing activiteitenlogboek instellen. Een waarschuwing activiteitenlogboek vereist dat u eerst uw voorwaarden als een dictionary van voorwaarden definiëren en een waarschuwing die gebruikmaakt van deze voorwaarden maken.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+De aanvullende webhookeigenschappen zijn optioneel. U krijgt weer de inhoud van een activiteit logboek waarschuwing met `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Maken en beheren van instellingen voor automatisch schalen
 Een resource (een Web-app, VM, Cloud Service- of virtuele-Machineschaalset) kan slechts één instelling voor automatisch schalen geconfigureerd hebben.

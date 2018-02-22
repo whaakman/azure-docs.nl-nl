@@ -4,7 +4,7 @@ description: Informatie over het back-up van SQL Server naar Azure Storage. Verk
 services: virtual-machines-windows
 documentationcenter: 
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Azure Storage gebruiken voor SQL Server-back-up en herstel
 ## <a name="overview"></a>Overzicht
@@ -50,7 +50,7 @@ De volgende Azure onderdelen worden gebruikt wanneer een back-up naar de Azure B
 | --- | --- |
 | **Storage-Account** |Het opslagaccount is het startpunt voor alle storage-services. Als u een Azure Blob Storage-service, moet u eerst een Azure Storage-account maken. Zie voor meer informatie over Azure Blob storage-service, [het gebruik van de Azure Blob Storage-Service](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Container** |Een container is een groepering van een reeks blobs en kan een onbeperkt aantal Blobs bevatten. Voor het schrijven van een SQL Server back-up naar een Azure Blob-service, u hebt ten minste het root-container gemaakt. |
-| **BLOB** |Een bestand van willekeurig type en de grootte. BLOBs kunnen worden opgevraagd met de volgende URL-indeling: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Zie voor meer informatie over de pagina-Blobs [Understanding blok en pagina-Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |Een bestand van willekeurig type en de grootte. BLOBs kunnen worden opgevraagd met de volgende URL-indeling: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Zie voor meer informatie over de pagina-Blobs [Understanding blok en pagina-Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server-onderdelen
 De volgende SQL Server-onderdelen worden gebruikt wanneer een back-up naar de Azure Blob storage-service.
@@ -58,7 +58,7 @@ De volgende SQL Server-onderdelen worden gebruikt wanneer een back-up naar de Az
 | Onderdeel | Beschrijving |
 | --- | --- |
 | **URL** |De URL bevat een URI Uniform Resource Identifier () om een unieke back-upbestand. De URL wordt gebruikt voor de locatie en naam van de back-upbestand van de SQL Server. De URL moet verwijzen naar een werkelijke blob, niet alleen een container. Als de blob niet bestaat, wordt deze gemaakt. Als een bestaande blob zijn die is opgegeven, back-up mislukt, tenzij de > met indelingsoptie is opgegeven. Hieronder volgt een voorbeeld van de URL die u in de opdracht BACKUP opgeven wilt: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS wordt aanbevolen, maar niet vereist. |
-| **Referentie** |De informatie die nodig is voor het verbinding maken en verifiëren met Azure Blob storage-service wordt opgeslagen als een referentie.  SQL Server back-ups schrijven naar een Azure-Blob of herstellen uit worden een SQL Server-referentie gemaakt. Zie voor meer informatie [referenties van het SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
+| **Credential** |De informatie die nodig is voor het verbinding maken en verifiëren met Azure Blob storage-service wordt opgeslagen als een referentie.  SQL Server back-ups schrijven naar een Azure-Blob of herstellen uit worden een SQL Server-referentie gemaakt. Zie voor meer informatie [referenties van het SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
 > Als u ervoor kiest om te kopiëren en een back-bestand uploaden naar de Azure Blob storage-service, moet u een pagina-blob-type gebruiken als uw opslagoptie als u van plan bent dit bestand te gebruiken voor herstelbewerkingen. HERSTEL van een blok-blob-type mislukt met een fout opgetreden.

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 92521bab2082f63fa01e816151e3da9400effe6d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Application Insights-processen automatiseren met behulp van Logic Apps
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u hoe u een logische app die gebruikmaakt van het algor
 
 ### <a name="step-1-create-a-logic-app"></a>Stap 1: Een logische app maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. In de **nieuw** deelvenster **Web en mobiel**, en selecteer vervolgens **logische App**.
+2. Klik op **maken van een resource**, selecteer **Web en mobiel**, en selecteer vervolgens **logische App**.
 
     ![Nieuwe logische app venster](./media/automate-with-logic-apps/logicapp1.png)
 

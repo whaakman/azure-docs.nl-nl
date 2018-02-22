@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Maken en een ExpressRoute-circuit wijzigen
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Open een browser, ga naar [Azure Portal](http://portal.azure.com) en meld u aan 
 > 
 > 
 
-1. U kunt een ExpressRoute-circuit maken door de optie voor het maken van een nieuwe resource. Klik op **nieuw** > **Networking** > **ExpressRoute**, zoals wordt weergegeven in de volgende afbeelding:
+1. U kunt een ExpressRoute-circuit maken door de optie voor het maken van een nieuwe resource. Klik op **maken van een resource** > **Networking** > **ExpressRoute**, zoals wordt weergegeven in de volgende afbeelding:
 
   ![Een ExpressRoute-circuit maken](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Nadat u op **ExpressRoute**, ziet u de **maken ExpressRoute-circuit** pagina. Wanneer u de waarden op deze pagina hebt ingevuld, zorg ervoor dat u de juiste SKU-laag (Standard of Premium) en de gegevens softwarelicentiecontrole factureringsmodel (onbeperkt of Metered) opgeeft.

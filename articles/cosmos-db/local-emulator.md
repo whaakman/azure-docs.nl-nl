@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
 
@@ -74,7 +74,7 @@ Omdat de Azure-Emulator Cosmos DB een geëmuleerde omgeving uitgevoerd op een lo
 * De Azure-Emulator Cosmos DB komt niet simuleren verschillende [Azure Cosmos DB consistentieniveaus](consistency-levels.md).
 * De Azure-Emulator Cosmos DB komt niet simuleren [meerdere landen/regio replicatie](distribute-data-globally.md).
 * De Azure-Emulator Cosmos DB biedt geen ondersteuning voor de service quotum onderdrukkingen die beschikbaar in de Azure DB die Cosmos-service (bijvoorbeeld de maximale grootte document, verbeterde gepartitioneerde verzameling opslag zijn).
-* Als uw exemplaar van de Azure Cosmos DB-Emulator zijn mogelijk niet bijgewerkt met de meest recente wijzigingen met de service Azure Cosmos DB, neemt u [Azure DB die Cosmos-Capaciteitsplanner](https://www.documentdb.com/capacityplanner) nauwkeurig te schatten productie doorvoer (RUs) behoeften van uw de toepassing.
+* Als uw exemplaar van de Azure Cosmos DB-Emulator zijn mogelijk niet up-to-date blijven met de meest recente wijzigingen met de service Azure Cosmos DB, neemt u [Azure DB die Cosmos-Capaciteitsplanner](https://www.documentdb.com/capacityplanner) productie (RUs) doorvoerbehoeften van nauwkeurig te schatten uw toepassing.
 
 ## <a name="system-requirements"></a>Systeemvereisten
 De Azure-Emulator Cosmos DB heeft de volgende hardware en software-vereisten:
@@ -179,7 +179,7 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 <tr>
   <td><strong>Optie</strong></td>
   <td><strong>Beschrijving</strong></td>
-  <td><strong>Opdracht</strong></td>
+  <td><strong>opdracht</strong></td>
   <td><strong>Arguments</strong></td>
 </tr>
 <tr>
@@ -194,6 +194,11 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
+<tr>
+  <td>GetStatus</td>
+  <td>Hiermee haalt u de status van de Azure-Emulator Cosmos DB. De status wordt aangegeven door de afsluitcode: 1 = starten, 2 = wordt uitgevoerd, 3 = gestopt. Een afsluitcode van het negatieve geeft aan dat er een fout opgetreden. Geen enkele andere uitvoer is bereikt.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
 <tr>
   <td>Afsluiten</td>
   <td>De Azure Cosmos DB-Emulator wordt afgesloten.</td>
@@ -318,6 +323,40 @@ Als u het aantal beschikbare verzamelingen wilt de Emulator Azure Cosmos DB, het
 4. Installeer de nieuwste versie van de [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 5. Start de emulator met de vlag PartitionCount door een waarde < = 250. Bijvoorbeeld: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
+## <a name="controlling-the-emulator"></a>Beheren van de Emulator
+
+De Emulator wordt geleverd met een PowerShell-module voor het starten, stoppen, verwijderen en bij het ophalen van de status van de service. Om deze te gebruiken:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+of de `PSModules` map op uw `PSModulesPath` en importeer dit als volgt:
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+Hier volgt een samenvatting van de opdrachten voor het beheren van de emulator vanuit PowerShell:
+
+### `Get-CosmosDbEmulatorStatus`
+
+Retourneert een van deze waarden ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running of ServiceControllerStatus.Stopped.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+Hiermee start u de emulator. Standaard wordt de opdracht wacht totdat de emulator is klaar om aanvragen te accepteren. Gebruik de optie - NoWait als u de cmdlet om te retourneren als deze de emulator wordt gestart.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+Hiermee stopt de emulator. Standaard wordt deze opdracht wacht totdat de emulator volledig afsluiten is. Gebruik de optie - NoWait als u de cmdlet om terug te keren zodra de emulator begint af te sluiten.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+Hiermee verwijdert u de emulator en eventueel verwijdert u de volledige inhoud van $env: LOCALAPPDATA\CosmosDbEmulator.
+De cmdlet zorgt ervoor dat de emulator is gestopt voordat u deze verwijdert.
+
 ## <a name="running-on-docker"></a>Uitgevoerd op Docker
 
 De Azure-Emulator Cosmos DB kan worden uitgevoerd op Docker voor Windows. De Emulator werkt niet op Docker voor Oracle Linux.
@@ -386,7 +425,7 @@ Gebruik de volgende tips voor het oplossen van problemen die u met de Azure DB d
 
 - Als de Azure DB die Cosmos-emulator vastloopt, verzamelen van dumpbestanden vanuit de map c:\Users\user_name\AppData\Local\CrashDumps, deze comprimeren en deze koppelt aan een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-- Als u crashes ondervindt in CosmosDB.StartupEntryPoint.exe, kunt u de volgende opdracht uitvoeren vanaf een opdrachtprompt beheerder:`lodctr /R` 
+- Als u crashes ondervindt in CosmosDB.StartupEntryPoint.exe, kunt u de volgende opdracht uitvoeren vanaf een opdrachtprompt beheerder: `lodctr /R` 
 
 - Als u een verbindingsprobleem ondervindt [verzamelen traceringsbestanden](#trace-files), deze comprimeren en deze koppelt aan een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
@@ -416,7 +455,29 @@ Voor het verzamelen van foutopsporingsgegevens, voert u de volgende opdrachten u
 
 U kunt het versienummer controleren met de rechtermuisknop te klikken op de lokale emulatorpictogram op de taakbalk en de over menu-item.
 
-### <a name="120-released-on-january-26-2018"></a>1,20 uitgebracht op 26 januari 2018
+### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 uitgebracht op 14 februari 2018
+
+Er is een nieuwe functie en twee oplossingen voor problemen in deze release. Dankzij de klanten die heeft geholpen bij ons om te zoeken en los deze problemen.
+
+#### <a name="bug-fixes"></a>Oplossingen voor problemen
+
+1. De emulator werkt nu op computers met 1 of 2 kernen (of virtuele CPU's)
+
+   Cosmos DB wijst taken voor het uitvoeren van de diverse services. Het aantal taken dat toegewezen is een meervoud zijn van het aantal kernen op een host. De standaardwaarde meerdere werkt goed in productieomgevingen wanneer het aantal kernen groot is. Op computers met een processor van 1 of 2 de geen taken worden toegewezen voor deze services wanneer deze meerdere wordt toegepast.
+
+   We dit door een onderdrukking configuratie toe te voegen aan de emulator gecorrigeerd. We zijn een veelvoud van 1 nu van toepassing. Het aantal taken dat is toegewezen voor het uitvoeren van verschillende services is nu gelijk zijn aan het aantal kernen op een host.
+
+   Als er niets anders voor deze release kon zou zijn om dit probleem te verhelpen. We vinden dat veel ontwikkelen en testen omgevingen die als host fungeert voor de emulator 1 of 2 kernen hebben.
+
+2. De emulator is niet langer vereist voor het Microsoft Visual C++ 2015 redistributable moet worden geïnstalleerd.
+
+   Er zijn nieuwe installaties van Windows (desktop en server-edities) omvatten geen deze herdistribueerbaar pakket gevonden. Daarom bundel we nu de herdistribueerbare binaire bestanden met de emulator.
+
+#### <a name="features"></a>Functies
+
+Veel van de besproken om toegang te hebben laten weten dat klanten: het normaal zou zijn handig als u de Emulator scriptbare is. Daarom in deze release toegevoegd enige mogelijkheid script. De Emulator bevat nu een PowerShell-module voor het starten, stoppen, status ophalen en verwijderen van zichzelf: `Microsoft.Azure.CosmosDB.Emulator`. 
+
+### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 uitgebracht op 26 januari 2018
 
 * De pijplijn MongoDB-aggregatie standaard ingeschakeld.
 

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Routes vinden voor verschillende manieren van reizen met Azure Location Based Services
 
@@ -209,9 +209,9 @@ Deze sectie beschrijft hoe u de Route Service API van Azure Location Based Servi
     ```
     Dit codefragment maakt een [XMLHttpRequest](https://xhr.spec.whatwg.org/) en voegt een gebeurtenis-handler toe voor het parseren van de binnenkomende respons. Voor een geslaagde respons wordt een matrix van coördinaten gemaakt voor de route die is geretourneerd, en voegt u deze toe aan de laag `truckRouteLayerName` van de kaart. 
     
-    Dit codefragment verzendt ook de query naar de Route Service, om de route op te halen voor het opgegeven begin- en eindpunt, voor uw accountsleutel. De volgende optionele parameters worden gebruikt om de route voor een zware vrachtwagen aan te geven: - de parameter `travelMode=truck` geeft de manier van reizen op als *vrachtwagen*. Andere ondersteunde manieren van reizen zijn *taxi*, *bus*, *bestelwagen*, *motorfiets* en de standaardinstelling *auto*.  
-        -De parameters `vehicleWidth`, `vehicleHeight` en `vehicleLength` specificeren de afmetingen van het voertuig in meters en worden alleen beschouwd als de manier van reizen *vrachtwagen* is.  
-        -De `vehicleLoadType` classificeert de lading als gevaarlijk en beperkt op sommige wegen. Dit wordt momenteel ook alleen beschouwd voor de modus *vrachtwagen*.  
+    Dit codefragment verzendt ook de query naar de Route Service, om de route op te halen voor het opgegeven begin- en eindpunt, voor uw accountsleutel. De volgende optionele parameters worden gebruikt om de route voor een zware vrachtwagen aan te geven: - de parameter `travelMode=truck` geeft de manier van reizen op als *vrachtwagen*. Andere ondersteunde manieren van reizen zijn *taxi*, *bus*, *bestelwagen*, *motorfiets* en de standaardinstelling *auto*.
+        -De parameters `vehicleWidth`, `vehicleHeight` en `vehicleLength` specificeren de afmetingen van het voertuig in meters en worden alleen beschouwd als de manier van reizen *vrachtwagen* is.
+        -De `vehicleLoadType` classificeert de lading als gevaarlijk en beperkt op sommige wegen. Dit wordt momenteel ook alleen beschouwd voor de modus *vrachtwagen*.
 
 2. Voeg de volgende JavaScript-code toe voor de route voor een auto met behulp van de Route Service:
 

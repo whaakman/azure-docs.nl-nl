@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Gebruik van een App Service-omgeving #
 
@@ -48,7 +48,7 @@ Als u een as-omgeving hebt, kunt u een door de instructies in [maken van een App
 
 Een web-app maken in een as-omgeving:
 
-1. Selecteer **nieuwe** > **Web en mobiel** > **Web-App**.
+1. Selecteer **maken van een resource** > **Web en mobiel** > **Web-App**.
 
 2. Voer een naam voor de web-app. Als u al een App Service-abonnement in een as-omgeving hebt geselecteerd, geeft de domeinnaam voor de app de domeinnaam van de as-omgeving.
 
@@ -102,15 +102,15 @@ Front-resources zijn het HTTP/HTTPS-eindpunt voor de as-omgeving. Geheugengebrui
 
 In een externe as-omgeving verschilt het domein dat wordt gebruikt wanneer u apps maken die van de multitenant-App Service. Het bevat de naam van de as-omgeving. Zie voor meer informatie over het maken van een externe as-omgeving [maken van een App Service-omgeving][MakeExternalASE]. De naam van het domein in een externe as-omgeving ziet eruit als *.&lt; asename&gt;. p.azurewebsites.net*. Bijvoorbeeld, als de naam van uw as-omgeving _externe-as-omgeving_ en hosten van een app aangeroepen _contoso_ in dat as-omgeving, u dit op de volgende URL's bereikt:
 
-- Contoso.external ase.p.azurewebsites.net
-- Contoso.SCM.external ase.p.azurewebsites.net
+- contoso.external-ase.p.azurewebsites.net
+- contoso.scm.external-ase.p.azurewebsites.net
 
 De URL contoso.scm.external-ase.p.azurewebsites.net wordt gebruikt voor toegang tot de Kudu-console of voor het publiceren van uw app met behulp van web implementeren. Zie voor informatie over de Kudu-console, [Kudu-console voor Azure App Service][Kudu]. De Kudu-console biedt u een webgebruikersinterface voor foutopsporing, het uploaden van bestanden, bestanden en nog veel meer bewerken.
 
 In een ILB as-omgeving bepaalt u het domein tijdens de implementatie. Zie voor meer informatie over het maken van een as-omgeving voor de ILB [maken en gebruiken een ILB-as-omgeving][MakeILBASE]. Als u de domeinnaam opgeven _ilb ase.info_, gebruiken de apps in die as-omgeving dat domein tijdens het maken van de app. Voor de app met de naam _contoso_, wordt de URL's zijn:
 
-- Contoso.ILB ase.info
-- Contoso.SCM.ILB ase.info
+- contoso.ilb-ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publiceren ##
 
@@ -126,9 +126,9 @@ Met een externe as-omgeving werken op dezelfde manier deze alle publicatieopties
 
 Het belangrijkste verschil met het publiceren is ten opzichte van een as ILB-omgeving. De publicerende eindpunten zijn met een ILB as-omgeving, alle beschikbare alleen via de ILB. De ILB is op een privé IP-adres in het subnet van de as-omgeving in het virtuele netwerk. Als u geen toegang tot de ILB netwerk hebt, kunt u alle apps op die as-omgeving niet publiceren. Zoals vermeld in [maken en gebruiken een ILB-as-omgeving][MakeILBASE], moet u DNS configureren voor de apps in het systeem. Dat betekent onder meer het SCM-eindpunt. Als ze zijn niet correct gedefinieerd, kunt u niet publiceren. Er moet ook uw IDE netwerktoegang hebben tot de ILB om te kunnen publiceren naar deze.
 
-Internetgebaseerde CI systemen, zoals GitHub en Visual Studio Team Services, werkt niet met een ILB-as-omgeving omdat het publishing eindpunt niet Internet toegankelijk is. In plaats daarvan moet u een CI-besturingssysteem dat gebruikmaakt van een pull-model, zoals Dropbox gebruiken.
+Internetgebaseerde CI systemen, zoals GitHub en Visual Studio Team Services, werkt niet met een ILB-as-omgeving omdat het publishing eindpunt niet Internet toegankelijk is. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
 
-Het domein dat de as ILB-omgeving is gemaakt met de publicatie eindpunten voor apps in een ILB-as-omgeving gebruiken Kunt u deze bekijken in het profiel voor het publiceren van de app en de portalblade van de app (in **overzicht** > **Essentials** en ook in **eigenschappen**). 
+De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. Kunt u deze bekijken in het profiel voor het publiceren van de app en de portalblade van de app (in **overzicht** > **Essentials** en ook in **eigenschappen**). 
 
 ## <a name="pricing"></a>Prijzen ##
 

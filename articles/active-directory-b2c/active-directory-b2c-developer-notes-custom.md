@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Releaseopmerkingen voor openbare preview van Azure Active Directory B2C aangepast beleid
 De functieset aangepast beleid is nu beschikbaar voor evaluatie van de openbare preview voor alle Azure Active Directory B2C (Azure AD B2C) klanten. Deze functieset is gericht op geavanceerde identiteit ontwikkelaars oplossingen die het meest complexe identiteit.  
@@ -60,7 +60,7 @@ Om volledig profiteren van de openbare preview, is het raadzaam dat ontwikkelaar
 ## <a name="features-by-stage-and-known-issues"></a>Functies door de fase en bekende problemen
 Aangepast beleid/identiteit ervaring Framework mogelijkheden zijn onder constante en snelle ontwikkeling.  Deze tabel is een index van de beschikbaarheid van functies/componenten.
 
-Stel vragen in de Stack Overflow op [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Stel vragen in de Stack Overflow op [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Protocollen voor identiteit Providers, Tokens.
@@ -68,11 +68,11 @@ Interfaces met externe onderdelen en toepassingen
 
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------------------|-------------|---------|----|-------|
-| IDP OpenIDConnect |  | x |  | bijvoorbeeld, Google + |
-| IDP OAUTH2 |  | x |  | bijvoorbeeld, Facebook  |
-| IDP OAUTH1 |  | x |  | bijvoorbeeld, Twitter |
-| IDP SAML |  | x |  | bijvoorbeeld Salesforce, AD FS |
-| IDP WSFED | x |  |  |  |
+| IDP-OpenIDConnect |  | x |  | bijvoorbeeld, Google + |
+| IDP-OAUTH2 |  | x |  | bijvoorbeeld, Facebook  |
+| IDP-OAUTH1 |  | x |  | bijvoorbeeld, Twitter |
+| IDP-SAML |  | x |  | bijvoorbeeld Salesforce, AD FS |
+| IDP-WSFED | x |  |  |  |
 | Relying Party OAUTH |  | x |  |  |
 | Relying Party OIDC |  | x |  |  |
 | Relying Party SAML | x |  |  |  |
@@ -122,7 +122,7 @@ Interfaces met externe onderdelen en toepassingen
 
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |
 |---------------------------------|-------------|---------|----|-------|
-| Sessie-Provider voor eenmalige aanmelding |  | x |  |  |
+| SSO Session Provider |  | x |  |  |
 | Sessie-Provider voor externe aanmelding |  | x |  |  |
 | Provider voor eenmalige aanmelding voor SAML-sessie |  | x |  |  |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiveren van de Azure Activity Log
 In dit artikel, laten we zien hoe u de Azure-portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt bij de archivering van uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een opslagaccount. Deze optie is handig als u wilt behouden uw activiteitenlogboek van meer dan 90 dagen (met volledige controle over het bewaarbeleid) voor controle, statische analyses of back-up. Als u hoeft alleen uw gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft instellen naar een opslagaccount archivering omdat activiteitenlogboek gebeurtenissen worden behouden in de Azure-platform gedurende 90 dagen zonder in te schakelen archivering.
@@ -30,7 +30,7 @@ Voordat u begint, moet u [een opslagaccount maken](../storage/common/storage-cre
 Als u wilt archiveren het activiteitenlogboek met behulp van de methoden hieronder, u stelt de **logboek profiel** voor een abonnement. Het logboek-profiel definieert het type gebeurtenissen die zijn opgeslagen of gestreamd en de uitvoer-storage-account en/of event hub. Het definieert ook het bewaarbeleid (aantal dagen wilt bewaren) voor gebeurtenissen die zijn opgeslagen in een opslagaccount. Als het bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor onbepaalde tijd opgeslagen. Dit kan anders worden ingesteld op een waarde tussen 1 en 2147483647. Bewaarbeleid zijn toegepaste per dag, aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid wordt dus verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd. [U kunt meer lezen over log profielen hier](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archiveren van het activiteitenlogboek via de portal
-1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het logboek niet ziet, klikt u op de **meer Services** eerst koppelen.
+1. Klik in de portal op de **activiteitenlogboek** koppeling op de navigatiebalk aan de linkerkant. Als u een koppeling voor het logboek niet ziet, klikt u op de **alle Services** eerst koppelen.
    
     ![Ga naar de blade Activity Log](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. Klik boven aan de blade op **exporteren**.
@@ -65,7 +65,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId |Nee |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
 | Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst weergeven met alle regio's [via deze pagina](https://azure.microsoft.com/en-us/regions) of met behulp van [de Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. De waarde nul wordt de logboeken voor onbepaalde tijd worden opgeslagen (permanent). |
-| Categorieën |Ja |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| categorieën |Ja |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Opslag-schema van het activiteitenlogboek
 Nadat u hebt ingesteld archivering, wordt een opslagcontainer gemaakt in de storage-account zodra een activiteitenlogboek gebeurtenis plaatsvindt. De blobs in de container Volg dezelfde indeling voor de activiteitenlogboek- en diagnostische logboeken. De structuur van deze BLOB's is:
@@ -76,7 +76,7 @@ Nadat u hebt ingesteld archivering, wordt een opslagcontainer gemaakt in de stor
 
 Zo mogelijk een blob-naam:
 
-> Insights-Operational-Logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.JSON
+> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 > 
 > 
 

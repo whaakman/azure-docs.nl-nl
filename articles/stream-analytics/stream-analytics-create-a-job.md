@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Het maken van een taak analytics verwerking voor Stream Analytics
 De resource op het hoogste niveau in Azure Stream Analytics is een Stream Analytics-taak.  Bestaat uit een of meer invoer gegevensbronnen, een query uitdrukken van de gegevenstransformatie en een of meer uitvoer-doelen die resultaten naar worden geschreven. Samen kunnen deze gebruikers verwerken voor streaming gegevensscenario data-analyses uitvoeren.
@@ -27,7 +27,7 @@ De resource op het hoogste niveau in Azure Stream Analytics is een Stream Analyt
 Om te starten met Stream Analytics, te beginnen met het maken van een nieuwe Stream Analytics-taak.  Houd er rekening mee dat deze actie heeft geen gevolgen voor facturering totdat de taak is gestart.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **nieuw** > **gegevens en analyse** > **Stream Analytics-taak**.
+2. Selecteer **maken van een resource** > **gegevens en analyse** > **Stream Analytics-taak**.
 3. Selecteer **Maken**.
    
 3. Geef de gewenste configuratie voor de Stream Analytics-taak.

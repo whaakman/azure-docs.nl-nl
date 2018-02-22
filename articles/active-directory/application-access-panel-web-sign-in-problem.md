@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Aanmelden bij de website van het deelvenster toegang probleem
 
@@ -32,7 +32,7 @@ Gebruikers kunnen aanmelden bij het toegangsvenster als ze een account voor werk
 
 -   Gebruikers kunnen worden geverifieerd door Windows Server Active Directory.
 
-Als een gebruiker een abonnement voor Azure of Office 365 heeft en de Azure portal of een Office 365-toepassing heeft gebruikt, is het waarschijnlijk dat ze gebruikmaken van het toegangsvenster naadloos zonder opnieuw aanmelden. Gebruikers die niet worden geverifieerd gevraagd aan te melden met behulp van de gebruikersnaam en het wachtwoord voor hun account in Azure AD. Als de organisatie heeft federation geconfigureerd, is typt de gebruikersnaam voldoende.
+Als een gebruiker een abonnement voor Azure of Office 365 heeft en de Azure portal of een Office 365-toepassing heeft gebruikt, is het waarschijnlijk dat ze gebruikmaken van het toegangsvenster naadloos zonder opnieuw aanmelden. Gebruikers die niet worden geverifieerd, wordt gevraagd aan te melden met behulp van de gebruikersnaam en het wachtwoord voor hun account in Azure AD. Als de organisatie heeft federation geconfigureerd, is typt de gebruikersnaam voldoende.
 
 ## <a name="general-issues-to-check-first"></a>Algemene problemen om eerst te controleren 
 
@@ -50,7 +50,7 @@ Als een gebruiker een abonnement voor Azure of Office 365 heeft en de Azure port
 
 -   Zorg ervoor dat een **beleid voor voorwaardelijke toegang** of **Identity Protection** beleid voor de gebruikerstoegang niet blokkeert.
 
--   Zorg ervoor dat een gebruiker **verificatie contactgegevens** is up-to-date houden om toe te staan van multi-factor Authentication of voorwaardelijk beleid worden afgedwongen.
+-   Zorg ervoor dat een gebruiker **verificatie contactgegevens** is bijgewerkt om toe te staan van multi-factor Authentication of voorwaardelijk beleid worden afgedwongen.
 
 -   Zorg ervoor dat ook moet worden geprobeerd wissen van cookies in uw browser en probeer het opnieuw.
 
@@ -93,11 +93,11 @@ Toegang tot het toegangsvenster kan worden geblokkeerd door een probleem met het
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Controleer of er een gebruikersaccount in Azure Active Directory bestaat
 
-Als u wilt controleren of de account van een gebruiker aanwezig is, de volgende stappen uit te voeren:
+Als u wilt controleren of de account van een gebruiker aanwezig is, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -111,11 +111,11 @@ Als u wilt controleren of de account van een gebruiker aanwezig is, de volgende 
 
 ### <a name="check-a-users-account-status"></a>Controleer de status van de account van een gebruiker
 
-Als u wilt controleren accountstatus van een gebruiker, de volgende stappen uit te voeren:
+Als u wilt controleren accountstatus van een gebruiker, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -131,11 +131,11 @@ Als u wilt controleren accountstatus van een gebruiker, de volgende stappen uit 
 
 ### <a name="reset-a-users-password"></a>Een gebruiker-wachtwoord opnieuw instellen
 
-Als u het wachtwoord van een gebruiker herstellen, de volgende stappen uit te voeren:
+Als u het wachtwoord van een gebruiker herstellen, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -145,17 +145,17 @@ Als u het wachtwoord van een gebruiker herstellen, de volgende stappen uit te vo
 
 6.  **Search** voor de gebruiker die u geïnteresseerd bent in en **klikt u op de rij** om te selecteren.
 
-7.  Klik op de **wachtwoord opnieuw instellen** knop aan de bovenkant van de gebruiker-blade.
+7.  Klik op de **wachtwoord opnieuw instellen** knop aan de bovenkant van het deelvenster van de gebruiker.
 
-8.  Klik op de **wachtwoord opnieuw instellen** knop op de **wachtwoord opnieuw instellen** blade die wordt weergegeven.
+8.  Klik op de **wachtwoord opnieuw instellen** knop op de **wachtwoord opnieuw instellen** deelvenster dat wordt weergegeven.
 
 9.  Kopieer de **tijdelijk wachtwoord** of **een nieuw wachtwoord invoeren** voor de gebruiker.
 
-10. Het nieuwe wachtwoord voor de gebruiker te communiceren, ze moeten dit wachtwoord wijzigen tijdens de volgende aanmelding in Azure Active Directory.
+10. Dit nieuwe wachtwoord voor de gebruiker te communiceren, kunnen ze vereist dit wachtwoord wijzigen tijdens de volgende keer aanmelden met Azure Active Directory.
 
 ### <a name="enable-self-service-password-reset"></a>Selfservice voor wachtwoordherstel inschakelen
 
-Voer de volgende stappen uit de implementatie zodat selfservice voor wachtwoordherstel:
+Voor de selfservice voor wachtwoordherstel inschakelen, volgt implementatie:
 
 -   [Kunnen gebruikers hun Azure Active Directory-wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
@@ -163,11 +163,11 @@ Voer de volgende stappen uit de implementatie zodat selfservice voor wachtwoordh
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Controleer de status van een gebruiker multi-factor authentication-server
 
-Een gebruiker multi-factor authentication-server om status te controleren, de volgende stappen uit te voeren:
+Een gebruiker multi-factor authentication-server om status te controleren, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -175,7 +175,7 @@ Een gebruiker multi-factor authentication-server om status te controleren, de vo
 
 5.  Klik op **alle gebruikers**.
 
-6.  Klik op de **multi-Factor Authentication** knop aan de bovenkant van de blade.
+6.  Klik op de **multi-Factor Authentication** knop aan de bovenkant van het deelvenster.
 
 7.  Eenmaal de **multi-factor Authentication-beheerportal** laadt, zorg ervoor dat u op de **gebruikers** tabblad.
 
@@ -184,17 +184,17 @@ Een gebruiker multi-factor authentication-server om status te controleren, de vo
 9.  Selecteer de gebruiker in de lijst met gebruikers en **inschakelen**, **uitschakelen**, of **afdwingen** multi-factor authentication-server naar wens.
 
    >[!NOTE]
-   >Als een gebruiker zich in een **afgedwongen** staat, kunt u ze ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Wanneer ze terug in bent, kunt u vervolgens hun status te wijzigen **ingeschakeld** opnieuw naar de moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende aanmelding in. U kunt ook kunt u de stappen in de [controleren van de contactgegevens van de verificatie van een gebruiker](#check-a-users-authentication-contact-info) om te controleren of deze gegevens voor deze instellen.
+   >Als een gebruiker zich in een **afgedwongen** staat, kunt u ze ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Wanneer ze terug in bent, kunt u vervolgens hun status te wijzigen **ingeschakeld** opnieuw naar de moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende keer aanmelden. U kunt ook kunt u de stappen in de [controleren van de contactgegevens van de verificatie van een gebruiker](#check-a-users-authentication-contact-info) om te controleren of deze gegevens voor deze instellen.
    >
    >
 
 ### <a name="check-a-users-authentication-contact-info"></a>Controleer de contactgegevens van de verificatie van een gebruiker
 
-Als u wilt controleren van een gebruiker verificatie contactgegevens die zijn gebruikt voor multi-factor authentication, voorwaardelijke toegang, Identity Protection en het wachtwoord opnieuw instellen, de volgende stappen uit te voeren:
+Als u wilt controleren van een gebruiker verificatie contactgegevens die zijn gebruikt voor multi-factor authentication, voorwaardelijke toegang, Identity Protection en het wachtwoord opnieuw instellen, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -212,11 +212,11 @@ Als u wilt controleren van een gebruiker verificatie contactgegevens die zijn ge
 
 ### <a name="check-a-users-group-memberships"></a>Controleer de groepslidmaatschappen van een gebruiker
 
-Als u wilt controleren groepslidmaatschappen van een gebruiker, de volgende stappen uit te voeren:
+Als u wilt controleren groepslidmaatschappen van een gebruiker, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -230,11 +230,11 @@ Als u wilt controleren groepslidmaatschappen van een gebruiker, de volgende stap
 
 ### <a name="check-a-users-assigned-licenses"></a>Controleer de toegewezen licenties van een gebruiker
 
-Als u wilt controleren toegewezen licenties van een gebruiker, de volgende stappen uit te voeren:
+Als u wilt controleren toegewezen licenties van een gebruiker, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
@@ -248,11 +248,11 @@ Als u wilt controleren toegewezen licenties van een gebruiker, de volgende stapp
 
 ### <a name="assign-a-user-a-license"></a>Een gebruiker een licentie toewijzen 
 
-Als u wilt een licentie toewijzen aan een gebruiker, de volgende stappen uit te voeren:
+Als u wilt een licentie toewijzen aan een gebruiker, de volgende stappen uit:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 

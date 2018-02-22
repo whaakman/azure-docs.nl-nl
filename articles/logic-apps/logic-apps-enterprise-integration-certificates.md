@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Meer informatie over certificaten en het Enterprise Integration Pack
 ## <a name="overview"></a>Overzicht
@@ -44,7 +44,7 @@ Nadat u een certificaat hebt geüpload, wordt het beschikbaar om te helpen bevei
 
 Hier worden de gedetailleerde stappen voor het uploaden van uw certificaten voor openbare toegang tot je account integratie nadat u zich aanmeldt bij de Azure-portal:
 
-1. Selecteer **meer services** en voer **integratie** in het zoekvak van het filter. Selecteer **Integratieaccounts** uit de lijst met resultaten     
+1. Selecteer **alle services** en voer **integratie** in het zoekvak van het filter. Selecteer **Integratieaccounts** uit de lijst met resultaten     
 ![Selecteer Bladeren](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Selecteer de integratie-account waarnaar u wilt het certificaat niet toevoegen.  
 ![Selecteer de integratie-account waarnaar u wilt het certificaat toevoegen](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
@@ -67,7 +67,7 @@ Gebruik een *persoonlijk certificaat* in logic apps met B2B-mogelijkheden, kunt 
 1. [Uw persoonlijke sleutel te uploaden naar Sleutelkluis](../key-vault/key-vault-get-started.md "meer informatie over Sleutelkluis") en geef een **sleutelnaam** 
    
    > [!TIP]
-   > U kunt logische Apps op bewerkingen uitvoeren op de Sleutelkluis moet autoriseren. U kunt toegang verlenen tot de service-principal van Logic Apps met behulp van de volgende PowerShell-opdracht:`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > U kunt logische Apps op bewerkingen uitvoeren op de Sleutelkluis moet autoriseren. U kunt toegang verlenen tot de service-principal van Logic Apps met behulp van de volgende PowerShell-opdracht: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 
@@ -88,7 +88,7 @@ Hier volgen gedetailleerde stappen voor het uploaden van uw persoonlijke certifi
    >   
 
 5. Selecteer de **resourcegroep**, **Sleutelkluis**, **sleutelnaam** en selecteer de **OK** knop.  
-![Certificaat toevoegen](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)  
+![certificaat toevoegen](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)  
 6. Selecteer de **certificaten** tegel. U ziet het zojuist toegevoegde certificaat.
 ![Zie het nieuwe certificaat](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)  
 

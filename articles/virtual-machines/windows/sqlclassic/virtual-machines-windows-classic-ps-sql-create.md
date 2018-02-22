@@ -4,7 +4,7 @@ description: "Bevat de stappen en PowerShell-scripts voor het maken van een virt
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Een SQL Server-machine met Azure PowerShell (klassiek) inrichten
 
@@ -76,7 +76,7 @@ Uw virtuele Machine van SQL Server zal worden gehost in een cloudservice die een
    ```
 
    > [!NOTE]
-   > Als u een nieuw opslagaccount vereist, moet u eerst een opslagaccountnaam alle kleine maken met de opdracht New-AzureStorageAccount zoals in het volgende voorbeeld:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Als u een nieuw opslagaccount vereist, moet u eerst een opslagaccountnaam alle kleine maken met de opdracht New-AzureStorageAccount zoals in het volgende voorbeeld: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Toewijzen van de doel-opslagaccountnaam naar de **$staccount**. Gebruik vervolgens **Set-AzureSubscription** instellen van het abonnement en de huidige opslagaccount.
 

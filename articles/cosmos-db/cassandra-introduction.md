@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Inleiding tot Apache Cassandra API voor Azure Cosmos DB
 
@@ -64,7 +64,7 @@ De API Cassandra kunt u communiceren met gegevens die zijn opgeslagen in Azure C
 
 Als u al een Azure-abonnement hebt, kunt u zich aanmeldt bij het programma Cassandra API (preview) in de [Azure-portal](https://aka.ms/cosmosdb-cassandra-signup).  Als u geen ervaring met Azure, zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free) waar u 12 maanden gratis toegang tot Azure Cosmos DB krijgen. De volgende stappen om aan te vragen toegang tot het programma Cassandra API (preview).
 
-1. In de [Azure-portal](https://portal.azure.com), klikt u op **nieuw** > **Databases** > **Azure Cosmos DB**. 
+1. In de [Azure-portal](https://portal.azure.com), klikt u op **maken van een resource** > **Databases** > **Azure Cosmos DB**. 
 
 2. Selecteer op de pagina nieuwe Account **Cassandra** in het vak API. 
 

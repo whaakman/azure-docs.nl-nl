@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Maken van een Service Fabric-cluster in Azure met Azure portal
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Maken van een productiecluster om te voldoen aan de behoeften van uw toepassing 
 ![zoeken naar Service Fabric-cluster sjabloon op de Azure-portal.][SearchforServiceFabricClusterTemplate]
 
 1. Meld u aan bij [Azure Portal][azure-portal].
-2. Klik op **nieuw** toevoegen van een nieuwe resource-sjabloon. Zoeken naar de sjabloon Service Fabric-Cluster in de **Marketplace** onder **Alles**.
+2. Klik op **maken van een resource** toevoegen van een nieuwe resource-sjabloon. Zoeken naar de sjabloon Service Fabric-Cluster in de **Marketplace** onder **Alles**.
 3. Selecteer **Service Fabric-Cluster** uit de lijst.
 4. Navigeer naar de **Service Fabric-Cluster** blade, klikt u op **maken**,
 5. De **maken Service Fabric-cluster** blade bevat de volgende vier stappen:
@@ -134,6 +134,7 @@ Instellen van een beveiligde testcluster om gemakkelijk te maken voor u, boden w
 #####<a name="basic-option"></a>Basic-optie
 Volg de schermen als u wilt toevoegen of een bestaande keyvault hergebruiken en een certificaat toevoegen. Het toevoegen van het certificaat is een synchrone proces en u moet dus wacht tot het certificaat moet worden gemaakt.
 
+
 Bestand tegen de komen om navigeren weg van het scherm totdat de vorige proces is voltooid.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Nu dat het certificaat wordt toegevoegd aan uw keyvault, ziet u mogelijk het vol
 
 ![CreateKeyVault2]
 
-Klik op het geavanceerde toegangsbeleid en toegang tot de virtuele Machines voor implementatie. Het verdient aanbeveling om de sjabloonimplementatie in te schakelen.
+Klik op het geavanceerde toegangsbeleid en toegang tot de virtuele Machines voor implementatie. Het verdient aanbeveling om de sjabloonimplementatie in te schakelen. Nadat u uw selecties hebt gemaakt, vergeet niet te klikken op de **opslaan** knop en sluiten van de **toegangsbeleid** deelvenster.
 
 ![CreateKeyVault3]
 

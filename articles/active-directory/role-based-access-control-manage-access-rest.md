@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Op rollen gebaseerde toegangsbeheer met de REST-API beheren
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Azure-CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Op rollen gebaseerde toegangsbeheer (RBAC) in de Azure portal en Azure Resource Manager-API kunt u toegang tot uw abonnement en bronnen op een heel nauwkeurig beheren. Met deze functie kunt u toegang tot Active Directory-gebruikers, groepen of service-principals verlenen door sommige rollen toewijzen aan deze bij een bepaald bereik.
+Met op rollen gebaseerde toegangsbeheer (RBAC), definiëren u toegang voor gebruikers, groepen en service-principals door het toewijzen van rollen bij een bepaald bereik. Dit artikel wordt beschreven hoe u voor het beheren van toegang met behulp van de REST-API.
 
 ## <a name="list-all-role-assignments"></a>Lijst van alle roltoewijzingen
 Geeft een lijst van alle roltoewijzingen aan het opgegeven bereik en subscopes.
@@ -48,9 +48,9 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 2. Vervang *{api-versie}* met 2015-07-01.
 3. Vervang *{filter}* met de voorwaarde die u wilt toepassen om de rol toewijzingslijst te filteren:
 
-   * Roltoewijzingen voor alleen het opgegeven bereik niet met inbegrip van de roltoewijzingen op subscopes lijst:`atScope()`    
-   * Roltoewijzingen lijst voor een specifieke gebruiker, groep of toepassing:`principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Lijst van roltoewijzingen voor een specifieke gebruiker, inclusief overgenomen van groepen |`assignedTo('{objectId of user}')`
+   * Roltoewijzingen voor alleen het opgegeven bereik niet met inbegrip van de roltoewijzingen op subscopes lijst: `atScope()`    
+   * Roltoewijzingen lijst voor een specifieke gebruiker, groep of toepassing: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * Lijst van roltoewijzingen voor een specifieke gebruiker, inclusief overgenomen van groepen | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>Antwoord
 Statuscode: 200
@@ -153,7 +153,7 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| roleDefinitionId |Ja |Tekenreeks |De id van de rol. De indeling van de id is:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| roleDefinitionId |Ja |Tekenreeks |De id van de rol. De indeling van de id is: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Ja |Tekenreeks |object-id van de Azure AD-principal waaraan de rol is toegewezen (gebruiker, groep of service-principal). |
 
 ### <a name="response"></a>Antwoord
@@ -238,8 +238,8 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 2. Vervang *{api-versie}* met 2015-07-01.
 3. Vervang *{filter}* met de voorwaarde die u wilt toepassen om te filteren op de lijst met rollen:
 
-   * Lijst met beschikbare rollen voor toewijzing bij het opgegeven bereik en een van de onderliggende scopes van:`atScopeAndBelow()`
-   * Zoeken naar een rol met de exacte weergavenaam: `roleName%20eq%20'{role-display-name}'`. Gebruik het URL-gecodeerd-formulier van de exacte weergavenaam van de rol. Bijvoorbeeld:`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Lijst met beschikbare rollen voor toewijzing bij het opgegeven bereik en een van de onderliggende scopes van: `atScopeAndBelow()`
+   * Zoeken naar een rol met de exacte weergavenaam: `roleName%20eq%20'{role-display-name}'`. Gebruik het URL-gecodeerd-formulier van de exacte weergavenaam van de rol. Bijvoorbeeld: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 200

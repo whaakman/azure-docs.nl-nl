@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
 In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps te zoeken in de portal
-Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map met een directory-beheerder met behulp van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen vindt u in de **meer Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie.
+Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map met een directory-beheerder met behulp van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie.
 
-![Blade bedrijfstoepassingen][0]
+![Deelvenster bedrijfstoepassingen][0]
 
-Als u de **alle toepassingen** koppeling aan de linkerkant geeft een lijst met alle apps die zijn geconfigureerd, met inbegrip van apps die waren toegevoegd uit de galerie. Als u een app laadt de resourceblade voor die app, waarbij de rapporten kunnen worden weergegeven voor die app en een aantal instellingen kan worden beheerd.
+Als u de **alle toepassingen** koppeling aan de linkerkant geeft een lijst met alle apps die zijn geconfigureerd, met inbegrip van apps die waren toegevoegd uit de galerie. Selecteren van een app, laadt het resource-deelvenster voor die app, waarbij de rapporten kunnen worden weergegeven voor die app en een aantal instellingen kan worden beheerd.
 
 Instellingen voor het inrichten gebruikersaccount kan worden beheerd door te selecteren **inrichten** aan de linkerkant.
 
-![De resource-blade toepassing][1]
+![Toepassing resource deelvenster][1]
 
 ## <a name="provisioning-modes"></a>Inrichting modi
-De **inrichten** blade begint met een **modus** menu ziet u welke inrichting modi worden ondersteund voor een zakelijke toepassing en kan ze worden geconfigureerd. De beschikbare opties zijn onder andere:
+De **inrichten** deelvenster begint met een **modus** menu ziet u welke inrichting modi worden ondersteund voor een zakelijke toepassing en kan ze worden geconfigureerd. De beschikbare opties zijn onder andere:
 
 * **Automatische** -deze optie wordt weergegeven als Azure AD ondersteunt automatische inrichting op basis van een API en/of de inrichting van gebruikersaccounts aan deze toepassing. Als u deze modus wordt weergegeven een interface waarmee beheerders via Azure AD verbinding maken met de toepassing Gebruikersbeheer API configureren, Accounttoewijzingen en werkstromen die definiëren hoe de gegevens van gebruikersaccounts moeten stromen tussen Azure AD maken en de app en het beheren van de Azure AD-service inricht.
 * **Handmatige** -deze optie wordt weergegeven als Azure AD biedt geen ondersteuning voor automatische inrichting van gebruikersaccounts aan deze toepassing. Deze optie betekent dat account gebruikersrecords opgeslagen in de toepassing moeten worden beheerd met behulp van een extern proces, op basis van de gebruiker beheer en inrichting mogelijkheden van die toepassing (met inbegrip van SAML-compileerprogramma inrichting).
@@ -54,7 +54,7 @@ Dit is waar beheerders kunnen weergeven en bewerken welke kenmerken gebruikersst
 
 Er is een vooraf geconfigureerde verzameling toewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten van elke SaaS-app. Sommige apps beheren andere soorten objecten, zoals groepen of contactpersonen. Selecteer een van de toewijzingen in de tabel ziet u de editor voor kolomtoewijzing aan de rechterkant, waar ze kunnen worden bekeken en aangepast.
 
-![De resource-blade toepassing][2]
+![Toepassing resource deelvenster][2]
 
 Ondersteunde aanpassingen zijn onder andere:
 
@@ -81,6 +81,6 @@ Vindt u koppelingen naar de **inrichting activiteitenrapport**, waarmee u een lo
 We hopen u zoals uw Azure AD-ervaring. Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We Doe enthousiast bent over het bouwen van cool nieuw per dag uit, en gebruik van de richtlijnen voor vorm en definiëren wat we hierna bouwen.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

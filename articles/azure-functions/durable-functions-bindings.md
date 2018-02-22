@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindingen voor duurzame functies (Azure-functies)
 
@@ -42,8 +42,8 @@ Bij het schrijven van orchestrator-functies in scripttalen (bijvoorbeeld in de A
 }
 ```
 
-* `orchestration`de naam van de orchestration is. Dit is de waarde die clients gebruiken moeten wanneer ze willen nieuwe exemplaren van deze functie orchestrator te starten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de naam van de functie gebruikt.
-* `version`een label van de versie van de orchestration is. Clients die een nieuw exemplaar van een orchestration starten, moeten de overeenkomende versie label bevatten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de lege tekenreeks wordt gebruikt. Zie voor meer informatie over versiebeheer [Versioning](durable-functions-versioning.md).
+* `orchestration` de naam van de orchestration is. Dit is de waarde die clients gebruiken moeten wanneer ze willen nieuwe exemplaren van deze functie orchestrator te starten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de naam van de functie gebruikt.
+* `version` een label van de versie van de orchestration is. Clients die een nieuw exemplaar van een orchestration starten, moeten de overeenkomende versie label bevatten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de lege tekenreeks wordt gebruikt. Zie voor meer informatie over versiebeheer [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Instellen van waarden voor `orchestration` of `version` eigenschappen wordt niet aanbevolen op dit moment.
@@ -116,8 +116,8 @@ Als u de Azure-portal voor ontwikkeling, de activiteit trigger wordt gedefinieer
 }
 ```
 
-* `activity`is de naam van de activiteit. Dit is de waarde die het orchestrator-functies gebruiken om aan deze activiteit functie aanroepen. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de naam van de functie gebruikt.
-* `version`een label van de versie van de activiteit is. Orchestrator-functies die gebruikmaken van een activiteit moeten de overeenkomende versie label bevatten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de lege tekenreeks wordt gebruikt. Zie voor meer informatie [Versioning](durable-functions-versioning.md).
+* `activity` is de naam van de activiteit. Dit is de waarde die het orchestrator-functies gebruiken om aan deze activiteit functie aanroepen. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de naam van de functie gebruikt.
+* `version` een label van de versie van de activiteit is. Orchestrator-functies die gebruikmaken van een activiteit moeten de overeenkomende versie label bevatten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de lege tekenreeks wordt gebruikt. Zie voor meer informatie [Versioning](durable-functions-versioning.md).
 
 > [!NOTE]
 > Instellen van waarden voor `activity` of `version` eigenschappen wordt niet aanbevolen op dit moment.
@@ -192,8 +192,8 @@ Als u scripttalen (bijvoorbeeld *.csx* bestanden) voor ontwikkeling, de orchestr
 }
 ```
 
-* `taskHub`: Wordt gebruikt in scenario's waarbij meerdere functie apps delen hetzelfde opslagaccount maar moeten worden van elkaar geïsoleerd. Als niet wordt opgegeven, de standaardwaarde van `host.json` wordt gebruikt. Deze waarde moet overeenkomen met de waarde die wordt gebruikt door de doel-orchestrator-functies.
-* `connectionName`-De naam van een app-instelling met een verbindingsreeks voor opslag-account. Het opslagaccount dat wordt vertegenwoordigd door deze verbindingsreeks moet hetzelfde account dat door de doel-orchestrator-functies gebruikt. Als niet wordt opgegeven, wordt de verbindingsreeks standaard storage-account voor de functie-app gebruikt.
+* `taskHub` : Wordt gebruikt in scenario's waarbij meerdere functie apps delen hetzelfde opslagaccount maar moeten worden van elkaar geïsoleerd. Als niet wordt opgegeven, de standaardwaarde van `host.json` wordt gebruikt. Deze waarde moet overeenkomen met de waarde die wordt gebruikt door de doel-orchestrator-functies.
+* `connectionName` -De naam van een app-instelling met een verbindingsreeks voor opslag-account. Het opslagaccount dat wordt vertegenwoordigd door deze verbindingsreeks moet hetzelfde account dat door de doel-orchestrator-functies gebruikt. Als niet wordt opgegeven, wordt de verbindingsreeks standaard storage-account voor de functie-app gebruikt.
 
 > [!NOTE]
 > In de meeste gevallen wordt aangeraden dat u deze eigenschappen weglaten en zijn afhankelijk van het standaardgedrag.

@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Veelgestelde vragen over Azure-logboekanalyse-integratie
-Dit artikel worden veelgestelde vragen (FAQ) over de integratie van Azure Log. 
+
+Dit artikel worden veelgestelde vragen (FAQ) over de integratie van Azure Log.
+
+>[!IMPORTANT]
+>De voorkeursmethode voor het integreren van Azure Logboeken is met behulp van de leverancier van uw SIEM Azure Monitor connector en volgende [instructies](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Echter, als de leverancier van uw SIEM geen een connector Azure bewaken biedt, u mogelijk gebruikmaken van integratie van Azure-logboek als tijdelijke oplossing (als uw SIEM wordt ondersteund door Azure Log-integratie) totdat deze connector beschikbaar is.
 
 Integratie van Azure Log is een service voor het besturingssysteem van Windows die u gebruiken kunt voor het integreren van onbewerkte logboeken van uw Azure-resources in uw on-premises security information en event management (SIEM) systemen. Deze integratie biedt een uniforme dashboard voor alle activa, lokaal of in de cloud. U kunt vervolgens samenvoegen, correleren, analyseren en waarschuwen voor beveiligingsgebeurtenissen die zijn gekoppeld aan uw toepassingen.
 
@@ -34,20 +38,20 @@ Ja. Er zijn geen kosten voor de integratie van Azure Log-software.
 Het is momenteel beschikbaar zijn in Azure commerciële en Azure Government en is niet beschikbaar in China of Duitsland.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Hoe kan ik de waarin Azure Log-integratie is binnenhalen van Logboeken van de virtuele machine van Azure storage-accounts zien?
-Voer de opdracht **azlog bronlijst**.
+Voer de opdracht **AzLog bronlijst**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Hoe weet ik welke abonnement afkomstig van de logboeken van de integratie van Azure-logboek zijn
 
 In het geval van controlelogboeken die worden geplaatst in de **AzureResourcemanagerJson** mappen, het abonnement-ID de naam van het logboek wordt. Dit geldt ook voor logboeken in de **AzureSecurityCenterJson** map. Bijvoorbeeld:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Auditlogboeken van Azure Active Directory opnemen als onderdeel van de naam van de tenant-ID.
 
 De abonnements-ID als onderdeel van de naam van de opnemen logboeken met diagnostische gegevens die worden vanuit een event hub gelezen niet. Ze bevatten in plaats daarvan de beschrijvende naam die is opgegeven als onderdeel van het maken van de event hub-bron. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Hoe kan ik de proxyconfiguratie bijwerken?
-Als de proxy-instellingen kan geen toegang tot Azure-opslag rechtstreeks, opent u de **AZLOG. EXE. CONFIG** bestanden per **c:\Program Files\Microsoft Azure Log integratie**. Bijwerken van het bestand om op te nemen de **defaultProxy** sectie met de proxy-adres van uw organisatie. Nadat de update is voltooid, stoppen en starten van de service met de opdrachten **net stop azlog** en **net start azlog**.
+Als de proxy-instellingen kan geen toegang tot Azure-opslag rechtstreeks, opent u de **AZLOG. EXE. CONFIG** bestanden per **c:\Program Files\Microsoft Azure Log integratie**. Bijwerken van het bestand om op te nemen de **defaultProxy** sectie met de proxy-adres van uw organisatie. Nadat de update is voltooid, stoppen en starten van de service met de opdrachten **net stop AzLog** en **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ De gebeurtenis XML heeft de volgende metagegevens, met inbegrip van de abonnemen
 ![XML-gebeurtenis][1]
 
 ## <a name="error-messages"></a>Foutberichten
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Wanneer ik de opdracht uitvoert **azlog createazureid**, waarom wordt het volgende foutbericht?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Wanneer ik de opdracht uitvoert ```AzLog createazureid```, waarom wordt het volgende foutbericht?
 Fout:
 
   *72f988bf-86f1-41af-91ab-2d7cd011db37-reden is mislukt voor het maken van de toepassing van de AAD - Tenant = 'Verboden' - bericht = 'Onvoldoende bevoegdheden om de bewerking te voltooien.'*

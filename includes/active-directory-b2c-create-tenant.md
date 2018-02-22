@@ -1,4 +1,4 @@
-Klik op de knop **Nieuw**. Voer in het veld **Marketplace doorzoeken** in: `Azure Active Directory B2C`.
+Klik op de **maken van een resource** knop. Voer in het veld **Marketplace doorzoeken** in: `Azure Active Directory B2C`.
 
 ![Knop Toevoegen gemarkeerd en de tekst Azure Active Directory B2C in het veld Marketplace doorzoeken](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

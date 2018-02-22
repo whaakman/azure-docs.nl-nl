@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
@@ -354,7 +354,7 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 * [Internetgerichte load balancer](https://aka.ms/Azure/ILB/Internet)
 * [Opslagaccounts](https://aka.ms/Azure/Storage)
 * [Virtuele netwerken van Azure](https://aka.ms/Azure/VNet)
-* [Koppelingen voor AD FS en webtoepassingsproxy](http://aka.ms/ADFSLinks) 
+* [Koppelingen voor AD FS en webtoepassingsproxy](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)

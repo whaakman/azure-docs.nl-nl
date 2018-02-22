@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Een Azure Analysis Services-server maken in Azure portal
 Dit artikel begeleidt u bij het maken van een resource van Analysis Services-server in uw Azure-abonnement.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-U hebt het volgende nodig om deze snelstartgids te voltooien:
+U hebt het volgende nodig om deze quickstart te voltooien:
 
 * **Azure-abonnement**: ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
 * **Azure Active Directory**: uw abonnement moet worden gekoppeld aan een Azure Active Directory-tenant. En u moet zijn aangemeld bij Azure met een account in dat Azure Active Directory. Microsoft-accounts worden niet ondersteund. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
@@ -50,7 +50,7 @@ U hebt het volgende nodig om deze snelstartgids te voltooien:
    * **Prijscategorie**: een prijscategorie selecteren. Tabellaire modellen tot 400 GB worden ondersteund. Zie voor meer informatie, [Azure Analysis Services-prijzen](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Klik op **Create**.
 
-Maak gewoonlijk duurt minder dan een minuut; vaak slechts enkele seconden. Als u hebt geselecteerd **toevoegen aan de Portal**, navigeer naar uw portal om te zien van de nieuwe server. Of Ga naar **meer services** > **Analysis Services** om te zien als de server klaar is.
+Maak gewoonlijk duurt minder dan een minuut; vaak slechts enkele seconden. Als u hebt geselecteerd **toevoegen aan de Portal**, navigeer naar uw portal om te zien van de nieuwe server. Of Ga naar **alle services** > **Analysis Services** om te zien als de server klaar is.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

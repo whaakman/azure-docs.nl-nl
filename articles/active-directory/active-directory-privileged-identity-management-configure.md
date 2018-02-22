@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -54,7 +54,7 @@ U kunt starten met Azure AD Privileged Identity Management in de [Azure-portal](
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van uw directory.
 2. Als uw organisatie meerdere directory's heeft, selecteert u uw gebruikersnaam rechtsboven in de Azure Portal. Selecteer de map waar u Azure AD Privileged Identity Management gebruikt.
-3. Selecteer **Meer services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.
+3. Selecteer **alle services** en het tekstvak Filter gebruiken om te zoeken naar **Azure AD Privileged Identity Management**.
 4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
 
 Als u de eerste persoon die het gebruik van Azure AD Privileged Identity Management in uw directory bent en u naar Azure AD-directory-functies navigeren, en u naar Azure AD-directory-functies navigeren, een [beveiligingswizard](active-directory-privileged-identity-management-security-wizard.md) wordt u begeleid bij de eerste ervaring van de toewijzing. Hierna als u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de map.

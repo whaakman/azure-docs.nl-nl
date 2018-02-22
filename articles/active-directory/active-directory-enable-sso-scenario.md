@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Toepassingen beheren met Azure Active Directory
 Afgezien van de werkstroom of inhoud hebben bedrijven twee basisvereisten voor alle toepassingen:
@@ -78,7 +78,7 @@ Als u Azure AD-toepassingen beheren en eenmalige aanmelding inschakelen:
 * Verificatie is uitgevoerd op de on-premises-(bijvoorbeeld AD) of Azure AD-account van de gebruiker.
 * Autorisatie wordt uitgevoerd op het Azure AD-toewijzing en beveiliging beleid consistent eindgebruiker gezorgd en het inschakelen van u toewijzing, locaties en MFA voorwaarden toevoegen op elke toepassing, ongeacht de interne mogelijkheden.
 
-Het belangrijk om te begrijpen dat de manier waarop de autorisatie is ingesteld op de doeltoepassing varieert, afhankelijk van hoe de toepassing is geïntegreerd met Azure AD.
+Het is belangrijk te weten dat de manier waarop die de autorisatie is ingesteld op de doeltoepassing varieert afhankelijk van hoe de toepassing is geïntegreerd met Azure AD.
 
 * **Toepassingen die vooraf zijn geïntegreerd door serviceprovider** zoals Office 365 en Azure, dit zijn toepassingen rechtstreeks op Azure AD is gebouwd en afhankelijk van de uitgebreide mogelijkheden voor identiteits- en toegangsbeheer. Toegang tot deze toepassingen is ingeschakeld door middel van directorygegevens en uitgifte van tokens.
 * **Toepassingen die vooraf zijn geïntegreerd door Microsoft en aangepaste toepassingen** dit onafhankelijke cloudtoepassingen die afhankelijk zijn van een interne applicatie directory en kunnen werken onafhankelijk van Azure AD zijn. Toegang tot deze toepassingen is door uitgifte van een specifieke referentie toegewezen aan een account voor groep van toepassing ingeschakeld. Afhankelijk van de toepassingsmogelijkheden, de referentie mogelijk een federation-token of gebruikersnaam en wachtwoord voor een account dat u eerder in de toepassing is ingericht.
@@ -90,13 +90,13 @@ Als een gebruiker lid wordt van uw organisatie, moet u bijvoorbeeld een account 
 In moderne ondernemingen zijn IT-afdelingen vaak niet op de hoogte van alle cloud-toepassingen die worden gebruikt. In combinatie met Cloud App Discovery biedt Azure AD u een oplossing voor het detecteren van deze toepassingen.
 
 ## <a name="account-management"></a>Accountbeheer
-Het beheren van accounts in verschillende toepassingen is traditioneel een handmatig proces uitgevoerd door IT of ondersteuning voor persoonlijke in de organisatie. Accountbeheer Azure AD volledig geautomatiseerd tussen alle serviceprovider geïntegreerde toepassingen en die vooraf zijn geïntegreerd met Microsoft ondersteuning van geautomatiseerde gebruikersinrichting of SAML JIT toepassingen.
+Het beheren van accounts in verschillende toepassingen is traditioneel een handmatig proces uitgevoerd door IT of de ondersteuningsafdeling in de organisatie. Azure AD automatiseert volledig accountbeheer tussen alle serviceprovider geïntegreerde toepassingen en die vooraf zijn geïntegreerd met Microsoft ondersteuning van geautomatiseerde gebruikersinrichting of SAML-compileerprogramma inrichten toepassingen.
 
 ## <a name="automated-user-provisioning"></a>Automatisch gebruikers inrichten
 Sommige toepassingen bieden automatiseringsinterfaces voor het maken en verwijderen (of deactivering) van accounts. Als een provider een interface biedt, wordt gebruikt door Azure AD. Dit vermindert de operationele kosten omdat administratieve taken automatisch gebeurt en verbetert de beveiliging van uw omgeving, omdat dit de kans op onbevoegde toegang verkleint.
 
 ## <a name="access-management"></a>Toegangsbeheer
-U kunt toegang tot toepassingen die gebruikmaken van afzonderlijke of regel toewijzingen aangestuurd met behulp van Azure AD beheren. U kunt ook overdragen toegang tot beheer van de juiste mensen in de organisatie zorgen voor de beste toezicht en de belasting van de helpdesk verminderen.
+U kunt toegang tot toepassingen die gebruikmaken van afzonderlijke of regel aangestuurd toewijzingen beheren met Azure AD. U kunt ook overdragen toegang tot beheer van de juiste mensen in de organisatie zorgen voor de beste toezicht en de belasting van de helpdesk verminderen.
 
 ## <a name="on-premises-applications"></a>On-premises toepassingen
 De ingebouwde application proxy kunt u voor het publiceren van uw on-premises toepassingen aan uw gebruikers waardoor zowel consistente ervaring met moderne cloudtoepassing en de voordelen van Azure AD-mogelijkheden voor bewaking, rapportage en beveiliging van toegang.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Verificatie van oplossingen voor het beheer van de Batch met Active Directory
 
@@ -49,7 +49,7 @@ Vervolgens moet u toegang tot uw toepassing om de Azure Resource Manager-API te 
 
 Volg deze stappen in de Azure portal:
 
-1. Kies in het navigatiedeelvenster links van de Azure portal, **meer Services**, klikt u op **App registraties**, en klik op **toevoegen**.
+1. Kies in het navigatiedeelvenster links van de Azure portal, **alle services**, klikt u op **App registraties**, en klik op **toevoegen**.
 2. Zoeken naar de naam van uw toepassing in de lijst van app-rapporten:
 
     ![Zoeken naar de toepassingsnaam van uw](./media/batch-aad-auth-management/search-app-registration.png)

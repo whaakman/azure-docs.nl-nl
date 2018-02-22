@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Het maken en implementeren van een cloudservice
 De Azure portal biedt twee manieren maken en implementeren van een cloudservice: *snelle invoer* en *aangepast maken*.
@@ -59,15 +59,15 @@ Maakt een cloudservice met implementaties van webrollen of werkrollen, moet u [m
 
 ## <a name="create-and-deploy"></a>Maken en implementeren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **Nieuw > berekenen**, en schuif vervolgens omlaag naar en klikt u op **Cloudservice**.
+2. Klik op **maken van een resource > Compute**, en schuif vervolgens omlaag naar en klikt u op **Cloudservice**.
 
     ![Uw cloudservice publiceren](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. In het nieuwe **Cloudservice** blade, voer een waarde voor de **DNS-naam**.
+3. In het nieuwe **Cloudservice** deelvenster, voer een waarde voor de **DNS-naam**.
 4. Maak een nieuwe **resourcegroep** of een bestaande set selecteren.
 5. Selecteer een **locatie**.
-6. Klik op **pakket**. Hiermee opent u de **uploaden van een pakket** blade. Vul de vereiste velden in. Als een van de rollen één exemplaar bevatten, zorg er dan **toch implementeren als een of meer rollen met één exemplaar** is geselecteerd.
+6. Klik op **pakket**. Hiermee opent u de **uploaden van een pakket** deelvenster. Vul de vereiste velden in. Als een van de rollen één exemplaar bevatten, zorg er dan **toch implementeren als een of meer rollen met één exemplaar** is geselecteerd.
 7. Zorg ervoor dat **implementatie Start** is geselecteerd.
-8. Klik op **OK** die wordt gesloten de **uploaden van een pakket** blade.
+8. Klik op **OK** die wordt gesloten de **uploaden van een pakket** deelvenster.
 9. Als u geen certificaten toevoegen, klikt u op **maken**.
 
     ![Uw cloudservice publiceren](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Maakt een cloudservice met implementaties van webrollen of werkrollen, moet u [m
 ## <a name="upload-a-certificate"></a>Een certificaat uploaden
 Als uw implementatiepakket [geconfigureerd voor het gebruik van certificaten](cloud-services-configure-ssl-certificate-portal.md#modify), kunt u het certificaat nu uploaden.
 
-1. Selecteer **certificaten**, en klik op de **certificaten toevoegen** blade, selecteert u het .pfx-bestand van de SSL-certificaat en geef vervolgens de **wachtwoord** voor het certificaat
-2. Klik op **Attach certificaat**, en klik vervolgens op **OK** op de **certificaten toevoegen** blade.
-3. Klik op **maken** op de **Cloudservice** blade. Wanneer de implementatie heeft bereikt de **gereed** status, kunt u doorgaan met de volgende stappen.
+1. Selecteer **certificaten**, en klik op de **certificaten toevoegen** deelvenster, selecteert u het .pfx-bestand van de SSL-certificaat en geef vervolgens de **wachtwoord** voor het certificaat
+2. Klik op **Attach certificaat**, en klik vervolgens op **OK** op de **certificaten toevoegen** deelvenster.
+3. Klik op **maken** op de **Cloudservice** deelvenster. Wanneer de implementatie heeft bereikt de **gereed** status, kunt u doorgaan met de volgende stappen.
 
     ![Uw cloudservice publiceren](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

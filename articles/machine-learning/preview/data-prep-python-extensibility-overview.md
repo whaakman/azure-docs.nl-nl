@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Gegevensextensies voorbereidingen Python
 Als een manier invullen van functionaliteit onderbrekingen tussen de ingebouwde functies bevat Azure Machine Learning gegevens voorbereidingen uitbreidbaarheid op meerdere niveaus. In dit document, geven we een overzicht op de uitbreidingsmogelijkheden via door de Python-script. 
@@ -101,7 +101,7 @@ U hebt voor het installeren van uw pakketten in een compute-doel, het conda_depe
 ### <a name="windows"></a>Windows 
 U vindt de locatie in Windows, de installatie van de app-specifiek van Python en de map scripts te vinden. De standaardlocatie is:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Voer vervolgens een van de volgende opdrachten: 
 
@@ -114,7 +114,7 @@ of
 ### <a name="mac"></a>Mac 
 U vindt de locatie op een Mac, de installatie van de app-specifiek van Python en de map scripts te vinden. De standaardlocatie is: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Voer vervolgens een van de volgende opdrachten: 
 

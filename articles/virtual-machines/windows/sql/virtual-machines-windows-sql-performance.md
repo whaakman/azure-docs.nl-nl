@@ -4,7 +4,7 @@ description: Bevat de aanbevolen procedures voor het optimaliseren van de presta
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: 6eb55c3d1f339a621050de6b239f840d2cff63fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Aanbevolen procedures voor prestaties voor SQL Server op virtuele machines van Azure
 
@@ -39,7 +39,7 @@ Hier volgt een lijst met snelle controle voor optimale prestaties van SQL Server
 
 | Onderwerp | Optimalisaties |
 | --- | --- |
-| [VM-grootte](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) of hoger voor SQL Enterprise edition.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) of hoger voor SQL Standard- en Web-edities. |
+| [VM-grootte](#vm-size-guidance) |[DS3](../sizes-memory.md) of hoger voor SQL Enterprise edition.<br/><br/>[DS2](../sizes-memory.md) of hoger voor SQL Standard- en Web-edities. |
 | [Storage](#storage-guidance) |Gebruik [Premium-opslag](../premium-storage.md). Standard-opslag wordt alleen aanbevolen voor ontwikkelen en testen.<br/><br/>Houd de [opslagaccount](../../../storage/common/storage-create-storage-account.md) en SQL Server VM in dezelfde regio.<br/><br/>Schakel Azure [geografisch redundante opslag](../../../storage/common/storage-redundancy.md) (geo-replicatie) van het opslagaccount. |
 | [Schijven](#disks-guidance) |Gebruik een minimum van 2 [P30 schijven](../premium-storage.md#scalability-and-performance-targets) (1 voor logboekbestanden, 1 voor gegevensbestanden en TempDB).<br/><br/>Vermijd het gebruik van besturingssysteem of tijdelijke schijven voor database-opslag of registratie.<br/><br/>Lezen inschakelen voor het opslaan in cache op de schijven die als host fungeert voor de gegevensbestanden en TempDB.<br/><br/>Schakel niet opslaan in cache op een of meer schijven die als host fungeert voor het logboekbestand.<br/><br/>Belangrijk: Stop de service SQL Server bij het wijzigen van de cache-instellingen voor een virtuele machine van Azure-schijf.<br/><br/>Als u verbeterde i/o-doorvoer meerdere Azure gegevensschijven stripe.<br/><br/>Formatteren met grootten gedocumenteerde toewijzing. |
 | [I/O](#io-guidance) |Database pagina compressie inschakelen.<br/><br/>Schakel directe bestand de initialisatie van de gegevensbestanden worden opgeslagen.<br/><br/>Beperk of autogrow op de database uitschakelen.<br/><br/>Autoshrink op de database niet uitschakelen.<br/><br/>Verplaats alle databases naar gegevensschijven, met inbegrip van systeemdatabases.<br/><br/>SQL Server-fout logboek- en traceringsbestanden bestandsmappen naar gegevensschijven verplaatsen.<br/><br/>Het instellen van standaardbestandslocaties voor back-up en -database.<br/><br/>Schakel vergrendelde pagina's.<br/><br/>SQL Server prestaties correcties toepassen. |

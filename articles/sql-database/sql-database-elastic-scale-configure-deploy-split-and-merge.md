@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Een service voor splitsen en samenvoegen implementeren
 De splitsing merge-hulpprogramma kunt u gegevens verplaatsen tussen shard-databases. Zie [verplaatsen van gegevens tussen cloud uitgebreide databases](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ De bestanden worden geplaatst in een map met de naam **Microsoft.Azure.SqlDataba
 2. Zorg ervoor dat uw Azure SQL DB-server kan Azure-Services tot stand te brengen. In de portal in de **firewallinstellingen**, zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op**. Klik op het pictogram 'opslaan'.
    
    ![Toegestane services][1]
-3. Maak een Azure Storage-account dat wordt gebruikt voor diagnostische uitvoer. Ga naar de Azure-portal. Klik in de linkerbalk op **nieuw**, klikt u op **gegevens en opslag**, klikt u vervolgens **opslag**.
-4. Maak een Azure Cloud Service die uw service gesplitste Merge bevat.  Ga naar de Azure-portal. Klik in de linkerbalk op **nieuw**, klikt u vervolgens **Compute**, **Cloudservice**, en **maken**. 
+3. Maak een Azure Storage-account dat wordt gebruikt voor diagnostische uitvoer. Ga naar de Azure-portal. Klik in de linkerbalk op **maken van een resource**, klikt u op **gegevens en opslag**, klikt u vervolgens **opslag**.
+4. Maak een Azure Cloud Service die uw service gesplitste Merge bevat.  Ga naar de Azure-portal. Klik in de linkerbalk op **maken van een resource**, klikt u vervolgens **Compute**, **Cloudservice**, en **maken**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configureer uw service gesplitste samenvoegen
 ### <a name="split-merge-service-configuration"></a>Configuratie gesplitste Merge-service
@@ -128,7 +128,7 @@ Dat de implementaties voor productie certificaten scheiden moet worden gebruikt 
 3. Klik op **Dashboard**.
 4. Kies de faseringsomgeving en klik vervolgens op **uploaden van een nieuwe implementatie van de staging**.
    
-   ![Fasering][3]
+   ![Faseren][3]
 5. Voer een implementatielabel in het dialoogvenster. Klik voor 'Pakket' en 'Configuration', 'Van Local' en kies de **SplitMergeService.cspkg** bestands- en uw cscfg-bestand dat u eerder hebt geconfigureerd.
 6. Zorg ervoor dat het selectievakje **toch implementeren als een of meer rollen met één exemplaar** is ingeschakeld.
 7. Druk op de knop maatstreepjes in de rechterbenedenhoek om te beginnen met de implementatie. Verwacht een paar minuten duren.

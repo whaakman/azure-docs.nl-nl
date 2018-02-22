@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Een toepassing van de gebruikerservaring in Azure Active Directory verbergen
 
@@ -38,7 +38,7 @@ U kunt de stappen hieronder en afhankelijk van uw situatie gebruiken voor het ve
 Gebruik de volgende stappen voor het verbergen van de toepassing in het deelvenster toegang en de Office 365-app voor ruimtevaartuigen van een gebruiker.
 
 1.  Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2.  Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+2.  Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
 3.  Op de **Azure Active Directory - *directoryname***  scherm (dat wil zeggen, de Azure AD scherm voor de map die u beheert), selecteer **bedrijfstoepassingen**.
 ![Zakelijke apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  Op de **bedrijfstoepassingen** Schakel in het scherm **alle toepassingen**. U ziet een lijst met de apps die u kunt beheren.
@@ -54,7 +54,7 @@ Gebruik de volgende stappen voor het verbergen van de toepassing in het deelvens
 Gebruik de volgende stappen voor het verbergen van alle Office 365-toepassingen in het deelvenster toegang. Deze apps nog steeds zichtbaar in de Office 365-portal.
 
 1.  Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2.  Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+2.  Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
 3.  Op de **Azure Active Directory - *directoryname***  scherm (dat wil zeggen, de Azure AD scherm voor de map die u beheert), selecteer **gebruikersinstellingen**.
 4.  Op de **gebruikersinstellingen** scherm onder **bedrijfstoepassingen** Selecteer **Ja** voor **kunnen gebruikers alleen Office 365-apps in de Office 365-beheerportalzien**.
 

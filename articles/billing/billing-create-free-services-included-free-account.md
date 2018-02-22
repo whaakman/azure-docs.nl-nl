@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: c5331a7f658feacba4b03dd3b5ba8ddb23738051
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfcf4c98a27f6ea31b92f51737e9ca3768da8f5c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Services die deel uitmaakt van de gratis Azure-account maken
 
 Gratis Azure-account bevat een beperkte hoeveelheid gratis services gedurende 12 maanden. Zie voor meer informatie [wat gratis Azure-account is](https://azure.microsoft.com/free/free-account-faq/). Azure bijgehouden uw gebruik van elke service en betaalt u niet tenzij u de grenzen overschrijdt. Binnen deze grenzen biedt gratis Azure-account u de flexibiliteit voor het gebruik van verschillende configuraties om te voldoen aan uw behoeften. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Gratis services maken in de Azure portal
-We raden u aan de [gratis servicepagina](https://go.microsoft.com/fwlink/?linkid=859151) voor het maken van nieuwe services. Of u kunt aanmelden bij de [Azure-portal](http://portal.azure.com), selecteer **meer services** op het linksonder en zoek op **gratis services**. 
+We raden u aan de [gratis servicepagina](https://go.microsoft.com/fwlink/?linkid=859151) voor het maken van nieuwe services. Of u kunt aanmelden bij de [Azure-portal](http://portal.azure.com), selecteer **alle services** aan de linkerzijde en zoek op **gratis services**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Services kunnen in elke regio worden gemaakt.
 Als u zich binnen de grenzen bevindt, kunt u gratis services maken in elke regio waarin services beschikbaar zijn. Bijvoorbeeld, krijgt u 750 uren van een virtuele machine voor Windows B1S gratis elke maand met gratis Azure-account. U kunt de virtuele machine maken in elke regio waarin B-serie virtuele machines beschikbaar zijn. Azure biedt geen kosten in rekening gebracht u tenzij u langer zijn dan 750 uur. Een klant in de Verenigde Staten kan bijvoorbeeld een B1S Windows-machine inrichten in West-Europa en gratis 750 uur te gebruiken. 

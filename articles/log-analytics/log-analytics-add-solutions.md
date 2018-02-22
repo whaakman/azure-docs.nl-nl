@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Oplossingen voor het beheer van Azure-logboekanalyse toevoegen aan uw werkruimte
 
@@ -46,8 +46,7 @@ U kunt beheeroplossingen vanuit Azure marketplace installeren door te klikken op
 
 ## <a name="add-a-management-solution"></a>Toevoegen van een beheeroplossing
 1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
-2. In de **nieuw** blade onder **Marketplace**, selecteer **bewaking + management**.
-3. In de **bewaking + management** blade, klikt u op **alle**.  
+2. Selecteer **maken van een resource** > **bewaking + Management** > **alle**.  
     ![Bewaking + beheerblade](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**.
 5. In de **beheeroplossingen** blade, selecteert u een oplossing die u wilt toevoegen aan een werkruimte.  

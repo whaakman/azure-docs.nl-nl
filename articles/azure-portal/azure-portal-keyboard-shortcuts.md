@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Sneltoetsen in de Azure portal
 Dit artikel ziet de sneltoetsen die in de Azure-portal werken. Afzonderlijke services kunnen hun eigen sneltoetsen hebben.
@@ -28,8 +28,8 @@ Dit artikel ziet de sneltoetsen die in de Azure-portal werken. Afzonderlijke ser
 |Om dit te doen |Druk op |
 | --- | --- |
 |Een nieuwe resource maken|G + N|
-|Het deelvenster Meer services openen|G + B|
-|Zoeken in resources|G +/| 
+|Open het deelvenster 'Alle services'|G+B|
+|Resources zoeken|G+/| 
 |Zoeken resource menu-items|CTRL +/ |
 |Het geselecteerde linkerdeelvenster item omhoog verplaatsen |ALT + Shift + pijl-omhoog|
 |Het geselecteerde linkerdeelvenster item omlaag verplaatsen |ALT + Shift + pijl-omlaag|
@@ -38,12 +38,12 @@ Dit artikel ziet de sneltoetsen die in de Azure-portal werken. Afzonderlijke ser
 |Om dit te doen |Druk op |
 | --- | --- |
 |Focus naar opdrachtbalk verplaatsen |G + |
-|Schakelen tussen de bovenste balk en Zijmarge | G +. |
+|De focus schakelen tussen de bovenste balk en de zijbalk | G +. |
 
 ## <a name="go-to"></a>Ga naar
 |Om dit te doen |Druk op |
 | --- | --- |
-|Naar het dashboard gaan |G + D |
-|Ga naar alle resources|G + A |
-|Ga naar resourcegroepen|G + R |
-|Open het item van het linkerdeelvenster op deze positie |G + nummer|
+|Naar het dashboard gaan |G+D |
+|Ga naar Alle resources|G+A |
+|Ga naar Resourcegroepen|G+R |
+|Open het item van het linkerdeelvenster op deze positie |G+ nummer|

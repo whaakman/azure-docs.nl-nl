@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Gebruikershandleiding voor de voorbereidingen 
 De Azure Machine Learning gegevens voorbereidingen ervaring biedt een groot aantal uitgebreide functionaliteit. Dit artikel wordt de diepste onderdelen van de gebruikerservaring.
@@ -89,7 +89,7 @@ Om te vertakken:
 4. Na **voorwaarden**, selecteer **maken gegevensstroom met de rijen gefilterd uit** naar de resultaatset niet weergeven in een nieuwe gegevensstroom vertakken.
 
 
-Deze procedure wordt vaak gebruikt voor het scheiden van een set gegevens die aanvullende voorbereidende stappen vereist. Nadat u de gegevensset Gevorkte wrangle, wordt het meestal de gegevens worden samengevoegd met de resultaatset in de oorspronkelijke gegevensstroom. Als u wilt samenvoegen (het omgekeerde van een bewerking fork), een van de volgende acties te gebruiken:
+Deze procedure wordt vaak gebruikt voor het scheiden van een set gegevens die aanvullende voorbereidende stappen vereist. Nadat u de gegevensset Gevorkte voorbereid, wordt het meestal de gegevens worden samengevoegd met de resultaatset in de oorspronkelijke gegevensstroom. Als u wilt samenvoegen (het omgekeerde van een bewerking fork), een van de volgende acties te gebruiken:
 
 - **Rijen toevoegen**. Samenvoegen van twee of meer gegevensstromen verticaal (row-wise). 
 - **Kolommen toevoegen**. Samenvoegen van twee of meer gegevensstromen horizontaal (column-wise).

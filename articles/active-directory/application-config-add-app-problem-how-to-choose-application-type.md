@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Kiezen welk toepassingstype moet worden gebruikt wanneer een toepassing toevoegen
 
@@ -37,11 +37,11 @@ Azure AD ondersteunt vier hoofdtoepassing typen die u kunt toevoegen met behulp 
 
 -   **Aangepaste ontwikkelde toepassingen** : een toepassing die uw organisatie wil ontwikkelen op het Azure AD-toepassing ontwikkelplatform, maar die mogelijk niet bestaat.
 
--   **Niet-galerie toepassingen** : Breng uw eigen toepassingen! Een webkoppeling die u wilt dat alle toepassingen die een veld de gebruikersnaam en wachtwoord SAML of OpenID Connect-protocollen ondersteunt of ondersteunt SCIM die u wilt integreren voor eenmalige aanmelding met Azure AD.
+-   **Niet-galerie toepassingen** : Breng uw eigen toepassingen! Een webkoppeling die u wilt dat alle toepassingen die een veld de gebruikersnaam en wachtwoord worden SAML of OpenID Connect-protocollen ondersteunt of ondersteunt SCIM die u wilt integreren voor eenmalige aanmelding met Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>Functies en mogelijkheden die worden ondersteund door de bovenstaande toepassingstypen
+## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Functies en mogelijkheden die worden ondersteund door de voorgaande toepassingstypen
 
-De volgende functies worden ondersteund door een van de bovenstaande 4 toepassingstypen in Azure AD:
+De volgende functies worden ondersteund door een van de voorgaande vier toepassingstypen in Azure AD:
 
 -   **Snel starten** – snel aan de slag met een toepassing door [eenvoudige implementatiestappen](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
@@ -49,7 +49,7 @@ De volgende functies worden ondersteund door een van de bovenstaande 4 toepassin
 
 -   **Gebruiker-en groepsbeheer** – [toewijzen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) of [verwijderen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) gebruikers en groepen in een toepassing, en kunt u de specifieke toepassingsrollen toewijzen deze gebruikers en groepen toegang hebben tot
 
--   **Toegang tot de toepassing zelf** – zodat uw gebruikers om aan te vragen [toegang tot de toepassing zelf](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) tot een toepassing van de toepassing toegang panelen ofwel door een toepassing toevoegen rechtstreeks of [toevoegen aan een Selfservice ingeschakeld groep](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)desgewenst langs de manier waarop bedrijven als goedkeuring wordt vereist
+-   **Toegang tot de toepassing zelf** – zodat uw gebruikers om aan te vragen [toegang tot de toepassing zelf](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) tot een toepassing van de toepassing toegang panelen ofwel door een toepassing toevoegen rechtstreeks of [ toevoegen aan een Selfservice ingeschakeld groep](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)desgewenst langs de manier waarop bedrijven als goedkeuring wordt vereist
 
 -   **Aanmelden logboeken** – Zie [alle de aanmeldingen tot een toepassing](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), of al uw toepassingen
 
@@ -61,28 +61,28 @@ De volgende functies worden ondersteund door een van de bovenstaande 4 toepassin
 
 ## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Eenmalige aanmelding en modi die worden ondersteund door specifieke toepassingstypen inrichten
 
-De volgende tabel beschrijft de verschillende eenmalige aanmelding en inrichting modi die worden ondersteund door elk van de bovenstaande toepassingstypen. U kunt deze tabel gebruiken om u te helpen te begrijpen welke toepassing die u toevoegen wilt ter ondersteuning van een specifiek doel.
+De volgende tabel beschrijft de verschillende eenmalige aanmelding en inrichting modi ondersteund door elk van de voorgaande toepassingstypen. U kunt deze tabel gebruiken om u te helpen te begrijpen welke toepassing die u toevoegen wilt ter ondersteuning van een specifiek doel.
 
   ![Tabel van App-typen](./media/application-tables/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Het kiezen van een modus voor eenmalige aanmelding
 
-De ondersteunde **eenmalige aanmelding** modi voor Azure AD-toepassingen worden hieronder weergegeven.
+Hieronder vindt u de ondersteunde **eenmalige aanmelding** modi voor Azure AD-toepassingen.
 
 -   **Azure AD eenmalige aanmelding uitgeschakeld** – Kies Azure AD eenmalige aanmelding uitgeschakeld **modus voor één aanmelding** als u nog niet klaar voor de integratie van deze toepassing met eenmalige aanmelding met Azure AD of gewoon test het uit
 
--   **Gekoppelde aanmelding** – Kies de [gekoppelde aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modus voor één aanmelding** als u een toepassing die al is gekoppeld aan een bestaande eenmalige aanmelding oplossing hebt of als u wilt publiceren van een eenvoudige koppeling voor uw gebruikers in hun [toepassing Toegangspaneel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) of [startprogramma voor toepassingen van Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Eenmalige aanmelding gekoppeld** – Kies de [gekoppelde aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modus voor één aanmelding** als u een toepassing die al is gekoppeld aan een bestaande eenmalige aanmelding oplossing hebt of als u wilt publiceren van een eenvoudige koppeling voor uw gebruikers in hun [toepassing Toegangspaneel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) of [startprogramma voor toepassingen van Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Op basis van wachtwoorden aanmelding** – Kies de [op basis van wachtwoorden aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modus voor één aanmelding** als een HTML-gebruikersnaam en wachtwoord veld Hiermee maakt u uw toepassing en u wilt opslaan die gebruikersnaam en wachtwoord veilig naar de toepassing later worden cookies
+-   **Op basis van wachtwoorden aanmelding** – Kies de [op basis van wachtwoorden aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modus voor één aanmelding** als een HTML-gebruikersnaam en wachtwoord veld Hiermee maakt u uw toepassing en u wilt dat gebruikersnaam opslaan en wachtwoord voor het veilig naar de toepassing later worden cookies
 
--   **Op basis van SAML aanmelding** – Kies de [op basis van SAML aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) eenmalige aanmelding modus als uw toepassing de SAML- of OpenID Connect-protocollen ondersteunt of u wilt kunnen gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels die u in het SAML-claims definieert *
+-   **Op basis van SAML aanmelding** – Kies de [op basis van SAML aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) eenmalige aanmelding modus als uw toepassing de SAML- of OpenID Connect-protocollen ondersteunt of u wilt kunnen gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels u definieert in het SAML-claims *
 
    >[!NOTE]
    >Deze optie is niet beschikbaar wanneer de toepassingsproxy is geconfigureerd voor een toepassing.
    >
    >
 
--   **Op basis van een koptekst aanmelding** : Kies deze optie [headers gebaseerde aanmelding](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) aanmelding modus voor één hebt u een toepassing met PingAccess die ondersteuning biedt voor HTTP-header gebaseerde verificatie die u wilt uitvoeren van eenmalige aanmelding bij 
+-   **Op basis van een koptekst aanmelding** : Kies deze optie [headers gebaseerde aanmelding](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) aanmelding modus voor één hebt u een toepassing met PingAccess die ondersteuning biedt voor verificatie op basis van HTTP-header die u wilt uitvoeren van eenmalige aanmelding bij 
 
    >[!NOTE]
    >Deze optie is alleen beschikbaar wanneer de toepassingsproxy en PingAccess is geconfigureerd voor een toepassing.
@@ -98,7 +98,7 @@ De ondersteunde **eenmalige aanmelding** modi voor Azure AD-toepassingen worden 
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modi voor eenmalige aanmelding voor aangepaste ontwikkelde toepassingen
 
-Toepassingen hebt u aangepaste ontwikkeld via de [ontwikkelde aangepaste toepassing](#_Custom-Developed_Applications) ervaring bieden ook ondersteuning voor extra eenmalige aanmelding modi niet hierboven worden vermeld. Deze omvatten:
+Toepassingen hebt u aangepaste ontwikkeld via de [ontwikkelde aangepaste toepassing](#_Custom-Developed_Applications) ervaring bieden ook ondersteuning voor extra eenmalige aanmelding modi niet eerder is vermeld, waaronder:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) op basis van eenmalige aanmelding
 
@@ -112,23 +112,23 @@ Lees de [ontwikkelaarshandleiding Azure Active Directory](https://docs.microsoft
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Het instellen van een toepassing aanmelding modus voor één
 
-Instellen van een toepassing **eenmalige aanmelding** modus, volgt u onderstaande instructies:
+Instellen van een toepassing **eenmalige aanmelding** modus, volgt u deze instructies:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
 6.  Selecteer de toepassing waarvoor u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing wordt geladen, klikt u op **eenmalige aanmelding** in de toepassing linkermenubalk menu.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Een inrichtingsmethode kiezen
 
@@ -141,7 +141,7 @@ Instellen van een toepassing **eenmalige aanmelding** modus, volgt u onderstaand
    >
    >
 
--   **Automatische inrichting op basis van SCIM** – gebruiken [automatische inrichting op basis van SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) als uw toepassing het protocol SCIM ondersteunt voor wijzigingen in gebruikers en groepen die automatisch worden verzonden voor wijzigingen in elke gewenste toepassing te detecteren die zijn geïntegreerd met Azure AD 
+-   **Automatische inrichting op basis van SCIM** – gebruiken [automatische inrichting op basis van SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) als uw toepassing ondersteuning biedt voor het protocol SCIM voor het detecteren van wijzigingen in gebruikers en groepen die automatisch worden verzonden voor wijzigingen in elke toepassing die is geïntegreerd met Azure AD 
 
    >[!NOTE]
    >Deze optie wordt niet vermeld als een bepaalde Inrichtingsmethode, maar is standaard ingeschakeld voor alle toepassingen die zijn geïntegreerd met Azure AD.
@@ -150,25 +150,25 @@ Instellen van een toepassing **eenmalige aanmelding** modus, volgt u onderstaand
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>Het instellen van een toepassing de Inrichtingsmethode
 
-Instellen van een toepassing **inrichting** modus, volgt u onderstaande instructies:
+Instellen van een toepassing **inrichting** modus, volgt u deze instructies:
 
-Instellen van een toepassing **eenmalige aanmelding** modus, volgt u onderstaande instructies:
+Instellen van een toepassing **eenmalige aanmelding** modus, volgt u deze instructies:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
 
 3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle Toepassingen.**
 
 6.  Selecteer de toepassing waarvoor u wilt inrichten.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **inrichten** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing wordt geladen, klikt u op **inrichten** in de toepassing linkermenubalk menu.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md)

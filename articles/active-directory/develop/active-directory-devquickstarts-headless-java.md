@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Gebruik van Java-opdrachtregel-App voor toegang tot een API met Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Om uw app om gebruikers te verifiëren, moet u eerst een nieuwe toepassing regis
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
-3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
+3. Klik op **alle services** in de nav linkerkant en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **toevoegen**.
 5. Volg de aanwijzingen en maak een nieuwe **webtoepassing en/of WebAPI**.
   * De **naam** van de toepassing bevat een beschrijving van uw toepassing aan eindgebruikers
@@ -263,7 +263,7 @@ U hebt nu een `adal4jsample.war` bestand uw `/targets` directory. U kunt impleme
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Gefeliciteerd. U hebt nu een werkende Java-toepassing heeft de mogelijkheid om gebruikers te verifiëren, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.
+Gefeliciteerd! U hebt nu een werkende Java-toepassing heeft de mogelijkheid om gebruikers te verifiëren, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.
 
 Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden) [is opgegeven als een ZIP hier](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), of u kunt dit ook klonen vanuit GitHub:
 

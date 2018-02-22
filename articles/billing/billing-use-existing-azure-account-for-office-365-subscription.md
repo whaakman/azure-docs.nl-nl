@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Aanmelden voor een Office 365-abonnement met uw Azure-account
 Als u Azure-abonnee bent, kunt u uw Azure-account aan te melden voor een Office 365-abonnement. Als u deel uitmaakt van een organisatie met een Azure-abonnement bent, kunt u Office 365-abonnementen voor gebruikers in uw bestaande Azure Active Directory (Azure AD). Meld u aan bij Office 365 met een account met machtigingen voor facturerings-beheerder of de globale beheerder in uw Azure Active Directory-tenant. Zie voor meer informatie [Controleer de accountmachtigingen van mijn in Azure AD](#RoleInAzureAD) en [beheerdersrollen toewijzen in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
@@ -53,7 +53,7 @@ Nadat u zich aanmeldt, wordt de Office 365-abonnement toegevoegd aan het Azure A
 
 ## <a id="RoleInAzureAD"></a>Controleer de accountmachtigingen van mijn in Azure AD
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **meer services**, en zoek vervolgens naar **Active Directory**.
+2. Klik op **alle services**, en zoek vervolgens naar **Active Directory**.
 
     ![Schermopname van Active Directory in de Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Klik op **gebruikers en groepen** > **alle gebruikers**.

@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Python configureren met Azure App Service WebApps
 Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige Web Server Gateway Interface (WSGI) compatibele Python-toepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ Azure Marketplace bevat sjablonen voor de frameworks Bottle, Django en Flask. Al
 ## <a name="web-app-creation-on-azure-portal"></a>Web-Apps maken in Azure portal
 Deze zelfstudie wordt ervan uitgegaan van een bestaand Azure-abonnement en de toegang tot de Azure-portal.
 
-Als u een bestaande web-app niet hebt, kunt u een van de [Azure-portal](https://portal.azure.com).  Klik op de knop Nieuw in de linkerbovenhoek en klik vervolgens op **Web en mobiel** > **Web-app**.
+Als u een bestaande web-app niet hebt, kunt u een van de [Azure-portal](https://portal.azure.com). Klik in de linkerbovenhoek op **maken van een resource** > **Web en mobiel** > **Web-app**.
 
 ## <a name="git-publishing"></a>GIT-publicatie
 Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service). Deze zelfstudie maakt gebruik van Git te maken, beheren en publiceren van uw Python-web-app in Azure App Service.
@@ -207,9 +207,9 @@ Statische bestanden worden verwerkt door de webserver rechtstreeks, zonder tusse
 
 De locatie van de statische bestanden op schijf moet overeenkomen met de locatie in de URL in de voorgaande voorbeelden. Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` dient het bestand op de schijf op `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`is waar u de handler WSGI opgeven. In de voorgaande voorbeelden hieraan `app.wsgi_app` omdat de handler een functie met de naam is `wsgi_app` in `app.py` in de hoofdmap.
+`WSGI_ALT_VIRTUALENV_HANDLER` is waar u de handler WSGI opgeven. In de voorgaande voorbeelden hieraan `app.wsgi_app` omdat de handler een functie met de naam is `wsgi_app` in `app.py` in de hoofdmap.
 
-`PYTHONPATH`kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving door te geven ze in requirements.txt installeert, moet u dient niet te wijzigen.
+`PYTHONPATH` kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving door te geven ze in requirements.txt installeert, moet u dient niet te wijzigen.
 
 ## <a name="virtual-environment-proxy"></a>Virtuele omgeving Proxy
 Het volgende script wordt gebruikt voor het ophalen van de handler WSGI en het activeren van de virtuele omgeving en log-fouten. Het is ontworpen voor algemene en die wordt gebruikt zonder wijzigingen.

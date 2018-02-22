@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit acceptatie definiëren
 In deze taak definieert u de hybride identiteit acceptatie strategie voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die zijn beschreven in:
@@ -29,7 +29,7 @@ In deze taak definieert u de hybride identiteit acceptatie strategie voor uw opl
 * [Vereisten multi-factor authentication bepalen](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Zakelijke behoeften-strategie bepalen
-De eerste taak adressen bepalen van het bedrijf organisaties moet.  Dit kan zeer brede en bereik kneep kan optreden als u niet zorgvuldig.  Houd het eenvoudig maar vergeet om te plannen voor een ontwerp dat wordt aangepast aan en maak veranderingen in de toekomst mogelijk in het begin.  Ongeacht of het ontwerp van een eenvoudige of een zeer complexe, is Azure Active Directory de Microsoft Identity-platform dat ondersteuning biedt voor Office 365, Microsoft Online Services en cloud-bewuste toepassingen.
+De eerste taak adressen bepalen van het bedrijf organisaties moet.  Dit kan zeer brede en bereik kneep kan optreden als u niet zorgvuldig.  Houd het eenvoudig in het begin, maar vergeet om te plannen voor een ontwerp dat wordt aangepast aan en maak veranderingen in de toekomst mogelijk.  Ongeacht of het ontwerp van een eenvoudige of een zeer complexe, Azure Active Directory is de Microsoft Identity-platform dat ondersteuning biedt voor Office 365, Microsoft Online Services en cloud compatibele toepassingen.
 
 ## <a name="define-an-integration-strategy"></a>Een Integratiestrategie voor definiëren
 Microsoft heeft drie belangrijkste integratiescenario's die cloud-identiteiten, gesynchroniseerde identiteiten en federatieve identiteiten zijn.  Plan voor overstap op een van deze integratiestrategieën.  De strategie die u kiest, kan variëren en de beslissingen die u bij het kiezen van een kan bevatten, wat voor soort gebruikerservaring die u bieden wilt, hebt u enkele van de bestaande infrastructuur al in-place en wat is de meest voordelige.  
@@ -39,7 +39,7 @@ Microsoft heeft drie belangrijkste integratiescenario's die cloud-identiteiten, 
 De gedefinieerd in de afbeelding hierboven scenario's:
 
 * **Cloud-identiteiten**: dit zijn de identiteiten die uitsluitend in de cloud bestaat.  In het geval van Azure AD, zouden ze zich bevinden in het bijzonder in uw Azure AD-directory.
-* **Gesynchroniseerd**: deze identiteiten die lokaal aanwezig zijn en in de cloud.  Met Azure AD Connect, worden deze gebruikers gemaakt of gekoppeld met de bestaande Azure AD-accounts.  De wachtwoord-hash van de gebruiker worden gesynchroniseerd vanuit de on-premises omgeving aan de cloud in wat een wachtwoord-hash wordt aangeroepen.  Wanneer met behulp van gesynchroniseerd is de enige belemmering als een gebruiker is uitgeschakeld in de on-premises-omgeving, kan deze die accountstatus worden weergegeven in Azure AD tot 3 uur duren.  Dit komt door het synchronisatie-interval.
+* **Gesynchroniseerd**: deze identiteiten die lokaal aanwezig zijn en in de cloud.  Met Azure AD Connect, worden deze gebruikers gemaakt of gekoppeld met de bestaande Azure AD-accounts.  De wachtwoord-hash van de gebruiker worden gesynchroniseerd vanuit de on-premises omgeving aan de cloud in wat een wachtwoord-hash wordt aangeroepen.  Wanneer met behulp van gesynchroniseerd is de enige belemmering als een gebruiker is uitgeschakeld in de on-premises-omgeving, kan het voor dat accountstatus worden weergegeven in Azure AD drie uur duren.  Dit komt door het synchronisatie-interval.
 * **Federatieve**: deze identiteiten bestaan zowel on-premises en in de cloud.  Met Azure AD Connect, worden deze gebruikers gemaakt of gekoppeld met de bestaande Azure AD-accounts.  
 
 > [!NOTE]
@@ -52,45 +52,45 @@ De volgende tabel helpt bij het bepalen van de voordelen en nadelen van elk van 
 | Een strategie voor | Voordelen | Nadelen |
 | --- | --- | --- |
 | **Cloud-identiteiten** |Gemakkelijker te beheren voor kleine organisatie. <br> Er is niets om te installeren op de lokale geen extra hardware nodig<br>Eenvoudig uitgeschakeld als de gebruiker het bedrijf verlaat |Gebruikers moeten aanmelden bij het openen van workloads in de cloud <br> Wachtwoorden al kunnen dan niet hetzelfde zijn voor de cloud en on-premises identiteiten |
-| **Gesynchroniseerd** |On-premises wachtwoord wordt zowel on-premises verifiëren en cloudadreslijsten <br>Gemakkelijker te beheren voor kleine, grote of middelgrote organisaties <br>Gebruikers kunnen eenmalige aanmelding (SSO) hebben voor een aantal bronnen <br> Microsoft voorkeurs-methode voor synchronisatie <br> Gemakkelijker te beheren |Sommige gebruikers mogelijk hun mappen synchroniseren met de cloud vanwege specifiek bedrijf politie weerstand |
-| **Federatieve** |Gebruikers beschikken over eenmalige aanmelding (SSO) <br>Als een gebruiker wordt beëindigd of verlaat, het account kan, onmiddellijk worden uitgeschakeld en de toegang is ingetrokken,<br> Ondersteunt geavanceerde scenario's die niet kan worden bewerkstelligd met gesynchroniseerd |Meer stappen voor het installeren en configureren <br> Hogere onderhoud <br> Extra hardware nodig voor de STS-infrastructuur <br> Extra hardware voor het installeren van de federation-server nodig. Aanvullende software is vereist als AD FS wordt gebruikt <br> Uitgebreide instellingen vereist voor eenmalige aanmelding <br> Kritieke storingspunt als de federation-server niet actief is, gebruikers niet mogelijk om te verifiëren |
+| **Gesynchroniseerd** |Lokale wachtwoord wordt geverifieerd voor zowel on-premises en cloud mappen <br>Gemakkelijker te beheren voor een klein, Gemiddeld of grote organisaties <br>Gebruikers kunnen eenmalige aanmelding (SSO) hebben voor een aantal bronnen <br> Microsoft voorkeurs-methode voor synchronisatie <br> Gemakkelijker te beheren |Sommige gebruikers mogelijk hun mappen synchroniseren met de cloud vanwege specifiek bedrijf politie weerstand |
+| **Federatieve** |Gebruikers beschikken over eenmalige aanmelding (SSO) <br>Als een gebruiker wordt beëindigd of verlaat, het account onmiddellijk kan worden uitgeschakeld en de toegang is ingetrokken,<br> Ondersteunt geavanceerde scenario's die niet kunnen worden bewerkstelligd met gesynchroniseerd |Extra stappen uitvoeren om het instellen en configureren <br> Hogere onderhoud <br> Extra hardware nodig voor de STS-infrastructuur <br> Extra hardware voor het installeren van de federation-server nodig. Aanvullende software is vereist als AD FS wordt gebruikt <br> Uitgebreide instellingen vereist voor eenmalige aanmelding <br> Kritieke storingspunt als de federation-server niet actief is, gebruikers niet mogelijk om te verifiëren |
 
 ### <a name="client-experience"></a>Clientervaring
-Meld u in de gebruikerservaring worden bepaald door de strategie die u gebruikt.  De volgende tabellen bieden u informatie over wat de gebruikers moeten hun aanmeldingservaring worden verwacht.  Houd er rekening mee dat niet alle federatieve identiteiten-providers SSO in alle scenario's ondersteunen.
+Meld u in de gebruikerservaring worden bepaald door de strategie die u gebruikt.  De volgende tabellen bieden u informatie over wat de gebruikers moeten hun aanmeldingservaring worden verwacht.  Niet alle federatieve identiteitsproviders ondersteunen SSO in alle scenario's.
 
 **Toepassingen die lid zijn van Domain en particuliere netwerken**:
 
 |  | Gesynchroniseerde identiteiten | Federatieve identiteit |
 | --- | --- | --- |
-| Webbrowsers |Op formulieren gebaseerde verificatie |eenmalige aanmelding op, soms moeten organisatie-ID opgeven |
+| Webbrowsers |Verificatie op basis van formulieren |eenmalige aanmelding, soms moeten organisatie-ID opgeven |
 | Outlook |Prompt voor referenties |Prompt voor referenties |
-| Skype voor bedrijven (Lync) |Prompt voor referenties |eenmalige aanmelding voor Lync, referenties gevraagd voor Exchange |
-| Skydrive Pro |Prompt voor referenties |eenmalige aanmelding |
-| Office Professional Plus abonnement |Prompt voor referenties |eenmalige aanmelding |
+| Skype voor bedrijven (Lync) |Prompt voor referenties |eenmalige aanmelding voor Lync, wordt gevraagd referenties voor Exchange |
+| Skydrive Pro |Prompt voor referenties |Eenmalige aanmelding |
+| Office Professional Plus abonnement |Prompt voor referenties |Eenmalige aanmelding |
 
 **Externe of niet-vertrouwde bronnen**:
 
 |  | Gesynchroniseerde identiteiten | Federatieve identiteit |
 | --- | --- | --- |
-| Webbrowsers |Op formulieren gebaseerde verificatie |Op formulieren gebaseerde verificatie |
+| Webbrowsers |Verificatie op basis van formulieren |Verificatie op basis van formulieren |
 | Outlook, Skype voor bedrijven (Lync) Skydrive Pro, Office-abonnement |Prompt voor referenties |Prompt voor referenties |
-| Exchange ActiveSync |Prompt voor referenties |eenmalige aanmelding voor Lync, referenties gevraagd voor Exchange |
+| Exchange ActiveSync |Prompt voor referenties |eenmalige aanmelding voor Lync, wordt gevraagd referenties voor Exchange |
 | Mobiele apps |Prompt voor referenties |Prompt voor referenties |
 
-Als u van de taak 1 dat u hebt een 3rd partij IdP of zijn momenteel als wilt gebruiken een federatie met Azure AD hebt vastgesteld, moet u rekening houden met de volgende ondersteunde mogelijkheden:
+Als u van de taak 1 dat u hebt een derde partij IdP of zijn gaat gebruiken een federatie met Azure AD hebt vastgesteld, moet u rekening houden met de volgende ondersteunde mogelijkheden:
 
-* Elke SAML 2.0-provider die voldoen aan het beleid voor het profiel SP Lite ondersteunt verificatie met Azure AD en toepassingen die zijn gekoppeld
-* Biedt ondersteuning voor passieve verificatie, wat auth OWA, gesimuleerde Productieorder, enzovoort vergemakkelijkt.
+* Elke SAML 2.0-provider dat compatibel is voor het profiel SP Lite ondersteunt verificatie met Azure AD en toepassingen die zijn gekoppeld
+* Biedt ondersteuning voor passieve verificatie voor verificatie naar OWA, gesimuleerde Productieorder, enzovoort.
 * Exchange Online-clients kunnen worden ondersteund via het SAML 2.0 verbeterde Client profiel (ECP)
 
 Ook moet u rekening houden met welke mogelijkheden zijn niet meer beschikbaar:
 
-* Zonder ondersteuning voor WS-Trust/Federation worden alle actieve clients verbroken
+* Zonder ondersteuning voor WS-Trust/Federation opsplitsen alle actieve clients
   * Dit betekent dat er geen Lync-client, de client van OneDrive, Office-abonnement, Office Mobile voorafgaand aan Office 2016
-* Overgang van Office naar passieve verificatie kunnen zij pure SAML 2.0 IdPs ondersteunen is, maar ondersteuning nog steeds op basis van de client door de client
+* Overgang van Office naar passieve verificatie kan ze pure SAML 2.0 IdPs ondersteunen is, maar ondersteuning nog steeds op basis van de client door de client
 
 > [!NOTE]
-> Lees het artikel http://aka.ms/ssoproviders voor de meest recente lijst.
+> Lees het artikel https://aka.ms/ssoproviders voor de meest recente lijst.
 > 
 > 
 
@@ -108,7 +108,7 @@ In de afgelopen jaren, hebben verschillende hulpprogramma's voor synchronisatie 
 ### <a name="supported-topologies"></a>Ondersteunde topologieën
 Bij het definiëren van een strategie voor synchronisatie, kan de topologie die wordt gebruikt moet worden bepaald. Afhankelijk van de informatie die is bepaald in stap kunt u 2 bepalen welke topologie is de beste is om te gebruiken. Het één forest, één Azure AD-topologie is de meest voorkomende en bestaat uit één Active Directory-forest en één exemplaar van Azure AD.  Dit gaat worden gebruikt in een meerderheid van de scenario's en de verwachte topologie bij gebruik van Azure AD Connect Express-installatie, zoals wordt weergegeven in de afbeelding hieronder.
 
-![](./media/hybrid-id-design-considerations/single-forest.png)Scenario voor één Forest het is heel gebruikelijk voor kleine en zelfs grote organisaties hebben meerdere forests, zoals wordt weergegeven in afbeelding 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) Één Forest Scenario is het gebruikelijk voor kleine en zelfs grote organisaties hebben meerdere forests, zoals wordt weergegeven in afbeelding 5.
 
 > [!NOTE]
 > Voor meer informatie over de verschillende on-premises en Azure AD-topologieën met Azure AD Connect sync Lees het artikel [topologieën voor Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -159,7 +159,7 @@ Om dit te doen het volgende moeten worden voldaan:
   * Groep terugschrijven met standaardconfiguratie
   * Apparaat terugschrijven
 
-Let erop dat het volgende wordt niet ondersteund en moet niet worden gekozen als een implementatie:
+Het volgende wordt niet ondersteund en moet niet worden gekozen als een implementatie:
 
 * Meerdere servers met Azure AD Connect sync verbinding te maken met de dezelfde Azure AD-directory, zelfs als ze zijn geconfigureerd om te synchroniseren sluiten elkaar wederzijds uit set van object wordt niet ondersteund
 * Dit wordt niet ondersteund voor het synchroniseren van de gebruiker zich meerdere Azure AD-mappen. 
@@ -173,7 +173,7 @@ Let erop dat het volgende wordt niet ondersteund en moet niet worden gekozen als
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Multi-factor authentication-strategie bepalen
-In deze taak definieert u de strategie voor multi-factor authentication-server te gebruiken.  Azure multi-factor Authentication wordt geleverd in twee verschillende versie.  Een cloud-gebaseerd is en de andere lokaal via de Azure MFA-Server.  Op basis van de evaluatie hierboven u kunt u bepalen welke oplossing is de juiste is voor uw strategie.  Gebruik de onderstaande tabel om te bepalen welke ontwerpoptie het beste voldoen beveiligingsvereiste van uw bedrijf:
+In deze taak definieert u de strategie voor multi-factor authentication-server te gebruiken.  Azure multi-factor Authentication wordt geleverd in twee verschillende versies.  Een cloud-gebaseerd is en de andere lokaal via de Azure MFA-Server.  Op basis van de evaluatie hierboven u kunt u bepalen welke oplossing is de juiste is voor uw strategie.  Gebruik de onderstaande tabel om te bepalen welke ontwerpoptie het beste voldoet aan de beveiligingsvereiste van uw bedrijf:
 
 Van meervoudige ontwerpopties:
 

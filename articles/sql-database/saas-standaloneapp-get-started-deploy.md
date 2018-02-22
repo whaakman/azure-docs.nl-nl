@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
@@ -47,7 +47,7 @@ Aanvullende zelfstudies worden uitgebracht. Hiermee kunt u een scala aan scenari
 Implementeer de app voor de drie opgegeven tenants:
 
 1. Klik op elke blauw **implementeren in Azure** knop voor de implementatiesjabloon in de [Azure-portal](https://portal.azure.com). Elke sjabloon vereist twee parameterwaarden; een naam voor een nieuwe resourcegroep en de naam van een gebruiker die deze implementatie van andere implementaties van de app onderscheidt. De volgende stap biedt details voor het instellen van deze waarden.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Contoso overleg Hall**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso overleg Hall**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
@@ -100,9 +100,7 @@ In een productieomgeving, maakt u gewoonlijk een DNS CNAME-record [ *het interne
 Bekijken we enkele van de bronnen die zijn geïmplementeerd:
 
 1. In de [Azure-portal](http://portal.azure.com), blader naar de lijst met resourcegroepen.
-2. Zie de **wingtip-sa-catalogus -&lt;gebruiker&gt;**  resourcegroep.
-    - In deze resourcegroep de **catalogus-sa -&lt;gebruiker&gt;**  server wordt geïmplementeerd. De server bevat de **tenantcatalog** database.
-    - U ziet ook de resourcegroepen drie tenant.
+2. U ziet de resourcegroepen drie tenant.
 3. Open de **wingtip-sa-fabrikam -&lt;gebruiker&gt;**  resourcegroep, die de resources voor de implementatie van Fabrikam Jazz vereniging bevat.  De **fabrikamjazzclub -&lt;gebruiker&gt;**  server bevat de **fabrikamjazzclub** database.
 
 Elke tenant-database is een 50 DTU *zelfstandige* database.
@@ -131,6 +129,6 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Over de servers en databases die gezamenlijk de app.
 > * Klik hier voor meer informatie over het verwijderen van de voorbeeldresources om te stoppen gerelateerde facturering.
 
-Probeer vervolgens de [inrichten en catalogus](saas-standaloneapp-provision-and-catalog.md) zelfstudie.
+Probeer vervolgens de [inrichten en catalogus](saas-standaloneapp-provision-and-catalog.md) zelfstudie waarin u het gebruik van een catalogus met tenants waarmee een reeks cross-tenant-scenario's zoals schema beheer- en tenantverkeer analytics verkennen.
  
 

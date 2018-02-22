@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ontwikkelingsprogramma's op de gegevens wetenschappelijke virtuele Machine
 
@@ -42,16 +42,25 @@ De gegevens wetenschappelijke virtuele Machine (DSVM) biedt een productieve omge
 | Ondersteunde DSVM versies      | Windows, Linux     |
 | Doorgaans worden gebruikt      | Code-editor en Git-integratie   |
 | Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) in Windows, snelkoppeling op het bureaublad of terminal (`code`) in Linux    |
-| Bijbehorende hulpprogramma's op de DSVM      |     Visual Studio 2017 RStudio, Juno  |
+| Bijbehorende hulpprogramma's op de DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio bureaublad 
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | IDE-client voor taal R    |
+| Wat is het?   | Client IDE voor R    |
 | Ondersteunde DSVM versies      | Windows, Linux      |
 | Doorgaans worden gebruikt      |  R-ontwikkeling     |
 | Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\RStudio\bin\rstudio.exe`) in Windows, snelkoppeling op het bureaublad (`/usr/bin/rstudio`) op Linux      |
 | Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>RStudio  Server 
+|    |           |
+| ------------- | ------------- |
+| Wat is het?   | Web-based IDE voor R    |
+| Ondersteunde DSVM versies      | Linux      |
+| Doorgaans worden gebruikt      |  R-ontwikkeling     |
+| Hoe gebruik / uitvoeren?      | Schakel de service met _systemctl rstudio-server inschakelen_, start de service met _systemctl rstudio-server starten_. U kunt vervolgens aanmelden bij de RStudio Server op http://your-vm-ip:8787.       |
+| Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio bureaublad      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
@@ -73,7 +82,7 @@ De gegevens wetenschappelijke virtuele Machine (DSVM) biedt een productieve omge
 
 
 
-## <a name="powerbi-desktop"></a>Power BI Desktop 
+## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Interactieve gegevensvisualisatie en BI-hulpprogramma    |

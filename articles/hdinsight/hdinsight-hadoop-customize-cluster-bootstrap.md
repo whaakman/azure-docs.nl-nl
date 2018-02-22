@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>HDInsight-clusters met behulp van de Bootstrap aanpassen
 
 Soms wilt u voor het configureren van de configuratiebestanden, waaronder:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
@@ -36,7 +36,7 @@ Soms wilt u voor het configureren van de configuratiebestanden, waaronder:
 * hive-site.xml
 * mapred-site
 * oozie-site.xml
-* oozie env.xml
+* oozie-env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml
@@ -86,7 +86,7 @@ Een volledig werkend PowerShell-script kan worden gevonden in [bijlage](#appendi
 **Controleren of de wijziging:**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in het menu links op **HDInsight-clusters**. Als u deze niet ziet, klikt u op **meer services** eerste.
+2. Klik in het menu links op **HDInsight-clusters**. Als u deze niet ziet, klikt u op **alle services** eerste.
 3. Klik op het cluster dat u zojuist hebt gemaakt met de PowerShell-script.
 4. Klik op **Dashboard** vanaf de bovenkant van de blade de Ambari UI te openen.
 5. Klik op **Hive** in het menu links.

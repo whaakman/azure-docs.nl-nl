@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Service voor externe toegang met Reliable Services
 Voor services die niet zijn gekoppeld aan een bepaalde communicatieprotocol of stack, zoals WebAPI, Windows Communication Foundation (WCF) of anderen, biedt het framework Reliable Services een mechanisme voor externe toegang voor het snel en eenvoudig instellen van externe procedureaanroep voor services.
@@ -30,7 +30,7 @@ Instellen van externe toegang tot een service wordt uitgevoerd in de twee eenvou
 2. Gebruik een listener voor externe toegang in uw service. RemotingListener is een `ICommunicationListener` -implementatie mogelijkheden voor externe toegang biedt. De `Microsoft.ServiceFabric.Services.Remoting.Runtime` -naamruimte bevat een uitbreidingsmethode`CreateServiceRemotingListener` voor zowel stateless als stateful services die kunnen worden gebruikt voor het maken van de listener voor een externe toegang met behulp van het standaardprotocol voor het transport van externe toegang.
 
 >[!NOTE]
->De `Remoting` naamruimte is beschikbaar als een afzonderlijke NuGet-pakket aangeroepen`Microsoft.ServiceFabric.Services.Remoting`
+>De `Remoting` naamruimte is beschikbaar als een afzonderlijke NuGet-pakket aangeroepen `Microsoft.ServiceFabric.Services.Remoting`
 
 De volgende staatloze service wordt bijvoorbeeld één methode voor 'Hallo wereld' via een externe procedureaanroep.
 
@@ -59,7 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -81,10 +81,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 Het framework remoting uitzonderingen worden veroorzaakt door de service naar de client wordt doorgegeven. Als gevolg hiervan, wanneer u `ServiceProxy`, de client is verantwoordelijk voor het verwerken van de uitzonderingen die door de service.
 
-## <a name="service-proxy-lifetime"></a>Levensduur voor service-Proxy
+## <a name="service-proxy-lifetime"></a>Service Proxy Lifetime
 Het maken van ServiceProxy is een lichtgewicht bewerking, zodat gebruikers zo veel als ze nodig hebben kunnen maken. Proxy-service-exemplaren kunnen opnieuw worden gebruikt als gebruikers deze moeten. Als een remote procedure call er een uitzondering gegenereerd, kunnen gebruikers nog steeds opnieuw gebruiken hetzelfde exemplaar van de proxy. Elke ServiceProxy bevat een communicatie-client gebruikt om berichten te verzenden via de kabel. Tijdens het aanroepen van externe oproepen Controleer we intern of de client communicatie geldig is. Op basis van die resulteren, maken we opnieuw de client communicatie indien nodig. Dus als er een uitzondering optreedt, gebruikers hoeven niet opnieuw maken `ServiceProxy` omdat deze is gedaan transparant.
 
-### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory levensduur
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is een factory die de proxy worden exemplaren voor externe communicatie van andere interfaces gemaakt. Als u de api gebruiken `ServiceProxy.Create` voor het maken van proxy het framework maakt u een singleton-ServiceProxy.
 Is het nuttig om een handmatig maken als u wilt onderdrukken [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) eigenschappen.
 Maken van de factory is een dure bewerking. ServiceProxyFactory onderhoudt een interne cache van de client communicatie.
@@ -146,7 +146,7 @@ Hier volgen de stappen te volgen.
   </Resources>
   ```
 
-2. Gebruik [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Resource van de Service-eindpunt standaardnaam die wordt gebruikt is 'ServiceEndpointV2' en moet worden gedefinieerd in Service Manifest.
+2. Gebruik [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Resource van de Service-eindpunt standaardnaam die wordt gebruikt is 'ServiceEndpointV2' en moet worden gedefinieerd in Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

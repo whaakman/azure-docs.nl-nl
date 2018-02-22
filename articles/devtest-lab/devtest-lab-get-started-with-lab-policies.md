@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: v-craic
-ms.openlocfilehash: f7ccd9f56742fe4500c6f5441623beca28801bcd
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3f5fc5051bb8acd9ae107eeadc2a00e992eb378c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Basic beleid beheren voor een testomgeving in Azure DevTest Labs
 
@@ -31,7 +31,7 @@ Als u wilt weergeven (en wijzigen) op het beleid voor een testomgeving, de volge
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
+1. Selecteer **alle services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 
 1. Selecteer de gewenste testomgeving uit de lijst van labs.   
 
@@ -59,7 +59,7 @@ Het beleid voor automatisch afsluiten helpt te minimaliseren lab verspilling doo
 
 1. Op de testomgeving **configuratie en het beleid** deelvenster **automatisch afsluiten**.
    
-    ![Automatisch afsluiten](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
+    ![Auto-shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
 1. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
 

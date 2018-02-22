@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
@@ -72,12 +72,12 @@ Een beleid van de levensduur van token is een soort beleidsobject dat de levensd
 ### <a name="configurable-token-lifetime-properties"></a>Eigenschappen van de configureerbare levensduur van token
 | Eigenschap | Tekenreeks van de eigenschap beleid | Is van invloed op | Standaard | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
-| Levensduur van Token toegang |AccessTokenLifetime |Toegangstokens, ID-tokens, SAML2-tokens |1 uur |10 minuten |1 dag |
-| Token maximale niet-actieve tijd van vernieuwen |MaxInactiveTime |Vernieuwen van tokens |het is 14 dagen |10 minuten |90 dagen |
-| Token maximumleeftijd één Factor vernieuwen |MaxAgeSingleFactor |Vernieuwen van tokens (voor alle gebruikers) |Pas ingetrokken |10 minuten |Pas ingetrokken<sup>1</sup> |
-| Token maximumleeftijd meerledige vernieuwen |MaxAgeMultiFactor |Vernieuwen van tokens (voor alle gebruikers) |Pas ingetrokken |10 minuten |Pas ingetrokken<sup>1</sup> |
-| Token maximumleeftijd één Factor-sessie |MaxAgeSessionSingleFactor<sup>2</sup> |Sessie-tokens (persistent en niet-persistente) |Pas ingetrokken |10 minuten |Pas ingetrokken<sup>1</sup> |
-| Token maximumleeftijd multi-factor-sessie |MaxAgeSessionMultiFactor<sup>3</sup> |Sessie-tokens (persistent en niet-persistente) |Pas ingetrokken |10 minuten |Pas ingetrokken<sup>1</sup> |
+| Access Token Lifetime |AccessTokenLifetime |Toegangstokens, ID-tokens, SAML2-tokens |1 uur |10 minuten |1 dag |
+| Token maximale niet-actieve tijd van vernieuwen |MaxInactiveTime |Vernieuwen van tokens |90 dagen |10 minuten |90 dagen |
+| Token maximumleeftijd één Factor vernieuwen |MaxAgeSingleFactor |Vernieuwen van tokens (voor alle gebruikers) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
+| Token maximumleeftijd meerledige vernieuwen |MaxAgeMultiFactor |Vernieuwen van tokens (voor alle gebruikers) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
+| Token maximumleeftijd één Factor-sessie |MaxAgeSessionSingleFactor<sup>2</sup> |Sessie-tokens (persistent en niet-persistente) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
+| Token maximumleeftijd multi-factor-sessie |MaxAgeSessionMultiFactor<sup>3</sup> |Sessie-tokens (persistent en niet-persistente) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dagen is de maximale expliciete lengte voor deze kenmerken kan worden ingesteld.
 * <sup>2</sup>als **MaxAgeSessionSingleFactor** is niet ingesteld, gaat deze waarde voor de **MaxAgeSingleFactor** waarde. Als geen van beide parameter is ingesteld, wordt de eigenschap de standaardwaarde (tot ingetrokken).
@@ -88,7 +88,7 @@ Een beleid van de levensduur van token is een soort beleidsobject dat de levensd
 | --- | --- | --- |
 | Token Max Age vernieuwen (uitgegeven voor federatieve gebruikers die beschikken over onvoldoende intrekkingsgegevens<sup>1</sup>) |Vernieuwen van tokens (uitgegeven voor federatieve gebruikers die beschikken over onvoldoende intrekkingsgegevens<sup>1</sup>) |12 uur |
 | Vernieuwen van Token maximale niet-actieve tijd (uitgegeven voor vertrouwelijke clients) |Vernieuwen van tokens (uitgegeven voor vertrouwelijke clients) |90 dagen |
-| Vernieuwen van Token Max Age (uitgegeven voor vertrouwelijke clients) |Vernieuwen van tokens (uitgegeven voor vertrouwelijke clients) |Pas ingetrokken |
+| Vernieuwen van Token Max Age (uitgegeven voor vertrouwelijke clients) |Vernieuwen van tokens (uitgegeven voor vertrouwelijke clients) |Until-revoked |
 
 * <sup>1</sup>federatieve gebruikers die beschikken over onvoldoende intrekkingsgegevens opnemen alle gebruikers die geen het kenmerk 'LastPasswordChangeTimestamp' is gesynchroniseerd hebben. Deze gebruikers deze korte Max Age zijn opgegeven omdat AAD kan niet worden geverifieerd wanneer voor het intrekken van tokens die zijn gekoppeld aan een referentie voor de oude (zoals een wachtwoord dat is gewijzigd) en moeten controleren in meer vaak om ervoor te zorgen dat de gebruiker en de bijbehorende tokens nog steeds in goede  permanent. Als u wilt deze ervaring te verbeteren, moet tenantbeheerders ervoor te zorgen dat ze het 'LastPasswordChangeTimestamp'-kenmerk (deze kan worden ingesteld op het gebruikersobject met Powershell of via AADSync) synchroniseert.
 
@@ -126,15 +126,15 @@ De geldigheid van het token wordt geëvalueerd op het moment dat het token wordt
 >
 
 ## <a name="configurable-policy-property-details"></a>Details van de eigenschap configureerbaar beleid
-### <a name="access-token-lifetime"></a>Levensduur van Token toegang
-**Tekenreeks:** AccessTokenLifetime
+### <a name="access-token-lifetime"></a>Access Token Lifetime
+**String:** AccessTokenLifetime
 
 **Is van invloed op:** toegangstokens, ID-tokens
 
 **Overzicht:** dit beleid bepaalt hoe lang toegang en ID-tokens voor deze resource als geldig beschouwd. De levensduur van Token toegang eigenschap verminderen vermindert het risico van een toegangstoken of de ID-token wordt gebruikt door een kwaadwillende actor gedurende langere tijd. (Deze tokens kunnen niet worden ingetrokken.) De verhouding is dat prestaties nadelig worden beïnvloed, omdat de tokens moeten vaker worden vervangen.
 
 ### <a name="refresh-token-max-inactive-time"></a>Token maximale niet-actieve tijd van vernieuwen
-**Tekenreeks:** MaxInactiveTime
+**String:** MaxInactiveTime
 
 **Is van invloed op:** Vernieuwingstokens
 
@@ -145,7 +145,7 @@ Dit beleid zorgt ervoor dat gebruikers die niet op de client te verifiëren voor
 De eigenschap vernieuwen Token maximale niet-actieve tijd moet worden ingesteld op een lagere waarde dan de één-Factor Token Max Age en de eigenschappen van meerdere factoren vernieuwen Token Max Age.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Token maximumleeftijd één Factor vernieuwen
-**Tekenreeks:** MaxAgeSingleFactor
+**String:** MaxAgeSingleFactor
 
 **Is van invloed op:** Vernieuwingstokens
 
@@ -154,7 +154,7 @@ De eigenschap vernieuwen Token maximale niet-actieve tijd moet worden ingesteld 
 De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd vaker. Omdat authenticatie wordt beschouwd als minder veilig dan multi-factor authentication-server, wordt u aangeraden dat u deze eigenschap instellen op een waarde die gelijk is aan of kleiner zijn dan de eigenschap Multi-factor vernieuwen Token Max Age.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Token maximumleeftijd meerledige vernieuwen
-**Tekenreeks:** MaxAgeMultiFactor
+**String:** MaxAgeMultiFactor
 
 **Is van invloed op:** Vernieuwingstokens
 
@@ -163,7 +163,7 @@ De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd
 De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd vaker. Omdat authenticatie wordt beschouwd als minder veilig dan multi-factor authentication-server, wordt u aangeraden dat u deze eigenschap instellen op een waarde die gelijk is aan of groter zijn dan de eigenschap één Factor vernieuwen Token Max Age.
 
 ### <a name="single-factor-session-token-max-age"></a>Token maximumleeftijd één Factor-sessie
-**Tekenreeks:** MaxAgeSessionSingleFactor
+**String:** MaxAgeSessionSingleFactor
 
 **Is van invloed op:** sessie tokens (persistent en niet-persistente)
 
@@ -172,7 +172,7 @@ De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd
 De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd vaker. Omdat authenticatie wordt beschouwd als minder veilig dan multi-factor authentication-server, wordt u aangeraden dat u deze eigenschap instellen op een waarde die gelijk is aan of kleiner zijn dan de eigenschap Multi-factor sessie Token Max Age.
 
 ### <a name="multi-factor-session-token-max-age"></a>Token maximumleeftijd multi-factor-sessie
-**Tekenreeks:** MaxAgeSessionMultiFactor
+**String:** MaxAgeSessionMultiFactor
 
 **Is van invloed op:** sessie tokens (persistent en niet-persistente)
 
@@ -183,9 +183,9 @@ De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd
 ## <a name="example-token-lifetime-policies"></a>Voorbeeld van de levensduur van token-beleid
 Veel scenario's zijn mogelijk in Azure AD wanneer u kunt maken en beheren van token levensduur voor apps, service-principals en uw hele organisatie zijn. In deze sectie doorlopen we enkele algemene scenario's voor beleid waarmee u nieuwe regels voor opleggen kunnen:
 
-* Levensduur van token
+* Token Lifetime
 * Token maximale niet-actieve tijd
-* Token maximumleeftijd
+* Token Max Age
 
 In de voorbeelden, leert u hoe:
 
@@ -355,7 +355,7 @@ In dit voorbeeld maakt u een paar beleidsregels, voor meer informatie over de we
 
 U kunt de volgende cmdlets gebruiken voor het beheren van beleid.
 
-#### <a name="new-azureadpolicy"></a>Nieuwe AzureADPolicy
+#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
 Maakt een nieuw beleid.
 
@@ -369,7 +369,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Tekenreeks van de naam van het beleid. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Indien waar, wordt u het beleid ingesteld als standaard-beleid van de organisatie. Als het ONWAAR is, gebeurt er niets. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Type van het beleid. Token levensduur altijd gebruiken 'TokenLifetimePolicy'. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Optioneel] |Hiermee stelt u een alternatieve ID voor het beleid. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Optioneel] |Hiermee stelt u een alternatieve ID voor het beleid. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -382,7 +382,7 @@ Get-AzureADPolicy
 
 | Parameters | Beschrijving | Voorbeeld |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Optioneel] |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Optioneel] |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -410,14 +410,14 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Object-id (Id)** van het gewenste beleid. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Tekenreeks van de naam van het beleid. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Optioneel] |Matrix van stringified JSON die de regels van het beleid bevat. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Optioneel] |Indien waar, wordt u het beleid ingesteld als standaard-beleid van de organisatie. Als het ONWAAR is, gebeurt er niets. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Optioneel] |Type van het beleid. Token levensduur altijd gebruiken 'TokenLifetimePolicy'. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Optioneel] |Hiermee stelt u een alternatieve ID voor het beleid. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [Optioneel] |Matrix van stringified JSON die de regels van het beleid bevat. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Optioneel] |Indien waar, wordt u het beleid ingesteld als standaard-beleid van de organisatie. Als het ONWAAR is, gebeurt er niets. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Optioneel] |Type van het beleid. Token levensduur altijd gebruiken 'TokenLifetimePolicy'. |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Optioneel] |Hiermee stelt u een alternatieve ID voor het beleid. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
-#### <a name="remove-azureadpolicy"></a>Verwijder AzureADPolicy
+#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Hiermee verwijdert u het opgegeven beleid.
 
 ```PowerShell
@@ -433,7 +433,7 @@ Hiermee verwijdert u het opgegeven beleid.
 ### <a name="application-policies"></a>Toepassingsbeleid
 U kunt de volgende cmdlets gebruiken voor beleid voor toepassingen.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Voeg AzureADApplicationPolicy
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Het opgegeven beleid is gekoppeld aan een toepassing.
 
 ```PowerShell
@@ -460,7 +460,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 </br></br>
 
-#### <a name="remove-azureadapplicationpolicy"></a>Verwijder AzureADApplicationPolicy
+#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Een beleid verwijdert uit een toepassing.
 
 ```PowerShell
@@ -477,7 +477,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 ### <a name="service-principal-policies"></a>Service-principal-beleidsregels
 U kunt de volgende cmdlets gebruiken voor service-principal-beleid.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Voeg AzureADServicePrincipalPolicy
+#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Het opgegeven beleid is gekoppeld aan een service-principal.
 
 ```PowerShell
@@ -504,7 +504,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 </br></br>
 
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Verwijder AzureADServicePrincipalPolicy
+#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Hiermee verwijdert u het beleid van de opgegeven service-principal.
 
 ```PowerShell

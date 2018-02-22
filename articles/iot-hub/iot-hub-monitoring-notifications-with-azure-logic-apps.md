@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Externe controle IoT en meldingen met Azure Logic Apps die gebruikmaken van uw IoT-hub en Postvak
 
@@ -50,7 +50,7 @@ U informatie over het maken van een logische app die verbinding maakt van uw IoT
 
 ### <a name="create-a-service-bus-namespace"></a>Een service bus-naamruimte maken
 
-1. Op de [Azure-portal](https://portal.azure.com/), klikt u op **nieuw** > **Enterprise Integration** > **Service Bus**.
+1. Op de [Azure-portal](https://portal.azure.com/), klikt u op **maken van een resource** > **Enterprise Integration** > **Service Bus**.
 1. Geef de volgende informatie:
 
    **Naam**: de naam van de servicebus.
@@ -111,7 +111,7 @@ U informatie over het maken van een logische app die verbinding maakt van uw IoT
 
 ### <a name="create-a-logic-app"></a>Een logische app maken
 
-1. In de [Azure-portal](https://portal.azure.com/), klikt u op **nieuw** > **Enterprise Integration** > **logische App**.
+1. In de [Azure-portal](https://portal.azure.com/), klikt u op **maken van een resource** > **Enterprise Integration** > **logische App**.
 1. Voer de volgende informatie in:
 
    **Naam**: de naam van de logische app.
@@ -161,7 +161,7 @@ U informatie over het maken van een logische app die verbinding maakt van uw IoT
 
 De logische app is defect wanneer u deze opslaat.
 
-## <a name="test-the-logic-app"></a>De logische app testen
+## <a name="test-the-logic-app"></a>Test de logische app
 
 1. Start de clienttoepassing die u implementeert op uw apparaat bij [ESP8266 verbinding maken met Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md).
 1. Vergroot de temperatuur omgeving rond de SensorTag meer dan 30 C. Bijvoorbeeld, een kaars rond de SensorTag lichten.

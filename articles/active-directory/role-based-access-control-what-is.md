@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Aan de slag met toegangsbeheer op basis van rollen in de Azure-portal
 Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.
@@ -58,7 +58,7 @@ Toegang waarmee u op de bovenliggende scopes wordt verleend wordt op een onderli
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC versus klassieke abonnementbeheerders
 [Klassieke abonnementsbeheerders mensen en co-beheerders](../billing/billing-add-change-azure-subscription-administrator.md) hebben volledige toegang tot het Azure-abonnement. Ze kunnen resources met behulp van de [Azure-portal](https://portal.azure.com), Azure Resource Manager-API's en het klassieke implementatiemodel API's. In het model RBAC klassieke administrators de rol van eigenaar bij het abonnementsbereik toegewezen.
 
-Alleen de Azure portal en de nieuwe Azure Resource Manager-API's ondersteunen Azure RBAC. Gebruikers en toepassingen die zijn toegewezen RBAC-rollen niet gebruiken de het Azure klassieke implementatiemodel API's.
+Alleen de Azure portal en de nieuwe Azure Resource Manager-API's ondersteunen Azure RBAC. Gebruikers en toepassingen die zijn toegewezen RBAC-rollen niet gebruiken voor het Azure klassieke implementatiemodel API's.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorisatie voor het beheer van versus gegevensbewerkingen
 Azure RBAC ondersteunt alleen beheerbewerkingen van de Azure-resources in de Azure-portal en Azure Resource Manager-API's. Deze kan niet toestaan dat alle gegevens niveau bewerkingen voor Azure-resources. Bijvoorbeeld, kunt u autoriseren iemand om de Storage-Accounts beheren, maar niet naar de BLOB's of tabellen binnen een Opslagaccount. Op deze manier kan een SQL-database worden beheerd, maar niet de tabellen in het.

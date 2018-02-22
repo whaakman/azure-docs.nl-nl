@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: v-craic
-ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 95fc017e64ac5c8a31be93790f53eb7fefa8f69a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Uw eerste virtuele machine maken in een testomgeving in Azure DevTest Labs
 
@@ -28,7 +28,7 @@ Deze zelfstudie leert u met de Azure portal uw eerste virtuele machine toevoegen
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Stappen voor het toevoegen van uw eerste virtuele machine aan een lab in Azure DevTest Labs
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+1. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 1. Selecteer in de lijst van labs in het lab waarin u wilt maken van de virtuele machine.  
 1. Op de testomgeving **overzicht** blade Selecteer **+ toevoegen**.  
 

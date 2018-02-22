@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js-web-app aan de slag
 We gebruiken hier Passport:
@@ -48,14 +48,14 @@ De voltooide toepassing wordt verstrekt aan het einde van deze zelfstudie ook.
 
 2. Selecteer in het menu aan de bovenkant van de pagina uw account. Onder de **Directory** kiest u de Active Directory-tenant waar u uw toepassing registreren.
 
-3. Selecteer **meer Services** in het menu aan de linkerkant van het scherm en selecteer **Azure Active Directory**.
+3. Selecteer **alle services** in het menu aan de linkerkant van het scherm en selecteer **Azure Active Directory**.
 
 4. Selecteer **App registraties**, en selecteer vervolgens **toevoegen**.
 
 5. Volg de aanwijzingen voor het maken van een **webtoepassing** en/of **WebAPI**.
   * De **naam** beschrijft uw toepassing voor gebruikers van de toepassing.
 
-  * De **aanmeldings-URL** is de basis-URL van uw app.  Het basisproject standaardwaarde is "http://localhost: 3000/auth/openid/return ''.
+  * De **aanmeldings-URL** is de basis-URL van uw app.  Het basisproject standaardwaarde is `http://localhost:3000/auth/openid/return`.
 
 6. Nadat u hebt geregistreerd, wijst Azure AD van uw app een unieke toepassings-ID. U moet deze waarde in de volgende secties, dus kopiëren van de toepassingspagina.
 7. Van de **instellingen** -> **eigenschappen** pagina voor uw toepassing, het bijwerken van de App ID URI. De **App ID URI** is de unieke id voor uw toepassing. De overeenkomst is met de indeling `https://<tenant-domain>/<app-name>`, bijvoorbeeld: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -252,7 +252,7 @@ De vorige code wordt elke gebruiker die plaatsvindt om te verifiëren met onze s
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Stap 4: Gebruik Passport om aan- en afmeldingsaanvragen te verzenden naar Azure AD
-Uw app is nu geconfigureerd om te communiceren met het eindpunt met behulp van het OpenID Connect-verificatieprotocol.  `passport-azure-ad`heeft gezorgd voor de details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies. Alle resterende is door uw gebruikers te kunnen aanmelden en afmelden en verzamelen van aanvullende informatie over de aangemelde gebruikers.
+Uw app is nu geconfigureerd om te communiceren met het eindpunt met behulp van het OpenID Connect-verificatieprotocol.  `passport-azure-ad` heeft gezorgd voor de details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies. Alle resterende is door uw gebruikers te kunnen aanmelden en afmelden en verzamelen van aanvullende informatie over de aangemelde gebruikers.
 
 1. Eerst gaan we de standaard, aanmelden, account en toevoegen afmeldingsmethoden toe aan onze `app.js` bestand:
 

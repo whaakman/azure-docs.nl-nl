@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Laden van 1 TB in Azure SQL Data Warehouse onder 15 minuten met Data Factory
 > [!NOTE]
@@ -114,8 +114,8 @@ Met de vereiste stappen voltooid, zijn er nu klaar om te configureren met de kop
 
 ## <a name="launch-copy-wizard"></a>De wizard Kopiëren starten
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **+ nieuw** vanuit de linkerbovenhoek op **Intelligence en analyse**, en klik op **Data Factory**.
-3. In de blade **Nieuwe gegevensfactory**:
+2. Klik op **maken van een resource** vanuit de linkerbovenhoek op **Intelligence en analyse**, en klik op **Data Factory**.
+3. In de **nieuwe gegevensfactory** deelvenster:
 
    1. Voer **LoadIntoSQLDWDataFactory** voor de **naam**.
        De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory-naam 'LoadIntoSQLDWDataFactory' is niet beschikbaar**, wijzig de naam van de gegevensfactory (bijvoorbeeld yournameLoadIntoSQLDWDataFactory) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  

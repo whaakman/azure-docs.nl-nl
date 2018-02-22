@@ -1,6 +1,6 @@
 ---
 title: 'Een virtueel netwerk verbinden met meerdere sites met behulp van VPN-Gateway en PowerShell: klassieke | Microsoft Docs'
-description: In dit artikel begeleidt u stapsgewijs door meerdere lokale on-premises sites met een virtuele netwerk verbindt via een VPN-Gateway voor het klassieke implementatiemodel.
+description: Meerdere lokale on-premises sites verbinding met een klassiek virtueel netwerk met behulp van een VPN-Gateway.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Een Site-naar-Site-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding (klassiek)
 

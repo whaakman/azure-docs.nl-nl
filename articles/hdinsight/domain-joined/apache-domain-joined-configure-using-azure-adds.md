@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
@@ -36,9 +36,11 @@ In dit artikel leert u hoe een domein HDInsight-cluster met behulp van Azure Act
 U moet maken van een Azure AD DS voordat u een HDInsight-cluster kunt maken. Zie voor het maken van een Azure wordt toegevoegd, [inschakelen Azure Active Directory Domain Services met Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. Als u Azure Data Lake Storage (ADLS) als de standaard-opslag voor HDInsight, Controleer of dat de standaard Azure AD-tenant voor ADLS is hetzelfde als het domein voor het HDInsight-cluster. 
+> Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. Als u Azure Data Lake Storage (ADLS) als de standaard-opslag voor HDInsight, Controleer of dat de standaard Azure AD-tenant voor ADLS is hetzelfde als het domein voor het HDInsight-cluster. Multi-factor authentication-server moet worden uitgeschakeld voor gebruikers die toegang tot het cluster voor deze ingesteld om te werken met Azure Data Lake Store.
 
 Nadat de domeinservice is ingericht, moet u voor het maken van een serviceaccount in de **beheerders van Azure AD-DC** groep maken van het HDInsight-cluster. Het serviceaccount moet een globale beheerder op de Azure AD.
+
+Beveiligde LDAP voor Azure AD Domain Services beheerd domein, moet u inschakelen. Zie voor het inschakelen van beveiligde LDAP [configureren beveiligde LDAP (LDAPS) voor een Azure AD Domain Services beheerd domein](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Een domein HDInsight-cluster maken
 

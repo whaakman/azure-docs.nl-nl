@@ -11,71 +11,61 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f2fd5e4c1a51fe9d1652c9970bcd8d76b25ab60
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 501210c3fab2659deb9594e1bbd9aa51912187e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Het beheren van gebruikersaccounts in Azure API Management
 In API Management zijn ontwikkelaars de gebruikers van de API's die u met behulp van API Management. Deze handleiding wordt beschreven voor het maken en uit te nodigen ontwikkelaars met de API's en -producten te maken die voor hen beschikbaar met uw API Management-exemplaar. Zie voor informatie over het beheren van gebruikersaccounts via een programma, het [entiteit gebruiker](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentatie in de [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) verwijzing.
 
-## <a name="create-developer"></a>Maken van een nieuwe ontwikkelaar
-Klik op om een nieuwe ontwikkelaar **publicatieportal** in de Azure-Portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management. Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken][Create an API Management service instance].
+## <a name="prerequisites"></a>Vereisten
 
-![Publicatieportal][api-management-management-console]
+Taken in dit artikel: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
-Klik op **gebruikers** van de **API Management** menu aan de linkerkant en klik vervolgens op **gebruiker toevoegen**.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-![Ontwikkelaars maken][api-management-create-developer]
+## <a name="create-developer"> </a>Maak een nieuwe ontwikkelaar
 
-Voer de **e**, **wachtwoord**, en **naam** voor de nieuwe ontwikkelaars en klik op **opslaan**.
+Een nieuwe gebruiker toevoegen, de stappen in deze sectie uit te voeren:
 
-![Ontwikkelaars maken][api-management-add-new-user]
+1. Selecteer de **gebruikers** tabblad aan de linkerkant van het scherm.
+2. Druk op **+ toevoegen**.
+3. Voer de juiste informatie voor de gebruiker.
+4. Klik op **Toevoegen**.
 
-De van de zojuist gemaakte ontwikkelaarsaccounts zijn standaard **Active**, en die zijn gekoppeld aan de **ontwikkelaars** groep.
+    ![Een nieuwe gebruiker toevoegen](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-![Nieuwe ontwikkelaars][api-management-new-developer]
+De van de zojuist gemaakte ontwikkelaarsaccounts zijn standaard **Active**, en die zijn gekoppeld aan de **ontwikkelaars** groep. Ontwikkelaarsaccounts die zich in een **active** status kan worden gebruikt voor toegang tot alle van de API's waarvoor ze abonnementen hebben. De ontwikkelaar van de zojuist gemaakte koppelt u extra groepen, Zie [groepen koppelen aan ontwikkelaars][How to associate groups with developers].
 
-Ontwikkelaarsaccounts die zich in een **active** status kan worden gebruikt voor toegang tot alle van de API's waarvoor ze abonnementen hebben. De ontwikkelaar van de zojuist gemaakte koppelt u extra groepen, Zie [groepen koppelen aan ontwikkelaars][How to associate groups with developers].
+## <a name="invite-developer"> </a>Een ontwikkelaar uitnodigen
+Als u wilt een ontwikkelaar uitnodigen, volg de stappen in deze sectie:
 
-## <a name="invite-developer"></a>Een ontwikkelaar uitnodigen
-Als u wilt een ontwikkelaar uitnodigen, klikt u op **gebruikers** van de **API Management** menu aan de linkerkant en klik vervolgens op **gebruiker uit te nodigen**.
-
-![Developer uit te nodigen][api-management-invite-developer]
-
-Voer de naam en e-mailadres van de ontwikkelaar, en klik op **uitnodigen**.
-
-![Developer uit te nodigen][api-management-invite-developer-window]
+1. Selecteer de **gebruikers** tabblad aan de linkerkant van het scherm.
+2. Druk op **+ uitnodigen**.
 
 Een bevestigingsbericht wordt weergegeven, maar de ontwikkelaar van de nieuwe uitgenodigde niet wordt weergegeven in de lijst pas nadat ze de uitnodiging accepteren. 
-
-![Bevestiging uitnodigen][api-management-invite-developer-confirmation]
 
 Wanneer een ontwikkelaar wordt verzocht, wordt een e-mailbericht verzonden naar de ontwikkelaar. Dit e-mailbericht met een sjabloon wordt gegenereerd en kan worden aangepast. Zie voor meer informatie [e-mailsjablonen configureren][Configure email templates].
 
 Zodra de uitnodiging is geaccepteerd, wordt het account actief.
 
-## <a name="block-developer"></a> Deactiveren of opnieuw activeren een ontwikkelaarsaccount
-Gemaakte of uitgenodigde ontwikkelaarsaccounts zijn standaard **Active**. U kunt een ontwikkelaarsaccount, klikt u op **blok**. Als u wilt een geblokkeerde ontwikkelaarsaccount activeren, klikt u op **activeren**. Een geblokkeerde ontwikkelaarsaccount kan geen toegang tot de portal voor ontwikkelaars of alle API's aanroepen. Als u wilt verwijderen van een gebruikersaccount, klikt u op **verwijderen**.
+## <a name="block-developer"> </a> Een ontwikkelaarsaccount activeren of deactiveren
 
-![Blok-ontwikkelaars][api-management-new-developer]
+Gemaakte of uitgenodigde ontwikkelaarsaccounts zijn standaard **Active**. U kunt een ontwikkelaarsaccount, klikt u op **blok**. Als u wilt een geblokkeerde ontwikkelaarsaccount activeren, klikt u op **activeren**. Een geblokkeerde developer-account geen toegang tot de portal voor ontwikkelaars of alle API's aanroepen. Als u wilt verwijderen van een gebruikersaccount, klikt u op **verwijderen**.
+
+Volg de volgende stappen voor het blokkeren van een gebruiker.
+
+1. Selecteer de **gebruikers** tabblad aan de linkerkant van het scherm.
+2. Klik op de gebruiker die u wilt blokkeren.
+3. Druk op **blok**.
 
 ## <a name="reset-a-user-password"></a>Een gebruikerswachtwoord opnieuw instellen
-Als u het wachtwoord voor een gebruikersaccount herstellen, klikt u op de naam van het account.
-
-![Wachtwoord opnieuw instellen][api-management-view-developer]
-
-Klik op **wachtwoord opnieuw instellen** een koppeling naar de gebruiker om hun wachtwoord opnieuw in te verzenden.
-
-![Wachtwoord opnieuw instellen][api-management-reset-password]
 
 Om te werken via een programma met een gebruikersaccount, Zie de [entiteit gebruiker](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentatie in de [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) verwijzing. Als u het wachtwoord van een gebruiker op een specifieke waarde herstellen, kunt u de [bijwerken van een gebruiker](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) bewerking en geef het gewenste wachtwoord.
-
-## <a name="pending-verification"></a>Verificatie van in behandeling
-![Verificatie van in behandeling][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Volgende stappen
 Zodra een ontwikkelaarsaccount is gemaakt, kunt u aan functies koppelen en deze zich te abonneren op producten en -API's. Zie voor meer informatie [maken en gebruiken van groepen][How to create and use groups].
