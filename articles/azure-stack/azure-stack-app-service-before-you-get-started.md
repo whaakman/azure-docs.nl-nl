@@ -3,8 +3,8 @@ title: Voordat u op Azure-Stack-App Service implementeert | Microsoft Docs
 description: Stappen voor het voltooien voordat u op Azure-Stack-App Service implementeert
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: cdeec60b4935fda58e2657a215826d8355c81664
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -81,7 +82,7 @@ Het certificaat van het standaarddomein wordt geplaatst op de Front-End-rol. Geb
 
 Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met twee-onderwerp. Dit kan een certificaat hebben betrekking op het standaarddomein en het SCM-eindpunt voor de bron-en beheerbewerkingen.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | \*.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | \*.appservice.redmond.azurestack.external |
 | \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
@@ -90,7 +91,7 @@ Het certificaat in PFX-indeling moet zijn en moet een jokertekencertificaat met 
 
 De API-certificaat is op de rol geplaatst. De resourceprovider gebruikt om u te helpen beveiligen API-aanroepen. Het certificaat voor de publicatie moet een onderwerpnaam die overeenkomt met de API-DNS-vermelding bevatten.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -98,7 +99,7 @@ De API-certificaat is op de rol geplaatst. De resourceprovider gebruikt om u te 
 
 Het certificaat voor de rol Publisher beveiligt het verkeer FTPS voor eigenaren van toepassing wanneer ze inhoud uploaden. Het certificaat voor de publicatie moet een onderwerpnaam die overeenkomt met de FTPS DNS-vermelding bevatten.
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -110,7 +111,7 @@ Maakt gebruik van het certificaat voor de identiteit van toepassing:
 
 Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de volgende indeling bevatten:
 
-| Notatie | Voorbeeld |
+| Indeling | Voorbeeld |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 

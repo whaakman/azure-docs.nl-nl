@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure-Stack Public Key Infrastructure-certificaatvereisten
 Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern toegankelijke openbare IP-adressen die zijn toegewezen aan een klein aantal Stack Azure-services en mogelijk tenant-VM's. PKI-certificaten met de juiste DNS-namen voor deze eindpunten van de infrastructuur voor openbare Azure-Stack zijn vereist tijdens de implementatie van Azure-Stack. In dit artikel bevat informatie over:
@@ -33,7 +33,7 @@ Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern to
 ## <a name="certificate-requirements"></a>Certificaatvereisten
 De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor het implementeren van Azure-Stack: 
 - Certificaten moeten zijn uitgegeven door een interne certificeringsinstantie of een openbare certificeringsinstantie. Als een openbare certificeringsinstantie wordt gebruikt, moet worden opgenomen in de installatiekopie van het basisbesturingssysteem als onderdeel van het Microsoft-programma vertrouwde basis-instantie. U vindt hier de volledige lijst: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Het certificaat kan een certificaat voor één jokerteken die betrekking hebben op alle naamruimten in het veld onderwerp alternatieve naam (SAN) zijn. U kunt ook afzonderlijke certificaten met jokertekens voor eindpunten zoals opslag en Sleutelkluis waar ze vereist zijn. 
+- Het certificaat kan een certificaat voor één jokerteken die betrekking hebben op alle naamruimten in het veld onderwerp alternatieve naam (SAN) zijn. U kunt ook afzonderlijke certificaten met jokertekens voor eindpunten zoals acs en Sleutelkluis waar ze vereist zijn. 
 - Het certificaat handtekeningalgoritme niet SHA1, als sterkere moet. 
 - Indeling van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor installatie van de Azure-Stack zijn. 
 - Het pfx-certificaatbestand moeten een waarde 'Digitale handtekening' en 'KeyEncipherment' in het veld 'Sleutelgebruik' hebben.

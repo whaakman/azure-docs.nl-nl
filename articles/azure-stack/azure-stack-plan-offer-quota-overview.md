@@ -3,8 +3,8 @@ title: Stack plan, aanbieding, quota en abonnement overzicht van Azure | Microso
 description: Als een cloud-operator wil ik Azure Stack plannen, aanbiedingen, quota's en -abonnementen te begrijpen.
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
-ms.author: erikje
-ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Overzicht van plannen, aanbiedingen, quota en abonnementen
 
@@ -55,7 +56,7 @@ Quota's kunnen worden geconfigureerd per regio. Een plan met compute services va
 
 Wanneer u een aanbieding maakt, kan de service-beheerder een basisplan bevatten. Deze base plannen zijn standaard opgenomen als een gebruiker zich op deze aanbieding abonneert. Wanneer een gebruiker zich abonneert, hebben ze toegang tot alle resourceproviders die zijn opgegeven in deze base plannen (met de bijbehorende quota's).
 
-### <a name="add-on-plans"></a>Invoegtoepassing plannen
+### <a name="add-on-plans"></a>Aanvullende plannen
 
 U kunt ook optionele invoegtoepassing plannen in een aanbieding opnemen. Plannen van de invoegtoepassing zijn niet standaard opgenomen in het abonnement. Plannen van de invoegtoepassing zijn aanvullende schema's (met quota's) beschikbaar in een aanbieding met een abonnee aan hun abonnementen toevoegen kunt. U kunt bijvoorbeeld een basisplan met beperkte bronnen voor een proefversie, en een invoegtoepassing plannen met meer resources aanbieden aan klanten die u kiest voor de service.
 
