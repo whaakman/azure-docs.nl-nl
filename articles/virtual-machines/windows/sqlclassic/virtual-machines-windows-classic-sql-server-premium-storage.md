@@ -4,7 +4,7 @@ description: Dit artikel maakt gebruik van resources die zijn gemaakt met het kl
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d3fdd8865a293c5e2f0df6a97910ac8e2a07d4c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 ## <a name="overview"></a>Overzicht
@@ -46,10 +46,10 @@ Zie voor meer achtergrondinformatie op SQL Server in Azure Virtual Machines, [SQ
 Er zijn verschillende vereisten voor het gebruik van Premium-opslag.
 
 ### <a name="machine-size"></a>Grootte van de machine
-U moet DS-serie virtuele Machines (VM) gebruiken voor het gebruik van Premium-opslag. Als u DS-serie machines niet in uw cloudservice voordat u hebt gebruikt, moet u de bestaande virtuele machine verwijderen, houden van de gekoppelde schijven en vervolgens een nieuwe cloudservice maken vóór het opnieuw maken van de virtuele machine als de grootte van de rol DS *. Zie voor meer informatie over grootten van virtuele machines [virtuele Machine en Cloud Service Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Voor het gebruik van Premium-opslag die u wilt gebruiken van DS-serie virtuele Machines (VM). Als u DS-serie machines niet in uw cloudservice voordat u hebt gebruikt, moet u de bestaande virtuele machine verwijderen, houden van de gekoppelde schijven en vervolgens een nieuwe cloudservice maken vóór het opnieuw maken van de virtuele machine als de grootte van de rol DS *. Zie voor meer informatie over grootten van virtuele machines [virtuele Machine en Cloud Service Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Cloud services
-U kunt alleen virtuele machines DS * met Premium-opslag gebruiken wanneer ze worden gemaakt in een nieuwe cloudservice. Als u SQL Server Always On in Azure, wordt het altijd-Listener voor verwijzen naar het Azure interne of externe Load Balancer-IP-adres dat is gekoppeld aan een cloudservice. Dit artikel is gericht op het migreren van behoud van beschikbaarheid in dit scenario.
+U kunt alleen virtuele machines DS * met Premium-opslag gebruiken wanneer ze worden gemaakt in een nieuwe cloudservice. Als u SQL Server Always On in Azure, wordt het altijd-Listener voor verwijst naar het Azure interne of externe Load Balancer-IP-adres dat is gekoppeld aan een cloudservice. Dit artikel is gericht op het migreren van behoud van beschikbaarheid in dit scenario.
 
 > [!NOTE]
 > Een reeks DS * moet de eerste virtuele machine die wordt geïmplementeerd naar de nieuwe Service in de Cloud.
@@ -61,7 +61,7 @@ U moet het virtuele netwerk (VNET) die als host fungeert voor uw virtuele machin
 
 ![RegionalVNET][1]
 
-U kunt een Microsoft-ondersteuningsticket om te migreren naar een regionaal VNET verhogen, Microsoft wordt een wijziging aanbrengt en klik vervolgens op voor het voltooien van de migratie naar een regionaal vnet's, de eigenschap AffinityGroup in de netwerkconfiguratie. De netwerkconfiguratie in PowerShell eerst te exporteren en vervang de **AffinityGroup** eigenschap in de **VirtualNetworkSite** element met een **locatie** eigenschap. Geef `Location = XXXX` waar `XXXX` is een Azure-regio. De nieuwe configuratie importeren.
+U kunt een Microsoft-ondersteuningsticket om te migreren naar een regionaal VNET verhogen. Microsoft maakt vervolgens een wijziging. Wijzig de eigenschap AffinityGroup in de netwerkconfiguratie voor het voltooien van de migratie naar een regionaal vnet's. De netwerkconfiguratie in PowerShell eerst te exporteren en vervang de **AffinityGroup** eigenschap in de **VirtualNetworkSite** element met een **locatie** eigenschap. Geef `Location = XXXX` waar `XXXX` is een Azure-regio. De nieuwe configuratie importeren.
 
 Bijvoorbeeld, overweegt de volgende VNET-configuratie:
 
@@ -99,7 +99,7 @@ Het belangrijkste verschil tussen het maken van schijven die deel van een Premiu
 Zodra de VHD's zijn gekoppeld, kan de cache-instelling kan niet worden gewijzigd. U moet ontkoppelen en opnieuw koppelen van de VHD met een bijgewerkte cache-instelling.
 
 ### <a name="windows-storage-spaces"></a>Windows-opslagruimten
-U kunt [Windows Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) zoals u deed met vorige Standard-opslag, Hierdoor kunt u voor het migreren van een virtuele machine die wordt al gebruikt door opslagruimten. Het voorbeeld in [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (stap 9 en voorwaarts) ziet u de Powershell-code voor het uitpakken en importeren van een virtuele machine met meerdere gekoppelde VHD's.
+U kunt [Windows Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) zoals u deed met vorige Standard-opslag, Hiermee kunt u voor het migreren van een virtuele machine die wordt al gebruikt door opslagruimten. Het voorbeeld in [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (stap 9 en voorwaarts) ziet u de Powershell-code voor het uitpakken en importeren van een virtuele machine met meerdere gekoppelde VHD's.
 
 Opslaggroepen zijn gebruikt met standaard Azure storage-account om de doorvoer te verbeteren en de latentie te verminderen. Wellicht waarde in nieuwe implementaties het testen van opslaggroepen met Premium-opslag, maar ze extra complexiteit met setup opslag toevoegen.
 
@@ -111,7 +111,7 @@ Als er verschillende cache-instelling aanbevelingen voor het gekoppelde VHD's zi
 >
 >
 
-Als u gebruikmaakt van Windows Storage Spaces die bestaan uit meerdere VHD's moet u kijken naar uw oorspronkelijke scripts te identificeren die gekoppeld VHD's zijn echter in welke specifieke groep, dus vervolgens stelt u de cache-instellingen dienovereenkomstig voor elke schijf.
+Als u gebruikmaakt van Windows Storage Spaces die bestaan uit meerdere VHD's die u nodig hebt om te kijken naar uw oorspronkelijke scripts te identificeren die gekoppeld VHD's zijn echter in welke specifieke groep, dus vervolgens stelt u de cache-instellingen dienovereenkomstig voor elke schijf.
 
 Als u geen oorspronkelijke script beschikbaar om weer te geven die VHD's zijn toegewezen aan de opslaggroep, kunt u de volgende stappen uit om te bepalen van de toewijzing van schijfopslag/groep.
 
@@ -145,7 +145,7 @@ Het bedrag van de prestaties van de opslag, is afhankelijk van de DS * VM-groott
 
 Verbeterde IOPS worden verkregen met grotere schijf. Dit moet u overwegen wanneer u over het migratiepad voor de nadenkt. Voor meer informatie [Zie de tabel voor IOPS en schijftypen](../premium-storage.md#scalability-and-performance-targets).
 
-Overweeg tot slot dat virtuele machines hebben verschillende maximale schijf-bandbreedten die wordt ondersteund voor alle schijven die zijn gekoppeld. U kunt de maximale schijf-bandbreedte die beschikbaar zijn voor de grootte van die VM-rol kan verzadigen onder hoge belasting. Bijvoorbeeld ondersteunt een Standard_DS14 maximaal 512 MB/s; Daarom kan u de bandbreedte van de schijf van de virtuele machine verzadigen met drie P30 schijven. Maar in dit voorbeeld wordt de doorvoer kan worden overschreden, afhankelijk van de combinatie van lees- en IOs.
+Overweeg tot slot dat virtuele machines hebben verschillende maximale schijf-bandbreedten die worden ondersteund voor alle schijven die zijn gekoppeld. U kunt de maximale schijf-bandbreedte die beschikbaar zijn voor de grootte van die VM-rol kan verzadigen onder hoge belasting. Bijvoorbeeld ondersteunt een Standard_DS14 maximaal 512 MB/s; Daarom kan u de bandbreedte van de schijf van de virtuele machine verzadigen met drie P30 schijven. Maar in dit voorbeeld wordt de doorvoer kan worden overschreden, afhankelijk van de combinatie van lees- en IOs.
 
 ## <a name="new-deployments"></a>Nieuwe implementaties
 De volgende twee secties laten zien hoe u SQL Server-VM's kunt implementeren naar Premium-opslag. Zoals al eerder vermeld, wilt u niet per se plaatsen van de schijf met het besturingssysteem naar Premium-opslag. U kunt kiezen om dit te doen als u wilde een intensieve i/o-werkbelastingen op de VHD OS plaatsen.
@@ -197,7 +197,7 @@ Het volgende voorbeeld laat zien hoe u plaatst de OS-VHD naar premium-opslag en 
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>Stap 5: Brengen OS VHD Standard of Premium-opslag
-    #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
+    #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
 
     #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
@@ -232,7 +232,7 @@ Het volgende voorbeeld laat zien hoe u plaatst de OS-VHD naar premium-opslag en 
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
     #Add Data and Log Disks to VM Config
-    #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
+    #Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
     #Utilising the Premium Storage enabled Storage account
 
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -270,7 +270,7 @@ Dit scenario laat zien waar u de bestaande aangepaste installatiekopieën die zi
 
 
 #### <a name="step-3-use-existing-image"></a>Stap 3: Een bestaande installatiekopie gebruiken
-U kunt een bestaande installatiekopie gebruiken. U kunt [nemen van een installatiekopie van een bestaande machine](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Let op de machine installatiekopie u niet hoeft te worden DS * machine. Zodra u de installatiekopie hebt, de volgende stappen laten zien hoe dit te kopiëren naar de Premium-opslag-account met de **Start AzureStorageBlobCopy** PowerShell-cmdlet.
+U kunt een bestaande installatiekopie gebruiken. U kunt [nemen van een installatiekopie van een bestaande machine](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Let op de computer waarop u de installatiekopie geen DS * machine worden. Zodra u de installatiekopie hebt, de volgende stappen laten zien hoe dit te kopiëren naar de Premium-opslag-account met de **Start AzureStorageBlobCopy** PowerShell-cmdlet.
 
     #Get storage account keys:
     #Standard Storage account
@@ -316,7 +316,7 @@ U maakt hier de virtuele machine van uw installatiekopie en twee Premium-opslag-
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
 
-    #This will need to be a new cloud service
+    #This needs to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
 
     #Use to DS Series VM
@@ -342,29 +342,29 @@ U maakt hier de virtuele machine van uw installatiekopie en twee Premium-opslag-
 
 ## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Bestaande implementaties die altijd op beschikbaarheidsgroepen niet wordt gebruikt
 > [!NOTE]
-> Voor bestaande implementaties raadpleegt u eerst de [vereisten](#prerequisites-for-premium-storage) sectie van dit onderwerp.
+> Voor bestaande implementaties raadpleegt u eerst de [vereisten](#prerequisites-for-premium-storage) sectie van dit artikel.
 >
 >
 
 Er zijn verschillende overwegingen voor implementaties van SQL Server die niet altijd op beschikbaarheidsgroepen en programma's die u wilt gebruiken. Als u altijd op niet gebruikt en een bestaande zelfstandige SQL Server hebt, kunt u upgraden naar de Premium-opslag met behulp van een nieuw cloud service- en storage-account. Houd rekening met de volgende opties:
 
-* **Maak een nieuwe SQL Server VM**. U kunt een nieuwe versie van SQL Server VM die gebruikmaakt van een Premium-opslagaccount maken, zoals beschreven in nieuwe implementaties. Vervolgens back-up en herstel van SQL Server-configuratie- en databases. De toepassing moet worden bijgewerkt om te verwijzen naar de nieuwe SQL-Server als intern of extern wordt geopend. U moet alle objecten voor buiten-db' kopiëren als je bezig een gelijktijdige (SxS) SQL Server-migratie was mee. Dit omvat objecten, zoals aanmeldingen, certificaten en gekoppelde servers.
-* **Migreren van een bestaande SQL Server VM**. Hiervoor moet de virtuele machine van SQL Server offline moet worden gezet en u deze overbrengt naar een nieuwe cloudservice, waaronder alle van de gekoppelde VHD's te kopiëren naar de Premium-opslagaccount. Wanneer de virtuele machine online wordt gezet, wordt de naam van de server-host als voordat verwijzen naar de toepassing. Let erop dat de grootte van de bestaande schijf invloed is op de prestatiekenmerken. Bijvoorbeeld een schijf 400 GB opgehaald naar boven afgerond op een P20. Als u weet dat u niet nodig hebt die schijfprestaties kan u opnieuw de virtuele machine als een reeks DS VM maken en koppelen van Premium Storage VHD's van de grootte van/prestatiegebeurtenissen-specificatie die u nodig hebt. Vervolgens kan loskoppelen en koppelt u de bestanden van de SQL-database opnieuw.
+* **Maak een nieuwe SQL Server VM**. U kunt een nieuwe versie van SQL Server VM die gebruikmaakt van een Premium-opslagaccount maken, zoals beschreven in nieuwe implementaties. Een back-up en herstel van SQL Server-configuratie- en gebruikersbestanden databases. De toepassing moet worden bijgewerkt om te verwijzen naar de nieuwe SQL-Server als intern of extern wordt geopend. U moet alle objecten voor buiten-db' kopiëren als je bezig een gelijktijdige (SxS) SQL Server-migratie was mee. Dit omvat objecten, zoals aanmeldingen, certificaten en gekoppelde servers.
+* **Migreren van een bestaande SQL Server VM**. Hiervoor moet de virtuele machine van SQL Server offline moet worden gezet en u deze overbrengt naar een nieuwe cloudservice, waaronder alle van de gekoppelde VHD's te kopiëren naar de Premium-opslagaccount. Wanneer de virtuele machine online wordt gezet, wordt de naam van de server-host als voordat verwezen naar de toepassing. Let erop dat de grootte van de bestaande schijf is van invloed op de prestatiekenmerken. Bijvoorbeeld een schijf 400 GB opgehaald naar boven afgerond op een P20. Als u weet dat u niet nodig hebt die schijfprestaties kan u opnieuw de virtuele machine als een reeks DS VM maken en koppelen van Premium Storage VHD's van de grootte van/prestatiegebeurtenissen-specificatie die u nodig hebt. Vervolgens kan loskoppelen en koppelt u de bestanden van de SQL-database opnieuw.
 
 > [!NOTE]
-> Wanneer welk type opslagschijf Premium kopiëren van de VHD-schijven die u moet rekening houden met de grootte, afhankelijk van de grootte betekent dat ze vallen, dit schijf prestaties specificatie bepaalt. Azure worden afgerond op het dichtstbijzijnde schijf grootte, dus als er een schijf 400 GB, dit wordt afgerond op een P20. Afhankelijk van uw bestaande i/o-vereisten van de OS-VHD moet u mogelijk niet dit migreren naar een Premium Storage-account.
+> Tijdens het kopiëren van de VHD-schijven die u moet rekening houden met de grootte, afhankelijk van de grootte betekent welk type opslagschijf Premium worden ingedeeld in, Hiermee bepaalt u schijf prestaties specificatie. Azure Rondt tot de dichtstbijzijnde grootte van de schijf, dus als er een schijf 400 GB, dit wordt afgerond op een P20. Afhankelijk van uw bestaande i/o-vereisten van de OS-VHD moet u mogelijk niet dit migreren naar een Premium Storage-account.
 >
 >
 
-Als uw SQL-Server extern is geopend, wordt het VIP van cloud service wijzigen. Er wordt ook zijn update eindpunten, ACL's en DNS-instellingen.
+Als uw SQL-Server extern is geopend, verandert het VIP van cloud-service. Ook hebt update eindpunten, ACL's en DNS-instellingen.
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Bestaande implementaties die gebruikmaken van altijd op beschikbaarheidsgroepen
 > [!NOTE]
-> Voor bestaande implementaties raadpleegt u eerst de [vereisten](#prerequisites-for-premium-storage) sectie van dit onderwerp.
+> Voor bestaande implementaties raadpleegt u eerst de [vereisten](#prerequisites-for-premium-storage) sectie van dit artikel.
 >
 >
 
-In eerste instantie in dit gedeelte kijken we altijd op de interactie met Azure-netwerken. We vervolgens migraties in twee scenario's wordt opsplitsen: waar u enige uitvaltijd kan verdragen migraties en migraties waar u de minimale downtime moet bereiken.
+In deze sectie bekijken we in eerste instantie altijd op de interactie met Azure-netwerken. We vervolgens migraties in twee scenario's opsplitsen: waar u enige uitvaltijd kan verdragen migraties en migraties waar u de minimale downtime moet bereiken.
 
 Lokale SQL Server AlwaysOn-beschikbaarheidsgroepen gebruiken een Listener op lokale waarmee een virtuele DNS-naam samen met een IP-adres dat wordt gedeeld tussen een of meer SQL-Servers geregistreerd. Wanneer clients verbinding maken ze doorgestuurd via de listener-IP voor de primaire SQL-Server. Dit is de server die eigenaar is van de altijd op IP-resource op dat moment.
 
@@ -373,7 +373,7 @@ Lokale SQL Server AlwaysOn-beschikbaarheidsgroepen gebruiken een Listener op lok
 In Microsoft Azure die kunt u slechts één IP-adres is toegewezen aan een NIC op de virtuele machine hebt, dus het oog op dezelfde laag van abstractie als on-premises Azure maakt gebruik van het IP-adres dat is toegewezen aan de interne of externe Load Balancers (ILB/ELB). De IP-resource die wordt gedeeld tussen de servers is ingesteld op het hetzelfde IP-adres als de ILB-/ ELB. Dit is gepubliceerd in de DNS-server en clientverkeer via de ILB-/ ELB wordt doorgegeven aan de primaire SQL Server-replica. De ILB-/ ELB kent die SQL Server is de primaire omdat deze tests gebruikt voor de resource altijd op IP-test. Deze tests op elk knooppunt dat een waarnaar wordt verwezen door de ELB/ILB-eindpunt is in het vorige voorbeeld, afhankelijk van wat reageert, wordt de primaire SQL-Server.
 
 > [!NOTE]
-> De ILB en ELB zijn beide toegewezen aan een bepaald Azure-cloudservice, dus cloudmigratie in Azure waarschijnlijk betekent dat dat het IP-adres van Load Balancer wordt gewijzigd.
+> De ILB en ELB zijn beide toegewezen aan een bepaald Azure cloud service, daarom cloudmigratie in Azure hoogstwaarschijnlijk betekent dat het IP-adres van Load Balancer wijzigingen.
 >
 >
 
@@ -390,7 +390,7 @@ Er is een strategie voor een meer secundaire databases toevoegen aan de AlwaysOn
 * Clustervalidatie van het.
 * Always On failover testen voor de nieuwe secundaire replica's.
 
-Als u Windows-opslaggroepen vanuit de virtuele machine voor een hogere i/o-doorvoer en vervolgens deze zal offline worden gehaald tijdens een volledige validatie van de Cluster. De validatietest is vereist als u knooppunten aan het cluster toevoegen. De tijd die nodig is voor het uitvoeren van de test kan variëren, dus moet u dit in uw testomgeving om op te halen bij benadering de tijd van hoe lang dit gaat testen.
+Als u Windows-opslaggroepen vanuit de virtuele machine voor een hogere i/o-doorvoer deze offline worden gehaald tijdens een volledige validatie van de Cluster. De validatietest is vereist als u knooppunten aan het cluster toevoegen. De tijd die nodig is voor het uitvoeren van de test kan variëren, dus moet u dit in uw testomgeving om op te halen bij benadering de tijd van hoe lang dit gaat testen.
 
 U moet inrichten tijd waar u handmatige failover en chaos testen op de zojuist toegevoegde knooppunten uitvoeren kunt om ervoor te zorgen altijd op hoge beschikbaarheid functies zoals verwacht.
 
@@ -425,7 +425,7 @@ U moet inrichten tijd waar u handmatige failover en chaos testen op de zojuist t
 ##### <a name="advantages"></a>Voordelen
 * Nieuwe SQL-Servers kunnen worden getest (SQL Server en toepassing) voordat ze worden toegevoegd aan altijd op.
 * U kunt de VM-grootte wijzigen en aanpassen van de opslag voor uw exacte vereisten. Het normaal zou zijn echter handig zijn om alle SQL-bestandspaden hetzelfde blijven.
-* U kunt bepalen wanneer de overdracht van de database back-ups naar de secundaire replica's worden gestart. Dit wijkt af van het gebruik van Azure **Start AzureStorageBlobCopy** commandlet kopiëren VHD's, omdat die een asynchrone kopie.
+* U kunt bepalen wanneer de overdracht van de database back-ups naar de secundaire replica's wordt gestart. Dit wijkt af van het gebruik van Azure **Start AzureStorageBlobCopy** commandlet kopiëren VHD's, omdat die een asynchrone kopie.
 
 ##### <a name="disadvantages"></a>Nadelen
 * Wanneer met behulp van Windows-opslaggroepen, is dit Cluster uitvaltijd tijdens de validatie van het volledige Cluster voor de nieuwe extra knooppunten.
@@ -468,7 +468,7 @@ Een strategie voor minimale downtime is een bestaande cloud secundaire nemen en 
 * Er is extra uitvaltijd als u de altijd op clustergroep offline nemen wilt om het wisselen van de IP-adressen. U kunt dit vermijden met behulp van een afhankelijkheid of en mogelijke eigenaars voor de toegevoegde IP-adres-resource. Zie de sectie 'Toe te voegen IP-adres Resource op hetzelfde Subnet' van de [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
-> Wanneer u wilt dat de toegevoegde knooppunt partake in als altijd op Failover-Partner, moet u een Azure-eindpunt met een verwijzing naar de Load Balanced Set toevoegen. Bij het uitvoeren van de **toevoegen AzureEndpoint** opdracht om dit te doen, huidige verbindingen in stand moeten blijven, maar nieuwe verbindingen met de listener kan niet worden vastgesteld totdat de load balancer is bijgewerkt. In dit testen is gezien naar de laatste 90-120seconds dit moet worden getest.
+> Wanneer u wilt dat de toegevoegde knooppunt partake in als altijd op Failover-Partner, moet u een Azure-eindpunt met een verwijzing naar de Load Balanced Set toevoegen. Bij het uitvoeren van de **toevoegen AzureEndpoint** opdracht om dit te doen, huidige verbindingen in stand moeten blijven, maar nieuwe verbindingen met de listener niet kunnen worden gemaakt totdat de load balancer is bijgewerkt. In dit testen is gezien naar de laatste 90-120seconds dit moet worden getest.
 >
 >
 
@@ -480,8 +480,8 @@ Een strategie voor minimale downtime is een bestaande cloud secundaire nemen en 
 
 ##### <a name="disadvantages"></a>Nadelen
 * Er is een tijdelijk onderbroken HA en Noodherstel tijdens de migratie.
-* Omdat dit een migratie 1:1, moet u een minimale VM-grootte die wordt ondersteuning voor het aantal virtuele harde schijven, zodat u mogelijk niet afslanken van uw virtuele machines gebruiken.
-* Dit scenario gebruikt Azure **Start AzureStorageBlobCopy** commandlet die asynchroon is. Er is geen SLA op voltooiing van de kopie. De tijd van de exemplaren varieert, terwijl dit afhankelijk van de wachttijd in wachtrij die het is ook afhankelijk van de hoeveelheid gegevens om over te dragen. De tijd kopie verhoogd als de overdracht wordt een andere Azure-datacenter die ondersteuning biedt voor Premium-opslag in een andere regio. Als u zojuist 2 knooppunten hebt, kunt u overwegen een mogelijke Risicobeperking voor het geval de kopie langer dan in de testfase duurt. Dit omvat de volgende ideeën.
+* Omdat dit een migratie 1:1, hebt u een minimale VM-grootte die ondersteuning biedt voor het aantal virtuele harde schijven, zodat u mogelijk niet afslanken van uw virtuele machines.
+* Dit scenario gebruikt Azure **Start AzureStorageBlobCopy** commandlet die asynchroon is. Er is geen SLA op voltooiing van de kopie. De tijd van de exemplaren varieert, terwijl dit afhankelijk van de wachttijd in wachtrij die ook afhankelijk van de hoeveelheid gegevens om over te dragen. De tijd kopie verhoogd als de overdracht wordt een andere Azure-datacenter die ondersteuning biedt voor Premium-opslag in een andere regio. Als u zojuist 2 knooppunten hebt, kunt u overwegen een mogelijke Risicobeperking voor het geval de kopie langer dan in de testfase duurt. Dit omvat de volgende ideeën.
   * Toevoegen van een tijdelijk 3e SQL Server-knooppunt voor HA vóór de migratie overeengekomen uitvaltijd.
   * Voer de migratie buiten Azure gepland onderhoud.
   * Zorg ervoor dat u hebt uw clusterquorum correct geconfigureerd.  
@@ -523,8 +523,8 @@ Houd rekening met het volgende voorbeeld van een hybride altijd op de configurat
 
 ##### <a name="disadvantages"></a>Nadelen
 * Afhankelijk van de clienttoegang tot SQL Server, kunnen er langere latentie als SQL Server wordt uitgevoerd in een andere domeincontroller aan de toepassing.
-* De tijd van de kopie van VHD's voor Premium-opslag kan lang zijn. Dit kan invloed hebben op uw beslissing op of het knooppunt in de beschikbaarheidsgroep. U kunt dit wanneer logboek intensieve werk belastingen worden uitgevoerd tijdens de migratie vereist, is omdat het primaire knooppunt moet niet-gerepliceerde transacties in het transactielogboek behouden. Daarom kan dit aanzienlijk groeien.
-* Dit scenario gebruikt Azure **Start AzureStorageBlobCopy** commandlet die asynchroon is. Er is geen SLA op voltooiing. De tijd van de exemplaren varieert, terwijl dit afhankelijk van de wachttijd in wachtrij, het is ook afhankelijk van de hoeveelheid gegevens om over te dragen. Daarom alleen hebt u één knooppunt in uw datacenter 2e, u moet treffen Risicobeperking voor het geval de kopie langer duurt dan in de testfase. Dit omvat de volgende ideeën.
+* De tijd van de kopie van VHD's voor Premium-opslag kan lang zijn. Dit kan invloed hebben op uw beslissing op of het knooppunt in de beschikbaarheidsgroep. U kunt dit wanneer logboek intensieve werk belastingen worden uitgevoerd tijdens de migratie vereist, is omdat het primaire knooppunt heeft tot de niet-gerepliceerde transacties in het transactielogboek behouden. Daarom kan dit aanzienlijk groeien.
+* Dit scenario gebruikt Azure **Start AzureStorageBlobCopy** commandlet die asynchroon is. Er is geen SLA op voltooiing. De tijd van de exemplaren varieert, terwijl dit afhankelijk van de wachttijd in wachtrij, het is ook afhankelijk van de hoeveelheid gegevens om over te dragen. Daarom alleen hebt u één knooppunt in uw datacenter 2e, u moet treffen Risicobeperking voor het geval de kopie langer duurt dan in de testfase. Deze stappen omvatten de volgende ideeën:
   * Een tijdelijke SQL-knooppunt 2e toevoegen voor HA vóór de migratie overeengekomen uitvaltijd.
   * Voer de migratie buiten Azure gepland onderhoud.
   * Zorg ervoor dat u hebt uw clusterquorum correct geconfigureerd.
@@ -546,7 +546,7 @@ Dit scenario wordt ervan uitgegaan dat u de installatie hebt gedocumenteerd en w
 * De AFP overschakelen naar SQL1 en SQL2
 
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Bijlage: Een implementatie voor meerdere locaties altijd op een Cluster migreren naar de Premium-opslag
-De rest van dit onderwerp biedt een gedetailleerd voorbeeld van het converteren van een altijd op clusters op meerdere locaties naar Premium-opslag. Ook converteert naar een interne load balancer (ILB) de Listener van het gebruik van een externe load balancer (ELB).
+De rest van dit artikel biedt een gedetailleerd voorbeeld van het converteren van een altijd op clusters op meerdere locaties naar Premium-opslag. Ook converteert naar een interne load balancer (ILB) de Listener van het gebruik van een externe load balancer (ELB).
 
 ### <a name="environment"></a>Omgeving
 * Windows 2k12 / SQL 2k12
@@ -556,7 +556,7 @@ De rest van dit onderwerp biedt een gedetailleerd voorbeeld van het converteren 
 ![Appendix1][11]
 
 ### <a name="vm"></a>VM:
-In dit voorbeeld gaan we demonstreren verplaatsen van een ELB naar ILB. ELB is beschikbaar voordat ILB, zodat dit overschakelen naar dit tijdens de migratie worden weergegeven.
+In dit voorbeeld gaan we demonstreren verplaatsen van een ELB naar ILB. ELB is beschikbaar voordat ILB, zodat dit overschakelen naar ILB tijdens de migratie worden weergegeven.
 
 ![Appendix2][12]
 
@@ -600,8 +600,8 @@ In dit voorbeeld gaan we demonstreren verplaatsen van een ELB naar ILB. ELB is b
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Stap 2: Verhoog de toegestane fouten op resources<Optional>
-Bepaalde bronnen die deel uitmaken van de AlwaysOn-beschikbaarheidsgroep er gelden beperkingen op hoeveel storingen die kunnen optreden in een periode waarin de cluster-service probeert het opnieuw opstarten van de resourcegroep. Het is raadzaam dat u deze terwijl u via deze procedure zijn doorlopen sinds als u niet handmatig failover en trigger failovers door het afsluiten van computers die u dicht bij deze limiet krijgt verhogen.
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Stap 2: Verhoog de toegestane fouten op resources <Optional>
+Bepaalde bronnen die deel uitmaken van de AlwaysOn-beschikbaarheidsgroep er gelden beperkingen op hoeveel fouten die in een periode optreden, waarbij de cluster-service probeert om opnieuw te starten van de resourcegroep. Het is raadzaam dat u deze terwijl u via deze procedure zijn doorlopen sinds als u niet handmatig failover en trigger failovers door het afsluiten van computers die u dicht bij deze limiet krijgt verhogen.
 
 Moet worden beperkt te verdubbelen het tegoed is mislukt om dit te doen in Failoverclusterbeheer, gaat u naar de eigenschappen van de resourcegroep altijd op:
 
@@ -609,17 +609,17 @@ Moet worden beperkt te verdubbelen het tegoed is mislukt om dit te doen in Failo
 
 Wijzig het maximum aantal fouten in 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Stap 3: Aanvullende IP-adres resource voor de clustergroep<Optional>
-Als er slechts één IP-adres voor de clustergroep en dit wordt uitgelijnd op het subnet van de cloud, houd er rekening mee, als u per ongeluk offline alle clusterknooppunten in de cloud op dat netwerk vervolgens de Cluster-IP-resource halen en de clusternetwerknaam kan niet worden online worden gezet. In het geval van dit kan updates voor andere clusterbronnen.
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Stap 3: Aanvullende IP-adres resource voor de clustergroep <Optional>
+Als er slechts één IP-adres voor de clustergroep, en deze wordt uitgelijnd op het subnet van de cloud, houd er rekening mee, als u per ongeluk offline alle clusterknooppunten in de cloud op dat netwerk halen kan de Cluster-IP-resource en de clusternetwerknaam zijn niet online worden gezet. In dit geval voorkomt updates dat naar andere clusterbronnen.
 
 #### <a name="step-4-dns-configuration"></a>Stap 4: DNS-configuratie
-Voor het implementeren van een vloeiende overgang is afhankelijk van hoe DNS wordt gebruikt en bijgewerkt.
-Wanneer altijd op is geïnstalleerd, wordt er een resourcegroep van Windows-Cluster gemaakt als u Failoverclusterbeheer opent, ziet u dat ten minste deze drie bronnen heeft, zijn de twee dat het document naar verwijst:
+Implementatie van een soepele migratie is afhankelijk van hoe DNS wordt gebruikt en bijgewerkt.
+Wanneer altijd op is geïnstalleerd, wordt er een resourcegroep van Windows-Cluster gemaakt als u Failoverclusterbeheer opent, ziet u dat ten minste drie bronnen heeft, zijn de twee dat het document naar verwijst:
 
-* Virtuele-netwerknaam (VNN) – Dit is de DNS-naam die client verbinding maken wanneer er verbinding maken met SQL-Servers via altijd op willen.
-* IP-adres van bron: dit is het IP-adres dat aan de VNN gekoppeld, kunt u meer dan één hebben en in een configuratie voor meerdere sites hebt u een IP-adres per site/subnet.
+* Virtuele-netwerknaam (VNN) – de DNS-naam waarmee clients verbinding maken wanneer verbinding maken met SQL-Servers via altijd op.
+* Bron van het IP-adres – het IP-adres dat aan de VNN gekoppeld, kunt u meer dan één hebben en in een configuratie voor meerdere sites hebt u een IP-adres per site/subnet.
 
-Bij het verbinding maken met SQL Server, SQL Server Client stuurprogramma wordt de DNS-records die zijn gekoppeld aan de listener ophalen en probeer het verbinding maken met elke altijd op gekoppelde IP-adres, bespreken hieronder we een aantal factoren die van invloed kunnen zijn op dit.
+Verbinding maken met SQL Server, SQL Server Client stuurprogramma opgehaald van de DNS-records die zijn gekoppeld aan de listener en probeert verbinding maken met elke altijd op gekoppelde wanneer IP-adres. Vervolgens bespreken we een aantal factoren die van invloed kunnen zijn op dit.
 
 Het aantal gelijktijdige DNS-records die gekoppeld aan de naam van de listener zijn afhankelijk is, niet alleen op het aantal IP-adressen die zijn gekoppeld, maar de ' RegisterAllIpProviders'setting in Failover Clustering voor de resource altijd ON VNN.
 
@@ -633,7 +633,7 @@ Als 'RegisterAllIpProviders' 1:
 
 ![Appendix5][15]
 
-Hieronder de code wordt uit de instellingen VNN dump en voor u ingesteld, houd er rekening mee voor deze duurt Listener offline waardoor de wijziging door te voeren u moet de VNN offline zetten en schakel deze weer online onderbreking van de client-connectiviteit.
+Hieronder de code uit de instellingen VNN dumpbestanden en stelt deze voor u. Voor de wijziging door te voeren, moet u de VNN offline te halen en weer online inschakelen. Dit duurt de Listener offline veroorzaakt connectiviteit onderbreking van de client.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -642,9 +642,9 @@ Hieronder de code wordt uit de instellingen VNN dump en voor u ingesteld, houd e
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-In een latere migratiestap van een moet u de listener Always On bijwerken met een bijgewerkte IP-adres dat verwijst naar een load balancer, dient hiervoor een IP-adres resource verwijderen en toevoegen. Nadat de IP-update moet u ervoor zorgen het nieuwe IP-adres is bijgewerkt in DNS-Zone en dat de clients hun lokale DNS-cache wordt bijgewerkt.
+In een latere migratiestap, moet u de listener altijd aan met een bijgewerkte IP-adres dat verwijst naar een load balancer bijwerken, hiervoor moet een IP-adres resource verwijderen en toevoeging. Nadat de IP-update moet u ervoor zorgen het nieuwe IP-adres is bijgewerkt in DNS-Zone en dat de clients hun lokale DNS-cache wordt bijgewerkt.
 
-Als uw clients bevinden zich in een ander netwerksegment en verwijzen naar een andere DNS-server, moet u nagaan wat er gebeurt over het overdragen van DNS-Zone tijdens de migratie als de toepassing opnieuw tijd worden beperkt door ten minste de Zone Transfer-tijd van alle nieuwe IP-adressen voor de listener. Als u hier tijd-beperking, u moet worden behandeld en testen forceren van een incrementele zoneoverdracht met uw Windows-teams en plaatst de DNS-hostrecord ook naar een lagere tijd To Live (TTL), zodat de clients bijwerken. Zie voor meer informatie [incrementele zoneoverdrachten](https://technet.microsoft.com/library/cc958973.aspx) en [Start DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Als uw clients bevinden zich in een ander netwerksegment en verwijzen naar een andere DNS-server, moet u nagaan wat er gebeurt over het overdragen van DNS-Zone tijdens de migratie als de toepassing opnieuw tijd is beperkt door ten minste de Zone Transfer-tijd van alle nieuwe IP-adres adressen voor de listener. Als u hier tijd-beperking, u moet worden behandeld en testen forceren van een incrementele zoneoverdracht met uw Windows-teams en plaatst de DNS-hostrecord ook naar een lagere tijd To Live (TTL), zodat de clients bijwerken. Zie voor meer informatie [incrementele zoneoverdrachten](https://technet.microsoft.com/library/cc958973.aspx) en [Start DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 Standaard de TTL voor DNS-Record die is gekoppeld aan de Listener altijd op in Azure is 1200 seconden. Mogelijk wilt u dit reduceren als u onder tijd beperking tijdens de migratie om te controleren of de clients hun DNS bijwerken met de bijgewerkte IP-adres voor de listener. U kunt zien en de configuratie wijzigen door het dumpen van een van de configuratie van de VNN:
 
@@ -656,15 +656,16 @@ Standaard de TTL voor DNS-Record die is gekoppeld aan de Listener altijd op in A
     #Set HostRecordTTL Examples
     Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
-Houd er rekening mee hoe lager het 'HostRecordTTL', een hogere mate van DNS-verkeer wordt uitgevoerd.
+> [!NOTE]
+> Hoe lager het 'HostRecordTTL', een hogere mate van DNS-verkeer plaatsvindt.
 
 ##### <a name="client-application-settings"></a>Instellingen voor client-toepassing
-Als u de SQL-clienttoepassing de .net 4.5 ondersteunt SQLClient, dan hebt u kunt gebruiken ' MULTISUBNETFAILOVER = TRUE' sleutelwoord, dit wordt aanbevolen om te worden toegepast zoals maakt het mogelijk sneller verbinding met SQL AlwaysOn-beschikbaarheidsgroep tijdens failover. Het inventariseren via alle IP-adressen die zijn gekoppeld aan de listener altijd op parallel en een agressievere TCP opnieuw verbindingssnelheid tijdens een failover uitvoert.
+Als u de SQL-clienttoepassing de .net 4.5 ondersteunt SQLClient, dan hebt u kunt gebruiken ' MULTISUBNETFAILOVER = TRUE' sleutelwoord. Dit sleutelwoord moet worden toegepast, omdat hiermee voor snellere verbinding met SQL AlwaysOn-beschikbaarheidsgroep tijdens failover. Het inventariseren via alle IP-adressen die zijn gekoppeld aan de listener altijd op parallel en een agressievere TCP opnieuw verbindingssnelheid tijdens een failover uitvoert.
 
-Zie voor meer informatie over de bovenstaande instellingen [MultiSubnetFailover sleutelwoord en functies die zijn gekoppeld](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Zie ook [SqlClient-ondersteuning voor hoge beschikbaarheid, herstel na noodgevallen](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Zie voor meer informatie over de vorige instellingen, [MultiSubnetFailover sleutelwoord en functies die zijn gekoppeld](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Zie ook [SqlClient-ondersteuning voor hoge beschikbaarheid, herstel na noodgevallen](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### <a name="step-5-cluster-quorum-settings"></a>Stap 5: Instellingen van het clusterquorum
-Als u te hebben van ten minste één SQL-Server niet actief op een tijdstip gaat, moet u de instelling van het clusterquorum wijzigen als bestand Share Witness (FSW) met 2 knooppunten, moet u de Quorumconfiguratie Knooppuntmeerderheid toestaan en gebruikmaken van dynamische stemmen instellen , en dit is om toe te staan voor één knooppunt in het permanente blijven.
+Als u te hebben van ten minste één SQL-Server niet actief op een tijdstip gaat, moet u de instelling van het clusterquorum wijzigen als bestand Share Witness (FSW) met twee knooppunten, moet u de Quorumconfiguratie Knooppuntmeerderheid toestaan en gebruikmaken van dynamische stemmen instellen , waardoor het een enkel knooppunt blijven staan.
 
     Set-ClusterQuorum -NodeMajority  
 
@@ -676,15 +677,15 @@ Zie voor meer informatie over het beheren en configureren van het clusterquorum 
     #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
-Sla deze naar een tekstbestand.
+Deze tekst in een bestand opslaan.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Stap 7: Failoverpartners en replicatie-modi wijzigen
-Als u meer dan 2 SQL-Servers hebt, moet u de failover van een andere secundaire in een andere domeincontroller of on-premises wijzigen in 'Synchrone' en kunt u een Partner voor automatische Failover (AFP), is dit zodat u HA onderhouden terwijl u wijzigingen doorvoert. U kunt dit doen via TSQL van echter SSMS wijzigen:
+Als u meer dan twee SQL-Servers hebt, moet u de failover van een andere secundaire in een andere domeincontroller of on-premises wijzigen in 'Synchrone' en kunt u een Partner voor automatische Failover (AFP), is dit zodat u HA onderhouden terwijl u wijzigingen doorvoert. U kunt dit doen via TSQL van echter SSMS wijzigen:
 
 ![Appendix6][16]
 
 #### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>Stap 8: Verwijder secundaire virtuele machine van de cloudservice
-U rekening mee moet houden voor het migreren van een secundaire knooppunt cloud eerst als dit momenteel primaire is, moet u een handmatige failover initiëren.
+U moet plannen voor het migreren van een secundaire knooppunt cloud eerst. Als dit knooppunt momenteel primaire is, moet u een handmatige failover initiëren.
 
     $vmNameToMigrate="dansqlams2"
 
@@ -734,9 +735,9 @@ U rekening mee moet houden voor het migreren van een secundaire knooppunt cloud 
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-9-change-disk-caching-settings-in-csv-file-and-save"></a>Stap 9: Instellingen in CSV-bestand van de schijfcache wijzigen en opslaan
-Voor gegevensvolumes moeten deze worden ingesteld op alleen-lezen.
+Voor gegevensvolumes, moeten deze worden ingesteld op alleen-lezen.
 
-Voor TLOG volumes moeten deze worden ingesteld op NONE.
+Voor TLOG volumes, moeten deze worden ingesteld op NONE.
 
 ![Appendix7][17]
 
@@ -943,9 +944,9 @@ Op dit moment wachten op de secundaire dat knooppunt die volledig zijn gesynchro
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Stap 18: Instellingen in CSV-bestand van de schijfcache wijzigen en opslaan
-Voor gegevensvolumes moeten deze worden ingesteld op alleen-lezen.
+Voor gegevensvolumes, moeten de cache-instellingen worden ingesteld op alleen-lezen.
 
-Voor TLOG volumes moeten deze worden ingesteld op NONE.
+Voor TLOG volumes, moeten de cache-instellingen worden ingesteld op NONE.
 
 ![Appendix11][21]
 
@@ -1073,22 +1074,22 @@ Voor informatie over afzonderlijke blobs:
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>Stap 23: De testfailover
-U moet nu gebruiken om het gemigreerde knooppunt synchroniseren met het lokale altijd aan knooppunt in naar de modus voor synchrone replicatie plaats en wacht totdat deze is gesynchroniseerd. Vervolgens wordt de failover van on-premises naar het eerste knooppunt gemigreerd, die de AFP is. Zodra die eerder heeft gewerkt, wijzigt u het laatste knooppunt van de gemigreerde in de AFP.
+Wachten op het gemigreerde knooppunt om te synchroniseren met het lokale altijd aan knooppunt. Plaats deze in de modus synchrone replicatie en wacht totdat deze is gesynchroniseerd. Vervolgens wordt de failover van on-premises naar het eerste knooppunt gemigreerd, die de AFP is. Zodra die eerder heeft gewerkt, wijzigt u het laatste knooppunt van de gemigreerde in de AFP.
 
 U moet testfailovers tussen alle knooppunten en hoewel chaos tests uit om ervoor te zorgen failovers work als verwacht en in een tijdige manor uitvoeren.
 
 #### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>24 stap: Opnieuw clusterquoruminstellingen zetten / DNS TTL / Failover Pntrs / synchronisatie-instellingen
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Toevoegen van de bron van het IP-adres op hetzelfde Subnet
-Als u alleen 2 SQL-Servers hebt en wilt deze migreren naar een nieuwe cloudservice maar wilt houden in hetzelfde subnet, kunt u voorkomen dat de listener offline brengen naar de oorspronkelijke altijd op IP-adres verwijderen en het nieuwe IP-adres toevoegen. Als u de virtuele machines naar een ander subnet migreert moet u niet om dit te doen omdat er een extra clusternetwerk dat verwijst naar dat subnet.
+Als u slechts twee SQL-Servers hebt en wilt deze migreren naar een nieuwe cloudservice, maar wilt houden in hetzelfde subnet, kunt u voorkomen dat de listener offline brengen naar de oorspronkelijke altijd op IP-adres verwijderen en het nieuwe IP-adres toevoegen. Als u de virtuele machines naar een ander subnet migreert, hoeft u niet om dit te doen omdat er een extra clusternetwerk die verwijst naar dat subnet.
 
 Zodra u hebt de gemigreerde secundaire beschikbaar komen en in de nieuwe resource IP-adres voor de nieuwe cloudservice vóór de failover de bestaande primaire toegevoegd, moet u deze stappen binnen de failover-Clusterbeheer uitvoeren:
 
 Als u wilt toevoegen aan IP-adres, Zie de [bijlage](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), stap 14.
 
-1. Wijzig de mogelijke eigenaar 'Bestaande primaire SQL-Server', in het onderstaande voorbeeld 'dansqlams4' voor de huidige bron van de IP-adres:
+1. Wijzig de mogelijke eigenaar 'Bestaande primaire SQL-Server', in het voorbeeld 'dansqlams4' voor de huidige bron van de IP-adres:
 
     ![Appendix13][23]
-2. Wijzig de mogelijke eigenaar naar 'Gemigreerd secundaire SQL-Server', in het onderstaande voorbeeld 'dansqlams5' voor de nieuwe bron voor het IP-adres:
+2. Wijzig de mogelijke eigenaar naar 'Gemigreerd secundaire SQL-Server', in het voorbeeld 'dansqlams5' voor de nieuwe bron voor het IP-adres:
 
     ![Appendix14][24]
 3. Wanneer deze optie is ingesteld, kunt u failover en wanneer het laatste knooppunt is gemigreerd de mogelijke eigenaars worden bewerkt zodat dit knooppunt wordt toegevoegd als een mogelijke eigenaar:

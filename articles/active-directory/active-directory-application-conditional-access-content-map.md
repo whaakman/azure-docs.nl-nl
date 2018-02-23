@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 955f8bdaf61658bfacfb5c751602a34510d275ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 34d375d62cd41acdbbaa8da5f6cc46605aebb81f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="problems-configuring-conditional-access-to-one-of-my-applications"></a>Problemen bij het configureren van voorwaardelijke toegang voor een van mijn toepassingen
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="im-having-problems-setting-up-conditional-access"></a>Ik ondervind problemen bij het instellen van voorwaardelijke toegang
   De onderstaande documenten helpt u bij het oplossen van enkele van de meest voorkomende problemen in deze categorie.
-  * [Hoe en wanneer worden regels buiten het bedrijfsnetwerk actief?](http://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Hoe en wanneer worden regels buiten het bedrijfsnetwerk actief?](https://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Hoe kan ik het aantal apparaten die een gebruiker mag registreren in Azure AD verhogen?](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-setup/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-  * [Hoe kan ik voorwaardelijke toegang instellen voor Exchange Online?](http://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Hoe kan ik voorwaardelijke toegang instellen voor Exchange Online?](https://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Hoe kan ik voorwaardelijke toegang voor Windows 7-apparaten instellen](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access#device-based-conditional-access/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [In welke toepassingen wordt voorwaardelijke toegang ondersteund?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-supported-apps/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 

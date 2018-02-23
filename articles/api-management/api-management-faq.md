@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management-Veelgestelde vragen
 De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure API Management.
@@ -51,7 +51,7 @@ De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azu
 U kunt contact met ons opnemen via een van de volgende opties:
 
 * Stel uw vragen in onze [API Management MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Een e-mail sturen naar < mailto:apimgmt@microsoft.com >.
+* Een e-mail sturen naar <mailto:apimgmt@microsoft.com>.
 * Stuur ons een functie-aanvraag de [Azure Feedbackforum](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Wat betekent het als een functie in preview?

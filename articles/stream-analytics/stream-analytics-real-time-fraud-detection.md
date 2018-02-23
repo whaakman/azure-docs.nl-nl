@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Aan de slag met Azure Stream Analytics: realtime-fraudedetectie
 
@@ -61,7 +61,7 @@ Voor het analyseren van een gegevensstroom u *opnemen* in Azure. Een gangbare ma
 ### <a name="create-a-namespace-and-event-hub"></a>Een naamruimte en event hub maken
 In deze procedure maakt u eerst een event hub-naamruimte maken en vervolgens voegt u toe een event hub naar die naamruimte. Event hub-naamruimten worden gebruikt voor het gerelateerde gebeurtenis bus exemplaren logisch groeperen. 
 
-1. Aanmelden bij de Azure-portal en klikt u op **nieuw** > **Internet der dingen** > **Event Hub**. 
+1. Aanmelden bij de Azure-portal en klikt u op **maken van een resource** > **Internet der dingen** > **Event Hub**. 
 
 2. In de **naamruimte maken** deelvenster, voer de naam van een naamruimte zoals `<yourname>-eh-ns-demo`. U kunt een naam voor de naamruimte, maar de naam moet geldig zijn voor een URL en deze uniek zijn binnen Azure. 
     
@@ -149,7 +149,7 @@ Voordat u de app TelcoGenerator, configureren u deze zo dat deze aanroep records
 
 Enkele van de sleutelvelden die u in deze toepassing realtime fraude-detectie gebruiken wilt zijn de volgende:
 
-|**Record**|Definitie|
+|**Record**|**Definitie**|
 |----------|--------------|
 |`CallrecTime`|Het tijdstempel voor de aanroep van de begintijd. |
 |`SwitchNum`|De telefoon switch waarmee verbinding wordt gemaakt de aanroep. In dit voorbeeld zijn de switches tekenreeksen die staan voor het land van oorsprong (VS, China, UK, Duitsland of Australië). |
@@ -165,7 +165,7 @@ Nu dat u een stream van de aanroep van gebeurtenissen hebt, kunt u een Stream An
 
 ### <a name="create-the-job"></a>De taak maken 
 
-1. Klik in de Azure-portal op **nieuw** > **Internet der dingen** > **Stream Analytics-taak**.
+1. Klik in de Azure-portal op **maken van een resource** > **Internet der dingen** > **Stream Analytics-taak**.
 
 2. Naam van de taak `sa_frauddetection_job_demo`, een abonnement, resourcegroep en locatie opgeven.
 

@@ -4,7 +4,7 @@ description: Stapsgewijze instructies voor het maken van een listener voor een A
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
 In dit artikel wordt uitgelegd hoe u een load balancer voor een SQL Server Always On-beschikbaarheidsgroep maken in Azure virtuele machines die worden uitgevoerd met Azure Resource Manager. Een beschikbaarheidsgroep is een load balancer vereist bij de SQL Server-exemplaren op Azure virtuele machines zijn. De load balancer slaat het IP-adres voor de beschikbaarheidsgroeplistener. Als een beschikbaarheidsgroep meerdere regio's omvat, moet elke regio een load balancer.
 
 Om deze taak, moet u hebt een SQL Server-beschikbaarheidsgroep geïmplementeerd op Azure virtuele machines die worden uitgevoerd met Resource Manager. Beide virtuele machines van SQL Server moet behoren tot dezelfde beschikbaarheidsset. U kunt de [Microsoft sjabloon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) automatisch maken van de beschikbaarheidsgroep in het Resource Manager. Deze sjabloon maakt automatisch een interne load balancer voor u. 
 
-Als u liever, kunt u [handmatig configureren van een beschikbaarheidsgroep](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Als u liever, kunt u [handmatig configureren van een beschikbaarheidsgroep](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 In dit artikel is vereist dat uw beschikbaarheidsgroepen al zijn geconfigureerd.  
 
 Verwante onderwerpen zijn:
 
-* [Altijd op beschikbaarheidsgroepen configureren in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Altijd op beschikbaarheidsgroepen configureren in Azure VM (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Een VNet-naar-VNet-verbinding configureren met behulp van Azure Resource Manager en PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Door de stappen in dit artikel, moet u maken en configureren van een load balancer in de Azure portal. Nadat het proces voltooid is, configureert u het cluster voor het gebruik van het IP-adres van de load balancer voor de beschikbaarheidsgroeplistener.
@@ -68,7 +68,7 @@ Maak eerst de load balancer.
    | **Type** |**Interne**: de meeste implementaties gebruikt een interne load balancer, waarmee toepassingen binnen hetzelfde virtuele netwerk verbinding maken met de beschikbaarheidsgroep.  </br> **Externe**: zorgt ervoor dat toepassingen verbinding maken met de beschikbaarheidsgroep via een openbare internetverbinding. |
    | **Virtueel netwerk** |Selecteer het virtuele netwerk die de SQL Server-intances in. |
    | **Subnet** |Selecteer het subnet die de SQL Server-exemplaren in. |
-   | **IP-adrestoewijzing** |**Statische** |
+   | IP-adrestoewijzing |**Statische** |
    | **Privé IP-adres** |Geef een beschikbaar IP-adres van het subnet. Dit IP-adres gebruiken bij het maken van een listener op het cluster. In een PowerShell-script wordt verderop in dit artikel gebruikt dit adres voor de `$ILBIP` variabele. |
    | **Abonnement** |Als u meerdere abonnementen hebt, wordt dit veld mogelijk weergegeven. Selecteer het abonnement dat u wilt koppelen aan deze resource. Dit is doorgaans hetzelfde abonnement als alle resources voor de beschikbaarheidsgroep. |
    | **Resourcegroep** |Selecteer de resourcegroep die de SQL Server-exemplaren in. |
@@ -140,10 +140,10 @@ De regels voor taakverdeling configureren hoe de load balancer verkeer gerouteer
    | **Protocol** |**TCP** |
    | **Poort** |*1433* |
    | **Back-Endpoort** |*1433*. Deze waarde wordt genegeerd omdat deze regel maakt gebruik van **zwevend IP (direct server return)**. |
-   | **Test** |Gebruik de naam van de test op die u hebt gemaakt voor deze load balancer. |
-   | **Sessiepersistentie** |**Geen** |
-   | **Time-out voor inactiviteit (minuten)** |*4* |
-   | **Zwevend IP (direct server return)** |**Ingeschakeld** |
+   | **Probe** |Gebruik de naam van de test op die u hebt gemaakt voor deze load balancer. |
+   | **Sessiepersistentie** |Geen |
+   | Time-out voor inactiviteit (minuten) |*4* |
+   | **Zwevend IP (direct server return)** |ingeschakeld |
 
    > [!NOTE]
    > U moet wellicht Blader in de blade om de instellingen te bekijken.
@@ -243,8 +243,8 @@ Als een IP-adres toevoegen aan een load balancer is met de Azure-portal, het vol
    |**Back-endpoort** |Gebruik dezelfde waarde als **poort**.
    |**Back-endpool** |De groep met de virtuele machines met de SQL Server-exemplaren. 
    |**De statuscontrole** |Kies de test die u hebt gemaakt.
-   |**Sessiepersistentie** |Geen
-   |**Time-out voor inactiviteit (minuten)** |Standaard (4)
+   |**Sessiepersistentie** |None
+   |Time-out voor inactiviteit (minuten) |Standaard (4)
    |**Zwevend IP (direct server return)** | Ingeschakeld
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>De beschikbaarheidsgroep configureren voor het nieuwe IP-adres
@@ -269,6 +269,34 @@ Wanneer u een IP-adres hebt toegevoegd voor de listener, moet u de aanvullende b
 6. [Stel de clusterparameters in PowerShell](#setparam).
 
 Nadat u de beschikbaarheidsgroep configureren voor het nieuwe IP-adres, configureert u de verbinding met de listener. 
+
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Taakverdelingsregel voor de gedistribueerde beschikbaarheidsgroep toevoegen
+
+Als een beschikbaarheidsgroep deelneemt aan een gedistribueerde beschikbaarheidsgroep, moet de load balancer een extra regel. Deze regel wordt de poort die wordt gebruikt door de gedistribueerde beschikbaarheidsgroep-listener opgeslagen.
+
+>[!IMPORTANT]
+>Deze stap is alleen van toepassing als de beschikbaarheidsgroep deel van uitmaakt een [gedistribueerde beschikbaarheidsgroep](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. Maak een inkomende regel op de gedistribueerde beschikbaarheidsgroep-listener TCP-poort op elke server die deel uitmaakt van de gedistribueerde beschikbaarheidsgroep. In veel voorbeelden gebruikt documentatie 5022. 
+
+1. Klik in de Azure-portal op de load balancer en klikt u op **Taakverdelingsregels**, en klik vervolgens op **+ toevoegen**. 
+
+1. Maak de taakverdelingsregel met de volgende instellingen:
+
+   |Instelling |Waarde
+   |:-----|:----
+   |**Naam** |Een unieke naam voor de taakverdelingsregel voor de gedistribueerde beschikbaarheidsgroep. 
+   |**Frontend IP-adres** |Gebruik het dezelfde frontend-IP-adres als de beschikbaarheidsgroep.
+   |**Protocol** |TCP
+   |**Poort** |5022 - de poort voor de [gedistribueerde beschikbaarheidsgroep-listener eindpunt](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Een beschikbare poort kan zijn.  
+   |**Back-endpoort** | 5022 - gebruik dezelfde als waarde **poort**.
+   |**Back-endpool** |De groep met de virtuele machines met de SQL Server-exemplaren. 
+   |**De statuscontrole** |Kies de test die u hebt gemaakt.
+   |**Sessiepersistentie** |None
+   |Time-out voor inactiviteit (minuten) |Standaard (4)
+   |**Zwevend IP (direct server return)** | Ingeschakeld
+
+Herhaal deze stappen voor de load balancer op de andere beschikbaarheidsgroepen die deel uitmaken van de gedistribueerde beschikbaarheidsgroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
